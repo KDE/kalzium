@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/align">
+        <file>align.png</file>
+    </qresource>
+</RCC>

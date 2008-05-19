@@ -22,8 +22,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __PRIMITIVE_H
-#define __PRIMITIVE_H
+#ifndef PRIMITIVE_H
+#define PRIMITIVE_H
 
 #include <avogadro/global.h>
 
@@ -127,6 +127,10 @@ namespace Avogadro {
 
       QReadWriteLock *lock();
 
+      void setId(unsigned long m_id);
+      unsigned long id() const;
+
+
     Q_SIGNALS:
       /**
        * Emitted when the primitive has been updated.
@@ -153,6 +157,7 @@ namespace Avogadro {
    * the OpenBabel::OBAtom class through slots/signals provided by the
    * Primitive superclass.
    */
+  class AtomPrivate;
   class A_EXPORT Atom : public Primitive, public OpenBabel::OBAtom
   {
     Q_OBJECT
@@ -163,7 +168,7 @@ namespace Avogadro {
        *
        * @param parent the object parent.
        */
-      Atom(QObject *parent=0) : Primitive(AtomType, parent), OpenBabel::OBAtom()  { }
+      Atom(QObject *parent=0);
 
       /** Returns the position of the atom, as a Eigen::Vector3d. This is similar to
         * the OBAtom::GetVector() method, which returns the position as a OpenBabel::vector3.
@@ -192,6 +197,10 @@ namespace Avogadro {
       {
         SetVector( *reinterpret_cast<const OpenBabel::vector3*>(&vec) );
       }
+
+    private:
+      /* shared d_ptr with Primitive */
+      Q_DECLARE_PRIVATE(Atom)
   };
 
   /**
@@ -204,6 +213,7 @@ namespace Avogadro {
    * the OpenBabel::OBBond class through slots/signals provided by the
    * Primitive superclass.
    */
+  class BondPrivate;
   class A_EXPORT Bond : public Primitive, public OpenBabel::OBBond
   {
     Q_OBJECT
@@ -214,7 +224,11 @@ namespace Avogadro {
        *
        * @param parent the object parent.
        */
-      Bond(QObject *parent=0): Primitive(BondType, parent), OpenBabel::OBBond() { }
+      Bond(QObject *parent=0);
+      
+    private:
+      /* shared d_ptr with Primitive */
+      Q_DECLARE_PRIVATE(Bond)
   };
 
   /**
@@ -314,6 +328,24 @@ namespace Avogadro {
        * @param atom the residue to delete
        */
       void DestroyResidue(OpenBabel::OBResidue* residue);
+
+      /**
+       * These are new functions to replace OBMol::NewAtom
+       * to use our new unique identifier functionality.
+       */
+      Atom *newAtom();
+      Atom *newAtom(unsigned long id);
+
+      /**
+       * These are new functions to replace OBMol::NewBond
+       * to use our new unique identifier functionality.
+       */
+      Bond *newBond();
+      Bond *newBond(unsigned long id);
+
+      Atom *getAtomById(unsigned long id) const;
+
+      Bond *getBondById(unsigned long id) const;
 
       const Eigen::Vector3d & center() const;
       const Eigen::Vector3d & normalVector() const;

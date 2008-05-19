@@ -47,17 +47,22 @@ namespace Avogadro
 
   QString Library::version()
   {
-    return QString("0.6.1");
+    return VERSION;
   }
 
   QString Library::svnRevision()
   {
-    return QString("Tag 0.6.1");
+    return SVN_REVISION;
   }
 
   QString Library::prefix()
   {
     return INSTALL_PREFIX;
+  }
+
+  bool Library::threadedGL()
+  {
+    return THREADED_GL;
   }
 
 }

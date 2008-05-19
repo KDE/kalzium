@@ -23,8 +23,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __CLICKMEASURETOOL_H
-#define __CLICKMEASURETOOL_H
+#ifndef CLICKMEASURETOOL_H
+#define CLICKMEASURETOOL_H
 
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
@@ -40,6 +40,8 @@
 #include <QVarLengthArray>
 #include <QImage>
 #include <QAction>
+#include <QPointer>
+#include <QVector>
 
 namespace Avogadro {
 
@@ -88,7 +90,7 @@ namespace Avogadro {
       QPoint              m_initialDraggingPosition;
       QPoint              m_lastDraggingPosition;
 
-      QVarLengthArray<Atom *, 4> m_selectedAtoms;
+      QVarLengthArray<QPointer<Atom>, 4> m_selectedAtoms;
       int m_numSelectedAtoms;
       QList<GLHit> m_hits;
 
@@ -99,7 +101,9 @@ namespace Avogadro {
       Eigen::Vector3d m_vector[3];
       double m_angle;
       double m_dihedral;
-
+      // Need to store the previous values of all variables in order to only send
+      // an event to the information pane once
+      QVector<double> m_lastMeasurement;
 
   };
 

@@ -23,8 +23,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __COLOR_H
-#define __COLOR_H
+#ifndef COLOR_H
+#define COLOR_H
 
 #include <avogadro/global.h>
 
@@ -122,7 +122,10 @@ namespace Avogadro {
     /**
      * @return the color as a QColor.
      */
-    inline QColor color() { return QColor(m_red, m_blue, m_green, m_alpha); }
+    inline QColor color() { return QColor(static_cast<int>(m_red),
+                                          static_cast<int>(m_blue),
+                                          static_cast<int>(m_green),
+                                          static_cast<int>(m_alpha)); }
 
     /**
      * @return the red component of the color.

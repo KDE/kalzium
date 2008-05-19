@@ -3,7 +3,7 @@
 
   Copyright (C) 2006,2007 Geoffrey R. Hutchison
   Copyright (C) 2006,2007 Donald Ephraim Curtis
-  Copyright (C) 2007 Marcus D. Hanwell
+  Copyright (C) 2007,2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -24,8 +24,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __GLWIDGET_H
-#define __GLWIDGET_H
+#ifndef GLWIDGET_H
+#define GLWIDGET_H
 
 #include <avogadro/global.h>
 #include <avogadro/engine.h>

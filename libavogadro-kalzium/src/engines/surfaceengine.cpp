@@ -24,16 +24,19 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include <config.h>
 #include "surfaceengine.h"
 
+#include <config.h>
 #include <avogadro/primitive.h>
 
 #include <openbabel/math/vector3.h>
 #include <openbabel/griddata.h>
 #include <openbabel/grid.h>
 
+#include <eigen/projective.h>
+
 #include <QGLWidget>
+#include <QReadWriteLock>
 #include <QDebug>
 
 using namespace std;
@@ -53,6 +56,14 @@ namespace Avogadro {
     connect(m_isoGen, SIGNAL(finished()), this, SLOT(isoGenFinished()));
     m_color = Color(1.0, 0.0, 0.0, m_alpha);
     m_surfaceValid = false;
+      
+    // clipping stuff
+    m_clip = false;
+    m_clipEqA =1.0;
+    m_clipEqB =0.0;
+    m_clipEqC =0.0;
+    m_clipEqD =0.0;
+    // clipping stuff
   }
 
   SurfaceEngine::~SurfaceEngine()
@@ -132,7 +143,6 @@ namespace Avogadro {
 
   bool SurfaceEngine::renderOpaque(PainterDevice *pd)
   {
-    qDebug() << "                                      renderOpaque";
     // Don't try to render anything while the surface is being calculated.
     if (m_vdwThread->isRunning())
       return false;
@@ -151,18 +161,14 @@ namespace Avogadro {
       return true;
     }
 
-    qDebug() << " rendering surface ";
+    qDebug() << "Number of triangles = " << m_isoGen->numTriangles();
 
     glPushAttrib(GL_ALL_ATTRIB_BITS);
-//    glDisable(GL_LIGHTING);
     glEnable(GL_BLEND);
     glShadeModel(GL_SMOOTH);
 
     pd->painter()->setColor(1.0, 0.0, 0.0, m_alpha);
-//    glPushName(Primitive::SurfaceType);
-//    glPushName(1);
-
-    qDebug() << "Number of triangles = " << m_isoGen->numTriangles();
+    m_color.applyAsMaterials();
 
     switch (m_renderMode) {
     case 0:
@@ -176,6 +182,89 @@ namespace Avogadro {
       break;
     }
 
+    if (m_clip) 
+    {
+
+    GLdouble eq[4] = {m_clipEqA, m_clipEqB, m_clipEqC, m_clipEqD};
+    glEnable(GL_CLIP_PLANE0);
+    glClipPlane(GL_CLIP_PLANE0, eq);
+    // Rendering the mesh's clip edge 
+    glEnable(GL_STENCIL_TEST);
+    glClear(GL_STENCIL_BUFFER_BIT);
+    glDisable(GL_DEPTH_TEST);
+    glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+    // first pass: increment stencil buffer value on back faces
+    glStencilFunc(GL_ALWAYS, 0, 0);
+    glStencilOp(GL_KEEP, GL_KEEP, GL_INCR);
+    glCullFace(GL_FRONT); // render back faces only
+    doWork(mol);
+    // second pass: decrement stencil buffer value on front faces
+    glStencilOp(GL_KEEP, GL_KEEP, GL_DECR);
+    glCullFace(GL_BACK); // render front faces only
+    doWork(mol);
+    // drawing clip planes masked by stencil buffer content
+    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+    glEnable(GL_DEPTH_TEST);
+    glDisable(GL_CLIP_PLANE0);
+    glStencilFunc(GL_NOTEQUAL, 0, ~0); 
+    // stencil test will pass only when stencil buffer value = 0; 
+    // (~0 = 0x11...11)
+    glPushMatrix();
+    Vector3f normalEq(m_clipEqA, m_clipEqB, m_clipEqC);
+    Vector3f point1(-m_clipEqD / normalEq.norm(),  1000.,  1000.);
+    Vector3f point2(-m_clipEqD / normalEq.norm(),  1000., -1000.);
+    Vector3f point3(-m_clipEqD / normalEq.norm(), -1000.,  1000.);
+    Vector3f point4(-m_clipEqD / normalEq.norm(), -1000., -1000.);
+
+    if ( (m_clipEqB == 0.0) && (m_clipEqC == 0.0) ) {
+      if (m_clipEqA < 0.0 ) {
+        MatrixP3f mat;
+        Vector3f zAxis(0., 0., 1.);
+        mat.loadRotation3(M_PI, zAxis);
+
+        point1 = mat * point1;    
+        point2 = mat * point2;    
+        point3 = mat * point3;    
+        point4 = mat * point4;    
+      }
+    } else {
+      MatrixP3f mat;
+      Vector3f normal(1., 0., 0.);
+      normalEq.normalize();
+      double angle = acos(normal.dot(normalEq));
+      Vector3f axis = normal.cross(normalEq);
+      axis.normalize();
+      mat.loadRotation3(angle, axis);
+
+      point1 = mat * point1;    
+      point2 = mat * point2;    
+      point3 = mat * point3;    
+      point4 = mat * point4;    
+    }
+
+    glBegin(GL_QUADS); // rendering the plane quad. Note, it should be big 
+                       // enough to cover all clip edge area.
+
+    glVertex3fv(point1.array());
+    glVertex3fv(point2.array());
+    glVertex3fv(point4.array());
+    glVertex3fv(point3.array());
+    glEnd();
+    glPopMatrix();
+    // End rendering mesh's clip edge
+    // Rendering mesh  
+    glDisable(GL_STENCIL_TEST);
+    glEnable(GL_CLIP_PLANE0); // enabling clip plane again
+    }
+
+    doWork(mol);
+
+    glPopAttrib();
+
+    return true;
+  }
+
+  void SurfaceEngine::doWork(Molecule *mol) {
     glBegin(GL_TRIANGLES);
     if (m_colorMode == 1) { // ESP
       Color color;
@@ -200,7 +289,7 @@ namespace Avogadro {
         glVertex3fv(t.p2.array());
       }
     } else { // RGB
-      m_color.applyAsMaterials();
+      //m_color.applyAsMaterials();
       for(int i=0; i < m_isoGen->numTriangles(); ++i)
       {
         triangle t = m_isoGen->getTriangle(i);
@@ -217,10 +306,6 @@ namespace Avogadro {
       }
     }
     glEnd();
-
-    glPopAttrib();
-
-    return true;
   }
 
   inline double SurfaceEngine::radius(const Atom *a) const
@@ -228,7 +313,7 @@ namespace Avogadro {
     return etab.GetVdwRad(a->GetAtomicNum());
   }
 
-  double SurfaceEngine::radius(const PainterDevice *pd, const Primitive *p) const
+  double SurfaceEngine::radius(const PainterDevice *, const Primitive *p) const
   {
     // Atom radius
     if (p->type() == Primitive::AtomType)
@@ -272,9 +357,12 @@ namespace Avogadro {
   void SurfaceEngine::setColorMode(int value)
   {
     if (m_settingsWidget) {
+			// Enable/Disable both the custom color widget and label
       if (value == 1) { // ESP
+				m_settingsWidget->customColorLabel->setEnabled(false);
         m_settingsWidget->customColorButton->setEnabled(false);
       } else { // Custom color
+				m_settingsWidget->customColorLabel->setEnabled(true);
         m_settingsWidget->customColorButton->setEnabled(true);
       }
     }
@@ -283,7 +371,7 @@ namespace Avogadro {
     emit changed();
   }
 
-  void SurfaceEngine::setColor(QColor color)
+  void SurfaceEngine::setColor(const QColor& color)
   {
     m_color.set(color.redF(), color.greenF(), color.blueF(), m_alpha);
     emit changed();
@@ -299,8 +387,16 @@ namespace Avogadro {
       connect(m_settingsWidget->colorCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setColorMode(int)));
       connect(m_settingsWidget->customColorButton, SIGNAL(colorChanged(QColor)), this, SLOT(setColor(QColor)));
       connect(m_settingsWidget, SIGNAL(destroyed()), this, SLOT(settingsWidgetDestroyed()));
+     
+      // clipping stuff
+      connect(m_settingsWidget->clipCheckBox, SIGNAL(stateChanged(int)), this, SLOT(setClipEnabled(int)));
+      connect(m_settingsWidget->ASpinBox, SIGNAL(valueChanged(double)), this, SLOT(setClipEqA(double)));
+      connect(m_settingsWidget->BSpinBox, SIGNAL(valueChanged(double)), this, SLOT(setClipEqB(double)));
+      connect(m_settingsWidget->CSpinBox, SIGNAL(valueChanged(double)), this, SLOT(setClipEqC(double)));
+      connect(m_settingsWidget->DSpinBox, SIGNAL(valueChanged(double)), this, SLOT(setClipEqD(double)));
+      // clipping stuff
 
-      m_settingsWidget->opacitySlider->setValue(20*m_alpha);
+      m_settingsWidget->opacitySlider->setValue(static_cast<int>(20*m_alpha));
       m_settingsWidget->renderCombo->setCurrentIndex(m_renderMode);
       m_settingsWidget->colorCombo->setCurrentIndex(m_colorMode);
       if (m_colorMode == 1) { // ESP
@@ -317,14 +413,14 @@ namespace Avogadro {
 
   void SurfaceEngine::vdwThreadFinished()
   {
-    qDebug() << "                                      vdwThreadFinished()";
+    qDebug() << "vdwThreadFinished()";
     m_isoGen->init(m_vdwThread->grid(), 0, false, m_vdwThread->stepSize());
     m_isoGen->start();
   }
 
   void SurfaceEngine::isoGenFinished()
   {
-    qDebug() << "                                      isoGenFinished()";
+    qDebug() << "isoGenFinished()";
     emit changed();
   }
 
@@ -343,7 +439,6 @@ namespace Avogadro {
 
   void SurfaceEngine::addPrimitive(Primitive *primitive)
   {
-    qDebug() << "                                      addPrimitive()";
     if (primitive->type() == Primitive::AtomType) {
       m_surfaceValid = false;
     }
@@ -366,7 +461,8 @@ namespace Avogadro {
     Engine::removePrimitive(primitive);
   }
 
-  VDWGridThread::VDWGridThread(QObject *parent): m_molecule(0), m_stepSize(0.0), m_padding(0.0)
+  VDWGridThread::VDWGridThread(QObject *parent): QThread(parent), m_molecule(0),
+    m_stepSize(0.0), m_padding(0.0)
   {
     m_grid = new Grid;
   }
@@ -433,13 +529,21 @@ namespace Avogadro {
   void VDWGridThread::run()
   {
     m_mutex.lock();
-    //if (!m_mutex.tryLock())
-    //  return;
 
-    //if (m_grid->grid() != NULL) // we already calculated this
-    //  return;
+    // In order to minimise the need for locking but also reduce crashes I think
+    // that making a local copy of the atoms concerned is the most efficient
+    // method until we improve this function
+    m_molecule->lock()->lockForRead();
+    QList<Primitive*> pSurfaceAtoms = m_primitives.subList(Primitive::AtomType);
+    QList<vector3> surfaceAtomsPos;
+    QList<int> surfaceAtomsNum;
+    foreach(Primitive* p, pSurfaceAtoms) {
+      Atom* a = static_cast<Atom *>(p);
+      surfaceAtomsPos.push_back(a->GetVector());
+      surfaceAtomsNum.push_back(a->GetAtomicNum());
+    }
+    m_molecule->lock()->unlock();
 
-    QList<Primitive*> surfaceAtoms = m_primitives.subList(Primitive::AtomType);
     OBFloatGrid grid;
     grid.Init(*m_molecule, m_stepSize, 2.5);
     vector3 min;
@@ -472,10 +576,10 @@ namespace Avogadro {
         {
           coord.SetZ(min[2] + k * m_stepSize);
           minDistance = 1.0E+10;
-	        for (int ai=0; ai < surfaceAtoms.size(); ai++)
+	        for (int ai=0; ai < surfaceAtomsPos.size(); ai++)
 	        {
-            distance = sqrt(coord.distSq(static_cast<Atom*>(surfaceAtoms[ai])->GetVector()));
-            distance -= etab.GetVdwRad(static_cast<Atom*>(surfaceAtoms[ai])->GetAtomicNum());
+            distance = sqrt(coord.distSq(surfaceAtomsPos[ai]));
+            distance -= etab.GetVdwRad(surfaceAtomsNum[ai]);
 
             if (distance < minDistance)
               minDistance = distance;
@@ -522,7 +626,7 @@ namespace Avogadro {
     */
     if(m_settingsWidget)
     {
-      m_settingsWidget->opacitySlider->setValue(20*m_alpha);
+      m_settingsWidget->opacitySlider->setValue(static_cast<int>(20*m_alpha));
       m_settingsWidget->renderCombo->setCurrentIndex(m_renderMode);
       m_settingsWidget->colorCombo->setCurrentIndex(m_colorMode);
       QColor initial;

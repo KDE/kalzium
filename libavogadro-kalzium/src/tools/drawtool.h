@@ -23,15 +23,13 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __DRAWTOOL_H
-#define __DRAWTOOL_H
+#ifndef DRAWTOOL_H
+#define DRAWTOOL_H
 
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
 #include <avogadro/periodictableview.h>
-
-#include <openbabel/mol.h>
-#include <openbabel/builder.h>
+#include "insertfragmentdialog.h"
 
 #include <QGLWidget>
 #include <QObject>
@@ -44,6 +42,8 @@
 #include <QAction>
 #include <QUndoCommand>
 #include <QCheckBox>
+
+#include <openbabel/forcefield.h>
 
 namespace Avogadro {
 
@@ -106,16 +106,16 @@ namespace Avogadro {
       int addHydrogens() const;
 
     public Q_SLOTS:
-      void setAddHydrogens(int state);
+      void setAddHydrogens( int state );
 
       void elementChanged( int index );
       void customElementChanged( int index );
       void bondOrderChanged( int index );
       void setBondOrder(int i);
-      void gen3D();
+      void setInsertFragmentMode( bool mode );
 
     private:
-      Qt::MouseButtons _buttons;
+      Qt::MouseButtons    _buttons;
 
       bool                m_movedSinceButtonPressed;
 
@@ -138,9 +138,7 @@ namespace Avogadro {
 
       int m_addHydrogens;
 
-      bool m_placeMode;
-      Molecule m_generatedMolecule;
-      OpenBabel::OBBuilder m_builder;
+      bool m_insertFragmentMode;
 
       QList<GLHit> m_hits;
 
@@ -148,10 +146,10 @@ namespace Avogadro {
       QList<int> m_elementsIndex;
       QComboBox *m_comboBondOrder;
       QCheckBox *m_addHydrogensCheck;
-      QLineEdit *m_text3DGen;
-      QPushButton *m_button3DGen;
       QPushButton *m_tableButton;
       PeriodicTableView *m_periodicTable;
+      QPushButton *m_fragmentButton;
+      InsertFragmentDialog *m_fragmentDialog;
       QVBoxLayout *m_layout;
 
       QWidget *m_settingsWidget;
@@ -160,8 +158,11 @@ namespace Avogadro {
       void moveAtom(GLWidget *widget, Atom *atom, const QPoint& p);
       Bond *newBond(Molecule *molecule, Atom *beginAtom, Atom *endAtom);
 
+      OpenBabel::OBForceField *m_forceField;
+
     private Q_SLOTS:
       void settingsWidgetDestroyed();
+      void showFragmentDialog(bool checked);
   };
 
   class DrawToolFactory : public QObject, public ToolFactory

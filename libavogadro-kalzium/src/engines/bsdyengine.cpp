@@ -22,8 +22,9 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include <config.h>
 #include "bsdyengine.h"
+
+#include <config.h>
 #include <avogadro/camera.h>
 #include <avogadro/painter.h>
 #include <avogadro/color.h>
@@ -119,7 +120,7 @@ namespace Avogadro
     // Get a list of bonds and render them
     list = primitives().subList( Primitive::BondType );
 
-    foreach( Primitive *p, list ) {
+    foreach(const Primitive *p, list ) {
       const Bond *b = static_cast<const Bond *>( p );
 
       const Atom* atom1 = static_cast<const Atom *>( b->GetBeginAtom() );
@@ -150,7 +151,7 @@ namespace Avogadro
 
     // Build up a list of the atoms and render them
     list = primitives().subList( Primitive::AtomType );
-    foreach( Primitive *p, list ) {
+    foreach(const Primitive *p, list ) {
       const Atom *a = static_cast<const Atom *>( p );
 
       map->set( a );
@@ -189,7 +190,7 @@ namespace Avogadro
     glDepthMask( GL_TRUE );
 
     // push bond type
-    foreach( Primitive *p, list ) {
+    foreach(const Primitive *p, list ) {
       const Bond *b = static_cast<const Bond *>( p );
 
       // Render the selection highlight
@@ -224,7 +225,7 @@ namespace Avogadro
     // sort our atom list
     // qSort(list.begin(), list.end(), sortCameraFarthest);
 
-    foreach( Primitive *p, list ) {
+    foreach(const Primitive *p, list ) {
       const Atom *a = static_cast<const Atom *>( p );
 
       // Render the selection highlight
@@ -260,7 +261,7 @@ namespace Avogadro
     // Get a list of bonds and render them
     list = primitives().subList(Primitive::BondType);
 
-    foreach(Primitive *p, list)
+    foreach(const Primitive *p, list)
     {
       const Bond *b = static_cast<const Bond *>(p);
 
@@ -302,7 +303,7 @@ namespace Avogadro
 
     // Build up a list of the atoms and render them
     list = primitives().subList(Primitive::AtomType);
-    foreach(Primitive *p, list)
+    foreach(const Primitive *p, list)
     {
       const Atom *a = static_cast<const Atom *>(p);
 

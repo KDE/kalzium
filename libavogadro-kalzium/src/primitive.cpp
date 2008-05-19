@@ -29,16 +29,20 @@
 
 #include <QReadWriteLock>
 
+#include <QDebug>
+
 using namespace OpenBabel;
 
 namespace Avogadro {
 
   class PrimitivePrivate {
     public:
-      PrimitivePrivate() : type(Primitive::OtherType) {};
+      PrimitivePrivate() : type(Primitive::OtherType), id(-1) {};
 
       enum Primitive::Type type;
       QReadWriteLock lock;
+
+      unsigned long id;
   };
 
   Primitive::Primitive(QObject *parent) : QObject(parent), d_ptr(new PrimitivePrivate) {}
@@ -79,14 +83,50 @@ namespace Avogadro {
     emit updated();
   }
 
+  void Primitive::setId(unsigned long m_id)
+  {
+    Q_D(Primitive);
+    d->id = m_id;
+  }
+
+  unsigned long Primitive::id() const
+  {
+    Q_D(const Primitive);
+    return d->id;
+  }
+
+
+  class AtomPrivate : public PrimitivePrivate {
+    public:
+      AtomPrivate() : PrimitivePrivate() {}
+
+  };
+
+  Atom::Atom(QObject *parent) : Primitive(*new AtomPrivate, AtomType, parent), OpenBabel::OBAtom()
+  {
+  }
+
+  class BondPrivate : public PrimitivePrivate {
+    public:
+      BondPrivate() : PrimitivePrivate() {}
+  };
+
+  Bond::Bond(QObject *parent) : Primitive(*new BondPrivate, BondType, parent), OpenBabel::OBBond()
+  {
+  }
+
   class MoleculePrivate : public PrimitivePrivate {
     public:
-      MoleculePrivate() : PrimitivePrivate(), farthestAtom(0), invalidGeomInfo(true) {}
+      MoleculePrivate() : PrimitivePrivate(), farthestAtom(0), invalidGeomInfo(true), autoId(true) {}
       mutable Eigen::Vector3d       center;
       mutable Eigen::Vector3d       normalVector;
       mutable double                radius;
       mutable Atom *                farthestAtom;
       mutable bool                  invalidGeomInfo;
+      bool                          autoId;
+
+      std::vector<Atom *>                 atoms;
+      std::vector<Bond *>                 bonds;
   };
 
   Molecule::Molecule(QObject *parent) : Primitive(*new MoleculePrivate, MoleculeType, parent), OpenBabel::OBMol()
@@ -94,8 +134,9 @@ namespace Avogadro {
     connect(this, SIGNAL(updated()), this, SLOT(updatePrimitive()));
   }
 
-  Molecule::Molecule(const Molecule &other) : Primitive(*new MoleculePrivate, MoleculeType, other.parent()), OpenBabel::OBMol(other)
+  Molecule::Molecule(const Molecule &other) : Primitive(*new MoleculePrivate, MoleculeType, other.parent()), OpenBabel::OBMol()
   {
+    *this = other;
     connect(this, SIGNAL(updated()), this, SLOT(updatePrimitive()));
   }
 
@@ -105,16 +146,42 @@ namespace Avogadro {
 
   Atom * Molecule::CreateAtom()
   {
+    Q_D(Molecule);
+
+    d->lock.lockForWrite();
     Atom *atom = new Atom(this);
     connect(atom, SIGNAL(updated()), this, SLOT(updatePrimitive()));
+
+    if(!d->autoId) {
+      d->lock.unlock();
+      return(atom);
+    }
+
+    atom->setId(d->atoms.size());
+    d->atoms.push_back(atom);
+    d->lock.unlock();
+
     emit primitiveAdded(atom);
     return(atom);
   }
 
   Bond * Molecule::CreateBond()
   {
+    Q_D(Molecule);
+
+    d->lock.lockForWrite();
     Bond *bond = new Bond(this);
     connect(bond, SIGNAL(updated()), this, SLOT(updatePrimitive()));
+
+    if(!d->autoId) {
+      d->lock.unlock();
+      return(bond);
+    }
+
+    bond->setId(d->bonds.size());
+    d->bonds.push_back(bond);
+    d->lock.unlock();
+
     emit primitiveAdded(bond);
     return(bond);
   }
@@ -127,22 +194,98 @@ namespace Avogadro {
     return(residue);
   }
 
+  Atom *Molecule::newAtom()
+  {
+    return static_cast<Atom *>(OBMol::NewAtom());
+  }
+
+  // do some fancy footwork when we add an atom previously created
+  Atom *Molecule::newAtom(unsigned long id)
+  {
+    Q_D(Molecule);
+
+    // we have to bypass the emit given by CreateAtom()
+    d->autoId = false;
+    Atom *atom = static_cast<Atom *>(OBMol::NewAtom());
+    d->autoId = true;
+
+    if(id >= d->atoms.size())
+    {
+      d->atoms.resize(id+1,0);
+    }
+    atom->setId(id);
+    d->atoms[id] = atom;
+
+    // now that the id is correct, emit the signal
+    emit primitiveAdded(atom);
+    return(atom);
+  }
+
   void Molecule::DestroyAtom(OpenBabel::OBAtom *obatom)
   {
+    Q_D(Molecule);
     Atom *atom = static_cast<Atom *>(obatom);
     if(atom) {
       emit primitiveRemoved(atom);
       atom->deleteLater();
+      d->atoms[atom->id()] = 0;
     }
+  }
+
+  Atom *Molecule::getAtomById(unsigned long id) const
+  {
+    Q_D(const Molecule);
+    if(id < d->atoms.size())
+    {
+      return d->atoms[id];
+    }
+    return 0;
+  }
+
+  Bond *Molecule::newBond()
+  {
+    return static_cast<Bond *>(OBMol::NewBond());
+  }
+
+  Bond *Molecule::newBond(unsigned long id)
+  {
+    Q_D(Molecule);
+
+    d->autoId = false;
+    Bond *bond = static_cast<Bond *>(OBMol::NewBond());
+    d->autoId = true;
+
+    if(id >= d->bonds.size())
+    {
+      d->bonds.resize(id+1,0);
+    }
+    bond->setId(id);
+    d->bonds[id] = bond;
+
+    // now that the id is correct, emit the signal
+    emit primitiveAdded(bond);
+    return(bond);
   }
 
   void Molecule::DestroyBond(OpenBabel::OBBond *obbond)
   {
+    Q_D(Molecule);
     Bond *bond = static_cast<Bond *>(obbond);
     if(bond) {
       emit primitiveRemoved(bond);
       bond->deleteLater();
+      d->bonds[bond->id()] = 0;
     }
+  }
+
+  Bond *Molecule::getBondById(unsigned long id) const
+  {
+    Q_D(const Molecule);
+    if(id < d->bonds.size())
+    {
+      return d->bonds[id];
+    }
+    return 0;
   }
 
   void Molecule::DestroyResidue(OpenBabel::OBResidue *obresidue)
@@ -199,7 +342,49 @@ namespace Avogadro {
 
   Molecule &Molecule::operator=(const Molecule& other)
   {
+    Q_D(Molecule);
+
+    Clear();
+    d->autoId = false;
     OpenBabel::OBMol::operator=(other);
+    const MoleculePrivate *e = other.d_func();
+    d->atoms.resize(e->atoms.size(),0);
+    d->bonds.resize(e->bonds.size(),0);
+
+
+    d->autoId = true;
+    // copy the unique ids of the atoms
+    std::vector<OpenBabel::OBAtom*>::iterator i;
+    for(Atom *lhsAtom = static_cast< Atom* >(BeginAtom( i ));
+        lhsAtom; lhsAtom = static_cast< Atom* >(NextAtom( i )))
+    {
+      Atom *rhsAtom = static_cast< Atom* >(other.GetAtom(lhsAtom->GetIdx()));
+      unsigned long id = rhsAtom->id();
+      lhsAtom->setId(id);
+      d->atoms[id] = lhsAtom;
+      emit primitiveAdded(lhsAtom);
+    }
+
+    // copy the unique ids of the bonds
+    std::vector<OpenBabel::OBBond*>::iterator j;
+    for(Bond *lhsBond = static_cast< Bond* >(BeginBond( j ));
+        lhsBond; lhsBond = static_cast< Bond* >(NextBond( j )))
+    {
+      Bond *rhsBond = static_cast< Bond* >(other.GetBond(lhsBond->GetIdx()));
+      unsigned long id = rhsBond->id();
+      lhsBond->setId(id);
+      d->bonds[id] = lhsBond;
+      emit primitiveAdded(lhsBond);
+    }
+
+    std::vector<OpenBabel::OBResidue*>::iterator k;
+    for(Residue *lhsResidue = static_cast< Residue* >(BeginResidue( k ));
+        lhsResidue; lhsResidue = static_cast< Residue* >(NextResidue( k )))
+    {
+      emit primitiveAdded(lhsResidue);
+    }
+
+
 	return *this;
   }
 

@@ -23,9 +23,9 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include <config.h>
 #include "wireengine.h"
 
+#include <config.h>
 #include <avogadro/primitive.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
@@ -105,7 +105,9 @@ namespace Avogadro {
     // Compute a rough "dynamic" size for the atom dots
     // We could probably have a better gradient here, but it looks decent
     double size = 3.0; // default size;
-    if (camera->distance(v) < 10.0)
+    if (camera->distance(v) < 5.0)
+      size = 5.0;
+    else if (camera->distance(v) > 5.0 && camera->distance(v) < 10.0)
       size = 4.0;
     else if (camera->distance(v) > 40.0 && camera->distance(v) < 85.0)
       size = 2.0;

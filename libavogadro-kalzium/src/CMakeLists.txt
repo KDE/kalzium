@@ -1,17 +1,13 @@
-# Main libavogadro build file
 set(QT_USE_QTOPENGL true)
 
 # Eigen 1 's performance degrades much when asserts are turned on.
 # So, turn them off in libavogadro, unless we are in debugfull mode.
-# A better solution would be to patch eigen 1 to let it also obey a different
-# define than NDEBUG, such as EIGEN_NO_DEBUG (done in eigen2) and/or to
-# rework it to suffer less from asserts (also done in eigen2).
 STRING(TOLOWER ${CMAKE_BUILD_TYPE} MY_CMAKE_BUILD_TYPE_TOLOWER)
 if(MY_CMAKE_BUILD_TYPE_TOLOWER MATCHES debugfull)
-message("-- debugfull mode, so keeping asserts enabled in libavogadro")
+  message("-- debugfull mode, so keeping asserts enabled in libavogadro")
 else(MY_CMAKE_BUILD_TYPE_TOLOWER MATCHES debugfull)
-message("-- not debugfull mode, so disabling asserts in libavogadro")
-add_definitions(-DNDEBUG)
+  message("-- not debugfull mode, so disabling asserts in libavogadro")
+  add_definitions(-DNDEBUG)
 endif(MY_CMAKE_BUILD_TYPE_TOLOWER MATCHES debugfull)
 
 configure_file(
@@ -30,6 +26,14 @@ include_directories(
   ${EIGEN_INCLUDE_DIR}
 )
 
+# Need to build with visibility enabled if KDE is
+if(__KDE_HAVE_GCC_VISIBILITY)
+  add_definitions(-DHAVE_GCC_VISIBILITY)
+endif(__KDE_HAVE_GCC_VISIBILITY)
+
+# I think this is necessary now in order to tell the linker where openbabel is
+link_directories(${OPENBABEL2_LIBRARY_DIRS})
+
 FILE(GLOB libavogadro_SRCS "*.cpp")
 FILE(GLOB libavogadro_HDRS "*.h")
 
@@ -43,13 +47,13 @@ qt4_automoc(${libavogadro_SRCS})
 
 KDE4_ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})
 SET_TARGET_PROPERTIES(avogadro-kalzium PROPERTIES OUTPUT_NAME avogadro-kalzium)
-set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.6.1 SOVERSION 0 )
+set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.8.0 SOVERSION 0 )
 
 TARGET_LINK_LIBRARIES(avogadro-kalzium ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                   ${OPENGL_LIBRARIES}
-    )
+  ${OPENGL_LIBRARIES})
 
 INSTALL(TARGETS avogadro-kalzium DESTINATION ${LIB_INSTALL_DIR})
 
+# Add the engiens, tools and extensions directories
 add_subdirectory(engines)
 add_subdirectory(tools)

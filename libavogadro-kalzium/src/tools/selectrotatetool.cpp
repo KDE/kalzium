@@ -24,7 +24,7 @@
  **********************************************************************/
 
 #include "selectrotatetool.h"
-#include "navigate.h"
+#include <avogadro/navigate.h>
 #include <avogadro/primitive.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
@@ -54,7 +54,8 @@ namespace Avogadro {
     action->setIcon(QIcon(QString::fromUtf8(":/select/select.png")));
     action->setToolTip(tr("Selection Tool (F11)\n"
           "Click to pick individual atoms, residues, or fragments\n"
-          "Drag to select a range of atoms"));
+          "Drag to select a range of atoms\n"
+          "Use Ctrl to toggle the selection and shift to add to the selection"));
     action->setShortcut(Qt::Key_F11);
   }
 
@@ -111,7 +112,8 @@ namespace Avogadro {
     return 0;
   }
 
-  QUndoCommand* SelectRotateTool::mouseRelease(GLWidget *widget, const QMouseEvent*)
+  QUndoCommand* SelectRotateTool::mouseRelease(GLWidget *widget, 
+		                                       const QMouseEvent *event)
   {
     // Reset the cursor
     widget->setCursor(Qt::ArrowCursor);
@@ -134,7 +136,8 @@ namespace Avogadro {
       // (e.g., if we're in residue selection mode, picking an atom
       // will select the whole residue
 
-      foreach (GLHit hit, m_hits) {
+      foreach (const GLHit& hit, m_hits)
+      {
         if(hit.type() == Primitive::AtomType) // Atom selection
         {
           Atom *atom = static_cast<Atom *>(molecule->GetAtom(hit.name()));
@@ -202,7 +205,15 @@ namespace Avogadro {
           break;
         case 1: // atom
         default:
-          widget->toggleSelected(hitList);
+          // If the Ctrl modifier is pressed toggle selection
+          if(event->modifiers() & Qt::ControlModifier)
+            widget->toggleSelected(hitList);
+          else {
+            // If the shift modifier key is not pressed clear previous selection
+            if (!(event->modifiers() & Qt::ShiftModifier))
+              widget->clearSelected();
+            widget->setSelected(hitList, true);
+          }
           break;
       }
 
@@ -222,7 +233,7 @@ namespace Avogadro {
       // (ex, ey) = Bottom right most position.
       QList<GLHit> hits = widget->hits(sx, sy, w, h);
       // Iterate over the hits
-      foreach(GLHit hit, hits)
+      foreach(const GLHit& hit, hits)
       {
         if(hit.type() == Primitive::AtomType) // Atom selection
         {
@@ -240,8 +251,11 @@ namespace Avogadro {
           }
         }
       }
-      // Toggle the selection
-      widget->toggleSelected(hitList);
+      // If the modifier key is not pressed clear the previous selection
+      if (!(event->modifiers() & Qt::ShiftModifier))
+        widget->clearSelected();
+      // Set the selection
+      widget->setSelected(hitList, true);
     }
 
     widget->update();
@@ -381,9 +395,12 @@ namespace Avogadro {
       m_comboSelectionMode->addItem(tr("Residue"));
       m_comboSelectionMode->addItem(tr("Molecule"));
 
+      QHBoxLayout* tmp = new QHBoxLayout;
+      tmp->addWidget(labelMode);
+      tmp->addWidget(m_comboSelectionMode);
+      tmp->addStretch(1);
       m_layout = new QVBoxLayout();
-      m_layout->addWidget(labelMode);
-      m_layout->addWidget(m_comboSelectionMode);
+      m_layout->addLayout(tmp);
       m_layout->addStretch(1);
       m_settingsWidget->setLayout(m_layout);
 

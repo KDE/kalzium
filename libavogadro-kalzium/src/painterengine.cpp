@@ -483,7 +483,7 @@ namespace Avogadro
 
   bool PainterEngine::isShared()
   {
-    return d->sharing-1;
+    return d->sharing > 1;
   }
 
   void PainterEngine::incrementShare()
@@ -495,4 +495,7 @@ namespace Avogadro
   {
     d->sharing--;
   }
+
 } // end namespace Avogadro
+
+#include "painterengine.moc"

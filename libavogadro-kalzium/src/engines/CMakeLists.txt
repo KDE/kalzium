@@ -2,11 +2,10 @@ set(QT_USE_QTOPENGL true)
 
 include(${QT_USE_FILE})
 
-include_directories(${OPENBABEL_INCLUDE_DIR} 
+include_directories(${OPENBABEL_INCLUDE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 )
 
-# Install to avogadro-kalzium so as not to collide with avogadro.
 set(DESTINATION_DIR ${LIB_INSTALL_DIR}/avogadro-kalzium/engines)
 
 ADD_DEFINITIONS(${QT_DEFINITIONS})
@@ -20,113 +19,137 @@ link_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
 set(labelengine_SRCS labelengine.cpp)
 qt4_wrap_ui(labelengine_UIS labelsettingswidget.ui)
 qt4_automoc(${labelengine_SRCS})
-ADD_LIBRARY(labelengine-kalzium SHARED ${labelengine_SRCS} ${labelengine_UIS} )
-TARGET_LINK_LIBRARIES(labelengine-kalzium avogadro-kalzium
+ADD_LIBRARY(labelengine SHARED ${labelengine_SRCS} ${labelengine_UIS} )
+TARGET_LINK_LIBRARIES(labelengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
-INSTALL(TARGETS labelengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS labelengine DESTINATION ${DESTINATION_DIR})
 
 # wireframe
 set(wireengine_SRCS wireengine.cpp)
 qt4_automoc(${wireengine_SRCS})
 qt4_wrap_ui(wireengine_UIS wiresettingswidget.ui)
-ADD_LIBRARY(wireengine-kalzium SHARED ${wireengine_SRCS} ${wireengine_UIS})
-TARGET_LINK_LIBRARIES(wireengine-kalzium avogadro-kalzium
+ADD_LIBRARY(wireengine SHARED ${wireengine_SRCS} ${wireengine_UIS})
+TARGET_LINK_LIBRARIES(wireengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
-INSTALL(TARGETS wireengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS wireengine DESTINATION ${DESTINATION_DIR})
 
 # hydrogen bond
 set(hbondengine_SRCS hbondengine.cpp)
 qt4_automoc(${hbondengine_SRCS})
 qt4_wrap_ui(hbondengine_UIS hbondsettingswidget.ui)
-ADD_LIBRARY(hbondengine-kalzium SHARED ${hbondengine_SRCS} ${hbondengine_UIS})
-TARGET_LINK_LIBRARIES(hbondengine-kalzium avogadro-kalzium
+ADD_LIBRARY(hbondengine SHARED ${hbondengine_SRCS} ${hbondengine_UIS})
+TARGET_LINK_LIBRARIES(hbondengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
-INSTALL(TARGETS hbondengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS hbondengine DESTINATION ${DESTINATION_DIR})
+
+# force engine
+set(forceengine_SRCS forceengine.cpp)
+qt4_automoc(${forceengine_SRCS})
+#qt4_wrap_ui(hbondengine_UIS hbondsettingswidget.ui)
+ADD_LIBRARY(forceengine SHARED ${forceengine_SRCS} ${forceengine_UIS})
+TARGET_LINK_LIBRARIES(forceengine avogadro-kalzium
+                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
+                                ${OPENGL_LIBRARIES}
+)
+INSTALL(TARGETS forceengine DESTINATION ${DESTINATION_DIR})
+
 
 # sphere
 set(sphereengine_SRCS sphereengine.cpp)
 qt4_wrap_ui(sphereengine_UIS spheresettingswidget.ui)
 qt4_automoc(${sphereengine_SRCS})
-ADD_LIBRARY(sphereengine-kalzium SHARED ${sphereengine_SRCS} ${sphereengine_UIS} )
-TARGET_LINK_LIBRARIES(sphereengine-kalzium avogadro-kalzium
+ADD_LIBRARY(sphereengine SHARED ${sphereengine_SRCS} ${sphereengine_UIS} )
+TARGET_LINK_LIBRARIES(sphereengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
 
-INSTALL(TARGETS sphereengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS sphereengine DESTINATION ${DESTINATION_DIR})
 
 # stick (cylinder) engine
 set(stickengine_SRCS stickengine.cpp)
+qt4_wrap_ui(stickengine_UIS sticksettingswidget.ui)
 qt4_automoc(${stickengine_SRCS})
-ADD_LIBRARY(stickengine-kalzium SHARED ${stickengine_SRCS} )
-TARGET_LINK_LIBRARIES(stickengine-kalzium avogadro-kalzium
+ADD_LIBRARY(stickengine SHARED ${stickengine_SRCS} ${stickengine_UIS})
+TARGET_LINK_LIBRARIES(stickengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
-
-INSTALL(TARGETS stickengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS stickengine DESTINATION ${DESTINATION_DIR})
 
 # Ribbon engine (biological structure)
 set(ribbonengine_SRCS ribbonengine.cpp)
 qt4_wrap_ui(ribbonengine_UIS ribbonsettingswidget.ui)
 qt4_automoc(${ribbonengine_SRCS})
-ADD_LIBRARY(ribbonengine-kalzium SHARED ${ribbonengine_SRCS} ${ribbonengine_UIS} )
-TARGET_LINK_LIBRARIES(ribbonengine-kalzium avogadro-kalzium
+ADD_LIBRARY(ribbonengine SHARED ${ribbonengine_SRCS} ${ribbonengine_UIS} )
+TARGET_LINK_LIBRARIES(ribbonengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
 
-INSTALL(TARGETS ribbonengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS ribbonengine DESTINATION ${DESTINATION_DIR})
 
 # Ring engine - display cyclic rings
 set(ringengine_SRCS ringengine.cpp)
 qt4_wrap_ui(ringengine_UIS ringsettingswidget.ui)
 qt4_automoc(${ringengine_SRCS})
-ADD_LIBRARY(ringengine-kalzium SHARED ${ringengine_SRCS} ${ringengine_UIS} )
-TARGET_LINK_LIBRARIES(ringengine-kalzium avogadro-kalzium
+ADD_LIBRARY(ringengine SHARED ${ringengine_SRCS} ${ringengine_UIS} )
+TARGET_LINK_LIBRARIES(ringengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
 
-INSTALL(TARGETS ringengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS ringengine DESTINATION ${DESTINATION_DIR})
 
 # Polygon engine
 set(polygonengine_SRCS polygonengine.cpp)
 qt4_automoc(${polygonengine_SRCS})
-ADD_LIBRARY(polygonengine-kalzium SHARED ${polygonengine_SRCS} )
-TARGET_LINK_LIBRARIES(polygonengine-kalzium avogadro-kalzium
+ADD_LIBRARY(polygonengine SHARED ${polygonengine_SRCS} )
+TARGET_LINK_LIBRARIES(polygonengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
 
-INSTALL(TARGETS polygonengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS polygonengine DESTINATION ${DESTINATION_DIR})
 
 # Surface engine - molecular surfaces and 3D functions
 set(surfaceengine_SRCS iso.cpp surfaceengine.cpp)
 qt4_wrap_ui(surfaceengine_UIS surfacesettingswidget.ui)
 qt4_automoc(${surfaceengine_SRCS})
-ADD_LIBRARY(surfaceengine-kalzium SHARED ${surfaceengine_SRCS} ${surfaceengine_UIS})
-TARGET_LINK_LIBRARIES(surfaceengine-kalzium avogadro-kalzium
+ADD_LIBRARY(surfaceengine SHARED ${surfaceengine_SRCS} ${surfaceengine_UIS})
+TARGET_LINK_LIBRARIES(surfaceengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
 
-INSTALL(TARGETS surfaceengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS surfaceengine DESTINATION ${DESTINATION_DIR})
 
 # Orbital engine - molecular orbitals
 set(orbitalengine_SRCS iso.cpp orbitalengine.cpp)
 qt4_wrap_ui(orbitalengine_UIS orbitalsettingswidget.ui)
 qt4_automoc(${orbitalengine_SRCS})
-ADD_LIBRARY(orbitalengine-kalzium SHARED ${orbitalengine_SRCS} ${orbitalengine_UIS})
-TARGET_LINK_LIBRARIES(orbitalengine-kalzium avogadro-kalzium
+ADD_LIBRARY(orbitalengine SHARED ${orbitalengine_SRCS} ${orbitalengine_UIS})
+TARGET_LINK_LIBRARIES(orbitalengine avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                 ${OPENGL_LIBRARIES}
 )
 
-INSTALL(TARGETS orbitalengine-kalzium DESTINATION ${DESTINATION_DIR})
+INSTALL(TARGETS orbitalengine DESTINATION ${DESTINATION_DIR})
+
+# Axes engine - display the axes
+set(axesengine_SRCS axesengine.cpp)
+#qt4_wrap_ui(axesengine_UIS axesettingswidget.ui)
+qt4_automoc(${axesengine_SRCS})
+ADD_LIBRARY(axesengine SHARED ${axesengine_SRCS})
+TARGET_LINK_LIBRARIES(axesengine avogadro-kalzium
+                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
+                                ${OPENGL_LIBRARIES}
+)
+
+INSTALL(TARGETS axesengine DESTINATION ${DESTINATION_DIR})

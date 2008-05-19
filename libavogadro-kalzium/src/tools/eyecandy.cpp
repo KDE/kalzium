@@ -131,8 +131,6 @@ namespace Avogadro {
 
   void Eyecandy::drawRotation(GLWidget *widget, Atom *clickedAtom, double xAngle, double yAngle, const Eigen::Vector3d &center)
   {
-    if(widget->quality() <= 1) return;
-
     if(clickedAtom)
     {
       drawRotation(widget, clickedAtom->pos(),
@@ -154,8 +152,6 @@ namespace Avogadro {
 
   void Eyecandy::drawRotation(GLWidget *widget, const Eigen::Vector3d& center, double radius, double xAngle, double yAngle)
   {
-    if(widget->quality() <= 1) return;
-
     m_center = center;
     m_radius = radius;
     m_xAngleStart = 2.0 * M_PI * (0.25 + RIBBON_APERTURE) - xAngle;
@@ -194,8 +190,6 @@ namespace Avogadro {
 
   void Eyecandy::drawTranslation(GLWidget *widget, Atom *clickedAtom, const Eigen::Vector3d &center)
   {
-    if(widget->quality() <= 1) return;
-
     if(clickedAtom)
     {
       drawTranslation(widget, center,
@@ -215,8 +209,6 @@ namespace Avogadro {
   }
   void Eyecandy::drawTranslation(GLWidget *widget, const Eigen::Vector3d& center, double size, double shift)
   {
-    if(widget->quality() <= 1) return;
-
 //    glEnable(GL_BLEND);
     glDisable(GL_LIGHTING);
 //    glDepthMask(GL_FALSE);
@@ -292,9 +284,6 @@ namespace Avogadro {
 
   void Eyecandy::drawZoom(GLWidget *widget, Atom *clickedAtom, const Eigen::Vector3d &center)
   {
-#if 0 // disable for now as it's just too ugly. The proper way to implement drawZoom is perhaps
-      // as an arrow consisting of 1 cylinder + 1 cone -- now that we have cones.
-
     if(clickedAtom) {
       drawZoom(widget, center,
           widget->radius(clickedAtom) *  2);
@@ -310,14 +299,10 @@ namespace Avogadro {
       //           MINIMUM_APPARENT_SIZE * widget->camera()->distance(center)),
       //         MAXIMUM_APPARENT_SIZE * widget->camera()->distance(center)));
     }
-#endif
   }
 
   void Eyecandy::drawZoom(GLWidget *widget, const Eigen::Vector3d& center, double size)
   {
-#if 0 // disable for now as it's just too ugly. The proper way to implement drawZoom is perhaps
-      // as an arrow consisting of 1 cylinder + 1 cone -- now that we have cones.
-
     widget->painter()->setColor(&m_color);
     //   glEnable( GL_BLEND );
     //   widget->painter()->drawSphere(center, radius);
@@ -397,7 +382,6 @@ namespace Avogadro {
 //    glDisable(GL_BLEND);
     glEnable(GL_LIGHTING);
 //    glDepthMask(GL_TRUE);
-#endif
   }
 
   void Eyecandy::setColor(const Color &color)

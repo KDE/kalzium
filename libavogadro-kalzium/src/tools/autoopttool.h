@@ -1,5 +1,5 @@
 /**********************************************************************
-  AutoOptTool - Automatic Optimisation Tool for Avogadro
+  AutoOptTool - Automatic Optimization Tool for Avogadro
 
   Copyright (C) 2007 by Marcus D. Hanwell
   Copyright (C) 2007 by Geoffrey R. Hutchison
@@ -21,8 +21,8 @@
   GNU General Public License for more details.
  ***********************************************************************/
 
-#ifndef __AUTOOPTTOOL_H
-#define __AUTOOPTTOOL_H
+#ifndef AUTOOPTTOOL_H
+#define AUTOOPTTOOL_H
 
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
@@ -41,24 +41,26 @@
 #include <QCheckBox>
 #include <QSpinBox>
 #include <QUndoStack>
+#include <QMutex>
 
 namespace Avogadro {
 
   class AutoOptThread : public QThread
   {
-    Q_OBJECT;
+    Q_OBJECT
 
     public:
     AutoOptThread(QObject *parent=0);
 
     void setup(Molecule *molecule, OpenBabel::OBForceField* forceField, 
-        int algorithm, int gradients, int convergence);
+        int algorithm, /* int convergence, */ int steps);
 
       void run();
       void update();
 
     Q_SIGNALS:
       void finished(bool calculated);
+      void setupDone();
       void setupFailed();
       void setupSucces();
 
@@ -70,15 +72,15 @@ namespace Avogadro {
       OpenBabel::OBForceField * m_forceField;
       bool m_velocities;
       int m_algorithm;
-      int m_gradients;
-      int m_convergence;
-
+      //double m_convergence;
+      int m_steps;
       bool m_stop;
+      QMutex m_mutex;
   };
 
   /**
    * @class AutoOptTool
-   * @brief Automatic Optimisation Tool
+   * @brief Automatic Optimization Tool
    * @author Marcus D. Hanwell
    *
    * This tool enables the manipulation of the position of
@@ -130,6 +132,7 @@ namespace Avogadro {
 
     public Q_SLOTS:
       void finished(bool calculated);
+      void setupDone();
       void setupFailed();
       void setupSucces();
       void toggle();
@@ -150,14 +153,14 @@ namespace Avogadro {
       QWidget*                  m_settingsWidget;
       Eigen::Vector3d           m_selectedPrimitivesCenter;    // centroid of selected atoms
       OpenBabel::OBForceField*  m_forceField;
-      int 			m_numConstraints;
       AutoOptThread *           m_thread;
 
       std::vector<std::string>  m_forceFieldList;
 
       QComboBox*                m_comboFF;
       QComboBox*                m_comboAlgorithm;
-      QSpinBox*                 m_convergenceSpinBox;
+      //QSpinBox*                 m_convergenceSpinBox;
+      QSpinBox*                 m_stepsSpinBox;
       QPushButton*              m_buttonStartStop;
       QCheckBox*                m_fixedMovable;
       QCheckBox*                m_ignoredMovable;

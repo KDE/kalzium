@@ -25,7 +25,10 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include <config.h>
+// #include<config.h> gave me headaches because another config.h file
+// was getting included!
+// krazy:excludeall=includes
+#include "config.h"
 
 #include <avogadro/glwidget.h>
 #include <avogadro/glpainter.h>
@@ -37,17 +40,17 @@
 // Include static engine headers
 #include "engines/bsdyengine.h"
 
+#include <QDebug>
 #include <QUndoStack>
 #include <QDir>
 #include <QPluginLoader>
 #include <QTime>
+#include <QReadWriteLock>
 
 #ifdef ENABLE_THREADED_GL
 #include <QWaitCondition>
 #include <QMutex>
 #endif
-
-#include <QDebug>
 
 #include <stdio.h>
 #include <vector>
@@ -180,16 +183,16 @@ namespace Avogadro {
   class GLWidgetPrivate
   {
   public:
-    GLWidgetPrivate() : background( Qt::black ),
+    GLWidgetPrivate() : background( 0,0,0,0 ),
                         aCells( 1 ), bCells( 1 ), cCells( 1 ),
                         uc (0),
                         molecule( 0 ),
                         camera( new Camera ),
                         tool( 0 ),
                         toolGroup( 0 ),
-                        undoStack(0),
                         selectBuf( 0 ),
                         selectBufSize( -1 ),
+                        undoStack(0),
 #ifdef ENABLE_THREADED_GL
                         thread( 0 ),
 #else
@@ -296,20 +299,19 @@ namespace Avogadro {
     static bool enginesLoaded = false;
     if(!enginesLoaded)
       {
-        QString prefixPath = QString(INSTALL_PREFIX) + "/lib/avogadro-kalzium/engines";
+        QString prefixPath = QString(INSTALL_PREFIX) + '/'
+          + QString(INSTALL_LIBDIR) + "/avogadro-kalzium/engines";
         QStringList pluginPaths;
-        pluginPaths << prefixPath;
-        // Now for the 64 bit case with no symlinks
-        prefixPath = QString(INSTALL_PREFIX) + "/lib64/avogadro-kalzium/engines";
         pluginPaths << prefixPath;
 
 #ifdef WIN32
         pluginPaths << "./engines";
 #endif
 
-        // Use our own environment variable for those who know what they are doing
-        if (getenv("KAVOGADRO_ENGINES") != NULL)
-          pluginPaths = QString( getenv("KAVOGADRO_ENGINES")).split(':');
+        // Krazy: Use QProcess:
+        // http://doc.trolltech.com/4.3/qprocess.html#systemEnvironment
+        if (getenv("KALZIUM_ENGINES") != NULL)
+          pluginPaths = QString(getenv("KALZIUM_ENGINES")).split(':');
 
         // load static plugins first
         EngineFactory *bsFactory = qobject_cast<EngineFactory *>(new BSDYEngineFactory);
@@ -320,17 +322,19 @@ namespace Avogadro {
         }
 
         // now load plugins from paths
-        foreach( QString path, pluginPaths ) {
+        foreach(const QString& path, pluginPaths)
+        {
           QDir dir( path );
-          foreach( QString fileName, dir.entryList( QDir::Files ) ) {
+          foreach(const QString& fileName, dir.entryList(QDir::Files))
+          {
             QPluginLoader loader( dir.absoluteFilePath( fileName ) );
             QObject *instance = loader.instance();
             EngineFactory *factory = qobject_cast<EngineFactory *>( instance );
-            if ( factory )
-              {
-                engineFactories.append(factory);
-                engineClassFactory[factory->className()] = factory;
-              }
+            if (factory)
+            {
+              engineFactories.append(factory);
+              engineClassFactory[factory->className()] = factory;
+            }
           }
         }
         enginesLoaded = true;
@@ -341,6 +345,7 @@ namespace Avogadro {
   {
     // Create a display list cache
     if (updateCache) {
+//      qDebug() << "Making new quick display lists...";
       if (dlistQuick == 0)
         dlistQuick = glGenLists(1);
 
@@ -350,7 +355,11 @@ namespace Avogadro {
       glNewList(dlistQuick, GL_COMPILE);
       foreach(Engine *engine, engines)
         if(engine->isEnabled())
+        {
+          molecule->lock()->lockForRead();
           engine->renderQuick(pd);
+          molecule->lock()->unlock();
+        }
       glEndList();
 
       updateCache = false;
@@ -412,6 +421,7 @@ namespace Avogadro {
         m_resize=false;
       }
 
+			d->background.setAlphaF(0.0);
       m_widget->qglClearColor(d->background);
       m_widget->paintGL();
       m_widget->swapBuffers();
@@ -474,9 +484,8 @@ namespace Avogadro {
 #endif
 
     // delete the engines
-    foreach( Engine *engine, d->engines ) {
+    foreach(Engine *engine, d->engines)
       delete engine;
-    }
 
     delete( d );
   }
@@ -500,7 +509,7 @@ namespace Avogadro {
 #ifdef ENABLE_THREADED_GL
     qDebug() << "Threaded GL enabled.";
     d->thread = new GLThread( this, this );
-    doneCurrent();
+    //doneCurrent();
     d->thread->start();
 #endif
   }
@@ -534,14 +543,6 @@ namespace Avogadro {
 
     glEnable( GL_NORMALIZE );
 
-    GLfloat ambientLight[] = { 0.2, 0.2, 0.2, 1.0 };
-    GLfloat diffuseLight[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat diffuseLight2[] = { 0.3, 0.3, 0.3, 1.0 };
-    GLfloat specularLight[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat specularLight2[] = { 0.5, 0.5, 0.5, 1.0 };
-    GLfloat position[] = { 0.8, 0.7, 1.0, 0.0 };
-    GLfloat position2[] = { -0.8, 0.7, -0.5, 0.0 };
-
     glLightModeli( GL_LIGHT_MODEL_COLOR_CONTROL_EXT,
                    GL_SEPARATE_SPECULAR_COLOR_EXT );
 
@@ -551,16 +552,20 @@ namespace Avogadro {
     // _before_ enabling lighting
     glEnable( GL_LIGHTING );
 
-    glLightfv( GL_LIGHT0, GL_AMBIENT, ambientLight );
-    glLightfv( GL_LIGHT0, GL_DIFFUSE, diffuseLight );
-    glLightfv( GL_LIGHT0, GL_SPECULAR, specularLight );
-    glLightfv( GL_LIGHT0, GL_POSITION, position );
+    glLightfv( GL_LIGHT0, GL_AMBIENT, LIGHT_AMBIENT );
+    glLightfv( GL_LIGHT0, GL_DIFFUSE, LIGHT0_DIFFUSE );
+    glLightfv( GL_LIGHT0, GL_SPECULAR, LIGHT0_SPECULAR );
+    glLightfv( GL_LIGHT0, GL_POSITION, LIGHT0_POSITION );
     glEnable( GL_LIGHT0 );
+
     // Create a second light source to illuminate those shadows a little better
-    glLightfv( GL_LIGHT1, GL_AMBIENT, ambientLight );
-    glLightfv( GL_LIGHT1, GL_DIFFUSE, diffuseLight2 );
-    glLightfv( GL_LIGHT1, GL_SPECULAR, specularLight2 );
-    glLightfv( GL_LIGHT1, GL_POSITION, position2 );
+    // FIXME: this is quite expensive, especially on software-only systems,
+    // so we must add a way to disable the second light! Probably it should only be enabled
+    // at high "quality levels".
+    glLightfv( GL_LIGHT1, GL_AMBIENT, LIGHT_AMBIENT );
+    glLightfv( GL_LIGHT1, GL_DIFFUSE, LIGHT1_DIFFUSE );
+    glLightfv( GL_LIGHT1, GL_SPECULAR, LIGHT1_SPECULAR );
+    glLightfv( GL_LIGHT1, GL_POSITION, LIGHT1_POSITION );
     glEnable( GL_LIGHT1 );
 
     qDebug() << "GLWidget initialised...";
@@ -597,6 +602,7 @@ namespace Avogadro {
     d->renderMutex.lock();
 #endif
     d->background = background;
+		d->background.setAlphaF(0.0);
 #ifdef ENABLE_THREADED_GL
     d->renderMutex.unlock();
 #endif
@@ -622,6 +628,8 @@ namespace Avogadro {
 
   void GLWidget::setQuality(int quality)
   {
+    // Invalidate the display lists and change the painter quality level
+    invalidateDLs();
     d->painter->setQuality(quality);
   }
 
@@ -633,6 +641,7 @@ namespace Avogadro {
   void GLWidget::setRenderAxes(bool renderAxes)
   {
     d->renderAxes = renderAxes;
+    update();
   }
 
   bool GLWidget::renderAxes()
@@ -643,6 +652,7 @@ namespace Avogadro {
   void GLWidget::setRenderDebug(bool renderDebug)
   {
     d->renderDebug = renderDebug;
+    update();
   }
 
   bool GLWidget::renderDebug()
@@ -654,16 +664,12 @@ namespace Avogadro {
   {
     d->painter->begin(this);
 
-    if(quality() >= 3) glEnable(GL_LIGHT1);
-    else glDisable(GL_LIGHT1);
-
     // Use renderQuick if the view is being moved, otherwise full render
     if (d->quickRender) {
-
       d->updateListQuick();
       glCallList(d->dlistQuick);
-      if (d->uc) renderCrystal(d->dlistQuick);
-
+      if (d->uc)
+        renderCrystal(d->dlistQuick);
     }
     else {
       // we save a display list if we're doing a crystal
@@ -676,7 +682,6 @@ namespace Avogadro {
       foreach(Engine *engine, d->engines)
         if(engine->isEnabled())
           engine->renderOpaque(d->pd);
-
       if (d->uc) { // end the main list and render the opaque crystal
         glEndList();
         renderCrystal(d->dlistOpaque);
@@ -951,21 +956,23 @@ namespace Avogadro {
 
   void GLWidget::paintEvent( QPaintEvent * )
   {
-    //qDebug() << "paintEvent";
+    if(updatesEnabled())
+    {
 #ifdef ENABLE_THREADED_GL
-    // tell our thread to paint
-    d->paintCondition.wakeAll();
+      // tell our thread to paint
+      d->paintCondition.wakeAll();
 #else
-    makeCurrent();
-    if(!d->initialized)
+      makeCurrent();
+      if(!d->initialized)
       {
         d->initialized = true;
         initializeGL();
       }
-    qglClearColor(d->background);
-    paintGL();
-    swapBuffers();
+      qglClearColor(d->background);
+      paintGL();
+      swapBuffers();
 #endif
+    }
   }
 
   bool GLWidget::event( QEvent *event )
@@ -990,14 +997,6 @@ namespace Avogadro {
         delete command;
       }
     }
-#ifdef ENABLE_THREADED_GL
-    d->renderMutex.lock();
-#endif
-    // Use quick render while the mouse is down
-    d->quickRender = true;
-#ifdef ENABLE_THREADED_GL
-    d->renderMutex.unlock();
-#endif
   }
 
   void GLWidget::mouseReleaseEvent( QMouseEvent * event )
@@ -1023,6 +1022,14 @@ namespace Avogadro {
 
   void GLWidget::mouseMoveEvent( QMouseEvent * event )
   {
+#ifdef ENABLE_THREADED_GL
+    d->renderMutex.lock();
+#endif
+    // Use quick render while the mouse is down
+    d->quickRender = true;
+#ifdef ENABLE_THREADED_GL
+    d->renderMutex.unlock();
+#endif
     if ( d->tool ) {
       QUndoCommand *command = d->tool->mouseMove( this, event );
       if ( command && d->undoStack ) {
@@ -1041,13 +1048,14 @@ namespace Avogadro {
     }
   }
 
-  void A_EXPORT GLWidget::setMolecule( Molecule *molecule )
+  void GLWidget::setMolecule( Molecule *molecule )
   {
     if ( !molecule ) { return; }
 
     // disconnect from our old molecule
     if ( d->molecule ) {
       QObject::disconnect( d->molecule, 0, this, 0 );
+      d->uc = NULL; // The unit cell is associated with our old molecule, we don't have to free it.
     }
 
     d->molecule = molecule;
@@ -1342,8 +1350,8 @@ namespace Avogadro {
 
 #ifdef ENABLE_THREADED_GL
     d->renderMutex.lock();
-    makeCurrent();
 #endif
+    makeCurrent();
     //X   hits.clear();
 
     glSelectBuffer( d->selectBufSize, d->selectBuf );
@@ -1432,15 +1440,14 @@ namespace Avogadro {
                  SEL_BOX_SIZE, SEL_BOX_SIZE);
 
     // Find the first atom or bond (if any) in hits - this will be the closest
-    foreach( GLHit hit, chits )
-      {
-        //qDebug() << "Hit: " << hit.name();
-        if(hit.type() == Primitive::AtomType) {
-          return static_cast<Atom *>(molecule()->GetAtom(hit.name()));
-        } else if(hit.type() == Primitive::BondType) {
-          return static_cast<Bond *>(molecule()->GetBond(hit.name()));
-        }
-      }
+    foreach(const GLHit& hit, chits)
+    {
+      //qDebug() << "Hit: " << hit.name();
+      if(hit.type() == Primitive::AtomType)
+        return static_cast<Atom *>(molecule()->GetAtom(hit.name()));
+      else if(hit.type() == Primitive::BondType)
+        return static_cast<Bond *>(molecule()->GetBond(hit.name()));
+    }
     return 0;
   }
 
@@ -1454,13 +1461,11 @@ namespace Avogadro {
                  SEL_BOX_SIZE, SEL_BOX_SIZE);
 
     // Find the first atom (if any) in hits - this will be the closest
-    foreach( GLHit hit, chits )
-      {
-        if(hit.type() == Primitive::AtomType)
-          {
-            return static_cast<Atom *>(molecule()->GetAtom(hit.name()));
-          }
-      }
+    foreach(const GLHit& hit, chits)
+    {
+      if(hit.type() == Primitive::AtomType)
+        return static_cast<Atom *>(molecule()->GetAtom(hit.name()));
+    }
     return 0;
   }
 
@@ -1474,13 +1479,11 @@ namespace Avogadro {
                  SEL_BOX_SIZE, SEL_BOX_SIZE);
 
     // Find the first bond (if any) in hits - this will be the closest
-    foreach( GLHit hit, chits )
-      {
-        if(hit.type() == Primitive::BondType)
-          {
-            return static_cast<Bond *>(molecule()->GetBond(hit.name()));
-          }
-      }
+    foreach(const GLHit& hit, chits)
+    {
+      if(hit.type() == Primitive::BondType)
+        return static_cast<Bond *>(molecule()->GetBond(hit.name()));
+    }
     return 0;
   }
 
@@ -1497,12 +1500,13 @@ namespace Avogadro {
   double GLWidget::radius( const Primitive *p ) const
   {
     double radius = 0.0;
-    foreach( Engine *engine, d->engines ) {
-      if ( engine->isEnabled() ) {
+    foreach(Engine *engine, d->engines)
+    {
+      if (engine->isEnabled())
+      {
         double engineRadius = engine->radius( d->pd, p );
-        if ( engineRadius > radius ) {
+        if ( engineRadius > radius )
           radius = engineRadius;
-        }
       }
     }
 
@@ -1521,7 +1525,7 @@ namespace Avogadro {
 
   void GLWidget::setSelected(PrimitiveList primitives, bool select)
   {
-    foreach( Primitive *item, primitives )
+    foreach(Primitive *item, primitives)
     {
       if (select && !d->selectedPrimitives.contains(item))
           d->selectedPrimitives.append( item );
@@ -1643,7 +1647,7 @@ namespace Avogadro {
   {
     // Make sure to provide some default values for any settings.value("", DEFAULT) call
     setQuality(settings.value("quality", 2).toInt());
-    d->background = settings.value("background", QColor(0,0,0)).value<QColor>();
+    d->background = settings.value("background", QColor(0,0,0,0)).value<QColor>();
     d->renderAxes = settings.value("renderAxes", 1).value<bool>();
     d->renderDebug = settings.value("renderDebug", 0).value<bool>();
 
@@ -1684,9 +1688,7 @@ namespace Avogadro {
 
     d->engines.clear();
     foreach(Engine *engine, engines)
-      {
-        delete engine;
-      }
+      delete engine;
 
     foreach(EngineFactory *factory, d->engineFactories)
       {

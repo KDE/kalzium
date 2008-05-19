@@ -24,8 +24,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __ORBITALENGINE_H
-#define __ORBITALENGINE_H
+#ifndef ORBITALENGINE_H
+#define ORBITALENGINE_H
 
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
@@ -55,6 +55,7 @@ namespace Avogadro {
       bool renderOpaque(PainterDevice *pd);
       bool renderTransparent(PainterDevice *pd);
       bool renderQuick(PainterDevice *pd);
+      bool renderSurfaces(PainterDevice *pd);
       //@}
 
       double transparencyDepth() const;
@@ -64,8 +65,8 @@ namespace Avogadro {
 
       QWidget* settingsWidget();
 
-      //void writeSettings(QSettings &settings) const;
-      //void readSettings(QSettings &settings);
+      void writeSettings(QSettings &settings) const;
+      void readSettings(QSettings &settings);
 
       void setPrimitives(const PrimitiveList &primitives);
 
@@ -84,17 +85,28 @@ namespace Avogadro {
       Color  m_posColor;
       Color  m_negColor;
       double m_alpha;
-      double m_stepSize;
       double m_iso;
       int    m_renderMode;
-      bool   m_interpolate;
+      bool   m_drawBox;
       bool   m_update;
+      Molecule *m_molecule;
 
       void updateSurfaces(PainterDevice *pd);
 
     private Q_SLOTS:
+      /**
+       * Update the orbital combo box with new orbitals
+       */
+      void updateOrbitalCombo();
+      /**
+       * Slot for when isoGen has finished
+       */
       void isoGenFinished();
       void settingsWidgetDestroyed();
+      /**
+       * @param value orbital index
+       */
+      void setOrbital(int value);
       /**
        * @param value opacity of the surface / 20
        */
@@ -106,19 +118,21 @@ namespace Avogadro {
       /**
        * @param value interpolate (0 = no, 1 = yes)
        */
-      void setInterpolate(int value);
+      void setDrawBox(int value);
       /**
        * @param d the value of the iso surface to be rendered
        */
       void setIso(double d);
+
+      void isoDone();
       /**
        * @param color the color for the positive iso surface
        */
-      void setPosColor(QColor color);
+      void setPosColor(const QColor& color);
       /**
        * @param color the color for the negative iso surface
        */
-      void setNegColor(QColor color);
+      void setNegColor(const QColor& color);
   };
 
   class OrbitalSettingsWidget : public QWidget, public Ui::OrbitalSettingsWidget
@@ -134,7 +148,7 @@ namespace Avogadro {
   {
     Q_OBJECT
     Q_INTERFACES(Avogadro::EngineFactory)
-    AVOGADRO_ENGINE_FACTORY(OrbitalEngine);
+    AVOGADRO_ENGINE_FACTORY(OrbitalEngine)
 
   };
 

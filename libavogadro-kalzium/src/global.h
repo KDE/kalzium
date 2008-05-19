@@ -2,6 +2,7 @@
   global.h - Setup some default defines.
 
   Copyright (C) 2007 by Donald Ephraim Curtis
+  Copyright (C) 2008 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -22,8 +23,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __GLOBAL_H
-#define __GLOBAL_H
+#ifndef GLOBAL_H
+#define GLOBAL_H
 
 #include <QTranslator>
 
@@ -33,22 +34,33 @@
 # endif
 #endif
 
-#ifdef WIN32
-# define A_DECL_IMPORT __declspec(dllimport)
-# define A_DECL_EXPORT __declspec(dllexport)
+// If we are using a recent GCC version with visibility support use it
+#ifdef HAVE_GCC_VISIBILITY
+  #define A_DECL_IMPORT __attribute__ ((visibility("default")))
+  #define A_DECL_EXPORT __attribute__ ((visibility("default")))
+  #define A_DECL_HIDDEN __attribute__ ((visibility("hidden")))
+#elif defined(WIN32)
+  #define A_DECL_IMPORT __declspec(dllimport)
+  #define A_DECL_EXPORT __declspec(dllexport)
+  #define A_DECL_HIDDEN
 #else
-# define A_DECL_IMPORT __attribute__ ((visibility("default")))
-# define A_DECL_EXPORT __attribute__ ((visibility("default")))
+  #define A_DECL_IMPORT
+  #define A_DECL_EXPORT
+  #define A_DECL_HIDDEN
 #endif
 
+// This macro should be used to export parts of the API
 #ifndef A_EXPORT
-# ifdef avogadro_lib_EXPORTS
-#  define A_EXPORT A_DECL_EXPORT
-# else
-#  define A_EXPORT A_DECL_IMPORT
-# endif
-#else
-# define A_EXPORT
+  #ifdef avogadro_lib_EXPORTS
+    #define A_EXPORT A_DECL_EXPORT
+  #else
+    #define A_EXPORT A_DECL_IMPORT
+  #endif
+#endif
+
+// This macro allows the selective hiding of parts of our exposed API
+#ifndef A_HIDE
+  #define A_HIDE A_DECL_HIDDEN
 #endif
 
 #ifndef GL_RESCALE_NORMAL
@@ -83,6 +95,17 @@ const int      SEL_BOX_SIZE                          = 2 * SEL_BOX_HALF_SIZE + 1
 const double   SEL_ATOM_EXTRA_RADIUS                 = 0.18;
 const double   SEL_BOND_EXTRA_RADIUS                 = 0.07;
 
+const float    LIGHT_AMBIENT[4]                     = { 0.2, 0.2, 0.2, 1.0 };
+
+const float    LIGHT0_DIFFUSE[4]                     = { 1.0, 1.0, 1.0, 1.0 };
+const float    LIGHT0_SPECULAR[4]                    = { 1.0, 1.0, 1.0, 1.0 };
+const float    LIGHT0_POSITION[4]                    = { 0.8, 0.7, 1.0, 0.0 };
+
+const float    LIGHT1_DIFFUSE[4]                     = { 0.3, 0.3, 0.3, 1.0 };
+const float    LIGHT1_SPECULAR[4]                    = { 0.5, 0.5, 0.5, 1.0 };
+const float    LIGHT1_POSITION[4]                    = { -0.8, 0.7, -0.5, 0.0 };
+
+
 namespace Avogadro
 {
   class A_EXPORT Library
@@ -92,6 +115,7 @@ namespace Avogadro
       static QString version();
       static QString svnRevision();
       static QString prefix();
+      static bool threadedGL();
   };
 }
 

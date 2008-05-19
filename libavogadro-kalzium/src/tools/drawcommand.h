@@ -23,8 +23,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __DRAWCOMMAND_H
-#define __DRAWCOMMAND_H
+#ifndef DRAWCOMMAND_H
+#define DRAWCOMMAND_H
 
 #include <QUndoCommand>
 #include <eigen/vector.h>
@@ -124,18 +124,18 @@ namespace Avogadro {
     ChangeBondOrderDrawCommandPrivate * const d;
   };
 
-  class InsertSmilesDrawCommandPrivate;
-  class InsertSmilesDrawCommand : public QUndoCommand
+  class InsertFragmentCommandPrivate;
+  class InsertFragmentCommand : public QUndoCommand
   {
   public:
-    InsertSmilesDrawCommand(Molecule *molecule, Molecule &generatedMolecule);
-    ~InsertSmilesDrawCommand();
+    InsertFragmentCommand(Molecule *molecule, Molecule &generatedMolecule);
+    ~InsertFragmentCommand();
 
     virtual void undo();
     virtual void redo();
 
   private:
-    InsertSmilesDrawCommandPrivate * const d;
+    InsertFragmentCommandPrivate * const d;
   };
 
 

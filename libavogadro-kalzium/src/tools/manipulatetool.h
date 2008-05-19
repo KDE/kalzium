@@ -21,8 +21,8 @@
   GNU General Public License for more details.
  ***********************************************************************/
 
-#ifndef __MANIPULATETOOL_H
-#define __MANIPULATETOOL_H
+#ifndef MANIPULATETOOL_H
+#define MANIPULATETOOL_H
 
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
@@ -86,8 +86,6 @@ namespace Avogadro {
       bool                m_rightButtonPressed; // translation
       Eigen::Vector3d     m_selectedPrimitivesCenter;    // centroid of selected atoms
 
-      QUndoCommand *      m_undo; // The current undo command
-
       QPoint              m_lastDraggingPosition;
       Eyecandy            *m_eyecandy;
       double              m_yAngleEyecandy, m_xAngleEyecandy;
@@ -102,7 +100,7 @@ namespace Avogadro {
   {
     public:
       explicit MoveAtomCommand(Molecule *molecule, QUndoCommand *parent = 0);
-      MoveAtomCommand(Molecule *molecule, Atom *atom, Eigen::Vector3d pos, QUndoCommand *parent = 0);
+      MoveAtomCommand(Molecule *molecule, int type, QUndoCommand *parent = 0);
 
       void redo();
       void undo();
@@ -112,8 +110,7 @@ namespace Avogadro {
     private:
       Molecule m_moleculeCopy;
       Molecule *m_molecule;
-      int m_atomIndex;
-      Eigen::Vector3d m_pos;
+      int m_type;
       bool undone;
   };
 
@@ -125,9 +122,6 @@ namespace Avogadro {
       public:
         Tool *createInstance(QObject *parent = 0) { return new ManipulateTool(parent); }
     };
-
-  // Defined in moveatomcommand.h
-  //  class MoveAtomCommand;
 
 } // end namespace Avogadro
 

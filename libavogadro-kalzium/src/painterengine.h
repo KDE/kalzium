@@ -22,8 +22,8 @@
   02110-1301, USA.
  **********************************************************************/
 
-#ifndef __PAINTERENGINE_H
-#define __PAINTERENGINE_H
+#ifndef PAINTERENGINE_H
+#define PAINTERENGINE_H
 
 #include <avogadro/global.h>
 #include <eigen/vector.h>
@@ -35,6 +35,8 @@ namespace Avogadro
   class PainterEnginePrivate;
   class PainterEngine : public QObject
   {
+    Q_OBJECT
+
     public:
       PainterEngine ( int quality=-1 );
       ~PainterEngine();

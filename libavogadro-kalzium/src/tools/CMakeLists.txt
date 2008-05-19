@@ -16,10 +16,15 @@ include_directories(
 link_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
 
 ### drawtool
-set(drawtool_SRCS drawtool.cpp)
+set(drawtool_SRCS drawtool.cpp  directorytreemodel.cpp
+                                insertfragmentdialog.cpp
+                                )
 qt4_add_resources(drawtool_RC_SRCS drawtool.qrc)
 qt4_automoc(${drawtool_SRCS})
-ADD_LIBRARY(drawtool SHARED drawcommand.cpp drawtool.cpp navigate.cpp
+qt4_wrap_ui(drawtool_UIS_H insertfragmentdialog.ui)
+ADD_LIBRARY(drawtool SHARED drawcommand.cpp
+                    ${drawtool_SRCS}
+                    ${drawtool_UIS_H}
                     ${drawtool_RC_SRCS} )
 TARGET_LINK_LIBRARIES(drawtool
     ${OPENBABEL2_LIBRARIES}
@@ -29,24 +34,10 @@ TARGET_LINK_LIBRARIES(drawtool
 INSTALL(TARGETS drawtool DESTINATION ${DESTINATION_DIR})
 
 ### bondcentrictool
-set(bondcentrictool_SRCS bondcentrictool.cpp)
+set(bondcentrictool_SRCS bondcentrictool.cpp skeletontree.cpp)
 qt4_add_resources(bondcentrictool_RC_SRCS bondcentrictool.qrc)
 qt4_automoc(${bondcentrictool_SRCS})
-ADD_LIBRARY(bondcentrictool SHARED skeletontree.cpp quaternion.cpp navigate.cpp
-                            ${bondcentrictool_SRCS} ${bondcentrictool_RC_SRCS})
-TARGET_LINK_LIBRARIES(bondcentrictool
-  ${OPENBABEL2_LIBRARIES}
-  ${QT_LIBRARIES}
-  ${OPENGL_LIBRARIES}
-  avogadro-kalzium
-)
-INSTALL(TARGETS bondcentrictool DESTINATION ${DESTINATION_DIR})
-
-### bondcentrictool
-set(bondcentrictool_SRCS bondcentrictool.cpp)
-qt4_add_resources(bondcentrictool_RC_SRCS bondcentrictool.qrc)
-qt4_automoc(${bondcentrictool_SRCS})
-ADD_LIBRARY(bondcentrictool SHARED skeletontree.cpp quaternion.cpp navigate.cpp
+ADD_LIBRARY(bondcentrictool SHARED quaternion.cpp
                             ${bondcentrictool_SRCS} ${bondcentrictool_RC_SRCS})
 TARGET_LINK_LIBRARIES(bondcentrictool
   ${OPENBABEL2_LIBRARIES}
@@ -60,7 +51,7 @@ INSTALL(TARGETS bondcentrictool DESTINATION ${DESTINATION_DIR})
 set(clickmeasuretool_SRCS clickmeasuretool.cpp)
 qt4_add_resources(clickmeasuretool_RC_SRCS clickmeasuretool.qrc)
 qt4_automoc(${clickmeasuretool_SRCS})
-ADD_LIBRARY(clickmeasuretool SHARED navigate.cpp 
+ADD_LIBRARY(clickmeasuretool SHARED
     ${clickmeasuretool_SRCS} ${clickmeasuretool_RC_SRCS} )
 TARGET_LINK_LIBRARIES(clickmeasuretool
     ${OPENBABEL2_LIBRARIES}
@@ -73,7 +64,7 @@ INSTALL(TARGETS clickmeasuretool DESTINATION ${DESTINATION_DIR})
 set(selectrotatetool_SRCS selectrotatetool.cpp)
 qt4_add_resources(selectrotatetool_RC_SRCS selectrotatetool.qrc)
 qt4_automoc(${selectrotatetool_SRCS})
-ADD_LIBRARY(selectrotatetool SHARED navigate.cpp
+ADD_LIBRARY(selectrotatetool SHARED
 	${selectrotatetool_SRCS} ${selectrotatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(selectrotatetool
 	${OPENBABEL2_LIBRARIES}
@@ -87,7 +78,7 @@ INSTALL(TARGETS selectrotatetool DESTINATION ${DESTINATION_DIR})
 set(autoopttool_SRCS autoopttool.cpp)
 qt4_add_resources(autoopttool_RC_SRCS autoopttool.qrc)
 qt4_automoc(${autoopttool_SRCS})
-ADD_LIBRARY(autoopttool SHARED navigate.cpp
+ADD_LIBRARY(autoopttool SHARED
 	${autoopttool_SRCS} ${autoopttool_RC_SRCS})
 TARGET_LINK_LIBRARIES(autoopttool
 	${OPENBABEL2_LIBRARIES}
@@ -101,7 +92,7 @@ INSTALL(TARGETS autoopttool DESTINATION ${DESTINATION_DIR})
 set(navigatetool_SRCS navigatetool.cpp)
 qt4_add_resources(navigatetool_RC_SRCS navigatetool.qrc)
 qt4_automoc(${navigatetool_SRCS})
-ADD_LIBRARY(navigatetool SHARED navigate.cpp eyecandy.cpp
+ADD_LIBRARY(navigatetool SHARED eyecandy.cpp
 	${navigatetool_SRCS} ${navigatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(navigatetool
 	${OPENBABEL2_LIBRARIES}
@@ -115,7 +106,7 @@ INSTALL(TARGETS navigatetool DESTINATION ${DESTINATION_DIR})
 set(manipulatetool_SRCS manipulatetool.cpp)
 qt4_add_resources(manipulatetool_RC_SRCS manipulatetool.qrc)
 qt4_automoc(${manipulatetool_SRCS})
-ADD_LIBRARY(manipulatetool SHARED eyecandy.cpp navigate.cpp
+ADD_LIBRARY(manipulatetool SHARED eyecandy.cpp
     ${manipulatetool_SRCS} ${manipulatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(manipulatetool
 	${OPENBABEL2_LIBRARIES}
@@ -137,3 +128,16 @@ TARGET_LINK_LIBRARIES(autorotatetool
 	avogadro-kalzium
 )
 INSTALL(TARGETS autorotatetool DESTINATION ${DESTINATION_DIR})
+
+### aligntool
+set(aligntool_SRCS aligntool.cpp)
+qt4_add_resources(aligntool_RC_SRCS aligntool.qrc)
+qt4_automoc(${aligntool_SRCS})
+ADD_LIBRARY(aligntool SHARED ${aligntool_SRCS} ${aligntool_RC_SRCS})
+TARGET_LINK_LIBRARIES(aligntool
+  ${OPENBABEL2_LIBRARIES}
+  ${QT_LIBRARIES}
+  ${OPENGL_LIBRARIES}
+  avogadro-kalzium
+)
+INSTALL(TARGETS aligntool DESTINATION ${DESTINATION_DIR})

@@ -24,9 +24,9 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include <config.h>
 #include "orbitalengine.h"
 
+#include <config.h>
 #include <avogadro/primitive.h>
 
 #include <openbabel/math/vector3.h>
@@ -34,6 +34,7 @@
 #include <openbabel/grid.h>
 
 #include <QGLWidget>
+#include <QReadWriteLock>
 #include <QDebug>
 
 using namespace std;
@@ -43,9 +44,8 @@ using namespace Eigen;
 namespace Avogadro {
 
   OrbitalEngine::OrbitalEngine(QObject *parent) : Engine(parent),
-  m_settingsWidget(0), m_grid(0), m_isoGen(0), m_min(0., 0., 0.),
-  m_alpha(0.75), m_stepSize(0.33333), m_iso(0.01), m_renderMode(0),
-  m_interpolate(false), m_update(true)
+    m_settingsWidget(0), m_min(0., 0., 0.), m_alpha(0.75), m_iso(0.01),
+    m_renderMode(0), m_drawBox(false), m_update(true), m_molecule(0)
   {
     setDescription(tr("Orbital Rendering"));
     m_grid = new Grid;
@@ -97,45 +97,22 @@ namespace Avogadro {
         glPolygonMode(GL_FRONT, GL_FILL);
         break;
       case 1:
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        glPolygonMode(GL_FRONT, GL_LINE);
+        glDisable(GL_LIGHTING);
         break;
       case 2:
-        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+        glPolygonMode(GL_FRONT, GL_POINT);
+        glDisable(GL_LIGHTING);
         break;
       }
 
-      glBegin(GL_TRIANGLES);
-      m_posColor.applyAsMaterials();
-      for(int i=0; i < m_isoGen->numTriangles(); ++i)
-      {
-        triangle t = m_isoGen->getTriangle(i);
-        triangle n = m_isoGen->getNormal(i);
-        glNormal3fv(n.p0.array());
-        glVertex3fv(t.p0.array());
-        glNormal3fv(n.p1.array());
-        glVertex3fv(t.p1.array());
-        glNormal3fv(n.p2.array());
-        glVertex3fv(t.p2.array());
-      }
+      renderSurfaces(pd);
 
-      m_negColor.applyAsMaterials();
-      for(int i=0; i < m_isoGen2->numTriangles(); ++i)
+      if (m_renderMode)
       {
-        triangle t = m_isoGen2->getTriangle(i);
-        triangle n = m_isoGen2->getNormal(i);
-        // Fix the lighting by reversing the normals and the triangle winding
-        n.p0 *= -1;
-        n.p1 *= -1;
-        n.p2 *= -1;
-        glNormal3fv(n.p2.array());
-        glVertex3fv(t.p2.array());
-        glNormal3fv(n.p1.array());
-        glVertex3fv(t.p1.array());
-        glNormal3fv(n.p0.array());
-        glVertex3fv(t.p0.array());
+        glPolygonMode(GL_FRONT, GL_FILL);
+        glEnable(GL_LIGHTING);
       }
-      glEnd();
-      glPolygonMode(GL_FRONT, GL_FILL);
     }
     return true;
   }
@@ -148,10 +125,6 @@ namespace Avogadro {
       if (m_update)
         updateSurfaces(pd);
 
-      qDebug() << "Rendering transparent surface...";
-
-      qDebug() << "Number of triangles = " << m_isoGen->numTriangles();
-
       switch (m_renderMode)
       {
       case 0:
@@ -160,68 +133,64 @@ namespace Avogadro {
         glDepthMask(GL_TRUE);
         break;
       case 1:
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        glPolygonMode(GL_FRONT, GL_LINE);
+        glDisable(GL_LIGHTING);
         break;
       case 2:
-        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+        glPolygonMode(GL_FRONT, GL_POINT);
+        glDisable(GL_LIGHTING);
         break;
       }
 
-      glBegin(GL_TRIANGLES);
-      m_posColor.applyAsMaterials();
-      for(int i=0; i < m_isoGen->numTriangles(); ++i)
-      {
-        triangle t = m_isoGen->getTriangle(i);
-        triangle n = m_isoGen->getNormal(i);
-        glNormal3fv(n.p0.array());
-        glVertex3fv(t.p0.array());
-        glNormal3fv(n.p1.array());
-        glVertex3fv(t.p1.array());
-        glNormal3fv(n.p2.array());
-        glVertex3fv(t.p2.array());
-      }
+      renderSurfaces(pd);
 
-      m_negColor.applyAsMaterials();
-      for(int i=0; i < m_isoGen2->numTriangles(); ++i)
-      {
-        triangle t = m_isoGen2->getTriangle(i);
-        triangle n = m_isoGen2->getNormal(i);
-        // Fix the lighting by reversing the normals and the triangle winding
-        n.p0 *= -1;
-        n.p1 *= -1;
-        n.p2 *= -1;
-        glNormal3fv(n.p2.array());
-        glVertex3fv(t.p2.array());
-        glNormal3fv(n.p1.array());
-        glVertex3fv(t.p1.array());
-        glNormal3fv(n.p0.array());
-        glVertex3fv(t.p0.array());
-      }
-      glEnd();
       if (m_renderMode == 0)
       {
         glDisable(GL_BLEND);
         glDepthMask(GL_FALSE);
       }
       else
+      {
         glPolygonMode(GL_FRONT, GL_FILL);
+        glEnable(GL_LIGHTING);
+      }
     }
     return true;
   }
 
   bool OrbitalEngine::renderQuick(PainterDevice *pd)
   {
-    // Render the transparent surface if m_alpha is between 0 and 1.
     if (m_update)
       updateSurfaces(pd);
 
-    qDebug() << "Rendering quick surface...";
-    qDebug() << "Number of triangles = " << m_isoGen->numTriangles();
+    switch (m_renderMode)
+    {
+      case 0:
+        ;
+      case 1:
+        glPolygonMode(GL_FRONT, GL_LINE);
+        glDisable(GL_LIGHTING);
+        break;
+      case 2:
+        glPolygonMode(GL_FRONT, GL_POINT);
+        glDisable(GL_LIGHTING);
+        break;
+    }
 
-    // Use the GL_LINE mode to render
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    renderSurfaces(pd);
 
-    glBegin(GL_LINES);
+    glPolygonMode(GL_FRONT, GL_FILL);
+    glEnable(GL_LIGHTING);
+
+    return true;
+  }
+
+  bool OrbitalEngine::renderSurfaces(PainterDevice *)
+  {
+    glBegin(GL_TRIANGLES);
+
+    // Render the positive surface
+    m_posColor.apply();
     m_posColor.applyAsMaterials();
     for(int i=0; i < m_isoGen->numTriangles(); ++i)
     {
@@ -235,6 +204,8 @@ namespace Avogadro {
       glVertex3fv(t.p2.array());
     }
 
+    // Render the negative surface
+    m_negColor.apply();
     m_negColor.applyAsMaterials();
     for(int i=0; i < m_isoGen2->numTriangles(); ++i)
     {
@@ -252,8 +223,7 @@ namespace Avogadro {
       glVertex3fv(t.p0.array());
     }
     glEnd();
-    glPolygonMode(GL_FRONT, GL_FILL);
-
+    
     return true;
   }
 
@@ -262,26 +232,46 @@ namespace Avogadro {
     // Attempt to find a grid
     Molecule *mol = const_cast<Molecule *>(pd->molecule());
     if (!mol->HasData(OBGenericDataType::GridData))
-    {
-      // ultimately allow the user to attach a new data file
-      qDebug() << "No grid data found -> no orbitals.";
       return;
-    }
     else
     {
-      qDebug() << "Molecular orbital grid found!";
+      if (!m_settingsWidget)
+      {
+        // Use first grid/orbital
+        m_grid->setGrid(static_cast<OBGridData *>(mol->GetData(OBGenericDataType::GridData)));
+        m_grid2->setGrid(static_cast<OBGridData *>(mol->GetData(OBGenericDataType::GridData)));
+      }
+      else
+      {
+        if (!m_settingsWidget->orbitalCombo->count())
+        {
+          // Use first grid/orbital
+          // Two grids -- one for positive isovalue, one for negative
+          m_grid->setGrid(static_cast<OBGridData *>(mol->GetData(OBGenericDataType::GridData)));
+          m_grid2->setGrid(static_cast<OBGridData *>(mol->GetData(OBGenericDataType::GridData)));
 
-      // Two grids -- one for positive isovalue, one for negative
-      m_grid->setGrid(static_cast<OBGridData *>(mol->GetData(OBGenericDataType::GridData)));
-      m_grid2->setGrid(static_cast<OBGridData *>(mol->GetData(OBGenericDataType::GridData)));
-
-      // if we want multiple grids, we can use the new OB-2.2 code
-      // mol->GetAllData(OBGenericDataType::GridData);
-      // returns vector<OBGenericData *>
-      // we'd want a popup menu or something
+          // Add the orbitals
+          m_molecule = mol;
+          connect(m_molecule, SIGNAL(updated()),
+                  this, SLOT(updateOrbitalCombo()));
+          updateOrbitalCombo();
+        }
+        else
+        {
+          vector<OBGenericData*> data = mol->GetAllData(OBGenericDataType::GridData);
+          unsigned int index = m_settingsWidget->orbitalCombo->currentIndex();
+          if (index >= data.size())
+          {
+            qDebug() << "Invalid orbital selected.";
+            return;
+          }
+          m_grid->setGrid(static_cast<OBGridData *>(data[index]));
+          m_grid2->setGrid(static_cast<OBGridData *>(data[index]));
+        }
+      }
     }
 
-  // attribute is the text key for the grid (as an std::string)
+    // attribute is the text key for the grid (as an std::string)
     qDebug() << " Orbital title: " << m_grid->grid()->GetAttribute().c_str();
 
     qDebug() << "Min value = " << m_grid->grid()->GetMinValue()
@@ -297,12 +287,29 @@ namespace Avogadro {
     // We may need some logic to check if a cube is an orbital or not...
     // (e.g., someone might bring in spin density = always positive)
     m_grid->setIsoValue(m_iso);
-    m_isoGen->init(m_grid, pd, m_interpolate);
+    m_isoGen->init(m_grid, pd, false);
     m_isoGen->start();
     m_grid2->setIsoValue(-m_iso);
-    m_isoGen2->init(m_grid2, pd, m_interpolate);
+    m_isoGen2->init(m_grid2, pd, false);
     m_isoGen2->start();
     m_update = false;
+  }
+
+  void OrbitalEngine::updateOrbitalCombo()
+  {
+    // Reset the orbital combo
+    int tmp = m_settingsWidget->orbitalCombo->currentIndex();
+    qDebug() << "tmp =" << tmp;
+    if (tmp < 0) tmp = 0;
+    m_settingsWidget->orbitalCombo->clear();
+    m_molecule->lock()->lockForRead();
+    vector<OBGenericData*> data = m_molecule->GetAllData(OBGenericDataType::GridData);
+    for (unsigned int i = 0; i < data.size(); ++i) {
+      QString str = QString(data[i]->GetAttribute().c_str());
+      m_settingsWidget->orbitalCombo->addItem(str);
+    }
+    m_molecule->lock()->unlock();
+    m_settingsWidget->orbitalCombo->setCurrentIndex(tmp);
   }
 
   double OrbitalEngine::transparencyDepth() const
@@ -313,6 +320,12 @@ namespace Avogadro {
   Engine::EngineFlags OrbitalEngine::flags() const
   {
     return Engine::Transparent | Engine::Atoms;
+  }
+
+  void OrbitalEngine::setOrbital(int)
+  {
+    m_update = true;
+    emit changed();
   }
 
   void OrbitalEngine::setOpacity(int value)
@@ -329,10 +342,10 @@ namespace Avogadro {
     emit changed();
   }
 
-  void OrbitalEngine::setInterpolate(int value)
+  void OrbitalEngine::setDrawBox(int value)
   {
-    if (value == 0) m_interpolate = false;
-    else m_interpolate = true;
+    if (value == 0) m_drawBox = false;
+    else m_drawBox = true;
     m_update = true;
     emit changed();
   }
@@ -341,17 +354,21 @@ namespace Avogadro {
   void OrbitalEngine::setIso(double d)
   {
     m_iso = d;
+  }
+
+  void OrbitalEngine::isoDone()
+  {
     m_update = true;
     emit changed();
   }
 
-  void OrbitalEngine::setPosColor(QColor color)
+  void OrbitalEngine::setPosColor(const QColor& color)
   {
     m_posColor.set(color.redF(), color.greenF(), color.blueF(), m_alpha);
     emit changed();
   }
 
-  void OrbitalEngine::setNegColor(QColor color)
+  void OrbitalEngine::setNegColor(const QColor& color)
   {
     m_negColor.set(color.redF(), color.greenF(), color.blueF(), m_alpha);
     emit changed();
@@ -362,13 +379,30 @@ namespace Avogadro {
     if(!m_settingsWidget)
     {
       m_settingsWidget = new OrbitalSettingsWidget();
-      connect(m_settingsWidget->opacitySlider, SIGNAL(valueChanged(int)), this, SLOT(setOpacity(int)));
-      connect(m_settingsWidget->renderCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setRenderMode(int)));
-      connect(m_settingsWidget->interpolate, SIGNAL(stateChanged(int)), this, SLOT(setInterpolate(int)));
-      connect(m_settingsWidget->isoSpin, SIGNAL(valueChanged(double)), this, SLOT(setIso(double)));
-      connect(m_settingsWidget->posColor, SIGNAL(colorChanged(QColor)), this, SLOT(setPosColor(QColor)));
-      connect(m_settingsWidget->negColor, SIGNAL(colorChanged(QColor)), this, SLOT(setNegColor(QColor)));
-      connect(m_settingsWidget, SIGNAL(destroyed()), this, SLOT(settingsWidgetDestroyed()));
+      connect(m_settingsWidget->orbitalCombo, SIGNAL(currentIndexChanged(int)),
+              this, SLOT(setOrbital(int)));
+      connect(m_settingsWidget->opacitySlider, SIGNAL(valueChanged(int)),
+              this, SLOT(setOpacity(int)));
+      connect(m_settingsWidget->renderCombo, SIGNAL(currentIndexChanged(int)),
+              this, SLOT(setRenderMode(int)));
+      connect(m_settingsWidget->drawBoxCheck, SIGNAL(stateChanged(int)),
+              this, SLOT(setDrawBox(int)));
+      connect(m_settingsWidget->isoSpin, SIGNAL(valueChanged(double)),
+              this, SLOT(setIso(double)));
+      connect(m_settingsWidget->isoSpin, SIGNAL(editingFinished()),
+              this, SLOT(isoDone()));
+      connect(m_settingsWidget->posColor, SIGNAL(colorChanged(QColor)),
+              this, SLOT(setPosColor(QColor)));
+      connect(m_settingsWidget->negColor, SIGNAL(colorChanged(QColor)),
+              this, SLOT(setNegColor(QColor)));
+      connect(m_settingsWidget, SIGNAL(destroyed()),
+              this, SLOT(settingsWidgetDestroyed()));
+
+      // Initialise the widget from saved settings
+      m_settingsWidget->opacitySlider->setValue(static_cast<int>(m_alpha * 20));
+      m_settingsWidget->isoSpin->setValue(m_iso);
+      m_settingsWidget->renderCombo->setCurrentIndex(m_renderMode);
+      m_settingsWidget->drawBoxCheck->setChecked(m_drawBox);
 
       // Initialise the colour buttons
       QColor initial;
@@ -376,6 +410,7 @@ namespace Avogadro {
       m_settingsWidget->posColor->setColor(initial);
       initial.setRgbF(m_negColor.red(), m_negColor.green(), m_negColor.blue());
       m_settingsWidget->negColor->setColor(initial);
+      m_update = true;
     }
     return m_settingsWidget;
   }
@@ -415,27 +450,26 @@ namespace Avogadro {
     // Updating primitives does not invalidate these surfaces...
   }
 
-  /*
   void OrbitalEngine::writeSettings(QSettings &settings) const
   {
     Engine::writeSettings(settings);
     settings.setValue("alpha", m_alpha);
-    settings.setValue("stepSize", m_stepSize);
-    settings.setValue("padding", m_padding);
-    //settings.setValue("renderMode", m_renderMode);
-    //settings.setValue("colorMode", m_colorMode);
+    settings.setValue("iso", m_iso);
+    settings.setValue("renderMode", m_renderMode);
+    settings.setValue("drawBox", m_drawBox);
+//    settings.setValue("posColor", m_posColor);
+//    settings.setValue("posColor", m_negColor);
   }
 
   void OrbitalEngine::readSettings(QSettings &settings)
   {
     Engine::readSettings(settings);
-    //m_alpha = settings.value("alpha", 0.5).toDouble();
-    m_stepSize = settings.value("stepSize", 0.33333).toDouble();
-    m_padding = settings.value("padding", 2.5).toDouble();
-    m_renderMode = 0;
-    m_colorMode = 0;
+    m_alpha = settings.value("alpha", 0.5).toDouble();
+    m_iso = settings.value("iso", 0.02).toDouble();
+    m_renderMode = settings.value("renderMode", 0).toInt();
+    m_drawBox = settings.value("drawBox", false).toBool();
   }
-  */
+
 }
 
 #include "orbitalengine.moc"

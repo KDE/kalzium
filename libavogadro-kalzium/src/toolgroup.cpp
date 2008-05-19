@@ -2,6 +2,7 @@
   ToolGroup - GLWidget manager for Tools.
 
   Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -64,30 +65,32 @@ namespace Avogadro {
 
   void ToolGroup::load()
   {
-    QString prefixPath = QString(INSTALL_PREFIX) + "/lib/avogadro-kalzium/tools";
+    QString prefixPath = QString(INSTALL_PREFIX) + '/'
+      + QString(INSTALL_LIBDIR) + "/avogadro-kalzium/tools";
     QStringList pluginPaths;
-    pluginPaths << prefixPath;
-    // Now for the 64 bit case with no symlink
-    prefixPath = QString(INSTALL_PREFIX) + "/lib64/avogadro-kalzium/tools";
     pluginPaths << prefixPath;
 
 #ifdef WIN32
 	pluginPaths << "./tools";
 #endif
 
-    // Use a Kalzium specific variable for people who know what they are doing
-    if(getenv("KAVOGADRO_TOOLS") != NULL)
-      pluginPaths = QString(getenv("KAVOGADRO_TOOLS")).split(':');
+    // Krazy: Use QProcess:
+    // http://doc.trolltech.com/4.3/qprocess.html#systemEnvironment
+    if(getenv("KALZIUM_TOOLS") != NULL)
+    {
+      pluginPaths = QString(getenv("KALZIUM_TOOLS")).split(':');
+    }
 
-    foreach (QString path, pluginPaths)
+    foreach (const QString& path, pluginPaths)
     {
       QDir dir(path);
-      foreach (QString fileName, dir.entryList(QDir::Files)) {
-//        qDebug() << fileName;
+      foreach (const QString& fileName, dir.entryList(QDir::Files))
+      {
         QPluginLoader loader(dir.absoluteFilePath(fileName));
         QObject *instance = loader.instance();
         ToolFactory *factory = qobject_cast<ToolFactory *>(instance);
-        if (factory) {
+        if (factory)
+        {
           Tool *tool = factory->createInstance(this);
           qDebug() << "Found Tool: " << tool->name() << " - " << tool->description();
           d->tools.append(tool);
