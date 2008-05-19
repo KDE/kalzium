@@ -65,8 +65,7 @@ namespace Avogadro {
 
   void ToolGroup::load()
   {
-    QString prefixPath = QString(INSTALL_PREFIX) + '/'
-      + QString(INSTALL_LIBDIR) + "/avogadro-kalzium/tools";
+    QString prefixPath = QString(INSTALL_LIBDIR) + "/avogadro-kalzium/tools";
     QStringList pluginPaths;
     pluginPaths << prefixPath;
 

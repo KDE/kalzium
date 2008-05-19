@@ -118,9 +118,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
     error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located.");
   else if(!nTools)
     error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
-  /// FIXME: QMessageBox used for now - KMessageBox was causing freezes
   if(!nEngines || !nTools)
-    KMessageBox::error(this, i18n("Kalzium"), error);
+    KMessageBox::error(this, error, i18n("Kalzium"));
 }
 
 void MoleculeDialog::slotHelp()

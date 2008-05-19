@@ -299,8 +299,8 @@ namespace Avogadro {
     static bool enginesLoaded = false;
     if(!enginesLoaded)
       {
-        QString prefixPath = QString(INSTALL_PREFIX) + '/'
-          + QString(INSTALL_LIBDIR) + "/avogadro-kalzium/engines";
+        QString prefixPath = QString(INSTALL_LIBDIR) + "/avogadro-kalzium/engines";
+        qDebug() << "Searching for engines in" << prefixPath;
         QStringList pluginPaths;
         pluginPaths << prefixPath;
 
