@@ -37,7 +37,7 @@ using namespace Avogadro;
 extern Avogadro::ElementTranslator Avogadro::elementTranslator;
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
-	: KDialog( parent ), m_periodicTable(0)
+	: KDialog( parent ), m_periodicTable(0), m_addHydrogens(false)
 {
 	// use multi-sample (anti-aliased) OpenGL if available
 	QGLFormat defFormat = QGLFormat::defaultFormat();
@@ -114,6 +114,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
       this, SLOT(slotBondOrderChanged(int)));
   connect(ui.hydrogenBox, SIGNAL(stateChanged(int)),
       this, SLOT(slotAddHydrogensChanged(int)));
+  connect(ui.hydrogensButton, SIGNAL(clicked()),
+      this, SLOT(slotAdjustHydrogens()));
   connect(ui.optimizeButton, SIGNAL(clicked()),
       this, SLOT(slotGeometryOptimize()));
       
@@ -259,8 +261,6 @@ void MoleculeDialog::slotSaveMolecule()
       "* *.*|"+allFiles,
     this,
     i18n( "Choose a file to save to" ) );
-  if(filename.isEmpty())
-    return false;
   bool saved = OpenBabel2Wrapper::writeMolecule( filename, ui.glWidget->molecule() );
 }
 
@@ -396,6 +396,22 @@ void MoleculeDialog::slotAddHydrogensChanged(int hydrogens)
 {
   m_drawSettings->setValue("addHydrogens", hydrogens);
   ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+}
+
+void MoleculeDialog::slotAdjustHydrogens()
+{
+  // Add/remove hydrogens from the molecule
+  if (!m_addHydrogens) {
+    ui.hydrogensButton->setText(i18n("Remove hydrogens"));
+    ui.glWidget->molecule()->AddHydrogens(false,true);
+    m_addHydrogens = true;
+  }
+  else {
+    ui.hydrogensButton->setText(i18n("Add hydrogens"));
+    ui.glWidget->molecule()->DeleteHydrogens();
+    m_addHydrogens = false;
+  }
+  ui.glWidget->molecule()->update();
 }
 
 void MoleculeDialog::slotGeometryOptimize()

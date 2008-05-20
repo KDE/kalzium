@@ -16,118 +16,7 @@
    </sizepolicy>
   </property>
   <layout class="QGridLayout" name="gridLayout" >
-   <item row="4" column="0" >
-    <spacer>
-     <property name="orientation" >
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0" >
-      <size>
-       <width>237</width>
-       <height>194</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item rowspan="5" row="0" column="1" >
-    <widget class="KalziumGLWidget" native="1" name="glWidget" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
-       <horstretch>10</horstretch>
-       <verstretch>10</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize" >
-      <size>
-       <width>240</width>
-       <height>240</height>
-      </size>
-     </property>
-     <property name="sizeIncrement" >
-      <size>
-       <width>10</width>
-       <height>10</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize" >
-      <size>
-       <width>240</width>
-       <height>110</height>
-      </size>
-     </property>
-     <property name="title" >
-      <string>Statistics</string>
-     </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" >
-       <layout class="QGridLayout" >
-        <item row="0" column="0" >
-         <widget class="QLabel" name="label_3" >
-          <property name="text" >
-           <string>Name:</string>
-          </property>
-          <property name="alignment" >
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1" >
-         <widget class="QLabel" name="nameLabel" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" >
-         <widget class="QLabel" name="label_7" >
-          <property name="text" >
-           <string>Formula:</string>
-          </property>
-          <property name="alignment" >
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1" >
-         <widget class="QLabel" name="formulaLabel" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" >
-         <widget class="QLabel" name="label_4" >
-          <property name="text" >
-           <string>Weight:</string>
-          </property>
-          <property name="alignment" >
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1" >
-         <widget class="QLabel" name="weightLabel" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item rowspan="2" row="0" column="0" >
+   <item row="0" column="0" >
     <widget class="QTabWidget" name="tabWidget" >
      <property name="currentIndex" >
       <number>0</number>
@@ -137,8 +26,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>253</width>
-        <height>156</height>
+        <width>254</width>
+        <height>178</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -380,8 +269,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>253</width>
-        <height>156</height>
+        <width>254</width>
+        <height>178</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -463,7 +352,47 @@
          <property name="text" >
           <string>Adjust Hydrogens</string>
          </property>
+         <property name="checked" >
+          <bool>false</bool>
+         </property>
         </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_8" >
+         <item>
+          <spacer name="horizontalSpacer" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="hydrogensButton" >
+           <property name="text" >
+            <string>Add Hydrogens</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout" >
@@ -518,17 +447,132 @@
       </layout>
      </widget>
      <widget class="QWidget" name="measure" >
+      <property name="geometry" >
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>254</width>
+        <height>178</height>
+       </rect>
+      </property>
       <attribute name="title" >
        <string>&amp;Measure</string>
       </attribute>
      </widget>
     </widget>
    </item>
+   <item rowspan="3" row="0" column="1" >
+    <widget class="KalziumGLWidget" native="1" name="glWidget" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+       <horstretch>10</horstretch>
+       <verstretch>10</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize" >
+      <size>
+       <width>240</width>
+       <height>240</height>
+      </size>
+     </property>
+     <property name="sizeIncrement" >
+      <size>
+       <width>10</width>
+       <height>10</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize" >
+      <size>
+       <width>240</width>
+       <height>110</height>
+      </size>
+     </property>
+     <property name="title" >
+      <string>Statistics</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" >
+       <layout class="QGridLayout" >
+        <item row="0" column="0" >
+         <widget class="QLabel" name="label_3" >
+          <property name="text" >
+           <string>Name:</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" >
+         <widget class="QLabel" name="nameLabel" >
+          <property name="text" >
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" >
+         <widget class="QLabel" name="label_7" >
+          <property name="text" >
+           <string>Formula:</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" >
+         <widget class="QLabel" name="formulaLabel" >
+          <property name="text" >
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" >
+         <widget class="QLabel" name="label_4" >
+          <property name="text" >
+           <string>Weight:</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" >
+         <widget class="QLabel" name="weightLabel" >
+          <property name="text" >
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>237</width>
+       <height>194</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
-  <zorder>glWidget</zorder>
-  <zorder>groupBox</zorder>
-  <zorder>tabWidget</zorder>
-  <zorder>label</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -70,7 +70,7 @@ bool OpenBabel2Wrapper::writeMolecule( const QString& filename, Avogadro::Molecu
   if ( !outFileStream ) {
     KMessageBox::error(  0,
       i18n( "Problem while opening the file" ),
-      i18n( "Cannot open the specified file." ) );
+      i18n( "Cannot save the specified file." ) );
     return false;
   }
   outFormat = Conv.FormatFromExt( QFile::encodeName(filename) );

@@ -50,6 +50,7 @@ class MoleculeDialog : public KDialog
     OpenBabel::OBForceField* m_forceField;
 		KDialog *m_helpWindow;
     QSettings *m_drawSettings;
+    bool m_addHydrogens;
 
 		Ui::moleculeViewerForm ui;	
 
@@ -105,6 +106,11 @@ class MoleculeDialog : public KDialog
      * Update the statistical information about the current molecule
      */
     void slotUpdateStatistics();
+
+    /**
+     * Add/remove hydrogens
+     */
+     void slotAdjustHydrogens();
 
     /**
      * Geometry optimisation
