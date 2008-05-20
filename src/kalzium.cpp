@@ -260,9 +260,9 @@ void Kalzium::setupActions()
 #endif
 
     m_pMoleculesviewer = actionCollection()->addAction( "tools_moleculeviewer" );
-    m_pMoleculesviewer->setText( i18n( "Molecular Viewer..." ) );
+    m_pMoleculesviewer->setText( i18n( "Molecular Editor..." ) );
     m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
-    m_pMoleculesviewer->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to view 3D molecular structures." ) );
+    m_pMoleculesviewer->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to view and edit 3D molecular structures." ) );
     connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
 #if !defined(HAVE_OPENBABEL2) || !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN)
     m_pMoleculesviewer->setEnabled( false );

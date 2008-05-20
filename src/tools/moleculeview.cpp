@@ -44,7 +44,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	defFormat.setSampleBuffers(true);
 	QGLFormat::setDefaultFormat(defFormat);
 
-	setCaption( i18n( "Molecular Viewer" ) );
+	setCaption( i18n( "Molecular Editor" ) );
 	setButtons( Help | User3 | User2 | User1 | Close );
 
 	setDefaultButton( User1 );
