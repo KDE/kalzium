@@ -125,37 +125,6 @@ void KalziumGLWidget::setQuality(int quality)
     GLWidget::update();
 }
 
-void KalziumGLWidget::setNavigate()
-{
-    const QList<Avogadro::Tool *> toolList = toolGroup()->tools();
-    foreach(Avogadro::Tool *tool, toolList)
-        if (tool->name() == "Navigate")
-        {
-            toolGroup()->setActiveTool(tool);
-            kDebug() << "Navigate tool selected";
-            return;
-        }
-}
-
-void KalziumGLWidget::setEdit()
-{
-    const QList<Avogadro::Tool *> toolList = toolGroup()->tools();
-    foreach(Avogadro::Tool *tool, toolList)
-    {
-        if (tool->name() == "Draw")
-        {
-            toolGroup()->setActiveTool(tool);
-            kDebug() << "Draw tool selected.";
-            return;
-        }
-    }
-    if (!molecule())
-    {
-      setMolecule(new Avogadro::Molecule(this));
-      update();
-    }
-}
-
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
 
 K_EXPORT_COMPONENT_FACTORY (libkalziumglpart, KalziumGLPartFactory)

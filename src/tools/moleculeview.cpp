@@ -45,13 +45,15 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	QGLFormat::setDefaultFormat(defFormat);
 
 	setCaption( i18n( "Molecular Viewer" ) );
-	setButtons( Help | User2 | User1 | Close );
+	setButtons( Help | User3 | User2 | User1 | Close );
 
 	setDefaultButton( User1 );
 
-	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "document-open", i18n( "Loading a molecule" ) ) );
+	setButtonGuiItem( User1, KGuiItem( i18n( "Load Molecule" ), "document-open", i18n( "Loading a molecule" ) ) );
 
 	setButtonGuiItem( User2, KGuiItem( i18n( "Download New Molecules" ), "get-hot-new-stuff", i18n( "Download new molecule files" ) ) );
+
+  setButtonGuiItem( User3, KGuiItem( i18n( "Save Molecule" ), "document-save", i18n( "Saving a molecule" ) ) );
 	
 	ui.setupUi(mainWidget());
 
@@ -77,7 +79,16 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
   QUndoStack* tmp = new QUndoStack(this);
   ui.glWidget->setUndoStack(tmp);
 
+  // Set up the elements combo and bond order combo
   elementCombo();
+  ui.bondCombo->addItem(i18n("Single"));
+  ui.bondCombo->addItem(i18n("Double"));
+  ui.bondCombo->addItem(i18n("Triple"));
+  // Initialise the draw settings
+  m_drawSettings = new QSettings;
+  m_drawSettings->setValue("currentElement", 6);
+  m_drawSettings->setValue("bondOrder", 1);
+  m_drawSettings->setValue("addHydrogens", 0);
 	
 	m_helpWindow = NULL;
 
@@ -89,14 +100,20 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			ui.glWidget , SLOT( setQuality( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setStyle( int ) ) );
+  connect( ui.style2Combo, SIGNAL(activated( int )),
+      ui.glWidget , SLOT( setStyle2( int ) ) );
 	connect( ui.labelsCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setLabels( int ) ) );
 	connect( this, SIGNAL( helpClicked() ), 
 			this, SLOT( slotHelp() ) );
 
   // Editing parameters
-  connect(ui.elementCombo, SIGNAL(activated(int)),
+  connect(ui.elementCombo, SIGNAL(currentIndexChanged(int)),
       this, SLOT(slotElementChanged(int)));
+  connect(ui.bondCombo, SIGNAL(currentIndexChanged(int)),
+      this, SLOT(slotBondOrderChanged(int)));
+  connect(ui.hydrogenBox, SIGNAL(stateChanged(int)),
+      this, SLOT(slotAddHydrogensChanged(int)));
   connect(ui.optimizeButton, SIGNAL(clicked()),
       this, SLOT(slotGeometryOptimize()));
       
@@ -107,6 +124,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			this, SLOT( slotLoadMolecule() ) );
 	connect( this, SIGNAL( user2Clicked() ), 
 			this, SLOT( slotDownloadNewStuff() ) );
+  connect( this, SIGNAL( user3Clicked() ),
+      this, SLOT( slotSaveMolecule() ) );
 
 	// Check that we have managed to load up some tools and engines
   int nEngines = ui.glWidget->engines().size() - 1;
@@ -226,11 +245,19 @@ void MoleculeDialog::slotLoadMolecule()
 	}
 }
 
+void MoleculeDialog::slotSaveMolecule()
+{
+
+}
+
 void MoleculeDialog::setViewEdit(int mode)
 {
-    kDebug() << "Display mode: " << mode;
-    if (mode == 0) ui.glWidget->setNavigate();
-    else if (mode == 1) ui.glWidget->setEdit();
+    if (mode == 0) ui.glWidget->toolGroup()->setActiveTool("Navigate");
+    else if (mode == 1) {
+      ui.glWidget->toolGroup()->setActiveTool("Draw");
+      ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+    }
+    else if (mode == 2) ui.glWidget->toolGroup()->setActiveTool("Measure");
 }
 
 MoleculeDialog::~MoleculeDialog( )
@@ -304,17 +331,15 @@ void MoleculeDialog::slotElementChanged(int element)
     return;
   }
 
-  QSettings settings;
-  settings.setValue("currentElement", m_elementsIndex[element]);
-  ui.glWidget->toolGroup()->activeTool()->readSettings(settings);
+  m_drawSettings->setValue("currentElement", m_elementsIndex[element]);
+  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
 }
 
 void MoleculeDialog::slotCustomElementChanged(int element)
 {
   // Set the element so we can draw with it
-  QSettings settings;
-  settings.setValue("currentElement", element);
-  ui.glWidget->toolGroup()->activeTool()->readSettings(settings);
+  m_drawSettings->setValue("currentElement", element);
+  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
 
   // Check to see if we already have this in the comboBox list
   // If not, we get back -1 and need to create a new item
@@ -345,6 +370,18 @@ void MoleculeDialog::slotCustomElementChanged(int element)
   m_elementsIndex.insert(position, element);
   ui.elementCombo->insertItem(position, entryName);
   ui.elementCombo->setCurrentIndex(position);
+}
+
+void MoleculeDialog::slotBondOrderChanged(int bond)
+{
+  m_drawSettings->setValue("bondOrder", bond+1);
+  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+}
+
+void MoleculeDialog::slotAddHydrogensChanged(int hydrogens)
+{
+  m_drawSettings->setValue("addHydrogens", hydrogens);
+  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
 }
 
 void MoleculeDialog::slotGeometryOptimize()

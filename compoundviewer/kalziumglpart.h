@@ -31,9 +31,7 @@ class KalziumGLWidget : public Avogadro::GLWidget
       void setStyle(int style);
       void setLabels(int style);
       void setQuality(int quality);
-      void setNavigate();
-      void setEdit();
-        
+
     protected:
       QString lc_numeric;
 };

@@ -30,6 +30,7 @@
 namespace Avogadro{
   class PeriodicTableView;
 }
+class QSettings;
 
 /**
  * @author Carsten Niehaus
@@ -48,6 +49,7 @@ class MoleculeDialog : public KDialog
     Avogadro::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
 		KDialog *m_helpWindow;
+    QSettings *m_drawSettings;
 
 		Ui::moleculeViewerForm ui;	
 
@@ -68,6 +70,11 @@ class MoleculeDialog : public KDialog
 		void slotDownloadNewStuff();
 
     /**
+     * Save a molecule
+     */
+    void slotSaveMolecule();
+
+    /**
      * Set view/edit mode
      */
     void setViewEdit(int mode);
@@ -83,6 +90,16 @@ class MoleculeDialog : public KDialog
      * Custom element has been selected
      */
     void slotCustomElementChanged(int);
+
+    /**
+     * Bond order has been changed
+     */
+    void slotBondOrderChanged(int);
+
+    /**
+     * Automatic hydrogen addition on drawing
+     */
+    void slotAddHydrogensChanged(int);
 
     /**
      * Update the statistical information about the current molecule

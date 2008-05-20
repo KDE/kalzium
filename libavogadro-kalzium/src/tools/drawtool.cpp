@@ -749,6 +749,7 @@ namespace Avogadro {
   {
     Tool::writeSettings(settings);
     settings.setValue("currentElement", element());
+    settings.setValue("bondOrder", m_bondOrder);
     settings.setValue("addHydrogens", m_addHydrogens);
     if (m_fragmentDialog) {
       settings.setValue("smiles", m_fragmentDialog->smilesString());
@@ -759,8 +760,9 @@ namespace Avogadro {
   void DrawTool::readSettings(QSettings &settings)
   {
     Tool::readSettings(settings);
-    setAddHydrogens(settings.value("addHydrogens", 2).toInt());
+    setAddHydrogens(settings.value("addHydrogens", 1).toInt());
     setElement(settings.value("currentElement", 6).toInt());
+    setBondOrder(settings.value("bondOrder", 1).toInt());
     if (m_comboElements)
     {
       int index = 0;
