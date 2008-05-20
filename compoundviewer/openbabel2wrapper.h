@@ -1,8 +1,6 @@
-#ifndef OPENBABEL2WRAPPER_H
-#define OPENBABEL2WRAPPER_H
 /***************************************************************************
-    copyright            : (C) 2006 by Carsten Niehaus
-    email                : cniehaus@kde.org
+ *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+ *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -14,14 +12,15 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef OPENBABEL2WRAPPER_H
+#define OPENBABEL2WRAPPER_H
+
 //includes for OpenBabel2
 #include <openbabel/obconversion.h>
 #include <openbabel/mol.h>
 #include <avogadro/primitive.h>
 
 #include <libkdeedu_compoundviewer_export.h>
-
-
 
 /**
  * @author Carsten Niehaus
@@ -34,6 +33,8 @@ class COMPOUNDVIEWER_EXPORT OpenBabel2Wrapper
 		 * the file couldn't be read.
 		 */
 		static Avogadro::Molecule* readMolecule( const QString& filename );
+
+    static bool writeMolecule( const QString& filename, Avogadro::Molecule* );
 		
 		static QString getFormula( Avogadro::Molecule* molecule );
 		

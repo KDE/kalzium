@@ -198,18 +198,19 @@ void MoleculeDialog::slotLoadMolecule()
 {
 	// Check that we have managed to load up some tools and engines
 	int nEngines = ui.glWidget->engines().size() - 1;
-        int nTools = ui.glWidget->toolGroup()->tools().size();
+  int nTools = ui.glWidget->toolGroup()->tools().size();
 	QString error;
-        if(!nEngines && !nTools)
-          error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-        else if(!nEngines)
-          error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-        else if(!nTools)
-          error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-        if(!nEngines || !nTools)
-          KMessageBox::information(this, error);
+  if(!nEngines && !nTools)
+    error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
+  else if(!nEngines)
+    error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
+  else if(!nTools)
+    error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
+  if(!nEngines || !nTools)
+    KMessageBox::information(this, error);
 
-        m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
+  m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) +
+    "data/molecules/";
 
 	QString commonMoleculeFormats = i18n( "Common molecule formats" );
 	QString allFiles = i18n( "All files" );
@@ -247,7 +248,18 @@ void MoleculeDialog::slotLoadMolecule()
 
 void MoleculeDialog::slotSaveMolecule()
 {
-
+  KUrl url("kfiledialog:///kalzium");
+  QString commonMoleculeFormats = i18n( "Common molecule formats" );
+  QString allFiles = i18n( "All files" );
+  QString filename = KFileDialog::getSaveFileName(url,
+    "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+      " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
+      " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
+      " *.mpd *.mol2|"+commonMoleculeFormats+"\n"
+      "* *.*|"+allFiles,
+    this,
+    i18n( "Choose a file to save to" ) );
+  bool saved = OpenBabel2Wrapper::writeMolecule( filename, ui.glWidget->molecule() );
 }
 
 void MoleculeDialog::setViewEdit(int mode)

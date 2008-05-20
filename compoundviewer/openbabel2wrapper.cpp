@@ -38,12 +38,11 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	Avogadro::Molecule *mol = new Avogadro::Molecule;
 	std::ifstream inFileStream( QFile::encodeName(filename) );
 	if ( !inFileStream ) {
-            KMessageBox::error(  0, 
-                    i18n( "Problem while opening the file" ),
-                    i18n( "Cannot open the specified file." ) 
-                    );
-            delete mol;
-            return 0;
+    KMessageBox::error(  0, 
+      i18n( "Problem while opening the file" ),
+      i18n( "Cannot open the specified file." ) );
+    delete mol;
+    return 0;
 	}
 
 	//find out which format the file has...
@@ -60,6 +59,30 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	kDebug() << QString::fromLatin1( mol->GetFormula().c_str() )  << " (Weight: " << mol->GetMolWt() << ", Title: "<< mol->GetTitle() << ")";
 
 	return mol;
+}
+
+bool OpenBabel2Wrapper::writeMolecule( const QString& filename, Avogadro::Molecule* mol )
+{
+  OpenBabel::OBConversion Conv;
+  OpenBabel::OBFormat *outFormat = NULL;
+
+  std::ofstream outFileStream( QFile::encodeName(filename) );
+  if ( !outFileStream ) {
+    KMessageBox::error(  0,
+      i18n( "Problem while opening the file" ),
+      i18n( "Cannot open the specified file." ) );
+    return false;
+  }
+  outFormat = Conv.FormatFromExt( QFile::encodeName(filename) );
+  if (!outFormat || !Conv.SetOutFormat(outFormat))
+  {
+    KMessageBox::error( 0, i18n("Cannot save the file format. Check your OpenBabel installation."), i18n("Problem saving to file format"));
+    delete mol;
+    return false;
+  }
+  Conv.SetInAndOutFormats( outFormat,outFormat );
+  Conv.Write( mol, &outFileStream );
+  return true;
 }
 
 QString OpenBabel2Wrapper::getFormula( Avogadro::Molecule* molecule )
