@@ -303,6 +303,7 @@ namespace Avogadro {
 
   void Eyecandy::drawZoom(GLWidget *widget, const Eigen::Vector3d& center, double size)
   {
+#if 0 // disable for KDE 4.1, too ugly for now
     widget->painter()->setColor(&m_color);
     //   glEnable( GL_BLEND );
     //   widget->painter()->drawSphere(center, radius);
@@ -382,6 +383,7 @@ namespace Avogadro {
 //    glDisable(GL_BLEND);
     glEnable(GL_LIGHTING);
 //    glDepthMask(GL_TRUE);
+#endif
   }
 
   void Eyecandy::setColor(const Color &color)

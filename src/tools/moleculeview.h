@@ -48,7 +48,6 @@ class MoleculeDialog : public KDialog
     QList<int> m_elementsIndex; // Index storing the element combo index
     Avogadro::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
-		KDialog *m_helpWindow;
     QSettings *m_drawSettings;
     bool m_addHydrogens;
 
@@ -79,8 +78,6 @@ class MoleculeDialog : public KDialog
      * Set view/edit mode
      */
     void setViewEdit(int mode);
-
-		void slotHelp();
 
     /**
      * Current element has changed

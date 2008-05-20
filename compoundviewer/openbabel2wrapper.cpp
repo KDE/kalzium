@@ -69,14 +69,15 @@ bool OpenBabel2Wrapper::writeMolecule( const QString& filename, Avogadro::Molecu
   std::ofstream outFileStream( QFile::encodeName(filename) );
   if ( !outFileStream ) {
     KMessageBox::error(  0,
-      i18n( "Problem while opening the file" ),
-      i18n( "Cannot save the specified file." ) );
+      i18n( "Cannot save to the specified file." )
+      );
     return false;
   }
   outFormat = Conv.FormatFromExt( QFile::encodeName(filename) );
   if (!outFormat || !Conv.SetOutFormat(outFormat))
   {
-    KMessageBox::error( 0, i18n("Cannot save the file format. Check your OpenBabel installation."), i18n("Problem saving to file format"));
+    KMessageBox::error( 0, i18n("Unrecognized file format extension. Please append an extension to the file name, "
+                                "for example \".cml\".") );
     delete mol;
     return false;
   }
