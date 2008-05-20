@@ -22,7 +22,8 @@
 
 #include "openbabel2wrapper.h"
 
-KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
+KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
+  m_lastEngine1(0), m_lastEngine2(0)
 {
     // work around a bug in OpenBabel: the chemical data files parsing
     // is dependent on the LC_NUMERIC locale.
@@ -61,6 +62,13 @@ void KalziumGLWidget::setStyle( int style )
 {
     foreach(Avogadro::Engine *engine, engines())
     {
+        if((m_lastEngine1 == 0 && engine->name() == "Ball and Stick")
+           || (m_lastEngine1 == 1 && engine->name() == "Stick")
+           || (m_lastEngine1 == 2 && engine->name() == "Van der Waals Spheres")
+           || (m_lastEngine1 == 3 && engine->name() == "Wireframe"))
+        {
+            engine->setEnabled(false);
+        }
         if((style == 0 && engine->name() == "Ball and Stick")
            || (style == 1 && engine->name() == "Stick")
            || (style == 2 && engine->name() == "Van der Waals Spheres")
@@ -68,9 +76,29 @@ void KalziumGLWidget::setStyle( int style )
         {
             engine->setEnabled(true);
         }
-        else if(engine->name() != "Label")
-            engine->setEnabled(false);
     }
+    m_lastEngine1 = style;
+    update();
+}
+
+void KalziumGLWidget::setStyle2( int style )
+{
+    foreach(Avogadro::Engine *engine, engines())
+    {
+        if((m_lastEngine2 == 1 && engine->name() == "Ribbon")
+           || (m_lastEngine2 == 2 && engine->name() == "Ring")
+           || (m_lastEngine2 == 3 && engine->name() == "Orbitals"))
+        {
+            engine->setEnabled(false);
+        }
+        if((style == 1 && engine->name() == "Ribbon")
+           || (style == 2 && engine->name() == "Ring")
+           || (style == 3 && engine->name() == "Orbitals"))
+        {
+            engine->setEnabled(true);
+        }
+    }
+    m_lastEngine2 = style;
     update();
 }
 

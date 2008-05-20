@@ -29,11 +29,13 @@ class KalziumGLWidget : public Avogadro::GLWidget
         
     public slots:
       void setStyle(int style);
+      void setStyle2(int style);
       void setLabels(int style);
       void setQuality(int quality);
 
     protected:
       QString lc_numeric;
+      int m_lastEngine1, m_lastEngine2;
 };
 
 class KalziumGLPart : public KParts::ReadOnlyPart
