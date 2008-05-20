@@ -403,7 +403,7 @@ void MoleculeDialog::slotAdjustHydrogens()
   // Add/remove hydrogens from the molecule
   if (!m_addHydrogens) {
     ui.hydrogensButton->setText(i18n("Remove hydrogens"));
-    ui.glWidget->molecule()->AddHydrogens(false,true);
+    ui.glWidget->molecule()->AddHydrogens(false, false);
     m_addHydrogens = true;
   }
   else {
