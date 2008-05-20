@@ -259,6 +259,8 @@ void MoleculeDialog::slotSaveMolecule()
       "* *.*|"+allFiles,
     this,
     i18n( "Choose a file to save to" ) );
+  if(filename.isEmpty())
+    return false;
   bool saved = OpenBabel2Wrapper::writeMolecule( filename, ui.glWidget->molecule() );
 }
 
