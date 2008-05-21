@@ -54,6 +54,6 @@ TARGET_LINK_LIBRARIES(avogadro-kalzium ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
 
 INSTALL(TARGETS avogadro-kalzium DESTINATION ${LIB_INSTALL_DIR})
 
-# Add the engiens, tools and extensions directories
+# Add the engines and tools directories
 add_subdirectory(engines)
 add_subdirectory(tools)

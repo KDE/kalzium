@@ -37,29 +37,6 @@ TARGET_LINK_LIBRARIES(wireengine avogadro-kalzium
 )
 INSTALL(TARGETS wireengine DESTINATION ${DESTINATION_DIR})
 
-# hydrogen bond
-set(hbondengine_SRCS hbondengine.cpp)
-qt4_automoc(${hbondengine_SRCS})
-qt4_wrap_ui(hbondengine_UIS hbondsettingswidget.ui)
-ADD_LIBRARY(hbondengine SHARED ${hbondengine_SRCS} ${hbondengine_UIS})
-TARGET_LINK_LIBRARIES(hbondengine avogadro-kalzium
-                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                ${OPENGL_LIBRARIES}
-)
-INSTALL(TARGETS hbondengine DESTINATION ${DESTINATION_DIR})
-
-# force engine
-set(forceengine_SRCS forceengine.cpp)
-qt4_automoc(${forceengine_SRCS})
-#qt4_wrap_ui(hbondengine_UIS hbondsettingswidget.ui)
-ADD_LIBRARY(forceengine SHARED ${forceengine_SRCS} ${forceengine_UIS})
-TARGET_LINK_LIBRARIES(forceengine avogadro-kalzium
-                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                ${OPENGL_LIBRARIES}
-)
-INSTALL(TARGETS forceengine DESTINATION ${DESTINATION_DIR})
-
-
 # sphere
 set(sphereengine_SRCS sphereengine.cpp)
 qt4_wrap_ui(sphereengine_UIS spheresettingswidget.ui)
@@ -107,29 +84,6 @@ TARGET_LINK_LIBRARIES(ringengine avogadro-kalzium
 
 INSTALL(TARGETS ringengine DESTINATION ${DESTINATION_DIR})
 
-# Polygon engine
-set(polygonengine_SRCS polygonengine.cpp)
-qt4_automoc(${polygonengine_SRCS})
-ADD_LIBRARY(polygonengine SHARED ${polygonengine_SRCS} )
-TARGET_LINK_LIBRARIES(polygonengine avogadro-kalzium
-                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                ${OPENGL_LIBRARIES}
-)
-
-INSTALL(TARGETS polygonengine DESTINATION ${DESTINATION_DIR})
-
-# Surface engine - molecular surfaces and 3D functions
-set(surfaceengine_SRCS iso.cpp surfaceengine.cpp)
-qt4_wrap_ui(surfaceengine_UIS surfacesettingswidget.ui)
-qt4_automoc(${surfaceengine_SRCS})
-ADD_LIBRARY(surfaceengine SHARED ${surfaceengine_SRCS} ${surfaceengine_UIS})
-TARGET_LINK_LIBRARIES(surfaceengine avogadro-kalzium
-                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                ${OPENGL_LIBRARIES}
-)
-
-INSTALL(TARGETS surfaceengine DESTINATION ${DESTINATION_DIR})
-
 # Orbital engine - molecular orbitals
 set(orbitalengine_SRCS iso.cpp orbitalengine.cpp)
 qt4_wrap_ui(orbitalengine_UIS orbitalsettingswidget.ui)
@@ -142,14 +96,3 @@ TARGET_LINK_LIBRARIES(orbitalengine avogadro-kalzium
 
 INSTALL(TARGETS orbitalengine DESTINATION ${DESTINATION_DIR})
 
-# Axes engine - display the axes
-set(axesengine_SRCS axesengine.cpp)
-#qt4_wrap_ui(axesengine_UIS axesettingswidget.ui)
-qt4_automoc(${axesengine_SRCS})
-ADD_LIBRARY(axesengine SHARED ${axesengine_SRCS})
-TARGET_LINK_LIBRARIES(axesengine avogadro-kalzium
-                                ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                ${OPENGL_LIBRARIES}
-)
-
-INSTALL(TARGETS axesengine DESTINATION ${DESTINATION_DIR})

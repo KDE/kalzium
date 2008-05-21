@@ -33,20 +33,6 @@ TARGET_LINK_LIBRARIES(drawtool
     avogadro-kalzium)
 INSTALL(TARGETS drawtool DESTINATION ${DESTINATION_DIR})
 
-### bondcentrictool
-set(bondcentrictool_SRCS bondcentrictool.cpp skeletontree.cpp)
-qt4_add_resources(bondcentrictool_RC_SRCS bondcentrictool.qrc)
-qt4_automoc(${bondcentrictool_SRCS})
-ADD_LIBRARY(bondcentrictool SHARED quaternion.cpp
-                            ${bondcentrictool_SRCS} ${bondcentrictool_RC_SRCS})
-TARGET_LINK_LIBRARIES(bondcentrictool
-  ${OPENBABEL2_LIBRARIES}
-  ${QT_LIBRARIES}
-  ${OPENGL_LIBRARIES}
-  avogadro-kalzium
-)
-INSTALL(TARGETS bondcentrictool DESTINATION ${DESTINATION_DIR})
-
 ### clickmeasuretool
 set(clickmeasuretool_SRCS clickmeasuretool.cpp)
 qt4_add_resources(clickmeasuretool_RC_SRCS clickmeasuretool.qrc)
@@ -59,34 +45,6 @@ TARGET_LINK_LIBRARIES(clickmeasuretool
     ${OPENGL_LIBRARIES}
     avogadro-kalzium)
 INSTALL(TARGETS clickmeasuretool DESTINATION ${DESTINATION_DIR})
-
-### selectrotatetool
-set(selectrotatetool_SRCS selectrotatetool.cpp)
-qt4_add_resources(selectrotatetool_RC_SRCS selectrotatetool.qrc)
-qt4_automoc(${selectrotatetool_SRCS})
-ADD_LIBRARY(selectrotatetool SHARED
-	${selectrotatetool_SRCS} ${selectrotatetool_RC_SRCS})
-TARGET_LINK_LIBRARIES(selectrotatetool
-	${OPENBABEL2_LIBRARIES}
-	${QT_LIBRARIES}
-	${OPENGL_LIBRARIES}
-	avogadro-kalzium
-)
-INSTALL(TARGETS selectrotatetool DESTINATION ${DESTINATION_DIR})
-
-### autoopttool
-set(autoopttool_SRCS autoopttool.cpp)
-qt4_add_resources(autoopttool_RC_SRCS autoopttool.qrc)
-qt4_automoc(${autoopttool_SRCS})
-ADD_LIBRARY(autoopttool SHARED
-	${autoopttool_SRCS} ${autoopttool_RC_SRCS})
-TARGET_LINK_LIBRARIES(autoopttool
-	${OPENBABEL2_LIBRARIES}
-	${QT_LIBRARIES}
-	${OPENGL_LIBRARIES}
-	avogadro-kalzium
-)
-INSTALL(TARGETS autoopttool DESTINATION ${DESTINATION_DIR})
 
 ### navigatetool
 set(navigatetool_SRCS navigatetool.cpp)
@@ -102,42 +60,3 @@ TARGET_LINK_LIBRARIES(navigatetool
 )
 INSTALL(TARGETS navigatetool DESTINATION ${DESTINATION_DIR})
 
-### manipulatetool
-set(manipulatetool_SRCS manipulatetool.cpp)
-qt4_add_resources(manipulatetool_RC_SRCS manipulatetool.qrc)
-qt4_automoc(${manipulatetool_SRCS})
-ADD_LIBRARY(manipulatetool SHARED eyecandy.cpp
-    ${manipulatetool_SRCS} ${manipulatetool_RC_SRCS})
-TARGET_LINK_LIBRARIES(manipulatetool
-	${OPENBABEL2_LIBRARIES}
-	${QT_LIBRARIES}
-    ${OPENGL_LIBRARIES}
-	avogadro-kalzium
-)
-INSTALL(TARGETS manipulatetool DESTINATION ${DESTINATION_DIR})
-
-### autorotatetool
-set(autorotatetool_SRCS autorotatetool.cpp)
-qt4_add_resources(autorotatetool_RC_SRCS autorotatetool.qrc)
-qt4_automoc(${autorotatetool_SRCS})
-ADD_LIBRARY(autorotatetool SHARED ${autorotatetool_SRCS} ${autorotatetool_RC_SRCS})
-TARGET_LINK_LIBRARIES(autorotatetool
-	${OPENBABEL2_LIBRARIES}
-	${QT_LIBRARIES}
-	${OPENGL_LIBRARIES}
-	avogadro-kalzium
-)
-INSTALL(TARGETS autorotatetool DESTINATION ${DESTINATION_DIR})
-
-### aligntool
-set(aligntool_SRCS aligntool.cpp)
-qt4_add_resources(aligntool_RC_SRCS aligntool.qrc)
-qt4_automoc(${aligntool_SRCS})
-ADD_LIBRARY(aligntool SHARED ${aligntool_SRCS} ${aligntool_RC_SRCS})
-TARGET_LINK_LIBRARIES(aligntool
-  ${OPENBABEL2_LIBRARIES}
-  ${QT_LIBRARIES}
-  ${OPENGL_LIBRARIES}
-  avogadro-kalzium
-)
-INSTALL(TARGETS aligntool DESTINATION ${DESTINATION_DIR})
