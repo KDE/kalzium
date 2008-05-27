@@ -140,7 +140,7 @@ if(LIBFACILE_FOUND)
    target_link_libraries(kalzium ${kalzium_EXTRA_LIBS} m dl)
 endif(LIBFACILE_FOUND)	
 
-install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kalzium  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
