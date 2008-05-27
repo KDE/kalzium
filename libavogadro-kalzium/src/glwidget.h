@@ -40,7 +40,6 @@
 
 class QUndoStack;
 class QMouseEvent;
-class QGLContext;
 
 namespace Avogadro {
 
@@ -167,7 +166,6 @@ namespace Avogadro {
    */
   class GLThread;
   class GLWidgetPrivate;
-  class GLPainterDevice;
   class A_EXPORT GLWidget : public QGLWidget
   {
     friend class GLThread;

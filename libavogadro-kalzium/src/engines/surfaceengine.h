@@ -36,7 +36,6 @@
 
 namespace Avogadro {
 
-  class SurfacePrivateData;
   class SurfaceSettingsWidget;
   
   //! VDWGridThread

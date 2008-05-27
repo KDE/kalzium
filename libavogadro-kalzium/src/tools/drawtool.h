@@ -47,7 +47,6 @@
 
 namespace Avogadro {
 
-  class AddAtomCommand;
   class DrawTool : public Tool
   {
     Q_OBJECT
