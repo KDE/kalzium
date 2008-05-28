@@ -43,7 +43,8 @@ class QWheelEvent;
 
 namespace Avogadro {
 
-  
+  class Molecule;
+
 
   class SelectRotateTool : public Tool
   {

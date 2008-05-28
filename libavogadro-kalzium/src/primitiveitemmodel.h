@@ -29,6 +29,7 @@
 #include <avogadro/engine.h>
 
 
+class QTreeView;
 namespace Avogadro {
 
   class PrimitiveItemModelPrivate;

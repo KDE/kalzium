@@ -157,6 +157,7 @@ namespace Avogadro {
    * the OpenBabel::OBAtom class through slots/signals provided by the
    * Primitive superclass.
    */
+  class AtomPrivate;
   class A_EXPORT Atom : public Primitive, public OpenBabel::OBAtom
   {
     Q_OBJECT
@@ -212,6 +213,7 @@ namespace Avogadro {
    * the OpenBabel::OBBond class through slots/signals provided by the
    * Primitive superclass.
    */
+  class BondPrivate;
   class A_EXPORT Bond : public Primitive, public OpenBabel::OBBond
   {
     Q_OBJECT
@@ -263,6 +265,7 @@ namespace Avogadro {
    * this is our model class and is used by our various views to hold
    * all required data.
    */
+  class MoleculePrivate;
   class A_EXPORT Molecule : public Primitive, public OpenBabel::OBMol
   {
     Q_OBJECT
