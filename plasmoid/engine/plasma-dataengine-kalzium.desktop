@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kalzium Data Engine
+Name[ca]=Motor de dades del Kalzium
 Name[da]=Data-motor til Kalzium
 Name[el]=Μηχανή δεδομένων Kalzium
 Name[es]=Motor de datos Kalzium
@@ -15,6 +16,7 @@ Name[x-test]=xxKalzium Data Enginexx
 Name[zh_CN]=Kalzium 数据引擎
 Name[zh_TW]=Kalzium 資料引擎
 Comment=Chemical Data
+Comment[ca]=Dades químiques
 Comment[da]=Kemisk data
 Comment[el]=Χημικά δεδομένα
 Comment[es]=Datos químicos

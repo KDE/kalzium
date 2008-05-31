@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Chemistry: Did You Know
+Name[ca]=Química: sabíeu que...
 Name[da]=Kemi: Vidste du
 Name[el]=Χημεία: Γνωρίζατε
 Name[es]=Química: Ya lo sabe
@@ -19,6 +20,7 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
+Comment[ca]=Fets sobre els elements químics
 Comment[da]=Fakta om de kemiske grundstoffer
 Comment[el]=Πληροφορίες σχετικά με χημικά στοιχεία
 Comment[es]=Cosas sobre los elementos químicos
