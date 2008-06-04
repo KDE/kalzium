@@ -18,9 +18,9 @@ configure_file(
    ${CMAKE_CURRENT_BINARY_DIR}/config-kalzium.h
 )
 
-macro_log_feature(OCAML_FOUND "OCaml" "OCaml is needed by Kalzium" "http://caml.inria.fr/" FALSE "" "")
-macro_log_feature(LIBFACILE_FOUND "LibFacile" "libfacile is needed by Kalzium" "http://www.recherche.enac.fr/log/facile/" FALSE "" "")
-macro_log_feature(OPENGL_FOUND "OpenGL" "OpenGL is needed by Kalzium" "http://www.opengl.org" FALSE "" "")
-macro_log_feature(OPENBABEL2_FOUND "OpenBabel2" "OpenBabel is needed by Kalzium" "http://openbabel.sourceforge.net/" FALSE "2.2" "")
-macro_log_feature(EIGEN_FOUND "Eigen" "Eigen is needed by Kalzium" "http://eigen.tuxfamily.org" FALSE "1.0.5")
+macro_log_feature(OCAML_FOUND "OCaml" "OCaml is needed by Kalzium for the Equation Solver" "http://caml.inria.fr/" FALSE "" "")
+macro_log_feature(LIBFACILE_FOUND "LibFacile" "libfacile is needed by Kalzium for the Equation Solver." "http://www.recherche.enac.fr/log/facile/" FALSE "" "")
+macro_log_feature(OPENGL_FOUND "OpenGL" "OpenGL is needed by Kalzium for the 3D-molecule viewer" "http://www.opengl.org" FALSE "" "")
+macro_log_feature(OPENBABEL2_FOUND "OpenBabel2" "OpenBabel is needed by Kalzium for the 3D-molecule viewer" "http://openbabel.sourceforge.net/" FALSE "2.2" "")
+macro_log_feature(EIGEN_FOUND "Eigen" "Eigen is needed by Kalzium for the 3D-molecule viewer" "http://eigen.tuxfamily.org" FALSE "1.0.5")
 
