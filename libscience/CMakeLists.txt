@@ -34,5 +34,5 @@ install(FILES
    spectrum.h
    spectrumparser.h
    tempunit.h
-   DESTINATION ${INCLUDE_INSTALL_DIR}/libkdeedu
+   DESTINATION ${INCLUDE_INSTALL_DIR}/libkdeedu  COMPONENT Devel
 )
