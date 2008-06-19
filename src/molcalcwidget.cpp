@@ -78,8 +78,8 @@ void MolcalcWidget::clear()
 	KalziumDataObject::instance()->search()->resetSearch();
 
 	// Clear the widgets.
-	ui.resultLabel->setText( "" );
-	ui.resultMass->setText( "" );
+	ui.resultLabel->clear();
+	ui.resultMass->clear();
 	
 	ui.resultComposition->setText( i18n("To start, enter\na formula in the\nwidget above and\nclick on 'Calc'.") );
 

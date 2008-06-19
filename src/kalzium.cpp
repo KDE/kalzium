@@ -180,7 +180,7 @@ static QStringList prependToListItems( const QStringList& list, const KLocalized
 void Kalzium::setupActions()
 {
     export_action = actionCollection()->add<QAction>( "file_exporter" );
-    export_action->setText( "&Export Data..." );
+    export_action->setText( i18n("&Export Data...") );
     connect( export_action, SIGNAL( triggered( bool ) ), this, SLOT( slotShowExportDialog() ) );
 
     // the action for swiching look: color schemes and gradients
