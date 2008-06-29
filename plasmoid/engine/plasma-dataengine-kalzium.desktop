@@ -2,6 +2,7 @@
 Name=Kalzium Data Engine
 Name[ca]=Motor de dades del Kalzium
 Name[da]=Data-motor til Kalzium
+Name[de]=Kalzium Datenverarbeitung
 Name[el]=Μηχανή δεδομένων Kalzium
 Name[es]=Motor de datos Kalzium
 Name[et]=Kalziumi andmemootor
@@ -22,6 +23,7 @@ Name[zh_TW]=Kalzium 資料引擎
 Comment=Chemical Data
 Comment[ca]=Dades químiques
 Comment[da]=Kemisk data
+Comment[de]=Chemische Daten
 Comment[el]=Χημικά δεδομένα
 Comment[es]=Datos químicos
 Comment[et]=Keemiaandmed

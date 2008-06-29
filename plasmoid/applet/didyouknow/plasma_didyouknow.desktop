@@ -2,6 +2,7 @@
 Name=Chemistry: Did You Know
 Name[ca]=Química: sabíeu que...
 Name[da]=Kemi: Vidste du
+Name[de]=Chemie: Wussten Sie schon, dass ...
 Name[el]=Χημεία: Γνωρίζατε
 Name[es]=Química: Ya lo sabe
 Name[et]=Keemia: kas sa tead?
@@ -25,6 +26,7 @@ ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
 Comment[ca]=Fets sobre els elements químics
 Comment[da]=Fakta om de kemiske grundstoffer
+Comment[de]=Fakten über die chemischen Elemente
 Comment[el]=Πληροφορίες σχετικά με χημικά στοιχεία
 Comment[es]=Cosas sobre los elementos químicos
 Comment[et]=Keemiliste elementide faktid
