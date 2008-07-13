@@ -119,6 +119,7 @@ bool SpectrumParser::endElement( const QString&, const QString& localName, const
 
 bool SpectrumParser::characters(const QString &ch)
 {
+    Q_UNUSED(ch)
     return true;
 }
 
