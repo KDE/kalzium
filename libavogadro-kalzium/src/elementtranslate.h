@@ -50,7 +50,7 @@ namespace Avogadro {
     QString name(int element) const;
   };
 
-  A_DECL_EXPORT extern ElementTranslator elementTranslator;
+  A_EXPORT extern ElementTranslator elementTranslator;
 
 }
 
