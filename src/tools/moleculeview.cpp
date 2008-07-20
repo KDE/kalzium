@@ -34,7 +34,7 @@ using namespace Avogadro;
 
 // Handles localization/translation of element names
 // e.g., nitrogen in English is azote in French
-extern Avogadro::ElementTranslator Avogadro::elementTranslator;
+A_EXPORT Avogadro::ElementTranslator Avogadro::elementTranslator;
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent ), m_periodicTable(0), m_addHydrogens(false)
