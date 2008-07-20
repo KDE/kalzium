@@ -308,10 +308,14 @@ namespace Avogadro {
         pluginPaths << "./engines";
 #endif
 
-        // Krazy: Use QProcess:
-        // http://doc.trolltech.com/4.3/qprocess.html#systemEnvironment
-        if (getenv("KALZIUM_ENGINES") != NULL)
-          pluginPaths = QString(getenv("KALZIUM_ENGINES")).split(':');
+        const QByteArray kalzium_engines = qgetenv("KALZIUM_ENGINES");
+#ifdef Q_WS_WIN
+        const char pathSep = ';';
+#else
+        const char pathSep = ':';
+#endif
+        if(!kalzium_engines.isEmpty())
+          pluginPaths = QString( QString::fromLocal8Bit( kalzium_engines ) ).split(pathSep);
 
         // load static plugins first
         EngineFactory *bsFactory = qobject_cast<EngineFactory *>(new BSDYEngineFactory);

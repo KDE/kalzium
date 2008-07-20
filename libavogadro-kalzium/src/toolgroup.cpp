@@ -73,12 +73,14 @@ namespace Avogadro {
 	pluginPaths << "./tools";
 #endif
 
-    // Krazy: Use QProcess:
-    // http://doc.trolltech.com/4.3/qprocess.html#systemEnvironment
-    if(getenv("KALZIUM_TOOLS") != NULL)
-    {
-      pluginPaths = QString(getenv("KALZIUM_TOOLS")).split(':');
-    }
+    const QByteArray kavogadro_tools = qgetenv("KAVOGADRO_TOOLS");
+#ifdef Q_WS_WIN
+    const char pathSep = ';';
+#else
+    const char pathSep = ':';
+#endif
+    if(!kavogadro_tools.isEmpty())
+      pluginPaths = QString( QString::fromLocal8Bit( kavogadro_tools ) ).split(pathSep);
 
     foreach (const QString& path, pluginPaths)
     {
