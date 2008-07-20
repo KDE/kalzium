@@ -31,11 +31,6 @@ if(__KDE_HAVE_GCC_VISIBILITY)
   add_definitions(-DHAVE_GCC_VISIBILITY)
 endif(__KDE_HAVE_GCC_VISIBILITY)
 
-# avoid compilerwarnings about redefinitions
-# todo: use check_function_exits() ?
-if(WIN32)
-  add_definitions(-DHAVE_SNPRINTF -DHAVE_STRCASECMP -DHAVE_STRNCASECMP)
-endif(WIN32)
 
 # I think this is necessary now in order to tell the linker where openbabel is
 link_directories(${OPENBABEL2_LIBRARY_DIRS})
