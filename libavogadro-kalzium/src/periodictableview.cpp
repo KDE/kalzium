@@ -39,7 +39,8 @@
 #include <QDebug>
 
 namespace OpenBabel{
-  extern OBElementTable etab;
+  // EXTERN comes from babelconfig.h and is more than just 'extern' on windows
+  EXTERN OBElementTable etab;
 }
 
 namespace Avogadro {
