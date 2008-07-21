@@ -197,7 +197,7 @@ void KOpenBabel::slotConvert()
         QString ifname = KUrl( item->text() ).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
-        ofname = ofname + QString(".") + oformat;
+        ofname = ofname + QLatin1String(".") + oformat;
 
         bool proceed = true;
         
@@ -205,8 +205,8 @@ void KOpenBabel::slotConvert()
             //something named ofname already exists
             switch( KMessageBox::warningContinueCancel(
                         this,
-                        i18n( "The file %1 already exists. Do you want to overwrite if possible?").arg(ofname),
-                        i18n( "The file %1 already exists ! -- KOpenBabel" ).arg(ofname)
+                        i18n( "The file %1 already exists. Do you want to overwrite if possible?", ofname ),
+                        i18n( "The file %1 already exists ! -- KOpenBabel", ofname )
                     )
                   ) {
                 case KMessageBox::No:
