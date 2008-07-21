@@ -126,7 +126,7 @@ MoleculeParser::weight(const QString&         _moleculeString,
 					   double          *_resultMass,
 					   ElementCountMap *_resultMap)
 {
-	if ( _moleculeString == QString() )
+	if ( _moleculeString.isEmpty() )
 		return false;
 	
 	// Clear the result variables and set m_error to false
