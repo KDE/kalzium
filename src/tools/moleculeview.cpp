@@ -94,7 +94,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
   connect(ui.tabWidget, SIGNAL(currentChanged(int)),
       this, SLOT(setViewEdit(int)));
 
-  // Visualisation parameters
+  // Visualization parameters
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setQuality( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
@@ -363,7 +363,7 @@ void MoleculeDialog::slotAdjustHydrogens()
 
 void MoleculeDialog::slotGeometryOptimize()
 {
-  // Perform a geometry optimisation
+  // Perform a geometry optimization
   if (!m_forceField)
     return;
 
@@ -379,7 +379,7 @@ void MoleculeDialog::slotGeometryOptimize()
 
   // Reasonable default values for most users
   m_forceField->SteepestDescentInitialize(500, 1.0e-5);
-  // Provide some feedback as the optimisation runs
+  // Provide some feedback as the optimization runs
   while (m_forceField->SteepestDescentTakeNSteps(5))
   {
     m_forceField->UpdateCoordinates(*molecule);
