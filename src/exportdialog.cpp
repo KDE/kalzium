@@ -138,7 +138,7 @@ void ExportDialog::slotOkClicked()
     QString format = ui.formatList->itemData( ui.formatList->currentIndex(), Qt::UserRole ).toString();
     QString filename = ui.targetFile->url().path();
     if( !filename.endsWith( format ) )
-        filename += "." + format;
+        filename += '.' + format;
     QFile outputFile( filename );
     if( outputFile.exists() )
     {

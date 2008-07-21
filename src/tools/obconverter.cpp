@@ -166,7 +166,7 @@ void KOpenBabel::slotGuessInput()
         }
     }
     for (int i = 0; i < ui.InputTypeComboBox->count(); i++) {
-        if( ui.InputTypeComboBox->itemText(i).indexOf(QRegExp("^" + suffix + " --")) >=0 ) {
+        if( ui.InputTypeComboBox->itemText(i).indexOf(QRegExp('^' + suffix + " --")) >=0 ) {
             ui.InputTypeComboBox->setCurrentIndex(i);
             return;
         }

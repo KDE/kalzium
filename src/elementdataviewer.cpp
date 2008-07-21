@@ -196,7 +196,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
 
     // init to _something_
     ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
-    QString caption = QString();
+    QString caption;
     switch(selectedData)
     {
         case AxisData::NUMBER:
@@ -341,7 +341,7 @@ void ElementDataViewer::drawPlot()
             min_y = value_y;
         }
 				
-				QString lbl = QString();
+				QString lbl;
         if ( whatShow > 0 )//The users wants to see the labels
         {
 					lbl = whatShow == 1 ? names[i-1] : symbols[i-1];

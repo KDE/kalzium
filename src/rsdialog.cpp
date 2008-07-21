@@ -55,10 +55,10 @@ void RSDialog::filter()
 	//if the RS sentence starts or ends with a - invalidate it.
 	//It is probably an user error
 	if(
-		ui.r_le->text().startsWith("-") ||
-		ui.r_le->text().endsWith("-") || 
-		ui.s_le->text().startsWith("-") || 
-		ui.s_le->text().endsWith("-") 
+		ui.r_le->text().startsWith('-') ||
+		ui.r_le->text().endsWith('-') || 
+		ui.s_le->text().startsWith('-') || 
+		ui.s_le->text().endsWith('-') 
 	)
 	{
 		invalidPhaseString();
