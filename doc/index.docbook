@@ -160,20 +160,16 @@
 		 <sect1 id="info-dlg">
 			 <title>The information dialog</title>
 			 <para>The information dialog is accessed by clicking with the &LMB; on
-				 any element. It is available only in the
-				 <guilabel>Overview</guilabel> mode or when the navigation panel is hidden.
-				 This is the place to get information about an element. With the
-				 buttons at the bottom of the dialog or with the use of the mousewheel
-				 you can change the element which is displayed without closing the
+				 any element. This is the place to get information about an element. With the
+				 buttons at the bottom of the dialog you can change the element which is displayed without closing the
 				 dialog.</para>
 			 <sect2 id="infodialog_overview">
 				 <title>Overview</title>
 				 <para>In the <guilabel>Overview</guilabel> you will find the most
 					 important information about the element. In the middle you see the
-					 symbol of the Element with it's elemental number in the top left.
-					 The bottom-left corner displays the name of the element while the
-					 bottom-right corner shows the most important oxidation-stages and,
-					 below that, the elemental weight</para>
+					 symbol of the Element with it's elemental number in the bottom left.
+					 The top-left corner displays the name of the element while the
+					 bottom-right corner shows the elemental weight</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -389,18 +385,18 @@
 							 <guimenuitem>No Numeration</guimenuitem>: if this option is active, no period-numeration will be
 							 in effect.</para></listitem>
 					 <listitem><para>
-							 <guimenuitem>Show IUPAC</guimenuitem> (default): the <acronym>IUPAC</acronym> is the <firstterm>International
+							 <guimenuitem>IUPAC</guimenuitem> (default) is the <firstterm>International
 								 Union of Pure and Applied Chemistry</firstterm>. This is an
 							 organization which defines most of the standards for chemical
 							 concerns. The new IUPAC system numbers each column with Arabic numbers from 1 (one) through 18 (eighteen).
 					 </para></listitem>
 					 <listitem><para>
-							 <guimenuitem>Show CAS</guimenuitem>: the <acronym>CAS</acronym> is the <firstterm>Chemical Abstracts
+							 <guimenuitem>CAS</guimenuitem> is the <firstterm>Chemical Abstracts
 								 Service</firstterm>. In the CAS system the letters A and B were designated to main group elements (A) and transition elements (B). Though the <acronym>IUPAC</acronym> numeration
 							 is the official, the <acronym>CAS</acronym> numeration is what is still
 							 used in classrooms and laboratories.</para></listitem>
 					 <listitem><para>
-							 <guimenuitem>Show Old IUPAC</guimenuitem>: the old IUPAC system labeled columns with Roman numerals followed by either the letter <quote>A</quote> or <quote>B</quote>. Columns were numbered such that columns one through seven were numbered <quote>IA</quote> through <quote>VIIA</quote>, columns 8 through 10 were labeled <quote>VIIIA</quote>, columns 11 through 17 were numbered <quote>IB</quote> through <quote>VIIB</quote> and column 18 was numbered <quote>VIII</quote>. Because of the confusion the old IUPAC and the CAS system created, the IUPAC adopted their new system.
+							 The <guimenuitem>Old IUPAC</guimenuitem> system labeled columns with Roman numerals followed by either the letter <quote>A</quote> or <quote>B</quote>. Columns were numbered such that columns one through seven were numbered <quote>IA</quote> through <quote>VIIA</quote>, columns 8 through 10 were labeled <quote>VIIIA</quote>, columns 11 through 17 were numbered <quote>IB</quote> through <quote>VIIB</quote> and column 18 was numbered <quote>VIII</quote>. Because of the confusion the old IUPAC and the CAS system created, the IUPAC adopted their new system.
 					 </para></listitem>
 				 </itemizedlist>
 			 </para>
@@ -415,23 +411,20 @@
 			 <para>Color schemes can be changed in the <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
 			 <itemizedlist>
 				 <listitem><para>
-						 <guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
+						 <guimenuitem>One Color</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
 						 </menuchoice> and going to the <guilabel>Colors</guilabel> tab.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
+						 <guimenuitem>Blocks</guimenuitem>: displays a color for each block.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
+						 <guimenuitem>Iconic</guimenuitem>: displays icons for each element.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Acid Behavior</guimenuitem>: represents each acidic behaviour with a different color.
+						 <guimenuitem>Family</guimenuitem>: represents each of the nine families with a color.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Family</guimenuitem>: represents each of the nine families with a color.
-				 </para></listitem>
-				 <listitem><para>
-						 <guimenuitem>Show Crystal Structures</guimenuitem>: colors each element depending on its crystal structure.
+						 <guimenuitem>Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
 				 </para></listitem>
 				 <listitem>
 					 <para><guimenuitem>Gradient</guimenuitem></para>
@@ -448,8 +441,6 @@
 						 </mediaobject>
 					 </screenshot>
 					 <itemizedlist>
-						 <listitem><para><guimenuitem>Atomic Radius</guimenuitem>
-						 </para></listitem>
 						 <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
 						 </para></listitem>
 						 <listitem><para><guimenuitem>van der Waals Radius</guimenuitem>
@@ -460,9 +451,13 @@
 						 </para></listitem>
 						 <listitem><para><guimenuitem>Melting Point</guimenuitem>
 						 </para></listitem>
-						 <listitem><para><guimenuitem>Electronegativity</guimenuitem>
+						 <listitem><para><guimenuitem>Electronegativity (Pauling)</guimenuitem>
 						 </para></listitem>
-						 <listitem><para><guimenuitem>Electron Affinity</guimenuitem>
+						 <listitem><para><guimenuitem>Electronaffinity</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Discoverydate</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>First Ionisation</guimenuitem>
 						 </para></listitem>
 					 </itemizedlist>
 				 </listitem>
@@ -477,7 +472,7 @@
 					 The <guimenuitem>Isotope Table...</guimenuitem> shows you the isotopes of the elements.
 				 </para>
 				 <para>
-					 The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
+					 There are diffent kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -496,7 +491,7 @@
 			 <sect2 id="rs_phrases">
 				 <title>Risk/Security Phrases</title>
 				 <para>
-					 The <guimenuitem>R/S Phrases...</guimenuitem> blah blah
+					 The <guimenuitem>R/S Phrases...</guimenuitem> to be written
 				 </para>
 			 </sect2>
 
@@ -519,7 +514,7 @@
 			 <sect2 id="plot_data">
 				 <title>Plot Data</title>
 				 <para>
-					 The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the <guilabel>First Element</guilabel> and <guilabel>Last Element</guilabel> fields on the dialog. The display does not change until you click on the <guibutton>Plot</guibutton> button.
+					 The <guimenuitem>Plot Data...</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the <guilabel>First Element</guilabel> and <guilabel>Last Element</guilabel> fields on the dialog.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -570,13 +565,13 @@
 							 </textobject>
 						 </mediaobject>
 					 </screenshot>
-					 <para>The Overview tab is the first one and it shows you an overview of the element the mouse is over.</para>
+					 <para>The <guilabel>Overview</guilabel> tab is the first one and it shows you an overview of the element the mouse is over.</para>
 
 				 </sect3>
-				 <sect3 id="calculate">
-					 <title>Calculate</title>
+				 <sect3 id="stateofmatter">
+					 <title>State of Matter</title>
 
-					 <para>The Calculate tab is the second in the navigation panel. It allows you to calculate molecules weights.</para>
+					 <para>The <guilabel>State of Matter</guilabel> tab is the second in the navigation panel.</para>
 					 <para>You are first presented with the following icons and text:</para>
 					 <screenshot>
 						 <mediaobject>
@@ -595,7 +590,7 @@
 				 <sect3 id="timeline">
 					 <title>Timeline</title>
 
-					 <para>The Timeline feature allows you to explore the elements of the
+					 <para>The <guilabel>Timeline</guilabel> feature allows you to explore the elements of the
 						 set time period. This is great for getting a feel for how the PSE
 						 evolved over time, as more and more elements were discovered. If you move the slider you will
 						 notice that some elements disappear if you move it to the left and
@@ -628,10 +623,10 @@
 					 </screenshot>
 				 </sect3>
 
-				 <sect3 id="calculatebb">
+				 <sect3 id="calculate">
 					 <title>Calculate</title>
 
-					 <para>The Calculate tab is the last in the sidebar. It allows you to calculate molecules weights.</para>
+					 <para>The <guilabel>Calculate</guilabel> tab is the last in the sidebar. It allows you to calculate molecules weights.</para>
 					 <para>You are first presented with the following icons and text:</para>
 					 <screenshot>
 						 <mediaobject>
@@ -719,8 +714,7 @@
 				 </textobject>
 			 </mediaobject>
 		 </screenshot>
-		 <para>In the <guilabel>Miscellaneous</guilabel> tab, you can find other options not
-			 related with the previous tabs.
+		 <para>In the <guilabel>Miscellaneous</guilabel> tab, you can select to display the atomic mass or only the element numbers in the PSE.
 		 </para>
 
 	 </chapter>
