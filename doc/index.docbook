@@ -73,8 +73,8 @@
 		 </para>
 
 		 <para>
-			 You can visualize the Periodic Table of the Elements by groups, blocks, acidic
-			 behavior, families, crystal structure or different states of matter. You can
+			 You can visualize the Periodic Table of the Elements by groups, blocks,
+			 and families. You can
 			 plot data for a range of elements for properties like the boilingpoint or the
 			 atomic mass. You can go back in time and see what elements were known at a 
 			 given date. You can also calculate the molecular mass of molecules.
@@ -183,23 +183,6 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-			 <!--sect2 id="infodialog_picture">
-				 <title>Picture</title>
-				 <para>The <guilabel>Picture</guilabel> tab displays a picture of the element when available.</para>
-				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
-					 <mediaobject>
-						 <imageobject>
-							 <imagedata fileref="infodialog_picture.png" format="PNG"/>
-						 </imageobject>
-						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
-						 </textobject>
-						 <caption><para></para>
-						 </caption>
-					 </mediaobject>
-				 </screenshot>
-			 </sect2-->
 			 <sect2 id="infodialog_orbits">
 				 <title>Bohr Orbitals</title>
 				 <para>The <guilabel>Atom Model</guilabel> tab displays the atomic
@@ -219,26 +202,28 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-			 <sect2 id="infodialog_chemical">
-				 <title>Chemical Data</title>
+			 <sect2 id="infodialog_misc">
+				 <title>Miscellaneous</title>
+				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, 
+				including when it was discovered and the origin of the name.</para>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_isotopes">
+				 <title>Isotopes</title>
 				 <para>
-					 The <guilabel>Chemical Data</guilabel> tab presents some atomic
-					 data. The first entry is the <guilabel>Orbital structure</guilabel>. 
-				 </para>
-				 <para> Depending on the data available in &kalzium; you will see
-					 different radii of the element. The covalent radius is the radius
-					 of a non charged atom of the element in a molecule. The could for
-					 example be the O-H-distance in Water. The atomic radius is the
-					 radius of an elemental atom, &eg; not bound to anything. The van der
-					 Waals-radius is defined as the distance of two atoms of the same
-					 sort in two equal molecules, for example two carbon-atoms in
-					 propane. The last possible radius is the ionic radius including its
-					 charge.</para>
-				 <para>The mass of an element is the avarage mass of all isotopes in
-					 relation to their percentage.
-				 </para>
-				 <para>
-					 Some elements have information about their isotopes.
+					 The <guilabel>Isotopes</guilabel> tab presents information about the isotopes of an element.
 					 <variablelist>
 
 						 <varlistentry>
@@ -280,7 +265,7 @@
 						 </varlistentry>
 
 						 <varlistentry>
-							 <term>Spin and parity</term>
+							 <term>Spin and Parity</term>
 							 <listitem><para>
 									 The spin of the nucleus and its parity.
 							 </para></listitem>
@@ -300,7 +285,7 @@
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
-							 <imagedata fileref="infodialog_chemicaldata.png" format="PNG"/>
+							 <imagedata fileref="infodialog_isotopes.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
@@ -310,32 +295,27 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-			 <sect2 id="infodialog_misc">
-				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and the origin of the name.</para>
+			 <sect2 id="infodialog_dataoverview">
+				 <title>Data Overview</title>
+				 <para>The <guilabel>Data Overview</guilabel> tab tells you about different
+					 facts related to the element.</para>
+				 <para> Depending on the data available in &kalzium; you will see
+					 different radii of the element. The covalent radius is the radius
+					 of a non charged atom of the element in a molecule. The could for
+					 example be the O-H-distance in Water. The atomic radius is the
+					 radius of an elemental atom, &eg; not bound to anything. The van der
+					 Waals-radius is defined as the distance of two atoms of the same
+					 sort in two equal molecules, for example two carbon-atoms in
+					 propane. The last possible radius is the ionic radius including its
+					 charge.</para>
+				 <para>The mass of an element is the avarage mass of all isotopes in
+					 relation to their percentage.
+				 </para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
-							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
-						 </imageobject>
-						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
-						 </textobject>
-						 <caption><para></para>
-						 </caption>
-					 </mediaobject>
-				 </screenshot>
-			 </sect2>
-			 <sect2 id="infodialog_energies">
-				 <title>Chemical Energies</title>
-				 <para>The <guilabel>Energies</guilabel> tab tells you about different
-					 energy facts related to the element.</para>
-				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
-					 <mediaobject>
-						 <imageobject>
-							 <imagedata fileref="infodialog_energies.png" format="PNG"/>
+							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
@@ -640,24 +620,10 @@
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-					 <para>You have to click on the elements that compose the molecule.</para>
-					 <screenshot>
-						 <mediaobject>
-							 <imageobject>
-								 <imagedata fileref="sidebar3.png" format="PNG"/>
-							 </imageobject>
-							 <textobject>
-								 <phrase>Weight</phrase>
-							 </textobject>
-							 <caption><para>Weight</para>
-							 </caption>
-						 </mediaobject>
-					 </screenshot>
-					 <para>You can remove some elements after you click on the Remove icon. You can also clear all the elements with the Clear icon on the most right.</para>
 				 </sect3>
 				 <sect3 id="show_hide_legend">
 					 <title>Show Legend</title>
-					 <para>The Show Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
+					 <para>The Show Legend action allows you to display the legend for the scheme you are in (Groups, Family, Blocks). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
 					 </para>
 				 </sect3>
 
@@ -727,8 +693,15 @@
 
 			 <sect2>
 				 <title>The <guimenu>File</guimenu> Menu</title>
-
-				<!--missing Save As...-->
+				 <variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>File</guimenu>
+								 <guimenuitem>Save As...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Save</action> &kalzium;s table as image.</para></listitem>
+					 </varlistentry>
+				 </variablelist>
 				 <variablelist>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -738,7 +711,7 @@
 								 <guimenu>File</guimenu>
 								 <guimenuitem>Quit</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Quits</action> &kalzium;</para></listitem>
+						 <listitem><para><action>Quits</action> &kalzium;.</para></listitem>
 					 </varlistentry>
 				 </variablelist>
 
@@ -786,7 +759,7 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>No Color Scheme</guimenuitem>
+								 <guimenuitem>One Color</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> no color scheme</para></listitem>
 					 </varlistentry>
@@ -794,15 +767,7 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Show Groups</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the groups of elements</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Show Blocks</guimenuitem>
+								 <guimenuitem>Blocks</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the four blocks of
 								 elements</para></listitem>
@@ -811,15 +776,15 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Show Acid Behaviour</guimenuitem>
+								 <guimenuitem>Iconic</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the acidic behaviour</para></listitem>
+						 <listitem><para><action>Display</action> icons for each element.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Show Families</guimenuitem>
+								 <guimenuitem>Familiy</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the familes of
 								 elements</para></listitem>
@@ -828,9 +793,9 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Show Crystal Structures</guimenuitem>
+								 <guimenuitem>Groups</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> crystal structures</para></listitem>
+						 <listitem><para><action>Display</action> the groups of elements</para></listitem>
 					 </varlistentry>
 
 					 <varlistentry>
@@ -856,7 +821,7 @@
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>van der Waals Radius</guimenuitem>
+								 <guimenuitem>van Der Waals</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements van der Waals radius</para></listitem>
 					 </varlistentry>
@@ -866,14 +831,6 @@
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient</guimenuitem>
 								 <guimenuitem>Atomic Mass</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
 					 </varlistentry>
@@ -900,7 +857,7 @@
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Electronegativity</guimenuitem>
+								 <guimenuitem>Electronegativity (Pauling)</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements electronegativity</para></listitem>
 					 </varlistentry>
@@ -909,32 +866,28 @@
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Electron Affinity</guimenuitem>
+								 <guimenuitem>Electronaffinity</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements electron affinity</para></listitem>
 					 </varlistentry>
-
+					<!-- Discoverydate First Ionisation missing-->
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guimenuitem>Show Legend</guimenuitem>
+								 <guimenuitem>Show/Hide Legend</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the legend view</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guimenuitem>Show/Hide Tooltip</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> tooltip display on elements</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guimenuitem>Show Sidebar</guimenuitem>
+								 <guimenuitem>Show/Hide Sidebar</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the Sidebar</para></listitem>
 					 </varlistentry>
+
+					<!-- Tables 4 subitems missing-->
+
 				 </variablelist>
 
 			 </sect2>
@@ -943,13 +896,6 @@
 			 <sect2>
 				 <title>The <guimenu>Tools</guimenu> Menu</title>
 				 <variablelist>
-					 <!--<varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Miscellaneous</guimenu>
-								 <guimenuitem>Show/Hide Timeline</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the Timeline Slider</para></listitem>
-					 </varlistentry>-->
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
@@ -975,7 +921,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Show Equation Solver...</guimenuitem>
+								 <guimenuitem>Equation Solver...</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the Equationsolver dialog</para></listitem>
 					 </varlistentry>
