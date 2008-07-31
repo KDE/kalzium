@@ -413,7 +413,7 @@ QBrush KalziumPainter::brushForElement( int element ) const
 
 qDebug() << date;
 
-		    if ( date == -1 ) //the element has not yet been recoqnized
+		    if ( date == -1 ) //the element has not yet been recognized
 			    return QBrush( Qt::blue );
 
 		    if ( m_time >= date )
