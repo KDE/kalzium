@@ -2619,7 +2619,7 @@
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Temporary symbol and name. Can also be referred to as eka-astatine.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.99 0.00 0.07</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
   </atom>

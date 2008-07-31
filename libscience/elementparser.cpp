@@ -347,7 +347,7 @@ bool ElementSaxParser::characters(const QString &ch)
     }
     else if (d->inCountry){
         if ( ch == "ancient" ) {
-            value = -1;
+            value = 0;
             type = ChemicalDataObject::date; 
         } else {
             value = ch;
