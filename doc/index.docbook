@@ -99,7 +99,7 @@
 		 </para>
 
 		 <para>
-			 When you move the mouse cursor on an element of the table, an overview of the current element in the <guilabel>Overview</guilabel> tab of the navigation panel is displayed .
+			 When you move the mouse cursor on an element of the table, an overview of the current element in the <guilabel>Overview</guilabel> tab of the navigation panel is displayed.
 		 </para>
 
 		 <para>
@@ -169,7 +169,7 @@
 					 important information about the element. In the middle you see the
 					 symbol of the Element with it's elemental number in the bottom left.
 					 The top-left corner displays the name of the element while the
-					 bottom-right corner shows the elemental weight</para>
+					 bottom-right corner shows the elemental weight.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -727,7 +727,7 @@
 								 <guisubmenu>Numeration</guisubmenu>
 								 <guimenuitem>No Numeration</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> no numeration scheme</para></listitem>
+						 <listitem><para><action>Display</action> no numeration scheme.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -735,7 +735,7 @@
 								 <guisubmenu>Numeration</guisubmenu>
 								 <guimenuitem>IUPAC</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the IUPAC numeration</para></listitem>
+						 <listitem><para><action>Display</action> the IUPAC numeration.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -743,7 +743,7 @@
 								 <guisubmenu>Numeration</guisubmenu>
 								 <guimenuitem>CAS</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the CAS numeration</para></listitem>
+						 <listitem><para><action>Display</action> the CAS numeration.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -751,7 +751,7 @@
 								 <guisubmenu>Numeration</guisubmenu>
 								 <guimenuitem>Old IUPAC</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the Old IUPAC numeration</para></listitem>
+						 <listitem><para><action>Display</action> the Old IUPAC numeration.</para></listitem>
 					 </varlistentry>
 
 					 <!-- second entry -->
@@ -759,24 +759,24 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>One Color</guimenuitem>
+								 <guimenuitem>Scheme: One Color</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> no color scheme</para></listitem>
+						 <listitem><para><action>Display</action> all elements with one background color.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Blocks</guimenuitem>
+								 <guimenuitem>Scheme: Blocks</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the four blocks of
-								 elements</para></listitem>
+								 elements.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Iconic</guimenuitem>
+								 <guimenuitem>Scheme: Iconic</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> icons for each element.</para></listitem>
 					 </varlistentry>
@@ -784,109 +784,149 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Familiy</guimenuitem>
+								 <guimenuitem>Scheme: Familiy</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the familes of
-								 elements</para></listitem>
+						 <listitem><para><action>Display</action> the families of
+								 elements.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Groups</guimenuitem>
+								 <guimenuitem>Scheme: Groups</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the groups of elements</para></listitem>
+						 <listitem><para><action>Display</action> the groups of elements.</para></listitem>
 					 </varlistentry>
 
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Atomic Radius</guimenuitem>
+								 <guimenuitem>Gradient: Atomic Radius</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+						 <listitem><para><action>Display</action> the elements atomic radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Covalent Radius</guimenuitem>
+								 <guimenuitem>Gradient: Covalent Radius</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements covalent radius</para></listitem>
+						 <listitem><para><action>Display</action> the elements covalent radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>van Der Waals</guimenuitem>
+								 <guimenuitem>Gradient: van Der Waals</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements van der Waals radius</para></listitem>
+						 <listitem><para><action>Display</action> the elements van der Waals radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Atomic Mass</guimenuitem>
+								 <guimenuitem>Gradient: Atomic Mass</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+						 <listitem><para><action>Display</action> the elements atomic radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Boiling Point</guimenuitem>
+								 <guimenuitem>Gradient: Boiling Point</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements boiling point</para></listitem>
+						 <listitem><para><action>Display</action> the elements boiling point.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Melting Point</guimenuitem>
+								 <guimenuitem>Gradient: Melting Point</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements melting point</para></listitem>
+						 <listitem><para><action>Display</action> the elements melting point.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Electronegativity (Pauling)</guimenuitem>
+								 <guimenuitem>Gradient: Electronegativity (Pauling)</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements electronegativity</para></listitem>
+						 <listitem><para><action>Display</action> the elements electronegativity.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Electronaffinity</guimenuitem>
+								 <guimenuitem>Gradient: Electronaffinity</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements electron affinity</para></listitem>
+						 <listitem><para><action>Display</action> the elements electron affinity.</para></listitem>
 					 </varlistentry>
-					<!-- Discoverydate First Ionisation missing-->
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient: Discoverydate</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the discovery date of each element with different 
+								background colors for each century.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient: First Ionisation</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>To be written.</para></listitem>
+					 </varlistentry>
+
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Table: Classic Period Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>To be written.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Table: Short Period Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>To be written.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Table: Transition Elements</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>To be written.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Table: DZ Period Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>To be written.</para></listitem>
+					 </varlistentry>
+
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guimenuitem>Show/Hide Legend</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the legend view</para></listitem>
+						 <listitem><para><action>Toggle</action> the legend view.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guimenuitem>Show/Hide Sidebar</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the Sidebar</para></listitem>
+						 <listitem><para><action>Toggle</action> the Sidebar.</para></listitem>
 					 </varlistentry>
-
-					<!-- Tables 4 subitems missing-->
 
 				 </variablelist>
 
@@ -901,7 +941,7 @@
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Plot Data...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Plot Data dialog</para></listitem>
+						 <listitem><para><action>Open</action> the Plot Data dialog.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -916,22 +956,28 @@
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Glossary...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Glossary</para></listitem>
+						 <listitem><para><action>Open</action> the Glossary.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Equation Solver...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Equationsolver dialog</para></listitem>
+						 <listitem><para><action>Open</action> the Equationsolver dialog.</para></listitem>
 					 </varlistentry>
-					<!-- Convert chemical files -->
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
+								 <guimenuitem>Convert chemical files...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>To be written</para></listitem>
+					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>R/S Phrases</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the <guilabel>Risk/Security Phrases</guilabel> dialog</para></listitem>
+						 <listitem><para><action>Open</action> the <guilabel>Risk/Security Phrases</guilabel> dialog.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -941,13 +987,20 @@
 						 <listitem><para><action>Display</action> a dialog with the <guilabel>Greek alphabet</guilabel> and 
 						<guilabel>Numeric Prefixes and Roman Numerals</guilabel>.</para></listitem>
 					 </varlistentry>
-					<!-- Molecular Editor -->
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tools</guisubmenu>
+								 <guimenuitem>Molecular Editor...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the Molecular Editor dialog.</para></listitem>
+					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Export Data...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Opens</action> a dialog where you can choose <guilabel>Elements</guilabel> 
+						 <listitem><para><action>Opens</action> a dialog where you can select <guilabel>Elements</guilabel> 
 						and their <guilabel>Properties</guilabel> to export them to a &HTML; file.</para></listitem>
 					 </varlistentry>
 				 </variablelist>
@@ -963,14 +1016,14 @@
 								 <guimenu>Settings</guimenu>
 								 <guimenuitem>Show Toolbar</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
+						 <listitem><para><action>Toggle</action> the Main Toolbar.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Settings</guimenu>
 								 <guimenuitem>Show Statusbar</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the Statusbar</para></listitem>
+						 <listitem><para><action>Toggle</action> the Statusbar.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -985,7 +1038,7 @@
 								 <guimenu>Settings</guimenu>
 								 <guimenuitem>Configure Toolbars...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Configure</action> the items you want to put in the toolbar
+						 <listitem><para><action>Configure</action> the items you want to put in the toolbar.
 						 </para></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -993,7 +1046,7 @@
 								 <guimenu>Settings</guimenu>
 								 <guimenuitem>Configure &kalzium;...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the &kalzium; settings dialog
+						 <listitem><para><action>Display</action> the &kalzium; settings dialog.
 						 </para></listitem>
 					 </varlistentry>
 
