@@ -117,6 +117,7 @@ void PeriodicTableView::generateSvg(const QString& filename)
         m_painter->begin( svgGen );
         m_painter->drawAll();
         m_painter->end();
+        delete svgGen;
 }
 
 void PeriodicTableView::paintEvent( QPaintEvent * e )
