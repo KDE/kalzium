@@ -72,7 +72,7 @@ PropertyListEntry::~PropertyListEntry()
 }
 
 ExportDialog::ExportDialog( QWidget * parent )
-    : KDialog( parent )
+    : KDialog( parent ),m_outputStream(0)
 {
     setButtons( Help | User1 | Cancel );
     ui.setupUi( mainWidget() );
@@ -95,6 +95,7 @@ ExportDialog::ExportDialog( QWidget * parent )
 
 ExportDialog::~ExportDialog()
 {
+    delete m_outputStream;
 }
 
 void ExportDialog::populateElementList()
@@ -152,7 +153,8 @@ void ExportDialog::slotOkClicked()
         KMessageBox::error( this, i18n( "Could not open file for writing." ) );
         return;
     }
-
+    
+    delete m_outputStream;
     m_outputStream = new QTextStream( &outputFile );
     if(format == "html")
        exportToHtml();
