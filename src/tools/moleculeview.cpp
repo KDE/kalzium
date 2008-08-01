@@ -223,6 +223,7 @@ void MoleculeDialog::setViewEdit(int mode)
 
 MoleculeDialog::~MoleculeDialog( )
 {
+    delete m_drawSettings;
 }
 
 void MoleculeDialog::slotUpdateStatistics()
