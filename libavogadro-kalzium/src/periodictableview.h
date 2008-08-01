@@ -54,6 +54,8 @@ namespace Avogadro {
      * is then used by PeriodicTable to figure out which element was clicked on.
      */
     ElementItem(int elementNumber = 0);
+    
+    ~ElementItem();
 
     /**
      * @return the bounding rectangle of the element item.
