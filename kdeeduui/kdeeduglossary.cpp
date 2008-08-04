@@ -433,7 +433,6 @@ QTreeWidgetItem* GlossaryDialog::Private::createItem( const GlossaryInfo& gi ) c
         }
 
     }
-    main->sortChildren( 0, Qt::AscendingOrder );
     return main;
 }
 
@@ -447,6 +446,7 @@ void GlossaryDialog::addGlossary( Glossary* newgloss, bool folded )
     d->m_glossaries.append( gi );
 
     d->m_glosstree->addTopLevelItem( d->createItem( gi ) );
+    d->m_glosstree->sortItems( 0, Qt::AscendingOrder );
 }
 
 QTreeWidgetItem* GlossaryDialog::Private::findTreeWithLetter( const QChar& l, QTreeWidgetItem* item ) const
