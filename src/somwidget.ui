@@ -106,7 +106,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QSpinBox" name="Number1" />
+      <widget class="QSpinBox" name="temp_spinbox" />
      </item>
      <item>
       <widget class="QLabel" name="lblUnit" >

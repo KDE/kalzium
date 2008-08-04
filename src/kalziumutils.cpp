@@ -99,8 +99,9 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     result = i18n( "Unknown Value" );
                 else
                 {
-                    val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
-                    result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperature() ) );
+                    val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
+                    result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", 
+                            "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
                 }
                 break;
             }
@@ -111,8 +112,9 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     result = i18n( "Unknown Value" );
                 else
                 {
-                    val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
-                    result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperature() ) );
+                    val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
+                    result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", 
+                            "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
                 }
                 break;
             }
