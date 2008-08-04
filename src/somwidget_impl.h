@@ -37,6 +37,9 @@ class SOMWidgetIMPL : public QWidget, private Ui_SOMWidget
 		 */
 		SOMWidgetIMPL( QWidget *parent = 0 );
 
+                /**
+                  * @return the currently set temperature
+                  */
 		int temperature() const;
 
 	public slots:

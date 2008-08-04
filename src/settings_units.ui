@@ -47,7 +47,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="kcfg_temperature" >
+         <widget class="QComboBox" name="kcfg_temperatureUnit" >
           <item>
            <property name="text" >
             <string>Kelvin</string>
