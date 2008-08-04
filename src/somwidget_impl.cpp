@@ -19,7 +19,6 @@
 #include <QTextEdit>
 #include <QList>
 #include <QVariant>
-#include <QDebug>
 
 #include <klocale.h>
 
@@ -64,8 +63,9 @@ void SOMWidgetIMPL::reloadUnits()
 
 	int newvalue = TempUnit::convert( temperature(), m_prevUnit, Prefs::temperatureUnit() );
 	temp_spinbox->setRange( range.first, range.second );
-        temp_spinbox->setSingleStep(1);
 	temp_spinbox->setValue( newvalue );
+        temp_slider->setRange( range.first, range.second );
+        temp_slider->setValue( newvalue );
 	setNewTemp( newvalue );
 	m_prevUnit = Prefs::temperatureUnit();
 	temp_spinbox->blockSignals( false );
@@ -93,7 +93,6 @@ void SOMWidgetIMPL::setNewTemp( int newtemp )
         const QString unitSymbol = TempUnit::unitListSymbol( Prefs::temperatureUnit() );
 
 	double temp = TempUnit::convert( newtemp, Prefs::temperatureUnit(), (int)TempUnit::Kelvin );
-        qDebug() << "Given value: " << newtemp << " " << unitSymbol << " and converted value: " << temp << "K";
 
 	QStringList listMeltingPoint;
 	QStringList listBoilingPoint;
