@@ -19,6 +19,7 @@
 #include <QTextEdit>
 #include <QList>
 #include <QVariant>
+#include <QDebug>
 
 #include <klocale.h>
 
@@ -73,12 +74,14 @@ void SOMWidgetIMPL::reloadUnits()
 
 void SOMWidgetIMPL::sliderValueChanged( int temp )
 {
+        //the signals need to be blocked as both will return to this slot. But no
+        //matter which UI elements (slider oder spinbox) was changed, the other
+        //has to be set to the same value
 	temp_spinbox->blockSignals( true );
 	temp_slider->blockSignals( true );
-	int newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
-	temp_spinbox->setValue( newvalue );
-	temp_slider->setValue( newvalue );
-	setNewTemp( newvalue );
+	temp_spinbox->setValue( temp );
+	temp_slider->setValue( temp );
+	setNewTemp( temp );
 	temp_spinbox->blockSignals( false );
 	temp_slider->blockSignals( false );
 }
@@ -86,15 +89,16 @@ void SOMWidgetIMPL::sliderValueChanged( int temp )
 void SOMWidgetIMPL::setNewTemp( int newtemp )
 {
 	static const int threshold = 25;
+	
+        const QString unitSymbol = TempUnit::unitListSymbol( Prefs::temperatureUnit() );
 
 	double temp = TempUnit::convert( newtemp, Prefs::temperatureUnit(), (int)TempUnit::Kelvin );
+        qDebug() << "Given value: " << newtemp << " " << unitSymbol << " and converted value: " << temp << "K";
 
 	QStringList listMeltingPoint;
 	QStringList listBoilingPoint;
 	QStringList listBoilingPointValue;
 	QStringList listMeltingPointValue;
-
-	const QString unitSymbol = TempUnit::unitListSymbol( Prefs::temperatureUnit() );
 
 	foreach (Element * element, m_list)
 	{
