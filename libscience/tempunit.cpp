@@ -100,31 +100,31 @@ QPair<double, double> TempUnit::rangeForUnit( TempUnit::Unit u )
 	{
 		case Kelvin:
 		{
-			return QPair<double, double>( 0.0, 5000.0 );
+			return QPair<double, double>( 0.0, 6000.0 );
 			break;
 		}
 		case Celsius:
 		{
-			return QPair<double, double>( -273.16, 4726.84 );
+			return QPair<double, double>( -273.16, 5726.84 );
 			break;
 		}
 		case Fahrenheit:
 		{
-			return QPair<double, double>( -459.67, 8540.33 );
+			return QPair<double, double>( -459.67, 10340.33 );
 			break;
 		}
 		case Rankine:
 		{
-			return QPair<double, double>( 0.0, 9000.0 );
+			return QPair<double, double>( 0.0, 10080.0 );
 			break;
 		}
 		case Reaumur:
 		{
-			return QPair<double, double>( -218.52, 3781.48 );
+			return QPair<double, double>( -218.52, 4581.48 );
 			break;
 		}
 	}
-	return QPair<double, double>( 0.0, 5000.0 );
+	return QPair<double, double>( 0.0, 6000.0 );
 }
 
 QPair<double, double> TempUnit::rangeForUnit( int u )
