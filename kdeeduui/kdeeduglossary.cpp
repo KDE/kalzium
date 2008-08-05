@@ -376,8 +376,9 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 
 void GlossaryDialog::Private::displayItem( const KUrl &url, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & )
 {
-	// using the "host" part of a kurl as reference
-	QString myurl = url.host().toLower();
+	// using the "path" part of a kurl as reference
+	QString myurl = url.path().toLower();
+
     QTreeWidgetItemIterator it( m_glosstree );
     while ( *it )
     {
@@ -503,11 +504,11 @@ QString GlossaryItem::parseReferences() const
 		return QString();
 
 	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3><ul type=\"disc\">";
-	static QString basehref = QString( "<li><a href=\"item://%1\" title=\"%2\">%3</a></li>" );
+	static QString basehref = QString( "<li><a href=\"item:%1\" title=\"%2\">%3</a></li>" );
 	
 	foreach ( const QString& ref, m_ref )
 	{
-		htmlcode += basehref.arg( ref, i18n( "Go to '%1'", ref ), ref );
+		htmlcode += basehref.arg( KUrl::toPercentEncoding( ref ), i18n( "Go to '%1'", ref ), ref );
 	}
 	htmlcode += "</ul>";
 
