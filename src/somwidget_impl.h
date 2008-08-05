@@ -38,7 +38,7 @@ class SOMWidgetIMPL : public QWidget, private Ui_SOMWidget
 		SOMWidgetIMPL( QWidget *parent = 0 );
 
                 /**
-                  * @return the currently set temperature
+                  * @return the currently set temperature (in Kelvin)
                   */
 		int temperature() const;
 

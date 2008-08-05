@@ -51,7 +51,7 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent )
 
 int SOMWidgetIMPL::temperature() const
 {
-	return temp_slider->value();
+	return TempUnit::convert( temp_slider->value(), Prefs::temperatureUnit(), TempUnit::Kelvin );
 }
 
 void SOMWidgetIMPL::reloadUnits()
