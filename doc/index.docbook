@@ -470,8 +470,10 @@
 			 
 			 <sect2 id="rs_phrases">
 				 <title>Risk/Security Phrases</title>
-				 <para>
-					 The <guimenuitem>R/S Phrases...</guimenuitem> to be written
+				 <para>The R/S Phrases, also known as Risk and Safety Statements, R/S statements, R/S numbers, and R/S sentences,
+				 is a system of hazard codes and phrases for labeling dangerous chemicals and compounds.The R/S phrase of a compound
+				consists of a risk part (R) and a safety part (S), each followed by a combination of numbers. Each number corresponds 
+				to a phrase. The phrase corresponding to the letter/number combination has the same meaning in different languages.
 				 </para>
 			 </sect2>
 
