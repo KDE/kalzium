@@ -39,7 +39,7 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent )
 
 	m_htmlBegin = "";
 	m_htmlEnd = "";
-	m_prevUnit = Prefs::temperatureUnit();
+	m_prevUnit = TempUnit::Kelvin;
 
 	connect( temp_spinbox, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( sliderValueChanged( int ) ) );
@@ -61,7 +61,7 @@ void SOMWidgetIMPL::reloadUnits()
 	lblUnit->setText( TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
 	QPair<double, double> range = TempUnit::rangeForUnit( Prefs::temperatureUnit() );
 
-	int newvalue = TempUnit::convert( temperature(), m_prevUnit, Prefs::temperatureUnit() );
+	int newvalue = TempUnit::convert( temp_slider->value(), m_prevUnit, Prefs::temperatureUnit() );
 	temp_spinbox->setRange( range.first, range.second );
 	temp_spinbox->setValue( newvalue );
         temp_slider->setRange( range.first, range.second );
