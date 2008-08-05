@@ -202,7 +202,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
         case AxisData::NUMBER:
             {
                 kind = ChemicalDataObject::atomicNumber;
-                caption = i18n( "Atomic Mass [u]" );
+                caption = i18n( "Atomic Number" );
                 break;
             }
         case AxisData::MASS:
