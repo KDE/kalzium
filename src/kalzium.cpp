@@ -40,8 +40,7 @@
 #include "search.h"
 #include "searchwidget.h"
 
-//TODO KDE 4.1
-//#include "tableinfowidget.h" 
+#include "tableinfowidget.h" 
 
 
 #include <config-kalzium.h>
@@ -65,11 +64,11 @@
 #include <QTimer>
 #include <QSvgGenerator>
 #include <QRegExp>
+#include <QDebug>
 
 #include <kmessagebox.h>
 #include <kconfigdialog.h>
 #include <kiconloader.h>
-#include <kdebug.h>
 #include <kaction.h>
 #include <kparts/part.h>
 #include <kselectaction.h>
@@ -82,9 +81,7 @@
 #include <kfiledialog.h>
 #include <KLocale>
 #include <KPluginLoader>
-
-//TODO KDE 4.1
-//#include <KTabWidget>
+#include <KTabWidget>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
@@ -130,10 +127,9 @@ Kalzium::Kalzium()
         connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
                         m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
 
-        //TODO KDE 4.1
-//X         m_TableInfoWidget = new TableInfoWidget( this );
-//X         connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-//X                         m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
+        m_TableInfoWidget = new TableInfoWidget( this );
+        connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+                        m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
@@ -316,12 +312,11 @@ void Kalzium::setupSidebars()
     
     m_InfoDock->setWidget(m_legendWidget);
 
-    //TODO KDE 4.1
-//X     m_infoTabWidget = new KTabWidget(this);
-//X     m_infoTabWidget->setObjectName( "kalzium-infobar" );
-//X     m_InfoDock->setWidget(m_infoTabWidget);
-//X     m_infoTabWidget->addTab(m_legendWidget, i18n("Legend"));
-//X     m_infoTabWidget->addTab(m_TableInfoWidget, i18n("Table Information"));
+    m_infoTabWidget = new KTabWidget(this);
+    m_infoTabWidget->setObjectName( "kalzium-infobar" );
+    m_InfoDock->setWidget(m_infoTabWidget);
+    m_infoTabWidget->addTab(m_legendWidget, i18n("Legend"));
+    m_infoTabWidget->addTab(m_TableInfoWidget, i18n("Table Information"));
 
     m_dockWin = new QDockWidget( this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
@@ -590,9 +585,7 @@ void Kalzium::setupStatusBar()
 
 void Kalzium::elementHover( int num )
 {
-    //TODO KDE 4.1
-    //In KDE 4.1 I want to display additional information about the icons. Then I need the next line
-//        extractIconicInformationAboutElement( num );
+        extractIconicInformationAboutElement( num );
 
 	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
@@ -603,28 +596,28 @@ void Kalzium::elementHover( int num )
 	m_detailWidget->setBackgroundColor( m_PeriodicTableView->brushForElement( num ).color() );
 }
                 
-//X void Kalzium::extractIconicInformationAboutElement( int elementNumber )
-//X {
-//X         QString setname = "school";
-//X         QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
-//X         QString filename = pathname + setname + '/' + "iconinformation.txt";
-//X 
-//X         QFile file(filename);
-//X         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-//X                 return;
-//X 
-//X         QString infoline;
-//X 
-//X         QTextStream in(&file);
-//X         while (!in.atEnd()) {
-//X                 QString tmp = in.readLine();
-//X                 if( tmp.startsWith( QString::number( elementNumber ) ) )
-//X                         infoline = tmp;
-//X         }
-//X 
+void Kalzium::extractIconicInformationAboutElement( int elementNumber )
+{
+        QString setname = "school";
+        QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
+        QString filename = pathname + setname + '/' + "iconinformation.txt";
+
+        QFile file(filename);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+                return;
+
+        QString infoline;
+
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+                QString tmp = in.readLine();
+                if( tmp.startsWith( QString::number( elementNumber ) ) )
+                        infoline = tmp;
+        }
+
+        QString realText = "Moin dies ist ein test!";
 //X         QString realText = infoline.remove( QRegExp("\\d+ ") );
-//X         kDebug() << "the final text: " << realText;
-//X }
+}
 
 void Kalzium::openInformationDialog( int number )
 {

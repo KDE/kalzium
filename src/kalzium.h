@@ -80,8 +80,7 @@ class Kalzium : public KXmlGuiWindow
          */
         void setupSidebars();
 
-        //TODO KDE 4.1
-//        void extractIconicInformationAboutElement( int elementNumber );
+        void extractIconicInformationAboutElement( int elementNumber );
 
         /**
          * all KActions Kalzium uses
@@ -123,7 +122,7 @@ class Kalzium : public KXmlGuiWindow
         QDockWidget *m_dockWin;
         QDockWidget *m_InfoDock;
         QToolBox *m_toolbox;
-//X         KTabWidget *m_infoTabWidget;
+        KTabWidget *m_infoTabWidget;
 
         int m_toolboxCurrent;
 

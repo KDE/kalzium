@@ -65,7 +65,7 @@ set(kalzium_SRCS
    legendwidget.cpp
    exportdialog.cpp
    nuclideboardview.cpp
-   #tableinfowidget.cpp #will readd in KDE4.1
+   tableinfowidget.cpp
    spectrumviewimpl.cpp #will readd in KDE4.1
    spectrumwidget.cpp #will readd in KDE4.1
    )
