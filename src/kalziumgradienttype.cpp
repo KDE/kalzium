@@ -424,7 +424,7 @@ QByteArray KalziumDiscoverydateGradientType::name() const
 
 QString KalziumDiscoverydateGradientType::description() const
 {
-	return i18n( "Discoverydate" );
+	return i18n( "Discovery date" );
 }
 
 double KalziumDiscoverydateGradientType::value( int el ) const
