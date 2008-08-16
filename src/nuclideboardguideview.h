@@ -1,5 +1,5 @@
-#ifndef NUCLIDEBOARDVIEW_H
-#define NUCLIDEBOARDVIEW_H
+#ifndef NUCLIDEBOARDGUIDEVIEW_H
+#define NUCLIDEBOARDGUIDEVIEW_H
 /***************************************************************************
  *   Copyright (C) 2007 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
@@ -23,39 +23,44 @@
 #include <QWidget>
 #include <QGraphicsView>
 #include <QResizeEvent>
+#include <QMouseEvent>
+#include <QPixmap>
+
+#include "nuclideboardview.h"
 
 class IsotopeScene;
 
-class IsotopeView : public QGraphicsView
+class IsotopeGuideView : public QGraphicsView
 {
     Q_OBJECT
 
     public:
-        IsotopeView( QWidget * parent = 0);
-
-    private:
-	IsotopeScene *m_scene;
-    double m_zoomLevel;
-
-    public:
-        IsotopeScene* scene(){ 
-            return m_scene; 
-        }
-        double zoomLevel() {
-            return m_zoomLevel;
-        }
-        QPolygonF visibleSceneRect() const {
-            return mapToScene( viewport()->rect() );
-        }
-
-    signals:
-        void zoomLevelChanged( double zoomLevel );
-        void visibleSceneRectChanged( const QPolygonF &sceneRect );
+        IsotopeGuideView( QWidget * parent = 0);
+        void setGuidedView( IsotopeView *guidedView );
+        void drawItems( QPainter * painter, int numItems, QGraphicsItem ** items, const QStyleOptionGraphicsItem * options );
 
     protected:
-	    void resizeEvent(QResizeEvent * event );
+        void drawForeground( QPainter *painter, const QRectF &rect );
+
+    private:
+    	IsotopeScene *m_scene;
+        IsotopeView *m_guidedView;
+        double m_zoomLevel;
+        double m_scale;
+        QPolygonF m_visibleSceneRect;
+        bool m_pixmapRepaintRequested;
+        QPixmap *m_pixmap;
+        QPoint m_lastMousePos;
+        bool m_dragEvent;
+    
+        void resizeEvent( QResizeEvent *event );
+        void mousePressEvent( QMouseEvent *event );
+        void mouseReleaseEvent( QMouseEvent *event );
         void mouseMoveEvent( QMouseEvent *event );
-        void wheelEvent( QWheelEvent * event );
+
+    private slots:
+        void setZoomLevel( double zoomLevel );
+        void setVisibleSceneRect( const QPolygonF &sceneRect );
 };
 #endif
 	

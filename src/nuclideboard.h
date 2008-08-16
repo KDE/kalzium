@@ -62,7 +62,7 @@ class IsotopeTableDialog : public KDialog
  * Isotope.
  * @author Carsten Niehaus
  */
-class IsotopeItem : public QGraphicsRectItem
+class IsotopeItem : public QAbstractGraphicsShapeItem
 {
 	public:
             /**
@@ -84,6 +84,10 @@ class IsotopeItem : public QGraphicsRectItem
                 return m_isotope;
             }
 
+            QRectF boundingRect() const {
+                return m_rect;
+            }
+
             /**
              * @return the Type of the item
              */
@@ -91,10 +95,13 @@ class IsotopeItem : public QGraphicsRectItem
                 return Type;
             }
 
+            void paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
+
 
         private:
             IsotopeType m_type;
             Isotope* m_isotope;
+            QRectF m_rect;
 
             /**
              * @return the IsotopeType of the Isotope

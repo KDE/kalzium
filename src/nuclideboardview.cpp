@@ -22,11 +22,15 @@
 
 #include "nuclideboardview.h"
 #include "nuclideboard.h"
+
+#include <QDebug>
+#include <QScrollBar>
     
 	IsotopeView::IsotopeView(QWidget *parent)
 : QGraphicsView(parent)
 {
     m_scene = new IsotopeScene();
+    m_zoomLevel = 1.0;
     setScene(m_scene);
     setSceneRect(m_scene->itemsBoundingRect());
     ensureVisible(m_scene->sceneRect());
@@ -34,11 +38,49 @@
 
 void IsotopeView::resizeEvent(QResizeEvent * event)
 {
+    //ensureVisible(QRectF(0,0,100,100),0,0);
 
-    ensureVisible(QRectF(0,0,100,100),0,0);
+	//event->accept();
+    event->ignore();
+}
 
-	event->accept();
+void IsotopeView::mouseMoveEvent(QMouseEvent *event )
+{
+    QPolygonF visibleSceneRect = mapToScene( viewport()->rect() );
+    emit visibleSceneRectChanged( visibleSceneRect );
+
+    QGraphicsView::mouseMoveEvent(event);
+}
+
+void IsotopeView::wheelEvent(QWheelEvent * event)
+{
+    double oldZoomLevel = m_zoomLevel;
+    double factor;
+
+    if(event->delta() > 0) {
+        factor = event->delta() / 100.0;
+        m_zoomLevel *= factor;
+    } else {
+        factor = 1.0 / (-event->delta() / 100.0);
+        m_zoomLevel *= factor;
+    }
+
+    if ( m_zoomLevel < 0.5 )
+        m_zoomLevel = 0.5;
+    else if ( m_zoomLevel > 7.0 )
+        m_zoomLevel = 7.0;
+    
+    if ( oldZoomLevel != m_zoomLevel ) {
+        factor = m_zoomLevel / oldZoomLevel;
+        scale(factor,factor);
+        emit zoomLevelChanged( m_zoomLevel );
+    }
+    QPolygonF visibleSceneRect = mapToScene( viewport()->rect() );
+    emit visibleSceneRectChanged( visibleSceneRect );
+
+    event->accept();
 }
 
 #include "nuclideboardview.moc"
+
 

@@ -31,13 +31,14 @@
 #include <klocale.h>
 
 #include <QDebug>
-
+#include <QStyleOptionGraphicsItem>
 
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
 {
     setCaption(i18n("Isotope Table"));
     ui.setupUi( mainWidget() );
+    ui.guide->setGuidedView( ui.gv );
 
     connect( ui.gv->scene(), SIGNAL( itemSelected(IsotopeItem*) ),
             this, SLOT( updateDockWidget( IsotopeItem*) )  );
@@ -71,7 +72,7 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 
     m_itemSize = 10;
     drawIsotopes();
-    m_isotopeGroup->scale(1, -1);
+    //m_isotopeGroup->scale(1, -1);
 }
 
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
@@ -107,8 +108,9 @@ void IsotopeScene::drawIsotopes()
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     IsotopeItem::IsotopeItem( Isotope * i, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
-:  QGraphicsRectItem(x,y,width,height,parent)
+:  QAbstractGraphicsShapeItem(parent)
 {
+    m_rect = QRectF( x, y, width, height );
     m_isotope = i;
     
     m_type = getType( m_isotope );
@@ -143,6 +145,27 @@ void IsotopeScene::drawIsotopes()
     setFlag(QGraphicsItem::ItemIsSelectable, false);
 }
 
+void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget )
+{
+    // FIXME: Get rid of magic numbers and rather dynamically calculate them
+    QRectF r1( m_rect.translated( 0.0, 2.5 ) );
+    QRectF r2( m_rect.topLeft() + QPointF( 1.0, 0.0 ), m_rect.size() / 2.0 );
+
+    if ( option->levelOfDetail > 0.3 )
+        painter->setPen( pen() );
+    else
+        painter->setPen( Qt::NoPen );
+    painter->setBrush( brush() );
+    painter->drawRect( m_rect );
+    
+    if ( option->levelOfDetail >= 1.0 ) {
+        painter->setFont( QFont( "arial", 3 ) );
+        painter->drawText( r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol() );//, s->parentElementNumber()
+        painter->setFont( QFont( "arial", 2 ) );
+        painter->drawText( r2, Qt::AlignHCenter | Qt::TextDontClip, QString::number( m_isotope->parentElementNumber() ) );
+    }
+}
+
 IsotopeItem::IsotopeType IsotopeItem::getType( Isotope * isotope )
 {
     //TODO Here I need a clever way to find out *what* to return. 
@@ -160,8 +183,10 @@ IsotopeItem::IsotopeType IsotopeItem::getType( Isotope * isotope )
 
 void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
 {
-    if (event->button() != Qt::RightButton)
+    if (event->button() != Qt::RightButton) {
+        event->ignore();
         return;
+    }
     
     IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp( this );
