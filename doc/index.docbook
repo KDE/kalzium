@@ -868,7 +868,7 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Discoverydate</guimenuitem>
+								 <guimenuitem>Gradient: Discovery date</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the discovery date of each element with different 
 								background colors for each century.</para></listitem>
@@ -879,24 +879,24 @@
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient: First Ionisation</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para>To be written.</para></listitem>
+						 <listitem><para><action>Display</action> the elements energy of first ionisation.</para></listitem>
 					 </varlistentry>
 
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: Classic Period Table</guimenuitem>
+								 <guimenuitem>Table: Classic Periodic Table</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para>To be written.</para></listitem>
+						 <listitem><para><action>Display</action> the classic periodic table with all elements.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: Short Period Table</guimenuitem>
+								 <guimenuitem>Table: Short Periodic Table</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para>To be written.</para></listitem>
+						 <listitem><para><action>Display</action> a periodic table without transition elements.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -904,15 +904,16 @@
 								 <guisubmenu>Tables</guisubmenu>
 								 <guimenuitem>Table: Transition Elements</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para>To be written.</para></listitem>
+						 <listitem><para><action>Display</action> a periodic table only with transition elements.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: DZ Period Table</guimenuitem>
+								 <guimenuitem>Table: DZ Periodic Table</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para>To be written.</para></listitem>
+						 <listitem><para>This item represents the table the DZ <foreignphrase
+							lang="de">Deutscher Zentralausschuss</foreignphrase> "German Central Comitee" suggests.</para></listitem>
 					 </varlistentry>
 
 					 <varlistentry>
@@ -972,7 +973,7 @@
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Convert chemical files...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para>To be written</para></listitem>
+						 <listitem><para><action>Open</action> a dialog to import and export a wide range of chemical file formats and data types with the Open Babel library.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
