@@ -804,14 +804,6 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Atomic Radius</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic radius.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient: Covalent Radius</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements covalent radius.</para></listitem>
