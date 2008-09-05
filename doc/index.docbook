@@ -822,7 +822,7 @@
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient: Atomic Mass</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic radius.</para></listitem>
+						 <listitem><para><action>Display</action> the elements atomic mass.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
