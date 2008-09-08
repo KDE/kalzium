@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Kalzium Data Engine
+Name=Kalzium
 Name[ca]=Motor de dades del Kalzium
 Name[da]=Data-motor til Kalzium
 Name[de]=Kalzium Datenverarbeitung
@@ -62,4 +62,10 @@ X-KDE-ServiceTypes=Plasma/DataEngine
 Type=Service
 Icon=kalzium
 X-KDE-Library=plasma_engine_kalzium
-X-Plasma-EngineName=kalzium
+
+X-KDE-PluginInfo-Author=
+X-KDE-PluginInfo-Email=
+X-KDE-PluginInfo-Name=kalzium
+X-KDE-PluginInfo-Version=
+X-KDE-PluginInfo-Website=
+X-KDE-PluginInfo-Category=
