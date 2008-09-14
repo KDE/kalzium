@@ -85,7 +85,9 @@
 	 <chapter id="quick-start">
 		 <title>&kalzium; quick start guide</title>
 
-		 <para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->&kalzium; or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
+		 <para>Here is &kalzium; the first time you run it, either by selecting <menuchoice><guimenu>Applications</guimenu> 
+                 <guisubmenu>Edutainment</guisubmenu><guisubmenu>Science</guisubmenu><guimenuitem>&kalzium;</guimenuitem></menuchoice> from the &kmenu; 
+                 or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
 		 <screenshot>
 			 <screeninfo>&kalzium; main window</screeninfo>
 			 <mediaobject>
