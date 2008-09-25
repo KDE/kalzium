@@ -131,7 +131,7 @@ namespace Avogadro
        *
        * This function takes care of rendering multiple bonds in such a way that the individual
        * bonds avoid hiding each other, at least in the defaut viewpoint of a molecule.
-       * To achieves that, it asks the GLWidget for the the normal vector of the
+       * To achieves that, it asks the GLWidget for the normal vector of the
        * molecule's best-fitting plane.
        *
        * @param end1 the position of the first end of the bond.

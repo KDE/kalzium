@@ -2,7 +2,7 @@
  **
  ** Copyright (C) 1991-2007 Heinz van Saanen
  **
- ** This file is part of the the function viewer Zhu3D.
+ ** This file is part of the function viewer Zhu3D.
  **
  ** This file may be used under the terms of the GNU General Public
  ** License version 2 as published by the Free Software Foundation

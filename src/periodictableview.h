@@ -69,7 +69,7 @@ class PeriodicTableView : public QWidget
 		/**
 		 * put the limit for the @p type specified, but do not actually (de)activate it
 		 * @param type type of the @p value
-		 * @param value the value of the the limit for @p type
+		 * @param value the value of the limit for @p type
 		 */
 		void setValueLimit( int value, ChemicalDataObject::BlueObelisk type );
 

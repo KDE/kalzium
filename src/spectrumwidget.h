@@ -172,7 +172,7 @@ class SpectrumWidget : public QWidget
 
 	public slots:
 		/**
-		 * set the the maximum value to @p value
+		 * set the maximum value to @p value
 		 */
 		void setRightBorder( int value ){
 			endValue = value;
@@ -182,7 +182,7 @@ class SpectrumWidget : public QWidget
 		}
 		
 		/**
-		 * set the the minimum value to @p value
+		 * set the minimum value to @p value
 		 */
 		void setLeftBorder( int value ){
 			startValue = value;

@@ -174,7 +174,7 @@ namespace Avogadro {
       void rotate(const double &angle, const Eigen::Vector3d &axis);
       /** Multiply the camera's "modelview" matrix on the left by the rotation of the given
         * angle and axis. Because the rotation is applied on the left, the axis vector is
-        * understood in the the coordinate system obtained by applying the camera's matrix to
+        * understood in the coordinate system obtained by applying the camera's matrix to
         * the molecule's coordinate system. Use this method if you want to give
         * the impression that the camera is rotating while the molecule remains fixed.
         *

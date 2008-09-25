@@ -129,7 +129,7 @@
 	</item>
 	<item>
 		<name>Atomic Mass</name>
-		<desc>Mass of an atom, taken on a scale where the the mass of a carbon atom is 12u. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.</desc>
+		<desc>Mass of an atom, taken on a scale where the mass of a carbon atom is 12u. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.</desc>
 		<references>
 			<refitem>Atom</refitem>
 			<refitem>Mass</refitem>
