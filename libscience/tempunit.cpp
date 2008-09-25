@@ -24,7 +24,7 @@ double TempUnit::convert( double value, TempUnit::Unit from, TempUnit::Unit to )
 {
 	/**
 	 * These are the four formula needed to convert from
-	 * Kelvin the the other units:
+	 * Kelvin to the other units:
 
 	 Kelvin  Celsius  °C = K - 273,15
 	 Kelvin  Fahrenheit  °F = K × 1,8 - 459,67
