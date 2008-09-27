@@ -110,7 +110,7 @@ class MoleculeDialog : public KDialog
      void slotAdjustHydrogens();
 
     /**
-     * Geometry optimisation
+     * Geometry optimization
      */
      void slotGeometryOptimize();
 

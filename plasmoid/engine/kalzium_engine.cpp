@@ -165,7 +165,7 @@ QString KalziumEngine::generateFact()
             return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
     }
 
-    return i18n( "An error occured." );
+    return i18n( "An error occurred." );
 }
 
 #include "kalzium_engine.moc"
