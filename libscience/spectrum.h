@@ -30,7 +30,7 @@ class Element;
 /**
  * @author Carsten Niehaus
  *
- * This class represents an spectrum with all its properties
+ * This class represents a spectrum with all its properties
  */
 class SCIENCE_EXPORT Spectrum
 {
@@ -95,8 +95,8 @@ class SCIENCE_EXPORT Spectrum
 		void adjustIntensities();
 
 		/**
-		 * @param min the lowest allowed wavalength in nanometer
-		 * @param max the highest allowed wavalength in nanometer
+		 * @param min the lowest allowed wavelength in nanometer
+		 * @param max the highest allowed wavelength in nanometer
 		 * 
 		 * @return the wavelength in a QList<double>
 		 */
@@ -121,7 +121,7 @@ class SCIENCE_EXPORT Spectrum
 		double minPeak();
 		
 		/**
-		 * @return the bigest wavelength
+		 * @return the biggest wavelength
 		 */
 		double maxPeak();
 
