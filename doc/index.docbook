@@ -85,7 +85,9 @@
 	 <chapter id="quick-start">
 		 <title>&kalzium; quick start guide</title>
 
-		 <para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->&kalzium; or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
+		 <para>Here is &kalzium; the first time you run it, either by selecting <menuchoice><guimenu>Applications</guimenu> 
+                 <guisubmenu>Edutainment</guisubmenu><guisubmenu>Science</guisubmenu><guimenuitem>&kalzium;</guimenuitem></menuchoice> from the &kmenu; 
+                 or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
 		 <screenshot>
 			 <screeninfo>&kalzium; main window</screeninfo>
 			 <mediaobject>
@@ -388,7 +390,7 @@
 
 			 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
 
-			 <para>Color schemes can be changed in the <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
+			 <para>Color schemes can be changed in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Look</guimenuitem></menuchoice> menu. </para>
 			 <itemizedlist>
 				 <listitem><para>
 						 <guimenuitem>One Color</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
@@ -480,7 +482,7 @@
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
 				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of labaratory-tools. </para>
-				 <para>On the top of the widget you can see a searchbar. If you type in the bar the trees will be adjusted immediately. The small button left of the searchbar will clear it.
+				 <para>On the top of the widget you can see a searchbar. If you type in the bar the trees will be adjusted immediately. The small button in the right end of the searchbar will clear it.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -822,7 +824,7 @@
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient: Atomic Mass</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic radius.</para></listitem>
+						 <listitem><para><action>Display</action> the elements atomic mass.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
