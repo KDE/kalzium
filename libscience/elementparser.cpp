@@ -110,7 +110,7 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     {
         d->currentElement = new Element();
         d->inElement = true;
-    } else if (d->inElement && localName == "scalar" || localName == "array" )
+    } else if ( ( d->inElement && localName == "scalar" ) || localName == "array" )
     {
         for (int i = 0; i < attrs.length(); ++i) 
         {
