@@ -159,7 +159,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             QString discoverers = m_element->dataAsString( ChemicalDataObject::discoverers );
             if ( !discoverers.isEmpty() )
             {
-                discoverers = discoverers.replace( ";", ", " );
+                discoverers = discoverers.replace( ';', ", " );
                 html += "<br />" + i18n( "It was discovered by %1.", discoverers );
             }
             html.append( "</td></tr>" );

@@ -45,7 +45,7 @@ char* solve_equation(const char *) {
 void EQChemDialog::compute()
 {
     QString equation( ui.lineEdit->text() );
-    equation.replace("+", "+");
+//    equation.replace("+", "+");
     equation.replace("->", " -> ");
     equation.append(" ");
     equation.prepend(" ");
