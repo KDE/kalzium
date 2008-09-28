@@ -641,7 +641,7 @@ void Kalzium::openInformationDialog( int number )
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
     KalziumPainter::MODE cur = m_PeriodicTableView->mode();
-    if ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) || ( cur == KalziumPainter::GRADIENT ) )
+    if ( ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) ) || ( cur == KalziumPainter::GRADIENT ) )
         m_prevNormalMode = cur;
     m_PeriodicTableView->setMode( m_prevNormalMode );
     m_legendWidget->setMode( m_prevNormalMode );
