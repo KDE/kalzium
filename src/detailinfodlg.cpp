@@ -442,6 +442,7 @@ void DetailedInfoDlg::reloadContent()
     if ( spec )
     {
         m_spectrumview->setSpectrum( spec );
+        m_spectrumStack->setCurrentWidget( m_spectrumview );
     }
     else
     {
