@@ -38,7 +38,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboElementLabels" >
+      <widget class="KComboBox" name="comboElementLabels" >
        <item>
         <property name="text" >
          <string>No Labels</string>
@@ -146,7 +146,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="KCB_x" >
+         <widget class="KComboBox" name="KCB_x" >
           <property name="whatsThis" >
            <string>Here you can define what you want to plot</string>
           </property>
@@ -295,7 +295,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="KCB_y" >
+         <widget class="KComboBox" name="KCB_y" >
           <property name="whatsThis" >
            <string>Here you can define what you want to plot</string>
           </property>
@@ -395,6 +395,11 @@
    <class>KPlotWidget</class>
    <extends>QWidget</extends>
    <header>kplotwidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

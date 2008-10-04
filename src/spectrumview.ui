@@ -23,7 +23,7 @@
     <number>6</number>
    </property>
    <item row="1" column="0" >
-    <widget class="QTabWidget" name="tabWidget" >
+    <widget class="KTabWidget" name="tabWidget" >
      <property name="currentIndex" >
       <number>2</number>
      </property>
@@ -290,6 +290,12 @@
    <class>SpectrumWidget</class>
    <extends>QWidget</extends>
    <header>spectrumwidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>ktabwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

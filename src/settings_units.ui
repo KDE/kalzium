@@ -47,7 +47,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="kcfg_temperatureUnit" >
+         <widget class="KComboBox" name="kcfg_temperatureUnit" >
           <item>
            <property name="text" >
             <string>Kelvin</string>
@@ -93,7 +93,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="kcfg_energies" >
+         <widget class="KComboBox" name="kcfg_energies" >
           <item>
            <property name="text" >
             <string>kj/mol (kilojoule per mol)</string>
@@ -128,6 +128,13 @@
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -29,13 +29,13 @@
     <number>9</number>
    </property>
    <item>
-    <widget class="QTabWidget" name="dfgdfg" >
+    <widget class="KTabWidget" name="dfgdfg" >
      <property name="currentIndex" >
       <number>0</number>
      </property>
      <widget class="QWidget" name="tabBlocks" >
       <attribute name="title" >
-       <string>&amp;Blocks</string>
+       <string>Blocks</string>
       </attribute>
       <layout class="QVBoxLayout" >
        <property name="spacing" >
@@ -186,7 +186,7 @@
      </widget>
      <widget class="QWidget" name="tabGroups" >
       <attribute name="title" >
-       <string>&amp;Groups</string>
+       <string>Groups</string>
       </attribute>
       <layout class="QVBoxLayout" >
        <property name="spacing" >
@@ -453,7 +453,7 @@
      </widget>
      <widget class="QWidget" name="tabStateOfMatter" >
       <attribute name="title" >
-       <string>&amp;State of Matter</string>
+       <string>State of Matter</string>
       </attribute>
       <layout class="QVBoxLayout" >
        <property name="spacing" >
@@ -871,7 +871,7 @@
      </widget>
      <widget class="QWidget" name="tabNoColor" >
       <attribute name="title" >
-       <string>&amp;No Color Scheme</string>
+       <string>No Color Scheme</string>
       </attribute>
       <layout class="QVBoxLayout" >
        <property name="spacing" >
@@ -1105,6 +1105,12 @@ Check the properties you want to have displayed with a logarithmic gradient.</st
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>ktabwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

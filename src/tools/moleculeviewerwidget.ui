@@ -17,7 +17,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout" >
    <item row="0" column="0" >
-    <widget class="QTabWidget" name="tabWidget" >
+    <widget class="KTabWidget" name="tabWidget" >
      <property name="currentIndex" >
       <number>0</number>
      </property>
@@ -31,7 +31,7 @@
        </rect>
       </property>
       <attribute name="title" >
-       <string>&amp;Display</string>
+       <string>Display</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout" >
        <item>
@@ -52,7 +52,7 @@
          <item row="0" column="1" >
           <layout class="QHBoxLayout" name="horizontalLayout_6" >
            <item>
-            <widget class="QComboBox" name="qualityCombo" >
+            <widget class="KComboBox" name="qualityCombo" >
              <item>
               <property name="text" >
                <string>Low</string>
@@ -101,7 +101,7 @@
          <item row="1" column="1" >
           <layout class="QHBoxLayout" name="horizontalLayout_5" >
            <item>
-            <widget class="QComboBox" name="styleCombo" >
+            <widget class="KComboBox" name="styleCombo" >
              <item>
               <property name="text" >
                <string>Balls and sticks</string>
@@ -155,7 +155,7 @@
          <item row="2" column="1" >
           <layout class="QHBoxLayout" name="horizontalLayout_7" >
            <item>
-            <widget class="QComboBox" name="style2Combo" >
+            <widget class="KComboBox" name="style2Combo" >
              <item>
               <property name="text" >
                <string>None</string>
@@ -209,7 +209,7 @@
          <item row="3" column="1" >
           <layout class="QHBoxLayout" name="horizontalLayout_4" >
            <item>
-            <widget class="QComboBox" name="labelsCombo" >
+            <widget class="KComboBox" name="labelsCombo" >
              <item>
               <property name="text" >
                <string>None</string>
@@ -274,7 +274,7 @@
        </rect>
       </property>
       <attribute name="title" >
-       <string>&amp;Edit</string>
+       <string>Edit</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2" >
        <item>
@@ -295,7 +295,7 @@
          <item row="0" column="1" >
           <layout class="QHBoxLayout" name="horizontalLayout_2" >
            <item>
-            <widget class="QComboBox" name="elementCombo" />
+            <widget class="KComboBox" name="elementCombo" />
            </item>
            <item>
             <spacer name="horizontalSpacer_4" >
@@ -328,7 +328,7 @@
          <item row="1" column="1" >
           <layout class="QHBoxLayout" name="horizontalLayout_3" >
            <item>
-            <widget class="QComboBox" name="bondCombo" />
+            <widget class="KComboBox" name="bondCombo" />
            </item>
            <item>
             <spacer name="horizontalSpacer_3" >
@@ -456,7 +456,7 @@
        </rect>
       </property>
       <attribute name="title" >
-       <string>&amp;Measure</string>
+       <string>Measure</string>
       </attribute>
       <widget class="QLabel" name="label_10" >
        <property name="geometry" >
@@ -598,6 +598,17 @@
    <class>KalziumGLWidget</class>
    <extends>QWidget</extends>
    <header>../../compoundviewer/kalziumglpart.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>ktabwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

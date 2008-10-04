@@ -90,7 +90,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="r_le" >
+          <widget class="KLineEdit" name="r_le" >
            <property name="toolTip" >
             <string>Enter the R-Phrases you want to read. Only "-" is allowed as a delimitor. The combinations with "/" are not yet implemented.</string>
            </property>
@@ -135,7 +135,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="s_le" >
+          <widget class="KLineEdit" name="s_le" >
            <property name="toolTip" >
             <string>Enter the S-Phrases you want to read.  Only "-" is allowed as a delimitor. The combinations with "/" are not yet implemented.</string>
            </property>
@@ -167,7 +167,7 @@
     </layout>
    </item>
    <item row="1" column="0" >
-    <widget class="QTextBrowser" name="text" >
+    <widget class="KTextBrowser" name="text" >
      <property name="minimumSize" >
       <size>
        <width>500</width>
@@ -187,6 +187,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KTextBrowser</class>
+   <extends>QTextBrowser</extends>
+   <header>ktextbrowser.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

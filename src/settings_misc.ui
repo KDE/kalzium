@@ -47,7 +47,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="kcfg_pselook" >
+         <widget class="KComboBox" name="kcfg_pselook" >
           <item>
            <property name="text" >
             <string>Display atomic mass in the PSE</string>
@@ -85,6 +85,13 @@
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

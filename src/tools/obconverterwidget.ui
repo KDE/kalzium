@@ -97,7 +97,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="InputTypeComboBox" >
+      <widget class="KComboBox" name="InputTypeComboBox" >
        <property name="sizePolicy" >
         <sizepolicy>
          <hsizetype>3</hsizetype>
@@ -129,7 +129,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="OutputTypeComboBox" >
+      <widget class="KComboBox" name="OutputTypeComboBox" >
        <property name="sizePolicy" >
         <sizepolicy>
          <hsizetype>3</hsizetype>
@@ -149,6 +149,11 @@ p, li { white-space: pre-wrap; }
    <class>KPushButton</class>
    <extends>QPushButton</extends>
    <header>kpushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
