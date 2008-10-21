@@ -43,7 +43,12 @@ class LegendWidget : public QWidget
 
         ~LegendWidget(){}
 
+	void LockWidget();
+	void UnLockWidget();
+
     private:
+	bool m_update;
+
         QPixmap m_pixmap;
 
         KalziumSchemeType * m_scheme;

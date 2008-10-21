@@ -85,8 +85,10 @@ class Kalzium : public KXmlGuiWindow
         /**
          * all KActions Kalzium uses
          */
-        KSelectAction *look_action;
-        KSelectAction *look_action_schemes;
+        KSelectAction *look_action_menu_schemes;
+        KSelectAction *look_action_menu_gradients;
+	KSelectAction *look_action_schemes;
+        KSelectAction *look_action_gradients;
 
         KSelectAction *table_action;
         KSelectAction *table_action_schemes;
@@ -169,7 +171,8 @@ class Kalzium : public KXmlGuiWindow
 
         void slotTables();
 
-        void slotSwitchtoLook( int );
+        void slotSwitchtoLookGradient( int );
+        void slotSwitchtoLookScheme( int );
         void slotSwitchtoNumeration(int);
 
         /**

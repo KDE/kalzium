@@ -73,7 +73,8 @@ class KalziumPainter
             NORMAL = 0,
             SOM /**< State of matter*/,
             TIME/** Timeline*/,
-            GRADIENT
+            GRADIENT,
+            NORMAL_GRADIENT /** Schema + Gradient*/
         };
 
         /**

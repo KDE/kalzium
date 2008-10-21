@@ -3,7 +3,8 @@
 <MenuBar>
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="view_numerationtype" />
-    <Action name="view_look" />
+    <Action name="view_look_scheme" />
+    <Action name="view_look_gradient" />
     <Action name="view_table" />
     <Separator />
     <Action name="view_legend" />
@@ -26,6 +27,7 @@
 <ToolBar name="mainToolBar">
   <text>Main Toolbar</text>
   <Action name="view_look_onlyschemes" />
+  <Action name="view_look_onlygradient" />
   <Action name="view_legend" />
   <Action name="view_tooltip" />
   <Action name="view_sidebar"/>

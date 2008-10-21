@@ -86,13 +86,12 @@
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
 
-Kalzium::Kalzium()
-    : KXmlGuiWindow( 0 )
+Kalzium::Kalzium() : KXmlGuiWindow( 0 )
 {
 	setObjectName( "KalziumMainWindow" );
 
-    // adding the libkdeedu catalog
-    KGlobal::locale()->insertCatalog( "libkdeedu" );
+	// adding the libkdeedu catalog
+	KGlobal::locale()->insertCatalog( "libkdeedu" );
 
 	// reading the elements from file
 	KalziumDataObject::instance();
@@ -133,7 +132,7 @@ Kalzium::Kalzium()
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
-    m_exportDialog = 0;
+	m_exportDialog = 0;
 	m_prevNormalMode = KalziumPainter::NORMAL;
 
 	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
@@ -141,7 +140,6 @@ Kalzium::Kalzium()
 
 	// layouting
 	setCentralWidget( fakemain );
-
 	setupSidebars();
 	setupActions();
 
@@ -180,21 +178,35 @@ void Kalzium::setupActions()
     connect( export_action, SIGNAL( triggered( bool ) ), this, SLOT( slotShowExportDialog() ) );
 
     // the action for swiching look: color schemes and gradients
-    QStringList looklist;
     QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
-    looklist << prependToListItems( schemes, ki18n( "Scheme: %1" ) );
-    looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
-    look_action =  actionCollection()->add<KSelectAction>( "view_look" );
-    look_action->setText( i18n( "&Look" ) );
-    look_action->setItems(looklist);
-    connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
-    // "reduced" version of view_look
+    QStringList gradients = QStringList("No Gradient");
+    gradients << KalziumGradientTypeFactory::instance()->gradients();
+
+    look_action_menu_schemes =  actionCollection()->add<KSelectAction>( "view_look_scheme" );
+    look_action_menu_schemes->setText( i18n( "&Scheme" ) );
+    look_action_menu_schemes->setItems(schemes);
+    connect(look_action_menu_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
+
+    look_action_menu_gradients =  actionCollection()->add<KSelectAction>( "view_look_gradient" );
+    look_action_menu_gradients->setText( i18n( "&Gradient" ) );
+    look_action_menu_gradients->setItems(gradients);
+    connect(look_action_menu_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)));
+
+    // the action for swiching look: schemes
     look_action_schemes = actionCollection()->add<KSelectAction>( "view_look_onlyschemes" );
     look_action_schemes->setText( i18n( "&Scheme" ) );
     look_action_schemes->setItems( schemes );
     look_action_schemes->setToolBarMode( KSelectAction::MenuMode );
     look_action_schemes->setToolButtonPopupMode( QToolButton::InstantPopup );
-    connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
+    connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookScheme( int ) ) );
+
+    // the action for swiching look: gradients
+    look_action_gradients = actionCollection()->add<KSelectAction>( "view_look_onlygradient" );
+    look_action_gradients->setText( i18n( "&Gradients" ) );
+    look_action_gradients->setItems( gradients );
+    look_action_gradients->setToolBarMode( KSelectAction::MenuMode );
+    look_action_gradients->setToolButtonPopupMode( QToolButton::InstantPopup );
+    connect( look_action_gradients, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookGradient( int ) ) );
     
     // the action for swiching tables
     QStringList tablelist;
@@ -292,11 +304,18 @@ void Kalzium::setupActions()
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
     KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
-    slotSwitchtoLook( Prefs::colorschemebox() );
+    m_legendWidget->LockWidget();
+
+    slotSwitchtoLookScheme( Prefs::colorschemebox() );
+    slotSwitchtoLookGradient( Prefs::colorgradientbox() );
+
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
     slotShowHideSidebar( m_SidebarAction->isChecked(), false );
     slotShowLegend( m_pLegendAction->isChecked(), false );
+
+    m_legendWidget->UnLockWidget();
+    m_legendWidget->updateContent();
 
     // set the shell's ui resource file
     setXMLFile("kalziumui.rc");
@@ -455,7 +474,7 @@ void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 
 	if ( changeconfig )
 	{
-        Prefs::setShowlegend( checked );
+		Prefs::setShowlegend( checked );
 		//save the settings
 		Prefs::self()->writeConfig();
 	}
@@ -498,36 +517,80 @@ void Kalzium::slotSwitchtoNumeration( int index )
 	Prefs::self()->writeConfig();
 }
 
-void Kalzium::slotSwitchtoLook( int which )
+void Kalzium::slotSwitchtoLookGradient( int which )
 {
-    int id = which - KalziumSchemeTypeFactory::instance()->schemes().count();
-    if ( id < 0 )
-    {
-        m_PeriodicTableView->activateColorScheme( which );
-        if ( m_PeriodicTableView->mode() == KalziumPainter::GRADIENT )
-        {
-            m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
-            m_legendWidget->setMode( KalziumPainter::NORMAL );
-        }
-    }
-    else
-    {
-        m_PeriodicTableView->setGradient( id );
-        if ( m_PeriodicTableView->mode() == KalziumPainter::NORMAL )
-        {
-            m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
-            m_legendWidget->setMode( KalziumPainter::GRADIENT );
-        }
-    }
-    look_action->blockSignals( true );
-    look_action_schemes->blockSignals( true );
-    look_action->setCurrentItem( which );
-    look_action_schemes->setCurrentItem( which );
-    look_action->blockSignals( false );
-    look_action_schemes->blockSignals( false );
+	kDebug() << "slotSwitchtoLookGradient Kalzium";
+	Prefs::setColorgradientbox(which);
+	Prefs::self()->writeConfig();
+	if (which > 0)
+	{
+		m_PeriodicTableView->setGradient( which - 1 );
+		if (m_PeriodicTableView->scheme()->name() == "Iconic" ||
+			m_PeriodicTableView->scheme()->name() == "MonoColor")
+		{
+			if (m_PeriodicTableView->mode() == KalziumPainter::NORMAL ||
+				m_PeriodicTableView->mode() == KalziumPainter::NORMAL_GRADIENT)
+			{
+				m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
+				m_legendWidget->setMode( KalziumPainter::GRADIENT );
+			}
+		}
+		else
+		{
+			if (m_PeriodicTableView->mode() == KalziumPainter::NORMAL ||
+				m_PeriodicTableView->mode() == KalziumPainter::GRADIENT)
+			{
+				m_PeriodicTableView->setMode( KalziumPainter::NORMAL_GRADIENT );
+				m_legendWidget->setMode( KalziumPainter::NORMAL_GRADIENT );
+			}
+		}
+	}
+	else
+		slotSwitchtoLookScheme( Prefs::colorschemebox() );
 
-    Prefs::setColorschemebox(which);
-    Prefs::self()->writeConfig();
+	look_action_menu_gradients->blockSignals( true );
+	look_action_gradients->blockSignals( true );
+	look_action_menu_gradients->setCurrentItem( which );
+	look_action_gradients->setCurrentItem( which );
+	look_action_menu_gradients->blockSignals( false );
+	look_action_gradients->blockSignals( false );
+}
+
+void Kalzium::slotSwitchtoLookScheme( int which )
+{
+	kDebug() << "slotSwitchtoLookScheme Kalzium";
+	m_PeriodicTableView->activateColorScheme( which );
+	if (Prefs::colorgradientbox() == 0 || m_PeriodicTableView->scheme()->name() == "Iconic" ||
+		m_PeriodicTableView->scheme()->name() == "MonoColor")
+	{
+		if (m_PeriodicTableView->mode() == KalziumPainter::GRADIENT ||
+			m_PeriodicTableView->mode() == KalziumPainter::NORMAL_GRADIENT)
+		{
+			m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
+			m_legendWidget->setMode( KalziumPainter::NORMAL );
+		}
+	}
+	else
+	{
+		if (m_PeriodicTableView->mode() == KalziumPainter::GRADIENT ||
+			m_PeriodicTableView->mode() == KalziumPainter::NORMAL)
+		{
+			m_PeriodicTableView->setMode( KalziumPainter::NORMAL_GRADIENT );
+			m_legendWidget->setMode( KalziumPainter::NORMAL_GRADIENT );
+		}
+	}
+	
+	
+
+	look_action_menu_schemes->blockSignals( true );
+	look_action_schemes->blockSignals( true );
+	look_action_menu_schemes->setCurrentItem( which );
+	look_action_schemes->setCurrentItem( which );
+	look_action_menu_schemes->blockSignals( false );
+	look_action_schemes->blockSignals( false );
+
+	Prefs::setColorschemebox(which);
+	Prefs::self()->writeConfig();
 }
 
 void Kalzium::showSettingsDialog()
@@ -641,7 +704,8 @@ void Kalzium::openInformationDialog( int number )
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
     KalziumPainter::MODE cur = m_PeriodicTableView->mode();
-    if ( ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) ) || ( cur == KalziumPainter::GRADIENT ) )
+    if ( ( id > 1 ) && (cur == KalziumPainter::NORMAL) || (cur == KalziumPainter::GRADIENT) ||
+	(cur == KalziumPainter::NORMAL_GRADIENT) )
         m_prevNormalMode = cur;
     m_PeriodicTableView->setMode( m_prevNormalMode );
     m_legendWidget->setMode( m_prevNormalMode );
