@@ -132,7 +132,7 @@ void LegendWidget::updateContent()
 				items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( m_gradientType->firstColor() ) );
 				items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( m_gradientType->secondColor() ) );
 
-				items << qMakePair(i18n(""), QBrush());
+				items << qMakePair( QString(), QBrush() );
 				items << qMakePair( i18n( "Scheme: %1" ,m_scheme->description() ), QBrush() );
 				items << m_scheme->legendItems();
 
