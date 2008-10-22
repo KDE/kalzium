@@ -90,7 +90,7 @@ class GlossaryDialog::Private
 
         ~Private()
         {
-            QList< GlossaryInfo >::ConstIterator it = m_glossaries.begin(), itEnd = m_glossaries.end();
+            QList< GlossaryInfo >::ConstIterator it = m_glossaries.constBegin(), itEnd = m_glossaries.constEnd();
             for ( ; it != itEnd; ++it )
             {
                 delete (*it).glossary;
@@ -399,7 +399,7 @@ void GlossaryDialog::Private::rebuildTree()
 {
     m_glosstree->clear();
 
-    QList< GlossaryInfo >::ConstIterator it = m_glossaries.begin(), itEnd = m_glossaries.end();
+    QList< GlossaryInfo >::ConstIterator it = m_glossaries.constBegin(), itEnd = m_glossaries.constEnd();
     for ( ; it != itEnd; ++it )
     {
         m_glosstree->addTopLevelItem( createItem( *it ) );
