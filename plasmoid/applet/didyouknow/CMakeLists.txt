@@ -9,7 +9,7 @@ set(didyouknow_plasma_SRCS
 kde4_add_plugin(plasma_applet_didyouknow ${didyouknow_plasma_SRCS})
 
 target_link_libraries(plasma_applet_didyouknow
-    ${PLASMA_LIBS} ${KDE4_KIO_LIBS}
+    ${KDE4_PLASMA_LIBS} ${KDE4_KIO_LIBS}
     science
     )
 
