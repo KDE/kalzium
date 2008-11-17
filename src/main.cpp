@@ -64,6 +64,13 @@ int main(int argc, char **argv)
     about.addCredit( ki18n("Marco Martin"), ki18n("Some icons and inspiration for others" ));
     about.addCredit( ki18n("Daniel Haas"), ki18n( "The design of the information dialog" ));
     about.addCredit( ki18n("Brian Beck"), ki18n( "The orbits icon" ));
+
+    about.addCredit(ki18n("Paulo Cattai"),ki18n("New interface design and usability improvements"));
+    about.addCredit(ki18n("Danilo Balzaque"),ki18n("New interface design and usability improvements"));
+    about.addCredit(ki18n("Roberto Cunha"),ki18n("New interface design and usability improvements"));
+    about.addCredit(ki18n("Tadeu Araujo"),ki18n("New interface design and usability improvements"));
+    about.addCredit(ki18n("Tiago Porangaba"),ki18n("New interface design and usability improvements"));
+
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
