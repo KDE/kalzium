@@ -156,7 +156,7 @@ namespace Avogadro {
   PrimitiveList::const_iterator PrimitiveList::end() const
   {
     const_iterator ci(&(d->vector));
-    ci.vit = d->vector.end();
+    ci.vit = d->vector.constEnd();
     return ci;
   }
 

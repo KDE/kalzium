@@ -121,8 +121,8 @@ QString RSDialog::rphrase( int number )
 {
 	QString p;
 	
-	QMap<int, QString>::const_iterator i = rphrases_map.begin();
-	while ( i != rphrases_map.end() )
+	QMap<int, QString>::const_iterator i = rphrases_map.constBegin();
+	while ( i != rphrases_map.constEnd() )
 	{
 		if ( i.key() == number )
 			return i.value();
@@ -137,8 +137,8 @@ QString RSDialog::sphrase( int number )
 {
 	QString p;
 	
-	QMap<int, QString>::const_iterator i = sphrases_map.begin();
-	while ( i != sphrases_map.end() )
+	QMap<int, QString>::const_iterator i = sphrases_map.constBegin();
+	while ( i != sphrases_map.constEnd() )
 	{
 		if ( i.key() == number )
 			return i.value();
