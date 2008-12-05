@@ -71,7 +71,7 @@ void RSDialog::filter()
     //for now only separation by a - is allowed
     if (!ui.r_le->text().isEmpty() )
     {
-        QStringList rSplit = ui.r_le->text().split( "-" );
+        QStringList rSplit = ui.r_le->text().split( '-' );
         foreach( const QString &st, rSplit )
             r << st.toInt();
     }
@@ -79,7 +79,7 @@ void RSDialog::filter()
     //for now only separation by a - is allowed
     if (!ui.s_le->text().isEmpty() )
     {
-        QStringList sSplit = ui.s_le->text().split( "-" );
+        QStringList sSplit = ui.s_le->text().split( '-' );
         foreach( const QString &st, sSplit )
             s << st.toInt();
     }
