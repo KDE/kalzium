@@ -76,6 +76,8 @@ int main(int argc, char **argv)
     KCmdLineOptions options;
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
+    KGlobal::locale()->insertCatalog("kalzium_qt");
+
     Kalzium *mainWin = 0;
 
     if (app.isSessionRestored())
