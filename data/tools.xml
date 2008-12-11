@@ -30,7 +30,7 @@
 	<item>
 		<picture>moerser.jpg</picture>
 		<name>Mortar</name>
-		<desc>A mortar is used for  manually grinding solids. It can also be used to homogenize a mixture of powders by grinding. A club-shaped tool known as a pestle is used with the mortar for grinding.</desc>
+		<desc>A mortar is used for manually grinding solids. It can also be used to homogenize a mixture of powders by grinding. A club-shaped tool known as a pestle is used with the mortar for grinding.</desc>
 	</item>
 	<item>
 		<picture>heizplatte.jpg</picture>
@@ -70,7 +70,7 @@
 	<item>
 		<picture>rotationsverdampfer.jpg</picture>
 		<name>Rotary Evaporator</name>
-		<desc>A rotary evaporator consists of a round flask in a bath of hot water that is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. In this way solutions can be concentrated or purified. By attaching a vacuum pump, the air pressure and therefore  the boiling point of the fluid can be decreased.</desc>
+		<desc>A rotary evaporator consists of a round flask in a bath of hot water that is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. In this way solutions can be concentrated or purified. By attaching a vacuum pump, the air pressure and therefore the boiling point of the fluid can be decreased.</desc>
 	</item>
 	<item>
 		<picture>rueckflusskuehler.jpg</picture>
@@ -85,7 +85,7 @@
 	<item>
 		<picture>rg.jpg</picture>
 		<name>Test Tube</name>
-		<desc>In a test tube  small reactions or experiements are performed. There are many different types of tubes. For example some have connectors, some are etched for measurements, some are hardened for durability.</desc>
+		<desc>In a test tube small reactions or experiements are performed. There are many different types of tubes. For example some have connectors, some are etched for measurements, some are hardened for durability.</desc>
 	</item>
 	<item>
 		<picture>schutzbrille.jpg</picture>

@@ -137,7 +137,7 @@
          <item>
           <widget class="KLineEdit" name="s_le" >
            <property name="toolTip" >
-            <string>Enter the S-Phrases you want to read.  Only "-" is allowed as a delimitor. The combinations with "/" are not yet implemented.</string>
+            <string>Enter the S-Phrases you want to read. Only "-" is allowed as a delimitor. The combinations with "/" are not yet implemented.</string>
            </property>
            <property name="whatsThis" >
             <string>Enter the S-Phrases you want to read</string>
