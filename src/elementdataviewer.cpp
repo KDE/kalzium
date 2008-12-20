@@ -291,7 +291,7 @@ void ElementDataViewer::drawPlot()
     /*
      * The number of elements. #20 to 30 are 30-20+1=11 Elements
      */
-    const int num = to-from+1;
+    int num = to-from+1;
 
     setLimits();
 
@@ -300,7 +300,8 @@ void ElementDataViewer::drawPlot()
      */
     int whatShow = ui.comboElementLabels->currentIndex();
 
-    KPlotObject* dataPoint = 0;
+    KPlotObject* dataPointGreen = 0;
+    KPlotObject* dataPointRed = 0;
 
     double av_x = 0.0;
     double max_x = m_xData->value(from);
@@ -313,46 +314,74 @@ void ElementDataViewer::drawPlot()
      * iterate for example from element 20 to 30 and contruct
      * the KPlotObjects
      */
-		dataPoint = new KPlotObject( 
-                Qt::blue, 
-                KPlotObject::Points, 
-                4, 
+		dataPointGreen = new KPlotObject(
+                Qt::green,
+                KPlotObject::Points,
+                4,
                 KPlotObject::Star );
-		dataPoint->setLabelPen( QPen( Qt::red ) );
+        dataPointGreen->setLabelPen( QPen( Qt::blue ) );
+
+		dataPointRed = new KPlotObject(
+                Qt::red,
+                KPlotObject::Points,
+                4,
+                KPlotObject::Star );	//Star can be replaced with a cross
+        dataPointRed->setLabelPen( QPen( Qt::blue ) );
 
     for( int i = from; i < to+1 ; i++ )
     {
         double value_y = m_yData->value( i );
         double value_x = m_xData->value( i );
 
-        av_x += value_x;
-        av_y += value_y;
+		bool known = ((value_y)>0.0)  ?   1   :   0;
 
-        if (value_x > max_x) {
-            max_x = value_x;
-        }
-        if (value_y > max_y) {
-            max_y = value_y;
-        }
-        if (value_x < min_x) {
-            min_x = value_x;
-        }
-        if (value_y < min_y) {
-            min_y = value_y;
-        }
-				
-				QString lbl;
-        if ( whatShow > 0 )//The users wants to see the labels
-        {
-					lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
-        }
+		if (known)
+		{
+            av_x += value_x;
+            av_y += value_y;
 
-        dataPoint->addPoint( value_x, value_y, lbl );
+            if (value_x > max_x) {
+                max_x = value_x;
+            }
+            if (value_y > max_y) {
+                max_y = value_y;
+            }
+            if (value_x < min_x) {
+                min_x = value_x;
+            }
+            if (value_y < min_y) {
+                min_y = value_y;
+            }
+    				
+    				QString lbl;
+            if ( whatShow > 0 )//The users wants to see the labels
+            {
+    					lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+            }
 
+            dataPointGreen->addPoint( value_x, value_y, lbl );
+		}
+		else//unknown value
+		{
+		//num is required while finding the average, if an element is not
+		//known it should not contribute to the average. Thus num = num - 1
+			num--;
+					QString lbl;
+			if ( whatShow > 0 )//The users wants to see the labels
+	        {
+						lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+	        }
+
+	        dataPointRed->addPoint( value_x, value_y, lbl );
+			//For an Unknown value, use a red point to mark the data-point.
+		}
     }
 
-		ui.plotwidget->addPlotObject( dataPoint );
+		ui.plotwidget->addPlotObject( dataPointGreen );
+		ui.plotwidget->addPlotObject( dataPointRed );
 
+	if( num > 0 )
+	{
     //now set the values for the min, max and avarage value
     ui.av_x->setText( QString::number( av_x / num ) );
     ui.minimum_x->setText( QString::number( min_x ) );
@@ -360,6 +389,17 @@ void ElementDataViewer::drawPlot()
     ui.av_y->setText( QString::number( av_y / num ) );
     ui.minimum_y->setText( QString::number( min_y ) );
     ui.maximum_y->setText( QString::number( max_y ) );
+	}
+	
+	else
+	{
+	ui.av_x->setText( QString::number( 0.0 ) );
+    ui.minimum_x->setText( QString::number( 0.0 ) );
+    ui.maximum_x->setText( QString::number( 0.0 ) );
+    ui.av_y->setText( QString::number( 0.0 ) );
+    ui.minimum_y->setText( QString::number( 0.0 ) );
+    ui.maximum_y->setText( QString::number( 0.0 ) );
+	}
 }
 
 void ElementDataViewer::initData()
