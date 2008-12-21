@@ -99,8 +99,11 @@ void ElementDataViewer::slotHelp()
 
 void ElementDataViewer::rangeChanged()
 {
-	m_timer->stop();
-	m_timer->start( 500 );
+    if ( ui.from->value() > ui.to->value() ) 
+        ui.to->setValue( ui.from->value() );
+
+    m_timer->stop();
+    m_timer->start( 500 );
 }
 
 
