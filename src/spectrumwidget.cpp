@@ -35,7 +35,7 @@
 #include <QPixmap>
 
 #include <qglobal.h>
-#if defined(Q_OS_SOLARIS)
+#if defined(HAVE_IEEEFP_H)
 #include <ieeefp.h>
 #endif
 
