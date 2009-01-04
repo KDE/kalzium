@@ -234,7 +234,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             html.append( "</td></tr>" );
             
             // 1st ionization energy
-            html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
+            html.append( "<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>" );
             html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
             html.append( "</td></tr>" );
             
