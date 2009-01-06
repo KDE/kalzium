@@ -27,7 +27,7 @@
 #define GLOBAL_H
 
 #include <QTranslator>
-
+#include <math.h>
 #ifdef WIN32
 # ifndef NOMINMAX
 #  define NOMINMAX 1
@@ -108,6 +108,55 @@ const float    LIGHT1_POSITION[4]                    = { -0.8f, 0.7f, -0.5f, 0.0
 
 namespace Avogadro
 {
+  const int      PAINTER_GLOBAL_QUALITY_SETTINGS       = 5;
+  const int      DEFAULT_GLOBAL_QUALITY_SETTING        = PAINTER_GLOBAL_QUALITY_SETTINGS - 3;
+  const int      PAINTER_DETAIL_LEVELS                 = 10;
+  // Sphere detail level array. Each row is a detail level.
+  // The first column is the sphere detail level at the furthest
+  // point and the last column is the detail level at the closest
+  // point.
+  const int      PAINTER_SPHERES_LEVELS_ARRAY[5][10]
+  =
+    { {0, 0, 1, 1, 2, 2, 3, 3, 4, 4},
+      {0, 1, 2, 3, 4, 4, 5, 5, 6, 6},
+      {1, 2, 3, 4, 5, 6, 7, 8, 9, 9},
+      {1, 2, 3, 4, 6, 7, 8, 9, 11, 12},
+      {2, 3, 4, 5, 7, 9, 12, 15, 18, 22}
+    };
+  const double   PAINTER_SPHERES_LIMIT_MIN_LEVEL       = 0.005;
+  const double   PAINTER_SPHERES_LIMIT_MAX_LEVEL       = 0.15;
+
+  // Cylinder detail level array. Each row is a detail level.
+  // The first column is the cylinder detail level at the furthest
+  // point and the last column is the detail level at the closest
+  // point.
+  const int      PAINTER_CYLINDERS_LEVELS_ARRAY[5][10]
+  =
+    { {0, 3, 5, 5, 8, 8, 12, 12, 16, 16},
+      {0, 4, 6, 9, 12, 12, 16, 16, 20, 20},
+      {0, 4, 6, 10, 14, 18, 22, 26, 32, 40},
+      {0, 4, 6, 12, 16, 20, 24, 28, 34, 42},
+      {0, 5, 10, 15, 20, 25, 30, 35, 40, 45}
+    };
+  const double   PAINTER_CYLINDERS_LIMIT_MIN_LEVEL     = 0.001;
+  const double   PAINTER_CYLINDERS_LIMIT_MAX_LEVEL     = 0.03;
+  const int      PAINTER_MAX_DETAIL_LEVEL = PAINTER_DETAIL_LEVELS - 1;
+  const double   PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL
+  = sqrt ( PAINTER_SPHERES_LIMIT_MIN_LEVEL );
+  const double   PAINTER_SPHERES_SQRT_LIMIT_MAX_LEVEL
+  = sqrt ( PAINTER_SPHERES_LIMIT_MAX_LEVEL );
+  const double   PAINTER_SPHERES_DETAIL_COEFF
+  = static_cast<double> ( PAINTER_MAX_DETAIL_LEVEL - 1 )
+    / ( PAINTER_SPHERES_SQRT_LIMIT_MAX_LEVEL - PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL );
+  const double   PAINTER_CYLINDERS_SQRT_LIMIT_MIN_LEVEL
+  = sqrt ( PAINTER_CYLINDERS_LIMIT_MIN_LEVEL );
+  const double   PAINTER_CYLINDERS_SQRT_LIMIT_MAX_LEVEL
+  = sqrt ( PAINTER_CYLINDERS_LIMIT_MAX_LEVEL );
+  const double   PAINTER_CYLINDERS_DETAIL_COEFF
+  = static_cast<double> ( PAINTER_MAX_DETAIL_LEVEL - 1 )
+    / ( PAINTER_CYLINDERS_SQRT_LIMIT_MAX_LEVEL - PAINTER_CYLINDERS_SQRT_LIMIT_MIN_LEVEL );
+  const double   PAINTER_FRUSTUM_CULL_TRESHOLD = -0.8;
+
   class A_EXPORT Library
   {
     public:
