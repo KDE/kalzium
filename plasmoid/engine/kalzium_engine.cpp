@@ -18,6 +18,7 @@
 #include <elementparser.h>
 
 #include <QFile>
+#include <QLatin1String>
 #include <QStringList>
 
 #include <KLocale>
@@ -75,7 +76,7 @@ bool KalziumEngine::sourceRequestEvent(const QString &source)
     }
 
     // return element #
-    if (source.startsWith( "BlueObelisk:Element:") ) {
+    if (source.startsWith( QLatin1String("BlueObelisk:Element:") ) ) {
         // create the data
         updateSource(source);
         return true;
