@@ -21,6 +21,8 @@
 #include "chemicaldataobject.h"
 #include <kdebug.h>
 
+#include <QLatin1String>
+
 class ChemicalDataObjectPrivate : public QSharedData
 {
     public:
@@ -290,7 +292,7 @@ QString ChemicalDataObject::dictRef() const
 			break;
 	}
 
-	botype = botype.prepend( "bo:" );
+	botype = botype.prepend( QLatin1String("bo:") );
 	
 	return botype;
 }
