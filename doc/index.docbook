@@ -206,7 +206,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_misc">
 				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, 
+				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other information about the current element, 
 				including when it was discovered and the origin of the name.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
