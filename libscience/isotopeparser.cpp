@@ -131,7 +131,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
                     if (attrs.localName(i) == "units") {
                         if ( attrs.value(i) == "siUnits:s" ) {
                             d->currentUnit = ChemicalDataObject::s;
-                        } else if ( attrs.value(i) == "siUnits:y" ) {
+                        } else if ( attrs.value(i) == "units:y" ) {
                             d->currentUnit = ChemicalDataObject::y;
                         } else {
                             d->currentUnit = ChemicalDataObject::noUnit;
