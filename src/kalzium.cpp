@@ -179,7 +179,7 @@ void Kalzium::setupActions()
 
     // the action for swiching look: color schemes and gradients
     QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
-    QStringList gradients = QStringList("No Gradient");
+    QStringList gradients = QStringList(i18n("No Gradient"));
     gradients << KalziumGradientTypeFactory::instance()->gradients();
 
     look_action_menu_schemes =  actionCollection()->add<KSelectAction>( "view_look_scheme" );
