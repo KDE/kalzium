@@ -53,7 +53,7 @@ set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.8.0 SOVERSION 0 )
 TARGET_LINK_LIBRARIES(avogadro-kalzium ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
   ${OPENGL_LIBRARIES})
 
-INSTALL(TARGETS avogadro-kalzium DESTINATION ${LIB_INSTALL_DIR})
+INSTALL(TARGETS avogadro-kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # Add the engines and tools directories
 add_subdirectory(engines)
