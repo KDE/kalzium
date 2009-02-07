@@ -262,7 +262,7 @@ namespace Avogadro {
             continue;
           }
 
-          // check to see if its an excluded file
+          // check to see if it is an excluded file
           // (hidden or not readable or a Mac OS X bundle
           if (dirIterator.fileInfo().isHidden() 
               || !dirIterator.fileInfo().isReadable()
