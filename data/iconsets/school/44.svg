@@ -16,10 +16,17 @@
    inkscape:version="0.46"
    version="1.0"
    sodipodi:docbase="/home/jra/Desktop"
-   sodipodi:docname="fyllepentipp8sample.svg"
+   sodipodi:docname="44.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2195">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 20 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="40 : 20 : 1"
+       inkscape:persp3d-origin="20 : 13.333333 : 1"
+       id="perspective148" />
     <linearGradient
        id="linearGradient5233">
       <stop
@@ -645,9 +652,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.0000004"
-     inkscape:cx="27.472064"
-     inkscape:cy="6.7581151"
+     inkscape:zoom="32.000002"
+     inkscape:cx="13.659565"
+     inkscape:cy="8.289365"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:grid-bbox="false"
@@ -812,14 +819,6 @@
        id="path4945"
        d="M 2.8002046,29.306311 C 2.4578538,29.255865 2.1963912,29.19814 2.1963912,29.19814 C 2.1963919,29.198139 2.2198936,28.937064 2.2967141,28.627435 L 1.8683677,29.032953 C 1.98649,29.045095 2.1088082,29.101964 2.1759122,29.21077 C 2.2458116,29.324109 2.2450225,29.451384 2.1967502,29.565408 L 2.8002046,29.306311 z"
        style="opacity:0.25;fill:url(#radialGradient3504);fill-opacity:1;stroke:none;stroke-width:0.30000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
-    <rect
-       y="11.868103"
-       x="29.050928"
-       height="2.6977239"
-       width="0.047328491"
-       id="rect4947"
-       style="opacity:0.59839358;fill:#ff7e00;fill-opacity:1;stroke:none;stroke-width:0.30000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(0.5249296,0.8511457,-0.8511457,0.5249296,0,0)" />
     <path
        sodipodi:type="arc"
        style="opacity:0.75;fill:url(#radialGradient5104);fill-opacity:1;stroke:none;stroke-width:0.30000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
