@@ -36,7 +36,7 @@
 			<default>true</default>
 		</entry>
 		<entry name="pselook" type="Int">
-			<label>whether the atomic mass will be displayed in the PSE-Table</label>
+			<label>Whether the atomic mass will be displayed in the PSE-Table</label>
 			<whatsthis>Display the atomic mass in the PSE</whatsthis>
 			<default>0</default>
 		</entry>
@@ -48,48 +48,48 @@
 	</group>
 	<group name="Logarithmic Gradients">
 		<entry name="LogarithmicCovalentRadiusGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumCovalentRadiusGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumCovalentRadiousGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Covalent Radius Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Covalent Radius Gradient feature</whatsthis>
 			<default>false</default>
 		</entry>
 		<entry name="LogarithmicVanDerWaalsRadiusGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumVanDerWaalsRadiusGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumVanDerWaalsRadiusGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium van der Waals Radius Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium van der Waals Radius Gradient feature</whatsthis>
 			<default>false</default>
 		</entry>
 		<entry name="LogarithmicMassGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumMassGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumMassGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Mass Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Mass Gradient feature</whatsthis>
 			<default>true</default>
 		</entry>
 		<entry name="LogarithmicBoilingPointGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumBoilingPointGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumBoilingPointGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Boiling Point Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Boiling Point Gradient feature</whatsthis>
 			<default>true</default>
 		</entry>
 		<entry name="LogarithmicMeltingPointGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumMeltingPointGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumMeltingPointGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Melting Point Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Melting Point Gradient feature</whatsthis>
 			<default>true</default>
 		</entry>
 		<entry name="LogarithmicElectronegativityGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumElectronegativityGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumElectronegativityGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Electronegativity Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Electronegativity Gradient feature</whatsthis>
 			<default>false</default>
 		</entry>
 		<entry name="LogarithmicDiscoverydateGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumDiscoverydateGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumDiscoverydateGradientType class</whatsthis>
+			<label>whether to use a logarithmic gradient for the Kalzium Discovery Date Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Discovery Date Gradient feature</whatsthis>
 			<default>false</default>
 		</entry>
 		<entry name="LogarithmicElectronaffinityGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumElectronaffinityGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumElectronaffinityGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Electron Affinity Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Electron Affinity Gradient feature</whatsthis>
 			<default>true</default>
 		</entry>
 		<entry name="LogarithmicIonizationGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the KalziumIonizationGradientType class</label>
-			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumIonizationGradientType class</whatsthis>
+			<label>Whether to use a logarithmic gradient for the Kalzium Ionization Gradient feature</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Ionization Gradient feature</whatsthis>
 			<default>true</default>
 		</entry>
 	</group>

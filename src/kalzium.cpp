@@ -384,7 +384,7 @@ void Kalzium::slotExportTable()
 {
     QString fileName = KFileDialog::getSaveFileName(QString(), i18n("*.png *.xpm *.jpg *.svg"),
             this, 
-            i18n("Save Kalziums Table In"));
+            i18n("Save Kalzium's Table In"));
 
     if (fileName.endsWith(".svg")) {
         m_PeriodicTableView->generateSvg( fileName );

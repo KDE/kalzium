@@ -206,7 +206,7 @@ void KOpenBabel::slotConvert()
             switch( KMessageBox::warningContinueCancel(
                         this,
                         i18n( "The file %1 already exists. Do you want to overwrite if possible?", ofname ),
-                        i18n( "The file %1 already exists ! -- KOpenBabel", ofname )
+                        i18n( "The File %1 Already Exists -- KOpenBabel", ofname )
                     )
                   ) {
                 case KMessageBox::No:
@@ -226,7 +226,7 @@ void KOpenBabel::slotConvert()
     if (cmdArgList.count() > 0) {
         switch( KMessageBox::questionYesNo(
                     this, cmdList.join("\n"),
-                    i18n("OK to run these commands? -- KOpenBabel")
+                    i18n("Is it okay to run these commands? -- KOpenBabel")
                 )
                 ) {
             case KMessageBox::Yes:

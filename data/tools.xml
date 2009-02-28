@@ -3,24 +3,24 @@
 	<item>
 		<picture>uhrglas.jpg</picture>
 		<name>Watchglass</name>
-		<desc>Watchglasses are round glass panes with a diameter of around 5 - 10 cm which are used in the various experimental techniques. The border is bent upwards to allow the watchglass to hold small amounts of liquids in order to let them evaporate. The evaporation can be accelerated by heating the watchglass with a Bunsen burner. Watchglasses can also be used to cover petri dishes or beakers. Moreover watchglasses are suited to weighing small amounts of matter or alternatively drying them in the airing cupboard. The term watchglass is derived from the former pocket watches' protection glass which was often domed.</desc>
+		<desc>Watchglasses are round glass panes with a diameter of around 5 - 10cm, used in various experimental techniques. The border is bent upwards to allow the watchglass to hold small amounts of liquids in order to let them evaporate. The evaporation can be accelerated by heating the watchglass with a Bunsen burner. Watchglasses can also be used to cover Petri dishes or beakers, and are also suited to weighing small amounts of matter or drying them in an airing cupboard. The term watchglass is derived from the former pocket watches' protection glass which was often domed.</desc>
 	</item>
 	<item>
 		<picture>exikator.jpg</picture>
 		<name>Dehydrator</name>
-		<desc>A dehydrator is a laboratory apparatus which is often made of glass and serves to dry chemical matters, that is, to remove water or liquid from a sample.
-			In principle it is a glass bowl with cap which has a planar grinding so that the bowl is air tight closeable. The dehydrator's lower part is ordinarily filled with a drying agent e.g. calcium chloride, silica gel, phosphoric anhydride or sulphuric acid. The sample to be dried is placed on a diaphanous cartridge of plastic or ceramics above the drying agent.
+		<desc>A dehydrator is a piece of laboratory apparatus, often made of glass, and which serves to dry chemical matters; that is, to remove water or liquid from a sample.
+			In principle it is a glass bowl with cap that has a planar grinding, so that the bowl is air-tight. The dehydrator's lower part is ordinarily filled with a drying agent such as calcium chloride, silica gel, phosphoric anhydride or sulphuric acid. The sample to be dried is placed on a diaphanous cartridge of plastic or ceramic above the drying agent.
 			The drying agent is hygroscopic, which means that it dehumidifies its environment by absorbing water vapor. The dry atmosphere then takes up water from the sample to be dried.</desc>
 	</item>
 	<item>
 		<picture>spatel.jpg</picture>
 		<name>Spatula</name>
-		<desc> The spatula is a laboratory tool to scrape off, grind and transport chemicals. The material they are made of (e.g. iron, titanium, platinum) and their design (e.g. flat spatula or spoon spatula) can be different.</desc>
+		<desc>The spatula is a laboratory tool to scrape off, grind, and transport chemicals. The material they are made of (e.g. iron, titanium, platinum) and their design (e.g. flat spatula or spoon spatula) varies.</desc>
 	</item>
 	<item>
 		<picture>wasserstrahlpumpe.jpg</picture>
 		<name>Water Jet Pump</name>
-		<desc>The water jet pump has two entry pipes and one exit and consists in principle of two pipes one inside the other. At the water entry a water jet shoots under full pressure out of a nozzle into a slightly larger pipe. Thereby the water jet carries away air or fluid from the second entry. &lt;br&gt; This is caused by the negative pressure in a drifting fluid. Thus it is an application of the hydrodynamic paradox. This says that objects close to drifting fluids are aspirated instead of being pushed away.</desc>
+		<desc>The water jet pump has two entry pipes and one exit, and consists, in principle, of two pipes one inside the other. At the water entry a water jet shoots under full pressure out of a nozzle into a slightly larger pipe. The water jet thereby carries away air or fluid from the second entry. &lt;br&gt; This is caused by the negative pressure in a drifting fluid, and thus it is an application of the hydrodynamic paradox (objects close to drifting fluids are aspirated instead of being pushed away).</desc>
 	</item>
 	<item>
 		<picture>brechungsmesser.jpg</picture>
@@ -45,32 +45,32 @@
 	<item>
 		<picture>tropftrichter.jpg</picture>
 		<name>Dropping Funnel</name>
-		<desc>A dropping funnel can be used to drop precise amounts of fluid. You can control the dropping speed with a valve.</desc>
+		<desc>A dropping funnel can be used to drop precise amounts of fluid. The dropping speed can be controlled with a valve.</desc>
 	</item>
 	<item>
 		<picture>scheidetrichter.jpg</picture>
 		<name>Separating Funnel</name>
-		<desc>A separating funnel can be used to separate a mixture of fluids by differing density. A valve at the bottom allows you to drain the more dense fluid for transfer to another container.</desc>
+		<desc>A separating funnel can be used to separate a mixture of fluids of differing densities. A valve at the bottom allows the denser fluid to be drained for transfer to another container.</desc>
 	</item>
 	<item>
 		<picture>rg-staender.jpg</picture>
 		<name>Test Tube Rack</name>
-		<desc>This rack comes in handy when you want to test many small amounts of chemicals in a row, or if you want to dry test tubes.</desc>
+		<desc>This rack comes is useful when many small amounts of chemicals are to be tested in a row; or alternatively, to dry test tubes.</desc>
 	</item>
 	<item>
 		<picture></picture>
 		<name>Vortexer</name>
-		<desc>A vortexer serves to homogenize reagents found in laboratories. The container containing liquid to be homogenized is put on a platform. The platform shakes by rotary agitation up to 3000RPM at which point a contact sensor is activated. In this way extremely small volumes of fluid can be homogenized quickly as well. It is the opposite of a centrifuge, used to separate fluids.</desc>
+		<desc>A vortexer serves to homogenize reagents found in laboratories. The container containing liquid to be homogenized is put on a platform. The platform shakes by rotary agitation up to 3000RPM at which point a contact sensor is activated. In this way extremely small volumes of fluid can be homogenized quickly. It is the opposite of a centrifuge, used to separate fluids.</desc>
 	</item>
 	<item>
 		<picture>spritzflasche.jpg</picture>
 		<name>Wash Bottle</name>
-		<desc>These bottles are used for many purposes. In most laboratories they are usually filled with water, salt, acid or other commonly used fluids. They make it easy to apply the fluid if you do not need to measure a precise amount.</desc>
+		<desc>These bottles are used for many purposes. In most laboratories they are usually filled with water, salt, acid or other commonly used fluids. They make it easy to apply the fluid if a precisely measured amount is not needed.</desc>
 	</item>
 	<item>
 		<picture>rotationsverdampfer.jpg</picture>
 		<name>Rotary Evaporator</name>
-		<desc>A rotary evaporator consists of a round flask in a bath of hot water that is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. In this way solutions can be concentrated or purified. By attaching a vacuum pump, the air pressure and therefore the boiling point of the fluid can be decreased.</desc>
+		<desc>A rotary evaporator consists of a round flask in a bath of hot water, and is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. In this way solutions can be concentrated or purified. By attaching a vacuum pump, the air pressure and therefore the boiling point of the fluid can be decreased.</desc>
 	</item>
 	<item>
 		<picture>rueckflusskuehler.jpg</picture>
@@ -80,22 +80,22 @@
 	<item>
 		<picture>pileusball.jpg</picture>
 		<name>Pipette Bulb</name>
-		<desc>A pipette bulb is used to fill pipettes. It produces a negative pressure which makes the fluid go into the pipette. If one lets air back into the ball the fluid will run out of the pipette.</desc>
+		<desc>A pipette bulb is used to fill pipettes.  Squeezing then releasing the bulb produces a negative pressure, causing fluid to flow into the pipette; squeezing the bulb then causes the fluid to flow out of the pipette.</desc>
 	</item>
 	<item>
 		<picture>rg.jpg</picture>
 		<name>Test Tube</name>
-		<desc>In a test tube small reactions or experiements are performed. There are many different types of tubes. For example some have connectors, some are etched for measurements, some are hardened for durability.</desc>
+		<desc>In a test tube small reactions or experiments are performed. There are many different types of tubes. For example some have connectors, some are etched for measurements, some are hardened for durability.</desc>
 	</item>
 	<item>
 		<picture>schutzbrille.jpg</picture>
 		<name>Protective Goggles</name>
-		<desc>Most laboratories insist that everyone wears protective goggles. Without them, it is too risky to work with most chemicals. Usually, the lens is a special type of plastic which protects you from both mechanical impacts and acid and base chemicals.</desc>
+		<desc>Most laboratories insist that protective goggles are worn. Without them, it is too risky to work with most chemicals. Usually, the lens is a special type of plastic that affords protection from both mechanical impacts, and acid and base chemicals.</desc>
 	</item>
 	<item>
 		<picture>rundkolben.jpg</picture>
-		<name>Round-bottomed Flask</name>
-		<desc>A round-bottomed flask is used for a lot of reactions. Some can be connected to other items, as the frosting on the neck shows. With cork rings they can be placed on a table.</desc>
+		<name>Round-Bottomed Flask</name>
+		<desc>A round-bottomed flask is used for many reactions. Some can be connected to other items, as the frosting on the neck shows. With cork rings they can be placed on a table.</desc>
 	</item>
 	<item>
 		<picture>vollpipette.jpg</picture>
@@ -105,42 +105,42 @@
 	<item>
 		<picture>trockenrohr.jpg</picture>
 		<name>Drying Tube</name>
-		<desc>There are reactions which need to be kept free of water. To make this possible one uses a drying tube, which contains a hygroscopic chemical to absorb water in the atmosphere.</desc>
+		<desc>Some reactions need to be kept free of water: to make this possible a drying tube can be used.  Drying tubes contains a hygroscopic chemical to absorb water from the atmosphere.</desc>
 	</item>
 	<item>
 		<picture>rg-halter.jpg</picture>
-		<name>Test tube fastener</name>
-		<desc>With a test tube fastener you can easily hold test tubes. If you use a fastener there is a safe distance between the hand and the test tube when the tube is hot. In particular, it is used when you hold a test tube over an open flame.</desc>
+		<name>Test Tube Holder</name>
+		<desc>Test tube holders make it easier to hold test tubes. By using a holder, there is a safe distance between ones hand and the test tube when the tube is hot.  Typically, test tube holders are used to hold test tubes over open flames.</desc>
 	</item>
 	<item>
 		<picture>messzylinder.jpg</picture>
 		<name>Measuring Cylinder</name>
-		<desc>In a measuring cylinder you can fill amounts of liquids relatively precisely. Furthermore, the cylinder allows particulate matter to sink. Following this, you can separate particulates from the fluid by decanting.</desc>
+		<desc>A measuring cylinder can be used to measure amounts of liquids relatively precisely. Furthermore, the cylinder allows particulate matter to sink: following this, the particulates can be separated from the fluid by decanting.</desc>
 	</item>
 	<item>
 		<picture>thermometer.jpg</picture>
 		<name>Thermometer</name>
-		<desc>With a thermometer you can determine the temperature of a sample. In a laboratory special thermometers are used, which can also be used within acids or bases.</desc>
+		<desc>A thermometer can be used to determine the temperature of a sample. In a laboratory, special thermometers are used which can also be used within acids or bases.</desc>
 	</item>
 	<item>
 		<picture>ruehrfisch.jpg</picture>
-		<name>Magnetic stir bar</name>
-		<desc>Magnetic stir bars are highly chemically inert, small magnetic bars. Most heaters have a built-in magnet which can rotate. This causes the stir bar to rotate and the mixture to be homogenized.</desc>
+		<name>Magnetic Stir Bar</name>
+		<desc>Magnetic stir bars are highly chemically inert, small magnetic bars. Most heaters have a built-in magnet which can rotate: this causes the stir bar to rotate and the mixture to become homogenized.</desc>
 	</item>
 	<item>
 		<picture></picture>
 		<name>Magnetic Stir Bar Retriever</name>
-		<desc>With a magnetic stir bar retriever you can remove magnetic stir bars from a container. The retriever is a bar with a magnet at the end which attracts the stir bars.</desc>
+		<desc>A magnetic stir bar retriever can be used to retrieve magnetic stir bars from containers. The retriever is a bar with a magnet at the end which attracts the stir bars.</desc>
 	</item>
 	<item>
 		<picture>pipette.jpg</picture>
 		<name>Pipette</name>
-		<desc>Pipettes are used to introduce small quantities of liquids in laboratories. A pipette has a volume scale and as a rule pileusballs are used as droppers for liquids. Both sorts of pipettes are calibrated for fluids with a temperature of 20°C and for time of outflow (signified by "Ex."). If needed times of outflow are indicated on the pipettes.</desc>
+		<desc>Pipettes are used to introduce small quantities of liquids in laboratories. A pipette has a volume scale and, as a rule, pipette bulbs are used as droppers for liquids. Both sorts of pipettes are calibrated for fluids with a temperature of 20°C and for time of outflow (signified by "Ex."). If needed, times of outflow are indicated on the pipettes.</desc>
 	</item>
 	<item>
 		<picture>erlenmeyerkolben.jpg</picture>
 		<name>Erlenmeyer Flask</name>
-		<desc>This flask named after the chemist Emil Erlenmeyer (1825-1909) comes - unlike the beaker - with an inverted conical base and a cylindrical neck. There are different types of Erlenmeyer flasks for laboratory applications, the narrow and wide neck form. Depending on the application the flask may have precision grinding to allow good connection to other containers.
+		<desc>An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), is different to a beaker in that it comes with an inverted conical base and a cylindrical neck. There are different types of Erlenmeyer flasks for laboratory applications: the narrow neck and wide neck forms. Depending on the application the flask may have precision grinding to allow good connection to other containers.
 			&lt;br&gt;
 			The narrow neck reduces the risk of fluid escaping, especially when boiling or during reactions which agitate the contents.
 			&lt;br&gt;
@@ -151,77 +151,77 @@
 	<item>
 		<picture></picture>
 		<name>Ultrasonic Bath</name>
-		<desc>For some chemical reactions it is important that the solvent is gas free. To achieve this the reaction vessel is put for some time into a ultrasonic bath. Through the high sound frequency the vapor locks peel away and ascend. This procedure is called outgassing.</desc>
+		<desc>For some chemical reactions it is important that the solvent is gas free. To achieve this the reaction vessel is put for some time into a ultrasonic bath. Due to the high sound frequency, the vapor locks peel away and ascend. This procedure is called out-gassing.</desc>
 	</item>
 	<item>
 		<picture>waage.jpg</picture>
 		<name>Scales</name>
-		<desc>In a laboratory you often have to weigh out very precise amounts of reagents. High precise scales can measure masses down to 1/10000 gram.Therefor they stand on granite blocks to avoid vibrancies and are protected against blasts by a dome.</desc>
+		<desc>In a laboratory, very precise quantities of reagents often have to be weighed out. High precision scales can measure masses down to 1/10000 gram.  As such, they stand on granite blocks to avoid vibrations and are protected against changes in airflow by a dome.</desc>
 	</item>
 	<item>
 		<picture>destillierbruecke.jpg</picture>
 		<name>Distillation bridge</name>
-		<desc>To separate a mixture you can use distillation amongst others. The distillation bridge is thereby the way between the two pots. In the one pot there is the mixture to be separated. Through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed again and drips in a round flask. As a rule, the bridge is cooled by return flow. In addition, there is often a thermometer for controlling the temperature on the distillation bridge.</desc>
+		<desc>One means of separating a mixture is to use distillation.  In this setting, a distillation bridge acts as a conduit between the two pots.  One pot contains the mixture to be separated, and through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed and drips into a round flask.  Typically, the bridge is cooled by return flow.  Also, there is often a thermometer for controlling the temperature of the distillation bridge.</desc>
 	</item>
 	<!-- proofreaders: start here! -->
 	<item>
 		<picture>kolbenprober.png</picture>
 		<name>Syringe</name>
-		<desc>A syringe consists of two parts: A glass tube and a punch. Both are normally made of glass. A gas floats into the glass tube. As the syringe is a closed system the punch has to give way. This can be used measuring the volume of an reaction.</desc>
+		<desc>A syringe consists of two parts, a glass tube and a plunger, both normally made of glass. Gasses flow into the glass tube, and as the syringe is a closed system, the plunger moves outwards. This can be used to measure the volume of a reaction.</desc>
 	</item>
 	<item>
 		<picture>verteiler.jpg</picture>
 		<name>Separation Beaker</name>
-		<desc>At the four ends of this separation beaker you put four small caps. While distilling, you can turn the beaker by 60 degree after a certain temperate has been reached. This way, at the end of the distillation all four caps have a specific liquid in it, depending on the boiling points of the liquid distilled.</desc>
+		<desc>First, four small caps are placed at the four ends of the separation beaker.  Then, whilst distilling, the beaker is turned by 60 degrees after a certain temperate has been reached.  In doing so, at the end of the distillation, all four caps contain a specific liquid, depending on the boiling point of the liquid distilled.</desc>
 	</item>
 	<item>
 		<picture>brenner.jpg</picture>
 		<name>Burner</name>
-		<desc>There are several types of burners. The picture shows a Teclu-Burner. Each type has specific uses. They vary in the peak temperature and overall heating capability.</desc>
+		<desc>There are several types of burners; this picture shows a Teclu-Burner. Each type of burner has specific uses, and they vary in peak temperature and overall heating capacity.</desc>
 	</item>
 	<item>
 		<picture>abzug.jpg</picture>
 		<name>Extractor Hood</name>
-		<desc>Most laboratories use extractor hoods. They filter the gasses from chemical reactions and pump the cleaned air outside of the building.</desc>
+		<desc>Extractor hoods are used to filter out gasses from chemical reactions.  The air, once cleaned, is pumped outside of the building.</desc>
 	</item>
 	<item>
 		<picture>thermometer2.jpg</picture>
 		<name>Contact Thermometer</name>
-		<desc>A contact thermometer is different from a regular thermometer because of its sensor for the current temperature. Such a thermometer is connected with a heating coild. If the sensor notices that the aimed temperature has been reached the contact thermometer will make the heating coild stop heating. Therefore in an experiment it is possible to have a constant temperature.</desc>
+		<desc>Contact thermometers differ from regular thermometers in that they are connected to a heating coil, and are hence able to both sense and controls the current temperature.  In doing so, they allow experiments to be performed under a constant temperature.  Contact thermometers work using a negative feedback loop: once the desired temperature has been reached, the heating coil is deactivated; when the temperature falls, the heating coil is reactivated.</desc>
 	</item>
 	<item>
 		<picture>halter.jpg</picture>
 		<name>Clamps</name>
-		<desc>With clamps as used in a laboratory you can easily hold all kinds of tools.</desc>
+		<desc>Laboratory clamps make it easier to hold many kinds of tools.</desc>
 	</item>
 	<item>
 		<picture>phpapier.jpg</picture>
-		<name>Litmus Paper</name>
-		<desc>There are multiple way to measure the pH-Value of an solution. With a litmus paper it is easy to get a pretty precise pH-Value. The color indicates the value. If you need a more precise value you can for example use a pH-Meter which is using the conductivity of a solution.</desc>
+		<name>Indicator Paper</name>
+		<desc>There are multiple ways of measuring the pH value of a solution, one of which is to use indicator paper. Indicator paper changes colour depending on the pH of the solution applied to it, and by comparing to a chart a fairly accurate measure of the solution's pH can be obtained.  If a more accurate measure is needed, a glass electrode can be used, which works by measuring the conductivity of the solution.</desc>
 	</item>
 	<item>
 		<picture>trichter.jpg</picture>
-		<name>Short-stem Funnel</name>
-		<desc>A funnel is used in the laboratory to fill powder into something.</desc>
+		<name>Short-Stem Funnel</name>
+		<desc>A funnel can be used to fill a narrow-necked vessel with a liquid or fine powder.</desc>
 	</item>
 	<item>
 		<picture></picture>
 		<name>Buret</name>
-		<desc>A buret is used to titrate liquids. The buret is filled with a specified volume of a liquid. Below it a container like an Erlenmeyer flask is placed. By opening the valve the liquid in the container will be titrated. High-quality buret have a venting-mechanism with which they can be very easily refilled with the exact volume for which the buret is calibrated.</desc>
+		<desc>Burets are used to titrate liquids.  A buret is filled with a specific volume of a liquid, and placed beneath it is a container such as an Erlenmeyer flask.  By opening the valve on the buret, the liquid in the container will then be titrated.  High-quality burets have a venting mechanism with which they can be very easily refilled with the exact volume for which the buret is calibrated.</desc>
 	</item>
 	<item>
 		<picture>becherglas.jpg</picture>
 		<name>Beaker</name>
-		<desc>Beakers are used in many places for a lot of tasks. They are used to store chemicals are to perform chemical reactions. They are also often used for titrations.</desc>
+		<desc>Beakers can be used for many tasks.  For instance, they are used to store chemicals and to perform chemical reactions.  They are often also used for titrations.</desc>
 	</item>
 	<item>
 		<picture>dsc.jpg</picture>
-		<name>DSC (Differencial Scanning Calorimetry)</name>
-		<desc>The DSC measures the heat flow volume of a compound. This value is very specific for every kind of matter. Thus, the DSC is used to identify chemicals or to describe them.</desc>
+		<name>DSC (Differential Scanning Calorimeter)</name>
+		<desc>A DSC measures the heat flow volume of a compound.  This value is very specific for every kind of matter, and thus a DSC can be used to identify chemicals or to describe them.</desc>
 	</item>
 	<item>
 		<picture></picture>
-		<name>Dewar vessel</name>
-		<desc>A dewar vessel (or dewar flask) is designed for a good thermal insulation. Its hull is a double-layer construction with vacuum between the two layers. Because of this they are appropriote for keeping liquids cold or warm. A thermos flawsk is an example of a dewar vessel.</desc>
+		<name>Dewar Vessel</name>
+		<desc>A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar (1842-1923), is a double-walled vacuum flask, designed to provide good thermal insulation.  As such, they are useful for keeping liquids cool or warm.  One well-known example of a Dewar vessel is a Thermos flask.</desc>
 	</item>
 </tools>

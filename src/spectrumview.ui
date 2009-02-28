@@ -10,10 +10,10 @@
    </rect>
   </property>
   <property name="toolTip" >
-   <string>This page gives an overview about the spectrum this element. With the mouse you can zoom into the spectrum.</string>
+   <string>This page gives an overview of the spectrum this element. With the mouse you can zoom into the spectrum.</string>
   </property>
   <property name="whatsThis" >
-   <string>This page gives an overview about the spectrum this element</string>
+   <string>This page gives an overview of the spectrum this element</string>
   </property>
   <layout class="QGridLayout" >
    <property name="margin" >

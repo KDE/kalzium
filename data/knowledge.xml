@@ -96,7 +96,7 @@
 	</item>
 	<item>
 		<name>Standard deviation</name>
-		<desc>An amount with which the precision of a measurement can be estimates.</desc>
+		<desc>An amount with which the precision of a measurement can be estimated.</desc>
 	</item>
 	<item>
 		<name>Suspension</name>
@@ -151,7 +151,7 @@
 	</item>
 	<item>
 		<name>Magnetic Moment</name>
-		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]</desc>
+		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It is measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]</desc>
 		<references>
 			<refitem>Isotope</refitem>
 		</references>
@@ -246,7 +246,7 @@
 	</item>
 	<item>
 		<name>Ionic Radius</name>
-		<desc>The Ionic Radius is the radius of a charged atom, a so called ion. The ion can have a positive or a negative charge. The charge of the ion which radius you see is also displayed in Kalzium. A positive ion has less electrons in its shell then the atom, a negative ion has more electrons. Therefore, a postive ion has a smaller radius than its atom and vice versa.</desc>
+		<desc>The Ionic Radius is the radius of a charged atom, known as an ion. The ion can have a positive or a negative charge. The charge of the ion with the radius shown is also displayed in Kalzium. A positive ion has fewer electrons in its shell than the atom, a negative ion has more electrons. Therefore, a positive ion has a smaller radius than its atom and vice versa.</desc>
 		<references>
 			<refitem>Covalent Radius</refitem>
 			<refitem>Atomic Radius</refitem>
@@ -273,7 +273,7 @@
 	</item>
 	<item>
 		<name>Covalent Radius</name>
-		<desc>Covalent radius in chemistry corresponds to half of the distance between two identical atomic nuclei, bound by a covalent bond.</desc>
+		<desc>The covalent radius in chemistry corresponds to half of the distance between two identical atomic nuclei, bound by a covalent bond.</desc>
 		<references>
 			<refitem>Atomic Radius</refitem>
 			<refitem>Ionic Radius</refitem>

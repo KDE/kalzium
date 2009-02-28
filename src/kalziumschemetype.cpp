@@ -106,7 +106,7 @@ QByteArray KalziumMonoColorSchemeType::name() const
 
 QString KalziumMonoColorSchemeType::description() const
 {
-	return i18n( "One Colour" );
+	return i18n( "Monochrome" );
 }
 
 QBrush KalziumMonoColorSchemeType::elementBrush( int el, const QRect& elrect ) const
