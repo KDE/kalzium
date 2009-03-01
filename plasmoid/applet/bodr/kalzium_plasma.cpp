@@ -96,8 +96,8 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     QString text;
     text = QString(i18n( "\nName: %1", name ));
     text.append(QString(i18n( "\nSymbol: %1", symbol)));
-    text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
-    text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
+    text.append(QString(i18n( "\nBoiling point: %1", bp)));
+    text.append(QString(i18n( "\nMelting point: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
 //         m_label1->setAlignment(Qt::AlignLeft);

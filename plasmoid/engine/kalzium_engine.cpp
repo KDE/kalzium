@@ -156,10 +156,10 @@ QString KalziumEngine::generateFact()
             return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
         case 1:
             qDebug() << "1";
-            return i18n( "Did you know that\n %1 (%2) weights %3 u?", name, symbol, mass );
+            return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
         case 2:
             qDebug() << "2";
-            return i18n( "Did you know that\n %1 (%2) weights %3 u?", name, symbol, mass );
+            return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
             break;
         default:
             qDebug() << "default in switch";
