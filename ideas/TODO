@@ -1,5 +1,11 @@
 			 TODO for Kalzium KDE4
 			 =====================
+
+* Making the table scalable. The basic code is already there and working. See
+ - http://github.com/cryos/avogadro/blob/master/libavogadro/src/periodictableview.cpp
+ - http://github.com/cryos/avogadro/blob/master/libavogadro/src/periodictableview.h
+ That code needs to be finished (making it scalable) and then ported to Kalzium
+
 * 3D-code: Please read the TODO on the Avogadro side. All ideas and 
   any progress is handled there: http://avogadro.sourceforge.net/wiki/To_Do
 
