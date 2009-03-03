@@ -187,7 +187,7 @@
 	<item>
 		<picture>thermometer2.jpg</picture>
 		<name>Contact Thermometer</name>
-		<desc>Contact thermometers differ from regular thermometers in that they are connected to a heating coil, and are hence able to both sense and controls the current temperature.  In doing so, they allow experiments to be performed under a constant temperature.  Contact thermometers work using a negative feedback loop: once the desired temperature has been reached, the heating coil is deactivated; when the temperature falls, the heating coil is reactivated.</desc>
+		<desc>Contact thermometers differ from regular thermometers in that they are connected to a heating coil, and are hence able to both sense and control the current temperature.  In doing so, they allow experiments to be performed under a constant temperature.  Contact thermometers work using a negative feedback loop: once the desired temperature has been reached, the heating coil is deactivated; when the temperature falls, the heating coil is reactivated.</desc>
 	</item>
 	<item>
 		<picture>halter.jpg</picture>
@@ -197,7 +197,7 @@
 	<item>
 		<picture>phpapier.jpg</picture>
 		<name>Indicator Paper</name>
-		<desc>There are multiple ways of measuring the pH value of a solution, one of which is to use indicator paper. Indicator paper changes colour depending on the pH of the solution applied to it, and by comparing to a chart a fairly accurate measure of the solution's pH can be obtained.  If a more accurate measure is needed, a glass electrode can be used, which works by measuring the conductivity of the solution.</desc>
+		<desc>There are multiple ways of measuring the pH value of a solution, one of which is to use indicator paper. Indicator paper changes color depending on the pH of the solution applied to it, and by comparing to a chart a fairly accurate measure of the solution's pH can be obtained.  If a more accurate measure is needed, a glass electrode can be used, which works by measuring the conductivity of the solution.</desc>
 	</item>
 	<item>
 		<picture>trichter.jpg</picture>
