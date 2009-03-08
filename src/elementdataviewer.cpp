@@ -63,24 +63,30 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
   foreach (Element * e, kdo->ElementList) {
       names << e->dataAsString( ChemicalDataObject::name );
       symbols << e->dataAsString( ChemicalDataObject::symbol );
+      elecConfig<< e->dataAsString(ChemicalDataObject::electronicConfiguration);
+      block << e->dataAsString( ChemicalDataObject::periodTableBlock );
   }
 
 	m_actionCollection = new KActionCollection (this );
 	KStandardAction::quit( this, SLOT( close() ), m_actionCollection );
 
 	connect( m_timer, SIGNAL( timeout() ), 
-          this, SLOT( drawPlot() ) );
+             this, SLOT( drawPlot() ) );
 	connect( ui.KCB_y, SIGNAL( activated(int) ),
 	         this, SLOT( rangeChanged()) );
 	connect( ui.KCB_x, SIGNAL( activated(int) ),
 	         this, SLOT( rangeChanged()) );
 	connect( ui.comboElementLabels, SIGNAL( activated( int ) ),
 	         this, SLOT( rangeChanged()) );
+	connect( ui.comboElementType,   SIGNAL( activated( int ) ),
+    		 this, SLOT( rangeChanged()) );
 	connect( ui.from, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( rangeChanged() ) );
 	connect( ui.to, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( rangeChanged() ) );
 	connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
+	connect( ui.full, SIGNAL ( clicked() ) ,
+			 this, SLOT( fullRange() ) );
 	drawPlot();
 
 	resize( 650, 500 );
@@ -104,6 +110,12 @@ void ElementDataViewer::rangeChanged()
 
     m_timer->stop();
     m_timer->start( 500 );
+}
+
+void ElementDataViewer::fullRange()
+{
+	ui.from -> setValue(1);
+	ui.to   -> setValue(100);
 }
 
 
@@ -298,11 +310,34 @@ void ElementDataViewer::drawPlot()
 
     setLimits();
 
+	QSet<int> metals, metalloids, nonMetals;
+	
+	metals << 3 << 4 << 11 << 12 << 13;
+    for ( int i = 19; i <= 31 ; i++ )
+         metals << i;
+    for ( int i = 37; i <= 50 ; i++ )
+        metals << i;
+    for ( int i = 55; i <= 83 ; i++ )
+        metals << i;
+    for ( int i = 87; i <= 116; i++ )
+         metals << i;
+
+    metalloids << 5 << 14 << 32 << 33 << 51 << 52 << 84 << 85;
+
+    nonMetals << 1 << 2 << 6 << 7 << 8 << 9 << 10 << 15 << 16;
+    nonMetals << 17 << 18 << 34 << 35 << 36 << 53 << 54 << 86;
+    
     /*
      * check if the users wants to see the elementnames or not
      */
     int whatShow = ui.comboElementLabels->currentIndex();
-
+    
+    /*
+     * Checks what type of element, the user wants to plot.
+     * example, metal, non-metal.
+     */
+    int whichType = ui.comboElementType->currentIndex();
+    
     KPlotObject* dataPointGreen = 0;
     KPlotObject* dataPointRed = 0;
 
@@ -336,39 +371,117 @@ void ElementDataViewer::drawPlot()
         double value_y = m_yData->value( i );
         double value_x = m_xData->value( i );
 
-		bool known = ((value_y)>0.0)  ?   1   :   0;
-
+		bool known = ( ( value_y ) > 0.0 ) ? 1 : 0;
+		//The element is know if its value is not zero
+        bool belongs = 1;
+        //The value of belongs is one if it belongs to the particular group
+        
+        //See if the particular element belongs to the selected set or not.
+        //If a particular group of elements is selected,
+		if ( whichType > 0)
+		{
+			belongs = 0;
+			switch (whichType)
+			{
+				case 1: //Plot only metals
+					belongs = metals . contains(i);
+					break;
+				case 2: //plot only nonmetals and metalloids
+					belongs = ( nonMetals.contains(i) || metalloids.contains(i) );
+					break;			
+				case 3: //Plot s block elements
+					belongs = ( block [ i - 1 ] == "s");
+					break;
+				case 4: //Plot p block elements
+					belongs = ( block [ i - 1 ] == "p");
+					break;
+				case 5: //Plot d block elements
+					belongs = ( block [ i - 1 ] == "d");
+					break;
+				case 6: //plot f block elements
+					belongs = ( block [ i - 1 ] == "f");
+					break;
+				case 7: // Nobel gases
+					belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("p6") );
+					belongs |= ( i == 2 );		//Include Helium
+					break;
+				case 8: // Alkalie metals
+					belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("s1") );
+					belongs &= ( block [ i - 1 ] == "s" ); //exclude chromium
+					belongs &= ( i != 1 );		//exclude Hydrogen
+					break;
+				case 9: // Alkaline earth metals
+					belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("s2") );
+					belongs &= ( block [ i - 1 ] == "s" ); //exclude chromium					
+					belongs &= ( i != 2 );		//exclude Helium
+					break;
+				case 10: // Lanthanides
+					// If element i is an f block element, with 
+					// electronic configuration containing "f4" in it
+					// or the element is Lanthanum
+					belongs = ( ( block [ i - 1 ] == "f") && \
+					( ( elecConfig [ i - 1 ] ) . contains ("4f") ) ) || \
+					( i == 57 );	//Lanthanum 57
+					break;
+				case 11: //Actinides
+					//If element i is an f block element, with
+					// electronic configuration containing "f5" in it
+					// or the element is Actinium
+					belongs = ( ( ( block [ i - 1 ] == "f") ) && \
+					( ( elecConfig [ i - 1 ] ) . contains ("5f") ) ) || \
+					( i == 89 );	//Actinium 89
+					break;
+				case 12: //Radio active
+					belongs = ( ( i == 43 ) || ( i == 61 ) || ( i > 84 ) );
+					// Technitium prothomium and then polonium onwards.
+					break;
+				default:
+					whichType = 0;
+					belongs = 1;
+			}
+		}
 		if (known)
 		{
-            av_x += value_x;
-            av_y += value_y;
+		
+		    if ( belongs )
+    		{
+                av_x += value_x;
+                av_y += value_y;
 
-            if (value_x > max_x) {
-                max_x = value_x;
+                if (value_x > max_x) {
+                    max_x = value_x;
+                }
+                if (value_y > max_y) {
+                    max_y = value_y;
+                }
+                if (value_x < min_x) {
+                    min_x = value_x;
+                }
+                if (value_y < min_y) {
+                    min_y = value_y;
+                }
+        				
+        				QString lbl;
+                if ( whatShow > 0 )//The users wants to see the labels
+                {
+        					lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+                }
+
+                dataPointGreen->addPoint( value_x, value_y, lbl );
             }
-            if (value_y > max_y) {
-                max_y = value_y;
-            }
-            if (value_x < min_x) {
-                min_x = value_x;
-            }
-            if (value_y < min_y) {
-                min_y = value_y;
-            }
-    				
-    				QString lbl;
-            if ( whatShow > 0 )//The users wants to see the labels
+            else//The element does not belong to the set
             {
-    					lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+                //num is required while finding average, if an element is
+                //not in the selected set, it should not contribute to the avg.
+                num--;            
             }
-
-            dataPointGreen->addPoint( value_x, value_y, lbl );
 		}
 		else//unknown value
 		{
-		//num is required while finding the average, if an element is not
-		//known it should not contribute to the average. Thus num = num - 1
+    		//num is required while finding the average, if an element is not
+    		//known it should not contribute to the average.
 			num--;
+			
 					QString lbl;
 			if ( whatShow > 0 )//The users wants to see the labels
 	        {
@@ -385,23 +498,23 @@ void ElementDataViewer::drawPlot()
 
 	if( num > 0 )
 	{
-    //now set the values for the min, max and avarage value
-    ui.av_x->setText( QString::number( av_x / num ) );
-    ui.minimum_x->setText( QString::number( min_x ) );
-    ui.maximum_x->setText( QString::number( max_x ) );
-    ui.av_y->setText( QString::number( av_y / num ) );
-    ui.minimum_y->setText( QString::number( min_y ) );
-    ui.maximum_y->setText( QString::number( max_y ) );
+        //now set the values for the min, max and avarage value
+        ui.av_x->setText( QString::number( av_x / num ) );
+        ui.minimum_x->setText( QString::number( min_x ) );
+        ui.maximum_x->setText( QString::number( max_x ) );
+        ui.av_y->setText( QString::number( av_y / num ) );
+        ui.minimum_y->setText( QString::number( min_y ) );
+        ui.maximum_y->setText( QString::number( max_y ) );
 	}
 	
 	else
 	{
-	ui.av_x->setText( QString::number( 0.0 ) );
-    ui.minimum_x->setText( QString::number( 0.0 ) );
-    ui.maximum_x->setText( QString::number( 0.0 ) );
-    ui.av_y->setText( QString::number( 0.0 ) );
-    ui.minimum_y->setText( QString::number( 0.0 ) );
-    ui.maximum_y->setText( QString::number( 0.0 ) );
+    	ui.av_x->setText( QString::number( 0.0 ) );
+        ui.minimum_x->setText( QString::number( 0.0 ) );
+        ui.maximum_x->setText( QString::number( 0.0 ) );
+        ui.av_y->setText( QString::number( 0.0 ) );
+        ui.minimum_y->setText( QString::number( 0.0 ) );
+        ui.maximum_y->setText( QString::number( 0.0 ) );
 	}
 }
 
@@ -412,3 +525,4 @@ void ElementDataViewer::initData()
 }
 
 #include "elementdataviewer.moc"
+

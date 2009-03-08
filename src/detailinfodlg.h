@@ -59,7 +59,8 @@ class DetailedInfoDlg : public KPageDialog
 		{
 			MISC = 0,
 			ISOTOPES,
-			DATA /** <the overview about atomic and compound data */
+			DATA, /** <the overview about atomic and compound data */
+			EXTRA/** Links to wikipedia and other sites where useful information can be found*/
 		};
 
 		Element            *m_element;

@@ -243,6 +243,23 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
             html.append( "</td></tr>" );
         }
+        case EXTRA:
+        {
+        	//Wikipedia.org
+        	html.append( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
+        	html.append( "<a href=\"http:\\\\en.wikipedia.org\\");
+        	html.append( m_element->dataAsString( ChemicalDataObject::name ) );
+        	html.append( "\"> Wikipedia </a>");
+        	html.append( "</td></tr>" );
+        	//chemipedia.org
+        	//html.append( "<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>" );
+        	
+        	//html.append( "</td></tr>" );
+        	//physics.nist.gov
+        	//html.append( "<tr><td><img src=\"nist.png\" alt=\"icon\"/></td><td>" );
+        	
+        	//html.append( "</td></tr>" );
+		}
     }
 
     html += "</table></div></body></html>";
@@ -381,6 +398,7 @@ void DetailedInfoDlg::createContent()
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopemap" );
 	m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "applications-science" );
+	m_htmlpages["extra"] = addHTMLTab( i18n( "Extra information" ), i18n( "Extra Information" ), "Further reading" );
 
 	// spectrum widget tab
 	QWidget *m_pSpectrumTab = new QWidget();
@@ -435,6 +453,7 @@ void DetailedInfoDlg::reloadContent()
     fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
     fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
     fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
+    fillHTMLTab( m_htmlpages["extra"], getHtml( EXTRA ) );
 
     Spectrum * spec =  KalziumDataObject::instance()->spectrum( m_elementNumber );
 

@@ -19,7 +19,6 @@
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-
 class QTimer;
 class KActionCollection;
 
@@ -112,7 +111,8 @@ class ElementDataViewer : public KDialog
 
         QStringList         names;
         QStringList         symbols;
-
+        QStringList         elecConfig;	//Electronic configuration of elements
+        QStringList 	    block;	//Indicates the periodic table block s,p,d,f...
         QTimer *m_timer;
 
         KActionCollection* m_actionCollection;
@@ -130,6 +130,7 @@ class ElementDataViewer : public KDialog
 
     private slots:
         void rangeChanged();
+        void fullRange();
 
     public slots:
         void slotZoomIn();
