@@ -115,7 +115,7 @@ void ElementDataViewer::rangeChanged()
 void ElementDataViewer::fullRange()
 {
 	ui.from -> setValue(1);
-	ui.to   -> setValue(100);
+	ui.to   -> setValue(116);
 }
 
 
