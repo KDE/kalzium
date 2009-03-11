@@ -245,7 +245,7 @@
 						 <varlistentry>
 							 <term>Percentage</term>
 							 <listitem><para>
-									 The percentage of atoms occuring that are of this isotope type. Also called abundance.
+									 The percentage of atoms occurring that are of this isotope type. Also called abundance.
 							 </para></listitem>
 						 </varlistentry>
 
@@ -310,7 +310,7 @@
 					 sort in two equal molecules, for example two carbon-atoms in
 					 propane. The last possible radius is the ionic radius including its
 					 charge.</para>
-				 <para>The mass of an element is the avarage mass of all isotopes in
+				 <para>The mass of an element is the average mass of all isotopes in
 					 relation to their percentage.
 				 </para>
 				 <screenshot>
@@ -454,7 +454,7 @@
 					 The <guimenuitem>Isotope Table...</guimenuitem> shows you the isotopes of the elements.
 				 </para>
 				 <para>
-					 There are diffent kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
+					 There are different kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two different beta-rays. These differences are encoded by using different colors. 
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -464,7 +464,7 @@
 						 <textobject>
 							 <phrase>the <quote>Isotope Table</quote> window</phrase>
 						 </textobject>
-						 <caption><para>&kalzium; can display the isoptes of a range of elements</para>
+						 <caption><para>&kalzium; can display the isotopes of a range of elements</para>
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
@@ -481,7 +481,7 @@
 
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
-				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of labaratory-tools. </para>
+				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of laboratory-tools. </para>
 				 <para>On the top of the widget you can see a searchbar. If you type in the bar the trees will be adjusted immediately. The small button in the right end of the searchbar will clear it.
 				 </para>
 				 <screenshot>
@@ -520,7 +520,7 @@
 				 </para>
 				 <blockquote><para>aH2O + bCO2 -> cH2CO3</para></blockquote>
 				 <para>
-					 The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be ajusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
+					 The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be adjusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -788,7 +788,7 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Scheme: Familiy</guimenuitem>
+								 <guimenuitem>Scheme: Family</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the families of
 								 elements.</para></listitem>
@@ -907,7 +907,7 @@
 								 <guimenuitem>Table: DZ Periodic Table</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para>This item represents the table the DZ <foreignphrase
-							lang="de">Deutscher Zentralausschuss</foreignphrase> "German Central Comitee" suggests.</para></listitem>
+							lang="de">Deutscher Zentralausschuss</foreignphrase> "German Central Committee" suggests.</para></listitem>
 					 </varlistentry>
 
 					 <varlistentry>
