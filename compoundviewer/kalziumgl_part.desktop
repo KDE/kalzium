@@ -2,6 +2,7 @@
 Icon=kalzium
 MimeType=application/ogg;audio/basic;
 Name=KalziumGLPart
+Name[cs]=GL součást Kalzium
 Name[csb]=Mòduł KalziumGLPart
 Name[et]=Kalziumi GL-komponent
 Name[he]=KalziumGLPartm
@@ -18,6 +19,7 @@ Name[zh_CN]=KalziumGL 组件
 Comment=An OpenGL-based 3D-renderer for molecules
 Comment[bg]=OpenGL 3D за молекули
 Comment[ca]=Un representador de molècules en 3D basat en OpenGL
+Comment[cs]=Zobrazovač molekul ve třetím rozměru založený na OpenGL
 Comment[csb]=Mòduł pòkazëjący trzëmiarowé mòlekùłë (zwëskô z OpenGL)
 Comment[da]=OpenGL-baseret 3D-rendering af molekyler
 Comment[de]=Ein OpenGL-basierter 3D-Zeichner für Moleküle
