@@ -17,8 +17,12 @@ configure_file(
 
 include(${QT_USE_FILE})
 
+# Ensure the Avogadro include directory is always first
+get_directory_property(tmp_include_dirs INCLUDE_DIRECTORIES)
+set_directory_properties(PROPERTIES INCLUDE_DIRECTORIES
+	"${libavogadro-kalzium_SOURCE_DIR}/include;${tmp_include_dirs}")
+
 include_directories(
-  ${libavogadro-kalzium_SOURCE_DIR}/include
   ${CMAKE_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/..
