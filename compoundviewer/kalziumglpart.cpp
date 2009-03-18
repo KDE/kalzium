@@ -189,7 +189,7 @@ KAboutData *KalziumGLPart::createAboutData()
 
 bool KalziumGLPart::openFile()
 {
-  Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule( url().path() );
+  Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule( url().toLocalFile() );
   if(!mol) return false;
   Avogadro::Molecule* oldmol = m_widget->molecule();
   if(oldmol) oldmol->deleteLater();
