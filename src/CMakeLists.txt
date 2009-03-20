@@ -93,6 +93,7 @@ kde4_add_ui_files(kalzium_SRCS
    somwidget.ui
    spectrumview.ui 
    settings_misc.ui
+   settings_web.ui
    settings_units.ui
    rswidget.ui
    timewidget.ui
