@@ -440,10 +440,10 @@ void ElementDataViewer::drawPlot()
 					belongs = 1;
 			}
 		}
-		if (known)
+		if ( belongs )
 		{
 		
-		    if ( belongs )
+		    if ( known )
     		{
                 av_x += value_x;
                 av_y += value_y;
@@ -469,28 +469,29 @@ void ElementDataViewer::drawPlot()
 
                 dataPointGreen->addPoint( value_x, value_y, lbl );
             }
-            else//The element does not belong to the set
-            {
+            else//unknown value
+			{
+    			//num is required while finding the average, if an element is not
+    			//known it should not contribute to the average.
+				num--;
+				
+						QString lbl;
+				if ( whatShow > 0 )//The users wants to see the labels
+		        {
+							lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+		        }
+	
+		        dataPointRed->addPoint( value_x, value_y, lbl );
+				//For an Unknown value, use a red point to mark the data-point.
+			}
+		}
+		
+		else//The element does not belong to the set
+        {
                 //num is required while finding average, if an element is
                 //not in the selected set, it should not contribute to the avg.
                 num--;            
-            }
-		}
-		else//unknown value
-		{
-    		//num is required while finding the average, if an element is not
-    		//known it should not contribute to the average.
-			num--;
-			
-					QString lbl;
-			if ( whatShow > 0 )//The users wants to see the labels
-	        {
-						lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
-	        }
-
-	        dataPointRed->addPoint( value_x, value_y, lbl );
-			//For an Unknown value, use a red point to mark the data-point.
-		}
+        }
     }
 
 		ui.plotwidget->addPlotObject( dataPointGreen );
