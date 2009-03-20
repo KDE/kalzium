@@ -55,6 +55,8 @@ class IsotopeTableDialog : public KDialog
 
     private slots:
         void updateDockWidget( IsotopeItem * );
+        void zoom (int);
+        
 };
 
 /**
@@ -146,7 +148,7 @@ class IsotopeScene : public QGraphicsScene
         void updateContextHelp( IsotopeItem * item );
 
     private:
-        void drawIsotopes();
+        void drawIsotopes(void);
 
         //the size of each item
         int m_itemSize;

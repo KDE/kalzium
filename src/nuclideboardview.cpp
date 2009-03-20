@@ -22,11 +22,10 @@
 
 #include "nuclideboardview.h"
 #include "nuclideboard.h"
-
 #include <QDebug>
 #include <QScrollBar>
-    
-	IsotopeView::IsotopeView(QWidget *parent)
+
+    IsotopeView::IsotopeView(QWidget *parent)
 : QGraphicsView(parent)
 {
     m_scene = new IsotopeScene();
@@ -40,7 +39,7 @@ void IsotopeView::resizeEvent(QResizeEvent * event)
 {
     //ensureVisible(QRectF(0,0,100,100),0,0);
 
-	//event->accept();
+    //event->accept();
     event->ignore();
 }
 
@@ -67,9 +66,9 @@ void IsotopeView::wheelEvent(QWheelEvent * event)
 
     if ( m_zoomLevel < 0.5 )
         m_zoomLevel = 0.5;
-    else if ( m_zoomLevel > 7.0 )
-        m_zoomLevel = 7.0;
-    
+    else if ( m_zoomLevel > 10.0 )
+        m_zoomLevel = 10.0;
+
     if ( oldZoomLevel != m_zoomLevel ) {
         factor = m_zoomLevel / oldZoomLevel;
         scale(factor,factor);
@@ -79,6 +78,25 @@ void IsotopeView::wheelEvent(QWheelEvent * event)
     emit visibleSceneRectChanged( visibleSceneRect );
 
     event->accept();
+}
+
+void IsotopeView::setZoom( double zoom)
+{
+    double oldZoomLevel = m_zoomLevel;
+    double factor;
+
+    m_zoomLevel = zoom;
+
+    if ( m_zoomLevel < 0.5 )
+        m_zoomLevel = 0.5;
+    else if ( m_zoomLevel > 10.0 )
+        m_zoomLevel = 10.0;
+
+    factor = m_zoomLevel / oldZoomLevel;
+    scale(factor,factor);
+    emit zoomLevelChanged( m_zoomLevel );
+    QPolygonF visibleSceneRect = mapToScene( viewport()->rect() );
+    emit visibleSceneRectChanged( visibleSceneRect );
 }
 
 #include "nuclideboardview.moc"

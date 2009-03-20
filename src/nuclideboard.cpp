@@ -30,8 +30,9 @@
 
 #include <klocale.h>
 
-#include <QDebug>
+#include <kdebug.h>
 #include <QStyleOptionGraphicsItem>
+#include<prefs.h>
 
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
@@ -42,18 +43,36 @@
 
     connect( ui.gv->scene(), SIGNAL( itemSelected(IsotopeItem*) ),
             this, SLOT( updateDockWidget( IsotopeItem*) )  );
+    connect( ui.Slider,   SIGNAL( valueChanged( int ) ),
+             this, SLOT( zoom ( int ) ));
+}
+
+void IsotopeTableDialog::zoom (int level)
+{
+    double zoom = level/2.0;
+    kDebug() << "level";
+    (ui.gv)->setZoom( zoom );
 }
 
 void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 {
+    QString empty ="";
     Isotope *s = item->isotope();
 
     QString header = i18n("<h1>%1 (%2)</h1>", s->parentElementSymbol(), s->parentElementNumber());
-    QString mag = i18n("Magnetic moment: %1", s->magmoment() );
-    QString halflife = i18n("Halflife: %1 s", s->halflife() );
-    QString abundance = i18n("Abundance: %1 %", s->abundance() );
+    QString mag = i18n("Magnetic moment: %1", (empty == s->magmoment())? "Unknown":s->magmoment() );
+
+    QString halflife;
+    if ( s -> halflife() > 0.0 ) {
+        halflife = i18n ("Halflife: %1 %2", s->halflife(), s->halflifeUnit() );
+    }
+    else {
+        halflife = i18n ("Halflife: Unknown");
+    }
+
+    QString abundance = i18n("Abundance: %1 %", empty != (s->abundance()) ? s->abundance() : "0" );
     QString nucleons = i18n("Number of nucleons: %1", s->nucleons() );
-    QString spin = i18n("Spin: %1", s->spin() );
+    QString spin = i18n("Spin: %1", (empty == s->spin())?"Unknown": s->spin() );
     QString exactMass = i18n("Exact mass: %1 u", s->mass() );
 
     QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />" + spin +"<br />" +
@@ -72,7 +91,7 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 
     m_itemSize = 10;
     drawIsotopes();
-    //m_isotopeGroup->scale(1, -1);
+    //m_isotopeGroup->scale(-1, 1);
 }
 
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
@@ -83,6 +102,7 @@ void IsotopeScene::updateContextHelp( IsotopeItem * item )
 void IsotopeScene::drawIsotopes()
 {
     QList<Element*> elist = KalziumDataObject::instance()->ElementList;
+    int mode =0;
 
     foreach ( Element * e, elist ) {
         int elementNumber = e->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
@@ -91,12 +111,26 @@ void IsotopeScene::drawIsotopes()
         foreach (Isotope *i , ilist )
         {
             int x = elementNumber * m_itemSize;
-            int y = i->nucleons() * m_itemSize;
+            int y =  ( 300 - i->nucleons() ) * m_itemSize;
 
-            int threshold = 60;
-            if ( elementNumber > threshold ) {
-                y -= 20 * m_itemSize;
-                x -= threshold * m_itemSize;
+            if (mode == 0) {
+                //One part to the side of the other
+                int threshold = 60;
+                if ( elementNumber > threshold ) {
+                    y += 120 * m_itemSize;
+                    x += 5 * m_itemSize;
+                }
+            }
+            else if (mode == 1) {
+                //one part above the other part
+                int threshold = 0;
+                if ( elementNumber > threshold ) {
+                    y -= 20 * m_itemSize;
+                    x -= threshold * m_itemSize;
+                }
+            }
+            else if (mode == 2) {
+                //Both parts continuous
             }
 
             IsotopeItem *item = new IsotopeItem( i, x, y, m_itemSize,m_itemSize);
@@ -112,7 +146,7 @@ void IsotopeScene::drawIsotopes()
 {
     m_rect = QRectF( x, y, width, height );
     m_isotope = i;
-    
+
     m_type = getType( m_isotope );
 
     QBrush b;
@@ -130,10 +164,10 @@ void IsotopeScene::drawIsotopes()
             b = QBrush( Qt::yellow );
             break;
         case bminus:
-            b = QBrush( Qt::lightGray );
+            b = QBrush( Qt::white );
             break;
         case stable:
-            b = QBrush( Qt::darkGray );
+            b = QBrush( Qt::lightGray );
             break;
         default:
             b = QBrush( Qt::darkGray );
@@ -149,7 +183,8 @@ void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * op
 {
     // FIXME: Get rid of magic numbers and rather dynamically calculate them
     QRectF r1( m_rect.translated( 0.0, 2.5 ) );
-    QRectF r2( m_rect.topLeft() + QPointF( 1.0, 0.0 ), m_rect.size() / 2.0 );
+    QRectF r2( m_rect.topLeft() + QPointF( 1.0, 0.5 ), m_rect.size() / 2.0 );
+    QRectF r3( m_rect.topLeft() + QPointF( 6.0, 0.5 ) , m_rect.size() / 2.0 );
 
     if ( option->levelOfDetail > 0.3 )
         painter->setPen( pen() );
@@ -157,18 +192,20 @@ void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * op
         painter->setPen( Qt::NoPen );
     painter->setBrush( brush() );
     painter->drawRect( m_rect );
-    
+
     if ( option->levelOfDetail >= 1.0 ) {
-        painter->setFont( QFont( "arial", 3 ) );
+        painter->setFont( QFont( "Arial", 3 ,QFont::Bold) );
         painter->drawText( r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol() );//, s->parentElementNumber()
-        painter->setFont( QFont( "arial", 2 ) );
+        painter->setFont( QFont( "Arial", 1 ,QFont::Bold) );
         painter->drawText( r2, Qt::AlignHCenter | Qt::TextDontClip, QString::number( m_isotope->parentElementNumber() ) );
+        painter->setFont( QFont( "Arial", 1 ,QFont::Bold) );
+        painter->drawText( r3, Qt::AlignHCenter | Qt::TextDontClip, QString::number( m_isotope->nucleons() ) );
     }
 }
 
 IsotopeItem::IsotopeType IsotopeItem::getType( Isotope * isotope )
 {
-    //TODO Here I need a clever way to find out *what* to return. 
+    //TODO Here I need a clever way to find out *what* to return.
     if (isotope->alphalikeliness() > 60.0 )
         return IsotopeItem::alpha;
     if (isotope->betaminuslikeliness() > 60.0 )
@@ -187,7 +224,7 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
         event->ignore();
         return;
     }
-    
+
     IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp( this );
 }

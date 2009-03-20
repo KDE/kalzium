@@ -52,6 +52,9 @@ class IsotopeView : public QGraphicsView
         void zoomLevelChanged( double zoomLevel );
         void visibleSceneRectChanged( const QPolygonF &sceneRect );
 
+    public:
+        void setZoom ( double zoom);
+        
     protected:
 	    void resizeEvent(QResizeEvent * event );
         void mouseMoveEvent( QMouseEvent *event );
