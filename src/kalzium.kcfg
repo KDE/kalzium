@@ -242,6 +242,13 @@
 			<default>0</default>
 		</entry>
 	</group>
+    <group name="Web">
+        <entry name = "language" type="Int">
+            <label>This value determines the Wikipedia language in the detailed elemental information</label>
+            <whatsthis>Selects the wikipedia language</whatsthis>
+            <default>0</default>
+        </entry>
+    </group>
 	<group name="Sidebar">
 		<entry name="showsidebar" type="Bool">
 			<label>Show or hide the sidebar</label>

@@ -42,6 +42,7 @@
 #include "spectrumviewimpl.h"
 #include "kalziumutils.h"
 #include "kalziumtabletype.h"
+#include "prefs.h"
 
 DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
     : KPageDialog( parent ), m_ktt( 0 )
@@ -245,21 +246,73 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         }
         case EXTRA:
         {
-        	//Wikipedia.org
-        	html.append( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
-        	html.append( "<a href=\"http:\\\\en.wikipedia.org\\");
-        	html.append( m_element->dataAsString( ChemicalDataObject::name ) );
-        	html.append( "\"> Wikipedia </a>");
-        	html.append( "</td></tr>" );
-        	//chemipedia.org
-        	//html.append( "<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>" );
-        	
-        	//html.append( "</td></tr>" );
-        	//physics.nist.gov
-        	//html.append( "<tr><td><img src=\"nist.png\" alt=\"icon\"/></td><td>" );
-        	
-        	//html.append( "</td></tr>" );
-		}
+            QString language;
+            QString link;
+
+            switch ( Prefs::language() )
+                    {
+                        case 0: //English
+                                language = "English";
+                                link = "en";
+                                break;
+                        case 1: //German
+                                language = "Dutch";
+                                link = "de";
+                                break;
+                        case 2: //French
+                                language = "French";
+                                link = "fr";
+                                break;
+                        case 3: //Italian
+                                language = "Italian";
+                                link = "it";
+                                break;
+                        case 4: //Russian
+                                language = "Russian";
+                                link = "ru";
+                                break;
+                        case 5: //Japanese
+                                language = "Japanese";
+                                link = "ja";
+                                break;
+                        case 6: //Spanish
+                                language = "Spanish";
+                                link = "es";
+                                break;
+                        case 7: //Polish
+                                language = "Polish";
+                                link = "pl";
+                                break;
+                        case 8: //Portuguese
+                                language = "Portuguese";
+                                link = "pt";
+                                break;
+                        case 9: //Netherlands
+                                language = "Netherlands";
+                                link = "nl";
+                                break;
+                    }
+            //Wikipedia.org
+            html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
+
+            html.append ( "<a href=\"http:\\\\");        // http://
+            html.append (link);                          // en.
+            html.append (".wikipedia.org\\");            // wikipedia.org
+            html.append ( m_element->dataAsString( ChemicalDataObject::name ) ); // /hydrogen
+            html.append ( "\"> Wikipedia ");
+            html.append (language);
+            html.append ( "</a></td></tr>" );
+
+            // Example from the comment "http://en.wikipedia.org/hydrogen"
+            //chemipedia.org
+            //html.append( "<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>" );
+
+            //html.append( "</td></tr>" );
+            //physics.nist.gov
+            //html.append( "<tr><td><img src=\"nist.png\" alt=\"icon\"/></td><td>" );
+
+            //html.append( "</td></tr>" );
+        }
     }
 
     html += "</table></div></body></html>";
