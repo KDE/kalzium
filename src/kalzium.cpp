@@ -627,7 +627,7 @@ void Kalzium::showSettingsDialog()
     QWidget *w_web = new QWidget( 0 );
     //w_web->setobjectName( "Web_lookup" );
     ui_web.setupUi( w_web );
-    dialog->addPage( w_web, i18n(" Web look up" ), "preferences-web-language");	
+    dialog->addPage( w_web, i18n(" Web look up" ), "preferences-system-network");	
 	
 	// showing the dialog
 	dialog->show();

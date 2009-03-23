@@ -451,7 +451,7 @@ void DetailedInfoDlg::createContent()
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopemap" );
 	m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "applications-science" );
-	m_htmlpages["extra"] = addHTMLTab( i18n( "Extra information" ), i18n( "Extra Information" ), "Further reading" );
+	m_htmlpages["extra"] = addHTMLTab( i18n( "Extra information" ), i18n( "Extra Information" ), "applications-internet" );
 
 	// spectrum widget tab
 	QWidget *m_pSpectrumTab = new QWidget();
