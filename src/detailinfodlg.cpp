@@ -252,43 +252,43 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             switch ( Prefs::language() )
                     {
                         case 0: //English
-                                language = "English";
+                                language = i18n("English");
                                 link = "en";
                                 break;
                         case 1: //German
-                                language = "Dutch";
+                                language = i18n("German");
                                 link = "de";
                                 break;
                         case 2: //French
-                                language = "French";
+                                language = i18n("French");
                                 link = "fr";
                                 break;
                         case 3: //Italian
-                                language = "Italian";
+                                language = i18n("Italian");
                                 link = "it";
                                 break;
                         case 4: //Russian
-                                language = "Russian";
+                                language = i18n("Russian");
                                 link = "ru";
                                 break;
                         case 5: //Japanese
-                                language = "Japanese";
+                                language = i18n("Japanese");
                                 link = "ja";
                                 break;
                         case 6: //Spanish
-                                language = "Spanish";
+                                language = i18n("Spanish");
                                 link = "es";
                                 break;
                         case 7: //Polish
-                                language = "Polish";
+                                language = i18n("Polish");
                                 link = "pl";
                                 break;
                         case 8: //Portuguese
-                                language = "Portuguese";
+                                language = i18n("Portuguese");
                                 link = "pt";
                                 break;
-                        case 9: //Netherlands
-                                language = "Netherlands";
+                        case 9: //Dutch
+                                language = i18n("Dutch");
                                 link = "nl";
                                 break;
                     }
