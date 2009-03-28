@@ -24,6 +24,8 @@
 #include "nuclideboardview.h"
 #include "kalziumdataobject.h"
 #include "ui_isotopedialog.h"
+#include "kalziumpainter.h"
+#include "legendwidget.h"
 
 #include <element.h>
 #include <isotope.h>
@@ -45,6 +47,26 @@
             this, SLOT( updateDockWidget( IsotopeItem*) )  );
     connect( ui.Slider,   SIGNAL( valueChanged( int ) ),
              this, SLOT( zoom ( int ) ));
+    
+    //Here comes the legend part         
+    QList< QPair<QString, QBrush> > items;
+    QVBoxLayout * layout = new QVBoxLayout;
+    
+    items << qMakePair( i18nc("alpha ray emission", "alpha" ), QBrush( Qt::red ) );
+	items << qMakePair( i18nc("Electron capture method", "EC" ), QBrush( Qt::blue ) );
+	items << qMakePair( i18nc("Many ways", "Multiple" ), QBrush( Qt::green ) );
+	items << qMakePair( i18nc("Beta plus ray emission", "Beta +" ), QBrush( Qt::yellow ) );
+	items << qMakePair( i18nc("Beta minus ray emission", "Beta -" ), QBrush( Qt::white ) );
+	items << qMakePair( i18nc("Stable isotope", "Stable" ), QBrush( Qt::lightGray ) );
+	items << qMakePair( i18nc("Default colour", "default" ), QBrush( Qt::	darkGray ) );
+	
+	int x = 0;
+	foreach ( const legendPair &pair, items )
+    {
+		LegendItem *item = new LegendItem( pair );
+		layout->addWidget(item , x );
+	}
+	ui.legendDisplay->setLayout(layout);
 }
 
 void IsotopeTableDialog::zoom (int level)
@@ -228,7 +250,6 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
     IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp( this );
 }
-
 
 #include "nuclideboard.moc"
 
