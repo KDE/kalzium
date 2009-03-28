@@ -734,7 +734,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.3942</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.65</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">German 'zinking' for 'rough'. because zinc ore is very rough</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">German 'zinking' for 'rough', because zinc ore is very rough</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.49 0.50 0.69</array>
