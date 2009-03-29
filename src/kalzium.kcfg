@@ -15,11 +15,6 @@
 			<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>
 			<default>1</default>
 		</entry>
-		<entry name="colorgradientbox" type="Int">
-			<label>Selects the default gradient</label>
-			<whatsthis>Select the gradient you prefer by clicking on the corresponding radio button</whatsthis>
-			<default>1</default>
-		</entry>
 		<entry name="gradient" type="Int">
 			<label>Selects the default gradient</label>
 			<whatsthis>Select the gradient you want by clicking on the menu entry</whatsthis>
@@ -94,6 +89,9 @@
 		</entry>
 	</group>
 	<group name="Colors">
+		<entry name="colorgradientbox" type="Int">
+			<default>0</default>
+		</entry>
 		<entry name="noscheme" type="Color">
 			<label>Selects the color if no scheme is selected</label>
 			<whatsthis>Selects the color of the elements if no scheme is selected</whatsthis>
@@ -235,6 +233,9 @@
 			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
 			<whatsthis>Use eV or kJ/mol</whatsthis>
 			<default>0</default>
+		</entry>
+		<entry name="schemaSelected" type="Bool">
+			<default>true</default>
 		</entry>
 		<entry name="temperatureUnit" type="Int">
 			<label>This value defines which temperature scale should be used within Kalzium</label>

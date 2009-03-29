@@ -181,7 +181,6 @@ void Kalzium::setupActions()
     QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
     QStringList gradients = QStringList("No Gradient");
     gradients << KalziumGradientTypeFactory::instance()->gradients();
-
     look_action_menu_schemes =  actionCollection()->add<KSelectAction>( "view_look_scheme" );
     look_action_menu_schemes->setText( i18n( "&Scheme" ) );
     look_action_menu_schemes->setItems(schemes);
@@ -201,7 +200,7 @@ void Kalzium::setupActions()
     connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookScheme( int ) ) );
 
     // the action for swiching look: gradients
-    look_action_gradients = actionCollection()->add<KSelectAction>( "view_look_onlygradient" );
+    look_action_gradients = actionCollection()->add<KSelectAction>( "view_look_onlygradients" );
     look_action_gradients->setText( i18n( "&Gradients" ) );
     look_action_gradients->setItems( gradients );
     look_action_gradients->setToolBarMode( KSelectAction::MenuMode );
@@ -306,8 +305,16 @@ void Kalzium::setupActions()
 
     m_legendWidget->LockWidget();
 
-    slotSwitchtoLookScheme( Prefs::colorschemebox() );
-    slotSwitchtoLookGradient( Prefs::colorgradientbox() );
+    if (Prefs::schemaSelected())
+    {
+        slotSwitchtoLookGradient( Prefs::colorgradientbox() );
+        slotSwitchtoLookScheme( Prefs::colorschemebox() );
+    }
+    else
+    {
+        slotSwitchtoLookScheme( Prefs::colorschemebox() );
+        slotSwitchtoLookGradient( Prefs::colorgradientbox() );
+    }
 
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
@@ -519,6 +526,7 @@ void Kalzium::slotSwitchtoNumeration( int index )
 
 void Kalzium::slotSwitchtoLookGradient( int which )
 {
+	Prefs::setSchemaSelected(false);
 	kDebug() << "slotSwitchtoLookGradient Kalzium";
 	Prefs::setColorgradientbox(which);
 	Prefs::self()->writeConfig();
@@ -558,6 +566,7 @@ void Kalzium::slotSwitchtoLookGradient( int which )
 
 void Kalzium::slotSwitchtoLookScheme( int which )
 {
+	Prefs::setSchemaSelected(true);
 	kDebug() << "slotSwitchtoLookScheme Kalzium";
 	m_PeriodicTableView->activateColorScheme( which );
 	if (Prefs::colorgradientbox() == 0 || m_PeriodicTableView->scheme()->name() == "Iconic" ||
