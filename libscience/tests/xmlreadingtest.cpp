@@ -19,7 +19,6 @@
 
 #include "elementparser.h"
 #include "element.h"
-#include <kdebug.h>
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -52,7 +51,7 @@ int main(int argc, char *argv[])
                     QString unit = o.unitAsString();
                     if ( unit == "bo:noUnit" )
                         unit = "";
-                    kDebug() << "Name: " << o.dictRef() << " " << o.valueAsString()  <<" "  << unit;
+                    qDebug() << "Name: " << o.dictRef() << " " << o.valueAsString()  <<" "  << unit;
             }
         }
     }
