@@ -19,6 +19,7 @@
 
 #include "elementparser.h"
 #include "element.h"
+#include <QtCore/QDebug>
 #include <iostream>
 
 int main(int argc, char *argv[])
