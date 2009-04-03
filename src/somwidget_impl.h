@@ -17,11 +17,12 @@
 #include "ui_somwidget.h"
 
 class Element;
-
+class QTimer;
 /**
  * @class SOMWidgetIMPL
  * @author Carsten Niehaus
  * @author Pino Toscano
+ * @author Kashyap Puranik
  *
  * The SOMWidgetIMPL provides a QSlider. When this slider is moved,
  * this widget will display which elements have a boiling or melting
@@ -53,10 +54,14 @@ class SOMWidgetIMPL : public QWidget, private Ui_SOMWidget
 		QString m_htmlBegin;
 		QString m_htmlEnd;
 		int m_prevUnit;
+		int m_mode;		//Indicates whether mode is play or stop
+		QTimer *m_timer;
 
 	private slots:
 		void sliderValueChanged( int temp );
-
+		void play ( void );
+		void stop ( void );
+		void tick ( void );
 		/**
 		 * in this slot the elements will be compared with
 		 * the temperature @p newtemp. The content of the HTML

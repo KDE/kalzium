@@ -17,6 +17,7 @@
 #include <QSlider>
 #include <QTextEdit>
 #include <QList>
+#include <QTimer>
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -30,12 +31,18 @@
 : QWidget( parent )
 {
     setupUi( this );
-//X 
+    m_timer = new QTimer( this );
+    connect( Play, SIGNAL (clicked()),
+             this, SLOT( play()));
+    connect( m_timer, SIGNAL(timeout()),
+             this, SLOT( tick()) );
+    m_mode = 0;
+//X
 //X     m_list = KalziumDataObject::instance()->ElementList;
-//X 
+//X
 //X     m_htmlBegin = "";
 //X     m_htmlEnd = "";
-//X 
+//X
 //X     connect( time_box, SIGNAL( valueChanged( int ) ),
 //X             this, SLOT( setNewTime( int ) ) );
 }
@@ -48,8 +55,48 @@
     //html says "in 1994 ... happened"
 //X     m_htmlBegin = "In the year ";
 //X     m_htmlEnd = "!";
-//X 
+//X
 //X     text->setText( m_htmlBegin + QString::number(newtime) + m_htmlEnd );
 //X }
 
+void TimeWidgetImpl::play(void)
+{
+
+    if ( m_mode == 1)   //Currently playing
+    {
+        //The Mode is 'Play' so stop
+        stop();
+        return;
+    }
+
+    //The mode is not 'play'
+    //If the slider is at the maximum position bring it to the minimum
+    if ((time_slider) -> value() == time_slider -> maximum())
+        time_slider -> setValue ( time_slider -> minimum () );
+
+    //start the timer at 200 milisecond time interval with single shot disabled
+    m_timer -> start( 200 );
+
+    m_mode = 1;          //start playing
+    Play-> setText("Pause");
+}
+
+void TimeWidgetImpl::stop(void)
+{
+    //Currently playing, stop the timer.
+    m_timer -> stop();
+    Play -> setText("Play");
+    m_mode = 0;         //Stop
+}
+
+void TimeWidgetImpl::tick(void)
+{
+    int speed = Speed -> value();
+    int increment = speed;
+    int temp = time_slider -> value();
+    int max = time_slider -> maximum();
+    if (temp + increment > max)
+        stop();
+    time_slider -> setValue ( temp + increment );
+}
 #include "timewidget_impl.moc"

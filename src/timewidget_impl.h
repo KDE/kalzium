@@ -17,9 +17,11 @@
 #include "ui_timewidget.h"
 
 class Element;
+class QTimer;
 
 /**
  * @author Carsten Niehaus
+ * @author Kashyap Puranik
  */
 class TimeWidgetImpl : public QWidget, public Ui_TimeWidget
 {
@@ -30,8 +32,15 @@ class TimeWidgetImpl : public QWidget, public Ui_TimeWidget
          * @param parent The parent of this widget
          */
         TimeWidgetImpl( QWidget *parent = 0 );
+    
+    private slots:
+		void play ( void );
+		void stop ( void );
+		void tick ( void );
 
-//X     private:
+    private:
+		int m_mode;		//Indicates whether mode is play or stop
+		QTimer *m_timer;
 //X         QList<Element*> m_list;
 //X         QString m_htmlBegin;
 //X         QString m_htmlEnd;
