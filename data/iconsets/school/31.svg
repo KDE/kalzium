@@ -16,10 +16,17 @@
    inkscape:version="0.46"
    version="1.0"
    sodipodi:docbase="/home/jra/Desktop"
-   sodipodi:docname="LEDvII14white.svg"
+   sodipodi:docname="31.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2195">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 20 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="40 : 20 : 1"
+       inkscape:persp3d-origin="20 : 13.333333 : 1"
+       id="perspective72" />
     <linearGradient
        id="linearGradient3342">
       <stop
@@ -279,7 +286,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="13.270319"
-     inkscape:cx="23.022452"
+     inkscape:cx="13.376866"
      inkscape:cy="11.703296"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -446,6 +453,6 @@
          sodipodi:role="line"
          id="tspan2842"
          x="11.653412"
-         y="39.168156">Ge</tspan></text>
+         y="39.168156">Ga</tspan></text>
   </g>
 </svg>
