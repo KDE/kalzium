@@ -54,7 +54,7 @@
      <item>
       <widget class="QSlider" name="time_slider" >
        <property name="toolTip" >
-        <string>Changes the current year</string>
+        <string>Changes the current year.</string>
        </property>
        <property name="whatsThis" >
         <string/>
@@ -101,7 +101,7 @@
      <item>
       <widget class="QSpinBox" name="time_box" >
        <property name="toolTip" >
-        <string>edit to change the current year</string>
+        <string>Edit to change the current year.</string>
        </property>
        <property name="whatsThis" >
         <string/>
@@ -124,7 +124,7 @@
      <item>
       <widget class="QPushButton" name="Play" >
        <property name="toolTip" >
-        <string>Click to play / pause the change of time</string>
+        <string>Click to play / pause the change of time.</string>
        </property>
        <property name="whatsThis" >
         <string/>
@@ -160,7 +160,7 @@
      <item>
       <widget class="QSlider" name="Speed" >
        <property name="toolTip" >
-        <string>Slide to change the speed at which time increases</string>
+        <string>Slide to change the speed at which time increases.</string>
        </property>
        <property name="minimum" >
         <number>1</number>

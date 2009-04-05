@@ -120,7 +120,7 @@
      <item>
       <widget class="QPushButton" name="Play" >
        <property name="toolTip" >
-        <string>Click to Play / pause the increase in temperature</string>
+        <string>Click to Play / Pause the increase in temperature.</string>
        </property>
        <property name="text" >
         <string>Play</string>
@@ -153,7 +153,7 @@
      <item>
       <widget class="QSlider" name="Speed" >
        <property name="toolTip" >
-        <string>slide, to change the speed of increase in temperature</string>
+        <string>Slide to change the speed of increase in temperature.</string>
        </property>
        <property name="minimum" >
         <number>5</number>
