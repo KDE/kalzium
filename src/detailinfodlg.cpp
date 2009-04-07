@@ -243,6 +243,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
             html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
             html.append( "</td></tr>" );
+            break;
         }
         case EXTRA:
         {
