@@ -4,7 +4,7 @@
   Copyright (C) 2008      Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -34,7 +34,8 @@ namespace Avogadro {
   class AxesEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Axes"))
+    AVOGADRO_ENGINE("Axes", tr("Axes"), 
+                    tr("Renders the x, y, and z axes at the origin"))
 
     public:
       //! Constructor
@@ -51,17 +52,19 @@ namespace Avogadro {
       //@}
 
       double transparencyDepth() const;
-      EngineFlags flags() const;
+      Layers layers() const;
+      PrimitiveTypes primitiveTypes() const;
+      ColorTypes colorTypes() const;
 
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
   };
 
   //! Generates instances of our AxesEngine class
-  class AxesEngineFactory : public QObject, public EngineFactory
+  class AxesEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(AxesEngine)
   };
 

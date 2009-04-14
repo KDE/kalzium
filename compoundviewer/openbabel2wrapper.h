@@ -18,7 +18,7 @@
 //includes for OpenBabel2
 #include <openbabel/obconversion.h>
 #include <openbabel/mol.h>
-#include <avogadro/primitive.h>
+#include <avogadro/molecule.h>
 
 #include <libkdeedu_compoundviewer_export.h>
 

@@ -1,10 +1,10 @@
 /**********************************************************************
   ToolGroup - GLWidget manager for Tools.
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007,2008 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 #define TOOLGROUP_H
 
 #include <QObject>
+#include <avogadro/plugin.h>
 #include <avogadro/tool.h>
 
 class QActionGroup;
@@ -65,7 +66,9 @@ namespace Avogadro {
        * You can set the AVOGADRO_PATH to designate a path
        * at runtime.
        */
-      void load();
+      void append(QList<Tool *> tools);
+
+      void append(Tool *tool);
 
       /**
        * @return the active tool
@@ -118,15 +121,24 @@ namespace Avogadro {
        * Read the settings of the GLWidget and restore them.
        */
       void readSettings(QSettings &settings);
+      /**
+       * Reset the toolgroup to it's original state
+       */
+      void removeAllTools();
 
     private Q_SLOTS:
       void activateTool();
 
     Q_SIGNALS:
       /**
-       * @param the activated tool
+       * @param tool the activated tool
        */
       void toolActivated(Tool *tool);
+      /**
+       * This signal is emitted when one or more tools are destoyed. 
+       * (Happens when plugins are reloaded)
+       */
+      void toolsDestroyed();
 
     private:
       ToolGroupPrivate * const d;

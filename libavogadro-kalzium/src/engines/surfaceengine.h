@@ -6,7 +6,7 @@
   Copyright (C) 2008 Tim Vandermeersch
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,60 +30,42 @@
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
 #include <avogadro/color.h>
+#include <avogadro/point.h>
+#include <avogadro/line.h>
 
-#include "iso.h"
 #include "ui_surfacesettingswidget.h"
 
 namespace Avogadro {
 
-  class SurfacePrivateData;
+  class Atom;
+  class Mesh;
   class SurfaceSettingsWidget;
-  
-  //! VDWGridThread
-  class VDWGridThread : public QThread
-  {
-    Q_OBJECT
-
-    public:
-      VDWGridThread(QObject *parent=0);
-      ~VDWGridThread();
-
-      void init(Molecule *molecule, PrimitiveList &primitives, const PainterDevice* pd, 
-                double stepSize = 0.0);
-      void run();
-      Grid* grid();
-      double stepSize();
-
-    private:
-      QMutex m_mutex;
-      Molecule *m_molecule;
-      PrimitiveList m_primitives;
-      Grid *m_grid;
-      double m_stepSize;
-      double m_padding;
-  };
-
 
   //! Surface Engine class.
   class SurfaceEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Surface"))
+    AVOGADRO_ENGINE("Surface", tr("Surface"),
+                    tr("Renders computed molecular surfaces"))
 
     public:
       //! Constructor
       SurfaceEngine(QObject *parent=0);
-      //! Deconstructor
+      //! Destructor
       ~SurfaceEngine();
 
       //! \name Render Methods
       //@{
       bool renderOpaque(PainterDevice *pd);
-      void doWork(Molecule *mol);
+      bool renderTransparent(PainterDevice *pd);
+      bool renderQuick(PainterDevice *pd);
+      bool renderPick(PainterDevice *pd);
       //@}
 
       double transparencyDepth() const;
-      EngineFlags flags() const;
+      Layers layers() const;
+      PrimitiveTypes primitiveTypes() const;
+      ColorTypes colorTypes() const;
 
       Engine *clone() const;
 
@@ -106,34 +88,19 @@ namespace Avogadro {
       void addPrimitive(Primitive *primitive);
       void updatePrimitive(Primitive *primitive);
       void removePrimitive(Primitive *primitive);
+      void setDrawBox(int);
 
     protected:
       SurfaceSettingsWidget *m_settingsWidget;
-      //Grid *m_grid;
-      VDWGridThread *m_vdwThread;
-      IsoGen *m_isoGen;
-      //Eigen::Vector3f m_min;
+      Mesh *m_mesh;
       PainterDevice *m_pd;
       Color  m_color;
       double m_alpha;
-      double m_stepSize;
-      double m_padding;
       int    m_renderMode;
       int    m_colorMode;
-      bool   m_surfaceValid;
-
-      inline double radius(const Atom *a) const;
-      //void VDWSurface(Molecule *mol);
-      Color espColor(Molecule *mol, Eigen::Vector3f &pos);
-
-      // clipping stuff
-      bool m_clip;
-      double m_clipEqA, m_clipEqB, m_clipEqC, m_clipEqD;
-      // clipping stuff
+      bool   m_drawBox;
 
     private Q_SLOTS:
-      void vdwThreadFinished();
-      void isoGenFinished();
       void settingsWidgetDestroyed();
       /**
        * @param value opacity of the surface / 20
@@ -151,35 +118,6 @@ namespace Avogadro {
        * @param color the new color to use
        */
       void setColor(const QColor& color);
-
-      // clipping stuff
-      void setClipEnabled(int value) 
-      { 
-        m_clip = value; 
-        emit changed();
-      }
-      void setClipEqA(double value) 
-      {
-        m_clipEqA = value; 
-        emit changed();
-      } 
-      void setClipEqB(double value) 
-      {
-        m_clipEqB = value; 
-        emit changed();
-      }
-      void setClipEqC(double value) 
-      {
-        m_clipEqC = value; 
-        emit changed();
-      }
-      void setClipEqD(double value) 
-      {
-        m_clipEqD = value; 
-        emit changed();
-      }
-      // clipping stuff
-
   };
 
   class SurfaceSettingsWidget : public QWidget, public Ui::SurfaceSettingsWidget
@@ -191,12 +129,11 @@ namespace Avogadro {
   };
 
   //! Generates instances of our SurfaceEngine class
-  class SurfaceEngineFactory : public QObject, public EngineFactory
+  class SurfaceEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(SurfaceEngine)
-
   };
 
 } // end namespace Avogadro

@@ -4,7 +4,7 @@
   Copyright (C) 2007 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,8 +33,8 @@
 namespace Avogadro {
 
   /**
-   * @class Navigate
-   * @brief Navigation functions common to several tools.
+   * @class Navigate navigate.h <avogadro/navigate.h>
+   * @brief Navigation functions to simplify common tasks.
    * @author Marcus D. Hanwell
    *
    * This class contains navigation functions that are used
@@ -70,6 +70,16 @@ namespace Avogadro {
        */
       static void translate(GLWidget *widget, const Eigen::Vector3d &what,
                             const QPoint &from, const QPoint &to);
+
+      /**
+       * Translate between the from and to positions relative to what.
+       * @param widget the GLWidget being operated on.
+       * @param what the point that is being translated about.
+       * @param deltaX the amount to translate the x axis.
+       * @param deltaY the amount to translate the y axis.
+       */
+      static void translate(GLWidget *widget, const Eigen::Vector3d &what,
+                            double deltaX, double deltaY);
 
       /**
        * Rotate about center by the amounts deltaX and deltaY in tha x and y axes.

@@ -6,7 +6,7 @@
   Copyright (C) 2007 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -36,11 +36,13 @@
 namespace Avogadro {
 
   //! Label Engine class.
+  class Atom;
+  class Bond;
   class LabelSettingsWidget;
   class LabelEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Label"))
+    AVOGADRO_ENGINE("Label", tr("Label"), tr("Renders atom and bond labels"))
 
     public:
       //! Constructor
@@ -60,7 +62,8 @@ namespace Avogadro {
       bool renderQuick(PainterDevice *pd);
       //@}
 
-      EngineFlags flags() const;
+      Layers layers() const;
+      ColorTypes colorTypes() const;
 
       //! Display a window for the user to pick rendering options
       QWidget *settingsWidget();
@@ -97,12 +100,11 @@ namespace Avogadro {
   };
 
   //! Generates instances of our LabelEngine class
-  class LabelEngineFactory : public QObject, public EngineFactory
+  class LabelEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
-
-    AVOGADRO_ENGINE_FACTORY(LabelEngine)
+    Q_INTERFACES(Avogadro::PluginFactory)
+      AVOGADRO_ENGINE_FACTORY(LabelEngine)
   };
 
 } // end namespace Avogadro

@@ -18,6 +18,7 @@
 #include <kparts/genericfactory.h>
 
 #include <avogadro/primitive.h>
+#include <avogadro/pluginmanager.h>
 #include <avogadro/toolgroup.h>
 
 #include "openbabel2wrapper.h"
@@ -33,14 +34,11 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
     // Prevent What's this from intercepting right mouse clicks
     setContextMenuPolicy(Qt::PreventContextMenu);
     // Load the tools and set navigate as the default
+    Avogadro::PluginManager *manager = new Avogadro::PluginManager(this);
+    manager->loadFactories();
     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);
-    tools->load();
-    const QList<Avogadro::Tool *> toolList = tools->tools();
-    foreach(Avogadro::Tool *tool, toolList)
-    {
-        if (tool->name() == "Navigate")
-            tools->setActiveTool(tool);
-    }
+    tools->append(manager->tools(this));
+    tools->setActiveTool("Navigate");
     setToolGroup(tools);
     // Set the default engine to be active
     loadDefaultEngines();
@@ -111,7 +109,7 @@ void KalziumGLWidget::setLabels(int style)
     {
       QSettings settings;
       int atomType = 0;
-      int bondType = 2;
+      int bondType = 0;
       bool enabled = false;
       // We need to use 
       switch(style)
@@ -121,11 +119,11 @@ void KalziumGLWidget::setLabels(int style)
           break;
         case 1: // Display the atom index
           enabled = true;
-          atomType = 0;
+          atomType = 1;
           break;
         case 2: // Display the atom symbol
           enabled = true;
-          atomType = 1;
+          atomType = 3;
           break;
         case 3: // Display the atom name
           enabled = true;

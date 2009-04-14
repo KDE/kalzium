@@ -2,10 +2,11 @@
   DrawTool - Tool for drawing molecules
 
   Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007-2008 Marcus D. Hanwell
   Copyright (C) 2008 Tim Vandermeersch
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,31 +27,32 @@
 #ifndef DRAWTOOL_H
 #define DRAWTOOL_H
 
-#include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
-#include <avogadro/periodictableview.h>
-#include "insertfragmentdialog.h"
 
-#include <QGLWidget>
-#include <QObject>
-#include <QStringList>
-#include <QComboBox>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QImage>
-#include <QAction>
-#include <QUndoCommand>
-#include <QCheckBox>
+class QCheckBox;
+class QVBoxLayout;
+class QPushButton;
+class QComboBox;
 
-#include <openbabel/forcefield.h>
+namespace OpenBabel {
+  class OBForceField;
+}
 
 namespace Avogadro {
 
+  class Atom;
+  class Bond;
+  class GLHit;
+
+  class InsertFragmentDialog;
+  class PeriodicTableView;
   class AddAtomCommand;
+
   class DrawTool : public Tool
   {
     Q_OBJECT
+    AVOGADRO_TOOL("Draw", tr("Draw"),
+                  tr("Draw and edit atoms and bonds"))
 
     public:
       //! Constructor
@@ -58,30 +60,22 @@ namespace Avogadro {
       //! Deconstructor
       virtual ~DrawTool();
 
-      //! \name Description methods
-      //@{
-      //! Tool Name (ie DrawTool)
-      virtual QString name() const { return(tr("Draw")); }
-      //! Tool Description (ie. DrawTools atoms and bonds)
-      virtual QString description() const { return(tr("Draws Things")); }
-      //@}
-
       //! \name Tool Methods
       //@{
       //! \brief Callback methods for ui.actions on the canvas.
 
       /*! Handle a mouse press (i.e., beginning of drawing)
       */
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
       /*! Handle a mouse release (i.e., the end of drawing)
       */
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
       /*! Handle a mouse move (perhaps drawing a bond)
       */
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
       /*! Handle a scroll wheel (i.e., zooming in and out of the canvas)
       */
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
       //@}
 
       /**
@@ -137,6 +131,7 @@ namespace Avogadro {
       int m_prevBondOrder;
 
       int m_addHydrogens;
+      QUndoCommand *m_hydrogenCommand;
 
       bool m_insertFragmentMode;
 
@@ -154,9 +149,9 @@ namespace Avogadro {
 
       QWidget *m_settingsWidget;
 
-      Atom *newAtom(GLWidget *widget, const QPoint& p);
+      Atom *addAtom(GLWidget *widget, const QPoint& p);
       void moveAtom(GLWidget *widget, Atom *atom, const QPoint& p);
-      Bond *newBond(Molecule *molecule, Atom *beginAtom, Atom *endAtom);
+      Bond *addBond(Molecule *molecule, Atom *beginAtom, Atom *endAtom);
 
       OpenBabel::OBForceField *m_forceField;
 
@@ -165,14 +160,12 @@ namespace Avogadro {
       void showFragmentDialog(bool checked);
   };
 
-  class DrawToolFactory : public QObject, public ToolFactory
+  class DrawToolFactory : public QObject, public PluginFactory
   {
-      Q_OBJECT
-      Q_INTERFACES(Avogadro::ToolFactory)
-
-      public:
-      Tool *createInstance(QObject *parent = 0) { return new DrawTool(parent); }
-    };
+    Q_OBJECT
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_TOOL_FACTORY(DrawTool)
+  };
 
 } // end namespace Avogadro
 

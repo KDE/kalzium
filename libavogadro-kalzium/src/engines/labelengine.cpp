@@ -3,10 +3,10 @@
 
   Copyright (C) 2007 Donald Ephraim Curtis
   Copyright (C) 2007 Benoit Jacob
-  Copyright (C) 2007 Marcus D. Hanwell
+  Copyright (C) 2007,2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,26 +30,30 @@
 #include <avogadro/elementtranslate.h>
 #include <avogadro/camera.h>
 #include <avogadro/painter.h>
+#include <avogadro/painterdevice.h>
+#include <avogadro/atom.h>
+#include <avogadro/bond.h>
+#include <avogadro/residue.h>
+#include <avogadro/molecule.h>
 
-#include <QGLWidget> // for OpenGL bits
 #include <QDebug>
 
+#include <openbabel/mol.h>
+
 using namespace std;
-using namespace OpenBabel;
 using namespace Eigen;
 
 namespace Avogadro {
 
   LabelEngine::LabelEngine(QObject *parent) : Engine(parent),
-  m_atomType(1), m_bondType(2), m_settingsWidget(0)
+  m_atomType(1), m_bondType(0), m_settingsWidget(0)
   {
-    setDescription(tr("Renders primitive labels"));
   }
 
   Engine *LabelEngine::clone() const
   {
     LabelEngine *engine = new LabelEngine(parent());
-    engine->setName(name());
+    engine->setAlias(alias());
     engine->setAtomType(m_atomType);
     engine->setBondType(m_bondType);
     engine->setEnabled(isEnabled());
@@ -59,24 +63,17 @@ namespace Avogadro {
 
   bool LabelEngine::renderOpaque(PainterDevice *pd)
   {
-    QList<Primitive *> list;
-
-    if (m_atomType < 6)
-    {
+    if (m_atomType > 0) {
       // Render atom labels
-      list = primitives().subList(Primitive::AtomType);
-      foreach( Primitive *p, list )
-        renderOpaque(pd, static_cast<Atom *>(p));
+      foreach(Atom *a, atoms())
+        renderOpaque(pd, a);
     }
 
-    if (m_bondType < 2)
-    {
+    if (m_bondType > 0) {
       // Now render the bond labels
-      list = primitives().subList(Primitive::BondType);
-      foreach( Primitive *p, list )
-        renderOpaque(pd, static_cast<const Bond*>(p));
+      foreach(Bond *b, bonds())
+        renderOpaque(pd, b);
     }
-
     return true;
   }
 
@@ -89,36 +86,48 @@ namespace Avogadro {
   bool LabelEngine::renderOpaque(PainterDevice *pd, const Atom *a)
   {
     // Render atom labels
-    const Vector3d pos = a->pos();
+    const Vector3d pos = *a->pos();
 
     double renderRadius = pd->radius(a);
     renderRadius += 0.05;
 
     double zDistance = pd->camera()->distance(pos);
 
-    if(zDistance < 50.0)
-    {
+    if(zDistance < 50.0) {
       QString str;
-      switch(m_atomType)
-      {
-        case 0:
-          str = QString::number(a->GetIdx());
+      switch(m_atomType) {
+        case 1: // Atom index
+          str = QString::number(a->index() + 1);
           break;
-        case 1:
-          str = QString(etab.GetSymbol(a->GetAtomicNum()));
+        case 3: // Atomic Symbol
+          str = QString(OpenBabel::etab.GetSymbol(a->atomicNumber()));
           break;
-        case 3:
-          str = QString(((const_cast<Atom *>(a)->GetResidue())->GetName()).c_str());
+        case 4: // Residue name
+          if (a->residue())
+            str = a->residue()->name();
           break;
-        case 4:
-          str = QString::number((const_cast<Atom *>(a)->GetResidue())->GetNum());
+        case 5: // Residue number
+          if (a->residue())
+            str = a->residue()->number();
           break;
-        case 5:
-          str = QString::number(const_cast<Atom *>(a)->GetPartialCharge(), 10, 2);
+        case 6: // Partial charge
+          str = QString::number(const_cast<Atom *>(a)->partialCharge(), 'g', 2);
           break;
-        case 2:
-        default:
-          str = elementTranslator.name(a->GetAtomicNum());
+        case 7: // Unique ID
+          str = QString::number(a->id());
+          break;
+        case 2: // Element name
+          str = ElementTranslator::name(a->atomicNumber());
+          break;
+        default: // some custom data -- if available
+          int customIndex = m_atomType - 7 - 1;
+          QList<QByteArray> propertyNames = a->dynamicPropertyNames();
+          // If this is a strange offset, use the element symbol
+          if ( customIndex < 0 || customIndex >= propertyNames.size()) {
+            str = QString(OpenBabel::etab.GetSymbol(a->atomicNumber()));
+          }
+          else
+            str = a->property(propertyNames[customIndex].data()).toString();
       }
 
       Vector3d zAxis = pd->camera()->backTransformedZAxis();
@@ -134,10 +143,10 @@ namespace Avogadro {
   bool LabelEngine::renderOpaque(PainterDevice *pd, const Bond *b)
   {
     // Render bond labels
-    const Atom* atom1 = static_cast<const Atom *>(b->GetBeginAtom());
-    const Atom* atom2 = static_cast<const Atom *>(b->GetEndAtom());
-    Vector3d v1 (atom1->pos());
-    Vector3d v2 (atom2->pos());
+    Atom* atom1 = pd->molecule()->atomById(b->beginAtomId());
+    Atom* atom2 = pd->molecule()->atomById(b->endAtomId());
+    Vector3d v1 (*atom1->pos());
+    Vector3d v2 (*atom2->pos());
     Vector3d d = v2 - v1;
     d.normalize();
 
@@ -156,17 +165,21 @@ namespace Avogadro {
 
     double zDistance = pd->camera()->distance(pos);
 
-    if(zDistance < 50.0)
-    {
+    if(zDistance < 50.0) {
       QString str;
-      switch(m_bondType)
-      {
-        case 0:
-          str = QString::number(b->GetIdx());
-          break;
+      switch(m_bondType) {
         case 1:
+          str = QString::number(b->length(), 'g', 4);
+          break;
+        case 2:
+          str = QString::number(b->index() + 1);
+          break;
+        case 4:
+          str = QString::number(b->id());
+          break;
+        case 3:
         default:
-          str = QString::number(b->GetBondOrder());
+          str = QString::number(b->order());
       }
 
       Vector3d zAxis = pd->camera()->backTransformedZAxis();
@@ -210,9 +223,14 @@ namespace Avogadro {
     m_settingsWidget = 0;
   }
 
-  Engine::EngineFlags LabelEngine::flags() const
+  Engine::Layers LabelEngine::layers() const
   {
     return Engine::Overlay;
+  }
+
+  Engine::ColorTypes LabelEngine::colorTypes() const
+  {
+    return Engine::NoColors;
   }
 
   void LabelEngine::writeSettings(QSettings &settings) const
@@ -226,9 +244,8 @@ namespace Avogadro {
   {
     Engine::readSettings(settings);
     setAtomType(settings.value("atomLabel", 1).toInt());
-    setBondType(settings.value("bondLabel", 2).toInt());
-    if(m_settingsWidget)
-    {
+    setBondType(settings.value("bondLabel", 0).toInt());
+    if(m_settingsWidget) {
       m_settingsWidget->atomType->setCurrentIndex(m_atomType);
       m_settingsWidget->bondType->setCurrentIndex(m_bondType);
     }

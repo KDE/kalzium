@@ -4,7 +4,7 @@
   Copyright (C) 2007 Geoffrey R. Hutchison
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,7 +26,15 @@
 
 namespace Avogadro {
 
-  QString ElementTranslator::name(int element) const
+  ElementTranslator::ElementTranslator() : QObject()
+  {
+  }
+
+  ElementTranslator::~ElementTranslator()
+  {
+  }
+
+  QString ElementTranslator::name(int element)
   {
     QString result;
     switch(element) {
@@ -392,8 +400,7 @@ namespace Avogadro {
     return result;
   }
 
-  ElementTranslator elementTranslator; // global instance
-
 }
 
 #include "elementtranslate.moc"
+

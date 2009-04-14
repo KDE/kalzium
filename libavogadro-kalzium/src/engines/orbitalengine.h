@@ -1,12 +1,12 @@
 /**********************************************************************
   OrbitalEngine - Engine for display of molecular orbitals
 
-  Copyright (C) 2008 Marcus D. Hanwell
+  Copyright (C) 2008-2009 Marcus D. Hanwell
   Copyright (C) 2008 Geoffrey R. Hutchison
   Copyright (C) 2008 Tim Vandermeersch
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,24 +30,27 @@
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
 #include <avogadro/color.h>
+#include <avogadro/mesh.h>
 
-#include "iso.h"
+#include <QPointer>
+
 #include "ui_orbitalsettingswidget.h"
 
 namespace Avogadro {
 
   class OrbitalSettingsWidget;
 
-  //! Surface Engine class.
+  //! Orbital Engine class.
   class OrbitalEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Orbitals"))
+    AVOGADRO_ENGINE("Orbitals", tr("Orbitals"),
+                    tr("Renders molecular orbitals"))
 
     public:
       //! Constructor
       OrbitalEngine(QObject *parent=0);
-      //! Deconstructor
+      //! Destructor
       ~OrbitalEngine();
 
       //! \name Render Methods
@@ -55,11 +58,14 @@ namespace Avogadro {
       bool renderOpaque(PainterDevice *pd);
       bool renderTransparent(PainterDevice *pd);
       bool renderQuick(PainterDevice *pd);
+      bool renderPick(PainterDevice *) { return false; }
       bool renderSurfaces(PainterDevice *pd);
       //@}
 
       double transparencyDepth() const;
-      EngineFlags flags() const;
+      Layers layers() const;
+      PrimitiveTypes primitiveTypes() const;
+      ColorTypes colorTypes() const;
 
       Engine *clone() const;
 
@@ -74,22 +80,20 @@ namespace Avogadro {
       void addPrimitive(Primitive *primitive);
       void updatePrimitive(Primitive *primitive);
       void removePrimitive(Primitive *primitive);
+      void setMolecule(const Molecule *molecule);
 
     protected:
       OrbitalSettingsWidget *m_settingsWidget;
-      Grid *m_grid;
-      Grid *m_grid2;
-      IsoGen *m_isoGen;
-      IsoGen *m_isoGen2;
-      Eigen::Vector3f m_min;
+      QPointer<Mesh> m_mesh1;
+      QPointer<Mesh> m_mesh2;
+      Eigen::Vector3d m_min, m_max;
       Color  m_posColor;
       Color  m_negColor;
       double m_alpha;
-      double m_iso;
       int    m_renderMode;
       bool   m_drawBox;
       bool   m_update;
-      Molecule *m_molecule;
+      bool   m_colored;
 
       void updateSurfaces(PainterDevice *pd);
 
@@ -98,10 +102,7 @@ namespace Avogadro {
        * Update the orbital combo box with new orbitals
        */
       void updateOrbitalCombo();
-      /**
-       * Slot for when isoGen has finished
-       */
-      void isoGenFinished();
+
       void settingsWidgetDestroyed();
       /**
        * @param value orbital index
@@ -119,12 +120,12 @@ namespace Avogadro {
        * @param value interpolate (0 = no, 1 = yes)
        */
       void setDrawBox(int value);
-      /**
-       * @param d the value of the iso surface to be rendered
-       */
-      void setIso(double d);
 
-      void isoDone();
+      /**
+       * @param color render mode - 0 = selected colors, 1 = mapped colors
+       */
+      void setColorMode(int value);
+
       /**
        * @param color the color for the positive iso surface
        */
@@ -144,12 +145,11 @@ namespace Avogadro {
   };
 
   //! Generates instances of our OrbitalEngine class
-  class OrbitalEngineFactory : public QObject, public EngineFactory
+  class OrbitalEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(OrbitalEngine)
-
   };
 
 } // end namespace Avogadro

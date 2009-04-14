@@ -1,12 +1,13 @@
 /**********************************************************************
   AutoOptTool - Automatic Optimization Tool for Avogadro
 
-  Copyright (C) 2007 by Marcus D. Hanwell
+  Copyright (C) 2007,2008 by Marcus D. Hanwell
   Copyright (C) 2007 by Geoffrey R. Hutchison
   Copyright (C) 2007 by Benoit Jacob
+  Copyright (C) 2008 by Tim Vandermeersch
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Some code is based on Open Babel
   For more information, see <http://openbabel.sourceforge.net/>
@@ -26,6 +27,7 @@
 
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
+#include <avogadro/molecule.h>
 
 #include <openbabel/mol.h>
 #include <openbabel/forcefield.h>
@@ -50,10 +52,10 @@ namespace Avogadro {
     Q_OBJECT
 
     public:
-    AutoOptThread(QObject *parent=0);
+      AutoOptThread(QObject *parent=0);
 
-    void setup(Molecule *molecule, OpenBabel::OBForceField* forceField, 
-        int algorithm, /* int convergence, */ int steps);
+      void setup(Molecule *molecule, OpenBabel::OBForceField* forceField,
+          int algorithm, /* int convergence, */ int steps);
 
       void run();
       void update();
@@ -89,6 +91,8 @@ namespace Avogadro {
   class AutoOptTool : public Tool
   {
     Q_OBJECT
+      AVOGADRO_TOOL("AutoOptimization", tr("AutoOptimization"),
+                    tr("Automatic optimization of molecular geometry"))
 
     public:
       //! Constructor
@@ -96,23 +100,15 @@ namespace Avogadro {
       //! Deconstructor
       virtual ~AutoOptTool();
 
-      //! \name Description methods
-      //@{
-      //! Tool Name (ie Draw)
-      virtual QString name() const { return(tr("AutoOptimization")); }
-      //! Tool Description (ie. Draws atoms and bonds)
-      virtual QString description() const { return(tr("Automatic Optimization Tool")); }
-      //@}
-
       //! \name Tool Methods
       //@{
       //! \brief Callback methods for ui.actions on the canvas.
       /*!
       */
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
 
       virtual int usefulness() const;
 
@@ -138,6 +134,7 @@ namespace Avogadro {
       void toggle();
       void enable();
       void disable();
+      void abort();
 
     protected:
       GLWidget *                m_glwidget;
@@ -166,6 +163,7 @@ namespace Avogadro {
       QCheckBox*                m_ignoredMovable;
 
       QPoint                    m_lastDraggingPosition;
+      double                    m_lastEnergy;
 
       void timerEvent(QTimerEvent* event);
 
@@ -192,14 +190,12 @@ namespace Avogadro {
       bool undone;
   };
 
-  class AutoOptToolFactory : public QObject, public ToolFactory
-    {
-      Q_OBJECT
-      Q_INTERFACES(Avogadro::ToolFactory)
-
-      public:
-        Tool *createInstance(QObject *parent = 0) { return new AutoOptTool(parent); }
-    };
+  class AutoOptToolFactory : public QObject, public PluginFactory
+  {
+    Q_OBJECT
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_TOOL_FACTORY(AutoOptTool)
+  };
 
 } // end namespace Avogadro
 

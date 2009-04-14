@@ -4,7 +4,7 @@
   Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,22 +25,20 @@
 #ifndef ALIGNTOOL_H
 #define ALIGNTOOL_H
 
-#include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
 
-#include <QGLWidget>
-#include <QObject>
-#include <QStringList>
 #include <QVarLengthArray>
-#include <QImage>
-#include <QAction>
 #include <QPointer>
 
 namespace Avogadro {
 
- class AlignTool : public Tool
+  class Atom;
+
+  class AlignTool : public Tool
   {
     Q_OBJECT
+      AVOGADRO_TOOL("Align", tr("Align"),
+                    tr("Align molecules to a Cartesian axis"))
 
     public:
       //! Constructor
@@ -48,23 +46,15 @@ namespace Avogadro {
       //! Destructor
       virtual ~AlignTool();
 
-      //! \name Description methods
-      //@{
-      //! Tool Name (i.e. Align)
-      virtual QString name() const { return(tr("Align")); }
-      //! Tool Description (i.e. Align molecules)
-      virtual QString description() const { return(tr("Align molecules")); }
-      //@}
-
       //! \name Tool Methods
       //@{
       //! \brief Callback methods for ui.actions on the canvas.
       /*!
         */
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
 
       virtual bool paint(GLWidget *widget);
 
@@ -90,14 +80,12 @@ namespace Avogadro {
 
   };
 
-  class AlignToolFactory : public QObject, public ToolFactory
-    {
-      Q_OBJECT
-      Q_INTERFACES(Avogadro::ToolFactory)
-
-      public:
-        Tool *createInstance(QObject *parent = 0) { return new AlignTool(parent); }
-    };
+  class AlignToolFactory : public QObject, public PluginFactory
+  {
+    Q_OBJECT
+    Q_INTERFACES(Avogadro::PluginFactory)
+      AVOGADRO_TOOL_FACTORY(AlignTool);
+  };
 
 } // end namespace Avogadro
 

@@ -44,11 +44,16 @@
       </size>
      </property>
      <property name="currentIndex" >
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="modelColumn" >
       <number>0</number>
      </property>
+     <item>
+      <property name="text" >
+       <string>None</string>
+      </property>
+     </item>
      <item>
       <property name="text" >
        <string>Atom number</string>
@@ -56,12 +61,12 @@
      </item>
      <item>
       <property name="text" >
-       <string>Element symbol</string>
+       <string>Element name</string>
       </property>
      </item>
      <item>
       <property name="text" >
-       <string>Element name</string>
+       <string>Element symbol</string>
       </property>
      </item>
      <item>
@@ -81,7 +86,12 @@
      </item>
      <item>
       <property name="text" >
-       <string>None</string>
+       <string>Unique ID</string>
+      </property>
+     </item>
+     <item>
+      <property name="text" >
+       <string>Custom Data</string>
       </property>
      </item>
     </widget>
@@ -114,11 +124,21 @@
       </size>
      </property>
      <property name="currentIndex" >
-      <number>2</number>
+      <number>0</number>
      </property>
      <property name="modelColumn" >
       <number>0</number>
      </property>
+     <item>
+      <property name="text" >
+       <string>None</string>
+      </property>
+     </item>
+     <item>
+      <property name="text" >
+       <string>Bond length</string>
+      </property>
+     </item>
      <item>
       <property name="text" >
        <string>Bond number</string>
@@ -131,7 +151,7 @@
      </item>
      <item>
       <property name="text" >
-       <string>None</string>
+       <string>Unique ID</string>
       </property>
      </item>
     </widget>
@@ -141,7 +161,7 @@
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>20</width>
        <height>40</height>

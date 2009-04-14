@@ -5,7 +5,7 @@
   Copyright (C) 2007,2008 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,20 +24,23 @@
  **********************************************************************/
 
 #include "selectrotatetool.h"
-#include <avogadro/navigate.h>
-#include <avogadro/primitive.h>
+#include <avogadro/atom.h>
+#include <avogadro/bond.h>
+#include <avogadro/molecule.h>
+#include <avogadro/residue.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
-#include <avogadro/camera.h>
 
-#include <openbabel/obiter.h>
-#include <openbabel/math/matrix3x3.h>
+#include <openbabel/mol.h>
 
-#include <eigen/projective.h>
+#include <Eigen/Geometry>
 
 #include <QtPlugin>
 #include <QApplication>
 #include <QLabel>
+#include <QAction>
+#include <QVBoxLayout>
+#include <QComboBox>
 #include <QDebug>
 
 using namespace std;
@@ -47,8 +50,7 @@ using namespace Eigen;
 namespace Avogadro {
 
   SelectRotateTool::SelectRotateTool(QObject *parent) : Tool(parent),
-  m_selectionBox(false),
-  m_settingsWidget(0)
+    m_selectionBox(false), m_selectionMode(0), m_settingsWidget(0)
   {
     QAction *action = activateAction();
     action->setIcon(QIcon(QString::fromUtf8(":/select/select.png")));
@@ -71,9 +73,8 @@ namespace Avogadro {
     return 500000;
   }
 
-  QUndoCommand* SelectRotateTool::mousePress(GLWidget *widget, const QMouseEvent *event)
+  QUndoCommand* SelectRotateTool::mousePressEvent(GLWidget *widget, QMouseEvent *event)
   {
-
     m_movedSinceButtonPressed = false;
     m_lastDraggingPosition = event->pos();
     m_initialDraggingPosition = event->pos();
@@ -83,37 +84,26 @@ namespace Avogadro {
         event->pos().y()-SEL_BOX_HALF_SIZE,
         SEL_BOX_SIZE, SEL_BOX_SIZE);
 
-    if(!m_hits.size())
-    {
+    if (event->buttons() & Qt::LeftButton && !m_hits.size()) {
+      m_leftButtonPressed = true;
+      event->accept();
       m_selectionBox = true;
     }
-
-    if(!m_selectionBox)
-    {
-      if( event->buttons() & Qt::LeftButton )
-      {
-        // Rotation about the centre of the molecule
-        widget->setCursor(Qt::ClosedHandCursor);
-      }
-      else if ( event->buttons() & Qt::MidButton )
-      {
-        // Rotation about the centre of the molecule in the z axis
-        widget->setCursor(Qt::SizeVerCursor);
-      }
-      else if ( event->buttons() & Qt::RightButton )
-      {
-        // Translation about the centre of the molecule in the x and y axes
-        widget->setCursor(Qt::SizeAllCursor);
-      }
+    else if (event->buttons() & Qt::LeftButton) {
+      m_leftButtonPressed = true;
     }
     else
+      m_leftButtonPressed = false;
+
+    if(!m_selectionBox) {
       widget->setCursor(Qt::CrossCursor);
+    }
 
     return 0;
   }
 
-  QUndoCommand* SelectRotateTool::mouseRelease(GLWidget *widget, 
-		                                       const QMouseEvent *event)
+  QUndoCommand* SelectRotateTool::mouseReleaseEvent(GLWidget *widget,
+                                                    QMouseEvent *event)
   {
     // Reset the cursor
     widget->setCursor(Qt::ArrowCursor);
@@ -128,25 +118,23 @@ namespace Avogadro {
     }
 
     QList<Primitive *> hitList;
-    if(!m_movedSinceButtonPressed && m_hits.size())
-    {
+    if (m_leftButtonPressed && !m_movedSinceButtonPressed && m_hits.size()) {
+      event->accept();
       // user didn't move the mouse -- regular picking, not selection box
-
       // we'll assemble separate "hit lists" of selected atoms and residues
       // (e.g., if we're in residue selection mode, picking an atom
       // will select the whole residue
 
-      foreach (const GLHit& hit, m_hits)
-      {
+      foreach (const GLHit& hit, m_hits) {
         if(hit.type() == Primitive::AtomType) // Atom selection
         {
-          Atom *atom = static_cast<Atom *>(molecule->GetAtom(hit.name()));
+          Atom *atom = molecule->atom(hit.name());
           hitList.append(atom);
           break;
         }
         else if(hit.type() == Primitive::BondType) // Bond selection
         {
-          Bond *bond = static_cast<Bond *>(molecule->GetBond(hit.name()));
+          Bond *bond = molecule->bond(hit.name());
           hitList.append(bond);
           break;
         }
@@ -156,20 +144,57 @@ namespace Avogadro {
         //        break;
       }
 
-      switch (m_selectionMode)
-      {
+      switch (m_selectionMode) {
         case 2: // residue
           foreach(Primitive *hit, hitList) {
             if (hit->type() == Primitive::AtomType) {
               Atom *atom = static_cast<Atom *>(hit);
               // If the atom is unselected, select the whole residue
               bool select = !widget->isSelected(atom);
-              Residue *residue = static_cast<Residue *>(atom->GetResidue());
-              QList<Primitive *> neighborList;
-              FOR_ATOMS_OF_RESIDUE(a, residue) {
-                neighborList.append(static_cast<Atom *>(&*a));
-              }
-              widget->setSelected(neighborList, select);
+
+              // Since the atom doesn't know to which residue it belongs,
+              // we iterate over all residues and check if the atom is in
+              // the current residue.
+              foreach (Residue *residue, molecule->residues()) {
+                QList<unsigned long> atoms = residue->atoms();
+                if (atoms.contains(atom->id())) {
+                  QList<Primitive *> neighborList;
+
+                  // add the atoms
+                  foreach (unsigned long id, atoms)
+                    neighborList.append(molecule->atomById(id));
+
+                  // add the bonds
+                  foreach (unsigned long id, residue->bonds())
+                    neighborList.append(molecule->bondById(id));
+
+                  widget->setSelected(neighborList, select);
+                }
+              } // end for(residues)
+            } else if (hit->type() == Primitive::BondType) {
+              Bond *bond = static_cast<Bond *>(hit);
+              // If the bond is unselected, select the whole residue
+              bool select = !widget->isSelected(bond);
+
+              // Since the bond doesn't know to which residue it belongs,
+              // we iterate over all residues and check if the bond is in
+              // the current residue.
+              foreach (Residue *residue, molecule->residues()) {
+                QList<unsigned long> bonds = residue->bonds();
+                if (bonds.contains(bond->id())) {
+                  QList<Primitive *> neighborList;
+
+                  // add the atoms
+                  foreach (unsigned long id, residue->atoms())
+                    neighborList.append(molecule->atomById(id));
+
+                  // add the bonds
+                  foreach (unsigned long id, bonds)
+                    neighborList.append(molecule->bondById(id));
+
+                  widget->setSelected(neighborList, select);
+                }
+              } // end for(residues)
             }
           } // end for(hits)
           break;
@@ -184,26 +209,54 @@ namespace Avogadro {
               // We really want the "connected fragment" since a Molecule can contain
               // multiple user-visible molecule fragments
               // we can use either BFS or DFS interators -- look for the connected fragment
-              OBMolAtomDFSIter iter(molecule, atom->GetIdx());
+              OpenBabel::OBMol mol = molecule->OBMol();
+              OpenBabel::OBMolAtomDFSIter iter(mol, atom->index() + 1);
               Atom *tmpNeighbor;
               do {
-                tmpNeighbor = static_cast<Atom*>(&*iter);
+                tmpNeighbor = molecule->atom(iter->GetIdx() - 1);
                 neighborList.append(tmpNeighbor);
 
                 // we want to find all bonds on this site
                 // (obviously all bonds will be in this fragment)
-                FOR_BONDS_OF_ATOM(b, *tmpNeighbor)
-                  neighborList.append(static_cast<Bond*>(&*b));
+
+                FOR_BONDS_OF_ATOM(b, *iter)
+                  neighborList.append(molecule->bond(b->GetIdx()));
+
+              } while ((iter++).next()); // this returns false when we've gone looped through the fragment
+
+              widget->setSelected(neighborList, select);
+            } else if (hit->type() == Primitive::BondType) {
+              Bond *bond = static_cast<Bond *>(hit);
+              // if this atom is unselected, select the whole fragment
+              bool select = !widget->isSelected(bond);
+              QList<Primitive *> neighborList;
+
+              // We really want the "connected fragment" since a Molecule can contain
+              // multiple user-visible molecule fragments
+              // we can use either BFS or DFS interators -- look for the connected fragment
+              OpenBabel::OBMol mol = molecule->OBMol();
+              OpenBabel::OBMolAtomDFSIter iter(mol, molecule->atomById(bond->beginAtomId())->index() + 1);
+              Atom *tmpNeighbor;
+              do {
+                tmpNeighbor = molecule->atom(iter->GetIdx() - 1);
+                neighborList.append(tmpNeighbor);
+
+                // we want to find all bonds on this site
+                // (obviously all bonds will be in this fragment)
+
+                FOR_BONDS_OF_ATOM(b, *iter)
+                  neighborList.append(molecule->bond(b->GetIdx()));
 
               } while ((iter++).next()); // this returns false when we've gone looped through the fragment
 
               widget->setSelected(neighborList, select);
             }
+
             // FIXME -- also need to handle other primitive hit types
             // (e.g., if we hit a residue, bond, etc.)
           }
           break;
-        case 1: // atom
+        case 1: // atom/bond
         default:
           // If the Ctrl modifier is pressed toggle selection
           if(event->modifiers() & Qt::ControlModifier)
@@ -237,7 +290,7 @@ namespace Avogadro {
       {
         if(hit.type() == Primitive::AtomType) // Atom selection
         {
-          Atom *atom = static_cast<Atom *>(molecule->GetAtom(hit.name()));
+          Atom *atom = molecule->atom(hit.name());
           if(!hitList.contains(atom))
           {
             hitList.append(atom);
@@ -245,7 +298,7 @@ namespace Avogadro {
         }
         if(hit.type() == Primitive::BondType) // Bond selection
         {
-          Bond *bond = static_cast<Bond *>(molecule->GetBond(hit.name()));
+          Bond *bond = molecule->bond(hit.name());
           if(!hitList.contains(bond)) {
             hitList.append(bond);
           }
@@ -263,63 +316,31 @@ namespace Avogadro {
     return 0;
   }
 
-  QUndoCommand* SelectRotateTool::mouseMove(GLWidget *widget, const QMouseEvent *event)
+  QUndoCommand* SelectRotateTool::mouseMoveEvent(GLWidget *widget, QMouseEvent *event)
   {
-    QPoint deltaDragging = event->pos() - m_lastDraggingPosition;
+    if (m_leftButtonPressed && !m_hits.size()) {
+      event->accept();
+      QPoint deltaDragging = event->pos() - m_lastDraggingPosition;
 
-    if( ( event->pos() - m_initialDraggingPosition ).manhattanLength() > 2 )
-      m_movedSinceButtonPressed = true;
+      if( ( event->pos() - m_initialDraggingPosition ).manhattanLength() > 2 )
+        m_movedSinceButtonPressed = true;
 
-    if( m_hits.size() )
-    {
-      if( event->buttons() & Qt::LeftButton )
-      {
-        // Rotation about the centre of the molecule
-        Navigate::rotate(widget, widget->center(), deltaDragging.x(), deltaDragging.y());
-      }
-      else if ( event->buttons() & Qt::RightButton )
-      {
-        // Translation about the centre of the molecule in the x and y axes
-        Navigate::translate(widget, widget->center(), m_lastDraggingPosition, event->pos());
-      }
-      else if ( event->buttons() & Qt::MidButton )
-      {
-        // Rotation about the centre of the molecule in the z axis
-        Navigate::tilt(widget, widget->center(), deltaDragging.x());
-
-        // Zoom toward the centre of the molecule
-        Navigate::zoom(widget, widget->center(), deltaDragging.y());
-      }
+      m_lastDraggingPosition = event->pos();
+      widget->update();
     }
-
-    m_lastDraggingPosition = event->pos();
-    widget->update();
+    else if (m_leftButtonPressed) {
+      if((event->pos() - m_initialDraggingPosition).manhattanLength() > 2)
+        m_movedSinceButtonPressed = true;
+      else
+        event->accept();
+    }
 
     return 0;
   }
 
-  QUndoCommand* SelectRotateTool::wheel(GLWidget*widget, const QWheelEvent*event)
+  QUndoCommand* SelectRotateTool::wheelEvent(GLWidget*, QWheelEvent*)
   {
-    // let's set the reference to be the center of the visible
-    // part of the molecule.
-    Eigen::Vector3d atomsBarycenter(0., 0., 0.);
-    double sumOfWeights = 0.;
-    std::vector<OpenBabel::OBNodeBase*>::iterator i;
-    for ( Atom *atom = static_cast<Atom*>(widget->molecule()->BeginAtom(i));
-          atom; atom = static_cast<Atom*>(widget->molecule()->NextAtom(i))) {
-      Eigen::Vector3d transformedAtomPos = widget->camera()->modelview() * atom->pos();
-      double atomDistance = transformedAtomPos.norm();
-      double dot = transformedAtomPos.z() / atomDistance;
-      double weight = exp(-30. * (1. + dot));
-      sumOfWeights += weight;
-      atomsBarycenter += weight * atom->pos();
-    }
-    atomsBarycenter /= sumOfWeights;
-
-    Navigate::zoom(widget, atomsBarycenter, - MOUSE_WHEEL_SPEED * event->delta());
-    widget->update();
-
-    return NULL;
+    return 0;
   }
 
   void SelectRotateTool::selectionBox(float sx, float sy, float ex, float ey)
@@ -391,7 +412,7 @@ namespace Avogadro {
       labelMode->setMaximumHeight(15);
 
       m_comboSelectionMode = new QComboBox(m_settingsWidget);
-      m_comboSelectionMode->addItem(tr("Atom"));
+      m_comboSelectionMode->addItem(tr("Atom/Bond"));
       m_comboSelectionMode->addItem(tr("Residue"));
       m_comboSelectionMode->addItem(tr("Molecule"));
 

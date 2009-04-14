@@ -1,11 +1,11 @@
 /**********************************************************************
   ToolGroup - GLWidget manager for Tools.
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007,2008 Donald Ephraim Curtis
   Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 #include <config.h>
 
 #include <avogadro/toolgroup.h>
+#include "pluginmanager.h"
 
 #include <QActionGroup>
 #include <QAction>
@@ -33,6 +34,10 @@
 #include <QDir>
 
 #include <QDebug>
+#include <QCoreApplication>
+#include <QMessageBox>
+
+#include <QObject>
 
 using namespace std;
 namespace Avogadro {
@@ -63,50 +68,50 @@ namespace Avogadro {
     delete(d);
   }
 
-  void ToolGroup::load()
+  void ToolGroup::removeAllTools()
   {
-    QString prefixPath = QString(INSTALL_LIBDIR) + "/avogadro-kalzium/tools";
-    QStringList pluginPaths;
-    pluginPaths << prefixPath;
+    d->activeTool = 0;
+    
+    delete d->activateActions;
+    d->activateActions = new QActionGroup(this);
 
-#ifdef WIN32
-	pluginPaths << "./tools";
-#endif
+    d->tools.clear();
+  }
 
-    const QByteArray kavogadro_tools = qgetenv("KAVOGADRO_TOOLS");
-#ifdef Q_WS_WIN
-    const char pathSep = ';';
-#else
-    const char pathSep = ':';
-#endif
-    if(!kavogadro_tools.isEmpty())
-      pluginPaths = QString( QString::fromLocal8Bit( kavogadro_tools ) ).split(pathSep);
-
-    foreach (const QString& path, pluginPaths)
-    {
-      QDir dir(path);
-      foreach (const QString& fileName, dir.entryList(QDir::Files))
+  void ToolGroup::append(QList<Tool *> tools)
+  {
+    foreach (Tool *tool, tools) {
+      if(tool)
       {
-        QPluginLoader loader(dir.absoluteFilePath(fileName));
-        QObject *instance = loader.instance();
-        ToolFactory *factory = qobject_cast<ToolFactory *>(instance);
-        if (factory)
-        {
-          Tool *tool = factory->createInstance(this);
-          qDebug() << "Found Tool: " << tool->name() << " - " << tool->description();
-          d->tools.append(tool);
-          d->activateActions->addAction(tool->activateAction());
-          connect(tool->activateAction(), SIGNAL(triggered(bool)),
-              this, SLOT(activateTool()));
-        }
+        d->tools.append(tool);
+
+        d->activateActions->addAction(tool->activateAction());
+        connect(tool->activateAction(), SIGNAL(triggered(bool)),
+            this, SLOT(activateTool()));
+        connect(tool, SIGNAL(destroyed()), this, SIGNAL(toolsDestroyed()));
       }
     }
 
+    // sort the tools
     qSort(d->tools.begin(), d->tools.end(), toolGreaterThan);
+
+    // activate the first tool
     if(d->tools.count()) {
       setActiveTool(d->tools.at(0));
       d->activeTool->activateAction()->setChecked(true);
     }
+  }
+
+  void ToolGroup::append(Tool *tool)
+  {
+    d->tools.append(tool);
+
+    d->activateActions->addAction(tool->activateAction());
+    connect(tool->activateAction(), SIGNAL(triggered(bool)),
+        this, SLOT(activateTool()));
+
+    // sort the tools
+    qSort(d->tools.begin(), d->tools.end(), toolGreaterThan);
   }
 
   void ToolGroup::activateTool()
@@ -127,9 +132,10 @@ namespace Avogadro {
 
   void ToolGroup::setActiveTool(int i)
   {
-    Tool *tool = d->tools.at(i);
-    if(tool) {
-      setActiveTool(tool);
+    if (i < d->tools.size()) {
+      Tool *tool = d->tools.at(i);
+      if (tool)
+        setActiveTool(tool);
     }
   }
 
@@ -156,6 +162,13 @@ namespace Avogadro {
     }
   }
 
+  Tool* ToolGroup::tool(int i) const
+  {
+    if (i < d->tools.size())
+      return d->tools.at(i);
+    return 0;
+  }
+
   const QList<Tool *>& ToolGroup::tools() const
   {
     return d->tools;
@@ -178,7 +191,7 @@ namespace Avogadro {
   {
     foreach(Tool *tool, d->tools)
     {
-      settings.beginGroup(tool->name());
+      settings.beginGroup(tool->identifier());
       tool->writeSettings(settings);
       settings.endGroup();
     }
@@ -188,7 +201,7 @@ namespace Avogadro {
   {
     foreach(Tool *tool, d->tools)
     {
-      settings.beginGroup(tool->name());
+      settings.beginGroup(tool->identifier());
       tool->readSettings(settings);
       settings.endGroup();
     }

@@ -2,10 +2,10 @@
   global.h - Setup some default defines.
 
   Copyright (C) 2007 by Donald Ephraim Curtis
-  Copyright (C) 2008 by Marcus D. Hanwell
+  Copyright (C) 2008-2009 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,10 +27,13 @@
 #define GLOBAL_H
 
 #include <QTranslator>
-#include <math.h>
+
+#define EIGEN_WORK_AROUND_QT_BUG_CALLING_WRONG_OPERATOR_NEW_FIXED_IN_QT_4_5
+
 #ifdef WIN32
 # ifndef NOMINMAX
 #  define NOMINMAX 1
+#  include <limits>
 # endif
 #endif
 
@@ -51,7 +54,7 @@
 
 // This macro should be used to export parts of the API
 #ifndef A_EXPORT
-  #ifdef MAKE_AVOGADRO_KALZIUM_LIB
+  #ifdef avogadro_lib_EXPORTS
     #define A_EXPORT A_DECL_EXPORT
   #else
     #define A_EXPORT A_DECL_IMPORT
@@ -83,89 +86,69 @@
 # define GL_TEXTURE_RECTANGLE_ARB 0x84F5
 #endif
 
-const double   ROTATION_SPEED                        = 0.005;
-const double   ZOOM_SPEED                            = 0.02;
-const double   MOUSE_WHEEL_SPEED                     = 0.1;
-const double   CAMERA_MOL_RADIUS_MARGIN              = 10.0;
-const double   CAMERA_NEAR_DISTANCE                  = 2.0;
-const int      SEL_BUF_MAX_SIZE                      = 262144;
-const int      SEL_BUF_MARGIN                        = 128;
-const int      SEL_BOX_HALF_SIZE                     = 4;
-const int      SEL_BOX_SIZE                          = 2 * SEL_BOX_HALF_SIZE + 1;
-const double   SEL_ATOM_EXTRA_RADIUS                 = 0.18;
-const double   SEL_BOND_EXTRA_RADIUS                 = 0.07;
-
-const float    LIGHT_AMBIENT[4]                     = { 0.2f, 0.2f, 0.2f, 1.0f };
-
-const float    LIGHT0_DIFFUSE[4]                     = { 1.0f, 1.0f, 1.0f, 1.0f };
-const float    LIGHT0_SPECULAR[4]                    = { 1.0f, 1.0f, 1.0f, 1.0f };
-const float    LIGHT0_POSITION[4]                    = { 0.8f, 0.7f, 1.0f, 0.0f };
-
-const float    LIGHT1_DIFFUSE[4]                     = { 0.3f, 0.3f, 0.3f, 1.0f };
-const float    LIGHT1_SPECULAR[4]                    = { 0.5f, 0.5f, 0.5f, 1.0f };
-const float    LIGHT1_POSITION[4]                    = { -0.8f, 0.7f, -0.5f, 0.0f };
-
-
 namespace Avogadro
 {
-  const int      PAINTER_GLOBAL_QUALITY_SETTINGS       = 5;
-  const int      DEFAULT_GLOBAL_QUALITY_SETTING        = PAINTER_GLOBAL_QUALITY_SETTINGS - 3;
-  const int      PAINTER_DETAIL_LEVELS                 = 10;
-  // Sphere detail level array. Each row is a detail level.
-  // The first column is the sphere detail level at the furthest
-  // point and the last column is the detail level at the closest
-  // point.
-  const int      PAINTER_SPHERES_LEVELS_ARRAY[5][10]
-  =
-    { {0, 0, 1, 1, 2, 2, 3, 3, 4, 4},
-      {0, 1, 2, 3, 4, 4, 5, 5, 6, 6},
-      {1, 2, 3, 4, 5, 6, 7, 8, 9, 9},
-      {1, 2, 3, 4, 6, 7, 8, 9, 11, 12},
-      {2, 3, 4, 5, 7, 9, 12, 15, 18, 22}
-    };
-  const double   PAINTER_SPHERES_LIMIT_MIN_LEVEL       = 0.005;
-  const double   PAINTER_SPHERES_LIMIT_MAX_LEVEL       = 0.15;
+  const double   ROTATION_SPEED                    = 0.005;
+  const double   ZOOM_SPEED                        = 0.02;
+  const double   MOUSE_WHEEL_SPEED                 = 0.1;
+  const double   CAMERA_MOL_RADIUS_MARGIN          = 10.0;
+  const double   CAMERA_NEAR_DISTANCE              = 2.0;
+  const int      SEL_BUF_MAX_SIZE                  = 262144;
+  const int      SEL_BUF_MARGIN                    = 128;
+  const int      SEL_BOX_HALF_SIZE                 = 4;
+  const int      SEL_BOX_SIZE                      = 2 * SEL_BOX_HALF_SIZE + 1;
+  const double   SEL_ATOM_EXTRA_RADIUS             = 0.18;
+  const double   SEL_BOND_EXTRA_RADIUS             = 0.07;
 
-  // Cylinder detail level array. Each row is a detail level.
-  // The first column is the cylinder detail level at the furthest
-  // point and the last column is the detail level at the closest
-  // point.
-  const int      PAINTER_CYLINDERS_LEVELS_ARRAY[5][10]
-  =
-    { {0, 3, 5, 5, 8, 8, 12, 12, 16, 16},
-      {0, 4, 6, 9, 12, 12, 16, 16, 20, 20},
-      {0, 4, 6, 10, 14, 18, 22, 26, 32, 40},
-      {0, 4, 6, 12, 16, 20, 24, 28, 34, 42},
-      {0, 5, 10, 15, 20, 25, 30, 35, 40, 45}
-    };
-  const double   PAINTER_CYLINDERS_LIMIT_MIN_LEVEL     = 0.001;
-  const double   PAINTER_CYLINDERS_LIMIT_MAX_LEVEL     = 0.03;
-  const int      PAINTER_MAX_DETAIL_LEVEL = PAINTER_DETAIL_LEVELS - 1;
-  const double   PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL
-  = sqrt ( PAINTER_SPHERES_LIMIT_MIN_LEVEL );
-  const double   PAINTER_SPHERES_SQRT_LIMIT_MAX_LEVEL
-  = sqrt ( PAINTER_SPHERES_LIMIT_MAX_LEVEL );
-  const double   PAINTER_SPHERES_DETAIL_COEFF
-  = static_cast<double> ( PAINTER_MAX_DETAIL_LEVEL - 1 )
-    / ( PAINTER_SPHERES_SQRT_LIMIT_MAX_LEVEL - PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL );
-  const double   PAINTER_CYLINDERS_SQRT_LIMIT_MIN_LEVEL
-  = sqrt ( PAINTER_CYLINDERS_LIMIT_MIN_LEVEL );
-  const double   PAINTER_CYLINDERS_SQRT_LIMIT_MAX_LEVEL
-  = sqrt ( PAINTER_CYLINDERS_LIMIT_MAX_LEVEL );
-  const double   PAINTER_CYLINDERS_DETAIL_COEFF
-  = static_cast<double> ( PAINTER_MAX_DETAIL_LEVEL - 1 )
-    / ( PAINTER_CYLINDERS_SQRT_LIMIT_MAX_LEVEL - PAINTER_CYLINDERS_SQRT_LIMIT_MIN_LEVEL );
-  const double   PAINTER_FRUSTUM_CULL_TRESHOLD = -0.8;
+  const float    LIGHT_AMBIENT[4]                  = {0.2f, 0.2f, 0.2f, 1.0f};
 
+  const float    LIGHT0_DIFFUSE[4]                 = {1.0f, 1.0f, 1.0f, 1.0f};
+  const float    LIGHT0_SPECULAR[4]                = {1.0f, 1.0f, 1.0f, 1.0f};
+  const float    LIGHT0_POSITION[4]                = {0.8f, 0.7f, 1.0f, 0.0f};
+
+  const float    LIGHT1_DIFFUSE[4]                 = {0.3f, 0.3f, 0.3f, 1.0f};
+  const float    LIGHT1_SPECULAR[4]                = {0.5f, 0.5f, 0.5f, 1.0f};
+  const float    LIGHT1_POSITION[4]                = {-0.8f, 0.7f, -0.5f, 0.0f};
+
+  const double   cPi                               = 3.14159265358979323846;
+  const double   cDegToRad                         = cPi / 180.0;
+
+  /**
+   * @class Library global.h <avogadro/global.h>
+   * @brief Interface for static calls for versions, installation prefix, and
+   * other compiler macros.
+   * @author Marcus D. Hanwell
+   */
   class A_EXPORT Library
   {
     public:
+      /**
+       * Create a translator instance for the Avogadro library.
+       */
       static QTranslator *createTranslator();
+
+      /**
+       * @return The version of the Avogadro library.
+       */
       static QString version();
-      static QString svnRevision();
+
+      /**
+       * The source control management revision.
+       */
+      static QString scmRevision();
+
+      /**
+       * The installation prefix that the Avogadro library was compiled into.
+       * Typically /usr/local or /usr
+       */
       static QString prefix();
+
+      /**
+       * @return True if mutlithreaded OpenGL rendering is enabled.
+       */
       static bool threadedGL();
   };
 }
 
 #endif  // __GLOBAL_H
+

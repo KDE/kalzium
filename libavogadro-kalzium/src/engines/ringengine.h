@@ -4,7 +4,7 @@
   Copyright (C) 2007 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
 
+#include <QList>
 
 #include "ui_ringsettingswidget.h"
 
@@ -38,7 +39,8 @@ namespace Avogadro {
   class RingEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Ring"))
+    AVOGADRO_ENGINE("Ring", tr("Ring"),
+                    tr("Renders rings with colored planes"))
 
     public:
       //! Constructor
@@ -56,7 +58,9 @@ namespace Avogadro {
       //@}
 
       double transparencyDepth() const;
-      EngineFlags flags() const;
+      Layers layers() const;
+      PrimitiveTypes primitiveTypes() const;
+      ColorTypes colorTypes() const;
 
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
@@ -75,9 +79,8 @@ namespace Avogadro {
     private:
       RingSettingsWidget *m_settingsWidget;
       double m_alpha; // transparency of the VdW spheres
-      QVector<Color> m_ringColors;
 
-      bool renderRing(const std::vector<int> &ring, PainterDevice *pd); // Render the given ring
+      bool renderRing(const QList<unsigned long> &ring, PainterDevice *pd); // Render the given ring
 
     private Q_SLOTS:
       void settingsWidgetDestroyed();
@@ -99,10 +102,10 @@ namespace Avogadro {
 
 
   //! Generates instances of our RingEngine class
-  class RingEngineFactory : public QObject, public EngineFactory
+  class RingEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(RingEngine)
   };
 

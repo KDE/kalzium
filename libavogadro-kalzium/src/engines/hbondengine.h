@@ -2,10 +2,10 @@
   HBondEngine - Hydrogen Bond Engine
 
   Copyright (C) 2007 by Marcus D. Hanwell
-  Copyright (C) 2007 by Tim Vandermeersch
+  Copyright (C) 2007,2009 by Tim Vandermeersch
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -39,7 +39,8 @@ namespace Avogadro {
   class HBondEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Hydrogen Bond"))
+    AVOGADRO_ENGINE("Hydrogen Bond", tr("Hydrogen Bond"),
+                       tr("Renders hydrogen bonds"))
 
     public:
       //! Constructor
@@ -75,6 +76,10 @@ namespace Avogadro {
       double m_width;
       double m_radius;
       double m_angle;
+  
+      bool isHbondAcceptor(Atom *atom);
+      bool isHbondDonor(Atom *atom);
+      bool isHbondDonorH(Atom *atom);
     
     private Q_SLOTS:
       void settingsWidgetDestroyed();
@@ -102,10 +107,10 @@ namespace Avogadro {
   };
 
   //! Generates instances of our HBondEngine class
-  class HBondEngineFactory : public QObject, public EngineFactory
+  class HBondEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(HBondEngine)
   };
 

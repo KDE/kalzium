@@ -1,11 +1,11 @@
 /**********************************************************************
   NavigateTool - Navigation Tool for Avogadro
 
-  Copyright (C) 2007 by Marcus D. Hanwell
+  Copyright (C) 2007,2008 by Marcus D. Hanwell
   Copyright (C) 2006,2007 by Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,13 +26,11 @@
 #include "navigatetool.h"
 #include "eyecandy.h"
 #include <avogadro/navigate.h>
-#include <avogadro/primitive.h>
+#include <avogadro/atom.h>
+#include <avogadro/molecule.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
 #include <avogadro/camera.h>
-
-#include <openbabel/obiter.h>
-#include <openbabel/mol.h>
 
 #include <QtPlugin>
 
@@ -42,8 +40,10 @@ using namespace Eigen;
 
 namespace Avogadro {
 
-  NavigateTool::NavigateTool(QObject *parent) : Tool(parent), m_clickedAtom(0), m_leftButtonPressed(false), m_midButtonPressed(false), m_rightButtonPressed(false),
-  m_eyecandy(new Eyecandy)
+  NavigateTool::NavigateTool(QObject *parent) : Tool(parent), m_clickedAtom(0),
+  m_leftButtonPressed(false), m_midButtonPressed(false),
+  m_rightButtonPressed(false), m_drawEyeCandy(false),
+  m_draggingInitialized(false), m_eyecandy(new Eyecandy)
   {
     QAction *action = activateAction();
     action->setIcon(QIcon(QString::fromUtf8(":/navigate/navigate.png")));
@@ -69,32 +69,33 @@ namespace Avogadro {
     // Remember to account for the situation where no molecule is loaded or it is empty
     if(!widget->molecule())
       m_referencePoint = Vector3d(0., 0., 0.);
-    else if(!widget->molecule()->NumAtoms())
+    else if(!widget->molecule()->numAtoms())
       m_referencePoint = Vector3d(0., 0., 0.);
     else if(m_clickedAtom)
-      m_referencePoint = m_clickedAtom->pos();
+      m_referencePoint = *m_clickedAtom->pos();
     else {
       // let's set m_referencePoint to be the center of the visible
       // part of the molecule.
       Vector3d atomsBarycenter(0., 0., 0.);
       double sumOfWeights = 0.;
-      std::vector<OpenBabel::OBNodeBase*>::iterator i;
-      for ( Atom *atom = static_cast<Atom*>(widget->molecule()->BeginAtom(i));
-            atom; atom = static_cast<Atom*>(widget->molecule()->NextAtom(i))) {
-        Vector3d transformedAtomPos = widget->camera()->modelview() * atom->pos();
+      QList<Atom*> atoms = widget->molecule()->atoms();
+      foreach (Atom *atom, atoms) {
+        Vector3d transformedAtomPos = widget->camera()->modelview() * *atom->pos();
         double atomDistance = transformedAtomPos.norm();
         double dot = transformedAtomPos.z() / atomDistance;
         double weight = exp(-30. * (1. + dot));
         sumOfWeights += weight;
-        atomsBarycenter += weight * atom->pos();
+        atomsBarycenter += weight * *atom->pos();
       }
       atomsBarycenter /= sumOfWeights;
       m_referencePoint = atomsBarycenter;
     }
   }
 
-  QUndoCommand* NavigateTool::mousePress(GLWidget *widget, const QMouseEvent *event)
+  QUndoCommand* NavigateTool::mousePressEvent(GLWidget *widget, QMouseEvent *event)
   {
+    event->accept();
+    m_drawEyeCandy = false;
     m_lastDraggingPosition = event->pos();
     // Make sure there aren't modifier keys clicked with the left button
     // If the user has a Mac and only a one-button mouse, everything
@@ -126,7 +127,12 @@ namespace Avogadro {
     {
       m_rightButtonPressed = true;
       // Set the cursor - this needs to be reset to Qt::ArrowCursor after
-      widget->setCursor(Qt::SizeAllCursor);
+      // Currently, there's a Qt/Mac bug -- SizeAllCursor looks like a spreadsheet cursor
+#ifdef Q_WS_MAC
+          widget->setCursor(Qt::CrossCursor);
+#else
+          widget->setCursor(Qt::SizeAllCursor);
+#endif
     }
 
     m_clickedAtom = widget->computeClickedAtom(event->pos());
@@ -140,12 +146,15 @@ namespace Avogadro {
     return 0;
   }
 
-  QUndoCommand* NavigateTool::mouseRelease(GLWidget *widget, const QMouseEvent*)
+  QUndoCommand* NavigateTool::mouseReleaseEvent(GLWidget *widget, QMouseEvent *event)
   {
+    event->accept();
     m_leftButtonPressed = false;
     m_midButtonPressed = false;
     m_rightButtonPressed = false;
+    m_drawEyeCandy = false;
     m_clickedAtom = 0;
+    m_draggingInitialized = false;
 
     // Set the cursor back to the default cursor
     widget->setCursor(Qt::ArrowCursor);
@@ -154,13 +163,23 @@ namespace Avogadro {
     return 0;
   }
 
-  QUndoCommand* NavigateTool::mouseMove(GLWidget *widget, const QMouseEvent *event)
+  QUndoCommand* NavigateTool::mouseMoveEvent(GLWidget *widget, QMouseEvent *event)
   {
     if(!widget->molecule()) {
       return 0;
     }
 
-    QPoint deltaDragging = event->pos() - m_lastDraggingPosition;
+    m_drawEyeCandy = true;
+    event->accept();
+
+    QPoint deltaDragging;
+    if (m_draggingInitialized) {
+      deltaDragging = event->pos() - m_lastDraggingPosition;
+    }
+    else {
+      m_lastDraggingPosition = event->pos();
+      m_draggingInitialized = true;
+    }
 
     // Mouse navigation has two modes - atom centred when an atom is clicked
     // and scene if no atom has been clicked. However we don't need two codepaths
@@ -201,8 +220,9 @@ namespace Avogadro {
     return 0;
   }
 
-  QUndoCommand* NavigateTool::wheel(GLWidget *widget, const QWheelEvent *event )
+  QUndoCommand* NavigateTool::wheelEvent(GLWidget *widget, QWheelEvent *event )
   {
+    event->accept();
     m_clickedAtom = 0; // no need for mouse wheel to detect exactly the atom,
                        // the referencePoint will be accurate enough, and
                        // on large molecules doing a gl selection on every
@@ -214,20 +234,68 @@ namespace Avogadro {
     return 0;
   }
 
+  QUndoCommand* NavigateTool::keyPressEvent(GLWidget *widget, QKeyEvent *event)
+  {
+    computeReferencePoint(widget);
+    switch (event->key()) {
+      case Qt::Key_Left: // Left arrow
+        if (event->modifiers() == Qt::NoModifier)
+          Navigate::rotate(widget, m_referencePoint, -5, 0);
+        else if (event->modifiers() & Qt::ShiftModifier)
+          Navigate::tilt(widget, m_referencePoint, -5);
+        else if (event->modifiers() & Qt::ControlModifier)
+          Navigate::translate(widget, m_referencePoint, -5, 0);
+        event->accept();
+        break;
+      case Qt::Key_Right: // Right arrow
+        if (event->modifiers() == Qt::NoModifier)
+          Navigate::rotate(widget, m_referencePoint, 5, 0);
+        else if ((event->modifiers() & Qt::ShiftModifier))
+          Navigate::tilt(widget, m_referencePoint, 5);
+        else if (event->modifiers() & Qt::ControlModifier)
+          Navigate::translate(widget, m_referencePoint, 5, 0);
+        event->accept();
+        break;
+      case Qt::Key_Up: // Up arrow
+        if (event->modifiers() == Qt::NoModifier)
+          Navigate::rotate(widget, m_referencePoint, 0, -5);
+        else if (event->modifiers() & Qt::ShiftModifier)
+          Navigate::zoom(widget, m_referencePoint, -2);
+        else if (event->modifiers() & Qt::ControlModifier)
+          Navigate::translate(widget, m_referencePoint, 0, -5);
+        event->accept();
+        break;
+      case Qt::Key_Down: // Down arrow
+        if (event->modifiers() == Qt::NoModifier)
+          Navigate::rotate(widget, m_referencePoint, 0, 5);
+        else if (event->modifiers() & Qt::ShiftModifier)
+          Navigate::zoom(widget, m_referencePoint, 2);
+        else if (event->modifiers() & Qt::ControlModifier)
+          Navigate::translate(widget, m_referencePoint, 0, 5);
+        event->accept();
+        break;
+      default:
+       return 0;
+    }
+    return 0;
+  }
+
+  QUndoCommand* NavigateTool::keyReleaseEvent(GLWidget *, QKeyEvent *)
+  {
+    return 0;
+  }
+
   bool NavigateTool::paint(GLWidget *widget)
   {
-    if(m_leftButtonPressed) {
-      m_eyecandy->drawRotation(widget, m_clickedAtom, m_xAngleEyecandy, m_yAngleEyecandy, m_referencePoint);
+    if (m_drawEyeCandy) {
+      if(m_leftButtonPressed)
+        m_eyecandy->drawRotation(widget, m_clickedAtom, m_xAngleEyecandy,
+                                 m_yAngleEyecandy, &m_referencePoint);
+      else if(m_midButtonPressed)
+        m_eyecandy->drawZoom(widget, m_clickedAtom, &m_referencePoint);
+      else if(m_rightButtonPressed)
+        m_eyecandy->drawTranslation(widget, m_clickedAtom, &m_referencePoint);
     }
-
-    else if(m_midButtonPressed) {
-      m_eyecandy->drawZoom(widget, m_clickedAtom, m_referencePoint);
-    }
-
-    else if(m_rightButtonPressed) {
-      m_eyecandy->drawTranslation(widget, m_clickedAtom, m_referencePoint);
-    }
-
     return true;
   }
 }

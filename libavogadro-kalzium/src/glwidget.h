@@ -1,12 +1,12 @@
 /**********************************************************************
   GLWidget - general OpenGL display
 
-  Copyright (C) 2006,2007 Geoffrey R. Hutchison
+  Copyright (C) 2006-2009 Geoffrey R. Hutchison
   Copyright (C) 2006,2007 Donald Ephraim Curtis
   Copyright (C) 2007,2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -29,7 +29,6 @@
 
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
-#include <avogadro/tool.h>
 #include <avogadro/color.h>
 #include <avogadro/painter.h>
 #include <avogadro/camera.h>
@@ -44,6 +43,10 @@ class QGLContext;
 
 namespace Avogadro {
 
+  class Atom;
+  class Bond;
+  class Molecule;
+  class Tool;
   class ToolGroup;
 
   /**
@@ -76,6 +79,8 @@ namespace Avogadro {
        * @param name The name of the OpenGL object that was picked corresponding
        * to the primitive index
        * (ie. name==1 means Atom 1).
+       * @param minZ minimum window Z value of the hit
+       * @param maxZ maximum window Z value of the hit
        */
       GLHit(GLuint type, GLuint name, GLuint minZ, GLuint maxZ);
       /**
@@ -187,6 +192,7 @@ namespace Avogadro {
        * Constructor.
        * @param format the QGLFormat information.
        * @param parent the widget parent.
+       * @param shareWidget a widget to share the same graphics -- i.e., the underlying GLPainterDevice
        */
       explicit GLWidget(const QGLFormat &format, QWidget *parent = 0, const GLWidget * shareWidget = 0);
 
@@ -195,6 +201,7 @@ namespace Avogadro {
        * @param molecule the molecule to view.
        * @param format the QGLFormat information.
        * @param parent the widget parent.
+       * @param shareWidget a widget to share the same graphics -- i.e., the underlying GLPainterDevice
        */
       GLWidget(Molecule *molecule, const QGLFormat &format, QWidget *parent = 0, const GLWidget * shareWidget = 0);
 
@@ -204,15 +211,24 @@ namespace Avogadro {
       ~GLWidget();
 
       /**
-       * @return true if the GLWidget is stable as determined
-       * by the tools and extensions.
+       * @param enabled True if quick render is desired when moving the view.
        */
-      bool isStable() const;
+      void setQuickRender(bool enabled);
 
       /**
-       * @param stable the new stable value.
+       * @return True if quick rendering is being used.
        */
-      void setStable(bool stable);
+      bool quickRender() const;
+      
+      /**
+      * @param enabled True if we should render the unit cell axes
+      */
+      void setRenderUnitCellAxes(bool enabled);
+      
+      /**
+       * @return True if unit cell axes are being rendered.
+       */
+      bool renderUnitCellAxes() const;
 
       /**
        * @return the width of the widget in pixels.
@@ -248,11 +264,6 @@ namespace Avogadro {
        * @return the active Tool.
        */
       Tool* tool() const;
-
-      /**
-       * @return the ToolGroup manager.
-       */
-      ToolGroup toolManger() const;
 
       /**
        * @return the current background color of the rendering area.
@@ -305,11 +316,6 @@ namespace Avogadro {
       QList<Engine *> engines() const;
 
       /**
-       * @return a list of the engine factories.
-       */
-      QList<EngineFactory *> engineFactories() const;
-
-      /**
        * Get the hits for a region starting at (x, y) of size (w * h).
        */
       QList<GLHit> hits(int x, int y, int w, int h);
@@ -356,10 +362,21 @@ namespace Avogadro {
        * @param quality set the global quality of the widget.
        */
       void setQuality(int quality);
+
       /**
        * @return the global quality of the widget.
        */
       int quality() const;
+
+      /**
+       * @param level Set the global fog level of the widget.
+       */
+      void setFogLevel(int level);
+
+      /**
+       * @return The global fog level of the widget.
+       */
+      int fogLevel() const;
 
       /**
        * Set to render x, y, z axes as an overlay in the bottom left of the widget.
@@ -380,6 +397,11 @@ namespace Avogadro {
        * @return true if the debug panel is being drawn
        */
       bool renderDebug();
+
+      /**
+       * @return true if the primitives have being drawn
+       */
+      bool renderPrimitives();
 
       /**
        * Set the ToolGroup of the GLWidget.
@@ -403,7 +425,7 @@ namespace Avogadro {
       /**
        * @return list of primitives for this widget
        */
-      PrimitiveList primitives() const;
+      PrimitiveList & primitives() const;
 
       /** @name Selection Methods
        *  These methods are used to manipulate user-selected primitives.
@@ -424,7 +446,13 @@ namespace Avogadro {
        *
        * @param primitives the set of objects to update.
        */
-      void toggleSelected(PrimitiveList primitiveList);
+      void toggleSelected(PrimitiveList primitives);
+
+      /**
+       * Toggle the selection for the GLWidget, that is if the primitive is
+       * selected, deselect it and vice-versa.
+       */
+      void toggleSelected();
 
       /**
        * Change the selection status for the atoms in the supplied list.
@@ -444,6 +472,54 @@ namespace Avogadro {
        * @return true if the Primitive is selected.
        */
       bool isSelected(const Primitive *p) const;
+
+      /**
+       * Add a new named selection.
+       *
+       * @param name name of the new selection.
+       * @param primitives the primitives ids.
+       * @return true if the name is not taken
+       */
+      bool addNamedSelection(const QString &name, PrimitiveList &primitives);
+      /**
+       * Remove a named selection by name.
+       *
+       * @param name name of the selection to remove.
+       */
+      void removeNamedSelection(const QString &name);
+      /**
+       * Remove a named selection by index. Using the index is useful in Models.
+       *
+       * @param index index of the selection to remove.
+       */
+      void removeNamedSelection(int index);
+      /**
+       * Rename a named selection by index. Using the index is useful in Models.
+       *
+       * @param index index of the selection to rename.
+       */
+      void renameNamedSelection(int index, const QString &name);
+      /**
+       * Get the names of all named selections.
+       *
+       * @return a list with all the named selections.
+       */
+      QList<QString> namedSelections();
+      /**
+       * Get the primitives of a named selections by name.
+       *
+       * @param name name of the selection.
+       * @return the primitives for this named selection.
+       */
+      PrimitiveList namedSelectionPrimitives(const QString &name);
+      /**
+       * Get the primitives of a named selections by index.
+       * Using the index is useful in Models.
+       *
+       * @param index index of the selection.
+       * @return the primitives for this named selection.
+       */
+      PrimitiveList namedSelectionPrimitives(int index);
       /* end selection method grouping */
       /** @} */
 
@@ -457,6 +533,11 @@ namespace Avogadro {
        * @param c number of unit cells to display along the c axis.
        */
       void setUnitCells(int a, int b, int c);
+
+      /**
+        * Clear the unit cell data
+      */
+      void clearUnitCell();
 
       /**
        * @return the number of unit cells to display along the a axis.
@@ -489,6 +570,11 @@ namespace Avogadro {
       static void setCurrent(GLWidget *current);
 
       /**
+       * Trigger a render for GL2PS.
+       */
+      void renderNow();
+
+      /**
        * Write the settings of the GLWidget in order to save them to disk.
        */
       virtual void writeSettings(QSettings &settings) const;
@@ -500,6 +586,7 @@ namespace Avogadro {
 
 
     protected:
+      friend class GLGraphicsView;
       /**
        * Virtual function called by QGLWidget on initialization of
        * the GL area.
@@ -513,6 +600,17 @@ namespace Avogadro {
       virtual void paintGL();
 
       /**
+       * Virtual function called by GLGraphicsView before render() to set up the
+       * display correctly and leave it in an appropriate state after.
+       */
+      virtual void paintGL2();
+
+      /**
+       * Virtual function called whn the GL area is resized
+       */
+      virtual void resizeGL(int, int);
+
+      /**
        * Virtual function called when the GL area needs repainting.
        */
       virtual void paintEvent(QPaintEvent *event);
@@ -521,11 +619,6 @@ namespace Avogadro {
        * Called on resize of the GLWidget to perform resizing of the display.
        */
       virtual void resizeEvent(QResizeEvent *event);
-
-      /**
-       * Virtual function called whn the GL area is resized
-       */
-      virtual void resizeGL(int, int);
 
       /**
        * Focus Event
@@ -551,6 +644,18 @@ namespace Avogadro {
        * Virtual function reaction to mouse while in the GL rendering area.
        */
       virtual void wheelEvent(QWheelEvent * event);
+
+      /**
+       * Response to key press events.
+       * @param event the key event information
+       */
+      virtual void keyPressEvent(QKeyEvent *event);
+
+      /**
+       * Response to key release events.
+       * @param event the key event information
+       */
+      virtual void keyReleaseEvent(QKeyEvent *event);
 
       /**
        * Render the scene. To be used in both modes GL_RENDER and GL_SELECT.
@@ -586,11 +691,6 @@ namespace Avogadro {
       virtual void renderDebugOverlay();
 
       /**
-       * Helper function to load all engine factories.
-       */
-      void loadEngineFactories();
-
-      /**
        * This will return a painting condition that must be met each time
        * before a GLThread can run.
        *
@@ -611,6 +711,9 @@ namespace Avogadro {
        * Compute the average frames per second over the last 200+ ms.
        */
       inline double computeFramesPerSecond();
+
+      bool              m_glslEnabled;
+      Tool*             m_navigateTool; /// NavigateTool is a super tool
 
     public Q_SLOTS:
 
@@ -649,6 +752,64 @@ namespace Avogadro {
       void removePrimitive(Primitive *primitive);
 
       /**
+       * Add the Atom to the GLWidget.  This slot is called whenever
+       * a new Atom is added to our Molecule model.  It adds the
+       * Atom to the list in the appropriate group.
+       *
+       * @note This may change before 1.0 - the Molecule should be used more.
+       *
+       * @param atom Pointer to an Atom to add to the view
+       */
+      void addAtom(Atom *atom);
+
+      /**
+       * Update an Atom.  This slot is called whenever an Atom of our
+       * Molecule model has been changed and we need to update our view.
+       *
+       * @param atom Atom that changed.
+       */
+      void updateAtom(Atom *atom);
+
+      /**
+       * Remove an Atom.  This slot is called whenever an Atom of our
+       * Molecule model has been removed and we need to take it off our list.
+       * Additionally we need to update other items in our view that are impacted
+       * by this change.
+       *
+       * @param atom Atom to remove.
+       */
+      void removeAtom(Atom *atom);
+
+      /**
+       * Add the Bond to the GLWidget.  This slot is called whenever
+       * a new Bond is added to our Molecule model.  It adds the
+       * Bond to the list in the appropriate group.
+       *
+       * @note This may change before 1.0 - the Molecule should be used more.
+       *
+       * @param bond Pointer to a Bond to add to the view
+       */
+      void addBond(Bond *bond);
+
+      /**
+       * Update a Bond.  This slot is called whenever a Bond of our
+       * Molecule model has been changed and we need to update our view.
+       *
+       * @param bond Bond that changed.
+       */
+      void updateBond(Bond *bond);
+
+      /**
+       * Remove a Bond.  This slot is called whenever a Bond of our
+       * Molecule model has been removed and we need to take it off our list.
+       * Additionally we need to update other items in our view that are impacted
+       * by this change.
+       *
+       * @param bond Bond to remove.
+       */
+      void removeBond(Bond *bond);
+
+      /**
        * Set the background color of the rendering area (the default is black).
        *
        * @param background the new background color.
@@ -681,24 +842,29 @@ namespace Avogadro {
        */
       void invalidateDLs();
 
+      /**
+       * One or more tools are deleted..
+       */
+      void toolsDestroyed();
+
     Q_SIGNALS:
       /**
-       * Signal for the mouse press event which is passed to the engines and tools.
+       * Signal for the mouse press event which is passed to the tools.
        */
       void mousePress(QMouseEvent * event);
 
       /**
-       * Signal for the mouse release event which is passed to the engines and tools.
+       * Signal for the mouse release event which is passed to the tools.
        */
       void mouseRelease( QMouseEvent * event );
 
       /**
-       * Signal for the mouse move event which is passed to the engines and tools.
+       * Signal for the mouse move event which is passed to the tools.
        */
       void mouseMove( QMouseEvent * event );
 
       /**
-       * Signal for the mouse wheel event which is passed to the engines and tools.
+       * Signal for the mouse wheel event which is passed to the tools.
        */
       void wheel( QWheelEvent * event);
 
@@ -716,6 +882,18 @@ namespace Avogadro {
        * Signal that an Engine has been removed from the GLWidget.
        */
       void engineRemoved(Engine *engine);
+
+      /**
+       * Signal that the GLWidget has resized. Can be used to update child
+       * widgets, see overlay extension for example.
+       */
+      void resized();
+
+      /**
+       * Named selections have changed.
+       */
+      void namedSelectionsChanged();
+
 
   };
 

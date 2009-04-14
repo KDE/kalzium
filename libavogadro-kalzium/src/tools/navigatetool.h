@@ -1,11 +1,11 @@
 /**********************************************************************
   NavigateTool - Navigation Tool for Avogadro
 
-  Copyright (C) 2007 by Marcus D. Hanwell
+  Copyright (C) 2007,2008 by Marcus D. Hanwell
   Copyright (C) 2006,2007 by Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -29,8 +29,6 @@
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
 
-#include <openbabel/mol.h>
-
 #include <QGLWidget>
 #include <QObject>
 #include <QStringList>
@@ -53,6 +51,8 @@ namespace Avogadro {
   class NavigateTool : public Tool
   {
     Q_OBJECT
+      AVOGADRO_TOOL("Navigate", tr("Navigate"),
+                    tr("Translate, rotate, and zoom around the current view"))
 
   public:
     /**
@@ -64,27 +64,16 @@ namespace Avogadro {
      */
     virtual ~NavigateTool();
 
-    /**
-     * @name Description methods
-     * @{
-     * Tool Name (i.e. Navigate)
-     */
-     virtual QString name() const { return(tr("Navigate")); }
-
-    /**
-     *Tool Description (i.e. Navigation Tool)
-     */
-    virtual QString description() const { return(tr("Navigation Tool")); }
-    //@}
-
     /** \name Tool Methods
      * @{
      * @brief Callback methods for ui.actions on the canvas.
      */
-    virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
-    virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
-    virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
-    virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+    virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
+    virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
+    virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
+    virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
+    virtual QUndoCommand* keyPressEvent(GLWidget *widget, QKeyEvent *event);
+    virtual QUndoCommand* keyReleaseEvent(GLWidget *widget, QKeyEvent *event);
     //@}
 
     /**
@@ -107,12 +96,14 @@ namespace Avogadro {
     bool                m_leftButtonPressed;  // rotation
     bool                m_midButtonPressed;   // scale / zoom
     bool                m_rightButtonPressed; // translation
+    bool                m_drawEyeCandy;       // Should eye candy be drawn?
     double m_yAngleEyecandy, m_xAngleEyecandy;
 
     QPoint              m_lastDraggingPosition;
+    bool                m_draggingInitialized;  // Has dragging been initialized?
 
     Eyecandy * m_eyecandy;
-    
+
     /** recomputes m_referencePoint. Uses the value of m_clickedAtom. */
     void computeReferencePoint(GLWidget *widget);
   };
@@ -121,16 +112,11 @@ namespace Avogadro {
    * @class NavigateToolFactory navigatetool.h
    * @brief Factory class to create instances of the NavigateTool class.
    */
-  class NavigateToolFactory : public QObject, public ToolFactory
+  class NavigateToolFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::ToolFactory)
-
-  public:
-    /**
-     * Creates an instance of the NavigateTool class.
-     */
-    Tool *createInstance(QObject *parent = 0) { return new NavigateTool(parent); }
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_TOOL_FACTORY(NavigateTool)
   };
 
 } // end namespace Avogadro

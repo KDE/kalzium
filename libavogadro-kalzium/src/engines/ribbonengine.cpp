@@ -1,10 +1,10 @@
 /**********************************************************************
   RibbonEngine - Engine for "ribbon" display
 
-  Copyright (C) 2007 by Marcus D. Hanwell
+  Copyright (C) 2007-2008 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,43 +25,43 @@
 #include "ribbonengine.h"
 
 #include <config.h>
-#include <avogadro/primitive.h>
+#include <avogadro/molecule.h>
+#include <avogadro/atom.h>
+#include <avogadro/residue.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
-
-#include <openbabel/obiter.h>
-#include <eigen/regression.h>
+#include <avogadro/painterdevice.h>
 
 #include <QMessageBox>
 #include <QString>
 #include <QDebug>
 
-using namespace std;
-using namespace OpenBabel;
-using namespace Eigen;
+#include <Eigen/Geometry>
+
+using Eigen::Vector3d;
 
 namespace Avogadro {
 
-  RibbonEngine::RibbonEngine(QObject *parent) : Engine(parent), m_settingsWidget(0),
-  m_type(0), m_radius(1.0), m_useNitrogens(2)
-  {
-    setDescription(tr("Renders residues as ribbons"));
+  const float chainColors[6][3] = {
+    { 1.0, 0.0, 0.0 },
+    { 0.0, 1.0, 0.0 },
+    { 0.0, 0.0, 1.0 },
+    { 1.0, 0.0, 1.0 },
+    { 1.0, 1.0, 0.0 },
+    { 0.0, 1.0, 1.0 }
+  };
 
-    // Initialise variables
-    m_update = true;
-    // Pretty colours for the chains - we can add more. Need a colour picker...
-    m_chainColors.push_back(Color(1., 0., 0.));
-    m_chainColors.push_back(Color(0., 1., 0.));
-    m_chainColors.push_back(Color(0., 0., 1.));
-    m_chainColors.push_back(Color(1., 0., 1.));
-    m_chainColors.push_back(Color(1., 1., 0.));
-    m_chainColors.push_back(Color(0., 1., 1.));
+  RibbonEngine::RibbonEngine(QObject *parent) : Engine(parent),
+                                                m_settingsWidget(0), m_type(0),
+                                                m_radius(1.0), m_update(true),
+                                                m_useNitrogens(2)
+  {
   }
 
   Engine *RibbonEngine::clone() const
   {
     RibbonEngine *engine = new RibbonEngine(parent());
-    engine->setName(name());
+    engine->setAlias(alias());
     engine->m_type = m_type;
     engine->m_radius = m_radius;
     engine->setUseNitrogens(m_useNitrogens);
@@ -80,13 +80,13 @@ namespace Avogadro {
   bool RibbonEngine::renderOpaque(PainterDevice *pd)
   {
     // Check if the chains need updating before drawing them
-    if (m_update) updateChains();
+    if (m_update) updateChains(pd);
 
     if (m_type == 0) {
       for (int i = 0; i < m_chains.size(); i++) {
         if (m_chains[i].size() <= 1)
           continue;
-        pd->painter()->setColor(&m_chainColors[i % m_chainColors.size()]);
+        pd->painter()->setColor(chainColors[i % 6][0], chainColors[i % 6][1], chainColors[i % 6][2]);
         pd->painter()->drawSpline(m_chains[i], m_radius);
       }
     }
@@ -95,20 +95,15 @@ namespace Avogadro {
       for (int i = 0; i < m_chains.size(); i++) {
         if (m_chains[i].size() <= 1)
           continue;
-        pd->painter()->setColor(&m_chainColors[i % m_chainColors.size()]);
-        pd->painter()->drawSphere(m_chains[i][0], m_radius);
+        pd->painter()->setColor(chainColors[i % 6][0], chainColors[i % 6][1], chainColors[i % 6][2]);
+        pd->painter()->drawSphere(&m_chains[i][0], m_radius);
         for (int j = 1; j < m_chains[i].size(); j++) {
-          pd->painter()->drawSphere(m_chains[i][j], m_radius);
+          pd->painter()->drawSphere(&m_chains[i][j], m_radius);
           pd->painter()->drawCylinder(m_chains[i][j-1], m_chains[i][j], m_radius);
         }
       }
     }
 
-    return true;
-  }
-
-  bool RibbonEngine::renderTransparent(PainterDevice *)
-  {
     return true;
   }
 
@@ -119,10 +114,10 @@ namespace Avogadro {
     for (int i = 0; i < m_chains.size(); i++) {
       if (m_chains[i].size() <= 1)
         continue;
-      pd->painter()->setColor(&m_chainColors[i % m_chainColors.size()]);
-      pd->painter()->drawSphere(m_chains[i][0], tRadius);
+      pd->painter()->setColor(chainColors[i % 6][0], chainColors[i % 6][1], chainColors[i % 6][2]);
+      pd->painter()->drawSphere(&m_chains[i][0], tRadius);
       for (int j = 1; j < m_chains[i].size(); j++) {
-        pd->painter()->drawSphere(m_chains[i][j], tRadius);
+        pd->painter()->drawSphere(&m_chains[i][j], tRadius);
         pd->painter()->drawCylinder(m_chains[i][j-1], m_chains[i][j], tRadius);
       }
     }
@@ -158,40 +153,42 @@ namespace Avogadro {
     m_update = true;
   }
 
-  void RibbonEngine::updateChains()
+  void RibbonEngine::updateChains(PainterDevice *pd)
   {
-    if (!isEnabled()) return;
-    qDebug() << "Update chains called.";
-    // Get a list of residues for the molecule
+    if (!isEnabled()) 
+      return;
+
     m_chains.clear();
     QList<Primitive *> list;
     list = primitives().subList(Primitive::ResidueType);
     unsigned int currentChain = 0;
     QVector<Vector3d> pts;
+    // Get a list of residues for the molecule
+    const Molecule *molecule = pd->molecule();
 
     foreach(Primitive *p, list) {
       Residue *r = static_cast<Residue *>(p);
-      if(r->GetName().find("HOH") != string::npos)
+      if(r->name() =="HOH") {
         continue;
+      }
 
-      if(r->GetChainNum() != currentChain) {
+      if(r->chainNumber() != currentChain) {
         // this residue is on a new chain
         if(pts.size() > 0)
           m_chains.push_back(pts);
-        qDebug() << "Chain " << m_chains.size() << " added.";
-        currentChain = r->GetChainNum();
+        currentChain = r->chainNumber();
         pts.clear();
       }
 
-      FOR_ATOMS_OF_RESIDUE(a, r) {
+      foreach (unsigned long atom, r->atoms()) {
         // should be CA
-        QString atomID = QString(r->GetAtomID(&*a).c_str());
-        atomID.trimmed();
-        if (atomID == "CA") {
-          pts.push_back(static_cast<Atom *>(&*a)->pos());
+        QString atomId = r->atomId(atom);
+        atomId = atomId.trimmed();
+        if (atomId == "CA") {
+          pts.push_back(*molecule->atomById(atom)->pos());
         }
-        else if (atomID == "N" && m_useNitrogens == 2 ) {
-         pts.push_back(static_cast<Atom *>(&*a)->pos());
+        else if (atomId == "N" && m_useNitrogens == 2) {
+          pts.push_back(*molecule->atomById(atom)->pos());
         }
       } // end atoms in residue
 
@@ -200,14 +197,14 @@ namespace Avogadro {
     m_update = false;
   }
 
-  double RibbonEngine::transparencyDepth() const
+  Engine::PrimitiveTypes RibbonEngine::primitiveTypes() const
   {
-    return 1.0;
+    return Engine::Atoms;
   }
 
-  Engine::EngineFlags RibbonEngine::flags() const
+  Engine::ColorTypes RibbonEngine::colorTypes() const
   {
-    return Engine::Transparent | Engine::Atoms;
+    return Engine::IndexedColors;
   }
 
   void RibbonEngine::setType(int value)
@@ -225,7 +222,7 @@ namespace Avogadro {
   void RibbonEngine::setUseNitrogens(int setting)
   {
     m_useNitrogens = setting;
-    updateChains();
+    m_update = true;
     emit changed();
   }
 
@@ -234,10 +231,14 @@ namespace Avogadro {
     if(!m_settingsWidget)
     {
       m_settingsWidget = new RibbonSettingsWidget();
-      connect(m_settingsWidget->renderType, SIGNAL(activated(int)), this, SLOT(setType(int)));
-      connect(m_settingsWidget->radiusSlider, SIGNAL(valueChanged(int)), this, SLOT(setRadius(int)));
-      connect(m_settingsWidget->useNitrogens, SIGNAL(stateChanged(int)), this, SLOT(setUseNitrogens(int)));
-      connect(m_settingsWidget, SIGNAL(destroyed()), this, SLOT(settingsWidgetDestroyed()));
+      connect(m_settingsWidget->renderType, SIGNAL(activated(int)),
+              this, SLOT(setType(int)));
+      connect(m_settingsWidget->radiusSlider, SIGNAL(valueChanged(int)),
+              this, SLOT(setRadius(int)));
+      connect(m_settingsWidget->useNitrogens, SIGNAL(stateChanged(int)),
+              this, SLOT(setUseNitrogens(int)));
+      connect(m_settingsWidget, SIGNAL(destroyed()),
+              this, SLOT(settingsWidgetDestroyed()));
       m_settingsWidget->renderType->setCurrentIndex(m_type);
       m_settingsWidget->radiusSlider->setValue(int(10 * m_radius));
       m_settingsWidget->useNitrogens->setCheckState((Qt::CheckState)m_useNitrogens);
@@ -247,7 +248,6 @@ namespace Avogadro {
 
   void RibbonEngine::settingsWidgetDestroyed()
   {
-    qDebug() << "Destroyed Settings Widget";
     m_settingsWidget = 0;
   }
   void RibbonEngine::writeSettings(QSettings &settings) const
@@ -276,3 +276,4 @@ namespace Avogadro {
 #include "ribbonengine.moc"
 
 Q_EXPORT_PLUGIN2(ribbonengine, Avogadro::RibbonEngineFactory)
+

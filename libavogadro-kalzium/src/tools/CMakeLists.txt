@@ -1,62 +1,80 @@
-set(QT_USE_QTOPENGL true)
-
 include(${QT_USE_FILE})
 
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 ADD_DEFINITIONS(-DQT_PLUGIN)
-ADD_DEFINITIONS(-DQT_NO_DEBUG)
 ADD_DEFINITIONS(-DQT_SHARED)
 
-set(DESTINATION_DIR ${LIB_INSTALL_DIR}/avogadro-kalzium/tools)
+set(DESTINATION_DIR ${PLUGIN_INSTALL_DIR}/tools)
 
-include_directories(
-	${CMAKE_CURRENT_BINARY_DIR}
-)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 link_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
 
+set(LINK_LIBS avogadro-kalzium ${AVO_LINK_LIBRARIES})
+
 ### drawtool
-set(drawtool_SRCS drawtool.cpp  directorytreemodel.cpp
-                                insertfragmentdialog.cpp
-                                )
-qt4_add_resources(drawtool_RC_SRCS drawtool.qrc)
-qt4_automoc(${drawtool_SRCS})
-qt4_wrap_ui(drawtool_UIS_H insertfragmentdialog.ui)
-ADD_LIBRARY(drawtool SHARED drawcommand.cpp
-                    ${drawtool_SRCS}
-                    ${drawtool_UIS_H}
-                    ${drawtool_RC_SRCS} )
-TARGET_LINK_LIBRARIES(drawtool
-    ${OPENBABEL2_LIBRARIES}
-    ${QT_LIBRARIES}
-    ${OPENGL_LIBRARIES}
-    avogadro-kalzium)
-INSTALL(TARGETS drawtool DESTINATION ${DESTINATION_DIR})
+set(drawtool_SRCS 
+  drawtool.cpp
+  drawcommand.cpp
+  directorytreemodel.cpp
+  insertfragmentdialog.cpp)
+avogadro_plugin(drawtool 
+  "${drawtool_SRCS}"
+  insertfragmentdialog.ui
+  drawtool.qrc)
+
+option(ENABLE_ZMATRIX_TOOL "Enable the z-matrix tool (experimental)" OFF)
+if(ENABLE_ZMATRIX_TOOL)
+  ### zmatrixtool
+  set(zmatrixtool_SRCS zmatrixtool.cpp zmatrixdialog.cpp zmatrixmodel.cpp)
+  avogadro_plugin(zmatrixtool
+    "${zmatrixtool_SRCS}"
+    zmatrixdialog.ui)
+endif(ENABLE_ZMATRIX_TOOL)
+
+### bondcentrictool
+qt4_add_resources(bondcentrictool_RC_SRCS bondcentrictool.qrc)
+set(bondcentrictool_SRCS bondcentrictool.cpp skeletontree.cpp
+  quaternion.cpp ${bondcentrictool_RC_SRCS})
+avogadro_plugin(bondcentrictool
+  "${bondcentrictool_SRCS}")
 
 ### clickmeasuretool
-set(clickmeasuretool_SRCS clickmeasuretool.cpp)
 qt4_add_resources(clickmeasuretool_RC_SRCS clickmeasuretool.qrc)
-qt4_automoc(${clickmeasuretool_SRCS})
-ADD_LIBRARY(clickmeasuretool SHARED
-    ${clickmeasuretool_SRCS} ${clickmeasuretool_RC_SRCS} )
-TARGET_LINK_LIBRARIES(clickmeasuretool
-    ${OPENBABEL2_LIBRARIES}
-    ${QT_LIBRARIES}
-    ${OPENGL_LIBRARIES}
-    avogadro-kalzium)
-INSTALL(TARGETS clickmeasuretool DESTINATION ${DESTINATION_DIR})
+avogadro_plugin(clickmeasuretool
+  "clickmeasuretool.cpp;${clickmeasuretool_RC_SRCS}")
+
+### selectrotatetool
+qt4_add_resources(selectrotatetool_RC_SRCS selectrotatetool.qrc)
+avogadro_plugin(selectrotatetool
+  "selectrotatetool.cpp;${selectrotatetool_RC_SRCS}")
+
+### autoopttool
+qt4_add_resources(autoopttool_RC_SRCS autoopttool.qrc)
+avogadro_plugin(autoopttool
+  "autoopttool.cpp;${autoopttool_RC_SRCS}")
 
 ### navigatetool
-set(navigatetool_SRCS navigatetool.cpp)
 qt4_add_resources(navigatetool_RC_SRCS navigatetool.qrc)
-qt4_automoc(${navigatetool_SRCS})
-ADD_LIBRARY(navigatetool SHARED eyecandy.cpp
-	${navigatetool_SRCS} ${navigatetool_RC_SRCS})
-TARGET_LINK_LIBRARIES(navigatetool
-	${OPENBABEL2_LIBRARIES}
-	${QT_LIBRARIES}
-	${OPENGL_LIBRARIES}
-	avogadro-kalzium
-)
-INSTALL(TARGETS navigatetool DESTINATION ${DESTINATION_DIR})
+avogadro_plugin(navigatetool
+  "navigatetool.cpp;eyecandy.cpp;${navigatetool_RC_SRCS}")
+
+### manipulatetool
+qt4_add_resources(manipulatetool_RC_SRCS manipulatetool.qrc)
+avogadro_plugin(manipulatetool
+  "manipulatetool.cpp;eyecandy.cpp;${manipulatetool_RC_SRCS}")
+
+### autorotatetool
+qt4_add_resources(autorotatetool_RC_SRCS autorotatetool.qrc)
+avogadro_plugin(autorotatetool
+  "autorotatetool.cpp;${autorotatetool_RC_SRCS}")
+
+### aligntool
+qt4_add_resources(aligntool_RC_SRCS aligntool.qrc)
+avogadro_plugin(aligntool "aligntool.cpp;${aligntool_RC_SRCS}")
+
+if(ALL_PYTHON_FOUND)
+  file(GLOB python_SCRIPTS "python/*.py")
+  install(FILES ${python_SCRIPTS} DESTINATION share/libavogadro/toolScripts)
+endif(ALL_PYTHON_FOUND)
 

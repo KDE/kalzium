@@ -1,12 +1,12 @@
 /**********************************************************************
   SphereEngine - Engine for "spheres" display
 
+  Copyright (C) 2007-2008 Marcus D. Hanwell
   Copyright (C) 2006-2007 Geoffrey R. Hutchison
   Copyright (C) 2007      Benoit Jacob
-  Copyright (C) 2007      Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -36,11 +36,13 @@
 namespace Avogadro {
 
   //! Sphere Engine class.
+  class Atom;
   class SphereSettingsWidget;
   class SphereEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Van der Waals Spheres"))
+    AVOGADRO_ENGINE("Van der Waals Spheres", tr("Van der Waals Spheres"),
+                    tr("Renders atoms as Van der Waals spheres"))
 
     public:
       //! Constructor
@@ -55,12 +57,12 @@ namespace Avogadro {
       //@{
       bool renderOpaque(PainterDevice *pd);
       bool renderTransparent(PainterDevice *pd);
-      //! Render an Atom.
-      bool render(PainterDevice *pd, const Atom *a);
+      bool renderQuick(PainterDevice *pd);
       //@}
 
       double transparencyDepth() const;
-      EngineFlags flags() const;
+      Layers layers() const;
+      PrimitiveTypes primitiveTypes() const;
 
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
@@ -76,7 +78,9 @@ namespace Avogadro {
       void readSettings(QSettings &settings);
 
     private:
-      inline double radius(const Atom *a) const;
+      double radius(const Atom *a) const;
+      //! Render an Atom.
+      bool render(PainterDevice *pd, const Atom *a);
 
       SphereSettingsWidget *m_settingsWidget;
 
@@ -102,10 +106,10 @@ namespace Avogadro {
   };
 
   //! Generates instances of our SphereEngine class
-  class SphereEngineFactory : public QObject, public EngineFactory
+  class SphereEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(SphereEngine)
   };
 

@@ -4,7 +4,7 @@
   Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,12 +33,13 @@
 namespace Avogadro {
 
   //! Ball and Stick Engine class.
+  class Atom;
   class BSDYSettingsWidget;
   class BSDYEngine : public Engine
   {
     Q_OBJECT
-
-    AVOGADRO_ENGINE(tr("Ball and Stick"))
+    AVOGADRO_ENGINE("Ball and Stick", tr("Ball and Stick"),
+                      tr("Renders primitives using Balls (atoms) and Sticks (bonds)"))
 
     public:
       //! Constructor
@@ -49,12 +50,14 @@ namespace Avogadro {
       //! Deconstructor
       ~BSDYEngine();
 
-      double transparencyDepth() const;
-      EngineFlags flags() const;
-
       bool renderOpaque(PainterDevice *pd);
       bool renderTransparent(PainterDevice *pd);
       bool renderQuick(PainterDevice *pd);
+      bool renderPick(PainterDevice *pd);
+
+      double transparencyDepth() const;
+
+      Engine::Layers layers() const;
 
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
@@ -82,7 +85,9 @@ namespace Avogadro {
       double m_bondRadius;
       int m_showMulti;
 
-    private Q_SLOTS:
+      double m_alpha; // transparency of the balls & sticks
+
+   private Q_SLOTS:
       void settingsWidgetDestroyed();
 
       /**
@@ -100,6 +105,11 @@ namespace Avogadro {
        */
       void setShowMulti(int value);
 
+      /**
+       * @param value opacity of the balls & sticks / 20
+       */
+      void setOpacity(int value);
+
   };
 
   class BSDYSettingsWidget : public QWidget, public Ui::BSDYSettingsWidget
@@ -110,14 +120,12 @@ namespace Avogadro {
       }
   };
 
-  class BSDYEngineFactory : public QObject, public EngineFactory
+  class BSDYEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
-
-    AVOGADRO_ENGINE_FACTORY(BSDYEngine)
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_ENGINE_FACTORY(BSDYEngine);
   };
-
 
 } // end namespace Avogadro
 

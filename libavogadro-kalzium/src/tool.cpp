@@ -4,7 +4,7 @@
   Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,38 +33,40 @@ namespace Avogadro {
   class ToolPrivate
   {
     public:
-      ToolPrivate() : activateAction(0) {}
-
-      QAction *activateAction;
+      ToolPrivate() {}
   };
 
-  Tool::Tool(QObject *parent) : QObject(parent), d(new ToolPrivate)
+  Tool::Tool(QObject *parent) : Plugin(parent), d(new ToolPrivate)
   {
-    d->activateAction = new QAction(this);
-    d->activateAction->setCheckable(true);
-    d->activateAction->setIcon(QIcon(QString::fromUtf8(":/icons/tool.png")));
+    m_activateAction = new QAction(this);
+    m_activateAction->setCheckable(true);
+    m_activateAction->setIcon(QIcon(QString::fromUtf8(":/icons/tool.png")));
   }
 
   Tool::~Tool()
   {
-    d->activateAction->deleteLater();
     delete d;
   }
 
-  QString Tool::description() const
+  Plugin::Type Tool::type() const
   {
-    return QObject::tr("No Description");
+    return Plugin::ToolType;
+  }
+
+  QString Tool::typeName() const
+  {
+    return tr("Tools");
   }
 
   QAction* Tool::activateAction() const {
 
-    if(d->activateAction->toolTip().isEmpty())
-      d->activateAction->setToolTip(description());
+    if(m_activateAction->toolTip().isEmpty())
+      m_activateAction->setToolTip(description());
 
-    if(d->activateAction->text().isEmpty())
-      d->activateAction->setText(name());
+    if(m_activateAction->text().isEmpty())
+      m_activateAction->setText(name());
 
-    return d->activateAction;
+    return m_activateAction;
   }
 
   QWidget* Tool::settingsWidget()
@@ -85,9 +87,24 @@ namespace Avogadro {
     return usefulness() < other.usefulness();
   }
 
+  QUndoCommand* Tool::wheelEvent(GLWidget *, QWheelEvent *)
+  {
+    return 0;
+  }
+
+  QUndoCommand* Tool::keyPressEvent(GLWidget *, QKeyEvent *)
+  {
+    return 0;
+  }
+
+  QUndoCommand* Tool::keyReleaseEvent(GLWidget *, QKeyEvent *)
+  {
+    return 0;
+  }
+
   bool Tool::paint(GLWidget*)
   {
-	  return true;
+      return true;
   }
 
   void Tool::writeSettings(QSettings &settings) const

@@ -4,7 +4,7 @@
   Copyright (C) 2006,2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -23,7 +23,20 @@
  **********************************************************************/
 
 #include "cylinder.h"
+
+#ifdef ENABLE_GLSL
+  #include <GL/glew.h>
+#endif
+
 #include <QGLWidget>
+
+#include <Eigen/Geometry>
+
+// Win32 build (19/05/08)
+#include <math.h> 
+#ifndef M_PI
+  #define M_PI 3.1415926535897932384626433832795 
+#endif
 
 using namespace Eigen;
 
@@ -142,102 +155,54 @@ namespace Avogadro {
     d->isValid = true;
   }
 
-  void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
+  void Cylinder::draw( const Eigen::Vector3d &end1, const Eigen::Vector3d &end2,
       double radius ) const
   {
-    // the "axis vector" of the cylinder
-    Vector3d axis = end2 - end1;
-
-    // construct an orthogonal basis whose first vector is axis, and whose other vectors
-    // have norm equal to 'radius'.
-    Vector3d axisNormalized = axis.normalized();
-    Vector3d ortho1, ortho2;
-    ortho1.loadOrtho(axisNormalized);
-    ortho1 *= radius;
-    axisNormalized.cross( ortho1, &ortho2 );
-
     // construct the 4D transformation matrix
-    Matrix4d matrix;
+    Eigen::Matrix4d matrix;
+    matrix.row(3) << 0, 0, 0, 1;
+    matrix.block<3,1>(0,2) = end2 - end1; // the axis
 
-    matrix(0, 0) = ortho1(0);
-    matrix(1, 0) = ortho1(1);
-    matrix(2, 0) = ortho1(2);
-    matrix(3, 0) = 0.0;
-
-    matrix(0, 1) = ortho2(0);
-    matrix(1, 1) = ortho2(1);
-    matrix(2, 1) = ortho2(2);
-    matrix(3, 1) = 0.0;
-
-    matrix(0, 2) = axis(0);
-    matrix(1, 2) = axis(1);
-    matrix(2, 2) = axis(2);
-    matrix(3, 2) = 0.0;
-
-    matrix(0, 3) = end1(0);
-    matrix(1, 3) = end1(1);
-    matrix(2, 3) = end1(2);
-    matrix(3, 3) = 1.0;
+    // construct an orthogonal basis whose first vector is the axis, and whose other vectors
+    // have norm equal to 'radius'.
+    Vector3d axisNormalized = matrix.block<3,1>(0,2).normalized();
+    matrix.block<3,1>(0,0) = axisNormalized.unitOrthogonal() * radius;
+    matrix.block<3,1>(0,1) = axisNormalized.cross(matrix.block<3,1>(0,0));
+    matrix.block<3,1>(0,3) = end1;
 
     //now we can do the actual drawing !
     glPushMatrix();
-    glMultMatrixd( matrix.array() );
+    glMultMatrixd( matrix.data() );
     glCallList( d->displayList );
     glPopMatrix();
   }
 
-  void Cylinder::drawMulti( const Vector3d &end1, const Vector3d &end2,
+  void Cylinder::drawMulti( const Eigen::Vector3d &end1, const Eigen::Vector3d &end2,
       double radius, int order, double shift,
-      const Vector3d &planeNormalVector ) const
+      const Eigen::Vector3d &planeNormalVector ) const
   {
 
-    // the "axis vector" of the cylinder
-    Vector3d axis = end2 - end1;
-
-    // now we want to construct an orthonormal basis whose first
-    // vector is axis.normalized(). We don't use Eigen's loadOrthoBasis()
-    // for that, because we want one more thing. The second vector in this
+    // construct the 4D transformation matrix
+    Eigen::Matrix4d matrix;
+    matrix.row(3) << 0,0,0,1;
+    matrix.block<3,1>(0,3) = end1;
+    matrix.block<3,1>(0,2) = end2 - end1; // the "axis vector" of the line
+    // Now we want to construct an orthonormal basis whose third
+    // vector is axis.normalized(). The first vector in this
     // basis, which we call ortho1, should be approximately lying in the
     // z=0 plane if possible. This is to ensure double bonds don't look
     // like single bonds from the default point of view.
-    double axisNorm = axis.norm();
-    if( axisNorm == 0.0 ) return;
-    Vector3d axisNormalized = axis / axisNorm;
-
-    Vector3d ortho1 = axisNormalized.cross(planeNormalVector);
+    Eigen::Vector3d axisNormalized = matrix.block<3,1>(0,2).normalized();
+    Eigen::Block<Eigen::Matrix4d, 3, 1> ortho1(matrix, 0, 0);
+    ortho1 = axisNormalized.cross(planeNormalVector);
     double ortho1Norm = ortho1.norm();
-    if( ortho1Norm > 0.001 ) ortho1 /= ortho1Norm;
-    else ortho1 = axisNormalized.ortho();
-    ortho1 *= radius;
+    if( ortho1Norm > 0.001 ) ortho1 = ortho1.normalized() * radius;
+    else ortho1 = axisNormalized.unitOrthogonal() * radius;
+    matrix.block<3,1>(0,1) = axisNormalized.cross(ortho1);
 
-    Vector3d ortho2 = cross( axisNormalized, ortho1 );
-
-    // construct the 4D transformation matrix
-    Matrix4d matrix;
-
-    matrix(0, 0) = ortho1(0);
-    matrix(1, 0) = ortho1(1);
-    matrix(2, 0) = ortho1(2);
-    matrix(3, 0) = 0.0;
-
-    matrix(0, 1) = ortho2(0);
-    matrix(1, 1) = ortho2(1);
-    matrix(2, 1) = ortho2(2);
-    matrix(3, 1) = 0.0;
-
-    matrix(0, 2) = axis(0);
-    matrix(1, 2) = axis(1);
-    matrix(2, 2) = axis(2);
-    matrix(3, 2) = 0.0;
-
-    matrix(0, 3) = end1(0);
-    matrix(1, 3) = end1(1);
-    matrix(2, 3) = end1(2);
-    matrix(3, 3) = 1.0;
-
-    //now we can do the actual drawing !
+    // now the matrix is entirely filled, so we can do the actual drawing !
     glPushMatrix();
-    glMultMatrixd( matrix.array() );
+    glMultMatrixd( matrix.data() );
     if( order == 1 )
       glCallList( d->displayList );
     else

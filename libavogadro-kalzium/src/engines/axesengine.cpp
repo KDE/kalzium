@@ -4,7 +4,7 @@
   Copyright (C) 2008      Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,8 +27,7 @@
 
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
-
-#include <eigen/regression.h>
+#include <avogadro/painterdevice.h>
 
 #include <QMessageBox>
 #include <QDebug>
@@ -40,7 +39,6 @@ namespace Avogadro {
 
   AxesEngine::AxesEngine(QObject *parent) : Engine(parent)
   {
-    setDescription(tr("Renders the x, y and z axes"));
   }
 
   AxesEngine::~AxesEngine()
@@ -51,7 +49,7 @@ namespace Avogadro {
   {
     AxesEngine* engine = new AxesEngine(parent());
 
-    engine->setName(name());
+    engine->setAlias(alias());
     engine->setEnabled(isEnabled());
     return engine;
   }
@@ -92,9 +90,19 @@ namespace Avogadro {
     return 1.0;
   }
 
-  Engine::EngineFlags AxesEngine::flags() const
+  Engine::Layers AxesEngine::layers() const
   {
     return Engine::Overlay;
+  }
+
+  Engine::PrimitiveTypes AxesEngine::primitiveTypes() const
+  {
+    return Engine::NoPrimitives;
+  }
+
+  Engine::ColorTypes AxesEngine::colorTypes() const
+  {
+    return Engine::NoColors;
   }
 
 }

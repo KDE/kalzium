@@ -4,7 +4,7 @@
  Copyright (C) 2007 by Marcus D. Hanwell
 
  This file is part of the Avogadro molecular editor project.
- For more information, see <http://avogadro.sourceforge.net/>
+ For more information, see <http://avogadro.openmolecules.net/>
 
  Avogadro is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -27,24 +27,25 @@
 #include <config.h>
 #include <avogadro/color.h>
 #include <avogadro/painter.h>
+#include <avogadro/painterdevice.h>
+#include <avogadro/molecule.h>
+#include <avogadro/atom.h>
 
 #include <QGLWidget>
+#include <QDebug>
 
-using namespace std;
-using namespace OpenBabel;
-using namespace Eigen;
+using Eigen::Vector3d;
 
 namespace Avogadro{
 
   PolygonEngine::PolygonEngine(QObject *parent) : Engine(parent)
   {
-    setDescription(tr("Renders structures as polygons"));
   }
 
   Engine *PolygonEngine::clone() const
   {
     PolygonEngine *engine = new PolygonEngine(parent());
-    engine->setName(name());
+    engine->setAlias(alias());
     engine->setEnabled(isEnabled());
 
     return engine;
@@ -56,23 +57,16 @@ namespace Avogadro{
 
   bool PolygonEngine::renderOpaque(PainterDevice *pd)
   {
-    QList<Primitive *> list;
-    list = primitives().subList(Primitive::AtomType);
-    foreach(Primitive *p, list)
-      renderPolygon(pd, static_cast<const Atom *>(p));
+    foreach(Atom *a, atoms())
+      renderPolygon(pd, a);
 
-    return true;
-  }
-
-  bool PolygonEngine::renderTransparent(PainterDevice *)
-  {
     return true;
   }
 
   bool PolygonEngine::renderPolygon(PainterDevice *pd, Atom *a)
   {
     // Check if the atom is of the right type and has enough neighbours
-    switch (a->GetAtomicNum()) {
+    switch (a->atomicNumber()) {
       case 1:
       case 6:
       case 7:
@@ -82,7 +76,7 @@ namespace Avogadro{
         break;
       default:
         // we're fine, render this as a possible polygon
-        if (a->GetValence() < 4)
+        if (a->valence() < 4)
           return true;
     }
 
@@ -92,20 +86,20 @@ namespace Avogadro{
     map->set(a);
     pd->painter()->setColor(map);
 
-    QVector<Vector3d> atoms;
-    FOR_NBORS_OF_ATOM(neighbor, a)
-      atoms.push_back(static_cast<Atom *>(&*neighbor)->pos());
+    QVector<const Vector3d*> atoms;
+    QList<unsigned long> neighbors = a->neighbors();
+    foreach (unsigned long neighbor, neighbors) {
+      atoms.push_back(pd->molecule()->atomById(neighbor)->pos());
+    }
 
     // Disable face culling for ring structures.
-//    glDisable(GL_CULL_FACE);
     for (int i = 0; i < atoms.size(); i++) {
       for (int j = 0; j < atoms.size(); j++)
         for (int k = 1; k < atoms.size(); k++)
-          pd->painter()->drawTriangle(atoms[i], atoms[j], atoms[k]);
+          pd->painter()->drawTriangle(*atoms[i], *atoms[j], *atoms[k]);
 //      pd->painter()->drawTriangle(atoms[i], atoms[0], atoms[atoms.size()-1]);
     }
     // Disable face culling for ring structures.
-    glEnable(GL_CULL_FACE);
     return true;
   }
 
@@ -114,7 +108,7 @@ namespace Avogadro{
     return 0.;
   }
 
-  Engine::EngineFlags PolygonEngine::flags() const
+  Engine::PrimitiveTypes PolygonEngine::primitiveTypes() const
   {
     return Engine::Atoms;
   }

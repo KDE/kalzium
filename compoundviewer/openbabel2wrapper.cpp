@@ -36,6 +36,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 
 	// the Avogadro Molecule
 	Avogadro::Molecule *mol = new Avogadro::Molecule;
+	OpenBabel::OBMol *obmol = new OpenBabel::OBMol;
 	std::ifstream inFileStream( QFile::encodeName(filename) );
 	if ( !inFileStream ) {
     KMessageBox::error(  0, 
@@ -54,10 +55,10 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
     return 0;
   }
 	Conv.SetInAndOutFormats( inFormat,inFormat );
-	Conv.Read( mol, &inFileStream );
+	Conv.Read( obmol, &inFileStream );
 
-	kDebug() << QString::fromLatin1( mol->GetFormula().c_str() )  << " (Weight: " << mol->GetMolWt() << ", Title: "<< mol->GetTitle() << ")";
-
+	kDebug() << QString::fromLatin1( obmol->GetFormula().c_str() )  << " (Weight: " << obmol->GetMolWt() << ", Title: "<< obmol->GetTitle() << ")";
+	mol->setOBMol(obmol);
 	return mol;
 }
 
@@ -82,19 +83,19 @@ bool OpenBabel2Wrapper::writeMolecule( const QString& filename, Avogadro::Molecu
     return false;
   }
   Conv.SetInAndOutFormats( outFormat,outFormat );
-  Conv.Write( mol, &outFileStream );
+  Conv.Write( &mol->OBMol(), &outFileStream );
   return true;
 }
 
 QString OpenBabel2Wrapper::getFormula( Avogadro::Molecule* molecule )
 {
-	QString formula( molecule->GetFormula().c_str() );
+	QString formula( molecule->OBMol().GetFormula().c_str() );
 	return formula;
 }
 		
 QString OpenBabel2Wrapper::getPrettyFormula( Avogadro::Molecule* molecule )
 {
-	QString formula( molecule->GetSpacedFormula(1,"").c_str() );
+	QString formula( molecule->OBMol().GetSpacedFormula(1,"").c_str() );
 	formula.replace( QRegExp( "(\\d+)" ), "<sub>\\1</sub>" );
 	return formula;
 }

@@ -4,7 +4,7 @@
   Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,15 +26,19 @@
 
 #include <avogadro/navigate.h>
 #include <avogadro/primitive.h>
+#include <avogadro/atom.h>
+#include <avogadro/molecule.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
 
+#include <openbabel/mol.h>
 #include <openbabel/obiter.h>
 #include <openbabel/generic.h>
 
 #include <cmath>
 
 #include <QDebug>
+#include <QAction>
 #include <QtPlugin>
 #include <QLabel>
 #include <QPushButton>
@@ -49,7 +53,8 @@ using namespace Eigen;
 namespace Avogadro {
 
   AlignTool::AlignTool(QObject *parent) : Tool(parent),  m_molecule(0),
-  m_numSelectedAtoms(0), m_axis(2), m_alignType(0), m_settingsWidget(0)
+    m_selectedAtoms(2), m_numSelectedAtoms(0), m_axis(2), m_alignType(0),
+    m_settingsWidget(0)
   {
     QAction *action = activateAction();
     action->setIcon(QIcon(QString::fromUtf8(":/align/align.png")));
@@ -63,16 +68,14 @@ namespace Avogadro {
     // clear the selected atoms
     int size = m_selectedAtoms.size();
     for(int i=0; i<size; i++)
-    {
       m_selectedAtoms[i] = NULL;
-    }
   }
 
   AlignTool::~AlignTool()
   {
   }
 
-  QUndoCommand* AlignTool::mousePress(GLWidget *widget, const QMouseEvent *event)
+  QUndoCommand* AlignTool::mousePressEvent(GLWidget *widget, QMouseEvent *event)
   {
     m_molecule = widget->molecule();
     if(!m_molecule)
@@ -87,7 +90,8 @@ namespace Avogadro {
       if(m_hits[0].type() != Primitive::AtomType)
         return 0;
 
-      Atom *atom = (Atom *)m_molecule->GetAtom(m_hits[0].name());
+      Atom *atom = m_molecule->atom(m_hits[0].name());
+      event->accept();
 
       if(m_numSelectedAtoms < 2)
       {
@@ -99,44 +103,28 @@ namespace Avogadro {
     // Right button or Left Button + modifier (e.g., Mac)
     else
     {
+      event->accept();
       m_numSelectedAtoms = 0;
       widget->update();
     }
     return 0;
   }
 
-  QUndoCommand* AlignTool::mouseMove(GLWidget*, const QMouseEvent *)
+  QUndoCommand* AlignTool::mouseMoveEvent(GLWidget*, QMouseEvent *)
   {
     return 0;
   }
 
-  QUndoCommand* AlignTool::mouseRelease(GLWidget*, const QMouseEvent*)
+  QUndoCommand* AlignTool::mouseReleaseEvent(GLWidget*, QMouseEvent*)
   {
     return 0;
   }
 
-  QUndoCommand* AlignTool::wheel(GLWidget*widget, const QWheelEvent*event)
+  QUndoCommand* AlignTool::wheelEvent(GLWidget *widget, QWheelEvent *event)
   {
-    // let's set the reference to be the center of the visible
-    // part of the molecule.
-    Eigen::Vector3d atomsBarycenter(0., 0., 0.);
-    double sumOfWeights = 0.;
-    std::vector<OpenBabel::OBNodeBase*>::iterator i;
-    for ( Atom *atom = static_cast<Atom*>(widget->molecule()->BeginAtom(i));
-          atom; atom = static_cast<Atom*>(widget->molecule()->NextAtom(i))) {
-      Eigen::Vector3d transformedAtomPos = widget->camera()->modelview() * atom->pos();
-      double atomDistance = transformedAtomPos.norm();
-      double dot = transformedAtomPos.z() / atomDistance;
-      double weight = exp(-30. * (1. + dot));
-      sumOfWeights += weight;
-      atomsBarycenter += weight * atom->pos();
-    }
-    atomsBarycenter /= sumOfWeights;
-
-    Navigate::zoom(widget, atomsBarycenter, - MOUSE_WHEEL_SPEED * event->delta());
-    widget->update();
-
-    return NULL;
+    Q_UNUSED(widget);
+    Q_UNUSED(event);
+    return 0;
   }
 
   bool AlignTool::paint(GLWidget *widget)
@@ -150,13 +138,13 @@ namespace Avogadro {
       {
         glColor3f(1.0,0.0,0.0);
         widget->painter()->setColor(1.0, 0.0, 0.0);
-        Vector3d pos = m_selectedAtoms[0]->pos();
+        const Vector3d *pos = m_selectedAtoms[0]->pos();
 
         // relative position of the text on the atom
         double radius = widget->radius(m_selectedAtoms[0]) + 0.05;
         Vector3d textRelPos = radius * (zAxis + xAxis);
 
-        Vector3d textPos = pos+textRelPos;
+        Vector3d textPos = *pos + textRelPos;
         widget->painter()->drawText(textPos, "*1");
         widget->painter()->drawSphere(pos, radius);
       }
@@ -168,11 +156,11 @@ namespace Avogadro {
         {
           glColor3f(0.0,1.0,0.0);
           widget->painter()->setColor(0.0, 1.0, 0.0);
-          Vector3d pos = m_selectedAtoms[1]->pos();
+          const Vector3d *pos = m_selectedAtoms[1]->pos();
           double radius = widget->radius(m_selectedAtoms[1]) + 0.05;
           widget->painter()->drawSphere(pos, radius);
           Vector3d textRelPos = radius * (zAxis + xAxis);
-          Vector3d textPos = pos+textRelPos;
+          Vector3d textPos = *pos + textRelPos;
           widget->painter()->drawText(textPos, "*2");
         }
       }
@@ -187,40 +175,35 @@ namespace Avogadro {
     if (m_molecule.isNull())
       return;
 
-    QList<Primitive*> neighborList;
-    if (m_numSelectedAtoms)
-    {
+    QList<Atom*> neighborList;
+    if (m_numSelectedAtoms) {
       // Check the first atom still exists, return if not
       if (m_selectedAtoms[0].isNull())
         return;
 
       // If m_alignType is 0 we want everything, otherwise just the fragment
-      if (m_alignType) {
-        OBMolAtomDFSIter iter(m_molecule, m_selectedAtoms[0]->GetIdx());
+      /// FIXME Add back fragment alignment too!
+/*      if (m_alignType) {
+        OBMolAtomDFSIter iter(m_molecule, m_selectedAtoms[0]->index());
         Atom *tmpNeighbor;
         do {
           tmpNeighbor = static_cast<Atom*>(&*iter);
           neighborList.append(tmpNeighbor);
         } while ((iter++).next()); // this returns false when we are done
       }
-      else {
-        FOR_ATOMS_OF_MOL(atom, m_molecule)
-          neighborList.append(static_cast<const Atom *>(&(*atom)));
-      }
+      else { */
+      neighborList = m_molecule->atoms();
     }
     // Align the molecule along the selected axis
-    if (m_numSelectedAtoms >= 1)
-    {
+    if (m_numSelectedAtoms >= 1) {
       // Translate the first selected atom to the origin
-      MatrixP3d atomTranslation;
-      atomTranslation.loadTranslation(-m_selectedAtoms[0]->pos());
-      foreach(Primitive *p, neighborList)
-      {
-        if (!p) continue;
-        Atom *a = static_cast<Atom *>(p);
-        a->setPos(atomTranslation * a->pos());
-        a->update();
+      Vector3d pos = *m_selectedAtoms[0]->pos();
+      foreach(Atom *a, neighborList) {
+        if (a) {
+          a->setPos(*a->pos() - pos);
+        }
       }
+      m_molecule->update();
     }
     if (m_numSelectedAtoms >= 2)
     {
@@ -231,7 +214,7 @@ namespace Avogadro {
       double alpha, beta, gamma;
       alpha = beta = gamma = 0.0;
 
-      Vector3d pos = m_selectedAtoms[1]->pos();
+      Vector3d pos = *m_selectedAtoms[1]->pos();
       pos.normalize();
       Vector3d axis;
 
@@ -252,17 +235,11 @@ namespace Avogadro {
         axis = axis.cross(pos);
         axis.normalize();
 
-        // Now to load up the rotation matrix and rotate the molecule
-        MatrixP3d atomRotation;
-        atomRotation.loadRotation3(-angle, axis);
-
         // Now to rotate the fragment
-        foreach(Primitive *p, neighborList)
-        {
-          Atom *a = static_cast<Atom *>(p);
-          a->setPos(atomRotation * a->pos());
-          a->update();
+        foreach(Atom *a, neighborList) {
+          a->setPos(Eigen::AngleAxisd(-angle,axis) * *a->pos());
         }
+        m_molecule->update();
       }
     }
     m_numSelectedAtoms = 0;

@@ -2,9 +2,10 @@
   StickEngine - Engine for "stick" display
 
   Copyright (C) 2006-2007 Geoffrey R. Hutchison
+  Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,34 +34,33 @@
 namespace Avogadro {
 
   //! Stick / Licorice Engine class.
+  class Atom;
+  class Bond;
   class StickSettingsWidget;
   class StickEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Stick"))
+    AVOGADRO_ENGINE("Stick", tr("Stick"),
+                    tr("Renders molecules as sticks"))
 
     public:
       //! Constructor
       StickEngine(QObject *parent=0);
       //! Deconstructor
       ~StickEngine();
-      
-      //! Copy 
+
+      //! Copy
       Engine *clone() const;
- 
+
       //! \name Render Methods
       //@{
-      //! Render an Atom.
-      bool renderOpaque(PainterDevice *pd, const Atom *a);
-      //! Render a Bond.
-      bool renderOpaque(PainterDevice *pd, const Bond *b);
-
       bool renderOpaque(PainterDevice *pd);
+      bool renderTransparent(PainterDevice *pd);
       //@}
 
-      double transparencyDepth() const;
-      EngineFlags flags() const;
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
+
+      Engine::Layers layers() const;
 
       QWidget* settingsWidget();
       /**
@@ -74,16 +74,18 @@ namespace Avogadro {
       void readSettings(QSettings &settings);
 
     private:
-      inline double radius(const Atom *a) const;
+      double radius(const Atom *a) const;
+      //! Render an Atom.
+      bool renderOpaque(PainterDevice *pd, const Atom *a);
+      //! Render a Bond.
+      bool renderOpaque(PainterDevice *pd, const Bond *b);
 
       StickSettingsWidget *m_settingsWidget;
 
 			double m_radius; //!< The radius of the stick bonds
-			
+
 		private Q_SLOTS:
 	    void settingsWidgetDestroyed();
-
-
 	    /**
 	     * @param value radius of the sticks / 20
 	     */
@@ -99,10 +101,10 @@ namespace Avogadro {
   };
 
   //! Generates instances of our StickEngine class
-  class StickEngineFactory : public QObject, public EngineFactory
+  class StickEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(StickEngine)
   };
 

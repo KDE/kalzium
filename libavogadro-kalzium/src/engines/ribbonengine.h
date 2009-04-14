@@ -4,7 +4,7 @@
   Copyright (C) 2007 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -38,7 +38,8 @@ namespace Avogadro {
   class RibbonEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Ribbon"))
+    AVOGADRO_ENGINE("Ribbon", tr("Ribbon"),
+                    tr("Renders protein backbones as ribbons"))
 
     public:
       //! Constructor
@@ -52,12 +53,11 @@ namespace Avogadro {
       //! \name Render Methods
       //@{
       bool renderOpaque(PainterDevice *pd);
-      bool renderTransparent(PainterDevice *pd);
       bool renderQuick(PainterDevice *pd);
       //@}
 
-      double transparencyDepth() const;
-      EngineFlags flags() const;
+      PrimitiveTypes primitiveTypes() const;
+      ColorTypes colorTypes() const;
 
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
@@ -81,7 +81,7 @@ namespace Avogadro {
       void removePrimitive(Primitive *primitive);
 
     private:
-      void updateChains();
+      void updateChains(PainterDevice *pd);
 
       RibbonSettingsWidget *m_settingsWidget;
 
@@ -90,8 +90,7 @@ namespace Avogadro {
       bool m_update;   // Is an update of the chain necessary?
       int m_useNitrogens;
       QList< QVector<Eigen::Vector3d> > m_chains;
-      QVector<Color> m_chainColors;
-
+      
     private Q_SLOTS:
       void settingsWidgetDestroyed();
 
@@ -113,10 +112,10 @@ namespace Avogadro {
   };
 
   //! Generates instances of our RibbonEngine class
-  class RibbonEngineFactory : public QObject, public EngineFactory
+  class RibbonEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(RibbonEngine)
   };
 

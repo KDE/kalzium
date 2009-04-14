@@ -2,6 +2,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/..
   ${CMAKE_CURRENT_BINARY_DIR}/..
   ${CMAKE_SOURCE_DIR}/kalzium/libavogadro-kalzium/include/
+  ${EIGEN2_INCLUDE_DIR}
   )
 
 set( compoundviewer_SRCS

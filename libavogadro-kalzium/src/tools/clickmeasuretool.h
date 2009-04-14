@@ -5,7 +5,7 @@
   Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -29,25 +29,24 @@
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
 
-#include <eigen/regression.h>
-#include <openbabel/mol.h>
+#include <Eigen/Core>
 
 #include <QGLWidget>
 #include <QObject>
-#include <QStringList>
-#include <QComboBox>
-#include <QVBoxLayout>
+
 #include <QVarLengthArray>
-#include <QImage>
-#include <QAction>
 #include <QPointer>
-#include <QVector>
+
+class QComboBox;
+class QVBoxLayout;
 
 namespace Avogadro {
 
  class ClickMeasureTool : public Tool
   {
     Q_OBJECT
+    AVOGADRO_TOOL("Measure", tr("Measure"),
+                  tr("Measure bond lengths, angles, and dihedrals"))
 
     public:
       //! Constructor
@@ -55,23 +54,15 @@ namespace Avogadro {
       //! Destructor
       virtual ~ClickMeasureTool();
 
-      //! \name Description methods
-      //@{
-      //! Tool Name (ie ClickMeasureTool)
-      virtual QString name() const { return(tr("Measure")); }
-      //! Tool Description (ie. ClickMeasureTools atoms and bonds)
-      virtual QString description() const { return(tr("Click to Measure Tool")); }
-      //@}
-
       //! \name Tool Methods
       //@{
       //! \brief Callback methods for ui.actions on the canvas.
       /*!
         */
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
 
       virtual bool paint(GLWidget *widget);
 
@@ -90,7 +81,7 @@ namespace Avogadro {
       QPoint              m_initialDraggingPosition;
       QPoint              m_lastDraggingPosition;
 
-      QVarLengthArray<QPointer<Atom>, 4> m_selectedAtoms;
+      QList<QPointer<Atom> > m_selectedAtoms;
       int m_numSelectedAtoms;
       QList<GLHit> m_hits;
 
@@ -107,14 +98,12 @@ namespace Avogadro {
 
   };
 
-  class ClickMeasureToolFactory : public QObject, public ToolFactory
-    {
-      Q_OBJECT
-      Q_INTERFACES(Avogadro::ToolFactory)
-
-      public:
-        Tool *createInstance(QObject *parent = 0) { return new ClickMeasureTool(parent); }
-    };
+  class ClickMeasureToolFactory : public QObject, public PluginFactory
+  {
+    Q_OBJECT
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_TOOL_FACTORY(ClickMeasureTool)
+  };
 
 } // end namespace Avogadro
 

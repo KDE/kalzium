@@ -5,7 +5,7 @@
   Copyright (C) 2006-2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,19 +28,21 @@
 
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
-#include <QGLWidget>
 
 #include "ui_wiresettingswidget.h"
 
 namespace Avogadro {
 
+  class Atom;
+  class Bond;
   class WireSettingsWidget;
 
   //! Wireframe Engine class.
   class WireEngine : public Engine
   {
     Q_OBJECT
-    AVOGADRO_ENGINE(tr("Wireframe"))
+    AVOGADRO_ENGINE("Wireframe", tr("Wireframe"),
+                    tr("Renders bonds as wires (lines), ideal for very large (bio)molecules"))
 
     public:
       //! Constructor
@@ -105,10 +107,10 @@ namespace Avogadro {
   };
 
   //! Generates instances of our WireEngine class
-  class WireEngineFactory : public QObject, public EngineFactory
+  class WireEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(WireEngine)
   };
 

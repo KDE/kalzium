@@ -5,7 +5,7 @@
   Copyright (C) 2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -510,7 +510,7 @@ namespace Avogadro {
     // Pass 2: render the outline
     glColor4f(0,0,0,1);
     glPushMatrix();
-    for( i = 0; i < string.size(); i++ )
+    for( i = 0; i < string.size(); ++i )
     {
       charTable.value( string[i] )->drawOutline();
     }
@@ -518,7 +518,7 @@ namespace Avogadro {
 
     // Pass 3: render the glyphs themselves
     glColor4fv(color);
-    for( i = 0; i < string.size(); i++ )
+    for( i = 0; i < string.size(); ++i )
     {
       charTable.value( string[i] )->drawGlyph();
     }

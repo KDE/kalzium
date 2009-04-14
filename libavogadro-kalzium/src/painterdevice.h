@@ -4,7 +4,7 @@
   Copyright (C) 2007,2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,8 +33,9 @@ namespace Avogadro {
   class Primitive;
   class Molecule;
   class Color;
+  class PrimitiveList;
 
-  class PainterDevice
+  class A_EXPORT PainterDevice
   {
   public:
     PainterDevice() {}
@@ -46,6 +47,7 @@ namespace Avogadro {
     virtual double radius( const Primitive *p ) const = 0;
     virtual const Molecule *molecule() const = 0;
     virtual Color* colorMap() const = 0;
+    virtual PrimitiveList * primitives() const { return 0; }
 
     virtual int width() = 0;
     virtual int height() = 0;

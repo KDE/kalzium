@@ -5,7 +5,7 @@
   Copyright (C) 2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,9 +27,10 @@
 #define TEXTRENDERER_H
 
 #include <avogadro/global.h>
-#include <eigen/vector.h>
+#include <Eigen/Core>
 
-
+namespace Avogadro
+{
 /**
  * @class TextRenderer
  * @internal
@@ -89,10 +90,6 @@
  *   an antialiased font.
  *
  */
-
-namespace Avogadro
-{
-
   class CharRenderer;
   class GLWidget;
 
@@ -104,14 +101,9 @@ namespace Avogadro
       ~TextRenderer();
 
       /**
-       * This should be called only once, before any printing occurs.
-       * @param glwidget The GLWidget in which to render.
-       */
-//       void setGLWidget( GLWidget *glwidget );
-
-      /**
        * Call this before drawing any text. This method saves the GL state
        * and changes it to prepare for text rendering.
+       * @param widget The widget to use for rendering
        */
       void begin(GLWidget *widget);
 

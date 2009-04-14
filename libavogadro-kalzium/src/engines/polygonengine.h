@@ -4,7 +4,7 @@
  Copyright (C) 2007 by Marcus D. Hanwell
 
  This file is part of the Avogadro molecular editor project.
- For more information, see <http://avogadro.sourceforge.net/>
+ For more information, see <http://avogadro.openmolecules.net/>
 
  Avogadro is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -28,14 +28,16 @@
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
 
-
 namespace Avogadro {
+
+  class Atom;
 
   //! Polygon Engine class.
   class PolygonEngine : public Engine
     {
       Q_OBJECT
-      AVOGADRO_ENGINE(tr("Polygon"))
+      AVOGADRO_ENGINE("Polygon", tr("Polygon"),
+                      tr("Renders atoms as tetrahedra, octahedra, and other polygons"))
 
     public:
       //! Constructor
@@ -49,10 +51,9 @@ namespace Avogadro {
       //! \name Render Methods
       //@{
       bool renderOpaque(PainterDevice *pd);
-      bool renderTransparent(PainterDevice *pd);
       //@}
 
-      EngineFlags flags() const;
+      PrimitiveTypes primitiveTypes() const;
 
       double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
@@ -62,10 +63,10 @@ namespace Avogadro {
     };
 
   //! Generates instances of our PolygonEngine class
-  class PolygonEngineFactory : public QObject, public EngineFactory
+  class PolygonEngineFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::EngineFactory)
+    Q_INTERFACES(Avogadro::PluginFactory)
     AVOGADRO_ENGINE_FACTORY(PolygonEngine)
   };
 

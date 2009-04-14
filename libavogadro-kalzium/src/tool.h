@@ -4,7 +4,7 @@
   Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,9 +26,28 @@
 #define TOOL_H
 
 #include <avogadro/global.h>
+#include "plugin.h"
 
 #include <QSettings>
+#include <QtPlugin>
 #include <QWheelEvent>
+
+#define AVOGADRO_TOOL(i, t, d)                               \
+  public: \
+    static QString staticIdentifier() { return i; }          \
+    QString identifier() const { return i; }                 \
+    static QString staticName() { return t; }                \
+    QString name() const { return t; }                       \
+    static QString staticDescription() { return d; }         \
+    QString description() const { return d; }
+
+#define AVOGADRO_TOOL_FACTORY(c)                             \
+  public: \
+    Plugin *createInstance(QObject *parent = 0) { return new c(parent); } \
+    Plugin::Type type() const { return Plugin::ToolType; }   \
+    QString identifier() const { return c::staticIdentifier(); } \
+    QString name() const { return c::staticName(); }         \
+    QString description() const { return c::staticDescription(); }
 
 class QAction;
 class QUndoCommand;
@@ -49,7 +68,7 @@ namespace Avogadro {
    * performed by the user on the GLWidget.
    */
   class ToolPrivate;
-  class A_EXPORT Tool : public QObject
+  class A_EXPORT Tool : public Plugin
   {
     Q_OBJECT
 
@@ -65,14 +84,14 @@ namespace Avogadro {
       virtual ~Tool();
 
       /**
-       * @return the name of the tool.
+       * Plugin Type
        */
-      virtual QString name() const = 0;
+      Plugin::Type type() const;
 
       /**
-       * @return a description of the tool.
+       * Plugin Type Name (Tools)
        */
-      virtual QString description() const;
+      QString typeName() const;
 
       /**
        * @return the QAction of the tool
@@ -89,28 +108,42 @@ namespace Avogadro {
        * @param widget the %GLWidget where the even occurred
        * @param event the mouse event information
        */
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event) = 0;
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event) = 0;
 
       /**
        * Response to mouse release
        * @param widget the %GLWidget where the even occurred
        * @param event the mouse event information
        */
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event) = 0;
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event) = 0;
 
       /**
        * Response to mouse movement
-       * @param widget the %GLWidget where the even occurred
+       * @param widget the %GLWidget where the event occurred
        * @param event the mouse event information
        */
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event) = 0;
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event) = 0;
 
       /**
        * Response to mouse wheel movement
-       * @param widget the %GLWidget where the even occurred
+       * @param widget the %GLWidget where the event occurred
        * @param event the mouse wheel event information
        */
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event) = 0;
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
+
+      /**
+       * Response to key press events.
+       * @param widget the %GLWidget where the event occurred
+       * @param event the key event information
+       */
+      virtual QUndoCommand* keyPressEvent(GLWidget *widget, QKeyEvent *event);
+
+      /**
+       * Response to key release events.
+       * @param widget the %GLWidget where the event occurred
+       * @param event the key event information
+       */
+      virtual QUndoCommand* keyReleaseEvent(GLWidget *widget, QKeyEvent *event);
 
       /**
        * Called by the GLWidget allowing overlay painting by the
@@ -154,32 +187,10 @@ namespace Avogadro {
       virtual void setMolecule(Molecule *molecule);
 
     protected:
+      QAction *m_activateAction;
       ToolPrivate *const d;
   };
 
-  /**
-   * @class ToolFactory tool.h <avogadro/tool.h>
-   * @brief Generates new instances of the Tool class for which it is defined.
-   *
-   * Generates new instances of the Tool class for which it is defined.
-   */
-  class A_EXPORT ToolFactory
-  {
-    public:
-      /**
-       * Destructor.
-       */
-      virtual ~ToolFactory() {}
-
-      /**
-       * @return pointer to a new instance of an Engine subclass object.
-       */
-      virtual Tool *createInstance(QObject *parent=0) = 0;
-  };
-
 } // end namespace Avogadro
-
-Q_DECLARE_METATYPE(Avogadro::Tool*)
-Q_DECLARE_INTERFACE(Avogadro::ToolFactory, "net.sourceforge.avogadro.toolfactory/1.0")
 
 #endif

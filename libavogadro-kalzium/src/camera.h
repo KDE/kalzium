@@ -4,7 +4,7 @@
   Copyright (C) 2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
 #define CAMERA_H
 
 #include <avogadro/global.h>
-#include <eigen/projective.h>
+#include <Eigen/Geometry>
 #include <QPoint>
 
 namespace Avogadro {
@@ -70,18 +70,6 @@ namespace Avogadro {
         * @sa parent() */
       void setParent(const GLWidget *glwidget);
 
-      /** The linear component (ie the 3x3 topleft block) of the camera matrix must
-        * always be a rotation. But after several hundreds of operations on it,
-        * it can drift farther and farther away from being a rotation. This method
-        * normalizes the camera matrix so that the linear component is guaranteed to be
-        * a rotation. Concretely, it performs a Gram-Schmidt orthonormalization to
-        * transform the linear component into a nearby rotation.
-        *
-        * The bottom row must always have entries 0, 0, 0, 1. This function overwrites
-        * the bottom row with these values.
-        */
-      void normalize();
-
     public:
       /** The constructor.
         * @param parent the GLWidget parent of this camera instance.
@@ -106,16 +94,16 @@ namespace Avogadro {
       double angleOfViewY() const;
       /** Sets 4x4 "modelview" matrix representing the camera orientation and position.
         * @param matrix the matrix to copy from
-        * @sa Eigen::MatrixP3d & modelview(), applyModelview() */
-      void setModelview(const Eigen::MatrixP3d &matrix);
+        * @sa Eigen::Transform3d & modelview(), applyModelview() */
+      void setModelview(const Eigen::Transform3d &matrix);
       /** @return a constant reference to the 4x4 "modelview" matrix representing
         *         the camera orientation and position
-        * @sa setModelview(), Eigen::MatrixP3d & modelview() */
-      const Eigen::MatrixP3d & modelview() const;
+        * @sa setModelview(), Eigen::Transform3d & modelview() */
+      const Eigen::Transform3d & modelview() const;
       /** @return a non-constant reference to the 4x4 "modelview" matrix representing
         *         the camera orientation and position
-        * @sa setModelview(), const Eigen::MatrixP3d & modelview() const */
-      Eigen::MatrixP3d & modelview();
+        * @sa setModelview(), const Eigen::Transform3d & modelview() const */
+      Eigen::Transform3d & modelview();
       /** Calls gluPerspective() with parameters automatically chosen
         * for rendering the GLWidget's molecule with this camera. Should be called
         * only in GL_PROJECTION matrix mode. Example code is given
@@ -174,7 +162,7 @@ namespace Avogadro {
       void rotate(const double &angle, const Eigen::Vector3d &axis);
       /** Multiply the camera's "modelview" matrix on the left by the rotation of the given
         * angle and axis. Because the rotation is applied on the left, the axis vector is
-        * understood in the coordinate system obtained by applying the camera's matrix to
+        * understood in the the coordinate system obtained by applying the camera's matrix to
         * the molecule's coordinate system. Use this method if you want to give
         * the impression that the camera is rotating while the molecule remains fixed.
         *
@@ -280,6 +268,18 @@ namespace Avogadro {
        * space coordinate system.
        */
       Eigen::Vector3d transformedZAxis() const;
+      
+      /** The linear component (ie the 3x3 topleft block) of the camera matrix must
+        * always be a rotation. But after several hundreds of operations on it,
+        * it can drift farther and farther away from being a rotation. This method
+        * normalizes the camera matrix so that the linear component is guaranteed to be
+        * a rotation. Concretely, it performs a Gram-Schmidt orthonormalization to
+        * transform the linear component into a nearby rotation.
+        *
+        * The bottom row must always have entries 0, 0, 0, 1. This function overwrites
+        * the bottom row with these values.
+        */
+      void normalize();
 
     private:
       CameraPrivate * const d;

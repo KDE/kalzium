@@ -4,7 +4,7 @@
   Copyright (C) 2007-2008 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,24 +26,32 @@
 
 namespace Avogadro {
 
-  QString Extension::name() const
-  { 
-    return QObject::tr("Unknown"); 
+  Extension::Extension(QObject *parent) : Plugin(parent)
+  {
   }
 
-  QString Extension::description() const
-  { 
-    return QObject::tr("Unknown Extension"); 
+  Extension::~Extension()
+  {
   }
 
-  QString Extension::menuPath(QAction *action) const 
-  { 
-    Q_UNUSED(action); return QString(); 
+  Plugin::Type Extension::type() const
+  {
+    return Plugin::ExtensionType;
   }
 
-  QDockWidget * Extension::dockWidget() 
-  { 
-    return 0; 
+  QString Extension::typeName() const
+  {
+    return tr("Extensions");
+  }
+
+  QString Extension::menuPath(QAction *action) const
+  {
+    Q_UNUSED(action); return QString();
+  }
+
+  QDockWidget * Extension::dockWidget()
+  {
+    return 0;
   }
 
   void Extension::setMolecule(Molecule *molecule)

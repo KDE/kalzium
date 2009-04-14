@@ -2,10 +2,10 @@
   SelectRotateTool - Selection and Rotation Tool for Avogadro
 
   Copyright (C) 2007 Donald Ephraim Curtis
-  Copyright (C) 2007 by Marcus D. Hanwell
+  Copyright (C) 2007,2008 by Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -29,17 +29,16 @@
 #include <avogadro/tool.h>
 #include <avogadro/glwidget.h>
 
-#include <eigen/vector.h>
+#include <Eigen/Core>
 
 #include <QObject>
 #include <QString>
 #include <QPoint>
-#include <QAction>
-#include <QComboBox>
-#include <QVBoxLayout>
 
 class QMouseEvent;
 class QWheelEvent;
+class QComboBox;
+class QVBoxLayout;
 
 namespace Avogadro {
 
@@ -49,6 +48,8 @@ namespace Avogadro {
   class SelectRotateTool : public Tool
   {
     Q_OBJECT
+    AVOGADRO_TOOL("Selection", tr("Selection"),
+                  tr("Select atoms, residues, and molecules"))
 
     public:
       //! Constructor
@@ -56,23 +57,15 @@ namespace Avogadro {
       //! Deconstructor
       virtual ~SelectRotateTool();
 
-      //! \name Description methods
-      //@{
-      //! Tool Name (ie Draw)
-      virtual QString name() const { return(tr("Select/Rotate")); }
-      //! Tool Description (ie. Draws atoms and bonds)
-      virtual QString description() const { return(tr("Selection and Rotation Tool")); }
-      //@}
-
       //! \name Tool Methods
       //@{
       //! \brief Callback methods for ui.actions on the canvas.
       /*!
       */
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
 
       virtual int usefulness() const;
 
@@ -89,8 +82,6 @@ namespace Avogadro {
       void selectionBox(float sx, float sy, float ex, float ey);
 
       bool                m_leftButtonPressed;  // rotation
-      bool                m_rightButtonPressed; // translation
-      bool                m_midButtonPressed;   // scale / zoom
       bool                m_movedSinceButtonPressed;
 
       //! Temporary var for adding selection box
@@ -114,15 +105,13 @@ namespace Avogadro {
       void settingsWidgetDestroyed();
   };
 
-  class SelectRotateToolFactory : public QObject, public ToolFactory
-    {
-      Q_OBJECT
-      Q_INTERFACES(Avogadro::ToolFactory)
+  class SelectRotateToolFactory : public QObject, public PluginFactory
+  {
+    Q_OBJECT
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_TOOL_FACTORY(SelectRotateTool)
+  };
 
-      public:
-        Tool *createInstance(QObject *parent = 0) { return new SelectRotateTool(parent); }
-    };
-
-  } // end namespace Avogadro
+} // end namespace Avogadro
 
 #endif

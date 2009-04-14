@@ -3,10 +3,10 @@
 
   Copyright (C) 2007 Benoit Jacob
   Copyright (C) 2007 Donald Ephraim Curtis
-  Copyright (C) 2007 Marcus D. Hanwell
+  Copyright (C) 2007-2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,10 +30,12 @@
 #include <avogadro/global.h>
 #include <avogadro/primitive.h>
 
+class QColor;
+
 namespace Avogadro
 {
   /**
-   * @class Painter painter.h
+   * @class Painter painter.h <avogadro/painter.h>
    * @brief Pure virtual Painter base class to be implemented by painters.
    * @author Marcus D. Hanwell
    *
@@ -44,7 +46,8 @@ namespace Avogadro
    * @sa GLPainter, POVPainter
    */
   class Color;
-  class Painter : public QObject
+  class Mesh;
+  class A_EXPORT Painter : public QObject
   {
     Q_OBJECT
 
@@ -57,7 +60,7 @@ namespace Avogadro
     /**
      * Destructor.
      */
-    ~Painter();
+    virtual ~Painter();
 
     /**
      * @return the current global quality setting.
@@ -84,6 +87,12 @@ namespace Avogadro
     virtual void setColor (const Color *color) = 0;
 
     /**
+     * Set the color to paint the primitive elements with.
+     * @param color the color to be used for painting.
+    */
+    virtual void setColor (const QColor *color) = 0;
+
+    /**
      * Set the color to paint elements with where 0.0 is the minimum and 1.0
      * is the maximum.
      * @param red component of the color.
@@ -99,7 +108,7 @@ namespace Avogadro
      * @param center the position of the center of the sphere.
      * @param radius the radius of the sphere.
      */
-    virtual void drawSphere (const Eigen::Vector3d & center, double radius) = 0;
+    virtual void drawSphere (const Eigen::Vector3d *center, float radius) = 0;
 
     /**
      * Draws a cylinder, leaving the Painter choose the appropriate detail level based on the
@@ -122,7 +131,7 @@ namespace Avogadro
      *
      * This function takes care of rendering multiple bonds in such a way that the individual
      * bonds avoid hiding each other, at least in the defaut viewpoint of a molecule.
-     * To achieves that, it asks the GLWidget for the normal vector of the
+     * To achieves that, it asks the GLWidget for the the normal vector of the
      * molecule's best-fitting plane.
      *
      * @param end1 the position of the first end of the bond.
@@ -272,6 +281,19 @@ namespace Avogadro
                                    const Eigen::Vector3d & point3,
                                    const Eigen::Vector3d & point4,
                                    double lineWidth) = 0;
+    /**
+     * Draws a continuous mesh of triangles.
+     * @param mesh the mesh to be drawn.
+     * @param mode the mode to use. 0 = filled, 1 = lines and 2 = points.
+     */
+    virtual void drawMesh(const Mesh & mesh, int mode = 0) = 0;
+
+    /**
+     * Draws a continuous mesh of triangles and respects the colors stored.
+     * @param mesh the mesh to be drawn.
+     * @param mode the mode to use. 0 = filled, 1 = lines and 2 = points.
+     */
+    virtual void drawColorMesh(const Mesh & mesh, int mode = 0) = 0;
 
     /**
      * Draws text at a given window position, on top of the scene.
@@ -321,6 +343,7 @@ namespace Avogadro
      */
     virtual int drawText (const Eigen::Vector3d & pos,
                           const QString &string) const = 0;
+
   };
 } // end namespace Avogadro
 

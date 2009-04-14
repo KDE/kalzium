@@ -6,7 +6,7 @@
   Inspired by example code from Qt/Examples by Trolltech.
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -262,7 +262,7 @@ namespace Avogadro {
             continue;
           }
 
-          // check to see if it is an excluded file
+          // check to see if its an excluded file
           // (hidden or not readable or a Mac OS X bundle
           if (dirIterator.fileInfo().isHidden() 
               || !dirIterator.fileInfo().isReadable()
@@ -281,7 +281,35 @@ namespace Avogadro {
 
       }
     }
+
+    invalidateIndexes();
     emit layoutChanged(); // again, tell the view that we're finished
+  }
+  
+  /* From Qt API doc:
+   * void QAbstractItemModel::layoutAboutToBeChanged ()   [signal]
+   *
+   * ... Subclasses should update any persistent model indexes after emitting 
+   * layoutAboutToBeChanged(). ...
+   * 
+   * and: http://der-dakon.net/blog/KDE/persistent-crash.html
+   */
+  void DirectoryTreeModel::invalidateIndexes()
+  {
+    for (int i = 0; i < persistentIndexList().count(); i++) {
+      QModelIndex idx = persistentIndexList().at(i);
+
+      FileTreeItem *parentItem;
+      if (!idx.isValid())
+        parentItem = _rootItem;
+      else
+        parentItem = static_cast<FileTreeItem*>(idx.internalPointer());
+
+      if (parentItem == _rootItem)
+        continue;
+
+      changePersistentIndex(idx, QModelIndex());
+    }
   }
 
 } // end namespace Avogadro

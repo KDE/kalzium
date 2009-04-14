@@ -3,10 +3,10 @@
 
   Copyright (C) 2007 Benoit Jacob
   Copyright (C) 2007 Donald Ephraim Curtis
-  Copyright (C) 2007 Marcus D. Hanwell
+  Copyright (C) 2007-2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,17 +25,72 @@
  **********************************************************************/
 
 #include "glpainter.h"
-
-#include <avogadro/glwidget.h>
+#include "glwidget.h"
 #include "sphere.h"
 #include "cylinder.h"
 #include "textrenderer.h"
-#include "global.h"
+
+#include <avogadro/atom.h>
+#include <avogadro/bond.h>
+#include <avogadro/molecule.h>
+#include <avogadro/mesh.h>
+
 #include <QDebug>
+#include <QColor>
 #include <QVarLengthArray>
+#include <Eigen/Geometry>
 
 namespace Avogadro
 {
+
+  const int      PAINTER_GLOBAL_QUALITY_SETTINGS       = 5;
+  const int      DEFAULT_GLOBAL_QUALITY_SETTING        = PAINTER_GLOBAL_QUALITY_SETTINGS - 3;
+  const int      PAINTER_DETAIL_LEVELS                 = 10;
+  // Sphere detail level array. Each row is a detail level.
+  // The first column is the sphere detail level at the furthest
+  // point and the last column is the detail level at the closest
+  // point.
+  const int      PAINTER_SPHERES_LEVELS_ARRAY[5][10]
+  =
+    { {0, 0, 1, 1, 2, 2, 3, 3, 4, 4},
+      {0, 1, 2, 3, 4, 4, 5, 5, 6, 6},
+      {1, 2, 3, 4, 5, 6, 7, 8, 9, 9},
+      {1, 2, 3, 4, 6, 7, 8, 9, 11, 12},
+      {2, 3, 4, 5, 7, 9, 12, 15, 18, 22}
+    };
+  const double   PAINTER_SPHERES_LIMIT_MIN_LEVEL       = 0.005;
+  const double   PAINTER_SPHERES_LIMIT_MAX_LEVEL       = 0.15;
+
+  // Cylinder detail level array. Each row is a detail level.
+  // The first column is the cylinder detail level at the furthest
+  // point and the last column is the detail level at the closest
+  // point.
+  const int      PAINTER_CYLINDERS_LEVELS_ARRAY[5][10]
+  =
+    { {0, 3, 5, 5, 8, 8, 12, 12, 16, 16},
+      {0, 4, 6, 9, 12, 12, 16, 16, 20, 20},
+      {0, 4, 6, 10, 14, 18, 22, 26, 32, 40},
+      {0, 4, 6, 12, 16, 20, 24, 28, 34, 42},
+      {0, 5, 10, 15, 20, 25, 30, 35, 40, 45}
+    };
+  const double   PAINTER_CYLINDERS_LIMIT_MIN_LEVEL     = 0.001;
+  const double   PAINTER_CYLINDERS_LIMIT_MAX_LEVEL     = 0.03;
+  const int      PAINTER_MAX_DETAIL_LEVEL = PAINTER_DETAIL_LEVELS - 1;
+  const double   PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL
+  = sqrt ( PAINTER_SPHERES_LIMIT_MIN_LEVEL );
+  const double   PAINTER_SPHERES_SQRT_LIMIT_MAX_LEVEL
+  = sqrt ( PAINTER_SPHERES_LIMIT_MAX_LEVEL );
+  const double   PAINTER_SPHERES_DETAIL_COEFF
+  = static_cast<double> ( PAINTER_MAX_DETAIL_LEVEL - 1 )
+    / ( PAINTER_SPHERES_SQRT_LIMIT_MAX_LEVEL - PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL );
+  const double   PAINTER_CYLINDERS_SQRT_LIMIT_MIN_LEVEL
+  = sqrt ( PAINTER_CYLINDERS_LIMIT_MIN_LEVEL );
+  const double   PAINTER_CYLINDERS_SQRT_LIMIT_MAX_LEVEL
+  = sqrt ( PAINTER_CYLINDERS_LIMIT_MAX_LEVEL );
+  const double   PAINTER_CYLINDERS_DETAIL_COEFF
+  = static_cast<double> ( PAINTER_MAX_DETAIL_LEVEL - 1 )
+    / ( PAINTER_CYLINDERS_SQRT_LIMIT_MAX_LEVEL - PAINTER_CYLINDERS_SQRT_LIMIT_MIN_LEVEL );
+  const double   PAINTER_FRUSTUM_CULL_TRESHOLD = -0.8;
 
   class GLPainterPrivate
   {
@@ -125,17 +180,13 @@ namespace Avogadro
     int level, lastLevel, n;
     // delete the spheres. One has to be wary that more than one sphere
     // pointer may have the same value. One wants to avoid deleting twice the same sphere.
-    if ( spheres )
-    {
+    if (spheres) {
       lastLevel = -1;
-      for ( n = 0; n < PAINTER_DETAIL_LEVELS; n++ )
-      {
+      for (n = 0; n < PAINTER_DETAIL_LEVELS; ++n) {
         level = PAINTER_SPHERES_LEVELS_ARRAY[quality][n];
-        if ( level != lastLevel )
-        {
+        if (level != lastLevel) {
           lastLevel = level;
-          if ( spheres[n] )
-          {
+          if (spheres[n]) {
             delete spheres[n];
             spheres[n] = 0;
           }
@@ -147,17 +198,14 @@ namespace Avogadro
 
     // delete the cylinders. One has to be wary that more than one cylinder
     // pointer may have the same value. One wants to avoid deleting twice the same cylinder.
-    if ( cylinders )
+    if (cylinders)
     {
       lastLevel = -1;
-      for ( n = 0; n < PAINTER_DETAIL_LEVELS; n++ )
-      {
+      for (n = 0; n < PAINTER_DETAIL_LEVELS; ++n) {
         level = PAINTER_CYLINDERS_LEVELS_ARRAY[quality][n];
-        if ( level != lastLevel )
-        {
+        if (level != lastLevel) {
           lastLevel = level;
-          if ( cylinders[n] )
-          {
+          if (cylinders[n]) {
             delete cylinders[n];
             cylinders[n] = 0;
           }
@@ -179,15 +227,12 @@ namespace Avogadro
       int level, lastLevel;
       lastLevel = PAINTER_SPHERES_LEVELS_ARRAY[quality][0];
       spheres[0] = new Sphere ( lastLevel );
-      for ( int n = 1; n < PAINTER_DETAIL_LEVELS; n++ )
-      {
+      for (int n = 1; n < PAINTER_DETAIL_LEVELS; ++n) {
         level = PAINTER_SPHERES_LEVELS_ARRAY[quality][n];
-        if ( level == lastLevel )
-        {
+        if (level == lastLevel) {
           spheres[n] = spheres[n-1];
         }
-        else
-        {
+        else {
           lastLevel = level;
           spheres[n] = new Sphere ( level );
         }
@@ -197,21 +242,17 @@ namespace Avogadro
     // create the cylinders. More than one cylinder detail level may have the same value.
     // in that case we want to reuse the corresponding cylinder by just copying the pointer,
     // instead of creating redundant cylinders.
-    if ( cylinders == 0 )
-    {
+    if (cylinders == 0) {
       cylinders = new Cylinder*[PAINTER_DETAIL_LEVELS];
       int level, lastLevel;
       lastLevel = PAINTER_SPHERES_LEVELS_ARRAY[quality][0];
       cylinders[0] = new Cylinder ( lastLevel );
-      for ( int n = 1; n < PAINTER_DETAIL_LEVELS; n++ )
-      {
+      for (int n = 1; n < PAINTER_DETAIL_LEVELS; ++n) {
         level = PAINTER_CYLINDERS_LEVELS_ARRAY[quality][n];
-        if ( level == lastLevel )
-        {
+        if (level == lastLevel) {
           cylinders[n] = cylinders[n-1];
         }
-        else
-        {
+        else {
           lastLevel = level;
           cylinders[n] = new Cylinder ( level );
         }
@@ -219,13 +260,13 @@ namespace Avogadro
     }
   }
 
-  GLPainter::GLPainter(int quality) : d(new GLPainterPrivate), m_dynamicScaling(true)
+  GLPainter::GLPainter(int quality) : d(new GLPainterPrivate),
+    m_dynamicScaling(true)
   {
     if (quality < 0 || quality >= PAINTER_MAX_DETAIL_LEVEL)
-      {
-        quality = DEFAULT_GLOBAL_QUALITY_SETTING;
-      }
-    d->quality = quality;
+      quality = DEFAULT_GLOBAL_QUALITY_SETTING;
+    else
+      d->quality = quality;
   }
 
   GLPainter::~GLPainter()
@@ -248,13 +289,9 @@ namespace Avogadro
   {
     d->type = primitive->type();
     if (d->type == Primitive::AtomType)
-      {
-        d->id = static_cast<const Atom *>(primitive)->GetIdx();
-      }
+      d->id = static_cast<const Atom *>(primitive)->index();
     else if (d->type == Primitive::BondType)
-      {
-        d->id = static_cast<const Bond *>(primitive)->GetIdx();
-      }
+      d->id = static_cast<const Bond *>(primitive)->index();
   }
 
   void GLPainter::setName ( Primitive::Type type, int id )
@@ -263,9 +300,15 @@ namespace Avogadro
     d->id = id;
   }
 
-  void GLPainter::setColor ( const Color *color )
+  void GLPainter::setColor (const Color *color)
   {
-    d->color = *color;
+    d->color.set(color->red(), color->green(), color->blue(), color->alpha());
+  }
+
+  void GLPainter::setColor (const QColor *color)
+  {
+    d->color.set(color->redF(), color->greenF(), color->blueF(),
+                 color->alphaF());
   }
 
   void GLPainter::setColor ( float red, float green, float blue, float alpha )
@@ -273,7 +316,7 @@ namespace Avogadro
     d->color.set(red, green, blue, alpha);
   }
 
-  void GLPainter::drawSphere ( const Eigen::Vector3d & center, double radius )
+  void GLPainter::drawSphere ( const Eigen::Vector3d *center, float radius )
   {
     if(!d->isValid()) { return; }
 
@@ -281,10 +324,9 @@ namespace Avogadro
     int detailLevel = PAINTER_MAX_DETAIL_LEVEL / 3;
 
     if (m_dynamicScaling) {
-      double apparentRadius = radius / d->widget->camera()->distance(center);
-      detailLevel = 1 + static_cast<int> ( floor (PAINTER_SPHERES_DETAIL_COEFF
-                        * ( sqrt ( apparentRadius ) - PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL )
-                        ) );
+      double apparentRadius = radius / d->widget->camera()->distance(*center);
+      detailLevel = 1 + static_cast<int>(floor (PAINTER_SPHERES_DETAIL_COEFF
+                        * (sqrt(apparentRadius) - PAINTER_SPHERES_SQRT_LIMIT_MIN_LEVEL)));
       if (detailLevel < 0)
         detailLevel = 0;
       if (detailLevel > PAINTER_MAX_DETAIL_LEVEL)
@@ -293,7 +335,7 @@ namespace Avogadro
 
     d->color.applyAsMaterials();
     pushName();
-    d->spheres[detailLevel]->draw ( center, radius );
+    d->spheres[detailLevel]->draw (*center, radius);
     popName();
   }
 
@@ -358,9 +400,9 @@ namespace Avogadro
     Eigen::Vector3d axis = tip - base;
     Eigen::Vector3d axisNormalized = axis.normalized();
     Eigen::Vector3d ortho1, ortho2;
-    ortho1.loadOrtho(axisNormalized);
+    ortho1 = axisNormalized.unitOrthogonal();
     ortho1 *= radius;
-    axisNormalized.cross(ortho1, &ortho2);
+    ortho2 = axisNormalized.cross(ortho1);
 
     d->color.applyAsMaterials();
 
@@ -378,23 +420,23 @@ namespace Avogadro
       Eigen::Vector3d n = (tip - v).cross(v - vPrec).normalized();
       Eigen::Vector3d nNext = (tip - vNext).cross(vNext - v).normalized();
       glBegin(GL_TRIANGLES);
-      glNormal3dv((n+nNext).normalized().array());
-      glVertex3dv(tip.array());
-      glNormal3dv(nNext.array());
-      glVertex3dv(vNext.array());
-      glNormal3dv(n.array());
-      glVertex3dv(v.array());
+      glNormal3dv((n+nNext).normalized().data());
+      glVertex3dv(tip.data());
+      glNormal3dv(nNext.data());
+      glVertex3dv(vNext.data());
+      glNormal3dv(n.data());
+      glVertex3dv(v.data());
       glEnd();
     }
 
     // Now to draw the base
     glBegin(GL_TRIANGLE_FAN);
-    glNormal3dv((-axisNormalized).array());
-    glVertex3dv(base.array());
+    glNormal3dv((-axisNormalized).eval().data());
+    glVertex3dv(base.data());
     for (int j = 0; j <= CONE_TESS_LEVEL; j++) {
       double alpha = -j * M_PI / (CONE_TESS_LEVEL/2.0);
       Eigen::Vector3d v = cos(alpha) * ortho1 + sin(alpha) * ortho2 + base;
-      glVertex3dv(v.array());
+      glVertex3dv(v.data());
     }
     glEnd();
   }
@@ -408,12 +450,12 @@ namespace Avogadro
     glDisable(GL_LIGHTING);
 
     glLineWidth(lineWidth);
-    glColor4f(d->color.red(), d->color.green(), d->color.blue(), d->color.alpha());
+    d->color.apply();
 
     // Draw the line
     glBegin(GL_LINE_STRIP);
-    glVertex3dv(start.array());
-    glVertex3dv(end.array());
+    glVertex3dv(start.data());
+    glVertex3dv(end.data());
     glEnd();
 
     glEnable(GL_LIGHTING);
@@ -426,66 +468,38 @@ namespace Avogadro
     // Draw multiple lines between two points of the specified thickness
     if(!d->isValid()) { return; }
 
-    // the normal to the plane of the viewing widget
-    const Eigen::Vector3d planeNormalVector = d->widget->normalVector();
-    // the "axis vector" of the line
-    Eigen::Vector3d axis = end2 - end1;
-
-    // now we want to construct an orthonormal basis whose first
-    // vector is axis.normalized(). We don't use Eigen's loadOrthoBasis()
-    // for that, because we want one more thing. The second vector in this
+    // construct the 4D transformation matrix
+    Eigen::Matrix4d matrix;
+    matrix.row(3) << 0,0,0,1;
+    matrix.block<3,1>(0,3) = end1;
+    matrix.block<3,1>(0,2) = end2 - end1; // the "axis vector" of the line
+    // Now we want to construct an orthonormal basis whose third
+    // vector is axis.normalized(). The first vector in this
     // basis, which we call ortho1, should be approximately lying in the
     // z=0 plane if possible. This is to ensure double bonds don't look
     // like single bonds from the default point of view.
-    double axisNorm = axis.norm();
-    if( axisNorm == 0.0 ) return;
-    Eigen::Vector3d axisNormalized = axis / axisNorm;
-
-    Eigen::Vector3d ortho1 = axisNormalized.cross(planeNormalVector);
+    Eigen::Vector3d axisNormalized = matrix.block<3,1>(0,2).normalized();
+    Eigen::Block<Eigen::Matrix4d, 3, 1> ortho1(matrix, 0, 0);
+    ortho1 = axisNormalized.cross(d->widget->normalVector());
     double ortho1Norm = ortho1.norm();
-    if( ortho1Norm > 0.001 ) ortho1 /= ortho1Norm;
-    else ortho1 = axisNormalized.ortho();
-    ortho1 *= lineWidth;
+    if( ortho1Norm > 0.001 ) ortho1 = ortho1.normalized() * lineWidth;
+    else ortho1 = axisNormalized.unitOrthogonal() * lineWidth;
+    matrix.block<3,1>(0,1) = axisNormalized.cross(ortho1);
 
-    Eigen::Vector3d ortho2 = cross( axisNormalized, ortho1 );
-
-    // construct the 4D transformation matrix
-    Eigen::Matrix4d matrix;
-
-    matrix(0, 0) = ortho1(0);
-    matrix(1, 0) = ortho1(1);
-    matrix(2, 0) = ortho1(2);
-    matrix(3, 0) = 0.0;
-
-    matrix(0, 1) = ortho2(0);
-    matrix(1, 1) = ortho2(1);
-    matrix(2, 1) = ortho2(2);
-    matrix(3, 1) = 0.0;
-
-    matrix(0, 2) = axis(0);
-    matrix(1, 2) = axis(1);
-    matrix(2, 2) = axis(2);
-    matrix(3, 2) = 0.0;
-
-    matrix(0, 3) = end1(0);
-    matrix(1, 3) = end1(1);
-    matrix(2, 3) = end1(2);
-    matrix(3, 3) = 1.0;
-
-    //now we can do the actual drawing !
+    // now the matrix is entirely filled, so we can do the actual drawing !
     glPushMatrix();
-    glMultMatrixd( matrix.array() );
+    glMultMatrixd( matrix.data() );
 
     glDisable(GL_LIGHTING);
 
     glLineWidth(lineWidth);
-    glColor4f(d->color.red(), d->color.green(), d->color.blue(), d->color.alpha());
+    d->color.apply();
 
     glEnable(GL_LINE_STIPPLE);
     glLineStipple(1, stipple);
 
     // Draw the line
-    if (order == 1) {
+    if (order == 1 || order == -1) { // single or aromatic
       glBegin(GL_LINE_STRIP);
       glVertex3f(0.0, 0.0, 0.0);
       glVertex3f(0.0, 0.0, 1.0);
@@ -498,7 +512,8 @@ namespace Avogadro
         else angleOffset = 22.5;
       }
 
-      double displacementFactor = 0.011 * sqrt(lineWidth);
+      // these may need further refinement
+      double displacementFactor = 0.0004 * lineWidth + 0.018;
       for( int i = 0; i < order; i++) {
         glPushMatrix();
         glRotated( angleOffset + 360.0 * i / order,
@@ -513,9 +528,8 @@ namespace Avogadro
         glPopMatrix();
       }
     }
-    glPopMatrix();
-
     glDisable(GL_LINE_STIPPLE);
+    glPopMatrix();
 
     glEnable(GL_LIGHTING);
   }
@@ -553,10 +567,10 @@ namespace Avogadro
     }
 
     glBegin(GL_TRIANGLES);
-    glNormal3dv(n.array());
-    glVertex3dv(p1.array());
-    glVertex3dv(tp2.array());
-    glVertex3dv(tp3.array());
+    glNormal3dv(n.data());
+    glVertex3dv(p1.data());
+    glVertex3dv(tp2.data());
+    glVertex3dv(tp3.data());
     glEnd();
   }
 
@@ -565,37 +579,15 @@ namespace Avogadro
   {
     if(!d->isValid()) { return; }
 
-    // Sort out the winding order by assigning in the correct order
-    Eigen::Vector3d tp2, tp3;
-
     // Don't want planes to be too shiny.
     d->color.applyAsFlatMaterials();
-
-    // The plane normal vector of the view
-    const Eigen::Vector3d planeNormalVector = d->widget->normalVector();
-
-    // Calculate the normal for the triangle as GL_AUTO_NORMAL doesn't seem to work
-    Eigen::Vector3d v1, v2, norm;
-    v1 = p2 - p1;
-    v2 = p3 - p2;
-    norm = v1.cross(v2);
-    norm.normalize();
-
-    // Dot product is 1 or -1 - want normals facing the same direction
-    if (norm.dot(p1 - d->widget->camera()->backTransformedZAxis()) < 0) {
-      tp2 = p3;
-      tp3 = p2;
-    }
-    else {
-      tp2 = p2;
-      tp3 = p3;
-    }
+    d->color.apply();
 
     glBegin(GL_TRIANGLES);
-    glNormal3dv(n.array());
-    glVertex3dv(p1.array());
-    glVertex3dv(tp2.array());
-    glVertex3dv(tp3.array());
+    glNormal3dv(n.data());
+    glVertex3dv(p1.data());
+    glVertex3dv(p2.data());
+    glVertex3dv(p3.data());
     glEnd();
   }
 
@@ -658,17 +650,14 @@ namespace Avogadro
     QVarLengthArray<GLfloat> uknots(points.size() + 4);
 
     // The first one is a special case
-    Eigen::Vector3f axis = Eigen::Vector3f(points[1].x() - points[0].x(),
-                                           points[1].y() - points[0].y(),
-                                           points[1].z() - points[0].z());
-    Eigen::Vector3f axisNormalized = axis.normalized();
-    Eigen::Vector3f ortho1, ortho2;
-    ortho1.loadOrtho(axisNormalized);
-    ortho1 *= radius;
-    axisNormalized.cross(ortho1, &ortho2);
+    Eigen::Vector3d axis = points[1] - points[0];
+    Eigen::Vector3d axisNormalized = axis.normalized();
+    Eigen::Vector3d ortho1, ortho2;
+    ortho1 = axisNormalized.unitOrthogonal() * radius;
+    ortho2 = axisNormalized.cross(ortho1);
     for (int j = 0; j < TUBE_TESS; j++) {
       double alpha = j * M_PI / 1.5f;
-      Eigen::Vector3f v = cosf(alpha) * ortho1 + sinf(alpha) * ortho2;
+      Eigen::Vector3d v = cosf(alpha) * ortho1 + sinf(alpha) * ortho2;
       ctrlpts[3*j+0] = v.x() + points[0].x();
       ctrlpts[3*j+1] = v.y() + points[0].y();
       ctrlpts[3*j+2] = v.z() + points[0].z();
@@ -676,16 +665,16 @@ namespace Avogadro
     uknots[2] = 0.0;
 
     for (int i = 1; i < points.size(); i++) {
-      axis = Eigen::Vector3f(points[i-1].x() - points[i].x(),
+      axis = Eigen::Vector3d(points[i-1].x() - points[i].x(),
                              points[i-1].y() - points[i].y(),
                              points[i-1].z() - points[i].z());
       axisNormalized = axis.normalized();
-      ortho1.loadOrtho(axisNormalized);
+      ortho1 = axisNormalized.unitOrthogonal();
       ortho1 *= radius;
-      axisNormalized.cross(ortho1, &ortho2);
+      ortho2 = axisNormalized.cross(ortho1);
       for (int j = 0; j < TUBE_TESS; j++) {
         double alpha = j * M_PI / 1.5f;
-        Eigen::Vector3f v = cosf(alpha) * ortho1 + sinf(alpha) * ortho2;
+        Eigen::Vector3d v = cosf(alpha) * ortho1 + sinf(alpha) * ortho2;
         ctrlpts[(i*TUBE_TESS + j)*3 + 0] = v.x() + points[i].x();
         ctrlpts[(i*TUBE_TESS + j)*3 + 1] = v.y() + points[i].y();
         ctrlpts[(i*TUBE_TESS + j)*3 + 2] = v.z() + points[i].z();
@@ -733,11 +722,11 @@ namespace Avogadro
     Eigen::Vector3d v = direction2 - origin;
 
     // Adjust the length of u and v to the radius given.
-    u = (u / u.norm()) * radius;
-    v = (v / v.norm()) * radius;
+    u = u.normalized() * radius;
+    v = v.normalized() * radius;
 
     // Angle between u and v.
-    double uvAngle = acos(u.dot(v) / v.norm2()) * 180.0 / M_PI;
+    double uvAngle = acos(u.dot(v) / v.squaredNorm()) * 180.0 / M_PI;
 
     // If angle is less than 1 (will be approximated to 0), attempting to draw
     // will crash, so return.
@@ -752,48 +741,35 @@ namespace Avogadro
     // Vector perpindicular to both u and v.
     Eigen::Vector3d n = u.cross(v);
 
-    Eigen::Vector3d x = Eigen::Vector3d(1, 0, 0);
-    Eigen::Vector3d y = Eigen::Vector3d(0, 1, 0);
-
-    if (n.norm() < 1e-16)
+    if (n.norm() < 1e-3)
       {
-        Eigen::Vector3d A = u.cross(x);
-        Eigen::Vector3d B = u.cross(y);
+        Eigen::Vector3d A = u.cross(Eigen::Vector3d::UnitX());
+        Eigen::Vector3d B = u.cross(Eigen::Vector3d::UnitY());
 
         n = A.norm() >= B.norm() ? A : B;
       }
 
-    n = n / n.norm();
-
-    // Add the vectors to the origin vector to find the positions along the lines
-    // of the two points the curve starts and ends at.
-    Eigen::Vector3d _direction1 = origin + u;
-    Eigen::Vector3d _direction2 = origin + v;
+    n.normalize();
 
     // Calculate the points along the curve at each half-degree increment until we
     // reach the next line.
     Eigen::Vector3d points[720];
     for (int theta = 1; theta < (uvAngle * 2); theta++)
       {
-        // Create a Matrix that represents a rotation about a vector perpindicular
-        // to the plane.
-        Eigen::Matrix3d rotMat;
-        rotMat.loadRotation3((theta / 2 * (M_PI / 180.0)), n);
-
-        // Apply the rotation Matrix to the vector to find the new point.
+        // Apply a rotation about a vector perpindicular
+        // to the plane to the vector to find the new point.
         if (alternateAngle) {
-          rotMat.multiply(v, &points[theta-1]);
+          points[theta-1] = Eigen::AngleAxisd(theta * (M_PI / 180.0) / 2, n) * v;
         } else {
-          rotMat.multiply(u, &points[theta-1]);
+          points[theta-1] = Eigen::AngleAxisd(theta * (M_PI / 180.0) / 2, n) * u;
         }
-        points[theta-1] += origin;
-        points[theta-1] = d->widget->camera()->modelview() * points[theta-1];
+        points[theta-1] = d->widget->camera()->modelview() * (origin + points[theta-1]);
       }
 
     // Get vectors representing the points' positions in terms of the model view.
     Eigen::Vector3d _origin = d->widget->camera()->modelview() * origin;
-    _direction1 = d->widget->camera()->modelview() * _direction1;
-    _direction2 = d->widget->camera()->modelview() * _direction2;
+    Eigen::Vector3d _direction1 = d->widget->camera()->modelview() * (origin+u);
+    Eigen::Vector3d _direction2 = d->widget->camera()->modelview() * (origin+v);
 
     glPushAttrib(GL_ALL_ATTRIB_BITS);
     glPushMatrix();
@@ -801,24 +777,24 @@ namespace Avogadro
     glDisable(GL_LIGHTING);
     glDisable(GL_CULL_FACE);
 
-    glColor4f(d->color.red(), d->color.green(), d->color.blue(), d->color.alpha());
+    d->color.apply();
 
     // Draw the transparent polygon that makes up the sector.
     glBegin(GL_TRIANGLE_FAN);
-    glVertex3d(_origin.x(), _origin.y(), _origin.z());
+    glVertex3dv(_origin.data());
     if (alternateAngle)
       {
-        glVertex3d(_direction2.x(), _direction2.y(), _direction2.z());
+        glVertex3dv(_direction2.data());
         for (int i = 0; i < uvAngle*2 - 1; i++)
-          glVertex3d(points[i].x(), points[i].y(), points[i].z());
-        glVertex3d(_direction1.x(), _direction1.y(), _direction1.z());
+          glVertex3dv(points[i].data());
+        glVertex3dv(_direction1.data());
       }
     else
       {
-        glVertex3d(_direction1.x(), _direction1.y(), _direction1.z());
+        glVertex3dv(_direction1.data());
         for (int i = 0; i < uvAngle*2 - 1; i++)
-          glVertex3d(points[i].x(), points[i].y(), points[i].z());
-        glVertex3d(_direction2.x(), _direction2.y(), _direction2.z());
+          glVertex3dv(points[i].data());
+        glVertex3dv(_direction2.data());
       }
     glEnd();
 
@@ -837,11 +813,11 @@ namespace Avogadro
     Eigen::Vector3d v = direction2 - origin;
 
     // Adjust the length of u and v to the radius given.
-    u = (u / u.norm()) * radius;
-    v = (v / v.norm()) * radius;
+    u = u.normalized() * radius;
+    v = v.normalized() * radius;
 
     // Angle between u and v.
-    double uvAngle = acos(u.dot(v) / v.norm2()) * 180.0 / M_PI;
+    double uvAngle = acos(u.dot(v) / v.squaredNorm()) * 180.0 / M_PI;
 
     // If angle is less than 1 (will be approximated to 0), attempting to draw
     // will crash, so return.
@@ -856,48 +832,34 @@ namespace Avogadro
     // Vector perpindicular to both u and v.
     Eigen::Vector3d n = u.cross(v);
 
-    Eigen::Vector3d x = Eigen::Vector3d(1, 0, 0);
-    Eigen::Vector3d y = Eigen::Vector3d(0, 1, 0);
-
-    if (n.norm() < 1e-16)
+    if (n.norm() < 1e-3)
       {
-        Eigen::Vector3d A = u.cross(x);
-        Eigen::Vector3d B = u.cross(y);
+        Eigen::Vector3d A = u.cross(Eigen::Vector3d::UnitX());
+        Eigen::Vector3d B = u.cross(Eigen::Vector3d::UnitY());
 
         n = A.norm() >= B.norm() ? A : B;
       }
 
-    n = n / n.norm();
-
-    // Add the vectors to the origin vector to find the positions along the lines
-    // of the two points the curve starts and ends at.
-    Eigen::Vector3d _direction1 = origin + u;
-    Eigen::Vector3d _direction2 = origin + v;
+    n.normalize();
 
     // Calculate the points along the curve at each half-degree increment until we
     // reach the next line.
     Eigen::Vector3d points[720];
     for (int theta = 1; theta < (uvAngle * 2); theta++)
       {
-        // Create a Matrix that represents a rotation about a vector perpindicular
-        // to the plane.
-        Eigen::Matrix3d rotMat;
-        rotMat.loadRotation3((theta / 2 * (M_PI / 180.0)), n);
-
-        // Apply the rotation Matrix to the vector to find the new point.
+        // Apply a rotation about a vector perpindicular
+        // to the plane to the vector to find the new point.
         if (alternateAngle) {
-          rotMat.multiply(v, &points[theta-1]);
+          points[theta-1] = Eigen::AngleAxisd(theta * (M_PI / 180.0) / 2, n) * v;
         } else {
-          rotMat.multiply(u, &points[theta-1]);
+          points[theta-1] = Eigen::AngleAxisd(theta * (M_PI / 180.0) / 2, n) * u;
         }
-        points[theta-1] += origin;
-        points[theta-1] = d->widget->camera()->modelview() * points[theta-1];
+        points[theta-1] = d->widget->camera()->modelview() * (origin + points[theta-1]);
       }
 
     // Get vectors representing the points' positions in terms of the model view.
-    Eigen::Vector3d _origin = d->widget->camera()->modelview() * origin;
-    _direction1 = d->widget->camera()->modelview() * _direction1;
-    _direction2 = d->widget->camera()->modelview() * _direction2;
+    Eigen::Vector3d _direction1 = d->widget->camera()->modelview() * (origin + u);
+    Eigen::Vector3d _direction2 = d->widget->camera()->modelview() * (origin + v);
 
     glPushAttrib(GL_ALL_ATTRIB_BITS);
     glPushMatrix();
@@ -906,23 +868,23 @@ namespace Avogadro
     glDisable(GL_CULL_FACE);
 
     glLineWidth(lineWidth);
-    glColor4f(d->color.red(), d->color.green(), d->color.blue(), d->color.alpha());
+    d->color.apply();
 
     // Draw the arc.
     glBegin(GL_LINE_STRIP);
     if (alternateAngle)
       {
-        glVertex3d(_direction2.x(), _direction2.y(), _direction2.z());
+        glVertex3dv(_direction2.data());
         for (int i = 0; i < uvAngle*2 - 1; i++)
-          glVertex3d(points[i].x(), points[i].y(), points[i].z());
-        glVertex3d(_direction1.x(), _direction1.y(), _direction1.z());
+          glVertex3dv(points[i].data());
+        glVertex3dv(_direction1.data());
       }
     else
       {
-        glVertex3d(_direction1.x(), _direction1.y(), _direction1.z());
+        glVertex3dv(_direction1.data());
         for (int i = 0; i < uvAngle*2 - 1; i++)
-          glVertex3d(points[i].x(), points[i].y(), points[i].z());
-        glVertex3d(_direction2.x(), _direction2.y(), _direction2.z());
+          glVertex3dv(points[i].data());
+        glVertex3dv(_direction2.data());
       }
     glEnd();
 
@@ -941,13 +903,13 @@ namespace Avogadro
     glDisable(GL_LIGHTING);
     glDisable(GL_CULL_FACE);
 
-    glColor4f(d->color.red(), d->color.green(), d->color.blue(), d->color.alpha());
+    d->color.apply();
 
     glBegin(GL_TRIANGLE_FAN);
-    glVertex3d(point1.x(), point1.y(), point1.z());
-    glVertex3d(point2.x(), point2.y(), point2.z());
-    glVertex3d(point3.x(), point3.y(), point3.z());
-    glVertex3d(point4.x(), point4.y(), point4.z());
+    glVertex3dv(point1.data());
+    glVertex3dv(point2.data());
+    glVertex3dv(point3.data());
+    glVertex3dv(point4.data());
     glEnd();
 
     glPopMatrix();
@@ -967,17 +929,106 @@ namespace Avogadro
     glDisable(GL_CULL_FACE);
 
     glLineWidth(lineWidth);
-    glColor4f(d->color.red(), d->color.green(), d->color.blue(), d->color.alpha());
+    d->color.apply();
 
     glBegin(GL_LINE_LOOP);
-    glVertex3d(point1.x(), point1.y(), point1.z());
-    glVertex3d(point2.x(), point2.y(), point2.z());
-    glVertex3d(point3.x(), point3.y(), point3.z());
-    glVertex3d(point4.x(), point4.y(), point4.z());
+    glVertex3dv(point1.data());
+    glVertex3dv(point2.data());
+    glVertex3dv(point3.data());
+    glVertex3dv(point4.data());
     glEnd();
 
     glPopMatrix();
     glPopAttrib();
+  }
+
+  void GLPainter::drawMesh(const Mesh & mesh, int mode)
+  {
+    // Now we draw the given mesh to the OpenGL widget
+    switch (mode)
+    {
+      case 0:
+        glPolygonMode(GL_FRONT, GL_FILL);
+        glEnable(GL_LIGHTING);
+        break;
+      case 1:
+        glPolygonMode(GL_FRONT, GL_LINE);
+        glDisable(GL_LIGHTING);
+        break;
+      case 2:
+        glPolygonMode(GL_FRONT, GL_POINT);
+        glDisable(GL_LIGHTING);
+        break;
+    }
+
+    d->color.apply();
+    d->color.applyAsMaterials();
+    glBegin(GL_TRIANGLES);
+
+    // Render the triangles of the mesh
+    std::vector<Eigen::Vector3f> v = mesh.vertices();
+    std::vector<Eigen::Vector3f> n = mesh.normals();
+
+    if (v.size() != n.size()) {
+      qDebug() << "Vertices size does not equal normals size:" << v.size()
+               << n.size();
+      return;
+    }
+
+    for(unsigned int i = 0; i < v.size(); ++i) {
+      glNormal3fv(n.at(i).data());
+      glVertex3fv(v.at(i).data());
+    }
+    glEnd();
+
+    glPolygonMode(GL_FRONT, GL_FILL);
+    glEnable(GL_LIGHTING);
+  }
+
+  void GLPainter::drawColorMesh(const Mesh & mesh, int mode)
+  {
+    // Now we draw the given mesh to the OpenGL widget
+    switch (mode)
+    {
+      case 0:
+        glPolygonMode(GL_FRONT, GL_FILL);
+        glEnable(GL_LIGHTING);
+        break;
+      case 1:
+        glPolygonMode(GL_FRONT, GL_LINE);
+        glDisable(GL_LIGHTING);
+        break;
+      case 2:
+        glPolygonMode(GL_FRONT, GL_POINT);
+        glDisable(GL_LIGHTING);
+        break;
+    }
+
+    glBegin(GL_TRIANGLES);
+
+    // Render the triangles of the mesh
+    std::vector<Eigen::Vector3f> v = mesh.vertices();
+    std::vector<Eigen::Vector3f> n = mesh.normals();
+    std::vector<QColor> c = mesh.colors();
+
+    if (v.size() != n.size() || v.size() != c.size()) {
+      qDebug() << "Vertices size does not equal normals size or color size:"
+               << v.size() << n.size() << c.size();
+      return;
+    }
+
+    // Normal or reverse winding?
+    Color color;
+    for(unsigned int i = 0; i < v.size(); ++i) {
+      color.set(c[i].redF(), c[i].greenF(), c[i].blueF(), d->color.alpha());
+      color.applyAsMaterials();
+      glNormal3fv(n[i].data());
+      glVertex3fv(v[i].data());
+    }
+    glEnd();
+
+    glPolygonMode(GL_FRONT, GL_FILL);
+    glEnable(GL_LIGHTING);
   }
 
   int GLPainter::drawText ( int x, int y, const QString &string ) const

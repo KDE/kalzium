@@ -5,7 +5,7 @@
   Copyright (C) 2008 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,15 +27,19 @@
 
 #include <avogadro/navigate.h>
 #include <avogadro/primitive.h>
+#include <avogadro/atom.h>
+#include <avogadro/molecule.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
 
-#include <openbabel/obiter.h>
-#include <openbabel/generic.h>
+#include <cmath>
 
-#include <math.h>
+#include <openbabel/math/vector3.h>
 
 #include <QtPlugin>
+#include <QAction>
+#include <QDebug>
+#include <Eigen/Geometry>
 
 using namespace std;
 using namespace OpenBabel;
@@ -43,7 +47,8 @@ using namespace Eigen;
 
 namespace Avogadro {
 
-  ClickMeasureTool::ClickMeasureTool(QObject *parent) : Tool(parent),  m_numSelectedAtoms(0)
+  ClickMeasureTool::ClickMeasureTool(QObject *parent) : Tool(parent),
+    m_selectedAtoms(), m_numSelectedAtoms(0)
   {
     QAction *action = activateAction();
     action->setIcon(QIcon(QString::fromUtf8(":/measure/measure.png")));
@@ -62,7 +67,7 @@ namespace Avogadro {
   {
   }
 
-  QUndoCommand* ClickMeasureTool::mousePress(GLWidget *widget, const QMouseEvent *event)
+  QUndoCommand* ClickMeasureTool::mousePressEvent(GLWidget *widget, QMouseEvent *event)
   {
     Molecule *molecule = widget->molecule();
     if(!molecule) {
@@ -78,58 +83,53 @@ namespace Avogadro {
       if(m_hits[0].type() != Primitive::AtomType)
         return 0;
 
-      Atom *atom = (Atom *)molecule->GetAtom(m_hits[0].name());
+      event->accept();
 
-      if(m_numSelectedAtoms < 4) {
-        // Select another atom
-        m_selectedAtoms[m_numSelectedAtoms++] = atom;
-        widget->update();
+      Atom *atom = molecule->atom(m_hits[0].name());
+      // First check if we've already selected this atom
+      // Fixes PR#
+      int indexOfAtom = m_selectedAtoms.indexOf(atom);
+      if (indexOfAtom != -1) { // in the list
+        m_numSelectedAtoms--; // update the count
+        m_selectedAtoms.removeAt(indexOfAtom);
       }
+      else { // new atom to add to list  
+        if(m_numSelectedAtoms < 4) {
+          // Select another atom
+          ++m_numSelectedAtoms;
+          m_selectedAtoms.append(atom);
+        }
+        
+      }
+      widget->update();
     }
     // Right button or Left Button + modifier (e.g., Mac)
-    else
-    {
+    else {
+      // Clear all atoms
+      event->accept();
       m_angle = 0;
-      m_vector[0].loadZero();
-      m_vector[1].loadZero();
+      m_vector[0].setZero();
+      m_vector[1].setZero();
       m_numSelectedAtoms = 0;
+      m_selectedAtoms.clear();
       widget->update();
     }
     return 0;
   }
 
-  QUndoCommand* ClickMeasureTool::mouseMove(GLWidget*, const QMouseEvent *)
+  QUndoCommand* ClickMeasureTool::mouseMoveEvent(GLWidget*, QMouseEvent *)
   {
     return 0;
   }
 
-  QUndoCommand* ClickMeasureTool::mouseRelease(GLWidget*, const QMouseEvent*)
+  QUndoCommand* ClickMeasureTool::mouseReleaseEvent(GLWidget*, QMouseEvent*)
   {
     return 0;
   }
 
-  QUndoCommand* ClickMeasureTool::wheel(GLWidget*widget, const QWheelEvent*event)
+  QUndoCommand* ClickMeasureTool::wheelEvent(GLWidget*, QWheelEvent*)
   {
-    // let's set the reference to be the center of the visible
-    // part of the molecule.
-    Eigen::Vector3d atomsBarycenter(0., 0., 0.);
-    double sumOfWeights = 0.;
-    std::vector<OpenBabel::OBNodeBase*>::iterator i;
-    for ( Atom *atom = static_cast<Atom*>(widget->molecule()->BeginAtom(i));
-          atom; atom = static_cast<Atom*>(widget->molecule()->NextAtom(i))) {
-      Eigen::Vector3d transformedAtomPos = widget->camera()->modelview() * atom->pos();
-      double atomDistance = transformedAtomPos.norm();
-      double dot = transformedAtomPos.z() / atomDistance;
-      double weight = exp(-30. * (1. + dot));
-      sumOfWeights += weight;
-      atomsBarycenter += weight * atom->pos();
-    }
-    atomsBarycenter /= sumOfWeights;
-
-    Navigate::zoom(widget, atomsBarycenter, - MOUSE_WHEEL_SPEED * event->delta());
-    widget->update();
-
-    return NULL;
+    return 0;
   }
 
   void ClickMeasureTool::calculateParameters()
@@ -142,7 +142,7 @@ namespace Avogadro {
         return;
 
       // Two atoms selected - distance measurement only
-      m_vector[0] = m_selectedAtoms[1]->pos() - m_selectedAtoms[0]->pos();
+      m_vector[0] = *m_selectedAtoms[1]->pos() - *m_selectedAtoms[0]->pos();
       QString distanceString = tr("Distance (1->2): %1 %2").arg(
                                 QString::number(m_vector[0].norm()),
                                 QString::fromUtf8("Å"));
@@ -160,14 +160,16 @@ namespace Avogadro {
         return;
 
       // Two distances and the angle between the three selected atoms
-      m_vector[1] = m_selectedAtoms[1]->pos() - m_selectedAtoms[2]->pos();
+      m_vector[1] = *m_selectedAtoms[1]->pos() - *m_selectedAtoms[2]->pos();
       QString distanceString = tr("Distance (2->3): %1 %2").arg(
                                QString::number(m_vector[1].norm()),
                                QString::fromUtf8("Å"));
 
       // Calculate the angle between the atoms
-      m_angle = vectorAngle(vector3(m_vector[0].x(), m_vector[0].y(), m_vector[0].z()),
-      		  				vector3(m_vector[1].x(), m_vector[1].y(), m_vector[1].z()));
+      m_angle = acos(m_vector[0].normalized().dot(m_vector[1].normalized()));
+      m_angle *= 180.0 / M_PI;
+//      m_angle = vectorAngle(vector3(m_vector[0].x(), m_vector[0].y(), m_vector[0].z()),
+//                            vector3(m_vector[1].x(), m_vector[1].y(), m_vector[1].z()));
       QString angleString = tr("Angle: %1 %2").arg(
                             QString::number(m_angle),
                             QString("°"));
@@ -189,22 +191,23 @@ namespace Avogadro {
         return;
 
       // Three distances, bond angle and dihedral angle
-      m_vector[2] = m_selectedAtoms[2]->pos() - m_selectedAtoms[3]->pos();
+      m_vector[2] = *m_selectedAtoms[2]->pos() - *m_selectedAtoms[3]->pos();
       QString distanceString = tr("Distance (3->4): %1 %2").arg(
                                 QString::number(m_vector[2].norm()),
                                 QString::fromUtf8("Å"));
-      m_dihedral = CalcTorsionAngle(vector3(m_selectedAtoms[0]->pos().x(),
-                                m_selectedAtoms[0]->pos().y(),
-                                m_selectedAtoms[0]->pos().z()),
-                                vector3(m_selectedAtoms[1]->pos().x(),
-                                m_selectedAtoms[1]->pos().y(),
-                                m_selectedAtoms[1]->pos().z()),
-                                vector3(m_selectedAtoms[2]->pos().x(),
-                                m_selectedAtoms[2]->pos().y(),
-                                m_selectedAtoms[2]->pos().z()),
-                                vector3(m_selectedAtoms[3]->pos().x(),
-                                m_selectedAtoms[3]->pos().y(),
-                                m_selectedAtoms[3]->pos().z()));
+
+      m_dihedral = CalcTorsionAngle(vector3(m_selectedAtoms[0]->pos()->x(),
+                                m_selectedAtoms[0]->pos()->y(),
+                                m_selectedAtoms[0]->pos()->z()),
+                                vector3(m_selectedAtoms[1]->pos()->x(),
+                                m_selectedAtoms[1]->pos()->y(),
+                                m_selectedAtoms[1]->pos()->z()),
+                                vector3(m_selectedAtoms[2]->pos()->x(),
+                                m_selectedAtoms[2]->pos()->y(),
+                                m_selectedAtoms[2]->pos()->z()),
+                                vector3(m_selectedAtoms[3]->pos()->x(),
+                                m_selectedAtoms[3]->pos()->y(),
+                                m_selectedAtoms[3]->pos()->z()));
       QString dihedralString = tr("Dihedral Angle: %1 %2").arg(
                                 QString::number(m_dihedral),
                                 QString("°"));
@@ -241,32 +244,29 @@ namespace Avogadro {
       QPoint dihedralPos(180, widget->height()-65);
 
       glColor3f(1.0,0.0,0.0);
-      Vector3d pos = m_selectedAtoms[0]->pos();
-      double radius = 0.18 + etab.GetVdwRad(m_selectedAtoms[0]->GetAtomicNum()) * 0.3 ;
-
-      Vector3d xAxis = widget->camera()->backTransformedXAxis();
-      Vector3d zAxis = widget->camera()->backTransformedZAxis();
+      const Vector3d *pos = m_selectedAtoms[0]->pos();
+      double radius = 0.18 + widget->radius(m_selectedAtoms[0]);
 
       // relative position of the text on the atom
-      Vector3d textRelPos = radius * (zAxis + xAxis);
+      Vector3d textRelPos = radius * widget->camera()->backTransformedZAxis();
 
-      Vector3d textPos = pos+textRelPos;
+      Vector3d textPos = *pos + textRelPos;
       widget->painter()->drawText(textPos, tr("*1", "*1 is a number. You most likely do not need to translate this" ));
 
       if(m_numSelectedAtoms >= 2 && m_selectedAtoms[1])
       {
         glColor3f(0.0,1.0,0.0);
         pos = m_selectedAtoms[1]->pos();
-        Vector3d textPos = pos+textRelPos;
-        radius = 0.18 + etab.GetVdwRad(m_selectedAtoms[1]->GetAtomicNum()) * 0.3;
+        Vector3d textPos = *pos + textRelPos;
+        radius = 0.18 + widget->radius(m_selectedAtoms[1]);
         widget->painter()->drawText(textPos, tr("*2", "*2 is a number. You most likely do not need to translate this"));
 
         if(m_numSelectedAtoms >= 3 && m_selectedAtoms[2])
         {
           // Display a label on the third atom
           pos = m_selectedAtoms[2]->pos();
-          radius = 0.18 + etab.GetVdwRad(m_selectedAtoms[2]->GetAtomicNum()) * 0.3;
-          textPos = pos+textRelPos;
+          radius = 0.18 + widget->radius(m_selectedAtoms[2]);
+          textPos = *pos + textRelPos;
           glColor3f(0.0,0.0,1.0);
           widget->painter()->drawText(textPos, tr("*3", "*3 is a number. You most likely do not need to translate this"));
         }
@@ -274,8 +274,8 @@ namespace Avogadro {
         {
           // Display a label on the fourth atom
           pos = m_selectedAtoms[3]->pos();
-          radius = 0.18 + etab.GetVdwRad(m_selectedAtoms[3]->GetAtomicNum()) * 0.3;
-          textPos = pos + textRelPos;
+          radius = 0.18 + widget->radius(m_selectedAtoms[3]);
+          textPos = *pos + textRelPos;
           glColor3f(0.0,1.0,1.0);
           widget->painter()->drawText(textPos, tr("*4", "*4 is a number. You most likely do not need to translate this"));
         }
@@ -315,40 +315,18 @@ namespace Avogadro {
         if(m_numSelectedAtoms >= 3 && m_selectedAtoms[0] && m_selectedAtoms[1]
           && m_selectedAtoms[2])
         {
-          Vector3d origin = m_selectedAtoms[1]->pos();
-          Vector3d d1 = m_selectedAtoms[0]->pos() - origin;
-          Vector3d d2 = m_selectedAtoms[2]->pos() - origin;
-          // The vector length is half the average vector length
-          double radius = (d1.norm()+d2.norm()) * 0.25;
-          // Adjust the length of u and v to the length calculated above.
-          d1 = (d1 / d1.norm()) * radius;
-          d2 = (d2 / d2.norm()) * radius;
-          if (m_angle < 1) return true;
-          // Vector perpindicular to both d1 and d2
-          Vector3d n = d1.cross(d2);
+          const Vector3d *origin = m_selectedAtoms[1]->pos();
 
-          Vector3d xAxis = Vector3d(1, 0, 0);
-          Vector3d yAxis = Vector3d(0, 1, 0);
-
-          if (n.norm() < 1e-16)
-          {
-            Eigen::Vector3d A = d1.cross(xAxis);
-            Eigen::Vector3d B = d1.cross(yAxis);
-
-            n = A.norm() >= B.norm() ? A : B;
-          }
-
-          n = n / n.norm();
           glEnable(GL_BLEND);
           glDepthMask(GL_FALSE);
           widget->painter()->setColor(0, 1.0, 0, 0.3);
-          widget->painter()->drawShadedSector(origin, m_selectedAtoms[0]->pos(),
-                                             m_selectedAtoms[2]->pos(), radius);
+          widget->painter()->drawShadedSector(*origin, *m_selectedAtoms[0]->pos(),
+                                              *m_selectedAtoms[2]->pos(), radius);
           glDepthMask(GL_TRUE);
           glDisable(GL_BLEND);
           widget->painter()->setColor(1.0, 1.0, 1.0, 1.0);
-          widget->painter()->drawArc(origin, m_selectedAtoms[0]->pos(),
-                                     m_selectedAtoms[2]->pos(), radius, 1.0);
+          widget->painter()->drawArc(*origin, *m_selectedAtoms[0]->pos(),
+                                     *m_selectedAtoms[2]->pos(), radius, 1.0);
         }
       }
     }

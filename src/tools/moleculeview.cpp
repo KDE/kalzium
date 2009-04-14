@@ -32,10 +32,6 @@
 using namespace OpenBabel;
 using namespace Avogadro;
 
-// Handles localization/translation of element names
-// e.g., nitrogen in English is azote in French
-A_EXPORT Avogadro::ElementTranslator Avogadro::elementTranslator;
-
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent ), m_periodicTable(0), m_addHydrogens(false)
 {
@@ -142,10 +138,10 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 void MoleculeDialog::slotLoadMolecule()
 {
-	// Check that we have managed to load up some tools and engines
-	int nEngines = ui.glWidget->engines().size() - 1;
+  // Check that we have managed to load up some tools and engines
+  int nEngines = ui.glWidget->engines().size() - 1;
   int nTools = ui.glWidget->toolGroup()->tools().size();
-	QString error;
+  QString error;
   if(!nEngines && !nTools)
     error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
   else if(!nEngines)
@@ -158,38 +154,39 @@ void MoleculeDialog::slotLoadMolecule()
   m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) +
     "data/molecules/";
 
-	QString commonMoleculeFormats = i18n( "Common molecule formats" );
-	QString allFiles = i18n( "All files" );
+  QString commonMoleculeFormats = i18n( "Common molecule formats" );
+  QString allFiles = i18n( "All files" );
 
-	QString filename = KFileDialog::getOpenFileName( 
-			m_path,
-			"*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
-			" *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
-			" *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-			" *.mpd *.mol2|"+commonMoleculeFormats+"\n"
-			"* *.*|"+allFiles,
-			this,
-			i18n( "Choose a file to open" ) );
+  QString filename = KFileDialog::getOpenFileName( 
+          m_path,
+          "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+          " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
+          " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
+          " *.mpd *.mol2|"+commonMoleculeFormats+"\n"
+          "* *.*|"+allFiles,
+          this,
+          i18n( "Choose a file to open" ) );
 
-	if( filename.isEmpty() ) return;
+  if( filename.isEmpty() ) return;
 
-	kDebug() << "Filename to load: " << filename;
+  kDebug() << "Filename to load: " << filename;
 
-	Avogadro::Molecule* molecule = OpenBabel2Wrapper::readMolecule( filename );
+  Molecule* molecule = OpenBabel2Wrapper::readMolecule( filename );
 
   // Check that a valid molecule object was returned
   if (!molecule)
     return;
 
-	if (molecule->NumAtoms() != 0)
-	{
+  if (molecule->numAtoms() != 0)
+  {
     disconnect(ui.glWidget->molecule(), 0, this, 0);
-		molecule->Center();
-		ui.glWidget->setMolecule( molecule );
-		ui.glWidget->update();
-		slotUpdateStatistics();
+               molecule->center();
+               ui.glWidget->setMolecule( molecule );
+               ui.glWidget->update();
+               slotUpdateStatistics();
     connect(molecule, SIGNAL(updated()), this, SLOT(slotUpdateStatistics()));
-	}
+  }
+  ui.glWidget->invalidateDLs();
 }
 
 void MoleculeDialog::slotSaveMolecule()
@@ -231,8 +228,8 @@ void MoleculeDialog::slotUpdateStatistics()
 	Avogadro::Molecule* mol = ui.glWidget->molecule();
 	if ( !mol ) return;
 
-	ui.nameLabel->setText( mol->GetTitle() );
-	ui.weightLabel->setText( i18nc( "This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->GetMolWt() ) );
+	ui.nameLabel->setText( mol->OBMol().GetTitle() );
+	ui.weightLabel->setText( i18nc( "This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->OBMol().GetMolWt() ) );
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
 //	ui.glWidget->update();
 }
@@ -253,25 +250,25 @@ void MoleculeDialog::slotDownloadNewStuff()
 
 void MoleculeDialog::elementCombo()
 {
-  ui.elementCombo->addItem(elementTranslator.name(1) + " (1)");
+  ui.elementCombo->addItem(ElementTranslator::name(1) + " (1)");
   m_elementsIndex.append(1);
-  ui.elementCombo->addItem(elementTranslator.name(5) + " (5)");
+  ui.elementCombo->addItem(ElementTranslator::name(5) + " (5)");
   m_elementsIndex.append(5);
-  ui.elementCombo->addItem(elementTranslator.name(6) + " (6)");
+  ui.elementCombo->addItem(ElementTranslator::name(6) + " (6)");
   m_elementsIndex.append(6);
-  ui.elementCombo->addItem(elementTranslator.name(7) + " (7)");
+  ui.elementCombo->addItem(ElementTranslator::name(7) + " (7)");
   m_elementsIndex.append(7);
-  ui.elementCombo->addItem(elementTranslator.name(8) + " (8)");
+  ui.elementCombo->addItem(ElementTranslator::name(8) + " (8)");
   m_elementsIndex.append(8);
-  ui.elementCombo->addItem(elementTranslator.name(9) + " (9)");
+  ui.elementCombo->addItem(ElementTranslator::name(9) + " (9)");
   m_elementsIndex.append(9);
-  ui.elementCombo->addItem(elementTranslator.name(15) + " (15)");
+  ui.elementCombo->addItem(ElementTranslator::name(15) + " (15)");
   m_elementsIndex.append(15);
-  ui.elementCombo->addItem(elementTranslator.name(16) + " (16)");
+  ui.elementCombo->addItem(ElementTranslator::name(16) + " (16)");
   m_elementsIndex.append(16);
-  ui.elementCombo->addItem(elementTranslator.name(17) + " (17)");
+  ui.elementCombo->addItem(ElementTranslator::name(17) + " (17)");
   m_elementsIndex.append(17);
-  ui.elementCombo->addItem(elementTranslator.name(35) + " (35)");
+  ui.elementCombo->addItem(ElementTranslator::name(35) + " (35)");
   m_elementsIndex.append(35);
   ui.elementCombo->addItem(tr("Other..."));
   m_elementsIndex.append(0);
@@ -326,7 +323,7 @@ void MoleculeDialog::slotCustomElementChanged(int element)
   }
 
   // And now we set up a new entry into the combo list
-  QString entryName(elementTranslator.name(element)); // (e.g., "Hydrogen")
+  QString entryName(ElementTranslator::name(element)); // (e.g., "Hydrogen")
   entryName += " (" + QString::number(element) + ')';
 
   m_elementsIndex.insert(position, element);
@@ -351,12 +348,12 @@ void MoleculeDialog::slotAdjustHydrogens()
   // Add/remove hydrogens from the molecule
   if (!m_addHydrogens) {
     ui.hydrogensButton->setText(i18n("Remove hydrogens"));
-    ui.glWidget->molecule()->AddHydrogens(false, false);
+    ui.glWidget->molecule()->addHydrogens();
     m_addHydrogens = true;
   }
   else {
     ui.hydrogensButton->setText(i18n("Add hydrogens"));
-    ui.glWidget->molecule()->DeleteHydrogens();
+    ui.glWidget->molecule()->removeHydrogens();
     m_addHydrogens = false;
   }
   ui.glWidget->molecule()->update();
@@ -368,10 +365,11 @@ void MoleculeDialog::slotGeometryOptimize()
   if (!m_forceField)
     return;
 
-  Avogadro::Molecule* molecule = ui.glWidget->molecule();
+  Molecule* molecule = ui.glWidget->molecule();
+  OpenBabel::OBMol obmol(molecule->OBMol());
 
   // Warn the user if the force field cannot be set up for the molecule
-  if (!m_forceField->Setup(*molecule))
+  if (!m_forceField->Setup(obmol))
   {
     KMessageBox::error(this, i18n("Kalzium"),
       i18n("Could not set up force field for this molecule"));
@@ -383,7 +381,8 @@ void MoleculeDialog::slotGeometryOptimize()
   // Provide some feedback as the optimization runs
   while (m_forceField->SteepestDescentTakeNSteps(5))
   {
-    m_forceField->UpdateCoordinates(*molecule);
+    m_forceField->UpdateCoordinates(obmol);
+    molecule->setOBMol(&obmol);
     molecule->update();
   }
 }

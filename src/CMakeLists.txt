@@ -24,7 +24,7 @@ if(OPENBABEL2_FOUND)
       )
    include_directories( ${OPENBABEL2_INCLUDE_DIR} )
 
-   if(OPENGL_FOUND AND EIGEN_FOUND)
+   if(OPENGL_FOUND AND EIGEN2_FOUND)
 
       set(kalziumtools_SRCS
          ${kalziumtools_SRCS}
@@ -34,8 +34,9 @@ if(OPENBABEL2_FOUND)
       kde4_add_ui_files(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
-      include_directories( ${EIGEN_INCLUDE_DIR} )
-   endif(OPENGL_FOUND AND EIGEN_FOUND)
+      message(STATUS "Building the molecular editor.")
+      include_directories( ${EIGEN2_INCLUDE_DIR} )
+   endif(OPENGL_FOUND AND EIGEN2_FOUND)
 endif(OPENBABEL2_FOUND)
 
 set(kalzium_SRCS
@@ -114,9 +115,9 @@ target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE
 
 if (OPENBABEL2_FOUND)
     target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-    if (OPENGL_FOUND AND EIGEN_FOUND)
+    if (OPENGL_FOUND AND EIGEN2_FOUND)
         target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
-    endif (OPENGL_FOUND AND EIGEN_FOUND)
+    endif (OPENGL_FOUND AND EIGEN2_FOUND)
 endif (OPENBABEL2_FOUND)
 
 if(LIBFACILE_FOUND)

@@ -1,14 +1,14 @@
 /**********************************************************************
  PeriodicTableView - Periodic Table Graphics View for Avogadro
 
- Copyright (C) 2007-2008 by Marcus D. Hanwell
+ Copyright (C) 2007-2009 by Marcus D. Hanwell
 
  This file is part of the Avogadro molecular editor project.
- For more information, see <http://avogadro.sourceforge.net/>
+ For more information, see <http://avogadro.openmolecules.net/>
 
  Avogadro is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; either version 2.1 of the License, or
  (at your option) any later version.
 
  Avogadro is distributed in the hope that it will be useful,
@@ -29,9 +29,7 @@
 
 #include <openbabel/data.h>
 
-#include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include <QGraphicsView>
 #include <QPainter>
 #include <QStyleOption>
 #include <QFont>
@@ -39,17 +37,14 @@
 #include <QDebug>
 
 namespace OpenBabel{
-  // EXTERN comes from babelconfig.h and is more than just 'extern' on windows
-  EXTERN OBElementTable etab;
+  OBElementTable etab;
 }
 
 namespace Avogadro {
 
-  ElementItem::ElementItem(int elementNumber) : m_width(26), m_height(26)
+  ElementItem::ElementItem(int elementNumber) : m_width(26), m_height(26),
+    m_element(elementNumber)
   {
-    // Set up some reasonable defaults for our item
-    m_element = elementNumber;
-
     // Want these items to be selectable
     setFlags(QGraphicsItem::ItemIsSelectable);
 
@@ -59,12 +54,11 @@ namespace Avogadro {
     m_color->setRgbF(color[0], color[1], color[2]);
     // Set some custom data to make it easy to figure out which element we are
     setData(0, m_element);
-    setData(1, 8 + m_element);
   }
 
   ElementItem::~ElementItem()
   {
-     delete m_color;
+    delete m_color;
   }
 
   QRectF ElementItem::boundingRect() const
@@ -105,10 +99,9 @@ namespace Avogadro {
     painter->drawText(rect, Qt::AlignCenter, m_symbol);
   }
 
-  ElementDetail::ElementDetail(int elementNumber) : m_width(100), m_height(70)
+  ElementDetail::ElementDetail(int elementNumber) : m_width(100), m_height(70),
+    m_element(elementNumber)
   {
-    // Set up some reasonable defaults for our item
-    m_element = elementNumber;
   }
 
   QRectF ElementDetail::boundingRect() const
@@ -134,7 +127,7 @@ namespace Avogadro {
     int pixelHeight = fm.height();
 
     QString symbol = OpenBabel::etab.GetSymbol(m_element);
-    QString name(elementTranslator.name(m_element));
+    QString name(ElementTranslator::name(m_element));
     QString mass = QString::number(OpenBabel::etab.GetMass(m_element), 'f', 3);
 
     std::vector<double> color = OpenBabel::etab.GetRGB(m_element);
@@ -303,7 +296,7 @@ namespace Avogadro {
 
     element = 71;
 
-    for (int i = 2; i < 18; i++) {
+    for (int i = 2; i < 18; ++i) {
       item = new ElementItem(element++);
       item->setPos(i * width, 5 * height);
       addItem(item);
@@ -319,7 +312,7 @@ namespace Avogadro {
 
     element = 103;
 
-    for (int i = 2; i < 16; i++) {
+    for (int i = 2; i < 16; ++i) {
       item = new ElementItem(element++);
       item->setPos(i * width, 6 * height);
       addItem(item);
@@ -327,13 +320,13 @@ namespace Avogadro {
 
     // Now for the weird ones at the bottom...
     element = 57;
-    for (int i = 2; i < 16; i++) {
+    for (int i = 2; i < 16; ++i) {
       item = new ElementItem(element++);
       item->setPos(i * width, 7.5 * height);
       addItem(item);
     }
     element = 89;
-    for (int i = 2; i < 16; i++) {
+    for (int i = 2; i < 16; ++i) {
       item = new ElementItem(element++);
       item->setPos(i * width, 8.5 * height);
       addItem(item);
@@ -374,23 +367,16 @@ namespace Avogadro {
 
     setScene(table);
     setRenderHint(QPainter::Antialiasing);
-    setWindowTitle(tr("Periodic Table"));
+    setWindowTitle("Periodic Table");
     resize(490, 270);
     setFixedSize(490, 270);
     connect(table, SIGNAL(elementChanged(int)),
             this, SLOT(elementClicked(int)));
   }
 
-  PeriodicTableView::PeriodicTableView(QGraphicsScene *scene, QWidget *parent) :
-    QGraphicsView(scene, parent)
+  PeriodicTableView::~PeriodicTableView()
   {
-    connect(scene, SIGNAL(elementChanged(int)),
-            this, SLOT(elementClicked(int)));
-  }
-
-  void PeriodicTableView::setSelectedElement(int)
-  {
-
+    delete scene();
   }
 
   void PeriodicTableView::elementClicked(int id)

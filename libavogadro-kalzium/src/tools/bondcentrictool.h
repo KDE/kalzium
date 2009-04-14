@@ -4,11 +4,11 @@
   Copyright (C) 2007 by Shahzad Ali
   Copyright (C) 2007 by Ross Braithwaite
   Copyright (C) 2007 by James Bunt
-  Copyright (C) 2007 by Marcus D. Hanwell
+  Copyright (C) 2007,2008 by Marcus D. Hanwell
   Copyright (C) 2006,2007 by Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -34,11 +34,11 @@
 #include <avogadro/glwidget.h>
 #include <avogadro/tool.h>
 
-#include <openbabel/mol.h>
+#include <Eigen/Core>
+
+#include <avogadro/molecule.h>
 
 #include <QGLWidget>
-#include <QObject>
-#include <QStringList>
 #include <QImage>
 #include <QAction>
 #include <QUndoCommand>
@@ -47,7 +47,6 @@
 #include <QSpinBox>
 #include <QCheckBox>
 #include <QGridLayout>
-
 
 namespace Avogadro {
 
@@ -63,6 +62,8 @@ namespace Avogadro {
   class BondCentricTool : public Tool
   {
     Q_OBJECT
+      AVOGADRO_TOOL("Bond Centric Manipulate", tr("Bond Centric Manipulate"),
+                  tr("Manipulation of bond lengths, angles, and torsions"))
 
     public:
       //! Constructor
@@ -70,21 +71,13 @@ namespace Avogadro {
       //! Deconstructor
       virtual ~BondCentricTool();
 
-      //! \name Description methods
-      //@{
-      //! Tool Name (ie Draw)
-      virtual QString name() const { return(tr("Bond Centric Manipulate")); }
-      //! Tool Description (ie. Draws atoms and bonds)
-      virtual QString description() const { return(tr("Bond Centric Manipulation Tool")); }
-      //@}
-
       //! \name Tool Methods
       //@{
       //! \brief Callback methods for ui.actions on the canvas.
-      virtual QUndoCommand* mousePress(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseRelease(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* mouseMove(GLWidget *widget, const QMouseEvent *event);
-      virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event);
+      virtual QUndoCommand* mousePressEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseReleaseEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* mouseMoveEvent(GLWidget *widget, QMouseEvent *event);
+      virtual QUndoCommand* wheelEvent(GLWidget *widget, QWheelEvent *event);
       //@}
 
       virtual int usefulness() const;
@@ -418,13 +411,11 @@ namespace Avogadro {
   };
 
 
-  class BondCentricToolFactory : public QObject, public ToolFactory
+  class BondCentricToolFactory : public QObject, public PluginFactory
   {
     Q_OBJECT
-    Q_INTERFACES(Avogadro::ToolFactory)
-
-    public:
-      Tool *createInstance(QObject *parent = 0) { return new BondCentricTool(parent); }
+    Q_INTERFACES(Avogadro::PluginFactory)
+    AVOGADRO_TOOL_FACTORY(BondCentricTool)
   };
 
 } // end namespace Avogadro

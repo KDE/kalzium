@@ -4,7 +4,7 @@
   Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
-  For more information, see <http://avogadro.sourceforge.net/>
+  For more information, see <http://avogadro.openmolecules.net/>
 
   Avogadro is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,20 +27,26 @@
 #include <config.h>
 #include <avogadro/camera.h>
 #include <avogadro/painter.h>
+#include <avogadro/painterdevice.h>
 #include <avogadro/color.h>
+
+#include <avogadro/atom.h>
+#include <avogadro/bond.h>
+#include <avogadro/molecule.h>
 
 #include <QGLWidget> // for OpenGL bits
 #include <QDebug>
 
+#include <openbabel/mol.h>
+
 using namespace std;
-using namespace OpenBabel;
 using namespace Eigen;
 
 namespace Avogadro
 {
 
 // our sort function
-  Camera *camera = 0;
+/*  Camera *camera = 0;
   bool sortCameraFarthest( const Primitive* lhs, const Primitive* rhs )
   {
     if ( !lhs ) {
@@ -78,23 +84,21 @@ namespace Avogadro
       }
     }
     return false;
-  }
+  } */
 
-  BSDYEngine::BSDYEngine( QObject *parent ) : Engine( parent ),
-      m_settingsWidget( 0 ), m_atomRadiusPercentage( 0.3 ), m_bondRadius( 0.1 ),
-      m_showMulti(true)
-  {
-    setDescription( tr( "Renders primitives using Balls (atoms) and Sticks (bonds)." ) );
-
-  }
+  BSDYEngine::BSDYEngine(QObject *parent) : Engine(parent),
+      m_settingsWidget(0), m_atomRadiusPercentage(0.3), m_bondRadius(0.1),
+      m_showMulti(2), m_alpha(1.)
+  {  }
 
   Engine *BSDYEngine::clone() const
   {
     BSDYEngine *engine = new BSDYEngine(parent());
-    engine->setName(name());
+    engine->setAlias(alias());
     engine->m_atomRadiusPercentage = m_atomRadiusPercentage;
     engine->m_bondRadius = m_bondRadius;
     engine->m_showMulti = m_showMulti;
+    engine->m_alpha = m_alpha;
     engine->setEnabled(isEnabled());
 
     return engine;
@@ -105,195 +109,172 @@ namespace Avogadro
     if ( m_settingsWidget ) {
       m_settingsWidget->deleteLater();
     }
-
   }
 
   bool BSDYEngine::renderOpaque( PainterDevice *pd )
   {
-    QList<Primitive *> list;
+//    glPushAttrib( GL_TRANSFORM_BIT );
 
-    glPushAttrib( GL_TRANSFORM_BIT );
-
+    // Render the opaque balls & sticks if m_alpha is 1
+    if (m_alpha < 0.999) {
+      return true;
+    }
     Color *map = colorMap(); // possible custom color map
     if (!map) map = pd->colorMap(); // fall back to global color map
 
-    // Get a list of bonds and render them
-    list = primitives().subList( Primitive::BondType );
+    // Render the bonds
+    foreach(const Bond *b, bonds()) {
+      Atom* atom1 = pd->molecule()->atomById(b->beginAtomId());
+      Atom* atom2 = pd->molecule()->atomById(b->endAtomId());
+      if (!atom1 || !atom2) {
+        qDebug() << "Invalid bond atom IDs" << b->beginAtomId() << atom1
+                 << b->endAtomId() << atom2 << "Bond" << b->id();
+        continue;
+      }
 
-    foreach(const Primitive *p, list ) {
-      const Bond *b = static_cast<const Bond *>( p );
-
-      const Atom* atom1 = static_cast<const Atom *>( b->GetBeginAtom() );
-      const Atom* atom2 = static_cast<const Atom *>( b->GetEndAtom() );
-      Vector3d v1( atom1->pos() );
-      Vector3d v2( atom2->pos() );
+      Vector3d v1(*atom1->pos());
+      Vector3d v2(*atom2->pos());
       Vector3d d = v2 - v1;
       d.normalize();
-      Vector3d v3(( v1 + v2 + d*( radius( atom1 )-radius( atom2 ) ) ) / 2 );
+      Vector3d v3((v1 + v2 + d*(radius(atom1) - radius(atom2))) / 2);
 
       double shift = 0.15;
       int order = 1;
-      if (m_showMulti) order = b->GetBO();
+      if (m_showMulti) order = b->order();
 
-      map->set( atom1 );
+      map->set(atom1);
       pd->painter()->setColor( map );
-      pd->painter()->setName( b );
       pd->painter()->drawMultiCylinder( v1, v3, m_bondRadius, order, shift );
 
-      map->set( atom2 );
+      map->set(atom2);
       pd->painter()->setColor( map );
-      pd->painter()->setName( b );
       pd->painter()->drawMultiCylinder( v3, v2, m_bondRadius, order, shift );
     }
 
     glDisable( GL_NORMALIZE );
     glEnable( GL_RESCALE_NORMAL );
 
-    // Build up a list of the atoms and render them
-    list = primitives().subList( Primitive::AtomType );
-    foreach(const Primitive *p, list ) {
-      const Atom *a = static_cast<const Atom *>( p );
-
-      map->set( a );
-      pd->painter()->setColor( map );
-      pd->painter()->setName( a );
-      pd->painter()->drawSphere( a->pos(), radius( a ) );
+    // Render the atoms
+    foreach(const Atom *a, atoms()) {
+      map->set(a);
+      pd->painter()->setColor(map);
+      pd->painter()->drawSphere(a->pos(), radius(a));
     }
 
     // normalize normal vectors of bonds
     glDisable( GL_RESCALE_NORMAL );
     glEnable( GL_NORMALIZE );
 
-    glPopAttrib();
+//    glPopAttrib();
 
     return true;
   }
 
-  bool BSDYEngine::renderTransparent( PainterDevice *pd )
+  bool BSDYEngine::renderTransparent(PainterDevice *pd)
   {
-    QList<Primitive *> list;
+    // Render selections when not renderquick
+    Color *map = colorMap();
+    if (!map) map = pd->colorMap();
 
-    camera = pd->camera();
-
-    glPushAttrib( GL_TRANSFORM_BIT );
-
-    Color *map = colorMap(); // possible custom color map
-    if (!map) map = pd->colorMap(); // fall back to global color map
-
-    // Get a list of bonds and render them
-    list = primitives().subList( Primitive::BondType );
-
-    // sort our atom list
-    // qSort(list.begin(), list.end(), sortCameraFarthest);
-
-    // enable depth mast for bonds
-    glDepthMask( GL_TRUE );
-
-    // push bond type
-    foreach(const Primitive *p, list ) {
-      const Bond *b = static_cast<const Bond *>( p );
-
-      // Render the selection highlight
-      if ( pd->isSelected( b ) ) {
-        const Atom* atom1 = static_cast<const Atom *>( b->GetBeginAtom() );
-        const Atom* atom2 = static_cast<const Atom *>( b->GetEndAtom() );
-        Vector3d v1( atom1->pos() );
-        Vector3d v2( atom2->pos() );
-
-        double shift = 0.15;
-        int order = b->GetBO();
-
-        map->setToSelectionColor();
-        glEnable( GL_BLEND );
-        pd->painter()->setColor( map );
-        pd->painter()->setName( b );
-        if (order == 1)
-          pd->painter()->drawCylinder(v1, v2, SEL_BOND_EXTRA_RADIUS + m_bondRadius);
-        else
-          pd->painter()->drawMultiCylinder( v1, v2, SEL_BOND_EXTRA_RADIUS + m_bondRadius, order, shift );
-        glDisable( GL_BLEND );
-      }
-    }
-
-    glDepthMask( GL_FALSE );
     glDisable( GL_NORMALIZE );
     glEnable( GL_RESCALE_NORMAL );
-
-    // Build up a list of the atoms and render them
-    list = primitives().subList( Primitive::AtomType );
-
-    // sort our atom list
-    // qSort(list.begin(), list.end(), sortCameraFarthest);
-
-    foreach(const Primitive *p, list ) {
-      const Atom *a = static_cast<const Atom *>( p );
-
-      // Render the selection highlight
-      if ( pd->isSelected( a ) ) {
+    foreach(const Atom *a, atoms()) {
+      // First render the atom if it is transparent.
+      if (m_alpha < 0.999 && m_alpha > 0.001) {
+        map->set(a);
+        map->setAlpha(m_alpha);
+        pd->painter()->setColor(map);
+        pd->painter()->drawSphere(a->pos(), radius(a));
+      }
+      // If the atom is selected render the selection
+      if (pd->isSelected(a)) {
         map->setToSelectionColor();
-        glEnable( GL_BLEND );
-        pd->painter()->setColor( map );
-        pd->painter()->setName( a );
-        pd->painter()->drawSphere( a->pos(), SEL_ATOM_EXTRA_RADIUS + radius( a ) );
-        glDisable( GL_BLEND );
+        pd->painter()->setColor(map);
+        pd->painter()->drawSphere(a->pos(), SEL_ATOM_EXTRA_RADIUS + radius(a));
       }
     }
 
-    // normalize normal vectors of bonds
     glDisable( GL_RESCALE_NORMAL );
     glEnable( GL_NORMALIZE );
+    foreach(const Bond *b, bonds()) {
+      // If the bond is not selected and balls and sticks are opaque do not render it
+      if (!pd->isSelected(b) && m_alpha > 0.999) continue;
 
-    glPopAttrib();
+      Atom* atom1 = pd->molecule()->atomById(b->beginAtomId());
+      Atom* atom2 = pd->molecule()->atomById(b->endAtomId());
+      if (!atom1 || !atom2) {
+        qDebug() << "Invalid bond atom IDs" << b->beginAtomId() << atom1
+                 << b->endAtomId() << atom2 << "Bond" << b->id();
+        continue;
+      }
 
+      Vector3d v1(*atom1->pos());
+      Vector3d v2(*atom2->pos());
+      Vector3d d = v2 - v1;
+      d.normalize();
+      Vector3d v3((v1 + v2 + d*(radius(atom1) - radius(atom2))) / 2);
+
+      double shift = 0.15;
+      int order = 1;
+      if (m_showMulti) order = b->order();
+
+      // The "inner" bond has to be rendered first.
+      if (m_alpha < 0.999 && m_alpha > 0.001) {
+        map->set(atom1);
+        map->setAlpha(m_alpha);
+        pd->painter()->setColor( map );
+        pd->painter()->drawMultiCylinder( v1, v3, m_bondRadius, order, shift );
+
+        map->set(atom2);
+        map->setAlpha(m_alpha);
+        pd->painter()->setColor( map );
+        pd->painter()->drawMultiCylinder( v3, v2, m_bondRadius, order, shift );
+      }
+
+      // Render the selected bond.
+      if (pd->isSelected(b)) {
+        map->setToSelectionColor();
+        pd->painter()->setColor(map);
+        pd->painter()->drawMultiCylinder( v1, v2,
+                           SEL_BOND_EXTRA_RADIUS + m_bondRadius, order, shift );
+      }
+    }
     return true;
   }
 
   bool BSDYEngine::renderQuick(PainterDevice *pd)
   {
-    // Render atoms and bond with no transparency...
-    QList<Primitive *> list;
-
     Color *map = colorMap(); // possible custom color map
     if (!map) map = pd->colorMap(); // fall back to global color map
     Color cSel;
     cSel.setToSelectionColor();
 
-    // Get a list of bonds and render them
-    list = primitives().subList(Primitive::BondType);
-
-    foreach(const Primitive *p, list)
-    {
-      const Bond *b = static_cast<const Bond *>(p);
-
-      const Atom* atom1 = static_cast<const Atom *>(b->GetBeginAtom());
-      const Atom* atom2 = static_cast<const Atom *>(b->GetEndAtom());
-      Vector3d v1(atom1->pos());
-      Vector3d v2(atom2->pos());
+    // Render the bonds
+    foreach(Bond *b, bonds()) {
+      Atom* atom1 = pd->molecule()->atomById(b->beginAtomId());
+      Atom* atom2 = pd->molecule()->atomById(b->endAtomId());
+      Vector3d v1(*atom1->pos());
+      Vector3d v2(*atom2->pos());
       Vector3d d = v2 - v1;
       d.normalize();
       Vector3d v3((v1 + v2 + d*(radius(atom1)-radius(atom2))) / 2);
 
       double shift = 0.15;
       int order = 1;
-      if (m_showMulti) order = b->GetBO();
+      if (m_showMulti) order = b->order();
 
-      if (pd->isSelected(b))
-      {
+      if (pd->isSelected(b)) {
         pd->painter()->setColor(&cSel);
-        pd->painter()->setName(b);
         pd->painter()->drawMultiCylinder(v1, v2, SEL_BOND_EXTRA_RADIUS +
                                          m_bondRadius, order, shift);
       }
-      else
-      {
+      else {
         map->set(atom1);
         pd->painter()->setColor(map);
-        pd->painter()->setName(b);
         pd->painter()->drawMultiCylinder(v1, v3, m_bondRadius, order, shift);
 
         map->set( atom2 );
         pd->painter()->setColor(map);
-        pd->painter()->setName(b);
         pd->painter()->drawMultiCylinder(v3, v2, m_bondRadius, order, shift);
       }
     }
@@ -301,23 +282,15 @@ namespace Avogadro
     glDisable(GL_NORMALIZE);
     glEnable(GL_RESCALE_NORMAL);
 
-    // Build up a list of the atoms and render them
-    list = primitives().subList(Primitive::AtomType);
-    foreach(const Primitive *p, list)
-    {
-      const Atom *a = static_cast<const Atom *>(p);
-
-      if (pd->isSelected(a))
-      {
+    // Render the atoms
+    foreach(Atom *a, atoms()) {
+      if (pd->isSelected(a)) {
         pd->painter()->setColor(&cSel);
-        pd->painter()->setName(a);
         pd->painter()->drawSphere(a->pos(), SEL_ATOM_EXTRA_RADIUS + radius(a));
       }
-      else
-      {
+      else {
         map->set(a);
         pd->painter()->setColor(map);
-        pd->painter()->setName(a);
         pd->painter()->drawSphere(a->pos(), radius(a));
       }
     }
@@ -328,9 +301,35 @@ namespace Avogadro
     return true;
   }
 
-  inline double BSDYEngine::radius( const Atom *atom ) const
+  bool BSDYEngine::renderPick(PainterDevice *pd)
   {
-    return etab.GetVdwRad( atom->GetAtomicNum() ) * m_atomRadiusPercentage;
+    // Render the bonds
+    foreach(Bond *b, bonds()) {
+      pd->painter()->setName(b);
+      // Add a slight slop factor to make it easier to pick
+      // (e.g., for bond-centric tool)
+      pd->painter()->drawCylinder(*b->beginPos(), *b->endPos(), m_bondRadius+0.05);
+    }
+
+    // Render the atoms
+    foreach(Atom *a, atoms())  {
+      pd->painter()->setName(a);
+      // add a slight "slop" factor to make it easier to pick
+      // (e.g., during drawing)
+      // heavy atoms get a bit more, hydrogens get a bit less
+      if (a->atomicNumber() > 1)
+        pd->painter()->drawSphere(a->pos(), radius(a) + 0.03);
+      else
+        pd->painter()->drawSphere(a->pos(), radius(a) - 0.06);
+    }
+    return true;
+  }
+
+  inline double BSDYEngine::radius(const Atom *atom) const
+  {
+    if (atom->atomicNumber())
+      return OpenBabel::etab.GetVdwRad(atom->atomicNumber()) * m_atomRadiusPercentage;
+    return m_atomRadiusPercentage;
   }
 
   void BSDYEngine::setAtomRadiusPercentage( int percent )
@@ -348,6 +347,12 @@ namespace Avogadro
   void BSDYEngine::setShowMulti(int value)
   {
     m_showMulti = value;
+    emit changed();
+  }
+
+  void BSDYEngine::setOpacity(int value)
+  {
+    m_alpha = 0.05 * value;
     emit changed();
   }
 
@@ -379,6 +384,11 @@ namespace Avogadro
     return m_atomRadiusPercentage;
   }
 
+  Engine::Layers BSDYEngine::layers() const
+  {
+    return Engine::Opaque | Engine::Transparent;
+  }
+
   QWidget *BSDYEngine::settingsWidget()
   {
     if (!m_settingsWidget) {
@@ -386,10 +396,12 @@ namespace Avogadro
       connect(m_settingsWidget->atomRadiusSlider, SIGNAL(valueChanged(int)), this, SLOT(setAtomRadiusPercentage(int)));
       connect(m_settingsWidget->bondRadiusSlider, SIGNAL(valueChanged(int)), this, SLOT(setBondRadius(int)));
       connect(m_settingsWidget->showMulti, SIGNAL(stateChanged(int)), this, SLOT(setShowMulti(int)));
+      connect(m_settingsWidget->opacitySlider, SIGNAL(valueChanged(int)), this, SLOT(setOpacity(int)));
       connect(m_settingsWidget, SIGNAL(destroyed()), this, SLOT(settingsWidgetDestroyed()));
       m_settingsWidget->atomRadiusSlider->setValue(10*m_atomRadiusPercentage);
       m_settingsWidget->bondRadiusSlider->setValue(20*m_bondRadius);
       m_settingsWidget->showMulti->setCheckState((Qt::CheckState)m_showMulti);
+      m_settingsWidget->opacitySlider->setValue(20*m_alpha);
     }
     return m_settingsWidget;
   }
@@ -406,6 +418,7 @@ namespace Avogadro
     settings.setValue("atomRadius", 10*m_atomRadiusPercentage);
     settings.setValue("bondRadius", 20*m_bondRadius);
     settings.setValue("showMulti", m_showMulti);
+    settings.setValue("opacity", 20*m_alpha);
   }
 
   void BSDYEngine::readSettings(QSettings &settings)
@@ -414,23 +427,21 @@ namespace Avogadro
     setAtomRadiusPercentage(settings.value("atomRadius", 3).toInt());
     setBondRadius(settings.value("bondRadius", 2).toInt());
     setShowMulti(settings.value("showMulti", 2).toInt());
+    setOpacity(settings.value("opacity", 100).toInt());
 
     if (m_settingsWidget) {
       m_settingsWidget->atomRadiusSlider->setValue(10*m_atomRadiusPercentage);
       m_settingsWidget->bondRadiusSlider->setValue(20*m_bondRadius);
       m_settingsWidget->showMulti->setCheckState((Qt::CheckState)m_showMulti);
+      m_settingsWidget->opacitySlider->setValue(20*m_alpha);
     }
   }
 
-
-  Engine::EngineFlags BSDYEngine::flags() const
-  {
-    return Engine::Transparent | Engine::Atoms | Engine::Bonds;
-  }
 //   AVOGADRO_ENGINE_FACTORY(BSDYEngine)
 
 }
 
 #include "bsdyengine.moc"
 
-Q_EXPORT_PLUGIN2( bsdyengine, Avogadro::BSDYEngineFactory )
+// This is a static engine...
+// Q_EXPORT_PLUGIN2( bsdyengine, Avogadro::BSDYEngineFactory )
