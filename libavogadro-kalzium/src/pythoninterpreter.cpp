@@ -66,6 +66,7 @@ namespace Avogadro {
 
   PythonInterpreter::~PythonInterpreter()
   {
+    delete d;
     //Py_Finalize();
   }
 
