@@ -78,14 +78,14 @@ void TimeWidgetImpl::play(void)
     m_timer -> start( 200 );
 
     m_mode = 1;          //start playing
-    Play-> setText("Pause");
+    Play-> setText(i18n("Pause"));
 }
 
 void TimeWidgetImpl::stop(void)
 {
     //Currently playing, stop the timer.
     m_timer -> stop();
-    Play -> setText("Play");
+    Play -> setText(i18n("Play"));
     m_mode = 0;         //Stop
 }
 
