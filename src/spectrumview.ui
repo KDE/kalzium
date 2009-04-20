@@ -14,7 +14,7 @@
    <string>This page gives an overview of the spectrum of this element. Using the mouse you can zoom into the spectrum.</string>
   </property>
   <property name="whatsThis">
-   <string>This page gives an overview of the spectrum of this element</string>
+   <string>This page gives an overview of the spectrum of this element.</string>
   </property>
   <layout class="QGridLayout">
    <property name="margin">
@@ -60,10 +60,10 @@
          <item>
           <widget class="QSpinBox" name="maximumValue">
            <property name="toolTip">
-            <string>This sets the rightmost wavelength of the spectrum</string>
+            <string>This sets the rightmost wavelength of the spectrum.</string>
            </property>
            <property name="whatsThis">
-            <string>This sets the rightmost wavelength of the spectrum</string>
+            <string>This sets the rightmost wavelength of the spectrum.</string>
            </property>
            <property name="suffix">
             <string>nm</string>
@@ -115,10 +115,10 @@
          <item>
           <widget class="QSpinBox" name="minimumValue">
            <property name="toolTip">
-            <string>This sets the leftmost wavelength of the spectrum</string>
+            <string>This sets the leftmost wavelength of the spectrum.</string>
            </property>
            <property name="whatsThis">
-            <string>This sets the leftmost wavelength of the spectrum</string>
+            <string>This sets the leftmost wavelength of the spectrum.</string>
            </property>
            <property name="suffix">
             <string>nm</string>
@@ -261,10 +261,10 @@
       </size>
      </property>
      <property name="toolTip">
-      <string>This is the spectrum of the element</string>
+      <string>This is the spectrum of the element.</string>
      </property>
      <property name="whatsThis">
-      <string>This is the spectrum of the element</string>
+      <string>This is the spectrum of the element.</string>
      </property>
     </widget>
    </item>
