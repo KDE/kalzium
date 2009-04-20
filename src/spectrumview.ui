@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="toolTip">
-   <string>This page gives an overview of the spectrum of this element. With the mouse you can zoom into the spectrum.</string>
+   <string>This page gives an overview of the spectrum of this element. Using the mouse you can zoom into the spectrum.</string>
   </property>
   <property name="whatsThis">
    <string>This page gives an overview of the spectrum of this element</string>
