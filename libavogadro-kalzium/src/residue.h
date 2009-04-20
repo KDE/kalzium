@@ -121,9 +121,9 @@ namespace Avogadro {
       const QList<QString> & atomIds() const;
 
     protected:
-      QString m_number; /** Residue number as in the file, e.g. 5A, 69, etc. **/
-      QList<QString> m_atomId; /** Atom text ids. **/
-      unsigned int m_chainNumber; /** The chain number that the residue belongs to. **/
+      QString m_number; /**< Residue number as in the file, e.g. 5A, 69, etc. **/
+      QList<QString> m_atomId; /**< Atom text ids. **/
+      unsigned int m_chainNumber; /**< The chain number that the residue belongs to. **/
       char m_chainID;
 
   };

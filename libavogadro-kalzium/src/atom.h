@@ -227,7 +227,7 @@ namespace Avogadro {
     void setResidue(const Residue *residue);
 
     /* shared d_ptr with Primitive */
-    Molecule *m_molecule; /** Parent molecule - should always be valid. **/
+    Molecule *m_molecule; /**< Parent molecule - should always be valid. */
     int m_pos;
     int m_atomicNumber;
     unsigned long m_residue;

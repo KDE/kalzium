@@ -111,9 +111,9 @@ namespace Avogadro {
 
     protected:
       Molecule *m_molecule;
-      QString m_name; /** The name of the Fragment. **/
-      QList<unsigned long> m_atoms; /** QList of the atom ids. **/
-      QList<unsigned long> m_bonds; /** QList of the bond ids. **/
+      QString m_name; /**< The name of the Fragment. **/
+      QList<unsigned long> m_atoms; /**< QList of the atom ids. **/
+      QList<unsigned long> m_bonds; /**< QList of the bond ids. **/
 
     private:
       Q_DECLARE_PRIVATE(Fragment)
