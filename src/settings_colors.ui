@@ -1098,7 +1098,6 @@ Check the properties you want to have displayed with a logarithmic gradient.</st
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11" />
   <customwidgets>
   <customwidget>
    <class>KColorButton</class>
