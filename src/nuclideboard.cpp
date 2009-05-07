@@ -203,6 +203,7 @@ void IsotopeScene::drawIsotopes()
 
 void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget )
 {
+    Q_UNUSED(widget)
     // FIXME: Get rid of magic numbers and rather dynamically calculate them
     QRectF r1( m_rect.translated( 0.0, 2.5 ) );
     QRectF r2( m_rect.topLeft() + QPointF( 1.0, 0.5 ), m_rect.size() / 2.0 );

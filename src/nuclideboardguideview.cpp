@@ -79,6 +79,7 @@ void IsotopeGuideView::drawItems( QPainter * painter, int numItems, QGraphicsIte
 
 void IsotopeGuideView::drawForeground( QPainter *painter, const QRectF &rect )
 {
+    Q_UNUSED(rect)
     if ( m_guidedView )
     {
         painter->setPen( QPen( Qt::red ) );
@@ -88,6 +89,7 @@ void IsotopeGuideView::drawForeground( QPainter *painter, const QRectF &rect )
 
 void IsotopeGuideView::resizeEvent(QResizeEvent *event)
 {
+    Q_UNUSED(event)
     double oldScale = m_scale;
     QSize size = event->size();
     double scaleX = size.width() / m_scene->width();

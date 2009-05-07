@@ -65,7 +65,7 @@ KalziumDidyouknow::~KalziumDidyouknow()
 void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
     qDebug() << "entering dataUpdated()";
-    Q_UNUSED(source);
+    Q_UNUSED(source)
 
     if (m_label1)  {
 //      m_label1->setAlignment(Qt::AlignLeft);
@@ -78,8 +78,8 @@ void KalziumDidyouknow::paintInterface(QPainter *p,
                        const QStyleOptionGraphicsItem *option,
                        const QRect &contentsRect)
 {
-    Q_UNUSED(option);
-
+    Q_UNUSED(option)
+    Q_UNUSED(contentsRect)
     p->setRenderHint(QPainter::SmoothPixmapTransform);
     p->setRenderHint(QPainter::Antialiasing);
 
