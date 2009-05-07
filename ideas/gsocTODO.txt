@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+***************************************  TODO file  ***********************************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This is the TODO file for my Google Summer of Code project.
+Here are the things to do. Please feel free to add more things to do if you find them missing.
+--- Kashyap R Puranik
+
+%%% Done:
+Creation of the UI for the various calculator.
+
+%%% Todo:
+Reusing Jean's code classes and implementing the molecular mass calculator
+Getting the plasma unit convertion files and adding API documentation, using them in Kalzium
+
+Completion of the different Calculators in the Molecular calculator widget.
+Plasmoid widget for the molecular calculator
+Additional parsers ( history )
+Prediction mode. The commonly used compounds will be put in the XML file.
+Making the UI better.
+
+%%% Other:
+setting up GIT svn.
+
+*** This week's activity
+Getting atleast one of the tabs of the molecular calculator working.
+Description: I plan to use the code that Jean has written. It implements the residue / formula classes.
+I have to use it in the molecular calculator to get the molecular mass calculator done.
+A simple one is already done and working. I plan to use that as well as Jean's code.
