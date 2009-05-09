@@ -1,7 +1,7 @@
 set(QT_USE_QTOPENGL true)
 
-set(PLUGIN_INSTALL_DIR   "${LIB_INSTALL_DIR}/avogadro-kalzium"
-    CACHE PATH "Install dir for plugins")
+set(LOCAL_PLUGIN_INSTALL_DIR   "${LIB_INSTALL_DIR}/avogadro-kalzium"
+    CACHE PATH "Install dir for avogadro-kalzium plugins")
 
 configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
