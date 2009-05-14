@@ -13,7 +13,7 @@
    <item row="0" column="0" >
     <widget class="QGroupBox" name="groupBox" >
      <property name="title" >
-      <string>GroupBox</string>
+      <string comment="KDE::DoNotExtract">GroupBox</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout" >
       <item>
