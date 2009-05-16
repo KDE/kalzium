@@ -248,7 +248,7 @@
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Ne">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">10</scalar>
@@ -438,7 +438,7 @@
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Ar">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">18</scalar>
@@ -682,7 +682,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">28</scalar>
     <label dictRef="bo:symbol" value="Ni" />
     <label dictRef="bo:name" xml:lang="en" value="Nickel" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">58.6934</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="4">58.6934</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">57.9353429</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.6398</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">1.15716</scalar>
@@ -729,7 +729,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">30</scalar>
     <label dictRef="bo:symbol" value="Zn" />
     <label dictRef="bo:name" xml:lang="en" value="Zinc" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="4">65.409</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">65.38</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">63.9291422</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.3942</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
@@ -866,7 +866,7 @@
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Kr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">36</scalar>
@@ -1016,7 +1016,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">42</scalar>
     <label dictRef="bo:symbol" value="Mo" />
     <label dictRef="bo:name" xml:lang="en" value="Molybdenum" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">95.94</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">95.96</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">97.9054082</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.0924</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">0.7472</scalar>
@@ -1294,7 +1294,7 @@
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Xe">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">54</scalar>
@@ -1657,7 +1657,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">70</scalar>
     <label dictRef="bo:symbol" value="Yb" />
     <label dictRef="bo:name" xml:lang="en" value="Ytterbium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">173.04</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="5">173.054</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">173.9388621</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.2542</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
@@ -1678,7 +1678,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">71</scalar>
     <label dictRef="bo:symbol" value="Lu" />
     <label dictRef="bo:name" xml:lang="en" value="Lutetium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">174.967</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">174.9668</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">174.9407718</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.4259</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
@@ -1754,7 +1754,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8640</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.815</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.36</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram, named after a mineral.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram, named after a mineral.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.13 0.58 0.84</array>
@@ -1778,7 +1778,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8335</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">0.15</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.9</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German river Rhine (Latin 'Rhenium'.)</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German river Rhine (latin 'Rhenium').</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.59</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.15 0.49 0.67</array>
@@ -1874,7 +1874,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.2255</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">2.30861</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.54</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'aurum'.  Named after Aurora, the goddess of sunrise.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'aurum'. Named after Aurora, the goddess of sunrise</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.82 0.12</array>
@@ -2024,7 +2024,7 @@
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Rn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">86</scalar>
@@ -2259,7 +2259,7 @@
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;R. A. James;A. Ghiors</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f7 6d2 7s2</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f7 6d1 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
   <atom id="Bk">
@@ -2406,7 +2406,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">104</scalar>
     <label dictRef="bo:symbol" value="Rf" />
     <label dictRef="bo:name" xml:lang="en" value="Rutherfordium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">261</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">267</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">261.10877</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.0</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Ernest Rutherford</scalar>
@@ -2424,7 +2424,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">105</scalar>
     <label dictRef="bo:symbol" value="Db" />
     <label dictRef="bo:name" xml:lang="en" value="Dubnium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">262</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">268</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">262.11408</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the science-town Dubna in Russia</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
@@ -2441,7 +2441,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">106</scalar>
     <label dictRef="bo:symbol" value="Sg" />
     <label dictRef="bo:name" xml:lang="en" value="Seaborgium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">266</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">271</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">263.11832</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist G. Theodore Seaborg.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
@@ -2458,7 +2458,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">107</scalar>
     <label dictRef="bo:symbol" value="Bh" />
     <label dictRef="bo:name" xml:lang="en" value="Bohrium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">264</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">272</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">264.1246</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Niels Bohr.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
@@ -2475,7 +2475,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">108</scalar>
     <label dictRef="bo:symbol" value="Hs" />
     <label dictRef="bo:name" xml:lang="en" value="Hassium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">277</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">270</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">265.13009</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'hassia' for the German county Hessen. In Hessen a lot elements have been discovered.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
@@ -2492,7 +2492,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">109</scalar>
     <label dictRef="bo:symbol" value="Mt" />
     <label dictRef="bo:name" xml:lang="en" value="Meitnerium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">268</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">276</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">268.13873</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Lise Meitner.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
@@ -2525,7 +2525,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">111</scalar>
     <label dictRef="bo:symbol" value="Rg" />
     <label dictRef="bo:name" xml:lang="en" value="Roentgenium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">272</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">280</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">272.15362</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Wilhelm Conrad Röntgen.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.93 0.00 0.13</array>
@@ -2601,7 +2601,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">116</scalar>
     <label dictRef="bo:symbol" value="Uuh" />
     <label dictRef="bo:name" xml:lang="en" value="Ununhexium" />
-    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">292</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">293</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">292.19979</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-polonium. Ununhexium is a temporary IUPAC systematic element name.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.98 0.00 0.08</array>
@@ -2621,7 +2621,7 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Uuo">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">118</scalar>
@@ -2630,10 +2630,9 @@
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">294</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-radon, eka-emanation before 1960. Ununoctium is a temporary IUPAC systematic element name.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.00 0.06</array>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">250</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2006</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2002</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
