@@ -194,7 +194,7 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	const int num = numOfElectrons.count();
 	if ( num == 0 ){
-		DC.drawText( QPoint( width()/3, height()/3 ), i18n( "Unknown Elektrondistribution" ) );
+		DC.drawText( QPoint( width()/3, height()/3 ), i18n( "Unknown Electron Distribution" ) );
 		return; // no orbits, do nothing
 	}
 
