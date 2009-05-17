@@ -10,6 +10,11 @@ if (WIN32)
   add_definitions( -DUSING_OBDLL -DUSING_DYNAMIC_LIBS )
 endif (WIN32)
 
+# -fexceptions is required because (ironically) of the use of new operator
+# definitions that don't throw exceptions (but that use
+# try...catch blocks to achieve this)
+add_definitions( -fexceptions )
+
 # Use this function to add a new plugin. It also uses the global variables
 # LINK_LIBS to determine what libraries the plugin should link to and
 # DESTINATION_DIR to determine where the plugin will be installed.
