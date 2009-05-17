@@ -19,6 +19,8 @@
 #include <QLatin1String>
 #include <QPainter>
 
+#include <KLocale>
+
 #include <math.h>
 
 static QStringList hulllist;
@@ -187,11 +189,14 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	DC.setRenderHint(  QPainter::Antialiasing, true );
 	DC.setPen( Qt::black );
 
-	const int num = numOfElectrons.count();
-	if ( num == 0 ) return; // no orbits, do nothing
-
 	int min_size = qMin( width(), height() );
 	int min_delta = min_size / 10;
+	
+	const int num = numOfElectrons.count();
+	if ( num == 0 ){
+		DC.drawText( QPoint( width()/3, height()/3 ), i18n( "Unknown Elektrondistribution" ) );
+		return; // no orbits, do nothing
+	}
 
 	//make sure the biggest orbit fits in the widget
 	//diameter
