@@ -1,12 +1,12 @@
-For the Kalzium of KDE 4.0 we decided to add a local copy of libavogadro.
+For the Kalzium of KDE 4.0 to 4.3 we decided to add a local copy of libavogadro.
 The reason is that libavogadro is to much in flux to be used as a real library.
 The internal copy will be synced with the official library as often
 as possible without adding new features after the freeze.
 
-For KDE 4.1 we will remove the internal copy and depend on
+For KDE 4.4 we will remove the internal copy and depend on
 the real libavogadro as a dependency.
 
 libavogadro is a lib for rendering and also
 editing (drawing) molecules with Qt, OpenGL and OpenBabel.
 
-http://avogadro.sourceforge.net
+see http://avogadro.sourceforge.net
