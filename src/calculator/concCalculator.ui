@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>concCalculator</class>
+ <widget class="QWidget" name="concCalculator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>828</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="KTextEdit" name="ktextedit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:12pt; font-weight:600;&quot;&gt;Some of the following data is not necessary. Eg. if you specify the amount of solute in moles, you don't have to specify the molar mass of solute.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout_11">
+     <item row="1" column="1">
+      <widget class="QRadioButton" name="radioButton_5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_36">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Amount of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QDoubleSpinBox" name="amtSolute">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QRadioButton" name="radioButton_6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_39">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Molar mass of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QDoubleSpinBox" name="molarMass">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>mass</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QRadioButton" name="radioButton_4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLabel" name="label_52">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Density of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QDoubleSpinBox" name="densitySolute">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="5">
+      <widget class="QComboBox" name="densSlt_unit">
+       <item>
+        <property name="text">
+         <string>kilograms per cubic meter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>kilograms per liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>grams per milliliter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces per cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces per cubic foot</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds per cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds per cubic foot</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds per cubic yard</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QRadioButton" name="radioButton_2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLabel" name="label_31">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Amount of Solvent:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QDoubleSpinBox" name="amtSolvent">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4">
+      <widget class="QComboBox" name="amtSlvntType">
+       <item>
+        <property name="text">
+         <string>volume</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Mass</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QRadioButton" name="radioButton_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLabel" name="label_55">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Density of Solvent:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QDoubleSpinBox" name="densitySolvent">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="5">
+      <widget class="QComboBox" name="densSlvt_unit_2">
+       <item>
+        <property name="text">
+         <string>grams/liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>moles/liter</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2">
+      <widget class="QLabel" name="label_41">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Concentration:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="3">
+      <widget class="QDoubleSpinBox" name="concentration">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="4">
+      <widget class="QComboBox" name="concentrationType">
+       <item>
+        <property name="text">
+         <string>Concentration</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="9" column="5">
+      <widget class="QComboBox" name="conc_unit">
+       <item>
+        <property name="text">
+         <string>molar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Normal</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>molal</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>% ( mass )</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>% ( volume )</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>% ( moles )</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="label_40">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Equivalent mass of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QRadioButton" name="radioButton_7">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QDoubleSpinBox" name="eqtMass">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>mass</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLabel" name="label_42">
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Molar mass of solvent:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QRadioButton" name="radioButton_8">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>mass</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QDoubleSpinBox" name="molarMassSolvent">
+       <property name="decimals">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QComboBox" name="amtSltType">
+       <item>
+        <property name="text">
+         <string>Mass</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>moles</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="6" column="5">
+      <widget class="QComboBox" name="molarMassSlvt_unit">
+       <item>
+        <property name="text">
+         <string>grams</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>tons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>carats</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>troy ounces</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="5">
+      <widget class="QComboBox" name="eqtMass_unit">
+       <item>
+        <property name="text">
+         <string>grams</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>tons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>carats</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>troy ounces</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QComboBox" name="molarMass_unit">
+       <item>
+        <property name="text">
+         <string>grams</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>tons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>carats</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>troy ounces</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QComboBox" name="amtSlt_unit">
+       <item>
+        <property name="text">
+         <string>grams</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>tons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>carats</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>troy ounces</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>mass / volume</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="4">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>mass / volume</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="5">
+      <widget class="QComboBox" name="amtSlvt_unit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>grams</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>tons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>carats</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>troy ounces</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="5" column="6">
+      <widget class="QComboBox" name="amtSlvt_unit2">
+       <item>
+        <property name="text">
+         <string>cubic meters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic feet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic mile</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fluid ounce</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cups</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>gallons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pints</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <widget class="QComboBox" name="amtSlt_unit2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>cubic meters</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic feet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic mile</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fluid ounce</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cups</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>gallons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pints</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="5" column="7">
+      <spacer name="horizontalSpacer_16">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>232</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_34">
+     <property name="text">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Results :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_9">
+       <property name="text">
+        <string>Copy</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_15">
+       <property name="text">
+        <string>Calculate</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>ktextedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

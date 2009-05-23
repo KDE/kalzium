@@ -98,6 +98,7 @@ class Kalzium : public KXmlGuiWindow
         QAction *m_SidebarAction;
         // tools
         QAction *m_pPlotAction;
+        QAction *m_pcalculator;
         QAction *m_pIsotopeTableAction;
         QAction *m_pGlossaryAction;
         QAction *m_pRSAction;
@@ -180,7 +181,11 @@ class Kalzium : public KXmlGuiWindow
          */
         void slotIsotopeTable();
 
-        void slotPlotData();
+        void slotPlotData();	
+        /**
+         * Start the calculator
+         */
+        void showCalculator();
 
         void slotExportTable();
 
@@ -197,7 +202,6 @@ class Kalzium : public KXmlGuiWindow
 
         void slotShowHideSidebar( bool checked, bool changeconfig = true );
         void slotShowLegend( bool checked, bool changeconfig = true );
-
 
     protected:
         virtual void keyPressEvent( QKeyEvent * e);

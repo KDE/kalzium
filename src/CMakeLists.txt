@@ -1,4 +1,6 @@
 add_subdirectory(tools)
+add_subdirectory(calculator)
+add_subdirectory(conversion)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
@@ -6,6 +8,8 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/kalzium/libavogadro-kalzium/include/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
+   ${CMAKE_SOURCE_DIR}/kalzium/src/calculator/
+   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
    ${CMAKE_CURRENT_BINARY_DIR}/..
    )
 
@@ -39,6 +43,23 @@ if(OPENBABEL2_FOUND)
    endif(OPENGL_FOUND AND EIGEN2_FOUND)
 endif(OPENBABEL2_FOUND)
 
+## Kalzium calculator files
+set(kalziumtools_SRCS
+    ${kalziumtools_SRCS}
+    calculator/calculator.cpp
+    calculator/nuclearCalculator.cpp
+    calculator/gasCalculator.cpp
+    calculator/concCalculator.cpp
+    detailedgraphicaloverview.cpp
+    )
+kde4_add_ui_files(kalziumtools_SRCS
+    calculator/calculator.ui
+    calculator/nuclearCalculator.ui
+    calculator/gasCalculator.ui
+    calculator/concCalculator.ui
+    )
+message(STATUS "Building the calculator")	
+
 set(kalzium_SRCS
    ${kalziumtools_SRCS}
    kalzium.cpp
@@ -47,8 +68,7 @@ set(kalzium_SRCS
    detailinfodlg.cpp
    tablesdialog.cpp
    orbitswidget.cpp
-   elementdataviewer.cpp
-   detailedgraphicaloverview.cpp
+   elementdataviewer.cpp   
    molcalcwidget.cpp
    somwidget_impl.cpp
    timewidget_impl.cpp
@@ -110,8 +130,7 @@ kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png"
 
 kde4_add_executable(kalzium ${kalzium_SRCS} )
 
-target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE4_KNEWSTUFF2_LIBS} science kdeeduui )
-
+target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE4_KNEWSTUFF2_LIBS} conversion science kdeeduui )
 
 if (OPENBABEL2_FOUND)
     target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})

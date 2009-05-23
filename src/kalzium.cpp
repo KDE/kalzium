@@ -46,6 +46,8 @@
 
 #include <config-kalzium.h>
 
+#include "calculator/calculator.h"
+
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
 #endif
@@ -207,7 +209,7 @@ void Kalzium::setupActions()
     look_action_gradients->setToolBarMode( KSelectAction::MenuMode );
     look_action_gradients->setToolButtonPopupMode( QToolButton::InstantPopup );
     connect( look_action_gradients, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookGradient( int ) ) );
-    
+
     // the action for swiching tables
     QStringList tablelist;
     QStringList table_schemes = KalziumTableTypeFactory::instance()->tables();
@@ -241,6 +243,12 @@ void Kalzium::setupActions()
     m_pPlotAction->setText( i18n( "&Plot Data..." ) );
     m_pPlotAction->setIcon( KIcon( "plot" ) );
     connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
+
+    // tools actions
+    m_pcalculator = actionCollection()->addAction( "tools_calculate" );
+    m_pcalculator->setText( i18n( "&Perform Calculations..." ) );
+    m_pcalculator->setIcon( KIcon( "plot" ) );
+    connect( m_pcalculator, SIGNAL( triggered() ), this, SLOT( showCalculator() ) );    
 
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
     m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
@@ -467,6 +475,12 @@ void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( this );
 	edw->show();
+}
+
+void Kalzium::showCalculator()
+{
+	calculator *Cal = new calculator ( this ); 
+	Cal -> show();	
 }
 
 void Kalzium::slotShowLegend( bool checked, bool changeconfig)
