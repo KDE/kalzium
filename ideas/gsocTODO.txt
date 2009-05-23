@@ -10,23 +10,18 @@ Here are the things to do. Please feel free to add more things to do if you find
 Creation of the UI for the various calculator.
 Invoking the molecular Calculator from kalzium.
 Creation of the respective classes for various calculators as planned
-The nuclear calculator is now functional, ( units convertion part remain )
+The nuclear calculator is now functional with units.
+Unit conversion library working fine.
+Basic classes for the concentration and the gas calculators done.
 
 %%% Todo:
-Reusing Jean's code classes and implementing the molecular mass calculator
-Getting the plasma unit convertion files and adding API documentation, using them in Kalzium
-
+#0 > Reusing Jean's code classes and implementing the molecular mass calculator
 #1 > Plasmoid widget for the molecular calculator
 #2 > Additional parsers ( history ) and prediction mode.
 
 *** This week's activity
-#1 > Getting the units library working
-#2 > Completion of the calculators
+#1 > Completion of the calculators (concentration and gas calculators)
 
 Description: 
-
-I have been having some trouble compiling / using the unit conversion library, I will read up
-and fix the problem.
-
-I have now created the basic calculators and used Qt model/view to get things working. I have to
-make all of the calculators to work.
+I will be completing the concentration and gas calculators by tonight / by tomorrow.
+Right now I have completed the units part of the nuclear calculator, which is working fine.
