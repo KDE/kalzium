@@ -39,7 +39,7 @@ class concCalculator : public QFrame
 		void calculateMolarMassSolvent ( void );		// Calculates the calculate molar mass of the solvent
 		void calculateDensitySolute ( void );			// Calculates the density of solute
 		void calculateDensitySolvent ( void );		// Calculates the density of solvent
-		void calculateConcentration ( void )		
+		void calculateConcentration ( void );
 		// Functions ( slots ) that occur on changing a value
 		void amtSoluteChanged ( double value );			// occurs when the amount of solute is changed
 		void amtSolventChanged ( double value );		// occurs when the amount of solvent is changed
