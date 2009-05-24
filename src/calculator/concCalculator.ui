@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>828</width>
+    <width>843</width>
     <height>500</height>
    </rect>
   </property>
@@ -31,7 +31,7 @@ p, li { white-space: pre-wrap; }
    <item>
     <layout class="QGridLayout" name="gridLayout_11">
      <item row="1" column="1">
-      <widget class="QRadioButton" name="radioButton_5">
+      <widget class="QRadioButton" name="r1">
        <property name="text">
         <string/>
        </property>
@@ -52,13 +52,6 @@ p, li { white-space: pre-wrap; }
       <widget class="QDoubleSpinBox" name="amtSolute">
        <property name="decimals">
         <number>4</number>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QRadioButton" name="radioButton_6">
-       <property name="text">
-        <string/>
        </property>
       </widget>
      </item>
@@ -90,13 +83,6 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QRadioButton" name="radioButton_4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
      <item row="4" column="2">
       <widget class="QLabel" name="label_52">
        <property name="text">
@@ -119,17 +105,17 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="densSlt_unit">
        <item>
         <property name="text">
+         <string>grams per milliliter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>kilograms per cubic meter</string>
         </property>
        </item>
        <item>
         <property name="text">
          <string>kilograms per liter</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>grams per milliliter</string>
         </property>
        </item>
        <item>
@@ -160,7 +146,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="r5">
        <property name="text">
         <string/>
        </property>
@@ -185,7 +171,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="5" column="4">
-      <widget class="QComboBox" name="amtSlvntType">
+      <widget class="QComboBox" name="amtSlvtType">
        <item>
         <property name="text">
          <string>volume</string>
@@ -196,13 +182,11 @@ p, li { white-space: pre-wrap; }
          <string>Mass</string>
         </property>
        </item>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QRadioButton" name="radioButton_3">
-       <property name="text">
-        <string/>
-       </property>
+       <item>
+        <property name="text">
+         <string>moles</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item row="7" column="2">
@@ -223,24 +207,13 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="7" column="5">
-      <widget class="QComboBox" name="densSlvt_unit_2">
-       <item>
-        <property name="text">
-         <string>grams/liter</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>moles/liter</string>
-        </property>
-       </item>
-      </widget>
-     </item>
      <item row="9" column="1">
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="r8">
        <property name="text">
         <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -260,20 +233,6 @@ p, li { white-space: pre-wrap; }
        <property name="decimals">
         <number>4</number>
        </property>
-      </widget>
-     </item>
-     <item row="9" column="4">
-      <widget class="QComboBox" name="concentrationType">
-       <item>
-        <property name="text">
-         <string>Concentration</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>%</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="9" column="5">
@@ -322,7 +281,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QRadioButton" name="radioButton_7">
+      <widget class="QRadioButton" name="r3">
        <property name="text">
         <string/>
        </property>
@@ -357,7 +316,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QRadioButton" name="radioButton_8">
+      <widget class="QRadioButton" name="r6">
        <property name="text">
         <string/>
        </property>
@@ -389,109 +348,12 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <property name="text">
+         <string>volume</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>moles</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="6" column="5">
-      <widget class="QComboBox" name="molarMassSlvt_unit">
-       <item>
-        <property name="text">
-         <string>grams</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>tons</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>carats</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>pounds</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ounces</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>troy ounces</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="3" column="5">
-      <widget class="QComboBox" name="eqtMass_unit">
-       <item>
-        <property name="text">
-         <string>grams</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>tons</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>carats</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>pounds</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ounces</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>troy ounces</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="2" column="5">
-      <widget class="QComboBox" name="molarMass_unit">
-       <item>
-        <property name="text">
-         <string>grams</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>tons</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>carats</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>pounds</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ounces</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>troy ounces</string>
         </property>
        </item>
       </widget>
@@ -594,12 +456,12 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="amtSlvt_unit2">
        <item>
         <property name="text">
-         <string>cubic meters</string>
+         <string>liter</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>liter</string>
+         <string>cubic meters</string>
         </property>
        </item>
        <item>
@@ -703,6 +565,92 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>u</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="5">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>u</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="5">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>u</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QRadioButton" name="r2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="5">
+      <widget class="QComboBox" name="densSlvt_unit">
+       <item>
+        <property name="text">
+         <string>grams per milliliter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>grams per liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>kilograms per cubic meter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>kilograms per liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces per cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ounces per cubic foot</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds per cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds per cubic foot</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pounds per cubic yard</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>
