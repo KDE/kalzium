@@ -30,14 +30,14 @@ gasCalculator::gasCalculator( QWidget * parent )
     }
     
     // initialise the initially selected values
-    ui . element  	-> setCurrentIndex ( 0 );
-	ui . temp	 	-> setValue ( 273.0 );
-	ui . vol 		-> setValue ( 22.400);
-	ui . pressure	-> setValue ( 1.0 );
-	ui . Vand_a 	-> setValue ( 0.0 );
-	ui . Vand_b 	-> setValue ( 0.0 );
-	ui . mass 		-> setValue ( 1.008 );
-	ui . moles 		-> setValue ( 1.0 );
+	ui.element->setCurrentIndex( 0 );
+	ui.temp->setValue( 273.0 );
+	ui.vol->setValue( 22.400);
+	ui.pressure->setValue( 1.0 );
+	ui.Vand_a->setValue( 0.0 );
+	ui.Vand_b->setValue( 0.0 );
+	ui.mass->setValue( 1.008 );
+	ui.moles->setValue( 1.0 );
 	// Setup of the UI done
 	
 	// Initialise values
@@ -51,21 +51,21 @@ gasCalculator::gasCalculator( QWidget * parent )
 	m_vol = 22.4;
     // Initialisation of values done
     // Connect signals with slots
-    connect ( ui . element  , SIGNAL ( activated ( int ) ), 
-             this, SLOT ( elementChanged  ( int ) ) );
-	connect ( ui . temp  , SIGNAL ( valueChanged ( double ) ),
+    	connect ( ui.element, SIGNAL ( activated ( int ) ), 
+             this, SLOT ( elementChanged ( int ) ) );
+	connect ( ui.temp  , SIGNAL ( valueChanged ( double ) ),
 	         this, SLOT ( tempChanged  ( double ) ) );
-	connect ( ui . vol  , SIGNAL ( valueChanged ( double ) ),
+	connect ( ui.vol, SIGNAL ( valueChanged ( double ) ),
 			 this, SLOT ( volChanged  ( double ) ) );
-	connect ( ui . pressure  , SIGNAL ( valueChanged ( double ) ),
+	connect ( ui.pressure, SIGNAL ( valueChanged ( double ) ),
 			 this, SLOT ( pressureChanged  ( double ) ) );
-	connect ( ui . mass  ,  SIGNAL ( valueChanged ( double ) ),
-			 this, SLOT ( massChanged  ( double ) ) );
-	connect ( ui . moles  , SIGNAL ( valueChanged ( double )),
+	connect ( ui.mass,  SIGNAL ( valueChanged ( double ) ),
+			 this, SLOT ( massChanged ( double ) ) );
+	connect ( ui.moles, SIGNAL ( valueChanged ( double )),
 			 this, SLOT ( molesChanged ( double ) ) );
-	connect ( ui . moles  , SIGNAL ( valueChanged ( double )),
+	connect ( ui.moles, SIGNAL ( valueChanged ( double )),
 			 this, SLOT ( molesChanged ( double ) ) );
-	connect ( ui . moles  , SIGNAL ( valueChanged ( double )),
+	connect ( ui.moles, SIGNAL ( valueChanged ( double )),
 			 this, SLOT ( molesChanged ( double ) ) );			 			 
 			 	 			 
 	/**************************************************************************/        
@@ -81,6 +81,8 @@ gasCalculator:: ~gasCalculator()
 // Calculates the Pressure
 double gasCalculator::calculatePressure  ( void )
 {
+
+	//cniehaus: Why not a simple "return double"?
 	double pressure;
 	
 	return pressure;
