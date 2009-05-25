@@ -20,7 +20,7 @@ concCalculator::concCalculator( QWidget * parent )
 	ui . setupUi( this );
 	
 	/**************************************************************************/
-	//						 conc Calculator set up
+	//						 concentration Calculator set up
 	/**************************************************************************/	
     
     // initialise the initially selected values
@@ -81,8 +81,10 @@ concCalculator::concCalculator( QWidget * parent )
 	connect ( ui . concentration  , SIGNAL ( valueChanged ( double )),
 			 this, SLOT ( concentrationChanged ( double ) ) );			 			 			 
 			 	 			 
+	ui.amtSlt_unit2-> hide();			// Mass is the default mode of specification of amount of solvent
+	ui.amtSlvt_unit-> hide();			// volume is the default for solvent
 	/**************************************************************************/        
-	// concentration Calculator setup complete	         
+	// 				concentration Calculator setup complete	         
 	/**************************************************************************/
 }
 
@@ -97,8 +99,7 @@ void concCalculator::calculateAmtSolute  ( void )
 	int type2 = ui . amtSltType -> currentIndex ();
 	
 	double molesSolute , eqtsSolute, massSolute, volSolute;		// variables
-	
-	int	mode = 0;				// Indicates the mode in which we have calculated the amount of solute
+	int mode = 0;
 	/*
 	 * mode = 1 ( molesSolute) mode = 2 eqtsSolute, mode = 3 mass, 4 volume
 	 */
@@ -146,16 +147,55 @@ void concCalculator::calculateAmtSolute  ( void )
 		// Now we have to present it in the UI
 	switch ( type2 )
 	{
-		case 0:	// amount specified interms of mass
-			
+		case 0:	// amount should be specified interms of mass
+			switch ( mode )
+			{
+				case 1:	// we should get mass from moles
+					massSolute = molesSolute * m_molarMass;
+					break;
+				case 2:	// we should obtain mass from number of equivalents
+					massSolute = eqtsSolute * m_eqtMass;
+					break;
+				case 3: // we already know the mass of the solute
+					break;
+				case 4: // we should get the mass from volume
+					massSolute = volSolute * densitySolute ();
+					break;					
+			}
+			break;
+	
+		case 1: // amount should be specified in terms of volume
+			switch ( mode )
+			{
+				case 1: // we should get the volume from moles
+					volSolute = molesSolute * m_molarMass / densitySolute ();
+					break;
+				case 2: // we should get the volume from equivalents
+					volSolute = eqtsSolute * m_eqtMass / densitySolute ();
+					break;
+				case 3:	// we should get the volume from mass
+					volSolute = massSolute / densitySolute ();
+					break;
+				case 4: // we already know the volume
+					break;					
+			}
 			break;
 			
-		case 1: // amount specified in terms of volume
-		
-			break;
-			
-		case 2: // amount specified in terms of moles
-		
+		case 2: // amount should be specified in terms of moles
+			switch ( mode )
+			{
+				case 1:	// we already know the moles of solute
+					break;
+				case 2: // we should obtain moles from equivalents ( not possible )
+					molesSolute = 0.0;
+					break;
+				case 3: // we should obtain moles from mass
+					molesSolute = massSolute / m_molarMass;
+					break;
+				case 4: // we should obtain moles from volume
+					molesSolute = volSolute / densitySolute() / m_molarMass;
+					break;
+			}
 			break;
 	}
 	return;
@@ -262,7 +302,7 @@ void concCalculator::calculateAmtSolvent ( void )
 	
 	double moleSolvent , massSolvent, volSolvent;
 	
-	int	mode = 0;				// Indicates the mode in which we have calculated the amount of solvent
+	int mode = 0;				// Indicates the mode in which we have calculated the amount of solvent
 	/*
 	 * mode = 1 ( molessolvent) mode = 2 eqtssolvent, mode = 3 mass, 4 volume
 	 */
@@ -272,29 +312,29 @@ void concCalculator::calculateAmtSolvent ( void )
 		// calculate the number of moles of solvent
 		case 0:	// molarity specified
 			volSolvent = molesSolute () / m_concentration;																
-			mode = 1;
+			mode = 3;
 			break;
 		// Calculate the number of equivalents of solvent
 		case 1:	// Normality specified
 			volSolvent = molesSolute() / m_concentration;
-			mode = 2;
+			mode = 3;
 			break;
 		// Calculate the number of moles of solvent
 		case 2:	// molality specified
 			massSolvent  = molesSolute() / 1000.0 / m_concentration;
-			mode = 1;
+			mode = 2;
 			break;
 		// Calculate the mass of solvent
 		case 3:	// mass percentage specified
 			massSolvent  = ( 100.0 - m_concentration ) / m_concentration;
 			massSolvent *= massSolute();
-			mode = 3;
+			mode = 2;
 			break;	
 		// Calculate the volume of solvent
 		case 4:	// volume percentage specified
 			volSolvent  = ( 100.0 - m_concentration ) / m_concentration;
 			volSolvent *= volumeSolvent();
-			mode = 4;
+			mode = 3;
 			break;
 		// Calculate the moles of solvent
 		case 5: //mole percentage specified
@@ -310,16 +350,46 @@ void concCalculator::calculateAmtSolvent ( void )
 		// Now we have to present it in the UI
 	switch ( type2 )
 	{
-		case 0:	// amount specified interms of mass
-			
+		case 0:	// amount specified interms of volume
+			switch ( mode )
+			{
+				case 1:	// obtain volume from moles
+					volSolvent = moleSolvent * m_molarMassSolvent / densitySolvent ();
+					break;
+				case 2: // obtain volume from mass
+					volSolvent = massSolvent / densitySolvent();
+					break;
+				case 3:	// volume already known
+					break;
+			}
 			break;
 			
 		case 1: // amount specified in terms of volume
-		
+			switch ( mode )
+			{
+				case 1: // obtain mass from moles
+					massSolvent = moleSolvent / m_molarMassSolvent;
+					break;
+				case 2:	// mass already known
+					break;
+				case 3: // obtain mass from volume
+					massSolvent = volSolvent / densitySolvent ();
+					break;
+			}
 			break;
 			
 		case 2: // amount specified in terms of moles
-		
+			switch ( mode )
+			{
+				case 1: // moles already known				
+					break;
+				case 2: // obtain moles from mass
+					moleSolvent = massSolvent / m_molarMassSolvent;
+					break;
+				case 3: // obtain moles from volume
+					moleSolvent = volSolvent * densitySolvent () / m_molarMassSolvent;
+					break;
+			}
 			break;
 	}
 	return;
@@ -328,7 +398,31 @@ void concCalculator::calculateAmtSolvent ( void )
 // calculates the concentration
 void concCalculator::calculateConcentration ( void )
 {
-
+	int type = ui . conc_unit -> currentIndex ();
+	
+	switch ( type )
+	{
+		case 0:		// molarity
+			m_concentration = molesSolute() / volumeSolvent ();
+			break;
+		case 1:		// normality
+			m_concentration = eqtsSolute()/ volumeSolvent ();
+			break;
+		case 2:		// molality
+			m_concentration = molesSolute () / massSolvent () * 1000.0;
+			break;
+		case 3:		// mass fraction
+			m_concentration = massSolute () / ( massSolute () + massSolvent ());
+			break;
+		case 4:		// volume fraction
+			m_concentration = volumeSolute () / ( volumeSolute () + volumeSolvent() );
+			break;
+		case 5:		// mole fraction
+			m_concentration = molesSolute () / ( molesSolute () + molesSolvent ());
+			break;
+		default:
+			break;	
+	}
 	return;
 }
 
@@ -440,8 +534,32 @@ double concCalculator::molesSolute ()
 			break;
 	}
 	return moles;
+}
+
+double concCalculator::eqtsSolute ()
+{
+	int type = ui . amtSltType -> currentIndex ();
+	
+	double moles;
+	switch ( type )
+	{
+		case 0:
+			moles = massSolute() / m_eqtMass;
+			break;
+		case 1:
+			moles = massSolute() / m_eqtMass;
+			break;
+		case 2:
+			// Cannot be calculated
+			moles = 0.0;
+			break;
+		default:
+			break;
+	}
+	return moles;
 
 }
+
 double concCalculator::massSolute ()
 {
 	int type = ui . amtSltType -> currentIndex ();
@@ -475,15 +593,21 @@ void concCalculator::amtSoluteChanged ( void )
 	int type = ui . amtSltType -> currentIndex ();
 	if ( type == 0 ) 		// amount of solute specified in terms of mass
 	{
+		ui.amtSlt_unit -> show();
+		ui.amtSlt_unit2-> hide();
 		m_amtSolute = Value ( ui . amtSolute -> value (), ui . amtSlt_unit -> currentText () );	
 	}
 	else if ( type == 1)	// amount of solute is specified in terms of volume
 	{
+		ui.amtSlt_unit -> hide();
+		ui.amtSlt_unit2-> show();
 		m_amtSolute = Value ( ui . amtSolute -> value (), ui . amtSlt_unit2 -> currentText () );	
 	}
 	else					// amount of solute is specified in terms of moles
 	{
 		m_molesSolute = ui . amtSolute -> value ();
+		ui.amtSlt_unit -> hide();
+		ui.amtSlt_unit2-> hide();
 	}
 }
 
@@ -493,14 +617,20 @@ void concCalculator::amtSolventChanged ( void )
 	int type = ui . amtSlvtType -> currentIndex ();
 	if ( type == 0 ) 	// amount of solvent specified in terms of mass
 	{
+		ui.amtSlvt_unit -> show();
+		ui.amtSlvt_unit2-> hide();
 		m_amtSolvent = Value ( ui . amtSolvent -> value (), ui . amtSlvt_unit -> currentText () );
 	}
 	else if ( type == 1 ) // amount of solvent is specified in terms of mass
 	{
+		ui.amtSlvt_unit -> hide();
+		ui.amtSlvt_unit2-> show();
 		m_amtSolvent = Value ( ui . amtSolvent -> value (), ui . amtSlvt_unit2 -> currentText () );
 	}
 	else
 	{
+		ui.amtSlvt_unit -> hide();
+		ui.amtSlvt_unit2-> hide();
 		m_molesSolvent = ui . amtSolvent -> value ();
 	}
 }

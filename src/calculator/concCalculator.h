@@ -62,7 +62,8 @@ class concCalculator : public QFrame
 		double densitySolvent(void);			// returns density of solvent in grams per liter
 		double volumeSolute(void);				// returns volume of solute in liters
 		double massSolute(void);				// returns mass of solute in grams
-		double molesSolute(void);				// returns number of moles of solute
+		double molesSolute(void);				// returns the number of moles of solute
+		double eqtsSolute(void);				// returns the number of equivalents of solute
 		double densitySolute(void);				// returns density of solute in grams per liter
 	private:
 		Ui::concCalculator ui;						// The user interface
@@ -77,7 +78,7 @@ class concCalculator : public QFrame
 		Value m_densitySolute;						// density of solute
 		Value m_densitySolvent;						// density of the solvent
 		double m_concentration;						// concentration of the solution		
-		
+
 };
 
 #endif // concCalculator_H
