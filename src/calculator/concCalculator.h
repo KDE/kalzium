@@ -65,6 +65,8 @@ class concCalculator : public QFrame
 		double molesSolute(void);				// returns the number of moles of solute
 		double eqtsSolute(void);				// returns the number of equivalents of solute
 		double densitySolute(void);				// returns density of solute in grams per liter
+		
+		void debug(void);
 	private:
 		Ui::concCalculator ui;						// The user interface
 		
