@@ -43,11 +43,11 @@ calculator :: calculator ( QWidget *parent )
 	m_molecalculator = new MolcalcWidget ( this );
     m_molecalculator -> setObjectName ( "molcalcwidget" );
     ui . stack ->addWidget ( m_molecalculator );
-//#ifdef HAVE_FACILE    
+#ifdef HAVE_FACILE    
     // Add the equation balancer widget to the user interface
     m_equationBalancer = new EQChemDialog( this );
     ui . stack -> addWidget ( m_equationBalancer );
-//#endif    
+#endif    
 	// Connect the tree item selection signal to the corresponding slot
 	connect( ui . tree, SIGNAL(itemClicked ( QTreeWidgetItem * , int ) ), this,
             SLOT ( slotItemSelection ( QTreeWidgetItem * ) ) );
@@ -85,9 +85,9 @@ void calculator :: slotItemSelection(QTreeWidgetItem *item)
 		
 	// The equation balancer needs FACILE library, if its present HAVE_FACILE = 1
 	// If the equation balancer was selected, open it in the UI.
-//#ifdef HAVE_FACILE		
+#ifdef HAVE_FACILE		
 	else if ( ! ( s . compare ( i18n ( "Equation Balancer" ) ) ) )
 		ui . stack -> setCurrentWidget ( m_equationBalancer );
-//#endif
+#endif
 }
 

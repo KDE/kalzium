@@ -24,9 +24,9 @@
 #include "concCalculator.h"
 #include "molcalcwidget.h"
 #include <kactioncollection.h>
-//#ifdef HAVE_FACILE
+#ifdef HAVE_FACILE
 #include <eqchemview.h>
-//#endif
+#endif
 
 /**
  * This widget implements the molecular calculator
@@ -49,9 +49,9 @@ class calculator : public KDialog
    		gasCalculator *		m_gasCalculator;		// The gas calculator
    		concCalculator *	m_concCalculator;		// The concentration Calculator
 		MolcalcWidget *     m_molecalculator;		// The molecular mass calculator
-//#ifdef HAVE_FACILE		
+#ifdef HAVE_FACILE		
 		EQChemDialog *		m_equationBalancer;		// The equation balancer
-//#endif		
+#endif		
     private slots:
 		void slotItemSelection(QTreeWidgetItem *item);	// occurs when an tree item is selected
     public slots:
