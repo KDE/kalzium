@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>879</width>
+    <width>881</width>
     <height>500</height>
    </rect>
   </property>
@@ -115,6 +115,11 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="4" column="5">
       <widget class="QComboBox" name="densSlt_unit">
+       <item>
+        <property name="text">
+         <string>grams per liter</string>
+        </property>
+       </item>
        <item>
         <property name="text">
          <string>grams per milliliter</string>
@@ -535,12 +540,12 @@ p, li { white-space: pre-wrap; }
        </property>
        <item>
         <property name="text">
-         <string>cubic meters</string>
+         <string>liter</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>liter</string>
+         <string>cubic meters</string>
         </property>
        </item>
        <item>
@@ -634,12 +639,12 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="densSlvt_unit">
        <item>
         <property name="text">
-         <string>grams per milliliter</string>
+         <string>grams per liter</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>grams per liter</string>
+         <string>grams per milliliter</string>
         </property>
        </item>
        <item>
@@ -682,6 +687,13 @@ p, li { white-space: pre-wrap; }
     </layout>
    </item>
    <item>
+    <widget class="QLabel" name="error">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QLabel" name="label_34">
      <property name="text">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -704,13 +716,6 @@ p, li { white-space: pre-wrap; }
       </size>
      </property>
     </spacer>
-   </item>
-   <item>
-    <widget class="QLabel" name="result">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">

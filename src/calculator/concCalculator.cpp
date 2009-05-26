@@ -30,7 +30,7 @@ concCalculator::concCalculator( QWidget * parent )
 	ui.densitySolute		-> setValue ( 2.7 );
 	ui.amtSolvent 			-> setValue ( 1.0 );
 	ui.molarMassSolvent 	-> setValue ( 18.0 );
-	ui.densitySolvent		-> setValue ( 1.0 );
+	ui.densitySolvent		-> setValue ( 1000.0 );
 	ui.concentration		-> setValue ( 2.0 );
 	// Setup of the UI done
 	
@@ -44,7 +44,7 @@ concCalculator::concCalculator( QWidget * parent )
 	m_molarMassSolvent = 18.0;
 	m_densitySolute = Value ( 2.7, "grams per milliliter" );
 	m_concentration = 2.0;
-	m_densitySolvent = Value ( 1.0, "grams per milliliter" );
+	m_densitySolvent = Value ( 1000.0, "grams per liter" );
 	// Initialisation of values done
 		
 	// Connect signals with slots ( when a change of selection in the UI takes place,
@@ -85,7 +85,7 @@ concCalculator::concCalculator( QWidget * parent )
 			 this, SLOT ( concentrationChanged ( double ) ) );			 			 			 
 	connect ( ui.conc_unit , SIGNAL ( activated ( int ) ),
 			 this, SLOT ( concentrationChanged ( double ) ) );
-			 	 			 
+
 	ui.amtSlt_unit2-> hide();			// Mass is the default mode of specification of amount of solvent
 	ui.amtSlvt_unit-> hide();			// volume is the default for solvent
 	/**************************************************************************/
@@ -128,16 +128,25 @@ void concCalculator::calculateAmtSolute ( void )
 			break;
 		// Calculate the mass of solute
 		case 3:	// mass percentage specified
+			if ( m_concentration >= 100.0 ) {
+				error(PERCENTAGE);
+			}			
 			massSolute = m_concentration / ( 100.0 - m_concentration ) * massSolvent();
 			mode = 3;
 			break;	
 		// Calculate the volume of solute
 		case 4:	// volume percentage specified
+			if ( m_concentration >= 100.0 ) {
+				error(PERCENTAGE);
+			}
 			volSolute = m_concentration / ( 100.0 - m_concentration ) * volumeSolvent();
 			mode = 4;
 			break;
 		// Calculate the moles of solute
 		case 5: //mole percentage specified
+			if ( m_concentration >= 100.0 ) {
+				error(PERCENTAGE);
+			}
 			molesSolute = m_concentration / ( 100.0 - m_concentration ) * molesSolvent ();
 			mode = 1;
 			break;
@@ -172,6 +181,11 @@ void concCalculator::calculateAmtSolute ( void )
 			break;
 	
 		case 1: // amount should be specified in terms of volume
+			// validate density
+			if ( densitySolute() == 0){
+				error(DENSITY_ZERO);
+				return;
+			}
 			switch ( mode )
 			{
 				case 1: // we should get the volume from moles
@@ -230,6 +244,7 @@ void concCalculator::calculateMolarMass ( void )
 			numMoles = volumeSolvent() * m_concentration;
 			break;
 		case 1:		// cannot be calculated ( insufficient data )
+			error(INSUFFICIENT_DATA_MOLE);
 			return;
 			break;
 		case 2:		// molality specified
@@ -237,6 +252,7 @@ void concCalculator::calculateMolarMass ( void )
 			break;
 		case 3:		// cannot be calculated ( insufficient data )
 		case 4:
+			error(INSUFFICIENT_DATA_MOLE);
 			return;
 			break;
 		case 5:		// mole fraction specified
@@ -245,10 +261,17 @@ void concCalculator::calculateMolarMass ( void )
 	}
 	
 	if ( type2 == 2)	// amount of solute is specified in moles, cannot calculate
+	{
+		error(INSUFFICIENT_DATA_MOLES);
 		return;
+	}
 	else
 	{
-		m_molarMass = massSolvent () / numMoles;
+		if ( numMoles == 0.0) {
+			error ( MOLES_ZERO);
+			return;
+		}
+		m_molarMass = massSolute () / numMoles;
 		ui.molarMass->setValue (m_molarMass);
 	}
 }
@@ -265,26 +288,34 @@ void concCalculator::calculateEqtMass ( void )
 	{
 		// Normality required	
 		case 0:	// molarity not sufficient
+			error (INSUFFICIENT_DATA_EQT);
 			return;
 			break;
 		case 1: // normality specified
 			numEqts = volumeSolvent() * m_concentration;
+			break;
 		case 2:
 		case 3:
 		case 4:
 		case 5:
+			error (INSUFFICIENT_DATA_EQT);
 			return;
 			break;
 	}
 	
-	if ( type2 == 2)	// Amount of solute specified in moles, cannot calculate
-		return;
+	if ( type2 == 2) {	// Amount of solute specified in moles, cannot calculate
+		error(INSUFFICIENT_DATA_MOLES);
+	}	
 	else
 	{
-		m_eqtMass = massSolvent () / numEqts;
+		if ( numEqts == 0.0)
+		{	
+			error(EQTS_ZERO);
+			return;
+		}
+		m_eqtMass = massSolute () / numEqts;
 		ui.eqtMass->setValue(m_eqtMass);
 	}
-
 	return;
 }
 
@@ -302,18 +333,23 @@ void concCalculator::calculateMolarMassSolvent ( void )
 		case 2:			// molality specified
 		case 3:			// mass fraction specified
 		case 4:			// volume fraction specified
+			error(INSUFFICIENT_DATA_SOLVENT);
+			return;
 			break;		// cannot be calculated ( insufficient data )
 		case 5:			// mole fraction specified
 			numMoles = ( 100.0 - m_concentration ) /m_concentration * molesSolute ();
 			break;
 	}
-	if ( type2 == 2 )	// amount specified in moles
-		return;			// cannot be calculated ( insufficient data )
+	
+	if ( type2 == 2 ) {	// amount specified in moles
+		error(INSUFFICIENT_DATA_MOLES);
+	}
 	else
 	{
 		m_molarMassSolvent = massSolvent () / numMoles;
 		ui.molarMassSolvent->setValue(m_molarMassSolvent);
 	}
+	
 	return;
 }
 
@@ -330,6 +366,11 @@ void concCalculator::calculateAmtSolvent ( void )
 	 * mode = 1 ( molessolvent) mode = 2 eqtssolvent, mode = 3 mass, 4 volume
 	 */
 	// Calculate the number of moles of the solvent
+	if ( m_concentration == 0.0) {
+		error(CONC_ZERO);
+		return;
+	}
+	
 	switch ( type1 )
 	{
 		// calculate the number of moles of solvent
@@ -344,7 +385,7 @@ void concCalculator::calculateAmtSolvent ( void )
 			break;
 		// Calculate the number of moles of solvent
 		case 2:	// molality specified
-			massSolvent = molesSolute() / 1000.0 / m_concentration;
+			massSolvent = molesSolute() * 1000.0 / m_concentration;
 			mode = 2;
 			break;
 		// Calculate the mass of solvent
@@ -371,9 +412,17 @@ void concCalculator::calculateAmtSolvent ( void )
 			
 		// We have the amount of solvent in some form ( moles, equivalents, mass, volume etc )
 		// Now we have to present it in the UI
+	if ( densitySolvent() == 0.0) {
+		error(DENSITY_ZERO);
+		return;
+	}
+	if ( m_molarMassSolvent == 0.0 ) {
+		error( MOLAR_SOLVENT_ZERO);
+		return;
+	}
 	switch ( type2 )
 	{
-		case 0:	// amount specified interms of volume
+		case 0:	// amount should be specified interms of volume			
 			switch ( mode )
 			{
 				case 1:	// obtain volume from moles
@@ -391,7 +440,7 @@ void concCalculator::calculateAmtSolvent ( void )
 			ui.amtSolvent->setValue(m_amtSolvent.number());
 			break;
 			
-		case 1: // amount specified in terms of volume
+		case 1: // amount should be specified in terms of mass
 			switch ( mode )
 			{
 				case 1: // obtain mass from moles
@@ -403,13 +452,13 @@ void concCalculator::calculateAmtSolvent ( void )
 					massSolvent = volSolvent / densitySolvent ();
 					break;
 			}
-			m_amtSolvent = Value ( volSolvent, "grams");
+			m_amtSolvent = Value ( massSolvent, "grams");
 			m_amtSolvent = ( Converter::self() -> convert( m_amtSolvent ,\
 					ui.amtSlvt_unit->currentText()));
 			ui.amtSolvent->setValue(m_amtSolvent.number());					
 			break;
 			
-		case 2: // amount specified in terms of moles
+		case 2: // amount should be specified in terms of moles
 			switch ( mode )
 			{
 				case 1: // moles already known				
@@ -432,8 +481,19 @@ void concCalculator::calculateAmtSolvent ( void )
 void concCalculator::calculateConcentration ( void )
 {
 	int type = ui.conc_unit -> currentIndex ();
-	QString t;
 
+	if ( volumeSolvent() == 0.0 ) {
+		error(VOLUME_ZERO);
+		return;
+	}
+	if ( massSolvent() == 0.0 ) {
+		error(MASS_ZERO);
+		return;
+	}
+	if ( molesSolvent() == 0.0 ) {
+		error(MOLES_ZERO);
+		return;
+	}
 	switch ( type )
 	{
 		case 0:		// molarity
@@ -443,18 +503,16 @@ void concCalculator::calculateConcentration ( void )
 			m_concentration = eqtsSolute()/ volumeSolvent ();
 			break;
 		case 2:		// molality
-			m_concentration = molesSolute () / massSolvent () * 1000.0;
-			t.setNum( massSolvent() );
-			ui.result->setText(t);
+			m_concentration = molesSolute () * 1000.0 / massSolvent ();
 			break;
 		case 3:		// mass fraction
-			m_concentration = massSolute () / ( massSolute () + massSolvent ());
+			m_concentration = massSolute () / ( massSolute () + massSolvent ()) * 100.0;
 			break;
 		case 4:		// volume fraction
-			m_concentration = volumeSolute () / ( volumeSolute () + volumeSolvent() );
+			m_concentration = volumeSolute () / ( volumeSolute () + volumeSolvent()) * 100.0;
 			break;
 		case 5:		// mole fraction
-			m_concentration = molesSolute () / ( molesSolute () + molesSolvent ());
+			m_concentration = molesSolute () / ( molesSolute () + molesSolvent ()) * 100.0;
 			break;
 		default:
 			break;	
@@ -512,7 +570,7 @@ double concCalculator::massSolvent ()
 	switch ( type )
 	{
 		case 0:
-			mass = volumeSolvent () / densitySolvent ();
+			mass = volumeSolvent () * densitySolvent ();
 			break;
 		case 1:
 			mass = ( Converter::self() -> convert( m_amtSolvent,"gram")) .number ();
@@ -538,10 +596,10 @@ double concCalculator::volumeSolute ()
 	switch ( type )
 	{
 		case 0:
-			volume =( Converter::self() -> convert( m_amtSolute ,"liter")).number ();
+			volume = massSolute () / densitySolute ();
 			break;
 		case 1:
-			volume = massSolute () / densitySolute ();
+			volume = ( Converter::self() -> convert( m_amtSolute ,"liter")).number ();
 			break;
 		case 2:
 			volume = massSolute () / densitySolute ();
@@ -556,6 +614,10 @@ double concCalculator::molesSolute ()
 	int type = ui.amtSltType -> currentIndex ();
 	
 	double moles;
+	if ( m_molarMass == 0.0) {
+		error( MOLAR_MASS_ZERO);
+		return 1.0;
+	}
 	switch ( type )
 	{
 		case 0:
@@ -576,24 +638,29 @@ double concCalculator::molesSolute ()
 double concCalculator::eqtsSolute ()
 {
 	int type = ui.amtSltType -> currentIndex ();
-	
-	double moles;
+	double eqts;	
+	if ( m_eqtMass == 0.0)
+	{
+		error (EQT_MASS_ZERO);
+		return 1.0;
+	}
 	switch ( type )
 	{
 		case 0:
-			moles = massSolute() / m_eqtMass;
+			eqts = massSolute() / m_eqtMass;
 			break;
 		case 1:
-			moles = massSolute() / m_eqtMass;
+			eqts = massSolute() / m_eqtMass;
 			break;
 		case 2:
 			// Cannot be calculated
-			moles = 0.0;
+			error(INSUFFICIENT_DATA_MOLES);
+			eqts = 1.0;
 			break;
 		default:
 			break;
 	}
-	return moles;
+	return eqts;
 
 }
 
@@ -607,7 +674,7 @@ double concCalculator::massSolute ()
 			mass = ( Converter::self() -> convert( m_amtSolute,"gram")) .number ();
 			break;
 		case 1:
-			mass = volumeSolute () / densitySolute ();
+			mass = volumeSolute () * densitySolute ();
 			break;
 		case 2:
 			mass = m_molesSolute * m_molarMass;
@@ -750,29 +817,64 @@ void concCalculator::calculate ( void )
 	{
 		calculateConcentration ();
 	}
-	//debug();
 	return;
 }
 
-void concCalculator::debug ( void )
+void concCalculator::debug( void )
 {
-	QString a;
-	QString b;
-	a  = m_amtSolute . toString () + " ";
-	a += m_amtSolvent.toString () + " ";
-	a += m_densitySolute.toString () + " ";
-	a += m_densitySolvent.toString() + " ";
-	
-	b.setNum(m_molarMass);
-	a += b + " ";
-	b .setNum(m_molarMassSolvent);
-	a += b + " ";
-	b .setNum(m_eqtMass);
-	a += b + " ";
-	b .setNum(m_concentration);
-	a += b + " ";
 
-	ui.result->setText(a);
+}
+void concCalculator::error ( int mode )
+{
+
+	switch (mode)
+	{
+		case PERCENTAGE:
+			ui.error->setText("Percentage should be less than 100.0, please enter valid data!");
+			break;
+		case DENSITY_ZERO:
+			ui.error->setText("Density cannot be zero. Invalid! Please enter a valid value!");
+			break;
+		case MASS_ZERO:
+			ui.error->setText("mass cannot be zero! Please enter valid data to correct it!");
+			break;
+		case VOLUME_ZERO:
+			ui.error->setText("volume cannot be zero! Please enter valid data to correct it!");
+			break;
+		case MOLES_ZERO:
+			ui.error->setText("Number of moles cannot be zero! Please enter valid data to correct the error!");
+			break;
+		case MOLAR_SOLVENT_ZERO:
+			ui.error->setText("Molar mass of solvent is zero! Please correct it!");
+			break;
+		case EQTS_ZERO:
+			ui.error->setText("Number of equivalents is zero. Cannot calculate equivalent mass!");
+			break;
+		case CONC_ZERO:			
+			ui.error->setText("Concentration is zero! Please correct it!");
+			break;
+		case INSUFFICIENT_DATA_EQT:
+			ui.error->setText("Insufficient data! to calculate the required, please specify normality!");
+			break;
+
+		case INSUFFICIENT_DATA_MOLE:
+			ui.error->setText("Insufficient data, specify molarity / molefraction / molality to calculate!");
+			break;
+		case INSUFFICIENT_DATA_MOLES:
+			ui.error->setText("amount specified in moles, cannot calculate molar/equivalent masses! Specify mass/volume");
+			break;
+		case INSUFFICIENT_DATA_SOLVENT:
+			ui.error->setText("You can calculate the molar mass of solvent only if mole fraction is specified!");
+			break;
+		case MOLAR_MASS_ZERO:
+			ui.error->setText("molar mass cannot be zero, please correct it!");
+			break;
+		case EQT_MASS_ZERO:
+			ui.error->setText("Equivalent mass cannot be zero, please correct it!");
+			break;
+		default:
+			break;
+	}
 }
 #include "concCalculator.moc"
 

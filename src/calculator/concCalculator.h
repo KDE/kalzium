@@ -23,6 +23,23 @@
 
 using namespace Conversion;
 
+enum ERROR_TYPE {
+            PERCENTAGE = 0,
+            DENSITY_ZERO,
+            MASS_ZERO,
+            VOLUME_ZERO,
+            MOLES_ZERO,
+            MOLAR_MASS_ZERO,
+            EQT_MASS_ZERO,
+            MOLAR_SOLVENT_ZERO,
+            EQTS_ZERO,
+            CONC_ZERO,
+            INSUFFICIENT_DATA_EQT,
+            INSUFFICIENT_DATA_MOLE,
+            INSUFFICIENT_DATA_MOLES,
+            INSUFFICIENT_DATA_SOLVENT
+        };
+
 class concCalculator : public QFrame
 {
 	Q_OBJECT
@@ -66,7 +83,8 @@ class concCalculator : public QFrame
 		double eqtsSolute(void);				// returns the number of equivalents of solute
 		double densitySolute(void);				// returns density of solute in grams per liter
 		
-		void debug(void);
+		void debug ( void );
+		void error ( int );				// outputs error messages on the screen
 	private:
 		Ui::concCalculator ui;						// The user interface
 		
