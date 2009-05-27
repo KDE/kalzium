@@ -78,12 +78,37 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="pressure_unit">
        <item>
         <property name="text">
-         <string>atmosphere</string>
+         <string>atmospheres</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Pascal</string>
+         <string>pascal</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>bars</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>millibars</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>decibars</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>torrs</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>inches of mercury</string>
         </property>
        </item>
       </widget>
@@ -109,7 +134,27 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="temp_unit">
        <item>
         <property name="text">
-         <string>Kelvin</string>
+         <string>kelvins</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>celsius</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fahrenheit</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>delisles</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>réaumurs</string>
         </property>
        </item>
       </widget>
@@ -129,15 +174,6 @@ p, li { white-space: pre-wrap; }
        <property name="maximum">
         <double>1000000000.000000000000000</double>
        </property>
-      </widget>
-     </item>
-     <item row="7" column="3">
-      <widget class="QComboBox" name="volume_unit">
-       <item>
-        <property name="text">
-         <string>liter</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="8" column="1">
@@ -222,6 +258,9 @@ p, li { white-space: pre-wrap; }
        <property name="text">
         <string/>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item row="8" column="3">
@@ -231,6 +270,31 @@ p, li { white-space: pre-wrap; }
          <item>
           <property name="text">
            <string>liter</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>cubic meters</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>cubic feet</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>cubic inches</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>gallons</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>cups</string>
           </property>
          </item>
         </widget>
@@ -261,10 +325,10 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="r0">
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_24">
        <property name="text">
-        <string/>
+        <string>Mass</string>
        </property>
       </widget>
      </item>
@@ -272,17 +336,17 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="mass_unit">
        <item>
         <property name="text">
-         <string>Grams</string>
+         <string>grams</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>milli grams</string>
+         <string>tons</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Kilograms</string>
+         <string>carats</string>
         </property>
        </item>
        <item>
@@ -297,16 +361,51 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <property name="text">
-         <string>moles</string>
+         <string>troy ounces</string>
         </property>
        </item>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="label_24">
-       <property name="text">
-        <string>Mass</string>
+     <item row="7" column="3">
+      <widget class="QComboBox" name="volume_unit">
+       <property name="enabled">
+        <bool>true</bool>
        </property>
+       <item>
+        <property name="text">
+         <string>liter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic feet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cubic inch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fluid ounce</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cups</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>gallons</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pints</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>
@@ -343,7 +442,7 @@ p, li { white-space: pre-wrap; }
     </spacer>
    </item>
    <item>
-    <widget class="QLabel" name="label_22">
+    <widget class="QLabel" name="result">
      <property name="text">
       <string/>
      </property>

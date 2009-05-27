@@ -37,7 +37,7 @@ gasCalculator::gasCalculator( QWidget * parent )
 	// Setup of the UI done
 	
 	// Initialise values
-	m_temp = Value(273.0,"Kelvin");
+	m_temp = Value(273.0,"kelvins");
 	m_molarMass = 2.016;
 	m_pressure = Value(1.0,"atmosphere");
 	m_mass = Value(2.016,"grams");
@@ -88,11 +88,10 @@ void gasCalculator::calculatePressure  ( void )
 {
 	double pressure;
 	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
-	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
-	
+	double temp = ((Converter::self()->convert(m_temp, "kelvins")).number());
 	pressure = m_moles * R * temp / volume;
-	m_pressure = Value(pressure,"atmosphere");
-	m_pressure = (Converter::self()->convert(m_temp, ui.pressure_unit->currentText()));
+	m_pressure = Value(pressure,"atmospheres");
+	m_pressure = (Converter::self()->convert(m_pressure, ui.pressure_unit->currentText()));
 	ui.pressure->setValue(m_pressure.number());
 	
 	//pressure = 
@@ -104,7 +103,7 @@ void gasCalculator::calculateMolarMass ( void )
 	double mass = ((Converter::self()->convert( m_mass, "grams")).number());
 	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
 	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
-	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
+	double temp = ((Converter::self()->convert(m_temp, "kelvins")).number());
 	
 	m_molarMass = mass * R * temp / pressure / volume;
 	ui.molarMass->setValue(m_molarMass);	
@@ -115,13 +114,12 @@ void gasCalculator::calculateVol ( void )
 {
 	double volume;
 	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
-	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
+	double temp = ((Converter::self()->convert(m_temp, "kelvins")).number());
 	
 	volume = m_moles * R * temp / pressure;
 	m_vol = Value(volume,"liters");
 	m_vol = (Converter::self()->convert(m_vol, ui.volume_unit->currentText()));
 	ui.volume->setValue(m_vol.number());
-	
 }
 
 // Calculates the Temperature
@@ -132,7 +130,7 @@ void gasCalculator::calculateTemp ( void )
 	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
 	
 	temp = pressure * volume / m_moles * R;
-	m_temp = Value(temp,"Kelvin");
+	m_temp = Value(temp,"kelvins");
 	m_temp = (Converter::self()->convert(m_temp, ui.temp_unit->currentText()));
 	ui.temp->setValue(m_temp.number());
 }	
@@ -142,7 +140,7 @@ void gasCalculator::calculateMoles ( void )
 {
 	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
 	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
-	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
+	double temp = ((Converter::self()->convert(m_temp, "kelvins")).number());
 	
 	m_moles = pressure * volume / R / temp;
 	ui.moles->setValue(m_moles);
@@ -154,7 +152,7 @@ void gasCalculator::calculateMass ( void )
 	double mass;
 	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
 	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
-	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
+	double temp = ((Converter::self()->convert(m_temp, "kelvins")).number());
 	
 	mass = pressure * volume * m_molarMass / R / temp;
 	m_mass = Value(mass,"grams");
@@ -204,6 +202,16 @@ void gasCalculator::molesChanged ( double value )
 	calculate ();	
 }
 
+// occurs when the molar mass is changed
+void gasCalculator::molarMassChanged ( double value )
+{
+	m_molarMass = value;
+	m_mass = Value (m_molarMass * m_moles,"grams");
+	m_mass = (Converter::self()->convert( m_mass, ui.mass_unit->currentText()));
+	ui.mass->setValue(m_mass.number());
+	calculate();
+}
+
 // occurs when the number of moles is changed
 void gasCalculator::Vand_aChanged ( void )
 {
@@ -221,11 +229,7 @@ void gasCalculator::Vand_bChanged ( void )
 // occurs when any quantity is changed
 void gasCalculator::calculate ( void )
 {
-	if ( ui.r0->isChecked())
-	{
-		calculateMolarMass();
-	}
-	else if ( ui.r1->isChecked())
+	if ( ui.r1->isChecked())
 	{
 		calculateMoles();
 	}
@@ -255,6 +259,16 @@ void gasCalculator::error ( int mode )
 
 }
 
+void gasCalculator::debug (void)
+{
+	QString a = m_temp.toString() + m_vol.toString() + m_pressure.toString() + m_mass.toString();
+	QString b;
+	b.setNum(m_moles);
+	a += b + "  ";
+	b.setNum(m_molarMass);
+	a += b + "  ";
+	ui.result->setText(a);
+}
 #include "gasCalculator.moc"
 
 

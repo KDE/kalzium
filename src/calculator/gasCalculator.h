@@ -26,7 +26,7 @@
 
 #include "ui_gasCalculator.h"
 
-#define R 1.0
+#define R 1
 
 using namespace Conversion;
 
@@ -56,11 +56,13 @@ class gasCalculator : public QFrame
 		void pressureChanged ( void );		// occurs when the pressure is changed	
 		void massChanged ( void );			// occurs when the mass is changed
 		void molesChanged ( double value ); // occurs when the number of moles is changed
+		void molarMassChanged( double value);	// occurs when the molar mass is changed
 		void Vand_aChanged ( void );		// occurs when Vander Val's constant a is changed
 		void Vand_bChanged ( void );		// occurs when Vander Val's constant b is changed
 		void calculate ( void );			// occurs when any quantity is changed
 		void error ( int );
 		
+		void debug (void);
 	private:
 		Ui::gasCalculator ui;				// The user interface
 		
