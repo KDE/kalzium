@@ -14,60 +14,65 @@
 
 #include "gasCalculator.h"
 
+using namespace Conversion;
+
 gasCalculator::gasCalculator( QWidget * parent )
 	: QFrame ( parent )
 {	
-	ui . setupUi( this );
+	ui.setupUi( this );
 	
 	/**************************************************************************/
 	//						 Gas Calculator set up
 	/**************************************************************************/
-	KalziumDataObject *kdo = KalziumDataObject::instance();
-	
-	// add all element names to the comboBox	
-	foreach (Element * e, kdo -> ElementList) {
-    	ui . element -> addItem ( e->dataAsString ( ChemicalDataObject::name ) );
-    }
     
     // initialise the initially selected values
-    ui . element  	-> setCurrentIndex ( 0 );
-	ui . temp	 	-> setValue ( 273.0 );
-	ui . vol 		-> setValue ( 22.400);
-	ui . pressure	-> setValue ( 1.0 );
-	ui . Vand_a 	-> setValue ( 0.0 );
-	ui . Vand_b 	-> setValue ( 0.0 );
-	ui . mass 		-> setValue ( 1.008 );
-	ui . moles 		-> setValue ( 1.0 );
+    ui.molarMass-> setValue ( 2.008 );
+    ui.temp	 	-> setValue ( 273.0 );
+	ui.volume	-> setValue ( 22.400);
+	ui.pressure	-> setValue ( 1.0 );
+	ui.a 		-> setValue ( 0.0 );
+	ui.b	 	-> setValue ( 0.0 );
+	ui.mass 	-> setValue ( 2.016 );
+	ui.moles	-> setValue ( 1.0 );
 	// Setup of the UI done
 	
 	// Initialise values
-	m_temp = 273.0;
-	m_element = * KalziumDataObject::instance() -> element ( 1 );
-	m_pressure = 1.0;
-	m_mass = 1.008;
+	m_temp = Value(273.0,"Kelvin");
+	m_molarMass = 2.016;
+	m_pressure = Value(1.0,"atmosphere");
+	m_mass = Value(2.016,"grams");
 	m_moles = 1.0;
 	m_Vand_a = 0.0;
-	m_Vand_b = 0.0;
-	m_vol = 22.4;
+	m_Vand_b = Value (0.0,"liters");
+	m_vol = Value (22.4,"liters");
     // Initialisation of values done
     // Connect signals with slots
-    connect ( ui . element  , SIGNAL ( activated ( int ) ), 
-             this, SLOT ( elementChanged  ( int ) ) );
-	connect ( ui . temp  , SIGNAL ( valueChanged ( double ) ),
-	         this, SLOT ( tempChanged  ( double ) ) );
-	connect ( ui . vol  , SIGNAL ( valueChanged ( double ) ),
-			 this, SLOT ( volChanged  ( double ) ) );
-	connect ( ui . pressure  , SIGNAL ( valueChanged ( double ) ),
-			 this, SLOT ( pressureChanged  ( double ) ) );
-	connect ( ui . mass  ,  SIGNAL ( valueChanged ( double ) ),
-			 this, SLOT ( massChanged  ( double ) ) );
-	connect ( ui . moles  , SIGNAL ( valueChanged ( double )),
-			 this, SLOT ( molesChanged ( double ) ) );
-	connect ( ui . moles  , SIGNAL ( valueChanged ( double )),
-			 this, SLOT ( molesChanged ( double ) ) );
-	connect ( ui . moles  , SIGNAL ( valueChanged ( double )),
-			 this, SLOT ( molesChanged ( double ) ) );			 			 
-			 	 			 
+	connect ( ui.temp , SIGNAL( valueChanged (double)),
+	         this, SLOT ( tempChanged ()));
+	connect ( ui.temp_unit , SIGNAL( activated(int)),
+	         this, SLOT ( tempChanged ()));
+	connect ( ui.volume , SIGNAL( valueChanged (double)),
+			 this, SLOT ( volChanged ()));
+	connect ( ui.volume_unit , SIGNAL( activated(int)),
+			 this, SLOT ( volChanged ()));			 
+	connect ( ui.pressure , SIGNAL( valueChanged (double)),
+			 this, SLOT ( pressureChanged ()));
+	connect ( ui.pressure_unit , SIGNAL( activated(int)),
+			 this, SLOT ( pressureChanged ()));			 
+	connect ( ui.mass ,  SIGNAL( valueChanged (double)),
+			 this, SLOT ( massChanged ()));
+	connect ( ui.mass_unit , SIGNAL( activated(int)),
+			 this, SLOT ( massChanged ()));			 
+	connect ( ui.moles , SIGNAL( valueChanged (double)),
+			 this, SLOT ( molesChanged (double)));
+	connect ( ui.a ,  SIGNAL( valueChanged (double)),
+			 this, SLOT ( massChanged ()));
+	connect ( ui.a_unit , SIGNAL( activated(int)),
+			 this, SLOT ( massChanged ()));
+	connect ( ui.b ,  SIGNAL( valueChanged (double)),
+			 this, SLOT ( massChanged ()));
+	connect ( ui.b_unit , SIGNAL( activated(int)),
+			 this, SLOT ( massChanged ()));	
 	/**************************************************************************/        
 	// gas Calculator setup complete	         
 	/**************************************************************************/
@@ -79,96 +84,113 @@ gasCalculator:: ~gasCalculator()
 }
 
 // Calculates the Pressure
-double gasCalculator::calculatePressure  ( void )
+void gasCalculator::calculatePressure  ( void )
 {
 	double pressure;
+	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
+	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
 	
-	return pressure;
+	pressure = m_moles * R * temp / volume;
+	m_pressure = Value(pressure,"atmosphere");
+	m_pressure = (Converter::self()->convert(m_temp, ui.pressure_unit->currentText()));
+	ui.pressure->setValue(m_pressure.number());
+	
+	//pressure = 
 }	
 
-// Calculates the Volume
-double gasCalculator::calculateVol ( void )
+// Calculates the molar mass of the gas
+void gasCalculator::calculateMolarMass ( void )
 {
-	double vol;
+	double mass = ((Converter::self()->convert( m_mass, "grams")).number());
+	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
+	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
+	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
 	
-	return vol;
+	m_molarMass = mass * R * temp / pressure / volume;
+	ui.molarMass->setValue(m_molarMass);	
+}
+
+// Calculates the Volume
+void gasCalculator::calculateVol ( void )
+{
+	double volume;
+	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
+	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
+	
+	volume = m_moles * R * temp / pressure;
+	m_vol = Value(volume,"liters");
+	m_vol = (Converter::self()->convert(m_vol, ui.volume_unit->currentText()));
+	ui.volume->setValue(m_vol.number());
+	
 }
 
 // Calculates the Temperature
-double gasCalculator::calculateTemp ( void )
+void gasCalculator::calculateTemp ( void )
 {
 	double temp;
+	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
+	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
 	
-	return temp;
+	temp = pressure * volume / m_moles * R;
+	m_temp = Value(temp,"Kelvin");
+	m_temp = (Converter::self()->convert(m_temp, ui.temp_unit->currentText()));
+	ui.temp->setValue(m_temp.number());
 }	
 
 // Calculates the number of moles
-double gasCalculator::calculateMoles ( void )
+void gasCalculator::calculateMoles ( void )
 {
-	double moles;
+	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
+	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
+	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
 	
-	return moles;
+	m_moles = pressure * volume / R / temp;
+	ui.moles->setValue(m_moles);
 }
 
 // Calculates the mass of substance
-double gasCalculator::calculateMass ( void )
+void gasCalculator::calculateMass ( void )
 {
 	double mass;
+	double volume = ((Converter::self()->convert(m_vol, "liters")).number());
+	double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
+	double temp = ((Converter::self()->convert(m_temp, "Kelvin")).number());
 	
-	return mass;
+	mass = pressure * volume * m_molarMass / R / temp;
+	m_mass = Value(mass,"grams");
+	m_mass = (Converter::self()->convert(m_mass, ui.mass_unit->currentText()));
+	ui.mass->setValue(m_mass.number());
 }
 
-// Calculates the vander Val's constant a
-double gasCalculator::calculateVand_a ( void )
-{
-	double a;
-	
-	return a;
-}
-
-// Calculates the vander Val's constant b
-double gasCalculator::calculateVand_b ( void )
-{
-	double b;
-	
-	return b;
-}
-		
 
 // Functions ( slots ) that occur on changing a value
-
-// occurs when the element is changed
-void gasCalculator::elementChanged ( int index )
-{
-	m_element = * KalziumDataObject::instance() -> element ( index + 1);
-	calculate ();	
-}
-
 // occurs when the volume is changed
-void gasCalculator::volChanged ( double value )
+void gasCalculator::volChanged ( void )
 {
-	m_vol = value;
+	m_vol = Value( ui.volume->value(), ui.volume_unit->currentText());
 	calculate ();	
 }
 
 // occurs when the temperature is changed
-void gasCalculator::tempChanged ( double value )
+void gasCalculator::tempChanged ( void )
 {
-	m_temp = value;
+	m_temp = Value( ui.temp->value(),ui.temp_unit->currentText());
 	calculate ();	
 }
 
 // occurs when the pressure is changed	
-void gasCalculator::pressureChanged ( double value )
+void gasCalculator::pressureChanged ( void )
 {
-	m_pressure = value;
-		calculate ();
+	m_pressure = Value(ui.pressure->value(),ui.pressure_unit->currentText());
+	calculate ();
 }
 
 // occurs when the mass is changed
-void gasCalculator::massChanged ( double value )
+void gasCalculator::massChanged ( void )
 {
-	m_mass = value;
+	m_mass = Value(ui.mass->value(),ui.mass_unit->currentText());
+	m_moles = ((Converter::self()->convert( m_mass, "grams")).number()) / m_molarMass;
+	ui.moles->setValue(m_moles);
 	calculate ();
 }
 
@@ -176,26 +198,60 @@ void gasCalculator::massChanged ( double value )
 void gasCalculator::molesChanged ( double value )
 {
 	m_moles = value;
+	m_mass = Value(m_moles*m_molarMass,"grams");
+	m_mass = (Converter::self()->convert( m_mass, ui.mass_unit->currentText()));
+	ui.mass->setValue(m_mass.number());	
 	calculate ();	
 }
 
 // occurs when the number of moles is changed
-void gasCalculator::Vand_aChanged ( double value )
+void gasCalculator::Vand_aChanged ( void )
 {
-	m_Vand_a = value;
+	m_Vand_a = ui.a->value();
 	calculate ();	
 }
 
 // occurs when the number of moles is changed
-void gasCalculator::Vand_bChanged ( double value )
+void gasCalculator::Vand_bChanged ( void )
 {
-	m_Vand_b = value;
+	m_Vand_b = Value( ui.b->value(), ui.b_unit->currentText());
 	calculate ();
 }
 
 // occurs when any quantity is changed
 void gasCalculator::calculate ( void )
 {
+	if ( ui.r0->isChecked())
+	{
+		calculateMolarMass();
+	}
+	else if ( ui.r1->isChecked())
+	{
+		calculateMoles();
+	}
+	else if ( ui.r2->isChecked())
+	{
+		calculatePressure();
+	}
+	else if ( ui.r3->isChecked())
+	{
+		calculateTemp();
+	}
+	else if ( ui.r4->isChecked())
+	{
+		calculateVol();
+	}
+}
+
+void gasCalculator::error ( int mode )
+{
+	switch ( mode )
+	{
+		case VOL_ZERO :
+			ui.error->setText("Volume cannot be zero, please correct the error!");	
+		default:
+			break;
+	}
 
 }
 

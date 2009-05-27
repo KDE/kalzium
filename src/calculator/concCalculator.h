@@ -23,7 +23,7 @@
 
 using namespace Conversion;
 
-enum ERROR_TYPE {
+enum ERROR_TYPE_CONC {
             PERCENTAGE = 0,
             DENSITY_ZERO,
             MASS_ZERO,
