@@ -26,7 +26,7 @@
 
 #include "ui_gasCalculator.h"
 
-#define R 1
+#define R 0.08206
 
 using namespace Conversion;
 

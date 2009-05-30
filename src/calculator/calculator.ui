@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>869</width>
+    <width>834</width>
     <height>600</height>
    </rect>
   </property>
@@ -41,6 +41,11 @@
      </column>
      <item>
       <property name="text">
+       <string>Introduction</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Molecular mass Calculator</string>
       </property>
      </item>
@@ -68,7 +73,7 @@
    </item>
    <item row="0" column="1">
     <widget class="QStackedWidget" name="stack">
-     <widget class="QWidget" name="page">
+     <widget class="QWidget" name="intro">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="KTextEdit" name="ktextedit">

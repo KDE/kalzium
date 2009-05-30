@@ -67,21 +67,23 @@ void calculator :: slotItemSelection(QTreeWidgetItem *item)
 
     QString s = item -> text ( 0 );
 	
+	if ( ! (s . compare ( i18n ("Introduction") ) ) )
+		ui.stack -> setCurrentWidget ( ui.intro );
 	// Check if nuclear calculator is selected, show the widget in the user interface
-    if ( ! ( s . compare ( i18n ( "Nuclear Calculator" ) ) ) )
-        ui . stack -> setCurrentWidget ( m_nuclearCalculator );
+    else if ( ! ( s . compare ( i18n ( "Nuclear Calculator" ) ) ) )
+        ui.stack -> setCurrentWidget ( m_nuclearCalculator );
     
     // Check if gas calculator is selected, show the widget in the user interface
     else if ( ! ( s . compare ( i18n ( "Gas Calculator") ) ) )
-    	ui . stack -> setCurrentWidget ( m_gasCalculator );
+    	ui.stack -> setCurrentWidget ( m_gasCalculator );
     
     // Check if the concentration calculator is selected, sho the widget in the UI if yes
     else if ( ! ( s . compare ( i18n ( "Concentration Calculator" ) ) ) )
-		ui . stack -> setCurrentWidget ( m_concCalculator );
+		ui.stack -> setCurrentWidget ( m_concCalculator );
 	
 	// Check if the molecular mass calculator was selected, if yes show it in the UI		
 	else if ( ! ( s . compare ( i18n ( "Molecular mass Calculator" ) ) ) ) 
-		ui . stack -> setCurrentWidget ( m_molecalculator );
+		ui.stack -> setCurrentWidget ( m_molecalculator );
 		
 	// The equation balancer needs FACILE library, if its present HAVE_FACILE = 1
 	// If the equation balancer was selected, open it in the UI.
