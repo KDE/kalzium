@@ -33,7 +33,6 @@
  * You can perform basic calculations using this
  * @author Kashyap R Puranik
  */
- 
 class calculator : public KDialog
 {
     Q_OBJECT

@@ -26,28 +26,50 @@
 
 using namespace Conversion;
 
+/**
+ * Note that all values are stored in SI units in the class.
+ * FIXME documentation missing
+ */
 class nuclearCalculator : public QFrame
 {
 	Q_OBJECT
-	
+
 	public:
 		nuclearCalculator  ( QWidget * parent = 0 );
 		~nuclearCalculator ();
 	
 	public slots:	
-		void calculateInitAmount  ( void );	// Calculates the initial amount
-		void calculateFinalAmount ( void );	// Calculates the final amount
-		void calculateTime ( void );			// Calculates the time required
+		/// Calculates the initial amount
+		void calculateInitAmount  ( void );
+			
+		/// Calculates the final amount
+		void calculateFinalAmount ( void );
 		
-		// Functions ( slots ) that occur on changing a value
-		void elementChanged ( int index );		// occurs when the element is changed
-		void isotopeChanged ( int index );		// occurs when the isotope is changed
-		void halfLifeChanged ( void );  // occurs when the halfLife is changed
-		void calculate ( void );				// occurs when any quantity is changed
-		void initAmtChanged ( void );				// occurs when the initial amount is changed in the UI
-		void finalAmtChanged ( void );				// occurs when the final amount is changed in the UI
-		void timeChanged ( void );					// occurs when the time is changed in the UI
-		void sliderMoved ( int );				// occurs when the slider in the ui is moved
+		/// Calculates the time required
+		void calculateTime ( void );
+		
+		void elementChanged ( int index );
+		
+		/// occurs when the isotope is changed
+		void isotopeChanged ( int index );
+		
+		/// occurs when the halfLife is changed
+		void halfLifeChanged ( void );  
+		
+		/// occurs when any quantity is changed
+		void calculate ( void );
+		
+		/// occurs when the initial amount is changed in the UI
+		void initAmtChanged ( void );
+		
+		/// occurs when the final amount is changed in the UI
+		void finalAmtChanged ( void );
+		
+		/// occurs when the time is changed in the UI
+		void timeChanged ( void );
+		
+		/// occurs when the slider in the ui is moved
+		void sliderMoved ( int );
 		
 	private:
 		Ui::nuclearCalculator ui;				// The user interface
@@ -55,7 +77,7 @@ class nuclearCalculator : public QFrame
 		Element m_element;						// Current element
 		Isotope m_isotope;						// current isotope
 		
-		// Note all values are stored in SI units in the class
+		
 		Value m_halfLife;						// The halfLife
 		Value m_initAmount;						// initial amount present
 		Value m_finalAmount;					// amount after time

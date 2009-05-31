@@ -14,15 +14,15 @@
  *                                                                         *
  ***************************************************************************/
  
-#include<element.h>
-#include<isotope.h>
+#include <element.h>
+#include <isotope.h>
 
-#include<kdebug.h>
-#include<prefs.h>
-#include<converter.h>
-#include<kalziumdataobject.h>
-#include<converter.h>
-#include<value.h>
+#include <kdebug.h>
+#include <prefs.h>
+#include <converter.h>
+#include <kalziumdataobject.h>
+#include <converter.h>
+#include <value.h>
 
 #include "ui_gasCalculator.h"
 
@@ -34,6 +34,9 @@ enum ERROR_TYPE_GAS {
 	VOL_ZERO = 0,
 	};
 
+/**
+ * FIXME
+ */
 class gasCalculator : public QFrame
 {
 	Q_OBJECT
@@ -76,7 +79,6 @@ class gasCalculator : public QFrame
 		
 		//( Unit conversion library not available for the following quantities)
 		double m_Vand_a;					// Vander val's constant a 
-
 };
 
 #endif // gasCalculator_H

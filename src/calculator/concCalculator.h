@@ -40,6 +40,9 @@ enum ERROR_TYPE_CONC {
             INSUFFICIENT_DATA_SOLVENT
         };
 
+/**
+ * FIXME
+ */
 class concCalculator : public QFrame
 {
 	Q_OBJECT
@@ -49,7 +52,6 @@ class concCalculator : public QFrame
 		~concCalculator ();
 		
 	public slots:	
-
 		// Sub-routines involved in calculations of the unit
 		void calculateAmtSolute(void);			// Calculates the amount of solute
 		void calculateAmtSolvent(void);			// Calculates the amount of solvent
