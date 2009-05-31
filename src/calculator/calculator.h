@@ -2,7 +2,7 @@
 #define CALCULATOR_H
 
 /***************************************************************************
-    Author		         : Kashyap R Puranik
+    Author               : Kashyap R Puranik
     email                : kashthealien@gmail.com
 
  ***************************************************************************/
@@ -15,7 +15,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- 
+
 #include <kdialog.h>
 #include "ui_calculator.h"
 
@@ -37,23 +37,23 @@ class calculator : public KDialog
 {
     Q_OBJECT
 
-    public:
-        calculator ( QWidget *parent = 0 );			// constructor
-        ~ calculator();								// destructor
+public:
+    calculator(QWidget *parent = 0);             // constructor
+    ~ calculator();                             // destructor
 
-    private: 
-        Ui::calculator ui;							// The user interface
-        KActionCollection *	m_actionCollection;	
-   		nuclearCalculator *	m_nuclearCalculator;	// The nuclear calculator
-   		gasCalculator *		m_gasCalculator;		// The gas calculator
-   		concCalculator *	m_concCalculator;		// The concentration Calculator
-		MolcalcWidget *     m_molecalculator;		// The molecular mass calculator
-#ifdef HAVE_FACILE		
-		EQChemDialog *		m_equationBalancer;		// The equation balancer
-#endif		
-    private slots:
-		void slotItemSelection(QTreeWidgetItem *item);	// occurs when an tree item is selected
-    public slots:
+private:
+    Ui::calculator ui;                          // The user interface
+    KActionCollection * m_actionCollection;
+    nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
+    gasCalculator *     m_gasCalculator;        // The gas calculator
+    concCalculator *    m_concCalculator;       // The concentration Calculator
+    MolcalcWidget *     m_molecalculator;       // The molecular mass calculator
+#ifdef HAVE_FACILE
+    EQChemDialog *      m_equationBalancer;     // The equation balancer
+#endif
+private slots:
+    void slotItemSelection(QTreeWidgetItem *item);  // occurs when an tree item is selected
+public slots:
 };
 
 #endif
