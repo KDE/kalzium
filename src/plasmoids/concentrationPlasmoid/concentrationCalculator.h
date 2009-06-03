@@ -52,12 +52,7 @@ class concentrationCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_amountSolvent;
         Plasma::SpinBox *m_molarMassSolvent;
         Plasma::SpinBox *m_densitySolvent;
-        Plasma::SpinBox *m_concentration;
-        
-
-		Plasma::Slider *m_slider;
-        
-        Plasma::Label *m_timeInHalfLives;      
+        Plasma::SpinBox *m_concentration;   
         
         Plasma::RadioButton *m_r1,*m_r2,*m_r3,*m_r5,*m_r6,*m_r8;
       
