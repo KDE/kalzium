@@ -1,10 +1,10 @@
 // Here we avoid loading the header multiple times
-#ifndef calc_HEADER
-#define calc_HEADER
+#ifndef nuclearCalculator_HEADER
+#define nuclearCalculator_HEADER
 // We need the Plasma Applet headers
 #include <KIcon>
  
-#include <Plasma/Applet>
+#include <Plasma/PopupApplet>
 #include <Plasma/Svg>
 
 namespace Plasma{
@@ -14,16 +14,18 @@ namespace Plasma{
 	class TextEdit;
 	class Label;
 	class Slider;
-}
+	class SpinBox;
+	class RadioButton;
+};
 
 // Define our plasma Applet
-class calc : public Plasma::Applet
+class nuclearCalculator : public Plasma::PopupApplet
 {
     Q_OBJECT
     public:
         // Basic Create/Destroy
-        calc(QObject *parent, const QVariantList &args);
-        ~calc();
+        nuclearCalculator(QObject *parent, const QVariantList &args);
+        ~nuclearCalculator();
         
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
@@ -35,7 +37,7 @@ class calc : public Plasma::Applet
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_element;
         Plasma::ComboBox *m_isotope;
-        Plasma::ComboBox *m_yearUnit;
+        Plasma::ComboBox *m_halfLifeUnit;
         Plasma::ComboBox *m_initType;
         Plasma::ComboBox *m_finalType;
         Plasma::ComboBox *m_initUnit;
@@ -49,11 +51,14 @@ class calc : public Plasma::Applet
 
 		Plasma::Slider *m_slider;
         
-        Plasma::Label *m_atomicMass;
         Plasma::Label *m_timeInHalfLives;      
+        
+        Plasma::RadioButton *m_r1;
+        Plasma::RadioButton *m_r2;
+        Plasma::RadioButton *m_r3;
         
 };
  
 // This is the command that links your applet to the .desktop file
-K_EXPORT_PLASMA_APPLET(calc, calc)
-#endif //calc_HEADER
+K_EXPORT_PLASMA_APPLET(nuclearCalculator, nuclearCalculator)
+#endif //nuclearCalculator_HEADER
