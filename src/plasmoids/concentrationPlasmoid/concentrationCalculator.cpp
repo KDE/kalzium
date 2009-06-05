@@ -27,10 +27,12 @@
 #include <Plasma/LineEdit>
 #include <Plasma/Label>
 #include <Plasma/Frame>
+#include <Plasma/GroupBox>
 #include <Plasma/RadioButton>
 #include <Plasma/SpinBox>
 #include <Plasma/Slider>
 #include <QGraphicsGridLayout>
+#include <QGraphicsLinearLayout>
  
 #include <plasma/svg.h>
 #include <plasma/theme.h>
@@ -61,6 +63,14 @@ void concentrationCalculator::init()
  
 QGraphicsWidget *concentrationCalculator::graphicsWidget()
 {
+//FIXME:
+// 1.> setZvalue function has a problem please fix it (look at the comboBox in the plasmoid
+// and try to click on one of them to notice the exact problem)
+// 2.> Also currently the spin boxes are integer, please convert them into double
+// and uncomment certain lines of code which say 'setDecimals(4)'
+// 3.> The radio buttons allow multiple selection which should not happen, they should be 
+// grouped somehow.
+
 	if (!m_widget) {	
 		m_widget = new QGraphicsWidget(this);
 		
@@ -69,9 +79,12 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 	    pHeader->setText(i18n("concentration Calculator"));
 	    
-	    //setup the grid layout
-		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(m_widget);
+	    //setup the layout
+	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
+	    Plasma::GroupBox *pGroupBox1 = new Plasma::GroupBox(this);
+		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(pGroupBox1);
 		pGridLayout->addItem(pHeader, 0, 0, 1, 5);
+		pVLayout->addItem(pGroupBox1);
 		
 		// Set up the user interface
 		// 1 amount solute
@@ -82,16 +95,42 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    amtSltLabel->setText(i18n("Amount of solute:"));
 	    
 	    m_amountSolute = new Plasma::SpinBox(this);
-	    
+	    //amtSolute->setDecimals(4);
+        m_amountSolute->setMaximum(1e+09);
+        	    
 	    m_amountSoluteType = new Plasma::ComboBox(this);
 	    m_amountSoluteType->setZValue(2);
-	    
+        m_amountSoluteType->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("Mass", 0)
+         << tr2i18n("volume", 0)
+         << tr2i18n("moles", 0)
+        );
+        
    	    m_amountSoluteUnit1 = new Plasma::ComboBox(this);
 	    m_amountSoluteUnit1->setZValue(2);
-	    
+	    m_amountSoluteUnit1->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("grams", 0)
+         << tr2i18n("tons", 0)
+         << tr2i18n("carats", 0)
+         << tr2i18n("pounds", 0)
+         << tr2i18n("ounces", 0)
+         << tr2i18n("troy ounces", 0)
+        );
+        
    	    m_amountSoluteUnit2 = new Plasma::ComboBox(this);
 	    m_amountSoluteUnit2->setZValue(2);
-	    
+	    m_amountSoluteUnit2->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("liter", 0)
+         << tr2i18n("cubic meters", 0)
+         << tr2i18n("cubic feet", 0)
+         << tr2i18n("cubic inch", 0)
+         << tr2i18n("cubic mile", 0)
+         << tr2i18n("fluid ounce", 0)
+         << tr2i18n("cups", 0)
+         << tr2i18n("gallons", 0)
+         << tr2i18n("pints", 0)
+        );
+        
 	    pGridLayout->addItem(m_r1, 1, 0);
 	    pGridLayout->addItem(amtSltLabel, 1, 1);
 	    pGridLayout->addItem(m_amountSolute, 1, 2);
@@ -107,6 +146,8 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    molarMassLabel->setText(i18n("Molar mass of solute:"));
 	    
 	    m_molarMass = new Plasma::SpinBox(this);
+        //m_molarMass->setDecimals(4);
+        m_molarMass->setMaximum(1e+09);
 	    
 	    Plasma::Label *molarMassUnit = new Plasma::Label(this);
 	    molarMassUnit->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
@@ -127,6 +168,9 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    
 	    m_eqtMass = new Plasma::SpinBox(this);
 	    
+	    //m_eqtMass->setDecimals(4);
+        m_eqtMass->setMaximum(1e+09);
+        
 	    Plasma::Label *eqtMassUnit = new Plasma::Label(this);
 	    eqtMassUnit->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 	    eqtMassUnit->setText(i18n("u (mass)"));
@@ -143,9 +187,22 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    densitySoluteLabel->setText(i18n("Density of solute:"));
 	    
 	    m_densitySolute = new Plasma::SpinBox(this);
-	    
+        //m_densitySolute->setDecimals(4);
+        m_densitySolute->setMaximum(1e+09);	    
+        
   	    m_densitySoluteUnit = new Plasma::ComboBox(this);
 	    m_densitySoluteUnit->setZValue(2);
+	    m_densitySoluteUnit->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("grams per liter", 0)
+         << tr2i18n("grams per milliliter", 0)
+         << tr2i18n("kilograms per cubic meter", 0)
+         << tr2i18n("kilograms per liter", 0)
+         << tr2i18n("ounces per cubic inch", 0)
+         << tr2i18n("ounces per cubic foot", 0)
+         << tr2i18n("pounds per cubic inch", 0)
+         << tr2i18n("pounds per cubic foot", 0)
+         << tr2i18n("pounds per cubic yard", 0)
+        );
 	    
 	    pGridLayout->addItem(densitySoluteLabel, 4, 1);
 	    pGridLayout->addItem(m_densitySolute, 4, 2);
@@ -160,16 +217,42 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    amtSlvtLabel->setText(i18n("Amount of solvent:"));
 	    
 	    m_amountSolvent = new Plasma::SpinBox(this);
-	    
+        //m_amtSolvent->setDecimals(4);
+        m_amountSolvent->setMaximum(1e+09);
+        	    
 	    m_amountSolventType = new Plasma::ComboBox(this);
 	    m_amountSolventType->setZValue(2);
-	    
+	    m_amountSolventType->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("volume", 0)
+         << tr2i18n("Mass", 0)
+         << tr2i18n("moles", 0)
+        );
+        
    	    m_amountSolventUnit1 = new Plasma::ComboBox(this);
 	    m_amountSolventUnit1->setZValue(2);
-	    
+	    m_amountSolventUnit1->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("grams", 0)
+         << tr2i18n("tons", 0)
+         << tr2i18n("carats", 0)
+         << tr2i18n("pounds", 0)
+         << tr2i18n("ounces", 0)
+         << tr2i18n("troy ounces", 0)
+        );
+        
    	    m_amountSolventUnit2 = new Plasma::ComboBox(this);
 	    m_amountSolventUnit2->setZValue(2);
-	    
+	    m_amountSolventUnit2->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("liter", 0)
+         << tr2i18n("cubic meters", 0)
+         << tr2i18n("cubic feet", 0)
+         << tr2i18n("cubic inch", 0)
+         << tr2i18n("cubic mile", 0)
+         << tr2i18n("fluid ounce", 0)
+         << tr2i18n("cups", 0)
+         << tr2i18n("gallons", 0)
+         << tr2i18n("pints", 0)
+        );
+        
    	    pGridLayout->addItem(m_r5, 5, 0);
 	    pGridLayout->addItem(amtSlvtLabel, 5, 1);
 	    pGridLayout->addItem(m_amountSolvent, 5, 2);
@@ -186,7 +269,9 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    molarMassSolvtLabel->setText(i18n("Molar mass of solvent:"));
 	    
 	    m_molarMassSolvent = new Plasma::SpinBox(this);
-	    
+        //m_molarMassSolvent->setDecimals(4);
+        m_molarMassSolvent->setMaximum(1e+09);
+        	    
 	    Plasma::Label *molarMassSolvtUnit = new Plasma::Label(this);
 	    molarMassSolvtUnit->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 	    molarMassSolvtUnit->setText(i18n("u (mass)"));
@@ -203,10 +288,23 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    densitySolventLabel->setText(i18n("Density of solvent:"));
 	    
 	    m_densitySolvent = new Plasma::SpinBox(this);
-	    
+        //m_densitySolvent->setDecimals(4);
+        m_densitySolvent->setMaximum(1e+09);
+        	    
   	    m_densitySolventUnit = new Plasma::ComboBox(this);
 	    m_densitySolventUnit->setZValue(2);
-	    
+	    m_densitySolventUnit->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("grams per liter", 0)
+         << tr2i18n("grams per milliliter", 0)
+         << tr2i18n("kilograms per cubic meter", 0)
+         << tr2i18n("kilograms per liter", 0)
+         << tr2i18n("ounces per cubic inch", 0)
+         << tr2i18n("ounces per cubic foot", 0)
+         << tr2i18n("pounds per cubic inch", 0)
+         << tr2i18n("pounds per cubic foot", 0)
+         << tr2i18n("pounds per cubic yard", 0)
+        );
+        
    	    pGridLayout->addItem(densitySolventLabel, 7, 1);
 	    pGridLayout->addItem(m_densitySolvent, 7, 2);
 	    pGridLayout->addItem(m_densitySolventUnit, 7, 4);
@@ -220,10 +318,20 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    concentrationLabel->setText(i18n("Molar mass of solvent:"));
 
 		m_concentration = new Plasma::SpinBox(this);
+		//m_concentration->setDecimals(4);
+		m_concentration->setMaximum(1e+09);
 		
 		m_concentrationUnit = new Plasma::ComboBox(this);
 	    m_concentrationUnit->setZValue(2);
-	    
+	    m_concentrationUnit->nativeWidget()->insertItems(0, QStringList()
+         << tr2i18n("molar", 0)
+         << tr2i18n("Normal", 0)
+         << tr2i18n("molal", 0)
+         << tr2i18n("% ( mass )", 0)
+         << tr2i18n("% ( volume )", 0)
+         << tr2i18n("% ( moles )", 0)
+        );
+        
 	    pGridLayout->addItem(m_r8, 8, 0);
 	    pGridLayout->addItem(concentrationLabel, 8, 1);
 	    pGridLayout->addItem(m_concentration, 8, 2);
