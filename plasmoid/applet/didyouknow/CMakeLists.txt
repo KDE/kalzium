@@ -1,5 +1,5 @@
 include_directories( 
-   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/   
+   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    )
 
 set(didyouknow_plasma_SRCS
