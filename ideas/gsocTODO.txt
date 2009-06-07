@@ -13,15 +13,22 @@ Creation of the respective classes for various calculators as planned
 The nuclear calculator is now functional with units.
 Unit conversion library working fine.
 Basic classes for the concentration and the gas calculators done.
+Plasmoid widgets are almost done and will be completed by tonight.
 
 %%% Todo:
 #0 > Reusing Jean's code classes and implementing the molecular mass calculator
-#1 > Plasmoid widget for the molecular calculator
-#2 > Additional parsers ( history ) and prediction mode.
+#1 > Additional parsers ( history ) and prediction mode.
+
+*** Today's activity
+#1 > completion of the 3 plasmoids that I started off. ( will be done)
 
 *** This week's activity
-#1 > Completion of the calculators (concentration and gas calculators)
+#1 > 
 
 Description: 
-I will be completing the concentration and gas calculators by tonight / by tomorrow.
-Right now I have completed the units part of the nuclear calculator, which is working fine.
+I have completed the UI design and initialisation. All that is left is copying the functions that I have written in the calculator ( QT ) to the calculator ( plasma ) and change things accordingly.
+
+Next week:
+Completion of the molecular mass calculator. Adding new features to it, parsers, history ...
+
+JAI HO!
