@@ -1,0 +1,14 @@
+ 
+This is the list of bugs left to be squashed / wishes left to be fulfilled
+
+1.> Adding doubleSpinBoxes instead of intSpinBoxes in plasmoid calculator widgets
+2.> Disabling radioButtons in the plasmoids from multiple selections
+
+3.> In the gas Calculator the volume should be calculated by solving the cubic equation, not done currently
+4.> Error messages in the nuclearCalculator and the gasCalculator are not displayed properly.
+
+5.> Documentation should be added.
+6.> Variable names left to be changed meaningfully
+7.> coding standard to be followed
+
+JAI HO!

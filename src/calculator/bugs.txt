@@ -1,8 +1,0 @@
-Please list all the bugs which are seen. This is a temporary file and will be removed later.
-
-list the following and append the file
-
-Bug no.
-Module.
-Cause
-Description.
