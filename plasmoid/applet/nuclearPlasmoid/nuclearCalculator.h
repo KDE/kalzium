@@ -22,7 +22,8 @@
 #include <isotope.h>
 #include <converter.h>
 #include <value.h>
-#include <kalziumdataobject.h>
+
+#include "kalziumdataobject.h"
 
 namespace Plasma{
 	class QSizeF;
@@ -35,6 +36,7 @@ namespace Plasma{
 	class RadioButton;
 };
 
+using namespace Conversion;
 // Define our plasma Applet
 class nuclearCalculator : public Plasma::PopupApplet
 {

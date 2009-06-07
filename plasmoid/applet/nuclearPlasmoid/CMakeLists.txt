@@ -1,4 +1,4 @@
-# Project Needs a name ofcourse
+#This is the CMakeLists.txt file for the nuclearCalculator project
 project(nuclearCalculator)
 
 # Find the required Libaries
@@ -12,16 +12,18 @@ include_directories(
    ${CMAKE_BINARY_DIR}
    ${KDE4_INCLUDES}
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   ${CMAKE_SOURCE_DIR}/kalzium-GSOC/src/conversion/
-   ${CMAKE_SOURCE_DIR}/kalzium/libavogadro-kalzium/include/   
+   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
    )
  
 # We add our source code here
-set(nuclearCalculator_SRCS nuclearCalculator.cpp)
+set(nuclearCalculator_SRCS 
+   nuclearCalculator.cpp
+   kalziumdataobject.cpp
+   )
 # Now make sure all files get to the right place
 kde4_add_plugin(nuclearCalculator ${nuclearCalculator_SRCS})
 target_link_libraries(nuclearCalculator 
-                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS}
+                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY}
                       science conversion
                       )
 

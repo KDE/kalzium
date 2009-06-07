@@ -18,6 +18,8 @@
  
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
+#include <converter.h>
+#include <value.h>
 
 namespace Plasma{
 	class QSizeF;
@@ -30,6 +32,7 @@ namespace Plasma{
 	class RadioButton;
 };
 
+using namespace Conversion;
 // Define our plasma Applet
 class gasCalculator : public Plasma::PopupApplet
 {
@@ -42,6 +45,26 @@ class gasCalculator : public Plasma::PopupApplet
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
  
+		void calculatePressure(void);        // Calculates the Pressure
+	    void calculateVol(void);             // Calculates the Volume
+	    void calculateTemp(void);        // Calculates the Temperature
+	    void calculateMoles(void);           // Calculates the number of moles
+	    void calculateMass(void);        // Calculates the mass of substance
+	    void calculateMolarMass(void);       // Calculates the molar mass of the substance
+
+	    // Functions ( slots ) that occur on changing a value
+	    void volChanged(void);               // occurs when the volume is changed
+	    void tempChanged(void);          // occurs when the temperature is changed
+	    void pressureChanged(void);          // occurs when the pressure is changed
+	    void massChanged(void);              // occurs when the mass is changed
+	    void molesChanged(double value);    // occurs when the number of moles is changed
+	    void molarMassChanged(double value);     // occurs when the molar mass is changed
+	    void Vand_aChanged(void);        // occurs when Vander Val's constant a is changed
+	    void Vand_bChanged(void);        // occurs when Vander Val's constant b is changed
+	    void calculate(void);            // occurs when any quantity is changed
+	    void error(int);
+
+	    void debug(void);
     private slots:
     // will be added soon
      
@@ -65,6 +88,16 @@ class gasCalculator : public Plasma::PopupApplet
         
         Plasma::RadioButton *m_r2,*m_r4,*m_r5,*m_r6;
       
+		double m_Moles;                     // Number of moles
+	    double m_MolarMass;                 // molarMass
+	    Value m_Mass;                       // mass
+	    Value m_Temp;                       // Temperature
+	    Value m_Pressure;                   // pressure
+	    Value m_Vol;                        // volume
+	    Value m_Vand_B;                     // vander val's constant b
+
+	    //( Unit conversion library not available for the following quantities)
+	    double m_Vand_A;                    // Vander val's constant a      
 };
  
 // This is the command that links your applet to the .desktop file

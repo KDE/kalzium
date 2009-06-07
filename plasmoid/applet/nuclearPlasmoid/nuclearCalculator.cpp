@@ -36,6 +36,8 @@
 #include <plasma/svg.h>
 #include <plasma/theme.h>
 
+using namespace Conversion;
+
 nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
@@ -71,6 +73,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 // grouped somehow.
 
 	if (!m_widget) {	
+		// Position all UI elements
 		m_widget = new QGraphicsWidget(this);
 	    Plasma::Frame *pHeader = new Plasma::Frame(this);
 	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -97,7 +100,9 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    hLifeLabel->setText(i18n("Half-Life"));
 	    
 	    m_element = new Plasma::ComboBox(this);
+	    m_element->setZValue(2);
 	    m_isotope = new Plasma::ComboBox(this);
+	    m_isotope->setZValue(1);
 	    
 	    m_halfLife = new Plasma::SpinBox(this);
 	    //m_halfLife->setDecimals(4);
@@ -226,8 +231,49 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
    	    pGridLayout2->addItem(m_initUnit, 5, 4);
    	    pGridLayout2->addItem(m_finalUnit, 6, 4);
    	    pGridLayout2->addItem(m_timeUnit, 7, 4);
-	    	    	    	    	    
-	    //pGridLayout->addItem(
+	    
+	    // Positioning of UI elements done	    	    	    	    
+		// Now add required properties to the UI widgets
+		
+	    /**************************************************************************/
+	    //                       Nuclear Calculator set up                        //
+	    /**************************************************************************/
+	    KalziumDataObject *kdo = KalziumDataObject::instance();
+
+	    // add all element names to the comboBox in the user interface
+	    foreach(Element * e, kdo -> ElementList) {
+	        m_element->nativeWidget()->addItem(e -> dataAsString(ChemicalDataObject::name));
+	    }
+		///FIXME
+	    /* The last three elemenents will be removed because information is not available
+	       and causes the program to crash when selected. */
+	    int count = m_element->nativeWidget()->count();
+	    m_element->nativeWidget()->removeItem(count - 1);
+	    m_element->nativeWidget()->removeItem(count - 2);
+	    m_element->nativeWidget()->removeItem(count - 3);
+	    // Add all isotope names of Uranium ( by default )to the isotope comboBox
+	    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(92);
+	    QString isotope;
+	    foreach(Isotope * i , list) {
+	        isotope.setNum(i -> mass());
+	        m_isotope->nativeWidget()->addItem(isotope);
+	    }
+
+	    // initialise the data, initially selected values ( Uranium, 92, 238)
+	    m_element->nativeWidget()-> setCurrentIndex(91);
+	    m_isotope->nativeWidget()-> setCurrentIndex(18);
+	    m_halfLife-> setValue(list.at(18)->halflife());
+	    // Setup of the UI done
+	    // Initialise values of the objects of the class
+	    
+	    m_InitAmount=Value(0.0, "g") ;
+	    m_FinalAmount=Value(0.0, "g");
+	    m_Mass = list. at(18) -> mass();
+	    m_Time = Value(0.0, "y");
+	    m_HalfLife = Value(list . at(18) -> halflife(), "y");
+
+	    m_Element = * KalziumDataObject::instance() -> element(92);
+	    m_Isotope = * list . at(18);
 	}    
     return m_widget;
 }

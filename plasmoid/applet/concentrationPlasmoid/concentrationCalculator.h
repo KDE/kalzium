@@ -18,6 +18,8 @@
  
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
+#include <converter.h>
+#include <value.h>
 
 namespace Plasma{
 	class QSizeF;
@@ -30,6 +32,7 @@ namespace Plasma{
 	class RadioButton;
 };
 
+using namespace Conversion;
 // Define our plasma Applet
 class concentrationCalculator : public Plasma::PopupApplet
 {
@@ -41,9 +44,44 @@ class concentrationCalculator : public Plasma::PopupApplet
         
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
- 
-    private slots:
-    // will be added soon
+
+		// Sub-routines involved in calculations of the unit
+	    void calculateAmtSolute(void);          // Calculates the amount of solute
+	    void calculateAmtSolvent(void);         // Calculates the amount of solvent
+	    void calculateMolarMass(void);          // Calculates the molar mass
+	    void calculateEqtMass(void);            // Calculates the equivalent mass
+	    void calculateMolarMassSolvent(void);   // Calculates the calculate molar mass of the solvent
+	    // void calculateDensitySolute(void);       // Calculates the density of solute
+	    // void calculateDensitySolvent(void);      // Calculates the density of solvent
+	    void calculateConcentration(void);      // calculates the concentration
+
+	    // Functions ( slots ) that occur on changing a value
+	    // Sub routines which act as quantity change event handlers
+
+	    void amtSoluteChanged(void);            // occurs when the amount of solute is changed
+	    void amtSolventChanged(void);           // occurs when the amount of solvent is changed
+	    void molarMassChanged(double);          // occurs when the molar mass of solute is changed
+	    void eqtMassChanged(double);            // occurs when the equivalent mass of solute is changed
+	    void molarMassSolventChanged(double);   // occurs when the molar mass of solvent is changed
+	    void densitySoluteChanged(void);        // occurs when the number of moles is changed
+	    void densitySolventChanged(void);       // occurs when the density of solvent is changed
+	    void concentrationChanged(double);      // occurs when the concentration is changed
+	    void calculate(void);                   // occurs when any quantity is changed
+
+	    double volumeSolvent(void);             // returns volume of solvent in liters
+	    double massSolvent(void);               // returns mass of solvent in grams
+	    double molesSolvent(void);              // returns number of moles of solvent
+	    double densitySolvent(void);            // returns density of solvent in grams per liter
+	    double volumeSolute(void);              // returns volume of solute in liters
+	    double massSolute(void);                // returns mass of solute in grams
+	    double molesSolute(void);               // returns the number of moles of solute
+	    double eqtsSolute(void);                // returns the number of equivalents of solute
+	    double densitySolute(void);             // returns density of solute in grams per liter
+
+	    void debug(void);
+	    void error(int);                 // outputs error messages on the screen
+	    private slots:
+	    // will be added soon
      
     private:
         QGraphicsWidget  *m_widget;
@@ -67,6 +105,17 @@ class concentrationCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_concentration;   
         
         Plasma::RadioButton *m_r1,*m_r2,*m_r3,*m_r5,*m_r6,*m_r8;
+        
+        Value m_AmtSolute;                          // amount of solute
+	    Value m_AmtSolvent;                         // amount of solvent
+	    double m_MolesSolute;                       // amount of solute in moles
+	    double m_MolesSolvent;                      // amount of solvent in moles
+	    double m_MolarMass;                         // molar mass of solute
+	    double m_EqtMass;                           // equivalent mass of solute
+	    double m_MolarMassSolvent;                  // molar mass of solvent
+	    Value m_DensitySolute;                      // density of solute
+	    Value m_DensitySolvent;                     // density of the solvent
+	    double m_Concentration;                     // concentration of the solution
       
 };
  

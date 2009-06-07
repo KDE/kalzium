@@ -35,6 +35,8 @@
 #include <plasma/svg.h>
 #include <plasma/theme.h>
 
+using namespace Conversion;
+
 gasCalculator::gasCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
@@ -274,6 +276,33 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
    	    pGridLayout->addItem(vand_bLabel, 8, 1);
 	    pGridLayout->addItem(m_Vand_b, 8, 2);
 	    pGridLayout->addItem(m_bUnit, 8, 3);
+	    // Adding objects to the UI done, now initialise
+	    
+	    /**************************************************************************/
+	    //                       Gas Calculator set up
+	    /**************************************************************************/
+
+	    // initialise the initially selected values
+	    m_molarMass  -> setValue(2.008);
+	    m_temperature-> setValue(273.0);
+	    m_volume     -> setValue(22.400);
+	    m_pressure   -> setValue(1.0);
+	    m_Vand_a          -> setValue(0.0);
+	    m_Vand_b          -> setValue(0.0);
+	    m_mass       -> setValue(2.016);
+	    m_moles      -> setValue(1.0);
+	    // Setup of the UI done
+
+	    // Initialise values
+	    m_Temp = Value(273.0, "kelvins");
+	    m_MolarMass = 2.016;
+	    m_Pressure = Value(1.0, "atmosphere");
+	    m_Mass = Value(2.016, "grams");
+	    m_Moles = 1.0;
+	    m_Vand_A = 0.0;
+	    m_Vand_B = Value(0.0, "liters");
+	    m_Vol = Value(22.4, "liters");
+	    // Initialisation of values done
 	}    
     return m_widget;
 }

@@ -10,6 +10,7 @@ include_directories(
    ${CMAKE_SOURCE_DIR}
    ${CMAKE_BINARY_DIR}
    ${KDE4_INCLUDES}
+   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
    )
  
 # We add our source code here
@@ -17,7 +18,9 @@ set(concentrationCalculator_SRCS concentrationCalculator.cpp)
 # Now make sure all files get to the right place
 kde4_add_plugin(concentrationCalculator ${concentrationCalculator_SRCS})
 target_link_libraries(concentrationCalculator 
-                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS})
+                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS}
+                      conversion
+                      )
 
 install(TARGETS concentrationCalculator
         DESTINATION ${PLUGIN_INSTALL_DIR})

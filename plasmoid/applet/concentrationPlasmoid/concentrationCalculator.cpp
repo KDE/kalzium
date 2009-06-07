@@ -37,6 +37,8 @@
 #include <plasma/svg.h>
 #include <plasma/theme.h>
 
+using namespace Conversion;
+
 concentrationCalculator::concentrationCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
@@ -341,6 +343,35 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    pGridLayout->addItem(concentrationLabel, 8, 1);
 	    pGridLayout->addItem(m_concentration, 8, 2);
 	    pGridLayout->addItem(m_concentrationUnit, 8, 4);
+	    // Done adding elements to the UI, now initialise
+	    
+	    /**************************************************************************/
+	    //                       concentration Calculator set up
+	    /**************************************************************************/
+
+	    // initialise the initially selected values
+	    m_amountSolute            -> setValue(117.0);
+	    m_molarMass            -> setValue(58.5);
+	    m_eqtMass              -> setValue(58.5);
+	    m_densitySolute        -> setValue(2.7);
+	    m_amountSolvent           -> setValue(1.0);
+	    m_molarMassSolvent     -> setValue(18.0);
+	    m_densitySolvent       -> setValue(1000.0);
+	    m_concentration        -> setValue(2.0);
+	    // Setup of the UI done
+
+	    // Initialise values
+	    m_AmtSolute = Value(117.0, "grams");
+	    m_AmtSolvent = Value(1.0, "liter");
+	    m_MolarMass = 58.5;
+	    m_EqtMass = 58.5;
+	    m_MolesSolute = 2.0;
+	    m_MolesSolvent = 55.5;
+	    m_MolarMassSolvent = 18.0;
+	    m_DensitySolute = Value(2.7, "grams per milliliter");
+	    m_Concentration = 2.0;
+	    m_DensitySolvent = Value(1000.0, "grams per liter");
+	    // Initialisation of values done
 	}    
     return m_widget;
 }
