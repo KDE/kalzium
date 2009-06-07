@@ -21,6 +21,8 @@
 #include <converter.h>
 #include <value.h>
 
+#define R 0.08206
+
 namespace Plasma{
 	class QSizeF;
 	class ComboBox;
@@ -30,6 +32,10 @@ namespace Plasma{
 	class Slider;
 	class SpinBox;
 	class RadioButton;
+};
+
+enum ERROR_TYPE_GAS {
+    VOL_ZERO = 0,
 };
 
 using namespace Conversion;
@@ -44,7 +50,9 @@ class gasCalculator : public Plasma::PopupApplet
         
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
- 
+	
+	public slots:
+
 		void calculatePressure(void);        // Calculates the Pressure
 	    void calculateVol(void);             // Calculates the Volume
 	    void calculateTemp(void);        // Calculates the Temperature
@@ -57,8 +65,8 @@ class gasCalculator : public Plasma::PopupApplet
 	    void tempChanged(void);          // occurs when the temperature is changed
 	    void pressureChanged(void);          // occurs when the pressure is changed
 	    void massChanged(void);              // occurs when the mass is changed
-	    void molesChanged(double value);    // occurs when the number of moles is changed
-	    void molarMassChanged(double value);     // occurs when the molar mass is changed
+	    void molesChanged(int value);    // occurs when the number of moles is changed
+	    void molarMassChanged(int value);     // occurs when the molar mass is changed
 	    void Vand_aChanged(void);        // occurs when Vander Val's constant a is changed
 	    void Vand_bChanged(void);        // occurs when Vander Val's constant b is changed
 	    void calculate(void);            // occurs when any quantity is changed
@@ -87,6 +95,8 @@ class gasCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_Vand_b; 
         
         Plasma::RadioButton *m_r2,*m_r4,*m_r5,*m_r6;
+        
+        Plasma::Label   *m_error;
       
 		double m_Moles;                     // Number of moles
 	    double m_MolarMass;                 // molarMass

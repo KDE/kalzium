@@ -89,7 +89,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    molarMassLabel->setText(i18n("Molar Mass of Gas:"));
 	    
 	    m_molarMass = new Plasma::SpinBox(this);
-		//m_molarMass->setDecimals(4);
+		//m_MolarMass->setDecimals(4);
         m_molarMass->setMaximum(1e+09);
         
 		Plasma::Label *molarMassUnitLabel = new Plasma::Label(this);
@@ -109,7 +109,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    molesLabel->setText(i18n("Number of moles:"));
 	    
 	    m_moles = new Plasma::SpinBox(this);
-        //m_moles->setDecimals(4);
+        //m_Moles->setDecimals(4);
         m_moles->setMaximum(1e+09);
         	    
 	    pGridLayout->addItem(m_r2, 2, 0);
@@ -123,7 +123,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    massLabel->setText(i18n("Mass of the gas:"));
 	    
 	    m_mass = new Plasma::SpinBox(this);
-	    //m_mass->setDecimals(4);
+	    //m_Mass->setDecimals(4);
 	    m_mass->setMaximum(1e+09);
 	    
   	    m_massUnit = new Plasma::ComboBox(this);
@@ -151,7 +151,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    pressureLabel->setText(i18n("Pressure of the Gas:"));
 	    
 	    m_pressure = new Plasma::SpinBox(this);
-        //m_pressure->setDecimals(4);
+        //m_Pressure->setDecimals(4);
         m_pressure->setMaximum(1e+09);
         
   	    m_pressureUnit = new Plasma::ComboBox(this);
@@ -181,7 +181,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    temperatureLabel->setText(i18n("Temperature:"));
 	    
 	    m_temperature = new Plasma::SpinBox(this);
-	    //m_temp->setDecimals(4);
+	    //m_Temp->setDecimals(4);
         m_temperature->setMaximum(1e+09);
         
 	    m_temperatureUnit = new Plasma::ComboBox(this);
@@ -237,7 +237,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    vand_aLabel->setText(i18n("Van der Waals constant 'a':"));
 	    
 	    m_Vand_a = new Plasma::SpinBox(this);
-        //m_Vand_a->setDecimals(4);
+        //m_Vand_A->setDecimals(4);
         m_Vand_a->setMaximum(1e+09);
         
   	    m_aUnit = new Plasma::ComboBox(this);
@@ -258,7 +258,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    vand_bLabel->setText(i18n("Van der Waals constant 'b':"));
 	    
 	    m_Vand_b = new Plasma::SpinBox(this);
-        //m_Vand_b->setDecimals(4);
+        //m_Vand_B->setDecimals(4);
         m_Vand_b->setMaximum(1e+09);
         
   	    m_bUnit = new Plasma::ComboBox(this);
@@ -276,6 +276,10 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
    	    pGridLayout->addItem(vand_bLabel, 8, 1);
 	    pGridLayout->addItem(m_Vand_b, 8, 2);
 	    pGridLayout->addItem(m_bUnit, 8, 3);
+	    
+	    // Results
+	    m_error = new Plasma::Label(this);
+	    pGridLayout->addItem(m_error, 9, 0, 5, 2);
 	    // Adding objects to the UI done, now initialise
 	    
 	    /**************************************************************************/
@@ -303,8 +307,239 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    m_Vand_B = Value(0.0, "liters");
 	    m_Vol = Value(22.4, "liters");
 	    // Initialisation of values done
+	    // Connect signals with slots
+	    //FIXME replace all int with double after using the doubleSpinBox
+	    connect(m_temperature, SIGNAL(valueChanged(int)),
+	            this, SLOT(tempChanged()));
+	    connect(m_temperatureUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(tempChanged()));
+	    connect(m_volume, SIGNAL(valueChanged(int)),
+	            this, SLOT(volChanged()));
+	    connect(m_volumeUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(volChanged()));
+	    connect(m_pressure, SIGNAL(valueChanged(int)),
+	            this, SLOT(pressureChanged()));
+	    connect(m_pressureUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(pressureChanged()));
+	    connect(m_mass, SIGNAL(valueChanged(int)),
+	            this, SLOT(massChanged()));
+	    connect(m_massUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(massChanged()));
+	    connect(m_moles, SIGNAL(valueChanged(int)),
+	            this, SLOT(molesChanged(int)));
+	    connect(m_molarMass, SIGNAL(valueChanged(int)),
+	            this, SLOT(molarMassChanged(int)));
+	    connect(m_Vand_a, SIGNAL(valueChanged(int)),
+	            this, SLOT(Vand_aChanged()));
+	    connect(m_aUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(Vand_aChanged()));
+	    connect(m_Vand_b,  SIGNAL(valueChanged(int)),
+	            this, SLOT(Vand_bChanged()));
+	    connect(m_bUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(Vand_bChanged()));
+	    /**************************************************************************/
+	    // gas Calculator setup complete
+	    /**************************************************************************/	    
 	}    
     return m_widget;
 }
 
+/*
+    Note:-
+
+    Van der Val's gas equation
+    ( P + n^2 a / V^2) ( V - nb ) = nRT
+
+    where P - pressure
+          V - Volume
+          n - number of moles
+          R - Universal gas constant
+          T - temperature
+
+          a,b - Van der Val's constants
+*/
+
+// Calculates the Pressure
+void gasCalculator::calculatePressure(void)
+{
+    double pressure;
+    double volume = ((Converter::self()->convert(m_Vol, "liters")).number());
+    double temp = ((Converter::self()->convert(m_Temp, "kelvins")).number());
+    double b = ((Converter::self()->convert(m_Vand_B, "liters")).number());
+
+    pressure = m_Moles * R * temp / (volume - m_Moles * b) - m_Moles * m_Moles * m_Vand_A / volume / volume;
+    m_Pressure = Value(pressure, "atmospheres");
+    m_Pressure = (Converter::self()->convert(m_Pressure, m_pressureUnit->nativeWidget()->currentText()));
+    m_pressure->setValue(m_Pressure.number());
+
+    //pressure =
+}
+
+// Calculates the molar mass of the gas
+void gasCalculator::calculateMolarMass(void)
+{
+    double mass = ((Converter::self()->convert(m_Mass, "grams")).number());
+    double volume = ((Converter::self()->convert(m_Vol, "liters")).number());
+    double pressure = ((Converter::self()->convert(m_Pressure, "atmospheres")).number());
+    double temp = ((Converter::self()->convert(m_Temp, "kelvins")).number());
+    double b = ((Converter::self()->convert(m_Vand_B, "liters")).number());
+
+    m_MolarMass = mass * R * temp / (pressure + m_Moles * m_Moles * m_Vand_A / volume / volume)\
+                  / (volume - m_Moles * b);
+    m_molarMass->setValue(m_MolarMass);
+}
+
+// Calculates the Volume
+void gasCalculator::calculateVol(void)
+{
+    double volume;
+    double pressure = ((Converter::self()->convert(m_Pressure, "atmospheres")).number());
+    double temp = ((Converter::self()->convert(m_Temp, "kelvins")).number());
+    double b = ((Converter::self()->convert(m_Vand_B, "liters")).number());
+
+    volume = m_Moles * R * temp / pressure + (m_Moles * b);
+    m_Vol = Value(volume, "liters");
+    m_Vol = (Converter::self()->convert(m_Vol, m_volumeUnit->nativeWidget()->currentText()));
+    m_volume->setValue(m_Vol.number());
+}
+
+// Calculates the Temperature
+void gasCalculator::calculateTemp(void)
+{
+    double temp;
+    double volume = ((Converter::self()->convert(m_Vol, "liters")).number());
+    double pressure = ((Converter::self()->convert(m_Pressure, "atmospheres")).number());
+    double b = ((Converter::self()->convert(m_Vand_B, "liters")).number());
+
+    temp = (pressure + (m_Moles * m_Moles * m_Vand_A / volume / volume))\
+           * (volume - m_Moles * b) / m_Moles / R;
+    m_Temp = Value(temp, "kelvins");
+    m_Temp = (Converter::self()->convert(m_Temp, m_temperatureUnit->nativeWidget()->currentText()));
+    m_temperature->setValue(m_Temp.number());
+}
+
+// Calculates the number of moles
+void gasCalculator::calculateMoles(void)
+{
+    double volume = ((Converter::self()->convert(m_Vol, "liters")).number());
+    double pressure = ((Converter::self()->convert(m_Pressure, "atmospheres")).number());
+    double temp = ((Converter::self()->convert(m_Temp, "kelvins")).number());
+    double b = ((Converter::self()->convert(m_Vand_B, "liters")).number());
+
+    m_Moles = (pressure + m_Moles * m_Moles * m_Vand_A / volume / volume)\
+              * (volume - m_Moles * b) / R / temp;
+    m_moles->setValue(m_Moles);
+}
+
+// Calculates the mass of substance
+void gasCalculator::calculateMass(void)
+{
+    double mass;
+    double volume = ((Converter::self()->convert(m_Vol, "liters")).number());
+    double pressure = ((Converter::self()->convert(m_Pressure, "atmospheres")).number());
+    double temp = ((Converter::self()->convert(m_Temp, "kelvins")).number());
+    double b = ((Converter::self()->convert(m_Vand_B, "liters")).number());
+
+    mass = (pressure + m_Moles * m_Moles * m_Vand_A / volume / volume)\
+           * (volume - m_Moles * b) * m_MolarMass / R / temp;
+    m_Mass = Value(mass, "grams");
+    m_Mass = (Converter::self()->convert(m_Mass, m_massUnit->nativeWidget()->currentText()));
+    m_mass->setValue(m_Mass.number());
+}
+
+
+// Functions ( slots ) that occur on changing a value
+// occurs when the volume is changed
+void gasCalculator::volChanged()
+{
+    m_Vol = Value(m_volume->value(), m_volumeUnit->nativeWidget()->currentText());
+    calculate();
+}
+
+// occurs when the temperature is changed
+void gasCalculator::tempChanged()
+{
+    m_Temp = Value(m_temperature->value(), m_temperatureUnit->nativeWidget()->currentText());
+    calculate();
+}
+
+// occurs when the pressure is changed
+void gasCalculator::pressureChanged()
+{
+    m_Pressure = Value(m_pressure->value(), m_pressureUnit->nativeWidget()->currentText());
+    calculate();
+}
+
+// occurs when the mass is changed
+void gasCalculator::massChanged()
+{
+    m_Mass = Value(m_mass->value(), m_massUnit->nativeWidget()->currentText());
+    m_Moles = ((Converter::self()->convert(m_Mass, "grams")).number()) / m_MolarMass;
+    m_moles->setValue(m_Moles);
+    calculate();
+}
+
+//FIXME: change int value to double value in the next two functions after using the doubleSpinBox
+// occurs when the number of moles is changed
+void gasCalculator::molesChanged(int value)
+{
+    m_Moles = value;
+    m_Mass = Value(m_Moles * m_MolarMass, "grams");
+    m_Mass = (Converter::self()->convert(m_Mass, m_massUnit->nativeWidget()->currentText()));
+    m_mass->setValue(m_Mass.number());
+    calculate();
+}
+
+// occurs when the molar mass is changed
+void gasCalculator::molarMassChanged(int value)
+{
+    m_MolarMass = value;
+    m_Mass = Value(m_MolarMass * m_Moles, "grams");
+    m_Mass = (Converter::self()->convert(m_Mass, m_massUnit->nativeWidget()->currentText()));
+    m_mass->setValue(m_Mass.number());
+    calculate();
+}
+
+// occurs when the number of moles is changed
+void gasCalculator::Vand_aChanged()
+{
+    m_Vand_A = m_Vand_a->value();
+    calculate();
+}
+
+// occurs when the number of moles is changed
+void gasCalculator::Vand_bChanged()
+{
+    m_Vand_B = Value(m_Vand_b->value(), m_bUnit->nativeWidget()->currentText());
+    calculate();
+}
+
+// occurs when any quantity is changed
+void gasCalculator::calculate(void)
+{
+    if (m_r2->isChecked()) {
+        calculateMoles();
+    } else if (m_r4->isChecked()) {
+        calculatePressure();
+    } else if (m_r5->isChecked()) {
+        calculateTemp();
+    } else if (m_r6->isChecked()) {
+        calculateVol();
+    }
+}
+
+void gasCalculator::error(int mode)
+{
+    switch (mode) {
+    case VOL_ZERO :
+        m_error->setText("Volume cannot be zero, please correct the error!");
+    default:
+        break;
+    }
+}
+
+void gasCalculator::debug(void)
+{
+
+}
 #include "gasCalculator.moc"

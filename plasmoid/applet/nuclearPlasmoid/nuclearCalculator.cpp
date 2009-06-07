@@ -35,6 +35,7 @@
 #include <QGraphicsLinearLayout>
 #include <plasma/svg.h>
 #include <plasma/theme.h>
+#include <math.h>
 
 using namespace Conversion;
 
@@ -145,9 +146,9 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    time2Label->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 	    time2Label->setText(i18n("Time in Half-Lives"));
 	    
-	    m_timeInHalfLives = new Plasma::Label(this);
-	    m_timeInHalfLives->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
-	    m_timeInHalfLives->setText(i18n("0 seconds"));	    
+	    m_numHalfLives = new Plasma::Label(this);
+	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    m_numHalfLives->setText(i18n("0 seconds"));	    
 	    m_initAmt = new Plasma::SpinBox(this);
 	    //m_initAmt->setDecimals(4);
         m_initAmt->setMaximum(1e+09);
@@ -226,7 +227,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
    	    
    	    pGridLayout2->addItem(m_initType, 5, 3);
    	    pGridLayout2->addItem(m_finalType, 6, 3);
-   	    pGridLayout2->addItem(m_timeInHalfLives, 8, 3);
+   	    pGridLayout2->addItem(m_numHalfLives, 8, 3);
    	    
    	    pGridLayout2->addItem(m_initUnit, 5, 4);
    	    pGridLayout2->addItem(m_finalUnit, 6, 4);
@@ -274,8 +275,232 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 
 	    m_Element = * KalziumDataObject::instance() -> element(92);
 	    m_Isotope = * list . at(18);
+	    
+	    // Connect signals with slots
+	    connect(m_element->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(elementChanged(int)));
+	    connect(m_isotope->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(isotopeChanged(int)));
+//FIXME change int to double in the following signals after finding doubleSpinBox
+	    connect(m_halfLife, SIGNAL(valueChanged(int)),
+	    		this, SLOT(halfLifeChanged()));
+	    connect(m_halfLifeUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(halfLifeChanged()));
+	    connect(m_initAmt, SIGNAL(valueChanged(int)),
+	            this, SLOT(initAmtChanged()));
+	    connect(m_initUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(initAmtChanged()));
+	    connect(m_initType->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(initAmtChanged()));
+	    connect(m_finalAmt, SIGNAL(valueChanged(int)),
+	            this, SLOT(finalAmtChanged()));
+	    connect(m_finalUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(finalAmtChanged()));
+	    connect(m_finalType->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(finalAmtChanged()));
+	    connect(m_time, SIGNAL(valueChanged(int)),
+	            this, SLOT(timeChanged()));
+	    connect(m_timeUnit->nativeWidget(), SIGNAL(activated(int)),
+	            this, SLOT(timeChanged()));
+	    connect(m_slider, SIGNAL(valueChanged(int)),
+	            this, SLOT(sliderMoved(int)));
+
+	    /**************************************************************************/
+	    // Nuclear Calculator setup complete
+	    /**************************************************************************/	    	    
 	}    
     return m_widget;
 }
 
+void nuclearCalculator::elementChanged (int index)
+{
+    // set the newly chosen element
+    m_Element = * KalziumDataObject::instance()-> element(index + 1);
+
+    // Add all isotope names of Uranium ( by default ) to the isotope comboBox
+    QList<Isotope*> list = KalziumDataObject::instance()-> isotopes(index + 1);    
+    QString isotope;                        // A temporary string    
+    m_isotope  -> clear();               // Clear the contents of the combo box
+    // update the combobox with isotopes of the new element
+    foreach(Isotope * i , list) {
+        isotope.setNum(i -> mass());
+        m_isotope-> addItem(isotope);
+    }
+
+    // Set the halfLife to that of the first isotope of the element.
+    m_halfLife-> setValue(list. at(0)-> halflife());
+    // Recalculate and update
+    calculate();
+}
+
+void nuclearCalculator::isotopeChanged(int index)
+{
+    // update the nuclear Calculator
+    int elementNumber = m_element->nativeWidget()-> currentIndex() + 1;
+    QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(elementNumber);
+    m_Isotope = * list.at(index);
+
+    // get the halfLife of the new isotope
+    double halfLife = list . at(index) -> halflife();
+    m_Mass = list.at(index)-> mass();
+
+    // A string used for searching the right Unit
+    QString halfLifeUnit = list . at(index) -> halflifeUnit();
+    halfLifeUnit = (halfLifeUnit == "y") ? "year" : "seconds";
+
+    // Update the UI with the halfLife value
+    m_halfLife-> setValue(halfLife);
+    int x = m_halfLifeUnit->nativeWidget()-> findText(halfLifeUnit);
+    if (x >= 0)
+        m_halfLifeUnit->nativeWidget()-> setCurrentIndex(x);
+    m_HalfLife = Value(halfLife, halfLifeUnit);
+    // Recalculate and update
+    calculate();
+}
+
+void nuclearCalculator::halfLifeChanged(void)
+{
+    // update the halfLife value
+    m_HalfLife = Value(m_halfLife -> value(), m_halfLifeUnit->nativeWidget()-> currentText());
+    // recalculate the required
+    calculate();
+}
+
+void nuclearCalculator::initAmtChanged(void)
+{
+
+    // If quantity is specified in terms of mass, quantity <- ( mass , Unit)
+    if (m_initType->nativeWidget() -> currentIndex() == 0)
+        m_InitAmount = Value(m_initAmt -> value(), m_initUnit->nativeWidget() -> currentText());
+
+    // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, Unit )
+    else
+        m_InitAmount = Value(((m_initAmt -> value()) * m_Mass), \
+                             m_initUnit->nativeWidget()-> currentText());
+}
+
+void nuclearCalculator::finalAmtChanged(void)
+{
+    // If quantity is specified in terms of mass, quantity <- ( mass , Unit)
+    if (m_finalType->nativeWidget() -> currentIndex() == 0)
+        m_FinalAmount = Value(m_finalAmt -> value(), \
+                              m_finalUnit->nativeWidget()-> currentText());
+    // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, Unit )
+    else
+        m_FinalAmount = Value(((m_finalAmt -> value()) * m_Mass), \
+                              m_finalUnit->nativeWidget() -> currentText());
+
+    calculate();
+}
+
+void nuclearCalculator::timeChanged(void)
+{
+    m_Time = Value(m_time-> value(), m_timeUnit->nativeWidget()-> currentText());
+
+    calculate();
+}
+
+void nuclearCalculator::sliderMoved(int numHlives)
+{
+    double num = numHlives / 10.0;
+    m_Time = Value(num * m_HalfLife. number() , m_HalfLife. unit());
+
+    m_time-> setValue(m_Time. number());
+    m_timeUnit->nativeWidget()-> setCurrentIndex(m_halfLifeUnit->nativeWidget()-> currentIndex());
+    m_numHalfLives-> setText(m_Time . toString());
+}
+
+void nuclearCalculator::calculate(void)
+{
+
+    // Validate the values involved in calculation
+    if (m_HalfLife . number() == 0.0)
+        return;
+
+    if (m_r1-> isChecked()) {   // Calculate initial amount
+        if (m_FinalAmount . number() == 0.0)
+            return;
+        calculateInitAmount();
+        m_initAmt-> setValue(m_InitAmount . number());
+    }
+    // Calulate final Amount after time
+    else if (m_r2-> isChecked()) {
+        if (m_InitAmount . number() == 0.0)
+            return;
+        calculateFinalAmount();
+        m_finalAmt-> setValue(m_FinalAmount. number());
+    } else { // Calculate Time
+        // final amount greater than initial
+        if (m_finalAmt-> value() > m_initAmt-> value()) {
+        	error();
+            return;
+        } else if (m_finalAmt-> value() == 0.0)
+        { // one of the amounts is 0.0
+        	error();
+            return;
+        }
+        calculateTime();
+        m_time-> setValue(m_Time. number());
+    }
+}
+
+void nuclearCalculator::calculateInitAmount(void)
+{
+    // If no time has elapsed, initial and final amounts are the same
+    m_InitAmount = m_FinalAmount;
+    if (m_Time. number() == 0.0) {
+        return;
+    }
+    // Calculate the number of halfLives that have elapsed
+    double ratio = (Converter::self()->convert(m_Time, m_HalfLife. unit() \
+                    -> singular()). number()) /m_HalfLife. number();
+    // find out the initial amount
+    m_InitAmount = Value(m_InitAmount. number() * pow(2.0 , ratio), m_InitAmount. unit());
+    // Convert into the required units
+    m_InitAmount = Converter::self()->convert(m_InitAmount, m_InitAmount. unit()-> singular());
+}
+
+void nuclearCalculator::calculateFinalAmount(void)
+{
+    // If no time has elapsed, initial and final amounts are the same
+    m_FinalAmount = m_InitAmount;
+    if (m_Time. number() == 0.0) {
+
+        return;
+    }
+    // Calculate the number of halfLives that have elapsed
+    double ratio = (Converter::self()->convert(m_Time , m_HalfLife. unit() \
+                    -> singular()). number()) / m_HalfLife. number();
+    // Calculate the final amount
+    m_FinalAmount = Value(m_FinalAmount . number() / pow(2.0, ratio), m_InitAmount. unit());
+    // Convert into the required units
+    m_FinalAmount = Converter::self()->convert(m_FinalAmount, m_FinalAmount. unit() -> singular());
+}
+
+void nuclearCalculator::calculateTime(void)
+{
+    // If initial and final masses are the same ( both units and value )
+    // the time is also 0
+    if (m_InitAmount . number() == m_FinalAmount . number() && \
+            m_InitAmount. unit() == m_FinalAmount . unit()) {
+        m_Time = Value(0.0, m_Time. unit());
+        return;
+    }
+
+    // calculate the ratio of final to initial masses
+    double ratio = (Converter::self()->convert(m_InitAmount , m_FinalAmount. unit() \
+                    -> singular()). number()) / m_FinalAmount. number();
+    // The number of halfLives ( log 2 ( x ) = log x / log 2 )
+    double numHalfLives = log(ratio) / log(2.0);
+    double time_value = numHalfLives  * m_HalfLife . number();
+    // Calculate the total time taken
+    Value temp = Value(time_value, m_HalfLife. unit());
+    m_Time = Converter::self()->convert(temp , m_Time. unit() -> singular());
+    return;
+}
+
+void nuclearCalculator::error()
+{
+
+}
 #include "nuclearCalculator.moc"

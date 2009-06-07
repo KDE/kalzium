@@ -48,7 +48,8 @@ class nuclearCalculator : public Plasma::PopupApplet
         
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
-        
+
+	public slots:
         /// Calculates the initial amount
 		void calculateInitAmount(void);
 
@@ -57,7 +58,8 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 		/// Calculates the time required
 		void calculateTime(void);
-
+		
+		/// occurs when the element is changed
 		void elementChanged(int index);
 
 		/// occurs when the isotope is changed
@@ -80,6 +82,10 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 		/// occurs when the slider in the ui is moved
 		void sliderMoved(int);
+		
+		/// Used to display error messages
+		void error();
+		
  
     private slots:
     // will be added soon
@@ -102,7 +108,7 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 		Plasma::Slider *m_slider;
         
-        Plasma::Label *m_timeInHalfLives;      
+        Plasma::Label *m_numHalfLives;      
         
         Plasma::RadioButton *m_r1;
         Plasma::RadioButton *m_r2;

@@ -77,7 +77,6 @@ private:
     Element m_element;                      // Current element
     Isotope m_isotope;                      // current isotope
 
-
     Value m_halfLife;                       // The halfLife
     Value m_initAmount;                     // initial amount present
     Value m_finalAmount;                    // amount after time

@@ -31,6 +31,7 @@ nuclearCalculator::nuclearCalculator(QWidget * parent)
     foreach(Element * e, kdo -> ElementList) {
         ui . element -> addItem(e -> dataAsString(ChemicalDataObject::name));
     }
+///FIXME
     /* The last three elemenents will be removed because information is not available
        and causes the program to crash when selected. */
     int count = ui . element -> count();

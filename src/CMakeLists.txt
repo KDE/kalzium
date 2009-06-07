@@ -50,7 +50,6 @@ set(kalziumtools_SRCS
     calculator/nuclearCalculator.cpp
     calculator/gasCalculator.cpp
     calculator/concCalculator.cpp
-    detailedgraphicaloverview.cpp
     )
 kde4_add_ui_files(kalziumtools_SRCS
     calculator/calculator.ui
@@ -67,6 +66,7 @@ set(kalzium_SRCS
    periodictableview.cpp
    detailinfodlg.cpp
    tablesdialog.cpp
+   detailedgraphicaloverview.cpp
    orbitswidget.cpp
    elementdataviewer.cpp   
    molcalcwidget.cpp

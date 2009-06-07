@@ -32,6 +32,23 @@ namespace Plasma{
 	class RadioButton;
 };
 
+enum ERROR_TYPE_CONC {
+    PERCENTAGE = 0,
+    DENSITY_ZERO,
+    MASS_ZERO,
+    VOLUME_ZERO,
+    MOLES_ZERO,
+    MOLAR_MASS_ZERO,
+    EQT_MASS_ZERO,
+    MOLAR_SOLVENT_ZERO,
+    EQTS_ZERO,
+    CONC_ZERO,
+    INSUFFICIENT_DATA_EQT,
+    INSUFFICIENT_DATA_MOLE,
+    INSUFFICIENT_DATA_MOLES,
+    INSUFFICIENT_DATA_SOLVENT
+};
+
 using namespace Conversion;
 // Define our plasma Applet
 class concentrationCalculator : public Plasma::PopupApplet
@@ -44,10 +61,11 @@ class concentrationCalculator : public Plasma::PopupApplet
         
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
-
+	
+	public slots:
 		// Sub-routines involved in calculations of the unit
-	    void calculateAmtSolute(void);          // Calculates the amount of solute
-	    void calculateAmtSolvent(void);         // Calculates the amount of solvent
+	    void calculateAmountSolute(void);          // Calculates the amount of solute
+	    void calculateAmountSolvent(void);         // Calculates the amount of solvent
 	    void calculateMolarMass(void);          // Calculates the molar mass
 	    void calculateEqtMass(void);            // Calculates the equivalent mass
 	    void calculateMolarMassSolvent(void);   // Calculates the calculate molar mass of the solvent
@@ -58,14 +76,14 @@ class concentrationCalculator : public Plasma::PopupApplet
 	    // Functions ( slots ) that occur on changing a value
 	    // Sub routines which act as quantity change event handlers
 
-	    void amtSoluteChanged(void);            // occurs when the amount of solute is changed
-	    void amtSolventChanged(void);           // occurs when the amount of solvent is changed
-	    void molarMassChanged(double);          // occurs when the molar mass of solute is changed
-	    void eqtMassChanged(double);            // occurs when the equivalent mass of solute is changed
-	    void molarMassSolventChanged(double);   // occurs when the molar mass of solvent is changed
+	    void amountSoluteChanged(void);            // occurs when the amount of solute is changed
+	    void amountSolventChanged(void);           // occurs when the amount of solvent is changed
+	    void molarMassChanged(int);          // occurs when the molar mass of solute is changed
+	    void eqtMassChanged(int);            // occurs when the equivalent mass of solute is changed
+	    void molarMassSolventChanged(int);   // occurs when the molar mass of solvent is changed
 	    void densitySoluteChanged(void);        // occurs when the number of moles is changed
 	    void densitySolventChanged(void);       // occurs when the density of solvent is changed
-	    void concentrationChanged(double);      // occurs when the concentration is changed
+	    void concentrationChanged(int);      // occurs when the concentration is changed
 	    void calculate(void);                   // occurs when any quantity is changed
 
 	    double volumeSolvent(void);             // returns volume of solvent in liters
@@ -86,10 +104,10 @@ class concentrationCalculator : public Plasma::PopupApplet
     private:
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_amountSoluteType;
-        Plasma::ComboBox *m_amountSoluteUnit1;
+        Plasma::ComboBox *m_amountSoluteUnit;
         Plasma::ComboBox *m_amountSoluteUnit2;        
         Plasma::ComboBox *m_amountSolventType;
-        Plasma::ComboBox *m_amountSolventUnit1;
+        Plasma::ComboBox *m_amountSolventUnit;
         Plasma::ComboBox *m_amountSolventUnit2;
         Plasma::ComboBox *m_densitySoluteUnit;
         Plasma::ComboBox *m_densitySolventUnit;
@@ -102,7 +120,8 @@ class concentrationCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_amountSolvent;
         Plasma::SpinBox *m_molarMassSolvent;
         Plasma::SpinBox *m_densitySolvent;
-        Plasma::SpinBox *m_concentration;   
+        Plasma::SpinBox *m_concentration;
+        Plasma::Label   *m_error;
         
         Plasma::RadioButton *m_r1,*m_r2,*m_r3,*m_r5,*m_r6,*m_r8;
         
