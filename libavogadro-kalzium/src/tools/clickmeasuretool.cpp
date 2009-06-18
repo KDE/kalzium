@@ -289,7 +289,7 @@ namespace Avogadro {
         if(m_numSelectedAtoms >= 3)
         {
           glColor3f(1.0,1.0,1.0);
-          widget->painter()->drawText(angleLabelPos, QString("Angle:"));
+          widget->painter()->drawText(angleLabelPos, QString(tr("Angle:")));
 
           glColor3f(0.8, 0.8, 0.8);
           widget->painter()->drawText(anglePos, QString::number(m_angle, 10, 1) + QString::fromUtf8("°"));
@@ -301,7 +301,7 @@ namespace Avogadro {
         if(m_numSelectedAtoms >= 4)
         {
           glColor3f(1.0, 1.0, 1.0);
-          widget->painter()->drawText(dihedralLabelPos, QString("Dihedral:"));
+          widget->painter()->drawText(dihedralLabelPos, QString(tr("Dihedral:")));
 
           glColor3f(0.6, 0.6, 0.6);
           widget->painter()->drawText(dihedralPos, QString::number(m_dihedral, 10, 1) + QString::fromUtf8("°"));

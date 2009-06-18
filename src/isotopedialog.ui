@@ -12,9 +12,6 @@
   <layout class="QGridLayout" name="gridLayout" >
    <item row="0" column="0" >
     <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
-      <string comment="KDE::DoNotExtract">GroupBox</string>
-     </property>
      <layout class="QVBoxLayout" name="verticalLayout" >
       <item>
        <widget class="QLabel" name="label" >

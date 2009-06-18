@@ -82,7 +82,7 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
     Isotope *s = item->isotope();
 
     QString header = i18n("<h1>%1 (%2)</h1>", s->parentElementSymbol(), s->parentElementNumber());
-    QString mag = i18n("Magnetic moment: %1", (empty == s->magmoment())? "Unknown":s->magmoment() );
+    QString mag = i18n("Magnetic moment: %1", (empty == s->magmoment())? i18n("Unknown"):s->magmoment() );
 
     QString halflife;
     if ( s -> halflife() > 0.0 ) {
@@ -94,7 +94,7 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 
     QString abundance = i18n("Abundance: %1 %", empty != (s->abundance()) ? s->abundance() : "0" );
     QString nucleons = i18n("Number of nucleons: %1", s->nucleons() );
-    QString spin = i18n("Spin: %1", (empty == s->spin())?"Unknown": s->spin() );
+    QString spin = i18n("Spin: %1", (empty == s->spin())? i18n("Unknown"): s->spin() );
     QString exactMass = i18n("Exact mass: %1 u", s->mass() );
 
     QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />" + spin +"<br />" +
