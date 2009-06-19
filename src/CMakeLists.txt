@@ -1,6 +1,7 @@
 add_subdirectory(tools)
 add_subdirectory(calculator)
 add_subdirectory(conversion)
+add_subdirectory(freeChem)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
@@ -10,6 +11,7 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
    ${CMAKE_SOURCE_DIR}/kalzium/src/calculator/
    ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
+   ${CMAKE_SOURCE_DIR}/kalzium/src/freeChem/
    ${CMAKE_CURRENT_BINARY_DIR}/..
    )
 
