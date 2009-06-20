@@ -1,5 +1,10 @@
 project(kalzium)
 
+find_package(KDE4 REQUIRED)
+include (KDE4Defaults)
+
+include_directories( ${KDE4_INCLUDES} ${QT_INCLUDES} )
+
 include(KalziumConfigureChecks.cmake)
 
 if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN2_FOUND)
