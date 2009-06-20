@@ -43,6 +43,7 @@ set(freeChem_HEADERS
 kde4_add_library(freeChem SHARED ${freeChem_LIB_SRCS})
 
 find_package(LibXml2)
+include_directories( ${LIBXML2_INCLUDE_DIR} )
 target_link_libraries(freeChem ${LIBXML2_LIBRARIES} ${KDE4_KDECORE_LIBS} )
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 set_target_properties(freeChem PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
