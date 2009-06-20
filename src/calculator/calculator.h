@@ -22,6 +22,7 @@
 #include "nuclearCalculator.h"
 #include "gasCalculator.h"
 #include "concCalculator.h"
+#include "massCalculator.h"
 #include "molcalcwidget.h"
 #include <kactioncollection.h>
 #ifdef HAVE_FACILE
@@ -46,7 +47,8 @@ private:
     KActionCollection * m_actionCollection;
     nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
     gasCalculator *     m_gasCalculator;        // The gas calculator
-    concCalculator *    m_concCalculator;       // The concentration Calculator
+    concCalculator *    m_concCalculator;       // The concentration calculator
+    massCalculator *    m_massCalculator;		// The molecular mass calculator
     MolcalcWidget *     m_molecalculator;       // The molecular mass calculator
 #ifdef HAVE_FACILE
     EQChemDialog *      m_equationBalancer;     // The equation balancer

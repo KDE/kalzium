@@ -7,16 +7,16 @@ set(freeChem_LIB_SRCS
     chemistry.cpp
     cycle.cpp
     document.cpp
+    formula.cpp   
+    element.cpp
     isotope.cpp
     matrix2d.cpp
     molecule.cpp
     object.cpp
     residue.cpp
+    value.cpp  
     vector.cpp
     xml-utils.cpp
-    value.cpp    
-    formula.cpp    
-    element.cpp    
 )
 
 set(freeChem_HEADERS
