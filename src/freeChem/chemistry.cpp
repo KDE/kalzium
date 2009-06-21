@@ -28,6 +28,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdarg>
+#include <stdio.h>
 
 using namespace gcu;
 const double* gcu_element_get_default_color(int Z)
