@@ -15,15 +15,16 @@ Unit conversion library working fine.
 Basic classes for the concentration and the gas calculators done.
 Plasmoid widgets are almost done and will be completed by tonight.
 
-%%% Todo:
+%%% failed
 #0 > Reusing Jean's code classes and implementing the molecular mass calculator
+
+%%% Todo:
+
+#0 > Using alternative method, improvising the existing molecular mass calculator to calculate molecular mass and display composition.
 #1 > Additional parsers ( history ) and prediction mode.
 
-*** This week's activity
-#1 > 
-
-Description: 
-This week:
-Completion of the molecular mass calculator. Adding new features to it, parsers, history ...
+%%% Extra work:
+#0 > teacher mode for the calculaotors
+#1 > Electro chemical equation energy calculator
 
 JAI HO!
