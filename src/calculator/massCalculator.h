@@ -16,11 +16,10 @@
 
 #include <kdebug.h>
 #include <prefs.h>
-#include <chemistry.h>
-#include <formula.h>
-#include <residue.h>
+// #include <chemistry.h>
 
 #include "ui_massCalculator.h"
+
 class QTimer;
 /**
  * This file implements the mass calculator class. This uses the FreeChem library
@@ -28,8 +27,7 @@ class QTimer;
  * only the GUI part of the class. The other implementations are in the library.
  */
  
-using namespace gcu;
-using namespace std;
+// using namespace gcu;
 
 class massCalculator : public QFrame
 {
@@ -53,10 +51,11 @@ private:
     void debug(void);				 // used for debugging purposes only
     void error(int);                 // outputs error messages on the screen
     void tick(void);
-        
+    
+//    gcu::Formula* m_formula;
     Ui::massCalculator ui;           // The user interface
 	QTimer* m_timer;					 // single shot timer
-	Formula* m_formula;
+//	Formula* m_formula;
 };
 
 #endif // massCalculator_H

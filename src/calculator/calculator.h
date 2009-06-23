@@ -22,12 +22,12 @@
 #include "nuclearCalculator.h"
 #include "gasCalculator.h"
 #include "concCalculator.h"
-#include "massCalculator.h"
+//#include "massCalculator.h"
 #include "molcalcwidget.h"
 #include <kactioncollection.h>
-#ifdef HAVE_FACILE
+//#ifdef HAVE_FACILE
 #include <eqchemview.h>
-#endif
+//#endif
 
 /**
  * This widget implements the molecular calculator
@@ -48,11 +48,11 @@ private:
     nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
     gasCalculator *     m_gasCalculator;        // The gas calculator
     concCalculator *    m_concCalculator;       // The concentration calculator
-    massCalculator *    m_massCalculator;		// The molecular mass calculator
-    MolcalcWidget *     m_molecalculator;       // The molecular mass calculator
-#ifdef HAVE_FACILE
+//    massCalculator *    m_massCalculator;		// The molecular mass calculator
+    MolcalcWidget *     m_moleCalculator;       // The molecular mass calculator
+//#ifdef HAVE_FACILE
     EQChemDialog *      m_equationBalancer;     // The equation balancer
-#endif
+//#endif
 private slots:
     void slotItemSelection(QTreeWidgetItem *item);  // occurs when an tree item is selected
 public slots:

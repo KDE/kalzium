@@ -14,10 +14,10 @@
 
 #include "massCalculator.h"
 #include <QTimer>
-#include <chemistry.h>
-#include <formula.h>
+// #include <formula.h>
+// #include <chemistry.h>
 
-using namespace gcu;
+// using namespace gcu;
 
 massCalculator::massCalculator(QWidget * parent)
         : QFrame(parent)
@@ -57,9 +57,10 @@ massCalculator:: ~massCalculator()
 void massCalculator::calculateMass(void)
 {
 //    double mass;
-	try {
+    	try {
 //		char *format;
-		m_formula->SetFormula (ui.formula->text().toLatin1().data());}
+//			m_formula->SetFormula (ui.formula->text().toLatin1().data());
+		}
 /*		QString format = App->formula.GetMarkup ();
 		gtk_label_set_markup (App->markup, format);
 
@@ -191,19 +192,19 @@ void massCalculator::calculateMass(void)
 			data = go_data_scalar_val_new (n);
 			gog_dataset_set_dim (GOG_DATASET (obj), GOG_AXIS_ELEM_MAX, data, &error);
 		}
-	}
-	catch (parse_error &error) {
-		int start, length;
-		char const *mess = error.what (start, length);
-		gtk_editable_select_region (GTK_EDITABLE (entry), start, start + length);
-		GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (data),
-							GTK_DIALOG_DESTROY_WITH_PARENT,
-							GTK_MESSAGE_ERROR,
-							GTK_BUTTONS_OK,
-							mess);
-		g_signal_connect_swapped (G_OBJECT (w), "response", G_CALLBACK (gtk_widget_destroy), G_OBJECT (w));
-		gtk_widget_show (w);
 	}*/
+	catch (parse_error &error) {
+//		int start, length;
+//		char const *mess = error.what (start, length);
+//		gtk_editable_select_region (GTK_EDITABLE (entry), start, start + length);
+//		GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (data),
+//							GTK_DIALOG_DESTROY_WITH_PARENT,
+//							GTK_MESSAGE_ERROR,
+//							GTK_BUTTONS_OK,
+//							mess);
+//		g_signal_connect_swapped (G_OBJECT (w), "response", G_CALLBACK (gtk_widget_destroy), G_OBJECT (w));
+//		gtk_widget_show (w);
+	}
     return;
 }
 

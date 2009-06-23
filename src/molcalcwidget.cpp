@@ -95,18 +95,23 @@ void MolcalcWidget::updateUI()
 
     if ( m_validInput ){
         kDebug() << "m_validInput == true";
-        QString str;
 
         // The complexString stores the whole molecule like this:
         // 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
         QString complexString;
-
-        // Create the list of elements making up the molecule
+		double mass;
+		QString str;
+		
         foreach (ElementCount * count , m_elementMap.map()) {
             // Update the resultLabel
-            str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" ,
-                    count->count() ,
-                    count->element()->dataAsString( ChemicalDataObject::name) );
+            mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+            str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"",
+            		 QString("%1     %2 atoms     %3 u     %4 u     %5%\n" )
+                    .arg(count->element()->dataAsString( ChemicalDataObject::name), -20)
+                    .arg(count->count(), -8)
+                    .arg(count->element()->dataAsString( ChemicalDataObject::mass), -10)
+                    .arg(mass * count->count())
+                    .arg(mass/ m_mass *100).toLatin1().data());
         }
         ui.resultLabel->setText( str );
 
@@ -172,7 +177,7 @@ void MolcalcWidget::slotCalculate()
 
 void MolcalcWidget::keyPressEvent(QKeyEvent * /* e */)
 {
-    m_timer->start(1000);
+    m_timer->start(500);
 }
 
 
