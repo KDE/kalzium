@@ -105,7 +105,7 @@
 		 </para>
 
 		 <para>
-			 You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> </menuchoice> menu.
+			 You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Scheme</guimenuitem> </menuchoice> menu.
 		 </para>
 		 <para>
 			 If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
@@ -390,10 +390,10 @@
 
 			 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
 
-			 <para>Color schemes can be changed in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Look</guimenuitem></menuchoice> menu. </para>
+			 <para>Color schemes can be changed in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Scheme</guimenuitem></menuchoice> menu. </para>
 			 <itemizedlist>
 				 <listitem><para>
-						 <guimenuitem>One Color</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
+						 <guimenuitem>Monochrome</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
 						 </menuchoice> and going to the <guilabel>Colors</guilabel> tab.
 				 </para></listitem>
 				 <listitem><para>
@@ -473,7 +473,7 @@
 			 <sect2 id="rs_phrases">
 				 <title>Risk/Security Phrases</title>
 				 <para>The R/S Phrases, also known as Risk and Safety Statements, R/S statements, R/S numbers, and R/S sentences,
-				 is a system of hazard codes and phrases for labeling dangerous chemicals and compounds.The R/S phrase of a compound
+				 is a system of hazard codes and phrases for labeling dangerous chemicals and compounds. The R/S phrase of a compound
 				consists of a risk part (R) and a safety part (S), each followed by a combination of numbers. Each number corresponds 
 				to a phrase. The phrase corresponding to the letter/number combination has the same meaning in different languages.
 				 </para>
@@ -627,7 +627,7 @@
 				 </sect3>
 				 <sect3 id="show_hide_legend">
 					 <title>Show Legend</title>
-					 <para>The Show Legend action allows you to display the legend for the scheme you are in (Groups, Family, Blocks). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
+					 <para>The <guimenuitem>Show Legend</guimenuitem> action allows you to display the legend for the scheme you are in (Groups, Family, Blocks). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
 					 </para>
 				 </sect3>
 
@@ -762,16 +762,16 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Scheme: One Color</guimenuitem>
+								 <guisubmenu>Scheme</guisubmenu>
+								 <guimenuitem>One Color</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> all elements with one background color.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Scheme: Blocks</guimenuitem>
+								 <guisubmenu>Scheme</guisubmenu>
+								 <guimenuitem>Blocks</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the four blocks of
 								 elements.</para></listitem>
@@ -779,16 +779,16 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Scheme: Iconic</guimenuitem>
+								 <guisubmenu>Scheme</guisubmenu>
+								 <guimenuitem>Iconic</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> icons for each element.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Scheme: Family</guimenuitem>
+								 <guisubmenu>Scheme</guisubmenu>
+								 <guimenuitem>Family</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the families of
 								 elements.</para></listitem>
@@ -796,8 +796,8 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Scheme: Groups</guimenuitem>
+								 <guisubmenu>Scheme</guisubmenu>
+								 <guimenuitem>Groups</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the groups of elements.</para></listitem>
 					 </varlistentry>
@@ -805,64 +805,72 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Covalent Radius</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>No Gradient</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Disable</action> any gradient for the table.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Covalent Radius</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements covalent radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: van Der Waals</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>van Der Waals</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements van der Waals radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Atomic Mass</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Atomic Mass</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements atomic mass.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Boiling Point</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Boiling Point</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements boiling point.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Melting Point</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Melting Point</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements melting point.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Electronegativity (Pauling)</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Electronegativity (Pauling)</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements electronegativity.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Electronaffinity</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Electronaffinity</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements electron affinity.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: Discovery date</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>Discovery date</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the discovery date of each element with different 
 								background colors for each century.</para></listitem>
@@ -870,8 +878,8 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Look</guisubmenu>
-								 <guimenuitem>Gradient: First Ionisation</guimenuitem>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>First Ionisation</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements energy of first ionisation.</para></listitem>
 					 </varlistentry>
@@ -960,7 +968,7 @@
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Equation Solver...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Equationsolver dialog.</para></listitem>
+						 <listitem><para><action>Open</action> the Equation solver dialog.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -1072,19 +1080,6 @@
 						 under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
 				 </answer>
 			 </qandaentry>
-			 <qandaentry>
-
-				 <question>
-					 <para>Will there ever be a &Windows; version?</para>
-				 </question>
-				 <answer>
-					 <para>No, at the moment not, but you can download the source and make
-						 your own &Windows; version. It should not be a big problem, because it is
-						 written with Trolltech &Qt; libs. But what do you need &Windows; for?
-						 Get the latest &Linux;, and live on the edge.</para>
-
-				 </answer>
-			 </qandaentry>
 
 		 </qandaset>
 	 </chapter>
@@ -1163,9 +1158,6 @@
 					 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
 				 is part of the &kde;-Edu project</para>
 
-			 <para>You can find a list of changes in the file
-				 <filename>ChangeLog</filename> in the distribution of
-				 &kalzium;.</para>
 		 </sect1>
 
 		 <sect1 id="compilation">
