@@ -28,7 +28,6 @@ namespace Plasma{
 	class TextEdit;
 	class Label;
 	class Slider;
-	class SpinBox;
 	class RadioButton;
 };
 

@@ -26,7 +26,6 @@
 namespace Plasma{
 	class QSizeF;
 	class ComboBox;
-	class SpinBox;
 	class TextEdit;
 	class Label;
 	class Slider;
