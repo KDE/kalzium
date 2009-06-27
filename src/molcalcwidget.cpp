@@ -111,7 +111,7 @@ void MolcalcWidget::updateUI()
                     .arg(count->count(), -8)
                     .arg(count->element()->dataAsString( ChemicalDataObject::mass), -10)
                     .arg(mass * count->count())
-                    .arg(mass/ m_mass *100).toLatin1().data());
+                    .arg(mass * count->count()/ m_mass *100).toLatin1().data());
         }
         ui.resultLabel->setText( str );
 
