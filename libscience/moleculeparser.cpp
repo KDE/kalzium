@@ -383,7 +383,7 @@ MoleculeParser::expandTerm (const QString& _group)
 	QString temp;					// A temporary QString used in Regular expressions
 	
 	// Search in User defined aliases.
-	QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+	QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
 	QFile file(fileName);
 	
 	// Check file validity
@@ -404,6 +404,10 @@ MoleculeParser::expandTerm (const QString& _group)
 			if (shortForm == _group)
 				return (fullForm);
     	}
+    }
+    else
+    {
+    	kDebug() << fileName << " could not be opened!";
     }
     
 	// Find the system defined aliases	
@@ -431,7 +435,7 @@ MoleculeParser::expandTerm (const QString& _group)
     }
     else
     {
-    	kDebug() << fileName << " could not be opened";
+    	kDebug() << fileName << " could not be opened!";
     }
     
     // Sample expansions, work even when file is not found, testing purposes
