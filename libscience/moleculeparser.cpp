@@ -408,14 +408,14 @@ MoleculeParser::expandTerm (const QString& _group)
     
 	// Find the system defined aliases	
 	// Open the file
-	QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
-	QFile file(fileName);
+	fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+	QFile file2(fileName);
 	
 	// Check file validity
-    if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text)))
+    if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text)))
     {
 	    kDebug() << fileName << " opened";
-    	QTextStream in(&file);
+    	QTextStream in(&file2);
     	
     	// Get all shortForms and fullForms in the file.
     	while (!in.atEnd()) {

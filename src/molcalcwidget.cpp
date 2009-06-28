@@ -33,6 +33,7 @@
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <klineedit.h>
+#include <kstandarddirs.h>
 
 #include <QApplication>
 #include <QLabel>
@@ -40,6 +41,7 @@
 #include <QToolButton>
 #include <QTimer>
 #include <QKeyEvent>
+#include <QFile>
 
 MolcalcWidget::MolcalcWidget( QWidget *parent )
     : QWidget( parent )
@@ -53,8 +55,8 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	
 	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
 	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
-    connect( m_timer, SIGNAL( timeout() ),
-            this, SLOT( slotCalculate() ) );
+    connect( m_timer, SIGNAL( timeout() ), this, SLOT( slotCalculate() ) );
+    connect( ui.alias, SIGNAL(clicked()), this, SLOT( addAlias()));
 
 	ui.formulaEdit->setClearButtonShown(true);
 
@@ -180,6 +182,64 @@ void MolcalcWidget::keyPressEvent(QKeyEvent * /* e */)
     m_timer->start(500);
 }
 
-
+void MolcalcWidget::addAlias()
+{
+	QString shortForm = ui.shortForm->text();
+	QString fullForm  = ui.fullForm ->text();
+	
+	// Temporary variables required for weight function of the molecule parser
+	double x;
+	ElementCountMap y;
+	
+	ui.aliasMessage->setText("");
+	if ( shortForm.length() != 2)
+	{
+		ui.aliasMessage->setText(i18n
+		("Symbol should consist of a Capital letter followed by a small one."));
+		return;
+	}
+	
+	if ( shortForm.at(0).category() != QChar::Letter_Uppercase ||
+			shortForm.at(1).category() != QChar::Letter_Lowercase)
+	{
+		ui.aliasMessage->setText(i18n
+		("Symbol should consist of a Capital letter followed by a small one."));
+		return;
+	}
+	
+	if ( m_parser->weight(shortForm, & x , & y))
+	{
+		ui.aliasMessage->setText(i18n
+		("Symbol already being used"));
+		return;
+	}
+	
+	if (fullForm =="" || ! m_parser->weight(fullForm, & x, & y))
+	{
+		ui.aliasMessage->setText(i18n
+		("Expansion is invalid, please specify a valid expansion"));
+		return;
+	}
+	
+	// Open the file to write
+	QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
+	QFile file(fileName);
+	
+	if (!(!file.open(QIODevice::WriteOnly| QIODevice::Append | QIODevice::Text)))
+    {
+    	QTextStream out(&file);
+    	out << "\"" + shortForm + "\",\"" + fullForm + "\"\n";
+    	kDebug() << fileName << "is the file.";
+	    kDebug() << "\"" + shortForm + "\",\"" + fullForm + "\"\n";
+    	ui.aliasMessage->setText(i18n("done!"));
+		return;
+    }
+    else
+    {
+    	ui.aliasMessage->setText((i18n
+		("Unable to find the user defined alias file."))+fileName);
+		return;
+    }
+}
 
 #include "molcalcwidget.moc"

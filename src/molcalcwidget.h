@@ -54,6 +54,7 @@ class MolcalcWidget : public QWidget
 
 	private slots:
 		void clear();
+		void addAlias();
 
 	private:
 		/**
