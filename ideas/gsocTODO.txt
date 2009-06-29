@@ -14,14 +14,13 @@ The nuclear calculator is now functional with units.
 Unit conversion library working fine.
 Basic classes for the concentration and the gas calculators done.
 Plasmoid widgets are almost done and will be completed by tonight.
+Using alternative method, improvising the existing molecular mass calculator to calculate molecular mass and display composition.
 
 %%% failed
 #0 > Reusing Jean's code classes and implementing the molecular mass calculator
 
-%%% Todo:
-
-#0 > Using alternative method, improvising the existing molecular mass calculator to calculate molecular mass and display composition.
-#1 > Additional parsers ( history ) and prediction mode.
+%%% TODO
+Bug-fixing, code cleaning plasmoid beautification
 
 %%% Extra work:
 #0 > teacher mode for the calculaotors
