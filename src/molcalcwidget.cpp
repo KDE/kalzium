@@ -27,6 +27,7 @@
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 #include "search.h"
+#include "prefs.h"
 
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -61,6 +62,11 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	ui.formulaEdit->setClearButtonShown(true);
 
 	clear();
+	
+	if (Prefs::alias() == TRUE)
+	{
+		ui.aliasBox->hide();
+	}
 
 }
 

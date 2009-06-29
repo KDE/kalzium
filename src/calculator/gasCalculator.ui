@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="KTextEdit" name="ktextedit">
      <property name="readOnly">
@@ -324,93 +324,106 @@ p, li { white-space: pre-wrap; }
         </item>
        </widget>
       </item>
-      <item row="6" column="1">
-       <widget class="QLabel" name="label_30">
-        <property name="text">
-         <string>Van-der val constant 'b'</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QDoubleSpinBox" name="b">
-        <property name="decimals">
-         <number>4</number>
-        </property>
-        <property name="maximum">
-         <double>1000000000.000000000000000</double>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="3">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QComboBox" name="b_unit">
-          <item>
-           <property name="text">
-            <string>liters</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>cubic meters</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>cubic feet</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>cubic inches</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>gallons</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>cups</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label">
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="non_ideal">
+     <property name="title">
+      <string>Data for non-ideal gasses</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_30">
           <property name="text">
-           <string>per mole</string>
+           <string>Van-der val constant 'b'</string>
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item row="7" column="1">
-       <widget class="QLabel" name="label_28">
-        <property name="text">
-         <string>Van-der val constant 'a'</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="a">
-        <property name="decimals">
-         <number>4</number>
-        </property>
-        <property name="maximum">
-         <double>1000000000.000000000000000</double>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="3">
-       <widget class="QComboBox" name="a_unit">
-        <item>
-         <property name="text">
-          <string>liter^2 atmosphere/mol^2</string>
-         </property>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_28">
+          <property name="text">
+           <string>Van-der val constant 'a'</string>
+          </property>
+         </widget>
         </item>
-       </widget>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="b">
+          <property name="decimals">
+           <number>4</number>
+          </property>
+          <property name="maximum">
+           <double>1000000000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QDoubleSpinBox" name="a">
+          <property name="decimals">
+           <number>4</number>
+          </property>
+          <property name="maximum">
+           <double>1000000000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QComboBox" name="b_unit">
+            <item>
+             <property name="text">
+              <string>liters</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>cubic meters</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>cubic feet</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>cubic inches</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>gallons</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>cups</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>per mole</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="2">
+         <widget class="QComboBox" name="a_unit">
+          <item>
+           <property name="text">
+            <string>liter^2 atmosphere/mol^2</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

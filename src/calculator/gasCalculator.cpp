@@ -13,6 +13,7 @@
  ***************************************************************************/
 
 #include "gasCalculator.h"
+#include "prefs.h"
 
 using namespace Conversion;
 
@@ -78,6 +79,12 @@ gasCalculator::gasCalculator(QWidget * parent)
     /**************************************************************************/
     // gas Calculator setup complete
     /**************************************************************************/
+    
+    if (Prefs::ideal() == TRUE)
+    {
+    	ui.non_ideal->hide();
+    }
+    
 }
 
 gasCalculator:: ~gasCalculator()

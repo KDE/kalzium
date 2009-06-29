@@ -59,6 +59,7 @@ kde4_add_ui_files(kalziumtools_SRCS
     calculator/nuclearCalculator.ui
     calculator/gasCalculator.ui
     calculator/concCalculator.ui
+    calculator/settings_calc.ui
 #    calculator/massCalculator.ui
     )
 message(STATUS "Building the calculator")	
