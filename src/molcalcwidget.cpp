@@ -103,20 +103,36 @@ void MolcalcWidget::updateUI()
         QString complexString;
 		double mass;
 		QString str;
+		int i = 0;								 			// counter
+		int col = m_elementMap.elements().count();		// number of columns
+		ui.table->setRowCount(col);
 		
         foreach (ElementCount * count , m_elementMap.map()) {
             // Update the resultLabel
             mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
-            str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"",
+/* Using a table widget instead of strings
+            str += i18nc( "For example: \"Carbon 1 12.000 \"",
             		 QString("%1     %2 atoms     %3 u     %4 u     %5%\n" )
                     .arg(count->element()->dataAsString( ChemicalDataObject::name), -20)
                     .arg(count->count(), -8)
                     .arg(count->element()->dataAsString( ChemicalDataObject::mass), -10)
                     .arg(mass * count->count())
                     .arg(mass * count->count()/ m_mass *100).toLatin1().data());
-        }
-        ui.resultLabel->setText( str );
+*/
+			ui.table->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
+			.arg(count->element()->dataAsString( ChemicalDataObject::name))));
+			ui.table->setItem((int)i, 1, new QTableWidgetItem(tr("%1")
+			.arg(count->count())));
+			ui.table->setItem((int)i, 2, new QTableWidgetItem(tr("%1")
+			.arg(count->element()->dataAsString( ChemicalDataObject::mass))));
+			ui.table->setItem((int)i, 3, new QTableWidgetItem(tr("%1")
+			.arg(mass * count->count())));
+			ui.table->setItem((int)i, 4, new QTableWidgetItem(tr("%1")
+			.arg(mass * count->count()/ m_mass *100).toLatin1().data()));
 
+			i++;
+        }
+        
         // The composition
         ui.resultComposition->setText( compositionString(m_elementMap) );
 
@@ -125,7 +141,6 @@ void MolcalcWidget::updateUI()
 
         ui.resultMass->setToolTip(        complexString );
         ui.resultComposition->setToolTip( complexString );
-        ui.resultLabel->setToolTip(       complexString );
 
 #if 0
         // FIXME
@@ -173,6 +188,7 @@ void MolcalcWidget::slotCalculate()
 	// mass, and the composition of it.
 	if ( !molecule.isEmpty() )
 		m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
+	kDebug() << "done calculating.";
 
 	updateUI();
 }

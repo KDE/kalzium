@@ -323,7 +323,7 @@ MoleculeParser::expandFormula( const QString& _shortString)
 	{
 		temp = "";
 		
-		// If a character was found
+		// If a capital letter was found
 		if((*i).category() == QChar::Letter_Uppercase) {
 			temp += (*i);
 			i++;
@@ -334,7 +334,7 @@ MoleculeParser::expandFormula( const QString& _shortString)
 				i++;
 			}
 			
-			// If element is found, return it immediately.
+			// If element is found, append it
 			if (lookupElement(temp)) {
 				_fullString += temp;
 			}
@@ -344,7 +344,7 @@ MoleculeParser::expandFormula( const QString& _shortString)
 				kDebug() << "expanded" << temp << "to" << expandedTerm;
 				_fullString += "("+expandedTerm+")";
 			}
-			// invalid term, return it.
+			// invalid term, append it. ( Validation is done later anyway. )
 			else {
 				_fullString += temp;
 			}
@@ -367,6 +367,8 @@ MoleculeParser::expandFormula( const QString& _shortString)
 		}
 		else { // invalid character, return it, validation is done again later
 			_fullString += *i;
+			i++;
+			kDebug() << *i << "invalid character!";
 		}		
 	}
 	

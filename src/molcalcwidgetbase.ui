@@ -112,20 +112,24 @@
     </widget>
    </item>
    <item>
-    <spacer>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+    <widget class="QLabel" name="resultLabel">
+     <property name="text">
+      <string/>
      </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::MinimumExpanding</enum>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>41</width>
-       <height>131</height>
-      </size>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="resultMass">
+     <property name="text">
+      <string/>
      </property>
-    </spacer>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="resultComposition">
@@ -152,23 +156,64 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="resultLabel">
-     <property name="text">
-      <string/>
+    <spacer>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
-     <property name="wordWrap">
-      <bool>true</bool>
+     <property name="sizeType">
+      <enum>QSizePolicy::MinimumExpanding</enum>
      </property>
-    </widget>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>41</width>
+       <height>131</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
-    <widget class="QLabel" name="resultMass">
-     <property name="text">
-      <string/>
+    <widget class="QTableWidget" name="table">
+     <property name="showGrid">
+      <bool>false</bool>
      </property>
-     <property name="wordWrap">
+     <property name="rowCount">
+      <number>1</number>
+     </property>
+     <property name="columnCount">
+      <number>5</number>
+     </property>
+     <attribute name="horizontalHeaderHighlightSections">
       <bool>true</bool>
-     </property>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <row/>
+     <column>
+      <property name="text">
+       <string>Element</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Atoms</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Atomic mass</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Total mass</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Percentage</string>
+      </property>
+     </column>
     </widget>
    </item>
   </layout>
