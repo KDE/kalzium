@@ -15,6 +15,7 @@ Unit conversion library working fine.
 Basic classes for the concentration and the gas calculators done.
 Plasmoid widgets are almost done and will be completed by tonight.
 Using alternative method, improvising the existing molecular mass calculator to calculate molecular mass and display composition.
+configurations for various calculators
 
 %%% failed
 #0 > Reusing Jean's code classes and implementing the molecular mass calculator
