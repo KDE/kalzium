@@ -73,7 +73,6 @@ class SCIENCE_EXPORT ElementCount
 		 * The Element of the object
 		 */
 		Element  *m_element;
-
 		/**
 		 * The number of occurrences
 		 */
@@ -215,6 +214,8 @@ public:
     bool  weight(const QString&         _moleculeString,
 				 double          *_resultMass,
 				 ElementCountMap *_resultMap);
+				 
+	QSet<QString>* getAliasList(void);
  private:
     // Helper functions
     bool      parseSubmolecule(double          *_resultMass,
@@ -235,7 +236,9 @@ public:
     Element  *lookupElement( const QString& _name );
 
     QMap<Element*, int> m_elementMap;
-		
+	
+	// Contains the list of aliases eg, { "Et - C2H5", "Me - CH3"}
+	QSet<QString> *m_aliasList; 	
 	//if this booloean is "true" the parser found an error
 	bool             m_error;
 

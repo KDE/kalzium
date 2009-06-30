@@ -14,9 +14,9 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="calcTab">
       <attribute name="title">
        <string>Calculator</string>
       </attribute>
@@ -131,58 +131,111 @@
         </widget>
        </item>
        <item>
-        <widget class="QTableWidget" name="table">
-         <property name="showGrid">
-          <bool>false</bool>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Details</string>
          </property>
-         <property name="rowCount">
-          <number>1</number>
-         </property>
-         <property name="columnCount">
-          <number>5</number>
-         </property>
-         <attribute name="horizontalHeaderHighlightSections">
-          <bool>true</bool>
-         </attribute>
-         <row/>
-         <column>
-          <property name="text">
-           <string>Element</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Atoms</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Atomic mass</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Total mass</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Percentage</string>
-          </property>
-         </column>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Composition</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="table">
+              <property name="minimumSize">
+               <size>
+                <width>520</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="rowCount">
+               <number>1</number>
+              </property>
+              <property name="columnCount">
+               <number>5</number>
+              </property>
+              <attribute name="horizontalHeaderHighlightSections">
+               <bool>true</bool>
+              </attribute>
+              <row/>
+              <column>
+               <property name="text">
+                <string>Element</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Atoms</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Atomic mass</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Total mass</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Percentage</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Aliases used</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="alias_list">
+              <property name="rowCount">
+               <number>1</number>
+              </property>
+              <property name="columnCount">
+               <number>1</number>
+              </property>
+              <row/>
+              <column>
+               <property name="text">
+                <string>aliases</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="aliasTab">
       <attribute name="title">
-       <string>Add Alias</string>
+       <string>Aliases</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QGroupBox" name="aliasBox">
          <property name="title">
-          <string>User defined aliases</string>
+          <string>Define alias</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
@@ -237,6 +290,103 @@
          <property name="text">
           <string/>
          </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Pre-defined aliases</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>User-defined aliases</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QTableWidget" name="pre_defined">
+            <property name="rowCount">
+             <number>15</number>
+            </property>
+            <property name="columnCount">
+             <number>1</number>
+            </property>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <column/>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QTableWidget" name="user_defined">
+            <property name="rowCount">
+             <number>15</number>
+            </property>
+            <property name="columnCount">
+             <number>1</number>
+            </property>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <row/>
+            <column/>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>

@@ -101,12 +101,14 @@ MoleculeParser::MoleculeParser( const QList<Element*>& list)
     : Parser()
 {
 	m_elementList = list;
+	m_aliasList = new (QSet<QString>);
 }
 
 
 MoleculeParser::MoleculeParser(const QString& _str)
     : Parser(_str)
 {
+	m_aliasList = new (QSet<QString>);
 }
 
 
@@ -130,6 +132,9 @@ MoleculeParser::weight(const QString&         _shortMoleculeString,
 {
 	if ( _shortMoleculeString.isEmpty() )
 		return false;
+	// Clear the list of aliases and start filling it again.
+	
+	m_aliasList -> clear();
 	QString _moleculeString;
 	// Clear the result variables and set m_error to false
 	_resultMap->clear();
@@ -156,7 +161,11 @@ MoleculeParser::weight(const QString&         _shortMoleculeString,
 	return true;
 }
 
-
+QSet<QString>*
+MoleculeParser::getAliasList(void)
+{
+	return m_aliasList;
+}
 // ----------------------------------------------------------------
 //            helper methods for the public methods
 
@@ -404,7 +413,10 @@ MoleculeParser::expandTerm (const QString& _group)
 			
 			// If short term is found, return fullForm
 			if (shortForm == _group)
+			{
+				*m_aliasList << (_group + " : " + fullForm);
 				return (fullForm);
+			}
     	}
     }
     else
@@ -432,7 +444,10 @@ MoleculeParser::expandTerm (const QString& _group)
 			fullForm.remove(QChar('\"'));
 			
 			if (shortForm == _group)
+			{
+				*m_aliasList << (_group + " : " + fullForm);				
 				return (fullForm);
+			}
     	}
     }
     else

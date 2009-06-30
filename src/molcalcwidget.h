@@ -75,7 +75,7 @@ class MolcalcWidget : public QWidget
 
 	private:
 		MoleculeParser   *m_parser;
-		
+                QSet<QString>    *m_aliasList;
 		double           m_mass;
 		bool             m_validInput;
 		ElementCountMap  m_elementMap;

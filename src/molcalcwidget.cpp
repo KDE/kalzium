@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2003-2005, 2006 by Carsten Niehaus, cniehaus@kde.org    *
  *   Copyright (C) 2005      by Inge Wallin,     inge@lysator.liu.se       *
+ *   Copyright (C) 2009      by Kashyap. R. Puranik                        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -15,7 +16,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  *                                                                         *
  ***************************************************************************/
 
@@ -47,27 +48,87 @@
 MolcalcWidget::MolcalcWidget( QWidget *parent )
     : QWidget( parent )
 {
-	m_parser = new MoleculeParser( KalziumDataObject::instance()->ElementList );
+    m_parser = new MoleculeParser( KalziumDataObject::instance()->ElementList );
 
     m_timer = new QTimer(this);
     m_timer->setSingleShot( true );
 	
-	ui.setupUi( this );
+    ui.setupUi( this );
 	
-	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
-	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
+    connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
+    connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
     connect( m_timer, SIGNAL( timeout() ), this, SLOT( slotCalculate() ) );
     connect( ui.alias, SIGNAL(clicked()), this, SLOT( addAlias()));
 
-	ui.formulaEdit->setClearButtonShown(true);
+    ui.formulaEdit->setClearButtonShown(true);
 
-	clear();
+    clear();
 	
-	if (Prefs::alias() == TRUE)
-	{
-		ui.aliasBox->hide();
-	}
+    if (Prefs::alias() == TRUE)
+    {
+        ui.aliasBox->hide();
+    }
 
+    QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
+    // Search in User defined aliases.
+    QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
+    QFile file(fileName);
+    int i = 0;                          // while loop counter
+
+    // Check file validity
+    if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text)))
+    {
+            kDebug() << fileName << " opened";
+        QTextStream in(&file);
+
+        // Get all shortForms and fullForms in the file.
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            shortForm = line.section(',', 0, 0);
+            shortForm.remove(QChar('\"'));
+            fullForm  = line.section(',', 1, 1);
+            fullForm.remove(QChar('\"'));
+
+            // If short term is found, return fullForm
+            ui.user_defined->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
+                .arg(shortForm + " : " + fullForm)));
+            i ++;
+        }
+    }
+    else
+    {
+        kDebug() << fileName << " could not be opened!";
+    }
+
+        // Find the system defined aliases
+        // Open the file
+        fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+        QFile file2(fileName);
+
+        // Check file validity
+    if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text)))
+    {
+            kDebug() << fileName << " opened";
+        QTextStream in(&file2);
+
+        i = 0;
+        // Get all shortForms and fullForms in the file.
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            shortForm = line.section(',', 0, 0);
+            shortForm.remove(QChar('\"'));
+            fullForm  = line.section(',', 1, 1);
+            fullForm.remove(QChar('\"'));
+
+            ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
+                .arg(shortForm + " : " + fullForm)));
+            i ++;
+        }
+    }
+    else
+    {
+        kDebug() << fileName << " could not be opened!";
+    }
 }
 
 MolcalcWidget::~MolcalcWidget()
@@ -107,15 +168,16 @@ void MolcalcWidget::updateUI()
         // The complexString stores the whole molecule like this:
         // 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
         QString complexString;
-		double mass;
-		QString str;
-		int i = 0;								 			// counter
-		int col = m_elementMap.elements().count();		// number of columns
-		ui.table->setRowCount(col);
+        double mass;
+        QString str;
+        int i = 0;			 			// counter
+        int rows = m_elementMap.elements().count();		// number of columns
+        ui.table->setRowCount(rows);
 		
         foreach (ElementCount * count , m_elementMap.map()) {
             // Update the resultLabel
             mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+
 /* Using a table widget instead of strings
             str += i18nc( "For example: \"Carbon 1 12.000 \"",
             		 QString("%1     %2 atoms     %3 u     %4 u     %5%\n" )
@@ -125,18 +187,18 @@ void MolcalcWidget::updateUI()
                     .arg(mass * count->count())
                     .arg(mass * count->count()/ m_mass *100).toLatin1().data());
 */
-			ui.table->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
-			.arg(count->element()->dataAsString( ChemicalDataObject::name))));
-			ui.table->setItem((int)i, 1, new QTableWidgetItem(tr("%1")
-			.arg(count->count())));
-			ui.table->setItem((int)i, 2, new QTableWidgetItem(tr("%1")
-			.arg(count->element()->dataAsString( ChemicalDataObject::mass))));
-			ui.table->setItem((int)i, 3, new QTableWidgetItem(tr("%1")
-			.arg(mass * count->count())));
-			ui.table->setItem((int)i, 4, new QTableWidgetItem(tr("%1")
-			.arg(mass * count->count()/ m_mass *100).toLatin1().data()));
+            ui.table->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
+                .arg(count->element()->dataAsString( ChemicalDataObject::name))));
+            ui.table->setItem((int)i, 1, new QTableWidgetItem(tr("%1")
+                .arg(count->count())));
+            ui.table->setItem((int)i, 2, new QTableWidgetItem(tr("%1")
+                .arg(count->element()->dataAsString( ChemicalDataObject::mass))));
+            ui.table->setItem((int)i, 3, new QTableWidgetItem(tr("%1")
+                .arg(mass * count->count())));
+            ui.table->setItem((int)i, 4, new QTableWidgetItem(tr("%1")
+                .arg(mass * count->count()/ m_mass *100)));
 
-			i++;
+            i++;
         }
         
         // The composition
@@ -148,6 +210,13 @@ void MolcalcWidget::updateUI()
         ui.resultMass->setToolTip(        complexString );
         ui.resultComposition->setToolTip( complexString );
 
+        // The alias list
+        i = 0;
+        rows = m_aliasList->count();
+        ui.alias_list->setRowCount(rows);
+        foreach (QString alias, *m_aliasList) {
+            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(tr("%1").arg(alias)));
+        }
 #if 0
         // FIXME
         //select the elements in the table
@@ -193,7 +262,10 @@ void MolcalcWidget::slotCalculate()
 	// Parse the molecule, and at the same time calculate the total
 	// mass, and the composition of it.
 	if ( !molecule.isEmpty() )
-		m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
+        {
+            m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
+            m_aliasList = m_parser->getAliasList();
+        }
 	kDebug() << "done calculating.";
 
 	updateUI();
@@ -209,7 +281,7 @@ void MolcalcWidget::addAlias()
 	QString shortForm = ui.shortForm->text();
 	QString fullForm  = ui.fullForm ->text();
 	
-	// Temporary variables required for weight function of the molecule parser
+        // orary variables required for weight function of the molecule parser
 	double x;
 	ElementCountMap y;
 	
