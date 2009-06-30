@@ -100,7 +100,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="KIntSpinBox" name="temp_spinbox" >
+      <widget class="QSpinBox" name="temp_spinbox" >
        <property name="toolTip" >
         <string>Click to edit current temperature</string>
        </property>
@@ -218,13 +218,6 @@
   <zorder></zorder>
   <zorder></zorder>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
