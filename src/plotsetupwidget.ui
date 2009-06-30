@@ -35,7 +35,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSpinBox" name="to" >
+      <widget class="KIntSpinBox" name="to" >
        <property name="minimum" >
         <number>2</number>
        </property>
@@ -65,7 +65,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QSpinBox" name="from" >
+      <widget class="KIntSpinBox" name="from" >
        <property name="minimum" >
         <number>1</number>
        </property>
@@ -486,6 +486,11 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KPlotWidget</class>

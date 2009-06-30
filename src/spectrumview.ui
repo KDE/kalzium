@@ -58,7 +58,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="maximumValue">
+          <widget class="KIntSpinBox" name="maximumValue">
            <property name="toolTip">
             <string>This sets the rightmost wavelength of the spectrum.</string>
            </property>
@@ -113,7 +113,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="minimumValue">
+          <widget class="KIntSpinBox" name="minimumValue">
            <property name="toolTip">
             <string>This sets the leftmost wavelength of the spectrum.</string>
            </property>
@@ -284,6 +284,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
+  </customwidget>
   <customwidget>
    <class>KTabWidget</class>
    <extends>QTabWidget</extends>
