@@ -64,11 +64,6 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 
     clear();
 	
-    if (Prefs::alias() == TRUE)
-    {
-        ui.aliasBox->hide();
-    }
-
     QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
     // Search in User defined aliases.
     QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");

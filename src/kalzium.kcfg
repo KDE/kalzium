@@ -261,13 +261,6 @@
             <default>1</default>
         </entry>
     </group>
-	    <group name="Calculator">
-        <entry name = "alias" type="Bool">
-            <label>This setting says whether the user wants see the add alias feature</label>
-            <whatsthis>True if the add alias feature is seen</whatsthis>
-            <default>1</default>
-        </entry>
-    </group>    
 	<group name="Sidebar">
 		<entry name="showsidebar" type="Bool">
 			<label>Show or hide the sidebar</label>
