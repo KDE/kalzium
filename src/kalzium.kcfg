@@ -254,6 +254,13 @@
             <default>0</default>
         </entry>
     </group>
+    <group name="Calculator">
+        <entry name = "ideal" type="Bool">
+            <label>This setting says whether the user wants the gas to be ideal by default</label>
+            <whatsthis>True if gasses are assumed to be ideal</whatsthis>
+            <default>1</default>
+        </entry>
+    </group>
 	<group name="Sidebar">
 		<entry name="showsidebar" type="Bool">
 			<label>Show or hide the sidebar</label>
@@ -261,4 +268,5 @@
 			<default>true</default>
 		</entry>
 	</group>
+	
 </kcfg>

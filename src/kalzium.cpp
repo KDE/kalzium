@@ -21,6 +21,7 @@
 #include "ui_settings_misc.h"
 #include "ui_settings_units.h"
 #include "ui_settings_web.h"
+#include "ui_settings_calc.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
 #include "periodictableview.h"
@@ -45,6 +46,8 @@
 
 
 #include <config-kalzium.h>
+
+#include "calculator/calculator.h"
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
@@ -207,7 +210,7 @@ void Kalzium::setupActions()
     look_action_gradients->setToolBarMode( KSelectAction::MenuMode );
     look_action_gradients->setToolButtonPopupMode( QToolButton::InstantPopup );
     connect( look_action_gradients, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookGradient( int ) ) );
-    
+
     // the action for swiching tables
     QStringList tablelist;
     QStringList table_schemes = KalziumTableTypeFactory::instance()->tables();
@@ -241,6 +244,12 @@ void Kalzium::setupActions()
     m_pPlotAction->setText( i18n( "&Plot Data..." ) );
     m_pPlotAction->setIcon( KIcon( "plot" ) );
     connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
+
+    // tools actions
+    m_pcalculator = actionCollection()->addAction( "tools_calculate" );
+    m_pcalculator->setText( i18n( "&Perform Calculations..." ) );
+    m_pcalculator->setIcon( KIcon( "plot" ) );
+    connect( m_pcalculator, SIGNAL( triggered() ), this, SLOT( showCalculator() ) );    
 
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
     m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
@@ -469,6 +478,12 @@ void Kalzium::slotPlotData()
 	edw->show();
 }
 
+void Kalzium::showCalculator()
+{
+	calculator *Cal = new calculator ( this ); 
+	Cal -> show();	
+}
+
 void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 {
 	if ( !checked )
@@ -631,12 +646,17 @@ void Kalzium::showSettingsDialog()
 	w_misc->setObjectName( "miscpage" );
 	ui_misc.setupUi( w_misc );
 	dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
-    //wiki page
+    // web page
     Ui_setupWeb ui_web;
     QWidget *w_web = new QWidget( 0 );
     //w_web->setobjectName( "Web_lookup" );
     ui_web.setupUi( w_web );
-    dialog->addPage( w_web, i18n(" Web look up" ), "preferences-system-network");	
+    dialog->addPage( w_web, i18n(" Web look up" ), "preferences-system-network");
+    
+    Ui_setupCalc ui_calc;
+    QWidget *w_calc = new QWidget( 0 );
+    ui_calc.setupUi( w_calc );
+    dialog->addPage( w_calc, i18n("Calculator"), "preferences-calculator");
 	
 	// showing the dialog
 	dialog->show();
