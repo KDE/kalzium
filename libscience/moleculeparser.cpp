@@ -15,7 +15,9 @@
 
 #include <ctype.h>
 
+#include <kstandarddirs.h>
 #include <kdebug.h>
+#include <QFile>
 
 // ================================================================
 //                    class ElementCountMap
@@ -99,12 +101,14 @@ MoleculeParser::MoleculeParser( const QList<Element*>& list)
     : Parser()
 {
 	m_elementList = list;
+	m_aliasList = new (QSet<QString>);
 }
 
 
 MoleculeParser::MoleculeParser(const QString& _str)
     : Parser(_str)
 {
+	m_aliasList = new (QSet<QString>);
 }
 
 
@@ -122,18 +126,28 @@ MoleculeParser::~MoleculeParser()
 // This method also acts as the main loop.
 
 bool
-MoleculeParser::weight(const QString&         _moleculeString, 
+MoleculeParser::weight(const QString&         _shortMoleculeString, 
 					   double          *_resultMass,
 					   ElementCountMap *_resultMap)
 {
-	if ( _moleculeString.isEmpty() )
+	if ( _shortMoleculeString.isEmpty() )
 		return false;
+	// Clear the list of aliases and start filling it again.
 	
+	m_aliasList -> clear();
+	QString _moleculeString;
 	// Clear the result variables and set m_error to false
 	_resultMap->clear();
 	m_error = false;
 	*_resultMass = 0.0;
-
+	
+	// Expand the molecule string
+	// Example : MeOH -> (CH3)OH
+	kDebug() << _shortMoleculeString << "is going to be expanded";
+	_moleculeString = expandFormula(_shortMoleculeString);
+	kDebug() << _moleculeString << "is the expanded string";
+	
+	// Now set the expanded string
 	// Initialize the parsing process, and parse te molecule.
 	start(_moleculeString);
 	parseSubmolecule(_resultMass, _resultMap);
@@ -143,11 +157,15 @@ MoleculeParser::weight(const QString&         _moleculeString,
 
 	if ( m_error )//there was an error in the input...
 		return false;
-
+		
 	return true;
 }
 
-
+QSet<QString>*
+MoleculeParser::getAliasList(void)
+{
+	return m_aliasList;
+}
 // ----------------------------------------------------------------
 //            helper methods for the public methods
 
@@ -243,7 +261,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 int
 MoleculeParser::getNextToken()
 {
-    QString  elementName;
+    QString  name;
 
 #if 0
     kDebug() << "getNextToken(): Next character = "
@@ -252,25 +270,25 @@ MoleculeParser::getNextToken()
 
     // Check if the token is an element name.
     if ('A' <= nextChar() && nextChar() <= 'Z') {
-	elementName = char(nextChar());
-	getNextChar();
+		name = char(nextChar());
+		getNextChar();
 
-	if ('a' <= nextChar() && nextChar() <= 'z') {
-	    elementName.append(char(nextChar()));
-	    getNextChar();
-	}
+		if ('a' <= nextChar() && nextChar() <= 'z') {
+			    name.append(char(nextChar()));
+			    getNextChar();
+		}
 
-		// Look up the element from the name..
-	m_elementVal = lookupElement(elementName);
-	if (m_elementVal)
-	{
-	    m_nextToken = ELEMENT_TOKEN;
-	}
-	else
-	    m_nextToken = -1;
+			// Look up the element from the name..
+		m_elementVal = lookupElement(name);
+		if (m_elementVal)
+		{
+		    m_nextToken = ELEMENT_TOKEN;
+		}
+		else
+		    m_nextToken = -1;
     }
     else
-	return Parser::getNextToken();
+		return Parser::getNextToken();
 
     return m_nextToken;
 }
@@ -295,7 +313,155 @@ MoleculeParser::lookupElement( const QString& _name )
 	//if there is an error make m_error true.
 	m_error = true;
 
-	kDebug() << "no such element, parsing error!: " << _name;
+	kDebug() << "no such element!: " << _name;
 
 	return NULL;
+}
+
+QString
+MoleculeParser::expandFormula( const QString& _shortString)
+{
+	QString _fullString = "";		// The expanded string that will be returned
+	QString::iterator i;		// iterator
+	QString temp;	 		// A temporary string that will contain a single element/group
+	QString expandedTerm;	// expansion of a particular term.
+	
+	// Go through all letters in the string.
+	for(i = (const QString::iterator) _shortString.begin();
+					 i != _shortString.end(); )
+	{
+		temp = "";
+		
+		// If a capital letter was found
+		if((*i).category() == QChar::Letter_Uppercase) {
+			temp += (*i);
+			i++;
+			
+			// A small letter following a capital letter
+			if(i != _shortString.end() && (*i).category() == QChar::Letter_Lowercase) {
+				temp += (*i);
+				i++;
+			}
+			
+			// If element is found, append it
+			if (lookupElement(temp)) {
+				_fullString += temp;
+			}
+			
+			// If an expansion was made, return the expansion
+			else if ((expandedTerm = expandTerm(temp)) != "") {
+				kDebug() << "expanded" << temp << "to" << expandedTerm;
+				_fullString += "("+expandedTerm+")";
+			}
+			// invalid term, append it. ( Validation is done later anyway. )
+			else {
+				_fullString += temp;
+			}
+			
+		}
+		
+		// Return parenthesis as and when found
+		else if (*i == '(') {
+			_fullString += '(';
+			i++;
+		}
+		else if (*i == ')') {
+			_fullString += ')';
+			i++;
+		}
+		// If number was found, return it
+		else if ((*i).category() == QChar::Number_DecimalDigit) {
+			_fullString += *i;
+			i++;
+		}
+		else { // invalid character, return it, validation is done again later
+			_fullString += *i;
+			i++;
+			kDebug() << *i << "invalid character!";
+		}		
+	}
+	
+	// Reset all "element not found" errors.
+	m_error = false;
+	return _fullString;
+}
+
+QString
+MoleculeParser::expandTerm (const QString& _group)
+{
+
+	QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
+	QString temp;					// A temporary QString used in Regular expressions
+	
+	// Search in User defined aliases.
+	QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
+	QFile file(fileName);
+	
+	// Check file validity
+    if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text)))
+    {
+	    kDebug() << fileName << " opened";
+    	QTextStream in(&file);
+    	
+    	// Get all shortForms and fullForms in the file.
+    	while (!in.atEnd()) {
+    	    QString line = in.readLine();
+			shortForm = line.section(',', 0, 0);
+			shortForm.remove(QChar('\"'));
+			fullForm  = line.section(',', 1, 1);
+			fullForm.remove(QChar('\"'));
+			
+			// If short term is found, return fullForm
+			if (shortForm == _group)
+			{
+				*m_aliasList << (_group + " : " + fullForm);
+				return (fullForm);
+			}
+    	}
+    }
+    else
+    {
+    	kDebug() << fileName << " could not be opened!";
+    }
+    
+	// Find the system defined aliases	
+	// Open the file
+	fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+	QFile file2(fileName);
+	
+	// Check file validity
+    if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text)))
+    {
+	    kDebug() << fileName << " opened";
+    	QTextStream in(&file2);
+    	
+    	// Get all shortForms and fullForms in the file.
+    	while (!in.atEnd()) {
+    	    QString line = in.readLine();
+			shortForm = line.section(',', 0, 0);
+			shortForm.remove(QChar('\"'));
+			fullForm  = line.section(',', 1, 1);
+			fullForm.remove(QChar('\"'));
+			
+			if (shortForm == _group)
+			{
+				*m_aliasList << (_group + " : " + fullForm);				
+				return (fullForm);
+			}
+    	}
+    }
+    else
+    {
+    	kDebug() << fileName << " could not be opened!";
+    }
+    
+    // Sample expansions, work even when file is not found, testing purposes
+	if (_group == "Me")
+		return ("CH3");
+	else if (_group == "Et")
+		return ("C2H5");
+
+	// If not found return an empty string.
+	else
+		return ("");
 }
