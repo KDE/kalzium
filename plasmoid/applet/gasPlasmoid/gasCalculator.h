@@ -31,10 +31,10 @@ namespace Plasma{
 	class Slider;
 	class SpinBox;
 	class RadioButton;
-};
+}
 
 enum ERROR_TYPE_GAS {
-    VOL_ZERO = 0,
+    VOL_ZERO = 0
 };
 
 using namespace Conversion;

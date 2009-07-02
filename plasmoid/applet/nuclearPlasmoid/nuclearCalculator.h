@@ -33,7 +33,7 @@ namespace Plasma{
 	class Label;
 	class Slider;
 	class RadioButton;
-};
+}
 
 using namespace Conversion;
 // Define our plasma Applet
