@@ -29,7 +29,7 @@ namespace Plasma{
 	class Label;
 	class Slider;
 	class RadioButton;
-};
+}
 
 enum ERROR_TYPE_CONC {
     PERCENTAGE = 0,
