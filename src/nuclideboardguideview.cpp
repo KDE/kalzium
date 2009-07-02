@@ -22,10 +22,7 @@
 
 #include "nuclideboardguideview.h"
 #include "nuclideboard.h"
-
-#include <QDebug>
 #include <QScrollBar>
-#include <QCursor>
     
 	IsotopeGuideView::IsotopeGuideView(QWidget *parent)
 : QGraphicsView(parent)

@@ -35,12 +35,7 @@
 #include <QColor>
 #include <QFont>
 #include <QPainter>
-#include <QPair>
-#include <QPalette>
-#include <QPoint>
 #include <QRect>
-#include <QSize>
-#include <QPolygon>
 #include <QPainterPath>
 #include <QDebug>
 

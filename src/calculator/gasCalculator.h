@@ -30,7 +30,7 @@
 using namespace Conversion;
 
 enum ERROR_TYPE_GAS {
-    VOL_ZERO = 0,
+    VOL_ZERO = 0
 };
 
 /**

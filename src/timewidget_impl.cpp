@@ -13,10 +13,6 @@
 
 #include "timewidget_impl.h"
 
-#include <QLabel>
-#include <QSlider>
-#include <QTextEdit>
-#include <QList>
 #include <QTimer>
 
 #include <kdebug.h>

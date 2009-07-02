@@ -37,10 +37,6 @@
 #include <klineedit.h>
 #include <kstandarddirs.h>
 
-#include <QApplication>
-#include <QLabel>
-#include <QLayout>
-#include <QToolButton>
 #include <QTimer>
 #include <QKeyEvent>
 #include <QFile>

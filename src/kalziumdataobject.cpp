@@ -26,8 +26,6 @@
 #include <spectrumparser.h>
 
 #include <QFile>
-#include <QVariant>
-#include <QSvgRenderer>
 #include <QPainter>
 
 #include <klocale.h>

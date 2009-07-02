@@ -28,7 +28,6 @@
 #include <klocale.h>
 #include <math.h>
 
-#include <QCursor>
 #include <QKeyEvent>
 #include <QSizePolicy>
 #include <QPainter>

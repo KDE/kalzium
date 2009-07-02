@@ -31,10 +31,8 @@
 #include <QFile>
 #include <QLabel>
 #include <QImage>
-#include <QLayout>
 #include <QPushButton>
 #include <QStackedWidget>
-#include <QDebug>
 
 #include "element.h"
 #include "orbitswidget.h"

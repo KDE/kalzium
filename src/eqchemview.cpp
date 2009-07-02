@@ -21,7 +21,6 @@
 #include "eqchemview.h"
 
 #include <QClipboard>
-#include <QLabel>
 #include <KTextBrowser>
 
 #include <kdebug.h>

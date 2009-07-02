@@ -23,9 +23,6 @@
 class KalziumNumerationType;
 
 #include <QByteArray>
-#include <QPoint>
-#include <QRect>
-#include <QSize>
 #include <QStringList>
 
 /**

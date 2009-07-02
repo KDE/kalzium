@@ -12,7 +12,6 @@
  ***************************************************************************/
 #include "spectrumviewimpl.h"
 
-#include <QSpinBox>
 #include <QTreeWidget>
 
 #include <kdebug.h>

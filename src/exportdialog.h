@@ -14,7 +14,6 @@
  ***************************************************************************/
 
 #include <QListWidget>
-#include <QFile>
 #include <element.h>
 
 #include "kalziumdataobject.h"

@@ -13,12 +13,7 @@
 
 #include "somwidget_impl.h"
 
-#include <QLabel>
 #include <QPair>
-#include <QSlider>
-#include <QTextEdit>
-#include <QList>
-#include <QVariant>
 #include <QTimer>
 
 #include <klocale.h>

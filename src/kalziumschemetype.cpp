@@ -23,7 +23,6 @@
 #include "prefs.h"
 
 #include <QBrush>
-#include <QVariant>
 
 #include <klocale.h>
 #include <kdebug.h>

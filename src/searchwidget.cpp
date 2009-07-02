@@ -20,12 +20,9 @@
 #include "searchwidget.h"
 
 #include <QLabel>
-#include <QLayout>
 #include <KLineEdit>
 #include <QTimer>
-#include <QToolButton>
-
-#include <KIcon>
+#include <QHBoxLayout>
 #include <KLocale>
 
 #include "kalziumdataobject.h"

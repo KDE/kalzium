@@ -22,8 +22,6 @@
 
 #include "nuclideboardview.h"
 #include "nuclideboard.h"
-#include <QDebug>
-#include <QScrollBar>
 
     IsotopeView::IsotopeView(QWidget *parent)
 : QGraphicsView(parent)

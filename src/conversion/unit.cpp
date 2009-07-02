@@ -19,7 +19,6 @@
 
 #include "unit.h"
 #include "unitcategory.h"
-#include <KLocale>
 #include <KDebug>
 
 namespace Conversion

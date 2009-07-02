@@ -61,14 +61,10 @@
 #endif
 
 #include <QDockWidget>
-#include <QLayout>
 #include <QToolBox>
 #include <QScrollArea>
 #include <QKeyEvent>
-#include <QTimer>
-#include <QSvgGenerator>
 #include <QRegExp>
-#include <QDebug>
 
 #include <kmessagebox.h>
 #include <kconfigdialog.h>
