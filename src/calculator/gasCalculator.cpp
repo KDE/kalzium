@@ -69,6 +69,11 @@ gasCalculator::gasCalculator(QWidget * parent)
 
 gasCalculator:: ~gasCalculator()
 {
+
+}
+
+void gasCalculator::init()
+{
 	ui.molarMass-> setValue(2.008);
     ui.temp     -> setValue(273.0);
     ui.volume   -> setValue(22.400);
@@ -96,11 +101,6 @@ gasCalculator:: ~gasCalculator()
     }
     
     setMode(3);
-}
-
-void gasCalculator::init()
-{
-	
 }
 /*
     Note:-

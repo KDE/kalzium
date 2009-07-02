@@ -66,7 +66,7 @@ concCalculator::concCalculator(QWidget * parent)
             this, SLOT(concentrationChanged(double)));
     connect(ui.mode, SIGNAL(activated(int)),
     		this, SLOT(setMode(int)));
-    connect(ui.reset, SIGNAL(clicked(int)),
+    connect(ui.reset, SIGNAL(clicked()),
     		this, SLOT(init()));
 
     /**************************************************************************/

@@ -75,8 +75,10 @@ nuclearCalculator::nuclearCalculator(QWidget * parent)
             this, SLOT(timeChanged()));
     connect(ui.slider, SIGNAL(valueChanged(int)),
             this, SLOT(sliderMoved(int)));
+    connect(ui.mode, SIGNAL(activated(int)),
+    		this, SLOT(setMode(int)));
 	connect(ui.reset, SIGNAL(clicked()),
-			this, SLOT(setMode(int)));
+			this, SLOT(init()));
 	
     /**************************************************************************/
     // Nuclear Calculator setup complete
@@ -96,16 +98,20 @@ void nuclearCalculator::init()
     ui.element    -> setCurrentIndex(91);
     ui.isotope    -> setCurrentIndex(18);
     ui.halfLife   -> setValue(list.at(18) -> halflife());
+    ui.initAmt    -> setValue(6.0);
+    ui.finalAmt   -> setValue(3.0);
+    ui.time		  -> setValue(list.at(18) -> halflife());
+    
     QString tempStr;
     tempStr.setNum(list.at(18) -> mass());
     ui.mass -> setText(tempStr);
 
     // Setup of the UI done
     // Initialise values
-    m_initAmount  = Value(0.0, "g") ;
-    m_finalAmount = Value(0.0, "g");
+    m_initAmount  = Value(6.0, "g") ;
+    m_finalAmount = Value(3.0, "g");
     m_mass = list.at(18) -> mass();
-    m_time = Value(0.0, "y");
+    m_time = Value((list.at(18) -> halflife()), "y");
     m_halfLife = Value(list.at(18) -> halflife(), "y");
 
     m_element = * KalziumDataObject::instance() -> element(92);
