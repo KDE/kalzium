@@ -19,7 +19,6 @@
 
 #include <kdebug.h>
 #include <prefs.h>
-#include <converter.h>
 #include <kalziumdataobject.h>
 #include <converter.h>
 #include <value.h>

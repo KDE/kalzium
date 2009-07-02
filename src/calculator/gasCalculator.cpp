@@ -80,7 +80,7 @@ gasCalculator::gasCalculator(QWidget * parent)
     // gas Calculator setup complete
     /**************************************************************************/
     
-    if (Prefs::ideal() == TRUE)
+    if (Prefs::ideal() == true)
     {
     	ui.non_ideal->hide();
     }
