@@ -783,47 +783,47 @@ void concCalculator::error(int mode)
 
     switch (mode) {
     case PERCENTAGE:
-        ui.error->setText("Percentage should be less than 100.0, please enter valid data!");
+        ui.error->setText(i18n("Percentage should be less than 100.0, please enter valid data!"));
         break;
     case DENSITY_ZERO:
-        ui.error->setText("Density cannot be zero. Invalid! Please enter a valid value!");
+        ui.error->setText(i18n("Density cannot be zero. Invalid! Please enter a valid value!"));
         break;
     case MASS_ZERO:
-        ui.error->setText("mass cannot be zero! Please enter valid data to correct it!");
+        ui.error->setText(i18n("mass cannot be zero! Please enter valid data to correct it!"));
         break;
     case VOLUME_ZERO:
-        ui.error->setText("volume cannot be zero! Please enter valid data to correct it!");
+        ui.error->setText(i18n("volume cannot be zero! Please enter valid data to correct it!"));
         break;
     case MOLES_ZERO:
-        ui.error->setText("Number of moles cannot be zero! Please enter valid data to correct the error!");
+        ui.error->setText(i18n("Number of moles cannot be zero! Please enter valid data to correct the error!"));
         break;
     case MOLAR_SOLVENT_ZERO:
-        ui.error->setText("Molar mass of solvent is zero! Please correct it!");
+        ui.error->setText(i18n("Molar mass of solvent is zero! Please correct it!"));
         break;
     case EQTS_ZERO:
-        ui.error->setText("Number of equivalents is zero. Cannot calculate equivalent mass!");
+        ui.error->setText(i18n("Number of equivalents is zero. Cannot calculate equivalent mass!"));
         break;
     case CONC_ZERO:
-        ui.error->setText("Concentration is zero! Please correct it!");
+        ui.error->setText(i18n("Concentration is zero! Please correct it!"));
         break;
     case INSUFFICIENT_DATA_EQT:
-        ui.error->setText("Insufficient data! to calculate the required, please specify normality!");
+        ui.error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
         break;
 
     case INSUFFICIENT_DATA_MOLE:
-        ui.error->setText("Insufficient data, specify molarity / molefraction / molality to calculate!");
+        ui.error->setText(i18n("Insufficient data, specify molarity / molefraction / molality to calculate!"));
         break;
     case INSUFFICIENT_DATA_MOLES:
-        ui.error->setText("amount specified in moles, cannot calculate molar/equivalent masses! Specify mass/volume");
+        ui.error->setText(i18n("amount specified in moles, cannot calculate molar/equivalent masses! Specify mass/volume"));
         break;
     case INSUFFICIENT_DATA_SOLVENT:
-        ui.error->setText("You can calculate the molar mass of solvent only if mole fraction is specified!");
+        ui.error->setText(i18n("You can calculate the molar mass of solvent only if mole fraction is specified!"));
         break;
     case MOLAR_MASS_ZERO:
-        ui.error->setText("molar mass cannot be zero, please correct it!");
+        ui.error->setText(i18n("molar mass cannot be zero, please correct it!"));
         break;
     case EQT_MASS_ZERO:
-        ui.error->setText("Equivalent mass cannot be zero, please correct it!");
+        ui.error->setText(i18n("Equivalent mass cannot be zero, please correct it!"));
         break;
     default:
         break;
