@@ -24,7 +24,6 @@
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <KLocale>
-#include <KTextBrowser>
 #include <knewstuff2/engine.h>
 
 #include <openbabel2wrapper.h>
