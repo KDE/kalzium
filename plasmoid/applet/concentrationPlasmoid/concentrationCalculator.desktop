@@ -3,7 +3,7 @@ Name=Kalzium concentration Calculator
 Comment=Kalzium concentration Calculator
 Type=Service
 ServiceTypes=Plasma/Applet
- 
+
 X-KDE-Library=concentrationCalculator
 X-KDE-PluginInfo-Author=Kashyap R Puranik
 X-KDE-PluginInfo-Email=kashthealien@gmail.com

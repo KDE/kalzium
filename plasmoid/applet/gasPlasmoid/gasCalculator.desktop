@@ -3,7 +3,7 @@ Name=Kalzium gas Calculator
 Comment=Kalzium gas Calculator
 Type=Service
 ServiceTypes=Plasma/Applet
- 
+
 X-KDE-Library=gasCalculator
 X-KDE-PluginInfo-Author=Kashyap R Puranik
 X-KDE-PluginInfo-Email=kashthealien@gmail.com

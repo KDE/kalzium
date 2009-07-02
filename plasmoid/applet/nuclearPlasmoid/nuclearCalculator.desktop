@@ -3,7 +3,7 @@ Name=Kalzium nuclear Calculator
 Comment=Kalzium Nuclear Calculator
 Type=Service
 ServiceTypes=Plasma/Applet
- 
+
 X-KDE-Library=nuclearCalculator
 X-KDE-PluginInfo-Author=Kashyap R Puranik
 X-KDE-PluginInfo-Email=kashthealien@gmail.com
