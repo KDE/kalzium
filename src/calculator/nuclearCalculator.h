@@ -26,6 +26,18 @@
 
 using namespace Conversion;
 
+enum ERROR_MODE_NUKE {
+	INIT_AMT_ZERO = 0,
+	FINAL_AMT_ZERO,
+	HALFLIFE_ZERO,
+	FINAL_AMT_GREATER
+};
+enum MODE_CALCULATE_NUKE {
+	INIT_AMT =0,
+	FINAL_AMT,
+	TIME
+};
+
 /**
  * Note that all values are stored in SI units in the class.
  * FIXME documentation missing
@@ -40,37 +52,46 @@ public:
 
 public slots:
     /// Calculates the initial amount
-    void calculateInitAmount(void);
+    void calculateInitAmount();
 
     /// Calculates the final amount
-    void calculateFinalAmount(void);
+    void calculateFinalAmount();
 
     /// Calculates the time required
-    void calculateTime(void);
+    void calculateTime();
 
     void elementChanged(int index);
 
-    /// occurs when the isotope is changed
+    /// This function is called when the isotope is changed
     void isotopeChanged(int index);
 
-    /// occurs when the halfLife is changed
-    void halfLifeChanged(void);
+    /// This function is called when the halfLife is changed
+    void halfLifeChanged();
 
-    /// occurs when any quantity is changed
-    void calculate(void);
+    /// This function is called when any quantity is changed
+    void calculate();
 
-    /// occurs when the initial amount is changed in the UI
-    void initAmtChanged(void);
+    /// This function is called when the initial amount is changed in the UI
+    void initAmtChanged();
 
-    /// occurs when the final amount is changed in the UI
-    void finalAmtChanged(void);
+    /// This function is called when the final amount is changed in the UI
+    void finalAmtChanged();
 
-    /// occurs when the time is changed in the UI
-    void timeChanged(void);
+    /// This function is called when the time is changed in the UI
+    void timeChanged();
 
-    /// occurs when the slider in the ui is moved
+    /// This function is called when the slider in the ui is moved
     void sliderMoved(int);
-
+    
+    /// This function is called when the mode is changed
+    void setMode(int);
+    
+    /// This function is called during initialisation
+    void init();
+    
+    /// This function is called when an error occurs
+	void error(int mode);
+	
 private:
     Ui::nuclearCalculator ui;               // The user interface
 
@@ -82,6 +103,8 @@ private:
     Value m_finalAmount;                    // amount after time
     Value m_time;                           // the time involved in calculation
     double m_mass;                          // the atomic mass of the isotope
+    
+    int m_mode;								// the mode of calculation
 };
 
 #endif // nuclearCalculator_H

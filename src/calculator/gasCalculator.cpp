@@ -27,26 +27,8 @@ gasCalculator::gasCalculator(QWidget * parent)
     /**************************************************************************/
 
     // initialise the initially selected values
-    ui.molarMass-> setValue(2.008);
-    ui.temp     -> setValue(273.0);
-    ui.volume   -> setValue(22.400);
-    ui.pressure -> setValue(1.0);
-    ui.a        -> setValue(0.0);
-    ui.b        -> setValue(0.0);
-    ui.mass     -> setValue(2.016);
-    ui.moles    -> setValue(1.0);
-    // Setup of the UI done
+    init();
 
-    // Initialise values
-    m_temp = Value(273.0, "kelvins");
-    m_molarMass = 2.016;
-    m_pressure = Value(1.0, "atmosphere");
-    m_mass = Value(2.016, "grams");
-    m_moles = 1.0;
-    m_Vand_a = 0.0;
-    m_Vand_b = Value(0.0, "liters");
-    m_vol = Value(22.4, "liters");
-    // Initialisation of values done
     // Connect signals with slots
     connect(ui.temp , SIGNAL(valueChanged(double)),
             this, SLOT(tempChanged()));
@@ -76,20 +58,49 @@ gasCalculator::gasCalculator(QWidget * parent)
             this, SLOT(Vand_bChanged()));
     connect(ui.b_unit , SIGNAL(activated(int)),
             this, SLOT(Vand_bChanged()));
+    connect(ui.mode, SIGNAL(activated(int)),
+    		this, SLOT(setMode(int)));
+    connect(ui.reset, SIGNAL(clicked()),
+    		this, SLOT(init()));
     /**************************************************************************/
     // gas Calculator setup complete
     /**************************************************************************/
-    
-    if (Prefs::ideal() == true)
-    {
-    	ui.non_ideal->hide();
-    }
-    
 }
 
 gasCalculator:: ~gasCalculator()
 {
+	ui.molarMass-> setValue(2.008);
+    ui.temp     -> setValue(273.0);
+    ui.volume   -> setValue(22.400);
+    ui.pressure -> setValue(1.0);
+    ui.a        -> setValue(0.0);
+    ui.b        -> setValue(0.0);
+    ui.mass     -> setValue(2.016);
+    ui.moles    -> setValue(1.0);
+    // Setup of the UI done
 
+    // Initialise values
+    m_temp = Value(273.0, "kelvins");
+    m_molarMass = 2.016;
+    m_pressure = Value(1.0, "atmosphere");
+    m_mass = Value(2.016, "grams");
+    m_moles = 1.0;
+    m_Vand_a = 0.0;
+    m_Vand_b = Value(0.0, "liters");
+    m_vol = Value(22.4, "liters");
+    // Initialisation of values done
+    
+    if (Prefs::ideal())
+    {
+    	ui.non_ideal->hide();
+    }
+    
+    setMode(3);
+}
+
+void gasCalculator::init()
+{
+	
 }
 /*
     Note:-
@@ -107,7 +118,7 @@ gasCalculator:: ~gasCalculator()
 */
 
 // Calculates the Pressure
-void gasCalculator::calculatePressure(void)
+void gasCalculator::calculatePressure()
 {
     double pressure;
     double volume = ((Converter::self()->convert(m_vol, "liters")).number());
@@ -123,7 +134,7 @@ void gasCalculator::calculatePressure(void)
 }
 
 // Calculates the molar mass of the gas
-void gasCalculator::calculateMolarMass(void)
+void gasCalculator::calculateMolarMass()
 {
     double mass = ((Converter::self()->convert(m_mass, "grams")).number());
     double volume = ((Converter::self()->convert(m_vol, "liters")).number());
@@ -137,7 +148,7 @@ void gasCalculator::calculateMolarMass(void)
 }
 
 // Calculates the Volume
-void gasCalculator::calculateVol(void)
+void gasCalculator::calculateVol()
 {
     double volume;
     double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
@@ -151,7 +162,7 @@ void gasCalculator::calculateVol(void)
 }
 
 // Calculates the Temperature
-void gasCalculator::calculateTemp(void)
+void gasCalculator::calculateTemp()
 {
     double temp;
     double volume = ((Converter::self()->convert(m_vol, "liters")).number());
@@ -167,7 +178,7 @@ void gasCalculator::calculateTemp(void)
 }
 
 // Calculates the number of moles
-void gasCalculator::calculateMoles(void)
+void gasCalculator::calculateMoles()
 {
     double volume = ((Converter::self()->convert(m_vol, "liters")).number());
     double pressure = ((Converter::self()->convert(m_pressure, "atmospheres")).number());
@@ -180,7 +191,7 @@ void gasCalculator::calculateMoles(void)
 }
 
 // Calculates the mass of substance
-void gasCalculator::calculateMass(void)
+void gasCalculator::calculateMass()
 {
     double mass;
     double volume = ((Converter::self()->convert(m_vol, "liters")).number());
@@ -198,28 +209,28 @@ void gasCalculator::calculateMass(void)
 
 // Functions ( slots ) that occur on changing a value
 // occurs when the volume is changed
-void gasCalculator::volChanged(void)
+void gasCalculator::volChanged()
 {
     m_vol = Value(ui.volume->value(), ui.volume_unit->currentText());
     calculate();
 }
 
 // occurs when the temperature is changed
-void gasCalculator::tempChanged(void)
+void gasCalculator::tempChanged()
 {
     m_temp = Value(ui.temp->value(), ui.temp_unit->currentText());
     calculate();
 }
 
 // occurs when the pressure is changed
-void gasCalculator::pressureChanged(void)
+void gasCalculator::pressureChanged()
 {
     m_pressure = Value(ui.pressure->value(), ui.pressure_unit->currentText());
     calculate();
 }
 
 // occurs when the mass is changed
-void gasCalculator::massChanged(void)
+void gasCalculator::massChanged()
 {
     m_mass = Value(ui.mass->value(), ui.mass_unit->currentText());
     m_moles = ((Converter::self()->convert(m_mass, "grams")).number()) / m_molarMass;
@@ -248,30 +259,67 @@ void gasCalculator::molarMassChanged(double value)
 }
 
 // occurs when the number of moles is changed
-void gasCalculator::Vand_aChanged(void)
+void gasCalculator::Vand_aChanged()
 {
     m_Vand_a = ui.a->value();
     calculate();
 }
 
 // occurs when the number of moles is changed
-void gasCalculator::Vand_bChanged(void)
+void gasCalculator::Vand_bChanged()
 {
     m_Vand_b = Value(ui.b->value(), ui.b_unit->currentText());
     calculate();
 }
 
-// occurs when any quantity is changed
-void gasCalculator::calculate(void)
+// occurs when the mode is changed, eg pressure to volume
+void gasCalculator::setMode(int mode)
 {
-    if (ui.r1->isChecked()) {
+	m_mode = mode;
+	
+	ui.moles->setReadOnly(false);
+	ui.mass->setReadOnly(false);
+	ui.pressure->setReadOnly(false);
+	ui.temp->setReadOnly(false);
+	ui.volume->setReadOnly(false);
+	
+	switch (mode)
+	{
+		case MOLES:
+			ui.moles->setReadOnly(true);
+			ui.mass->setReadOnly(true);
+			break;
+		case PRESSURE:
+			ui.pressure->setReadOnly(true);
+			break;		
+		case TEMPERATURE:
+			ui.temp->setReadOnly(true);
+			break;		
+		case VOLUME:
+			ui.volume->setReadOnly(true);
+			break;
+	}
+	
+	calculate();
+}
+
+// occurs when any quantity is changed
+void gasCalculator::calculate()
+{
+    switch(m_mode)
+    {
+	case MOLES:
         calculateMoles();
-    } else if (ui.r2->isChecked()) {
+        break;
+	case PRESSURE:
         calculatePressure();
-    } else if (ui.r3->isChecked()) {
+        break;        
+    case TEMPERATURE:
         calculateTemp();
-    } else if (ui.r4->isChecked()) {
-        calculateVol();
+        break;        
+	case VOLUME:
+        calculateVol();    
+        break;        
     }
 }
 
@@ -285,10 +333,6 @@ void gasCalculator::error(int mode)
     }
 }
 
-void gasCalculator::debug(void)
-{
-
-}
 #include "gasCalculator.moc"
 
 
