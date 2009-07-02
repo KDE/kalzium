@@ -532,7 +532,7 @@ void gasCalculator::error(int mode)
 {
     switch (mode) {
     case VOL_ZERO :
-        m_error->setText("Volume cannot be zero, please correct the error!");
+        m_error->setText(i18n("Volume cannot be zero, please correct the error!"));
     default:
         break;
     }
