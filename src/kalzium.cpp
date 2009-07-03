@@ -384,6 +384,7 @@ void Kalzium::setupSidebars()
 
     m_calcWidget = new MolcalcWidget( m_toolbox );
     m_calcWidget->setObjectName( "molcalcwidget" );
+    m_calcWidget->hideExtra();
     m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
 
     connect( m_toolbox, SIGNAL( currentChanged( int ) ), 

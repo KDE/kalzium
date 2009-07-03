@@ -81,8 +81,8 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
             fullForm.remove(QChar('\"'));
 
             // If short term is found, return fullForm
-            ui.user_defined->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
-                .arg(shortForm + " : " + fullForm)));
+            ui.user_defined->setItem((int)i, 0, new QTableWidgetItem
+            		(i18n("%1",shortForm + " : " + fullForm)));
             i ++;
         }
     }
@@ -111,8 +111,9 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
             fullForm  = line.section(',', 1, 1);
             fullForm.remove(QChar('\"'));
 
-            ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
-                .arg(shortForm + " : " + fullForm)));
+            ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem
+            		(i18n("%1",shortForm + " : " + fullForm)));
+
             i ++;
         }
     }
@@ -169,25 +170,17 @@ void MolcalcWidget::updateUI()
             // Update the resultLabel
             mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
 
-/* Using a table widget instead of strings
-            str += i18nc( "For example: \"Carbon 1 12.000 \"",
-            		 QString("%1     %2 atoms     %3 u     %4 u     %5%\n" )
-                    .arg(count->element()->dataAsString( ChemicalDataObject::name), -20)
-                    .arg(count->count(), -8)
-                    .arg(count->element()->dataAsString( ChemicalDataObject::mass), -10)
-                    .arg(mass * count->count())
-                    .arg(mass * count->count()/ m_mass *100).toLatin1().data());
-*/
-            ui.table->setItem((int)i, 0, new QTableWidgetItem(tr("%1")
-                .arg(count->element()->dataAsString( ChemicalDataObject::name))));
-            ui.table->setItem((int)i, 1, new QTableWidgetItem(tr("%1")
-                .arg(count->count())));
-            ui.table->setItem((int)i, 2, new QTableWidgetItem(tr("%1")
-                .arg(count->element()->dataAsString( ChemicalDataObject::mass))));
-            ui.table->setItem((int)i, 3, new QTableWidgetItem(tr("%1")
-                .arg(mass * count->count())));
-            ui.table->setItem((int)i, 4, new QTableWidgetItem(tr("%1")
-                .arg(mass * count->count()/ m_mass *100)));
+
+            ui.table->setItem((int)i, 0, new QTableWidgetItem
+            	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::name))));
+            ui.table->setItem((int)i, 1, new QTableWidgetItem
+            	(i18n("%1", count->count())));
+            ui.table->setItem((int)i, 2, new QTableWidgetItem
+            	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::mass))));
+            ui.table->setItem((int)i, 3, new QTableWidgetItem
+            	(i18n("%1", mass * count->count())));
+            ui.table->setItem((int)i, 4, new QTableWidgetItem
+            	(i18n("%1", mass * count->count()/ m_mass *100)));
 
             i++;
         }
@@ -203,10 +196,10 @@ void MolcalcWidget::updateUI()
 
         // The alias list
         i = 0;
-        rows = m_aliasList->count();
+        rows = m_aliasList.count();
         ui.alias_list->setRowCount(rows);
-        foreach (QString alias, *m_aliasList) {
-            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(tr("%1").arg(alias)));
+        foreach (QString alias, m_aliasList) {
+            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(i18n("%1").arg(alias)));
         }
 #if 0
         // FIXME
@@ -255,7 +248,7 @@ void MolcalcWidget::slotCalculate()
 	if ( !molecule.isEmpty() )
         {
             m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
-            m_aliasList = m_parser->getAliasList();
+            m_aliasList = m_parser->aliasList();
         }
 	kDebug() << "done calculating.";
 
@@ -272,23 +265,15 @@ void MolcalcWidget::addAlias()
 	QString shortForm = ui.shortForm->text();
 	QString fullForm  = ui.fullForm ->text();
 	
-        // orary variables required for weight function of the molecule parser
+    // Validate the alias
 	double x;
 	ElementCountMap y;
 	
 	ui.aliasMessage->setText("");
-	if ( shortForm.length() != 2)
+	if ( shortForm.length() < 2)
 	{
 		ui.aliasMessage->setText(i18n
-		("Symbol should consist of a Capital letter followed by a small one."));
-		return;
-	}
-	
-	if ( shortForm.at(0).category() != QChar::Letter_Uppercase ||
-			shortForm.at(1).category() != QChar::Letter_Lowercase)
-	{
-		ui.aliasMessage->setText(i18n
-		("Symbol should consist of a Capital letter followed by a small one."));
+		("Symbol should consist of two or more letters."));
 		return;
 	}
 	
@@ -299,7 +284,7 @@ void MolcalcWidget::addAlias()
 		return;
 	}
 	
-	if (fullForm =="" || ! m_parser->weight(fullForm, & x, & y))
+	if (fullForm.isEmpty() || ! m_parser->weight(fullForm, & x, & y))
 	{
 		ui.aliasMessage->setText(i18n
 		("Expansion is invalid, please specify a valid expansion"));
@@ -327,4 +312,9 @@ void MolcalcWidget::addAlias()
     }
 }
 
+void MolcalcWidget::hideExtra()
+{
+	ui.details->hide();
+	ui.tabWidget->removeTab(1);
+}
 #include "molcalcwidget.moc"

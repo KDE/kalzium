@@ -239,13 +239,13 @@ void nuclearCalculator::setMode(int mode)
 	switch (mode)
 	{
 		case INIT_AMT:
-			ui.initAmt->setReadOnly(false);
+			ui.initAmt->setReadOnly(true);
 			break;
 		case FINAL_AMT:
-			ui.finalAmt->setReadOnly(false);
+			ui.finalAmt->setReadOnly(true);
 			break;
 		case TIME:
-			ui.time->setReadOnly(false);
+			ui.time->setReadOnly(true);
 			break;
 	}
 	

@@ -44,8 +44,9 @@ class MolcalcWidget : public QWidget
 		 * @param parent parent widget
 		 */
 		MolcalcWidget( QWidget *parent = 0 );
+		void hideExtra();
 		virtual ~MolcalcWidget();
-
+		
 	protected slots:
 		void slotCalculate();
         
@@ -75,7 +76,7 @@ class MolcalcWidget : public QWidget
 
 	private:
 		MoleculeParser   *m_parser;
-                QSet<QString>    *m_aliasList;
+        QSet<QString>    m_aliasList;
 		double           m_mass;
 		bool             m_validInput;
 		ElementCountMap  m_elementMap;
