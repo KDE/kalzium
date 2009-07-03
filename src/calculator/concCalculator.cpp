@@ -60,10 +60,10 @@ concCalculator::concCalculator(QWidget * parent)
             this, SLOT(densitySolventChanged()));
     connect(ui.densSlvt_unit , SIGNAL(activated(int)),
             this, SLOT(densitySolventChanged()));
-    connect(ui.concentration , SIGNAL(valueChanged(double)),
-            this, SLOT(concentrationChanged(double)));
+    connect(ui.concentration , SIGNAL(valueChanged()),
+            this, SLOT(concentrationChanged()));
     connect(ui.conc_unit , SIGNAL(activated(int)),
-            this, SLOT(concentrationChanged(double)));
+            this, SLOT(concentrationChanged()));
     connect(ui.mode, SIGNAL(activated(int)),
     		this, SLOT(setMode(int)));
     connect(ui.reset, SIGNAL(clicked()),
@@ -764,9 +764,9 @@ void concCalculator::densitySolventChanged()
 }
 
 // occurs when the concentration is changed
-void concCalculator::concentrationChanged(double value)
+void concCalculator::concentrationChanged()
 {
-    m_concentration = value;
+    m_concentration = ui.concentration->value();
     calculate();
 }
 

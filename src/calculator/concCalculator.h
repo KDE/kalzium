@@ -106,7 +106,7 @@ public slots:
     void densitySolventChanged(void);
     
     /// occurs when the concentration is changed
-    void concentrationChanged(double);
+    void concentrationChanged();
     
     /// occurs when any quantity is changed
     void calculate(void);                   
