@@ -1,6 +1,14 @@
 [Desktop Entry]
 Name=Kalzium gas Calculator
+Name[pt]=Calculadora de gases do Kalzium
+Name[pt_BR]=Calculadora de gases do Kalzium
+Name[uk]=Калькулятор газів Kalzium
+Name[zh_TW]=Kalzium 氣體計算器
 Comment=Kalzium gas Calculator
+Comment[pt]=Calculadora de gases do Kalzium
+Comment[pt_BR]=Calculadora de gases do Kalzium
+Comment[uk]=Калькулятор газів Kalzium
+Comment[zh_TW]=Kalzium 氣體計算器
 Type=Service
 ServiceTypes=Plasma/Applet
 

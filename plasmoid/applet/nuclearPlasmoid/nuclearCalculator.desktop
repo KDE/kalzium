@@ -1,6 +1,14 @@
 [Desktop Entry]
 Name=Kalzium nuclear Calculator
+Name[pt]=Calculadora nuclear do Kalzium
+Name[pt_BR]=Calculadora nuclear do Kalzium
+Name[uk]=Калькулятор ядер Kalzium
+Name[zh_TW]=Kalzium 核子計算機
 Comment=Kalzium Nuclear Calculator
+Comment[pt]=Calculadora Nuclear do Kalzium
+Comment[pt_BR]=Calculadora Nuclear do Kalzium
+Comment[uk]=Калькулятор ядер Kalzium
+Comment[zh_TW]=Kalzium 核子計算機
 Type=Service
 ServiceTypes=Plasma/Applet
 
