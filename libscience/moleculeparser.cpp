@@ -101,14 +101,14 @@ MoleculeParser::MoleculeParser( const QList<Element*>& list)
     : Parser()
 {
 	m_elementList = list;
-	m_aliasList = new (QSet<QString>);
+	m_aliasList = new QSet<QString>;
 }
 
 
 MoleculeParser::MoleculeParser(const QString& _str)
     : Parser(_str)
 {
-	m_aliasList = new (QSet<QString>);
+	m_aliasList = new QSet<QString>;
 }
 
 
@@ -161,10 +161,10 @@ MoleculeParser::weight(const QString&         _shortMoleculeString,
 	return true;
 }
 
-QSet<QString>*
-MoleculeParser::getAliasList(void)
+QSet<QString>
+MoleculeParser::aliasList()
 {
-	return m_aliasList;
+	return *m_aliasList;
 }
 // ----------------------------------------------------------------
 //            helper methods for the public methods
@@ -321,14 +321,13 @@ MoleculeParser::lookupElement( const QString& _name )
 QString
 MoleculeParser::expandFormula( const QString& _shortString)
 {
-	QString _fullString = "";		// The expanded string that will be returned
-	QString::iterator i;		// iterator
-	QString temp;	 		// A temporary string that will contain a single element/group
-	QString expandedTerm;	// expansion of a particular term.
+	QString _fullString;		// The expanded string that will be returned
+	QString::const_iterator i;		// iterator
+	QString temp;	 			// A temporary string that will contain a single element/group
+	QString expandedTerm;		// expansion of a particular term.
 	
 	// Go through all letters in the string.
-	for(i = (const QString::iterator) _shortString.begin();
-					 i != _shortString.end(); )
+	for(i = _shortString.constBegin(); i != _shortString.constEnd(); )
 	{
 		temp = "";
 		
@@ -349,7 +348,7 @@ MoleculeParser::expandFormula( const QString& _shortString)
 			}
 			
 			// If an expansion was made, return the expansion
-			else if ((expandedTerm = expandTerm(temp)) != "") {
+			else if (!((expandedTerm = expandTerm(temp)).isEmpty())) {
 				kDebug() << "expanded" << temp << "to" << expandedTerm;
 				_fullString += "("+expandedTerm+")";
 			}
@@ -368,6 +367,33 @@ MoleculeParser::expandFormula( const QString& _shortString)
 		else if (*i == ')') {
 			_fullString += ')';
 			i++;
+		}
+		
+		// If # is found, we have a short-form eg #EDTA#
+		else if (*i == '#') {
+			i ++;		// go to the next character
+			// Get the term between # and #
+			while (*i != '#' && i != _shortString.constEnd() )
+			{
+				temp += *i;
+				i ++;
+			}
+			// If the string ended, just add the part that comes after #
+			if ( i == _shortString.constEnd()) {
+				_fullString += temp;
+				break;
+			}
+			// else expand the term between # and #
+			else if (!temp.isEmpty())
+			{
+				// if alias is not found, just add without expanding the term
+				if((expandedTerm = expandTerm(temp)).isEmpty())
+					_fullString += temp;
+				// else add the expanded term
+				else
+					_fullString += expandedTerm;
+			}
+			i ++;
 		}
 		// If number was found, return it
 		else if ((*i).category() == QChar::Number_DecimalDigit) {

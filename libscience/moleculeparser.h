@@ -215,7 +215,7 @@ public:
 				 double          *_resultMass,
 				 ElementCountMap *_resultMap);
 				 
-	QSet<QString>* getAliasList(void);
+	QSet<QString> aliasList();
  private:
     // Helper functions
     bool      parseSubmolecule(double          *_resultMass,
