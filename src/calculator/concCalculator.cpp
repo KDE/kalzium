@@ -82,6 +82,8 @@ concCalculator:: ~concCalculator()
 // Initialises values and GUI.
 void concCalculator::init()
 {
+	error(RESET_CONC_MESSAGE);
+		
     ui.amtSolute            -> setValue(117.0);
     ui.molarMass            -> setValue(58.5);
     ui.eqtMass              -> setValue(58.5);
@@ -90,6 +92,15 @@ void concCalculator::init()
     ui.molarMassSolvent     -> setValue(18.0);
     ui.densitySolvent       -> setValue(1000.0);
     ui.concentration        -> setValue(2.0);
+    
+    ui.amtSltType	->setCurrentIndex(0);
+    ui.amtSlt_unit	->setCurrentIndex(0);
+    ui.densSlt_unit ->setCurrentIndex(0);
+    ui.amtSlvtType  ->setCurrentIndex(0);
+    ui.amtSlvt_unit ->setCurrentIndex(0);
+    ui.densSlvt_unit->setCurrentIndex(0);
+    ui.conc_unit	->setCurrentIndex(0);
+    
     // Setup of the UI done
 
     // Initialise values
@@ -804,6 +815,7 @@ void concCalculator::setMode (int mode)
 // occurs when any quantity is changed
 void concCalculator::calculate()
 {
+	error(RESET_CONC_MESSAGE);
     // Calculate the amount of solute
     switch (m_mode)
 	{
@@ -837,8 +849,10 @@ void concCalculator::calculate()
 // This function puts the error messages on the screen depending on the mode.
 void concCalculator::error(int mode)
 {
-	
-    switch (mode) {
+    switch (mode) { // Depending on the mode, set the error messages.
+	case RESET_CONC_MESSAGE:
+		ui.error->setText("");
+		break;
     case PERCENTAGE:
         ui.error->setText(i18n("Percentage should be less than 100.0, please enter valid data!"));
         break;
@@ -866,7 +880,6 @@ void concCalculator::error(int mode)
     case INSUFFICIENT_DATA_EQT:
         ui.error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
         break;
-
     case INSUFFICIENT_DATA_MOLE:
         ui.error->setText(i18n("Insufficient data, specify molarity / molefraction / molality to calculate!"));
         break;

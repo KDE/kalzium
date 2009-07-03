@@ -74,6 +74,8 @@ gasCalculator:: ~gasCalculator()
 
 void gasCalculator::init()
 {
+	error(RESET_GAS_MESSAGE);
+	
 	ui.molarMass-> setValue(2.008);
     ui.temp     -> setValue(273.0);
     ui.volume   -> setValue(22.400);
@@ -82,8 +84,17 @@ void gasCalculator::init()
     ui.b        -> setValue(0.0);
     ui.mass     -> setValue(2.016);
     ui.moles    -> setValue(1.0);
+    
+    ui.mass_unit	->setCurrentIndex(0);
+    ui.pressure_unit->setCurrentIndex(0);
+    ui.temp_unit	->setCurrentIndex(0);
+    ui.volume_unit	->setCurrentIndex(0);
+    ui.b_unit		->setCurrentIndex(0);
+    ui.a_unit		->setCurrentIndex(0);
+    
     // Setup of the UI done
 
+	
     // Initialise values
     m_temp = Value(273.0, "kelvins");
     m_molarMass = 2.016;
@@ -306,6 +317,8 @@ void gasCalculator::setMode(int mode)
 // occurs when any quantity is changed
 void gasCalculator::calculate()
 {
+	error(RESET_GAS_MESSAGE);
+		
     switch(m_mode)
     {
 	case MOLES:
@@ -325,9 +338,13 @@ void gasCalculator::calculate()
 
 void gasCalculator::error(int mode)
 {
-    switch (mode) {
+    switch (mode) { // Depending on the mode, set the error messages.
+	case RESET_GAS_MESSAGE:
+		ui.error->setText("");
+		break;
     case VOL_ZERO :
         ui.error->setText(i18n("Volume cannot be zero, please correct the error!"));
+        break;
     default:
         break;
     }

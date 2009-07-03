@@ -25,7 +25,8 @@ using namespace Conversion;
 
 // Enumeration for type of error used in the error() function
 enum ERROR_TYPE_CONC {
-    PERCENTAGE = 0,
+	RESET_CONC_MESSAGE = 0,
+    PERCENTAGE,
     DENSITY_ZERO,
     MASS_ZERO,
     VOLUME_ZERO,

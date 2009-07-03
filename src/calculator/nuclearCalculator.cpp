@@ -102,6 +102,13 @@ void nuclearCalculator::init()
     ui.finalAmt   -> setValue(3.0);
     ui.time		  -> setValue(list.at(18) -> halflife());
     
+    ui.halfLife_unit	->setCurrentIndex(0);
+    ui.initAmtType		->setCurrentIndex(0);
+    ui.finalAmtType		->setCurrentIndex(0);
+    ui.initAmt_unit		->setCurrentIndex(0);
+    ui.finalAmt_unit	->setCurrentIndex(0);
+    ui.time_unit		->setCurrentIndex(0);
+    
     QString tempStr;
     tempStr.setNum(list.at(18) -> mass());
     ui.mass -> setText(tempStr);
@@ -253,7 +260,8 @@ void nuclearCalculator::setMode(int mode)
 }
 void  nuclearCalculator::calculate()
 {
-
+	error(RESET_NUKE_MESSAGE);
+	
     // Validate the values involved in calculation
     if (m_halfLife.number() == 0.0)
     {
@@ -303,6 +311,8 @@ void  nuclearCalculator::calculate()
 
 void nuclearCalculator::calculateInitAmount()
 {
+	error(RESET_NUKE_MESSAGE);
+	
     // If no time has elapsed, initial and final amounts are the same
     m_initAmount = m_finalAmount;
     if (m_time.number() == 0.0) {
@@ -362,7 +372,10 @@ void nuclearCalculator::calculateTime()
 
 void nuclearCalculator::error (int mode)
 {
-	switch (mode) {
+	switch (mode) { // Depending on the mode, set the error messages.
+		case RESET_NUKE_MESSAGE:
+			ui.error->setText("");
+			break;
 		case INIT_AMT_ZERO:
 			ui.error->setText(i18n("Initial amount can not be zero!"));
 			break;
