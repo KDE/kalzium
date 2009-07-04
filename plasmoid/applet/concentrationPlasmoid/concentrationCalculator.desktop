@@ -2,11 +2,13 @@
 Name=Kalzium concentration Calculator
 Name[pt]=Calculadora de concentrações do Kalzium
 Name[pt_BR]=Calculadora de concentrações do Kalzium
+Name[tr]=Kalzium Konsantrasyon Hesaplayıcı
 Name[uk]=Калькулятор концентрації Kalzium
 Name[zh_TW]=Kalzium 濃度計算器
 Comment=Kalzium concentration Calculator
 Comment[pt]=Calculadora de concentrações do Kalzium
 Comment[pt_BR]=Calculadora de concentrações do Kalzium
+Comment[tr]=Kalzium Konsantrasyon Hesaplayıcı
 Comment[uk]=Калькулятор концентрації Kalzium
 Comment[zh_TW]=Kalzium 濃度計算器
 Type=Service
