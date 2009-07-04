@@ -28,44 +28,48 @@ concCalculator::concCalculator(QWidget * parent)
 
     // Connect signals with slots ( when a change of selection in the UI takes place,
     // corresponding quantity should be updated in the class. )
-    connect(ui.amtSolute , SIGNAL(valueChanged(double)),
+    
+    // Amount of solute changed
+    connect(ui.amtSolute, SIGNAL(valueChanged(double)),
             this, SLOT(amtSoluteChanged()));
-    connect(ui.amtSltType , SIGNAL(activated(int)),
+    connect(ui.amtSltType, SIGNAL(activated(int)),
             this, SLOT(amtSoluteChanged()));
-    connect(ui.amtSlt_unit , SIGNAL(activated(int)),
+    connect(ui.amtSlt_unit, SIGNAL(activated(int)),
             this, SLOT(amtSoluteChanged()));
-    connect(ui.amtSlt_unit2 , SIGNAL(activated(int)),
-            this, SLOT(amtSoluteChanged()));
-    connect(ui.molarMass , SIGNAL(valueChanged(double)),
+	// Molar mass and equivalent mass change for solvent
+    connect(ui.molarMass, SIGNAL(valueChanged(double)),
             this, SLOT(molarMassChanged(double)));
-    connect(ui.eqtMass , SIGNAL(valueChanged(double)),
+    connect(ui.eqtMass, SIGNAL(valueChanged(double)),
             this, SLOT(eqtMassChanged(double)));
-    connect(ui.densitySolute ,  SIGNAL(valueChanged(double)),
+	// Density change for solute
+    connect(ui.densitySolute,  SIGNAL(valueChanged(double)),
             this, SLOT(densitySoluteChanged()));
-    connect(ui.densSlt_unit ,  SIGNAL(activated(int)),
+    connect(ui.densSlt_unit,  SIGNAL(activated(int)),
             this, SLOT(densitySoluteChanged()));
-    connect(ui.amtSolvent , SIGNAL(valueChanged(double)),
+	// Amount of solvent changed
+    connect(ui.amtSolvent, SIGNAL(valueChanged(double)),
             this, SLOT(amtSolventChanged()));
-    connect(ui.amtSlvtType , SIGNAL(activated(int)),
+    connect(ui.amtSlvtType, SIGNAL(activated(int)),
             this, SLOT(amtSolventChanged()));
-    connect(ui.amtSlvt_unit , SIGNAL(activated(int)),
+    connect(ui.amtSlvt_unit, SIGNAL(activated(int)),
             this, SLOT(amtSolventChanged()));
-    connect(ui.amtSlvt_unit , SIGNAL(activated(int)),
-            this, SLOT(amtSolventChanged()));
-    connect(ui.amtSlvt_unit2 , SIGNAL(activated(int)),
-            this, SLOT(amtSolventChanged()));
-    connect(ui.molarMassSolvent , SIGNAL(valueChanged(double)),
+	// Molar mass change for solvent
+    connect(ui.molarMassSolvent, SIGNAL(valueChanged(double)),
             this, SLOT(molarMassSolventChanged(double)));
-    connect(ui.densitySolvent , SIGNAL(valueChanged(double)),
+	// Density changed
+    connect(ui.densitySolvent, SIGNAL(valueChanged(double)),
             this, SLOT(densitySolventChanged()));
-    connect(ui.densSlvt_unit , SIGNAL(activated(int)),
+    connect(ui.densSlvt_unit, SIGNAL(activated(int)),
             this, SLOT(densitySolventChanged()));
-    connect(ui.concentration , SIGNAL(valueChanged()),
+	// concentration change
+    connect(ui.concentration, SIGNAL(valueChanged()),
             this, SLOT(concentrationChanged()));
-    connect(ui.conc_unit , SIGNAL(activated(int)),
+    connect(ui.conc_unit, SIGNAL(activated(int)),
             this, SLOT(concentrationChanged()));
+	// Mode change            
     connect(ui.mode, SIGNAL(activated(int)),
     		this, SLOT(setMode(int)));
+
     connect(ui.reset, SIGNAL(clicked()),
     		this, SLOT(init()));
 
@@ -118,8 +122,6 @@ void concCalculator::init()
     
     ui.amtSltType->setCurrentIndex(0);
     ui.amtSlvtType->setCurrentIndex(0);
-    ui.amtSlt_unit2-> hide();           // Mass is the default mode of specification of amount of solvent
-    ui.amtSlvt_unit-> hide();           // volume is the default for solvent
     
     setMode(5);
 }
@@ -226,7 +228,7 @@ void concCalculator::calculateAmtSolute()
         // update volume of solute
         m_amtSolute = Value(volSolute, "liters");
         m_amtSolute = (Converter::self() -> convert(m_amtSolute , \
-                       ui.amtSlt_unit2->currentText()));
+                       ui.amtSlt_unit->currentText()));
         ui.amtSolute -> setValue(m_amtSolute.number());
         break;
 
@@ -444,7 +446,7 @@ void concCalculator::calculateAmtSolvent()
         }
         m_amtSolvent = Value(volSolvent, "liters");
         m_amtSolvent = (Converter::self() -> convert(m_amtSolvent , \
-                        ui.amtSlvt_unit2->currentText()));
+                        ui.amtSlvt_unit->currentText()));
         ui.amtSolvent->setValue(m_amtSolvent.number());
         break;
 
@@ -694,16 +696,34 @@ void concCalculator::amtSoluteChanged()
     int type = ui.amtSltType -> currentIndex();
     if (type == 0) {         // amount of solute specified in terms of mass
         ui.amtSlt_unit -> show();
-        ui.amtSlt_unit2-> hide();
+        ui.amtSlt_unit->clear();
+        ui.amtSlt_unit->insertItems(0, QStringList()
+         << tr2i18n("grams", 0)
+         << tr2i18n("tons", 0)
+         << tr2i18n("carats", 0)
+         << tr2i18n("pounds", 0)
+         << tr2i18n("ounces", 0)
+         << tr2i18n("troy ounces", 0)
+        );
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
     } else if (type == 1) { // amount of solute is specified in terms of volume
-        ui.amtSlt_unit -> hide();
-        ui.amtSlt_unit2-> show();
-        m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit2 -> currentText());
+        ui.amtSlt_unit -> show();
+		ui.amtSlt_unit->clear();
+        ui.amtSlt_unit->insertItems(0, QStringList()
+         << tr2i18n("liter", 0)
+         << tr2i18n("cubic meters", 0)
+         << tr2i18n("cubic feet", 0)
+         << tr2i18n("cubic inch", 0)
+         << tr2i18n("cubic mile", 0)
+         << tr2i18n("fluid ounce", 0)
+         << tr2i18n("cups", 0)
+         << tr2i18n("gallons", 0)
+         << tr2i18n("pints", 0)
+        );
+        m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
     } else {                 // amount of solute is specified in terms of moles
         m_molesSolute = ui.amtSolute -> value();
         ui.amtSlt_unit -> hide();
-        ui.amtSlt_unit2-> hide();
     }
     calculate();
 }
@@ -713,16 +733,34 @@ void concCalculator::amtSolventChanged()
 {
     int type = ui.amtSlvtType -> currentIndex();
     if (type == 0) {     // amount of solvent specified in terms of volume
-        ui.amtSlvt_unit -> hide();
-        ui.amtSlvt_unit2-> show();
-        m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit2 -> currentText());
+        ui.amtSlvt_unit-> show();
+		ui.amtSlvt_unit->clear();
+        ui.amtSlvt_unit->insertItems(0, QStringList()
+         << tr2i18n("liter", 0)
+         << tr2i18n("cubic meters", 0)
+         << tr2i18n("cubic feet", 0)
+         << tr2i18n("cubic inch", 0)
+         << tr2i18n("cubic mile", 0)
+         << tr2i18n("fluid ounce", 0)
+         << tr2i18n("cups", 0)
+         << tr2i18n("gallons", 0)
+         << tr2i18n("pints", 0)
+        );
+        m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else if (type == 1) { // amount of solvent is specified in terms of mass
         ui.amtSlvt_unit -> show();
-        ui.amtSlvt_unit2-> hide();
+        ui.amtSlvt_unit->clear();
+        ui.amtSlvt_unit->insertItems(0, QStringList()
+         << tr2i18n("grams", 0)
+         << tr2i18n("tons", 0)
+         << tr2i18n("carats", 0)
+         << tr2i18n("pounds", 0)
+         << tr2i18n("ounces", 0)
+         << tr2i18n("troy ounces", 0)
+         );
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else {
         ui.amtSlvt_unit -> hide();
-        ui.amtSlvt_unit2-> hide();
         m_molesSolvent = ui.amtSolvent -> value();
     }
     calculate();

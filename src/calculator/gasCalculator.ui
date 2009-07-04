@@ -36,6 +36,9 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>molar mass of the gas</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
       <item row="1" column="1">
@@ -53,6 +56,9 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>moles</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
       <item row="2" column="1">
@@ -69,6 +75,9 @@ p, li { white-space: pre-wrap; }
        <widget class="QLabel" name="label_24">
         <property name="text">
          <string>Mass</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -134,6 +143,9 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>Pressure</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
       <item row="4" column="1">
@@ -190,6 +202,9 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>Temperature</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
       <item row="5" column="1">
@@ -235,6 +250,9 @@ p, li { white-space: pre-wrap; }
        <widget class="QLabel" name="label_26">
         <property name="text">
          <string>Volume</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -298,6 +316,9 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>Calculate</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
       <item row="0" column="1">
@@ -343,12 +364,18 @@ p, li { white-space: pre-wrap; }
           <property name="text">
            <string>Van-der val constant 'b'</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
          </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_28">
           <property name="text">
            <string>Van-der val constant 'a'</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
