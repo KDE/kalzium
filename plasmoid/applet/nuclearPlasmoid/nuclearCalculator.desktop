@@ -1,15 +1,21 @@
 [Desktop Entry]
 Name=Kalzium nuclear Calculator
+Name[es]=Calculadora nuclear de Kalzium
 Name[pt]=Calculadora nuclear do Kalzium
 Name[pt_BR]=Calculadora nuclear do Kalzium
+Name[sv]=Kalzium kärnberäkning
 Name[tr]=Kalzium Nükleer Hesaplayıcı
 Name[uk]=Калькулятор ядер Kalzium
+Name[x-test]=xxKalzium nuclear Calculatorxx
 Name[zh_TW]=Kalzium 核子計算機
 Comment=Kalzium Nuclear Calculator
+Comment[es]=Calculadora nuclear de Kalzium
 Comment[pt]=Calculadora Nuclear do Kalzium
 Comment[pt_BR]=Calculadora Nuclear do Kalzium
+Comment[sv]=Kalzium kärnberäkning
 Comment[tr]=Kalzium Nükleer Hesaplayıcı
 Comment[uk]=Калькулятор ядер Kalzium
+Comment[x-test]=xxKalzium Nuclear Calculatorxx
 Comment[zh_TW]=Kalzium 核子計算機
 Type=Service
 ServiceTypes=Plasma/Applet

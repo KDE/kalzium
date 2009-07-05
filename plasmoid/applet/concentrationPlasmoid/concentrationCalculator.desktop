@@ -1,15 +1,21 @@
 [Desktop Entry]
 Name=Kalzium concentration Calculator
+Name[es]=Calculadora de concentraciones de Kalzium
 Name[pt]=Calculadora de concentrações do Kalzium
 Name[pt_BR]=Calculadora de concentrações do Kalzium
+Name[sv]=Kalzium koncentrationsberäkning
 Name[tr]=Kalzium Konsantrasyon Hesaplayıcı
 Name[uk]=Калькулятор концентрації Kalzium
+Name[x-test]=xxKalzium concentration Calculatorxx
 Name[zh_TW]=Kalzium 濃度計算器
 Comment=Kalzium concentration Calculator
+Comment[es]=Calculadora de concentraciones de Kalzium
 Comment[pt]=Calculadora de concentrações do Kalzium
 Comment[pt_BR]=Calculadora de concentrações do Kalzium
+Comment[sv]=Kalzium koncentrationsberäkning
 Comment[tr]=Kalzium Konsantrasyon Hesaplayıcı
 Comment[uk]=Калькулятор концентрації Kalzium
+Comment[x-test]=xxKalzium concentration Calculatorxx
 Comment[zh_TW]=Kalzium 濃度計算器
 Type=Service
 ServiceTypes=Plasma/Applet
