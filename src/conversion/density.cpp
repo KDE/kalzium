@@ -28,6 +28,7 @@ Density::Density(QObject* parent)
     addSIUnit("Kg/m\xb3", i18n("kilogram per cubic meter"), i18n("kilograms per cubic meter"));
 	//	source http://www.coleparmer.com/techinfo/converters/engndensity.asp
     U(i18n("kilogram per liter"), i18n("kilograms per liter"), "kg/l", 1000.0, );
+    U(i18n("gram per liter"), i18n("grams per liter"), "g/l", 1.0, );
     U(i18n("gram per milliliter"), i18n("grams per milliliter"), "g/ml", 1000.0, );
     U(i18n("ounce per cubic inch"), i18n("ounces per cubic inch"), "oz/in\xb3", 1729.994044387, );
     U(i18n("ounce per cubic foot"), i18n("ounces per cubic yard"), "lb/yd\xb3", 1.001153961, );        

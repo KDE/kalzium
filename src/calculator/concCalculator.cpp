@@ -13,7 +13,7 @@
  ***************************************************************************/
 
 #include "concCalculator.h"
-
+#include <kdebug.h>
 concCalculator::concCalculator(QWidget * parent)
         : QFrame(parent)
 {
@@ -62,7 +62,7 @@ concCalculator::concCalculator(QWidget * parent)
     connect(ui.densSlvt_unit, SIGNAL(activated(int)),
             this, SLOT(densitySolventChanged()));
 	// concentration change
-    connect(ui.concentration, SIGNAL(valueChanged()),
+    connect(ui.concentration, SIGNAL(valueChanged(double)),
             this, SLOT(concentrationChanged()));
     connect(ui.conc_unit, SIGNAL(activated(int)),
             this, SLOT(concentrationChanged()));
@@ -491,15 +491,15 @@ void concCalculator::calculateConcentration()
     int type = ui.conc_unit -> currentIndex();
 
     if (volumeSolvent() == 0.0) {
-        error(VOLUME_ZERO);
+        error(SOLVENT_VOLUME_ZERO);
         return;
     }
     if (massSolvent() == 0.0) {
-        error(MASS_ZERO);
+        error(SOLVENT_MASS_ZERO);
         return;
     }
     if (molesSolvent() == 0.0) {
-        error(MOLES_ZERO);
+        error(SOLVENT_MOLES_ZERO);
         return;
     }
     switch (type) {
@@ -533,13 +533,13 @@ double concCalculator::volumeSolvent()
     int type = ui.amtSlvtType -> currentIndex();
     double volume;
     switch (type) {
-    case 0:
+    case 0: // If volume is specified, return it in liters
         volume = (Converter::self() -> convert(m_amtSolvent , "liter")).number();
         break;
-    case 1:
+    case 1: // If mass is specified, calculate volume and return it.
         volume = massSolvent() / densitySolvent();
         break;
-    case 2:
+    case 2: // If moles are specified, calculated volume and return it.
         volume = massSolvent() / densitySolvent();
     default:
         break;
@@ -915,6 +915,15 @@ void concCalculator::error(int mode)
     case CONC_ZERO:
         ui.error->setText(i18n("Concentration is zero! Please correct it!"));
         break;
+    case SOLVENT_VOLUME_ZERO:
+    	ui.error->setText(i18n("The volumes of the solvent cannnot be zero!"));
+    	break;
+	case SOLVENT_MOLES_ZERO:
+		ui.error->setText(i18n("The number of moles of the solvent cannnot be zero!"));
+    	break;
+    case SOLVENT_MASS_ZERO:
+    	ui.error->setText(i18n("The mass of the solvent cannnot be zero!"));
+    	break;    	    	
     case INSUFFICIENT_DATA_EQT:
         ui.error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
         break;

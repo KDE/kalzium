@@ -1,18 +1,24 @@
-#ifndef concCalculator_H
-#define concCalculator_H
 /***************************************************************************
-    copyright            : Kashyap R Puranik
-    email                : kashthealien@gmail.com
- ***************************************************************************/
-
-/***************************************************************************
+ *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
+
+#ifndef concCalculator_H
+#define concCalculator_H
 
 #include <kdebug.h>
 #include <prefs.h>
@@ -21,6 +27,7 @@
 
 #include "ui_concCalculator.h"
 
+// This is required for the unit conversion library
 using namespace Conversion;
 
 // Enumeration for type of error used in the error() function
@@ -36,6 +43,9 @@ enum ERROR_TYPE_CONC {
     MOLAR_SOLVENT_ZERO,
     EQTS_ZERO,
     CONC_ZERO,
+    SOLVENT_VOLUME_ZERO,
+    SOLVENT_MASS_ZERO,
+    SOLVENT_MOLES_ZERO,
     INSUFFICIENT_DATA_EQT,
     INSUFFICIENT_DATA_MOLE,
     INSUFFICIENT_DATA_MOLES,
@@ -52,11 +62,20 @@ enum MODE_CALCULATION_CONC {
 	CONCENTRATION
 };
 
+/*
+ * This class implements the concentration calculator. This widget performs basic
+ * calculations like calculation of molarity, mass percentages etc.
+ *
+ * @author Kashyap R Puranik
+ */
 class concCalculator : public QFrame
 {
     Q_OBJECT
 
 public:
+	/*
+	 * The constructor and destructor for the class
+	 */
     concCalculator(QWidget * parent = 0);
     ~concCalculator();
 
@@ -141,10 +160,18 @@ public slots:
 	/// Performs initialisation of the class.
 	void init(void);
 	
-	/// outputs error messages on the screen
+     /*
+     * This function is called when an error occurs
+     * @param mode indicates the mode of error
+     * Refer ERROR_MODE_CONC for various modes
+     */
     void error(int);
     
-    /// Used to set mode of calculation
+    /* 
+     * This function is called when the mode is changed
+     * @param indicates the mode of calculation.
+     * Refer MODE_CALCULATION_CONC for various modes
+     */
     void setMode(int);						
 private:
     Ui::concCalculator ui;                      // The user interface

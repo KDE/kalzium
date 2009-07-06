@@ -48,17 +48,17 @@
      </item>
      <item>
       <property name="text">
+       <string>Concentration Calculator</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Nuclear Calculator</string>
       </property>
      </item>
      <item>
       <property name="text">
        <string>Gas Calculator</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Concentration Calculator</string>
       </property>
      </item>
      <item>
@@ -103,7 +103,9 @@ p, li { white-space: pre-wrap; }
 &lt;ul type=&quot;circle&quot; style=&quot;-qt-list-indent: 2;&quot;&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; half-lives&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;expected masses of a material with time&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nuclear reaction constants and other data&lt;/li&gt;&lt;/ul&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Gas densities&lt;br /&gt;&lt;/span&gt;This calculator calculates the densities of different gasses, at different temperatures and pressure.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Gas calculator&lt;br /&gt;&lt;/span&gt;This calculator can calculate the values of Temperature, pressure, volume, amount of gas etc. for various ideal as well as non-ideal gasses.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Equation Balancer&lt;/span&gt;&lt;/li&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;&quot;&gt;This calculator can balance chemical equations.&lt;/p&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Scientific calculator&lt;br /&gt;&lt;/span&gt;This is a scientific calculator which has been integrated into Kalzium&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

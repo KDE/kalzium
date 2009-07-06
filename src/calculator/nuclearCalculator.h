@@ -1,18 +1,24 @@
-#ifndef nuclearCalculator_H
-#define nuclearCalculator_H
 /***************************************************************************
-    copyright            : Kashyap R Puranik
-    email                : kashthealien@gmail.com
- ***************************************************************************/
-
-/***************************************************************************
+ *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
+
+#ifndef nuclearCalculator_H
+#define nuclearCalculator_H
 
 #include <element.h>
 #include <isotope.h>
@@ -24,8 +30,10 @@
 #include <value.h>
 #include "ui_nuclearCalculator.h"
 
+// This is required for the unit conversion
 using namespace Conversion;
 
+// This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_MODE_NUKE {
 	RESET_NUKE_MESSAGE = 0,
 	INIT_AMT_ZERO,
@@ -33,15 +41,19 @@ enum ERROR_MODE_NUKE {
 	HALFLIFE_ZERO,
 	FINAL_AMT_GREATER
 };
-enum MODE_CALCULATE_NUKE {
+
+// This is the enumeration for the mode of calulation in the nuclear calculator
+enum MODE_CALCULATION_NUKE {
 	INIT_AMT =0,
 	FINAL_AMT,
 	TIME
 };
 
-/**
- * Note that all values are stored in SI units in the class.
- * FIXME documentation missing
+/*
+ * This class implements the nuclear calculator which calculates the amount of substance,
+ * remaining after a given time and given initial amount and so on after a radio-active decay.
+ * 
+ * @author Kashyap R Puranik
  */
 class nuclearCalculator : public QFrame
 {
@@ -52,15 +64,16 @@ public:
     ~nuclearCalculator();
 
 public slots:
-    /// Calculates the initial amount
+    /// Calculates the initial amount and updates the UI
     void calculateInitAmount();
 
-    /// Calculates the final amount
+    /// Calculates the final amount and updates the UI
     void calculateFinalAmount();
 
-    /// Calculates the time required
+    /// Calculates the time required and updates the UI
     void calculateTime();
 
+	/// This function is called when the element is changed
     void elementChanged(int index);
 
     /// This function is called when the isotope is changed
@@ -81,16 +94,29 @@ public slots:
     /// This function is called when the time is changed in the UI
     void timeChanged();
 
-    /// This function is called when the slider in the ui is moved
-    void sliderMoved(int);
     
-    /// This function is called when the mode is changed
-    void setMode(int);
+    /*
+     * This function is called when the slider in the ui is moved
+     * @param x, is 10 times the number of halfLives
+     * The slider is used to change the halfLife
+     */
+    void sliderMoved(int x);
+    
+    /* 
+     * This function is called when the mode is changed
+     * @param indicates the mode of calculation.
+     * Refer MODE_CALCULATION_NUKE for various modes
+     */
+    void setMode(int mode);
     
     /// This function is called during initialisation
     void init();
     
-    /// This function is called when an error occurs
+    /*
+     * This function is called when an error occurs
+     * @param mode indicates the mode of error
+     * Refer ERROR_MODE_NUKE for various modes
+     */
 	void error(int mode);
 	
 private:

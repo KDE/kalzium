@@ -243,6 +243,7 @@ void nuclearCalculator::setMode(int mode)
 	ui.finalAmt->setReadOnly(false);
 	ui.time->setReadOnly(false);
 	
+	// set the quantity that should be calculated to readOnly
 	switch (mode)
 	{
 		case INIT_AMT:

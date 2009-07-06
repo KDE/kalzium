@@ -1,18 +1,24 @@
-#ifndef gasCalculator_H
-#define gasCalculator_H
 /***************************************************************************
-    copyright            : Kashyap R Puranik
-    email                : kashthealien@gmail.com
- ***************************************************************************/
-
-/***************************************************************************
+ *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
+
+#ifndef gasCalculator_H
+#define gasCalculator_H
 
 #include <element.h>
 #include <isotope.h>
@@ -25,15 +31,19 @@
 
 #include "ui_gasCalculator.h"
 
+// The universal Gas constant is defined here.
 #define R 0.08206
 
+// This is required for the units conversion
 using namespace Conversion;
 
+// This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_TYPE_GAS {
 	RESET_GAS_MESSAGE = 0,
     VOL_ZERO
 };
 
+// This is the enumeration for the mode of calculation for the gas calculator
 enum MODE_CALCULATION_GAS {
 	MOLES = 0,
 	PRESSURE,
@@ -41,6 +51,12 @@ enum MODE_CALCULATION_GAS {
 	VOLUME
 };
 
+/*
+ * This class implements the gas calculator. It performs basic calculations like
+ * calculation of volume given pressure, temerature, amount etc. and so on.
+ *
+ * @author Kashyap R Puranik
+ */
 class gasCalculator : public QFrame
 {
     Q_OBJECT
@@ -50,42 +66,48 @@ public:
     ~gasCalculator();
 
 public slots:
-	/// Calculates the Pressure
+	/// Calculates the Pressure and updates the UI
     void calculatePressure();
     
-    /// Calculates the Volume
-    void calculateVol();         
+    /// Calculates the Volume and updates the UI
+    void calculateVol();
     
-    /// Calculates the Temperature    
-    void calculateTemp();        
+    /// Calculates the Temperature and updates the UI
+    void calculateTemp();
     
-    /// Calculates the number of moles
-    void calculateMoles();       
+    /// Calculates the number of moles and updates the UI
+    void calculateMoles();
     
-    /// Calculates the mass of substance    
-    void calculateMass();        
+    /// Calculates the mass of substance and updates the UI
+    void calculateMass();
     
-    /// Calculates the molar mass of the substance    
-    void calculateMolarMass();   
+    /// Calculates the molar mass of the substance and updates the UI
+    void calculateMolarMass();
 
     /// Functions ( slots ) that occur on changing a value
     /// This function is called when the volume is changed
-    void volChanged();               
+    void volChanged();
     
     /// This function is called when the temperature is changed
-    void tempChanged();          
+    void tempChanged();
     
     /// This function is called when the pressure is changed
     void pressureChanged();
     
     /// This function is called when the mass is changed          
-    void massChanged();             
+    void massChanged();
     
-    /// This function is called when the number of moles is changed 
-    void molesChanged(double value);    
+    /*
+     * This function is called when the number of moles is changed
+     * @param value is the number of moles
+     */
+    void molesChanged(double value);
     
-    /// This function is called when the molar mass is changed
-    void molarMassChanged(double value);     
+    /*
+     * This function is called when the molar mass is changed
+     * @param value is the molar mass
+     */
+    void molarMassChanged(double value);
     
     /// This function is called when Vander Val's constant a is changed
     void Vand_aChanged();
@@ -94,16 +116,25 @@ public slots:
     void Vand_bChanged();
     
     /// This function is called when any quantity is changed        
-    void calculate();            
+    void calculate();
     
-    /// Prints error messages on the screen.
+     /*
+     * This function is called when an error occurs
+     * @param mode indicates the mode of error
+     * Refer ERROR_MODE_GAS for various modes
+     */
     void error(int);
     
-	/// This function is called to change the mode of calculation
-	void setMode(int);			
+    /* 
+     * This function is called when the mode is changed
+     * @param indicates the mode of calculation.
+     * Refer MODE_CALCULATION_GAS for various modes
+     */
+	void setMode(int);
 	
 	// Initialises the gasCalculator
-	void init();				
+	void init();
+	
 private:
     Ui::gasCalculator ui;               // The user interface
 

@@ -29,11 +29,12 @@ class QTimer;
 class QKeyEvent;
 
 /**
- * This widget is a small calculator for molecules.
+ * This widget calculates mass for molecules.
  *
  * @author Carsten Niehaus
  * @author Pino Toscano
  * @author Inge Wallin
+ * @author Kashyap R Puranik
  */
 class MolcalcWidget : public QWidget
 {

@@ -182,7 +182,6 @@ void gasCalculator::calculateTemp()
 
     temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume))\
            * (volume - m_moles * b) / m_moles / R;
-    ui.result->setText(m_vol.toString() + m_pressure.toString());
     m_temp = Value(temp, "kelvins");
     m_temp = (Converter::self()->convert(m_temp, ui.temp_unit->currentText()));
     ui.temp->setValue(m_temp.number());
