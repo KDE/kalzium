@@ -10,10 +10,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-// Here we avoid loading the header multiple times
+
 #ifndef gasCalculator_HEADER
 #define gasCalculator_HEADER
-// We need the Plasma Applet headers
+
 #include <KIcon>
  
 #include <Plasma/PopupApplet>
@@ -31,10 +31,12 @@ namespace Plasma{
 	class Slider;
 	class SpinBox;
 	class RadioButton;
+	class PushButton;
 }
 
 enum ERROR_TYPE_GAS {
-    VOL_ZERO = 0
+	RESET_GAS_MESG = 0,
+    VOL_ZERO
 };
 
 using namespace Conversion;
@@ -51,32 +53,80 @@ class gasCalculator : public Plasma::PopupApplet
         virtual QGraphicsWidget *graphicsWidget();
 	
 	public slots:
+		
+		/// Calculates the Pressure
+		void calculatePressure();        
 
-		void calculatePressure(void);        // Calculates the Pressure
-	    void calculateVol(void);             // Calculates the Volume
-	    void calculateTemp(void);        // Calculates the Temperature
-	    void calculateMoles(void);           // Calculates the number of moles
-	    void calculateMass(void);        // Calculates the mass of substance
-	    void calculateMolarMass(void);       // Calculates the molar mass of the substance
+		/// Calculates the Volume		
+	    void calculateVol();
+	    
+	    /// Calculates the Temperature
+	    void calculateTemp();
+	    
+	    /// Calculates the number of moles
+	    void calculateMoles();
+	    
+	    /// Calculates the mass of substance
+	    void calculateMass();
+	    
+	    /// Calculates the molar mass of the substance
+	    void calculateMolarMass();
 
 	    // Functions ( slots ) that occur on changing a value
-	    void volChanged(void);               // occurs when the volume is changed
-	    void tempChanged(void);          // occurs when the temperature is changed
-	    void pressureChanged(void);          // occurs when the pressure is changed
-	    void massChanged(void);              // occurs when the mass is changed
-	    void molesChanged(int value);    // occurs when the number of moles is changed
-	    void molarMassChanged(int value);     // occurs when the molar mass is changed
-	    void Vand_aChanged(void);        // occurs when Vander Val's constant a is changed
-	    void Vand_bChanged(void);        // occurs when Vander Val's constant b is changed
-	    void calculate(void);            // occurs when any quantity is changed
+	    /// occurs when the volume is changed
+	    void volChanged();
+	    
+	    /// occurs when the temperature is changed
+	    void tempChanged();
+	    
+	    /// occurs when the pressure is changed
+	    void pressureChanged();
+	    
+	    /// occurs when the mass is changed
+	    void massChanged();
+	    
+	    /*
+	     * occurs when the number of moles is changed
+	     * @param value is the number of moles
+	     */
+	    void molesChanged(int value);
+	    
+	    /*
+	     * occurs when the molar mass is change\
+	     * @param value is the molar mass
+	     */
+	    void molarMassChanged(int value);
+	    
+	    // occurs when Vander Val's constant a is changed
+	    void Vand_aChanged();
+	    
+	    // occurs when Vander Val's constant b is changed        
+	    void Vand_bChanged();
+	    
+	    // occurs when any quantity is changed
+	    void calculate();
+	    
+	    /*
+	     * This function prints error messages on the screen
+	     * @param mode is the type of error that occurred, refer ERROR_TYPE_GAS
+	     */
 	    void error(int);
+	    
+	    /*
+	     * This function sets the mode of calculation
+	     * @param mode is the mode of calculation
+	     */
+	    void setMode(int mode);
+	    
+	    // This function initialises/ resets the class
+	    void reset();
 
-	    void debug(void);
-    private slots:
-    // will be added soon
-     
     private:
+    
+    // The following objects are for the user interface
         QGraphicsWidget  *m_widget;
+        
+        Plasma::ComboBox *m_calculationMode;
         Plasma::ComboBox *m_massUnit;
         Plasma::ComboBox *m_pressureUnit;
         Plasma::ComboBox *m_temperatureUnit;
@@ -93,9 +143,9 @@ class gasCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_Vand_a;
         Plasma::SpinBox *m_Vand_b; 
         
-        Plasma::RadioButton *m_r2,*m_r4,*m_r5,*m_r6;
-        
         Plasma::Label   *m_error;
+        
+        Plasma::PushButton *m_reset;
       
 		double m_Moles;                     // Number of moles
 	    double m_MolarMass;                 // molarMass
@@ -107,6 +157,8 @@ class gasCalculator : public Plasma::PopupApplet
 
 	    //( Unit conversion library not available for the following quantities)
 	    double m_Vand_A;                    // Vander val's constant a      
+	    
+	    int m_mode;							// mode of calculation
 };
  
 // This is the command that links your applet to the .desktop file

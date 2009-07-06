@@ -104,8 +104,6 @@ void concCalculator::init()
     ui.amtSlvt_unit ->setCurrentIndex(0);
     ui.densSlvt_unit->setCurrentIndex(0);
     ui.conc_unit	->setCurrentIndex(0);
-    
-    // Setup of the UI done
 
     // Initialise values
     m_amtSolute = Value(117.0, "grams");
@@ -119,9 +117,6 @@ void concCalculator::init()
     m_concentration = 2.0;
     m_densitySolvent = Value(1000.0, "grams per liter");
     // Initialisation of values done
-    
-    ui.amtSltType->setCurrentIndex(0);
-    ui.amtSlvtType->setCurrentIndex(0);
     
     setMode(5);
 }
@@ -848,7 +843,6 @@ void concCalculator::setMode (int mode)
     
 	m_mode = mode;
 	calculate(); 
-    return;
 }
 // occurs when any quantity is changed
 void concCalculator::calculate()

@@ -10,10 +10,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-// Here we avoid loading the header multiple times
+
 #ifndef nuclearCalculator_HEADER
 #define nuclearCalculator_HEADER
-// We need the Plasma Applet headers
+
 #include <KIcon>
  
 #include <Plasma/PopupApplet>
@@ -33,7 +33,17 @@ namespace Plasma{
 	class Label;
 	class Slider;
 	class RadioButton;
+	class PushButton;
 }
+
+// This is the enumeration for the error type required in the error(int mode) function
+enum ERROR_MODE_NUKE {
+	RESET_NUKE_MESG = 0,
+	INIT_AMT_ZERO,
+	FINAL_AMT_ZERO,
+	HALFLIFE_ZERO,
+	FINAL_AMT_GREATER
+};
 
 using namespace Conversion;
 // Define our plasma Applet
@@ -50,13 +60,13 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 	public slots:
         /// Calculates the initial amount
-		void calculateInitAmount(void);
+		void calculateInitAmount();
 
 		/// Calculates the final amount
-		void calculateFinalAmount(void);
+		void calculateFinalAmount();
 
 		/// Calculates the time required
-		void calculateTime(void);
+		void calculateTime();
 		
 		/// occurs when the element is changed
 		void elementChanged(int index);
@@ -65,27 +75,40 @@ class nuclearCalculator : public Plasma::PopupApplet
 		void isotopeChanged(int index);
 
 		/// occurs when the halfLife is changed
-		void halfLifeChanged(void);
+		void halfLifeChanged();
 
 		/// occurs when any quantity is changed
-		void calculate(void);
+		void calculate();
 
 		/// occurs when the initial amount is changed in the UI
-		void initAmtChanged(void);
+		void initAmtChanged();
 
 		/// occurs when the final amount is changed in the UI
-		void finalAmtChanged(void);
+		void finalAmtChanged();
 
 		/// occurs when the time is changed in the UI
-		void timeChanged(void);
+		void timeChanged();
 
-		/// occurs when the slider in the ui is moved
-		void sliderMoved(int);
+		/*
+		 * occurs when the slider in the ui is moved
+		 * @param x is 10 times the number of halfLives indicated in the slider
+		 */
+		void sliderMoved(int x);
 		
-		/// Used to display error messages
-		void error();
+		/*
+		 * Used to display error messages
+		 * @param mode is the error mode, refer ERROR_MODE_NUKE.
+		 */
+		void error(int mode);
 		
- 
+		/*
+ 	     * Sets the mode of calculation eg, time, initial amount etc
+ 	     * @param mode is the mode of calculation.
+ 	     */
+ 	    void setMode(int mode); 
+
+		// This function is called to reset / initialise the calculator
+		void reset();
     private slots:
     // will be added soon
      
@@ -99,20 +122,17 @@ class nuclearCalculator : public Plasma::PopupApplet
         Plasma::ComboBox *m_initUnit;
         Plasma::ComboBox *m_finalUnit;
         Plasma::ComboBox *m_timeUnit;
-        
+        Plasma::ComboBox *m_calculationMode;
+
         Plasma::SpinBox *m_halfLife;
         Plasma::SpinBox *m_initAmt;
         Plasma::SpinBox *m_finalAmt;
         Plasma::SpinBox *m_time;
 
 		Plasma::Slider *m_slider;
-        
-        Plasma::Label *m_numHalfLives;      
-        
-        Plasma::RadioButton *m_r1;
-        Plasma::RadioButton *m_r2;
-        Plasma::RadioButton *m_r3;
-        
+        Plasma::PushButton *m_reset;
+        Plasma::Label *m_numHalfLives;
+        Plasma::Label *m_error;
         Element m_Element;                      // Current element
 	    Isotope m_Isotope;                      // current isotope
 	    Value m_HalfLife;                       // The halfLife
@@ -120,6 +140,7 @@ class nuclearCalculator : public Plasma::PopupApplet
 	    Value m_FinalAmount;                    // amount after time
 	    Value m_Time;                           // the time involved in calculation
 	    double m_Mass;                          // the atomic mass of the isotope        
+	    int m_mode;
 };
  
 // This is the command that links your applet to the .desktop file

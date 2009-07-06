@@ -38,13 +38,6 @@ nuclearCalculator::nuclearCalculator(QWidget * parent)
     ui.element -> removeItem(count - 1);
     ui.element -> removeItem(count - 2);
     ui.element -> removeItem(count - 3);
-    // Add all isotope names of Uranium ( by default )to the isotope comboBox
-    QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
-    QString isotope;
-    foreach(Isotope * i , list) {
-        isotope.setNum(i -> mass());
-        ui.isotope  -> addItem(isotope);
-    }
 
     // initialise data
     init();
@@ -93,7 +86,16 @@ nuclearCalculator:: ~nuclearCalculator()
 // The function that initialises data
 void nuclearCalculator::init()
 {
-	QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
+    // Add all isotope names of Uranium ( by default )to the isotope comboBox
+    QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
+    QString isotope;
+    
+    ui.isotope->clear();
+    foreach(Isotope * i , list) {
+        isotope.setNum(i -> mass());
+        ui.isotope  -> addItem(isotope);
+    }
+    
 	// initialise the data, initially selected values ( Uranium, 92, 238)
     ui.element    -> setCurrentIndex(91);
     ui.isotope    -> setCurrentIndex(18);

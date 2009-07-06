@@ -381,7 +381,7 @@ void concentrationCalculator::reset()
 	/**************************************************************************/
 	//                       concentration Calculator set up
 	/**************************************************************************/
-
+	error(RESET_CONC_MESG);
 	// initialise the initially selected values
 	m_amountSolute            -> setValue(117.0);
     m_molarMass            -> setValue(58.5);
@@ -415,6 +415,7 @@ void concentrationCalculator::reset()
     m_concentrationUnit	 ->nativeWidget()->setCurrentIndex(0);
 	m_calculationMode	 ->nativeWidget()->setCurrentIndex(5);
 	
+	setMode(5);
 	// Initialisation of values done
 }
 // Calculates the amount of solute

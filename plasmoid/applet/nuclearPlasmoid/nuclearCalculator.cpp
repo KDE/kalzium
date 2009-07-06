@@ -19,7 +19,9 @@
 #include <QRadioButton>
 #include <KTextEdit>
 #include <QSlider>
+#include <QPushButton>
 #include <QSpinBox>
+#include <KIntSpinBox>
 #include <KComboBox>
 #include <QSizeF>
 #include <QLabel>
@@ -31,6 +33,7 @@
 #include <Plasma/SpinBox>
 #include <Plasma/Slider>
 #include <Plasma/GroupBox>
+#include <Plasma/PushButton>
 #include <QGraphicsGridLayout>
 #include <QGraphicsLinearLayout>
 #include <plasma/svg.h>
@@ -62,16 +65,56 @@ void nuclearCalculator::init()
 {
 } 
  
+void nuclearCalculator::reset()
+{
+	error(RESET_NUKE_MESG);
+	
+    // Add all isotope names of Uranium ( by default )to the isotope comboBox
+    QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
+    QString iso;
+    
+    m_isotope->clear();
+    foreach(Isotope * i , list) {
+        iso.setNum(i -> mass());
+        m_isotope  -> addItem(iso);
+    }
+    
+	// initialise the data, initially selected values ( Uranium, 92, 238)
+    m_element       ->nativeWidget()-> setCurrentIndex(91);
+    m_isotope       ->nativeWidget()-> setCurrentIndex(18);
+    m_halfLife      -> setValue(list.at(18) -> halflife());
+    m_initAmt		-> setValue(6.0);
+    m_finalAmt   	-> setValue(3.0);
+    m_time		    -> setValue(list.at(18) -> halflife());
+    
+    m_halfLifeUnit	   ->nativeWidget()->setCurrentIndex(0);
+    m_initType	       ->nativeWidget()->setCurrentIndex(0);
+    m_finalType        ->nativeWidget()->setCurrentIndex(0);
+    m_initUnit 		   ->nativeWidget()->setCurrentIndex(0);
+    m_finalUnit	       ->nativeWidget()->setCurrentIndex(0);
+    m_timeUnit		   ->nativeWidget()->setCurrentIndex(0);
+    m_calculationMode  ->nativeWidget()->setCurrentIndex(2);
+    
+    // Setup of the UI done
+    // Initialise values
+    m_InitAmount  = Value(6.0, "g") ;
+    m_FinalAmount = Value(3.0, "g");
+    m_Mass = list.at(18) -> mass();
+    m_Time = Value((list.at(18) -> halflife()), "y");
+    m_HalfLife = Value(list.at(18) -> halflife(), "y");
+
+    m_Element = * KalziumDataObject::instance() -> element(92);
+    m_Isotope = * list.at(18);
+
+	setMode(2);
+    // Initialisation of values done
+}
  
 QGraphicsWidget *nuclearCalculator::graphicsWidget()
 {
 //FIXME:
-// setZvalue function has a problem please fix it (look at the comboBox in the plasmoid
-// and try to click on one of them to notice the exact problem)
-// Also currently the spin boxes are integer, please convert them into double
-// and uncomment certain lines of code which say 'setDecimals(4)'
-// 3.> The radio buttons allow multiple selection which should not happen, they should be 
-// grouped somehow.
+// Currently the spin boxes are integer, please convert them into double after 
+// doubleSpinBoxes are available
 
 	if (!m_widget) {	
 		// Position all UI elements
@@ -91,13 +134,13 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    		
 		// here comes the element - isotope and halfLife info part
 	    Plasma::Label *eleLabel = new Plasma::Label(this);
-	    eleLabel->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    eleLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    eleLabel->setText(i18n("Element name:"));
 	    Plasma::Label *isoLabel = new Plasma::Label(this);
-	    isoLabel->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    isoLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    isoLabel->setText(i18n("Isotope mass:"));
 	    Plasma::Label *hLifeLabel = new Plasma::Label(this);
-	    hLifeLabel->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    hLifeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    hLifeLabel->setText(i18n("Half-Life"));
 	    
 	    m_element = new Plasma::ComboBox(this);
@@ -106,6 +149,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    m_isotope->setZValue(1);
 	    
 	    m_halfLife = new Plasma::SpinBox(this);
+	    m_halfLife->nativeWidget()->setMaximum(1000000000);
 	    //m_halfLife->setDecimals(4);
         m_halfLife->setMaximum(1e+09);
 
@@ -129,33 +173,46 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    pGridLayout->addItem(m_halfLife, 3, 2);
 	    
 	    // Here comes the amount and time part
-	    m_r1 = new Plasma::RadioButton(this);
-		m_r2 = new Plasma::RadioButton(this);
-		m_r3 = new Plasma::RadioButton(this);
-				
+	    
+	    // Calculation mode
+		Plasma::Label *calcModeLabel = new Plasma::Label(this);
+ 		calcModeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+ 		calcModeLabel->setText(i18n("Calculation Mode:"));
+ 		
+ 		m_calculationMode = new Plasma::ComboBox(this);
+ 		m_calculationMode->setZValue(3);
+ 		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
+ 		 << tr2i18n("Initial amount", 0)
+ 		 << tr2i18n("Final amount", 0)
+ 		 << tr2i18n("Time", 0)
+ 		);
+ 		
 	    Plasma::Label *initLabel = new Plasma::Label(this);
-	    initLabel->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    initLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    initLabel->setText(i18n("Initial amount:"));
 	    Plasma::Label *finalLabel = new Plasma::Label(this);
-	    finalLabel->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    finalLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    finalLabel->setText(i18n("Final amount:"));
 	    Plasma::Label *timeLabel = new Plasma::Label(this);
-	    timeLabel->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    timeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    timeLabel->setText(i18n("Time"));
 	    Plasma::Label *time2Label = new Plasma::Label(this);
-	    time2Label->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    time2Label->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    time2Label->setText(i18n("Time in Half-Lives"));
 	    
 	    m_numHalfLives = new Plasma::Label(this);
-	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    m_numHalfLives->setText(i18n("0 seconds"));	    
 	    m_initAmt = new Plasma::SpinBox(this);
+	    m_initAmt->nativeWidget()->setMaximum(1000000000);
 	    //m_initAmt->setDecimals(4);
         m_initAmt->setMaximum(1e+09);
 	    m_finalAmt = new Plasma::SpinBox(this);
+	    m_finalAmt->nativeWidget()->setMaximum(1000000000);
 	    //m_finalAmt->setDecimals(4);
         m_finalAmt->setMaximum(1e+09);
 	    m_time = new Plasma::SpinBox(this);
+	    m_time->nativeWidget()->setMaximum(1000000000);
 	    //m_time->setDecimals(4);
         m_time->setMaximum(1e+09);
 	    	    
@@ -211,27 +268,32 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 		m_slider->setOrientation(Qt::Horizontal);
 		m_slider->setMaximum(100);
 		
-  	    pGridLayout2->addItem(m_r1, 5, 0);
-   	    pGridLayout2->addItem(m_r2, 6, 0);
-  	    pGridLayout2->addItem(m_r3, 7, 0);
-  	    
-  	    pGridLayout2->addItem(initLabel, 5, 1);
-   	    pGridLayout2->addItem(finalLabel, 6, 1);
-   	    pGridLayout2->addItem(timeLabel, 7, 1);
-   	    pGridLayout2->addItem(time2Label, 8, 1);
+		m_error = new Plasma::Label(this);
+		
+		m_reset = new Plasma::PushButton(this);
+		m_reset->setText(i18n("Reset"));
+				
+		pGridLayout2->addItem(calcModeLabel, 5, 0);
+  	    pGridLayout2->addItem(initLabel, 6, 0);
+   	    pGridLayout2->addItem(finalLabel, 7, 0);
+   	    pGridLayout2->addItem(timeLabel, 8, 0);
+   	    pGridLayout2->addItem(time2Label, 9, 0);
+   	    pGridLayout2->addItem(m_error, 10, 0, 1, 5);
+   	    pGridLayout2->addItem(m_reset, 11, 0);
+
+ 		pGridLayout2->addItem(m_calculationMode, 5, 1);   	    
+  	    pGridLayout2->addItem(m_initAmt, 6, 1);
+   	    pGridLayout2->addItem(m_finalAmt, 7, 1);
+   	    pGridLayout2->addItem(m_time, 8, 1);
+   	    pGridLayout2->addItem(m_slider , 9, 1);
    	    
-  	    pGridLayout2->addItem(m_initAmt, 5, 2);
-   	    pGridLayout2->addItem(m_finalAmt, 6, 2);
-   	    pGridLayout2->addItem(m_time, 7, 2);
-   	    pGridLayout2->addItem(m_slider , 8, 2);
+   	    pGridLayout2->addItem(m_initType, 6, 2);
+   	    pGridLayout2->addItem(m_finalType, 7, 2);
+   	    pGridLayout2->addItem(m_numHalfLives, 9, 2);
    	    
-   	    pGridLayout2->addItem(m_initType, 5, 3);
-   	    pGridLayout2->addItem(m_finalType, 6, 3);
-   	    pGridLayout2->addItem(m_numHalfLives, 8, 3);
-   	    
-   	    pGridLayout2->addItem(m_initUnit, 5, 4);
-   	    pGridLayout2->addItem(m_finalUnit, 6, 4);
-   	    pGridLayout2->addItem(m_timeUnit, 7, 4);
+   	    pGridLayout2->addItem(m_initUnit, 6, 3);
+   	    pGridLayout2->addItem(m_finalUnit, 7, 3);
+   	    pGridLayout2->addItem(m_timeUnit, 8, 3);
 	    
 	    // Positioning of UI elements done	    	    	    	    
 		// Now add required properties to the UI widgets
@@ -253,28 +315,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    m_element->nativeWidget()->removeItem(count - 2);
 	    m_element->nativeWidget()->removeItem(count - 3);
 	    // Add all isotope names of Uranium ( by default )to the isotope comboBox
-	    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(92);
-	    QString isotope;
-	    foreach(Isotope * i , list) {
-	        isotope.setNum(i -> mass());
-	        m_isotope->nativeWidget()->addItem(isotope);
-	    }
-
-	    // initialise the data, initially selected values ( Uranium, 92, 238)
-	    m_element->nativeWidget()-> setCurrentIndex(91);
-	    m_isotope->nativeWidget()-> setCurrentIndex(18);
-	    m_halfLife-> setValue(list.at(18)->halflife());
-	    // Setup of the UI done
-	    // Initialise values of the objects of the class
-	    
-	    m_InitAmount=Value(0.0, "g") ;
-	    m_FinalAmount=Value(0.0, "g");
-	    m_Mass = list. at(18) -> mass();
-	    m_Time = Value(0.0, "y");
-	    m_HalfLife = Value(list . at(18) -> halflife(), "y");
-
-	    m_Element = * KalziumDataObject::instance() -> element(92);
-	    m_Isotope = * list . at(18);
+	    reset();
 	    
 	    // Connect signals with slots
 	    connect(m_element->nativeWidget(), SIGNAL(activated(int)),
@@ -304,7 +345,10 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	            this, SLOT(timeChanged()));
 	    connect(m_slider, SIGNAL(valueChanged(int)),
 	            this, SLOT(sliderMoved(int)));
-
+		connect(m_calculationMode->nativeWidget(), SIGNAL(activated(int)),
+				this, SLOT(setMode(int)));
+		connect(m_reset, SIGNAL(clicked()),
+				this, SLOT(reset()));
 	    /**************************************************************************/
 	    // Nuclear Calculator setup complete
 	    /**************************************************************************/	    	    
@@ -358,7 +402,7 @@ void nuclearCalculator::isotopeChanged(int index)
     calculate();
 }
 
-void nuclearCalculator::halfLifeChanged(void)
+void nuclearCalculator::halfLifeChanged()
 {
     // update the halfLife value
     m_HalfLife = Value(m_halfLife -> value(), m_halfLifeUnit->nativeWidget()-> currentText());
@@ -366,7 +410,7 @@ void nuclearCalculator::halfLifeChanged(void)
     calculate();
 }
 
-void nuclearCalculator::initAmtChanged(void)
+void nuclearCalculator::initAmtChanged()
 {
 
     // If quantity is specified in terms of mass, quantity <- ( mass , Unit)
@@ -377,9 +421,11 @@ void nuclearCalculator::initAmtChanged(void)
     else
         m_InitAmount = Value(((m_initAmt -> value()) * m_Mass), \
                              m_initUnit->nativeWidget()-> currentText());
+                             
+	calculate();
 }
 
-void nuclearCalculator::finalAmtChanged(void)
+void nuclearCalculator::finalAmtChanged()
 {
     // If quantity is specified in terms of mass, quantity <- ( mass , Unit)
     if (m_finalType->nativeWidget() -> currentIndex() == 0)
@@ -393,7 +439,7 @@ void nuclearCalculator::finalAmtChanged(void)
     calculate();
 }
 
-void nuclearCalculator::timeChanged(void)
+void nuclearCalculator::timeChanged()
 {
     m_Time = Value(m_time-> value(), m_timeUnit->nativeWidget()-> currentText());
 
@@ -410,41 +456,68 @@ void nuclearCalculator::sliderMoved(int numHlives)
     m_numHalfLives-> setText(m_Time . toString());
 }
 
-void nuclearCalculator::calculate(void)
+void nuclearCalculator::calculate()
 {
-
+	error(RESET_NUKE_MESG);
     // Validate the values involved in calculation
-    if (m_HalfLife . number() == 0.0)
+    if (m_HalfLife. number() == 0.0) {
+    	error(HALFLIFE_ZERO);
         return;
+    }
 
-    if (m_r1-> isChecked()) {   // Calculate initial amount
-        if (m_FinalAmount . number() == 0.0)
-            return;
-        calculateInitAmount();
-        m_initAmt-> setValue(m_InitAmount . number());
-    }
-    // Calulate final Amount after time
-    else if (m_r2-> isChecked()) {
-        if (m_InitAmount . number() == 0.0)
-            return;
-        calculateFinalAmount();
-        m_finalAmt-> setValue(m_FinalAmount. number());
-    } else { // Calculate Time
-        // final amount greater than initial
-        if (m_finalAmt-> value() > m_initAmt-> value()) {
-        	error();
-            return;
-        } else if (m_finalAmt-> value() == 0.0)
-        { // one of the amounts is 0.0
-        	error();
-            return;
-        }
+	switch (m_mode) {
+		case 0: // Calculate initial amount
+	        if (m_FinalAmount.number() == 0.0) {
+	        	error(FINAL_AMT_ZERO);
+	            return;
+	        }
+	        calculateInitAmount();
+	    case 1: // Calulate final Amount after time
+	        if (m_InitAmount.number() == 0.0) {
+	    	   	error(INIT_AMT_ZERO);
+	    	    return;
+	    	}         
+	        calculateFinalAmount();
+	    case 2: // Calculate Time
+	        // If final amount greater than initial, error
+	        if (m_finalAmt-> value() > m_initAmt-> value()) {
+	        	error(FINAL_AMT_GREATER);
+	            return;
+	        } else if (m_finalAmt-> value() == 0.0)
+	        { // final amount is 0.0
+	        	error(FINAL_AMT_ZERO);
+	            return;
+	        }
+	}
         calculateTime();
-        m_time-> setValue(m_Time. number());
-    }
 }
 
-void nuclearCalculator::calculateInitAmount(void)
+void nuclearCalculator::setMode(int mode)
+{
+	m_mode = mode;
+	
+	m_initAmt->nativeWidget()->setReadOnly(false);
+	m_finalAmt->nativeWidget()->setReadOnly(false);
+	m_time->nativeWidget()->setReadOnly(false);
+	
+	// set the quantity that should be calculated to readOnly
+	switch (mode)
+	{
+		case 0:
+			m_initAmt->nativeWidget()->setReadOnly(true);
+			break;
+		case 1:
+			m_finalAmt->nativeWidget()->setReadOnly(true);
+			break;
+		case 2:
+			m_time->nativeWidget()->setReadOnly(true);
+			break;
+	}
+	
+	calculate();
+}
+
+void nuclearCalculator::calculateInitAmount()
 {
     // If no time has elapsed, initial and final amounts are the same
     m_InitAmount = m_FinalAmount;
@@ -458,9 +531,10 @@ void nuclearCalculator::calculateInitAmount(void)
     m_InitAmount = Value(m_InitAmount. number() * pow(2.0 , ratio), m_InitAmount. unit());
     // Convert into the required units
     m_InitAmount = Converter::self()->convert(m_InitAmount, m_InitAmount. unit()-> singular());
+    m_initAmt-> setValue(m_InitAmount . number());
 }
 
-void nuclearCalculator::calculateFinalAmount(void)
+void nuclearCalculator::calculateFinalAmount()
 {
     // If no time has elapsed, initial and final amounts are the same
     m_FinalAmount = m_InitAmount;
@@ -475,15 +549,17 @@ void nuclearCalculator::calculateFinalAmount(void)
     m_FinalAmount = Value(m_FinalAmount . number() / pow(2.0, ratio), m_InitAmount. unit());
     // Convert into the required units
     m_FinalAmount = Converter::self()->convert(m_FinalAmount, m_FinalAmount. unit() -> singular());
+    m_finalAmt-> setValue(m_FinalAmount. number());
 }
 
-void nuclearCalculator::calculateTime(void)
+void nuclearCalculator::calculateTime()
 {
     // If initial and final masses are the same ( both units and value )
     // the time is also 0
-    if (m_InitAmount . number() == m_FinalAmount . number() && \
+    if (m_InitAmount.number() == m_FinalAmount.number() && \
             m_InitAmount. unit() == m_FinalAmount . unit()) {
         m_Time = Value(0.0, m_Time. unit());
+        m_time-> setValue(m_Time. number());
         return;
     }
 
@@ -496,11 +572,27 @@ void nuclearCalculator::calculateTime(void)
     // Calculate the total time taken
     Value temp = Value(time_value, m_HalfLife. unit());
     m_Time = Converter::self()->convert(temp , m_Time. unit() -> singular());
-    return;
+    m_time-> setValue(m_Time. number());
 }
 
-void nuclearCalculator::error()
+void nuclearCalculator::error( int mode)
 {
-
+	switch (mode) { // Depending on the mode, set the error messages.
+		case RESET_NUKE_MESG:
+			m_error->setText("");
+			break;
+		case INIT_AMT_ZERO:
+			m_error->setText(i18n("Initial amount can not be zero!"));
+			break;
+		case FINAL_AMT_ZERO:
+			m_error->setText(i18n("Final amount can not zero!"));
+			break;
+		case HALFLIFE_ZERO:
+			m_error->setText(i18n("Time is zero, please correct it!"));
+			break;
+		case FINAL_AMT_GREATER:
+			m_error->setText(i18n("Final amount is greater than initial. Invalid!"));
+			break;
+	}	
 }
 #include "nuclearCalculator.moc"
