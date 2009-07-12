@@ -13,15 +13,54 @@ Creation of the respective classes for various calculators as planned
 The nuclear calculator is now functional with units.
 Unit conversion library working fine.
 Basic classes for the concentration and the gas calculators done.
+molecular calculator done.
 
-%%% Todo:
-#0 > Reusing Jean's code classes and implementing the molecular mass calculator
-#1 > Plasmoid widget for the molecular calculator
+%%% TODO (this week)
+
+<major bugs>
+1.) ADD TOOL-TIPS, WHATS THIS ... to all widgets.
+
+2.) Fix Bug: I cannot find a way to change the value of the second combobox in
+the "Amount of solute" and the "Density of solute" line... It is "grams"
+and "liter" here, no matter which item I select. Can you reproduce that?
+</major bugs>
+
+1.) Add an icon in the "title page" taking help from kde-artists list
+
+2.) Increase the fontsize
+
+3.) fix Bug: When I start the "Perform Calculations" dialog the
+"Introduction" page on the left is not selected.
+
+4.) Alias: Add more aliases
+
+5.) Make the equation balancer appear.
+
+6.) fix Bug: Nuclear Calculator: The "NOTE"-text is wrong, there are no longer
+any radiobuttons.
+
+7.) fix Bug: Nuclear Calculator: Nothing happens when I switch from "Mass" to
+"Moles" in the "Other data"-widget.
+
+8.) fix Bug: Nuclear Calculator: fix slider related issues
+
+9.) Nuclear Calculator: In "Elemental data" there is a label with the
+text "TextLabel" ;-), remove that.
+
+10.) General comment: The "Help text widget" on top of each calcualtor
+is really important, but you have "NOTE:" there sometimes, and sometimes
+not. I think the "NOTE:" is not needed.
+
+11.) Add the calculator action into the menu
+
+12.) "reset" (the button) has to be "Reset" (KDE GUI policy)
+
+13.) The help-button doesn't do anything right now (as you know, just
+for your TODO-list).
+
+14.) Please add yourself to the "Thanks to" page in the about-dialog.
+
+%%% later.
+#1 > plasmoid widget for the molecular calculator.
 #2 > Additional parsers ( history ) and prediction mode.
 
-*** This week's activity
-#1 > Completion of the calculators (concentration and gas calculators)
-
-Description: 
-I will be completing the concentration and gas calculators by tonight / by tomorrow.
-Right now I have completed the units part of the nuclear calculator, which is working fine.

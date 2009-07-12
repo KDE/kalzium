@@ -522,6 +522,7 @@ void nuclearCalculator::calculateInitAmount()
     // If no time has elapsed, initial and final amounts are the same
     m_InitAmount = m_FinalAmount;
     if (m_Time. number() == 0.0) {
+    	m_initAmt-> setValue(m_InitAmount . number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
@@ -539,7 +540,7 @@ void nuclearCalculator::calculateFinalAmount()
     // If no time has elapsed, initial and final amounts are the same
     m_FinalAmount = m_InitAmount;
     if (m_Time. number() == 0.0) {
-
+		m_finalAmt-> setValue(m_FinalAmount. number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
