@@ -51,6 +51,7 @@ int main(int argc, char **argv)
     about.addCredit( ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
     about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));
     about.addCredit( ki18n("Marcus Hanwell"), ki18n( "SoC on the molecular viewer and libavogadro porting/integration" ));
+    about.addCredit( ki18n("Kashyap R Puranik"), ki18n("SoC on the calculator widget and a few smaller improvements" ));    
     about.addCredit( ki18n("Thomas Nagy"), ki18n("EqChem, the equation solver" ));
     about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, parser for the molecule weight calculator, and a lot of smaller improvements" ));
     about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));

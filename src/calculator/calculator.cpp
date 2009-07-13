@@ -1,17 +1,20 @@
-
 /***************************************************************************
-    Author               : Kashyap R Puranik
-    email                : kashthealien@gmail.com
-
- ***************************************************************************/
-
-/***************************************************************************
+ *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #include "calculator.h"
@@ -19,6 +22,7 @@
 #include <kdebug.h>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
+#include <kstandarddirs.h>
 #include <ktoolinvocation.h>
 
 calculator :: calculator(QWidget *parent)
@@ -50,10 +54,15 @@ calculator :: calculator(QWidget *parent)
     m_equationBalancer = new EQChemDialog(this);
     ui.stack->addWidget(m_equationBalancer);
 #endif
+	// Add an image to the file
+	ui.pic->setPixmap( (KIcon( "calculate" )).pixmap(128,128) );
 
     // Connect the tree item selection signal to the corresponding slot
     connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
             SLOT(slotItemSelection(QTreeWidgetItem *)));
+
+	// help clicked
+	connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
 }
 
 calculator :: ~calculator()
@@ -92,5 +101,11 @@ void calculator :: slotItemSelection(QTreeWidgetItem *item)
 #endif
 	else if (!(s.compare(i18n("Molecular mass Calculator"))))
 		ui.stack->setCurrentWidget(m_moleCalculator);
+}
+
+
+void calculator::slotHelp()
+{
+	KToolInvocation::invokeHelp( "calculator", "kalzium" );
 }
 

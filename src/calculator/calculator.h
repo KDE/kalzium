@@ -62,6 +62,11 @@ class calculator : public KDialog
 	#ifdef HAVE_FACILE
 	    EQChemDialog *      m_equationBalancer;     // The equation balancer
 	#endif
+	protected slots:
+        /**
+         * invoke the help of the correct chapter
+         */
+        virtual void slotHelp();	
 	private slots:
 	
 		// occurs when an tree item is selected, opens the corresponding calculator

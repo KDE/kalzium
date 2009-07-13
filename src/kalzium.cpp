@@ -228,6 +228,7 @@ void Kalzium::setupActions()
     m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
     m_EQSolverAction->setIcon(  KIcon( "eqchem" ) );
     m_EQSolverAction->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to solve chemical equations." ) );
+
 #ifdef HAVE_FACILE
     connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
     m_EQSolverAction->setEnabled( true );
@@ -241,10 +242,11 @@ void Kalzium::setupActions()
     m_pPlotAction->setIcon( KIcon( "plot" ) );
     connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
 
-    // tools actions
+    // calculator actions
     m_pcalculator = actionCollection()->addAction( "tools_calculate" );
-    m_pcalculator->setText( i18n( "&Perform Calculations..." ) );
-    m_pcalculator->setIcon( KIcon( "plot" ) );
+    m_pcalculator->setText( i18n( "Perform &Calculations..." ) );
+    m_pcalculator->setIcon( KIcon( "calculate" ) );
+    m_pcalculator->setWhatsThis( i18nc( "WhatsThis Help", "This is the calculator, it performs basic chemical calculations." ) );
     connect( m_pcalculator, SIGNAL( triggered() ), this, SLOT( showCalculator() ) );    
 
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );

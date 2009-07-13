@@ -172,7 +172,8 @@ public slots:
      * @param indicates the mode of calculation.
      * Refer MODE_CALCULATION_CONC for various modes
      */
-    void setMode(int);						
+    void setMode(int);
+
 private:
     Ui::concCalculator ui;                      // The user interface
 

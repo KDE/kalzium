@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kalzium" version="4">
+<kpartgui name="kalzium" version="5">
 <MenuBar>
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="view_numerationtype" />
@@ -13,6 +13,7 @@
   </Menu>
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="tools_plotdata" />
+    <Action name="tools_calculate" />
     <Action name="tools_isotopetable" />
     <Action name="tools_glossary" />
     <Action name="tools_eqsolver" />

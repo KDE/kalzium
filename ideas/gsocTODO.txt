@@ -23,44 +23,57 @@ molecular calculator done.
 2.) Fix Bug: I cannot find a way to change the value of the second combobox in
 the "Amount of solute" and the "Density of solute" line... It is "grams"
 and "liter" here, no matter which item I select. Can you reproduce that?
+
+3.) Fix the alias display part in the second tab of the mass calculator.
 </major bugs>
 
 1.) Add an icon in the "title page" taking help from kde-artists list
 
 2.) Increase the fontsize
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 3.) fix Bug: When I start the "Perform Calculations" dialog the
 "Introduction" page on the left is not selected.
 
 4.) Alias: Add more aliases
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 5.) Make the equation balancer appear.
 
 6.) fix Bug: Nuclear Calculator: The "NOTE"-text is wrong, there are no longer
 any radiobuttons.
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 7.) fix Bug: Nuclear Calculator: Nothing happens when I switch from "Mass" to
 "Moles" in the "Other data"-widget.
 
 8.) fix Bug: Nuclear Calculator: fix slider related issues
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 9.) Nuclear Calculator: In "Elemental data" there is a label with the
 text "TextLabel" ;-), remove that.
+%%%%%%%%%% DONE! %%%%%%%%%%
 
-10.) General comment: The "Help text widget" on top of each calcualtor
+10.) Add the calculator action into the menu
+%%%%%%%%%% DONE! %%%%%%%%%%
+
+11.) "reset" (the button) has to be "Reset" (KDE GUI policy)
+%%%%%%%%%% DONE! %%%%%%%%%%
+
+12.) The help-button doesn't do anything right now (as you know, just
+for your TODO-list).
+%%%%%%%%%% DONE! %%%%%%%%%%
+
+13.) General comment: The "Help text widget" on top of each calcualtor
 is really important, but you have "NOTE:" there sometimes, and sometimes
 not. I think the "NOTE:" is not needed.
-
-11.) Add the calculator action into the menu
-
-12.) "reset" (the button) has to be "Reset" (KDE GUI policy)
-
-13.) The help-button doesn't do anything right now (as you know, just
-for your TODO-list).
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 14.) Please add yourself to the "Thanks to" page in the about-dialog.
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 %%% later.
+#0 > Add manual
 #1 > plasmoid widget for the molecular calculator.
 #2 > Additional parsers ( history ) and prediction mode.
 

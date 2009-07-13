@@ -664,7 +664,7 @@ p, li { white-space: pre-wrap; }
      <item>
       <widget class="QPushButton" name="reset">
        <property name="text">
-        <string>reset</string>
+        <string>Reset</string>
        </property>
       </widget>
      </item>
