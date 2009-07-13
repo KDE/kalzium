@@ -28,6 +28,7 @@ and "liter" here, no matter which item I select. Can you reproduce that?
 </major bugs>
 
 1.) Add an icon in the "title page" taking help from kde-artists list
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 2.) Increase the fontsize
 %%%%%%%%%% DONE! %%%%%%%%%%
