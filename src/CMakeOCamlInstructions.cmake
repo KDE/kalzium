@@ -3,14 +3,14 @@ link_directories (${OCAMLC_DIR})
 macro(OCAML_MLI_TO_CMI _cmi _mli)
    add_custom_command(OUTPUT ${_cmi}
                       COMMAND ${OCAML_OCAMLC_EXECUTABLE} ARGS -o ${_cmi} -I +facile -c ${_mli} 
-                      DEPENDS ${ARGN}
+                      DEPENDS ${_mli} ${ARGN}
                       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endmacro(OCAML_MLI_TO_CMI)
 
 macro(OCAML_ML_TO_CMX _cmx _ml)
    add_custom_command(OUTPUT ${_cmx}
                    COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} ARGS -o ${_cmx} -I +facile -c ${_ml} 
-                   DEPENDS ${ARGN}
+                   DEPENDS ${_ml} ${ARGN}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 endmacro(OCAML_ML_TO_CMX)
 
@@ -21,21 +21,21 @@ ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_SOURCE_D
                 ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmi  )
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmi)
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.ml
                 ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmi ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx  )
 
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_BINARY_DIR}/chem.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli  )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmi ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmi)
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.ml
                 ${CMAKE_CURRENT_BINARY_DIR}/chem.cmi ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx  )
 
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_BINARY_DIR}/parser.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli  )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmi)
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.ml
                 ${CMAKE_CURRENT_BINARY_DIR}/parser.cmi ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx )
