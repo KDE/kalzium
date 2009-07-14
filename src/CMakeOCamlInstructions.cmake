@@ -5,6 +5,7 @@ macro(OCAML_MLI_TO_CMI _cmi _mli)
                       COMMAND ${OCAML_OCAMLC_EXECUTABLE} ARGS -o ${_cmi} -I +facile -c ${_mli} 
                       DEPENDS ${_mli} ${ARGN}
                       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+   set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${_cmi})
 endmacro(OCAML_MLI_TO_CMI)
 
 macro(OCAML_ML_TO_CMX _cmx _ml)
@@ -12,6 +13,7 @@ macro(OCAML_ML_TO_CMX _cmx _ml)
                    COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} ARGS -o ${_cmx} -I +facile -c ${_ml} 
                    DEPENDS ${_ml} ${ARGN}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+   set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${_cmx})
 endmacro(OCAML_ML_TO_CMX)
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_BINARY_DIR}/chemset.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.mli
@@ -59,11 +61,13 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
                    COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -I +facile -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c -o ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
                    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c ${CMAKE_CURRENT_BINARY_DIR}/solver.o
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o)
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/solver.o
                    COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -output-obj -o ${CMAKE_CURRENT_BINARY_DIR}/solver.o ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx
                    DEPENDS ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_BINARY_DIR}/solver.o)
 
 
 
@@ -77,6 +81,7 @@ if(KDE4_BUILD_TESTS)
                    COMMAND ${OCAML_OCAMLOPT_EXECUTABLE}  ARGS -o ${atestprog.opt_SRCS}
                    DEPENDS ${atestprog.opt_SRCS}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+  set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_BINARY_DIR}/solver/atestprog.opt)
 
 	   #install( PROGRAMS atestprog.opt DESTINATION  ${BIN_INSTALL_DIR} )
 endif(KDE4_BUILD_TESTS)
