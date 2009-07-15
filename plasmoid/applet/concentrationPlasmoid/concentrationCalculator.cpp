@@ -325,7 +325,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    
 	    // 11 reset
 	    m_reset = new Plasma::PushButton(this);
-	    m_reset->setText("Reset");
+	    m_reset->setText(i18n("Reset"));
 	    pGridLayout->addItem(m_reset, 11, 0);
 
 	    // Done adding elements to the UI, now initialise
