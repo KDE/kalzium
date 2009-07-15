@@ -47,7 +47,7 @@ concentrationCalculator::concentrationCalculator(QObject *parent, const QVariant
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
-    resize(800, 600);
+    resize(700, 400);
 }
 
 concentrationCalculator::~concentrationCalculator()
@@ -67,7 +67,7 @@ void concentrationCalculator::init()
 QGraphicsWidget *concentrationCalculator::graphicsWidget()
 {
 //FIXME:
-// 1.> Also currently the spin boxes are integer, please convert them into double
+// 1.> Currently the spin boxes are integer, please convert them into double
 // and uncomment certain lines of code which say 'setDecimals(4)'
 
 	if (!m_widget) {	
@@ -106,7 +106,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 		);
 		
 		pGridLayout->addItem(calcModeLabel, 1, 0);
-		pGridLayout->addItem(m_calculationMode, 1, 2);
+		pGridLayout->addItem(m_calculationMode, 1, 1);
 		// 2 amount solute
 		
 		Plasma::Label *amtSltLabel = new Plasma::Label(this);
@@ -139,8 +139,8 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 
 	    pGridLayout->addItem(amtSltLabel, 2, 0);
 	    pGridLayout->addItem(m_amountSolute, 2, 1);
-	    pGridLayout->addItem(m_amountSoluteType, 2, 2);
-	    pGridLayout->addItem(m_amountSoluteUnit, 2, 3);
+	    pGridLayout->addItem(m_amountSoluteType, 2, 3);
+	    pGridLayout->addItem(m_amountSoluteUnit, 2, 2);
 	    // 3 molar mass solute
 	    
 	    Plasma::Label *molarMassLabel = new Plasma::Label(this);
@@ -153,12 +153,12 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         m_molarMass->setMaximum(1e+09);
 	    
 	    Plasma::Label *molarMassUnit = new Plasma::Label(this);
-	    molarMassUnit->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+	    molarMassUnit->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    molarMassUnit->setText(i18n("u (mass)"));
 	    
 	    pGridLayout->addItem(molarMassLabel, 3, 0);
 	    pGridLayout->addItem(m_molarMass, 3, 1);
-	    pGridLayout->addItem(molarMassUnit, 3, 3);
+	    pGridLayout->addItem(molarMassUnit, 3, 2);
 	    
 	    // 4 equivalent mass solute	    
 	    Plasma::Label *eqtMassLabel = new Plasma::Label(this);
@@ -172,12 +172,12 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         m_eqtMass->setMaximum(1e+09);
         
 	    Plasma::Label *eqtMassUnit = new Plasma::Label(this);
-	    eqtMassUnit->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+	    eqtMassUnit->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    eqtMassUnit->setText(i18n("u (mass)"));
 		
 		pGridLayout->addItem(eqtMassLabel, 4, 0);
 	    pGridLayout->addItem(m_eqtMass, 4, 1);
-	    pGridLayout->addItem(eqtMassUnit, 4, 3);
+	    pGridLayout->addItem(eqtMassUnit, 4, 2);
 
 		// 5 density solute
 				
@@ -205,7 +205,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         );
 	    pGridLayout->addItem(densitySoluteLabel, 5, 0);
 	    pGridLayout->addItem(m_densitySolute, 5, 1);
-	    pGridLayout->addItem(m_densitySoluteUnit, 5, 3);
+	    pGridLayout->addItem(m_densitySoluteUnit, 5, 2);
 	    
 		// 6 amount solvent
 		Plasma::Label *amtSlvtLabel = new Plasma::Label(this);
@@ -242,8 +242,8 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         
 	    pGridLayout->addItem(amtSlvtLabel, 6, 0);
 	    pGridLayout->addItem(m_amountSolvent, 6, 1);
-	    pGridLayout->addItem(m_amountSolventType, 6, 2);
-	    pGridLayout->addItem(m_amountSolventUnit, 6, 3);
+	    pGridLayout->addItem(m_amountSolventType, 6, 3);
+	    pGridLayout->addItem(m_amountSolventUnit, 6, 2);
 	    
 	    // 7 molar mass solvent
 	    
@@ -257,12 +257,12 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         m_molarMassSolvent->setMaximum(1e+09);
         	    
 	    Plasma::Label *molarMassSolvtUnit = new Plasma::Label(this);
-	    molarMassSolvtUnit->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+	    molarMassSolvtUnit->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    molarMassSolvtUnit->setText(i18n("u (mass)"));
 	    
 	    pGridLayout->addItem(molarMassSolvtLabel, 7, 0);
 	    pGridLayout->addItem(m_molarMassSolvent, 7, 1);
-	    pGridLayout->addItem(molarMassSolvtUnit, 7, 3);
+	    pGridLayout->addItem(molarMassSolvtUnit, 7, 2);
 	    
 	    // 8 density of solvent
 	    
@@ -291,7 +291,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         
    	    pGridLayout->addItem(densitySolventLabel, 8, 0);
 	    pGridLayout->addItem(m_densitySolvent, 8, 1);
-	    pGridLayout->addItem(m_densitySolventUnit, 8, 3);
+	    pGridLayout->addItem(m_densitySolventUnit, 8, 2);
 	    
 	    // 9 Concentration
 	    
@@ -317,16 +317,18 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
         
 	    pGridLayout->addItem(concentrationLabel, 9, 0);
 	    pGridLayout->addItem(m_concentration, 9, 1);
-	    pGridLayout->addItem(m_concentrationUnit, 9, 3);
-	    
-	    // 10 Results
-	    m_error = new Plasma::Label(this);
-	    pGridLayout->addItem(m_error, 10, 0, 5, 2);
+	    pGridLayout->addItem(m_concentrationUnit, 9, 2);
 	    
 	    // 11 reset
 	    m_reset = new Plasma::PushButton(this);
 	    m_reset->setText(i18n("Reset"));
-	    pGridLayout->addItem(m_reset, 11, 0);
+	    pGridLayout->addItem(m_reset, 10, 0);
+	    
+	    // 10 Results
+	    m_error = new Plasma::Label(this);
+	    pGridLayout->addItem(m_error, 10, 1, 4, 1);
+	    
+	    
 
 	    // Done adding elements to the UI, now initialise
 	    reset();
@@ -1155,17 +1157,22 @@ void concentrationCalculator::calculate()
     	    	return;
     	    }    	        
     	    calculateAmountSolute();
-    
+    		break;
     	case 1: // Calculate the molar mass of solute
     	    calculateMolarMass();
+    	    break;
 		case 2:	// Calculate the equivalent mass of solute
 		    calculateEqtMass();
+		    break;
     	case 3: // Calculate the amount of solvent
 	        calculateAmountSolvent();
+	        break;
 		case 4: // Calculate the molar mass of solvent
 	        calculateMolarMassSolvent();
+	        break;
 		case 5: // Calculate the concentration of the solution
 	        calculateConcentration();
+	        break;
 	}
     return;
 }
@@ -1204,7 +1211,6 @@ void concentrationCalculator::error(int mode)
     case INSUFFICIENT_DATA_EQT:
         m_error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
         break;
-
     case INSUFFICIENT_DATA_MOLE:
         m_error->setText(i18n("Insufficient data, specify molarity / molefraction / molality to calculate!"));
         break;

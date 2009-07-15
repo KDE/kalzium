@@ -47,7 +47,7 @@ gasCalculator::gasCalculator(QObject *parent, const QVariantList &args)
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
-    resize(800, 600);
+    resize(600, 250);
 }
 
 gasCalculator::~gasCalculator()
@@ -82,7 +82,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    
 	    //setup the grid layout
 		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(m_widget);
-		pGridLayout->addItem(pHeader, 0, 0, 1, 5);
+		pGridLayout->addItem(pHeader, 0, 0, 1, 4);
 		
 		// Set up the user interface
 		
@@ -116,7 +116,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
         m_molarMass->setMaximum(1e+09);
         
 		Plasma::Label *molarMassUnitLabel = new Plasma::Label(this);
-	    molarMassUnitLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+	    molarMassUnitLabel->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    molarMassUnitLabel->setText(i18n("u (mass)"));
 	    
 	    pGridLayout->addItem(molarMassLabel, 2, 0);
@@ -297,12 +297,12 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    
 	    // Results
 	    m_error = new Plasma::Label(this);
-	    pGridLayout->addItem(m_error, 10, 0, 5, 1);
+	    pGridLayout->addItem(m_error, 10, 1, 4, 1);
 	    
 	    // Reset
 		m_reset = new Plasma::PushButton(this);
 		m_reset->setText(i18n("Reset"));
-		pGridLayout->addItem(m_reset, 11, 0);
+		pGridLayout->addItem(m_reset, 10, 0);
 		
 	    // Adding objects to the UI done, now initialise
 	    reset();

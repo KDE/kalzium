@@ -737,6 +737,7 @@ void concCalculator::amtSolventChanged()
     int type = ui.amtSlvtType -> currentIndex();
     if (type == 0) {     // amount of solvent specified in terms of volume
         ui.amtSlvt_unit-> show();
+        ui.amtSlvt_unit->setReadOnly(false);
 		ui.amtSlvt_unit->clear();
         ui.amtSlvt_unit->insertItems(0, QStringList()
          << tr2i18n("liter", 0)
@@ -752,6 +753,7 @@ void concCalculator::amtSolventChanged()
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else if (type == 1) { // amount of solvent is specified in terms of mass
         ui.amtSlvt_unit -> show();
+        ui.amtSlvt_unit->setReadOnly(false);
         ui.amtSlvt_unit->clear();
         ui.amtSlvt_unit->insertItems(0, QStringList()
          << tr2i18n("grams", 0)

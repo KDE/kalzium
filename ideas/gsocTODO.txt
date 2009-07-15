@@ -25,6 +25,7 @@ the "Amount of solute" and the "Density of solute" line... It is "grams"
 and "liter" here, no matter which item I select. Can you reproduce that?
 
 3.) Fix the alias display part in the second tab of the mass calculator.
+%%%%%%%%%% DONE! %%%%%%%%%%
 </major bugs>
 
 1.) Add an icon in the "title page" taking help from kde-artists list

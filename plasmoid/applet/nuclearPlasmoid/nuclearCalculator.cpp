@@ -49,7 +49,7 @@ nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
-    resize(800, 600);
+    resize(600, 450);
 }
 
 nuclearCalculator::~nuclearCalculator()
@@ -131,6 +131,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
 	    pVLayout->addItem(pGroupBox1);
 	    pVLayout->addItem(pGroupBox2);
+	    // pVLayout->addItem(new Plasma::)
 	    		
 		// here comes the element - isotope and halfLife info part
 	    Plasma::Label *eleLabel = new Plasma::Label(this);
@@ -163,14 +164,14 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
          << tr2i18n("weeks", 0));
 	    m_halfLifeUnit->setZValue(6);
 	    
-	    pGridLayout->addItem(pHeader, 0, 0, 1, 5);
-	    pGridLayout->addItem(eleLabel, 1, 1);
-	    pGridLayout->addItem(m_element, 1, 2);
-	    pGridLayout->addItem(isoLabel, 2, 1);
-	    pGridLayout->addItem(m_isotope, 2, 2);
-	    pGridLayout->addItem(hLifeLabel, 3, 1);
-	    pGridLayout->addItem(m_halfLifeUnit, 3, 3);
-	    pGridLayout->addItem(m_halfLife, 3, 2);
+	    pGridLayout->addItem(pHeader, 0, 0, 1, 4);
+	    pGridLayout->addItem(eleLabel, 1, 0);
+	    pGridLayout->addItem(m_element, 1, 1);
+	    pGridLayout->addItem(isoLabel, 2, 0);
+	    pGridLayout->addItem(m_isotope, 2, 1);
+	    pGridLayout->addItem(hLifeLabel, 3, 0);
+	    pGridLayout->addItem(m_halfLifeUnit, 3, 2);
+	    pGridLayout->addItem(m_halfLife, 3, 1);
 	    
 	    // Here comes the amount and time part
 	    
@@ -278,8 +279,8 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
    	    pGridLayout2->addItem(finalLabel, 7, 0);
    	    pGridLayout2->addItem(timeLabel, 8, 0);
    	    pGridLayout2->addItem(time2Label, 9, 0);
-   	    pGridLayout2->addItem(m_error, 10, 0, 1, 5);
-   	    pGridLayout2->addItem(m_reset, 11, 0);
+   	    pGridLayout2->addItem(m_error, 10, 1, 1, 3);
+   	    pGridLayout2->addItem(m_reset, 10, 0);
 
  		pGridLayout2->addItem(m_calculationMode, 5, 1);   	    
   	    pGridLayout2->addItem(m_initAmt, 6, 1);
@@ -287,13 +288,13 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
    	    pGridLayout2->addItem(m_time, 8, 1);
    	    pGridLayout2->addItem(m_slider , 9, 1);
    	    
-   	    pGridLayout2->addItem(m_initType, 6, 2);
-   	    pGridLayout2->addItem(m_finalType, 7, 2);
+   	    pGridLayout2->addItem(m_initType, 6, 3);
+   	    pGridLayout2->addItem(m_finalType, 7, 3);
    	    pGridLayout2->addItem(m_numHalfLives, 9, 2);
    	    
-   	    pGridLayout2->addItem(m_initUnit, 6, 3);
-   	    pGridLayout2->addItem(m_finalUnit, 7, 3);
-   	    pGridLayout2->addItem(m_timeUnit, 8, 3);
+   	    pGridLayout2->addItem(m_initUnit, 6, 2);
+   	    pGridLayout2->addItem(m_finalUnit, 7, 2);
+   	    pGridLayout2->addItem(m_timeUnit, 8, 2);
 	    
 	    // Positioning of UI elements done	    	    	    	    
 		// Now add required properties to the UI widgets

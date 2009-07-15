@@ -61,40 +61,55 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
     clear();
 	
     QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
+    QList<QString> shortList, fullList; // Used to store the short and full forms
+    int i = 0;                          // loop counter
+    
     // Search in User defined aliases.
     QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
-    QFile file(fileName);
-    int i = 0;                          // while loop counter
+    QFile file(fileName);    
 
     // Check file validity
     if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text)))
     {
             kDebug() << fileName << " opened";
         QTextStream in(&file);
-
         // Get all shortForms and fullForms in the file.
+        // eg the short form and full form extracted from ("Me","CH3") 
+        // are (Me) and (CH3) respectively
         while (!in.atEnd()) {
             QString line = in.readLine();
             shortForm = line.section(',', 0, 0);
             shortForm.remove(QChar('\"'));
             fullForm  = line.section(',', 1, 1);
             fullForm.remove(QChar('\"'));
-
-            // If short term is found, return fullForm
-            ui.user_defined->setItem((int)i, 0, new QTableWidgetItem
-            		(i18n("%1",shortForm + " : " + fullForm)));
-            i ++;
+			shortList << shortForm;
+			fullList << fullForm;
         }
+        
+        int length = shortList.length();
+        ui.user_defined->setRowCount(length);
+        // Put all the aliases on to the table in the user interface
+		for( i = 0; i < length; i ++) {
+			shortForm = shortList.takeFirst ();
+			fullForm = fullList.takeFirst ();
+			ui.user_defined->setItem((int)i, 0, new QTableWidgetItem
+				(i18n("%1",shortForm + " : " + fullForm)));
+		}
+            
+          		
+            
     }
     else
     {
         kDebug() << fileName << " could not be opened!";
     }
 
-        // Find the system defined aliases
-        // Open the file
-        fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
-        QFile file2(fileName);
+    // Find the system defined aliases
+    // Open the file
+    fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+    QFile file2(fileName);
+    shortList.clear();
+    fullList.clear();
 
         // Check file validity
     if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text)))
@@ -102,7 +117,6 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
             kDebug() << fileName << " opened";
         QTextStream in(&file2);
 
-        i = 0;
         // Get all shortForms and fullForms in the file.
         while (!in.atEnd()) {
             QString line = in.readLine();
@@ -110,12 +124,19 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
             shortForm.remove(QChar('\"'));
             fullForm  = line.section(',', 1, 1);
             fullForm.remove(QChar('\"'));
-
-            ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem
-            		(i18n("%1",shortForm + " : " + fullForm)));
-
-            i ++;
+			shortList << shortForm;
+			fullList << fullForm;
         }
+        int length = shortList.length();
+        ui.pre_defined->setRowCount(length);
+        
+        // Put all the aliases on to the table in the user interface
+		for( i = 0; i < length; i ++) {
+			shortForm = shortList.takeFirst ();
+			fullForm = fullList.takeFirst ();
+			ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem
+				(i18n("%1",shortForm + " : " + fullForm)));
+		}
     }
     else
     {
