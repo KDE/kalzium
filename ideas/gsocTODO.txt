@@ -50,6 +50,7 @@ any radiobuttons.
 
 7.) fix Bug: Nuclear Calculator: Nothing happens when I switch from "Mass" to
 "Moles" in the "Other data"-widget.
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 8.) fix Bug: Nuclear Calculator: fix slider related issues
 %%%%%%%%%% DONE! %%%%%%%%%%

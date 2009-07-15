@@ -199,13 +199,17 @@ void  nuclearCalculator::initAmtChanged()
 {
 
     // If quantity is specified in terms of mass, quantity <- ( mass , unit)
-    if (ui.initAmtType -> currentIndex() == 0)
+    if (ui.initAmtType -> currentIndex() == 0) {
+    	ui.initAmt_unit->show();
         m_initAmount = Value(ui.initAmt -> value(), ui.initAmt_unit -> currentText());
+	}        
 
     // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, unit )
-    else
+    else {
+    	ui.initAmt_unit->hide();
         m_initAmount = Value(((ui.initAmt -> value()) * m_mass), \
                              ui.initAmt_unit -> currentText());
+	}
 
     calculate();
 }
@@ -213,13 +217,17 @@ void  nuclearCalculator::initAmtChanged()
 void  nuclearCalculator::finalAmtChanged()
 {
     // If quantity is specified in terms of mass, quantity <- ( mass , unit)
-    if (ui.finalAmtType -> currentIndex() == 0)
+    if (ui.finalAmtType -> currentIndex() == 0) {
+    	ui.finalAmt_unit ->show();
         m_finalAmount = Value(ui.finalAmt -> value(), \
                               ui.finalAmt_unit -> currentText());
+	}
     // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, unit )
-    else
+    else {
+    	ui.finalAmt_unit->hide();
         m_finalAmount = Value(((ui.finalAmt -> value()) * m_mass), \
                               ui.finalAmt_unit -> currentText());
+	}
 
     calculate();
 }
