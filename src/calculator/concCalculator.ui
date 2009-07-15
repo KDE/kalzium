@@ -86,6 +86,11 @@ p, li { white-space: pre-wrap; }
         </item>
         <item>
          <property name="text">
+          <string>kilograms</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>tons</string>
          </property>
         </item>
@@ -566,11 +571,6 @@ p, li { white-space: pre-wrap; }
         <item>
          <property name="text">
           <string>liter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>cubic meters</string>
          </property>
         </item>
         <item>

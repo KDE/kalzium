@@ -41,7 +41,7 @@ concCalculator::concCalculator(QWidget * parent)
     connect(ui.amtSolute, SIGNAL(valueChanged(double)),
             this, SLOT(amtSoluteChanged()));
     connect(ui.amtSltType, SIGNAL(activated(int)),
-            this, SLOT(amtSoluteChanged()));
+            this, SLOT(amtSoluteTypeChanged()));
     connect(ui.amtSlt_unit, SIGNAL(activated(int)),
             this, SLOT(amtSoluteChanged()));
 	// Molar mass and equivalent mass change for solvent
@@ -58,7 +58,7 @@ concCalculator::concCalculator(QWidget * parent)
     connect(ui.amtSolvent, SIGNAL(valueChanged(double)),
             this, SLOT(amtSolventChanged()));
     connect(ui.amtSlvtType, SIGNAL(activated(int)),
-            this, SLOT(amtSolventChanged()));
+            this, SLOT(amtSolventTypeChanged()));
     connect(ui.amtSlvt_unit, SIGNAL(activated(int)),
             this, SLOT(amtSolventChanged()));
 	// Molar mass change for solvent
@@ -693,8 +693,8 @@ double concCalculator::densitySolute()
 }
 
 
-// occurs when the amount of solute is changed
-void concCalculator::amtSoluteChanged()
+// occurs when the type in which amount of solute is specified is changed
+void concCalculator::amtSoluteTypeChanged()
 {
     int type = ui.amtSltType -> currentIndex();
     if (type == 0) {         // amount of solute specified in terms of mass
@@ -708,6 +708,7 @@ void concCalculator::amtSoluteChanged()
          << tr2i18n("ounces", 0)
          << tr2i18n("troy ounces", 0)
         );
+        ui.amtSlt_unit->setCurrentIndex(0);
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
     } else if (type == 1) { // amount of solute is specified in terms of volume
         ui.amtSlt_unit -> show();
@@ -723,6 +724,7 @@ void concCalculator::amtSoluteChanged()
          << tr2i18n("gallons", 0)
          << tr2i18n("pints", 0)
         );
+        ui.amtSlt_unit->setCurrentIndex(0);
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
     } else {                 // amount of solute is specified in terms of moles
         m_molesSolute = ui.amtSolute -> value();
@@ -731,13 +733,24 @@ void concCalculator::amtSoluteChanged()
     calculate();
 }
 
-// occurs when the amount of solvent is changed
-void concCalculator::amtSolventChanged()
+void concCalculator::amtSoluteChanged()
+{
+    int type = ui.amtSltType -> currentIndex();
+    switch (type) {
+    	case 0:
+    	case 1:
+			m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());    	
+    	case 2:
+           m_molesSolute = ui.amtSolute -> value(); 	
+    }
+    calculate();
+}
+// occurs when the type in which amount of solvent is specified is changed
+void concCalculator::amtSolventTypeChanged()
 {
     int type = ui.amtSlvtType -> currentIndex();
     if (type == 0) {     // amount of solvent specified in terms of volume
         ui.amtSlvt_unit-> show();
-        ui.amtSlvt_unit->setReadOnly(false);
 		ui.amtSlvt_unit->clear();
         ui.amtSlvt_unit->insertItems(0, QStringList()
          << tr2i18n("liter", 0)
@@ -753,7 +766,6 @@ void concCalculator::amtSolventChanged()
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else if (type == 1) { // amount of solvent is specified in terms of mass
         ui.amtSlvt_unit -> show();
-        ui.amtSlvt_unit->setReadOnly(false);
         ui.amtSlvt_unit->clear();
         ui.amtSlvt_unit->insertItems(0, QStringList()
          << tr2i18n("grams", 0)
@@ -771,6 +783,21 @@ void concCalculator::amtSolventChanged()
     calculate();
 }
 
+// Occurs when the amount of solute is changed
+void concCalculator::amtSolventChanged()
+{
+	int type = ui.amtSlvtType -> currentIndex();
+    switch (type) {     // amount of solvent specified in terms of volume
+    	case 0:
+    	case 1:
+	        m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
+	    	break;
+	    case 2:
+	    	m_molesSolvent = ui.amtSolvent -> value();
+	    	break;
+	}
+	calculate();        
+}
 // occurs when the molar mass of solute is changed
 void concCalculator::molarMassChanged(double value)
 {

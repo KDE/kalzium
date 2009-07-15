@@ -83,31 +83,37 @@ public slots:
     // Sub-routines involved in calculations of the unit
     
     /// Calculates the amount of solute
-    void calculateAmtSolute(void);
+    void calculateAmtSolute();
     
     /// Calculates the amount of solvent         
-    void calculateAmtSolvent(void);
+    void calculateAmtSolvent();
     
     /// Calculates the molar mass
-    void calculateMolarMass(void);
+    void calculateMolarMass();
     
     /// Calculates the equivalent mass
-    void calculateEqtMass(void);
+    void calculateEqtMass();
     
     /// Calculates the calculate molar mass of the solvent
-    void calculateMolarMassSolvent(void);
+    void calculateMolarMassSolvent();
     
     /// calculates the concentration
-    void calculateConcentration(void);
+    void calculateConcentration();
 
     // Functions ( slots ) that occur on changing a value
     // Sub routines which act as quantity change event handlers
 
 	/// occurs when the amount of solute is changed
-    void amtSoluteChanged(void);            
+    void amtSoluteChanged();
+            
+    /// occurs when the type in which amount of solute is specified is changed
+    void amtSoluteTypeChanged();
     
     /// occurs when the amount of solvent is changed
-    void amtSolventChanged(void);
+    void amtSolventChanged();
+    
+    /// occurs when the type in which amount of solvent is specified is changed
+    void amtSolventTypeChanged();
     
     /// occurs when the molar mass of solute is changed
     void molarMassChanged(double);          
@@ -119,46 +125,46 @@ public slots:
     void molarMassSolventChanged(double);   
     
     /// occurs when the number of moles is changed
-    void densitySoluteChanged(void);
+    void densitySoluteChanged();
     
     /// occurs when the density of solvent is changed
-    void densitySolventChanged(void);
+    void densitySolventChanged();
     
     /// occurs when the concentration is changed
     void concentrationChanged();
     
     /// occurs when any quantity is changed
-    void calculate(void);                   
+    void calculate();                   
 
 	/// returns volume of solvent in liters
-    double volumeSolvent(void);
+    double volumeSolvent();
     
     /// returns mass of solvent in grams
-    double massSolvent(void);
+    double massSolvent();
     
     /// returns number of moles of solvent
-    double molesSolvent(void);
+    double molesSolvent();
     
     /// returns density of solvent in grams per liter
-    double densitySolvent(void);
+    double densitySolvent();
     
     /// returns volume of solute in liters
-    double volumeSolute(void);
+    double volumeSolute();
     
     /// returns mass of solute in grams
-    double massSolute(void);
+    double massSolute();
     
     /// returns the number of moles of solute
-    double molesSolute(void);
+    double molesSolute();
     
     /// returns the number of equivalents of solute
-    double eqtsSolute(void);
+    double eqtsSolute();
     
     /// returns density of solute in grams per liter
-    double densitySolute(void);             
+    double densitySolute();             
 
 	/// Performs initialisation of the class.
-	void init(void);
+	void init();
 	
      /*
      * This function is called when an error occurs

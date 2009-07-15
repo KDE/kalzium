@@ -23,6 +23,7 @@ molecular calculator done.
 2.) Fix Bug: I cannot find a way to change the value of the second combobox in
 the "Amount of solute" and the "Density of solute" line... It is "grams"
 and "liter" here, no matter which item I select. Can you reproduce that?
+%%%%%%%%%% DONE! %%%%%%%%%%
 
 3.) Fix the alias display part in the second tab of the mass calculator.
 %%%%%%%%%% DONE! %%%%%%%%%%
