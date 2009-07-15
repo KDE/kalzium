@@ -26,6 +26,18 @@
 class Density : public Conversion::UnitCategory
 {
 public:
+    enum Id {
+        YottakilogramsPerCubicMeter = 13000, ZettakilogramPerCubicMeter, ExakilogramPerCubicMeter,
+        PetakilogramPerCubicMeter, TerakilogramPerCubicMeter, GigakilogramPerCubicMeter,
+        MegakilogramPerCubicMeter, KilokilogramPerCubicMeter, HectokilogramsPerCubicMeter,
+        DecakilogramsPerCubicMeter, KilogramsPerCubicMeter, DecikilogramsPerCubicMeter,
+        CentikilogramsPerCubicMeter, MillikilogramsPerCubicMeter, MicrokilogramsPerCubicMeter,
+        NanokilogramsPerCubicMeter, PicokilogramsPerCubicMeter, FemtokilogramsPerCubicMeter,
+        AttokilogramsPerCubicMeter, ZeptokilogramsPerCubicMeter, YoctokilogramsPerCubicMeter,
+        KilogramPerLiter, GramPerLiter, GramPerMilliliter, OuncePerCubicYard,
+        OuncePerCubicInch, OuncePerCubicFoot, PoundPerCubicInch, PoundPerCubicFoot, PoundPerCubicYard
+    };
+
     Density(QObject* parent = 0);
 };
 

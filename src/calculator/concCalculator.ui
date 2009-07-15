@@ -267,11 +267,6 @@ p, li { white-space: pre-wrap; }
         </item>
         <item>
          <property name="text">
-          <string>ounces per cubic foot</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
           <string>pounds per cubic inch</string>
          </property>
         </item>
@@ -433,11 +428,6 @@ p, li { white-space: pre-wrap; }
         <item>
          <property name="text">
           <string>ounces per cubic inch</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>ounces per cubic foot</string>
          </property>
         </item>
         <item>

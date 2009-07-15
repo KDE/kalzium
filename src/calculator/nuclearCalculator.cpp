@@ -339,11 +339,11 @@ void nuclearCalculator::calculateInitAmount()
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_time , m_halfLife.unit() \
-                    -> singular()).number()) / m_halfLife.number();
+                    -> toString(1.0)).number()) / m_halfLife.number();
     // find out the initial amount
     m_initAmount = Value(m_initAmount.number() * pow(2.0 , ratio), m_initAmount.unit());
     // Convert into the required units
-    m_initAmount = Converter::self()->convert(m_initAmount, m_initAmount.unit() -> singular());
+    m_initAmount = Converter::self()->convert(m_initAmount, m_initAmount.unit() -> toString(1.0));
     ui.initAmt  -> setValue(m_initAmount.number());
 }
 
@@ -357,11 +357,11 @@ void nuclearCalculator::calculateFinalAmount()
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_time , m_halfLife.unit() \
-                    -> singular()).number()) / m_halfLife.number();
+                    -> toString(1.0)).number()) / m_halfLife.number();
     // Calculate the final amount
     m_finalAmount = Value(m_finalAmount.number() / pow(2.0, ratio) , m_initAmount.unit());
     // Convert into the required units
-    m_finalAmount = Converter::self()->convert(m_finalAmount, m_finalAmount.unit() -> singular());
+    m_finalAmount = Converter::self()->convert(m_finalAmount, m_finalAmount.unit() -> toString(1.0));
     ui.finalAmt -> setValue(m_finalAmount.number());
 }
 
@@ -377,13 +377,13 @@ void nuclearCalculator::calculateTime()
 
     // calculate the ratio of final to initial masses
     double ratio = (Converter::self()->convert(m_initAmount , m_finalAmount.unit() \
-                    -> singular()).number()) / m_finalAmount.number();
+                    -> toString(1.0)).number()) / m_finalAmount.number();
     // The number of halfLives ( log 2 ( x ) = log x / log 2 )
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_halfLife.number();
     // Calculate the total time taken
     Value temp = Value(time_value, m_halfLife.unit());
-    m_time = Converter::self()->convert(temp , m_time.unit() -> singular());
+    m_time = Converter::self()->convert(temp , m_time.unit() -> toString(1.0));
     ui.time  -> setValue(m_time.number());
     
     return;
