@@ -220,7 +220,7 @@ void MolcalcWidget::updateUI()
         rows = m_aliasList.count();
         ui.alias_list->setRowCount(rows);
         foreach (QString alias, m_aliasList) {
-            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(i18n("%1").arg(alias)));
+            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(alias));
         }
 #if 0
         // FIXME
