@@ -60,17 +60,17 @@ void KalziumGLWidget::setStyle( int style )
 {
     foreach(Avogadro::Engine *engine, engines())
     {
-        if((m_lastEngine1 == 0 && engine->name() == "Ball and Stick")
-           || (m_lastEngine1 == 1 && engine->name() == "Stick")
-           || (m_lastEngine1 == 2 && engine->name() == "Van der Waals Spheres")
-           || (m_lastEngine1 == 3 && engine->name() == "Wireframe"))
+        if((m_lastEngine1 == 0 && engine->identifier() == "Ball and Stick")
+           || (m_lastEngine1 == 1 && engine->identifier() == "Stick")
+           || (m_lastEngine1 == 2 && engine->identifier() == "Van der Waals Spheres")
+           || (m_lastEngine1 == 3 && engine->identifier() == "Wireframe"))
         {
             engine->setEnabled(false);
         }
-        if((style == 0 && engine->name() == "Ball and Stick")
-           || (style == 1 && engine->name() == "Stick")
-           || (style == 2 && engine->name() == "Van der Waals Spheres")
-           || (style == 3 && engine->name() == "Wireframe"))
+        if((style == 0 && engine->identifier() == "Ball and Stick")
+           || (style == 1 && engine->identifier() == "Stick")
+           || (style == 2 && engine->identifier() == "Van der Waals Spheres")
+           || (style == 3 && engine->identifier() == "Wireframe"))
         {
             engine->setEnabled(true);
         }
@@ -83,15 +83,15 @@ void KalziumGLWidget::setStyle2( int style )
 {
     foreach(Avogadro::Engine *engine, engines())
     {
-        if((m_lastEngine2 == 1 && engine->name() == "Ribbon")
-           || (m_lastEngine2 == 2 && engine->name() == "Ring")
-           || (m_lastEngine2 == 3 && engine->name() == "Orbitals"))
+        if((m_lastEngine2 == 1 && engine->identifier() == "Ribbon")
+           || (m_lastEngine2 == 2 && engine->identifier() == "Ring")
+           || (m_lastEngine2 == 3 && engine->identifier() == "Orbitals"))
         {
             engine->setEnabled(false);
         }
-        if((style == 1 && engine->name() == "Ribbon")
-           || (style == 2 && engine->name() == "Ring")
-           || (style == 3 && engine->name() == "Orbitals"))
+        if((style == 1 && engine->identifier() == "Ribbon")
+           || (style == 2 && engine->identifier() == "Ring")
+           || (style == 3 && engine->identifier() == "Orbitals"))
         {
             engine->setEnabled(true);
         }
