@@ -255,10 +255,30 @@
         </entry>
     </group>
     <group name="Calculator">
+        <entry name = "mass" type="Bool">
+        	<label>This setting tells the nuclear calculator whether the amounts are always in terms of mass</label>
+        	<whatsthis>True if the user wants to specify amount only in terms of mass</whatsthis>
+        </entry>    
         <entry name = "ideal" type="Bool">
             <label>This setting says whether the user wants the gas to be ideal by default</label>
-            <whatsthis>True if gasses are assumed to be ideal</whatsthis>
+            <whatsthis>True if gasses are assumed to be ideal, the Van der Waal's co-efficients will not be shown in the calculator</whatsthis>
             <default>1</default>
+        </entry>
+        <entry name = "soluteMass" type="Bool">
+        	<label>This setting tells the concentration calculator that amount of solute is always in mass</label>
+        	<whatsthis>True if the amount of solute is specified only in terms of mass</whatsthis>
+        </entry>
+        <entry name = "solventVolume" type="Bool">
+        	<label>This setting tells the concentration calculator that amount of solvent is always in volume</label>
+        	<whatsthis>True if the amount of solvent is specified only in terms of volume</whatsthis>
+        </entry>
+        <entry name = "alias" type="Bool">
+        	<label>This setting tells the molecular mass calculator whether extra details such as aliases should be shown</label>
+        	<whatsthis>True if the aliases and other details should be shown</whatsthis>
+        </entry>
+        <entry name = "addAlias" type="Bool">
+        	<label>This setting tells the molecular calculator whether the add Alias tab should be shown</label>
+        	<whatsthis>True if the user wants to add aliases</whatsthis>
         </entry>
     </group>
 	<group name="Sidebar">

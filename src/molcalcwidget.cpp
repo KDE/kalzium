@@ -54,94 +54,103 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
     connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
     connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
     connect( m_timer, SIGNAL( timeout() ), this, SLOT( slotCalculate() ) );
-    connect( ui.alias, SIGNAL(clicked()), this, SLOT( addAlias()));
 
     ui.formulaEdit->setClearButtonShown(true);
 
     clear();
-	
-    QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
-    QList<QString> shortList, fullList; // Used to store the short and full forms
-    int i = 0;                          // loop counter
-    
-    // Search in User defined aliases.
-    QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
-    QFile file(fileName);    
+	if(!Prefs::addAlias()) {
+		hideExtra();
+		ui.details->show();
+	}
+	if(!Prefs::alias())
+		ui.details->hide();
 
-    // Check file validity
-    if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text)))
-    {
-            kDebug() << fileName << " opened";
-        QTextStream in(&file);
-        // Get all shortForms and fullForms in the file.
-        // eg the short form and full form extracted from ("Me","CH3") 
-        // are (Me) and (CH3) respectively
-        while (!in.atEnd()) {
-            QString line = in.readLine();
-            shortForm = line.section(',', 0, 0);
-            shortForm.remove(QChar('\"'));
-            fullForm  = line.section(',', 1, 1);
-            fullForm.remove(QChar('\"'));
-			shortList << shortForm;
-			fullList << fullForm;
-        }
-        
-        int length = shortList.length();
-        ui.user_defined->setRowCount(length);
-        // Put all the aliases on to the table in the user interface
-		for( i = 0; i < length; i ++) {
-			shortForm = shortList.takeFirst ();
-			fullForm = fullList.takeFirst ();
-			ui.user_defined->setItem((int)i, 0, new QTableWidgetItem
-				(i18n("%1",shortForm + " : " + fullForm)));
+	if (Prefs::addAlias())
+	{
+		connect( ui.alias, SIGNAL(clicked()), this, SLOT( addAlias()));	
+		QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
+		QList<QString> shortList, fullList; // Used to store the short and full forms
+		int i = 0;                          // loop counter
+		
+		// Search in User defined aliases.
+		QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
+		QFile file(fileName);    
+
+		// Check file validity
+		if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text)))
+		{
+		        kDebug() << fileName << " opened";
+		    QTextStream in(&file);
+		    // Get all shortForms and fullForms in the file.
+		    // eg the short form and full form extracted from ("Me","CH3") 
+		    // are (Me) and (CH3) respectively
+		    while (!in.atEnd()) {
+		        QString line = in.readLine();
+		        shortForm = line.section(',', 0, 0);
+		        shortForm.remove(QChar('\"'));
+		        fullForm  = line.section(',', 1, 1);
+		        fullForm.remove(QChar('\"'));
+				shortList << shortForm;
+				fullList << fullForm;
+		    }
+		    
+		    int length = shortList.length();
+		    ui.user_defined->setRowCount(length);
+		    // Put all the aliases on to the table in the user interface
+			for( i = 0; i < length; i ++) {
+				shortForm = shortList.takeFirst ();
+				fullForm = fullList.takeFirst ();
+				ui.user_defined->setItem((int)i, 0, new QTableWidgetItem
+					(i18n("%1",shortForm + " : " + fullForm)));
+			}
+		        
+		      		
+		        
 		}
-            
-          		
-            
-    }
-    else
-    {
-        kDebug() << fileName << " could not be opened!";
-    }
-
-    // Find the system defined aliases
-    // Open the file
-    fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
-    QFile file2(fileName);
-    shortList.clear();
-    fullList.clear();
-
-        // Check file validity
-    if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text)))
-    {
-            kDebug() << fileName << " opened";
-        QTextStream in(&file2);
-
-        // Get all shortForms and fullForms in the file.
-        while (!in.atEnd()) {
-            QString line = in.readLine();
-            shortForm = line.section(',', 0, 0);
-            shortForm.remove(QChar('\"'));
-            fullForm  = line.section(',', 1, 1);
-            fullForm.remove(QChar('\"'));
-			shortList << shortForm;
-			fullList << fullForm;
-        }
-        int length = shortList.length();
-        ui.pre_defined->setRowCount(length);
-        
-        // Put all the aliases on to the table in the user interface
-		for( i = 0; i < length; i ++) {
-			shortForm = shortList.takeFirst ();
-			fullForm = fullList.takeFirst ();
-			ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem
-				(i18n("%1",shortForm + " : " + fullForm)));
+		else
+		{
+		    kDebug() << fileName << " could not be opened!";
 		}
-    }
-    else
-    {
-        kDebug() << fileName << " could not be opened!";
-    }
+
+		// Find the system defined aliases
+		// Open the file
+		fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+		QFile file2(fileName);
+		shortList.clear();
+		fullList.clear();
+
+		    // Check file validity
+		if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text)))
+		{
+		        kDebug() << fileName << " opened";
+		    QTextStream in(&file2);
+
+		    // Get all shortForms and fullForms in the file.
+		    while (!in.atEnd()) {
+		        QString line = in.readLine();
+		        shortForm = line.section(',', 0, 0);
+		        shortForm.remove(QChar('\"'));
+		        fullForm  = line.section(',', 1, 1);
+		        fullForm.remove(QChar('\"'));
+				shortList << shortForm;
+				fullList << fullForm;
+		    }
+		    int length = shortList.length();
+		    ui.pre_defined->setRowCount(length);
+		    
+		    // Put all the aliases on to the table in the user interface
+			for( i = 0; i < length; i ++) {
+				shortForm = shortList.takeFirst ();
+				fullForm = fullList.takeFirst ();
+				ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem
+					(i18n("%1",shortForm + " : " + fullForm)));
+			}
+		}
+		else
+		{
+		    kDebug() << fileName << " could not be opened!";
+		}
+	}
 }
 
 MolcalcWidget::~MolcalcWidget()
@@ -181,33 +190,44 @@ void MolcalcWidget::updateUI()
         // The complexString stores the whole molecule like this:
         // 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
         QString complexString;
-        double mass;
-        QString str;
-        int i = 0;			 			// counter
-        int rows = m_elementMap.elements().count();		// number of columns
-        ui.table->setRowCount(rows);
+        if (Prefs::alias())
+	    {
+		    double mass;
+		    QString str;
+		    int i = 0;			 			// counter
+		    int rows = m_elementMap.elements().count();		// number of columns
+		    ui.table->setRowCount(rows);
 		
-        foreach (ElementCount * count , m_elementMap.map()) {
-            // Update the resultLabel
-            mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+		    foreach (ElementCount * count , m_elementMap.map()) {
+		        // Update the resultLabel
+		        mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
 
 
-            ui.table->setItem((int)i, 0, new QTableWidgetItem
-            	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::name))));
-            ui.table->setItem((int)i, 1, new QTableWidgetItem
-            	(i18n("%1", count->count())));
-            ui.table->setItem((int)i, 2, new QTableWidgetItem
-            	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::mass))));
-            ui.table->setItem((int)i, 3, new QTableWidgetItem
-            	(i18n("%1", mass * count->count())));
-            ui.table->setItem((int)i, 4, new QTableWidgetItem
-            	(i18n("%1", mass * count->count()/ m_mass *100)));
+		        ui.table->setItem((int)i, 0, new QTableWidgetItem
+		        	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::name))));
+		        ui.table->setItem((int)i, 1, new QTableWidgetItem
+		        	(i18n("%1", count->count())));
+		        ui.table->setItem((int)i, 2, new QTableWidgetItem
+		        	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::mass))));
+		        ui.table->setItem((int)i, 3, new QTableWidgetItem
+		        	(i18n("%1", mass * count->count())));
+		        ui.table->setItem((int)i, 4, new QTableWidgetItem
+		        	(i18n("%1", mass * count->count()/ m_mass *100)));
 
-            i++;
-        }
-        
-        // The composition
-        ui.resultComposition->setText( compositionString(m_elementMap) );
+		        i++;
+		        
+		        // The alias list
+		        i = 0;
+		        rows = m_aliasList.count();
+		        ui.alias_list->setRowCount(rows);
+		        foreach (QString alias, m_aliasList) {
+		            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(alias));
+        		}
+		    }
+	        // The composition
+	        ui.resultComposition->setText( compositionString(m_elementMap) );
+		}
+
 
         // The mass
         ui.resultMass->setText( i18n( "Molecular mass: %1 u", m_mass ) );
@@ -215,13 +235,6 @@ void MolcalcWidget::updateUI()
         ui.resultMass->setToolTip(        complexString );
         ui.resultComposition->setToolTip( complexString );
 
-        // The alias list
-        i = 0;
-        rows = m_aliasList.count();
-        ui.alias_list->setRowCount(rows);
-        foreach (QString alias, m_aliasList) {
-            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(alias));
-        }
 #if 0
         // FIXME
         //select the elements in the table

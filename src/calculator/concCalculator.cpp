@@ -21,6 +21,7 @@
 
 #include <kdebug.h>
 #include <ktoolinvocation.h>
+#include "prefs.h"
 
 concCalculator::concCalculator(QWidget * parent)
         : QFrame(parent)
@@ -84,6 +85,10 @@ concCalculator::concCalculator(QWidget * parent)
     /**************************************************************************/
     //              concentration Calculator setup complete
     /**************************************************************************/
+    if(Prefs::soluteMass())
+    	ui.amtSltType->hide();
+    if(Prefs::solventVolume())
+    	ui.amtSlvtType->hide();
 }
 
 concCalculator:: ~concCalculator()

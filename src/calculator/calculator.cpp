@@ -51,6 +51,10 @@ calculator :: calculator(QWidget *parent)
 //	ui.stack->addWidget(m_massCalculator);
 #ifdef HAVE_FACILE
     // Add the equation balancer widget to the user interface
+    new QTreeWidgetItem(ui.tree);
+    QTreeWidgetItem *___qtreewidgetitem6 = ui.tree->topLevelItem(5);
+    ___qtreewidgetitem6->setText(0, tr2i18n("Equation Balancer", 0));
+        
     m_equationBalancer = new EQChemDialog(this);
     ui.stack->addWidget(m_equationBalancer);
 #endif
@@ -60,6 +64,8 @@ calculator :: calculator(QWidget *parent)
     // Connect the tree item selection signal to the corresponding slot
     connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
             SLOT(slotItemSelection(QTreeWidgetItem *)));
+
+	ui.tree->setCurrentItem ( ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent );
 
 	// help clicked
 	connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );

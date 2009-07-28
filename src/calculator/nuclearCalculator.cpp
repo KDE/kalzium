@@ -19,7 +19,7 @@
 
 #include "nuclearCalculator.h"
 #include <math.h>
-
+#include "prefs.h"
 using namespace Conversion;
 
 nuclearCalculator::nuclearCalculator(QWidget * parent)
@@ -81,6 +81,11 @@ nuclearCalculator::nuclearCalculator(QWidget * parent)
     /**************************************************************************/
     // Nuclear Calculator setup complete
     /**************************************************************************/
+    
+    if(Prefs::mass()) {
+    	ui.initAmtType->hide();
+    	ui.finalAmtType->hide();    	
+    }
 }
 
 nuclearCalculator:: ~nuclearCalculator()
