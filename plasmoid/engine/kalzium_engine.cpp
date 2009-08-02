@@ -1,5 +1,5 @@
 /***************************************************************************
-    copyright            : (C) 2008 by Carsten Niehaus
+    copyright            : (C) 2008, 2009 by Carsten Niehaus
     email                : cniehaus@kde.org
     Copyright 2008 Frederik Gladhorn <frederik.gladhorn@kdemail.net>
  ***************************************************************************/
@@ -137,12 +137,12 @@ void KalziumEngine::getRandomElement()
 QString KalziumEngine::generateFact()
 {
     int rand = m_random->getLong(3);
-    qDebug() << "Randrom number is: " << rand;
+    int eNumber = m_random->getLong(95);
         
-    m_currentElement = m_elements.at(34);
+    m_currentElement = m_elements.at(eNumber);
 
     if ( !m_currentElement ) 
-        m_currentElement = m_elements.at(34);
+	    return i18n( "An error occurred." );
 
     QString bp =        m_currentElement->dataAsString( ChemicalDataObject::boilingpoint );
     QString mp =        m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       ;
@@ -152,17 +152,12 @@ QString KalziumEngine::generateFact()
 
     switch (rand) {
         case 0:
-            qDebug() << "0";
             return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
         case 1:
-            qDebug() << "1";
             return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
         case 2:
-            qDebug() << "2";
             return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
-            break;
         default:
-            qDebug() << "default in switch";
             return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
     }
 
