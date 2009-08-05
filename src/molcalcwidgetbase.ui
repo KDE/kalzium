@@ -14,7 +14,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="calcTab">
       <attribute name="title">
@@ -46,10 +46,27 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="KLineEdit" name="formulaEdit"/>
+          <widget class="KLineEdit" name="formulaEdit">
+           <property name="toolTip">
+            <string>Enter molecular formula here</string>
+           </property>
+           <property name="whatsThis">
+            <string>This box can be used to enter the formula for the molecule.
+eg 1.&gt; CaCO3
+eg 2.&gt; MeOH
+eg 3.&gt; #EDTA#
+</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="calcButton">
+           <property name="toolTip">
+            <string>Click on this button to calculate.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Click on this button to calculate.</string>
+           </property>
            <property name="text">
             <string>Calc</string>
            </property>
@@ -153,6 +170,12 @@
                 <height>0</height>
                </size>
               </property>
+              <property name="toolTip">
+               <string>Elemental composition</string>
+              </property>
+              <property name="whatsThis">
+               <string>This table previews the elemental composition of the molecule, i.e the percentage of each element in the molecule.</string>
+              </property>
               <property name="showGrid">
                <bool>false</bool>
               </property>
@@ -206,6 +229,13 @@
             </item>
             <item>
              <widget class="QTableWidget" name="alias_list">
+              <property name="toolTip">
+               <string>Aliases used in the formula</string>
+              </property>
+              <property name="whatsThis">
+               <string>This displays all the aliases used in the molecule.
+for eg. In molecule MeOH, the alias used is Me = CH3</string>
+              </property>
               <property name="rowCount">
                <number>1</number>
               </property>
@@ -261,7 +291,15 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="shortForm"/>
+             <widget class="QLineEdit" name="shortForm">
+              <property name="toolTip">
+               <string>Short form of the alias</string>
+              </property>
+              <property name="whatsThis">
+               <string>You can specify the short form of the alias used here.
+For eg. Me</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_2">
@@ -271,10 +309,21 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="fullForm"/>
+             <widget class="QLineEdit" name="fullForm">
+              <property name="whatsThis">
+               <string>You can enter the full form of the alias in this box
+eg. CH3</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QPushButton" name="alias">
+              <property name="toolTip">
+               <string>Click to add the alias</string>
+              </property>
+              <property name="whatsThis">
+               <string>Click to add the alias if it is valid.</string>
+              </property>
               <property name="text">
                <string>Add Alias</string>
               </property>
@@ -323,6 +372,12 @@
           </item>
           <item row="1" column="0">
            <widget class="QTableWidget" name="pre_defined">
+            <property name="toolTip">
+             <string>List of pre-defined aliases.</string>
+            </property>
+            <property name="whatsThis">
+             <string>This table displays all the pre-defined aliases.</string>
+            </property>
             <property name="rowCount">
              <number>15</number>
             </property>
@@ -349,6 +404,12 @@
           </item>
           <item row="1" column="2">
            <widget class="QTableWidget" name="user_defined">
+            <property name="toolTip">
+             <string>List of user-defined aliases.</string>
+            </property>
+            <property name="whatsThis">
+             <string>This is the list of aliases that you or some other user has added.</string>
+            </property>
             <property name="rowCount">
              <number>15</number>
             </property>
