@@ -1,5 +1,7 @@
 project(kalzium)
 
+kde4_no_enable_final(kalzium)
+
 include(KalziumConfigureChecks.cmake)
 
 if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN2_FOUND)
