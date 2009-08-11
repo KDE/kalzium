@@ -246,7 +246,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    pGridLayout->addItem(m_volume, 7, 1);
 	    pGridLayout->addItem(m_volumeUnit, 7, 2);
 	    
-	    // vander waal's constant a
+	    // van der waals constant a
 	    
 	    Plasma::Label *vand_aLabel = new Plasma::Label(this);
 	    vand_aLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -268,7 +268,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    pGridLayout->addItem(m_Vand_a, 8, 1);
 	    pGridLayout->addItem(m_aUnit, 8, 2);
 	    
-	    // vander waal's constant b
+	    // van der Waals constant b
 	    
 	    Plasma::Label *vand_bLabel = new Plasma::Label(this);
 	    vand_bLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);

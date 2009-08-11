@@ -261,7 +261,7 @@
         </entry>    
         <entry name = "ideal" type="Bool">
             <label>This setting says whether the user wants the gas to be ideal by default</label>
-            <whatsthis>True if gasses are assumed to be ideal, the Van der Waal's co-efficients will not be shown in the calculator</whatsthis>
+            <whatsthis>True if gasses are assumed to be ideal, the Van der Waals co-efficients will not be shown in the calculator</whatsthis>
             <default>1</default>
         </entry>
         <entry name = "soluteMass" type="Bool">

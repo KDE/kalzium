@@ -952,13 +952,13 @@ void concCalculator::error(int mode)
         ui.error->setText(i18n("Concentration is zero! Please correct it!"));
         break;
     case SOLVENT_VOLUME_ZERO:
-    	ui.error->setText(i18n("The volumes of the solvent cannnot be zero!"));
+    	ui.error->setText(i18n("The volumes of the solvent cannot be zero!"));
     	break;
 	case SOLVENT_MOLES_ZERO:
-		ui.error->setText(i18n("The number of moles of the solvent cannnot be zero!"));
+		ui.error->setText(i18n("The number of moles of the solvent cannot be zero!"));
     	break;
     case SOLVENT_MASS_ZERO:
-    	ui.error->setText(i18n("The mass of the solvent cannnot be zero!"));
+    	ui.error->setText(i18n("The mass of the solvent cannot be zero!"));
     	break;    	    	
     case INSUFFICIENT_DATA_EQT:
         ui.error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
