@@ -64,7 +64,7 @@ Value::Value(const QVariant& n, const QString& u)
 
 Value::~Value()
 {
-    delete d;
+//    delete d;
 }
 
 bool Value::isValid() const

@@ -38,6 +38,8 @@
 #include <plasma/svg.h>
 #include <plasma/theme.h>
 
+#include <KConfigDialog>
+
 using namespace Conversion;
 
 gasCalculator::gasCalculator(QObject *parent, const QVariantList &args)
@@ -61,6 +63,9 @@ gasCalculator::~gasCalculator()
  
 void gasCalculator::init()
 {
+    KConfigGroup cg = config();
+    
+    cg.readEntry("ideal",true);
 } 
  
 QGraphicsWidget *gasCalculator::graphicsWidget()
@@ -616,6 +621,29 @@ void gasCalculator::error(int mode)
     default:
         break;
     }
+}
+
+void gasCalculator::createGasConfigurationInterface(KConfigDialog *parent)
+{
+    QWidget *widget = new QWidget();
+    ui.setupUi(widget);
+    parent->addPage(widget, i18n("General"), icon());
+
+    ui.ideal->setChecked(m_ideal);
+}
+
+void gasCalculator::gasConfigAccepted()
+{
+    KConfigGroup cg = config();
+    QGraphicsItem::update();
+
+    m_ideal = ui.ideal->isChecked();
+    cg.writeEntry("ideal", m_ideal);
+
+    m_configUpdated = true;
+    updateConstraints();
+
+    emit configNeedsSaving();
 }
 
 #include "gasCalculator.moc"

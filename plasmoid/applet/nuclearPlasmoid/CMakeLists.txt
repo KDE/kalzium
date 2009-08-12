@@ -20,6 +20,7 @@ set(nuclearCalculator_SRCS
    nuclearCalculator.cpp
    kalziumdataobject.cpp
    )
+kde4_add_ui_files(nuclearCalculator_SRCS nuclearCalculatorConfig.ui )
 # Now make sure all files get to the right place
 kde4_add_plugin(nuclearCalculator ${nuclearCalculator_SRCS})
 target_link_libraries(nuclearCalculator 

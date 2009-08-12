@@ -96,6 +96,7 @@ nuclearCalculator:: ~nuclearCalculator()
 // The function that initialises data
 void nuclearCalculator::init()
 {
+	const int ISOTOPE_NUM = 22;
     // Add all isotope names of Uranium ( by default )to the isotope comboBox
     QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
     QString isotope;
@@ -108,11 +109,11 @@ void nuclearCalculator::init()
     
 	// initialise the data, initially selected values ( Uranium, 92, 238)
     ui.element    -> setCurrentIndex(91);
-    ui.isotope    -> setCurrentIndex(18);
-    ui.halfLife   -> setValue(list.at(18) -> halflife());
+    ui.isotope    -> setCurrentIndex(ISOTOPE_NUM);
+    ui.halfLife   -> setValue(list.at(ISOTOPE_NUM) -> halflife());
     ui.initAmt    -> setValue(6.0);
     ui.finalAmt   -> setValue(3.0);
-    ui.time		  -> setValue(list.at(18) -> halflife());
+    ui.time		  -> setValue(list.at(ISOTOPE_NUM) -> halflife());
     
     ui.halfLife_unit	->setCurrentIndex(0);
     ui.initAmtType		->setCurrentIndex(0);
@@ -122,19 +123,19 @@ void nuclearCalculator::init()
     ui.time_unit		->setCurrentIndex(0);
     
     QString tempStr;
-    tempStr.setNum(list.at(18) -> mass());
+    tempStr.setNum(list.at(ISOTOPE_NUM) -> mass());
     ui.mass -> setText(tempStr);
 
     // Setup of the UI done
     // Initialise values
     m_initAmount  = Value(6.0, "g") ;
     m_finalAmount = Value(3.0, "g");
-    m_mass = list.at(18) -> mass();
-    m_time = Value((list.at(18) -> halflife()), "y");
-    m_halfLife = Value(list.at(18) -> halflife(), "y");
+    m_mass = list.at(ISOTOPE_NUM) -> mass();
+    m_time = Value((list.at(ISOTOPE_NUM) -> halflife()), "y");
+    m_halfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), "y");
 
     m_element = * KalziumDataObject::instance() -> element(92);
-    m_isotope = * list.at(18);
+    m_isotope = * list.at(ISOTOPE_NUM);
 
 	setMode(2);
     // Initialisation of values done
@@ -250,7 +251,7 @@ void  nuclearCalculator::sliderMoved(int numHlives)
 void  nuclearCalculator::timeChanged()
 {
     m_time = Value(ui.time -> value(), ui.time_unit -> currentText());
-
+	
     calculate();
 
 }
@@ -285,7 +286,6 @@ void nuclearCalculator::setMode(int mode)
 void  nuclearCalculator::calculate()
 {
 	error(RESET_NUKE_MESSAGE);
-	
     // Validate the values involved in calculation
     if (m_halfLife.number() == 0.0)
     {
@@ -312,13 +312,13 @@ void  nuclearCalculator::calculate()
 	        calculateFinalAmount();
         
     	case 2: 	// final amount greater than initial
-    	    if (ui.finalAmt  -> value() > ui.initAmt  -> value())
+    	    if (ui.finalAmt -> value() > ui.initAmt -> value())
     	    {
         	    error ( FINAL_AMT_GREATER );
         	    return;
         	}
         	// one of the amounts is 0.0
-        	if (ui.finalAmt  -> value() == 0.0 )
+        	if (ui.finalAmt -> value() == 0.0 )
         	{
         		error ( FINAL_AMT_ZERO );
         	    return;
@@ -338,15 +338,16 @@ void nuclearCalculator::calculateInitAmount()
 	error(RESET_NUKE_MESSAGE);
 	
     // If no time has elapsed, initial and final amounts are the same
-    m_initAmount = m_finalAmount;
     if (m_time.number() == 0.0) {
+		m_initAmount = Converter::self()->convert(m_finalAmount, ui.initAmt_unit() -> toString(1.0);
+		ui.initAmount->setValue (m_initAmount.number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_time , m_halfLife.unit() \
                     -> toString(1.0)).number()) / m_halfLife.number();
     // find out the initial amount
-    m_initAmount = Value(m_initAmount.number() * pow(2.0 , ratio), m_initAmount.unit());
+    m_initAmount = Value(m_initAmount.number() * pow(2.0 , ratio), m_initAmount.unit() -> toString(1.0));
     // Convert into the required units
     m_initAmount = Converter::self()->convert(m_initAmount, m_initAmount.unit() -> toString(1.0));
     ui.initAmt  -> setValue(m_initAmount.number());
@@ -355,16 +356,16 @@ void nuclearCalculator::calculateInitAmount()
 void nuclearCalculator::calculateFinalAmount()
 {
     // If no time has elapsed, initial and final amounts are the same
-    m_finalAmount = m_initAmount;
     if (m_time.number() == 0.0) {
-
+	    m_finalAmount = Converter::self()->convert(m_initAmount, m_finalAmount.unit() -> toString(1.0));    
+		ui.finalAmt->setValue (m_finalAmount.number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_time , m_halfLife.unit() \
                     -> toString(1.0)).number()) / m_halfLife.number();
     // Calculate the final amount
-    m_finalAmount = Value(m_finalAmount.number() / pow(2.0, ratio) , m_initAmount.unit());
+    m_finalAmount = Value(m_finalAmount.number() / pow(2.0, ratio) , m_initAmount.unit() -> toString(1.0));
     // Convert into the required units
     m_finalAmount = Converter::self()->convert(m_finalAmount, m_finalAmount.unit() -> toString(1.0));
     ui.finalAmt -> setValue(m_finalAmount.number());
@@ -377,6 +378,7 @@ void nuclearCalculator::calculateTime()
     if (m_initAmount.number() == m_finalAmount.number() && \
             m_initAmount.unit() == m_finalAmount.unit()) {
         m_time = Value(0.0, m_time.unit());
+        ui.time -> setValue(0.0);
         return;
     }
 
@@ -387,9 +389,9 @@ void nuclearCalculator::calculateTime()
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_halfLife.number();
     // Calculate the total time taken
-    Value temp = Value(time_value, m_halfLife.unit());
+    Value temp = Value(time_value, m_halfLife.unit() -> toString(1.0));
     m_time = Converter::self()->convert(temp , m_time.unit() -> toString(1.0));
-    ui.time  -> setValue(m_time.number());
+    ui.time -> setValue(m_time.number());
     
     return;
 }

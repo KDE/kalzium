@@ -38,6 +38,8 @@
 #include <plasma/svg.h>
 #include <plasma/theme.h>
 
+#include <KConfigDialog>
+
 using namespace Conversion;
 
 concentrationCalculator::concentrationCalculator(QObject *parent, const QVariantList &args)
@@ -61,6 +63,10 @@ concentrationCalculator::~concentrationCalculator()
  
 void concentrationCalculator::init()
 {
+    KConfigGroup cg = config();
+    
+    m_soluteMass = cg.readEntry("soluteMass",true);
+    m_solventVolume = cg.readEntry("solventVolume",true);
 } 
  
  
@@ -1229,5 +1235,31 @@ void concentrationCalculator::error(int mode)
     default:
         break;
     }
+}
+
+void concentrationCalculator::createConcConfigurationInterface(KConfigDialog *parent)
+{
+    QWidget *widget = new QWidget();
+    ui.setupUi(widget);
+    parent->addPage(widget, i18n("General"), icon());
+
+    ui.solventVolume->setChecked(m_solventVolume);
+}
+
+void concentrationCalculator::concConfigAccepted()
+{
+    KConfigGroup cg = config();
+    QGraphicsItem::update();
+
+    m_soluteMass = ui.soluteMass->isChecked();
+    cg.writeEntry("soluteMass", m_soluteMass);
+    
+    m_solventVolume = ui.solventVolume->isChecked();
+    cg.writeEntry("solventVolume", m_solventVolume);
+
+    m_configUpdated = true;
+    updateConstraints();
+
+    emit configNeedsSaving();
 }
 #include "concentrationCalculator.moc"

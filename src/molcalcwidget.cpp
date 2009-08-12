@@ -172,7 +172,7 @@ void MolcalcWidget::clear()
 	ui.resultLabel->clear();
 	ui.resultMass->clear();
 	
-	ui.resultComposition->setText( i18n("To start, enter\na formula in the\nwidget above and\nclick on 'Calc'.") );
+	ui.resultComposition->setText( i18n("Enter a formula in the\nwidget above and\nclick on 'Calc'.\nEg. #Et#OH") );
 
 	ui.resultMass->setToolTip( QString() );
 	ui.resultComposition->setToolTip( QString() );
@@ -202,7 +202,6 @@ void MolcalcWidget::updateUI()
 		        // Update the resultLabel
 		        mass = count->element()->dataAsVariant( ChemicalDataObject::mass ).toDouble();
 
-
 		        ui.table->setItem((int)i, 0, new QTableWidgetItem
 		        	(i18n("%1", count->element()->dataAsString( ChemicalDataObject::name))));
 		        ui.table->setItem((int)i, 1, new QTableWidgetItem
@@ -215,19 +214,18 @@ void MolcalcWidget::updateUI()
 		        	(i18n("%1", mass * count->count()/ m_mass *100)));
 
 		        i++;
-		        
-		        // The alias list
-		        i = 0;
-		        rows = m_aliasList.count();
-		        ui.alias_list->setRowCount(rows);
-		        foreach (QString alias, m_aliasList) {
-		            ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(alias));
-        		}
 		    }
-	        // The composition
-	        ui.resultComposition->setText( compositionString(m_elementMap) );
+		    // The alias list
+		    i = 0;
+		    rows = m_aliasList.count();
+		    ui.alias_list->setRowCount(rows);
+		    foreach (QString alias, m_aliasList) {
+		        ui.alias_list->setItem((int)i++, 0, new QTableWidgetItem(alias));
+        	}
 		}
-
+		
+		// The composition
+        ui.resultComposition->setText( compositionString(m_elementMap) );
 
         // The mass
         ui.resultMass->setText( i18n( "Molecular mass: %1 u", m_mass ) );

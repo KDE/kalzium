@@ -43,12 +43,12 @@ calculator :: calculator(QWidget *parent)
     // Add the concentration calculator to the user interface
     m_concCalculator = new concCalculator(this);
     ui.stack->addWidget(m_concCalculator);
+
     // Add the molecular mass Calculator widget to the user interface
     m_moleCalculator = new MolcalcWidget(this);
     ui.stack->addWidget(m_moleCalculator);
     // Add the molecular mass Calculator widget to the user interface
-//	m_massCalculator = new massCalculator(this);
-//	ui.stack->addWidget(m_massCalculator);
+
 #ifdef HAVE_FACILE
     // Add the equation balancer widget to the user interface
     new QTreeWidgetItem(ui.tree);

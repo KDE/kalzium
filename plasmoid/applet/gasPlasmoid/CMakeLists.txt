@@ -15,6 +15,7 @@ include_directories(
  
 # We add our source code here
 set(gasCalculator_SRCS gasCalculator.cpp)
+kde4_add_ui_files(gasCalculator_SRCS gasCalculatorConfig.ui )
 # Now make sure all files get to the right place
 kde4_add_plugin(gasCalculator ${gasCalculator_SRCS})
 target_link_libraries(gasCalculator 

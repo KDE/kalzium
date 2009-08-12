@@ -40,6 +40,8 @@
 #include <plasma/theme.h>
 #include <math.h>
 
+#include <KConfigDialog>
+
 using namespace Conversion;
 
 nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
@@ -63,10 +65,14 @@ nuclearCalculator::~nuclearCalculator()
  
 void nuclearCalculator::init()
 {
+    KConfigGroup cg = config();
+    
+    m_massOnly = cg.readEntry("massOnly",true);
 } 
  
 void nuclearCalculator::reset()
 {
+	const int ISOTOPE_NUM = 22;
 	error(RESET_NUKE_MESG);
 	
     // Add all isotope names of Uranium ( by default )to the isotope comboBox
@@ -81,11 +87,11 @@ void nuclearCalculator::reset()
     
 	// initialise the data, initially selected values ( Uranium, 92, 238)
     m_element       ->nativeWidget()-> setCurrentIndex(91);
-    m_isotope       ->nativeWidget()-> setCurrentIndex(18);
-    m_halfLife      -> setValue(list.at(18) -> halflife());
+    m_isotope       ->nativeWidget()-> setCurrentIndex(ISOTOPE_NUM);
+    m_halfLife      -> setValue(list.at(ISOTOPE_NUM) -> halflife());
     m_initAmt		-> setValue(6.0);
     m_finalAmt   	-> setValue(3.0);
-    m_time		    -> setValue(list.at(18) -> halflife());
+    m_time		    -> setValue(list.at(ISOTOPE_NUM) -> halflife());
     
     m_halfLifeUnit	   ->nativeWidget()->setCurrentIndex(0);
     m_initType	       ->nativeWidget()->setCurrentIndex(0);
@@ -99,12 +105,12 @@ void nuclearCalculator::reset()
     // Initialise values
     m_InitAmount  = Value(6.0, "g") ;
     m_FinalAmount = Value(3.0, "g");
-    m_Mass = list.at(18) -> mass();
-    m_Time = Value((list.at(18) -> halflife()), "y");
-    m_HalfLife = Value(list.at(18) -> halflife(), "y");
+    m_Mass = list.at(ISOTOPE_NUM) -> mass();
+    m_Time = Value((list.at(ISOTOPE_NUM) -> halflife()), "y");
+    m_HalfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), "y");
 
     m_Element = * KalziumDataObject::instance() -> element(92);
-    m_Isotope = * list.at(18);
+    m_Isotope = * list.at(ISOTOPE_NUM);
 
 	setMode(2);
     // Initialisation of values done
@@ -197,9 +203,9 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    Plasma::Label *timeLabel = new Plasma::Label(this);
 	    timeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    timeLabel->setText(i18n("Time"));
-	    Plasma::Label *time2Label = new Plasma::Label(this);
-	    time2Label->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    time2Label->setText(i18n("Time in Half-Lives"));
+	    Plasma::Label *m_sliderLabel = new Plasma::Label(this);
+	    m_sliderLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+	    m_sliderLabel->setText(i18n("Time in Half-Lives"));
 	    
 	    m_numHalfLives = new Plasma::Label(this);
 	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -278,7 +284,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
   	    pGridLayout2->addItem(initLabel, 6, 0);
    	    pGridLayout2->addItem(finalLabel, 7, 0);
    	    pGridLayout2->addItem(timeLabel, 8, 0);
-   	    pGridLayout2->addItem(time2Label, 9, 0);
+   	    pGridLayout2->addItem(m_sliderLabel, 9, 0);
    	    pGridLayout2->addItem(m_error, 10, 1, 1, 3);
    	    pGridLayout2->addItem(m_reset, 10, 0);
 
@@ -506,16 +512,34 @@ void nuclearCalculator::setMode(int mode)
 	{
 		case 0:
 			m_initAmt->nativeWidget()->setReadOnly(true);
+			showSlider(true);
 			break;
 		case 1:
 			m_finalAmt->nativeWidget()->setReadOnly(true);
+			showSlider(true);
 			break;
 		case 2:
 			m_time->nativeWidget()->setReadOnly(true);
+			showSlider(false);
 			break;
 	}
 	
 	calculate();
+}
+
+void nuclearCalculator::showSlider(bool show)
+{
+/*	if (show) {
+		m_sliderLabel->hide();
+		m_slider->hide();
+		m_numHalfLives->hide();
+	}
+	else {
+		m_sliderLabel->show();
+		m_slider->show();
+		m_numHalfLives->show();	
+	}
+*/
 }
 
 void nuclearCalculator::calculateInitAmount()
@@ -595,6 +619,29 @@ void nuclearCalculator::error( int mode)
 		case FINAL_AMT_GREATER:
 			m_error->setText(i18n("Final amount is greater than initial. Invalid!"));
 			break;
-	}	
+	}
+}
+
+void nuclearCalculator::createNuclearConfigurationInterface(KConfigDialog *parent)
+{
+    QWidget *widget = new QWidget();
+    ui.setupUi(widget);
+    parent->addPage(widget, i18n("General"), icon());
+
+    ui.massOnly->setChecked(m_massOnly);
+}
+
+void nuclearCalculator::nuclearConfigAccepted()
+{
+    KConfigGroup cg = config();
+    QGraphicsItem::update();
+
+    m_massOnly = ui.massOnly->isChecked();
+    cg.writeEntry("massOnly", m_massOnly);
+
+    m_configUpdated = true;
+    updateConstraints();
+
+    emit configNeedsSaving();
 }
 #include "nuclearCalculator.moc"

@@ -25,6 +25,8 @@
 
 #include "kalziumdataobject.h"
 
+#include "ui_nuclearCalculatorConfig.h"
+
 namespace Plasma{
 	class QSizeF;
 	class ComboBox;
@@ -107,11 +109,18 @@ class nuclearCalculator : public Plasma::PopupApplet
  	     */
  	    void setMode(int mode); 
 
-		// This function is called to reset / initialise the calculator
+		/// This function is called to reset / initialise the calculator
 		void reset();
+		
+		/// This function hides the slider just under the time spinBox in the UI
+		void showSlider(bool show);
+		
     private slots:
     // will be added soon
-     
+    
+    protected:
+        void createNuclearConfigurationInterface(KConfigDialog *parent);
+        void nuclearConfigAccepted();
     private:
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_element;
@@ -133,6 +142,7 @@ class nuclearCalculator : public Plasma::PopupApplet
         Plasma::PushButton *m_reset;
         Plasma::Label *m_numHalfLives;
         Plasma::Label *m_error;
+        Plasma::Label *m_sliderLabel;
         Element m_Element;                      // Current element
 	    Isotope m_Isotope;                      // current isotope
 	    Value m_HalfLife;                       // The halfLife
@@ -141,6 +151,11 @@ class nuclearCalculator : public Plasma::PopupApplet
 	    Value m_Time;                           // the time involved in calculation
 	    double m_Mass;                          // the atomic mass of the isotope        
 	    int m_mode;
+	    
+	    /// Designer Config file
+        Ui::nuclearCalculatorConfig ui;
+        bool m_configUpdated;
+        bool m_massOnly;
 };
  
 // This is the command that links your applet to the .desktop file

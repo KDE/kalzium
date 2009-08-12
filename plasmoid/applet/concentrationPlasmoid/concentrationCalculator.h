@@ -20,6 +20,7 @@
 #include <converter.h>
 #include <value.h>
 
+#include "ui_concentrationCalculatorConfig.h"
 namespace Plasma{
 	class QSizeF;
 	class ComboBox;
@@ -109,7 +110,11 @@ class concentrationCalculator : public Plasma::PopupApplet
 	     * @param mode is the mode of calculation.
 	     */
 	    void setMode(int mode);
-     
+
+    protected:
+        void createConcConfigurationInterface(KConfigDialog *parent);
+        void concConfigAccepted();
+
     private:
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_amountSoluteType;
@@ -144,7 +149,14 @@ class concentrationCalculator : public Plasma::PopupApplet
 	    Value m_DensitySolvent;                     // density of the solvent
 	    double m_Concentration;                     // concentration of the solution
 	    int	m_mode;									// mode of calculation
-      
+
+   	    /// Designer Config file
+        Ui::concentrationCalculatorConfig ui;
+        bool m_configUpdated;
+        // Indicates solute is always given in terms of mass
+        bool m_soluteMass;					// For configuration
+        // Indicates solvent is always given in terms of volume
+        bool m_solventVolume;				// For configuration
 };
  
 // This is the command that links your applet to the .desktop file

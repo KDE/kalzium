@@ -21,6 +21,8 @@
 #include <converter.h>
 #include <value.h>
 
+#include "ui_gasCalculatorConfig.h"
+
 #define R 0.08206
 
 namespace Plasma{
@@ -121,6 +123,10 @@ class gasCalculator : public Plasma::PopupApplet
 	    // This function initialises/ resets the class
 	    void reset();
 
+    protected:
+        void createGasConfigurationInterface(KConfigDialog *parent);
+        void gasConfigAccepted();
+
     private:
     
     // The following objects are for the user interface
@@ -159,6 +165,13 @@ class gasCalculator : public Plasma::PopupApplet
 	    double m_Vand_A;                    // Vander val's constant a      
 	    
 	    int m_mode;							// mode of calculation
+	    
+   	    /// Designer Config file
+        Ui::gasCalculatorConfig ui;
+        bool m_configUpdated;
+        // Indicates whether gas is assumed to be ideal by default
+        bool m_ideal;
+
 };
  
 // This is the command that links your applet to the .desktop file

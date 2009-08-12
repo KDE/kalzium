@@ -141,7 +141,7 @@ p, li { white-space: pre-wrap; }
         </property>
         <item>
          <property name="text">
-          <string>year</string>
+          <string>years</string>
          </property>
         </item>
         <item>
@@ -557,7 +557,7 @@ p, li { white-space: pre-wrap; }
           </property>
           <item>
            <property name="text">
-            <string>year</string>
+            <string>years</string>
            </property>
           </item>
           <item>
