@@ -19,7 +19,6 @@
 #include <QRadioButton>
 #include <KTextEdit>
 #include <QSlider>
-#include <QPushButton>
 #include <QSpinBox>
 #include <KIntSpinBox>
 #include <KComboBox>

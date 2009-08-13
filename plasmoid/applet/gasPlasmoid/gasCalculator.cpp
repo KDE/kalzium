@@ -17,7 +17,6 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QRadioButton>
-#include <QPushButton>
 #include <KTextEdit>
 #include <QSlider>
 #include <QSpinBox>
