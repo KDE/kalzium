@@ -202,9 +202,9 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    Plasma::Label *timeLabel = new Plasma::Label(this);
 	    timeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    timeLabel->setText(i18n("Time"));
-	    Plasma::Label *m_sliderLabel = new Plasma::Label(this);
+/*x	    Plasma::Label *m_sliderLabel = new Plasma::Label(this);
 	    m_sliderLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    m_sliderLabel->setText(i18n("Time in Half-Lives"));
+	    m_sliderLabel->setText(i18n("Time in Half-Lives"));*/
 	    
 	    m_numHalfLives = new Plasma::Label(this);
 	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -269,10 +269,10 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
          << tr2i18n("moles", 0));
 		m_finalType->setZValue(1);
 		
-		m_slider = new Plasma::Slider(this);
+/*		m_slider = new Plasma::Slider(this);
 		m_slider->setRange(0, 100);
 		m_slider->setOrientation(Qt::Horizontal);
-		m_slider->setMaximum(100);
+		m_slider->setMaximum(100); */
 		
 		m_error = new Plasma::Label(this);
 		
@@ -283,7 +283,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
   	    pGridLayout2->addItem(initLabel, 6, 0);
    	    pGridLayout2->addItem(finalLabel, 7, 0);
    	    pGridLayout2->addItem(timeLabel, 8, 0);
-   	    pGridLayout2->addItem(m_sliderLabel, 9, 0);
+// 	    pGridLayout2->addItem(m_sliderLabel, 9, 0);
    	    pGridLayout2->addItem(m_error, 10, 1, 1, 3);
    	    pGridLayout2->addItem(m_reset, 10, 0);
 
@@ -291,7 +291,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
   	    pGridLayout2->addItem(m_initAmt, 6, 1);
    	    pGridLayout2->addItem(m_finalAmt, 7, 1);
    	    pGridLayout2->addItem(m_time, 8, 1);
-   	    pGridLayout2->addItem(m_slider , 9, 1);
+// 	    pGridLayout2->addItem(m_slider , 9, 1);
    	    
    	    pGridLayout2->addItem(m_initType, 6, 3);
    	    pGridLayout2->addItem(m_finalType, 7, 3);
@@ -349,8 +349,8 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	            this, SLOT(timeChanged()));
 	    connect(m_timeUnit->nativeWidget(), SIGNAL(activated(int)),
 	            this, SLOT(timeChanged()));
-	    connect(m_slider, SIGNAL(valueChanged(int)),
-	            this, SLOT(sliderMoved(int)));
+/*	    connect(m_slider, SIGNAL(valueChanged(int)),
+	            this, SLOT(sliderMoved(int)));*/
 		connect(m_calculationMode->nativeWidget(), SIGNAL(activated(int)),
 				this, SLOT(setMode(int)));
 		connect(m_reset, SIGNAL(clicked()),
@@ -452,7 +452,7 @@ void nuclearCalculator::timeChanged()
     calculate();
 }
 
-void nuclearCalculator::sliderMoved(int numHlives)
+/*void nuclearCalculator::sliderMoved(int numHlives)
 {
     double num = numHlives / 10.0;
     m_Time = Value(num * m_HalfLife. number() , m_HalfLife. unit());
@@ -460,7 +460,7 @@ void nuclearCalculator::sliderMoved(int numHlives)
     m_time-> setValue(m_Time. number());
     m_timeUnit->nativeWidget()-> setCurrentIndex(m_halfLifeUnit->nativeWidget()-> currentIndex());
     m_numHalfLives-> setText(m_Time . toString());
-}
+}*/
 
 void nuclearCalculator::calculate()
 {
@@ -488,7 +488,8 @@ void nuclearCalculator::calculate()
 	        break;	        
 	    case 2: // Calculate Time
 	        // If final amount greater than initial, error
-	        if (m_FinalAmt-> value() > m_initAmt-> value()) {
+    	    if (m_FinalAmount.number() > (Converter::self()->convert(m_InitAmount,
+    	    	m_FinalAmount.unit()->symbol())).number()) {
 	        	error(FINAL_AMT_GREATER);
 	            return;
 	        } else if (m_finalAmt-> value() == 0.0)
@@ -514,15 +515,15 @@ void nuclearCalculator::setMode(int mode)
 	{
 		case 0:
 			m_initAmt->nativeWidget()->setReadOnly(true);
-			showSlider(true);
+//			showSlider(true);
 			break;
 		case 1:
 			m_finalAmt->nativeWidget()->setReadOnly(true);
-			showSlider(true);
+//			showSlider(true);
 			break;
 		case 2:
 			m_time->nativeWidget()->setReadOnly(true);
-			showSlider(false);
+//			showSlider(false);
 			break;
 	}
 	
@@ -554,11 +555,11 @@ void nuclearCalculator::calculateInitAmount()
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_Time, m_HalfLife. unit() \
-                    -> toString(1.0)). number()) /m_HalfLife. number();
+                    ->symbol()). number()) /m_HalfLife. number();
     // find out the initial amount
     m_InitAmount = Value(m_InitAmount. number() * pow(2.0 , ratio), m_InitAmount. unit());
     // Convert into the required units
-    m_InitAmount = Converter::self()->convert(m_InitAmount, m_InitAmount. unit()-> toString(1.0));
+    m_InitAmount = Converter::self()->convert(m_InitAmount, m_InitAmount. unit()->symbol());
     m_initAmt-> setValue(m_InitAmount . number());
 }
 
@@ -572,11 +573,11 @@ void nuclearCalculator::calculateFinalAmount()
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_Time , m_HalfLife. unit() \
-                    -> toString(1.0)). number()) / m_HalfLife. number();
+                    ->symbol()). number()) / m_HalfLife. number();
     // Calculate the final amount
     m_FinalAmount = Value(m_FinalAmount . number() / pow(2.0, ratio), m_InitAmount. unit());
     // Convert into the required units
-    m_FinalAmount = Converter::self()->convert(m_FinalAmount, m_FinalAmount. unit() -> toString(1.0));
+    m_FinalAmount = Converter::self()->convert(m_FinalAmount, m_FinalAmount. unit()->symbol());
     m_finalAmt-> setValue(m_FinalAmount. number());
 }
 
@@ -592,14 +593,14 @@ void nuclearCalculator::calculateTime()
     }
 
     // calculate the ratio of final to initial masses
-    double ratio = (Converter::self()->convert(m_InitAmount , m_FinalAmount. unit() \
-                    -> toString(1.0)). number()) / m_FinalAmount. number();
+    double ratio = (Converter::self()->convert(m_InitAmount , m_FinalAmount.unit()\
+    				->symbol())).number() / m_FinalAmount.number();
     // The number of halfLives ( log 2 ( x ) = log x / log 2 )
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_HalfLife . number();
     // Calculate the total time taken
     Value temp = Value(time_value, m_HalfLife. unit());
-    m_Time = Converter::self()->convert(temp , m_Time. unit() -> toString(1.0));
+    m_Time = Converter::self()->convert(temp , m_Time.unit()->symbol());
     m_time-> setValue(m_Time. number());
 }
 

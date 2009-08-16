@@ -91,11 +91,12 @@ class nuclearCalculator : public Plasma::PopupApplet
 		/// occurs when the time is changed in the UI
 		void timeChanged();
 
-		/*
+/* x	/*
 		 * occurs when the slider in the ui is moved
 		 * @param x is 10 times the number of halfLives indicated in the slider
 		 */
-		void sliderMoved(int x);
+/*x  	void sliderMoved(int x);
+*/
 		
 		/*
 		 * Used to display error messages
@@ -138,11 +139,11 @@ class nuclearCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_finalAmt;
         Plasma::SpinBox *m_time;
 
-		Plasma::Slider *m_slider;
+//		Plasma::Slider *m_slider;
         Plasma::PushButton *m_reset;
         Plasma::Label *m_numHalfLives;
         Plasma::Label *m_error;
-        Plasma::Label *m_sliderLabel;
+//        Plasma::Label *m_sliderLabel;
         Element m_Element;                      // Current element
 	    Isotope m_Isotope;                      // current isotope
 	    Value m_HalfLife;                       // The halfLife
