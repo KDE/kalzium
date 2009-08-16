@@ -744,9 +744,11 @@ void concCalculator::amtSoluteChanged()
     switch (type) {
     	case 0:
     	case 1:
-			m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());    	
+			m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
+			break;
     	case 2:
-           m_molesSolute = ui.amtSolute -> value(); 	
+           m_molesSolute = ui.amtSolute -> value();
+           break;           
     }
     calculate();
 }

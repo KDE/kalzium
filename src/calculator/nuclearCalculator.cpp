@@ -131,8 +131,8 @@ void nuclearCalculator::init()
     m_initAmount  = Value(6.0, "g") ;
     m_finalAmount = Value(3.0, "g");
     m_mass = list.at(ISOTOPE_NUM) -> mass();
-    m_time = Value((list.at(ISOTOPE_NUM) -> halflife()), "y");
-    m_halfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), "y");
+    m_time = Value((list.at(ISOTOPE_NUM) -> halflife()), "years");
+    m_halfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), "years");
 
     m_element = * KalziumDataObject::instance() -> element(92);
     m_isotope = * list.at(ISOTOPE_NUM);
@@ -177,7 +177,7 @@ void  nuclearCalculator::isotopeChanged(int index)
 
     // A string used for searching the right unit
     QString halfLifeUnit = list.at(index) -> halflifeUnit();
-    halfLifeUnit = (halfLifeUnit == "y") ? "year" : "seconds";
+    halfLifeUnit = (halfLifeUnit == "y") ? "years" : "seconds";
 
     QString tempStr;                // A temporary string
     tempStr.setNum(m_mass);
@@ -302,7 +302,7 @@ void  nuclearCalculator::calculate()
     	        return;
     	    }
     	    calculateInitAmount();
-        
+        	break;
     	case 1:	    // Calulate final Amount after given time
 	        if (ui.initAmt->value() == 0.0)
 	       	{
@@ -310,9 +310,10 @@ void  nuclearCalculator::calculate()
             	return;
             }
 	        calculateFinalAmount();
-        
+        	break;
     	case 2: 	// final amount greater than initial
-    	    if (ui.finalAmt -> value() > ui.initAmt -> value())
+    	    if (m_finalAmount.number() > (Converter::self()->convert(m_initAmount,
+    	    	m_finalAmount.unit()->symbol())).number())
     	    {
         	    error ( FINAL_AMT_GREATER );
         	    return;
@@ -329,7 +330,7 @@ void  nuclearCalculator::calculate()
         		return;
         	}
 	        calculateTime();
-        
+	        break;
     }
 }
 
@@ -339,17 +340,17 @@ void nuclearCalculator::calculateInitAmount()
 	
     // If no time has elapsed, initial and final amounts are the same
     if (m_time.number() == 0.0) {
-		m_initAmount = Converter::self()->convert(m_finalAmount, ui.initAmt_unit() -> toString(1.0);
-		ui.initAmount->setValue (m_initAmount.number());
+		m_initAmount = Converter::self()->convert(m_finalAmount, m_initAmount.unit()->symbol());
+		ui.initAmt->setValue (m_initAmount.number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
-    double ratio = (Converter::self()->convert(m_time , m_halfLife.unit() \
-                    -> toString(1.0)).number()) / m_halfLife.number();
+    double ratio = (Converter::self()->convert(m_time , m_halfLife.unit()->symbol()))
+    				.number() / m_halfLife.number();
     // find out the initial amount
-    m_initAmount = Value(m_initAmount.number() * pow(2.0 , ratio), m_initAmount.unit() -> toString(1.0));
+    m_initAmount = Value(m_initAmount.number() * pow(2.0 , ratio), m_initAmount.unit());
     // Convert into the required units
-    m_initAmount = Converter::self()->convert(m_initAmount, m_initAmount.unit() -> toString(1.0));
+    m_initAmount = Converter::self()->convert(m_initAmount, m_initAmount.unit()->symbol());
     ui.initAmt  -> setValue(m_initAmount.number());
 }
 
@@ -357,17 +358,17 @@ void nuclearCalculator::calculateFinalAmount()
 {
     // If no time has elapsed, initial and final amounts are the same
     if (m_time.number() == 0.0) {
-	    m_finalAmount = Converter::self()->convert(m_initAmount, m_finalAmount.unit() -> toString(1.0));    
+	    m_finalAmount = Converter::self()->convert(m_initAmount, m_finalAmount.unit()->symbol());    
 		ui.finalAmt->setValue (m_finalAmount.number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
     double ratio = (Converter::self()->convert(m_time , m_halfLife.unit() \
-                    -> toString(1.0)).number()) / m_halfLife.number();
+                    ->symbol()).number()) / m_halfLife.number();
     // Calculate the final amount
-    m_finalAmount = Value(m_finalAmount.number() / pow(2.0, ratio) , m_initAmount.unit() -> toString(1.0));
+    m_finalAmount = Value(m_finalAmount.number() / pow(2.0, ratio), m_initAmount.unit());
     // Convert into the required units
-    m_finalAmount = Converter::self()->convert(m_finalAmount, m_finalAmount.unit() -> toString(1.0));
+    m_finalAmount = Converter::self()->convert(m_finalAmount, m_finalAmount.unit()->symbol());
     ui.finalAmt -> setValue(m_finalAmount.number());
 }
 
@@ -383,14 +384,15 @@ void nuclearCalculator::calculateTime()
     }
 
     // calculate the ratio of final to initial masses
-    double ratio = (Converter::self()->convert(m_initAmount , m_finalAmount.unit() \
-                    -> toString(1.0)).number()) / m_finalAmount.number();
+    double ratio = (Converter::self()->convert(m_initAmount , m_finalAmount.unit()->symbol())) \
+                    .number() / m_finalAmount.number();
+                    
     // The number of halfLives ( log 2 ( x ) = log x / log 2 )
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_halfLife.number();
     // Calculate the total time taken
-    Value temp = Value(time_value, m_halfLife.unit() -> toString(1.0));
-    m_time = Converter::self()->convert(temp , m_time.unit() -> toString(1.0));
+	Value time = Value(time_value, m_halfLife.unit());
+    m_time = Converter::self()->convert(time, ui.time_unit->currentText());
     ui.time -> setValue(m_time.number());
     
     return;
