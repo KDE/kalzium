@@ -535,6 +535,10 @@ void gasCalculator::molesChanged(int value)
 // occurs when the molar mass is changed
 void gasCalculator::molarMassChanged(int value)
 {
+	if ( value == 0.0 ) {
+		error(MOLAR_MASS_ZERO_);
+		return;
+	}
     m_MolarMass = value;
     m_Mass = Value(m_MolarMass * m_Moles, "grams");
     m_Mass = (Converter::self()->convert(m_Mass, m_massUnit->nativeWidget()->currentText()));
@@ -617,6 +621,9 @@ void gasCalculator::error(int mode)
     	break;
     case VOL_ZERO :
         m_error->setText(i18n("Volume cannot be zero, please correct the error!"));
+        break;
+    case MOLAR_MASS_ZERO_:
+    	m_error->setText(i18n("The molar mass cannot be zero, please enter a non-zero value"));
     default:
         break;
     }

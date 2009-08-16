@@ -38,7 +38,8 @@ namespace Plasma{
 
 enum ERROR_TYPE_GAS {
 	RESET_GAS_MESG = 0,
-    VOL_ZERO
+    VOL_ZERO,
+    MOLAR_MASS_ZERO_
 };
 
 using namespace Conversion;

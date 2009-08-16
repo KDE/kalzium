@@ -478,15 +478,17 @@ void nuclearCalculator::calculate()
 	            return;
 	        }
 	        calculateInitAmount();
+	        break;
 	    case 1: // Calulate final Amount after time
 	        if (m_InitAmount.number() == 0.0) {
 	    	   	error(INIT_AMT_ZERO);
 	    	    return;
 	    	}         
 	        calculateFinalAmount();
+	        break;	        
 	    case 2: // Calculate Time
 	        // If final amount greater than initial, error
-	        if (m_finalAmt-> value() > m_initAmt-> value()) {
+	        if (m_FinalAmt-> value() > m_initAmt-> value()) {
 	        	error(FINAL_AMT_GREATER);
 	            return;
 	        } else if (m_finalAmt-> value() == 0.0)
@@ -494,8 +496,9 @@ void nuclearCalculator::calculate()
 	        	error(FINAL_AMT_ZERO);
 	            return;
 	        }
+        	calculateTime();
+	        break;        
 	}
-        calculateTime();
 }
 
 void nuclearCalculator::setMode(int mode)

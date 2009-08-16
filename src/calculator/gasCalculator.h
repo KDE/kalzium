@@ -40,7 +40,8 @@ using namespace Conversion;
 // This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_TYPE_GAS {
 	RESET_GAS_MESSAGE = 0,
-    VOL_ZERO
+    VOL_ZERO,
+    MOLAR_MASS_ZERO_
 };
 
 // This is the enumeration for the mode of calculation for the gas calculator
