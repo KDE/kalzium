@@ -89,9 +89,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 		pGridLayout->addItem(pHeader, 0, 0, 1, 4);
 		
 		// Set up the user interface
-		
-		
-	    // Calculation mode
+		// Calculation mode
 		Plasma::Label *calcModeLabel = new Plasma::Label(this);
  		calcModeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
  		calcModeLabel->setText(i18n("Calculation Mode:"));
@@ -358,7 +356,7 @@ void gasCalculator::reset()
 
     m_molarMass    -> setValue(2.008);
     m_temperature  -> setValue(273.0);
-    m_volume       -> setValue(22.400);
+    m_volume       -> setValue(22.4024);
     m_pressure     -> setValue(1.0);
     m_Vand_a       -> setValue(0.0);
     m_Vand_b       -> setValue(0.0);
@@ -372,19 +370,21 @@ void gasCalculator::reset()
     m_volumeUnit      ->nativeWidget()->setCurrentIndex(0);
     m_bUnit		      ->nativeWidget()->setCurrentIndex(0);
     m_aUnit		      ->nativeWidget()->setCurrentIndex(0);
+    m_calculationMode ->nativeWidget()->setCurrentIndex(3);
     		
     // Initialise values
     m_Temp = Value(273.0, "kelvins");
     m_MolarMass = 2.016;
-    m_Pressure = Value(1.0, "atmosphere");
-    m_Mass = Value(2.016, "grams");
     m_Moles = 1.0;
+    m_Mass = Value( m_MolarMass * m_Moles, "grams");
+    m_Pressure = Value(1.0, "atmosphere");
     m_Vand_A = 0.0;
     m_Vand_B = Value(0.0, "liters");
-    m_Vol = Value(22.4, "liters");
+    m_Vol = Value(22.4024, "liters");
     // Initialisation of values done
     
     setMode(3);
+    molarMassChanged(2);
 }
 /*
     Note:-
@@ -526,10 +526,12 @@ void gasCalculator::massChanged()
 void gasCalculator::molesChanged(int value)
 {
     m_Moles = value;
-    m_Mass = Value(m_Moles * m_MolarMass, "grams");
+    m_Mass = Value((m_Moles * m_MolarMass), "grams");
     m_Mass = (Converter::self()->convert(m_Mass, m_massUnit->nativeWidget()->currentText()));
     m_mass->setValue(m_Mass.number());
-    calculate();
+    QString temp;
+    temp.setNum(value);
+    calculate();    
 }
 
 // occurs when the molar mass is changed
