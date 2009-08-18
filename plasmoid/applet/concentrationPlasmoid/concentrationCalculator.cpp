@@ -344,7 +344,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    connect(m_amountSolute, SIGNAL(valueChanged(int)),
 	            this, SLOT(amountSoluteChanged()));
 	    connect(m_amountSoluteType->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(amountSoluteChanged()));
+	            this, SLOT(amountSoluteTypeChanged()));
 	    connect(m_amountSoluteUnit->nativeWidget(), SIGNAL(activated(int)),
 	            this, SLOT(amountSoluteChanged()));
 	    connect(m_molarMass, SIGNAL(valueChanged(int)),
