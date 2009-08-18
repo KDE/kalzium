@@ -77,7 +77,9 @@ class concentrationCalculator : public Plasma::PopupApplet
 	    // Sub routines which act as quantity change event handlers
 
 	    void amountSoluteChanged();         // occurs when the amount of solute is changed
+	    void amountSoluteTypeChanged();		// occurs when the mode of amount of solute is changed
 	    void amountSolventChanged();        // occurs when the amount of solvent is changed
+	    void amountSolventTypeChanged();	// occurs when the mode of amount of solvent is changed
 	    void molarMassChanged(int);         // occurs when the molar mass of solute is changed
 	    void eqtMassChanged(int);           // occurs when the equivalent mass of solute is changed
 	    void molarMassSolventChanged(int);  // occurs when the molar mass of solvent is changed

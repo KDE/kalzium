@@ -358,7 +358,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    connect(m_amountSolvent, SIGNAL(valueChanged(int)),
 	            this, SLOT(amountSolventChanged()));
 	    connect(m_amountSolventType->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(amountSolventChanged()));
+	            this, SLOT(amountSolventTypeChanged()));
 	    connect(m_amountSolventUnit->nativeWidget(), SIGNAL(activated(int)),
 	            this, SLOT(amountSolventChanged()));
 	    connect(m_amountSolventUnit->nativeWidget(), SIGNAL(activated(int)),
@@ -415,15 +415,16 @@ void concentrationCalculator::reset()
     m_DensitySolvent = Value(1000.0, "grams per liter");
     
     m_amountSoluteType	 ->nativeWidget()->setCurrentIndex(0);
+    m_amountSolventType  ->nativeWidget()->setCurrentIndex(0);    
+    m_amountSoluteUnit	 ->nativeWidget()->setCurrentIndex(0);
     m_amountSolventUnit	 ->nativeWidget()->setCurrentIndex(0);
-    m_densitySoluteUnit    ->nativeWidget()->setCurrentIndex(0);
-    m_amountSolventType  ->nativeWidget()->setCurrentIndex(0);
-    m_amountSolventUnit ->nativeWidget()->setCurrentIndex(0);
-    m_densitySolventUnit->nativeWidget()->setCurrentIndex(0);
+    m_densitySolventUnit ->nativeWidget()->setCurrentIndex(0);
+    m_densitySoluteUnit  ->nativeWidget()->setCurrentIndex(0);    
     m_concentrationUnit	 ->nativeWidget()->setCurrentIndex(0);
 	m_calculationMode	 ->nativeWidget()->setCurrentIndex(5);
 	
 	setMode(5);
+	calculate();
 	// Initialisation of values done
 }
 // Calculates the amount of solute
@@ -994,6 +995,22 @@ double concentrationCalculator::densitySolute()
 void concentrationCalculator::amountSoluteChanged()
 {
     int type = m_amountSoluteType -> nativeWidget()->currentIndex();
+    switch (type) {
+    	case 0:
+    	case 1:
+			m_AmtSolute = Value(m_amountSolute -> value(), m_amountSoluteUnit -> nativeWidget()->currentText());
+			break;
+    	case 2:
+           m_MolesSolute = m_amountSolute -> value();
+           break;           
+    }
+    calculate();
+}
+
+// occurs when the type in which amount of solute is specified is changed
+void concentrationCalculator::amountSoluteTypeChanged()
+{
+    int type = m_amountSoluteType -> nativeWidget()->currentIndex();
     if (type == 0) {         // amount of solute specified in terms of mass
         m_amountSoluteUnit->nativeWidget()->clear();
    	    m_amountSoluteUnit->nativeWidget()->insertItems(0, QStringList()
@@ -1027,9 +1044,23 @@ void concentrationCalculator::amountSoluteChanged()
     }
     calculate();
 }
-
 // occurs when the amount of solvent is changed
 void concentrationCalculator::amountSolventChanged()
+{
+    int type = m_amountSolventType -> nativeWidget()->currentIndex();
+    switch (type) {     // amount of solvent specified in terms of volume
+    	case 0:
+    	case 1:
+	        m_AmtSolvent = Value(m_amountSolvent -> value(), m_amountSolventUnit -> nativeWidget()->currentText());
+	    	break;
+	    case 2:
+	    	m_MolesSolvent = m_amountSolvent -> value();
+	    	break;
+	}
+	calculate(); 
+}
+
+void concentrationCalculator::amountSolventTypeChanged()
 {
     int type = m_amountSolventType -> nativeWidget()->currentIndex();
     if (type == 0) {     // amount of solvent specified in terms of volume
