@@ -14,7 +14,7 @@
    <item>
     <widget class="QCheckBox" name="ideal">
      <property name="text">
-      <string>Assume Gas is ideal (Do not show Van der Waals co-efficients)</string>
+      <string>Assume Gas is ideal (Do not show Van der Waals coefficients)</string>
      </property>
      <property name="checked">
       <bool>true</bool>
