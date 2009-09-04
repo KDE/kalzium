@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-$XGETTEXT *.cpp -o $podir/gasCalculator.pot
+$XGETTEXT *.cpp -o $podir/plasma_applet_gasCalculator.pot
