@@ -706,12 +706,12 @@ void concCalculator::amtSoluteTypeChanged()
         ui.amtSlt_unit -> show();
         ui.amtSlt_unit->clear();
         ui.amtSlt_unit->insertItems(0, QStringList()
-         << i18n("grams", 0)
-         << i18n("tons", 0)
-         << i18n("carats", 0)
-         << i18n("pounds", 0)
-         << i18n("ounces", 0)
-         << i18n("troy ounces", 0)
+         << i18n("grams")
+         << i18n("tons")
+         << i18n("carats")
+         << i18n("pounds")
+         << i18n("ounces")
+         << i18n("troy ounces")
         );
         ui.amtSlt_unit->setCurrentIndex(0);
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
@@ -719,15 +719,15 @@ void concCalculator::amtSoluteTypeChanged()
         ui.amtSlt_unit -> show();
 		ui.amtSlt_unit->clear();
         ui.amtSlt_unit->insertItems(0, QStringList()
-         << i18n("liter", 0)
-         << i18n("cubic meters", 0)
-         << i18n("cubic feet", 0)
-         << i18n("cubic inch", 0)
-         << i18n("cubic mile", 0)
-         << i18n("fluid ounce", 0)
-         << i18n("cups", 0)
-         << i18n("gallons", 0)
-         << i18n("pints", 0)
+         << i18n("liter")
+         << i18n("cubic meters")
+         << i18n("cubic feet")
+         << i18n("cubic inch")
+         << i18n("cubic mile")
+         << i18n("fluid ounce")
+         << i18n("cups")
+         << i18n("gallons")
+         << i18n("pints")
         );
         ui.amtSlt_unit->setCurrentIndex(0);
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
@@ -760,27 +760,27 @@ void concCalculator::amtSolventTypeChanged()
         ui.amtSlvt_unit-> show();
 		ui.amtSlvt_unit->clear();
         ui.amtSlvt_unit->insertItems(0, QStringList()
-         << i18n("liter", 0)
-         << i18n("cubic meters", 0)
-         << i18n("cubic feet", 0)
-         << i18n("cubic inch", 0)
-         << i18n("cubic mile", 0)
-         << i18n("fluid ounce", 0)
-         << i18n("cups", 0)
-         << i18n("gallons", 0)
-         << i18n("pints", 0)
+         << i18n("liter")
+         << i18n("cubic meters")
+         << i18n("cubic feet")
+         << i18n("cubic inch")
+         << i18n("cubic mile")
+         << i18n("fluid ounce")
+         << i18n("cups")
+         << i18n("gallons")
+         << i18n("pints")
         );
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else if (type == 1) { // amount of solvent is specified in terms of mass
         ui.amtSlvt_unit -> show();
         ui.amtSlvt_unit->clear();
         ui.amtSlvt_unit->insertItems(0, QStringList()
-         << i18n("grams", 0)
-         << i18n("tons", 0)
-         << i18n("carats", 0)
-         << i18n("pounds", 0)
-         << i18n("ounces", 0)
-         << i18n("troy ounces", 0)
+         << i18n("grams")
+         << i18n("tons")
+         << i18n("carats")
+         << i18n("pounds")
+         << i18n("ounces")
+         << i18n("troy ounces")
          );
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else {
