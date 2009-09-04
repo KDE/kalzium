@@ -53,7 +53,7 @@ calculator :: calculator(QWidget *parent)
     // Add the equation balancer widget to the user interface
     new QTreeWidgetItem(ui.tree);
     QTreeWidgetItem *___qtreewidgetitem6 = ui.tree->topLevelItem(5);
-    ___qtreewidgetitem6->setText(0, tr2i18n("Equation Balancer", 0));
+    ___qtreewidgetitem6->setText(0, i18n("Equation Balancer", 0));
         
     m_equationBalancer = new EQChemDialog(this);
     ui.stack->addWidget(m_equationBalancer);
