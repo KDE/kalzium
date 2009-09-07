@@ -161,12 +161,12 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 
 		m_halfLifeUnit = new Plasma::ComboBox(this);
 		m_halfLifeUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("year", 0)
-         << tr2i18n("seconds", 0)
-         << tr2i18n("minutes", 0)
-         << tr2i18n("hours", 0)
-         << tr2i18n("days", 0)
-         << tr2i18n("weeks", 0));
+         << i18n("year", 0)
+         << i18n("seconds", 0)
+         << i18n("minutes", 0)
+         << i18n("hours", 0)
+         << i18n("days", 0)
+         << i18n("weeks", 0));
 	    m_halfLifeUnit->setZValue(6);
 	    
 	    pGridLayout->addItem(pHeader, 0, 0, 1, 4);
@@ -188,9 +188,9 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
  		m_calculationMode = new Plasma::ComboBox(this);
  		m_calculationMode->setZValue(3);
  		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
- 		 << tr2i18n("Initial amount", 0)
- 		 << tr2i18n("Final amount", 0)
- 		 << tr2i18n("Time", 0)
+ 		 << i18n("Initial amount", 0)
+ 		 << i18n("Final amount", 0)
+ 		 << i18n("Time", 0)
  		);
  		
 	    Plasma::Label *initLabel = new Plasma::Label(this);
@@ -225,48 +225,48 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 		m_initUnit = new Plasma::ComboBox(this);
 		m_initUnit->setZValue(2);
 	    m_initUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams", 0)
-         << tr2i18n("tons", 0)
-         << tr2i18n("carats", 0)
-         << tr2i18n("pounds", 0)
-         << tr2i18n("ounces", 0)
-         << tr2i18n("troy ounces", 0));
+         << i18n("grams", 0)
+         << i18n("tons", 0)
+         << i18n("carats", 0)
+         << i18n("pounds", 0)
+         << i18n("ounces", 0)
+         << i18n("troy ounces", 0));
         m_initUnit->setZValue(3);
          
 	    m_finalUnit = new Plasma::ComboBox(this);
 	    m_finalUnit->setZValue(2);
 	    m_finalUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams", 0)
-         << tr2i18n("tons", 0)
-         << tr2i18n("carats", 0)
-         << tr2i18n("pounds", 0)
-         << tr2i18n("ounces", 0)
-         << tr2i18n("troy ounces", 0));
+         << i18n("grams", 0)
+         << i18n("tons", 0)
+         << i18n("carats", 0)
+         << i18n("pounds", 0)
+         << i18n("ounces", 0)
+         << i18n("troy ounces", 0));
         m_finalUnit->setZValue(2);
          
 	    m_timeUnit = new Plasma::ComboBox(this);
 	    m_timeUnit->setZValue(2);
 	    m_timeUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("year", 0)
-         << tr2i18n("seconds", 0)
-         << tr2i18n("minutes", 0)
-         << tr2i18n("hours", 0)
-         << tr2i18n("days", 0)
-         << tr2i18n("weeks", 0));
+         << i18n("year", 0)
+         << i18n("seconds", 0)
+         << i18n("minutes", 0)
+         << i18n("hours", 0)
+         << i18n("days", 0)
+         << i18n("weeks", 0));
         m_timeUnit->setZValue(1);
         
 	    m_initType = new Plasma::ComboBox(this);
 	    m_initType->setZValue(2);
 	    m_initType->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("Mass", 0)
-         << tr2i18n("moles", 0));
+         << i18n("Mass", 0)
+         << i18n("moles", 0));
         m_initType->setZValue(2);
          	
 	    m_finalType = new Plasma::ComboBox(this);
 	    m_finalType->setZValue(2);
 	    m_finalType->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("Mass", 0)
-         << tr2i18n("moles", 0));
+         << i18n("Mass", 0)
+         << i18n("moles", 0));
 		m_finalType->setZValue(1);
 		
 /*		m_slider = new Plasma::Slider(this);

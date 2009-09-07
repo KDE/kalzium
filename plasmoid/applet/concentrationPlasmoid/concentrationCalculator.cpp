@@ -103,12 +103,12 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 		
 		m_calculationMode->setZValue(3);
 		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
-		 << tr2i18n("Amount Solute", 0)
-		 << tr2i18n("Molar Mass of Solute", 0)
-		 << tr2i18n("Equivalent Mass", 0)
-		 << tr2i18n("Amount Solvent", 0)
-		 << tr2i18n("Molar Mass of Solvent", 0)
-		 << tr2i18n("Concentration", 0)
+		 << i18n("Amount Solute", 0)
+		 << i18n("Molar Mass of Solute", 0)
+		 << i18n("Equivalent Mass", 0)
+		 << i18n("Amount Solvent", 0)
+		 << i18n("Molar Mass of Solvent", 0)
+		 << i18n("Concentration", 0)
 		);
 		
 		pGridLayout->addItem(calcModeLabel, 1, 0);
@@ -127,20 +127,20 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    m_amountSoluteType = new Plasma::ComboBox(this);
 	    m_amountSoluteType->setZValue(2);
         m_amountSoluteType->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("Mass", 0)
-         << tr2i18n("volume", 0)
-         << tr2i18n("moles", 0)
+         << i18n("Mass", 0)
+         << i18n("volume", 0)
+         << i18n("moles", 0)
         );
         
    	    m_amountSoluteUnit = new Plasma::ComboBox(this);
 	    m_amountSoluteUnit->setZValue(6);
 	    m_amountSoluteUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams", 0)
-         << tr2i18n("tons", 0)
-         << tr2i18n("carats", 0)
-         << tr2i18n("pounds", 0)
-         << tr2i18n("ounces", 0)
-         << tr2i18n("troy ounces", 0)
+         << i18n("grams", 0)
+         << i18n("tons", 0)
+         << i18n("carats", 0)
+         << i18n("pounds", 0)
+         << i18n("ounces", 0)
+         << i18n("troy ounces", 0)
         );
 
 	    pGridLayout->addItem(amtSltLabel, 2, 0);
@@ -199,15 +199,15 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
   	    m_densitySoluteUnit = new Plasma::ComboBox(this);
 	    m_densitySoluteUnit->setZValue(5);
 	    m_densitySoluteUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams per liter", 0)
-         << tr2i18n("grams per milliliter", 0)
-         << tr2i18n("kilograms per cubic meter", 0)
-         << tr2i18n("kilograms per liter", 0)
-         << tr2i18n("ounces per cubic inch", 0)
-         << tr2i18n("ounces per cubic foot", 0)
-         << tr2i18n("pounds per cubic inch", 0)
-         << tr2i18n("pounds per cubic foot", 0)
-         << tr2i18n("pounds per cubic yard", 0)
+         << i18n("grams per liter", 0)
+         << i18n("grams per milliliter", 0)
+         << i18n("kilograms per cubic meter", 0)
+         << i18n("kilograms per liter", 0)
+         << i18n("ounces per cubic inch", 0)
+         << i18n("ounces per cubic foot", 0)
+         << i18n("pounds per cubic inch", 0)
+         << i18n("pounds per cubic foot", 0)
+         << i18n("pounds per cubic yard", 0)
         );
 	    pGridLayout->addItem(densitySoluteLabel, 5, 0);
 	    pGridLayout->addItem(m_densitySolute, 5, 1);
@@ -226,24 +226,24 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    m_amountSolventType = new Plasma::ComboBox(this);
 	    m_amountSolventType->setZValue(2);
 	    m_amountSolventType->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("volume", 0)
-         << tr2i18n("Mass", 0)
-         << tr2i18n("moles", 0)
+         << i18n("volume", 0)
+         << i18n("Mass", 0)
+         << i18n("moles", 0)
         );
         m_amountSolventType->setZValue(3);
         
    	    m_amountSolventUnit = new Plasma::ComboBox(this);
 	    m_amountSolventUnit->setZValue(4);
 	    m_amountSolventUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("liter", 0)
-         << tr2i18n("cubic meters", 0)
-         << tr2i18n("cubic feet", 0)
-         << tr2i18n("cubic inch", 0)
-         << tr2i18n("cubic mile", 0)
-         << tr2i18n("fluid ounce", 0)
-         << tr2i18n("cups", 0)
-         << tr2i18n("gallons", 0)
-         << tr2i18n("pints", 0)
+         << i18n("liter", 0)
+         << i18n("cubic meters", 0)
+         << i18n("cubic feet", 0)
+         << i18n("cubic inch", 0)
+         << i18n("cubic mile", 0)
+         << i18n("fluid ounce", 0)
+         << i18n("cups", 0)
+         << i18n("gallons", 0)
+         << i18n("pints", 0)
         );
         
 	    pGridLayout->addItem(amtSlvtLabel, 6, 0);
@@ -284,15 +284,15 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
   	    m_densitySolventUnit = new Plasma::ComboBox(this);
 	    m_densitySolventUnit->setZValue(3);
 	    m_densitySolventUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams per liter", 0)
-         << tr2i18n("grams per milliliter", 0)
-         << tr2i18n("kilograms per cubic meter", 0)
-         << tr2i18n("kilograms per liter", 0)
-         << tr2i18n("ounces per cubic inch", 0)
-         << tr2i18n("ounces per cubic foot", 0)
-         << tr2i18n("pounds per cubic inch", 0)
-         << tr2i18n("pounds per cubic foot", 0)
-         << tr2i18n("pounds per cubic yard", 0)
+         << i18n("grams per liter", 0)
+         << i18n("grams per milliliter", 0)
+         << i18n("kilograms per cubic meter", 0)
+         << i18n("kilograms per liter", 0)
+         << i18n("ounces per cubic inch", 0)
+         << i18n("ounces per cubic foot", 0)
+         << i18n("pounds per cubic inch", 0)
+         << i18n("pounds per cubic foot", 0)
+         << i18n("pounds per cubic yard", 0)
         );
         
    	    pGridLayout->addItem(densitySolventLabel, 8, 0);
@@ -313,12 +313,12 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 		m_concentrationUnit = new Plasma::ComboBox(this);
 	    m_concentrationUnit->setZValue(2);
 	    m_concentrationUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("molar", 0)
-         << tr2i18n("Normal", 0)
-         << tr2i18n("molal", 0)
-         << tr2i18n("% ( mass )", 0)
-         << tr2i18n("% ( volume )", 0)
-         << tr2i18n("% ( moles )", 0)
+         << i18n("molar", 0)
+         << i18n("Normal", 0)
+         << i18n("molal", 0)
+         << i18n("% ( mass )", 0)
+         << i18n("% ( volume )", 0)
+         << i18n("% ( moles )", 0)
         );
         
 	    pGridLayout->addItem(concentrationLabel, 9, 0);
@@ -1014,27 +1014,27 @@ void concentrationCalculator::amountSoluteTypeChanged()
     if (type == 0) {         // amount of solute specified in terms of mass
         m_amountSoluteUnit->nativeWidget()->clear();
    	    m_amountSoluteUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams", 0)
-         << tr2i18n("tons", 0)
-         << tr2i18n("carats", 0)
-         << tr2i18n("pounds", 0)
-         << tr2i18n("ounces", 0)
-         << tr2i18n("troy ounces", 0)
+         << i18n("grams", 0)
+         << i18n("tons", 0)
+         << i18n("carats", 0)
+         << i18n("pounds", 0)
+         << i18n("ounces", 0)
+         << i18n("troy ounces", 0)
         );    
         m_amountSoluteUnit -> show();
         m_AmtSolute = Value(m_amountSolute -> value(), m_amountSoluteUnit -> nativeWidget()->currentText());
     } else if (type == 1) { // amount of solute is specified in terms of volume
         m_amountSoluteUnit->nativeWidget()->clear();
 	    m_amountSoluteUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("liter", 0)
-         << tr2i18n("cubic meters", 0)
-         << tr2i18n("cubic feet", 0)
-         << tr2i18n("cubic inch", 0)
-         << tr2i18n("cubic mile", 0)
-         << tr2i18n("fluid ounce", 0)
-         << tr2i18n("cups", 0)
-         << tr2i18n("gallons", 0)
-         << tr2i18n("pints", 0)
+         << i18n("liter", 0)
+         << i18n("cubic meters", 0)
+         << i18n("cubic feet", 0)
+         << i18n("cubic inch", 0)
+         << i18n("cubic mile", 0)
+         << i18n("fluid ounce", 0)
+         << i18n("cups", 0)
+         << i18n("gallons", 0)
+         << i18n("pints", 0)
         );      
         m_amountSoluteUnit-> show();
         m_AmtSolute = Value(m_amountSolute -> value(), m_amountSoluteUnit -> nativeWidget()->currentText());
@@ -1066,27 +1066,27 @@ void concentrationCalculator::amountSolventTypeChanged()
     if (type == 0) {     // amount of solvent specified in terms of volume
         m_amountSolventUnit->nativeWidget()->clear();    
 	    m_amountSolventUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("liter", 0)
-         << tr2i18n("cubic meters", 0)
-         << tr2i18n("cubic feet", 0)
-         << tr2i18n("cubic inch", 0)
-         << tr2i18n("cubic mile", 0)
-         << tr2i18n("fluid ounce", 0)
-         << tr2i18n("cups", 0)
-         << tr2i18n("gallons", 0)
-         << tr2i18n("pints", 0)
+         << i18n("liter", 0)
+         << i18n("cubic meters", 0)
+         << i18n("cubic feet", 0)
+         << i18n("cubic inch", 0)
+         << i18n("cubic mile", 0)
+         << i18n("fluid ounce", 0)
+         << i18n("cups", 0)
+         << i18n("gallons", 0)
+         << i18n("pints", 0)
         );    
         m_amountSolventUnit -> show();
         m_AmtSolvent = Value(m_amountSolvent -> value(), m_amountSolventUnit -> nativeWidget()->currentText());
     } else if (type == 1) { // amount of solvent is specified in terms of mass
         m_amountSolventUnit->nativeWidget()->clear();
    	    m_amountSolventUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams", 0)
-         << tr2i18n("tons", 0)
-         << tr2i18n("carats", 0)
-         << tr2i18n("pounds", 0)
-         << tr2i18n("ounces", 0)
-         << tr2i18n("troy ounces", 0)
+         << i18n("grams", 0)
+         << i18n("tons", 0)
+         << i18n("carats", 0)
+         << i18n("pounds", 0)
+         << i18n("ounces", 0)
+         << i18n("troy ounces", 0)
         );    
         m_amountSolventUnit -> show();
         m_AmtSolvent = Value(m_amountSolvent -> value(), m_amountSolventUnit -> nativeWidget()->currentText());

@@ -97,10 +97,10 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
  		m_calculationMode = new Plasma::ComboBox(this);
  		m_calculationMode->setZValue(3);
  		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
- 		 << tr2i18n("Moles / Mass", 0)
- 		 << tr2i18n("Pressure", 0)
- 		 << tr2i18n("Temperature", 0)
- 		 << tr2i18n("Volume", 0)
+ 		 << i18n("Moles / Mass", 0)
+ 		 << i18n("Pressure", 0)
+ 		 << i18n("Temperature", 0)
+ 		 << i18n("Volume", 0)
  		);
  		
 		pGridLayout->addItem(calcModeLabel, 1, 0);
@@ -153,12 +153,12 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
   	    m_massUnit = new Plasma::ComboBox(this);
 	    m_massUnit->setZValue(2);
 		m_massUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("grams", 0)
-         << tr2i18n("tons", 0)
-         << tr2i18n("carats", 0)
-         << tr2i18n("pounds", 0)
-         << tr2i18n("ounces", 0)
-         << tr2i18n("troy ounces", 0)
+         << i18n("grams", 0)
+         << i18n("tons", 0)
+         << i18n("carats", 0)
+         << i18n("pounds", 0)
+         << i18n("ounces", 0)
+         << i18n("troy ounces", 0)
         );
         m_massUnit->setZValue(6);
         
@@ -180,13 +180,13 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
   	    m_pressureUnit = new Plasma::ComboBox(this);
 	    m_pressureUnit->setZValue(2);
 		m_pressureUnit->nativeWidget()->insertItems(0, QStringList()
-		 << tr2i18n("atmospheres", 0)
-         << tr2i18n("pascal", 0)
-         << tr2i18n("bars", 0)
-         << tr2i18n("millibars", 0)
-         << tr2i18n("decibars", 0)
-         << tr2i18n("torrs", 0)
-         << tr2i18n("inches of mercury", 0)
+		 << i18n("atmospheres", 0)
+         << i18n("pascal", 0)
+         << i18n("bars", 0)
+         << i18n("millibars", 0)
+         << i18n("decibars", 0)
+         << i18n("torrs", 0)
+         << i18n("inches of mercury", 0)
         );
 	    m_pressureUnit->setZValue(5);
 	    
@@ -208,11 +208,11 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    m_temperatureUnit = new Plasma::ComboBox(this);
 	    m_temperatureUnit->setZValue(2);
 	    m_temperatureUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("kelvins", 0)
-         << tr2i18n("celsius", 0)
-         << tr2i18n("fahrenheit", 0)
-         << tr2i18n("delisles", 0)
-         << tr2i18n("r\303\251aumurs", 0)
+         << i18n("kelvins", 0)
+         << i18n("celsius", 0)
+         << i18n("fahrenheit", 0)
+         << i18n("delisles", 0)
+         << i18n("r\303\251aumurs", 0)
         );
         m_temperatureUnit->setZValue(4);
         
@@ -234,13 +234,13 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    m_volumeUnit = new Plasma::ComboBox(this);
 	    m_volumeUnit->setZValue(2);
 	    m_volumeUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("liter", 0)
-         << tr2i18n("cubic feet", 0)
-         << tr2i18n("cubic inch", 0)
-         << tr2i18n("fluid ounce", 0)
-         << tr2i18n("cups", 0)
-         << tr2i18n("gallons", 0)
-         << tr2i18n("pints", 0)
+         << i18n("liter", 0)
+         << i18n("cubic feet", 0)
+         << i18n("cubic inch", 0)
+         << i18n("fluid ounce", 0)
+         << i18n("cups", 0)
+         << i18n("gallons", 0)
+         << i18n("pints", 0)
         );
         m_volumeUnit->setZValue(3);
         
@@ -262,7 +262,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
   	    m_aUnit = new Plasma::ComboBox(this);
 	    m_aUnit->setZValue(2);
 	    m_aUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("liter^2 atmosphere/mol^2", 0)
+         << i18n("liter^2 atmosphere/mol^2", 0)
         );
         m_aUnit->setZValue(2);
         
@@ -284,12 +284,12 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
   	    m_bUnit = new Plasma::ComboBox(this);
 	    m_bUnit->setZValue(2);
 	    m_bUnit->nativeWidget()->insertItems(0, QStringList()
-         << tr2i18n("liters", 0)
-         << tr2i18n("cubic meters", 0)
-         << tr2i18n("cubic feet", 0)
-         << tr2i18n("cubic inches", 0)
-         << tr2i18n("gallons", 0)
-         << tr2i18n("cups", 0)
+         << i18n("liters", 0)
+         << i18n("cubic meters", 0)
+         << i18n("cubic feet", 0)
+         << i18n("cubic inches", 0)
+         << i18n("gallons", 0)
+         << i18n("cups", 0)
         );
         m_bUnit->setZValue(1);
         
