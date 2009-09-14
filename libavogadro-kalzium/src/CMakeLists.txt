@@ -117,6 +117,7 @@ qt4_automoc(${libavogadro_SRCS})
 KDE4_ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})
 set_target_properties(avogadro-kalzium PROPERTIES OUTPUT_NAME avogadro-kalzium)
 set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.9.3 SOVERSION 0)
+set_target_properties(avogadro-kalzium PROPERTIES DEFINE_SYMBOL avogadro_lib_EXPORTS)
 
 target_link_libraries(avogadro-kalzium ${AVO_LINK_LIBRARIES})
 
