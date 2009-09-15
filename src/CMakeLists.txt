@@ -1,7 +1,6 @@
 add_subdirectory(tools)
 add_subdirectory(calculator)
-add_subdirectory(conversion)
-#add_subdirectory(freeChem)
+#add_subdirectory(conversion)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
@@ -10,9 +9,10 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
    ${CMAKE_SOURCE_DIR}/kalzium/src/calculator/
-   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
-#   ${CMAKE_SOURCE_DIR}/kalzium/src/freeChem/
+#   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
    ${CMAKE_CURRENT_BINARY_DIR}/..
+   ${KDE4_INCLUDES}   
+   ${CONVERSION_INCLUDES}   
    )
 
 ########### next target ###############
@@ -135,7 +135,7 @@ kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png"
 
 kde4_add_executable(kalzium ${kalzium_SRCS} )
 
-target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE4_KNEWSTUFF2_LIBS} conversion science kdeeduui)
+target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_KUNITCONVERSION_LIBS} science kdeeduui)
 
 if (OPENBABEL2_FOUND)
     target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})

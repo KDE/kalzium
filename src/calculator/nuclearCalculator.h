@@ -26,12 +26,11 @@
 #include <kdebug.h>
 #include <prefs.h>
 #include <kalziumdataobject.h>
-#include <converter.h>
-#include <value.h>
+#include <KUnitConversion/UnitCategory>
 #include "ui_nuclearCalculator.h"
 
 // This is required for the unit conversion
-using namespace Conversion;
+using namespace KUnitConversion;
 
 // This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_MODE_NUKE {

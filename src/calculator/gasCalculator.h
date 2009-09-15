@@ -26,8 +26,7 @@
 #include <kdebug.h>
 #include <prefs.h>
 #include <kalziumdataobject.h>
-#include <converter.h>
-#include <value.h>
+#include <KUnitConversion/UnitCategory>
 
 #include "ui_gasCalculator.h"
 
@@ -35,7 +34,7 @@
 #define R 0.08206
 
 // This is required for the units conversion
-using namespace Conversion;
+using namespace KUnitConversion;
 
 // This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_TYPE_GAS {

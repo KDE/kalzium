@@ -209,8 +209,7 @@ void concCalculator::calculateAmtSolute()
         }
         // update mass of solute
         m_amtSolute = Value(massSolute, "grams");
-        m_amtSolute = (Converter::self() -> convert(m_amtSolute , \
-                       ui.amtSlt_unit->currentText()));
+        m_amtSolute = m_amtSolute.convertTo(ui.amtSlt_unit->currentText());
         ui.amtSolute -> setValue(m_amtSolute.number());
         break;
 
@@ -235,8 +234,7 @@ void concCalculator::calculateAmtSolute()
         }
         // update volume of solute
         m_amtSolute = Value(volSolute, "liters");
-        m_amtSolute = (Converter::self() -> convert(m_amtSolute , \
-                       ui.amtSlt_unit->currentText()));
+        m_amtSolute = m_amtSolute.convertTo(ui.amtSlt_unit->currentText());
         ui.amtSolute -> setValue(m_amtSolute.number());
         break;
 
@@ -453,8 +451,7 @@ void concCalculator::calculateAmtSolvent()
             break;
         }
         m_amtSolvent = Value(volSolvent, "liters");
-        m_amtSolvent = (Converter::self() -> convert(m_amtSolvent , \
-                        ui.amtSlvt_unit->currentText()));
+        m_amtSolvent = m_amtSolvent.convertTo(ui.amtSlvt_unit->currentText());
         ui.amtSolvent->setValue(m_amtSolvent.number());
         break;
 
@@ -470,8 +467,7 @@ void concCalculator::calculateAmtSolvent()
             break;
         }
         m_amtSolvent = Value(massSolvent, "grams");
-        m_amtSolvent = (Converter::self() -> convert(m_amtSolvent , \
-                        ui.amtSlvt_unit->currentText()));
+        m_amtSolvent = m_amtSolvent.convertTo(ui.amtSlvt_unit->currentText());
         ui.amtSolvent->setValue(m_amtSolvent.number());
         break;
 
@@ -542,7 +538,7 @@ double concCalculator::volumeSolvent()
     double volume;
     switch (type) {
     case 0: // If volume is specified, return it in liters
-        volume = (Converter::self() -> convert(m_amtSolvent , "liter")).number();
+        volume = m_amtSolvent.convertTo("liter").number();
         break;
     case 1: // If mass is specified, calculate volume and return it.
         volume = massSolvent() / densitySolvent();
@@ -585,7 +581,7 @@ double concCalculator::massSolvent()
         mass = volumeSolvent() * densitySolvent();
         break;
     case 1:
-        mass = (Converter::self() -> convert(m_amtSolvent, "gram")) .number();
+        mass = m_amtSolvent.convertTo("gram").number();
         break;
     case 2:
         mass = m_molesSolvent * m_molarMassSolvent;
@@ -598,7 +594,7 @@ double concCalculator::massSolvent()
 
 double concCalculator::densitySolvent()
 {
-    return ((Converter::self() -> convert(m_densitySolvent, "grams per liter")).number());
+    return (m_densitySolvent.convertTo("grams per liter").number());
 }
 
 double concCalculator::volumeSolute()
@@ -610,7 +606,7 @@ double concCalculator::volumeSolute()
         volume = massSolute() / densitySolute();
         break;
     case 1:
-        volume = (Converter::self() -> convert(m_amtSolute , "liter")).number();
+        volume = m_amtSolute.convertTo("liter").number();
         break;
     case 2:
         volume = massSolute() / densitySolute();
@@ -678,7 +674,7 @@ double concCalculator::massSolute()
     double mass;
     switch (type) {
     case 0:
-        mass = (Converter::self() -> convert(m_amtSolute, "gram")) .number();
+        mass = m_amtSolute.convertTo("gram").number();
         break;
     case 1:
         mass = volumeSolute() * densitySolute();
@@ -694,7 +690,7 @@ double concCalculator::massSolute()
 
 double concCalculator::densitySolute()
 {
-    return ((Converter::self() -> convert(m_densitySolute, "grams per liter")).number());
+    return (m_densitySolute.convertTo("grams per liter").number());
 }
 
 

@@ -23,12 +23,12 @@
 #include <kdebug.h>
 #include <prefs.h>
 #include <kalziumdataobject.h>
-#include <converter.h>
+#include <KUnitConversion/UnitCategory>
 
 #include "ui_concCalculator.h"
 
 // This is required for the unit conversion library
-using namespace Conversion;
+using namespace KUnitConversion;
 
 // Enumeration for type of error used in the error() function
 enum ERROR_TYPE_CONC {
