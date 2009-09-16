@@ -34,18 +34,19 @@
 #include <Plasma/PushButton>
 #include <QGraphicsGridLayout>
 #include <QGraphicsLinearLayout>
- 
+
 #include <plasma/svg.h>
 #include <plasma/theme.h>
 
 #include <KConfigDialog>
 
-using namespace Conversion;
+using namespace KUnitConversion;
 
 concentrationCalculator::concentrationCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
 {
+    m_converter = new Converter( this );
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
@@ -60,47 +61,47 @@ concentrationCalculator::~concentrationCalculator()
         // Save settings
     }
 }
- 
+
 void concentrationCalculator::init()
 {
     KConfigGroup cg = config();
-    
+
     m_soluteMass = cg.readEntry("soluteMass",true);
     m_solventVolume = cg.readEntry("solventVolume",true);
-} 
- 
- 
+}
+
+
 QGraphicsWidget *concentrationCalculator::graphicsWidget()
 {
 //FIXME:
 // 1.> Currently the spin boxes are integer, please convert them into double
 // and uncomment certain lines of code which say 'setDecimals(4)'
 
-	if (!m_widget) {	
+	if (!m_widget) {
 		m_widget = new QGraphicsWidget(this);
-		
+
 		// setup the label
 	    Plasma::Frame *pHeader = new Plasma::Frame(this);
 	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 	    pHeader->setText(i18n("concentration Calculator"));
-	    
+
 	    //setup the layout
 	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
 	    Plasma::GroupBox *pGroupBox1 = new Plasma::GroupBox(this);
 		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(pGroupBox1);
 		pGridLayout->addItem(pHeader, 0, 0, 1, 5);
 		pVLayout->addItem(pGroupBox1);
-		
+
 		// Set up the user interface
-		
+
 		// 1 Calculation mode
-		
+
 		Plasma::Label *calcModeLabel = new Plasma::Label(this);
 		calcModeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		calcModeLabel->setText(i18n("Calculation Mode:"));
-		
+
 		m_calculationMode = new Plasma::ComboBox(this);
-		
+
 		m_calculationMode->setZValue(3);
 		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
 		 << i18n("Amount Solute")
@@ -110,20 +111,20 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 		 << i18n("Molar Mass of Solvent")
 		 << i18n("Concentration")
 		);
-		
+
 		pGridLayout->addItem(calcModeLabel, 1, 0);
 		pGridLayout->addItem(m_calculationMode, 1, 1);
 		// 2 amount solute
-		
+
 		Plasma::Label *amtSltLabel = new Plasma::Label(this);
 	    amtSltLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    amtSltLabel->setText(i18n("Amount of solute:"));
-	    
+
 	    m_amountSolute = new Plasma::SpinBox(this);
 	    m_amountSolute->nativeWidget()->setMaximum(1000000000);
 	    //amtSolute->setDecimals(4);
         m_amountSolute->setMaximum(1e+09);
-        	    
+
 	    m_amountSoluteType = new Plasma::ComboBox(this);
 	    m_amountSoluteType->setZValue(2);
         m_amountSoluteType->nativeWidget()->insertItems(0, QStringList()
@@ -131,7 +132,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
          << i18n("volume")
          << i18n("moles")
         );
-        
+
    	    m_amountSoluteUnit = new Plasma::ComboBox(this);
 	    m_amountSoluteUnit->setZValue(6);
 	    m_amountSoluteUnit->nativeWidget()->insertItems(0, QStringList()
@@ -148,54 +149,54 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    pGridLayout->addItem(m_amountSoluteType, 2, 3);
 	    pGridLayout->addItem(m_amountSoluteUnit, 2, 2);
 	    // 3 molar mass solute
-	    
+
 	    Plasma::Label *molarMassLabel = new Plasma::Label(this);
 	    molarMassLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    molarMassLabel->setText(i18n("Molar mass of solute:"));
-	    
+
 	    m_molarMass = new Plasma::SpinBox(this);
 	    m_molarMass->nativeWidget()->setMaximum(1000000000);
         //m_MolarMass->setDecimals(4);
         m_molarMass->setMaximum(1e+09);
-	    
+
 	    Plasma::Label *molarMassUnit = new Plasma::Label(this);
 	    molarMassUnit->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    molarMassUnit->setText(i18n("u (mass)"));
-	    
+
 	    pGridLayout->addItem(molarMassLabel, 3, 0);
 	    pGridLayout->addItem(m_molarMass, 3, 1);
 	    pGridLayout->addItem(molarMassUnit, 3, 2);
-	    
-	    // 4 equivalent mass solute	    
+
+	    // 4 equivalent mass solute
 	    Plasma::Label *eqtMassLabel = new Plasma::Label(this);
 	    eqtMassLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    eqtMassLabel->setText(i18n("Equivalent mass of solute:"));
-	    
+
 	    m_eqtMass = new Plasma::SpinBox(this);
 	    m_eqtMass->nativeWidget()->setMaximum(1000000000);
-	    
+
 	    //m_eqtMass->setDecimals(4);
         m_eqtMass->setMaximum(1e+09);
-        
+
 	    Plasma::Label *eqtMassUnit = new Plasma::Label(this);
 	    eqtMassUnit->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    eqtMassUnit->setText(i18n("u (mass)"));
-		
+
 		pGridLayout->addItem(eqtMassLabel, 4, 0);
 	    pGridLayout->addItem(m_eqtMass, 4, 1);
 	    pGridLayout->addItem(eqtMassUnit, 4, 2);
 
 		// 5 density solute
-				
+
 		Plasma::Label *densitySoluteLabel = new Plasma::Label(this);
 	    densitySoluteLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    densitySoluteLabel->setText(i18n("Density of solute:"));
-	    
+
 	    m_densitySolute = new Plasma::SpinBox(this);
 	    m_densitySolute->nativeWidget()->setMaximum(1000000000);
         //m_densitySolute->setDecimals(4);
-        m_densitySolute->setMaximum(1e+09);	    
-        
+        m_densitySolute->setMaximum(1e+09);
+
   	    m_densitySoluteUnit = new Plasma::ComboBox(this);
 	    m_densitySoluteUnit->setZValue(5);
 	    m_densitySoluteUnit->nativeWidget()->insertItems(0, QStringList()
@@ -212,17 +213,17 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    pGridLayout->addItem(densitySoluteLabel, 5, 0);
 	    pGridLayout->addItem(m_densitySolute, 5, 1);
 	    pGridLayout->addItem(m_densitySoluteUnit, 5, 2);
-	    
+
 		// 6 amount solvent
 		Plasma::Label *amtSlvtLabel = new Plasma::Label(this);
 	    amtSlvtLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    amtSlvtLabel->setText(i18n("Amount of solvent:"));
-	    
+
 	    m_amountSolvent = new Plasma::SpinBox(this);
 	    m_amountSolvent->nativeWidget()->setMaximum(1000000000);
         //m_amountSolvent->setDecimals(4);
         m_amountSolvent->setMaximum(1e+09);
-        	    
+
 	    m_amountSolventType = new Plasma::ComboBox(this);
 	    m_amountSolventType->setZValue(2);
 	    m_amountSolventType->nativeWidget()->insertItems(0, QStringList()
@@ -231,7 +232,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
          << i18n("moles")
         );
         m_amountSolventType->setZValue(3);
-        
+
    	    m_amountSolventUnit = new Plasma::ComboBox(this);
 	    m_amountSolventUnit->setZValue(4);
 	    m_amountSolventUnit->nativeWidget()->insertItems(0, QStringList()
@@ -245,42 +246,42 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
          << i18n("gallons")
          << i18n("pints")
         );
-        
+
 	    pGridLayout->addItem(amtSlvtLabel, 6, 0);
 	    pGridLayout->addItem(m_amountSolvent, 6, 1);
 	    pGridLayout->addItem(m_amountSolventType, 6, 3);
 	    pGridLayout->addItem(m_amountSolventUnit, 6, 2);
-	    
+
 	    // 7 molar mass solvent
-	    
+
 	    Plasma::Label *molarMassSolvtLabel = new Plasma::Label(this);
 	    molarMassSolvtLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    molarMassSolvtLabel->setText(i18n("Molar mass of solvent:"));
-	    
+
 	    m_molarMassSolvent = new Plasma::SpinBox(this);
 		m_molarMassSolvent->nativeWidget()->setMaximum(1000000000);
         //m_MolarMassSolvent->setDecimals(4);
         m_molarMassSolvent->setMaximum(1e+09);
-        	    
+
 	    Plasma::Label *molarMassSolvtUnit = new Plasma::Label(this);
 	    molarMassSolvtUnit->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 	    molarMassSolvtUnit->setText(i18n("u (mass)"));
-	    
+
 	    pGridLayout->addItem(molarMassSolvtLabel, 7, 0);
 	    pGridLayout->addItem(m_molarMassSolvent, 7, 1);
 	    pGridLayout->addItem(molarMassSolvtUnit, 7, 2);
-	    
+
 	    // 8 density of solvent
-	    
+
 	    Plasma::Label *densitySolventLabel = new Plasma::Label(this);
 	    densitySolventLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    densitySolventLabel->setText(i18n("Density of solvent:"));
-	    
+
 	    m_densitySolvent = new Plasma::SpinBox(this);
 	    m_densitySolvent->nativeWidget()->setMaximum(1000000000);
         //m_densitySolvent->setDecimals(4);
         m_densitySolvent->setMaximum(1e+09);
-        	    
+
   	    m_densitySolventUnit = new Plasma::ComboBox(this);
 	    m_densitySolventUnit->setZValue(3);
 	    m_densitySolventUnit->nativeWidget()->insertItems(0, QStringList()
@@ -294,13 +295,13 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
          << i18n("pounds per cubic foot")
          << i18n("pounds per cubic yard")
         );
-        
+
    	    pGridLayout->addItem(densitySolventLabel, 8, 0);
 	    pGridLayout->addItem(m_densitySolvent, 8, 1);
 	    pGridLayout->addItem(m_densitySolventUnit, 8, 2);
-	    
+
 	    // 9 Concentration
-	    
+
 		Plasma::Label *concentrationLabel = new Plasma::Label(this);
 	    concentrationLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    concentrationLabel->setText(i18n("Concentration:"));
@@ -309,7 +310,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 		m_concentration->nativeWidget()->setMaximum(1000000000);
 		//m_concentration->setDecimals(4);
 		m_concentration->setMaximum(1e+09);
-		
+
 		m_concentrationUnit = new Plasma::ComboBox(this);
 	    m_concentrationUnit->setZValue(2);
 	    m_concentrationUnit->nativeWidget()->insertItems(0, QStringList()
@@ -320,25 +321,25 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
          << i18n("% ( volume )")
          << i18n("% ( moles )")
         );
-        
+
 	    pGridLayout->addItem(concentrationLabel, 9, 0);
 	    pGridLayout->addItem(m_concentration, 9, 1);
 	    pGridLayout->addItem(m_concentrationUnit, 9, 2);
-	    
+
 	    // 11 reset
 	    m_reset = new Plasma::PushButton(this);
 	    m_reset->setText(i18n("Reset"));
 	    pGridLayout->addItem(m_reset, 10, 0);
-	    
+
 	    // 10 Results
 	    m_error = new Plasma::Label(this);
 	    pGridLayout->addItem(m_error, 10, 1, 4, 1);
-	    
-	    
+
+
 
 	    // Done adding elements to the UI, now initialise
 	    reset();
-	    
+
 	    // Connect signals with slots ( when a change of selection in the UI takes place,
 	    // corresponding quantity should be updated in the class. )
 	    connect(m_amountSolute, SIGNAL(valueChanged(int)),
@@ -380,7 +381,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    /**************************************************************************/
 	    //              concentration Calculator setup complete
 	    /**************************************************************************/
-	}    
+	}
     return m_widget;
 }
 
@@ -413,16 +414,16 @@ void concentrationCalculator::reset()
     m_DensitySolute = Value(2.7, "grams per milliliter");
     m_Concentration = 2.0;
     m_DensitySolvent = Value(1000.0, "grams per liter");
-    
+
     m_amountSoluteType	 ->nativeWidget()->setCurrentIndex(0);
-    m_amountSolventType  ->nativeWidget()->setCurrentIndex(0);    
+    m_amountSolventType  ->nativeWidget()->setCurrentIndex(0);
     m_amountSoluteUnit	 ->nativeWidget()->setCurrentIndex(0);
     m_amountSolventUnit	 ->nativeWidget()->setCurrentIndex(0);
     m_densitySolventUnit ->nativeWidget()->setCurrentIndex(0);
-    m_densitySoluteUnit  ->nativeWidget()->setCurrentIndex(0);    
+    m_densitySoluteUnit  ->nativeWidget()->setCurrentIndex(0);
     m_concentrationUnit	 ->nativeWidget()->setCurrentIndex(0);
 	m_calculationMode	 ->nativeWidget()->setCurrentIndex(5);
-	
+
 	setMode(5);
 	calculate();
 	// Initialisation of values done
@@ -502,7 +503,7 @@ void concentrationCalculator::calculateAmountSolute()
         }
         // update mass of solute
         m_AmtSolute = Value(massSolute, "grams");
-        m_AmtSolute = (Converter::self() -> convert(m_AmtSolute , \
+        m_AmtSolute = (m_converter -> convert(m_AmtSolute , \
                        m_amountSoluteUnit->nativeWidget()->currentText()));
         m_amountSolute -> setValue(m_AmtSolute.number());
         break;
@@ -528,7 +529,7 @@ void concentrationCalculator::calculateAmountSolute()
         }
         // update volume of solute
         m_AmtSolute = Value(volSolute, "liters");
-        m_AmtSolute = (Converter::self() -> convert(m_AmtSolute , \
+        m_AmtSolute = (m_converter-> convert(m_AmtSolute , \
                        m_amountSoluteUnit->nativeWidget()->currentText()));
         m_amountSolute -> setValue(m_AmtSolute.number());
         break;
@@ -746,7 +747,7 @@ void concentrationCalculator::calculateAmountSolvent()
             break;
         }
         m_AmtSolvent = Value(volSolvent, "liters");
-        m_AmtSolvent = (Converter::self()->convert(m_AmtSolvent , \
+        m_AmtSolvent = (m_converter->convert(m_AmtSolvent , \
                         m_amountSolventUnit->nativeWidget()->currentText()));
         m_amountSolvent->setValue(m_AmtSolvent.number());
         break;
@@ -763,7 +764,7 @@ void concentrationCalculator::calculateAmountSolvent()
             break;
         }
         m_AmtSolvent = Value(massSolvent, "grams");
-        m_AmtSolvent = (Converter::self()-> convert(m_AmtSolvent , \
+        m_AmtSolvent = (m_converter-> convert(m_AmtSolvent , \
                         m_amountSolventUnit->nativeWidget()->currentText()));
         m_amountSolvent->setValue(m_AmtSolvent.number());
         break;
@@ -835,7 +836,7 @@ double concentrationCalculator::volumeSolvent()
     double volume;
     switch (type) {
     case 0:
-        volume = (Converter::self() -> convert(m_AmtSolvent , "liter")).number();
+        volume = (m_converter-> convert(m_AmtSolvent , "liter")).number();
         break;
     case 1:
         volume = massSolvent() / densitySolvent();
@@ -878,7 +879,7 @@ double concentrationCalculator::massSolvent()
         mass = volumeSolvent() * densitySolvent();
         break;
     case 1:
-        mass = (Converter::self() -> convert(m_AmtSolvent, "gram")) .number();
+        mass = (m_converter-> convert(m_AmtSolvent, "gram")) .number();
         break;
     case 2:
         mass = m_MolesSolvent * m_MolarMassSolvent;
@@ -891,7 +892,7 @@ double concentrationCalculator::massSolvent()
 
 double concentrationCalculator::densitySolvent()
 {
-    return ((Converter::self() -> convert(m_DensitySolvent, "grams per liter")).number());
+    return ((m_converter-> convert(m_DensitySolvent, "grams per liter")).number());
 }
 
 double concentrationCalculator::volumeSolute()
@@ -903,7 +904,7 @@ double concentrationCalculator::volumeSolute()
         volume = massSolute() / densitySolute();
         break;
     case 1:
-        volume = (Converter::self() -> convert(m_AmtSolute , "liter")).number();
+        volume = (m_converter-> convert(m_AmtSolute , "liter")).number();
         break;
     case 2:
         volume = massSolute() / densitySolute();
@@ -971,7 +972,7 @@ double concentrationCalculator::massSolute()
     double mass;
     switch (type) {
     case 0:
-        mass = (Converter::self() -> convert(m_AmtSolute, "gram")) .number();
+        mass = (m_converter-> convert(m_AmtSolute, "gram")) .number();
         break;
     case 1:
         mass = volumeSolute() * densitySolute();
@@ -987,7 +988,7 @@ double concentrationCalculator::massSolute()
 
 double concentrationCalculator::densitySolute()
 {
-    return ((Converter::self() -> convert(m_DensitySolute, "grams per liter")).number());
+    return ((m_converter-> convert(m_DensitySolute, "grams per liter")).number());
 }
 
 
@@ -1002,7 +1003,7 @@ void concentrationCalculator::amountSoluteChanged()
 			break;
     	case 2:
            m_MolesSolute = m_amountSolute -> value();
-           break;           
+           break;
     }
     calculate();
 }
@@ -1020,7 +1021,7 @@ void concentrationCalculator::amountSoluteTypeChanged()
          << i18n("pounds")
          << i18n("ounces")
          << i18n("troy ounces")
-        );    
+        );
         m_amountSoluteUnit -> show();
         m_AmtSolute = Value(m_amountSolute -> value(), m_amountSoluteUnit -> nativeWidget()->currentText());
     } else if (type == 1) { // amount of solute is specified in terms of volume
@@ -1035,7 +1036,7 @@ void concentrationCalculator::amountSoluteTypeChanged()
          << i18n("cups")
          << i18n("gallons")
          << i18n("pints")
-        );      
+        );
         m_amountSoluteUnit-> show();
         m_AmtSolute = Value(m_amountSolute -> value(), m_amountSoluteUnit -> nativeWidget()->currentText());
     } else {                 // amount of solute is specified in terms of moles
@@ -1057,14 +1058,14 @@ void concentrationCalculator::amountSolventChanged()
 	    	m_MolesSolvent = m_amountSolvent -> value();
 	    	break;
 	}
-	calculate(); 
+	calculate();
 }
 
 void concentrationCalculator::amountSolventTypeChanged()
 {
     int type = m_amountSolventType -> nativeWidget()->currentIndex();
     if (type == 0) {     // amount of solvent specified in terms of volume
-        m_amountSolventUnit->nativeWidget()->clear();    
+        m_amountSolventUnit->nativeWidget()->clear();
 	    m_amountSolventUnit->nativeWidget()->insertItems(0, QStringList()
          << i18n("liter")
          << i18n("cubic meters")
@@ -1075,7 +1076,7 @@ void concentrationCalculator::amountSolventTypeChanged()
          << i18n("cups")
          << i18n("gallons")
          << i18n("pints")
-        );    
+        );
         m_amountSolventUnit -> show();
         m_AmtSolvent = Value(m_amountSolvent -> value(), m_amountSolventUnit -> nativeWidget()->currentText());
     } else if (type == 1) { // amount of solvent is specified in terms of mass
@@ -1087,7 +1088,7 @@ void concentrationCalculator::amountSolventTypeChanged()
          << i18n("pounds")
          << i18n("ounces")
          << i18n("troy ounces")
-        );    
+        );
         m_amountSolventUnit -> show();
         m_AmtSolvent = Value(m_amountSolvent -> value(), m_amountSolventUnit -> nativeWidget()->currentText());
     } else { // amount is specified in terms of moles
@@ -1154,7 +1155,7 @@ void concentrationCalculator::setMode (int mode)
     m_amountSolvent->nativeWidget()->setReadOnly(false);
  	m_molarMassSolvent->nativeWidget()->setReadOnly(false);
 	m_concentration->nativeWidget()->setReadOnly(false);
-	
+
 	// set the value that should be calculated to readOnly
 	switch (mode)
 	{
@@ -1177,9 +1178,9 @@ void concentrationCalculator::setMode (int mode)
 	        m_concentration->nativeWidget()->setReadOnly(true);
 	        break;
     }
-    
+
 	m_mode = mode;
-	calculate(); 
+	calculate();
 }
 // occurs when any quantity is changed
 void concentrationCalculator::calculate()
@@ -1192,7 +1193,7 @@ void concentrationCalculator::calculate()
     	    {
     	    	error (PERCENTAGE_ZERO);
     	    	return;
-    	    }    	        
+    	    }
     	    calculateAmountSolute();
     		break;
     	case 1: // Calculate the molar mass of solute
@@ -1284,7 +1285,7 @@ void concentrationCalculator::concConfigAccepted()
 
     m_soluteMass = ui.soluteMass->isChecked();
     cg.writeEntry("soluteMass", m_soluteMass);
-    
+
     m_solventVolume = ui.solventVolume->isChecked();
     cg.writeEntry("solventVolume", m_solventVolume);
 

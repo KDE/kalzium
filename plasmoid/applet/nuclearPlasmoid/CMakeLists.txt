@@ -1,18 +1,11 @@
 #This is the CMakeLists.txt file for the nuclearCalculator project
 project(nuclearCalculator)
 
-# Find the required Libaries
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
-
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-
 include_directories(
    ${CMAKE_SOURCE_DIR}
    ${CMAKE_BINARY_DIR}
    ${KDE4_INCLUDES}
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
    )
  
 # We add our source code here
@@ -25,7 +18,7 @@ kde4_add_ui_files(nuclearCalculator_SRCS nuclearCalculatorConfig.ui )
 kde4_add_plugin(nuclearCalculator ${nuclearCalculator_SRCS})
 target_link_libraries(nuclearCalculator 
                       ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY}
-                      science conversion
+                      science ${KDE4_KUNITCONVERSION_LIBS}
                       )
 
 install(TARGETS nuclearCalculator

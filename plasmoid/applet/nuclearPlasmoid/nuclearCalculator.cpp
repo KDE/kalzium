@@ -41,12 +41,13 @@
 
 #include <KConfigDialog>
 
-using namespace Conversion;
+using namespace KUnitConversion;
 
 nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
 {
+    m_converter = new Converter( this );
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
@@ -61,29 +62,29 @@ nuclearCalculator::~nuclearCalculator()
         // Save settings
     }
 }
- 
+
 void nuclearCalculator::init()
 {
     KConfigGroup cg = config();
-    
+
     m_massOnly = cg.readEntry("massOnly",true);
-} 
- 
+}
+
 void nuclearCalculator::reset()
 {
 	const int ISOTOPE_NUM = 22;
 	error(RESET_NUKE_MESG);
-	
+
     // Add all isotope names of Uranium ( by default )to the isotope comboBox
     QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
     QString iso;
-    
+
     m_isotope->clear();
     foreach(Isotope * i , list) {
         iso.setNum(i -> mass());
         m_isotope  -> addItem(iso);
     }
-    
+
 	// initialise the data, initially selected values ( Uranium, 92, 238)
     m_element       ->nativeWidget()-> setCurrentIndex(91);
     m_isotope       ->nativeWidget()-> setCurrentIndex(ISOTOPE_NUM);
@@ -91,7 +92,7 @@ void nuclearCalculator::reset()
     m_initAmt		-> setValue(6.0);
     m_finalAmt   	-> setValue(3.0);
     m_time		    -> setValue(list.at(ISOTOPE_NUM) -> halflife());
-    
+
     m_halfLifeUnit	   ->nativeWidget()->setCurrentIndex(0);
     m_initType	       ->nativeWidget()->setCurrentIndex(0);
     m_finalType        ->nativeWidget()->setCurrentIndex(0);
@@ -99,7 +100,7 @@ void nuclearCalculator::reset()
     m_finalUnit	       ->nativeWidget()->setCurrentIndex(0);
     m_timeUnit		   ->nativeWidget()->setCurrentIndex(0);
     m_calculationMode  ->nativeWidget()->setCurrentIndex(2);
-    
+
     // Setup of the UI done
     // Initialise values
     m_InitAmount  = Value(6.0, "g") ;
@@ -114,30 +115,30 @@ void nuclearCalculator::reset()
 	setMode(2);
     // Initialisation of values done
 }
- 
+
 QGraphicsWidget *nuclearCalculator::graphicsWidget()
 {
 //FIXME:
-// Currently the spin boxes are integer, please convert them into double after 
+// Currently the spin boxes are integer, please convert them into double after
 // doubleSpinBoxes are available
 
-	if (!m_widget) {	
+	if (!m_widget) {
 		// Position all UI elements
 		m_widget = new QGraphicsWidget(this);
 	    Plasma::Frame *pHeader = new Plasma::Frame(this);
 	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 	    pHeader->setText(i18n("Nuclear Calculator"));
-		
+
 		Plasma::GroupBox *pGroupBox1 = new Plasma::GroupBox(this);
 		Plasma::GroupBox *pGroupBox2 = new Plasma::GroupBox(this);
-		
+
 		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(pGroupBox1);
 	    QGraphicsGridLayout *pGridLayout2 = new QGraphicsGridLayout(pGroupBox2);
 	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
 	    pVLayout->addItem(pGroupBox1);
 	    pVLayout->addItem(pGroupBox2);
 	    // pVLayout->addItem(new Plasma::)
-	    		
+
 		// here comes the element - isotope and halfLife info part
 	    Plasma::Label *eleLabel = new Plasma::Label(this);
 	    eleLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -148,12 +149,12 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    Plasma::Label *hLifeLabel = new Plasma::Label(this);
 	    hLifeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    hLifeLabel->setText(i18n("Half-Life"));
-	    
+
 	    m_element = new Plasma::ComboBox(this);
 	    m_element->setZValue(2);
 	    m_isotope = new Plasma::ComboBox(this);
 	    m_isotope->setZValue(1);
-	    
+
 	    m_halfLife = new Plasma::SpinBox(this);
 	    m_halfLife->nativeWidget()->setMaximum(1000000000);
 	    //m_halfLife->setDecimals(4);
@@ -168,7 +169,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
          << i18n("days")
          << i18n("weeks"));
 	    m_halfLifeUnit->setZValue(6);
-	    
+
 	    pGridLayout->addItem(pHeader, 0, 0, 1, 4);
 	    pGridLayout->addItem(eleLabel, 1, 0);
 	    pGridLayout->addItem(m_element, 1, 1);
@@ -177,14 +178,14 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    pGridLayout->addItem(hLifeLabel, 3, 0);
 	    pGridLayout->addItem(m_halfLifeUnit, 3, 2);
 	    pGridLayout->addItem(m_halfLife, 3, 1);
-	    
+
 	    // Here comes the amount and time part
-	    
+
 	    // Calculation mode
 		Plasma::Label *calcModeLabel = new Plasma::Label(this);
  		calcModeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
  		calcModeLabel->setText(i18n("Calculation Mode:"));
- 		
+
  		m_calculationMode = new Plasma::ComboBox(this);
  		m_calculationMode->setZValue(3);
  		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
@@ -192,7 +193,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
  		 << i18n("Final amount")
  		 << i18n("Time")
  		);
- 		
+
 	    Plasma::Label *initLabel = new Plasma::Label(this);
 	    initLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    initLabel->setText(i18n("Initial amount:"));
@@ -205,10 +206,10 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 /*x	    Plasma::Label *m_sliderLabel = new Plasma::Label(this);
 	    m_sliderLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    m_sliderLabel->setText(i18n("Time in Half-Lives"));*/
-	    
+
 	    m_numHalfLives = new Plasma::Label(this);
 	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    m_numHalfLives->setText(i18n("0 seconds"));	    
+	    m_numHalfLives->setText(i18n("0 seconds"));
 	    m_initAmt = new Plasma::SpinBox(this);
 	    m_initAmt->nativeWidget()->setMaximum(1000000000);
 	    //m_initAmt->setDecimals(4);
@@ -221,7 +222,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    m_time->nativeWidget()->setMaximum(1000000000);
 	    //m_time->setDecimals(4);
         m_time->setMaximum(1e+09);
-	    	    
+
 		m_initUnit = new Plasma::ComboBox(this);
 		m_initUnit->setZValue(2);
 	    m_initUnit->nativeWidget()->insertItems(0, QStringList()
@@ -232,7 +233,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
          << i18n("ounces")
          << i18n("troy ounces"));
         m_initUnit->setZValue(3);
-         
+
 	    m_finalUnit = new Plasma::ComboBox(this);
 	    m_finalUnit->setZValue(2);
 	    m_finalUnit->nativeWidget()->insertItems(0, QStringList()
@@ -243,7 +244,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
          << i18n("ounces")
          << i18n("troy ounces"));
         m_finalUnit->setZValue(2);
-         
+
 	    m_timeUnit = new Plasma::ComboBox(this);
 	    m_timeUnit->setZValue(2);
 	    m_timeUnit->nativeWidget()->insertItems(0, QStringList()
@@ -254,31 +255,31 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
          << i18n("days")
          << i18n("weeks"));
         m_timeUnit->setZValue(1);
-        
+
 	    m_initType = new Plasma::ComboBox(this);
 	    m_initType->setZValue(2);
 	    m_initType->nativeWidget()->insertItems(0, QStringList()
          << i18n("Mass")
          << i18n("moles"));
         m_initType->setZValue(2);
-         	
+
 	    m_finalType = new Plasma::ComboBox(this);
 	    m_finalType->setZValue(2);
 	    m_finalType->nativeWidget()->insertItems(0, QStringList()
          << i18n("Mass")
          << i18n("moles"));
 		m_finalType->setZValue(1);
-		
+
 /*		m_slider = new Plasma::Slider(this);
 		m_slider->setRange(0, 100);
 		m_slider->setOrientation(Qt::Horizontal);
 		m_slider->setMaximum(100); */
-		
+
 		m_error = new Plasma::Label(this);
-		
+
 		m_reset = new Plasma::PushButton(this);
 		m_reset->setText(i18n("Reset"));
-				
+
 		pGridLayout2->addItem(calcModeLabel, 5, 0);
   	    pGridLayout2->addItem(initLabel, 6, 0);
    	    pGridLayout2->addItem(finalLabel, 7, 0);
@@ -287,23 +288,23 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
    	    pGridLayout2->addItem(m_error, 10, 1, 1, 3);
    	    pGridLayout2->addItem(m_reset, 10, 0);
 
- 		pGridLayout2->addItem(m_calculationMode, 5, 1);   	    
+ 		pGridLayout2->addItem(m_calculationMode, 5, 1);
   	    pGridLayout2->addItem(m_initAmt, 6, 1);
    	    pGridLayout2->addItem(m_finalAmt, 7, 1);
    	    pGridLayout2->addItem(m_time, 8, 1);
 // 	    pGridLayout2->addItem(m_slider , 9, 1);
-   	    
+
    	    pGridLayout2->addItem(m_initType, 6, 3);
    	    pGridLayout2->addItem(m_finalType, 7, 3);
    	    pGridLayout2->addItem(m_numHalfLives, 9, 2);
-   	    
+
    	    pGridLayout2->addItem(m_initUnit, 6, 2);
    	    pGridLayout2->addItem(m_finalUnit, 7, 2);
    	    pGridLayout2->addItem(m_timeUnit, 8, 2);
-	    
-	    // Positioning of UI elements done	    	    	    	    
+
+	    // Positioning of UI elements done
 		// Now add required properties to the UI widgets
-		
+
 	    /**************************************************************************/
 	    //                       Nuclear Calculator set up                        //
 	    /**************************************************************************/
@@ -322,7 +323,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    m_element->nativeWidget()->removeItem(count - 3);
 	    // Add all isotope names of Uranium ( by default )to the isotope comboBox
 	    reset();
-	    
+
 	    // Connect signals with slots
 	    connect(m_element->nativeWidget(), SIGNAL(activated(int)),
 	            this, SLOT(elementChanged(int)));
@@ -357,8 +358,8 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 				this, SLOT(reset()));
 	    /**************************************************************************/
 	    // Nuclear Calculator setup complete
-	    /**************************************************************************/	    	    
-	}    
+	    /**************************************************************************/
+	}
     return m_widget;
 }
 
@@ -368,8 +369,8 @@ void nuclearCalculator::elementChanged (int index)
     m_Element = * KalziumDataObject::instance()-> element(index + 1);
 
     // Add all isotope names of Uranium ( by default ) to the isotope comboBox
-    QList<Isotope*> list = KalziumDataObject::instance()-> isotopes(index + 1);    
-    QString isotope;                        // A temporary string    
+    QList<Isotope*> list = KalziumDataObject::instance()-> isotopes(index + 1);
+    QString isotope;                        // A temporary string
     m_isotope  -> clear();               // Clear the contents of the combo box
     // update the combobox with isotopes of the new element
     foreach(Isotope * i , list) {
@@ -427,7 +428,7 @@ void nuclearCalculator::initAmtChanged()
     else
         m_InitAmount = Value(((m_initAmt -> value()) * m_Mass), \
                              m_initUnit->nativeWidget()-> currentText());
-                             
+
 	calculate();
 }
 
@@ -483,12 +484,12 @@ void nuclearCalculator::calculate()
 	        if (m_InitAmount.number() == 0.0) {
 	    	   	error(INIT_AMT_ZERO);
 	    	    return;
-	    	}         
+	    	}
 	        calculateFinalAmount();
-	        break;	        
+	        break;
 	    case 2: // Calculate Time
 	        // If final amount greater than initial, error
-    	    if (m_FinalAmount.number() > (Converter::self()->convert(m_InitAmount,
+    	    if (m_FinalAmount.number() > (m_converter->convert(m_InitAmount,
     	    	m_FinalAmount.unit()->symbol())).number()) {
 	        	error(FINAL_AMT_GREATER);
 	            return;
@@ -498,18 +499,18 @@ void nuclearCalculator::calculate()
 	            return;
 	        }
         	calculateTime();
-	        break;        
+	        break;
 	}
 }
 
 void nuclearCalculator::setMode(int mode)
 {
 	m_mode = mode;
-	
+
 	m_initAmt->nativeWidget()->setReadOnly(false);
 	m_finalAmt->nativeWidget()->setReadOnly(false);
 	m_time->nativeWidget()->setReadOnly(false);
-	
+
 	// set the quantity that should be calculated to readOnly
 	switch (mode)
 	{
@@ -526,7 +527,7 @@ void nuclearCalculator::setMode(int mode)
 //			showSlider(false);
 			break;
 	}
-	
+
 	calculate();
 }
 
@@ -540,7 +541,7 @@ void nuclearCalculator::showSlider(bool show)
 	else {
 		m_sliderLabel->show();
 		m_slider->show();
-		m_numHalfLives->show();	
+		m_numHalfLives->show();
 	}
 */
 }
@@ -554,12 +555,12 @@ void nuclearCalculator::calculateInitAmount()
         return;
     }
     // Calculate the number of halfLives that have elapsed
-    double ratio = (Converter::self()->convert(m_Time, m_HalfLife. unit() \
+    double ratio = (m_converter->convert(m_Time, m_HalfLife. unit() \
                     ->symbol()). number()) /m_HalfLife. number();
     // find out the initial amount
     m_InitAmount = Value(m_InitAmount. number() * pow(2.0 , ratio), m_InitAmount. unit());
     // Convert into the required units
-    m_InitAmount = Converter::self()->convert(m_InitAmount, m_InitAmount. unit()->symbol());
+    m_InitAmount = m_converter->convert(m_InitAmount, m_InitAmount. unit()->symbol());
     m_initAmt-> setValue(m_InitAmount . number());
 }
 
@@ -572,12 +573,12 @@ void nuclearCalculator::calculateFinalAmount()
         return;
     }
     // Calculate the number of halfLives that have elapsed
-    double ratio = (Converter::self()->convert(m_Time , m_HalfLife. unit() \
+    double ratio = (m_converter->convert(m_Time , m_HalfLife. unit() \
                     ->symbol()). number()) / m_HalfLife. number();
     // Calculate the final amount
     m_FinalAmount = Value(m_FinalAmount . number() / pow(2.0, ratio), m_InitAmount. unit());
     // Convert into the required units
-    m_FinalAmount = Converter::self()->convert(m_FinalAmount, m_FinalAmount. unit()->symbol());
+    m_FinalAmount = m_converter->convert(m_FinalAmount, m_FinalAmount. unit()->symbol());
     m_finalAmt-> setValue(m_FinalAmount. number());
 }
 
@@ -593,14 +594,14 @@ void nuclearCalculator::calculateTime()
     }
 
     // calculate the ratio of final to initial masses
-    double ratio = (Converter::self()->convert(m_InitAmount , m_FinalAmount.unit()\
+    double ratio = (m_converter->convert(m_InitAmount , m_FinalAmount.unit()\
     				->symbol())).number() / m_FinalAmount.number();
     // The number of halfLives ( log 2 ( x ) = log x / log 2 )
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_HalfLife . number();
     // Calculate the total time taken
     Value temp = Value(time_value, m_HalfLife. unit());
-    m_Time = Converter::self()->convert(temp , m_Time.unit()->symbol());
+    m_Time = m_converter->convert(temp , m_Time.unit()->symbol());
     m_time-> setValue(m_Time. number());
 }
 

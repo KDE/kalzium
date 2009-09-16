@@ -15,11 +15,11 @@
 #define gasCalculator_HEADER
 
 #include <KIcon>
- 
+
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
-#include <converter.h>
-#include <value.h>
+#include <kunitconverter/converter.h>
+#include <kubitconverter/value.h>
 
 #include "ui_gasCalculatorConfig.h"
 
@@ -42,7 +42,7 @@ enum ERROR_TYPE_GAS {
     MOLAR_MASS_ZERO_
 };
 
-using namespace Conversion;
+using namespace KUnitConversion;
 // Define our plasma Applet
 class gasCalculator : public Plasma::PopupApplet
 {
@@ -51,76 +51,76 @@ class gasCalculator : public Plasma::PopupApplet
         // Basic Create/Destroy
         gasCalculator(QObject *parent, const QVariantList &args);
         ~gasCalculator();
-        
+
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
-	
-	public slots:
-		
-		/// Calculates the Pressure
-		void calculatePressure();        
 
-		/// Calculates the Volume		
+	public slots:
+
+		/// Calculates the Pressure
+		void calculatePressure();
+
+		/// Calculates the Volume
 	    void calculateVol();
-	    
+
 	    /// Calculates the Temperature
 	    void calculateTemp();
-	    
+
 	    /// Calculates the number of moles
 	    void calculateMoles();
-	    
+
 	    /// Calculates the mass of substance
 	    void calculateMass();
-	    
+
 	    /// Calculates the molar mass of the substance
 	    void calculateMolarMass();
 
 	    // Functions ( slots ) that occur on changing a value
 	    /// occurs when the volume is changed
 	    void volChanged();
-	    
+
 	    /// occurs when the temperature is changed
 	    void tempChanged();
-	    
+
 	    /// occurs when the pressure is changed
 	    void pressureChanged();
-	    
+
 	    /// occurs when the mass is changed
 	    void massChanged();
-	    
+
 	    /*
 	     * occurs when the number of moles is changed
 	     * @param value is the number of moles
 	     */
 	    void molesChanged(int value);
-	    
+
 	    /*
 	     * occurs when the molar mass is change\
 	     * @param value is the molar mass
 	     */
 	    void molarMassChanged(int value);
-	    
+
 	    // occurs when Vander Val's constant a is changed
 	    void Vand_aChanged();
-	    
-	    // occurs when Vander Val's constant b is changed        
+
+	    // occurs when Vander Val's constant b is changed
 	    void Vand_bChanged();
-	    
+
 	    // occurs when any quantity is changed
 	    void calculate();
-	    
+
 	    /*
 	     * This function prints error messages on the screen
 	     * @param mode is the type of error that occurred, refer ERROR_TYPE_GAS
 	     */
 	    void error(int);
-	    
+
 	    /*
 	     * This function sets the mode of calculation
 	     * @param mode is the mode of calculation
 	     */
 	    void setMode(int mode);
-	    
+
 	    // This function initialises/ resets the class
 	    void reset();
 
@@ -129,10 +129,10 @@ class gasCalculator : public Plasma::PopupApplet
         void gasConfigAccepted();
 
     private:
-    
+    Converter *m_converter;
     // The following objects are for the user interface
         QGraphicsWidget  *m_widget;
-        
+
         Plasma::ComboBox *m_calculationMode;
         Plasma::ComboBox *m_massUnit;
         Plasma::ComboBox *m_pressureUnit;
@@ -140,7 +140,7 @@ class gasCalculator : public Plasma::PopupApplet
         Plasma::ComboBox *m_volumeUnit;
         Plasma::ComboBox *m_aUnit;
         Plasma::ComboBox *m_bUnit;
-        
+
         Plasma::SpinBox *m_molarMass;
         Plasma::SpinBox *m_moles;
         Plasma::SpinBox *m_mass;
@@ -148,12 +148,12 @@ class gasCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_temperature;
         Plasma::SpinBox *m_volume;
         Plasma::SpinBox *m_Vand_a;
-        Plasma::SpinBox *m_Vand_b; 
-        
+        Plasma::SpinBox *m_Vand_b;
+
         Plasma::Label   *m_error;
-        
+
         Plasma::PushButton *m_reset;
-      
+
 		double m_Moles;                     // Number of moles
 	    double m_MolarMass;                 // molarMass
 	    Value m_Mass;                       // mass
@@ -163,10 +163,10 @@ class gasCalculator : public Plasma::PopupApplet
 	    Value m_Vand_B;                     // vander val's constant b
 
 	    //( Unit conversion library not available for the following quantities)
-	    double m_Vand_A;                    // Vander val's constant a      
-	    
+	    double m_Vand_A;                    // Vander val's constant a
+
 	    int m_mode;							// mode of calculation
-	    
+
    	    /// Designer Config file
         Ui::gasCalculatorConfig ui;
         bool m_configUpdated;
@@ -174,7 +174,7 @@ class gasCalculator : public Plasma::PopupApplet
         bool m_ideal;
 
 };
- 
+
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(gasCalculator, gasCalculator)
 #endif //gasCalculator_HEADER

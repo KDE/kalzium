@@ -15,13 +15,13 @@
 #define nuclearCalculator_HEADER
 
 #include <KIcon>
- 
+
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
 #include <element.h>
 #include <isotope.h>
-#include <converter.h>
-#include <value.h>
+#include <kunitconversion/converter.h>
+#include <kunitconversion/value.h>
 
 #include "kalziumdataobject.h"
 
@@ -47,7 +47,7 @@ enum ERROR_MODE_NUKE {
 	FINAL_AMT_GREATER
 };
 
-using namespace Conversion;
+using namespace KUnitConversion;
 // Define our plasma Applet
 class nuclearCalculator : public Plasma::PopupApplet
 {
@@ -56,7 +56,7 @@ class nuclearCalculator : public Plasma::PopupApplet
         // Basic Create/Destroy
         nuclearCalculator(QObject *parent, const QVariantList &args);
         ~nuclearCalculator();
-        
+
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
 
@@ -69,7 +69,7 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 		/// Calculates the time required
 		void calculateTime();
-		
+
 		/// occurs when the element is changed
 		void elementChanged(int index);
 
@@ -97,32 +97,33 @@ class nuclearCalculator : public Plasma::PopupApplet
 		 */
 /*x  	void sliderMoved(int x);
 */
-		
+
 		/*
 		 * Used to display error messages
 		 * @param mode is the error mode, refer ERROR_MODE_NUKE.
 		 */
 		void error(int mode);
-		
+
 		/*
  	     * Sets the mode of calculation eg, time, initial amount etc
  	     * @param mode is the mode of calculation.
  	     */
- 	    void setMode(int mode); 
+ 	    void setMode(int mode);
 
 		/// This function is called to reset / initialise the calculator
 		void reset();
-		
+
 		/// This function hides the slider just under the time spinBox in the UI
 		void showSlider(bool show);
-		
+
     private slots:
     // will be added soon
-    
+
     protected:
         void createNuclearConfigurationInterface(KConfigDialog *parent);
         void nuclearConfigAccepted();
     private:
+    Converter *m_converter;
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_element;
         Plasma::ComboBox *m_isotope;
@@ -150,15 +151,15 @@ class nuclearCalculator : public Plasma::PopupApplet
 	    Value m_InitAmount;                     // initial amount present
 	    Value m_FinalAmount;                    // amount after time
 	    Value m_Time;                           // the time involved in calculation
-	    double m_Mass;                          // the atomic mass of the isotope        
+	    double m_Mass;                          // the atomic mass of the isotope
 	    int m_mode;
-	    
+
 	    /// Designer Config file
         Ui::nuclearCalculatorConfig ui;
         bool m_configUpdated;
         bool m_massOnly;
 };
- 
+
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(nuclearCalculator, nuclearCalculator)
 #endif //nuclearCalculator_HEADER

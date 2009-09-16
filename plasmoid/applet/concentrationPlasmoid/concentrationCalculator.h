@@ -14,11 +14,11 @@
 #define concentrationCalculator_HEADER
 
 #include <KIcon>
- 
+
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
-#include <converter.h>
-#include <value.h>
+#include <kunitconversion/converter.h>
+#include <kunitconversion/value.h>
 
 #include "ui_concentrationCalculatorConfig.h"
 namespace Plasma{
@@ -50,7 +50,7 @@ enum ERROR_TYPE_CONC {
     INSUFFICIENT_DATA_SOLVENT
 };
 
-using namespace Conversion;
+using namespace KUnitConversion;
 
 // Define our plasma Applet
 class concentrationCalculator : public Plasma::PopupApplet
@@ -60,10 +60,10 @@ class concentrationCalculator : public Plasma::PopupApplet
         // Basic Create/Destroy
         concentrationCalculator(QObject *parent, const QVariantList &args);
         ~concentrationCalculator();
-        
+
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
-	
+
 	public slots:
 		// Sub-routines involved in calculations of the unit
 	    void calculateAmountSolute();       // Calculates the amount of solute
@@ -103,10 +103,10 @@ class concentrationCalculator : public Plasma::PopupApplet
 		 * @param type is the type of error that occurred (refer ERROR_TYPE_CONC)
 		 */
 	    void error(int type);
-	    
+
 	    /// Performs the initialisation for the class
 	    void reset();
-	    
+
 	    /*
 	     * Sets the mode of calculation eg, volume, amount of substance etc
 	     * @param mode is the mode of calculation.
@@ -118,6 +118,7 @@ class concentrationCalculator : public Plasma::PopupApplet
         void concConfigAccepted();
 
     private:
+    Converter *m_converter;
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_amountSoluteType;
         Plasma::ComboBox *m_amountSoluteUnit;
@@ -127,7 +128,7 @@ class concentrationCalculator : public Plasma::PopupApplet
         Plasma::ComboBox *m_densitySolventUnit;
         Plasma::ComboBox *m_concentrationUnit;
         Plasma::ComboBox *m_calculationMode;
-        
+
         Plasma::SpinBox *m_amountSolute;
         Plasma::SpinBox *m_molarMass;
         Plasma::SpinBox *m_eqtMass;
@@ -137,7 +138,7 @@ class concentrationCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_densitySolvent;
         Plasma::SpinBox *m_concentration;
         Plasma::Label   *m_error;
-        
+
         Plasma::PushButton *m_reset;
 
         Value m_AmtSolute;                          // amount of solute
@@ -160,7 +161,7 @@ class concentrationCalculator : public Plasma::PopupApplet
         // Indicates solvent is always given in terms of volume
         bool m_solventVolume;				// For configuration
 };
- 
+
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(concentrationCalculator, concentrationCalculator)
 #endif //concentrationCalculator_HEADER
