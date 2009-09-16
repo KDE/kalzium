@@ -18,8 +18,8 @@
 
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
-#include <kunitconverter/converter.h>
-#include <kubitconverter/value.h>
+#include <kunitconversion/converter.h>
+#include <kunitconversion/value.h>
 
 #include "ui_gasCalculatorConfig.h"
 
