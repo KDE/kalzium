@@ -267,7 +267,7 @@ void Kalzium::setupActions()
 
     m_pOBConverterAction = actionCollection()->addAction( "tools_obconverter" );
     m_pOBConverterAction->setText( i18n( "Convert chemical files..." ) );
-    m_pOBConverterAction->setIcon( KIcon( "kalzium_obconverter" ) );
+    m_pOBConverterAction->setIcon( KIcon( "edit-copy" ) );
     m_pOBConverterAction->setWhatsThis( i18nc( "WhatsThis Help", "With this tool, you can convert files containing chemical data between various file formats." ) );
     connect( m_pOBConverterAction, SIGNAL( triggered() ), this, SLOT( slotOBConverter() ) );
 #ifndef HAVE_OPENBABEL2
