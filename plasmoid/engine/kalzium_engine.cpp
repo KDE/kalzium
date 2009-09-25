@@ -146,7 +146,7 @@ QString KalziumEngine::generateFact()
 
     QString bp =        m_currentElement->dataAsString( ChemicalDataObject::boilingpoint );
     QString mp =        m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       ;
-    QString name =      m_currentElement->dataAsString( ChemicalDataObject::name )       ;
+    QString name =i18n( qPrintable( m_currentElement->dataAsString( ChemicalDataObject::name ) ) )      ;
     QString mass =      m_currentElement->dataAsString( ChemicalDataObject::mass )      ;
     QString symbol =    m_currentElement->dataAsString( ChemicalDataObject::symbol )       ;
 
