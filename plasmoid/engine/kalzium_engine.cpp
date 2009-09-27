@@ -31,6 +31,7 @@
 KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     : Plasma::DataEngine(parent)
 {
+    KGlobal::locale()->insertCatalog( "libkdeedu" );
     Q_UNUSED(args)
     // we don't need the data to fly by any faster - even at a second it's hard to read.
     setMinimumPollingInterval(1000);
@@ -146,7 +147,7 @@ QString KalziumEngine::generateFact()
 
     QString bp =        m_currentElement->dataAsString( ChemicalDataObject::boilingpoint );
     QString mp =        m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       ;
-    QString name =i18n( qPrintable( m_currentElement->dataAsString( ChemicalDataObject::name ) ) )      ;
+    QString name =      m_currentElement->dataAsString( ChemicalDataObject::name )      ;
     QString mass =      m_currentElement->dataAsString( ChemicalDataObject::mass )      ;
     QString symbol =    m_currentElement->dataAsString( ChemicalDataObject::symbol )       ;
 
