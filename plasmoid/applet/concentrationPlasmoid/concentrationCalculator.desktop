@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kalzium concentration Calculator
+Name[ca]=Calculadora de concentracions del Kalzium
 Name[es]=Calculadora de concentraciones de Kalzium
 Name[et]=Kalziumi kontsentratsioonikalkulaator
 Name[ko]=Kalzium 농도 계산기
@@ -14,6 +15,7 @@ Name[uk]=Калькулятор концентрації Kalzium
 Name[x-test]=xxKalzium concentration Calculatorxx
 Name[zh_TW]=Kalzium 濃度計算器
 Comment=Kalzium concentration Calculator
+Comment[ca]=Calculadora de concentracions del Kalzium
 Comment[es]=Calculadora de concentraciones de Kalzium
 Comment[et]=Kalziumi kontsentratsioonikalkulaator
 Comment[ko]=Kalzium 농도 계산기
