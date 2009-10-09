@@ -926,55 +926,55 @@ void concCalculator::error(int mode)
 		ui.error->setText("");
 		break;
     case PERCENTAGE:
-        ui.error->setText(i18n("Percentage should be less than 100.0, please enter valid data!"));
+        ui.error->setText(i18n("Percentage should be less than 100.0, please enter a valid value."));
         break;
     case DENSITY_ZERO:
-        ui.error->setText(i18n("Density cannot be zero. Invalid! Please enter a valid value!"));
+        ui.error->setText(i18n("Density cannot be zero, please enter a valid value."));
         break;
     case MASS_ZERO:
-        ui.error->setText(i18n("mass cannot be zero! Please enter valid data to correct it!"));
+        ui.error->setText(i18n("Mass cannot be zero, please enter a valid value."));
         break;
     case VOLUME_ZERO:
-        ui.error->setText(i18n("volume cannot be zero! Please enter valid data to correct it!"));
+        ui.error->setText(i18n("Volume cannot be zero, please enter a valid value."));
         break;
     case MOLES_ZERO:
-        ui.error->setText(i18n("Number of moles cannot be zero! Please enter valid data to correct the error!"));
+        ui.error->setText(i18n("Number of moles cannot be zero, please enter a valid value."));
         break;
     case MOLAR_SOLVENT_ZERO:
-        ui.error->setText(i18n("Molar mass of solvent is zero! Please correct it!"));
+        ui.error->setText(i18n("Molar mass of solvent is zero, please enter a valid value."));
         break;
     case EQTS_ZERO:
-        ui.error->setText(i18n("Number of equivalents is zero. Cannot calculate equivalent mass!"));
+        ui.error->setText(i18n("Number of equivalents is zero. Cannot calculate equivalent mass."));
         break;
     case CONC_ZERO:
-        ui.error->setText(i18n("Concentration is zero! Please correct it!"));
+        ui.error->setText(i18n("Concentration is zero, please enter a valid value."));
         break;
     case SOLVENT_VOLUME_ZERO:
-    	ui.error->setText(i18n("The volumes of the solvent cannot be zero!"));
+    	ui.error->setText(i18n("The volume of the solvent cannot be zero."));
     	break;
 	case SOLVENT_MOLES_ZERO:
-		ui.error->setText(i18n("The number of moles of the solvent cannot be zero!"));
+		ui.error->setText(i18n("The number of moles of the solvent cannot be zero."));
     	break;
     case SOLVENT_MASS_ZERO:
-    	ui.error->setText(i18n("The mass of the solvent cannot be zero!"));
+    	ui.error->setText(i18n("The mass of the solvent cannot be zero."));
     	break;    	    	
     case INSUFFICIENT_DATA_EQT:
-        ui.error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
+        ui.error->setText(i18n("Insufficient data to calculate the required value, please specify normality."));
         break;
     case INSUFFICIENT_DATA_MOLE:
-        ui.error->setText(i18n("Insufficient data, specify molarity / molefraction / molality to calculate!"));
+        ui.error->setText(i18n("Insufficient data, specify molarity / mole fraction / molality to calculate."));
         break;
     case INSUFFICIENT_DATA_MOLES:
-        ui.error->setText(i18n("amount specified in moles, cannot calculate molar/equivalent masses! Specify mass/volume"));
+        ui.error->setText(i18n("The amount is specified in moles, cannot calculate molar/equivalent masses. Please specify mass/volume."));
         break;
     case INSUFFICIENT_DATA_SOLVENT:
-        ui.error->setText(i18n("You can calculate the molar mass of solvent only if mole fraction is specified!"));
+        ui.error->setText(i18n("You can calculate the molar mass of solvent only if the mole fraction is specified."));
         break;
     case MOLAR_MASS_ZERO:
-        ui.error->setText(i18n("molar mass cannot be zero, please correct it!"));
+        ui.error->setText(i18n("Molar mass cannot be zero, please enter a valid value."));
         break;
     case EQT_MASS_ZERO:
-        ui.error->setText(i18n("Equivalent mass cannot be zero, please correct it!"));
+        ui.error->setText(i18n("Equivalent mass cannot be zero, please enter a valid value."));
         break;
     default:
         break;

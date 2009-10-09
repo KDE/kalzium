@@ -52,9 +52,9 @@
            </property>
            <property name="whatsThis">
             <string>This box can be used to enter the formula for the molecule.
-eg 1.&gt; CaCO3
-eg 2.&gt; MeOH
-eg 3.&gt; #EDTA#
+e.g. 1.&gt; CaCO3
+e.g. 2.&gt; MeOH
+e.g. 3.&gt; #EDTA#
 </string>
            </property>
           </widget>
@@ -174,7 +174,7 @@ eg 3.&gt; #EDTA#
                <string>Elemental composition</string>
               </property>
               <property name="whatsThis">
-               <string>This table previews the elemental composition of the molecule, i.e the percentage of each element in the molecule.</string>
+               <string>This table previews the elemental composition of the molecule, i.e. the percentage of each element in the molecule.</string>
               </property>
               <property name="showGrid">
                <bool>false</bool>
@@ -234,7 +234,7 @@ eg 3.&gt; #EDTA#
               </property>
               <property name="whatsThis">
                <string>This displays all the aliases used in the molecule.
-for eg. In molecule MeOH, the alias used is Me = CH3</string>
+For instance, in the molecule MeOH, the alias used is Me = CH3.</string>
               </property>
               <property name="rowCount">
                <number>1</number>
@@ -296,8 +296,8 @@ for eg. In molecule MeOH, the alias used is Me = CH3</string>
                <string>Short form of the alias</string>
               </property>
               <property name="whatsThis">
-               <string>You can specify the short form of the alias used here.
-For eg. Me</string>
+               <string>You can specify the short form of the alias used here, 
+for instance, Me.</string>
               </property>
              </widget>
             </item>
@@ -311,8 +311,8 @@ For eg. Me</string>
             <item>
              <widget class="QLineEdit" name="fullForm">
               <property name="whatsThis">
-               <string>You can enter the full form of the alias in this box
-eg. CH3</string>
+               <string>You can enter the full form of the alias in this box, 
+for instance, CH3.</string>
               </property>
              </widget>
             </item>

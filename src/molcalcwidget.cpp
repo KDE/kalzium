@@ -172,7 +172,7 @@ void MolcalcWidget::clear()
 	ui.resultLabel->clear();
 	ui.resultMass->clear();
 	
-	ui.resultComposition->setText( i18n("Enter a formula in the\nwidget above and\nclick on 'Calc'.\nEg. #Et#OH") );
+	ui.resultComposition->setText( i18n("Enter a formula in the\nwidget above and\nclick on 'Calc'.\nE.g. #Et#OH") );
 
 	ui.resultMass->setToolTip( QString() );
 	ui.resultComposition->setToolTip( QString() );

@@ -351,10 +351,10 @@ void gasCalculator::error(int mode)
 		ui.error->setText("");
 		break;
     case VOL_ZERO :
-        ui.error->setText(i18n("Volume cannot be zero, please correct the error!"));
+        ui.error->setText(i18n("Volume cannot be zero, please enter a valid value."));
         break;
     case MOLAR_MASS_ZERO_:
-    	ui.error->setText(i18n("Molar mass cannot be zero, please enter a non-zero value!"));
+    	ui.error->setText(i18n("Molar mass cannot be zero, please enter a non-zero value."));
     default:
         break;
     }

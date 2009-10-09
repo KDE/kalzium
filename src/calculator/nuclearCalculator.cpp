@@ -404,16 +404,16 @@ void nuclearCalculator::error (int mode)
 			ui.error->setText("");
 			break;
 		case INIT_AMT_ZERO:
-			ui.error->setText(i18n("Initial amount can not be zero!"));
+			ui.error->setText(i18n("Initial amount cannot be zero."));
 			break;
 		case FINAL_AMT_ZERO:
-			ui.error->setText(i18n("Final amount can not zero!"));
+			ui.error->setText(i18n("Final amount cannot zero."));
 			break;
 		case HALFLIFE_ZERO:
-			ui.error->setText(i18n("Time is zero, please correct it!"));
+			ui.error->setText(i18n("Time is zero, please enter a valid value."));
 			break;
 		case FINAL_AMT_GREATER:
-			ui.error->setText(i18n("Final amount is greater than initial. Invalid!"));
+			ui.error->setText(i18n("The final amount is greater than the initial amount."));
 			break;
 	}
 }
