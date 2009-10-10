@@ -23,7 +23,7 @@
 #include <kdebug.h>
 #include <prefs.h>
 #include <kalziumdataobject.h>
-#include <KUnitConversion/UnitCategory>
+#include <kunitconversion/unitcategory.h>
 
 #include "ui_concCalculator.h"
 
