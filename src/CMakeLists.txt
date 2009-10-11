@@ -1,7 +1,3 @@
-add_subdirectory(tools)
-add_subdirectory(calculator)
-#add_subdirectory(conversion)
-
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    ${CMAKE_SOURCE_DIR}/kalzium/compoundviewer/
