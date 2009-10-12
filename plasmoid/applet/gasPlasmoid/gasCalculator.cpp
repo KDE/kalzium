@@ -83,7 +83,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 		// setup the label
 	    Plasma::Frame *pHeader = new Plasma::Frame(this);
 	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-	    pHeader->setText(i18n("gas Calculator"));
+	    pHeader->setText(i18n("Gas Calculator"));
 
 	    //setup the grid layout
 		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(m_widget);
@@ -623,10 +623,10 @@ void gasCalculator::error(int mode)
     	m_error->setText("");
     	break;
     case VOL_ZERO :
-        m_error->setText(i18n("Volume cannot be zero, please correct the error!"));
+        m_error->setText(i18n("Volume cannot be zero, please enter a valid value."));
         break;
     case MOLAR_MASS_ZERO_:
-    	m_error->setText(i18n("The molar mass cannot be zero, please enter a non-zero value"));
+    	m_error->setText(i18n("The molar mass cannot be zero, please enter a non-zero value."));
     default:
         break;
     }

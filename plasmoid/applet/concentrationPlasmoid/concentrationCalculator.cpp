@@ -83,7 +83,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 		// setup the label
 	    Plasma::Frame *pHeader = new Plasma::Frame(this);
 	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-	    pHeader->setText(i18n("concentration Calculator"));
+	    pHeader->setText(i18n("Concentration Calculator"));
 
 	    //setup the layout
 	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
@@ -1223,46 +1223,46 @@ void concentrationCalculator::error(int mode)
     	m_error->setText("");
     	break;
     case PERCENTAGE_ZERO:
-        m_error->setText(i18n("Percentage should be less than 100.0, please enter valid data!"));
+        m_error->setText(i18n("Percentage should be less than 100.0, please enter a valid value."));
         break;
     case DENSITY_ZERO:
-        m_error->setText(i18n("Density cannot be zero. Invalid! Please enter a valid value!"));
+        m_error->setText(i18n("Density cannot be zero, please enter a valid value."));
         break;
     case MASS_ZERO:
-        m_error->setText(i18n("mass cannot be zero! Please enter valid data to correct it!"));
+        m_error->setText(i18n("Mass cannot be zero, please enter a valid value."));
         break;
     case VOLUME_ZERO:
-        m_error->setText(i18n("volume cannot be zero! Please enter valid data to correct it!"));
+        m_error->setText(i18n("Volume cannot be zero, please enter a valid value."));
         break;
     case MOLES_ZERO:
-        m_error->setText(i18n("Number of moles cannot be zero! Please enter valid data to correct the error!"));
+        m_error->setText(i18n("Number of moles cannot be zero, please enter a valid value."));
         break;
     case MOLAR_SOLVENT_ZERO:
-        m_error->setText(i18n("Molar mass of solvent is zero! Please correct it!"));
+        m_error->setText(i18n("Molar mass of solvent is zero, please enter a valid value."));
         break;
     case EQTS_ZERO:
-        m_error->setText(i18n("Number of equivalents is zero. Cannot calculate equivalent mass!"));
+        m_error->setText(i18n("Number of equivalents is zero - cannot calculate equivalent mass."));
         break;
     case CONC_ZERO:
-        m_error->setText(i18n("Concentration is zero! Please correct it!"));
+        m_error->setText(i18n("Concentration is zero, please enter a valid value."));
         break;
     case INSUFFICIENT_DATA_EQT:
-        m_error->setText(i18n("Insufficient data! to calculate the required, please specify normality!"));
+        m_error->setText(i18n("Insufficient data to calculate the required value, please specify normality."));
         break;
     case INSUFFICIENT_DATA_MOLE:
-        m_error->setText(i18n("Insufficient data, specify molarity / molefraction / molality to calculate!"));
+        m_error->setText(i18n("Insufficient data, please specify molarity / mole fraction / molality to calculate."));
         break;
     case INSUFFICIENT_DATA_MOLES:
-        m_error->setText(i18n("amount specified in moles, cannot calculate molar/equivalent masses! Specify mass/volume"));
+        m_error->setText(i18n("Amount is specified in moles, cannot calculate molar/equivalent masses.  Please specify mass/volume."));
         break;
     case INSUFFICIENT_DATA_SOLVENT:
-        m_error->setText(i18n("You can calculate the molar mass of solvent only if mole fraction is specified!"));
+        m_error->setText(i18n("You can only calculate the molar mass of a solvent if the mole fraction is specified."));
         break;
     case MOLAR_MASS_ZERO:
-        m_error->setText(i18n("molar mass cannot be zero, please correct it!"));
+        m_error->setText(i18n("Molar mass cannot be zero, please enter a valid value."));
         break;
     case EQT_MASS_ZERO:
-        m_error->setText(i18n("Equivalent mass cannot be zero, please correct it!"));
+        m_error->setText(i18n("Equivalent mass cannot be zero, please enter a valid value."));
         break;
     default:
         break;
