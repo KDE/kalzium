@@ -26,7 +26,6 @@
 #define R 0.08206
 
 namespace Plasma{
-	class QSizeF;
 	class ComboBox;
 	class TextEdit;
 	class Label;
