@@ -401,7 +401,7 @@ void ElementDataViewer::drawPlot()
 				case 6: //plot f block elements
 					belongs = ( block [ i - 1 ] == "f");
 					break;
-				case 7: // Nobel gases
+				case 7: // Noble gases
 					belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("p6") );
 					belongs |= ( i == 2 );		//Include Helium
 					break;
