@@ -171,6 +171,7 @@ void MolcalcWidget::clear()
 	// Clear the widgets.
 	ui.resultLabel->clear();
 	ui.resultMass->clear();
+	ui.resultValue->hide();
 	
 	ui.resultComposition->setText( i18n("Enter a formula in the\nwidget above and\nclick on 'Calc'.\nE.g. #Et#OH") );
 
@@ -228,9 +229,11 @@ void MolcalcWidget::updateUI()
         ui.resultComposition->setText( compositionString(m_elementMap) );
 
         // The mass
-        ui.resultMass->setText( i18n( "Molecular mass: %1 u", m_mass ) );
-
-        ui.resultMass->setToolTip(        complexString );
+        ui.resultMass->setText( i18n( "Molecular mass: ") );
+        
+        ui.resultValue->setText( QString::number(m_mass) + " u" ); 
+	    ui.resultValue->show();
+        ui.resultMass->setToolTip(  complexString );
         ui.resultComposition->setToolTip( complexString );
 
 #if 0
