@@ -90,12 +90,13 @@ class nuclearCalculator : public Plasma::PopupApplet
 		/// occurs when the time is changed in the UI
 		void timeChanged();
 
-/* x	/*
+#if 0
+		/*
 		 * occurs when the slider in the ui is moved
 		 * @param x is 10 times the number of halfLives indicated in the slider
 		 */
-/*x  	void sliderMoved(int x);
-*/
+		void sliderMoved(int x);
+#endif
 
 		/*
 		 * Used to display error messages
