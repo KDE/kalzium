@@ -22,7 +22,6 @@
 
 #include "ui_concentrationCalculatorConfig.h"
 namespace Plasma{
-	class QSizeF;
 	class ComboBox;
 	class SpinBox;
 	class TextEdit;

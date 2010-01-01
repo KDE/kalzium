@@ -28,7 +28,6 @@
 #include "ui_nuclearCalculatorConfig.h"
 
 namespace Plasma{
-	class QSizeF;
 	class ComboBox;
 	class SpinBox;
 	class TextEdit;
