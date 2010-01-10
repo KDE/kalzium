@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Chemistry: Did You Know
 Name[ca]=Química: sabíeu que...
+Name[ca@valencia]=Química: sabíeu que...
 Name[cs]=Chemie: Víte že...
 Name[da]=Kemi: Vidste du
 Name[de]=Chemie: Wussten Sie schon, dass ...
@@ -44,6 +45,7 @@ Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
 Comment[ca]=Fets sobre els elements químics
+Comment[ca@valencia]=Fets sobre els elements químics
 Comment[cs]=Údaje o chemických prvcích
 Comment[da]=Fakta om de kemiske grundstoffer
 Comment[de]=Fakten über die chemischen Elemente
