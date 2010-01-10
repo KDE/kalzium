@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Kalzium nuclear Calculator
 Name[ca]=Calculadora nuclear del Kalzium
+Name[ca@valencia]=Calculadora nuclear del Kalzium
 Name[en_GB]=Kalzium nuclear Calculator
 Name[es]=Calculadora nuclear de Kalzium
 Name[et]=Kalziumi tuumakalkulaator
@@ -22,6 +23,7 @@ Name[zh_CN]=Kalzium 原子计算器
 Name[zh_TW]=Kalzium 核子計算機
 Comment=Kalzium Nuclear Calculator
 Comment[ca]=Calculadora nuclear del Kalzium
+Comment[ca@valencia]=Calculadora nuclear del Kalzium
 Comment[en_GB]=Kalzium Nuclear Calculator
 Comment[es]=Calculadora nuclear de Kalzium
 Comment[et]=Kalziumi tuumakalkulaator

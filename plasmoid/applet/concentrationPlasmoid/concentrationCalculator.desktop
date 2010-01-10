@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Kalzium concentration Calculator
 Name[ca]=Calculadora de concentracions del Kalzium
+Name[ca@valencia]=Calculadora de concentracions del Kalzium
 Name[en_GB]=Kalzium concentration Calculator
 Name[es]=Calculadora de concentraciones de Kalzium
 Name[et]=Kalziumi kontsentratsioonikalkulaator
@@ -21,6 +22,7 @@ Name[zh_CN]=Kalzium 浓度计算器
 Name[zh_TW]=Kalzium 濃度計算器
 Comment=Kalzium concentration Calculator
 Comment[ca]=Calculadora de concentracions del Kalzium
+Comment[ca@valencia]=Calculadora de concentracions del Kalzium
 Comment[en_GB]=Kalzium concentration Calculator
 Comment[es]=Calculadora de concentraciones de Kalzium
 Comment[et]=Kalziumi kontsentratsioonikalkulaator
