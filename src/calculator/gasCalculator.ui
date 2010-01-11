@@ -533,10 +533,10 @@ p, li { white-space: pre-wrap; }
         <item row="0" column="1">
          <widget class="QDoubleSpinBox" name="b">
           <property name="toolTip">
-           <string>Specify the units of the van der Waals constant b</string>
+           <string>Specify the units of the van der Waals constant 'b'</string>
           </property>
           <property name="whatsThis">
-           <string>This box can be used to specify the van der Waals constant B for the gas. This is required only for a real gas. It can be marked as 0.0 for an ideal gas.</string>
+           <string>This box can be used to specify the van der Waals constant 'b' for the gas. This is required only for a real gas. It can be marked as 0.0 for an ideal gas.</string>
           </property>
           <property name="decimals">
            <number>4</number>
@@ -549,10 +549,10 @@ p, li { white-space: pre-wrap; }
         <item row="1" column="1">
          <widget class="QDoubleSpinBox" name="a">
           <property name="toolTip">
-           <string>Specify the units of the van der Waals constant a</string>
+           <string>Specify the units of the van der Waals constant 'a'</string>
           </property>
           <property name="whatsThis">
-           <string>This box can be used to specify the van der Waals constant A for the gas. This is required only for a real gas. It can be marked as 0.0 for an ideal gas.</string>
+           <string>This box can be used to specify the van der Waals constant 'a' for the gas. This is required only for a real gas. It can be marked as 0.0 for an ideal gas.</string>
           </property>
           <property name="decimals">
            <number>4</number>
@@ -567,10 +567,10 @@ p, li { white-space: pre-wrap; }
           <item>
            <widget class="QComboBox" name="b_unit">
             <property name="toolTip">
-             <string>The units of the van der Waals constant b</string>
+             <string>The units of the van der Waals constant 'b'</string>
             </property>
             <property name="whatsThis">
-             <string>This can be used to specify the units of the van der Waals constant B.</string>
+             <string>This can be used to specify the units of the van der Waals constant 'b'.</string>
             </property>
             <item>
              <property name="text">
@@ -616,10 +616,10 @@ p, li { white-space: pre-wrap; }
         <item row="1" column="2">
          <widget class="QComboBox" name="a_unit">
           <property name="toolTip">
-           <string>The units of the van der Waals constant a</string>
+           <string>The units of the van der Waals constant 'a'</string>
           </property>
           <property name="whatsThis">
-           <string>This box can be used to specify the units of the van der Waals constant A.</string>
+           <string>This box can be used to specify the units of the van der Waals constant 'a'.</string>
           </property>
           <item>
            <property name="text">
