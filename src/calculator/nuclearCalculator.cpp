@@ -407,7 +407,7 @@ void nuclearCalculator::error (int mode)
 			ui.error->setText(i18n("Initial amount cannot be zero."));
 			break;
 		case FINAL_AMT_ZERO:
-			ui.error->setText(i18n("Final amount cannot zero."));
+			ui.error->setText(i18n("Final amount cannot be zero."));
 			break;
 		case HALFLIFE_ZERO:
 			ui.error->setText(i18n("Time is zero, please enter a valid value."));
