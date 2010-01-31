@@ -31,7 +31,7 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QCheckBox" name="kcfg_mass">
          <property name="text">
-          <string>Amount is always specified in term of mass.</string>
+          <string>Amount is always specified in term of mass</string>
          </property>
         </widget>
        </item>
@@ -60,7 +60,7 @@ p, li { white-space: pre-wrap; }
          <item>
           <widget class="QCheckBox" name="kcfg_ideal">
            <property name="text">
-            <string>Assume Gas is ideal (i.e. do not show Van der Waals co-efficients).</string>
+            <string>Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)</string>
            </property>
            <property name="checked">
             <bool>true</bool>
@@ -126,14 +126,14 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QCheckBox" name="kcfg_soluteMass">
          <property name="text">
-          <string>Amount of solute is always specified in terms of mass.</string>
+          <string>Amount of solute is always specified in terms of mass</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="kcfg_solventVolume">
          <property name="text">
-          <string>Amount of solvent is always specified in terms of volume.</string>
+          <string>Amount of solvent is always specified in terms of volume</string>
          </property>
         </widget>
        </item>

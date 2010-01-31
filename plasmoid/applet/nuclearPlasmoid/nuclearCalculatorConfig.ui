@@ -14,7 +14,7 @@
    <item>
     <widget class="QCheckBox" name="massOnly">
      <property name="text">
-      <string>Amount is always specified in term of mass.</string>
+      <string>Amount is always specified in term of mass</string>
      </property>
     </widget>
    </item>
