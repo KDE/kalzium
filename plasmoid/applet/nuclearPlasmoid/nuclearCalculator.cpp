@@ -156,6 +156,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    m_isotope->setZValue(1);
 
 	    m_halfLife = new Plasma::SpinBox(this);
+	    m_halfLife->nativeWidget()->setMinimumWidth(100);
 	    m_halfLife->nativeWidget()->setMaximum(1000000000);
 	    //m_halfLife->setDecimals(4);
         m_halfLife->setMaximum(1e+09);
@@ -211,14 +212,17 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 	    m_numHalfLives->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	    m_numHalfLives->setText(i18n("0 seconds"));
 	    m_initAmt = new Plasma::SpinBox(this);
+	    m_initAmt->nativeWidget()->setMinimumWidth(200);
 	    m_initAmt->nativeWidget()->setMaximum(1000000000);
 	    //m_initAmt->setDecimals(4);
         m_initAmt->setMaximum(1e+09);
 	    m_finalAmt = new Plasma::SpinBox(this);
+	    m_finalAmt->nativeWidget()->setMinimumWidth(200);
 	    m_finalAmt->nativeWidget()->setMaximum(1000000000);
 	    //m_finalAmt->setDecimals(4);
         m_finalAmt->setMaximum(1e+09);
 	    m_time = new Plasma::SpinBox(this);
+	    m_time->nativeWidget()->setMinimumWidth(200);
 	    m_time->nativeWidget()->setMaximum(1000000000);
 	    //m_time->setDecimals(4);
         m_time->setMaximum(1e+09);

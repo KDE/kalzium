@@ -114,6 +114,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    molarMassLabel->setText(i18n("Molar Mass of Gas:"));
 
 	    m_molarMass = new Plasma::SpinBox(this);
+	    m_molarMass->nativeWidget()->setMinimumWidth(80);
 	    m_molarMass->nativeWidget()->setMaximum(1000000000);
 		//m_MolarMass->setDecimals(4);
         m_molarMass->setMaximum(1e+09);
@@ -133,6 +134,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    molesLabel->setText(i18n("Number of moles:"));
 
 	    m_moles = new Plasma::SpinBox(this);
+	    m_moles->nativeWidget()->setMinimumWidth(80);
 	    m_moles->nativeWidget()->setMaximum(1000000000);
         //m_Moles->setDecimals(4);
         m_moles->setMaximum(1e+09);
@@ -147,6 +149,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    massLabel->setText(i18n("Mass of the gas:"));
 
 	    m_mass = new Plasma::SpinBox(this);
+	    m_mass->nativeWidget()->setMinimumWidth(80);
 	    m_mass->nativeWidget()->setMaximum(1000000000);
 	    //m_Mass->setDecimals(4);
 	    m_mass->setMaximum(1e+09);
@@ -174,6 +177,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    pressureLabel->setText(i18n("Pressure of the Gas:"));
 
 	    m_pressure = new Plasma::SpinBox(this);
+	    m_pressure->nativeWidget()->setMinimumWidth(80);
 	    m_pressure->nativeWidget()->setMaximum(1000000000);
         //m_Pressure->setDecimals(4);
         m_pressure->setMaximum(1e+09);
@@ -202,6 +206,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    temperatureLabel->setText(i18n("Temperature:"));
 
 	    m_temperature = new Plasma::SpinBox(this);
+	    m_temperature->nativeWidget()->setMinimumWidth(80);
 	    m_temperature->nativeWidget()->setMaximum(1000000000);
 	    //m_Temp->setDecimals(4);
         m_temperature->setMaximum(1e+09);
@@ -228,6 +233,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    volumeLabel->setText(i18n("Volume of the gas:"));
 
 	    m_volume = new Plasma::SpinBox(this);
+	    m_volume->nativeWidget()->setMinimumWidth(80);
 	    m_volume->nativeWidget()->setMaximum(1000000000);
         //m_volume->setDecimals(4);
         m_volume->setMaximum(1e+09);
@@ -256,6 +262,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    vand_aLabel->setText(i18n("Van der Waals constant 'a':"));
 
 	    m_Vand_a = new Plasma::SpinBox(this);
+	    m_Vand_a->nativeWidget()->setMinimumWidth(80);
 	    m_Vand_a->nativeWidget()->setMaximum(1000000000);
         //m_Vand_A->setDecimals(4);
         m_Vand_a->setMaximum(1e+09);
@@ -278,6 +285,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 	    vand_bLabel->setText(i18n("Van der Waals constant 'b':"));
 
 	    m_Vand_b = new Plasma::SpinBox(this);
+	    m_Vand_b->nativeWidget()->setMinimumWidth(80);
 	    m_Vand_b->nativeWidget()->setMaximum(1000000000);
         //m_Vand_B->setDecimals(4);
         m_Vand_b->setMaximum(1e+09);
