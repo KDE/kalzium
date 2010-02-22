@@ -24,7 +24,7 @@
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <KLocale>
-#include <knewstuff2/engine.h>
+#include <knewstuff3/downloaddialog.h>
 
 #include <openbabel2wrapper.h>
 
@@ -236,15 +236,17 @@ void MoleculeDialog::slotUpdateStatistics()
 void MoleculeDialog::slotDownloadNewStuff()
 {
     kDebug() << "Kalzium new stuff";
-    KNS::Entry::List entries = KNS::Engine::download();
+
+    KNS3::DownloadDialog dialog(this);
+    dialog.exec();
+
     // list of changed entries
-    foreach(KNS::Entry* entry, entries) {
+    foreach (const KNS3::Entry& entry, dialog.changedEntries()) {
         // care only about installed ones
-        if (entry->status() == KNS::Entry::Installed) {
-            kDebug() << "Files downloaded: " << entry->installedFiles();
+        if (entry.status() == KNS3::Entry::Installed) {
+            kDebug() << "Changed Entry: " << entry.installedFiles();
         }
     }
-    qDeleteAll(entries);
 }
 
 void MoleculeDialog::elementCombo()
