@@ -27,8 +27,11 @@ if(__KDE_HAVE_GCC_VISIBILITY)
   add_definitions(-DHAVE_GCC_VISIBILITY)
 endif(__KDE_HAVE_GCC_VISIBILITY)
 
+# FindOpenBabel2.cmake uses find_library(), so ${OPENBABEL2_LIBRARIES} should 
+# be the full path to the library. So the line below should not be necessary. Alex
+#
 # I think this is necessary now in order to tell the linker where openbabel is
-link_directories(${OPENBABEL2_LIBRARY_DIRS})
+# link_directories(${OPENBABEL2_LIBRARY_DIRS})
 
 file(GLOB libavogadro_SRCS "*.cpp")
 
@@ -94,7 +97,8 @@ set(AVO_LINK_LIBRARIES ${OPENBABEL2_LIBRARIES}
 
 if(GLEW_FOUND)
   include_directories(${GLEW_INCLUDE_DIR})
-  link_directories(${GLEW_LIBRARY_DIR})
+# If glew is found properly, this link_directories() call shouldn't be necessary. Alex
+#  link_directories(${GLEW_LIBRARY_DIR})
   set(AVO_LINK_LIBRARIES ${AVO_LINK_LIBRARIES} ${GLEW_LIBRARY})
 endif(GLEW_FOUND)
 
@@ -114,7 +118,7 @@ endif(NOT ENABLE_PYTHON OR NOT ALL_PYTHON_FOUND)
 
 qt4_automoc(${libavogadro_SRCS})
 
-KDE4_ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})
+kde4_add_library(avogadro-kalzium SHARED ${libavogadro_SRCS})
 set_target_properties(avogadro-kalzium PROPERTIES OUTPUT_NAME avogadro-kalzium)
 set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.9.3 SOVERSION 0)
 set_target_properties(avogadro-kalzium PROPERTIES DEFINE_SYMBOL avogadro_lib_EXPORTS)
