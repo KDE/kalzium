@@ -119,7 +119,7 @@ void KOpenBabel::slotAddFile()
 
     KUrl::List fl = KFileDialog::getOpenUrls(
             KUrl(),
-            "*.*|" +i18n("All Files") + "\n"+tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
+            "*|" +i18n("All Files") + "\n"+tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
             );
 
     foreach ( const KUrl& u , fl ) {
