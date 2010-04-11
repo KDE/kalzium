@@ -27,6 +27,12 @@
 : QWidget( parent )
 {
     setupUi( this );
+
+    const int year = QDate::currentDate().year();
+    time_slider->setMaximum(year);
+    time_box->setMaximum(year);
+    time_slider->setValue(year);
+
     m_timer = new QTimer( this );
     connect( Play, SIGNAL (clicked()),
              this, SLOT( play()));
