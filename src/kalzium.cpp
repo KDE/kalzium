@@ -54,7 +54,7 @@
 #endif
 
 #ifdef HAVE_OPENBABEL2
-#ifdef HAVE_EIGEN
+#if defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 #include "tools/moleculeview.h"
 #endif
 #include "tools/obconverter.h"
