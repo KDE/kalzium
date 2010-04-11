@@ -665,7 +665,7 @@ void Kalzium::showSettingsDialog()
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget( 0 );
     ui_calc.setupUi( w_calc );
-    dialog->addPage( w_calc, i18n("Calculator"), "preferences-calculator");
+    dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
 	
 	// showing the dialog
 	dialog->show();
