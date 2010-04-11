@@ -30,6 +30,7 @@ class KalziumGLWidget : public Avogadro::GLWidget
       void setStyle2(int style);
       void setLabels(int style);
       void setQuality(int quality);
+      bool openFile(const QString &file);
 
     protected:
       QString lc_numeric;

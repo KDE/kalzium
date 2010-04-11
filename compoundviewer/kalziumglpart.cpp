@@ -57,6 +57,19 @@ KalziumGLWidget::~KalziumGLWidget()
     setlocale(LC_NUMERIC, lc_numeric.toAscii());
 }
 
+bool KalziumGLWidget::openFile(const QString &file)
+{
+    Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule( file );
+    if (!mol)
+        return false;
+    Avogadro::Molecule* oldmol = molecule();
+    if (oldmol)
+        oldmol->deleteLater();
+    setMolecule( mol );
+    update();
+    return true;
+}
+
 void KalziumGLWidget::setStyle( int style )
 {
     foreach(Avogadro::Engine *engine, engines())
@@ -189,13 +202,7 @@ KalziumGLPart::~KalziumGLPart()
 
 bool KalziumGLPart::openFile()
 {
-  Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule( url().toLocalFile() );
-  if(!mol) return false;
-  Avogadro::Molecule* oldmol = m_widget->molecule();
-  if(oldmol) oldmol->deleteLater();
-  m_widget->setMolecule( mol );
-  m_widget->update();
-  return true;
+    return m_widget->openFile( url().toLocalFile() );
 }
 
 #include "kalziumglpart.moc"
