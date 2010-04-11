@@ -18,15 +18,9 @@
 
 #include "ui_moleculeviewerwidget.h"
 
-#include <openbabel/mol.h>
-#include <openbabel/obiter.h>
-
-/// This is needed to ensure that the forcefields are set up right with GCC vis
-#ifdef __KDE_HAVE_GCC_VISIBILITY
-  #define HAVE_GCC_VISIBILITY
-#endif
-#include <openbabel/forcefield.h>
-
+namespace OpenBabel {
+  class OBForceField;
+}
 namespace Avogadro{
   class PeriodicTableView;
 }

@@ -28,6 +28,14 @@
 
 #include <openbabel2wrapper.h>
 
+#include <openbabel/mol.h>
+#include <openbabel/obiter.h>
+// This is needed to ensure that the forcefields are set up right with GCC vis
+#ifdef __KDE_HAVE_GCC_VISIBILITY
+  #define HAVE_GCC_VISIBILITY
+#endif
+#include <openbabel/forcefield.h>
+
 using namespace OpenBabel;
 using namespace Avogadro;
 
