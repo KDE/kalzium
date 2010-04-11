@@ -14,7 +14,7 @@ KDE4_ADD_WIDGET_FILES(kalziumui_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kalziumui.
 
 kde4_add_plugin(kalziumuiwidgets ${kalziumui_PART_SRCS})
 
-target_link_libraries(kalziumuiwidgets ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} ${QT_QTDESIGNER_LIBRARY} ${KDE4_KDEUI_LIBS} ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY})
+target_link_libraries(kalziumuiwidgets ${OPENBABEL2_LIBRARIES} ${QT_QTDESIGNER_LIBRARY} ${KDE4_KDECORE_LIBS})
 
 install(TARGETS kalziumuiwidgets DESTINATION ${PLUGIN_INSTALL_DIR}/plugins/designer )
 

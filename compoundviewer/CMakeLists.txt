@@ -17,8 +17,7 @@ add_subdirectory(widgets)
 kde4_add_library(compoundviewer SHARED ${compoundviewer_SRCS})
 
 target_link_libraries(compoundviewer ${OPENBABEL2_LIBRARIES}
-${QT_QTOPENGL_LIBRARY} ${KDE4_KPARTS_LIBS} ${OPENGL_gl_LIBRARY}
-${OPENGL_glu_LIBRARY} avogadro)
+${QT_QTOPENGL_LIBRARY} ${KDE4_KPARTS_LIBS} avogadro)
 
 set_target_properties(compoundviewer PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
