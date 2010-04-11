@@ -1,5 +1,4 @@
-MESSAGE(STATUS "Kalzium plasmoid disabled until it will port to new API")
-MESSAGE(STATUS "Calculator plasmoids are available")
+MESSAGE(STATUS "Kalzium Plasma widget 'bodr' disabled, needs porting")
 #add_subdirectory(bodr)
 add_subdirectory(didyouknow)
 add_subdirectory(nuclearPlasmoid)
