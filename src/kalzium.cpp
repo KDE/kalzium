@@ -418,13 +418,16 @@ void Kalzium::slotGlossary()
 void Kalzium::slotRS()
 {
     RSDialog *rs = new RSDialog( this );
+    rs->setAttribute(Qt::WA_DeleteOnClose);
     rs->show();
 }
 
 void Kalzium::slotOBConverter()
 {
 #ifdef HAVE_OPENBABEL2
-    KOpenBabel * d = new KOpenBabel(this); d->show();
+    KOpenBabel * d = new KOpenBabel(this);
+    d->setAttribute(Qt::WA_DeleteOnClose);
+    d->show();
 #endif
 }
 
@@ -456,6 +459,7 @@ void Kalzium::slotMoleculeviewer()
 void Kalzium::slotTables()
 {
 	TablesDialog *t = new TablesDialog( this );
+	t->setAttribute(Qt::WA_DeleteOnClose);
 	t->show();
 }
 
@@ -463,6 +467,7 @@ void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
 	EQChemDialog *dlg = new EQChemDialog( this );
+	dlg->setAttribute(Qt::WA_DeleteOnClose);
 	dlg->show();
 #endif
 }
@@ -470,18 +475,21 @@ void Kalzium::slotShowEQSolver()
 void Kalzium::slotIsotopeTable()
 {
     IsotopeTableDialog *ndialog = new IsotopeTableDialog( this );
+    ndialog->setAttribute(Qt::WA_DeleteOnClose);
     ndialog->show();
 }
 
 void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( this );
+	edw->setAttribute(Qt::WA_DeleteOnClose);
 	edw->show();
 }
 
 void Kalzium::showCalculator()
 {
 	calculator *Cal = new calculator ( this ); 
+	Cal->setAttribute(Qt::WA_DeleteOnClose);
 	Cal -> show();	
 }
 
