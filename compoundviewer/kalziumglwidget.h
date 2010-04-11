@@ -31,7 +31,7 @@ class KalziumGLWidget : public Avogadro::GLWidget
       bool openFile(const QString &file);
 
     protected:
-      QString lc_numeric;
+      QByteArray m_lc_numeric;
       int m_lastEngine1, m_lastEngine2;
 };
 
