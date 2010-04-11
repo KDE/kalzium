@@ -209,14 +209,15 @@ void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * op
     QRectF r2( m_rect.topLeft() + QPointF( 1.0, 0.5 ), m_rect.size() / 2.0 );
     QRectF r3( m_rect.topLeft() + QPointF( 6.0, 0.5 ) , m_rect.size() / 2.0 );
 
-    if ( option->levelOfDetail > 0.3 )
+    const qreal lod = option->levelOfDetailFromTransform( painter->worldTransform() );
+    if ( lod > 0.3 )
         painter->setPen( pen() );
     else
         painter->setPen( Qt::NoPen );
     painter->setBrush( brush() );
     painter->drawRect( m_rect );
 
-    if ( option->levelOfDetail >= 1.0 ) {
+    if ( lod >= 1.0 ) {
         painter->setFont( QFont( "Arial", 3 ,QFont::Bold) );
         painter->drawText( r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol() );//, s->parentElementNumber()
         painter->setFont( QFont( "Arial", 1 ,QFont::Bold) );
