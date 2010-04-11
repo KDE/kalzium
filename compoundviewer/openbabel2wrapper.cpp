@@ -83,7 +83,8 @@ bool OpenBabel2Wrapper::writeMolecule( const QString& filename, Avogadro::Molecu
     return false;
   }
   Conv.SetInAndOutFormats( outFormat,outFormat );
-  Conv.Write( &mol->OBMol(), &outFileStream );
+  OpenBabel::OBMol obmol = mol->OBMol();
+  Conv.Write( &obmol, &outFileStream );
   return true;
 }
 
