@@ -33,11 +33,18 @@
 #include <kurl.h>
 #include <kstandarddirs.h>
 #include <kpixmapcache.h>
+#include <kglobal.h>
+
+struct StaticKalziumDataObject
+{
+	KalziumDataObject kdo;
+};
+
+K_GLOBAL_STATIC( StaticKalziumDataObject, s_kdo )
 
 KalziumDataObject* KalziumDataObject::instance()
 {
-	static KalziumDataObject kdo;
-	return &kdo;
+	return &s_kdo->kdo;
 }
 
 KalziumDataObject::KalziumDataObject()
@@ -105,6 +112,8 @@ KalziumDataObject::KalziumDataObject()
 	
 	// cache it
 	m_numOfElements = ElementList.count();
+
+	qAddPostRoutine( KalziumDataObject::cleanup );
 }
 
 KalziumDataObject::~KalziumDataObject()
@@ -170,6 +179,11 @@ Search* KalziumDataObject::search() const
 	return m_search;
 }
 
+void KalziumDataObject::cleanup()
+{
+	KalziumDataObject::instance()->cleanPixmaps();
+}
+
 void KalziumDataObject::loadIconSet()
 {
 	KPixmapCache cache("kalzium");
@@ -195,4 +209,9 @@ void KalziumDataObject::loadIconSet()
 		}
 		PixmapList << pix;
 	}
+}
+
+void KalziumDataObject::cleanPixmaps()
+{
+	PixmapList.clear();
 }

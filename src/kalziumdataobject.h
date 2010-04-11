@@ -102,7 +102,10 @@ class KalziumDataObject
 		KalziumDataObject();
 		~KalziumDataObject();
 
+		static void cleanup();
+
 		void loadIconSet();
+		void cleanPixmaps();
 	
 		QList<QPixmap> PixmapList;
 
@@ -115,5 +118,7 @@ class KalziumDataObject
 		int m_numOfElements;
 
 		Search *m_search;
+
+		friend class StaticKalziumDataObject;
 };
 #endif // KALZIUMDATAOBJECT_H
