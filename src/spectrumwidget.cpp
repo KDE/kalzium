@@ -22,6 +22,8 @@
 #include "spectrum.h"
 #include "kalziumutils.h"
 
+#include <config-kalzium.h>
+
 #include <element.h>
 
 #include <kdebug.h>

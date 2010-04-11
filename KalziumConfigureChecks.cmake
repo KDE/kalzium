@@ -7,6 +7,8 @@ macro_optional_find_package(OpenBabel2)
 macro_optional_find_package(Eigen2)
 macro_optional_find_package(Avogadro 1.0.0)
 
+check_include_files(ieeefp.h HAVE_IEEEFP_H)
+
 macro_bool_to_01(LIBFACILE_FOUND HAVE_FACILE)
 macro_bool_to_01(OPENBABEL2_FOUND HAVE_OPENBABEL2)
 macro_bool_to_01(EIGEN2_FOUND HAVE_EIGEN)

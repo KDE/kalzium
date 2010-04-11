@@ -13,6 +13,8 @@
 
 #include "kalziumutils.h"
 
+#include <config-kalzium.h>
+
 #include <QFont>
 #include <QRect>
 #include <QPainter>

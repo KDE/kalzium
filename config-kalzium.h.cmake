@@ -10,3 +10,6 @@
 /* Define 1 if we have Avogadro */
 #cmakedefine HAVE_AVOGADRO 1
 
+/* Define to 1 if you have the <ieeefp.h> header file. */
+#cmakedefine HAVE_IEEEFP_H 1
+

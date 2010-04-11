@@ -16,8 +16,6 @@ else(OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN2_FOUND)
   message(STATUS "Kalzium molecular editor disabled")
 endif(OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN2_FOUND)
 
-check_include_files(ieeefp.h HAVE_IEEEFP_H)
-
 add_subdirectory(src)
 add_subdirectory(data)
 add_subdirectory(plasmoid)
