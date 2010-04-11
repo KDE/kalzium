@@ -114,6 +114,7 @@ MoleculeParser::MoleculeParser(const QString& _str)
 
 MoleculeParser::~MoleculeParser()
 {
+	delete m_aliasList;
 }
 
 
