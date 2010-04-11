@@ -1,20 +1,18 @@
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   ${CMAKE_SOURCE_DIR}/kalzium/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
-   ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
-   ${CMAKE_SOURCE_DIR}/kalzium/src/calculator/
+   ../compoundviewer
+   tools
+   calculator
    ${CMAKE_CURRENT_BINARY_DIR}/..
-   ${KDE4_INCLUDES}
-   ${CONVERSION_INCLUDES}   
    )
 
 ########### next target ###############
 
-#the tools can only be build (right now) when OpenBabel2 is
-#found. The moleculeviewer needs not only OpenBabel2 but
-#also Eigen and OpenGL, so there is a nested if-check
-if(OPENBABEL2_FOUND)
+# The tools can only be built when OpenBabel2 is found.
+# The moleculeviewer needs not only OpenBabel2 but also Eigen2 and Avogadro,
+# so there is a nested if-check.
+if (OPENBABEL2_FOUND)
    set(kalziumtools_SRCS
       tools/obconverter.cpp
       )
@@ -22,9 +20,9 @@ if(OPENBABEL2_FOUND)
    kde4_add_ui_files(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
-   include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+   include_directories(${OPENBABEL2_INCLUDE_DIR})
 
-   if(EIGEN2_FOUND AND Avogadro_FOUND)
+   if (EIGEN2_FOUND AND Avogadro_FOUND)
 
       include(${Avogadro_USE_FILE})
 
@@ -36,29 +34,27 @@ if(OPENBABEL2_FOUND)
       kde4_add_ui_files(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
-      message(STATUS "Building the molecular editor.")
-      include_directories( ${EIGEN2_INCLUDE_DIR} )
-   endif(EIGEN2_FOUND AND Avogadro_FOUND)
-endif(OPENBABEL2_FOUND)
+      include_directories(${EIGEN2_INCLUDE_DIR})
+   endif (EIGEN2_FOUND AND Avogadro_FOUND)
+endif (OPENBABEL2_FOUND)
 
 ## Kalzium calculator files
 set(kalziumtools_SRCS
-    ${kalziumtools_SRCS}
-    calculator/calculator.cpp
-    calculator/nuclearCalculator.cpp
-    calculator/gasCalculator.cpp
-    calculator/concCalculator.cpp
-#    calculator/massCalculator.cpp
-    )
+   ${kalziumtools_SRCS}
+   calculator/calculator.cpp
+   calculator/nuclearCalculator.cpp
+   calculator/gasCalculator.cpp
+   calculator/concCalculator.cpp
+#   calculator/massCalculator.cpp
+   )
 kde4_add_ui_files(kalziumtools_SRCS
-    calculator/calculator.ui
-    calculator/nuclearCalculator.ui
-    calculator/gasCalculator.ui
-    calculator/concCalculator.ui
-    calculator/settings_calc.ui
-#    calculator/massCalculator.ui
-    )
-message(STATUS "Building the calculator")	
+   calculator/calculator.ui
+   calculator/nuclearCalculator.ui
+   calculator/gasCalculator.ui
+   calculator/concCalculator.ui
+   calculator/settings_calc.ui
+#   calculator/massCalculator.ui
+   )
 
 set(kalzium_SRCS
    ${kalziumtools_SRCS}
@@ -69,7 +65,7 @@ set(kalzium_SRCS
    tablesdialog.cpp
    detailedgraphicaloverview.cpp
    orbitswidget.cpp
-   elementdataviewer.cpp   
+   elementdataviewer.cpp
    molcalcwidget.cpp
    somwidget_impl.cpp
    timewidget_impl.cpp
@@ -89,14 +85,14 @@ set(kalzium_SRCS
    nuclideboardview.cpp
    nuclideboardguideview.cpp
    tableinfowidget.cpp
-   spectrumviewimpl.cpp #will readd in KDE4.1
-   spectrumwidget.cpp #will readd in KDE4.1
+   spectrumviewimpl.cpp
+   spectrumwidget.cpp
    )
 
-if(LIBFACILE_FOUND)
+if (LIBFACILE_FOUND)
    include(CMakeOCamlInstructions.cmake)
 
-   set( kalzium_SRCS
+   set(kalzium_SRCS
       ${kalzium_SRCS}
       eqchemview.cpp
       ${CMAKE_CURRENT_BINARY_DIR}/solver.o
@@ -105,8 +101,7 @@ if(LIBFACILE_FOUND)
    kde4_add_ui_files(kalzium_SRCS
       equationview.ui
       )
-endif(LIBFACILE_FOUND)
-
+endif (LIBFACILE_FOUND)
 
 kde4_add_ui_files(kalzium_SRCS
    settings_colors.ui
@@ -125,23 +120,21 @@ kde4_add_ui_files(kalzium_SRCS
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
-#uncomment this if oxygen icons for kalzium are available
-#kde4_add_app_icon(kalzium_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kalzium.png")
 kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
 
-kde4_add_executable(kalzium ${kalzium_SRCS} )
+kde4_add_executable(kalzium ${kalzium_SRCS})
 
 target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} science kdeeduui)
 
 if (OPENBABEL2_FOUND)
-    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-    if (EIGEN2_FOUND AND Avogadro_FOUND)
+   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
+   if (EIGEN2_FOUND AND Avogadro_FOUND)
       target_link_libraries(kalzium compoundviewer avogadro)
-    endif (EIGEN2_FOUND AND Avogadro_FOUND)
+   endif (EIGEN2_FOUND AND Avogadro_FOUND)
 endif (OPENBABEL2_FOUND)
 
-if(LIBFACILE_FOUND)
-   link_directories (${OCAMLC_DIR})
+if (LIBFACILE_FOUND)
+   link_directories(${OCAMLC_DIR})
    set(CMAKE_LIBRARY_PATH ${OCAMLC_DIR})
    set(kalzium_EXTRA_LIBS)
 
@@ -161,16 +154,15 @@ if(LIBFACILE_FOUND)
    endif (OCAML_NUMS_LIBRARY)
 
    target_link_libraries(kalzium ${kalzium_EXTRA_LIBS} m dl)
-endif(LIBFACILE_FOUND)	
+endif (LIBFACILE_FOUND)
 
-install(TARGETS kalzium  ${INSTALL_TARGETS_DEFAULT_ARGS} )
-
+install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES kalzium.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kalzium.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
-install( FILES kalziumui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kalzium )
-install( FILES kalzium.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
+install(FILES kalzium.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
+install(FILES kalziumui.rc DESTINATION ${DATA_INSTALL_DIR}/kalzium)
+install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
-kde4_install_icons( ${ICON_INSTALL_DIR}   )
+kde4_install_icons(${ICON_INSTALL_DIR})

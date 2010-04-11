@@ -1,5 +1,5 @@
-include_directories( 
-   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/   
+include_directories(
+   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    )
 
 set(didyouknow_plasma_SRCS
@@ -13,15 +13,9 @@ target_link_libraries(plasma_applet_didyouknow
     science
     )
 
-install(
-    TARGETS plasma_applet_didyouknow
-    DESTINATION ${PLUGIN_INSTALL_DIR}
-    )
+install(TARGETS plasma_applet_didyouknow DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install(
-    FILES plasma_didyouknow.desktop
-    DESTINATION ${SERVICES_INSTALL_DIR}
-    )
+install(FILES plasma_didyouknow.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 install(
     FILES chalkboard.svg
