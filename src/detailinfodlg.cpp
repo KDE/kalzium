@@ -72,6 +72,11 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 	setElement( el );
 }
 
+DetailedInfoDlg::~DetailedInfoDlg()
+{
+	qDeleteAll(m_htmlpages);
+}
+
 void DetailedInfoDlg::setElement( int el )
 {
 	Element *element = KalziumDataObject::instance()->element( el );
