@@ -26,7 +26,7 @@
     IsotopeView::IsotopeView(QWidget *parent)
 : QGraphicsView(parent)
 {
-    m_scene = new IsotopeScene();
+    m_scene = new IsotopeScene(this);
     m_zoomLevel = 1.0;
     setScene(m_scene);
     setSceneRect(m_scene->itemsBoundingRect());

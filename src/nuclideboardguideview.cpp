@@ -29,7 +29,7 @@
 {
     m_guidedView = 0;
     m_scale = 1.0;
-    m_scene = new IsotopeScene();
+    m_scene = new IsotopeScene(this);
     m_pixmapRepaintRequested = true;
     m_pixmap = 0;
     setScene(m_scene);
