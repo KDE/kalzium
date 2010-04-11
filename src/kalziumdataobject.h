@@ -101,6 +101,8 @@ class KalziumDataObject
 	private:
 		KalziumDataObject();
 		~KalziumDataObject();
+
+		void loadIconSet();
 	
 		QList<QPixmap> PixmapList;
 

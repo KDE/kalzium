@@ -105,33 +105,6 @@ KalziumDataObject::KalziumDataObject()
 	
 	// cache it
 	m_numOfElements = ElementList.count();
-            
-	KPixmapCache cache("kalzium");
-	
-	for ( int i = 0 ; i < m_numOfElements ; i++ )
-        {
-            //FIXME in case we ever get more than one theme we need
-            //a settings-dialog where we can select the different iconsets...
-            QString setname = "school";
-
-            QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
-
-            QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
-
-            QPixmap pix = cache.loadFromSvg( filename, QSize( 40, 40 ) );
-            if ( pix.isNull() ) {
-                pix = QPixmap( 40, 40 );
-                pix.fill(Qt::transparent);
-
-                QPainter p( &pix );
-                Element *e =  ElementList.at(i);
-                QString esymbol = e->dataAsString( ChemicalDataObject::symbol );
-                p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol );
-                p.end();
-            }
-            PixmapList << pix;
-        }
-
 }
 
 KalziumDataObject::~KalziumDataObject()
@@ -160,6 +133,8 @@ QPixmap KalziumDataObject::pixmap( int number )
 	// checking that we are requesting a valid element
 	if ( ( number <= 0 ) || ( number > m_numOfElements ) )
 		return 0;
+	if ( PixmapList.isEmpty() )
+		loadIconSet();
 	return PixmapList[ number-1 ];
 }
 
@@ -193,4 +168,31 @@ void KalziumDataObject::setSearch( Search *srch )
 Search* KalziumDataObject::search() const
 {
 	return m_search;
+}
+
+void KalziumDataObject::loadIconSet()
+{
+	KPixmapCache cache("kalzium");
+	//FIXME in case we ever get more than one theme we need
+	//a settings-dialog where we can select the different iconsets...
+	const QString setname = "school";
+	const QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
+	
+	for ( int i = 0 ; i < m_numOfElements ; i++ )
+	{
+		QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
+		
+		QPixmap pix = cache.loadFromSvg( filename, QSize( 40, 40 ) );
+		if ( pix.isNull() ) {
+			pix = QPixmap( 40, 40 );
+			pix.fill(Qt::transparent);
+
+			QPainter p( &pix );
+			Element *e =  ElementList.at(i);
+			QString esymbol = e->dataAsString( ChemicalDataObject::symbol );
+			p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol );
+			p.end();
+		}
+		PixmapList << pix;
+	}
 }
