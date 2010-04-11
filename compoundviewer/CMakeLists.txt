@@ -1,7 +1,8 @@
+include(${Avogadro_USE_FILE})
+
 include_directories(
   ${CMAKE_SOURCE_DIR}/..
   ${CMAKE_CURRENT_BINARY_DIR}/..
-  ${CMAKE_SOURCE_DIR}/kalzium/libavogadro-kalzium/include/
   ${EIGEN2_INCLUDE_DIR}
   )
 
@@ -17,7 +18,7 @@ kde4_add_library(compoundviewer SHARED ${compoundviewer_SRCS})
 
 target_link_libraries(compoundviewer ${OPENBABEL2_LIBRARIES}
 ${QT_QTOPENGL_LIBRARY} ${KDE4_KPARTS_LIBS} ${OPENGL_gl_LIBRARY}
-${OPENGL_glu_LIBRARY} avogadro-kalzium)
+${OPENGL_glu_LIBRARY} avogadro)
 
 set_target_properties(compoundviewer PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 

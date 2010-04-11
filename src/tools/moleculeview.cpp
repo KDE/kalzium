@@ -12,9 +12,9 @@
  *                                                                         *
  ***************************************************************************/
 #include "moleculeview.h"
-#include "../../libavogadro-kalzium/src/toolgroup.h"
-#include "../../libavogadro-kalzium/src/elementtranslate.h"
-#include "../../libavogadro-kalzium/src/periodictableview.h"
+#include <avogadro/toolgroup.h>
+#include <avogadro/elementtranslator.h>
+#include <avogadro/periodictableview.h>
 
 #include <QGLFormat>
 #include <QUndoStack>
@@ -90,14 +90,14 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
       this, SLOT(setViewEdit(int)));
 
   // Visualization parameters
-	connect( ui.qualityCombo, SIGNAL(activated( int )), 
-			ui.glWidget , SLOT( setQuality( int ) ) );
-	connect( ui.styleCombo, SIGNAL(activated( int )), 
-			ui.glWidget , SLOT( setStyle( int ) ) );
-  connect( ui.style2Combo, SIGNAL(activated( int )),
-      ui.glWidget , SLOT( setStyle2( int ) ) );
-	connect( ui.labelsCombo, SIGNAL(activated( int )), 
-			ui.glWidget , SLOT( setLabels( int ) ) );
+  connect(ui.qualityCombo, SIGNAL(activated( int )), 
+          ui.glWidget , SLOT( setQuality( int ) ) );
+  connect(ui.styleCombo, SIGNAL(activated( int )), 
+          ui.glWidget , SLOT( setStyle( int ) ) );
+  connect(ui.style2Combo, SIGNAL(activated( int )),
+          ui.glWidget , SLOT( setStyle2( int ) ) );
+  connect(ui.labelsCombo, SIGNAL(activated( int )), 
+          ui.glWidget , SLOT( setLabels( int ) ) );
 
   // Editing parameters
   connect(ui.elementCombo, SIGNAL(currentIndexChanged(int)),
@@ -112,14 +112,14 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
       this, SLOT(slotGeometryOptimize()));
       
   connect(ui.glWidget->molecule(), SIGNAL(updated()),
-      this, SLOT(slotUpdateStatistics()));
+          this, SLOT(slotUpdateStatistics()));
 
-	connect( this, SIGNAL( user1Clicked() ), 
-			this, SLOT( slotLoadMolecule() ) );
-	connect( this, SIGNAL( user2Clicked() ), 
-			this, SLOT( slotDownloadNewStuff() ) );
-  connect( this, SIGNAL( user3Clicked() ),
-      this, SLOT( slotSaveMolecule() ) );
+  connect(this, SIGNAL( user1Clicked() ), 
+          this, SLOT( slotLoadMolecule() ) );
+  connect(this, SIGNAL( user2Clicked() ), 
+          this, SLOT( slotDownloadNewStuff() ) );
+  connect(this, SIGNAL( user3Clicked() ),
+          this, SLOT( slotSaveMolecule() ) );
 
 	// Check that we have managed to load up some tools and engines
   int nEngines = ui.glWidget->engines().size() - 1;
@@ -209,12 +209,15 @@ void MoleculeDialog::slotSaveMolecule()
 
 void MoleculeDialog::setViewEdit(int mode)
 {
-    if (mode == 0) ui.glWidget->toolGroup()->setActiveTool("Navigate");
+    if (mode == 0)
+      ui.glWidget->toolGroup()->setActiveTool("Navigate");
     else if (mode == 1) {
       ui.glWidget->toolGroup()->setActiveTool("Draw");
-      ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+      if (ui.glWidget->toolGroup()->activeTool())
+        ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
     }
-    else if (mode == 2) ui.glWidget->toolGroup()->setActiveTool("Measure");
+    else if (mode == 2)
+      ui.glWidget->toolGroup()->setActiveTool("Measure");
 }
 
 MoleculeDialog::~MoleculeDialog( )
@@ -299,7 +302,8 @@ void MoleculeDialog::slotCustomElementChanged(int element)
 {
   // Set the element so we can draw with it
   m_drawSettings->setValue("currentElement", element);
-  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+  if (ui.glWidget->toolGroup()->activeTool())
+    ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
 
   // Check to see if we already have this in the comboBox list
   // If not, we get back -1 and need to create a new item
@@ -335,13 +339,15 @@ void MoleculeDialog::slotCustomElementChanged(int element)
 void MoleculeDialog::slotBondOrderChanged(int bond)
 {
   m_drawSettings->setValue("bondOrder", bond+1);
-  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+  if (ui.glWidget->toolGroup()->activeTool())
+    ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
 }
 
 void MoleculeDialog::slotAddHydrogensChanged(int hydrogens)
 {
   m_drawSettings->setValue("addHydrogens", hydrogens);
-  ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
+  if (ui.glWidget->toolGroup()->activeTool())
+    ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
 }
 
 void MoleculeDialog::slotAdjustHydrogens()

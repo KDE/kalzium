@@ -1,13 +1,11 @@
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    ${CMAKE_SOURCE_DIR}/kalzium/compoundviewer/
-   ${CMAKE_SOURCE_DIR}/kalzium/libavogadro-kalzium/include/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
    ${CMAKE_SOURCE_DIR}/kalzium/src/calculator/
-#   ${CMAKE_SOURCE_DIR}/kalzium/src/conversion/
    ${CMAKE_CURRENT_BINARY_DIR}/..
-   ${KDE4_INCLUDES}   
+   ${KDE4_INCLUDES}
    ${CONVERSION_INCLUDES}   
    )
 
@@ -26,7 +24,9 @@ if(OPENBABEL2_FOUND)
       )
    include_directories( ${OPENBABEL2_INCLUDE_DIR} )
 
-   if(OPENGL_FOUND AND EIGEN2_FOUND)
+   if(EIGEN2_FOUND AND Avogadro_FOUND)
+
+      include(${Avogadro_USE_FILE})
 
       set(kalziumtools_SRCS
          ${kalziumtools_SRCS}
@@ -38,7 +38,7 @@ if(OPENBABEL2_FOUND)
          )
       message(STATUS "Building the molecular editor.")
       include_directories( ${EIGEN2_INCLUDE_DIR} )
-   endif(OPENGL_FOUND AND EIGEN2_FOUND)
+   endif(EIGEN2_FOUND AND Avogadro_FOUND)
 endif(OPENBABEL2_FOUND)
 
 ## Kalzium calculator files
@@ -135,9 +135,9 @@ target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE
 
 if (OPENBABEL2_FOUND)
     target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-    if (OPENGL_FOUND AND EIGEN2_FOUND)
-        target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
-    endif (OPENGL_FOUND AND EIGEN2_FOUND)
+    if (EIGEN2_FOUND AND Avogadro_FOUND)
+      target_link_libraries(kalzium compoundviewer avogadro)
+    endif (EIGEN2_FOUND AND Avogadro_FOUND)
 endif (OPENBABEL2_FOUND)
 
 if(LIBFACILE_FOUND)

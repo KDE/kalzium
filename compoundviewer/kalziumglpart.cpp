@@ -20,6 +20,7 @@
 #include <avogadro/primitive.h>
 #include <avogadro/pluginmanager.h>
 #include <avogadro/toolgroup.h>
+#include <avogadro/engine.h>
 
 #include "openbabel2wrapper.h"
 
@@ -123,11 +124,11 @@ void KalziumGLWidget::setLabels(int style)
           break;
         case 2: // Display the atom symbol
           enabled = true;
-          atomType = 3;
+          atomType = 2;
           break;
         case 3: // Display the atom name
           enabled = true;
-          atomType = 2;
+          atomType = 7;
           break;
         default:
           engine->setEnabled(false);
