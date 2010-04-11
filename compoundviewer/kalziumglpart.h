@@ -14,9 +14,7 @@
 #ifndef KALZIUMGLPART_H
 #define KALZIUMGLPART_H
 
-
-#include <kparts/factory.h>
-#include <kparts/genericfactory.h>
+#include <kparts/part.h>
 
 #include <avogadro/glwidget.h>
 
@@ -42,10 +40,8 @@ class KalziumGLPart : public KParts::ReadOnlyPart
 {
     Q_OBJECT
     public:
-        KalziumGLPart(QWidget*, QObject*, const QStringList&);
+        KalziumGLPart(QWidget*, QObject*, const QVariantList&);
         virtual ~KalziumGLPart();
-
-        static KAboutData* createAboutData();
 
     protected:
         bool openFile();

@@ -152,11 +152,25 @@ void KalziumGLWidget::setQuality(int quality)
     GLWidget::update();
 }
 
-typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
+KAboutData kalziumGLPartAboutData()
+{
+    KAboutData aboutData(
+            "kalzium", QByteArray(), ki18n("Kalzium OpenGL Part"), "1.1.1",
+            ki18n("A cool thing"),
+            KAboutData::License_GPL, ki18n("(c) 2006, Carsten Niehaus"),
+            KLocalizedString(),
+            "http://edu.kde.org/kalzium/index.php"
+    );
+    aboutData.addAuthor(ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org");
+    aboutData.addAuthor(ki18n("Marcus D. Hanwell"), KLocalizedString(), "marcus@cryos.org");
 
-K_EXPORT_COMPONENT_FACTORY (libkalziumglpart, KalziumGLPartFactory)
+    return aboutData;
+}
 
-KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStringList& args)
+K_PLUGIN_FACTORY(KalziumGLPartFactory, registerPlugin<KalziumGLPart>();)
+K_EXPORT_PLUGIN(KalziumGLPartFactory(kalziumGLPartAboutData()))
+
+KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QVariantList& args)
 {
     Q_UNUSED(parent);
     Q_UNUSED(parentWidget);
@@ -171,19 +185,6 @@ KalziumGLPart::~KalziumGLPart()
 {
     delete m_widget;
     kDebug() << "KalziumGLPart::~KalziumGLPart()";
-}
-
-KAboutData *KalziumGLPart::createAboutData()
-{
-    KAboutData* aboutData = new KAboutData( "kalzium", 0, ki18n("KalziumGLPart"),
-            "1.1.1", ki18n("A cool thing"),
-            KAboutData::License_GPL,
-            ki18n("(c) 2006, Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium/index.php",
-            "kalzium@kde.org");
-    aboutData->addAuthor(ki18n("Carsten Niehaus."),KLocalizedString(), "cniehaus@kde.org");
-    aboutData->addAuthor(ki18n("Marcus D. Hanwell."),KLocalizedString(), "marcus@cryos.org");
-
-    return aboutData;
 }
 
 bool KalziumGLPart::openFile()

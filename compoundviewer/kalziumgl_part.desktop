@@ -1,6 +1,5 @@
 [Desktop Entry]
 Icon=kalzium
-MimeType=application/ogg;audio/basic;
 Name=KalziumGLPart
 Name[bg]=KalziumGLPart
 Name[ca]=KalziumGLPart
@@ -100,4 +99,4 @@ Comment[zh_CN]=基于 OpenGL 的 3D 分子渲染器
 Comment[zh_TW]=OpenGL 與 3D 成像的分子圖形
 X-KDE-ServiceTypes=KParts/ReadOnlyPart
 Type=Service
-X-KDE-Library=libkalziumglpart
+X-KDE-Library=kalziumglpart
