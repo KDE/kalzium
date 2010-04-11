@@ -10,3 +10,6 @@
 /* Define 1 if we have Eigen */
 #cmakedefine HAVE_EIGEN 1
 
+/* Define 1 if we have Avogadro */
+#cmakedefine HAVE_AVOGADRO 1
+

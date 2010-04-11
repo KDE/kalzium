@@ -4,8 +4,6 @@ kde4_no_enable_final(kalzium)
 
 include(KalziumConfigureChecks.cmake)
 
-macro_optional_find_package(Avogadro 1.0.0)
-
 if(OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN2_FOUND)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?

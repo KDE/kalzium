@@ -279,7 +279,7 @@ void Kalzium::setupActions()
     m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
     m_pMoleculesviewer->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to view and edit 3D molecular structures." ) );
     connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
-#if !defined(HAVE_OPENBABEL2) || !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN)
+#if !defined(HAVE_OPENBABEL2) || !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN) || !defined(HAVE_AVOGADRO)
     m_pMoleculesviewer->setEnabled( false );
 #endif
 
@@ -430,7 +430,7 @@ void Kalzium::slotOBConverter()
 
 void Kalzium::slotMoleculeviewer()
 {
-#if defined(HAVE_OPENBABEL2) && defined(HAVE_OPENGL) && defined(HAVE_EIGEN)
+#if defined(HAVE_OPENBABEL2) && defined(HAVE_OPENGL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 
   if (!QGLFormat::hasOpenGL()) {
       KMessageBox::error(0, i18n("This system does not support OpenGL."), i18n("Kalzium Error"));
