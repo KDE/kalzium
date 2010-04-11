@@ -439,6 +439,7 @@ void Kalzium::slotMoleculeviewer()
 
   MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 
+#if 0
   KPluginLoader loader("libkalziumglpart" );
   KPluginFactory* factory = loader.factory();
 
@@ -448,6 +449,7 @@ void Kalzium::slotMoleculeviewer()
 
       part->widget()->show();
   }
+#endif
 #endif
 }
 
