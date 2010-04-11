@@ -213,6 +213,8 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
     {
         if ( d->currentElement->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
             d->elements.append(d->currentElement);
+        else
+            delete d->currentElement;
 
         d->currentElement = 0;
         d->inElement = false;
