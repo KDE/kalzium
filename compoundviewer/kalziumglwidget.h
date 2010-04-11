@@ -11,24 +11,28 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef KALZIUMGLPART_H
-#define KALZIUMGLPART_H
+#ifndef KALZIUMGLWIDGET_H
+#define KALZIUMGLWIDGET_H
 
-#include <kparts/part.h>
+#include <avogadro/glwidget.h>
 
-class KalziumGLWidget;
-
-class KalziumGLPart : public KParts::ReadOnlyPart
+class KalziumGLWidget : public Avogadro::GLWidget
 {
     Q_OBJECT
     public:
-        KalziumGLPart(QWidget*, QObject*, const QVariantList&);
-        virtual ~KalziumGLPart();
+        KalziumGLWidget(QWidget *parent = 0);
+        virtual ~KalziumGLWidget();
+        
+    public slots:
+      void setStyle(int style);
+      void setStyle2(int style);
+      void setLabels(int style);
+      void setQuality(int quality);
+      bool openFile(const QString &file);
 
     protected:
-        bool openFile();
-
-        KalziumGLWidget* m_widget;
+      QString lc_numeric;
+      int m_lastEngine1, m_lastEngine2;
 };
 
-#endif // KALZIUMGLPART_H
+#endif // KALZIUMGLWIDGET_H

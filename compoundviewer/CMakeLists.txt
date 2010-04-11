@@ -8,7 +8,7 @@ include_directories(
 
 set( compoundviewer_SRCS
   openbabel2wrapper.cpp
-  kalziumglpart.cpp
+  kalziumglwidget.cpp
   )
 
 #add_subdirectory(widgets)
@@ -18,7 +18,7 @@ kde4_add_library(compoundviewer SHARED ${compoundviewer_SRCS})
 target_link_libraries(compoundviewer
    ${OPENBABEL2_LIBRARIES}
    ${QT_QTOPENGL_LIBRARY}
-   ${KDE4_KPARTS_LIBS}
+   ${KDE4_KDEUI_LIBS}
    avogadro
 )
 

@@ -597,7 +597,7 @@
   <customwidget>
    <class>KalziumGLWidget</class>
    <extends>QWidget</extends>
-   <header>../../compoundviewer/kalziumglpart.h</header>
+   <header>../../compoundviewer/kalziumglwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
