@@ -40,6 +40,8 @@
 : KDialog( parent )
 {
     setCaption(i18n("Isotope Table"));
+    setButtons( Close );
+    setDefaultButton( Close );
     ui.setupUi( mainWidget() );
     ui.guide->setGuidedView( ui.gv );
 
