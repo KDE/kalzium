@@ -95,6 +95,8 @@ class GlossaryDialog::Private
             {
                 delete (*it).glossary;
             }
+
+            delete m_htmlpart;
         }
 
         void rebuildTree();
