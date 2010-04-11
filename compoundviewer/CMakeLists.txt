@@ -11,7 +11,7 @@ set( compoundviewer_SRCS
   kalziumglpart.cpp
   )
 
-add_subdirectory(widgets)
+#add_subdirectory(widgets)
 
 kde4_add_library(compoundviewer SHARED ${compoundviewer_SRCS})
 
