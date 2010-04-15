@@ -33,7 +33,8 @@
     IsotopeItem::IsotopeItem( Isotope * i, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
 :  QAbstractGraphicsShapeItem(parent)
 {
-    m_rect = QRectF( x, y, width, height );
+    m_rect = QRectF( 0, 0, width, height );
+    setPos( x, y );
     m_isotope = i;
 
     m_type = getType( m_isotope );
