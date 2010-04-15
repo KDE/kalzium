@@ -70,6 +70,7 @@
 
     setFlag(QGraphicsItem::ItemIsMovable, false);
     setFlag(QGraphicsItem::ItemIsSelectable, false);
+    setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 }
 
 void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget )
