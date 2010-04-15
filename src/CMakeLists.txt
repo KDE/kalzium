@@ -104,6 +104,7 @@ if (LIBFACILE_FOUND)
 endif (LIBFACILE_FOUND)
 
 kde4_add_ui_files(kalzium_SRCS
+   isotopetable/isotopedialog.ui
    settings_colors.ui
    plotsetupwidget.ui
    molcalcwidgetbase.ui
@@ -114,7 +115,6 @@ kde4_add_ui_files(kalzium_SRCS
    settings_units.ui
    rswidget.ui
    timewidget.ui
-   isotopedialog.ui
    exportdialog.ui
    )
 
