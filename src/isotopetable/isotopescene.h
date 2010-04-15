@@ -1,5 +1,5 @@
-#ifndef NUCLIDEBOARD_H
-#define NUCLIDEBOARD_H
+#ifndef ISOTOPESCENE_H
+#define ISOTOPESCENE_H
 /***************************************************************************
  *   Copyright (C) 2007, 2008 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
@@ -21,122 +21,8 @@
  ***************************************************************************/
 
 #include <QGraphicsScene>
-#include <QGraphicsSceneMouseEvent>
-#include <QGraphicsRectItem>
 
 class IsotopeItem;
-class Isotope;
-
-#include "ui_isotopedialog.h"
-
-#include <kdialog.h>
-
-class Isotope;
-class InformationItem;
-
-class QGraphicsSceneMouseEvent;
-class QGraphicsTextItem;
-
-/**
- * This class is the drawing widget for the whole table
- *
- * @author Pino Toscano
- * @author Carsten Niehaus
- */
-class IsotopeTableDialog : public KDialog
-{
-    Q_OBJECT
-
-    public:
-        explicit IsotopeTableDialog( QWidget* parent = 0 );
-
-    private:
-        Ui::isotopeWidget ui;
-
-    private slots:
-        void updateDockWidget( IsotopeItem * );
-        void zoom (int);
-        
-};
-
-/**
- * The class represtens the items which is drawn on the QGraphicsScene. Each such item represents on
- * Isotope.
- * @author Carsten Niehaus
- */
-class IsotopeItem : public QAbstractGraphicsShapeItem
-{
-	public:
-            /**
-             * there are several types of decay for an isotope.
-             */
-            enum IsotopeType { alpha, ec, multiple, bplus, bminus, stable };
-
-            enum { Type = UserType + 1 };
-
-            /**
-             * @param isotope The Isotope represented
-             */
-            IsotopeItem(Isotope * isotope,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
-
-            /**
-             * @return the Isotope the item represents
-             */
-            Isotope* isotope() const{
-                return m_isotope;
-            }
-
-            QRectF boundingRect() const {
-                return m_rect;
-            }
-
-            /**
-             * @return the Type of the item
-             */
-            int type() const{
-                return Type;
-            }
-
-            void paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
-
-
-        private:
-            IsotopeType m_type;
-            Isotope* m_isotope;
-            QRectF m_rect;
-
-            /**
-             * @return the IsotopeType of the Isotope
-             */
-            IsotopeType getType( Isotope * );
-
-        protected:
-            void mousePressEvent(QGraphicsSceneMouseEvent *event);
-};
-
-class InformationItem : public QGraphicsRectItem
-{
-    public:
-        enum { Type = UserType + 2 };
-
-        /**
-         * @param isotope The Isotope represented
-         */
-        InformationItem( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
-
-        /**
-         * @return the Type of the item
-         */
-        int type() const{
-            return Type;
-        }
-
-        void setIsotope( IsotopeItem * item );
-
-    private:
-        QGraphicsTextItem *m_textitem;
-};
-
 
 class IsotopeScene : public QGraphicsScene
 {
@@ -161,4 +47,4 @@ class IsotopeScene : public QGraphicsScene
 };
 
 	
-#endif // NUCLIDEBOARD_H
+#endif // ISOTOPESCENE_H

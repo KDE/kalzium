@@ -1,5 +1,5 @@
-#ifndef NUCLIDEBOARDVIEW_H
-#define NUCLIDEBOARDVIEW_H
+#ifndef ISOTOPEVIEW_H
+#define ISOTOPEVIEW_H
 /***************************************************************************
  *   Copyright (C) 2007 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *

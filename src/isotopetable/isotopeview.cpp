@@ -20,8 +20,8 @@
  ***************************************************************************/
 
 
-#include "nuclideboardview.h"
-#include "nuclideboard.h"
+#include "isotopeview.h"
+#include "isotopescene.h"
 
     IsotopeView::IsotopeView(QWidget *parent)
 : QGraphicsView(parent)
@@ -97,6 +97,4 @@ void IsotopeView::setZoom( double zoom)
     emit visibleSceneRectChanged( visibleSceneRect );
 }
 
-#include "nuclideboardview.moc"
-
-
+#include "isotopeview.moc"

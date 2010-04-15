@@ -20,8 +20,8 @@
  ***************************************************************************/
 
 
-#include "nuclideboardguideview.h"
-#include "nuclideboard.h"
+#include "isotopeguideview.h"
+#include "isotopescene.h"
 #include <QScrollBar>
     
 	IsotopeGuideView::IsotopeGuideView(QWidget *parent)
@@ -134,6 +134,4 @@ void IsotopeGuideView::setZoomLevel( double zoomLevel )
     m_zoomLevel = zoomLevel;
 }
 
-#include "nuclideboardguideview.moc"
-
-
+#include "isotopeguideview.moc"
