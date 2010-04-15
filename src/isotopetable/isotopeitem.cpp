@@ -65,6 +65,9 @@
     }
     setBrush(b);
 
+    m_symbolFont = QFont( "Arial", 3 ,QFont::Bold );
+    m_otherFont = QFont( "Arial", 1 ,QFont::Bold );
+
     setFlag(QGraphicsItem::ItemIsMovable, false);
     setFlag(QGraphicsItem::ItemIsSelectable, false);
 }
@@ -86,11 +89,10 @@ void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * op
     painter->drawRect( m_rect );
 
     if ( lod >= 1.0 ) {
-        painter->setFont( QFont( "Arial", 3 ,QFont::Bold) );
+        painter->setFont( m_symbolFont );
         painter->drawText( r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol() );//, s->parentElementNumber()
-        painter->setFont( QFont( "Arial", 1 ,QFont::Bold) );
+        painter->setFont( m_otherFont );
         painter->drawText( r2, Qt::AlignHCenter | Qt::TextDontClip, QString::number( m_isotope->parentElementNumber() ) );
-        painter->setFont( QFont( "Arial", 1 ,QFont::Bold) );
         painter->drawText( r3, Qt::AlignHCenter | Qt::TextDontClip, QString::number( m_isotope->nucleons() ) );
     }
 }

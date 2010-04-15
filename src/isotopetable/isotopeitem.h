@@ -20,6 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+#include <QFont>
 #include <QGraphicsRectItem>
 
 class Isotope;
@@ -69,6 +70,8 @@ class IsotopeItem : public QAbstractGraphicsShapeItem
             IsotopeType m_type;
             Isotope* m_isotope;
             QRectF m_rect;
+            QFont m_symbolFont;
+            QFont m_otherFont;
 
             /**
              * @return the IsotopeType of the Isotope
