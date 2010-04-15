@@ -4,6 +4,7 @@ include_directories(
    ../compoundviewer
    tools
    calculator
+   isotopetable
    ${CMAKE_CURRENT_BINARY_DIR}/..
    )
 
@@ -58,6 +59,12 @@ kde4_add_ui_files(kalziumtools_SRCS
 
 set(kalzium_SRCS
    ${kalziumtools_SRCS}
+   isotopetable/informationitem.cpp
+   isotopetable/isotopeguideview.cpp
+   isotopetable/isotopeitem.cpp
+   isotopetable/isotopescene.cpp
+   isotopetable/isotopetabledialog.cpp
+   isotopetable/isotopeview.cpp
    kalzium.cpp
    main.cpp
    periodictableview.cpp
@@ -70,7 +77,6 @@ set(kalzium_SRCS
    somwidget_impl.cpp
    timewidget_impl.cpp
    kalziumdataobject.cpp
-   nuclideboard.cpp
    kalziumutils.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp
@@ -82,8 +88,6 @@ set(kalzium_SRCS
    rsdialog.cpp
    legendwidget.cpp
    exportdialog.cpp
-   nuclideboardview.cpp
-   nuclideboardguideview.cpp
    tableinfowidget.cpp
    spectrumviewimpl.cpp
    spectrumwidget.cpp

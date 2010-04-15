@@ -30,7 +30,7 @@
 #include "somwidget_impl.h"
 #include "timewidget_impl.h"
 #include "kalziumdataobject.h"
-#include "nuclideboard.h"
+#include "isotopetabledialog.h"
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
