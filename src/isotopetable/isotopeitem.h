@@ -76,7 +76,7 @@ class IsotopeItem : public QAbstractGraphicsShapeItem
             /**
              * @return the IsotopeType of the Isotope
              */
-            IsotopeType getType( Isotope * );
+            static IsotopeType getType( Isotope * );
 
         protected:
             void mousePressEvent(QGraphicsSceneMouseEvent *event);
