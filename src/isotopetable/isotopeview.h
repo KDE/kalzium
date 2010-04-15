@@ -38,9 +38,6 @@ class IsotopeView : public QGraphicsView
     double m_zoomLevel;
 
     public:
-        IsotopeScene* scene(){ 
-            return m_scene; 
-        }
         double zoomLevel() {
             return m_zoomLevel;
         }
