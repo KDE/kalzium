@@ -29,12 +29,6 @@
 {
     m_guidedView = 0;
     m_scale = 1.0;
-    m_scene = new IsotopeScene(this);
-    m_pixmapRepaintRequested = true;
-    m_pixmap = 0;
-    setScene(m_scene);
-    setSceneRect(m_scene->itemsBoundingRect());
-    ensureVisible(m_scene->sceneRect());
 
     setCursor( Qt::OpenHandCursor );
 }
@@ -47,6 +41,10 @@ void IsotopeGuideView::setGuidedView(IsotopeView *guidedView)
     connect( m_guidedView, SIGNAL( visibleSceneRectChanged( const QPolygonF& ) ),
              this,         SLOT( setVisibleSceneRect( const QPolygonF& ) ) );
     m_zoomLevel = m_guidedView->zoomLevel();
+
+    setScene(m_guidedView->scene());
+    setSceneRect(scene()->itemsBoundingRect());
+    ensureVisible(scene()->sceneRect());
 }
 
 void IsotopeGuideView::setVisibleSceneRect( const QPolygonF& sceneRect )
@@ -55,49 +53,21 @@ void IsotopeGuideView::setVisibleSceneRect( const QPolygonF& sceneRect )
     viewport()->update();
 }
 
-void IsotopeGuideView::drawItems( QPainter * painter, int numItems, QGraphicsItem ** items, const QStyleOptionGraphicsItem * options )
-{
-    if ( m_pixmapRepaintRequested ) {
-        m_pixmap = new QPixmap( width(), height() );
-        QPainter pixmapPainter( m_pixmap );
-        pixmapPainter.fillRect( QRect( 0, 0, width(), height() ), Qt::white );
-        //pixmapPainter.scale( m_scale, m_scale );
-        pixmapPainter.setWorldTransform( painter->worldTransform() );
-        pixmapPainter.setRenderHints( painter->renderHints() );
-        QGraphicsView::drawItems( &pixmapPainter, numItems, items, options );
-        m_pixmapRepaintRequested = false;
-    }
-    //painter->setClipRegion( QRegion() );
-    painter->save();
-    painter->resetTransform();
-    painter->drawPixmap( 0, 0, *m_pixmap );
-    painter->restore();
-}
-
 void IsotopeGuideView::drawForeground( QPainter *painter, const QRectF &rect )
 {
-    Q_UNUSED(rect)
-    if ( m_guidedView )
+    if ( m_guidedView && m_visibleSceneRect.boundingRect().intersects( rect ) )
     {
         painter->setPen( QPen( Qt::red ) );
-        painter->drawPolygon( m_visibleSceneRect );
+        painter->drawRect( m_visibleSceneRect.boundingRect().adjusted( 0, 0, -1, -1 ) );
     }
 }
 
 void IsotopeGuideView::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
-    double oldScale = m_scale;
-    QSize size = event->size();
-    double scaleX = size.width() / m_scene->width();
-    double scaleY = size.height() / m_scene->height();
-    m_scale = scaleX < scaleY ? scaleX : scaleY;
-
-    double factor = m_scale / oldScale;
-    scale( factor, factor );
-    ensureVisible(m_scene->sceneRect());
-
-    m_pixmapRepaintRequested = true;
+    m_scale = qMin( qreal( viewport()->width() ) / scene()->width(),
+                    qreal( viewport()->height() ) / scene()->height() );
+    setTransform( QTransform::fromScale( m_scale, m_scale ) );
 }
 
 void IsotopeGuideView::mousePressEvent(QMouseEvent *event)

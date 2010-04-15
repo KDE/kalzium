@@ -20,15 +20,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <QWidget>
 #include <QGraphicsView>
 #include <QResizeEvent>
 #include <QMouseEvent>
-#include <QPixmap>
 
 #include "isotopeview.h"
-
-class IsotopeScene;
 
 class IsotopeGuideView : public QGraphicsView
 {
@@ -37,19 +33,15 @@ class IsotopeGuideView : public QGraphicsView
     public:
         IsotopeGuideView( QWidget * parent = 0);
         void setGuidedView( IsotopeView *guidedView );
-        void drawItems( QPainter * painter, int numItems, QGraphicsItem ** items, const QStyleOptionGraphicsItem * options );
 
     protected:
         void drawForeground( QPainter *painter, const QRectF &rect );
 
     private:
-    	IsotopeScene *m_scene;
         IsotopeView *m_guidedView;
         double m_zoomLevel;
         double m_scale;
         QPolygonF m_visibleSceneRect;
-        bool m_pixmapRepaintRequested;
-        QPixmap *m_pixmap;
         QPoint m_lastMousePos;
         bool m_dragEvent;
     
