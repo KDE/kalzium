@@ -30,6 +30,8 @@
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
 
+#include <klocale.h>
+
     IsotopeItem::IsotopeItem( Isotope * i, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
 :  QAbstractGraphicsShapeItem(parent)
 {
@@ -71,6 +73,8 @@
     setFlag(QGraphicsItem::ItemIsMovable, false);
     setFlag(QGraphicsItem::ItemIsSelectable, false);
     setCacheMode(QGraphicsItem::DeviceCoordinateCache);
+
+    setToolTip( i18n("Isotope of Element %1 (%2)", m_isotope->parentElementNumber(), m_isotope->parentElementSymbol() ) );
 }
 
 void IsotopeItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget )

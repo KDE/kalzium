@@ -27,8 +27,6 @@
 #include <element.h>
 #include <isotope.h>
 
-#include <klocale.h>
-
     IsotopeScene::IsotopeScene(QObject *parent)
 : QGraphicsScene(parent)
 {
@@ -81,7 +79,6 @@ void IsotopeScene::drawIsotopes()
             }
 
             IsotopeItem *item = new IsotopeItem( i, x, y, m_itemSize,m_itemSize);
-            item->setToolTip( i18n("Isotope of Element %1 (%2)", i->parentElementNumber() ,i->parentElementSymbol() ) );
             m_isotopeGroup->addToGroup( item );
         }
     }
