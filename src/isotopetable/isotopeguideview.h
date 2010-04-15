@@ -26,7 +26,7 @@
 #include <QMouseEvent>
 #include <QPixmap>
 
-#include "nuclideboardview.h"
+#include "isotopeview.h"
 
 class IsotopeScene;
 

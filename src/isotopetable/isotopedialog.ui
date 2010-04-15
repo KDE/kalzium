@@ -146,12 +146,12 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>IsotopeView</class>
    <extends>QGraphicsView</extends>
-   <header location="global" >nuclideboardview.h</header>
+   <header location="global" >isotopeview.h</header>
   </customwidget>
   <customwidget>
    <class>IsotopeGuideView</class>
    <extends>QGraphicsView</extends>
-   <header>nuclideboardguideview.h</header>
+   <header>isotopeguideview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
