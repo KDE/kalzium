@@ -77,6 +77,11 @@ void IsotopeScene::drawIsotopes()
             else if (mode == 2) {
                 //Both parts continuous
             }
+            else if (mode == 3) {
+                //Horizontally
+                y = ( elist.count() - elementNumber ) * m_itemSize;
+                x = i->nucleons() * m_itemSize;
+            }
 
             IsotopeItem *item = new IsotopeItem( i, x, y, m_itemSize,m_itemSize);
             m_isotopeGroup->addToGroup( item );
