@@ -44,6 +44,8 @@
 
     connect( ui.gv->scene(), SIGNAL( itemSelected(IsotopeItem*) ),
             this, SLOT( updateDockWidget( IsotopeItem*) )  );
+    connect( ui.gv, SIGNAL( zoomLevelChanged( double ) ),
+             this, SLOT( slotZoomLevelChanged( double ) ) );
     connect( ui.Slider,   SIGNAL( valueChanged( int ) ),
              this, SLOT( zoom ( int ) ));
     
@@ -71,7 +73,6 @@
 void IsotopeTableDialog::zoom (int level)
 {
     double zoom = level/2.0;
-    kDebug() << "level";
     (ui.gv)->setZoom( zoom );
 }
 
@@ -99,6 +100,13 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
         abundance + "<br />" + halflife;
 
     ui.label->setText(html);
+}
+
+void IsotopeTableDialog::slotZoomLevelChanged( double value )
+{
+    const bool b = ui.Slider->blockSignals( true );
+    ui.Slider->setValue( qreal( value * 2 ) );
+    ui.Slider->blockSignals( b );
 }
 
 #include "isotopetabledialog.moc"

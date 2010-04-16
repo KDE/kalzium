@@ -45,6 +45,7 @@ class IsotopeTableDialog : public KDialog
     private slots:
         void updateDockWidget( IsotopeItem * );
         void zoom (int);
+        void slotZoomLevelChanged( double );
         
 };
 
