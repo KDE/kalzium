@@ -13,6 +13,8 @@
 #ifndef KALZIUM_ENGINE_H
 #define KALZIUM_ENGINE_H
 
+#include <moleculeparser.h>
+
 #include "plasma/dataengine.h"
 
 #include <KRandomSequence>
@@ -47,12 +49,18 @@ public:
     bool sourceRequestEvent(const QString &name);
 
 protected:
-    bool updateSource(const QString& source);
+    bool updateSourceElement(const QString& source);
+    bool updateSourceMolecule ( const QString& source );
 
 private:
+    ///Summs up all Elements of a Molecule. 
+    QString sumUpMolecue(ElementCountMap &elementMap);
+    
     Element * m_currentElement;
     QList<Element*> m_elements;
     KRandomSequence * m_random;
+    
+    MoleculeParser   *m_parser;
 };
 
 K_EXPORT_PLASMA_DATAENGINE(kalzium, KalziumEngine)

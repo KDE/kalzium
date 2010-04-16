@@ -51,11 +51,15 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
 
     m_elements = parser->getElements();
     delete parser;
+     
+    //Initialising the MoleculeParser
+    m_parser = new MoleculeParser(m_elements);
 }
 
 KalziumEngine::~KalziumEngine()
 {
     delete m_random;
+    delete m_parser;
 }
 
 QStringList KalziumEngine::sources() const
@@ -72,29 +76,34 @@ bool KalziumEngine::sourceRequestEvent(const QString &source)
     // return a randomly chosen element
     if (source == "BlueObelisk:RandomElement"){
         // create the data
-        updateSource(source);
+        updateSourceElement(source);
         return true;
     }
 
     // return element #
     if (source.startsWith( QLatin1String("BlueObelisk:Element:") ) ) {
         // create the data
-        updateSource(source);
+        updateSourceElement(source);
         return true;
     }
-    
+
+    if (source.startsWith( QLatin1String("Molecule:Parser:") )) {
+        updateSourceMolecule(source);
+        return true;
+    }    
+
     if (source == "Fact" ) {
         // create the data
-        updateSource(source);
+        updateSourceElement(source);
         return true;
     }
-    
+
     return false;
 }
 
-bool KalziumEngine::updateSource(const QString &source)
+bool KalziumEngine::updateSourceElement(const QString &source)
 {
-    qDebug() << "updateSource";
+//     qDebug() << "updateSourceElement";
     if (source == "BlueObelisk:RandomElement") {
         // decide for a randomly chosen element
         getRandomElement();
@@ -110,12 +119,18 @@ bool KalziumEngine::updateSource(const QString &source)
     }
 
     // fill the engine with data
+    setData(source, "number", m_currentElement->dataAsString( ChemicalDataObject::atomicNumber )       );
     setData(source, "bp", m_currentElement->dataAsString( ChemicalDataObject::boilingpoint )       );
     setData(source, "mp", m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       );
     setData(source, "name", m_currentElement->dataAsString( ChemicalDataObject::name )       );
     setData(source, "mass", m_currentElement->dataAsString( ChemicalDataObject::mass )       );
     setData(source, "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
-
+    setData(source, "electronconf", m_currentElement->dataAsString( ChemicalDataObject::electronicConfiguration )       );
+    setData(source, "period", m_currentElement->dataAsString( ChemicalDataObject::period )       );
+    setData(source, "group", m_currentElement->dataAsString( ChemicalDataObject::group )       );
+    setData(source, "en", m_currentElement->dataAsString( ChemicalDataObject::electronegativityPauling )       );
+    setData(source, "family", m_currentElement->dataAsString( ChemicalDataObject::family )       );
+    
     return true;
 }
 
@@ -163,6 +178,35 @@ QString KalziumEngine::generateFact()
     }
 
     return i18n( "An error occurred." );
+}
+
+bool KalziumEngine::updateSourceMolecule(const QString &source)
+{
+    QString          molecule;
+    double           mass;
+    ElementCountMap  elementMap;
+
+    molecule = source.right(source.length()-source.lastIndexOf(':') - 1 );
+
+    if ( !m_parser->weight(molecule, &mass, &elementMap)) {
+        return false;
+    }
+
+    setData(source, "molMass", mass  );
+    setData(source, "niceMolecule", sumUpMolecue(elementMap));
+    return true;    
+}
+
+QString KalziumEngine::sumUpMolecue(ElementCountMap &elementMap)
+{
+    QString niceMolecule;
+    foreach (ElementCount * Ecount , elementMap.map()) {
+        niceMolecule.append(Ecount->element()->dataAsString( ChemicalDataObject::symbol));
+        if (Ecount->count() > 1){
+            niceMolecule.append(QString::number(Ecount->count()));
+	}
+    }
+    return niceMolecule;
 }
 
 #include "kalzium_engine.moc"
