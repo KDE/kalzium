@@ -59,6 +59,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent )
 	setMinimumSize( 400, 230 );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 	setAttribute( Qt::WA_OpaquePaintEvent, true );
+	setContextMenuPolicy( Qt::PreventContextMenu );
 }
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
