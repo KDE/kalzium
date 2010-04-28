@@ -32,33 +32,33 @@ class KalziumGradientType;
  */
 class KalziumGradientTypeFactory
 {
-	public:
-		/**
-		 * Get the instance of this factory.
-		 */
-		static KalziumGradientTypeFactory* instance();
+public:
+    /**
+     * Get the instance of this factory.
+     */
+    static KalziumGradientTypeFactory* instance();
 
-		/**
-		 * Returns the KalziumGradientType with the @p id specified.
-		 * It will gives 0 if none found.
-		 */
-		KalziumGradientType* build( int id ) const;
-		/**
-		 * Returns the KalziumGradientType whose name is the @p id
-		 * specified.
-		 * It will gives 0 if none found.
-		 */
-		KalziumGradientType* build( const QByteArray& id ) const;
-		
-		/**
-		 * Returns a list with the names of the gradients we support.
-		 */
-		QStringList gradients() const;
+    /**
+     * Returns the KalziumGradientType with the @p id specified.
+     * It will gives 0 if none found.
+     */
+    KalziumGradientType* build( int id ) const;
+    /**
+     * Returns the KalziumGradientType whose name is the @p id
+     * specified.
+     * It will gives 0 if none found.
+     */
+    KalziumGradientType* build( const QByteArray& id ) const;
 
-	private:
-		KalziumGradientTypeFactory();
+    /**
+     * Returns a list with the names of the gradients we support.
+     */
+    QStringList gradients() const;
 
-		QList<KalziumGradientType*> m_gradients;
+private:
+    KalziumGradientTypeFactory();
+
+    QList<KalziumGradientType*> m_gradients;
 };
 
 /**
@@ -69,76 +69,76 @@ class KalziumGradientTypeFactory
  */
 class KalziumGradientType
 {
-	public:
-		/**
-		 * Get its instance.
-		 */
-		static KalziumGradientType* instance();
+public:
+    /**
+     * Get its instance.
+     */
+    static KalziumGradientType* instance();
 
-		virtual ~KalziumGradientType();
+    virtual ~KalziumGradientType();
 
-		/**
-		 * Returns the ID of this gradient.
-		 * Mainly used when saving/loading.
-		 */
-		virtual QByteArray name() const = 0;
-		/**
-		 * Returns the description of this gradient.
-		 * Used in all the visible places.
-		 */
-		virtual QString description() const = 0;
+    /**
+     * Returns the ID of this gradient.
+     * Mainly used when saving/loading.
+     */
+    virtual QByteArray name() const = 0;
+    /**
+     * Returns the description of this gradient.
+     * Used in all the visible places.
+     */
+    virtual QString description() const = 0;
 
-		/**
-		 * Calculate the coefficient of the element with atomic number
-		 * @p el according to this gradient. The calculated coefficient
-		 * will be always in the range [0, 1].
-		 */
-		virtual double elementCoeff( int el ) const;
-		/**
-		 * Return the value, related to the current gradient, of the
-		 * element with atomic number @p el.
-		 * It will return -1 if the data is not available.
-		 */
-		virtual double value( int el ) const = 0;
-		/**
-		 * Returns the minimum value of the data this gradient
-		 * represents.
-		 */
-		virtual double minValue() const = 0;
-		/**
-		 * Returns the maximum value of the data this gradient
-		 * represents.
-		 */
-		virtual double maxValue() const = 0;
-                /**
-                 * Returns whether to use a logarithmic gradient
-                 * instead of a linear one.
-                 */
-                virtual bool logarithmicGradient() const = 0;
-		/**
-		 * Returns the first color of the gradient.
-		 */
-		virtual QColor firstColor() const;
-		/**
-		 * Returns the second color of the gradient.
-		 */
-		virtual QColor secondColor() const;
-		/**
-		 * Returns the color used to represent an element whose data is
-		 * not available.
-		 */
-		virtual QColor notAvailableColor() const;
+    /**
+     * Calculate the coefficient of the element with atomic number
+     * @p el according to this gradient. The calculated coefficient
+     * will be always in the range [0, 1].
+     */
+    virtual double elementCoeff( int el ) const;
+    /**
+     * Return the value, related to the current gradient, of the
+     * element with atomic number @p el.
+     * It will return -1 if the data is not available.
+     */
+    virtual double value( int el ) const = 0;
+    /**
+     * Returns the minimum value of the data this gradient
+     * represents.
+     */
+    virtual double minValue() const = 0;
+    /**
+     * Returns the maximum value of the data this gradient
+     * represents.
+     */
+    virtual double maxValue() const = 0;
+    /**
+     * Returns whether to use a logarithmic gradient
+     * instead of a linear one.
+     */
+    virtual bool logarithmicGradient() const = 0;
+    /**
+     * Returns the first color of the gradient.
+     */
+    virtual QColor firstColor() const;
+    /**
+     * Returns the second color of the gradient.
+     */
+    virtual QColor secondColor() const;
+    /**
+     * Returns the color used to represent an element whose data is
+     * not available.
+     */
+    virtual QColor notAvailableColor() const;
 
-		/**
-		 * Calculates the color of an element which has a @p coeff which
-		 * is a percentage of the maximum value.
-		 * @param coeff is the coefficient in the range [0, 1], usually
-		 * calculated with elementCoeff()
-		 */
-		QColor calculateColor( const double coeff ) const;
+    /**
+     * Calculates the color of an element which has a @p coeff which
+     * is a percentage of the maximum value.
+     * @param coeff is the coefficient in the range [0, 1], usually
+     * calculated with elementCoeff()
+     */
+    QColor calculateColor( const double coeff ) const;
 
-	protected:
-		KalziumGradientType();
+protected:
+    KalziumGradientType();
 };
 
 /**
@@ -148,21 +148,21 @@ class KalziumGradientType
  */
 class KalziumCovalentRadiusGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumCovalentRadiusGradientType* instance();
+public:
+    static KalziumCovalentRadiusGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumCovalentRadiusGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumCovalentRadiusGradientType();
 };
 
 /**
@@ -172,21 +172,21 @@ class KalziumCovalentRadiusGradientType : public KalziumGradientType
  */
 class KalziumVanDerWaalsRadiusGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumVanDerWaalsRadiusGradientType* instance();
+public:
+    static KalziumVanDerWaalsRadiusGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumVanDerWaalsRadiusGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumVanDerWaalsRadiusGradientType();
 };
 
 /**
@@ -196,21 +196,21 @@ class KalziumVanDerWaalsRadiusGradientType : public KalziumGradientType
  */
 class KalziumMassGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumMassGradientType* instance();
+public:
+    static KalziumMassGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumMassGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumMassGradientType();
 };
 
 /**
@@ -220,21 +220,21 @@ class KalziumMassGradientType : public KalziumGradientType
  */
 class KalziumBoilingPointGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumBoilingPointGradientType* instance();
+public:
+    static KalziumBoilingPointGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumBoilingPointGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumBoilingPointGradientType();
 };
 
 /**
@@ -244,21 +244,21 @@ class KalziumBoilingPointGradientType : public KalziumGradientType
  */
 class KalziumMeltingPointGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumMeltingPointGradientType* instance();
+public:
+    static KalziumMeltingPointGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumMeltingPointGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumMeltingPointGradientType();
 };
 
 /**
@@ -268,21 +268,21 @@ class KalziumMeltingPointGradientType : public KalziumGradientType
  */
 class KalziumElectronegativityGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumElectronegativityGradientType* instance();
+public:
+    static KalziumElectronegativityGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumElectronegativityGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumElectronegativityGradientType();
 };
 
 /**
@@ -292,21 +292,21 @@ class KalziumElectronegativityGradientType : public KalziumGradientType
  */
 class KalziumDiscoverydateGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumDiscoverydateGradientType* instance();
+public:
+    static KalziumDiscoverydateGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumDiscoverydateGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumDiscoverydateGradientType();
 };
 
 /**
@@ -316,21 +316,21 @@ class KalziumDiscoverydateGradientType : public KalziumGradientType
  */
 class KalziumElectronaffinityGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumElectronaffinityGradientType* instance();
+public:
+    static KalziumElectronaffinityGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumElectronaffinityGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumElectronaffinityGradientType();
 };
 
 /**
@@ -340,21 +340,21 @@ class KalziumElectronaffinityGradientType : public KalziumGradientType
  */
 class KalziumIonizationGradientType : public KalziumGradientType
 {
-	public:
-		static KalziumIonizationGradientType* instance();
+public:
+    static KalziumIonizationGradientType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		double value( int el ) const;
+    double value( int el ) const;
 
-		double minValue() const;
-		double maxValue() const;
-                
-                bool logarithmicGradient() const;
+    double minValue() const;
+    double maxValue() const;
 
-	private:
-		KalziumIonizationGradientType();
+    bool logarithmicGradient() const;
+
+private:
+    KalziumIonizationGradientType();
 };
 
 #endif // KALZIUMGRADIENTTYPE_H

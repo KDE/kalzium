@@ -37,93 +37,93 @@ class KHTMLPart;
  */
 class DetailedInfoDlg : public KPageDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		explicit DetailedInfoDlg( int el, QWidget *parent = 0 );
-		~DetailedInfoDlg();
- 
-		void setElement( int el );
+public:
+    explicit DetailedInfoDlg( int el, QWidget *parent = 0 );
+    ~DetailedInfoDlg();
 
-		void setOverviewBackgroundColor( const QColor &bgColor );
+    void setElement( int el );
 
-		void setTableType( KalziumTableType* ktt );
- 
-                /**
-                 * add <sup></sup> to the numbers
-                 @return the beatified string
-                 */
-                QString beautifyOrbitalString(const QString& orbits);
+    void setOverviewBackgroundColor( const QColor &bgColor );
 
-	private:
-		enum DATATYPE
-		{
-			MISC = 0,
-			ISOTOPES,
-			DATA, /** <the overview about atomic and compound data */
-			EXTRA/** Links to wikipedia and other sites where useful information can be found*/
-		};
+    void setTableType( KalziumTableType* ktt );
 
-		Element            *m_element;
-		int                m_elementNumber;
+    /**
+     * add <sup></sup> to the numbers
+     @return the beatified string
+     */
+    QString beautifyOrbitalString(const QString& orbits);
 
-		KActionCollection* m_actionCollection;
+private:
+    enum DATATYPE
+    {
+        MISC = 0,
+        ISOTOPES,
+        DATA, /** <the overview about atomic and compound data */
+        EXTRA/** Links to wikipedia and other sites where useful information can be found*/
+    };
 
-		SpectrumViewImpl *m_spectrumview;
-		QStackedWidget* m_spectrumStack;
-		QLabel* m_spectrumLabel;
+    Element            *m_element;
+    int                m_elementNumber;
 
-		QString isotopeTable() const;
+    KActionCollection* m_actionCollection;
 
-		DetailedGraphicalOverview *dTab;
+    SpectrumViewImpl *m_spectrumview;
+    QStackedWidget* m_spectrumStack;
+    QLabel* m_spectrumLabel;
+
+    QString isotopeTable() const;
+
+    DetailedGraphicalOverview *dTab;
 //X 		QLabel *piclabel;
-		OrbitsWidget *wOrbits;
-		QMap<QString, KHTMLPart*> m_htmlpages;
+    OrbitsWidget *wOrbits;
+    QMap<QString, KHTMLPart*> m_htmlpages;
 
-		KalziumTableType *m_ktt;
+    KalziumTableType *m_ktt;
 
-		/**
-		 * Create the initial set of tabs. Used it *ONLY* once in the
-		 * constructor.
-		 */
-		void createContent();
-		void reloadContent();
+    /**
+     * Create the initial set of tabs. Used it *ONLY* once in the
+     * constructor.
+     */
+    void createContent();
+    void reloadContent();
 
-		QString getHtml( DATATYPE );
+    QString getHtml( DATATYPE );
 
-		QString m_baseHtml;
-		QString m_baseHtml2;
+    QString m_baseHtml;
+    QString m_baseHtml2;
 //X 		QString m_picsdir;
 
-		/**
-		 * Add a new HTML page to the dialog.
-		 *
-		 * @param title The title of the tab, appears above the htmlview
-		 * @param icontext The name of the tab, appears belov or instead
-		 * of the icon
-		 * @param iconname The name of the icon
-		 * @returns the pointer to the resulting KHTMLPart, needed for
-		 * writing HTML code on it
-		 */
-		KHTMLPart* addHTMLTab( const QString& title, const QString& icontext, const QString& iconname );
-		/**
-		 * Change the HTML code in an HTML page.
-		 *
-		 * @param htmlpart the KHTMLPart to edit
-		 * @param htmlcode the HTML code to display
-		 */
-		void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
-	
-	private slots:
-		virtual void slotUser1();
-		virtual void slotUser2();
-		/**
-		 * invoke the help of the correct chapter
-		 */
-		virtual void slotHelp();
+    /**
+     * Add a new HTML page to the dialog.
+     *
+     * @param title The title of the tab, appears above the htmlview
+     * @param icontext The name of the tab, appears belov or instead
+     * of the icon
+     * @param iconname The name of the icon
+     * @returns the pointer to the resulting KHTMLPart, needed for
+     * writing HTML code on it
+     */
+    KHTMLPart* addHTMLTab( const QString& title, const QString& icontext, const QString& iconname );
+    /**
+     * Change the HTML code in an HTML page.
+     *
+     * @param htmlpart the KHTMLPart to edit
+     * @param htmlcode the HTML code to display
+     */
+    void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
 
-	signals:
-		void elementChanged( int );
+private slots:
+    virtual void slotUser1();
+    virtual void slotUser2();
+    /**
+     * invoke the help of the correct chapter
+     */
+    virtual void slotHelp();
+
+signals:
+    void elementChanged( int );
 };
 
 #endif

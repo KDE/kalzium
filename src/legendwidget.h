@@ -31,48 +31,48 @@ class KalziumGradientType;
 /**
  * @author Carsten Niehaus
  *
- * The LegendWidget displays the explanations of what the user is currently 
+ * The LegendWidget displays the explanations of what the user is currently
  * seeing in the table
  */
 class LegendWidget : public QWidget
 {
     Q_OBJECT
 
-    public:
-        LegendWidget( QWidget *parent );
+public:
+    LegendWidget( QWidget *parent );
 
-        ~LegendWidget(){}
+    ~LegendWidget() {}
 
-	void LockWidget();
-	void UnLockWidget();
+    void LockWidget();
+    void UnLockWidget();
 
-    private:
-	bool m_update;
+private:
+    bool m_update;
 
-        QPixmap m_pixmap;
+    QPixmap m_pixmap;
 
-        KalziumSchemeType * m_scheme;
+    KalziumSchemeType * m_scheme;
 
-        KalziumPainter::MODE m_mode;
+    KalziumPainter::MODE m_mode;
 
-        KalziumTableType * m_tableType;
+    KalziumTableType * m_tableType;
 
-        KalziumGradientType * m_gradientType;
+    KalziumGradientType * m_gradientType;
 
-        QList<LegendItem*> m_legendItemList;
+    QList<LegendItem*> m_legendItemList;
 
-        void updateLegendItemLayout( const QList<legendPair>& list );
+    void updateLegendItemLayout( const QList<legendPair>& list );
 
-    public slots:
-        void updateContent();
+public slots:
+    void updateContent();
 
-        void setMode( KalziumPainter::MODE m );
+    void setMode( KalziumPainter::MODE m );
 
-        void setScheme( KalziumSchemeType * type );
+    void setScheme( KalziumSchemeType * type );
 
-        void setTableType( KalziumTableType * type );
-        
-        void setGradientType( KalziumGradientType * type );
+    void setTableType( KalziumTableType * type );
+
+    void setGradientType( KalziumGradientType * type );
 };
 
 /**
@@ -85,15 +85,15 @@ class LegendItem : public QWidget
 {
     Q_OBJECT
 
-    public:
-        LegendItem( const QPair<QString, QBrush>& pair, QWidget * parent = 0 );
-        ~LegendItem(){}
+public:
+    LegendItem( const QPair<QString, QBrush>& pair, QWidget * parent = 0 );
+    ~LegendItem() {}
 
-    private:
-        QPair<QString, QBrush> m_pair;
+private:
+    QPair<QString, QBrush> m_pair;
 
-    protected:
-        virtual void paintEvent( QPaintEvent * e );
+protected:
+    virtual void paintEvent( QPaintEvent * e );
 };
 
 #endif // LEGENDWIDGET_H

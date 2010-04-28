@@ -37,83 +37,80 @@
 
 struct StaticKalziumDataObject
 {
-	KalziumDataObject kdo;
+    KalziumDataObject kdo;
 };
 
 K_GLOBAL_STATIC( StaticKalziumDataObject, s_kdo )
 
 KalziumDataObject* KalziumDataObject::instance()
 {
-	return &s_kdo->kdo;
+    return &s_kdo->kdo;
 }
 
 KalziumDataObject::KalziumDataObject()
-	: m_search( 0 )
+        : m_search( 0 )
 {
-	// reading elements
-	ElementSaxParser * parser = new ElementSaxParser();
+    // reading elements
+    ElementSaxParser * parser = new ElementSaxParser();
 
-	QFile xmlFile( KStandardDirs::locate( "data", "libkdeedu/data/elements.xml" ) );
-	QXmlInputSource source(&xmlFile);
-	QXmlSimpleReader reader;
-	
-	reader.setContentHandler(parser);
-	reader.parse(source);
+    QFile xmlFile( KStandardDirs::locate( "data", "libkdeedu/data/elements.xml" ) );
+    QXmlInputSource source(&xmlFile);
+    QXmlSimpleReader reader;
 
-	ElementList = parser->getElements();
+    reader.setContentHandler(parser);
+    reader.parse(source);
 
-	//we don't need parser anymore, let's free its memory
-	delete parser;
+    ElementList = parser->getElements();
 
-        //read the spectra
-        SpectrumParser * spectrumparser = new SpectrumParser();
+    //we don't need parser anymore, let's free its memory
+    delete parser;
 
-	QFile xmlSpFile( KStandardDirs::locate( "data", "libkdeedu/data/spectra.xml" ) );
-	QXmlInputSource spsource(&xmlSpFile);
-	QXmlSimpleReader sp_reader;
-	
-	sp_reader.setContentHandler(spectrumparser);
-	sp_reader.parse(spsource);
+    //read the spectra
+    SpectrumParser * spectrumparser = new SpectrumParser();
 
-	m_spectra = spectrumparser->getSpectrums();
+    QFile xmlSpFile( KStandardDirs::locate( "data", "libkdeedu/data/spectra.xml" ) );
+    QXmlInputSource spsource(&xmlSpFile);
+    QXmlSimpleReader sp_reader;
 
-	//we don't need spectrumparser anymore, let's free its memory
-	delete spectrumparser;
+    sp_reader.setContentHandler(spectrumparser);
+    sp_reader.parse(spsource);
 
-	// reading isotopes
-	IsotopeParser * isoparser = new IsotopeParser();
+    m_spectra = spectrumparser->getSpectrums();
 
-	QFile xmlIsoFile( KStandardDirs::locate( "data", "libkdeedu/data/isotopes.xml" ) );
-	QXmlInputSource isosource(&xmlIsoFile);
-	QXmlSimpleReader isoreader;
-	
-	isoreader.setContentHandler(isoparser);
-	isoreader.parse(isosource);
+    //we don't need spectrumparser anymore, let's free its memory
+    delete spectrumparser;
 
-	QList<Isotope*> isotopes = isoparser->getIsotopes();
+    // reading isotopes
+    IsotopeParser * isoparser = new IsotopeParser();
 
-	//we don't need isoparser anymore, let's free its memory
-	delete isoparser;
+    QFile xmlIsoFile( KStandardDirs::locate( "data", "libkdeedu/data/isotopes.xml" ) );
+    QXmlInputSource isosource(&xmlIsoFile);
+    QXmlSimpleReader isoreader;
 
-	foreach( Isotope *iso, isotopes )
-	{
-		int num = iso->parentElementNumber();
-		if ( m_isotopes.contains( num ) )
-		{
-			m_isotopes[num].append( iso );
-		}
-		else
-		{
-			QList<Isotope*> newlist;
-			newlist.append( iso );
-			m_isotopes.insert( num, newlist );
-		}
-	}
-	
-	// cache it
-	m_numOfElements = ElementList.count();
+    isoreader.setContentHandler(isoparser);
+    isoreader.parse(isosource);
 
-	qAddPostRoutine( KalziumDataObject::cleanup );
+    QList<Isotope*> isotopes = isoparser->getIsotopes();
+
+    //we don't need isoparser anymore, let's free its memory
+    delete isoparser;
+
+    foreach( Isotope *iso, isotopes )
+    {
+        int num = iso->parentElementNumber();
+        if ( m_isotopes.contains( num ) ) {
+            m_isotopes[num].append( iso );
+        } else {
+            QList<Isotope*> newlist;
+            newlist.append( iso );
+            m_isotopes.insert( num, newlist );
+        }
+    }
+
+    // cache it
+    m_numOfElements = ElementList.count();
+
+    qAddPostRoutine( KalziumDataObject::cleanup );
 }
 
 KalziumDataObject::~KalziumDataObject()
@@ -131,30 +128,30 @@ KalziumDataObject::~KalziumDataObject()
 
 Element* KalziumDataObject::element( int number )
 {
-	// checking that we are requesting a valid element
-	if ( ( number <= 0 ) || ( number > m_numOfElements ) )
-		return 0;
-	return ElementList[ number-1 ];
+    // checking that we are requesting a valid element
+    if ( ( number <= 0 ) || ( number > m_numOfElements ) )
+        return 0;
+    return ElementList[ number-1 ];
 }
 
 QPixmap KalziumDataObject::pixmap( int number )
 {
-	// checking that we are requesting a valid element
-	if ( ( number <= 0 ) || ( number > m_numOfElements ) )
-		return 0;
-	if ( PixmapList.isEmpty() )
-		loadIconSet();
-	return PixmapList[ number-1 ];
+    // checking that we are requesting a valid element
+    if ( ( number <= 0 ) || ( number > m_numOfElements ) )
+        return 0;
+    if ( PixmapList.isEmpty() )
+        loadIconSet();
+    return PixmapList[ number-1 ];
 }
 
 QList<Isotope*> KalziumDataObject::isotopes( Element * element )
 {
-	return isotopes( element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
+    return isotopes( element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
 }
 
 QList<Isotope*> KalziumDataObject::isotopes( int number )
 {
-	return m_isotopes.contains( number ) ? m_isotopes.value( number ) : QList<Isotope*>();
+    return m_isotopes.contains( number ) ? m_isotopes.value( number ) : QList<Isotope*>();
 }
 
 Spectrum * KalziumDataObject::spectrum( int number )
@@ -171,47 +168,47 @@ Spectrum * KalziumDataObject::spectrum( int number )
 
 void KalziumDataObject::setSearch( Search *srch )
 {
-	m_search = srch;
+    m_search = srch;
 }
 
 Search* KalziumDataObject::search() const
 {
-	return m_search;
+    return m_search;
 }
 
 void KalziumDataObject::cleanup()
 {
-	KalziumDataObject::instance()->cleanPixmaps();
+    KalziumDataObject::instance()->cleanPixmaps();
 }
 
 void KalziumDataObject::loadIconSet()
 {
-	KPixmapCache cache("kalzium");
-	//FIXME in case we ever get more than one theme we need
-	//a settings-dialog where we can select the different iconsets...
-	const QString setname = "school";
-	const QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
-	
-	for ( int i = 0 ; i < m_numOfElements ; i++ )
-	{
-		QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
-		
-		QPixmap pix = cache.loadFromSvg( filename, QSize( 40, 40 ) );
-		if ( pix.isNull() ) {
-			pix = QPixmap( 40, 40 );
-			pix.fill(Qt::transparent);
+    KPixmapCache cache("kalzium");
+    //FIXME in case we ever get more than one theme we need
+    //a settings-dialog where we can select the different iconsets...
+    const QString setname = "school";
+    const QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 
-			QPainter p( &pix );
-			Element *e =  ElementList.at(i);
-			QString esymbol = e->dataAsString( ChemicalDataObject::symbol );
-			p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol );
-			p.end();
-		}
-		PixmapList << pix;
-	}
+    for ( int i = 0 ; i < m_numOfElements ; i++ )
+    {
+        QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
+
+        QPixmap pix = cache.loadFromSvg( filename, QSize( 40, 40 ) );
+        if ( pix.isNull() ) {
+            pix = QPixmap( 40, 40 );
+            pix.fill(Qt::transparent);
+
+            QPainter p( &pix );
+            Element *e =  ElementList.at(i);
+            QString esymbol = e->dataAsString( ChemicalDataObject::symbol );
+            p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol );
+            p.end();
+        }
+        PixmapList << pix;
+    }
 }
 
 void KalziumDataObject::cleanPixmaps()
 {
-	PixmapList.clear();
+    PixmapList.clear();
 }

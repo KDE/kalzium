@@ -34,33 +34,33 @@ email                : cniehaus@kde.org
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
-: QWidget( parent )
+        : QWidget( parent )
 {
-	setAttribute( Qt::WA_NoBackground, true );
+    setAttribute( Qt::WA_NoBackground, true );
 
-	m_element = 0;
-	setMinimumSize( 300, 200 );
+    m_element = 0;
+    setMinimumSize( 300, 200 );
 
-	// last operation: setting the background color and scheduling an update()
-	setBackgroundColor( QColor() );
+    // last operation: setting the background color and scheduling an update()
+    setBackgroundColor( QColor() );
 }
 
 void DetailedGraphicalOverview::setElement( int el )
 {
-	m_element = KalziumDataObject::instance()->element( el );
-	update();
+    m_element = KalziumDataObject::instance()->element( el );
+    update();
 }
 
 void DetailedGraphicalOverview::setBackgroundColor( const QColor& bgColor )
 {
-	m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
-	
-	//this check is needed because a QBrush( QPixmap() ) constructs 
-	//with a black brush. But black is a really bad color here ...
-	if ( bgColor == QColor( 0, 0, 0 ) )
-		m_backgroundColor = Qt::white;
-	
-	update();
+    m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
+
+    //this check is needed because a QBrush( QPixmap() ) constructs
+    //with a black brush. But black is a really bad color here ...
+    if ( bgColor == QColor( 0, 0, 0 ) )
+        m_backgroundColor = Qt::white;
+
+    update();
 }
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
@@ -99,8 +99,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         } else {
             p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No graphic found" ) );
         }
-    } else
-    {
+    } else {
         h_t = 20; //height of the texts
 
         x1 =  0;
@@ -137,7 +136,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
         //Element Symbol
         p.setFont( fA );
-        p.drawText( xA, yA , m_element->dataAsString( ChemicalDataObject::symbol) ); 
+        p.drawText( xA, yA , m_element->dataAsString( ChemicalDataObject::symbol) );
 
         //Atomic number
         p.setFont( fB );
@@ -166,13 +165,13 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         fC.setPointSize( size3 );
         p.setFont( fC );
         int offset = KalziumUtils::StringHeight( massString, fC, &p );
-        p.drawText( w/2, 
-                h-offset, 
-                w/2, 
-                offset, 
-                Qt::AlignRight, 
-                massString
-                );
+        p.drawText( w/2,
+                    h-offset,
+                    w/2,
+                    offset,
+                    Qt::AlignRight,
+                    massString
+                  );
     }
 
     p.end();

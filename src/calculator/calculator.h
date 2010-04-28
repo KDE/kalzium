@@ -16,7 +16,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
- 
+
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
@@ -42,36 +42,36 @@ class calculator : public KDialog
 {
     Q_OBJECT
 
-	public:
-		/*
-		 * The clas constructor and destructor, takes in a Widget as parent
-		 */
-	    calculator(QWidget *parent = 0);             // constructor
-	    ~ calculator();                             // destructor
+public:
+    /*
+     * The clas constructor and destructor, takes in a Widget as parent
+     */
+    calculator(QWidget *parent = 0);             // constructor
+    ~ calculator();                             // destructor
 
-	private:
-	    Ui::calculator ui;                          // The user interface
-	    KActionCollection * m_actionCollection;
-	    
-	    // These are the various calculator widgets that will be added to this calculator
-	    
-	    nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
-	    gasCalculator *     m_gasCalculator;        // The gas calculator
-	    concCalculator *    m_concCalculator;       // The concentration calculator
-	    MolcalcWidget *     m_moleCalculator;       // The molecular mass calculator
-	#ifdef HAVE_FACILE
-	    EQChemDialog *      m_equationBalancer;     // The equation balancer
-	#endif
-	protected slots:
-        /**
-         * invoke the help of the correct chapter
-         */
-        virtual void slotHelp();	
-	private slots:
-	
-		// occurs when an tree item is selected, opens the corresponding calculator
-	    void slotItemSelection(QTreeWidgetItem *item);  
-	public slots:
+private:
+    Ui::calculator ui;                          // The user interface
+    KActionCollection * m_actionCollection;
+
+    // These are the various calculator widgets that will be added to this calculator
+
+    nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
+    gasCalculator *     m_gasCalculator;        // The gas calculator
+    concCalculator *    m_concCalculator;       // The concentration calculator
+    MolcalcWidget *     m_moleCalculator;       // The molecular mass calculator
+#ifdef HAVE_FACILE
+    EQChemDialog *      m_equationBalancer;     // The equation balancer
+#endif
+protected slots:
+    /**
+     * invoke the help of the correct chapter
+     */
+    virtual void slotHelp();
+private slots:
+
+    // occurs when an tree item is selected, opens the corresponding calculator
+    void slotItemSelection(QTreeWidgetItem *item);
+public slots:
 };
 
 #endif

@@ -42,8 +42,7 @@
 #include "search.h"
 #include "searchwidget.h"
 
-#include "tableinfowidget.h" 
-
+#include "tableinfowidget.h"
 
 #include <config-kalzium.h>
 
@@ -88,87 +87,86 @@
 
 Kalzium::Kalzium() : KXmlGuiWindow( 0 )
 {
-	setObjectName( "KalziumMainWindow" );
+    setObjectName( "KalziumMainWindow" );
 
-	// adding the libkdeedu catalog
-	KGlobal::locale()->insertCatalog( "libkdeedu" );
+    // adding the libkdeedu catalog
+    KGlobal::locale()->insertCatalog( "libkdeedu" );
 
-	// reading the elements from file
-	KalziumDataObject::instance();
+    // reading the elements from file
+    KalziumDataObject::instance();
 
-	Search *newsearch = new Search();
-	KalziumDataObject::instance()->setSearch( newsearch );
-	connect( newsearch, SIGNAL( searchChanged() ), this, SLOT( slotSearchElements() ) );
-	connect( newsearch, SIGNAL( searchReset() ), this, SLOT( slotSearchElements() ) );
+    Search *newsearch = new Search();
+    KalziumDataObject::instance()->setSearch( newsearch );
+    connect( newsearch, SIGNAL( searchChanged() ), this, SLOT( slotSearchElements() ) );
+    connect( newsearch, SIGNAL( searchReset() ), this, SLOT( slotSearchElements() ) );
 
-	QWidget *fakemain = new QWidget( this );
-	QVBoxLayout *fakelay = new QVBoxLayout( fakemain );
-	fakelay->setMargin( 0 );
-	fakelay->setSpacing( 2 );
+    QWidget *fakemain = new QWidget( this );
+    QVBoxLayout *fakelay = new QVBoxLayout( fakemain );
+    fakelay->setMargin( 0 );
+    fakelay->setSpacing( 2 );
 
-	m_searchWidget = new SearchWidget( fakemain );
-	fakelay->addWidget( m_searchWidget );
+    m_searchWidget = new SearchWidget( fakemain );
+    fakelay->addWidget( m_searchWidget );
 
-	QScrollArea *helperSV = new QScrollArea( fakemain );
-	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport() );
-	m_PeriodicTableView->setObjectName( "PeriodicTableView" );
-	helperSV->setWidget( m_PeriodicTableView );
-	helperSV->setFrameShape( QFrame::NoFrame );
-	fakelay->addWidget( helperSV );
-    
-        m_legendWidget = new LegendWidget( this );
-        connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
-                        m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
-        connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-                        m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
-        connect( m_PeriodicTableView, SIGNAL(GradientTypeChanged( KalziumGradientType* ) ),
-                        m_legendWidget, SLOT( setGradientType( KalziumGradientType * ) ) );
-        connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
-                        m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
+    QScrollArea *helperSV = new QScrollArea( fakemain );
+    m_PeriodicTableView = new PeriodicTableView( helperSV->viewport() );
+    m_PeriodicTableView->setObjectName( "PeriodicTableView" );
+    helperSV->setWidget( m_PeriodicTableView );
+    helperSV->setFrameShape( QFrame::NoFrame );
+    fakelay->addWidget( helperSV );
 
-        m_TableInfoWidget = new TableInfoWidget( this );
-        connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-                        m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
+    m_legendWidget = new LegendWidget( this );
+    connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
+             m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
+    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+             m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
+    connect( m_PeriodicTableView, SIGNAL(GradientTypeChanged( KalziumGradientType* ) ),
+             m_legendWidget, SLOT( setGradientType( KalziumGradientType * ) ) );
+    connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
+             m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
 
-	m_infoDialog = 0;
-	m_toolboxCurrent = 0;
-	m_exportDialog = 0;
-	m_prevNormalMode = KalziumPainter::NORMAL;
+    m_TableInfoWidget = new TableInfoWidget( this );
+    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+             m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
 
-	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
-	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( elementHover( int ) ));
+    m_infoDialog = 0;
+    m_toolboxCurrent = 0;
+    m_exportDialog = 0;
+    m_prevNormalMode = KalziumPainter::NORMAL;
 
-	// layouting
-	setCentralWidget( fakemain );
-	setupSidebars();
-	setupActions();
+    connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
+    connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( elementHover( int ) ));
 
+    // layouting
+    setCentralWidget( fakemain );
+    setupSidebars();
+    setupActions();
 
-	// creating the glossary dialog and loading the glossaries we have
-	m_glossarydlg = new GlossaryDialog( this );
-	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
-	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
-	QString picturepath = dir + "kalzium/data/bg.jpg";
-	KUrl u = KUrl::fromPath( dir + "kalzium/data/knowledge.xml" );
-	Glossary *g = new Glossary( u );
-	g->setName( i18n( "Knowledge" ) );
-	g->setBackgroundPicture( picturepath );
-	m_glossarydlg->addGlossary( g, true );
-	u = KUrl::fromPath( dir + "kalzium/data/tools.xml" );
-	g = new Glossary( u, dir + "kalzium/data/toolpics/" );
-	g->setName( i18n( "Tools" ) );
-	g->setBackgroundPicture( picturepath );
-	m_glossarydlg->addGlossary( g, true );
+    // creating the glossary dialog and loading the glossaries we have
+    m_glossarydlg = new GlossaryDialog( this );
+    m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
+    QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
+    QString picturepath = dir + "kalzium/data/bg.jpg";
+    KUrl u = KUrl::fromPath( dir + "kalzium/data/knowledge.xml" );
+    Glossary *g = new Glossary( u );
+    g->setName( i18n( "Knowledge" ) );
+    g->setBackgroundPicture( picturepath );
+    m_glossarydlg->addGlossary( g, true );
+    u = KUrl::fromPath( dir + "kalzium/data/tools.xml" );
+    g = new Glossary( u, dir + "kalzium/data/toolpics/" );
+    g->setName( i18n( "Tools" ) );
+    g->setBackgroundPicture( picturepath );
+    m_glossarydlg->addGlossary( g, true );
 
-	setupStatusBar();
+    setupStatusBar();
 }
 
 static QStringList prependToListItems( const QStringList& list, const KLocalizedString& strprefix )
 {
-	QStringList l;
-	for ( int i = 0; i < list.count(); i++ )
-		l << strprefix.subs( list.at( i ) ).toString();
-	return l;
+    QStringList l;
+    for ( int i = 0; i < list.count(); i++ )
+        l << strprefix.subs( list.at( i ) ).toString();
+    return l;
 }
 
 void Kalzium::setupActions()
@@ -235,7 +233,7 @@ void Kalzium::setupActions()
 #else
     m_EQSolverAction->setEnabled( false );
 #endif
-    
+
     // tools actions
     m_pPlotAction = actionCollection()->addAction( "tools_plotdata" );
     m_pPlotAction->setText( i18n( "&Plot Data..." ) );
@@ -247,7 +245,7 @@ void Kalzium::setupActions()
     m_pcalculator->setText( i18n( "Perform &Calculations..." ) );
     m_pcalculator->setIcon( KIcon( "calculate" ) );
     m_pcalculator->setWhatsThis( i18nc( "WhatsThis Help", "This is the calculator, it performs basic chemical calculations." ) );
-    connect( m_pcalculator, SIGNAL( triggered() ), this, SLOT( showCalculator() ) );    
+    connect( m_pcalculator, SIGNAL( triggered() ), this, SLOT( showCalculator() ) );
 
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
     m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
@@ -295,16 +293,15 @@ void Kalzium::setupActions()
     actionCollection()->addAction( "view_legend", m_pLegendAction );
     m_pLegendAction->setIcon( KIcon( "legend" ) );
     m_pLegendAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide the legend for the periodic table." ) );
-    connect( m_pLegendAction, SIGNAL( triggered(bool) ), 
-            this, SLOT( slotShowLegend(bool) ) );
-    
+    connect( m_pLegendAction, SIGNAL( triggered(bool) ),
+             this, SLOT( slotShowLegend(bool) ) );
+
     m_SidebarAction = m_dockWin->toggleViewAction();
     actionCollection()->addAction( "view_sidebar", m_SidebarAction );
     m_SidebarAction->setIcon( KIcon( "sidebar" ) );
     m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information and a set of tools." ) );
-    connect( m_SidebarAction, SIGNAL( triggered( bool ) ), 
-            this, SLOT( slotShowHideSidebar( bool ) ) );
-
+    connect( m_SidebarAction, SIGNAL( triggered( bool ) ),
+             this, SLOT( slotShowHideSidebar( bool ) ) );
 
     // the standard actions
     KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection());
@@ -343,7 +340,7 @@ void Kalzium::setupSidebars()
     m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
     m_InfoDock->setAllowedAreas( Qt::BottomDockWidgetArea );
     m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
-    
+
     m_InfoDock->setWidget(m_legendWidget);
 
     m_infoTabWidget = new KTabWidget(this);
@@ -366,8 +363,8 @@ void Kalzium::setupSidebars()
     m_detailWidget = new DetailedGraphicalOverview( fake );
     m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
     m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
-    connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), 
-            m_detailWidget, SLOT( setElement( int ) ) );
+    connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ),
+             m_detailWidget, SLOT( setElement( int ) ) );
     lay->addWidget( m_detailWidget );
     lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
     m_toolbox->addItem( fake, KIcon( "overview" ), i18n( "Overview" ) );
@@ -375,13 +372,13 @@ void Kalzium::setupSidebars()
     m_somWidget = new SOMWidgetIMPL( m_toolbox );
     m_somWidget->setObjectName( "somWidget" );
     connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
-            m_PeriodicTableView, SLOT( setTemperature( int ) ) );
+             m_PeriodicTableView, SLOT( setTemperature( int ) ) );
     m_toolbox->addItem( m_somWidget, KIcon( "statematter" ), i18n( "State of Matter" ) );
 
     m_timeWidget = new TimeWidgetImpl( m_toolbox );
     m_timeWidget->setObjectName( "timeWidget" );
     connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
-            m_PeriodicTableView, SLOT( setTime( int ) ) );
+             m_PeriodicTableView, SLOT( setTime( int ) ) );
     m_toolbox->addItem( m_timeWidget, KIcon( "timeline" ), i18n( "Timeline" ) );
 
     m_calcWidget = new MolcalcWidget( m_toolbox );
@@ -389,8 +386,8 @@ void Kalzium::setupSidebars()
     m_calcWidget->hideExtra();
     m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
 
-    connect( m_toolbox, SIGNAL( currentChanged( int ) ), 
-            this, SLOT( slotToolboxCurrentChanged( int ) ) );
+    connect( m_toolbox, SIGNAL( currentChanged( int ) ),
+             this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
@@ -399,8 +396,8 @@ void Kalzium::setupSidebars()
 void Kalzium::slotExportTable()
 {
     QString fileName = KFileDialog::getSaveFileName(QString(), i18n("*.png *.xpm *.jpg *.svg"),
-            this, 
-            i18n("Save Kalzium's Table In"));
+                       this,
+                       i18n("Save Kalzium's Table In"));
 
     if (fileName.endsWith(".svg")) {
         m_PeriodicTableView->generateSvg( fileName );
@@ -412,7 +409,7 @@ void Kalzium::slotExportTable()
 
 void Kalzium::slotGlossary()
 {
-	m_glossarydlg->show();
+    m_glossarydlg->show();
 }
 
 void Kalzium::slotRS()
@@ -435,40 +432,41 @@ void Kalzium::slotMoleculeviewer()
 {
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 
-  if (!QGLFormat::hasOpenGL()) {
-      KMessageBox::error(0, i18n("This system does not support OpenGL."), i18n("Kalzium Error"));
-      return;
-  }
+    if (!QGLFormat::hasOpenGL()) {
+        KMessageBox::error(0, i18n("This system does not support OpenGL."), i18n("Kalzium Error"));
+        return;
+    }
 
-  MoleculeDialog * d = new MoleculeDialog( this ); d->show();
+    MoleculeDialog * d = new MoleculeDialog( this );
+    d->show();
 
 #if 0
-  KPluginLoader loader("libkalziumglpart" );
-  KPluginFactory* factory = loader.factory();
+    KPluginLoader loader("libkalziumglpart" );
+    KPluginFactory* factory = loader.factory();
 
-  if (factory) {
-      KParts::ReadOnlyPart *part = 0;
-      part = static_cast<KParts::ReadOnlyPart*> ( factory->create( this, "KalziumGLPart" ) );
+    if (factory) {
+        KParts::ReadOnlyPart *part = 0;
+        part = static_cast<KParts::ReadOnlyPart*> ( factory->create( this, "KalziumGLPart" ) );
 
-      part->widget()->show();
-  }
+        part->widget()->show();
+    }
 #endif
 #endif
 }
 
 void Kalzium::slotTables()
 {
-	TablesDialog *t = new TablesDialog( this );
-	t->setAttribute(Qt::WA_DeleteOnClose);
-	t->show();
+    TablesDialog *t = new TablesDialog( this );
+    t->setAttribute(Qt::WA_DeleteOnClose);
+    t->show();
 }
 
 void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
-	EQChemDialog *dlg = new EQChemDialog( this );
-	dlg->setAttribute(Qt::WA_DeleteOnClose);
-	dlg->show();
+    EQChemDialog *dlg = new EQChemDialog( this );
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->show();
 #endif
 }
 
@@ -481,194 +479,182 @@ void Kalzium::slotIsotopeTable()
 
 void Kalzium::slotPlotData()
 {
-	ElementDataViewer *edw = new ElementDataViewer( this );
-	edw->setAttribute(Qt::WA_DeleteOnClose);
-	edw->show();
+    ElementDataViewer *edw = new ElementDataViewer( this );
+    edw->setAttribute(Qt::WA_DeleteOnClose);
+    edw->show();
 }
 
 void Kalzium::showCalculator()
 {
-	calculator *Cal = new calculator ( this ); 
-	Cal->setAttribute(Qt::WA_DeleteOnClose);
-	Cal -> show();	
+    calculator *Cal = new calculator ( this );
+    Cal->setAttribute(Qt::WA_DeleteOnClose);
+    Cal -> show();
 }
 
 void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 {
-	if ( !checked )
-	{
-		m_pLegendAction->setText( i18n( "Show &Legend") );
-	}
-	else
-	{
-		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
-	}
+    if ( !checked ) {
+        m_pLegendAction->setText( i18n( "Show &Legend") );
+    } else {
+        m_pLegendAction->setText( i18n( "Hide &Legend" ) );
+    }
 
-	if ( changeconfig )
-	{
-		Prefs::setShowlegend( checked );
-		//save the settings
-		Prefs::self()->writeConfig();
-	}
+    if ( changeconfig ) {
+        Prefs::setShowlegend( checked );
+        //save the settings
+        Prefs::self()->writeConfig();
+    }
 }
 
 void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 {
-	if ( !checked )
-        {
-		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
-		slotToolboxCurrentChanged( 0 );
-	}
-	else
-	{
-		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
-		slotToolboxCurrentChanged( m_toolboxCurrent );
-	}
+    if ( !checked ) {
+        m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
+        slotToolboxCurrentChanged( 0 );
+    } else {
+        m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
+        slotToolboxCurrentChanged( m_toolboxCurrent );
+    }
 
-	if ( changeconfig )
-	{
-		Prefs::setShowsidebar( checked );
-		//save the settings
-		Prefs::self()->writeConfig();
-	}
+    if ( changeconfig ) {
+        Prefs::setShowsidebar( checked );
+        //save the settings
+        Prefs::self()->writeConfig();
+    }
 }
 
 void Kalzium::slotSwitchtoTable( int index )
 {
     m_PeriodicTableView->slotChangeTable(index);
-    if ( m_infoDialog )
+    if ( m_infoDialog ) {
         m_infoDialog->setTableType( m_PeriodicTableView->tableType() );
+    }
     Prefs::setTable(index);
     Prefs::self()->writeConfig();
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )
 {
-	m_PeriodicTableView->setNumeration( index );
-	Prefs::setNumeration(index);
-	Prefs::self()->writeConfig();
+    m_PeriodicTableView->setNumeration( index );
+    Prefs::setNumeration(index);
+    Prefs::self()->writeConfig();
 }
 
 void Kalzium::slotSwitchtoLookGradient( int which )
 {
-	Prefs::setSchemaSelected(false);
-	kDebug() << "slotSwitchtoLookGradient Kalzium";
-	Prefs::setColorgradientbox(which);
-	Prefs::self()->writeConfig();
-	if (which > 0)
-	{
-		m_PeriodicTableView->setGradient( which - 1 );
-		if (m_PeriodicTableView->scheme()->name() == "Iconic" ||
-			m_PeriodicTableView->scheme()->name() == "MonoColor")
-		{
-			if (m_PeriodicTableView->mode() == KalziumPainter::NORMAL ||
-				m_PeriodicTableView->mode() == KalziumPainter::NORMAL_GRADIENT)
-			{
-				m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
-				m_legendWidget->setMode( KalziumPainter::GRADIENT );
-			}
-		}
-		else
-		{
-			if (m_PeriodicTableView->mode() == KalziumPainter::NORMAL ||
-				m_PeriodicTableView->mode() == KalziumPainter::GRADIENT)
-			{
-				m_PeriodicTableView->setMode( KalziumPainter::NORMAL_GRADIENT );
-				m_legendWidget->setMode( KalziumPainter::NORMAL_GRADIENT );
-			}
-		}
-	}
-	else
-		slotSwitchtoLookScheme( Prefs::colorschemebox() );
+    Prefs::setSchemaSelected(false);
+    kDebug() << "slotSwitchtoLookGradient Kalzium";
+    Prefs::setColorgradientbox(which);
+    Prefs::self()->writeConfig();
+    if (which > 0)
+    {
+        m_PeriodicTableView->setGradient( which - 1 );
+        if (m_PeriodicTableView->scheme()->name() == "Iconic" ||
+                m_PeriodicTableView->scheme()->name() == "MonoColor") {
 
-	look_action_menu_gradients->blockSignals( true );
-	look_action_gradients->blockSignals( true );
-	look_action_menu_gradients->setCurrentItem( which );
-	look_action_gradients->setCurrentItem( which );
-	look_action_menu_gradients->blockSignals( false );
-	look_action_gradients->blockSignals( false );
+            if (m_PeriodicTableView->mode() == KalziumPainter::NORMAL ||
+                    m_PeriodicTableView->mode() == KalziumPainter::NORMAL_GRADIENT) {
+
+                m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
+                m_legendWidget->setMode( KalziumPainter::GRADIENT );
+            }
+        } else {
+            if (m_PeriodicTableView->mode() == KalziumPainter::NORMAL ||
+                    m_PeriodicTableView->mode() == KalziumPainter::GRADIENT) {
+
+                m_PeriodicTableView->setMode( KalziumPainter::NORMAL_GRADIENT );
+                m_legendWidget->setMode( KalziumPainter::NORMAL_GRADIENT );
+            }
+        }
+    } else {
+        slotSwitchtoLookScheme( Prefs::colorschemebox() );
+    }
+
+    look_action_menu_gradients->blockSignals( true );
+    look_action_gradients->blockSignals( true );
+    look_action_menu_gradients->setCurrentItem( which );
+    look_action_gradients->setCurrentItem( which );
+    look_action_menu_gradients->blockSignals( false );
+    look_action_gradients->blockSignals( false );
 }
 
 void Kalzium::slotSwitchtoLookScheme( int which )
 {
-	Prefs::setSchemaSelected(true);
-	kDebug() << "slotSwitchtoLookScheme Kalzium";
-	m_PeriodicTableView->activateColorScheme( which );
-	if (Prefs::colorgradientbox() == 0 || m_PeriodicTableView->scheme()->name() == "Iconic" ||
-		m_PeriodicTableView->scheme()->name() == "MonoColor")
-	{
-		if (m_PeriodicTableView->mode() == KalziumPainter::GRADIENT ||
-			m_PeriodicTableView->mode() == KalziumPainter::NORMAL_GRADIENT)
-		{
-			m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
-			m_legendWidget->setMode( KalziumPainter::NORMAL );
-		}
-	}
-	else
-	{
-		if (m_PeriodicTableView->mode() == KalziumPainter::GRADIENT ||
-			m_PeriodicTableView->mode() == KalziumPainter::NORMAL)
-		{
-			m_PeriodicTableView->setMode( KalziumPainter::NORMAL_GRADIENT );
-			m_legendWidget->setMode( KalziumPainter::NORMAL_GRADIENT );
-		}
-	}
-	
-	
+    Prefs::setSchemaSelected(true);
+    kDebug() << "slotSwitchtoLookScheme Kalzium";
+    m_PeriodicTableView->activateColorScheme( which );
+    if (Prefs::colorgradientbox() == 0 || m_PeriodicTableView->scheme()->name() == "Iconic" ||
+            m_PeriodicTableView->scheme()->name() == "MonoColor") {
 
-	look_action_menu_schemes->blockSignals( true );
-	look_action_schemes->blockSignals( true );
-	look_action_menu_schemes->setCurrentItem( which );
-	look_action_schemes->setCurrentItem( which );
-	look_action_menu_schemes->blockSignals( false );
-	look_action_schemes->blockSignals( false );
+        if (m_PeriodicTableView->mode() == KalziumPainter::GRADIENT ||
+                m_PeriodicTableView->mode() == KalziumPainter::NORMAL_GRADIENT) {
 
-	Prefs::setColorschemebox(which);
-	Prefs::self()->writeConfig();
+            m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
+            m_legendWidget->setMode( KalziumPainter::NORMAL );
+        }
+    } else {
+        if (m_PeriodicTableView->mode() == KalziumPainter::GRADIENT ||
+                m_PeriodicTableView->mode() == KalziumPainter::NORMAL) {
+
+            m_PeriodicTableView->setMode( KalziumPainter::NORMAL_GRADIENT );
+            m_legendWidget->setMode( KalziumPainter::NORMAL_GRADIENT );
+        }
+    }
+
+    look_action_menu_schemes->blockSignals( true );
+    look_action_schemes->blockSignals( true );
+    look_action_menu_schemes->setCurrentItem( which );
+    look_action_schemes->setCurrentItem( which );
+    look_action_menu_schemes->blockSignals( false );
+    look_action_schemes->blockSignals( false );
+
+    Prefs::setColorschemebox(which);
+    Prefs::self()->writeConfig();
 }
 
 void Kalzium::showSettingsDialog()
 {
-	if (KConfigDialog::showDialog("settings"))
-		return;
+    if (KConfigDialog::showDialog("settings")) {
+        return;
+    }
 
-	//KConfigDialog didn't find an instance of this dialog, so lets create it :
-	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-	connect( dialog, SIGNAL( settingsChanged( const QString &) ), this , SLOT( slotUpdateSettings() ) );
-	connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_somWidget, SLOT( reloadUnits() ) );
-	connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
-	// colors page
-	Ui_setupColors ui_colors;
-	QWidget *w_colors = new QWidget( 0 );
-	w_colors->setObjectName( "colors_page" );
-	ui_colors.setupUi( w_colors );
-	dialog->addPage( w_colors, i18n( "Colors" ), "preferences-desktop-color" );
- 	// units page
-	Ui_setupUnits ui_units;
-	QWidget *w_units = new QWidget( 0 );
-	w_units->setObjectName( "units_page" );
-	ui_units.setupUi( w_units );
-	dialog->addPage( w_units, i18n( "Units" ), "system-run" );
-	// misc page
-	Ui_setupMisc ui_misc;
-	QWidget *w_misc = new QWidget( 0 );
-	w_misc->setObjectName( "miscpage" );
-	ui_misc.setupUi( w_misc );
-	dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
+    //KConfigDialog didn't find an instance of this dialog, so lets create it :
+    KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), this , SLOT( slotUpdateSettings() ) );
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_somWidget, SLOT( reloadUnits() ) );
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
+    // colors page
+    Ui_setupColors ui_colors;
+    QWidget *w_colors = new QWidget( 0 );
+    w_colors->setObjectName( "colors_page" );
+    ui_colors.setupUi( w_colors );
+    dialog->addPage( w_colors, i18n( "Colors" ), "preferences-desktop-color" );
+    // units page
+    Ui_setupUnits ui_units;
+    QWidget *w_units = new QWidget( 0 );
+    w_units->setObjectName( "units_page" );
+    ui_units.setupUi( w_units );
+    dialog->addPage( w_units, i18n( "Units" ), "system-run" );
+    // misc page
+    Ui_setupMisc ui_misc;
+    QWidget *w_misc = new QWidget( 0 );
+    w_misc->setObjectName( "miscpage" );
+    ui_misc.setupUi( w_misc );
+    dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
     // web page
     Ui_setupWeb ui_web;
     QWidget *w_web = new QWidget( 0 );
     //w_web->setobjectName( "Web_lookup" );
     ui_web.setupUi( w_web );
     dialog->addPage( w_web, i18n(" Web look up" ), "preferences-system-network");
-    
+
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget( 0 );
     ui_calc.setupUi( w_calc );
     dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
-	
-	// showing the dialog
-	dialog->show();
+
+    // showing the dialog
+    dialog->show();
 }
 
 void Kalzium::slotUpdateSettings()
@@ -677,82 +663,83 @@ void Kalzium::slotUpdateSettings()
 
 void Kalzium::slotShowExportDialog()
 {
-    if(!m_exportDialog)
+    if (!m_exportDialog) {
         m_exportDialog = new ExportDialog( this );
+    }
     m_exportDialog->show();
 }
 
 void Kalzium::setupStatusBar()
 {
-	statusBar()->insertItem( "", 0, 0 );
-	statusBar()->setItemAlignment( 0, Qt::AlignRight );
+    statusBar()->insertItem( "", 0, 0 );
+    statusBar()->setItemAlignment( 0, Qt::AlignRight );
 
-	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1 );
-	statusBar()->setItemAlignment( IDS_ELEMENTINFO, Qt::AlignRight );
-	statusBar()->show();
+    statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1 );
+    statusBar()->setItemAlignment( IDS_ELEMENTINFO, Qt::AlignRight );
+    statusBar()->show();
 }
 
 void Kalzium::elementHover( int num )
 {
-        extractIconicInformationAboutElement( num );
+    extractIconicInformationAboutElement( num );
 
-	Element *e = KalziumDataObject::instance()->element( num );
-	statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
-			  e->dataAsString( ChemicalDataObject::name ) ,
-			  e->dataAsString( ChemicalDataObject::atomicNumber ) ,
-			  e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
+    Element *e = KalziumDataObject::instance()->element( num );
+    statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
+                                    e->dataAsString( ChemicalDataObject::name ) ,
+                                    e->dataAsString( ChemicalDataObject::atomicNumber ) ,
+                                    e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 
-	m_detailWidget->setBackgroundColor( m_PeriodicTableView->brushForElement( num ).color() );
+    m_detailWidget->setBackgroundColor( m_PeriodicTableView->brushForElement( num ).color() );
 }
-                
+
 void Kalzium::extractIconicInformationAboutElement( int elementNumber )
 {
-        QString setname = "school";
-        QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
-        QString filename = pathname + setname + '/' + "iconinformation.txt";
+    QString setname = "school";
+    QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
+    QString filename = pathname + setname + '/' + "iconinformation.txt";
 
-        QFile file(filename);
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-                return;
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
 
-        QString infoline;
+    QString infoline;
 
-        QTextStream in(&file);
-        while (!in.atEnd()) {
-                QString tmp = in.readLine();
-                if( tmp.startsWith( QString::number( elementNumber ) ) )
-                        infoline = tmp;
-        }
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString tmp = in.readLine();
+        if ( tmp.startsWith( QString::number( elementNumber ) ) )
+            infoline = tmp;
+    }
 
-        QString realText = "Moin dies ist ein test!";
+    QString realText = "Moin dies ist ein test!";
 //X         QString realText = infoline.remove( QRegExp("\\d+ ") );
 }
 
 void Kalzium::openInformationDialog( int number )
 {
-	if (m_infoDialog)
-		m_infoDialog->setElement( number );
-	else
-	{
-		m_infoDialog = new DetailedInfoDlg(number, this );
+    if (m_infoDialog) {
+        m_infoDialog->setElement( number );
+    } else {
+        m_infoDialog = new DetailedInfoDlg(number, this );
 
-		// Remove the selection when this dialog finishes or hides.
-		connect(m_infoDialog, SIGNAL(hidden()),
-				m_PeriodicTableView,        SLOT(unSelect()));
-		connect(m_infoDialog, SIGNAL(elementChanged(int)),
-				m_PeriodicTableView,        SLOT(selectElement(int)));
-	}
-	m_infoDialog->setOverviewBackgroundColor( m_PeriodicTableView->brushForElement( number ).color() );
-	m_infoDialog->setTableType( m_PeriodicTableView->tableType() );
-	m_infoDialog->show();
+        // Remove the selection when this dialog finishes or hides.
+        connect(m_infoDialog, SIGNAL(hidden()),
+                m_PeriodicTableView,        SLOT(unSelect()));
+        connect(m_infoDialog, SIGNAL(elementChanged(int)),
+                m_PeriodicTableView,        SLOT(selectElement(int)));
+    }
+    m_infoDialog->setOverviewBackgroundColor( m_PeriodicTableView->brushForElement( number ).color() );
+    m_infoDialog->setTableType( m_PeriodicTableView->tableType() );
+    m_infoDialog->show();
 }
 
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
     KalziumPainter::MODE cur = m_PeriodicTableView->mode();
     if ( ( id > 1 ) && ((cur == KalziumPainter::NORMAL) || (cur == KalziumPainter::GRADIENT) ||
-	(cur == KalziumPainter::NORMAL_GRADIENT)) )
+                        (cur == KalziumPainter::NORMAL_GRADIENT)) ) {
         m_prevNormalMode = cur;
+    }
     m_PeriodicTableView->setMode( m_prevNormalMode );
     m_legendWidget->setMode( m_prevNormalMode );
 
@@ -760,24 +747,24 @@ void Kalzium::slotToolboxCurrentChanged( int id )
     //because of focus-stealing and a conflict with the "hiding" of the elements
     switch ( id )
     {
-        case 0: // nothing (overview)
-            m_searchWidget->setEnabled( true );
-            break;
-        case 1: //state of matter
-            m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
-            m_PeriodicTableView->setMode( KalziumPainter::SOM );
-            m_legendWidget->setMode( KalziumPainter::SOM );
-            m_searchWidget->setEnabled( true );
-            break;
-        case 2: // timeline
-            m_PeriodicTableView->setTime( m_timeWidget->time_box->value() );
-            m_PeriodicTableView->setMode( KalziumPainter::TIME );
-            m_legendWidget->setMode( KalziumPainter::TIME );
-            m_searchWidget->setEnabled( false );
-            break;
-        case 3: // molecular calculator
-            m_searchWidget->setEnabled( false );
-            break;
+    case 0: // nothing (overview)
+        m_searchWidget->setEnabled( true );
+        break;
+    case 1: //state of matter
+        m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
+        m_PeriodicTableView->setMode( KalziumPainter::SOM );
+        m_legendWidget->setMode( KalziumPainter::SOM );
+        m_searchWidget->setEnabled( true );
+        break;
+    case 2: // timeline
+        m_PeriodicTableView->setTime( m_timeWidget->time_box->value() );
+        m_PeriodicTableView->setMode( KalziumPainter::TIME );
+        m_legendWidget->setMode( KalziumPainter::TIME );
+        m_searchWidget->setEnabled( false );
+        break;
+    case 3: // molecular calculator
+        m_searchWidget->setEnabled( false );
+        break;
     }
     if ( m_dockWin->isVisible() )
         m_toolboxCurrent = id;
@@ -789,15 +776,15 @@ Kalzium::~Kalzium()
 
 void Kalzium::keyPressEvent( QKeyEvent *e)
 {
-	m_searchWidget->appendSearchText( e->text() );
-	m_searchWidget->giveFocus();
-	e->accept();
+    m_searchWidget->appendSearchText( e->text() );
+    m_searchWidget->giveFocus();
+    e->accept();
 }
 
 void Kalzium::slotSearchElements()
 {
-	m_PeriodicTableView->setFullDraw();
-	m_PeriodicTableView->update();
+    m_PeriodicTableView->setFullDraw();
+    m_PeriodicTableView->update();
 }
 
 #include "kalzium.moc"

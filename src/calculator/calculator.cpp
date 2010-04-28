@@ -54,21 +54,21 @@ calculator :: calculator(QWidget *parent)
     new QTreeWidgetItem(ui.tree);
     QTreeWidgetItem *___qtreewidgetitem6 = ui.tree->topLevelItem(5);
     ___qtreewidgetitem6->setText(0, i18n("Equation Balancer", 0));
-        
+
     m_equationBalancer = new EQChemDialog(this);
     ui.stack->addWidget(m_equationBalancer);
 #endif
-	// Add an image to the file
-	ui.pic->setPixmap( (KIcon( "calculate" )).pixmap(128,128) );
+    // Add an image to the file
+    ui.pic->setPixmap( (KIcon( "calculate" )).pixmap(128,128) );
 
     // Connect the tree item selection signal to the corresponding slot
     connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
             SLOT(slotItemSelection(QTreeWidgetItem *)));
 
-	ui.tree->setCurrentItem ( ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent );
+    ui.tree->setCurrentItem ( ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent );
 
-	// help clicked
-	connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
+    // help clicked
+    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
 }
 
 calculator :: ~calculator()
@@ -105,13 +105,13 @@ void calculator :: slotItemSelection(QTreeWidgetItem *item)
     else if (!(s.compare(i18n("Equation Balancer"))))
         ui.stack->setCurrentWidget(m_equationBalancer);
 #endif
-	else if (!(s.compare(i18n("Molecular mass Calculator"))))
-		ui.stack->setCurrentWidget(m_moleCalculator);
+    else if (!(s.compare(i18n("Molecular mass Calculator"))))
+        ui.stack->setCurrentWidget(m_moleCalculator);
 }
 
 
 void calculator::slotHelp()
 {
-	KToolInvocation::invokeHelp( "calculator", "kalzium" );
+    KToolInvocation::invokeHelp( "calculator", "kalzium" );
 }
 

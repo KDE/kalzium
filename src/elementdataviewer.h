@@ -30,49 +30,49 @@ typedef QList<double> DoubleList;
  */
 class AxisData
 {
-    public:
-        /**
-         * This represents the possible datasets.
-         */
-        enum PAXISDATA {
-            NUMBER = 0,
-            MASS,
-            EN,
-            MELTINGPOINT,
-            BOILINGPOINT,
-            ATOMICRADIUS,
-            COVALENTRADIUS
-        };
+public:
+    /**
+     * This represents the possible datasets.
+     */
+    enum PAXISDATA {
+        NUMBER = 0,
+        MASS,
+        EN,
+        MELTINGPOINT,
+        BOILINGPOINT,
+        ATOMICRADIUS,
+        COVALENTRADIUS
+    };
 
-        enum AXISTYPE {
-            X = 0,
-            Y
-        };
-        
-        AxisData( AxisData::AXISTYPE );
+    enum AXISTYPE {
+        X = 0,
+        Y
+    };
 
-        /**
-         * @return the value of the selected dataset of element @p element
-         */
-        double value( int element ) const;
+    AxisData( AxisData::AXISTYPE );
 
-        /**
-         * the dataList contains the values off all elements
-         * but only of the currently selected data type. This
-         * means that it eg contains all boiling points
-         */
-        DoubleList dataList;
+    /**
+     * @return the value of the selected dataset of element @p element
+     */
+    double value( int element ) const;
 
-        int currentDataType;
+    /**
+     * the dataList contains the values off all elements
+     * but only of the currently selected data type. This
+     * means that it eg contains all boiling points
+     */
+    DoubleList dataList;
 
-        ChemicalDataObject::BlueObelisk kind;
+    int currentDataType;
 
-        AXISTYPE type() const{
-            return m_type;
-        }
+    ChemicalDataObject::BlueObelisk kind;
 
-    private:
-        AXISTYPE m_type;
+    AXISTYPE type() const {
+        return m_type;
+    }
+
+private:
+    AXISTYPE m_type;
 };
 
 
@@ -85,61 +85,61 @@ class ElementDataViewer : public KDialog
 {
     Q_OBJECT
 
-    public:
-        ElementDataViewer( QWidget *parent = 0 );
+public:
+    ElementDataViewer( QWidget *parent = 0 );
 
-        ~ElementDataViewer();
+    ~ElementDataViewer();
 
-        /**
-         * the AxixData for the y-Axis
-         */
-        AxisData *m_yData;
-        
-        /**
-         * the AxixData for the x-Axis
-         */
-        AxisData *m_xData;
+    /**
+     * the AxixData for the y-Axis
+     */
+    AxisData *m_yData;
+
+    /**
+     * the AxixData for the x-Axis
+     */
+    AxisData *m_xData;
 
 
-    protected:
-        virtual void keyPressEvent(QKeyEvent *e);
+protected:
+    virtual void keyPressEvent(QKeyEvent *e);
 
-    private: 
-        Ui::PlotSetupWidget ui;
+private:
+    Ui::PlotSetupWidget ui;
 
-        void getMinMax(double& min, double& max, AxisData * data);
+    void getMinMax(double& min, double& max, AxisData * data);
 
-        QStringList         names;
-        QStringList         symbols;
-        QStringList         elecConfig;	//Electronic configuration of elements
-        QStringList 	    block;	//Indicates the periodic table block s,p,d,f...
-        QTimer *m_timer;
+    QStringList         names;
+    QStringList         symbols;
+    QStringList         elecConfig;	//Electronic configuration of elements
+    QStringList 	    block;	//Indicates the periodic table block s,p,d,f...
+    QTimer *m_timer;
 
-        KActionCollection* m_actionCollection;
+    KActionCollection* m_actionCollection;
 
-        void initData();
-        void setupAxisData( AxisData * data );
+    void initData();
+    void setupAxisData( AxisData * data );
 
-        void setLimits();
+    void setLimits();
 
-    protected slots:
-        /**
-         * invoke the help of the correct chapter
-         */
-        virtual void slotHelp();
+protected slots:
+    /**
+     * invoke the help of the correct chapter
+     */
+    virtual void slotHelp();
 
-    private slots:
-        void rangeChanged();
-        void fullRange();
+private slots:
+    void rangeChanged();
+    void fullRange();
 
-    public slots:
-        void slotZoomIn();
-        void slotZoomOut();
+public slots:
+    void slotZoomIn();
+    void slotZoomOut();
 
-        /**
-         * draws the plot
-         */
-        void drawPlot();
+    /**
+     * draws the plot
+     */
+    void drawPlot();
 };
 
 #endif // ELEMENTDATAVIEWER_H

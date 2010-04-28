@@ -28,43 +28,43 @@ class Element;
  */
 class DetailedGraphicalOverview : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		/**
-		 * Construct a new DetailedGraphicalOverview.
-		 *
-		 * @param parent the parent of this widget
-		 */
-		DetailedGraphicalOverview( QWidget *parent );
+public:
+    /**
+     * Construct a new DetailedGraphicalOverview.
+     *
+     * @param parent the parent of this widget
+     */
+    DetailedGraphicalOverview( QWidget *parent );
 
-	public slots:
-		/**
-		 * Set @p el as the element to be drawn
-		 */
-		void setElement( int el );
+public slots:
+    /**
+     * Set @p el as the element to be drawn
+     */
+    void setElement( int el );
 
-		/**
-		 * Set the background color to @p bgColor.
-		 */
-		void setBackgroundColor( const QColor& bgColor );
+    /**
+     * Set the background color to @p bgColor.
+     */
+    void setBackgroundColor( const QColor& bgColor );
 
-	private:
-		/**
-		 * the element whose data will be used
-		 */
-		Element *m_element;
+private:
+    /**
+     * the element whose data will be used
+     */
+    Element *m_element;
 
-		//calculation of the corners
-		int x1,x2,y1,y2,h_t;
+    //calculation of the corners
+    int x1,x2,y1,y2,h_t;
 
-		/**
-		 * The background color.
-		 */
-		QColor m_backgroundColor;
+    /**
+     * The background color.
+     */
+    QColor m_backgroundColor;
 
-	protected:
-		virtual void paintEvent( QPaintEvent* );
+protected:
+    virtual void paintEvent( QPaintEvent* );
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H
