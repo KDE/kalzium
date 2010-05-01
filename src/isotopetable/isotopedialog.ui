@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>isotopeWidget</class>
- <widget class="QWidget" name="isotopeWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="isotopeWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,135 +10,167 @@
     <height>622</height>
    </rect>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <layout class="QVBoxLayout" name="verticalLayout" >
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="3">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="IsotopeGuideView" name="guide">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Slider">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>20</number>
+       </property>
+       <property name="value">
+        <number>2</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Zoom IN / OUT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="2">
+    <widget class="IsotopeView" name="gv">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="dragMode">
+      <enum>QGraphicsView::ScrollHandDrag</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label" >
-        <property name="sizePolicy" >
-         <sizepolicy vsizetype="Preferred" hsizetype="Minimum" >
+       <widget class="QLabel" name="label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="maximumSize" >
+        <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>16777215</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
-        <property name="text" >
-         <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Information&lt;/span>&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;">&lt;span style=" font-weight:400;">Right click on an element to view information about it.&lt;/span>&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">zoom in and out using your mouse wheel / zoom feature.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">scroll using left-clicking and dragging / scroll feature.&lt;/p>&lt;/body>&lt;/html></string>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777203</height>
+         </size>
         </property>
-        <property name="textFormat" >
+        <property name="text">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Information&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Right click on an element to view information about it.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;zoom in and out using your mouse wheel / zoom feature.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;scroll using left-clicking and dragging / scroll feature.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
          <enum>Qt::RichText</enum>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
-        <property name="wordWrap" >
+        <property name="wordWrap">
          <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QTabWidget" name="tabs" >
-        <property name="currentIndex" >
-         <number>0</number>
+       <widget class="QFrame" name="legendDisplay">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <widget class="QWidget" name="legend" >
-         <attribute name="title" >
-          <string>Legend</string>
-         </attribute>
-         <layout class="QGridLayout" name="gridLayout_2" >
-          <item row="0" column="0" colspan="2" >
-           <widget class="QFrame" name="legendDisplay" >
-            <property name="frameShape" >
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow" >
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="Zoom" >
-         <attribute name="title" >
-          <string>Zoom</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_2" >
-          <item>
-           <widget class="QLabel" name="label_2" >
-            <property name="text" >
-             <string>Zoom IN / OUT</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="Slider" >
-            <property name="minimum" >
-             <number>1</number>
-            </property>
-            <property name="maximum" >
-             <number>20</number>
-            </property>
-            <property name="value" >
-             <number>2</number>
-            </property>
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
        </widget>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item row="0" column="1" >
-    <widget class="IsotopeView" name="gv" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="dragMode" >
-      <enum>QGraphicsView::ScrollHandDrag</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2" >
-    <widget class="IsotopeGuideView" name="guide" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Expanding" hsizetype="Minimum" >
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize" >
-      <size>
-       <width>150</width>
-       <height>250</height>
-      </size>
-     </property>
-     <property name="verticalScrollBarPolicy" >
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy" >
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
     </widget>
    </item>
   </layout>
@@ -146,7 +179,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>IsotopeView</class>
    <extends>QGraphicsView</extends>
-   <header location="global" >isotopeview.h</header>
+   <header location="global">isotopeview.h</header>
   </customwidget>
   <customwidget>
    <class>IsotopeGuideView</class>
