@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/autorotate">
-        <file>autorotate.png</file>
-    </qresource>
-</RCC>
