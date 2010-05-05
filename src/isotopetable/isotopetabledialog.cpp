@@ -33,8 +33,8 @@
 #include <kdebug.h>
 #include<prefs.h>
 
-    IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
-: KDialog( parent )
+IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
+        : KDialog( parent )
 {
     setCaption(i18n("Isotope Table"));
     setButtons( Close );
@@ -43,31 +43,31 @@
     ui.guide->setGuidedView( ui.gv );
 
     connect( ui.gv->scene(), SIGNAL( itemSelected(IsotopeItem*) ),
-            this, SLOT( updateDockWidget( IsotopeItem*) )  );
+             this, SLOT( updateDockWidget( IsotopeItem*) )  );
     connect( ui.gv, SIGNAL( zoomLevelChanged( double ) ),
              this, SLOT( slotZoomLevelChanged( double ) ) );
     connect( ui.Slider,   SIGNAL( valueChanged( int ) ),
              this, SLOT( zoom ( int ) ));
-    
-    //Here comes the legend part         
-    QList< QPair<QString, QBrush> > items;
+
+    //Here comes the legend part
+    QList< QPair<QString, QColor> > items;
+
     QVBoxLayout * layout = new QVBoxLayout;
-    
-    items << qMakePair( i18nc("alpha ray emission", "alpha" ), QBrush( Qt::red ) );
-	items << qMakePair( i18nc("Electron capture method", "EC" ), QBrush( Qt::blue ) );
-	items << qMakePair( i18nc("Many ways", "Multiple" ), QBrush( Qt::green ) );
-	items << qMakePair( i18nc("Beta plus ray emission", "Beta +" ), QBrush( Qt::yellow ) );
-	items << qMakePair( i18nc("Beta minus ray emission", "Beta -" ), QBrush( Qt::white ) );
-	items << qMakePair( i18nc("Stable isotope", "Stable" ), QBrush( Qt::lightGray ) );
-	items << qMakePair( i18nc("Default colour", "default" ), QBrush( Qt::	darkGray ) );
-	
-	int x = 0;
-	foreach ( const legendPair &pair, items )
+
+    items << qMakePair( i18nc("alpha ray emission", "alpha" ), QColor(Qt::red) );
+    items << qMakePair( i18nc("Electron capture method", "EC" ), QColor(Qt::blue) );
+    items << qMakePair( i18nc("Many ways", "Multiple" ), QColor(Qt::green) );
+    items << qMakePair( i18nc("Beta plus ray emission", "Beta +" ), QColor(Qt::yellow) );
+    items << qMakePair( i18nc("Beta minus ray emission", "Beta -" ), QColor(Qt::white) );
+    items << qMakePair( i18nc("Stable isotope", "Stable" ), QColor(Qt::lightGray) );
+    items << qMakePair( i18nc("Default colour", "default" ), QColor(Qt::darkGray) );
+
+    foreach ( const legendPair &pair, items )
     {
-		LegendItem *item = new LegendItem( pair );
-		layout->addWidget(item , x );
-	}
-	ui.legendDisplay->setLayout(layout);
+        LegendItem *item = new LegendItem( pair );
+        layout->addWidget(item);
+    }
+    ui.legendDisplay->setLayout(layout);
 }
 
 void IsotopeTableDialog::zoom (int level)
@@ -97,7 +97,7 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
     QString exactMass = i18n("Exact mass: %1 u", s->mass() );
 
     QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />" + spin +"<br />" +
-        abundance + "<br />" + halflife;
+                   abundance + "<br />" + halflife;
 
     ui.label->setText(html);
 }

@@ -26,8 +26,8 @@
 #include <kdebug.h>
 #include <klocale.h>
 
-#include <QPainter>
-#include <QBrush>
+#include <QLabel>
+#include <QHBoxLayout>
 #include <QGridLayout>
 
 LegendWidget::LegendWidget( QWidget *parent )
@@ -64,6 +64,13 @@ void LegendWidget::setMode( KalziumPainter::MODE m )
     updateContent();
 }
 
+void LegendWidget::setDockArea( Qt::DockWidgetArea newDockArea )
+{
+    kDebug() << "dock Area changed" << newDockArea;
+    m_dockArea = newDockArea;
+    updateContent();
+}
+
 void LegendWidget::LockWidget()
 {
     m_update = false;
@@ -78,68 +85,40 @@ void LegendWidget::updateContent()
 {
     if (m_update)
     {
-        QList< QPair<QString, QBrush> > items;
-        switch ( m_mode )
-        {
-        case KalziumPainter::NORMAL://nothing to do here, all logic done in SOM
+        QList< QPair<QString, QColor> > items;
+        switch ( m_mode ) {
+
         case KalziumPainter::SOM:
         {
-            if ( !m_scheme ) return;
-
-            QList<legendPair> items;
-            if ( m_mode == KalziumPainter::SOM )
-            {
-                items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Solid" ), QBrush( Prefs::color_solid() ) );
-                items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Liquid" ), QBrush( Prefs::color_liquid() ) );
-                items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Vaporous" ), QBrush( Prefs::color_vapor() ) );
-                items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Unknown" ), QBrush( Qt::lightGray ) );
-            } else {
-                items = m_scheme->legendItems();
-            }
-
-            updateLegendItemLayout( items );
-
-            break;
-        }
-        case KalziumPainter::GRADIENT:
-        {
-            QList<legendPair> items;
-            QString gradientDesc;
-            if (m_gradientType->logarithmicGradient())
-                gradientDesc = i18nc("one of the two types of gradients available", "logarithmic");
-            else
-                gradientDesc = i18nc("one of the two types of gradients available", "linear");
-            items << qMakePair( i18n( "Gradient: %1 (%2)" ,m_gradientType->description(), gradientDesc ), QBrush() );
-            items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( m_gradientType->firstColor() ) );
-            items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( m_gradientType->secondColor() ) );
-
-            updateLegendItemLayout( items );
-            break;
-        }
-        case KalziumPainter::TIME:
-        {
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Solid" ), QColor( Prefs::color_solid() ));
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Liquid" ), QColor( Prefs::color_liquid() ) );
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Vaporous" ), QColor( Prefs::color_vapor() ) );
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Unknown" ), QColor( Qt::lightGray ) );
             break;
         }
         case KalziumPainter::NORMAL_GRADIENT:
+        case KalziumPainter::GRADIENT:
         {
-            QList<legendPair> items;
             QString gradientDesc;
             if (m_gradientType->logarithmicGradient())
                 gradientDesc = i18nc("one of the two types of gradients available", "logarithmic");
             else
                 gradientDesc = i18nc("one of the two types of gradients available", "linear");
-            items << qMakePair( i18n( "Gradient: %1 (%2)" ,m_gradientType->description(), gradientDesc ), QBrush() );
-            items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( m_gradientType->firstColor() ) );
-            items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( m_gradientType->secondColor() ) );
+            items << qMakePair( i18n( "%1 (%2)" ,m_gradientType->description(), gradientDesc ), QColor() );
+            items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QColor( m_gradientType->firstColor() ));
+            items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QColor( m_gradientType->secondColor() ));
 
-            items << qMakePair( QString(), QBrush() );
-            items << qMakePair( i18n( "Scheme: %1" ,m_scheme->description() ), QBrush() );
+        }
+        case KalziumPainter::TIME:
+        // case KalziumPainter::NORMAL:
+        default:
+        {
+            items << qMakePair( i18n( "Scheme: %1" ,m_scheme->description() ), QColor() );
             items << m_scheme->legendItems();
-
-            updateLegendItemLayout( items );
             break;
         }
         }
+        updateLegendItemLayout( items );
     }
 }
 
@@ -162,41 +141,41 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
     foreach ( const legendPair &pair, list )
     {
         LegendItem *item = new LegendItem( pair );
-
         m_legendItemList.append(item);
 
-        layout->addWidget(item , x, y );
-
-        x++;
-
-        if ( x >= 4 ) {
-            x = 0;
-            y++;
+        if ((m_dockArea == Qt::BottomDockWidgetArea || m_dockArea == Qt::TopDockWidgetArea) ) {
+            if (!pair.second.isValid() ) {
+                y++;
+                x = 0;
+            }
+            if ( x >= 3) {
+                y++;
+                x = 1;
+            }
         }
+        layout->addWidget(item , x, y);
+        x++;
     }
-
     setLayout( layout );
 }
 
-LegendItem::LegendItem(const QPair<QString, QBrush>& pair, QWidget * parent)
+LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)
 {
     Q_UNUSED(parent);
-    m_pair = pair;
+    QHBoxLayout *ItemLayout = new QHBoxLayout(this);
+    QLabel * LegendLabel = new QLabel(this);
 
-    update();
-}
-
-void LegendItem::paintEvent( QPaintEvent * /* e */ )
-{
-    QPainter p;
-    p.begin(this);
-    QRect rect(0, 0, height(), height() );
-    p.fillRect( rect , QBrush( m_pair.second ) );
-
-    QRect textRect( height() + 10 , 0 , width() - 10 , height() );
-
-    p.drawText( textRect, Qt::AlignLeft | Qt::AlignVCenter , m_pair.first );
-    p.end();
+    if ( pair.second.isValid() ) {
+        QPixmap LegendPixmap(20, 20);
+        LegendPixmap.fill(pair.second);
+        QLabel * LabelPixmap = new QLabel(this);
+        LabelPixmap->setPixmap(LegendPixmap);
+        ItemLayout->addWidget(LabelPixmap);
+    }
+    LegendLabel->setText(pair.first);
+    ItemLayout->addWidget(LegendLabel);
+    ItemLayout->setAlignment(Qt::AlignLeft);
+    setLayout(ItemLayout);
 }
 
 #include "legendwidget.moc"

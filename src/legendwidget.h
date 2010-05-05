@@ -24,9 +24,10 @@
 
 #include "kalziumpainter.h"
 #include "kalziumschemetype.h"
+#include "kalziumtabletype.h"
 
 class LegendItem;
-class KalziumGradientType;
+// class LegendLayout;
 
 /**
  * @author Carsten Niehaus
@@ -60,6 +61,8 @@ private:
     KalziumGradientType * m_gradientType;
 
     QList<LegendItem*> m_legendItemList;
+    
+    Qt::DockWidgetArea m_dockArea;
 
     void updateLegendItemLayout( const QList<legendPair>& list );
 
@@ -73,11 +76,13 @@ public slots:
     void setTableType( KalziumTableType * type );
 
     void setGradientType( KalziumGradientType * type );
+    
+    void setDockArea(Qt::DockWidgetArea newDockArea);
 };
 
 /**
  * A LegendItem is displayed as one small rectangle which represents the
- * color or QBrush in the table with a short explanation for it.
+ * color in the table with a short explanation for it.
  *
  * @author Carsten Niehaus
  */
@@ -86,14 +91,9 @@ class LegendItem : public QWidget
     Q_OBJECT
 
 public:
-    LegendItem( const QPair<QString, QBrush>& pair, QWidget * parent = 0 );
+    LegendItem( const QPair<QString, QColor>& pair, QWidget * parent = 0 );
     ~LegendItem() {}
 
-private:
-    QPair<QString, QBrush> m_pair;
-
-protected:
-    virtual void paintEvent( QPaintEvent * e );
 };
 
 #endif // LEGENDWIDGET_H

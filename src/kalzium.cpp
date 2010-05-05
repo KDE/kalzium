@@ -338,7 +338,6 @@ void Kalzium::setupSidebars()
 {
     m_InfoDock = new QDockWidget( this );
     m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
-    m_InfoDock->setAllowedAreas( Qt::BottomDockWidgetArea );
     m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
 
     m_InfoDock->setWidget(m_legendWidget);
@@ -391,6 +390,8 @@ void Kalzium::setupSidebars()
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
+    
+    connect (m_InfoDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
 }
 
 void Kalzium::slotExportTable()

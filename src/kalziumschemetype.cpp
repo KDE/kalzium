@@ -124,7 +124,7 @@ QColor KalziumMonoColorSchemeType::textColor( int el ) const
 QList<legendPair> KalziumMonoColorSchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair( i18n( "All the Elements" ), QBrush( Prefs::noscheme() ) );
+    ll << qMakePair( i18n( "All the Elements" ), QColor( Prefs::noscheme() ) );
     return ll;
 }
 
@@ -182,10 +182,10 @@ QColor KalziumBlocksSchemeType::textColor( int el ) const
 QList<legendPair> KalziumBlocksSchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair( i18n( "s-Block" ), QBrush( Prefs::block_s() ) );
-    ll << qMakePair( i18n( "p-Block" ), QBrush( Prefs::block_p() ) );
-    ll << qMakePair( i18n( "d-Block" ), QBrush( Prefs::block_d() ) );
-    ll << qMakePair( i18n( "f-Block" ), QBrush( Prefs::block_f() ) );
+    ll << qMakePair( i18n( "s-Block" ), QColor( Prefs::block_s() ) );
+    ll << qMakePair( i18n( "p-Block" ), QColor( Prefs::block_p() ) );
+    ll << qMakePair( i18n( "d-Block" ), QColor( Prefs::block_d() ) );
+    ll << qMakePair( i18n( "f-Block" ), QColor( Prefs::block_f() ) );
     return ll;
 }
 
@@ -226,7 +226,7 @@ QColor KalziumIconicSchemeType::textColor( int ) const
 QList<legendPair> KalziumIconicSchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair( i18n( "Each element is represented by an icon which represents its use." ), QBrush( ) );
+    ll << qMakePair( i18n( "Each element is represented by an icon which represents its use." ), QColor( ) );
     return ll;
 }
 
@@ -300,15 +300,15 @@ QColor KalziumFamilySchemeType::textColor( int ) const
 QList<legendPair> KalziumFamilySchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair( i18n( "Alkaline" ),QBrush( Prefs::alkalie() ) );
-    ll << qMakePair( i18n( "Rare Earth" ),QBrush( Prefs::rare() ) );
-    ll << qMakePair( i18n( "Non-Metals" ),QBrush( Prefs::nonmetal() ) );
-    ll << qMakePair( i18n( "Alkalie Metal" ),QBrush( Prefs::alkaline() ) );
-    ll << qMakePair( i18n( "Other Metal" ),QBrush( Prefs::other_metal() ) );
-    ll << qMakePair( i18n( "Halogen" ),QBrush( Prefs::halogene() ) );
-    ll << qMakePair( i18n( "Transition Metal" ),QBrush( Prefs::transition() ) );
-    ll << qMakePair( i18n( "Noble Gas" ),QBrush( Prefs::noble_gas() ) );
-    ll << qMakePair( i18n( "Metalloid" ),QBrush( Prefs::metalloid() ) );
+    ll << qMakePair( i18n( "Alkaline" ),QColor( Prefs::alkalie() ) );
+    ll << qMakePair( i18n( "Rare Earth" ),QColor( Prefs::rare() ) );
+    ll << qMakePair( i18n( "Non-Metals" ),QColor( Prefs::nonmetal() ) );
+    ll << qMakePair( i18n( "Alkalie Metal" ),QColor( Prefs::alkaline() ) );
+    ll << qMakePair( i18n( "Other Metal" ),QColor( Prefs::other_metal() ) );
+    ll << qMakePair( i18n( "Halogen" ),QColor( Prefs::halogene() ) );
+    ll << qMakePair( i18n( "Transition Metal" ),QColor( Prefs::transition() ) );
+    ll << qMakePair( i18n( "Noble Gas" ),QColor( Prefs::noble_gas() ) );
+    ll << qMakePair( i18n( "Metalloid" ),QColor( Prefs::metalloid() ) );
 
     return ll;
 }
@@ -379,14 +379,14 @@ QColor KalziumGroupsSchemeType::textColor( int ) const
 QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair( i18n( "Group 1" ), QBrush( Prefs::group_1() ) );
-    ll << qMakePair( i18n( "Group 2" ), QBrush( Prefs::group_2() ) );
-    ll << qMakePair( i18n( "Group 3" ), QBrush( Prefs::group_3() ) );
-    ll << qMakePair( i18n( "Group 4" ), QBrush( Prefs::group_4() ) );
-    ll << qMakePair( i18n( "Group 5" ), QBrush( Prefs::group_5() ) );
-    ll << qMakePair( i18n( "Group 6" ), QBrush( Prefs::group_6() ) );
-    ll << qMakePair( i18n( "Group 7" ), QBrush( Prefs::group_7() ) );
-    ll << qMakePair( i18n( "Group 8" ), QBrush( Prefs::group_8() ) );
+    ll << qMakePair( i18n( "Group 1" ), QColor( Prefs::group_1() ) );
+    ll << qMakePair( i18n( "Group 2" ), QColor( Prefs::group_2() ) );
+    ll << qMakePair( i18n( "Group 3" ), QColor( Prefs::group_3() ) );
+    ll << qMakePair( i18n( "Group 4" ), QColor( Prefs::group_4() ) );
+    ll << qMakePair( i18n( "Group 5" ), QColor( Prefs::group_5() ) );
+    ll << qMakePair( i18n( "Group 6" ), QColor( Prefs::group_6() ) );
+    ll << qMakePair( i18n( "Group 7" ), QColor( Prefs::group_7() ) );
+    ll << qMakePair( i18n( "Group 8" ), QColor( Prefs::group_8() ) );
 
     return ll;
 }
@@ -486,15 +486,15 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 //X 	}
 //X
 //X 	QList<legendPair> ll;
-//X 	ll << qMakePair( i18n( "bcc, body centered cubic"  ), QBrush( QPixmap( resourcepath + "ci.png" ) ) );
-//X 	ll << qMakePair( i18n( "ccp, cubic close packed" ), QBrush( QPixmap( resourcepath + "cp.png" ) ) );
-//X 	ll << qMakePair( i18n( "fcc, face centered cubic" ), QBrush( QPixmap( resourcepath + "cf.png" ) ) );
-//X 	ll << qMakePair( i18n( "hcp, hexagonal close packed" ), QBrush( QPixmap( resourcepath + "hp.png" ) ) );
-//X 	ll << qMakePair( i18n( "rh, rhombohedral" ), QBrush( QPixmap( resourcepath + "hr.png" ) ) );
-//X 	ll << qMakePair( i18n( "or, orthorhombic primitive" ), QBrush( QPixmap( resourcepath + "op.png" ) ) );
-//X 	ll << qMakePair( i18n( "ms, monoclinic" ), QBrush( QPixmap( resourcepath + "ms.png" ) ) );
-//X 	ll << qMakePair( i18n( "ap, triclinic" ), QBrush( QPixmap( resourcepath + "ap.png" ) ) );
-//X 	ll << qMakePair( i18n( "tp, tetragonal primitive" ), QBrush( QPixmap( resourcepath + "tp.png" ) ) );
+//X 	ll << qMakePair( i18n( "bcc, body centered cubic"  ), QColor( QPixmap( resourcepath + "ci.png" ) ) );
+//X 	ll << qMakePair( i18n( "ccp, cubic close packed" ), QColor( QPixmap( resourcepath + "cp.png" ) ) );
+//X 	ll << qMakePair( i18n( "fcc, face centered cubic" ), QColor( QPixmap( resourcepath + "cf.png" ) ) );
+//X 	ll << qMakePair( i18n( "hcp, hexagonal close packed" ), QColor( QPixmap( resourcepath + "hp.png" ) ) );
+//X 	ll << qMakePair( i18n( "rh, rhombohedral" ), QColor( QPixmap( resourcepath + "hr.png" ) ) );
+//X 	ll << qMakePair( i18n( "or, orthorhombic primitive" ), QColor( QPixmap( resourcepath + "op.png" ) ) );
+//X 	ll << qMakePair( i18n( "ms, monoclinic" ), QColor( QPixmap( resourcepath + "ms.png" ) ) );
+//X 	ll << qMakePair( i18n( "ap, triclinic" ), QColor( QPixmap( resourcepath + "ap.png" ) ) );
+//X 	ll << qMakePair( i18n( "tp, tetragonal primitive" ), QColor( QPixmap( resourcepath + "tp.png" ) ) );
 //X
 //X 	return ll;
 //X }
@@ -605,16 +605,16 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 //X 	}
 //X
 //X 	QList<legendPair> ll;
-//X 	ll << qMakePair( i18n( "Germany"  ), QBrush( QPixmap( resourcepath + "de.png" ) ) );
-//X 	ll << qMakePair( i18n( "United Kindom"  ), QBrush( QPixmap( resourcepath + "uk.png" ) ) );
-//X 	ll << qMakePair( i18n( "Sweden"  ), QBrush( QPixmap( resourcepath + "se.png" ) ) );
-//X 	ll << qMakePair( i18n( "USA"  ), QBrush( QPixmap( resourcepath + "us.png" ) ) );
-//X 	ll << qMakePair( i18n( "Russia"  ), QBrush( QPixmap( resourcepath + "ru.png" ) ) );
-//X 	ll << qMakePair( i18n( "Italy"  ), QBrush( QPixmap( resourcepath + "it.png" ) ) );
-//X 	ll << qMakePair( i18n( "Denmark"  ), QBrush( QPixmap( resourcepath + "dk.png" ) ) );
-//X 	ll << qMakePair( i18n( "France"  ), QBrush( QPixmap( resourcepath + "fr.png" ) ) );
-//X 	ll << qMakePair( i18n( "Finland"  ), QBrush( QPixmap( resourcepath + "fi.png" ) ) );
-//X 	ll << qMakePair( i18n( "Spain"  ), QBrush( QPixmap( resourcepath + "es.png" ) ) );
+//X 	ll << qMakePair( i18n( "Germany"  ), QColor( QPixmap( resourcepath + "de.png" ) ) );
+//X 	ll << qMakePair( i18n( "United Kindom"  ), QColor( QPixmap( resourcepath + "uk.png" ) ) );
+//X 	ll << qMakePair( i18n( "Sweden"  ), QColor( QPixmap( resourcepath + "se.png" ) ) );
+//X 	ll << qMakePair( i18n( "USA"  ), QColor( QPixmap( resourcepath + "us.png" ) ) );
+//X 	ll << qMakePair( i18n( "Russia"  ), QColor( QPixmap( resourcepath + "ru.png" ) ) );
+//X 	ll << qMakePair( i18n( "Italy"  ), QColor( QPixmap( resourcepath + "it.png" ) ) );
+//X 	ll << qMakePair( i18n( "Denmark"  ), QColor( QPixmap( resourcepath + "dk.png" ) ) );
+//X 	ll << qMakePair( i18n( "France"  ), QColor( QPixmap( resourcepath + "fr.png" ) ) );
+//X 	ll << qMakePair( i18n( "Finland"  ), QColor( QPixmap( resourcepath + "fi.png" ) ) );
+//X 	ll << qMakePair( i18n( "Spain"  ), QColor( QPixmap( resourcepath + "es.png" ) ) );
 //X
 //X 	return ll;
 //X }

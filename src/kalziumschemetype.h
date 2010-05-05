@@ -28,7 +28,7 @@ class KalziumSchemeType;
 #include <QPair>
 #include <QRect>
 
-typedef QPair<QString, QBrush> legendPair;
+typedef QPair<QString, QColor> legendPair;
 
 /**
  * Factory for KalziumSchemeType classes.
