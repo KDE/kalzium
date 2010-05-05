@@ -34,7 +34,7 @@ LegendWidget::LegendWidget( QWidget *parent )
         : QWidget( parent )
 {
     m_update = true;
-    setMinimumHeight(80);
+    setMinimumSize(130, 50);
 }
 
 void LegendWidget::setGradientType( KalziumGradientType * type )
@@ -83,23 +83,19 @@ void LegendWidget::UnLockWidget()
 
 void LegendWidget::updateContent()
 {
-    if (m_update)
-    {
+    if (m_update) {
+        QString gradientDesc;
         QList< QPair<QString, QColor> > items;
         switch ( m_mode ) {
-
         case KalziumPainter::SOM:
-        {
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Solid" ), QColor( Prefs::color_solid() ));
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Liquid" ), QColor( Prefs::color_liquid() ) );
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Vaporous" ), QColor( Prefs::color_vapor() ) );
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Unknown" ), QColor( Qt::lightGray ) );
             break;
-        }
+
         case KalziumPainter::NORMAL_GRADIENT:
         case KalziumPainter::GRADIENT:
-        {
-            QString gradientDesc;
             if (m_gradientType->logarithmicGradient())
                 gradientDesc = i18nc("one of the two types of gradients available", "logarithmic");
             else
@@ -108,15 +104,12 @@ void LegendWidget::updateContent()
             items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QColor( m_gradientType->firstColor() ));
             items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QColor( m_gradientType->secondColor() ));
 
-        }
         case KalziumPainter::TIME:
-        // case KalziumPainter::NORMAL:
+            // case KalziumPainter::NORMAL:
         default:
-        {
             items << qMakePair( i18n( "Scheme: %1" ,m_scheme->description() ), QColor() );
             items << m_scheme->legendItems();
             break;
-        }
         }
         updateLegendItemLayout( items );
     }
@@ -158,6 +151,8 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
     }
     setLayout( layout );
 }
+
+
 
 LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)
 {
