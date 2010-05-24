@@ -200,9 +200,6 @@ private slots:
 
     void slotToolboxCurrentChanged(int);
 
-    void slotShowHideSidebar( bool checked, bool changeconfig = true );
-    void slotShowLegend( bool checked, bool changeconfig = true );
-
 protected:
     virtual void keyPressEvent( QKeyEvent * e);
 };

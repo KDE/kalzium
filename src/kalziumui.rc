@@ -32,21 +32,22 @@
 
  <ToolBar noMerge="1" name="mainToolBar" alreadyVisited="1">
   <text>Main Toolbar</text>
-  <Action name="view_look_onlygradient"/>
-  <Action name="view_legend"/>
-  <Action name="view_tooltip"/>
+  <Action name="tools_isotopetable"/>
+  <Action name="tools_moleculeviewer"/>
+  <Action name="tools_calculate" />  
+  <Action name="tools_eqsolver"/>
+  <Action name="tools_plotdata" />
+ </ToolBar>
+ <ToolBar noMerge="1" name="viewToolBar" alreadyVisited="1">
+  <text>View Toolbar</text>
   <Action name="view_sidebar"/>
-  <Separator name="separator_0"/>
+  <Action name="view_legend"/>
+ </ToolBar>
+ <ToolBar noMerge="1" name="tableToolBar" alreadyVisited="1">
+  <text>Table Toolbar</text>
   <Action name="view_table"/>
   <Action name="view_look_onlyschemes"/>
   <Action name="view_look_onlygradients"/>
-  <Separator name="separator_1"/>
-  <Action name="tools_rs"/>
-  <Action name="tools_tables"/>
-  <Action name="tools_isotopetable"/>
-  <Action name="tools_moleculeviewer"/>
-  <Action name="tools_eqsolver"/>
-  <Action name="tools_obconverter"/>
  </ToolBar>
 
 </kpartgui>
