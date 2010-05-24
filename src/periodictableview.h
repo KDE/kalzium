@@ -46,182 +46,182 @@ class KalziumGradientType;
  */
 class PeriodicTableView : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		/**
-		 * Constructor
-		 * @param parent parent widget
-		 */
-		PeriodicTableView( QWidget *parent = 0 );
-		~PeriodicTableView();
-		
-		/**
-		 * Draw the full table next time
-		 */
-		void setFullDraw();
+public:
+    /**
+     * Constructor
+     * @param parent parent widget
+     */
+    PeriodicTableView( QWidget *parent = 0 );
+    ~PeriodicTableView();
 
-		/**
-		 * Sets the numeration type to the one with index @p which.
-		 */
-		void setNumeration( int which );
+    /**
+     * Draw the full table next time
+     */
+    void setFullDraw();
 
-		/**
-		 * put the limit for the @p type specified, but do not actually (de)activate it
-		 * @param type type of the @p value
-		 * @param value the value of the limit for @p type
-		 */
-		void setValueLimit( int value, ChemicalDataObject::BlueObelisk type );
+    /**
+     * Sets the numeration type to the one with index @p which.
+     */
+    void setNumeration( int which );
 
-        /**
-        * Generate a SVG from the current table and save it in the file @p filename
-        */
-        void generateSvg(const QString& filename);
+    /**
+     * put the limit for the @p type specified, but do not actually (de)activate it
+     * @param type type of the @p value
+     * @param value the value of the limit for @p type
+     */
+    void setValueLimit( int value, ChemicalDataObject::BlueObelisk type );
 
-		/**
-		 * Sets the scheme to use.
-		 * @param nr is the index of the new scheme
-		 */
-		void activateColorScheme( const int nr);
+    /**
+    * Generate a SVG from the current table and save it in the file @p filename
+    */
+    void generateSvg(const QString& filename);
 
-		/**
-		 * @return the KalziumSchemeType of the current view
-		 */
-		KalziumSchemeType* scheme() const;
+    /**
+     * Sets the scheme to use.
+     * @param nr is the index of the new scheme
+     */
+    void activateColorScheme( const int nr);
 
-		/**
-		 * @return the short and descriptive name of this PeriodicTableView
-		 */
-		QString shortName() const{
-			return m_ShortName;
-		}
-		
-		/**
-		 * @return the current gradient type
-		 */
-		KalziumGradientType* gradient() const;
-		
-		/**
-		 * sets te KalziumGradientType
-		 */
-		void setGradient( int which );
+    /**
+     * @return the KalziumSchemeType of the current view
+     */
+    KalziumSchemeType* scheme() const;
 
-		void setMode( KalziumPainter::MODE m );
+    /**
+     * @return the short and descriptive name of this PeriodicTableView
+     */
+    QString shortName() const {
+        return m_ShortName;
+    }
 
-		/**
-		 * @return the current KalziumPainter::MODE
-		 */
-		KalziumPainter::MODE mode() const;
+    /**
+     * @return the current gradient type
+     */
+    KalziumGradientType* gradient() const;
 
-		/**
-		 * @param type the type of value which is searched for
-		 * @return the value of the @p type
-		 */
-		int sliderValue( ChemicalDataObject::BlueObelisk type );
+    /**
+     * sets te KalziumGradientType
+     */
+    void setGradient( int which );
 
-		/**
-		 * @return the QBrush for the Element @p element
-		 */
-		QBrush brushForElement( int element ) const;
+    void setMode( KalziumPainter::MODE m );
 
-		KalziumTableType* tableType() const;
+    /**
+     * @return the current KalziumPainter::MODE
+     */
+    KalziumPainter::MODE mode() const;
 
-	private:
-		QMap <ChemicalDataObject::BlueObelisk, int> m_sliderValueList;
-		
-		/**
-		 * the currently selected element
-		 */
-		int m_currentElement;
+    /**
+     * @param type the type of value which is searched for
+     * @return the value of the @p type
+     */
+    int sliderValue( ChemicalDataObject::BlueObelisk type );
 
-		/**
-		 * this is a short, descriptive name of the PeriodicTableView
-		 */
-		QString m_ShortName;
+    /**
+     * @return the QBrush for the Element @p element
+     */
+    QBrush brushForElement( int element ) const;
 
-		/**
-		 * implements double buffering of the widget.
-		 */
-		QPixmap *table;			// The basic PeriodicTableView
-		QPixmap *table2;		// Basic PeriodicTableView + extra data such as tooltip, etc
+    KalziumTableType* tableType() const;
 
-		/**
-		 * used for bitBlit. If true the complete table will be drawn
-		 */
-		bool doFullDraw;
+private:
+    QMap <ChemicalDataObject::BlueObelisk, int> m_sliderValueList;
 
-		KalziumPainter *m_painter;
+    /**
+     * the currently selected element
+     */
+    int m_currentElement;
 
-		QPoint m_startDrag;
+    /**
+     * this is a short, descriptive name of the PeriodicTableView
+     */
+    QString m_ShortName;
 
-		/**
-		 * Used to delay the emit of MouseOver().
-		 */
-		QTimer m_hoverTimer;
-		int m_prevHoverElement;
+    /**
+     * implements double buffering of the widget.
+     */
+    QPixmap *table;			// The basic PeriodicTableView
+    QPixmap *table2;		// Basic PeriodicTableView + extra data such as tooltip, etc
 
-	protected:
-		virtual void paintEvent( QPaintEvent *e );
-		virtual void mouseReleaseEvent( QMouseEvent* );
-		virtual void mousePressEvent( QMouseEvent* event );
-		virtual void mouseMoveEvent( QMouseEvent* );
+    /**
+     * used for bitBlit. If true the complete table will be drawn
+     */
+    bool doFullDraw;
 
-	public slots:
-		/**
-		 * This method sets the color for the buttons corresponding to
-		 * the given temperature @p temp
-		 * @param temp is the temperature to which all buttons will be set
-		 */
-		void setTemperature( int temp );
-		
-        void setTime( int time );
+    KalziumPainter *m_painter;
 
-        void slotChangeTable( int table );
+    QPoint m_startDrag;
 
-		/**
-		 * this slot removes the selection of any point
-		 */
-		void unSelect();
+    /**
+     * Used to delay the emit of MouseOver().
+     */
+    QTimer m_hoverTimer;
+    int m_prevHoverElement;
 
-	private slots:
-		/**
-		 * If called this slot will emit the signal MouseOver( num )
-		 * where num is the number of the element the mouse if over.
-		 * If the mouse is not over an element nothing will be emitted
-		 * @see MouseOver()
-		 */
-		void slotMouseover();
-		
-		/**
-		 * this slot updates the currently selected point
-		 */
-		void selectPoint( const QPoint& point );
+protected:
+    virtual void paintEvent( QPaintEvent *e );
+    virtual void mouseReleaseEvent( QMouseEvent* );
+    virtual void mousePressEvent( QMouseEvent* event );
+    virtual void mouseMoveEvent( QMouseEvent* );
 
-		/**
-		 * this slot updates the element given in the @p num
-		 * @param num The number of the selected element
-		 */
-		void selectElement( int num );
-		
-	signals:
-		/**
-		 * this signal is emitted when an element is clicked
-		 */
-		void ElementClicked(int);
+public slots:
+    /**
+     * This method sets the color for the buttons corresponding to
+     * the given temperature @p temp
+     * @param temp is the temperature to which all buttons will be set
+     */
+    void setTemperature( int temp );
 
-		/**
-		 * This signal is emitted when the mouse pointer is
-		 * over an element
-		 */
-		void MouseOver( int );
+    void setTime( int time );
 
-        void ModeChanged( KalziumPainter::MODE );
+    void slotChangeTable( int table );
 
-        void TableTypeChanged( KalziumTableType * );
-        
-        void GradientTypeChanged( KalziumGradientType * );
+    /**
+     * this slot removes the selection of any point
+     */
+    void unSelect();
 
-        void SchemeChanged( KalziumSchemeType * );
+private slots:
+    /**
+     * If called this slot will emit the signal MouseOver( num )
+     * where num is the number of the element the mouse if over.
+     * If the mouse is not over an element nothing will be emitted
+     * @see MouseOver()
+     */
+    void slotMouseover();
+
+    /**
+     * this slot updates the currently selected point
+     */
+    void selectPoint( const QPoint& point );
+
+    /**
+     * this slot updates the element given in the @p num
+     * @param num The number of the selected element
+     */
+    void selectElement( int num );
+
+signals:
+    /**
+     * this signal is emitted when an element is clicked
+     */
+    void ElementClicked(int);
+
+    /**
+     * This signal is emitted when the mouse pointer is
+     * over an element
+     */
+    void MouseOver( int );
+
+    void ModeChanged( KalziumPainter::MODE );
+
+    void TableTypeChanged( KalziumTableType * );
+
+    void GradientTypeChanged( KalziumGradientType * );
+
+    void SchemeChanged( KalziumSchemeType * );
 };
 
 

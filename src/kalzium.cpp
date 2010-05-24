@@ -158,7 +158,7 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     g->setBackgroundPicture( picturepath );
     m_glossarydlg->addGlossary( g, true );
 
-    setupStatusBar();
+    setupStatusBar();    
 }
 
 void Kalzium::setupActions()
