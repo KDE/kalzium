@@ -31,36 +31,36 @@ class KalziumNumerationType;
  * @author Pino Toscano
  */
 class KalziumNumerationTypeFactory
-{
-	public:
-		/**
-		 * Get the instance of this factory.
-		 */
-		static KalziumNumerationTypeFactory* instance();
+  {
+  public:
+    /**
+     * Get the instance of this factory.
+     */
+    static KalziumNumerationTypeFactory* instance();
 
-		/**
-		 * Returns the KalziumNumerationType with the @p id specified.
-		 * It will gives 0 if none found.
-		 */
-		KalziumNumerationType* build( int id ) const;
-		/**
-		 * Returns the KalziumNumerationType whose name is the @p id
-		 * specified.
-		 * It will gives 0 if none found.
-		 */
-		KalziumNumerationType* build( const QByteArray& id ) const;
+    /**
+     * Returns the KalziumNumerationType with the @p id specified.
+     * It will gives 0 if none found.
+     */
+    KalziumNumerationType* build ( int id ) const;
+    /**
+     * Returns the KalziumNumerationType whose name is the @p id
+     * specified.
+     * It will gives 0 if none found.
+     */
+    KalziumNumerationType* build ( const QByteArray& id ) const;
 
-		/**
-		 * Returns a list with the names of the numeration types we
-		 * support.
-		 */
-		QStringList numerations() const;
+    /**
+     * Returns a list with the names of the numeration types we
+     * support.
+     */
+    QStringList numerations() const;
 
-	private:
-		KalziumNumerationTypeFactory();
+  private:
+    KalziumNumerationTypeFactory();
 
-		QList<KalziumNumerationType*> m_numerations;
-};
+    QList<KalziumNumerationType*> m_numerations;
+  };
 
 /**
  * Base class for a numeration type.
@@ -69,40 +69,40 @@ class KalziumNumerationTypeFactory
  * @author Pino Toscano
  */
 class KalziumNumerationType
-{
-	public:
-		/**
-		 * Get its instance.
-		 */
-		static KalziumNumerationType* instance();
+  {
+  public:
+    /**
+     * Get its instance.
+     */
+    static KalziumNumerationType* instance();
 
-		virtual ~KalziumNumerationType();
+    virtual ~KalziumNumerationType();
 
-		/**
-		 * Returns the ID of this numeration type.
-		 * Mainly used when saving/loading.
-		 */
-		virtual QByteArray name() const = 0;
-		/**
-		 * Returns the description of this numeration type.
-		 * Used in all the visible places.
-		 */
-		virtual QString description() const = 0;
+    /**
+     * Returns the ID of this numeration type.
+     * Mainly used when saving/loading.
+     */
+    virtual QByteArray name() const = 0;
+    /**
+     * Returns the description of this numeration type.
+     * Used in all the visible places.
+     */
+    virtual QString description() const = 0;
 
-		/**
-		 * Returns the @p num 'th item of this numeration type.
-		 */
-		virtual QString item( const int num ) const;
-		/**
-		 * Returns all the items of this numeration type.
-		 */
-		virtual QStringList items() const;
+    /**
+     * Returns the @p num 'th item of this numeration type.
+     */
+    virtual QString item ( const int num ) const;
+    /**
+     * Returns all the items of this numeration type.
+     */
+    virtual QStringList items() const;
 
-	protected:
-		KalziumNumerationType();
+  protected:
+    KalziumNumerationType();
 
-		QStringList m_items;
-};
+    QStringList m_items;
+  };
 
 /**
  * The class representing no numeration.
@@ -112,19 +112,19 @@ class KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumNoneNumerationType : public KalziumNumerationType
-{
-	public:
-		static KalziumNoneNumerationType* instance();
+  {
+  public:
+    static KalziumNoneNumerationType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-		QString item( const int num ) const;
-		QStringList items() const;
+    QString item ( const int num ) const;
+    QStringList items() const;
 
-	private:
-		KalziumNoneNumerationType();
-};
+  private:
+    KalziumNoneNumerationType();
+  };
 
 /**
  * The numeration "International Union of Pure and Applied Chemistry" (IUPAC).
@@ -132,16 +132,16 @@ class KalziumNoneNumerationType : public KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumIUPACNumerationType : public KalziumNumerationType
-{
-	public:
-		static KalziumIUPACNumerationType* instance();
+  {
+  public:
+    static KalziumIUPACNumerationType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-	private:
-		KalziumIUPACNumerationType();
-};
+  private:
+    KalziumIUPACNumerationType();
+  };
 
 /**
  * The numeration "Chemical Abstract Service" (CAS).
@@ -149,16 +149,16 @@ class KalziumIUPACNumerationType : public KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumCASNumerationType : public KalziumNumerationType
-{
-	public:
-		static KalziumCASNumerationType* instance();
+  {
+  public:
+    static KalziumCASNumerationType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-	private:
-		KalziumCASNumerationType();
-};
+  private:
+    KalziumCASNumerationType();
+  };
 
 /**
  * The old IUPAC numeration.
@@ -166,15 +166,15 @@ class KalziumCASNumerationType : public KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumOldIUPACNumerationType : public KalziumNumerationType
-{
-	public:
-		static KalziumOldIUPACNumerationType* instance();
+  {
+  public:
+    static KalziumOldIUPACNumerationType* instance();
 
-		QByteArray name() const;
-		QString description() const;
+    QByteArray name() const;
+    QString description() const;
 
-	private:
-		KalziumOldIUPACNumerationType();
-};
+  private:
+    KalziumOldIUPACNumerationType();
+  };
 
 #endif // KALZIUMNUMERATIONTYPE_H
