@@ -34,6 +34,7 @@ LegendWidget::LegendWidget( QWidget *parent )
         : QWidget( parent )
 {
     m_update = true;
+    m_dockArea = Qt::BottomDockWidgetArea;
     setMinimumSize(130, 50);
 }
 

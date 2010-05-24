@@ -118,8 +118,8 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     m_legendWidget = new LegendWidget( this );
     connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
              m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
-    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-             m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
+//     connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+//              m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
     connect( m_PeriodicTableView, SIGNAL(GradientTypeChanged( KalziumGradientType* ) ),
              m_legendWidget, SLOT( setGradientType( KalziumGradientType * ) ) );
     connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
@@ -270,7 +270,7 @@ void Kalzium::setupActions()
     connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
     // other period view options
-    m_pLegendAction = m_InfoDock->toggleViewAction();
+    m_pLegendAction = m_legendDock->toggleViewAction();
     actionCollection()->addAction( "view_legend", m_pLegendAction );
     m_pLegendAction->setIcon( KIcon( "legend" ) );
     m_pLegendAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide the legend for the periodic table." ) );
@@ -305,17 +305,16 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-    m_InfoDock = new QDockWidget( i18n("Legend"), this );
-    m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
-    m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
+    m_legendDock = new QDockWidget( i18n("Legend"), this );
+    m_legendDock->setObjectName( QLatin1String( "kalzium-legend" ) );
+    m_legendDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
 
-    m_InfoDock->setWidget(m_legendWidget);
+    m_legendDock->setWidget(m_legendWidget);
 
-    m_infoTabWidget = new KTabWidget(this);
-    m_infoTabWidget->setObjectName( "kalzium-infobar" );
-    m_InfoDock->setWidget(m_infoTabWidget);
-    m_infoTabWidget->addTab(m_legendWidget, i18n("Legend"));
-    m_infoTabWidget->addTab(m_TableInfoWidget, i18n("Table Information"));
+    m_tableDock = new QDockWidget( i18n("Table"), this );
+    m_tableDock->setWidget(m_TableInfoWidget);
+    m_tableDock->setObjectName( QLatin1String( "kalzium-tableinfo" ) );
+    m_tableDock->setFeatures( QDockWidget::AllDockWidgetFeatures );   
 
     m_dockWin = new QDockWidget(i18n("Information"), this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
@@ -358,9 +357,10 @@ void Kalzium::setupSidebars()
              this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
-    addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
+    addDockWidget( Qt::BottomDockWidgetArea, m_tableDock );
+    addDockWidget( Qt::BottomDockWidgetArea, m_legendDock );
     
-    connect (m_InfoDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
+    connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
 }
 
 void Kalzium::slotExportTable()

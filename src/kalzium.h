@@ -123,7 +123,8 @@ private:
     DetailedGraphicalOverview *m_detailWidget;
 
     QDockWidget *m_dockWin;
-    QDockWidget *m_InfoDock;
+    QDockWidget *m_legendDock;
+    QDockWidget *m_tableDock;
     QToolBox *m_toolbox;
     KTabWidget *m_infoTabWidget;
 

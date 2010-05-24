@@ -27,31 +27,23 @@
 #include <klocale.h>
 #include <kglobalsettings.h>
 
-#include <QLabel>
 #include <QHBoxLayout>
 
 TableInfoWidget::TableInfoWidget( QWidget *parent )
   : QWidget( parent )
 {
+    m_tableType = new QLabel( "test" , this );
+
+    QHBoxLayout * la = new QHBoxLayout(this);
+    la->addWidget( m_tableType );
+    setLayout( la );
 }
 
 void TableInfoWidget::setTableType( KalziumTableType * type )
 {
-    m_tableType = type;
-    updateContent();
+    m_tableType->setText( type->description() );
 }
 
-void TableInfoWidget::updateContent()
-{
-    QLabel * l = new QLabel( "test" , this );
-    if (m_tableType) {
-        l->setText(m_tableType->description() );
-    }
-
-    QHBoxLayout * la = new QHBoxLayout(this);
-    la->addWidget( l );
-    setLayout( la );
-}
 
 #include "tableinfowidget.moc"
 

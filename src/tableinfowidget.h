@@ -1,4 +1,4 @@
-#ifndef TABLEINFOWIDGET_H
+  #ifndef TABLEINFOWIDGET_H
 #define TABLEINFOWIDGET_H
 /***************************************************************************
  *   Copyright (C) 2007 by Carsten Niehaus                                 *
@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include <kdialog.h>
+#include <QLabel>
 
 #include "kalziumpainter.h"
 #include "kalziumschemetype.h"
@@ -38,9 +39,7 @@ public:
     ~TableInfoWidget() {}
 
 private:
-    KalziumTableType * m_tableType;
-
-    void updateContent();
+    QLabel *m_tableType;
 
 public slots:
     void setTableType( KalziumTableType * type );
