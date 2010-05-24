@@ -161,14 +161,6 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     setupStatusBar();
 }
 
-static QStringList prependToListItems( const QStringList& list, const KLocalizedString& strprefix )
-{
-    QStringList l;
-    for ( int i = 0; i < list.count(); i++ )
-        l << strprefix.subs( list.at( i ) ).toString();
-    return l;
-}
-
 void Kalzium::setupActions()
 {
     export_action = actionCollection()->add<QAction>( "file_exporter" );
@@ -179,15 +171,15 @@ void Kalzium::setupActions()
     QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
     QStringList gradients = QStringList(i18n("No Gradient"));
     gradients << KalziumGradientTypeFactory::instance()->gradients();
-    look_action_menu_schemes =  actionCollection()->add<KSelectAction>( "view_look_scheme" );
-    look_action_menu_schemes->setText( i18n( "&Scheme" ) );
-    look_action_menu_schemes->setItems(schemes);
-    connect(look_action_menu_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
+//     look_action_menu_schemes =  actionCollection()->add<KSelectAction>( "view_look_scheme" );
+//     look_action_menu_schemes->setText( i18n( "&Scheme" ) );
+//     look_action_menu_schemes->setItems(schemes);
+//     connect(look_action_menu_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
 
-    look_action_menu_gradients =  actionCollection()->add<KSelectAction>( "view_look_gradient" );
-    look_action_menu_gradients->setText( i18n( "&Gradient" ) );
-    look_action_menu_gradients->setItems(gradients);
-    connect(look_action_menu_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)));
+//     look_action_menu_gradients =  actionCollection()->add<KSelectAction>( "view_look_gradient" );
+//     look_action_menu_gradients->setText( i18n( "&Gradient" ) );
+//     look_action_menu_gradients->setItems(gradients);
+//     connect(look_action_menu_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)));
 
     // the action for swiching look: schemes
     look_action_schemes = actionCollection()->add<KSelectAction>( "view_look_onlyschemes" );
@@ -206,12 +198,10 @@ void Kalzium::setupActions()
     connect( look_action_gradients, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookGradient( int ) ) );
 
     // the action for swiching tables
-    QStringList tablelist;
     QStringList table_schemes = KalziumTableTypeFactory::instance()->tables();
-    tablelist << prependToListItems( table_schemes, ki18n( "Table: %1" ) );
     table_action =  actionCollection()->add<KSelectAction>( "view_table" );
     table_action->setText( i18n( "&Tables" ) );
-    table_action->setItems(tablelist);
+    table_action->setItems(table_schemes);
     table_action->setCurrentItem(Prefs::table());
     connect( table_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoTable( int ) ) );
 
@@ -304,22 +294,24 @@ void Kalzium::setupActions()
              this, SLOT( slotShowHideSidebar( bool ) ) );
 
     // the standard actions
-    KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection());
+    actionCollection()->addAction( "saveAs", KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection()));
+    
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
-    KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
+    
+    actionCollection()->addAction( "quit", KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() ));
 
     m_legendWidget->LockWidget();
 
-    if (Prefs::schemaSelected())
-    {
-        slotSwitchtoLookGradient( Prefs::colorgradientbox() );
+// //     if (Prefs::schemaSelected())
+//     {
+//         slotSwitchtoLookGradient( Prefs::colorgradientbox() );
+//         slotSwitchtoLookScheme( Prefs::colorschemebox() );
+//     }
+//     else
+//     {
         slotSwitchtoLookScheme( Prefs::colorschemebox() );
-    }
-    else
-    {
-        slotSwitchtoLookScheme( Prefs::colorschemebox() );
         slotSwitchtoLookGradient( Prefs::colorgradientbox() );
-    }
+//     }
 
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
@@ -336,7 +328,7 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-    m_InfoDock = new QDockWidget( this );
+    m_InfoDock = new QDockWidget( i18n("Legend"), this );
     m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
     m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
 
@@ -348,7 +340,7 @@ void Kalzium::setupSidebars()
     m_infoTabWidget->addTab(m_legendWidget, i18n("Legend"));
     m_infoTabWidget->addTab(m_TableInfoWidget, i18n("Table Information"));
 
-    m_dockWin = new QDockWidget( this );
+    m_dockWin = new QDockWidget(i18n("Information"), this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
     m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
@@ -571,11 +563,9 @@ void Kalzium::slotSwitchtoLookGradient( int which )
         slotSwitchtoLookScheme( Prefs::colorschemebox() );
     }
 
-    look_action_menu_gradients->blockSignals( true );
+
     look_action_gradients->blockSignals( true );
-    look_action_menu_gradients->setCurrentItem( which );
     look_action_gradients->setCurrentItem( which );
-    look_action_menu_gradients->blockSignals( false );
     look_action_gradients->blockSignals( false );
 }
 
@@ -602,11 +592,8 @@ void Kalzium::slotSwitchtoLookScheme( int which )
         }
     }
 
-    look_action_menu_schemes->blockSignals( true );
     look_action_schemes->blockSignals( true );
-    look_action_menu_schemes->setCurrentItem( which );
     look_action_schemes->setCurrentItem( which );
-    look_action_menu_schemes->blockSignals( false );
     look_action_schemes->blockSignals( false );
 
     Prefs::setColorschemebox(which);
