@@ -57,126 +57,126 @@ class KalziumNumerationType;
  */
 class KalziumPainter
 {
-    public:
-        /**
-         * Construct a new KalziumPainter for the table type @p ktt.
-         */
-        KalziumPainter( KalziumTableType *ktt );
-        virtual ~KalziumPainter() {}
+public:
+    /**
+     * Construct a new KalziumPainter for the table type @p ktt.
+     */
+    KalziumPainter( KalziumTableType *ktt );
+    virtual ~KalziumPainter() {}
 
-        void setTableType( KalziumTableType* ktt ){
-            m_ktt = ktt; 
-        }
+    void setTableType( KalziumTableType* ktt ) {
+        m_ktt = ktt;
+    }
 
-        enum MODE
-        {
-            NORMAL = 0,
-            SOM /**< State of matter*/,
-            TIME/** Timeline*/,
-            GRADIENT,
-            NORMAL_GRADIENT /** Schema + Gradient*/
-        };
+    enum MODE
+    {
+        NORMAL = 0,
+        SOM /**< State of matter*/,
+        TIME/** Timeline*/,
+        GRADIENT,
+        NORMAL_GRADIENT /** Schema + Gradient*/
+    };
 
-        /**
-         * Begin painting on the painting device @p pd.
-         */
-        void begin( QPaintDevice *pd );
-        /**
-         * Finish painting.
-         */
-        void end();
+    /**
+     * Begin painting on the painting device @p pd.
+     */
+    void begin( QPaintDevice *pd );
+    /**
+     * Finish painting.
+     */
+    void end();
 
-        KalziumTableType* currentTableType() const;
+    KalziumTableType* currentTableType() const;
 
-        /**
-         * Draw all the things it can: elements and numeration
-         */
-        void drawAll();
+    /**
+     * Draw all the things it can: elements and numeration
+     */
+    void drawAll();
 
-        /**
-         * Draw all the elements
-         */
-        void drawElements();
+    /**
+     * Draw all the elements
+     */
+    void drawElements();
 
-        /**
-         * Draw the element with atomic number @p element.
-         * Pass a QRect() to the @p r parameter if you want to use the
-         * default rect for that element.
-         */
-        void drawElement( int element, const QRect& r = QRect() );
+    /**
+     * Draw the element with atomic number @p element.
+     * Pass a QRect() to the @p r parameter if you want to use the
+     * default rect for that element.
+     */
+    void drawElement( int element, const QRect& r = QRect() );
 
-        /**
-         * Draw the numeration
-         */
-        void drawNumeration();
+    /**
+     * Draw the numeration
+     */
+    void drawNumeration();
 
-        /**
-         * Paint a marker around the element number @p element
-         */
-        void drawElementSelector( int element );
+    /**
+     * Paint a marker around the element number @p element
+     */
+    void drawElementSelector( int element );
 
-        void setMode( MODE m );
+    void setMode( MODE m );
 
-        /**
-         * @return Return the current MODE
-         */
-        MODE mode() const{
-            return m_mode;
-        }
+    /**
+     * @return Return the current MODE
+     */
+    MODE mode() const {
+        return m_mode;
+    }
 
-        void setScheme( int s );
-        void setScheme( const QByteArray& s );
-        KalziumSchemeType* scheme() const;
+    void setScheme( int s );
+    void setScheme( const QByteArray& s );
+    KalziumSchemeType* scheme() const;
 
-        void setGradient( int cs );
-        void setGradient( const QByteArray& cs );
-        KalziumGradientType* gradient() const;
+    void setGradient( int cs );
+    void setGradient( const QByteArray& cs );
+    KalziumGradientType* gradient() const;
 
-        /**
-         * Set the numeration @p n for the periodic table
-         */
-        void setNumeration( int n );
-        void setNumeration( const QByteArray& n );
+    /**
+     * Set the numeration @p n for the periodic table
+     */
+    void setNumeration( int n );
+    void setNumeration( const QByteArray& n );
 
-        KalziumNumerationType* numeration() const{
-            return m_numeration;
-        }
+    KalziumNumerationType* numeration() const {
+        return m_numeration;
+    }
 
-        void setTemperature( int temp );
+    void setTemperature( int temp );
 
-        int temperature() const{
-            return m_temperature;
-        }
+    int temperature() const {
+        return m_temperature;
+    }
 
-        void setTime( int time ){
-            m_time = time;
-        }
+    void setTime( int time ) {
+        m_time = time;
+    }
 
-        int time() const{
-            return m_time;
-        }
+    int time() const {
+        return m_time;
+    }
 
-        QBrush brushForElement( int element ) const;
+    QBrush brushForElement( int element ) const;
 
-    private:
-        QPainter *m_painter;
+private:
+    QPainter *m_painter;
 
-        KalziumTableType *m_ktt;
+    KalziumTableType *m_ktt;
 
-        MODE m_mode;
+    MODE m_mode;
 
-        KalziumSchemeType *m_scheme;
-        KalziumGradientType *m_gradient;
-        /**
-         * the type of the numeration
-         */
-        KalziumNumerationType *m_numeration;
+    KalziumSchemeType *m_scheme;
+    KalziumGradientType *m_gradient;
+    /**
+     * the type of the numeration
+     */
+    KalziumNumerationType *m_numeration;
 
-        ///for the state-of-matter
-        int m_temperature;
+    ///for the state-of-matter
+    int m_temperature;
 
-        ///for the timeline
-        int m_time;
+    ///for the timeline
+    int m_time;
 };
 
 #endif // KALZIUMPAINTER_H
