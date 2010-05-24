@@ -364,10 +364,8 @@ void Kalzium::setupSidebars()
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_tableDock );
     addDockWidget( Qt::BottomDockWidgetArea, m_legendDock );
-    
-//     if (m_tableDock->isVisible()) {
-      m_tableDock->setVisible( false );
-//     }
+
+    m_tableDock->setVisible( false );
     
     connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
 }
