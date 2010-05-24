@@ -280,6 +280,11 @@ void Kalzium::setupActions()
     m_SidebarAction->setIcon( KIcon( "sidebar" ) );
     m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information and a set of tools." ) );
 
+    m_SidebarAction = m_tableDock->toggleViewAction();
+    actionCollection()->addAction( "view_tablebar", m_SidebarAction );
+    m_SidebarAction->setIcon( KIcon( "table" ) );
+    m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information about the table." ) );
+
     // the standard actions
     actionCollection()->addAction( "saveAs", KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection()));
     
@@ -359,6 +364,10 @@ void Kalzium::setupSidebars()
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_tableDock );
     addDockWidget( Qt::BottomDockWidgetArea, m_legendDock );
+    
+//     if (m_tableDock->isVisible()) {
+      m_tableDock->setVisible( false );
+//     }
     
     connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
 }

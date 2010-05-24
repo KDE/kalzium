@@ -36,7 +36,7 @@ TableInfoWidget::TableInfoWidget( QWidget *parent )
 
     QHBoxLayout * la = new QHBoxLayout(this);
     la->addWidget( m_tableType );
-    setLayout( la );
+    setLayout( la );    
 }
 
 void TableInfoWidget::setTableType( KalziumTableType * type )
