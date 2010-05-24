@@ -282,7 +282,7 @@ void Kalzium::setupActions()
 
     m_SidebarAction = m_tableDock->toggleViewAction();
     actionCollection()->addAction( "view_tablebar", m_SidebarAction );
-    m_SidebarAction->setIcon( KIcon( "table" ) );
+    m_SidebarAction->setIcon( KIcon( "kalzium_tables" ) );
     m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information about the table." ) );
 
     // the standard actions
@@ -316,7 +316,7 @@ void Kalzium::setupSidebars()
 
     m_legendDock->setWidget(m_legendWidget);
 
-    m_tableDock = new QDockWidget( i18n("Table"), this );
+    m_tableDock = new QDockWidget( i18n("Tableinformation"), this );
     m_tableDock->setWidget(m_TableInfoWidget);
     m_tableDock->setObjectName( QLatin1String( "kalzium-tableinfo" ) );
     m_tableDock->setFeatures( QDockWidget::AllDockWidgetFeatures );   
