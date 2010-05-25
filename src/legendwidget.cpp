@@ -34,7 +34,7 @@ LegendWidget::LegendWidget( QWidget *parent )
         : QWidget( parent )
 {
     m_update = true;
-    setMinimumSize(130, 50);
+    m_dockArea = Qt::BottomDockWidgetArea;
 }
 
 void LegendWidget::setGradientType( KalziumGradientType * type )

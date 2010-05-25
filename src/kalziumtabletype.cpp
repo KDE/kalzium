@@ -242,11 +242,11 @@ KalziumClassicTableType* KalziumClassicTableType::instance()
     return &kctt;
 }
 
-    KalziumClassicTableType::KalziumClassicTableType()
+KalziumClassicTableType::KalziumClassicTableType()
 : KalziumTableType()
 {
     const int numElements = KalziumDataObject::instance()->numberOfElements();
-    for (int i = 1 ; i < numElements ; i++) 
+    for (int i = 1 ; i < numElements ; i++)
         m_elementList.append(i);
 }
 

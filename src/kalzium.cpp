@@ -118,8 +118,8 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     m_legendWidget = new LegendWidget( this );
     connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
              m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
-    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-             m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
+//     connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+//              m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
     connect( m_PeriodicTableView, SIGNAL(GradientTypeChanged( KalziumGradientType* ) ),
              m_legendWidget, SLOT( setGradientType( KalziumGradientType * ) ) );
     connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
@@ -158,15 +158,7 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     g->setBackgroundPicture( picturepath );
     m_glossarydlg->addGlossary( g, true );
 
-    setupStatusBar();
-}
-
-static QStringList prependToListItems( const QStringList& list, const KLocalizedString& strprefix )
-{
-    QStringList l;
-    for ( int i = 0; i < list.count(); i++ )
-        l << strprefix.subs( list.at( i ) ).toString();
-    return l;
+    setupStatusBar();    
 }
 
 void Kalzium::setupActions()
@@ -179,15 +171,6 @@ void Kalzium::setupActions()
     QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
     QStringList gradients = QStringList(i18n("No Gradient"));
     gradients << KalziumGradientTypeFactory::instance()->gradients();
-    look_action_menu_schemes =  actionCollection()->add<KSelectAction>( "view_look_scheme" );
-    look_action_menu_schemes->setText( i18n( "&Scheme" ) );
-    look_action_menu_schemes->setItems(schemes);
-    connect(look_action_menu_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
-
-    look_action_menu_gradients =  actionCollection()->add<KSelectAction>( "view_look_gradient" );
-    look_action_menu_gradients->setText( i18n( "&Gradient" ) );
-    look_action_menu_gradients->setItems(gradients);
-    connect(look_action_menu_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)));
 
     // the action for swiching look: schemes
     look_action_schemes = actionCollection()->add<KSelectAction>( "view_look_onlyschemes" );
@@ -206,12 +189,10 @@ void Kalzium::setupActions()
     connect( look_action_gradients, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookGradient( int ) ) );
 
     // the action for swiching tables
-    QStringList tablelist;
     QStringList table_schemes = KalziumTableTypeFactory::instance()->tables();
-    tablelist << prependToListItems( table_schemes, ki18n( "Table: %1" ) );
     table_action =  actionCollection()->add<KSelectAction>( "view_table" );
     table_action->setText( i18n( "&Tables" ) );
-    table_action->setItems(tablelist);
+    table_action->setItems(table_schemes);
     table_action->setCurrentItem(Prefs::table());
     connect( table_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoTable( int ) ) );
 
@@ -289,42 +270,35 @@ void Kalzium::setupActions()
     connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
     // other period view options
-    m_pLegendAction = m_InfoDock->toggleViewAction();
+    m_pLegendAction = m_legendDock->toggleViewAction();
     actionCollection()->addAction( "view_legend", m_pLegendAction );
     m_pLegendAction->setIcon( KIcon( "legend" ) );
     m_pLegendAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide the legend for the periodic table." ) );
-    connect( m_pLegendAction, SIGNAL( triggered(bool) ),
-             this, SLOT( slotShowLegend(bool) ) );
 
     m_SidebarAction = m_dockWin->toggleViewAction();
     actionCollection()->addAction( "view_sidebar", m_SidebarAction );
     m_SidebarAction->setIcon( KIcon( "sidebar" ) );
     m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information and a set of tools." ) );
-    connect( m_SidebarAction, SIGNAL( triggered( bool ) ),
-             this, SLOT( slotShowHideSidebar( bool ) ) );
+
+    m_SidebarAction = m_tableDock->toggleViewAction();
+    actionCollection()->addAction( "view_tablebar", m_SidebarAction );
+    m_SidebarAction->setIcon( KIcon( "kalzium_tables" ) );
+    m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information about the table." ) );
 
     // the standard actions
-    KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection());
+    actionCollection()->addAction( "saveAs", KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection()));
+    
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
-    KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
+    
+    actionCollection()->addAction( "quit", KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() ));
 
     m_legendWidget->LockWidget();
 
-    if (Prefs::schemaSelected())
-    {
-        slotSwitchtoLookGradient( Prefs::colorgradientbox() );
-        slotSwitchtoLookScheme( Prefs::colorschemebox() );
-    }
-    else
-    {
-        slotSwitchtoLookScheme( Prefs::colorschemebox() );
-        slotSwitchtoLookGradient( Prefs::colorgradientbox() );
-    }
+    slotSwitchtoLookScheme( Prefs::colorschemebox() );
+    slotSwitchtoLookGradient( Prefs::colorgradientbox() );
 
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
-    slotShowHideSidebar( m_SidebarAction->isChecked(), false );
-    slotShowLegend( m_pLegendAction->isChecked(), false );
 
     m_legendWidget->UnLockWidget();
     m_legendWidget->updateContent();
@@ -336,19 +310,18 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-    m_InfoDock = new QDockWidget( this );
-    m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
-    m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
+    m_legendDock = new QDockWidget( i18n("Legend"), this );
+    m_legendDock->setObjectName( QLatin1String( "kalzium-legend" ) );
+    m_legendDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
 
-    m_InfoDock->setWidget(m_legendWidget);
+    m_legendDock->setWidget(m_legendWidget);
 
-    m_infoTabWidget = new KTabWidget(this);
-    m_infoTabWidget->setObjectName( "kalzium-infobar" );
-    m_InfoDock->setWidget(m_infoTabWidget);
-    m_infoTabWidget->addTab(m_legendWidget, i18n("Legend"));
-    m_infoTabWidget->addTab(m_TableInfoWidget, i18n("Table Information"));
+    m_tableDock = new QDockWidget( i18n("Tableinformation"), this );
+    m_tableDock->setWidget(m_TableInfoWidget);
+    m_tableDock->setObjectName( QLatin1String( "kalzium-tableinfo" ) );
+    m_tableDock->setFeatures( QDockWidget::AllDockWidgetFeatures );   
 
-    m_dockWin = new QDockWidget( this );
+    m_dockWin = new QDockWidget(i18n("Information"), this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
     m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
@@ -389,9 +362,12 @@ void Kalzium::setupSidebars()
              this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
-    addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
+    addDockWidget( Qt::BottomDockWidgetArea, m_tableDock );
+    addDockWidget( Qt::BottomDockWidgetArea, m_legendDock );
+
+    m_tableDock->setVisible( false );
     
-    connect (m_InfoDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
+    connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
 }
 
 void Kalzium::slotExportTable()
@@ -492,38 +468,6 @@ void Kalzium::showCalculator()
     Cal -> show();
 }
 
-void Kalzium::slotShowLegend( bool checked, bool changeconfig)
-{
-    if ( !checked ) {
-        m_pLegendAction->setText( i18n( "Show &Legend") );
-    } else {
-        m_pLegendAction->setText( i18n( "Hide &Legend" ) );
-    }
-
-    if ( changeconfig ) {
-        Prefs::setShowlegend( checked );
-        //save the settings
-        Prefs::self()->writeConfig();
-    }
-}
-
-void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
-{
-    if ( !checked ) {
-        m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
-        slotToolboxCurrentChanged( 0 );
-    } else {
-        m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
-        slotToolboxCurrentChanged( m_toolboxCurrent );
-    }
-
-    if ( changeconfig ) {
-        Prefs::setShowsidebar( checked );
-        //save the settings
-        Prefs::self()->writeConfig();
-    }
-}
-
 void Kalzium::slotSwitchtoTable( int index )
 {
     m_PeriodicTableView->slotChangeTable(index);
@@ -571,11 +515,9 @@ void Kalzium::slotSwitchtoLookGradient( int which )
         slotSwitchtoLookScheme( Prefs::colorschemebox() );
     }
 
-    look_action_menu_gradients->blockSignals( true );
+
     look_action_gradients->blockSignals( true );
-    look_action_menu_gradients->setCurrentItem( which );
     look_action_gradients->setCurrentItem( which );
-    look_action_menu_gradients->blockSignals( false );
     look_action_gradients->blockSignals( false );
 }
 
@@ -602,11 +544,8 @@ void Kalzium::slotSwitchtoLookScheme( int which )
         }
     }
 
-    look_action_menu_schemes->blockSignals( true );
     look_action_schemes->blockSignals( true );
-    look_action_menu_schemes->setCurrentItem( which );
     look_action_schemes->setCurrentItem( which );
-    look_action_menu_schemes->blockSignals( false );
     look_action_schemes->blockSignals( false );
 
     Prefs::setColorschemebox(which);

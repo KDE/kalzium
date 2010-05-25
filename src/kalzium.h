@@ -123,7 +123,8 @@ private:
     DetailedGraphicalOverview *m_detailWidget;
 
     QDockWidget *m_dockWin;
-    QDockWidget *m_InfoDock;
+    QDockWidget *m_legendDock;
+    QDockWidget *m_tableDock;
     QToolBox *m_toolbox;
     KTabWidget *m_infoTabWidget;
 
@@ -199,9 +200,6 @@ private slots:
     void showSettingsDialog();
 
     void slotToolboxCurrentChanged(int);
-
-    void slotShowHideSidebar( bool checked, bool changeconfig = true );
-    void slotShowLegend( bool checked, bool changeconfig = true );
 
 protected:
     virtual void keyPressEvent( QKeyEvent * e);

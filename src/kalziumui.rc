@@ -10,6 +10,7 @@
     <Action name="view_legend" />
     <Action name="view_tooltip" />
     <Action name="view_sidebar"/>
+    <Action name="view_tablebar"/>
   </Menu>
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="tools_plotdata" />

@@ -45,80 +45,80 @@ class Search;
  * @author Carsten Niehaus
  */
 class KalziumDataObject
-{
-	public:
-		/**
-		 * @return the instance of this class
-		 */
-		static KalziumDataObject* instance();
+  {
+  public:
+    /**
+     * @return the instance of this class
+     */
+    static KalziumDataObject* instance();
 
-		/**
-		 * The list of elements
-		 */
-		QList<Element*> ElementList;
+    /**
+     * The list of elements
+     */
+    QList<Element*> ElementList;
 
-		/**
-		 * Set the main Search to @p srch
-		 */
-		void setSearch( Search *srch );
-		
-		/**
-		 * @return the main Search
-		 */
-		Search* search() const;
+    /**
+     * Set the main Search to @p srch
+     */
+    void setSearch ( Search *srch );
 
-		/**
-		 * @return the Element with the number @p number
-		 * @param number the number of the Element which will be returned
-		 */
-		Element* element( int number );
+    /**
+     * @return the main Search
+     */
+    Search* search() const;
 
-		/**
-		 * @return the isotopes of the Element with the number @p number
-		 */
-		QList<Isotope*> isotopes( int number );
-		
-		/**
-		 * @return the isotopes of the Element @p Element
-		 */
-		QList<Isotope*> isotopes( Element * element );
+    /**
+     * @return the Element with the number @p number
+     * @param number the number of the Element which will be returned
+     */
+    Element* element ( int number );
 
-                /**
-		 * @return the Spectrum of the Element with the number @p number
-                 */
-                Spectrum * spectrum( int number );
+    /**
+     * @return the isotopes of the Element with the number @p number
+     */
+    QList<Isotope*> isotopes ( int number );
 
-		QPixmap pixmap( int number );
-		
-		/**
-		 * Use this to get the number of elements we have. It is cached
-		 * so you are strongly suggested to use this instead of hardcode
-		 * the number of elements.
-		 * @return the number of elements we have
-		 */
-		int numberOfElements() const { return m_numOfElements; }
+    /**
+     * @return the isotopes of the Element @p Element
+     */
+    QList<Isotope*> isotopes ( Element * element );
 
-	private:
-		KalziumDataObject();
-		~KalziumDataObject();
+    /**
+    * @return the Spectrum of the Element with the number @p number
+     */
+    Spectrum * spectrum ( int number );
 
-		static void cleanup();
+    QPixmap pixmap ( int number );
 
-		void loadIconSet();
-		void cleanPixmaps();
-	
-		QList<QPixmap> PixmapList;
+    /**
+     * Use this to get the number of elements we have. It is cached
+     * so you are strongly suggested to use this instead of hardcode
+     * the number of elements.
+     * @return the number of elements we have
+     */
+    int numberOfElements() const { return m_numOfElements; }
 
-		QHash<int, QList<Isotope*> > m_isotopes;
-		QList<Spectrum*> m_spectra;
+  private:
+    KalziumDataObject();
+    ~KalziumDataObject();
 
-		/**
-		 * Caching the number of elements
-		 */
-		int m_numOfElements;
+    static void cleanup();
 
-		Search *m_search;
+    void loadIconSet();
+    void cleanPixmaps();
 
-		friend class StaticKalziumDataObject;
-};
+    QList<QPixmap> PixmapList;
+
+    QHash<int, QList<Isotope*> > m_isotopes;
+    QList<Spectrum*> m_spectra;
+
+    /**
+     * Caching the number of elements
+     */
+    int m_numOfElements;
+
+    Search *m_search;
+
+    friend class StaticKalziumDataObject;
+  };
 #endif // KALZIUMDATAOBJECT_H
