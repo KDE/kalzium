@@ -212,6 +212,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     // init to _something_
     ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
     QString caption;
+    QString unit = QString();
     switch (selectedData)
     {
     case AxisData::NUMBER:
@@ -224,6 +225,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     {
         kind = ChemicalDataObject::mass;
         caption = i18n( "Atomic Mass [u]" );
+        unit = QString("u");
         break;
     }
     case AxisData::EN:
@@ -236,24 +238,28 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     {
         kind = ChemicalDataObject::meltingpoint;
         caption = i18n( "Melting Point [K]" );
+        unit = QString("K");
         break;
     }
     case AxisData::BOILINGPOINT:
     {
         kind = ChemicalDataObject::boilingpoint;
         caption = i18n( "Boiling Point [K]" );
+        unit = QString("K");
         break;
     }
     case AxisData::ATOMICRADIUS:
     {
         kind = ChemicalDataObject::radiusVDW;
         caption = i18n( "Atomic Radius [pm]" );
+        unit = QString("pm");
         break;
     }
     case AxisData::COVALENTRADIUS:
     {
         kind = ChemicalDataObject::radiusCovalent;
         caption = i18n( "Covalent Radius [pm]" );
+        unit = QString("pm");
         break;
     }
     }
@@ -266,6 +272,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
 
     data->dataList.clear();
     data->dataList << l;
+    data->unit = unit;
     data->kind = kind;
 
     if ( data->type() == AxisData::X )
@@ -497,15 +504,27 @@ void ElementDataViewer::drawPlot()
     ui.plotwidget->addPlotObject( dataPointGreen );
     ui.plotwidget->addPlotObject( dataPointRed );
 
+
     if ( num > 0 )
     {
+
+        QString unit_x;
+        QString unit_y;
+
+        if (!m_xData->unit.isEmpty()) {
+            unit_x = " " + m_xData->unit;
+        }
+        if (!m_yData->unit.isEmpty()) {
+            unit_y = " " + m_yData->unit;
+        }
+
         //now set the values for the min, max and avarage value
-        ui.av_x->setText( QString::number( av_x / num ) );
-        ui.minimum_x->setText( QString::number( min_x ) );
-        ui.maximum_x->setText( QString::number( max_x ) );
-        ui.av_y->setText( QString::number( av_y / num ) );
-        ui.minimum_y->setText( QString::number( min_y ) );
-        ui.maximum_y->setText( QString::number( max_y ) );
+        ui.av_x->setText( QString::number( av_x / num ).append(unit_x) );
+        ui.minimum_x->setText( QString::number( min_x ).append(unit_x) );
+        ui.maximum_x->setText( QString::number( max_x ).append(unit_x) );
+        ui.av_y->setText( QString::number( av_y / num ).append(unit_y) );
+        ui.minimum_y->setText( QString::number( min_y ).append(unit_y) );
+        ui.maximum_y->setText( QString::number( max_y ).append(unit_y) );
     }
 
     else

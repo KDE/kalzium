@@ -63,6 +63,8 @@ public:
      */
     DoubleList dataList;
 
+    QString unit;
+
     int currentDataType;
 
     ChemicalDataObject::BlueObelisk kind;
