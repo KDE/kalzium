@@ -175,20 +175,26 @@ class SpectrumWidget : public QWidget
 		 * set the maximum value to @p value
 		 */
 		void setRightBorder( int value ){
-			endValue = value;
-			if ( endValue < startValue )
-				startValue = endValue-1;
-			update();
+			if (value != endValue) {
+			  endValue = value;
+			  if ( endValue < startValue ) {
+				  startValue = endValue-1;
+			  }
+			  update();
+			}
 		}
 		
 		/**
 		 * set the minimum value to @p value
 		 */
 		void setLeftBorder( int value ){
-			startValue = value;
-			if ( startValue > endValue )
-				endValue = startValue+1;
-			update();
+	                if (value != startValue) {
+			  startValue = value;
+			  if ( startValue > endValue ) {
+				  endValue = startValue+1;
+			  }
+			  update();
+			}
 		}
 
 		/**

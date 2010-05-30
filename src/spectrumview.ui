@@ -26,7 +26,7 @@
    <item row="1" column="0">
     <widget class="KTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -69,10 +69,10 @@
             <string>nm</string>
            </property>
            <property name="minimum">
-            <number>2</number>
+            <number>0</number>
            </property>
            <property name="maximum">
-            <number>1000</number>
+            <number>40000</number>
            </property>
            <property name="value">
             <number>780</number>
@@ -124,10 +124,10 @@
             <string>nm</string>
            </property>
            <property name="minimum">
-            <number>1</number>
+            <number>0</number>
            </property>
            <property name="maximum">
-            <number>999</number>
+            <number>40000</number>
            </property>
            <property name="value">
             <number>380</number>
