@@ -13,6 +13,7 @@
 #include "spectrumviewimpl.h"
 
 #include <QTreeWidget>
+#include <QTableWidget>
 
 #include <kdebug.h>
 
@@ -35,21 +36,19 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 
 void SpectrumViewImpl::fillPeakList()
 {
-    QList<QTreeWidgetItem *> items;
+    int row;
+    peakListTable->setSortingEnabled(false);
+    peakListTable->setRowCount(m_spectrumWidget->spectrum()->peaklist().count());
 
-    int num = 1;
-    foreach (Spectrum::peak * peak , m_spectrumWidget->spectrum()->peaklist())
-    {
-        QStringList l;
-        l << QString::number(num);
-        l << QString::number(peak->wavelength);
-        l << QString::number(peak->intensity);
-        items.append(new QTreeWidgetItem((QTreeWidget*)0, l));
-
-        num++;
+    for(int i = 0; i <  m_spectrumWidget->spectrum()->peaklist().count(); i++ )
+    {   
+        Spectrum::peak * peak = m_spectrumWidget->spectrum()->peaklist().at(i);
+	row = i + 1;
+        peakListTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString::number(row)));
+        peakListTable->setItem ( i, 0, new QTableWidgetItem(QString::number(peak->wavelength)) );
+	peakListTable->setItem ( i, 1, new QTableWidgetItem(QString::number(peak->intensity)) );
     }
-
-    peakList->insertTopLevelItems(0, items);
+    peakListTable->setSortingEnabled(true);
 }
 
 

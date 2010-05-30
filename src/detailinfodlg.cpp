@@ -52,7 +52,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
                                        ( layoutDirection() == Qt::LeftToRight ) ? "arrow-right" : "arrow-left", i18n( "Goes to the next element" ) ) );
     setButtonGuiItem( User2, KGuiItem( i18nc( "Previous element", "Previous" ),
                                        ( layoutDirection() == Qt::LeftToRight ) ? "arrow-left" : "arrow-right", i18n( "Goes to the previous element" ) ) );
-
+    resize(820, 580);
     m_baseHtml = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/htmlview/";
     m_baseHtml2 = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/hazardsymbols/";
 
