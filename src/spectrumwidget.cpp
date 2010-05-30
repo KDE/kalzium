@@ -156,6 +156,9 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 {
     double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
+    //Not nice, but fixies the Angstrom nm issue.
+    wavelength = wavelength / 10;
+
     int wavelength_ = ( int ) floor( wavelength );
     if ( wavelength_ < 380 || wavelength_ > 780 )
     {

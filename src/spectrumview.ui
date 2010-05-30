@@ -78,7 +78,7 @@
         <string>This sets the leftmost wavelength of the spectrum.</string>
        </property>
        <property name="suffix">
-        <string>nm</string>
+        <string> Å</string>
        </property>
        <property name="minimum">
         <number>1</number>
@@ -87,7 +87,7 @@
         <number>40000</number>
        </property>
        <property name="value">
-        <number>380</number>
+        <number>3800</number>
        </property>
       </widget>
      </item>
@@ -113,7 +113,7 @@
         <string>This sets the rightmost wavelength of the spectrum.</string>
        </property>
        <property name="suffix">
-        <string>nm</string>
+        <string> Å</string>
        </property>
        <property name="minimum">
         <number>1</number>
@@ -122,7 +122,7 @@
         <number>40000</number>
        </property>
        <property name="value">
-        <number>780</number>
+        <number>7800</number>
        </property>
       </widget>
      </item>
@@ -191,7 +191,7 @@
      </row>
      <column>
       <property name="text">
-       <string>Wavelenght [nm]</string>
+       <string>Wavelenght [Å]</string>
       </property>
      </column>
      <column>

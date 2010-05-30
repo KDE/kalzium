@@ -37,18 +37,16 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 void SpectrumViewImpl::fillPeakList()
 {
     int row;
-    peakListTable->setSortingEnabled(false);
     peakListTable->setRowCount(m_spectrumWidget->spectrum()->peaklist().count());
 
     for(int i = 0; i <  m_spectrumWidget->spectrum()->peaklist().count(); i++ )
-    {   
+    {
         Spectrum::peak * peak = m_spectrumWidget->spectrum()->peaklist().at(i);
 	row = i + 1;
         peakListTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString::number(row)));
         peakListTable->setItem ( i, 0, new QTableWidgetItem(QString::number(peak->wavelength)) );
 	peakListTable->setItem ( i, 1, new QTableWidgetItem(QString::number(peak->intensity)) );
     }
-    peakListTable->setSortingEnabled(true);
 }
 
 
@@ -61,7 +59,7 @@ void SpectrumViewImpl::updateUI(int l, int r)
 void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
 {
     intensity_label->setText(i18n("%1 of 1000", peak->intensity));
-    wavelength_label->setText(i18n("%1 nm", peak->wavelength));
+    wavelength_label->setText(i18n("%1 Å", peak->wavelength));
 }
 
 
