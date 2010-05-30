@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
- *   
+ *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -41,58 +41,58 @@
 #endif
 
 SpectrumWidget::SpectrumWidget( QWidget *parent )
-  : QWidget( parent )
+        : QWidget( parent )
 {
-	startValue = 0;
-	endValue = 0;
+    startValue = 0;
+    endValue = 0;
 
-	m_LMBPointCurrent.setX( -1 );
-	m_LMBPointPress.setX( -1 );
+    m_LMBPointCurrent.setX( -1 );
+    m_LMBPointPress.setX( -1 );
 
-	m_realHeight = 200;
+    m_realHeight = 200;
 
-	Gamma = 0.8;
-	IntensityMax = 255;
+    Gamma = 0.8;
+    IntensityMax = 255;
 
-	setType( EmissionSpectrum );
+    setType( EmissionSpectrum );
 
-	setMinimumSize( 400, 230 );
-	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
-	setAttribute( Qt::WA_OpaquePaintEvent, true );
-	setContextMenuPolicy( Qt::PreventContextMenu );
+    setMinimumSize( 400, 230 );
+    setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+    setAttribute( Qt::WA_OpaquePaintEvent, true );
+    setContextMenuPolicy( Qt::PreventContextMenu );
 }
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 {
-	if ( !m_spectrum )
-		 return;
+    if ( !m_spectrum )
+        return;
 
-	m_pixmap = QPixmap( width(), height() );
-	m_pixmap.fill( this, width(), height() );
+    m_pixmap = QPixmap( width(), height() );
+    m_pixmap.fill( this, width(), height() );
 
-	QPainter p;
-	p.begin( &m_pixmap );
-	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
+    QPainter p;
+    p.begin( &m_pixmap );
+    p.fillRect( 0, 0, width(), m_realHeight, Qt::black );
 
-	paintBands( &p );
-	
-	drawTickmarks( &p );
+    paintBands( &p );
 
-	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
-		drawZoomLine( &p );
+    drawTickmarks( &p );
 
-	p.end();
+    if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
+        drawZoomLine( &p );
 
-	QPainter p2(this);
-	p2.drawPixmap(0, 0, m_pixmap);
+    p.end();
+
+    QPainter p2(this);
+    p2.drawPixmap(0, 0, m_pixmap);
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )
 {
-	p->setPen( Qt::white );
-	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y(), m_LMBPointCurrent.x(), m_LMBPointPress.y() );
-	p->drawLine( m_LMBPointCurrent.x(), m_LMBPointPress.y()+10, m_LMBPointCurrent.x(), m_LMBPointPress.y()-10 );
-	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y()+10, m_LMBPointPress.x(), m_LMBPointPress.y()-10 );
+    p->setPen( Qt::white );
+    p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y(), m_LMBPointCurrent.x(), m_LMBPointPress.y() );
+    p->drawLine( m_LMBPointCurrent.x(), m_LMBPointPress.y()+10, m_LMBPointCurrent.x(), m_LMBPointPress.y()-10 );
+    p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y()+10, m_LMBPointPress.x(), m_LMBPointPress.y()-10 );
 }
 
 void SpectrumWidget::paintBands( QPainter* p )
@@ -111,7 +111,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 
     int i = 0;
     int x = 0;
-    int temp = 0;	
+    int temp = 0;
 
     foreach ( Spectrum::peak * peak , m_spectrum->peaklist() )
     {
@@ -120,22 +120,22 @@ void SpectrumWidget::paintBands( QPainter* p )
 
         x = xPos( peak->wavelength );
 
-        temp = 0;  
+        temp = 0;
 
         switch ( m_type )
         {
-            case EmissionSpectrum:
-                p->setPen( linecolor( peak->wavelength ) );
-                p->drawLine( x,0,x, m_realHeight-1 );
+        case EmissionSpectrum:
+            p->setPen( linecolor( peak->wavelength ) );
+            p->drawLine( x,0,x, m_realHeight-1 );
 
-                p->setPen( Qt::black );
-                p->drawLine( x,m_realHeight,x, m_realHeight );
-                break;
+            p->setPen( Qt::black );
+            p->drawLine( x,m_realHeight,x, m_realHeight );
+            break;
 
-            case AbsorptionSpectrum:
-                p->setPen( Qt::black );
-                p->drawLine( x,0,x, m_realHeight-1 );
-                break;
+        case AbsorptionSpectrum:
+            p->setPen( Qt::black );
+            p->drawLine( x,0,x, m_realHeight-1 );
+            break;
         }
 
         i++;
@@ -144,11 +144,11 @@ void SpectrumWidget::paintBands( QPainter* p )
 
 QColor SpectrumWidget::linecolor( double spectrum )
 {
-        int r,g,b;
-        wavelengthToRGB( spectrum, r,g,b );
+    int r,g,b;
+    wavelengthToRGB( spectrum, r,g,b );
 
-        QColor c( r,g,b );
-        return c;
+    QColor c( r,g,b );
+    return c;
 }
 
 
@@ -219,10 +219,10 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 
 int SpectrumWidget::Adjust( double color, double factor )
 {
-	if ( color == 0.0 )
-		return 0;
-	else
-		return qRound( IntensityMax * pow( color*factor, Gamma ));
+    if ( color == 0.0 )
+        return 0;
+    else
+        return qRound( IntensityMax * pow( color*factor, Gamma ));
 }
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
@@ -240,11 +240,11 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 
     for ( int i = 0; i < numberOfTickmarks; i++  )
     {
-        if( i%5 == 0 )
+        if ( i%5 == 0 )
         {//long tickmarks plus text
-            p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );	
-            if ( i%10 == 0 && 
-                    i*d > space && 
+            p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );
+            if ( i%10 == 0 &&
+                    i*d > space &&
                     i*d < width()-space )
             {
                 pos = ( double ) ( i*d )/width();
@@ -262,12 +262,12 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 {
     switch ( e->key() )
     {
-        case Qt::Key_Plus:
-            slotZoomIn();
-            break;
-        case Qt::Key_Minus:
-            slotZoomOut();
-            break;
+    case Qt::Key_Plus:
+        slotZoomIn();
+        break;
+    case Qt::Key_Minus:
+        slotZoomOut();
+        break;
     }
 }
 
@@ -333,7 +333,7 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
     if (  e->button() == Qt::RightButton ) {
         restart();
     }
-    
+
     findPeakFromMouseposition( Wavelength( ( double )e->pos().x()/width() ) );
 }
 
@@ -355,7 +355,7 @@ void SpectrumWidget::findPeakFromMouseposition( double wavelength )
         if ( thisdif < 0.9 || thisdif > 1.1 )
             continue;
 
-        if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
+        if ( thisdif > 1.0 ) {//convert for example 1.3 to 0.7
             thisdif = thisdif-1;
             thisdif = 1-thisdif;
         }
@@ -374,22 +374,22 @@ void SpectrumWidget::findPeakFromMouseposition( double wavelength )
 
 void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 {
-	if (  e->button() == Qt::LeftButton )
-	{
-		int left = (int)Wavelength( ( double )m_LMBPointPress.x()/width() );
-		int right = (int)Wavelength( ( double )e->pos().x()/width() );
+    if (  e->button() == Qt::LeftButton )
+    {
+        int left = (int)Wavelength( ( double )m_LMBPointPress.x()/width() );
+        int right = (int)Wavelength( ( double )e->pos().x()/width() );
 
-		if ( left == right )
-			return;
+        if ( left == right )
+            return;
 
-		if ( left > right )
-			setBorders( right, left );
-		else
-			setBorders( left, right );
-	}
+        if ( left > right )
+            setBorders( right, left );
+        else
+            setBorders( left, right );
+    }
 
-	m_LMBPointPress.setX( -1 );
-	m_LMBPointCurrent.setX( -1 );
+    m_LMBPointPress.setX( -1 );
+    m_LMBPointCurrent.setX( -1 );
 }
 
 void SpectrumWidget::restart()

@@ -24,40 +24,40 @@ class SpectrumViewImpl : public QWidget, Ui_SpectrumView
 {
     Q_OBJECT
 
-    public: 
-        /**
-         * @param parent the parent widget
-         */
-        SpectrumViewImpl( QWidget* parent );
+public:
+    /**
+     * @param parent the parent widget
+     */
+    SpectrumViewImpl( QWidget* parent );
 
-        /**
-         * sets the spectrum to @p spec
-         * @param spec the spectrum to display
-         */
-        void setSpectrum( Spectrum* spec ){
-            m_spectrumWidget->setSpectrum( spec );
-            
-            fillPeakList();
+    /**
+     * sets the spectrum to @p spec
+     * @param spec the spectrum to display
+     */
+    void setSpectrum( Spectrum* spec ) {
+        m_spectrumWidget->setSpectrum( spec );
 
-            m_spectrumWidget->update();
-        }
+        fillPeakList();
 
-    private slots:
-        /**
-         * set the correct ranges and min/max values of the
-         * GUI elements
-         * @param left The left border of the spectrum
-         * @param right The right border of the spectrum
-         */
-        void updateUI(int left, int right);
+        m_spectrumWidget->update();
+    }
 
-        void updatePeakInformation( Spectrum::peak * peak );
+private slots:
+    /**
+     * set the correct ranges and min/max values of the
+     * GUI elements
+     * @param left The left border of the spectrum
+     * @param right The right border of the spectrum
+     */
+    void updateUI(int left, int right);
 
-    private:
-        /**
-         * filling the list of peaks
-         */
-        void fillPeakList();
+    void updatePeakInformation( Spectrum::peak * peak );
+
+private:
+    /**
+     * filling the list of peaks
+     */
+    void fillPeakList();
 };
 
 #endif // SPECTRUMVIEWIMPL_H

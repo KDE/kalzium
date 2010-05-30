@@ -18,20 +18,20 @@
 #include <kdebug.h>
 
 SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
-	: QWidget( parent )
+        : QWidget( parent )
 {
-	setupUi( this );
+    setupUi( this );
 
-	connect( minimumValue, SIGNAL( valueChanged( int ) ),
-	         m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
-	connect( maximumValue, SIGNAL( valueChanged( int ) ),
-	         m_spectrumWidget, SLOT( setRightBorder( int ) ) );
-  connect( m_spectrumWidget, SIGNAL( bordersChanged(int,int) ),
-          this, SLOT( updateUI(int,int) ) );
-  connect(m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
-          this, SLOT(updatePeakInformation(Spectrum::peak*)));
+    connect( minimumValue, SIGNAL( valueChanged( int ) ),
+             m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
+    connect( maximumValue, SIGNAL( valueChanged( int ) ),
+             m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+    connect( m_spectrumWidget, SIGNAL( bordersChanged(int,int) ),
+             this, SLOT( updateUI(int,int) ) );
+    connect(m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
+            this, SLOT(updatePeakInformation(Spectrum::peak*)));
 
-	resize( minimumSizeHint() );
+    resize( minimumSizeHint() );
 }
 
 void SpectrumViewImpl::fillPeakList()
@@ -39,16 +39,15 @@ void SpectrumViewImpl::fillPeakList()
     int row;
     peakListTable->setRowCount(m_spectrumWidget->spectrum()->peaklist().count());
 
-    for(int i = 0; i <  m_spectrumWidget->spectrum()->peaklist().count(); i++ )
+    for (int i = 0; i <  m_spectrumWidget->spectrum()->peaklist().count(); i++ )
     {
         Spectrum::peak * peak = m_spectrumWidget->spectrum()->peaklist().at(i);
-	row = i + 1;
+        row = i + 1;
         peakListTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString::number(row)));
         peakListTable->setItem ( i, 0, new QTableWidgetItem(QString::number(peak->wavelength)) );
-	peakListTable->setItem ( i, 1, new QTableWidgetItem(QString::number(peak->intensity)) );
+        peakListTable->setItem ( i, 1, new QTableWidgetItem(QString::number(peak->intensity)) );
     }
 }
-
 
 void SpectrumViewImpl::updateUI(int l, int r)
 {
