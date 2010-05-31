@@ -283,8 +283,8 @@ void SpectrumWidget::slotZoomOut()
     if ( startValue < 0.0 )
         startValue = 0.0;
 
-    if ( endValue > 800.0 )
-        endValue = 800.0;
+    if ( endValue > 10000.0 )
+        endValue = 40000.0;
 
     setBorders( startValue, endValue );
 }
@@ -324,10 +324,12 @@ void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
 
 void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 {
-    if (  e->button() == Qt::LeftButton )
+    if (  e->button() == Qt::LeftButton ) {
         m_LMBPointPress = e->pos();
-    if (  e->button() == Qt::RightButton )
-        slotZoomOut();
+    }
+    if (  e->button() == Qt::RightButton ) {
+        restart();
+    }
     
     findPeakFromMouseposition( Wavelength( ( double )e->pos().x()/width() ) );
 }

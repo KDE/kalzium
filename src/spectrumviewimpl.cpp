@@ -57,8 +57,6 @@ void SpectrumViewImpl::updateUI(int l, int r)
 {
     minimumValue->setValue(l);
     maximumValue->setValue(r);
-    minimumValue->setRange(l,r-1);
-    maximumValue->setRange(l+1,r);
 }
 
 void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
