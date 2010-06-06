@@ -316,7 +316,7 @@ void Kalzium::setupSidebars()
 
     m_legendDock->setWidget(m_legendWidget);
 
-    m_tableDock = new QDockWidget( i18n("Tableinformation"), this );
+    m_tableDock = new QDockWidget( i18n("Table Information"), this );
     m_tableDock->setWidget(m_TableInfoWidget);
     m_tableDock->setObjectName( QLatin1String( "kalzium-tableinfo" ) );
     m_tableDock->setFeatures( QDockWidget::AllDockWidgetFeatures );   
