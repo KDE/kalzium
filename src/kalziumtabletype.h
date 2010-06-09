@@ -21,14 +21,16 @@
 #ifndef KALZIUMTABLETYPE_H
 #define KALZIUMTABLETYPE_H
 
-class KalziumNumerationType;
-class KalziumTableType;
+#include <psetables.h>
 
 #include <QByteArray>
 #include <QPoint>
 #include <QRect>
 #include <QSize>
 #include <QStringList>
+
+class KalziumNumerationType;
+class KalziumTableType;
 
 /**
  * Factory for KalziumTableType classes.
@@ -62,7 +64,6 @@ class KalziumTableTypeFactory
     QStringList tables() const;
   private:
     KalziumTableTypeFactory();
-
     QList<KalziumTableType*> m_tables;
   };
 
@@ -76,44 +77,43 @@ class KalziumTableType
   {
   public:
     /**
-     * Get its instance.
+     * construct the Table
      */
-    static KalziumTableType* instance();
-
-    virtual ~KalziumTableType();
+    KalziumTableType(pseTable *tableType);
+    ~KalziumTableType();
 
     /**
      * Returns the ID of this table type.
      * Mainly used when saving/loading.
      */
-    virtual QByteArray name() const = 0;
+    QByteArray name() const;
     /**
      * Returns the description of this table type.
      * Used in all the visible places.
      */
-    virtual QString description() const = 0;
+    QString description() const;
 
     /**
      * Returns the size of this table type.
      */
-    virtual QSize size() const = 0;
+    QSize size() const;
 
     /**
      * @return the number of the element at the coordinates @p coords.
      * If there is no element it will return 0.
          * For example, for Carbon "6" will be returned
      */
-    virtual int elementAtCoords ( const QPoint& coords ) const = 0;
+    int elementAtCoords ( const QPoint& coords ) const;
     /**
      * Returns the rect for the element with atomic number @p numelem.
      */
-    virtual QRect elementRect ( const int numelem ) const = 0;
+    QRect elementRect ( const int numelem ) const;
 
     /**
      * Returns the rect for the @p numelement 'th item of the
      * numeration @p nt.
      */
-    virtual QRect numerationRect ( const int numelem, KalziumNumerationType *nt ) const;
+    QRect numerationRect ( const int numelem, KalziumNumerationType *nt ) const;
 
     /**
      * Returns the element that comes right before the specified @p element.
@@ -122,7 +122,7 @@ class KalziumTableType
      * The default implementation returns <tt>element - 1</tt> if @p element
      * is not 1, else -1.
      */
-    virtual int previousOf ( int element ) const;
+    int previousOf ( int element ) const;
 
     /**
      * Returns the element that comes right after the specified @p element.
@@ -131,22 +131,21 @@ class KalziumTableType
      * The default implementation returns <tt>element + 1</tt> if @p element
      * is not the latest element, else -1.
      */
-    virtual int nextOf ( int element ) const;
+    int nextOf ( int element ) const;
 
     /**
      * Returns the first element of the table.
      *
      * The default implementation returns 1.
      */
-    virtual int firstElement() const;
+    int firstElement() const;
 
     /**
     * @return the list of elements the specific KalziumTableType displays
     */
-    virtual QList<int> elementList() const;
+    QList<int> elementList() const;
 
-  protected:
-    KalziumTableType();
+  private:
 
     /**
      * This QList stores the numbers of the elements the table will display
@@ -159,117 +158,8 @@ class KalziumTableType
      * For example, H will be 1/1 and Li will be 1/2
      */
     QPoint elementUnderMouse ( const QPoint& coords ) const;
-  };
 
-/**
- * The class representing the "classic" periodic table, and its metrics.
- *
- * @author Pino Toscano
- */
-class KalziumClassicTableType : public KalziumTableType
-  {
-  public:
-    static KalziumClassicTableType* instance();
-
-    QByteArray name() const;
-    QString description() const;
-
-    QSize size() const;
-
-    int elementAtCoords ( const QPoint& coords ) const;
-    QRect elementRect ( const int numelem ) const;
-
-  private:
-    KalziumClassicTableType();
-  };
-
-/**
- * The class representing the "short" periodic table, and its metrics.
- *
- * @author Carsten Niehaus
- */
-class KalziumShortTableType : public KalziumTableType
-  {
-  public:
-    static KalziumShortTableType* instance();
-
-    QByteArray name() const;
-    QString description() const;
-
-    QSize size() const;
-
-    int elementAtCoords ( const QPoint& coords ) const;
-    QRect elementRect ( const int numelem ) const;
-
-    int previousOf ( int element ) const;
-    int nextOf ( int element ) const;
-
-  private:
-    KalziumShortTableType();
-
-    /**
-      * @return The number of the element in this scheme. As we skip
-      *         the d- and f-block, for example element 31 is infact the 21st
-                element in this scheme (because elements 21 to 30 are skipped)
-     */
-    static int translateToShort ( int num );
-  };
-
-/**
- * The class representing the d-Block of the periodic table, and its metrics.
- *
- * @author Carsten Niehaus
- */
-class KalziumDTableType : public KalziumTableType
-  {
-  public:
-    static KalziumDTableType* instance();
-
-    QByteArray name() const;
-    QString description() const;
-
-    QSize size() const;
-
-    int elementAtCoords ( const QPoint& coords ) const;
-    QRect elementRect ( const int numelem ) const;
-
-    int previousOf ( int element ) const;
-    int nextOf ( int element ) const;
-
-    int firstElement() const;
-
-  private:
-    KalziumDTableType();
-
-    /**
-      * @return The number of the element in this scheme. As we skip
-      *         the s-, p and f-block, for example element 1st is infact the 21st
-                element in this scheme
-     */
-    static int translateToD ( int num );
-  };
-
-/**
- * This class represents the table the DZ (Deutscher Zentralausschuss, "German Central Comitee")
- * suggests.
- *
- * @author Carsten Niehaus
- */
-class KalziumDZTableType : public KalziumTableType
-  {
-  public:
-    static KalziumDZTableType* instance();
-
-    QByteArray name() const;
-    QString description() const;
-
-    QSize size() const;
-
-    int elementAtCoords ( const QPoint& coords ) const;
-    QRect elementRect ( const int numelem ) const;
-
-  private:
-    KalziumDZTableType();
+    pseTable *m_table;
   };
 
 #endif // KALZIUMTABLETYPE_H
