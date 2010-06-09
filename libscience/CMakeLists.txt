@@ -12,6 +12,7 @@ set(science_LIB_SRCS
    chemicaldataobject.cpp
    moleculeparser.cpp
    parser.cpp
+   psetables.cpp
 )
 
 
@@ -34,5 +35,6 @@ install(FILES
    spectrum.h
    spectrumparser.h
    tempunit.h
+   psetables.h
    DESTINATION ${INCLUDE_INSTALL_DIR}/libkdeedu  COMPONENT Devel
 )
