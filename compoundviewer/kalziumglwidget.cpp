@@ -22,6 +22,8 @@
 
 #include "openbabel2wrapper.h"
 
+#include <config-kalzium.h>
+
 KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
   m_lastEngine1(0), m_lastEngine2(0)
 {
@@ -33,7 +35,18 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
     // Prevent What's this from intercepting right mouse clicks
     setContextMenuPolicy(Qt::PreventContextMenu);
     // Load the tools and set navigate as the default
-    Avogadro::PluginManager *manager = new Avogadro::PluginManager(this);
+    // first set the Avogadro plugin directory,
+    // avoiding overwriting an already set envvar
+    static bool s_pluginDirSet = false;
+    if (!s_pluginDirSet)
+    {
+        if (qgetenv("AVOGADRO_PLUGINS").isEmpty())
+        {
+            qputenv("AVOGADRO_PLUGINS", AVOGADRO_PLUGIN_DIR);
+        }
+        s_pluginDirSet = true;
+    }
+    Avogadro::PluginManager *manager = Avogadro::PluginManager::instance();
     manager->loadFactories();
     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);
     tools->append(manager->tools(this));

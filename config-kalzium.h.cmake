@@ -13,3 +13,6 @@
 /* Define to 1 if you have the <ieeefp.h> header file. */
 #cmakedefine HAVE_IEEEFP_H 1
 
+/* The base directory of the Avogadro plugins. */
+#define AVOGADRO_PLUGIN_DIR "${Avogadro_PLUGIN_DIR}"
+
