@@ -191,7 +191,7 @@
      </row>
      <column>
       <property name="text">
-       <string>Wavelenght [Å]</string>
+       <string>Wavelength [Å]</string>
       </property>
      </column>
      <column>
