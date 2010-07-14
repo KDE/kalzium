@@ -155,4 +155,3 @@ QString KalziumTableType::description() const
 }
 
 #include "kalziumtabletype.moc"
-
