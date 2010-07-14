@@ -93,6 +93,34 @@ public:
     virtual QPoint elementCoords(int element);
 
     /**
+     * Returns the element that comes right before the specified @p element.
+     * -1 means that @p element is the first in this table type.
+     *
+     * The default implementation returns <tt>element - 1</tt> if @p element
+     * is not 1, else -1.
+     */
+    int previousOf ( int element ) const;
+
+    /**
+     * Returns the element that comes right after the specified @p element.
+     * -1 means that @p element is the last in this table type.
+     *
+     * The default implementation returns <tt>element + 1</tt> if @p element
+     * is not the latest element, else -1.
+     */
+    int nextOf ( int element ) const;
+
+    /**
+     * Returns the first element of the table.
+     */
+    int firstElement() const;
+
+    /**
+     * Returns the last element of the table.
+     */
+    int lastElement() const;
+
+    /**
      * Returns a list with all elements in the actual periodic table
      */
     virtual QList<int> elements() const;

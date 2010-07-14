@@ -103,6 +103,28 @@ QList<int> pseTable::elements() const
     return m_elementList;
 }
 
+int pseTable::previousOf( int element ) const
+{
+    int index = m_elementList.indexOf( element );
+    return index > 1 ? m_elementList.at( index - 1 ) : -1;
+}
+
+int pseTable::nextOf( int element ) const
+{
+    int index = m_elementList.indexOf( element );
+    return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
+}
+
+int pseTable::firstElement() const
+{
+    return m_elementList.first();
+}
+
+int pseTable::lastElement() const
+{
+    return m_elementList.last();
+}
+
 QPoint pseTable::elementCoords(const int element)
 {
     int elementIndex = m_elementList.indexOf( element );
