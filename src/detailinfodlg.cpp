@@ -28,13 +28,13 @@
 #include <kcombobox.h>
 #include <kapplication.h>
 
-#include <qfile.h>
-#include <qlabel.h>
-#include <qimage.h>
-#include <qwhatsthis.h>
-#include <qlayout.h>
-#include <qpushbutton.h>
-#include <qwidgetstack.h>
+#include <tqfile.h>
+#include <tqlabel.h>
+#include <tqimage.h>
+#include <tqwhatsthis.h>
+#include <tqlayout.h>
+#include <tqpushbutton.h>
+#include <tqwidgetstack.h>
 
 #include "element.h"
 #include "orbitswidget.h"
@@ -44,7 +44,7 @@
 
 //TODO add bondxx-radius (H-H-distance for example)
 
-DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
+DetailedInfoDlg::DetailedInfoDlg( Element *el , TQWidget *parent, const char *name)
     : KDialogBase( IconList, name, Help|User1|User2|Close, Close, parent, name, 
 			false, //non modal
 			false, 
@@ -66,7 +66,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	createContent();
 
 	m_actionCollection = new KActionCollection(this);	
-	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
+	KStdAction::quit(this, TQT_SLOT(slotClose()), m_actionCollection);
 
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );
@@ -91,10 +91,10 @@ void DetailedInfoDlg::setElement(Element *element)
 		enableButton( User1, false );
 }
 
-KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
+KHTMLPart* DetailedInfoDlg::addHTMLTab( const TQString& title, const TQString& icontext, const TQString& iconname )
 {
-	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
-	QVBoxLayout *layout = new QVBoxLayout( frame );
+	TQFrame *frame = addPage(title, icontext, BarIcon(iconname));
+	TQVBoxLayout *layout = new TQVBoxLayout( frame );
 	layout->setMargin( 0 );
 	KHTMLPart *w = new KHTMLPart( frame, "html-part", frame );
 	layout->addWidget( w->view() );
@@ -102,7 +102,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& ico
 	return w;
 }
 
-void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode )
+void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const TQString& htmlcode )
 {
 	if ( !htmlpart ) return;
 
@@ -111,13 +111,13 @@ void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode 
 	htmlpart->end();
 }
 
-QString DetailedInfoDlg::getHtml(DATATYPE type)
+TQString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
+	TQString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
 	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
 
 	//get the list of ionisation-energies
-	QValueList<double> ionlist = m_element->ionisationList();
+	TQValueList<double> ionlist = m_element->ionisationList();
 	
 	html.append( "<div><table summary=\"header\"><tr><td>" );
 	html.append( m_element->symbol() );
@@ -221,7 +221,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			{
 				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
-				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
+				             "%1. Ionization energy: %2" ).arg( TQString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
 			html.append( "</td></tr>" );
 			}
 			break;
@@ -233,11 +233,11 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	return html;
 }
 
-QString DetailedInfoDlg::isotopeTable()
+TQString DetailedInfoDlg::isotopeTable()
 {
-	QValueList<Isotope*> list = m_element->isotopes();
+	TQValueList<Isotope*> list = m_element->isotopes();
 
-	QString html;
+	TQString html;
 	
 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
 	html += i18n( "Isotope-Table" );
@@ -257,17 +257,17 @@ QString DetailedInfoDlg::isotopeTable()
 	html += i18n( "Magnetic Moment" );
 	html += "</b></td></tr>";
 
-	QValueList<Isotope*>::const_iterator it = list.begin();
-	const QValueList<Isotope*>::const_iterator itEnd = list.end();
+	TQValueList<Isotope*>::const_iterator it = list.begin();
+	const TQValueList<Isotope*>::const_iterator itEnd = list.end();
 
 	for ( ; it != itEnd; ++it )
 	{
 		html.append( "<tr><td align=\"right\">" );
 		if ( ( *it )->weight() > 0.0 )
 			html.append( i18n( "%1 u" ).arg( KalziumUtils::localizedValue( ( *it )->weight(), 6 ) ) );
-		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
+		//	html.append( i18n( "%1 u" ).arg( TQString::number( ( *it )->weight() ) ));
 		html.append( "</td><td>" );
-		html.append( QString::number( ( *it )->neutrons() ) );
+		html.append( TQString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
 		if ( ( *it )->percentage() > 0.0 )
 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( KalziumUtils::localizedValue( ( *it )->percentage(), 6 ) ) );
@@ -279,7 +279,7 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->alphapercentage() > 0.0 ){
 			if ( ( *it )->alphadecay() > 0.0 )
 			html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->alphadecay(), 6 ) ) );
-			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
+			html.append( i18n( " %1" ).arg( TQChar( 945 ) ) );
 			if ( ( *it )->alphapercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg( KalziumUtils::localizedValue( (*it )->alphapercentage(), 6 ) ) );
 			if ( ( *it )->betaminuspercentage() > 0.0 || ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0)
@@ -288,7 +288,7 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->betaminuspercentage() > 0.0 ){
 			if ( ( *it )->betaminusdecay() > 0.0 )
 				html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->betaminusdecay(), 6 ) ) );
-			html.append( i18n( " %1<sup>-</sup>" ).arg( QChar( 946 ) ) );
+			html.append( i18n( " %1<sup>-</sup>" ).arg( TQChar( 946 ) ) );
 			if ( ( *it )->betaminuspercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg( KalziumUtils::localizedValue( ( *it )->betaminuspercentage(), 6 ) ));
 			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
@@ -297,7 +297,7 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->betapluspercentage() > 0.0 ){
 			if ( ( *it )->betaplusdecay() > 0.0 )
 				html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->betaplusdecay(), 6 ) ) );
-			html.append( i18n( " %1<sup>+</sup>" ).arg(QChar( 946 ) ) );
+			html.append( i18n( " %1<sup>+</sup>" ).arg(TQChar( 946 ) ) );
 			if ( ( *it )->betapluspercentage() == ( *it )->ecpercentage() ) {
 				if ( ( *it )->ecdecay() > 0.0 ) {
 					html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->ecdecay(), 6 ) ) ); 
@@ -319,8 +319,8 @@ QString DetailedInfoDlg::isotopeTable()
 		html.append( ( *it )->spin() );
 		html.append( "</td><td>" );
 		if ( !( *it )->magmoment().isEmpty() ) {
-			QString v = KGlobal::locale()->formatNumber( ( *it )->magmoment(), false, 6 );
-			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( v ).arg( QChar( 956 ) ) );
+			TQString v = KGlobal::locale()->formatNumber( ( *it )->magmoment(), false, 6 );
+			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( v ).arg( TQChar( 956 ) ) );
 		}	
 		html.append( "</td></tr>" );
 	
@@ -334,23 +334,23 @@ QString DetailedInfoDlg::isotopeTable()
 void DetailedInfoDlg::createContent( )
 {
 	// overview tab
-	QFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
-	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
+	TQFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
+	TQVBoxLayout *overviewLayout = new TQVBoxLayout( m_pOverviewTab );
 	overviewLayout->setMargin( 0 );
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
 	overviewLayout->addWidget( dTab );
 
 	// picture tab
-	QFrame *m_pPictureTab = addPage( i18n( "Picture" ), i18n( "What does this element look like?" ), BarIcon( "elempic" ) );
-	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
+	TQFrame *m_pPictureTab = addPage( i18n( "Picture" ), i18n( "What does this element look like?" ), BarIcon( "elempic" ) );
+	TQVBoxLayout *mainLayout = new TQVBoxLayout( m_pPictureTab );
 	mainLayout->setMargin( 0 );
-	piclabel = new QLabel( m_pPictureTab );
+	piclabel = new TQLabel( m_pPictureTab );
 	piclabel->setMinimumSize( 400, 350 );
 	mainLayout->addWidget( piclabel );
 
 	// atomic model tab
-	QFrame *m_pModelTab = addPage( i18n( "Atom Model" ), i18n( "Atom Model" ), BarIcon( "orbits" ) );
-	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab );
+	TQFrame *m_pModelTab = addPage( i18n( "Atom Model" ), i18n( "Atom Model" ), BarIcon( "orbits" ) );
+	TQVBoxLayout *modelLayout = new TQVBoxLayout( m_pModelTab );
 	modelLayout->setMargin( 0 );
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	modelLayout->addWidget( wOrbits );
@@ -361,22 +361,22 @@ void DetailedInfoDlg::createContent( )
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 
 	// spectrum widget tab
-	QFrame *m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+	TQFrame *m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+	TQVBoxLayout *spectrumLayout = new TQVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 	spectrumLayout->setMargin( 0 );
-	m_spectrumStack = new QWidgetStack( m_pSpectrumTab );
+	m_spectrumStack = new TQWidgetStack( m_pSpectrumTab );
 	spectrumLayout->addWidget( m_spectrumStack );
 	m_spectrumview = new SpectrumViewImpl( m_spectrumStack, "spectrumwidget" );
 	m_spectrumStack->addWidget( m_spectrumview );
-	m_spectrumLabel = new QLabel( m_spectrumStack );
+	m_spectrumLabel = new TQLabel( m_spectrumStack );
 	m_spectrumStack->addWidget( m_spectrumLabel );
 }
 
 void DetailedInfoDlg::reloadContent()
 {
 	// reading the most common data
-	const QString element_name = m_element->elname();
-	const QString element_symbol = m_element->symbol();
+	const TQString element_name = m_element->elname();
+	const TQString element_symbol = m_element->symbol();
 
 	// updating caption
 	setCaption( i18n( "For example Carbon (6)" , "%1 (%2)" ).arg( element_name ).arg( m_elementNumber ) );
@@ -385,12 +385,12 @@ void DetailedInfoDlg::reloadContent()
 	dTab->setElement( m_element );
 
 	// updating picture tab
-	QString picpath = m_picsdir + element_symbol + ".jpg";
-	if ( QFile::exists( picpath ) )
+	TQString picpath = m_picsdir + element_symbol + ".jpg";
+	if ( TQFile::exists( picpath ) )
 	{
-		QImage img( picpath, "JPEG" );
-		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
-		QPixmap pic;
+		TQImage img( picpath, "JPEG" );
+		img = img.smoothScale ( 400, 400, TQImage::ScaleMin );
+		TQPixmap pic;
 		pic.convertFromImage( img );
 		piclabel->setPixmap( pic );
 	}
@@ -399,7 +399,7 @@ void DetailedInfoDlg::reloadContent()
 
 	// updating atomic model tab
 	wOrbits->setElementNumber( m_elementNumber );
-	QWhatsThis::add( wOrbits,
+	TQWhatsThis::add( wOrbits,
 	    i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
 	    .arg( m_element->elname() )
 	    .arg( m_element->elname() )
@@ -431,7 +431,7 @@ void DetailedInfoDlg::slotHelp()
 {
 	emit helpClicked();
 	
-	QString chapter = "infodialog_overview";
+	TQString chapter = "infodialog_overview";
 	switch ( activePageIndex() ){
 		case 0: 
 			chapter = "infodialog_overview";
@@ -460,7 +460,7 @@ void DetailedInfoDlg::slotHelp()
 		kapp->invokeHelp ( chapter, "kalzium" );
 }
 
-void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
+void DetailedInfoDlg::wheelEvent( TQWheelEvent *ev )
 {
 	if ( ev->delta() < 0 )
 		// setting the previous element

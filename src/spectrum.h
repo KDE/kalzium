@@ -21,8 +21,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <qstring.h>
-#include <qvaluelist.h>
+#include <tqstring.h>
+#include <tqvaluelist.h>
 
 class QPixmap;
 class Element;
@@ -66,12 +66,12 @@ class Spectrum
 			///relative. The highest is per definition 1000
 			int intensity;
 
-			QString electronconfig1;
-			QString electronconfig2;
-			QString term1;
-			QString term2;
-			QString J1;
-			QString J2;
+			TQString electronconfig1;
+			TQString electronconfig2;
+			TQString term1;
+			TQString term2;
+			TQString J1;
+			TQString J2;
 		};
 
 		/**
@@ -103,9 +103,9 @@ class Spectrum
 		 * @param min the lowest allowed wavalength in nanometer
 		 * @param max the highest allowed wavalength in nanometer
 		 * 
-		 * @return the wavelength in a QValueList<double>
+		 * @return the wavelength in a TQValueList<double>
 		 */
-		QValueList<double> wavelengths( double min, double max );
+		TQValueList<double> wavelengths( double min, double max );
 
 		/**
 		 * @return the smallest wavelength
@@ -124,7 +124,7 @@ class Spectrum
 		/**
 		 * @return the list of bands of the spectrum
 		 */
-		QValueList<band>* bandlist(){
+		TQValueList<band>* bandlist(){
 			return &m_bandlist;
 		}
 	
@@ -140,7 +140,7 @@ class Spectrum
 		/**
 		 * @return the data of a spectrum as HTML code
 		 */
-		QString bandsAsHtml();
+		TQString bandsAsHtml();
 
 		/**
 		 * @return the parent element of this spectrum
@@ -162,7 +162,7 @@ class Spectrum
 		/**
 		 * the internal dataset
 		 */
-		QValueList<band> m_bandlist;
+		TQValueList<band> m_bandlist;
 
 		/**
 		 * the cached values of the highest and lowest wavelength

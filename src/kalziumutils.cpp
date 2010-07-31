@@ -15,27 +15,27 @@
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <qfont.h>
-#include <qrect.h>
-#include <qpainter.h>
-#include <qglobal.h>
+#include <tqfont.h>
+#include <tqrect.h>
+#include <tqpainter.h>
+#include <tqglobal.h>
 
 #include <math.h>
 #if defined(Q_OS_SOLARIS)
 #include <ieeefp.h>
 #endif
 
-int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize )
+int KalziumUtils::maxSize( const TQString& string, const TQRect& rect, TQFont font, TQPainter* p, int minFontSize, int maxFontSize )
 {
 	bool goodSizeFound = false;
 	int size = maxFontSize;
-	QRect r;
+	TQRect r;
 
 	do
 	{
 		font.setPointSize( size );
 		p->setFont( font );
-		r = p->boundingRect( QRect(), Qt::AlignAuto, string );
+		r = p->boundingRect( TQRect(), Qt::AlignAuto, string );
 		r.moveBy( rect.left(), rect.top() );
 		
 		if ( rect.contains( r ) )
@@ -48,14 +48,14 @@ int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font,
 	return size;
 }
 
-int KalziumUtils::StringHeight( const QString& string, const QFont& font, QPainter* p )
+int KalziumUtils::StringHeight( const TQString& string, const TQFont& font, TQPainter* p )
 {
-	return p->boundingRect( QRect(), Qt::AlignAuto, string ).height();
+	return p->boundingRect( TQRect(), Qt::AlignAuto, string ).height();
 }
 
-int KalziumUtils::StringWidth( const QString& string, const QFont& font, QPainter* p )
+int KalziumUtils::StringWidth( const TQString& string, const TQFont& font, TQPainter* p )
 {
-	return p->boundingRect( QRect(), Qt::AlignAuto, string ).width();
+	return p->boundingRect( TQRect(), Qt::AlignAuto, string ).width();
 }
 
 double KalziumUtils::strippedValue( double num )
@@ -74,9 +74,9 @@ double KalziumUtils::strippedValue( double num )
 	return num * power / 10000;
 }
 	
-QString KalziumUtils::localizedValue( double val, int precision, unsigned long options  )
+TQString KalziumUtils::localizedValue( double val, int precision, unsigned long options  )
 {
-	QString str = KGlobal::locale()->formatNumber( val, precision ); 
+	TQString str = KGlobal::locale()->formatNumber( val, precision ); 
 	while( str.endsWith("0") )
 		str.truncate( str.length()-1);
 	if ( str.endsWith( KGlobal::locale()->decimalSymbol()  ) )

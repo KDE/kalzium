@@ -23,19 +23,19 @@ email                : cniehaus@kde.org
 #include <kglobal.h>
 
 //QT-Includes
-#include <qpainter.h>
-#include <qstring.h>
-#include <qpixmap.h>
-#include <qrect.h>
+#include <tqpainter.h>
+#include <tqstring.h>
+#include <tqpixmap.h>
+#include <tqrect.h>
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
-: QWidget( parent, name )
+DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, TQWidget *parent, const char *name ) 
+: TQWidget( parent, name )
 {
 	init( el );
 }
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
-: QWidget( parent, name )
+DetailedGraphicalOverview::DetailedGraphicalOverview( TQWidget *parent, const char *name ) 
+: TQWidget( parent, name )
 {
 	init( 0L );
 }
@@ -49,14 +49,14 @@ void DetailedGraphicalOverview::init( Element *el )
 	update();
 }
 
-void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
+void DetailedGraphicalOverview::paintEvent( TQPaintEvent* )
 {
 	int h = height();
 	int w = width();
 
-	QPixmap pm( w, h );
+	TQPixmap pm( w, h );
 
-	QPainter p;
+	TQPainter p;
 	p.begin( &pm );
 
 	p.setBrush(Qt::SolidPattern);
@@ -83,26 +83,26 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		p.setBrush( Qt::black );
 		p.setBrush(Qt::NoBrush);
 
-		QFont fA = KGlobalSettings::generalFont();
-		QFont fB = KGlobalSettings::generalFont();
-		QFont fC = KGlobalSettings::generalFont();
+		TQFont fA = KGlobalSettings::generalFont();
+		TQFont fB = KGlobalSettings::generalFont();
+		TQFont fC = KGlobalSettings::generalFont();
 
-		QString strLocalizedMass = KalziumUtils::localizedValue( m_element->mass(), 6 );
+		TQString strLocalizedMass = KalziumUtils::localizedValue( m_element->mass(), 6 );
 
 		fA.setPointSize( fA.pointSize() + 20 ); //Huge font
 		fA.setBold( true );
 		fB.setPointSize( fB.pointSize() + 6 ); //Big font
 		fC.setPointSize( fC.pointSize() + 4 ); //Big font
 		fC.setBold( true );
-		QFontMetrics fmA = QFontMetrics( fA );
-		QFontMetrics fmB = QFontMetrics( fB );
+		TQFontMetrics fmA = TQFontMetrics( fA );
+		TQFontMetrics fmB = TQFontMetrics( fB );
 
 		//coordinates for element symbol: near the center
 		int xA = 4 * w / 10;
 		int yA = h / 2;
 
 		//coordinates for the atomic number: offset from element symbol to the upper left
-		int xB = xA - fmB.width( QString::number( m_element->number() ) );
+		int xB = xA - fmB.width( TQString::number( m_element->number() ) );
 		int yB = yA - fmA.height() + fmB.height();
 
 		//Element Symbol
@@ -111,9 +111,9 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 		//Atomic number
 		p.setFont( fB );
-		p.drawText( xB, yB, QString::number( m_element->number() ));
+		p.drawText( xB, yB, TQString::number( m_element->number() ));
 
-		QRect rect( 0, 20, w/2, h );
+		TQRect rect( 0, 20, w/2, h );
 		
 		p.setFont( fC );
 				
@@ -150,7 +150,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	bitBlt( this, 0, 0, &pm );
 }
 
-void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
+void DetailedGraphicalOverview::drawBiologicalSymbol( TQPainter *p )
 {
 	if ( !m_element ) return;
 	const int db = h_t;        //diameter of the big circle
@@ -167,7 +167,7 @@ void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 		p->setBrush( Qt::SolidPattern );
 		p->setBrush( Qt::white );
 		p->setPen( Qt::black );
-		p->drawRoundRect( QRect( width() - radius, 
+		p->drawRoundRect( TQRect( width() - radius, 
 					-radius, 
 					2 * radius, 
 					2 * radius ), 70, 70 );

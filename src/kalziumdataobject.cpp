@@ -23,8 +23,8 @@
 #include "isotope.h"
 #include "spectrum.h"
 
-#include <qdom.h>
-#include <qfile.h>
+#include <tqdom.h>
+#include <tqfile.h>
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -41,12 +41,12 @@ KalziumDataObject* KalziumDataObject::instance()
 
 KalziumDataObject::KalziumDataObject()
 {
-	QDomDocument doc( "datadocument" );
+	TQDomDocument doc( "datadocument" );
 
 	KURL url;
 	url.setPath( locate("data", "kalzium/data/"));
 	url.setFileName( "data.xml" );
-	QFile layoutFile( url.path() );
+	TQFile layoutFile( url.path() );
 
 	if (!layoutFile.exists())
 	{
@@ -86,11 +86,11 @@ Element* KalziumDataObject::element( int number )
 	return *( ElementList.at( number-1 ) );
 }
 
-EList KalziumDataObject::readData(  QDomDocument &dataDocument )
+EList KalziumDataObject::readData(  TQDomDocument &dataDocument )
 {
 	EList list;
-	QDomNodeList elementNodes; //the list of all element
-	QDomElement  domElement;   //a single element
+	TQDomNodeList elementNodes; //the list of all element
+	TQDomElement  domElement;   //a single element
 
 	//read in all elements
 	elementNodes = dataDocument.elementsByTagName( "element" );
@@ -99,7 +99,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 	for ( uint i = 0; i < count; ++i )
 	{//iterate through all elements
-		domElement = ( const QDomElement& ) elementNodes.item( i ).toElement();
+		domElement = ( const TQDomElement& ) elementNodes.item( i ).toElement();
 
 		double mass = domElement.namedItem( "mass" ).toElement().text().toDouble();
 		double en = domElement.namedItem( "electronegativity" ).toElement().text().toDouble();
@@ -112,7 +112,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		double vdw_radius = domElement.namedItem( "radius" ).namedItem( "vdw" ).toElement().text().toDouble();
 		double atomic_radius = domElement.namedItem( "radius" ).namedItem( "atomic" ).toElement().text().toDouble();
 		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();
-		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
+		TQString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
 		
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
 		int radioactive = domElement.namedItem( "radioactive" ).toElement().text().toInt();
@@ -122,37 +122,37 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		int number = domElement.namedItem( "number" ).toElement().text().toInt();
 		int abundance = domElement.namedItem( "abundance" ).toElement().text().toInt();
 		
-		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
-		QString crystal = domElement.namedItem( "crystalstructure" ).toElement().text();
+		TQString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
+		TQString crystal = domElement.namedItem( "crystalstructure" ).toElement().text();
 		
-		QDomElement nameE = domElement.namedItem( "name" ).toElement();
-		QString name = nameE.text();
-		QString origin = i18n( nameE.attributeNode( "origin" ).value().utf8() );
+		TQDomElement nameE = domElement.namedItem( "name" ).toElement();
+		TQString name = nameE.text();
+		TQString origin = i18n( nameE.attributeNode( "origin" ).value().utf8() );
 		
-		QString block = domElement.namedItem( "block" ).toElement().text();
-		QString group = domElement.namedItem( "group" ).toElement().text();
-		QString family = domElement.namedItem( "family" ).toElement().text();
-		QString orbits = domElement.namedItem( "orbits" ).toElement().text();
-		QString symbol = domElement.namedItem( "symbol" ).toElement().text();
-		QString oxydation = domElement.namedItem( "oxydation" ).toElement().text();
-		QString acidicbehaviour = domElement.namedItem( "acidicbehaviour" ).toElement().text();
+		TQString block = domElement.namedItem( "block" ).toElement().text();
+		TQString group = domElement.namedItem( "group" ).toElement().text();
+		TQString family = domElement.namedItem( "family" ).toElement().text();
+		TQString orbits = domElement.namedItem( "orbits" ).toElement().text();
+		TQString symbol = domElement.namedItem( "symbol" ).toElement().text();
+		TQString oxydation = domElement.namedItem( "oxydation" ).toElement().text();
+		TQString acidicbehaviour = domElement.namedItem( "acidicbehaviour" ).toElement().text();
 
-		QDomNodeList elist = domElement.elementsByTagName( "energy" );
-		QValueList<double> ionlist;
+		TQDomNodeList elist = domElement.elementsByTagName( "energy" );
+		TQValueList<double> ionlist;
 		for( uint i = 0; i < elist.length(); i++ )
 		{
 			ionlist.append(  elist.item(  i ).toElement().text().toDouble() );
 		}
 		
 		//now read in all the date for the isotopes
-		QDomNodeList isotopelist = domElement.elementsByTagName( "isotope" );
-		QValueList<Isotope*> isolist;
+		TQDomNodeList isotopelist = domElement.elementsByTagName( "isotope" );
+		TQValueList<Isotope*> isolist;
 		for( uint i = 0; i < isotopelist.length(); i++ )
 		{
-			QDomElement iso = isotopelist.item( i ).toElement();
+			TQDomElement iso = isotopelist.item( i ).toElement();
 			double halflife = iso.attributeNode( "halflife" ).value().toDouble();
 			double weight = iso.attributeNode( "weight" ).value().toDouble();
-			QString format = iso.attributeNode( "halflifeformat" ).value();
+			TQString format = iso.attributeNode( "halflifeformat" ).value();
 			int neutrons  = iso.attributeNode( "neutron" ).value().toInt();
 			double percentage = iso.attributeNode( "percentage" ).value().toDouble();
 			double alphapercentage = iso.attributeNode( "alphapercentage" ).value().toDouble();
@@ -163,8 +163,8 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			double betaplusdecay = iso.attributeNode( "betaplusdecay" ).value().toDouble();
 			double betaminusdecay = iso.attributeNode( "betaminusdecay" ).value().toDouble();
 			double ecdecay = iso.attributeNode( "ecdecay" ).value().toDouble();
-			QString spin = iso.attributeNode( "spin" ).value();
-			QString magmoment = iso.attributeNode( "magmoment" ).value();
+			TQString spin = iso.attributeNode( "spin" ).value();
+			TQString magmoment = iso.attributeNode( "magmoment" ).value();
 			
 						
 			Isotope *isotope = new Isotope( neutrons, 
@@ -186,7 +186,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			isolist.append( isotope );
 		}
 
-		QDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
+		TQDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
 
 		Element *e = new Element();
 		e->setDate(date);
@@ -234,7 +234,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
 			Spectrum::band b;
-			QDomElement spec = spectrumList.item( i ).toElement();
+			TQDomElement spec = spectrumList.item( i ).toElement();
 			
 			b.intensity = spec.attributeNode( "intensity" ).value().toInt();
 			b.wavelength = spec.attributeNode( "wavelength" ).value().toDouble()/10.0;

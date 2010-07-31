@@ -14,7 +14,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <qstring.h>
+#include <tqstring.h>
 
 /**
  * This is a general purpose parser originally written by Inge Wallin.
@@ -31,13 +31,13 @@ public:
     // Extend this list in your subclass to make a more advanced parser.
 
     Parser();
-    Parser(const QString& _str);
+    Parser(const TQString& _str);
     ~Parser();
 
     /**
      * Start a new parse.
      */
-    void   start(const QString& _str);
+    void   start(const TQString& _str);
 
     /**
      * Peek at the next character;
@@ -79,7 +79,7 @@ protected:
     virtual int   getNextToken();
 
 private:
-    QString  m_str;
+    TQString  m_str;
     int      m_index;
     int      m_nextChar;
 

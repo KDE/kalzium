@@ -17,8 +17,8 @@
 #include "element.h"
 #include "parser.h"
 
-#include <qmap.h>
-#include <qvaluelist.h>
+#include <tqmap.h>
+#include <tqvaluelist.h>
 
 
 /**
@@ -64,12 +64,12 @@ class ElementCountMap {
     void           add(Element *_element, int _count);
 	void           multiply(int _factor);
 
-	typedef QValueList<ElementCount*>::Iterator  Iterator;
+	typedef TQValueList<ElementCount*>::Iterator  Iterator;
 	Iterator   begin() { return  m_map.begin(); }
 	Iterator   end()   { return  m_map.end();   }
 
  private:
-    QValueList<ElementCount*>  m_map;
+    TQValueList<ElementCount*>  m_map;
 };
 
 
@@ -80,7 +80,7 @@ class ElementCountMap {
  * Usage:
  * @code
  *   MoleculeParser  parser;
- *   QString         chemical_formula = "C2H5OH";
+ *   TQString         chemical_formula = "C2H5OH";
  *   double          weight;
  *
  *   if (parser.weight(chemical_formula, &weight))
@@ -97,7 +97,7 @@ public:
     static const int  ELEMENT_TOKEN = 300;
 
     MoleculeParser();
-    MoleculeParser( const QString& _str);
+    MoleculeParser( const TQString& _str);
     ~MoleculeParser();
 
     /**
@@ -106,7 +106,7 @@ public:
      *
      * @return whether the parsing was successful or not
      */
-    bool  weight(QString         _moleculeString,
+    bool  weight(TQString         _moleculeString,
 				 double          *_resultMass,
 				 ElementCountMap *_resultMap);
 
@@ -117,9 +117,9 @@ public:
     bool      parseTerm(double          *_resultMass, 
 						ElementCountMap *_resultMap);
 
-    Element  *lookupElement( const QString& _name );
+    Element  *lookupElement( const TQString& _name );
 
-    QMap<Element*, int> m_elementMap;
+    TQMap<Element*, int> m_elementMap;
 
 	//if this booloean is "true" the parser found an error
 	bool m_error;

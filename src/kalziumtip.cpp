@@ -24,12 +24,12 @@
 #include "kalziumutils.h"
 #include "element.h"
 
-#include <qapplication.h>
-#include <qpixmap.h>
-#include <qimage.h>
-#include <qsimplerichtext.h>
-#include <qpainter.h>
-#include <qdesktopwidget.h>
+#include <tqapplication.h>
+#include <tqpixmap.h>
+#include <tqimage.h>
+#include <tqsimplerichtext.h>
+#include <tqpainter.h>
+#include <tqdesktopwidget.h>
 
 #include <kdialog.h>
 #include <kdebug.h>
@@ -38,7 +38,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 
-KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidget( parent, name, f ) 
+KalziumTip::KalziumTip( TQWidget * parent, const char * name, WFlags f ) : TQWidget( parent, name, f ) 
 {
 	setFocusPolicy(NoFocus); //the widget don't get the keyboard focus
 	setBackgroundMode(NoBackground); // widget has no background
@@ -48,14 +48,14 @@ KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidge
 	m_noElemIcon = KGlobal::iconLoader()->loadIcon( "orbits", KIcon::NoGroup, 64 );
 	setMouseTracking(true); // receice mouse move events
 	
-	connect(&m_frameTimer, SIGNAL(timeout()), SLOT(internalUpdate()));
+	connect(&m_frameTimer, TQT_SIGNAL(timeout()), TQT_SLOT(internalUpdate()));
 }
 
-void KalziumTip::showTip( QPoint mouse, Element* element, int visibleWidth, int visibleHeight )
+void KalziumTip::showTip( TQPoint mouse, Element* element, int visibleWidth, int visibleHeight )
 {
-	QWidget *p = 0;
-        if ( dynamic_cast<QWidget*>( parent() ) )
-                p = static_cast<QWidget*>( parent() );
+	TQWidget *p = 0;
+        if ( dynamic_cast<TQWidget*>( parent() ) )
+                p = static_cast<TQWidget*>( parent() );
 
         if ( p )
         {
@@ -99,7 +99,7 @@ void KalziumTip::showTip( QPoint mouse, Element* element, int visibleWidth, int 
 	}
 }
 
-void KalziumTip::paintEvent(QPaintEvent* e)
+void KalziumTip::paintEvent(TQPaintEvent* e)
 {
 	if (m_dirty)
     	{
@@ -107,11 +107,11 @@ void KalziumTip::paintEvent(QPaintEvent* e)
         	m_dirty = false;
     	}
 
-	QPainter p(this);
+	TQPainter p(this);
    	p.drawPixmap(e->rect().topLeft(), m_pixmap, e->rect());
 }
 
-void KalziumTip::mouseMoveEvent(QMouseEvent * e)
+void KalziumTip::mouseMoveEvent(TQMouseEvent * e)
 {
 	// delegate the mouse move event to the parent (actually the elements table)
 	// so that this tooltip doesn't stop to be updated
@@ -125,15 +125,15 @@ void KalziumTip::display()
 
 	delete m_richText;
 	
-	QString elementname = m_tippedElement->elname();
+	TQString elementname = m_tippedElement->elname();
 	
-	QString number = i18n( "Number: %1" )
-			.arg( QString::number(m_tippedElement->number()) );
+	TQString number = i18n( "Number: %1" )
+			.arg( TQString::number(m_tippedElement->number()) );
 	
-	QString mass = i18n( "Mass: %1" )
+	TQString mass = i18n( "Mass: %1" )
 			.arg( KalziumUtils::localizedValue(m_tippedElement->mass(), 6) );
 
-	m_richText = new QSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
+	m_richText = new TQSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
 						    + number + "</p><p>"
 						    + mass  +"</p></qt>", font());
 
@@ -157,7 +157,7 @@ void KalziumTip::displayInternal()
     	
 
 	// determine text rectangel sizes
-	QRect textRect(0,0,0,0);
+	TQRect textRect(0,0,0,0);
 	textRect.setWidth(m_richText->widthUsed());
 	textRect.setHeight(m_richText->height());
 
@@ -190,7 +190,7 @@ void KalziumTip::displayInternal()
     	}
 
 	// draw background
-    	QPainter bufferPainter(&m_pixmap);
+    	TQPainter bufferPainter(&m_pixmap);
     	bufferPainter.setPen(Qt::black);
     	bufferPainter.setBrush(backgroundColor());
     	bufferPainter.drawRoundRect(0, 0, width, height,
@@ -206,10 +206,10 @@ void KalziumTip::displayInternal()
     	}
 	
 	// draw text shadow
-        QColorGroup cg = colorGroup();
-        cg.setColor(QColorGroup::Text, cg.background().dark(115));
-        int shadowOffset = QApplication::reverseLayout() ? -1 : 1;
-        m_richText->draw(&bufferPainter, 5 + textX + shadowOffset, textY + 1, QRect(), cg);
+        TQColorGroup cg = colorGroup();
+        cg.setColor(TQColorGroup::Text, cg.background().dark(115));
+        int shadowOffset = TQApplication::reverseLayout() ? -1 : 1;
+        m_richText->draw(&bufferPainter, 5 + textX + shadowOffset, textY + 1, TQRect(), cg);
 
         // draw text
         cg = colorGroup();
@@ -218,7 +218,7 @@ void KalziumTip::displayInternal()
 
 void KalziumTip::dissolveMask()
 {
-    QPainter maskPainter(&m_mask);
+    TQPainter maskPainter(&m_mask);
 
     m_mask.fill(Qt::black);
 
@@ -264,12 +264,12 @@ void KalziumTip::hide()
 {
 	m_frameTimer.stop();
     	m_tippedElement = 0;
-    	QWidget::hide();
+    	TQWidget::hide();
 }
 
 void KalziumTip::plainMask()
 {
-    	QPainter maskPainter(&m_mask);
+    	TQPainter maskPainter(&m_mask);
 
     	m_mask.fill(Qt::black);
 
@@ -289,11 +289,11 @@ void KalziumTip::internalUpdate()
 
 void KalziumTip::loadIcon()
 {
-	QString iconpath = locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" );
+	TQString iconpath = locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" );
 	if ( !iconpath.isEmpty() )
 	{
-		QImage img ( iconpath, "JPEG" );
-		img = img.smoothScale ( 128, 128, QImage::ScaleMin );
+		TQImage img ( iconpath, "JPEG" );
+		img = img.smoothScale ( 128, 128, TQImage::ScaleMin );
 		m_icon.convertFromImage( img );
 
 	}

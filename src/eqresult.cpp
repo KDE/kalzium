@@ -18,9 +18,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <qtimer.h>
-#include <qpainter.h>
-#include <qcolor.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
+#include <tqcolor.h>
 
 #include <kdebug.h>
 
@@ -28,68 +28,68 @@
 
 // inspired by speedcrunch
 
-QuestionItem::QuestionItem( QListBox* listBox, const QString& e, QColor bg ):
-QListBoxItem ( listBox )
+QuestionItem::QuestionItem( TQListBox* listBox, const TQString& e, TQColor bg ):
+TQListBoxItem ( listBox )
 {
     m_msg = e;
     m_bgcolor = bg;
 }
 
-AnswerItem::AnswerItem( QListBox* listBox, const QString& e, const QString &r, QColor bg ):
-QListBoxItem ( listBox )
+AnswerItem::AnswerItem( TQListBox* listBox, const TQString& e, const TQString &r, TQColor bg ):
+TQListBoxItem ( listBox )
 {
     m_msg = "<p align=\"right\">"+r+"</p>";
     m_origmsg = e;
     m_bgcolor = bg;
-    m_richtext = new QSimpleRichText(m_msg, listBox->font());
+    m_richtext = new TQSimpleRichText(m_msg, listBox->font());
     m_richtext->setWidth( listBox->width() );
 }
 
-void QuestionItem::paint( QPainter* painter )
+void QuestionItem::paint( TQPainter* painter )
 {
     int tf = Qt::NoAccel | Qt::SingleLine | Qt::AlignVCenter;
 
-    QRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
+    TQRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
     painter->fillRect( r, m_bgcolor );
     painter->drawText( r, tf, m_msg );
 }
 
-void AnswerItem::paint( QPainter* painter )
+void AnswerItem::paint( TQPainter* painter )
 {
     checkSize();
 
-    QRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
+    TQRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
     painter->fillRect( r, m_bgcolor );
 
-    QColorGroup cg = listBox()->colorGroup();
-    cg.setColor( QColorGroup::Background, m_bgcolor );
+    TQColorGroup cg = listBox()->colorGroup();
+    cg.setColor( TQColorGroup::Background, m_bgcolor );
 
     m_richtext->draw(painter, 0, 0, r, cg );
 }
 
-int QuestionItem::width( const QListBox*lb ) const
+int QuestionItem::width( const TQListBox*lb ) const
 {
-    QFont font = lb->font();
-    return QFontMetrics( font ).width( m_msg );
+    TQFont font = lb->font();
+    return TQFontMetrics( font ).width( m_msg );
 }
 
-int QuestionItem::height( const QListBox*lb ) const
+int QuestionItem::height( const TQListBox*lb ) const
 {
-    QFont font = lb->font();
-    return QFontMetrics( font ).height() + 4;
+    TQFont font = lb->font();
+    return TQFontMetrics( font ).height() + 4;
 }
 
 void AnswerItem::checkSize()
 {
-    QFont font = listBox()->font();
-    int t1 = QFontMetrics( font ).width( m_origmsg+"padding" );
+    TQFont font = listBox()->font();
+    int t1 = TQFontMetrics( font ).width( m_origmsg+"padding" );
     int t2 = listBox()->width() - 20;
 
     // take the maximum
     m_richtext->setWidth(   (t1>t2)?t1:t2   );
 }
 
-EqResult::EqResult(QWidget *parent) : QListBox(parent)
+EqResult::EqResult(TQWidget *parent) : TQListBox(parent)
 {
     m_alternate_color = false;
     setMinimumWidth(140);
@@ -99,9 +99,9 @@ EqResult::~EqResult()
 {
 }
 
-void EqResult::add(const QString & question, const QString & answer)
+void EqResult::add(const TQString & question, const TQString & answer)
 {
-    QColor bgcolor = colorGroup().base();
+    TQColor bgcolor = colorGroup().base();
 
     if ( m_alternate_color )
 	bgcolor = bgcolor.dark( 120 );
@@ -111,7 +111,7 @@ void EqResult::add(const QString & question, const QString & answer)
     new QuestionItem( this, question, bgcolor );
     new AnswerItem( this, question, answer, bgcolor );
 
-    QTimer::singleShot( 100, this, SLOT( scrollToEnd() ) );
+    TQTimer::singleShot( 100, this, TQT_SLOT( scrollToEnd() ) );
 }
 
 void EqResult::scrollToEnd()
@@ -119,7 +119,7 @@ void EqResult::scrollToEnd()
     ensureVisible( 0, contentsHeight()-1 );
 }
 
-void EqResult::resizeEvent( QResizeEvent* )
+void EqResult::resizeEvent( TQResizeEvent* )
 {
     triggerUpdate( true );
 }

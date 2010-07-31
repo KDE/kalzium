@@ -107,7 +107,7 @@ class Kalzium : public KMainWindow
 		/**
 		 * the layout of the central Widget ( CentralWidget )
 		 */
-		QVBoxLayout *m_pCentralLayout;
+		TQVBoxLayout *m_pCentralLayout;
 
 		MolcalcWidget *m_calcWidget;
 
@@ -117,8 +117,8 @@ class Kalzium : public KMainWindow
 
 		DetailedGraphicalOverview *m_detailWidget;
 
-		QDockWindow *m_dockWin;
-		QToolBox *m_toolbox;
+		TQDockWindow *m_dockWin;
+		TQToolBox *m_toolbox;
 		int m_toolboxCurrent;
 
 		GlossaryDialog *m_glossarydlg;

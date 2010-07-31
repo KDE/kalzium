@@ -21,8 +21,8 @@
 #ifndef _EQRESULT_H_
 #define _EQRESULT_H_
 
-#include <qlistbox.h>
-#include <qsimplerichtext.h>
+#include <tqlistbox.h>
+#include <tqsimplerichtext.h>
 
 /**
  * @author Thomas Nagy
@@ -30,14 +30,14 @@
 class QuestionItem : public QListBoxItem
 {
     public:
-	QuestionItem( QListBox*, const QString&, QColor bg );
+	QuestionItem( TQListBox*, const TQString&, TQColor bg );
     protected:
-	void paint( QPainter* p );
-	int width( const QListBox* ) const;
-	int height( const QListBox* ) const;
+	void paint( TQPainter* p );
+	int width( const TQListBox* ) const;
+	int height( const TQListBox* ) const;
     private:
-	QString m_msg;
-	QColor m_bgcolor;
+	TQString m_msg;
+	TQColor m_bgcolor;
 };
 
 /**
@@ -46,24 +46,24 @@ class QuestionItem : public QListBoxItem
 class AnswerItem : public QListBoxItem
 {
     public:
-	AnswerItem(  QListBox*, const QString&, const QString&, QColor bg );
+	AnswerItem(  TQListBox*, const TQString&, const TQString&, TQColor bg );
 	~AnswerItem() { delete m_richtext; }
 	void checkSize();
     protected:
-	void paint( QPainter* p );
-	int width( const QListBox* ) const{
+	void paint( TQPainter* p );
+	int width( const TQListBox* ) const{
 		return m_richtext->height();
 	}
 	
-	int height( const QListBox* ) const{
+	int height( const TQListBox* ) const{
 		return m_richtext->height();
 	}
 	
     private:
-	QString m_msg;
-	QString m_origmsg;
-	QColor m_bgcolor;
-	QSimpleRichText * m_richtext;
+	TQString m_msg;
+	TQString m_origmsg;
+	TQColor m_bgcolor;
+	TQSimpleRichText * m_richtext;
 };
 
 /**
@@ -74,13 +74,13 @@ class EqResult : public QListBox
     Q_OBJECT
 public:
     
-    EqResult(QWidget *parent);
+    EqResult(TQWidget *parent);
     ~EqResult();
 
 public slots:
-    void add(const QString &, const QString &);
+    void add(const TQString &, const TQString &);
     void scrollToEnd();
-    void resizeEvent( QResizeEvent* );
+    void resizeEvent( TQResizeEvent* );
 
 private:
     bool m_alternate_color;

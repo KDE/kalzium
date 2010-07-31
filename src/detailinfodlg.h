@@ -18,7 +18,7 @@
 
 #include <kdialogbase.h>
 
-#include <qmap.h>
+#include <tqmap.h>
 
 class DetailedGraphicalOverview;
 class Element;
@@ -41,7 +41,7 @@ class DetailedInfoDlg : public KDialogBase
 	Q_OBJECT
 
 	public:
-		DetailedInfoDlg( Element *el , QWidget *parent=0, const char *name=0);
+		DetailedInfoDlg( Element *el , TQWidget *parent=0, const char *name=0);
  
 		void setElement(Element *el);
 
@@ -60,14 +60,14 @@ class DetailedInfoDlg : public KDialogBase
 
 		SpectrumViewImpl *m_spectrumview;
 
-		QString isotopeTable();
+		TQString isotopeTable();
 
-		QMap<QString, KHTMLPart*> m_htmlpages;
+		TQMap<TQString, KHTMLPart*> m_htmlpages;
 		
-		QLabel *piclabel;
+		TQLabel *piclabel;
 
-		QWidgetStack* m_spectrumStack;
-		QLabel* m_spectrumLabel;
+		TQWidgetStack* m_spectrumStack;
+		TQLabel* m_spectrumLabel;
 
 		DetailedGraphicalOverview *dTab;
 
@@ -80,10 +80,10 @@ class DetailedInfoDlg : public KDialogBase
 		void createContent();
 		void reloadContent();
 
-		QString getHtml(DATATYPE);
+		TQString getHtml(DATATYPE);
 
-		QString m_baseHtml;
-		QString m_picsdir;
+		TQString m_baseHtml;
+		TQString m_picsdir;
 
 		/**
 		 * Add a new HTML page to the dialog.
@@ -95,14 +95,14 @@ class DetailedInfoDlg : public KDialogBase
 		 * @returns the pointer to the resulting KHTMLPart, needed for
 		 * writing HTML code on it
 		 */
-		KHTMLPart* addHTMLTab( const QString& title, const QString& icontext, const QString& iconname );
+		KHTMLPart* addHTMLTab( const TQString& title, const TQString& icontext, const TQString& iconname );
 		/**
 		 * Change the HTML code in an HTML page.
 		 *
 		 * @param htmlpart the KHTMLPart to edit
 		 * @param htmlcode the HTML code to display
 		 */
-		void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
+		void fillHTMLTab( KHTMLPart* htmlpart, const TQString& htmlcode );
 	
 	protected slots:
 		virtual void slotUser1();
@@ -113,7 +113,7 @@ class DetailedInfoDlg : public KDialogBase
 		virtual void slotHelp();
 
 	protected:
-		virtual void wheelEvent (  QWheelEvent * ev );
+		virtual void wheelEvent (  TQWheelEvent * ev );
 
 	signals:
 		void elementChanged( int );

@@ -19,7 +19,7 @@
 
 #include "exporter.h"
 
-#include <qpixmap.h>
+#include <tqpixmap.h>
 
 #include <kdebug.h>
 #include <kimageio.h>
@@ -39,11 +39,11 @@ Exporter::~Exporter()
 {
 }
 
-bool Exporter::saveAsImage( const QPixmap* pixmap, const QString& fileName, int x, int y, int width, int height )
+bool Exporter::saveAsImage( const TQPixmap* pixmap, const TQString& fileName, int x, int y, int width, int height )
 {
 	if ( x != 0 || y != 0 || width != 0 || height != 0 )
 	{
-		QPixmap* tmpPixmap = new QPixmap();
+		TQPixmap* tmpPixmap = new TQPixmap();
 
 		copyBlt( tmpPixmap, 0, 0, pixmap, x, y, width, height );
 	
@@ -55,7 +55,7 @@ bool Exporter::saveAsImage( const QPixmap* pixmap, const QString& fileName, int 
 	return pixmap->save( fileName, "PNG" );
 }
 
-QString Exporter::supportedImageFormats()
+TQString Exporter::supportedImageFormats()
 {
 	return KImageIO::pattern( KImageIO::Writing );
 }

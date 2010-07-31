@@ -26,11 +26,11 @@
 #include <kapplication.h>
 
 //QT-Includes
-#include <qlayout.h>
-#include <qcheckbox.h>
-#include <qlabel.h>
+#include <tqlayout.h>
+#include <tqcheckbox.h>
+#include <tqlabel.h>
 
-ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
+ElementDataViewer::ElementDataViewer( TQWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 
 			i18n( "Plot Data") , 
 			Help | User1 | Close,
@@ -41,7 +41,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 
 	yData = new AxisData();
 	
-	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+	TQHBoxLayout *layout = new TQHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
 
 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
@@ -69,15 +69,15 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	setButtonText( User1, i18n("&Plot") );
 
 	m_actionCollection = new KActionCollection(this);
-	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
+	KStdAction::quit(this, TQT_SLOT(slotClose()), m_actionCollection);	
 
-	connect ( m_pPlotSetupWidget->KCB_y,         SIGNAL( activated(int) ),
-			  this,                              SLOT( drawPlot()) );
+	connect ( m_pPlotSetupWidget->KCB_y,         TQT_SIGNAL( activated(int) ),
+			  this,                              TQT_SLOT( drawPlot()) );
 
-	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool) ),
-			  this,                              SLOT( drawPlot()) );
-	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool) ),
-			  this,                              SLOT( drawPlot()) );
+	connect ( m_pPlotSetupWidget->connectPoints, TQT_SIGNAL( toggled(bool) ),
+			  this,                              TQT_SLOT( drawPlot()) );
+	connect ( m_pPlotSetupWidget->showNames,     TQT_SIGNAL( toggled(bool) ),
+			  this,                              TQT_SLOT( drawPlot()) );
 
 	// Draw the plot so that the user doesn't have to press the "Plot"
 	// button to seee anything.
@@ -128,12 +128,12 @@ void ElementDataViewer::setLimits(int f, int t)
 	m_pPlotWidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
 }
 
-void ElementDataViewer::paintEvent(QPaintEvent*)
+void ElementDataViewer::paintEvent(TQPaintEvent*)
 {
 	m_pPlotWidget->update();
 }
 
-void ElementDataViewer::keyPressEvent(QKeyEvent *e)
+void ElementDataViewer::keyPressEvent(TQKeyEvent *e)
 {
 	switch ( e->key() )
 	{
@@ -294,9 +294,9 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * reserve the memory for the KPlotObjects
 	 */
-	//TODO QT4 replace QMemArray with QVector
-	QMemArray<KPlotObject*> dataPoint(num);
-	QMemArray<KPlotObject*> dataPointLabel(num);
+	//TODO QT4 replace TQMemArray with QVector
+	TQMemArray<KPlotObject*> dataPoint(num);
+	TQMemArray<KPlotObject*> dataPointLabel(num);
 
 	int number = 0;
 
@@ -334,9 +334,9 @@ void ElementDataViewer::drawPlot()
 	}
 
 	//now set the values for the min, max and avarage value
-	m_pPlotSetupWidget->aValue->setText( QString::number( av/number ) );
-	m_pPlotSetupWidget->minValue->setText( QString::number( min ) );
-	m_pPlotSetupWidget->maxValue->setText( QString::number( max ) );
+	m_pPlotSetupWidget->aValue->setText( TQString::number( av/number ) );
+	m_pPlotSetupWidget->minValue->setText( TQString::number( min ) );
+	m_pPlotSetupWidget->maxValue->setText( TQString::number( max ) );
 }
 
 void ElementDataViewer::initData()

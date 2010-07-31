@@ -29,20 +29,20 @@
 #include <kpixmapeffect.h>
 #include <kimageeffect.h>
 
-#include <qimage.h>
-#include <qstring.h>
-#include <qtooltip.h>
-#include <qwhatsthis.h>
-#include <qlabel.h>
-#include <qpixmap.h>
-#include <qpoint.h>
-#include <qcursor.h>
-#include <qpainter.h>
-#include <qcolor.h>
-#include <qrect.h>
+#include <tqimage.h>
+#include <tqstring.h>
+#include <tqtooltip.h>
+#include <tqwhatsthis.h>
+#include <tqlabel.h>
+#include <tqpixmap.h>
+#include <tqpoint.h>
+#include <tqcursor.h>
+#include <tqpainter.h>
+#include <tqcolor.h>
+#include <tqrect.h>
 
-PerodicTableView::PerodicTableView(QWidget *parent, const char *name)
-  : QWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
+PerodicTableView::PerodicTableView(TQWidget *parent, const char *name)
+  : TQWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
 {
 	d = KalziumDataObject::instance();
 
@@ -51,22 +51,22 @@ PerodicTableView::PerodicTableView(QWidget *parent, const char *name)
 	unSelect();
 
 #if 0
-	connect( this,        SIGNAL( tableClicked( QPoint ) ), 
-			 this,        SLOT( selectPoint( QPoint ) ) );
+	connect( this,        TQT_SIGNAL( tableClicked( TQPoint ) ), 
+			 this,        TQT_SLOT( selectPoint( TQPoint ) ) );
 #endif
-	connect( this,        SIGNAL( ToolTip( int ) ), 
-	         this,        SLOT( slotToolTip( int ) ) );
+	connect( this,        TQT_SIGNAL( ToolTip( int ) ), 
+	         this,        TQT_SLOT( slotToolTip( int ) ) );
 
-	connect( &HoverTimer, SIGNAL( timeout() ), 
-	         this,        SLOT( slotTransientLabel() ) );
+	connect( &HoverTimer, TQT_SIGNAL( timeout() ), 
+	         this,        TQT_SLOT( slotTransientLabel() ) );
 	
-	connect( &MouseoverTimer, SIGNAL( timeout() ), 
-	         this,        SLOT( slotMouseover() ) );
+	connect( &MouseoverTimer, TQT_SIGNAL( timeout() ), 
+	         this,        TQT_SLOT( slotMouseover() ) );
 
 	setMouseTracking( true );
 
 	//JH: eliminates flicker on redraw
-	setBackgroundMode( QWidget::NoBackground );
+	setBackgroundMode( TQWidget::NoBackground );
 
 	m_molcalcIsActive = false;
 	m_showTooltip = true;
@@ -119,8 +119,8 @@ PerodicTableView::PerodicTableView(QWidget *parent, const char *name)
 	m_IUPACOLDlist.append( "7B");
 	m_IUPACOLDlist.append( "0");
 
-	table = new QPixmap();
-	table2 = new QPixmap();
+	table = new TQPixmap();
+	table2 = new TQPixmap();
 
 	m_kalziumTip = new KalziumTip( this );
 
@@ -170,12 +170,12 @@ void PerodicTableView::slotToolTip( int number )
 
 	m_tooltipElementNumber = number;
 
-	QWidget *p = 0;
-	if ( dynamic_cast<QWidget*>( parent() ) )
-		p = static_cast<QWidget*>( parent() );
+	TQWidget *p = 0;
+	if ( dynamic_cast<TQWidget*>( parent() ) )
+		p = static_cast<TQWidget*>( parent() );
 
 	if( p )
-		m_kalziumTip->showTip( mapFromGlobal(QCursor::pos()), 
+		m_kalziumTip->showTip( mapFromGlobal(TQCursor::pos()), 
 				d->element(number), 
 				p->width(), 
 				p->height() );	
@@ -192,7 +192,7 @@ void PerodicTableView::activateColorScheme( const int nr )
 
 	if ( m_currentScheme == PerodicTableView::NOCOLOUR ) //normal view, no colors
 	{
-		const QColor color = Prefs::noscheme();
+		const TQColor color = Prefs::noscheme();
 		while ( it != itEnd )
 		{
 			( *it )->setElementColor( color );
@@ -202,34 +202,34 @@ void PerodicTableView::activateColorScheme( const int nr )
 	else if ( m_currentScheme == PerodicTableView::GROUPS ) //groups view
 	{
 
-		static QString group;
+		static TQString group;
 
 		while ( it != itEnd )
 		{
 			group = ( *it )->group();
 			
-			if (group == QString("1")) {
+			if (group == TQString("1")) {
 				( *it )->setElementColor( color_1 );
 			}
-			if (group == QString("2")){
+			if (group == TQString("2")){
 				( *it )->setElementColor( color_2 );
 			}
-			if (group == QString("3")){
+			if (group == TQString("3")){
 				( *it )->setElementColor( color_3 );
 			}
-			if (group == QString("4")){
+			if (group == TQString("4")){
 				( *it )->setElementColor( color_4 );
 			}
-			if (group == QString("5")){
+			if (group == TQString("5")){
 				( *it )->setElementColor( color_5 );
 			}
-			if (group == QString("6")){
+			if (group == TQString("6")){
 				( *it )->setElementColor( color_6 );
 			}
-			if (group == QString("7")){
+			if (group == TQString("7")){
 				( *it )->setElementColor( color_7 );
 			}
-			if (group == QString("8")){
+			if (group == TQString("8")){
 				( *it )->setElementColor( color_8 );
 			}
 
@@ -238,21 +238,21 @@ void PerodicTableView::activateColorScheme( const int nr )
 	}
 	else if ( m_currentScheme == PerodicTableView::BLOCK ) //block view
 	{
-		static QString block;
+		static TQString block;
 		while ( it != itEnd )
 		{
 			block = (*it)->block();
 
-			if (block == QString("s")) {
+			if (block == TQString("s")) {
 				(*it)->setElementColor( color_s );
 			}
-			if (block == QString("p")) {
+			if (block == TQString("p")) {
 				(*it)->setElementColor( color_p );
 			}
-			if (block == QString("d")) {
+			if (block == TQString("d")) {
 				(*it)->setElementColor( color_d );
 			}
-			if (block == QString("f")) {
+			if (block == TQString("f")) {
 				(*it)->setElementColor( color_f );
 			}
 			++it;
@@ -260,22 +260,22 @@ void PerodicTableView::activateColorScheme( const int nr )
 	}
 	else if ( m_currentScheme == PerodicTableView::ACIDIC ) //acidic beh
 	{
-		static QString acidicbeh;
+		static TQString acidicbeh;
 		
 		while ( it != itEnd )
 		{
 			acidicbeh = ( *it )->acidicbeh();
 
-			if (acidicbeh == QString("0")) {
+			if (acidicbeh == TQString("0")) {
 				(*it)->setElementColor( color_ac );
 			}
-			if (acidicbeh == QString("1")){
+			if (acidicbeh == TQString("1")){
 				(*it)->setElementColor( color_ba );
 			}
-			if (acidicbeh == QString("2")){
+			if (acidicbeh == TQString("2")){
 				(*it)->setElementColor( color_neu );
 			}
-			if (acidicbeh == QString("3")){
+			if (acidicbeh == TQString("3")){
 				(*it)->setElementColor( color_amp );
 			}
 			++it;
@@ -283,7 +283,7 @@ void PerodicTableView::activateColorScheme( const int nr )
 	}
 	else if ( m_currentScheme ==  PerodicTableView::FAMILY ) //familiy of the element
 	{
-		static QString family;
+		static TQString family;
 
 		while ( it != itEnd )
 		{
@@ -323,7 +323,7 @@ void PerodicTableView::activateColorScheme( const int nr )
 		
 }
 
-void PerodicTableView::resizeEvent( QResizeEvent * /*e*/ ) 
+void PerodicTableView::resizeEvent( TQResizeEvent * /*e*/ ) 
 {
   table->resize( width(), height() );
   table2->resize( width(), height() );
@@ -334,9 +334,9 @@ void PerodicTableView::resizeEvent( QResizeEvent * /*e*/ )
   update();
 }
 
-void PerodicTableView::paintEvent( QPaintEvent * /*e*/ )
+void PerodicTableView::paintEvent( TQPaintEvent * /*e*/ )
 {
-	QPainter p;
+	TQPainter p;
 
 	//JH: I have split the drawing into two pixmaps: table and table2.
 	//table contains the "static" PerodicTableView table, and does not change very often.
@@ -413,10 +413,10 @@ void PerodicTableView::paintCurrentSelection()
 	// make a small gap (ELEMENTSIZE/3) over the rare earths
 	if (m_currentPoint.y() > 7) y += ELEMENTSIZE/3;
 
-	QPainter p;
+	TQPainter p;
 	p.begin(table);
 
-	QPen pen;
+	TQPen pen;
 	pen.setStyle( DotLine );
 	pen.setWidth( 4 );
 	pen.setColor( Qt::blue );
@@ -431,12 +431,12 @@ void PerodicTableView::paintCurrentSelection()
 	p.end();
 }
 
-void PerodicTableView::drawLegendToolTip( QPainter* p )
+void PerodicTableView::drawLegendToolTip( TQPainter* p )
 {
 	kdDebug() << "PerodicTableView::drawLegendToolTip()" << endl;
 	if(!m_showLegendTooltip || !m_showLegend) return;
 
-	QString text;
+	TQString text;
 
 	switch ( m_currentScheme ) {
 		//No Legend drawn as only one colour is used
@@ -456,19 +456,19 @@ void PerodicTableView::drawLegendToolTip( QPainter* p )
 			break;
 	}
 
-	const int x1 = mapFromGlobal( QCursor::pos() ).x();
-	const int y1 = mapFromGlobal( QCursor::pos() ).y();
+	const int x1 = mapFromGlobal( TQCursor::pos() ).x();
+	const int y1 = mapFromGlobal( TQCursor::pos() ).y();
 
 	static const int padding = 3;
 
-	QFont fB = KGlobalSettings::generalFont();
+	TQFont fB = KGlobalSettings::generalFont();
 	fB.setPointSize( fB.pointSize() + 4 );
 	p->setFont( fB );
 
-	QRect bRect( 0, 0, 1000, 1000 );
+	TQRect bRect( 0, 0, 1000, 1000 );
 	bRect = p->boundingRect( bRect, AlignLeft|AlignTop, text );
 	bRect.moveBy( x1, y1 );
-	QRect bRectExt = bRect;
+	TQRect bRectExt = bRect;
 	bRect.moveBy( padding, padding );
 	bRectExt.setWidth( bRectExt.width() + 2 * padding );
 	bRectExt.setHeight( bRectExt.height() + 2 * padding );
@@ -492,7 +492,7 @@ void PerodicTableView::drawLegendToolTip( QPainter* p )
 	}
 
 	p->setBrush(Qt::SolidPattern);
-	p->setBrush( QColor( 255, 255, 220 ) );
+	p->setBrush( TQColor( 255, 255, 220 ) );
 	p->drawRect( bRectExt );
 
 	p->setBrush( Qt::black );
@@ -501,7 +501,7 @@ void PerodicTableView::drawLegendToolTip( QPainter* p )
 	p->drawText( bRect, AlignLeft|AlignTop, text );
 }
 
-void PerodicTableView::drawTimeLine( QPainter* p )
+void PerodicTableView::drawTimeLine( TQPainter* p )
 {
 	if ( !p ) return;
 	kdDebug() << "PerodicTableView::drawTimeLine: " << m_date << endl;
@@ -528,7 +528,7 @@ void PerodicTableView::drawTimeLine( QPainter* p )
 	}
 }
 
-void PerodicTableView::drawLegend( QPainter* p )
+void PerodicTableView::drawLegend( TQPainter* p )
 {
 	if ( !p ) return;
 
@@ -545,7 +545,7 @@ void PerodicTableView::drawLegend( QPainter* p )
 	 * does not collide with the elements
 	 */
 	
-	QFont legendFont = KGlobalSettings::generalFont();
+	TQFont legendFont = KGlobalSettings::generalFont();
 	legendFont.setPointSize( legendFont.pointSize() + 1 );
 	p->setFont( legendFont );
 
@@ -574,7 +574,7 @@ void PerodicTableView::drawLegend( QPainter* p )
 	
 	if ( !m_currentScheme == PerodicTableView::NOCOLOUR )
 		p->fillRect(legendLeft, legendTop, legendWidth, legendHeight, 
-				QColor(200, 200, 200));
+				TQColor(200, 200, 200));
 
 	if ( som() )
 	{
@@ -669,7 +669,7 @@ void PerodicTableView::drawLegend( QPainter* p )
 	}
 }
 
-void PerodicTableView::drawNumeration( QPainter* p )
+void PerodicTableView::drawNumeration( TQPainter* p )
 {
 	if ( !p ) return;
 
@@ -679,7 +679,7 @@ void PerodicTableView::drawNumeration( QPainter* p )
 		case PerodicTableView::CAS:
 			for(int i = 0; i < 18 ; ++i )
 			{
-				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
+				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, TQString::number(i+1));
 			}
 			break;
 		case PerodicTableView::IUPAC:
@@ -698,7 +698,7 @@ void PerodicTableView::drawNumeration( QPainter* p )
 }
 
 	
-void PerodicTableView::drawSOMPerodicTableView( QPainter* p )
+void PerodicTableView::drawSOMPerodicTableView( TQPainter* p )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -713,7 +713,7 @@ void PerodicTableView::drawSOMPerodicTableView( QPainter* p )
 
 void PerodicTableView::slotTransientLabel()
 {
-	QPoint point = ElementUnderMouse();
+	TQPoint point = ElementUnderMouse();
 
 	int X = point.x();
 	int Y = point.y();
@@ -730,13 +730,13 @@ void PerodicTableView::slotTransientLabel()
 		m_showLegendTooltip = false;
 }
 
-void PerodicTableView::mousePressEvent( QMouseEvent *)
+void PerodicTableView::mousePressEvent( TQMouseEvent *)
 {
 	if( m_kalziumTip->isVisible() )
 		m_kalziumTip->hide();
 }
 
-void PerodicTableView::mouseMoveEvent( QMouseEvent * /*mouse*/ )
+void PerodicTableView::mouseMoveEvent( TQMouseEvent * /*mouse*/ )
 {
 	//JH: only update() if we were showing a tooltip
 	if ( m_tooltipElementNumber || m_showLegendTooltip )
@@ -751,7 +751,7 @@ void PerodicTableView::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 	if( m_kalziumTip->isVisible() )
 	{
 //		kdDebug()<< "visible" << endl;
-		QPoint point = ElementUnderMouse();
+		TQPoint point = ElementUnderMouse();
 
 		int X = point.x();
 		int Y = point.y();
@@ -781,7 +781,7 @@ bool PerodicTableView::pointerOnLegend(int X, int Y)
 	return false;
 }
 
-void PerodicTableView::mouseReleaseEvent( QMouseEvent *mouse )
+void PerodicTableView::mouseReleaseEvent( TQMouseEvent *mouse )
 {
 	///first: find out the position
 	int X = mouse->x()/ELEMENTSIZE;
@@ -800,7 +800,7 @@ void PerodicTableView::mouseReleaseEvent( QMouseEvent *mouse )
 	X += 1;
 	Y += 1;
 
-	QPoint point( X,Y );
+	TQPoint point( X,Y );
 	emit tableClicked( point );
 	
 	const int num = ElementNumber( X, Y );
@@ -846,14 +846,14 @@ int PerodicTableView::ElementNumber( int X, int Y )
 
 void PerodicTableView::unSelect()
 {
-	m_currentPoint = QPoint(-1, -1);
+	m_currentPoint = TQPoint(-1, -1);
 
 	// Full draw needed to redraw the select mark.
 	setFullDraw();
 	update();
 }
 
-void PerodicTableView::selectPoint( const QPoint& point )
+void PerodicTableView::selectPoint( const TQPoint& point )
 {
 	kdDebug() << "PerodicTableView::selectPoint " << point << endl;
 
@@ -871,7 +871,7 @@ void PerodicTableView::selectElement( int num )
 	selectPoint( d->element( num )->coords() );
 }
 
-void PerodicTableView::drawPerodicTableView( QPainter* p, bool isCrystal )
+void PerodicTableView::drawPerodicTableView( TQPainter* p, bool isCrystal )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -891,12 +891,12 @@ void PerodicTableView::drawPerodicTableView( QPainter* p, bool isCrystal )
 //CN This is called for *every* drawing of the table. This means
 //a lot overload... I would be better to chache the values in
 //member variables an only check if they need an update. 
-void PerodicTableView::calculateGradient( QPainter *p )
+void PerodicTableView::calculateGradient( TQPainter *p )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
 
-	QValueList<double> tmpList;
+	TQValueList<double> tmpList;
 	switch ( m_gradientType )
 	{
 		case Element::ATOMICRADIUS:
@@ -955,8 +955,8 @@ void PerodicTableView::calculateGradient( QPainter *p )
 			break;
 	}
 
-	QValueList<double>::iterator dit = tmpList.begin();
-	const QValueList<double>::iterator ditEnd = tmpList.end();
+	TQValueList<double>::iterator dit = tmpList.begin();
+	const TQValueList<double>::iterator ditEnd = tmpList.end();
 
 	double tmpMin = *dit;
 	double tmpMax = *dit;
@@ -975,9 +975,9 @@ void PerodicTableView::calculateGradient( QPainter *p )
 
 
 
-void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double min, const double max )
+void PerodicTableView::drawGradientPerodicTableView( TQPainter *p, const double min, const double max )
 {
-	QString title = QString::null;
+	TQString title = TQString::null;
 	
 	const double var = max-min;
 	EList::ConstIterator it = d->ElementList.begin();
@@ -1102,10 +1102,10 @@ void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double m
 	//int  h = ELEMENTSIZE*4-5;
 
 	// Create the gradient image.
-	QSize s( ELEMENTSIZE*7+20, 20 );
-	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, 
+	TQSize s( ELEMENTSIZE*7+20, 20 );
+	TQImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, 
 										  KImageEffect::HorizontalGradient );
-	QPixmap pm( img );
+	TQPixmap pm( img );
 	
 	/**
 	 * now find the optimum stringsize for the caption
@@ -1114,9 +1114,9 @@ void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double m
 	 * is a name it should be the same in all languages and be
 	 * probably always the longest string
 	 */
-	QString tmp = i18n( "Gradient: van der Waals Radius" );
-	QRect rect(x+5, y+50, ELEMENTSIZE*10,20);
-	QFont font = p->font();
+	TQString tmp = i18n( "Gradient: van der Waals Radius" );
+	TQRect rect(x+5, y+50, ELEMENTSIZE*10,20);
+	TQFont font = p->font();
 	int maxSize = KalziumUtils::maxSize( tmp, rect, p->font(), p, 8, 24 );
 	kdDebug() << "maxSize: " << maxSize << endl;
 	font.setPointSize(maxSize);
@@ -1130,24 +1130,24 @@ void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double m
 		// FIXME: In the lines below, "30" is the max allowed text
 		//        height.  This should be calculated from the font 
 		//        metrics, not hard coded.
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( min ) ); 
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( max ) );
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, TQString::number( min ) ); 
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, TQString::number( max ) );
 	}
 	else
 	{
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( max ) ); 
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( min ) );
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, TQString::number( max ) ); 
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, TQString::number( min ) );
 
 	} 
 }
 
-QPoint PerodicTableView::ElementUnderMouse()
+TQPoint PerodicTableView::ElementUnderMouse()
 {
-	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
-	int Y = mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE;
+	int X = mapFromGlobal( TQCursor::pos() ).x()/ELEMENTSIZE;
+	int Y = mapFromGlobal( TQCursor::pos() ).y( )-ELEMENTSIZE;
 
 	// mind the gap over rare earth!
-	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return QPoint( 0, 0 );
+	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return TQPoint( 0, 0 );
 
 	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
 
@@ -1156,41 +1156,41 @@ QPoint PerodicTableView::ElementUnderMouse()
 	X += 1;
 	Y += 1;
 	
-	return QPoint( X,Y );
+	return TQPoint( X,Y );
 }
 
 
 void PerodicTableView::slotMouseover()
 {
-	QPoint point = ElementUnderMouse();
+	TQPoint point = ElementUnderMouse();
 
 	int num = ElementNumber( point.x(), point.y() );
 	if ( num )
 		emit MouseOver( num );
 }
 
-void PerodicTableView::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
+void PerodicTableView::drawGradientButton( TQPainter *p, Element* e, double coeff, double value, double minValue )
 {
 	if ( value >= minValue && coeff != -1.0)
 	{
-		QColor c = calculateColor( coeff );
-		QString v = KalziumUtils::localizedValue( KalziumUtils::strippedValue( value ), 6 );
+		TQColor c = calculateColor( coeff );
+		TQString v = KalziumUtils::localizedValue( KalziumUtils::strippedValue( value ), 6 );
 		e->drawGradient( p, v, c );
 	}
 	else
 		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );
 }
 
-QColor PerodicTableView::calculateColor( const double coeff )
+TQColor PerodicTableView::calculateColor( const double coeff )
 {
-	const QColor color2 = Qt::white;
-	const QColor color1 = Qt::red;
+	const TQColor color2 = Qt::white;
+	const TQColor color1 = Qt::red;
 
 	int red = (int)( (color1.red() - color2.red()) * coeff + color2.red() );
 	int green = (int)( (color1.green() - color2.green()) * coeff + color2.green() );
 	int blue = (int)( (color1.blue() - color2.blue()) * coeff + color2.blue() );
 
-	return QColor( red, green, blue );
+	return TQColor( red, green, blue );
 }
 
 void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
@@ -1204,7 +1204,7 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 	{
 		case NOCOLOUR:
 		{
-			const QColor color = Prefs::noscheme();
+			const TQColor color = Prefs::noscheme();
 			while ( it != itEnd )
 			{
 				( *it )->setElementColor( color );
@@ -1215,34 +1215,34 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 		}
 		case PerodicTableView::GROUPS:  // group view
 		{
-			QString group;
+			TQString group;
 
 			while ( it != itEnd )
 			{
 				group = ( *it )->group();
 				
-				if (group == QString("1")) {
+				if (group == TQString("1")) {
 					( *it )->setElementColor( color_1 );
 				}
-				if (group == QString("2")){
+				if (group == TQString("2")){
 					( *it )->setElementColor( color_2 );
 				}
-				if (group == QString("3")){
+				if (group == TQString("3")){
 					( *it )->setElementColor( color_3 );
 				}
-				if (group == QString("4")){
+				if (group == TQString("4")){
 					( *it )->setElementColor( color_4 );
 				}
-				if (group == QString("5")){
+				if (group == TQString("5")){
 					( *it )->setElementColor( color_5 );
 				}
-				if (group == QString("6")){
+				if (group == TQString("6")){
 					( *it )->setElementColor( color_6 );
 				}
-				if (group == QString("7")){
+				if (group == TQString("7")){
 					( *it )->setElementColor( color_7 );
 				}
-				if (group == QString("8")){
+				if (group == TQString("8")){
 					( *it )->setElementColor( color_8 );
 				}
 
@@ -1253,21 +1253,21 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 		}
 		case PerodicTableView::BLOCK: //block view
 		{
-			static QString block;
+			static TQString block;
 			while ( it != itEnd )
 			{
 				block = (*it)->block();
 	
-				if (block == QString("s")) {
+				if (block == TQString("s")) {
 					(*it)->setElementColor( color_s );
 				}
-				if (block == QString("p")) {
+				if (block == TQString("p")) {
 					(*it)->setElementColor( color_p );
 				}
-				if (block == QString("d")) {
+				if (block == TQString("d")) {
 					(*it)->setElementColor( color_d );
 				}
-				if (block == QString("f")) {
+				if (block == TQString("f")) {
 					(*it)->setElementColor( color_f );
 				}
 				++it;
@@ -1277,21 +1277,21 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 		}
 		case PerodicTableView::ACIDIC: //acidic beh
 		{
-			static QString acidicbeh;
+			static TQString acidicbeh;
 			while ( it != itEnd )
 			{
 				acidicbeh = ( *it )->acidicbeh();
 
-				if (acidicbeh == QString("0")) {
+				if (acidicbeh == TQString("0")) {
 					(*it)->setElementColor( color_ac );
 				}
-				if (acidicbeh == QString("1")){
+				if (acidicbeh == TQString("1")){
 					(*it)->setElementColor( color_ba );
 				}
-				if (acidicbeh == QString("2")){
+				if (acidicbeh == TQString("2")){
 					(*it)->setElementColor( color_neu );
 				}
-				if (acidicbeh == QString("3")){
+				if (acidicbeh == TQString("3")){
 					(*it)->setElementColor( color_amp );
 				}
 				++it;
@@ -1301,7 +1301,7 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 		}
 		case PerodicTableView::FAMILY: //familiy of the element
 		{
-			static QString family;
+			static TQString family;
 
 			while ( it != itEnd )
 			{
@@ -1342,7 +1342,7 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 		}
 		case CRYSTAL:
 		{
-			QString structure;
+			TQString structure;
 			while ( it != itEnd )
 			{
 				structure = ( *it )->crystalstructure();

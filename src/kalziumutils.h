@@ -34,7 +34,7 @@ class KalziumUtils
 		 * @param maxFontSize the maximum fontsize
 		 * @param minFontSize the maximum fontsize
 		 */
-		static int maxSize( const QString& string, const QRect& rect, QFont font, QPainter* painter, int minFontSize = 4, int maxFontSize = 20 );
+		static int maxSize( const TQString& string, const TQRect& rect, TQFont font, TQPainter* painter, int minFontSize = 4, int maxFontSize = 20 );
 
 		/**
 		 * calculate the 4-digit value of the value @p w. For 
@@ -51,7 +51,7 @@ class KalziumUtils
 		 * @param options the options used for formatting of @p val
 		 * @return
 		 */
-		static QString localizedValue( double val, int precision, unsigned long options = 0   );
+		static TQString localizedValue( double val, int precision, unsigned long options = 0   );
 
 		/**
 		 * @param string the string which is measured
@@ -59,14 +59,14 @@ class KalziumUtils
 		 * @param painter the used painter
 		 * @return the width of the string @p string
 		 */
-		static int StringWidth( const QString& string, const QFont& font, QPainter* painter );
+		static int StringWidth( const TQString& string, const TQFont& font, TQPainter* painter );
 		/**
 		 * @param string the string which is measured
 		 * @param font the used font
 		 * @param painter the used painter
 		 * @return the height of the string @p string
 		 */
-		static int StringHeight( const QString& string, const QFont& font, QPainter* painter );
+		static int StringHeight( const TQString& string, const TQFont& font, TQPainter* painter );
 };
 
 #endif // KALZIUMUTILS_H

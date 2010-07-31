@@ -32,12 +32,12 @@
 #include "kalziumutils.h"
 #include "config.h"
 
-#include <qdockwindow.h>
-#include <qlayout.h>
-#include <qtoolbox.h>
-#include <qslider.h>
-#include <qscrollview.h>
-#include <qspinbox.h>
+#include <tqdockwindow.h>
+#include <tqlayout.h>
+#include <tqtoolbox.h>
+#include <tqslider.h>
+#include <tqscrollview.h>
+#include <tqspinbox.h>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -61,21 +61,21 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 
-	QWidget *centralWidget = new QWidget( this, "centralWidget" );
-	m_pCentralLayout = new QVBoxLayout( centralWidget, PerodicTableView_MARGIN, -1, "CentralLayout" );
+	TQWidget *centralWidget = new TQWidget( this, "centralWidget" );
+	m_pCentralLayout = new TQVBoxLayout( centralWidget, PerodicTableView_MARGIN, -1, "CentralLayout" );
 	
-	QScrollView *helperSV = new QScrollView(centralWidget);
+	TQScrollView *helperSV = new TQScrollView(centralWidget);
 	m_pCentralLayout->addWidget(helperSV);
 	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
-	helperSV->setFrameShape(QFrame::NoFrame);
+	helperSV->setFrameShape(TQFrame::NoFrame);
 
 	m_PerodicTableView = new PerodicTableView( helperSV->viewport(), "PerodicTableView");
 	helperSV->addChild( m_PerodicTableView );
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
 
-	connect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
-	connect( m_PerodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
+	connect( m_PerodicTableView, TQT_SIGNAL( ElementClicked( int ) ), this, TQT_SLOT( openInformationDialog( int ) ));
+	connect( m_PerodicTableView, TQT_SIGNAL( MouseOver( int ) ), this, TQT_SLOT( slotStatusbar( int ) ));
 	
 	// layouting
 	setCentralWidget( centralWidget );
@@ -89,8 +89,8 @@ Kalzium::Kalzium()
 
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( true, this, "glossary" );
-	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
-	QString picturepath = dir + "kalzium/data/bg.jpg";
+	TQString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
+	TQString picturepath = dir + "kalzium/data/bg.jpg";
 	KURL u = dir + "kalzium/data/knowledge.xml";
 	Glossary *g = Glossary::readFromXML( u );
 	g->setName( i18n( "Knowledge" ) );
@@ -107,17 +107,17 @@ Kalzium::Kalzium()
 
 void Kalzium::setupActions()
 {
-	m_actionNoScheme = new KToggleAction(i18n("&No Color Scheme"), 0, this, SLOT(slotNoLook()), actionCollection(), "view_look_noscheme");
+	m_actionNoScheme = new KToggleAction(i18n("&No Color Scheme"), 0, this, TQT_SLOT(slotNoLook()), actionCollection(), "view_look_noscheme");
 
 	// the actions for the color schemes
-	m_actionGroups = new KToggleAction(i18n("Show &Groups"), 0, this, SLOT(slotLookGroups()), actionCollection(), "view_look_groups");
-	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "view_look_blocks");
-	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "view_look_acid");
-	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "view_look_family");
-	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "view_look_crystal");
+	m_actionGroups = new KToggleAction(i18n("Show &Groups"), 0, this, TQT_SLOT(slotLookGroups()), actionCollection(), "view_look_groups");
+	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, TQT_SLOT(slotLookBlocks()), actionCollection(), "view_look_blocks");
+	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, TQT_SLOT(slotLookAcidBehavior()), actionCollection(), "view_look_acid");
+	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, TQT_SLOT(slotLookFamily()), actionCollection(), "view_look_family");
+	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, TQT_SLOT(slotLookCrystal()), actionCollection(), "view_look_crystal");
 
 	//the actions for switching PerodicTableView
-	QStringList gradientlist;
+	TQStringList gradientlist;
 	gradientlist.append(i18n("Atomic Radius"));
 	gradientlist.append(i18n("Covalent Radius"));
 	gradientlist.append(i18n("van der Waals Radius"));
@@ -129,10 +129,10 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("Electron Affinity"));
 	gradient_action = new KSelectAction(i18n("&Gradient"), 0, this, 0, actionCollection(), "view_look_gradmenu");
 	gradient_action->setItems(gradientlist);
-	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
+	connect (gradient_action, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotSwitchtoGradient(int)));
 
 	// the actions for switching PerodicTableView
-	QStringList numlist;
+	TQStringList numlist;
 	numlist.append(i18n("No N&umeration"));
 	numlist.append(i18n("Show &IUPAC"));
 	numlist.append(i18n("Show &CAS"));
@@ -140,25 +140,25 @@ void Kalzium::setupActions()
 	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "view_numerationtype");
 	numeration_action->setItems(numlist);
 	numeration_action->setCurrentItem(Prefs::numeration()); 
-	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
+	connect (numeration_action, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotSwitchtoNumeration(int)));
 
-	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
+	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, TQT_SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 #ifdef HAVE_FACILE
-	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "tools_eqsolver");
+	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, TQT_SLOT(slotShowEQSolver()), actionCollection(), "tools_eqsolver");
 #endif
 	
 	// tools actions
-	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
-	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
+	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, TQT_SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
+	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, TQT_SLOT(slotGlossary()), actionCollection(), "tools_glossary");
 
 	// other period view options
-	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "view_legend");
-	m_pTooltipAction = new KAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "view_tooltip");
+	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, TQT_SLOT(slotShowLegend()), actionCollection(), "view_legend");
+	m_pTooltipAction = new KAction(i18n("Show &Tooltip"), "tooltip", 0, this, TQT_SLOT(slotEnableTooltips()), actionCollection(), "view_tooltip");
 	
 	// the standard actions
-	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
-	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
+	KStdAction::preferences(this, TQT_SLOT(showSettingsDialog()), actionCollection());
+	KStdAction::quit( kapp, TQT_SLOT (closeAllWindows()),actionCollection() );
 
 	slotShowScheme( Prefs::colorschemebox() );
 	slotSwitchtoNumeration( Prefs::numeration() );
@@ -197,51 +197,51 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-	m_dockWin = new QDockWindow( this );
+	m_dockWin = new TQDockWindow( this );
 	m_dockWin->setNewLine( true );
 	m_dockWin->setFixedExtentWidth( 220 );
 	m_dockWin->setResizeEnabled( true );
-	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
+	m_dockWin->setFrameShape( TQFrame::ToolBarPanel );
 	m_dockWin->setCaption( i18n( "Sidebar" ) );
-	m_dockWin->setCloseMode( QDockWindow::Always );
+	m_dockWin->setCloseMode( TQDockWindow::Always );
 	
-	QToolBox *m_toolbox = new QToolBox( m_dockWin );
+	TQToolBox *m_toolbox = new TQToolBox( m_dockWin );
 	m_dockWin->setWidget( m_toolbox );
 
-	QWidget *fake = new QWidget( m_dockWin );
-	QVBoxLayout *lay = new QVBoxLayout( fake, 5 );
+	TQWidget *fake = new TQWidget( m_dockWin );
+	TQVBoxLayout *lay = new TQVBoxLayout( fake, 5 );
 	lay->activate();
 	m_detailWidget = new DetailedGraphicalOverview( fake, "DetailedGraphicalOverview" );
 	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
-	connect( m_PerodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
+	connect( m_PerodicTableView, TQT_SIGNAL( MouseOver( int ) ), this, TQT_SLOT( slotSelectedNumber( int ) ));
  	lay->addWidget( m_detailWidget );
-	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
+	lay->addItem( new TQSpacerItem( 10, 10, TQSizePolicy::Fixed, TQSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
 	
 	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
 	m_timeWidget = new TimeWidgetIMPL( this, "TimeWidget" );
-	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
-	         m_PerodicTableView, SLOT( setDate( int ) ) );
-	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
-	         m_timeWidget, SLOT( slotChanged( int ) ) );
-	connect( m_timeWidget->Number1, SIGNAL( valueChanged( int ) ),
-	         m_timeWidget, SLOT( slotChanged( int ) ) );
+	connect( m_timeWidget->time_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         m_PerodicTableView, TQT_SLOT( setDate( int ) ) );
+	connect( m_timeWidget->time_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         m_timeWidget, TQT_SLOT( slotChanged( int ) ) );
+	connect( m_timeWidget->Number1, TQT_SIGNAL( valueChanged( int ) ),
+	         m_timeWidget, TQT_SLOT( slotChanged( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );
-	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ),
-	         m_PerodicTableView, SLOT( setTemperature( int ) ) );
+	connect( m_somWidget->temp_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         m_PerodicTableView, TQT_SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
 	
-	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
+	connect( m_toolbox, TQT_SIGNAL( currentChanged( int ) ), this, TQT_SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	moveDockWindow( m_dockWin, DockLeft );
 	setDockEnabled( /*m_dockWin, */DockTop, false );
 	setDockEnabled( /*m_dockWin, */DockBottom, false );
 	m_dockWin->hide();
-	connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
+	connect( m_dockWin, TQT_SIGNAL(visibilityChanged(bool)), this, TQT_SLOT(slotSidebarVisibilityChanged(bool)));
 
 }
 
@@ -255,15 +255,15 @@ void Kalzium::slotShowEQSolver()
 #ifdef HAVE_FACILE
 	EQChemDialog *dlg = new EQChemDialog( this );
 	
-	QWidget *page = new QWidget( dlg );
+	TQWidget *page = new TQWidget( dlg );
 	dlg->setMainWidget( page );
-	QVBoxLayout *vbox = new QVBoxLayout( page , 0, KDialogBase:: spacingHint() );
+	TQVBoxLayout *vbox = new TQVBoxLayout( page , 0, KDialogBase:: spacingHint() );
 	
 	eqchemView *eqsolver = new eqchemView( page );
 	eqsolver->setMinimumSize( 600,400 );
 
 	vbox->addWidget( eqsolver );
-        connect(dlg, SIGNAL(applyClicked()), eqsolver, SLOT(compute()));
+        connect(dlg, TQT_SIGNAL(applyClicked()), eqsolver, TQT_SLOT(compute()));
 	dlg->show();
 #endif
 }
@@ -398,8 +398,8 @@ void Kalzium::showSettingsDialog()
 
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
-	connect( dialog, SIGNAL( settingsChanged() ), m_somWidget, SLOT( reloadUnits() ) );
+	connect( dialog, TQT_SIGNAL( settingsChanged() ), this , TQT_SLOT( slotUpdateSettings() ) );
+	connect( dialog, TQT_SIGNAL( settingsChanged() ), m_somWidget, TQT_SLOT( reloadUnits() ) );
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
 	dialog->addPage( new setupUnits( 0, "units_page"), i18n("Units"), "gear");
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
@@ -440,10 +440,10 @@ void Kalzium::openInformationDialog( int number )
 			                        this, "detailedDlg" );
 
 			// Remove the selection when this dialog finishes or hides.
-			connect(m_infoDialog, SIGNAL(hidden()),
-			        m_PerodicTableView,        SLOT(unSelect()));
-			connect(m_infoDialog, SIGNAL(elementChanged(int)),
-			        m_PerodicTableView,        SLOT(selectElement(int)));
+			connect(m_infoDialog, TQT_SIGNAL(hidden()),
+			        m_PerodicTableView,        TQT_SLOT(unSelect()));
+			connect(m_infoDialog, TQT_SIGNAL(elementChanged(int)),
+			        m_PerodicTableView,        TQT_SLOT(selectElement(int)));
 		}
 		m_infoDialog->show();
 	}

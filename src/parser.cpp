@@ -21,11 +21,11 @@
 
 Parser::Parser()
 {
-    start(QString::null);
+    start(TQString::null);
 }
 
 
-Parser::Parser(const QString& _str)
+Parser::Parser(const TQString& _str)
 {
     start(_str);
 }
@@ -37,7 +37,7 @@ Parser::~Parser()
 
 
 void
-Parser::start(const QString& _str)
+Parser::start(const TQString& _str)
 {
     m_str = _str;
 
@@ -165,7 +165,7 @@ Parser::getNextChar()
 int
 Parser::skipWhitespace()
 {
-    while (QChar(m_nextChar).isSpace())
+    while (TQChar(m_nextChar).isSpace())
 	getNextChar();
 
     return m_nextChar;

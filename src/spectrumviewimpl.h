@@ -29,7 +29,7 @@ class SpectrumViewImpl : public SpectrumView
 		 * @param parent the parent widget
 		 * @param name the name used internally
 		 */
-		SpectrumViewImpl( QWidget* parent, const char* name );
+		SpectrumViewImpl( TQWidget* parent, const char* name );
 
 		/**
 		 * sets the spectrum to @p spec

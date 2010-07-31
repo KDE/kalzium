@@ -26,7 +26,7 @@ class PlotWidget : public KPlotWidget
 	Q_OBJECT
 
 	public:
-		PlotWidget( double x1 = 0.0, double x2 = 0.0, double y1 = 0.0, double y2 = 0.0, QWidget *parent=0 , const char *name =0 );
+		PlotWidget( double x1 = 0.0, double x2 = 0.0, double y1 = 0.0, double y2 = 0.0, TQWidget *parent=0 , const char *name =0 );
 
 		/**
 		 * toggles if the points will be connected with 
@@ -47,7 +47,7 @@ class PlotWidget : public KPlotWidget
 		/**
 		 * draws the objects
 		 */
-		virtual void drawObjects( QPainter *p);
+		virtual void drawObjects( TQPainter *p);
 
 };
 

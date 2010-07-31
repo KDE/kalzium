@@ -19,27 +19,27 @@
 #include <kdebug.h>
 
 //QT-Includes
-#include <qpainter.h>
+#include <tqpainter.h>
 
 PlotWidget::PlotWidget( double x1,
 		double x2,
 		double y1,
 		double y2,
-		QWidget *parent,
+		TQWidget *parent,
 		const char* name)
 		: KPlotWidget( x1, x2, y1, y2, parent, name )
 {
 	m_connectPoints = false;
 }
 
-void PlotWidget::drawObjects( QPainter *p )
+void PlotWidget::drawObjects( TQPainter *p )
 {
 	// let the KPlotWidget draw the default stuff first
 	KPlotWidget::drawObjects(p);
 	// then draw the connecting lines 
 	if (!m_connectPoints) return; // bail out if connect points is not enabled
 
-	QPoint old; // used to remember last coordinates
+	TQPoint old; // used to remember last coordinates
 	bool first = true;
 	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) 
 	{
@@ -49,11 +49,11 @@ void PlotWidget::drawObjects( QPainter *p )
 		if (po->type() != KPlotObject::POINTS) continue;
 
 		// draw the connecting lines
-		p->setPen( QColor( po->color() ) );
-		p->setBrush( QColor( po->color() ) );
+		p->setPen( TQColor( po->color() ) );
+		p->setBrush( TQColor( po->color() ) );
 		for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
 		{
-			QPoint q = dp->qpoint( PixRect, DataRect );
+			TQPoint q = dp->qpoint( PixRect, DataRect );
 
 			if ( first ) 
 				first = false;

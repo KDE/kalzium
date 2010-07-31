@@ -21,9 +21,9 @@
 #ifndef SPECTRUMWIDGET_H
 #define SPECTRUMWIDGET_H
 
-#include <qwidget.h>
+#include <tqwidget.h>
 
-#include <qpixmap.h>
+#include <tqpixmap.h>
 
 #include "spectrum.h"
 
@@ -36,7 +36,7 @@ class SpectrumWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		SpectrumWidget( QWidget *parent, const char* name = 0 );
+		SpectrumWidget( TQWidget *parent, const char* name = 0 );
 		
 		~SpectrumWidget(){}
 
@@ -76,7 +76,7 @@ class SpectrumWidget : public QWidget
 		 * find the nearest band. The returned value is the number
 		 * of pixel the next band is away
 		 */
-		int findNearestBand( QValueList<double>::iterator it );
+		int findNearestBand( TQValueList<double>::iterator it );
 
 		/**
 		 * there are several possible types.
@@ -107,7 +107,7 @@ class SpectrumWidget : public QWidget
 		 * @returns the color of a line
 		 * @param spectrum the value of the spectrum
 		 */
-		QColor linecolor( double spectrum );
+		TQColor linecolor( double spectrum );
 		
 		double Gamma;
 		int IntensityMax;
@@ -152,29 +152,29 @@ class SpectrumWidget : public QWidget
 		 */
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 
-		QPixmap pixmap();
+		TQPixmap pixmap();
 	
 	private:
-		QValueList<double> m_spectra;
+		TQValueList<double> m_spectra;
 
 		SpectrumType m_type;
 
 		Spectrum *m_spectrum;
 
-		QPixmap m_pixmap;
+		TQPixmap m_pixmap;
 
 		bool m_showtooltip;
 
 		Spectrum::band m_band;
 		
-		void paintBands( QPainter* p );
-		void drawZoomLine( QPainter* p );
-		void drawTooltip( QPainter *p );
+		void paintBands( TQPainter* p );
+		void drawZoomLine( TQPainter* p );
+		void drawTooltip( TQPainter *p );
 		
 		/**
 		 * Draw the scale
 		 */
-		void drawTickmarks( QPainter *p );
+		void drawTickmarks( TQPainter *p );
 
 		double startValue;
 		double endValue;
@@ -182,13 +182,13 @@ class SpectrumWidget : public QWidget
 		int m_realHeight;
 
 		/**
-		 * this QPoint stores the information where
+		 * this TQPoint stores the information where
 		 * the left mouse button has been pressed. This
 		 * is used for the mouse zooming
 		 */
-		QPoint m_LMBPointPress;
+		TQPoint m_LMBPointPress;
 		
-		QPoint m_LMBPointCurrent;
+		TQPoint m_LMBPointCurrent;
 
 	public slots:
 		/**
@@ -224,11 +224,11 @@ class SpectrumWidget : public QWidget
 		void slotZoomOut();
 	
 	protected:
-		virtual void paintEvent( QPaintEvent *e );
-		virtual void keyPressEvent(QKeyEvent *e);
-		virtual void mouseMoveEvent( QMouseEvent *e );
-		virtual void mousePressEvent( QMouseEvent *e );
-		virtual void mouseReleaseEvent( QMouseEvent *e );
+		virtual void paintEvent( TQPaintEvent *e );
+		virtual void keyPressEvent(TQKeyEvent *e);
+		virtual void mouseMoveEvent( TQMouseEvent *e );
+		virtual void mousePressEvent( TQMouseEvent *e );
+		virtual void mouseReleaseEvent( TQMouseEvent *e );
 };
 
 #endif // SPECTRUMWIDGET_H

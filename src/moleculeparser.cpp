@@ -39,8 +39,8 @@ ElementCountMap::~ElementCountMap()
 ElementCount *
 ElementCountMap::search(Element *_element)
 {
-	QValueList<ElementCount *>::ConstIterator       it    = m_map.constBegin();
-	const QValueList<ElementCount *>::ConstIterator itEnd = m_map.constEnd();
+	TQValueList<ElementCount *>::ConstIterator       it    = m_map.constBegin();
+	const TQValueList<ElementCount *>::ConstIterator itEnd = m_map.constEnd();
 
 	for (; it != itEnd; ++it) {
 		if ((*it)->element() == _element)
@@ -54,8 +54,8 @@ ElementCountMap::search(Element *_element)
 void
 ElementCountMap::add(ElementCountMap &_map)
 {
-	QValueList<ElementCount *>::ConstIterator       it    = _map.m_map.constBegin();
-	const QValueList<ElementCount *>::ConstIterator itEnd = _map.m_map.constEnd();
+	TQValueList<ElementCount *>::ConstIterator       it    = _map.m_map.constBegin();
+	const TQValueList<ElementCount *>::ConstIterator itEnd = _map.m_map.constEnd();
 
 	// Step throught _map and for each element, add it to the current one.
 	for (; it != itEnd; ++it) {
@@ -99,7 +99,7 @@ MoleculeParser::MoleculeParser()
 }
 
 
-MoleculeParser::MoleculeParser(const QString& _str)
+MoleculeParser::MoleculeParser(const TQString& _str)
     : Parser(_str)
 {
 }
@@ -120,7 +120,7 @@ MoleculeParser::~MoleculeParser()
 // This method also acts as the main loop.
 
 bool
-MoleculeParser::weight(QString         _moleculeString, 
+MoleculeParser::weight(TQString         _moleculeString, 
 					   double          *_resultMass,
 					   ElementCountMap *_resultMap)
 {
@@ -242,7 +242,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 int
 MoleculeParser::getNextToken()
 {
-    QString  elementName;
+    TQString  elementName;
 
 #if 0
     kdDebug() << "getNextToken(): Next character = "
@@ -280,7 +280,7 @@ MoleculeParser::getNextToken()
 
 
 Element *
-MoleculeParser::lookupElement( const QString& _name )
+MoleculeParser::lookupElement( const TQString& _name )
 {
     EList elementList = KalziumDataObject::instance()->ElementList;
 

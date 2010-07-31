@@ -36,12 +36,12 @@
 #include <klineedit.h>
 #include <ktoolbar.h>
 
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qtooltip.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqtooltip.h>
 
 
-MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
+MolcalcWidget::MolcalcWidget( TQWidget *parent, const char *name )
     : MolcalcWidgetBase( parent, name )
 {
 	clear();
@@ -60,9 +60,9 @@ void MolcalcWidget::clear()
 	
 	resultComposition->setText( i18n("To start, enter\na formula in the\nwidget above and\nclick on 'Calc'.") );
 
-	QToolTip::remove( resultMass );
-	QToolTip::remove( resultComposition );
-	QToolTip::remove( resultLabel );
+	TQToolTip::remove( resultMass );
+	TQToolTip::remove( resultComposition );
+	TQToolTip::remove( resultLabel );
 }
 
 
@@ -70,11 +70,11 @@ void MolcalcWidget::updateUI()
 {
 	if ( m_validInput ){
 
-		QString str;
+		TQString str;
 
 		// The complexString stores the whole molecule like this:
 		// 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
-		QString complexString;
+		TQString complexString;
 
 		// Create the list of elements making up the molecule
 		ElementCountMap::Iterator  it    = m_elementMap.begin();
@@ -102,25 +102,25 @@ void MolcalcWidget::updateUI()
 		// The mass
 		resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
 
-		QToolTip::add( resultMass,        complexString );
-		QToolTip::add( resultComposition, complexString );
-		QToolTip::add( resultLabel,       complexString );
+		TQToolTip::add( resultMass,        complexString );
+		TQToolTip::add( resultComposition, complexString );
+		TQToolTip::add( resultLabel,       complexString );
 	}
 	else{//the input was invalid, so tell this the user
 		resultComposition->setText( i18n( "Invalid input" ) );
-		resultLabel->setText( QString() );
-		resultMass->setText( QString() );
+		resultLabel->setText( TQString() );
+		resultMass->setText( TQString() );
 		
-		QToolTip::add( resultMass,        i18n( "Invalid input" ) );
-		QToolTip::add( resultComposition, i18n( "Invalid input" ) );
-		QToolTip::add( resultLabel,       i18n( "Invalid input" ) );
+		TQToolTip::add( resultMass,        i18n( "Invalid input" ) );
+		TQToolTip::add( resultComposition, i18n( "Invalid input" ) );
+		TQToolTip::add( resultLabel,       i18n( "Invalid input" ) );
 	}
 }
 
 
-QString MolcalcWidget::compositionString( ElementCountMap &_map )
+TQString MolcalcWidget::compositionString( ElementCountMap &_map )
 {
-	QString  str;
+	TQString  str;
 
 	ElementCountMap::Iterator  it    = _map.begin();
 	ElementCountMap::Iterator  itEnd = _map.end();
@@ -140,7 +140,7 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 
 void MolcalcWidget::slotCalcButtonClicked()
 {
-	QString  molecule = formulaEdit->text();
+	TQString  molecule = formulaEdit->text();
 
 	// Parse the molecule, and at the same time calculate the total
 	// mass, and the composition of it.

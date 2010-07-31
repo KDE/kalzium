@@ -19,7 +19,7 @@
  ***************************************************************************/
 
 
-#include <qwidget.h>
+#include <tqwidget.h>
 #include <math.h>
 
 /**
@@ -31,7 +31,7 @@ class OrbitsWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		OrbitsWidget( QWidget *parent=0 , const char *name =0 );
+		OrbitsWidget( TQWidget *parent=0 , const char *name =0 );
 
 		void setElementNumber( const int num );
 
@@ -46,10 +46,10 @@ class OrbitsWidget : public QWidget
 		 */
 		int num;
 		
-		typedef QValueList<int> intList;
+		typedef TQValueList<int> intList;
 		intList numOfElectrons;
 
-		const QString& getNumber() const;
+		const TQString& getNumber() const;
 		
 		/**
 		 * @return the delta of the x-coordinate
@@ -79,7 +79,7 @@ class OrbitsWidget : public QWidget
 		void getNumberOfOrbits();
 
 	protected slots:
-		virtual void paintEvent(  QPaintEvent* );
+		virtual void paintEvent(  TQPaintEvent* );
 };
 
 #endif // ORBITSWIDGET_H

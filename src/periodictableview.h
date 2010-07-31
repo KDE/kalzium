@@ -29,9 +29,9 @@ class Element;
 class KalziumDataObject;
 class KalziumTip;
 
-#include <qvaluelist.h>
-#include <qwidget.h>
-#include <qtimer.h>
+#include <tqvaluelist.h>
+#include <tqwidget.h>
+#include <tqtimer.h>
 
 // A PerodicTableView is ...
 /**
@@ -48,7 +48,7 @@ class PerodicTableView : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		PerodicTableView( QWidget *parent = 0, const char *name = 0);
+		PerodicTableView( TQWidget *parent = 0, const char *name = 0);
 		~PerodicTableView();
 
 		enum SCHEMETYPE
@@ -123,7 +123,7 @@ class PerodicTableView : public QWidget
 		/**
 		 * @return the short and descriptive name of this PerodicTableView
 		 */
-		QString shortName() const{
+		TQString shortName() const{
 			return m_ShortName;
 		}
 
@@ -249,7 +249,7 @@ class PerodicTableView : public QWidget
 		/**
 		 * calculates the min and max values to prepare the painting
 		 */
-		void calculateGradient( QPainter* );
+		void calculateGradient( TQPainter* );
 
 		/**
 		 * @return true if the mouse is over the legend area
@@ -263,14 +263,14 @@ class PerodicTableView : public QWidget
 		 * @param value the value
 		 * @param minValue the smallest of all the values
 		 */
-		void drawGradientButton( QPainter* p, Element* e, double coeff, double value, double minValue );
+		void drawGradientButton( TQPainter* p, Element* e, double coeff, double value, double minValue );
 
 		/**
 		 * calculates the color of an element which has a value which
 		 * is @p percentage of the maximum value. This will be the
 		 * color used in the gradient view for an element.
 		 */
-		QColor calculateColor( const double percentage );
+		TQColor calculateColor( const double percentage );
 	
 		/**
 		 * the date used in the timeline
@@ -303,7 +303,7 @@ class PerodicTableView : public QWidget
 		/**
 		 * timer used for the tooltop
 		 */
-		QTimer HoverTimer,
+		TQTimer HoverTimer,
 			   MouseoverTimer;
 
 		KalziumDataObject *d;
@@ -323,19 +323,19 @@ class PerodicTableView : public QWidget
 		 * @return the coordinates of the element under the mouseCursor.
 		 * For example, H will be 1/1 and Li will be 1/2
 		 */
-		QPoint ElementUnderMouse();
+		TQPoint ElementUnderMouse();
 
 		/**
 		 * the currently selected element (the x/y-coordinates)
 		 */
-		QPoint m_currentPoint;
+		TQPoint m_currentPoint;
 
-		void mouseReleaseEvent( QMouseEvent* );
-		void mousePressEvent( QMouseEvent* );
-		void mouseMoveEvent( QMouseEvent* );
+		void mouseReleaseEvent( TQMouseEvent* );
+		void mousePressEvent( TQMouseEvent* );
+		void mouseMoveEvent( TQMouseEvent* );
 
-		QStringList m_IUPAClist;
-		QStringList m_IUPACOLDlist;
+		TQStringList m_IUPAClist;
+		TQStringList m_IUPACOLDlist;
 
 		/**
 		 * if the the legend will be displayed
@@ -345,7 +345,7 @@ class PerodicTableView : public QWidget
 		/**
 		 * this is a short, descriptive name of the PerodicTableView
 		 */
-		QString m_ShortName;
+		TQString m_ShortName;
 
 		/**
 		 * true if the molcalc-mode is active
@@ -360,8 +360,8 @@ class PerodicTableView : public QWidget
 		/**
 		 * implements double buffering of the widget.
 		 */
-		QPixmap *table;			// The basic PerodicTableView
-		QPixmap *table2;		// Basic PerodicTableView + extra data such as tooltip, etc
+		TQPixmap *table;			// The basic PerodicTableView
+		TQPixmap *table2;		// Basic PerodicTableView + extra data such as tooltip, etc
 
 		/**
 		 * used for bitBlit. If true the complete table will be drawn
@@ -371,74 +371,74 @@ class PerodicTableView : public QWidget
 
 		//I am holding all colours as member so that they don't need to 
 		//be reloaded on every reload
-		QColor color_s;//Blocks
-		QColor color_p;
-		QColor color_d;
-		QColor color_f;
-		QColor color_1;//Groups
-		QColor color_2;
-		QColor color_3;
-		QColor color_4;
-		QColor color_5;
-		QColor color_6;
-		QColor color_7;
-		QColor color_8;
-		QColor color_ba;//Acidic
-		QColor color_ac;
-		QColor color_neu;
-		QColor color_amp;
-		QColor c_alkalie;//Family
-		QColor c_rare;
-		QColor c_nonmetal;
-		QColor c_alkaline;
-		QColor c_other_metal;
-		QColor c_halogene; 
-		QColor c_transition;
-		QColor c_noble_gas;
-		QColor c_metalloid;
-		QColor c_liquid;
-		QColor c_solid;
-		QColor c_vapor;
+		TQColor color_s;//Blocks
+		TQColor color_p;
+		TQColor color_d;
+		TQColor color_f;
+		TQColor color_1;//Groups
+		TQColor color_2;
+		TQColor color_3;
+		TQColor color_4;
+		TQColor color_5;
+		TQColor color_6;
+		TQColor color_7;
+		TQColor color_8;
+		TQColor color_ba;//Acidic
+		TQColor color_ac;
+		TQColor color_neu;
+		TQColor color_amp;
+		TQColor c_alkalie;//Family
+		TQColor c_rare;
+		TQColor c_nonmetal;
+		TQColor c_alkaline;
+		TQColor c_other_metal;
+		TQColor c_halogene; 
+		TQColor c_transition;
+		TQColor c_noble_gas;
+		TQColor c_metalloid;
+		TQColor c_liquid;
+		TQColor c_solid;
+		TQColor c_vapor;
 		
 	protected:
-		virtual void paintEvent( QPaintEvent *e );
+		virtual void paintEvent( TQPaintEvent *e );
 
 		/**
 		 * draw the tooltip for the legend
 		 */
-		virtual void drawLegendToolTip( QPainter *p );
+		virtual void drawLegendToolTip( TQPainter *p );
 
-		virtual void drawTimeLine( QPainter *p );
+		virtual void drawTimeLine( TQPainter *p );
 
 		/**
 		 * called if the user resized the table
 		 */
-		virtual void resizeEvent( QResizeEvent *e );
+		virtual void resizeEvent( TQResizeEvent *e );
 
 		/**
 		 * the central place for the drawing of the table
 		 */
-		virtual void drawPerodicTableView( QPainter* p, bool isCrystal );
+		virtual void drawPerodicTableView( TQPainter* p, bool isCrystal );
 
 		/**
 		 * draw a gradient of the type @p type
 		 */
-		virtual void drawGradientPerodicTableView( QPainter* p, const double min, const double max );
+		virtual void drawGradientPerodicTableView( TQPainter* p, const double min, const double max );
 
 		/**
 		 * draw the state of matter
 		 */
-		virtual void drawSOMPerodicTableView( QPainter* p );
+		virtual void drawSOMPerodicTableView( TQPainter* p );
 
 		/**
 		 * draw the legend
 		 */
-		virtual void drawLegend( QPainter* p );
+		virtual void drawLegend( TQPainter* p );
 		
 		/**
 		 * draw the numeration
 		 */
-		virtual void drawNumeration( QPainter* p );
+		virtual void drawNumeration( TQPainter* p );
 
 	public slots:
 		/**
@@ -481,7 +481,7 @@ class PerodicTableView : public QWidget
 		/**
 		 * this slot updates the currently selected point
 		 */
-		void selectPoint( const QPoint& point );
+		void selectPoint( const TQPoint& point );
 
 		/**
 		 * this slot updates the element given in the @p num
@@ -499,7 +499,7 @@ class PerodicTableView : public QWidget
 		/**
 		 * this signal is emitted when the table is clicked
 		 */
-		void tableClicked(QPoint);
+		void tableClicked(TQPoint);
 
 		/**
 		 * this signal is emitted when an element is clicked

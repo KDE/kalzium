@@ -13,11 +13,11 @@
 
 #include "somwidget_impl.h"
 
-#include <qlabel.h>
-#include <qpair.h>
-#include <qslider.h>
-#include <qtextedit.h>
-#include <qvaluelist.h>
+#include <tqlabel.h>
+#include <tqpair.h>
+#include <tqslider.h>
+#include <tqtextedit.h>
+#include <tqvaluelist.h>
 
 #include <kdebug.h>
 #include <knuminput.h>
@@ -30,7 +30,7 @@
 #include "prefs.h"
 #include "tempunit.h"
 
-SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
+SOMWidgetIMPL::SOMWidgetIMPL( TQWidget *parent, const char* name )
 	: SOMWidget( parent,name )
 {
 	m_list = KalziumDataObject::instance()->ElementList;
@@ -39,18 +39,18 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	text->setTextFormat( Qt::RichText );
 	text->setReadOnly( true );
 	text->setPaletteBackgroundColor( paletteBackgroundColor() );
-	text->setFrameStyle( QFrame::NoFrame );
+	text->setFrameStyle( TQFrame::NoFrame );
 
 	m_htmlBegin = "<qt>";
 	m_htmlEnd = "</qt>";
 	m_prevUnit = Prefs::temperature();
 
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	connect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
+	connect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         this, TQT_SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( setNewTemp( double ) ) );
 
 	reloadUnits();
 }
@@ -71,40 +71,40 @@ kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue()
 void SOMWidgetIMPL::sliderValueChanged( int temp )
 {
 // TODO check if in Qt4 the RangeControl emits the signal again
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
+	disconnect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         this, TQT_SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( setNewTemp( double ) ) );
 	double newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	connect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
+	connect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         this, TQT_SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::spinValueChanged( double temp )
 {
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
+	disconnect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         this, TQT_SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( setNewTemp( double ) ) );
 	int newvalue = (int)TempUnit::convert( temp, Prefs::temperature(), (int)TempUnit::Kelvin );
 	temp_slider->setValue( newvalue );
 	setNewTemp( temp );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	connect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
+	connect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, TQT_SIGNAL( valueChanged( int ) ),
+	         this, TQT_SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, TQT_SIGNAL( valueChanged( double ) ),
+	         this, TQT_SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::setNewTemp( double newtemp )
@@ -113,13 +113,13 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 
 	double temp = TempUnit::convert( newtemp, Prefs::temperature(), (int)TempUnit::Kelvin );
 
-	QValueList<Element*>::ConstIterator it = m_list.begin();
-	const QValueList<Element*>::ConstIterator itEnd = m_list.end();
+	TQValueList<Element*>::ConstIterator it = m_list.begin();
+	const TQValueList<Element*>::ConstIterator itEnd = m_list.end();
 
-	QStringList listMeltingPoint;
-	QStringList listBoilingPoint;
-	QStringList listBoilingPointValue;
-	QStringList listMeltingPointValue;
+	TQStringList listMeltingPoint;
+	TQStringList listBoilingPoint;
+	TQStringList listBoilingPointValue;
+	TQStringList listMeltingPointValue;
 	for ( ; it != itEnd; ++it )
 	{
 		if ( ( ( *it )->melting() > 0.0 ) && fabs( ( *it )->melting() - temp ) <= threshold )
@@ -133,7 +133,7 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 			listBoilingPointValue << ( *it )->adjustUnits( Element::BOILINGPOINT );
 		}
 	}
-	QString htmlcode;
+	TQString htmlcode;
 	if ( listMeltingPoint.count() > 0 )
 	{
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br>";

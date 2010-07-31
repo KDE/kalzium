@@ -18,9 +18,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <qlayout.h>
-#include <qlabel.h>
-#include <qstring.h>
+#include <tqlayout.h>
+#include <tqlabel.h>
+#include <tqstring.h>
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -46,11 +46,11 @@ extern "C" {
 char* solve_equation(const char *) { return NULL; }
 #endif
 
-eqchemView::eqchemView(QWidget *parent) : QWidget(parent)
+eqchemView::eqchemView(TQWidget *parent) : TQWidget(parent)
 {
     settingsChanged();
 
-    QGridLayout *l = new QGridLayout(this, 2, 2, 11, 6, "eqchemView::eqchemView layout");
+    TQGridLayout *l = new TQGridLayout(this, 2, 2, 11, 6, "eqchemView::eqchemView layout");
 
     m_eqResult = new EqResult(this);
     m_eqedit = new KLineEdit(this);
@@ -63,7 +63,7 @@ eqchemView::eqchemView(QWidget *parent) : QWidget(parent)
     m_eqclear->setIconSet( KGlobal::instance()->iconLoader()->loadIconSet("locationbar_erase", 
 		KIcon::NoGroup, 22 /*KIcon::SizeSmallMedium*/) );
 
-    connect(m_eqclear, SIGNAL(clicked()), m_eqedit, SLOT(clear()) );
+    connect(m_eqclear, TQT_SIGNAL(clicked()), m_eqedit, TQT_SLOT(clear()) );
 }
 
 eqchemView::~eqchemView()
@@ -88,14 +88,14 @@ void eqchemView::clear()
 
 void eqchemView::compute()
 {
-    QString equation( m_eqedit->text() );
+    TQString equation( m_eqedit->text() );
     equation.replace("+", "+");
     equation.replace("->", " -> ");
     equation.append(" ");
     equation.prepend(" ");
     
     char * result = solve_equation( equation.latin1() );
-    QString disp = QString(result);
+    TQString disp = TQString(result);
 
     // mem leak ?
     free(result);
@@ -104,7 +104,7 @@ void eqchemView::compute()
     m_eqResult->add( equation, disp );
 }
 
-EQChemDialog::EQChemDialog( QWidget *parent )
+EQChemDialog::EQChemDialog( TQWidget *parent )
 	: KDialogBase(parent, "EQChemDialog", true, i18n( "Solve Chemical Equations" ),
 			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
 {

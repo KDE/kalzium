@@ -22,8 +22,8 @@
 
 #define ELEMENTSIZE 40
 
-#include <qcolor.h>
-#include <qvaluelist.h>
+#include <tqcolor.h>
+#include <tqvaluelist.h>
 
 class Element;
 class QDomDocument;
@@ -36,9 +36,9 @@ class Isotope;
 
 struct coordinate;
 
-typedef QValueList<Element*> EList;
-typedef QValueList<coordinate> CList;
-typedef QValueList<double> doubleList;
+typedef TQValueList<Element*> EList;
+typedef TQValueList<coordinate> CList;
+typedef TQValueList<double> doubleList;
 
 struct coordinate{
 	int x;
@@ -96,11 +96,11 @@ class Element{
 		/**
 		 * @return the information where the name of the Element comes from
 		 */
-		QString nameOrigin() const{
+		TQString nameOrigin() const{
 			return m_origin;
 		}
 
-		QString orbits() const{
+		TQString orbits() const{
 			return m_orbits;
 		}
 		
@@ -121,7 +121,7 @@ class Element{
 		 * The ionicradius also has a name @p name. This will store the charge of
 		 * the ion (for example, +2 or -3 )
 		 */
-		void setRadius( RADIUSTYPE type, double value, const QString& name = 0 );
+		void setRadius( RADIUSTYPE type, double value, const TQString& name = 0 );
 		
 		void setDate( int date ) { m_date = date; }
 		void setPeriod( int period ){ m_period = period; }
@@ -134,33 +134,33 @@ class Element{
 		 */
 		void setAbundance( int abundance ){ m_abundance = abundance; }
 
-		void setScientist( const QString& value ) { m_scientist = value; }
-		void setCrysatalstructure( const QString& value ) { m_crystalstructure = value; }
-		void setName( const QString& value ) { m_name = value; }
-		void setOrigin( const QString& value ) { m_origin = value; }
-		void setBlock( const QString& value ) { m_block = value; }
-		void setGroup( const QString& value ) { m_group = value; }
-		void setFamily( const QString& value ) { m_family = value; }
-		void setOrbits( const QString& value ) { m_orbits = value; }
-		void setSymbol( const QString& value ) { m_symbol = value; }
-		void setOxydation( const QString& value ) { m_oxstage = value; }
-		void setAcidicbehaviour( const QString& value ) { m_acidbeh = value; }
-		void setIsotopes( const QString& value ) { m_isotopes = value; }
+		void setScientist( const TQString& value ) { m_scientist = value; }
+		void setCrysatalstructure( const TQString& value ) { m_crystalstructure = value; }
+		void setName( const TQString& value ) { m_name = value; }
+		void setOrigin( const TQString& value ) { m_origin = value; }
+		void setBlock( const TQString& value ) { m_block = value; }
+		void setGroup( const TQString& value ) { m_group = value; }
+		void setFamily( const TQString& value ) { m_family = value; }
+		void setOrbits( const TQString& value ) { m_orbits = value; }
+		void setSymbol( const TQString& value ) { m_symbol = value; }
+		void setOxydation( const TQString& value ) { m_oxstage = value; }
+		void setAcidicbehaviour( const TQString& value ) { m_acidbeh = value; }
+		void setIsotopes( const TQString& value ) { m_isotopes = value; }
 		
 		void setArtificial(){ m_artificial = true; }
 		void setRadioactive(){ m_radioactive = true; }
 		
 		void setIonisationList( doubleList l ){ m_ionenergies = l; }
 
-		QValueList<Isotope*> isotopes() const{
+		TQValueList<Isotope*> isotopes() const{
 			return m_isotopeList;
         }
 
-		QValueList<double> spectrumList() const{
+		TQValueList<double> spectrumList() const{
 			return m_spectrumList;
 		}
 
-		void setIsotopeList( QValueList<Isotope*> list ){
+		void setIsotopeList( TQValueList<Isotope*> list ){
 			m_isotopeList = list;
 		}
 
@@ -209,12 +209,12 @@ class Element{
 		 * return the correct color of the element at the
 		 * temperature @p temp
 		 */
-		QColor currentColor( const double temp );
+		TQColor currentColor( const double temp );
     
 		/**
 		 * mutator for the element's color
 		 */
-		void setElementColor( const QColor &c ) { m_Color = c; }
+		void setElementColor( const TQColor &c ) { m_Color = c; }
 		
 		/**
 		 * @return the importance of the element for biological
@@ -241,47 +241,47 @@ class Element{
 		/**
 		 * @return the symbol of the element
 		 */
-		QString symbol() const {
+		TQString symbol() const {
 			return m_symbol;
 		}
 
 		/**
 		 * @return the scientist who discovered the element
 		 */
-		QString scientist() const{
+		TQString scientist() const{
 			return m_scientist;
 		}
 
 		/**
 		 * @return the crystal structure of the element
 		 */
-		QString crystalstructure() const{
+		TQString crystalstructure() const{
 			return m_crystalstructure;
 		}
 		
 		/**
 		 * @return the name of the element
 		 */
-		QString elname() const {
+		TQString elname() const {
 			return m_name;
 		}
 
 		//FIXME I need to add a way to have more than one ionic radius
-		QString ioncharge() const{
+		TQString ioncharge() const{
 			return m_ionvalue;
 		}
 		
 		/**
 		 * @return the chemical block (s, p, d, f) of the element
 		 */
-		QString block() const {
+		TQString block() const {
 			return m_block;
 		}
 		
 		/**
 		 * @return the group of the element
 		 */
-		QString group() const {
+		TQString group() const {
 			return m_group;
 		}
 		
@@ -289,32 +289,32 @@ class Element{
 			return m_period;
 		}
 
-		QString family() const {
+		TQString family() const {
 			return m_family;
 		}
 		
 		/**
 		 * @return the acidic behavior of the element
 		 */
-		QString acidicbeh() const {
+		TQString acidicbeh() const {
 			return m_acidbeh;
 		}
 
 		/**
 		 * @return the oxydationstages of the element
 		 */
-		QString oxstage() const {
+		TQString oxstage() const {
 			return m_oxstage;
 		}
 		
 		/**
-		 * @return the orbits of the element. The QString is already
+		 * @return the orbits of the element. The TQString is already
 		 * parsed so that the numbers are superscripts and the first
 		 * block is bold.
 		 * @param canBeEmpty specifies if the string returned can be
 		 * empty instead of a "Unknown structure" one.
 		 */
-		QString parsedOrbits( bool canBeEmpty = false );
+		TQString parsedOrbits( bool canBeEmpty = false );
 		
 		/**
 		 * @return the boiling point of the element in Kelvin
@@ -380,9 +380,9 @@ class Element{
 		 * @param type the TYPE of the data
 		 * @return the adjusted datastring
 		 */
-		const QString adjustUnits( const int type );
+		const TQString adjustUnits( const int type );
 
-		const QString adjustRadius( RADIUSTYPE rtype );
+		const TQString adjustRadius( RADIUSTYPE rtype );
 
 		/**
 		 * adjusts the units for the data. The user can
@@ -395,7 +395,7 @@ class Element{
 		 * @param value the value of the data. 
 		 * @return the adjusted datastring
 		 */
-		const QString adjustUnits( const int type, double value );
+		const TQString adjustUnits( const int type, double value );
 
 		/**
 		 * types of datas
@@ -417,13 +417,13 @@ class Element{
 			IONICRADIUS
 		};
 
-		QPoint pos() const;
-		QPoint coords() const;
+		TQPoint pos() const;
+		TQPoint coords() const;
 
 		/**
 		 * accessor for the element's color
 		 */
-		QColor elementColor() const {
+		TQColor elementColor() const {
 			return m_Color; 
 		}
 
@@ -439,11 +439,11 @@ class Element{
 
 		bool m_hasSpectrum;
 
-		QValueList<Isotope*> m_isotopeList;
+		TQValueList<Isotope*> m_isotopeList;
 
-		QValueList<double> m_spectrumList;
+		TQValueList<double> m_spectrumList;
     	
-		QColor m_Color;
+		TQColor m_Color;
 
 		int xPos() const;
 		int yPos() const;
@@ -466,7 +466,7 @@ class Element{
 			m_period,
 			m_abundance;
 
-		QString m_symbol,
+		TQString m_symbol,
 			m_name,
 			m_origin,
 			m_oxstage,
@@ -492,13 +492,13 @@ class Element{
 		 * @param value the value to display as text
 		 * @param c the color used to paint the element
 		 */
-		virtual void drawGradient( QPainter* p, const QString& value, const QColor& c);
+		virtual void drawGradient( TQPainter* p, const TQString& value, const TQColor& c);
 		
 		/**
 		 * Draw the Element grayed out. Used in the timeline
 		 * @param p the painter used for the painting
 		 */
-		virtual void drawGrayedOut( QPainter* p );
+		virtual void drawGrayedOut( TQPainter* p );
 		
 		/**
 		 * draw the rectangle with the information
@@ -506,9 +506,9 @@ class Element{
 		 * @param simple if True more information will be shown
 		 * @param isCrystal whether the elements should draw its crystal structure
 		 */
-		virtual void drawSelf( QPainter* p, bool simple = false, bool isCrystal = false );
+		virtual void drawSelf( TQPainter* p, bool simple = false, bool isCrystal = false );
 
-		virtual void drawStateOfMatter( QPainter* p, double temperature );
+		virtual void drawStateOfMatter( TQPainter* p, double temperature );
 };
 
 

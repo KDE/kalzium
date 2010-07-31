@@ -16,7 +16,7 @@
 
 #include <kdialogbase.h>
 
-typedef QValueList<double> DoubleList;
+typedef TQValueList<double> DoubleList;
 
 class Element;
 class KalziumDataObject;
@@ -98,7 +98,7 @@ class ElementDataViewer : public KDialogBase
 	Q_OBJECT
 
 	public:
-		ElementDataViewer( QWidget *parent=0 , const char *name =0 );
+		ElementDataViewer( TQWidget *parent=0 , const char *name =0 );
 
 		/**
 		 * the AxixData for the y-Axis
@@ -117,8 +117,8 @@ class ElementDataViewer : public KDialogBase
 		void slotUser1();
 
 	protected:
-		virtual void paintEvent(QPaintEvent*);
-		virtual void keyPressEvent(QKeyEvent *e);
+		virtual void paintEvent(TQPaintEvent*);
+		virtual void keyPressEvent(TQKeyEvent *e);
 		
 	protected slots:
 		/**
@@ -132,7 +132,7 @@ class ElementDataViewer : public KDialogBase
 
 		KalziumDataObject  *d;
 
-		QStringList         names;
+		TQStringList         names;
 
 		KActionCollection* m_actionCollection;
 

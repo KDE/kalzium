@@ -12,7 +12,7 @@
  ***************************************************************************/
 #include "spectrumviewimpl.h"
 
-#include <qspinbox.h>
+#include <tqspinbox.h>
 
 #include <kfiledialog.h>
 #include <kguiitem.h>
@@ -22,7 +22,7 @@
 
 #include "exporter.h"
 
-SpectrumViewImpl::SpectrumViewImpl( QWidget *parent, const char* name )
+SpectrumViewImpl::SpectrumViewImpl( TQWidget *parent, const char* name )
 	: SpectrumView( parent, name )
 {
 	resize( minimumSizeHint() );
@@ -34,8 +34,8 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent, const char* name )
 void SpectrumViewImpl::slotExportAsImage()
 {
 	Exporter* exporter = new Exporter();
-	QString fileName = KFileDialog::getSaveFileName(
-	                        QString::null, exporter->supportedImageFormats(),
+	TQString fileName = KFileDialog::getSaveFileName(
+	                        TQString::null, exporter->supportedImageFormats(),
 	                        this, i18n( "Save Spectrum" ) );
 	if( !fileName.isEmpty() )
 	{

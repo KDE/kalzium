@@ -28,7 +28,7 @@ class TimeWidgetIMPL : public TimeWidget
 		 * @param parent The parent of this widget
 		 * @param name The name of this widget
 		 */
-		TimeWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+		TimeWidgetIMPL( TQWidget *parent = 0, const char* name = 0 );
 
 	public slots:
 		/**

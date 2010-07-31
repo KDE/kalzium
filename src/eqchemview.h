@@ -21,7 +21,7 @@
 #ifndef _EQCHEMVIEW_H_
 #define _EQCHEMVIEW_H_
 
-#include <qwidget.h>
+#include <tqwidget.h>
 #include <kdialogbase.h>
 
 class QPainter;
@@ -47,7 +47,7 @@ public:
 	/**
 	 * Default constructor
 	 */
-    eqchemView(QWidget *parent);
+    eqchemView(TQWidget *parent);
 
 	/**
 	 * Destructor
@@ -58,12 +58,12 @@ signals:
     /**
      * Use this signal to change the content of the statusbar
      */
-    void signalChangeStatusbar(const QString& text);
+    void signalChangeStatusbar(const TQString& text);
 
     /**
      * Use this signal to change the content of the caption
      */
-    void signalChangeCaption(const QString& text);
+    void signalChangeCaption(const TQString& text);
 
 public slots:
     void clear();
@@ -92,7 +92,7 @@ class EQChemDialog : public KDialogBase
 		 *
 		 * @param parent the parent widget
 		 */
-		EQChemDialog( QWidget *parent );
+		EQChemDialog( TQWidget *parent );
 
 	private slots:
 		/**

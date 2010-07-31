@@ -20,8 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include <qpair.h>
-#include <qstringlist.h>
+#include <tqpair.h>
+#include <tqstringlist.h>
 
 /**
  * This class obtains all the info needed to work with the units of measure
@@ -74,12 +74,12 @@ class TempUnit
 		 * @return a list with the symbols of the temperature units
 		 * we support
 		 */
-		static QStringList unitListSymbols();
+		static TQStringList unitListSymbols();
 
 		/**
 		 * @return the symbol of the @p i -th unit 
 		 */
-		static QString unitListSymbol( int i );
+		static TQString unitListSymbol( int i );
 
 		static QPair<double, double> rangeForUnit( TempUnit::Unit u );
 

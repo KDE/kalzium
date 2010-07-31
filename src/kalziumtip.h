@@ -22,9 +22,9 @@
  ***************************************************************************/
 
 
-#include <qwidget.h>
-#include <qbitmap.h>
-#include <qtimer.h>
+#include <tqwidget.h>
+#include <tqbitmap.h>
+#include <tqtimer.h>
 
 class QPaintEvent;
 class QSimpleRichText;
@@ -44,19 +44,19 @@ class KalziumTip : public QWidget
 	public:
 		enum MaskEffect { Plain, Dissolve };
 
-		KalziumTip( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+		KalziumTip( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
-		void showTip( QPoint, Element* element, int visibleWidth, int visibleHeight ); //show the tip
+		void showTip( TQPoint, Element* element, int visibleWidth, int visibleHeight ); //show the tip
 		void hide(); // hide it
 
 	protected:
-		void paintEvent(QPaintEvent * e);
+		void paintEvent(TQPaintEvent * e);
 
      		void plainMask();
     		void dissolveMask();
     	// if the mouse pointer hovers us, send the event to the parent
     	// so we are some-what 'mouse transparent'
-    	void mouseMoveEvent(QMouseEvent * e);
+    	void mouseMoveEvent(TQMouseEvent * e);
 		void displayInternal();
 		void display();	
 		
@@ -66,19 +66,19 @@ class KalziumTip : public QWidget
 		void internalUpdate();
 		
 	private:
-		QBitmap m_mask;
-		QPoint m_mousePointer;
-    		QPixmap m_pixmap;
-    		QPixmap m_icon; //icon shown on the tip
-		QPixmap m_noElemIcon; //icon for element wich have no image
+		TQBitmap m_mask;
+		TQPoint m_mousePointer;
+    		TQPixmap m_pixmap;
+    		TQPixmap m_icon; //icon shown on the tip
+		TQPixmap m_noElemIcon; //icon for element wich have no image
 
     		MaskEffect m_maskEffect; //inidicates to show mask effect or plain
-    		QSimpleRichText* m_richText;
+    		TQSimpleRichText* m_richText;
 
     		int m_dissolveSize;
     		int m_dissolveDelta;
 
-    		QTimer m_frameTimer; //timer for the dissolve effect
+    		TQTimer m_frameTimer; //timer for the dissolve effect
     		bool m_dirty;	//indicates repainting the tooltip internal
 
 		const Element* m_tippedElement; //the element the tip is about

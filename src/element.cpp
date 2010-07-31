@@ -26,11 +26,11 @@
 #include "kalziumutils.h"
 #include "tempunit.h"
 
-#include <qdom.h>
-#include <qfile.h>
-#include <qpainter.h>
-#include <qregexp.h>
-#include <qfontmetrics.h>
+#include <tqdom.h>
+#include <tqfile.h>
+#include <tqpainter.h>
+#include <tqregexp.h>
+#include <tqfontmetrics.h>
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -46,8 +46,8 @@ Element::Element()
 
 Isotope* Element::isotopeByNucleons( int numberOfNucleons )
 {
-	QValueList<Isotope*>::ConstIterator it = m_isotopeList.begin();
-	const QValueList<Isotope*>::ConstIterator itEnd = m_isotopeList.end();
+	TQValueList<Isotope*>::ConstIterator it = m_isotopeList.begin();
+	const TQValueList<Isotope*>::ConstIterator itEnd = m_isotopeList.end();
 
 	for ( ; it != itEnd; ++it )
 	{
@@ -57,7 +57,7 @@ Isotope* Element::isotopeByNucleons( int numberOfNucleons )
 	return 0;
 }
 
-QString Element::parsedOrbits( bool canBeEmpty )
+TQString Element::parsedOrbits( bool canBeEmpty )
 {
 	if ( m_orbits.isEmpty() )
 		if ( !canBeEmpty )
@@ -65,9 +65,9 @@ QString Element::parsedOrbits( bool canBeEmpty )
 		else
 			return "";
 	
-	QString orbits = m_orbits;
-	QRegExp rxs("([a-z])([0-9]+)");
-	QRegExp rxb("([a-z]{2}) ",false);
+	TQString orbits = m_orbits;
+	TQRegExp rxs("([a-z])([0-9]+)");
+	TQRegExp rxb("([a-z]{2}) ",false);
 	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
 	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
 	return orbits;
@@ -82,10 +82,10 @@ double Element::meanmass()
 	return m_mass/m_number;
 }
 
-const QString Element::adjustRadius( RADIUSTYPE rtype )
+const TQString Element::adjustRadius( RADIUSTYPE rtype )
 {
 	double val = 0.0;
-	QString v;
+	TQString v;
 
 	switch ( rtype )
 	{
@@ -110,9 +110,9 @@ const QString Element::adjustRadius( RADIUSTYPE rtype )
 	return v;
 }
 
-const QString Element::adjustUnits( const int type, double value )
+const TQString Element::adjustUnits( const int type, double value )
 {
-	QString v;
+	TQString v;
 	if ( type == IE  ) //an ionization energy
 	{
 		if ( Prefs::energies() == 0 )
@@ -130,9 +130,9 @@ const QString Element::adjustUnits( const int type, double value )
 	return v;
 }
 
-const QString Element::adjustUnits( const int type )
+const TQString Element::adjustUnits( const int type )
 {
-	QString v = QString::null;
+	TQString v = TQString::null;
 
 	double val = 0.0; //the value to convert
 	
@@ -148,22 +148,22 @@ const QString Element::adjustUnits( const int type )
 		else
 		{
 			double newvalue = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
-			QString strVal = KalziumUtils::localizedValue( newvalue, 6 );
+			TQString strVal = KalziumUtils::localizedValue( newvalue, 6 );
 			switch (Prefs::temperature()) {
 				case 0: //Kelvin
 					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( strVal );
 					break;
 				case 1://Kelvin to Celsius
-					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( strVal ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( strVal ).arg( TQChar(0xB0) );
 					break;
 				case 2: // Kelvin to Fahrenheit
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( strVal ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( strVal ).arg( TQChar(0xB0) );
 					break;
 				case 3: // Kelvin to Rankine
-					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( strVal ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( strVal ).arg( TQChar(0xB0) );
 					break;
 				case 4: // Kelvin to Reaumur
-					v = i18n( "%1 is the temperature in Reaumur", "%1 %2R" ).arg( strVal ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Reaumur", "%1 %2R" ).arg( strVal ).arg( TQChar(0xB0) );
 					break;
 			}
 		}
@@ -230,14 +230,14 @@ const QString Element::adjustUnits( const int type )
 		}
 		else
 		{
-			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
+			v = i18n( "This element was discovered in the year %1" ).arg( TQString::number( val ) );
 		}
 	}
 
 	return v;
 }
 
-void Element::drawStateOfMatter( QPainter* p, double temp )
+void Element::drawStateOfMatter( TQPainter* p, double temp )
 {
 	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
@@ -248,16 +248,16 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	//The Y-coordinate
 	int Y = yPos();
 	
-	QColor color = currentColor( temp );
+	TQColor color = currentColor( temp );
 	
 	p->setPen( color );
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, color );
 	
-	QString text;
-	QFont symbol_font = p->font();
+	TQString text;
+	TQFont symbol_font = p->font();
 
 	symbol_font.setPointSize( 10 );
-	QFont f = p->font();
+	TQFont f = p->font();
 	f.setPointSize( 9 );
 		
 	p->setFont( f );
@@ -267,7 +267,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	text = KalziumUtils::localizedValue( KalziumUtils::strippedValue( mass( ) ), 6 );
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
-	text = QString::number( number() );
+	text = TQString::number( number() );
 	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
 
 	p->setFont( symbol_font );
@@ -278,9 +278,9 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
-QColor Element::currentColor( const double temp )
+TQColor Element::currentColor( const double temp )
 {
-	QColor color;
+	TQColor color;
 	
 	//take the colours for the given temperature
 	const double iButton_melting = melting();
@@ -311,7 +311,7 @@ QColor Element::currentColor( const double temp )
 }
 
 	
-void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
+void Element::drawGradient( TQPainter* p, const TQString& value, const TQColor& c)
 {
 	//Set the elementColor to c to make the overviewwidget show
 	//the correct color
@@ -330,15 +330,15 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, c );
 	
 	p->setPen( Qt::black );
-	QFont symbol_font = p->font();
-	QFont f = p->font();
+	TQFont symbol_font = p->font();
+	TQFont f = p->font();
 
-	f.setPointSize( KalziumUtils::maxSize(value, QRect( X,Y+ELEMENTSIZE-h_small, ELEMENTSIZE, h_small ),f, p ) );
+	f.setPointSize( KalziumUtils::maxSize(value, TQRect( X,Y+ELEMENTSIZE-h_small, ELEMENTSIZE, h_small ),f, p ) );
 	p->setFont( f );
 
 	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, value );
 
-	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
+	const TQRect rect = TQRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
 	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
 	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
@@ -349,7 +349,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
-void Element::drawGrayedOut( QPainter *p )
+void Element::drawGrayedOut( TQPainter *p )
 { 
 	//The X-coordiante
 	int X = xPos();
@@ -361,8 +361,8 @@ void Element::drawGrayedOut( QPainter *p )
 	
 	p->setPen( Qt::darkGray );
 	
-	QFont symbol_font = p->font();
-	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
+	TQFont symbol_font = p->font();
+	const TQRect rect = TQRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
 	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
 	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
@@ -372,7 +372,7 @@ void Element::drawGrayedOut( QPainter *p )
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
-void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
+void Element::drawSelf( TQPainter* p, bool simple, bool isCrystal )
 {
 	//the height of a "line" inside an element
 	int h_small = 12; //the size for the small units like elementnumber
@@ -387,12 +387,12 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, elementColor() );
 	p->setPen( Qt::black );
 	
-	QString text;
-	QFont symbol_font = p->font();
+	TQString text;
+	TQFont symbol_font = p->font();
 	
 	const int max = ELEMENTSIZE-10;
 	
-	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,max );
+	const TQRect rect = TQRect( X,Y,ELEMENTSIZE-2,max );
 
 	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
 	symbol_font.setPointSize( goodsize );
@@ -403,19 +403,19 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	else
 		p->drawText( X+1,Y+5, ELEMENTSIZE-2,max,Qt::AlignHCenter, symbol() );
 	
-	QFont f = p->font();
+	TQFont f = p->font();
 
-	QRect smallRect( X,Y ,ELEMENTSIZE-4,h_small );
-	f.setPointSize( KalziumUtils::maxSize( QString::number( number() ), smallRect, f, p ) );
+	TQRect smallRect( X,Y ,ELEMENTSIZE-4,h_small );
+	f.setPointSize( KalziumUtils::maxSize( TQString::number( number() ), smallRect, f, p ) );
 	
 	p->setFont( f );
 
 	if ( !simple )
 	{//the user only wants a simple periodic table, don't weight the cell
-		QString text;
+		TQString text;
 		if ( isCrystal )
 		{
-			QString structure = crystalstructure();
+			TQString structure = crystalstructure();
 			/**
 			 * hcp: hexagonal close packed
 			 * fcc: face centered cubic
@@ -444,7 +444,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 		p->drawText( X+2,Y ,ELEMENTSIZE-4 ,h_small,Qt::AlignCenter, text );
 	}
 	
-	text = QString::number( number() );
+	text = TQString::number( number() );
 	p->drawText( X+2,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-4, h_small,Qt::AlignCenter, text );
 	
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
@@ -479,7 +479,7 @@ void Element::setupXY()
  y = posYRegular[m_number-1];
 }
 
-void Element::setRadius( RADIUSTYPE type, double value, const QString& name )
+void Element::setRadius( RADIUSTYPE type, double value, const TQString& name )
 {
 	switch ( type )
 	{
@@ -537,12 +537,12 @@ int Element::yPos() const
 	return tmp_y;
 }
 
-QPoint Element::pos() const
+TQPoint Element::pos() const
 {
-	return QPoint( xPos(), yPos() );
+	return TQPoint( xPos(), yPos() );
 }
 
-QPoint Element::coords() const
+TQPoint Element::coords() const
 {
-	return QPoint( x, y );
+	return TQPoint( x, y );
 }

@@ -75,20 +75,20 @@ double TempUnit::convert( const double value, int from, int to )
 	return convert( value, (TempUnit::Unit)from, (TempUnit::Unit)to );
 }
 
-QStringList TempUnit::unitListSymbols()
+TQStringList TempUnit::unitListSymbols()
 {
-	QStringList list;
+	TQStringList list;
 	list << "K";
-	list << QString::fromUtf8("°C");
-	list << QString::fromUtf8("°F");
-	list << QString::fromUtf8("°Ra");
-	list << QString::fromUtf8("°R");
+	list << TQString::fromUtf8("°C");
+	list << TQString::fromUtf8("°F");
+	list << TQString::fromUtf8("°Ra");
+	list << TQString::fromUtf8("°R");
 	return list;
 }
 
-QString TempUnit::unitListSymbol( int i )
+TQString TempUnit::unitListSymbol( int i )
 {
-	QStringList l = unitListSymbols();
+	TQStringList l = unitListSymbols();
 	if ( ( i < 0 ) || ( i >= (int)l.count() ) )
 		return l[0];
 	return l[i];

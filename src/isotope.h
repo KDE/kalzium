@@ -20,7 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include <qstring.h>
+#include <tqstring.h>
 
 /**
  * @author Carsten Niehaus
@@ -36,7 +36,7 @@ class Isotope
 				double percentage, 
 				double weight, 
 				double halflife, 
-				QString format, 
+				TQString format, 
 				double alphadecay, 
 				double betaplusdecay, 
 				double betaminusdecay, 
@@ -45,8 +45,8 @@ class Isotope
 				double betapluspercentage, 
 				double betaminuspercentage, 
 				double ecpercentage, 
-				QString spin, 
-				QString magmoment);
+				TQString spin, 
+				TQString magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -123,20 +123,20 @@ class Isotope
 			return m_ecdecay;
 		}
 	
-		QString spin() const{
+		TQString spin() const{
 			return m_spin;
 		}
 		
-		QString magmoment() const{
+		TQString magmoment() const{
 			return m_magmoment;
 		}
 
 		/**
-		 * @return the halflife as a QString. The format will be
+		 * @return the halflife as a TQString. The format will be
 		 * appended, for example "seconds" or "years" depending 
 		 * on the timeframe
 		 */
-		QString halflifeAsString();
+		TQString halflifeAsString();
 
 		/**
 		 * @return the percentage of the betaminus decay
@@ -172,7 +172,7 @@ class Isotope
 		 * isotopes have half-lifes of billion of years. This simply
 		 * doesn't fit into a unsigned int or double
 		 */
-		QString m_format;
+		TQString m_format;
 
 		/**
 		 * the weight of the isotope
@@ -214,12 +214,12 @@ class Isotope
 		/**
 		*spin and parity
 		*/
-		QString m_spin;
+		TQString m_spin;
 		
 		/**
 		* magnetic moment
 		*/
-		QString m_magmoment;
+		TQString m_magmoment;
 
 		/**
 		 * the percentage with which the istope decays as alpha-rays

@@ -18,13 +18,13 @@
 #include <kdebug.h>
 
 //QT-Includes
-#include <qpainter.h>
-#include <qregexp.h>
-#include <qpixmap.h>
+#include <tqpainter.h>
+#include <tqregexp.h>
+#include <tqpixmap.h>
 
-static QStringList hulllist;
+static TQStringList hulllist;
 
-OrbitsWidget::OrbitsWidget( QWidget *parent, const char *name) : QWidget( parent, name )
+OrbitsWidget::OrbitsWidget( TQWidget *parent, const char *name) : TQWidget( parent, name )
 {
 	if ( hulllist.count() == 0 )
 	{
@@ -154,8 +154,8 @@ void OrbitsWidget::setElementNumber( const int num )
 void OrbitsWidget::getNumberOfOrbits()
 {
 	numOfElectrons.clear();
-	QRegExp rxb( "\\s" ); //space
-	QString o = getNumber();
+	TQRegExp rxb( "\\s" ); //space
+	TQString o = getNumber();
 
 	num = 1;
 	int pos = 0;
@@ -184,15 +184,15 @@ void OrbitsWidget::getNumberOfOrbits()
 	}
 }
 
-const QString& OrbitsWidget::getNumber() const
+const TQString& OrbitsWidget::getNumber() const
 {
 	return *hulllist.at( Elemno-1 );
 }
 
-void OrbitsWidget::paintEvent(  QPaintEvent* )
+void OrbitsWidget::paintEvent(  TQPaintEvent* )
 {
 	
-	QPainter DC;
+	TQPainter DC;
 	DC.begin( this );
 
 	int h=height();
@@ -213,7 +213,7 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	r_electron = r/20; //diameter of an electron-circle
 		
-	QBrush   brush(  yellow );
+	TQBrush   brush(  yellow );
 	
 	int d = 2*r; //Diameter
 	int	ddx = d/(2*num);//difference to the previous circle

@@ -40,14 +40,14 @@ public:
 	 * exported.
 	 * @return whether the image was saved successfully
 	 */
-	bool saveAsImage( const QPixmap* pixmap, const QString& fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
+	bool saveAsImage( const TQPixmap* pixmap, const TQString& fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
 
 	/**
 	 * Which image type can we export to?
 	 * @return a string representing a filter string for file dialogs with
 	 * the image type we can export to
 	 */
-	QString supportedImageFormats();
+	TQString supportedImageFormats();
 };
 
 #endif

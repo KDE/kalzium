@@ -28,18 +28,18 @@
 #include <klocale.h>
 #include <math.h>
 
-#include <qcursor.h>
-#include <qsizepolicy.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qtooltip.h>
+#include <tqcursor.h>
+#include <tqsizepolicy.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqtooltip.h>
 
-#include <qglobal.h>
+#include <tqglobal.h>
 #if defined(Q_OS_SOLARIS)
 #include <ieeefp.h>
 #endif
 
-SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( parent, name )
+SpectrumWidget::SpectrumWidget( TQWidget *parent, const char* name ) : TQWidget( parent, name )
 {
 	startValue = 0;
 	endValue = 0;
@@ -57,11 +57,11 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( p
 	setType( EmissionSpectrum );
 
 	setMinimumSize( 400, 230 );
-	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	setSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding );
 	setBackgroundMode( NoBackground );
 }
 
-void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
+void SpectrumWidget::paintEvent( TQPaintEvent * /*e*/ )
 {
 	if ( !m_spectrum )
 		 return;
@@ -69,7 +69,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	m_pixmap.resize( width(), height() );
 	m_pixmap.fill( this, width(), height() );
 
-	QPainter p;
+	TQPainter p;
 	p.begin( &m_pixmap, this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 
@@ -87,7 +87,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	bitBlt( this, 0, 0, &m_pixmap );
 }
 
-void SpectrumWidget::drawZoomLine( QPainter* p )
+void SpectrumWidget::drawZoomLine( TQPainter* p )
 {
 	p->setPen( Qt::white );
 	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y(), m_LMBPointCurrent.x(), m_LMBPointPress.y() );
@@ -96,7 +96,7 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 
 }
 
-void SpectrumWidget::paintBands( QPainter* p )
+void SpectrumWidget::paintBands( TQPainter* p )
 {
 	if ( m_type == AbsorptionSpectrum )
 	{
@@ -114,7 +114,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 	int x = 0;
 	int temp = 0;	
 
- 	for ( QValueList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
+ 	for ( TQValueList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
  			it != m_spectrum->bandlist()->end();
  			++it )
  	{
@@ -145,12 +145,12 @@ void SpectrumWidget::paintBands( QPainter* p )
  	}
 }
 
-QColor SpectrumWidget::linecolor( double spectrum )
+TQColor SpectrumWidget::linecolor( double spectrum )
 {
         int r,g,b;
         wavelengthToRGB( spectrum, r,g,b );
 
-        QColor c( r,g,b );
+        TQColor c( r,g,b );
         return c;
 }
 
@@ -226,7 +226,7 @@ int SpectrumWidget::Adjust( double color, double factor )
 		return qRound( IntensityMax * pow( color*factor, Gamma ) );
 }
 
-void SpectrumWidget::drawTickmarks( QPainter* p )
+void SpectrumWidget::drawTickmarks( TQPainter* p )
 {
 	//the size of the text on the tickmarks
 	const int space = 20;
@@ -259,7 +259,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	}
 }
 
-void SpectrumWidget::keyPressEvent( QKeyEvent *e )
+void SpectrumWidget::keyPressEvent( TQKeyEvent *e )
 {
 	 kdDebug() << "SpectrumWidget::keyPressEvent()" << endl;
 	switch ( e->key() )
@@ -312,17 +312,17 @@ void SpectrumWidget::slotZoomIn()
 	kdDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
 }
 
-void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
+void SpectrumWidget::mouseMoveEvent( TQMouseEvent *e )
 {
 	m_LMBPointCurrent = e->pos();
 	update();
 }
 
-void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
+void SpectrumWidget::mousePressEvent(  TQMouseEvent *e )
 {
-	if (  e->button() == QMouseEvent::LeftButton )
+	if (  e->button() == TQMouseEvent::LeftButton )
 		m_LMBPointPress = e->pos();
-	if (  e->button() == QMouseEvent::RightButton )
+	if (  e->button() == TQMouseEvent::RightButton )
 		slotZoomOut();
 //FIXME
 //the tooltip is not really working. Better to not have it
@@ -334,8 +334,8 @@ void SpectrumWidget::PrepareTooltip( double wavelength )
 {
 	Spectrum::band band;
 	
- 	QValueList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
-	const QValueList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
+ 	TQValueList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
+	const TQValueList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
 
 	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
 	double dif = 0.0;
@@ -374,10 +374,10 @@ void SpectrumWidget::PrepareTooltip( double wavelength )
 	update();
 }
 
-void SpectrumWidget::drawTooltip( QPainter *p )
+void SpectrumWidget::drawTooltip( TQPainter *p )
 {
 	p->setPen( Qt::white );
-	QPoint pt = mapFromGlobal( QCursor::pos() );
+	TQPoint pt = mapFromGlobal( TQCursor::pos() );
 	p->drawText( pt, i18n("Wavelength: %1").arg(m_band.wavelength) ); 
 	pt.setY( pt.y() + 15 );
 	p->drawText( pt, i18n("Intensity: %1").arg(m_band.intensity) ); 
@@ -389,9 +389,9 @@ void SpectrumWidget::drawTooltip( QPainter *p )
 	p->drawText( pt, i18n("J 1, J 2: %1, %2").arg(m_band.J1).arg( m_band.J2 ));
 }
 
-void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
+void SpectrumWidget::mouseReleaseEvent(  TQMouseEvent *e )
 {
-	if (  e->button() == QMouseEvent::LeftButton )
+	if (  e->button() == TQMouseEvent::LeftButton )
 	{
 		int left = (int)Wavelength( ( double )m_LMBPointPress.x()/width() );
 		int right = (int)Wavelength( ( double )e->pos().x()/width() );
@@ -409,17 +409,17 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 	m_LMBPointCurrent.setX( -1 );
 }
 
-QPixmap SpectrumWidget::pixmap()
+TQPixmap SpectrumWidget::pixmap()
 {
-	QPixmap tmp( m_pixmap );
-	QString text;
+	TQPixmap tmp( m_pixmap );
+	TQString text;
 
 	if( m_type == EmissionSpectrum )
 		text = i18n( "Emission spectrum of %1" ).arg( m_spectrum->parentElement()->elname() );
 	else
 		text = i18n( "Absorption spectrum of %1" ).arg( m_spectrum->parentElement()->elname() );
 
-	QPainter p( &tmp );
+	TQPainter p( &tmp );
 	p.setPen( Qt::black );
 	p.drawText( 30, m_realHeight + 70, text );
 

@@ -22,7 +22,7 @@ class Element;
  * @author Carsten Niehaus
  * @author Pino Toscano
  *
- * The SOMWidgetIMPL provides a QSlider. When this slider is moved,
+ * The SOMWidgetIMPL provides a TQSlider. When this slider is moved,
  * this widget will display which elements have a boiling or melting
  * point near the temperature the user entered using the slider.
  */
@@ -35,7 +35,7 @@ class SOMWidgetIMPL : public SOMWidget
 		 * @param parent The parent of this widget
 		 * @param name The name of this widget
 		 */
-		SOMWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+		SOMWidgetIMPL( TQWidget *parent = 0, const char* name = 0 );
 
 	public slots:
 		/**
@@ -44,9 +44,9 @@ class SOMWidgetIMPL : public SOMWidget
 		void reloadUnits();
 
 	private:
-		QValueList<Element*> m_list;
-		QString m_htmlBegin;
-		QString m_htmlEnd;
+		TQValueList<Element*> m_list;
+		TQString m_htmlBegin;
+		TQString m_htmlEnd;
 		int m_prevUnit;
 
 	private slots:

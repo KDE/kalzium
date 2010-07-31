@@ -47,7 +47,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		MolcalcWidget( QWidget *parent = 0, const char *name = 0 );
+		MolcalcWidget( TQWidget *parent = 0, const char *name = 0 );
 
 	protected slots:
 		void slotCalcButtonClicked();
@@ -60,7 +60,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 		 * @return the HTML code of an element symbol and its
 		 * subscripted amount. Eg: Mg<sub>2</sub>
 		 */
-		QString compositionString( ElementCountMap &_map );
+		TQString compositionString( ElementCountMap &_map );
 
 		/**
 		 * This methods gathers all the data and updates the 

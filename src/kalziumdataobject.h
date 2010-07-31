@@ -26,7 +26,7 @@
  * @short This class contains all Element objects
  *
  * This singleton class collects all the information about the elements of the
- * Periodic Table as list of Element (QValueList<Element*>).
+ * Periodic Table as list of Element (TQValueList<Element*>).
  * Use:
  * @code
  * KalziumDataObject::instance()->ElementList;
@@ -48,7 +48,7 @@ class KalziumDataObject
 		static KalziumDataObject* instance();
 
 		/**
-		 * The list of elements in a QValueList<Element*>
+		 * The list of elements in a TQValueList<Element*>
 		 */
 		EList ElementList;
 		
@@ -69,7 +69,7 @@ class KalziumDataObject
 		KalziumDataObject();
 		~KalziumDataObject();
 
-		EList readData( QDomDocument &dataDocument );
+		EList readData( TQDomDocument &dataDocument );
 
 		/**
 		 * Caching the number of elements

@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qwidget.h>
+#include <tqwidget.h>
 
 class Element;
 
@@ -30,8 +30,8 @@ class DetailedGraphicalOverview : public QWidget
 	Q_OBJECT
 
 	public:
-		DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name=0 );
-		DetailedGraphicalOverview( QWidget *parent, const char *name=0 );
+		DetailedGraphicalOverview( Element *el, TQWidget *parent, const char *name=0 );
+		DetailedGraphicalOverview( TQWidget *parent, const char *name=0 );
 
 		/**
 		 * sets the elements whose data will be used to @p el
@@ -45,7 +45,7 @@ class DetailedGraphicalOverview : public QWidget
 		 * draw the small symbol which symbolises the
 		 * relevence for humans
 		 */
-		void drawBiologicalSymbol( QPainter *p );
+		void drawBiologicalSymbol( TQPainter *p );
 	
 		//calculation of the corners
 		int x1,x2,y1,y2,h_t;
@@ -57,7 +57,7 @@ class DetailedGraphicalOverview : public QWidget
 		Element *m_element;
 
 	protected:
-		virtual void paintEvent( QPaintEvent* );
+		virtual void paintEvent( TQPaintEvent* );
 
 		/**
 		 * initialization method
