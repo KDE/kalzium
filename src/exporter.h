@@ -19,8 +19,8 @@
  *                                                                         *
  ***************************************************************************/
 
-class QPixmap;
-class QString;
+class TQPixmap;
+class TQString;
 
 /**
  * Small class that provides some exporting functions for graphics.

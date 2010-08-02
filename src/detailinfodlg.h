@@ -25,10 +25,10 @@ class Element;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
-class QMouseEvent;
-class QFrame;
-class QLabel;
-class QVBoxLayout;
+class TQMouseEvent;
+class TQFrame;
+class TQLabel;
+class TQVBoxLayout;
 class KActionCollection;
 class KHTMLPart;
 

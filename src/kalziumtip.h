@@ -26,11 +26,11 @@
 #include <tqbitmap.h>
 #include <tqtimer.h>
 
-class QPaintEvent;
-class QSimpleRichText;
-class QPixmap;
+class TQPaintEvent;
+class TQSimpleRichText;
+class TQPixmap;
 class Element;
-class QTimer;
+class TQTimer;
 
 
 /**

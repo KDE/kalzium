@@ -24,7 +24,7 @@
 #include <tqstring.h>
 #include <tqvaluelist.h>
 
-class QPixmap;
+class TQPixmap;
 class Element;
 
 /**

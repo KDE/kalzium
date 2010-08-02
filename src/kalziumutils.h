@@ -14,10 +14,10 @@
  *                                                                         *
  ***************************************************************************/
 
-class QString;
-class QRect;
-class QFont;
-class QPainter;
+class TQString;
+class TQRect;
+class TQFont;
+class TQPainter;
 
 class KalziumUtils
 {

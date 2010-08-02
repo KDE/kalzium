@@ -21,10 +21,10 @@
 #ifndef PerodicTableView_H
 #define PerodicTableView_H
 
-class QLabel;
-class QPixmap;
-class QPoint;
-class QVBoxLayout;
+class TQLabel;
+class TQPixmap;
+class TQPoint;
+class TQVBoxLayout;
 class Element;
 class KalziumDataObject;
 class KalziumTip;

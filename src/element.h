@@ -26,11 +26,11 @@
 #include <tqvaluelist.h>
 
 class Element;
-class QDomDocument;
-class QPainter;
-class QPoint;
-class QFont;
-class QRect;
+class TQDomDocument;
+class TQPainter;
+class TQPoint;
+class TQFont;
+class TQRect;
 class Spectrum;
 class Isotope;
 

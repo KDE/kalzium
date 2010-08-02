@@ -24,7 +24,7 @@
 #include <tqwidget.h>
 #include <kdialogbase.h>
 
-class QPainter;
+class TQPainter;
 class KURL;
 class EqResult;
 
