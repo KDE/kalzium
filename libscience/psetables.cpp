@@ -36,6 +36,9 @@ pseTables::pseTables()
 
 pseTables::~pseTables()
 {
+//     foreach(psTable *i, m_tables) {
+//         delete i;
+//     }
 }
 
 pseTables *pseTables::instance()
@@ -72,8 +75,6 @@ pseTable* pseTables::getTabletype(const QString tableName)
     }
     return 0;
 }
-
-
 
 pseTable::pseTable()
 {
@@ -139,7 +140,7 @@ QPoint pseTable::coordsMax() const
 {
     int x = 0, y = 0, i;
 
-    for(i = 0; i < m_posX.count(); i++) {
+    for (i = 0; i < m_posX.count(); i++) {
         if (m_posX.at(i) > x) {
             x = m_posX.at(i) ;
         }
@@ -150,6 +151,14 @@ QPoint pseTable::coordsMax() const
     return QPoint(x, y);
 }
 
+int pseTable::numeration( int xPos ) const
+{
+  if ( xPos >= 0 && xPos < m_xCoordsNumeration.count() ) {
+     return m_xCoordsNumeration.at( xPos );
+  }
+  return -1;
+}
+
 /// Regular Table Data
 pseRegularTable::pseRegularTable()
         : pseTable()
@@ -157,6 +166,9 @@ pseRegularTable::pseRegularTable()
     m_name = "Classic";
 
     m_description = i18n( "Classic Periodic Table" );
+
+    m_xCoordsNumeration <<
+    1 << 2 << 3 << 4 << 5 << 6 << 7 << 8 << 9 << 10 << 11 << 12 << 13 << 14 << 15 << 16 << 17 << 18;
 
     m_posX <<
     1 <<                                                                                         18 <<
@@ -204,6 +216,9 @@ pseLongTable::pseLongTable()
 
     m_description = i18n( "Long Periodic Table" );
 
+    m_xCoordsNumeration <<
+    1 << 2 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12 <<13 <<14 <<15 <<16 <<17 <<18;
+
     m_posX <<
     1 <<                                                                                                                                                      32 <<
     1 << 2 <<                                                                                                                        27 <<28 <<29 <<30 <<31 <<32 <<
@@ -245,6 +260,9 @@ pseShortTable::pseShortTable()
     m_name = "Short";
 
     m_description = i18n( "Short Periodic Table" );
+
+    m_xCoordsNumeration <<
+    1 << 2 <<13 <<14 <<15 <<16 <<17 <<18;
 
     m_posX <<
     1 <<                               8 <<//He
@@ -291,6 +309,9 @@ pseDTable::pseDTable()
 
     m_description = i18n( "Transition Elements" );
 
+    m_xCoordsNumeration <<
+    3<< 4<< 5<< 6<< 7<< 8<< 9<<10<<11<< 12;
+
     m_posX <<
     1<< 2<< 3<< 4<< 5<< 6<< 7<< 8<< 9<< 10<<
     1<< 2<< 3<< 4<< 5<< 6<< 7<< 8<< 9<< 10<<
@@ -328,12 +349,15 @@ pseDZTable::pseDZTable()
 
     m_description = i18n( "DZ Periodic Table" );
 
+    m_xCoordsNumeration <<
+    1 << 2 <<13 <<14 <<15 <<16 <<17 <<18 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12;
+
     m_posX <<
     1<< 2<<
     2<< 2<<
-         3<< 4<< 5<< 6<< 7<< 8<<
+    3<< 4<< 5<< 6<< 7<< 8<<
     1<< 2<<
-         3<< 4<< 5<< 6<< 7<< 8<<
+    3<< 4<< 5<< 6<< 7<< 8<<
     1<< 2<<
                            9<<10<<11<<12<<13<<14<<15<<16<<17<<18<<
          3<< 4<< 5<< 6<< 7<< 8<<
@@ -347,29 +371,30 @@ pseDZTable::pseDZTable()
     1<< 2<<
                                                               19<<20<<21<<22<<23<<24<<25<<26<<27<<28<<29<<30<<31<<32<<
                            9<<10<<11<<12<<13<<14<<15<<16<<17<<18<<
-         3 <<4 <<5 <<6
+         3 <<4 <<5 <<6 <<7 <<8
     ;
 
     m_posY <<
     1<< 1<<
     2<< 2<<
-         3<< 3<< 3<< 3<< 3<< 3<<
+    3<< 3<< 3<< 3<< 3<< 3<<
     4<< 4<<
-         5<< 5<< 5<< 5<< 5<< 5<<
+    5<< 5<< 5<< 5<< 5<< 5<<
     6<< 6<<
                           7<< 7<< 7<< 7<< 7<< 7<< 7<< 7<< 7<< 7<<
          8<< 8<< 8<< 8<< 8<< 8<<
     9<< 9<<
-                          10<<10<<10<<10<<10<<10<<10<<10<<10<<10<<
-         11<<11<<11<<11<<11<<11<<
+    10<<10<<10<<10<<10<<10<<10<<10<<10<<10<<
+    11<<11<<11<<11<<11<<11<<
     12<<12<<
+
                                                               13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<
                           14<<14<<14<<14<<14<<14<<14<<14<<14<<14<<
          15<<15<<15<<15<<15<<15<<
     16<<16<<
                                                               17<<17<<17<<17<<17<<17<<17<<17<<17<<17<<17<<17<<17<<17<<
                           18<<18<<18<<18<<18<<18<<18<<18<<18<<18<<
-         19<<19<<19<<19
+         19<<19<<19<<19<<19<<19
     ;
 
     // The DZ PS has all Elements

@@ -1,13 +1,13 @@
 /*********************************************************************************
- *   Copyright (C) 2005, 2006   by Pino Toscano, toscano.pino@tiscali.it         *
- *   Copyright (C) 2007         by Carste Niehaus, cniehaus@kde.org              *
- *   copyright (C) 2010         by Etienne Rebetez, etienne.rebetez@oberwallis.ch*
+ *   Copyright (C) 2005, 2006  by Pino Toscano, toscano.pino@tiscali.it          *
+ *   Copyright (C) 2007        by Carste Niehaus, cniehaus@kde.org               *
+ *   copyright (C) 2010        by Etienne Rebetez, etienne.rebetez@oberwallis.ch *
  *                                                                               *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify       *
+ *   it under the terms of the GNU General Public License as published by      *
+ *   the Free Software Foundation; either version 2 of the License, or        *
+ *   (at your option) any later version.                                     *
+ *                                                                          *
  *   This program is distributed in the hope that it will be useful,       *
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
@@ -28,6 +28,38 @@
 #include <QList>
 #include <QStringList>
 
+/**
+ * @class pseTables
+ * Provides functions to easyli create pse tables with q*GridLayouts or qGraphicsView.
+ *
+ * creating a table for the gridlayout
+@code
+  foreach (intElement, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
+       group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).x();
+       period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
+
+       ElementLabel *element = new ElementLabel( intElement );
+
+       gridLayoutOfPeriodSystem->addItem (element, period, group );
+  }
+
+@endcode
+
+ * position elements in a qGraphicsScene
+@code
+
+
+@endcode
+
+ * getting the position of the Numerations for the pse (j)
+ @code
+    for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); i++) {
+	int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
+    }
+ @endcode
+ * @short Provides shape and elements of diferent peridic tables of elements
+ * @author Etienne Rebetez
+ */
 class pseTable;
 
 /**
@@ -69,7 +101,8 @@ private:
  * defines a Periodic Table.
  * Holds the position (x,y) and all the displaed elements
  */
-class SCIENCE_EXPORT pseTable
+class pseTable
+
 {
 public:
     static pseTable *init();
@@ -93,13 +126,19 @@ public:
     virtual QPoint elementCoords(int element);
 
     /**
+     * Returns a list with all elements in the actual periodic table
+     */
+    virtual QList<int> elements() const;
+
+    /**
+
      * Returns the element that comes right before the specified @p element.
      * -1 means that @p element is the first in this table type.
      *
      * The default implementation returns <tt>element - 1</tt> if @p element
      * is not 1, else -1.
      */
-    int previousOf ( int element ) const;
+    virtual int previousOf ( int element ) const;
 
     /**
      * Returns the element that comes right after the specified @p element.
@@ -108,27 +147,27 @@ public:
      * The default implementation returns <tt>element + 1</tt> if @p element
      * is not the latest element, else -1.
      */
-    int nextOf ( int element ) const;
+    virtual int nextOf ( int element ) const;
 
     /**
      * Returns the first element of the table.
      */
-    int firstElement() const;
+    virtual int firstElement() const;
 
     /**
      * Returns the last element of the table.
      */
-    int lastElement() const;
-
-    /**
-     * Returns a list with all elements in the actual periodic table
-     */
-    virtual QList<int> elements() const;
+    virtual int lastElement() const;
 
     /**
      * Returns the maximal Coordinates of the periodic table.
      */
     virtual QPoint coordsMax() const;
+
+     /**
+     * Returns the Numeration for the current Table according to the position in the Table. IUPAC Style eq. numbers
+     */
+     virtual int numeration( int xPos ) const;
 
 protected:
     pseTable();
@@ -138,6 +177,7 @@ protected:
 
     QList<int> m_posX;
     QList<int> m_posY;
+    QList<int> m_xCoordsNumeration;
     QList<int> m_elementList;
 };
 
