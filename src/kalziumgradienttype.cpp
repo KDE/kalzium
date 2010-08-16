@@ -32,51 +32,52 @@
 
 KalziumGradientTypeFactory::KalziumGradientTypeFactory()
 {
-	m_gradients << KalziumCovalentRadiusGradientType::instance();
-	m_gradients << KalziumVanDerWaalsRadiusGradientType::instance();
-	m_gradients << KalziumMassGradientType::instance();
-	m_gradients << KalziumBoilingPointGradientType::instance();
-	m_gradients << KalziumMeltingPointGradientType::instance();
-	m_gradients << KalziumElectronegativityGradientType::instance();
-	m_gradients << KalziumElectronaffinityGradientType::instance();
-	m_gradients << KalziumDiscoverydateGradientType::instance();
-	m_gradients << KalziumIonizationGradientType::instance();
+    m_gradients << KalziumSOMGradientType::instance();
+    m_gradients << KalziumCovalentRadiusGradientType::instance();
+    m_gradients << KalziumVanDerWaalsRadiusGradientType::instance();
+    m_gradients << KalziumMassGradientType::instance();
+    m_gradients << KalziumBoilingPointGradientType::instance();
+    m_gradients << KalziumMeltingPointGradientType::instance();
+    m_gradients << KalziumElectronegativityGradientType::instance();
+    m_gradients << KalziumElectronaffinityGradientType::instance();
+    m_gradients << KalziumDiscoverydateGradientType::instance();
+    m_gradients << KalziumIonizationGradientType::instance();
 }
 
 KalziumGradientTypeFactory* KalziumGradientTypeFactory::instance()
 {
-	static KalziumGradientTypeFactory kttf;
-	return &kttf;
+    static KalziumGradientTypeFactory kttf;
+    return &kttf;
 }
 
 KalziumGradientType* KalziumGradientTypeFactory::build( int id ) const
 {
-	if ( ( id < 0 ) || ( id >= m_gradients.count() ) )
-		return 0;
+    if ( ( id < 0 ) || ( id >= m_gradients.count() ) )
+        return 0;
 
-	return m_gradients.at( id );
+    return m_gradients.at( id );
 }
 
 KalziumGradientType* KalziumGradientTypeFactory::build( const QByteArray& id ) const
 {
-	for ( int i = 0; i < m_gradients.count(); i++ )
-	{
-		if ( m_gradients.at( i )->name() == id )
-			return m_gradients.at( i );
-	}
-	
-	// not found
-	return 0;
+    for ( int i = 0; i < m_gradients.count(); i++ )
+    {
+        if ( m_gradients.at( i )->name() == id )
+            return m_gradients.at( i );
+    }
+
+    // not found
+    return 0;
 }
 
 QStringList KalziumGradientTypeFactory::gradients() const
 {
-	QStringList l;
-	for ( int i = 0; i < m_gradients.count(); i++ )
-	{
-		l << m_gradients.at( i )->description();
-	}
-	return l;
+    QStringList l;
+    for ( int i = 0; i < m_gradients.count(); i++ )
+    {
+        l << m_gradients.at( i )->description();
+    }
+    return l;
 }
 
 
@@ -90,363 +91,460 @@ KalziumGradientType::~KalziumGradientType()
 
 KalziumGradientType* KalziumGradientType::instance()
 {
-	return 0;
+    return 0;
 }
 
 double KalziumGradientType::elementCoeff( int el ) const
 {
-	double val = value( el );
-	if( val <= 0.0 ) return -1;
-	
-	if(logarithmicGradient()) {
-		double result = ( log(val) - log(minValue()) ) / ( log(maxValue()) - log(minValue()) );
-		
-		// now we perform a "gamma-correction" on the result. Indeed, logarithmic gradients
-		// often have the problem that all high values have roughly the same color. Note that
-		// as firstColor() is not necessarily black and secondColor() is not necessarily white,
-		// this is not exactly a "gamma-correction" in the usual sense.
-		const double gamma = 1.4;
-		result = exp(gamma * log(result));
-		return result;
-	}
-	else {
-		return ( val - minValue() ) / ( maxValue() - minValue() );
-	}
+    double val = value( el );
+    if ( val <= 0.0 ) return -1;
+
+    if (logarithmicGradient()) {
+        double result = ( log(val) - log(minValue()) ) / ( log(maxValue()) - log(minValue()) );
+
+        // now we perform a "gamma-correction" on the result. Indeed, logarithmic gradients
+        // often have the problem that all high values have roughly the same color. Note that
+        // as firstColor() is not necessarily black and secondColor() is not necessarily white,
+        // this is not exactly a "gamma-correction" in the usual sense.
+        const double gamma = 1.4;
+        result = exp(gamma * log(result));
+        return result;
+    }
+    else {
+        return ( val - minValue() ) / ( maxValue() - minValue() );
+    }
 }
 
 QColor KalziumGradientType::firstColor() const
 {
-	return Qt::white;
+    return Qt::white;
 }
 
 QColor KalziumGradientType::secondColor() const
 {
-	return Qt::red;
+    return Qt::red;
 }
 
 QColor KalziumGradientType::notAvailableColor() const
 {
-	return Qt::lightGray;
+    return Qt::lightGray;
 }
 
 QColor KalziumGradientType::calculateColor( const double coeff ) const
 {
-	if ( ( coeff < 0.0 ) || ( coeff > 1.0 ) ) return notAvailableColor();
+    if ( ( coeff < 0.0 ) || ( coeff > 1.0 ) ) return notAvailableColor();
 
-	QColor color2 = secondColor();
-	QColor color1 = firstColor();
+    QColor color2 = secondColor();
+    QColor color1 = firstColor();
 
-	int red = static_cast<int>( (color2.red() - color1.red()) * coeff + color1.red() );
-	int green = static_cast<int>( (color2.green() - color1.green()) * coeff + color1.green() );
-	int blue = static_cast<int>( (color2.blue() - color1.blue()) * coeff + color1.blue() );
-	
-	return QColor( red, green, blue );
+    int red = static_cast<int>( (color2.red() - color1.red()) * coeff + color1.red() );
+    int green = static_cast<int>( (color2.green() - color1.green()) * coeff + color1.green() );
+    int blue = static_cast<int>( (color2.blue() - color1.blue()) * coeff + color1.blue() );
+
+    return QColor( red, green, blue );
 }
 
 KalziumCovalentRadiusGradientType* KalziumCovalentRadiusGradientType::instance()
 {
-	static KalziumCovalentRadiusGradientType kcrgt;
-	return &kcrgt;
+    static KalziumCovalentRadiusGradientType kcrgt;
+    return &kcrgt;
 }
 
 KalziumCovalentRadiusGradientType::KalziumCovalentRadiusGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumCovalentRadiusGradientType::name() const
 {
-	return "CovalentRadius";
+    return "CovalentRadius";
 }
 
 QString KalziumCovalentRadiusGradientType::description() const
 {
-	return i18n( "Covalent Radius" );
+    return i18n( "Covalent Radius" );
 }
 
 double KalziumCovalentRadiusGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusCovalent );
-	if ( v.type() != QVariant::Double ) return -1;
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusCovalent );
+    if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
 }
+
+QString KalziumCovalentRadiusGradientType::unit() const
+{
+    return i18n("Å");
+}
+
 
 double KalziumCovalentRadiusGradientType::minValue() const
 {
-	return 0.32;
+    return 0.32;
 }
 
 double KalziumCovalentRadiusGradientType::maxValue() const
 {
-	return 2.25;
+    return 2.25;
 }
 
 bool KalziumCovalentRadiusGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicCovalentRadiusGradient();
+    return Prefs::logarithmicCovalentRadiusGradient();
 }
 
 
 KalziumVanDerWaalsRadiusGradientType* KalziumVanDerWaalsRadiusGradientType::instance()
 {
-	static KalziumVanDerWaalsRadiusGradientType kvdwrgt;
-	return &kvdwrgt;
+    static KalziumVanDerWaalsRadiusGradientType kvdwrgt;
+    return &kvdwrgt;
 }
 
 KalziumVanDerWaalsRadiusGradientType::KalziumVanDerWaalsRadiusGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumVanDerWaalsRadiusGradientType::name() const
 {
-	return "KalziumVanDerWaalsRadiusGradientType";
+    return "KalziumVanDerWaalsRadiusGradientType";
 }
 
 QString KalziumVanDerWaalsRadiusGradientType::description() const
 {
-	return i18n( "van Der Waals" );
+    return i18n( "van Der Waals" );
 }
 
 double KalziumVanDerWaalsRadiusGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusVDW );
-	if ( v.type() != QVariant::Double ) return -1;
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusVDW );
+    if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
 }
+
+QString KalziumVanDerWaalsRadiusGradientType::unit() const
+{
+    return i18n("Å");
+}
+
 
 double KalziumVanDerWaalsRadiusGradientType::minValue() const
 {
-	return 1.2;
+    return 1.2;
 }
 
 double KalziumVanDerWaalsRadiusGradientType::maxValue() const
 {
-	return 3.0;
+    return 3.0;
 }
 
 bool KalziumVanDerWaalsRadiusGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicVanDerWaalsRadiusGradient();
+    return Prefs::logarithmicVanDerWaalsRadiusGradient();
 }
 
 
 KalziumMassGradientType* KalziumMassGradientType::instance()
 {
-	static KalziumMassGradientType kargt;
-	return &kargt;
+    static KalziumMassGradientType kargt;
+    return &kargt;
 }
 
 KalziumMassGradientType::KalziumMassGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumMassGradientType::name() const
 {
-	return "AtomicMass";
+    return "AtomicMass";
 }
 
 QString KalziumMassGradientType::description() const
 {
-	return i18n( "Atomic Mass" );
+    return i18n( "Atomic Mass" );
 }
 
 double KalziumMassGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::mass );
-	if ( v.type() != QVariant::Double ) return -1;
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::mass );
+    if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
 }
+
+QString KalziumMassGradientType::unit() const
+{
+    return i18n("u");
+}
+
 
 double KalziumMassGradientType::minValue() const
 {
-	return 1.00794;
+    return 1.00794;
 }
 
 double KalziumMassGradientType::maxValue() const
 {
-	return 292.0;
+    return 292.0;
 }
 
 bool KalziumMassGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicMassGradient();
+    return Prefs::logarithmicMassGradient();
 }
 
 KalziumBoilingPointGradientType* KalziumBoilingPointGradientType::instance()
 {
-	static KalziumBoilingPointGradientType kbpgt;
-	return &kbpgt;
+    static KalziumBoilingPointGradientType kbpgt;
+    return &kbpgt;
 }
 
 KalziumBoilingPointGradientType::KalziumBoilingPointGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumBoilingPointGradientType::name() const
 {
-	return "BoilingPoint";
+    return "BoilingPoint";
 }
 
 QString KalziumBoilingPointGradientType::description() const
 {
-	return i18n( "Boiling Point" );
+    return i18n( "Boiling Point" );
 }
 
 double KalziumBoilingPointGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint );
-	if ( v.type() != QVariant::Double ) return -1;
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint );
+    if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
 }
+
+QString KalziumBoilingPointGradientType::unit() const
+{
+    return i18n("K");
+}
+
 
 double KalziumBoilingPointGradientType::minValue() const
 {
-	return 4.216;
+    return 4.216;
 }
 
 double KalziumBoilingPointGradientType::maxValue() const
 {
-	return 5870.0;
+    return 5870.0;
 }
 
 bool KalziumBoilingPointGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicBoilingPointGradient();
+    return Prefs::logarithmicBoilingPointGradient();
 }
+
 
 KalziumMeltingPointGradientType* KalziumMeltingPointGradientType::instance()
 {
-	static KalziumMeltingPointGradientType kmpgt;
-	return &kmpgt;
+    static KalziumMeltingPointGradientType kmpgt;
+    return &kmpgt;
 }
 
 KalziumMeltingPointGradientType::KalziumMeltingPointGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumMeltingPointGradientType::name() const
 {
-	return "MeltingPoint";
+    return "MeltingPoint";
 }
 
 QString KalziumMeltingPointGradientType::description() const
 {
-	return i18n( "Melting Point" );
+    return i18n( "Melting Point" );
 }
 
 double KalziumMeltingPointGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint );
-	if ( v.type() != QVariant::Double ) return -1;
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint );
+    if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
+}
+
+QString KalziumMeltingPointGradientType::unit() const
+{
+    return i18n("K");
 }
 
 double KalziumMeltingPointGradientType::minValue() const
 {
-	return 0.94;
+    return 0.94;
 }
 
 double KalziumMeltingPointGradientType::maxValue() const
 {
-	return 3825.0;
+    return 3825.0;
 }
 
 bool KalziumMeltingPointGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicMeltingPointGradient();
+    return Prefs::logarithmicMeltingPointGradient();
+}
+
+
+
+
+//
+
+KalziumSOMGradientType* KalziumSOMGradientType::instance()
+{
+    static KalziumSOMGradientType kargt;
+    return &kargt;
+}
+
+KalziumSOMGradientType::KalziumSOMGradientType()
+        : KalziumGradientType()
+{
+}
+
+QByteArray KalziumSOMGradientType::name() const
+{
+    return "SOM";
+}
+
+QString KalziumSOMGradientType::description() const
+{
+    return i18n( "State of matter" );
+}
+
+double KalziumSOMGradientType::value( int el ) const
+{
+//     QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint );
+//     if ( v.type() != QVariant::Double ) return -1;
+//     return v.toDouble();
+       Q_UNUSED(el);
+       return -1000;
+}
+
+QString KalziumSOMGradientType::unit() const
+{
+    return i18n("K");
+}
+
+double KalziumSOMGradientType::minValue() const
+{
+    return 0.94;
+}
+
+double KalziumSOMGradientType::maxValue() const
+{
+    return 5870.0;
+}
+
+bool KalziumSOMGradientType::logarithmicGradient() const
+{
+   return true;
+//     return Prefs::logarithmicSOMGradient();
 }
 
 
 KalziumElectronegativityGradientType* KalziumElectronegativityGradientType::instance()
 {
-	static KalziumElectronegativityGradientType kegt;
-	return &kegt;
+    static KalziumElectronegativityGradientType kegt;
+    return &kegt;
 }
 
 KalziumElectronegativityGradientType::KalziumElectronegativityGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumElectronegativityGradientType::name() const
 {
-	return "Electronegativity";
+    return "Electronegativity";
 }
 
 QString KalziumElectronegativityGradientType::description() const
 {
-	return i18n( "Electronegativity (Pauling)" );
+    return i18n( "Electronegativity (Pauling)" );
 }
 
 double KalziumElectronegativityGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronegativityPauling );
-	if ( v.type() != QVariant::Double ) return -1;
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronegativityPauling );
+    if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
 }
+
+QString KalziumElectronegativityGradientType::unit() const
+{
+    return QString();
+}
+
 
 double KalziumElectronegativityGradientType::minValue() const
 {
-	return 0.7;
+    return 0.7;
 }
 
 double KalziumElectronegativityGradientType::maxValue() const
 {
-	return 3.98;
+    return 3.98;
 }
 
 bool KalziumElectronegativityGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicElectronegativityGradient();
+    return Prefs::logarithmicElectronegativityGradient();
 }
 
 ///DISCOVERYDATE///
 
 KalziumDiscoverydateGradientType* KalziumDiscoverydateGradientType::instance()
 {
-	static KalziumDiscoverydateGradientType kegt;
-	return &kegt;
+    static KalziumDiscoverydateGradientType kegt;
+    return &kegt;
 }
 
 KalziumDiscoverydateGradientType::KalziumDiscoverydateGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumDiscoverydateGradientType::name() const
 {
-	return "Discoverydate";
+    return "Discoverydate";
 }
 
 QString KalziumDiscoverydateGradientType::description() const
 {
-	return i18n( "Discovery date" );
+    return i18n( "Discovery date" );
 }
 
 double KalziumDiscoverydateGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::date );
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::date );
+    if ( v.value<int>() == 0 ) return -1;
+    return v.toDouble();
+}
 
-	return v.toDouble();
+QString KalziumDiscoverydateGradientType::unit() const
+{
+    return QString();
 }
 
 double KalziumDiscoverydateGradientType::minValue() const
 {
-	return 1699.0;
+    return 1669.0;
 }
 
 double KalziumDiscoverydateGradientType::maxValue() const
 {
-	return 1994.0;
+    return QDate::currentDate().year();
 }
 
 bool KalziumDiscoverydateGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicDiscoverydateGradient();
+    return Prefs::logarithmicDiscoverydateGradient();
 }
 
 
@@ -454,88 +552,101 @@ bool KalziumDiscoverydateGradientType::logarithmicGradient() const
 
 KalziumElectronaffinityGradientType* KalziumElectronaffinityGradientType::instance()
 {
-	static KalziumElectronaffinityGradientType kegt;
-	return &kegt;
+    static KalziumElectronaffinityGradientType kegt;
+    return &kegt;
 }
 
 KalziumElectronaffinityGradientType::KalziumElectronaffinityGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumElectronaffinityGradientType::name() const
 {
-	return "Electronaffinity";
+    return "Electronaffinity";
 }
 
 QString KalziumElectronaffinityGradientType::description() const
 {
-	return i18n( "Electronaffinity" );
+    return i18n( "Electronaffinity" );
 }
 
 double KalziumElectronaffinityGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronAffinity );
-
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronAffinity );
+    qDebug() << v;
+//     if ( v.type() != QVariant::Double ) return -1;
+    return v.toDouble();
 }
+
+QString KalziumElectronaffinityGradientType::unit() const
+{
+    return i18n("eV");
+}
+
 
 double KalziumElectronaffinityGradientType::minValue() const
 {
-	return 0.0;
+    return -0.08;
 }
 
 double KalziumElectronaffinityGradientType::maxValue() const
 {
-	return 3.7;
+    return 3.7;
 }
 
 bool KalziumElectronaffinityGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicElectronaffinityGradient();
+    return Prefs::logarithmicElectronaffinityGradient();
 }
 
 ///FIRST IONIZATINO///
 
 KalziumIonizationGradientType* KalziumIonizationGradientType::instance()
 {
-	static KalziumIonizationGradientType kegt;
-	return &kegt;
+    static KalziumIonizationGradientType kegt;
+    return &kegt;
 }
 
 KalziumIonizationGradientType::KalziumIonizationGradientType()
-  : KalziumGradientType()
+        : KalziumGradientType()
 {
 }
 
 QByteArray KalziumIonizationGradientType::name() const
 {
-	return "Ionization";
+    return "Ionization";
 }
 
 QString KalziumIonizationGradientType::description() const
 {
-	return i18n( "First Ionization" );
+    return i18n( "First Ionization" );
 }
 
 double KalziumIonizationGradientType::value( int el ) const
 {
-	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::ionization );
-
-	return v.toDouble();
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::ionization );
+qDebug() << v;
+    return v.toDouble();
 }
+
+QString KalziumIonizationGradientType::unit() const
+{
+    return i18n("eV");
+}
+
 
 double KalziumIonizationGradientType::minValue() const
 {
-	return 0.0;//3.89;
+    return 3.89; //0.0;//
 }
 
 double KalziumIonizationGradientType::maxValue() const
 {
-	return 25.0;
+    return 25.0;
 }
 
 bool KalziumIonizationGradientType::logarithmicGradient() const
 {
-	return Prefs::logarithmicIonizationGradient();
+    return Prefs::logarithmicIonizationGradient();
 }

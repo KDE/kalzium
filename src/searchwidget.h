@@ -32,28 +32,28 @@ class QTimer;
  */
 class SearchWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		/**
-		 * Construct a new empty search.
-		 */
-		SearchWidget( QWidget *parent = 0 );
+public:
+    /**
+     * Construct a new empty search.
+     */
+    SearchWidget( QWidget *parent = 0 );
 
-		~SearchWidget();
+    ~SearchWidget();
 
-		void giveFocus();
+    void giveFocus();
 
-		void appendSearchText( const QString& text );
+    void appendSearchText( const QString& text );
 
-	private slots:
-		void searchTextChanged( const QString& text );
-        void slotReturnPressed();
-		void doSearch();
+private slots:
+    void searchTextChanged( const QString& text );
+    void slotReturnPressed();
+    void doSearch();
 
-	private:
-		KLineEdit *m_searchLine;
-		QTimer *m_timer;
+private:
+    KLineEdit *m_searchLine;
+    QTimer *m_timer;
 };
 
 #endif // KALZIUMSEARCHWIDGET_H

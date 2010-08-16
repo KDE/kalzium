@@ -19,9 +19,6 @@
  ***************************************************************************/
 #include "legendwidget.h"
 #include "prefs.h"
-#include "kalziumschemetype.h"
-#include "kalziumgradienttype.h"
-#include "kalziumpainter.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -35,38 +32,19 @@ LegendWidget::LegendWidget( QWidget *parent )
 {
     m_update = true;
     m_dockArea = Qt::BottomDockWidgetArea;
+//     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
 }
 
-void LegendWidget::setGradientType( KalziumGradientType * type )
+void LegendWidget::setElementProperty(KalziumElementProperty* propety)
 {
-    kDebug() << "setGradientType LegendWidget";
-    m_gradientType = type;
-    updateContent();
-}
-void LegendWidget::setTableType( KalziumTableType * type )
-{
-    kDebug() << "setTableType LegendWidget";
-    m_tableType = type;
-    updateContent();
-}
-
-void LegendWidget::setScheme( KalziumSchemeType * type )
-{
-    kDebug() << "setScheme LegendWidget";
-    m_scheme = type;
-    updateContent();
-}
-
-void LegendWidget::setMode( KalziumPainter::MODE m )
-{
-    kDebug() << "setMode LegendWidget";
-    m_mode = m;
+    m_elementProerty = propety;
     updateContent();
 }
 
 void LegendWidget::setDockArea( Qt::DockWidgetArea newDockArea )
 {
     kDebug() << "dock Area changed" << newDockArea;
+
     m_dockArea = newDockArea;
     updateContent();
 }
@@ -86,31 +64,33 @@ void LegendWidget::updateContent()
     if (m_update) {
         QString gradientDesc;
         QList< QPair<QString, QColor> > items;
-        switch ( m_mode ) {
-        case KalziumPainter::SOM:
+	// Handel different Gradients
+        switch ( m_elementProerty->gradientId() ) {
+	  case KalziumElementProperty::NOGRADIENT: // None
+           break;
+
+	  case KalziumElementProperty::SOMGradientType:
+	    items << qMakePair( m_elementProerty->gradient()->description(), QColor());
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Solid" ), QColor( Prefs::color_solid() ));
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Liquid" ), QColor( Prefs::color_liquid() ) );
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Vaporous" ), QColor( Prefs::color_vapor() ) );
             items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Unknown" ), QColor( Qt::lightGray ) );
             break;
 
-        case KalziumPainter::NORMAL_GRADIENT:
-        case KalziumPainter::GRADIENT:
-            if (m_gradientType->logarithmicGradient())
+	  default:
+            if (m_elementProerty->gradient()->logarithmicGradient())
                 gradientDesc = i18nc("one of the two types of gradients available", "logarithmic");
             else
                 gradientDesc = i18nc("one of the two types of gradients available", "linear");
-            items << qMakePair( i18n( "%1 (%2)" ,m_gradientType->description(), gradientDesc ), QColor() );
-            items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QColor( m_gradientType->firstColor() ));
-            items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QColor( m_gradientType->secondColor() ));
-
-        case KalziumPainter::TIME:
-            // case KalziumPainter::NORMAL:
-        default:
-            items << qMakePair( i18n( "Scheme: %1" ,m_scheme->description() ), QColor() );
-            items << m_scheme->legendItems();
+            items << qMakePair( i18n( "%1 (%2)" ,m_elementProerty->gradient()->description(), gradientDesc ), QColor() );
+            items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , QString::number(m_elementProerty->gradient()->minValue()) + m_elementProerty->gradient()->unit()), QColor( m_elementProerty->gradient()->firstColor() ));
+            items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , QString::number(m_elementProerty->gradient()->maxValue()) + m_elementProerty->gradient()->unit()), QColor( m_elementProerty->gradient()->secondColor() ));
             break;
         }
+        // schemes are always there
+	items << qMakePair( i18n( "Scheme: %1" ,m_elementProerty->scheme()->description() ), QColor() );
+	items << m_elementProerty->scheme()->legendItems();
+
         updateLegendItemLayout( items );
     }
 }
@@ -136,6 +116,7 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
         LegendItem *item = new LegendItem( pair );
         m_legendItemList.append(item);
 
+	// FIXME With only dockwidget's there is no bottom and Top.
         if ((m_dockArea == Qt::BottomDockWidgetArea || m_dockArea == Qt::TopDockWidgetArea) ) {
             if (!pair.second.isValid() ) {
                 y++;
@@ -151,7 +132,6 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
     }
     setLayout( layout );
 }
-
 
 
 LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)

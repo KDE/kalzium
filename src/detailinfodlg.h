@@ -45,9 +45,9 @@ public:
 
     void setElement( int el );
 
-    void setOverviewBackgroundColor( const QColor &bgColor );
+//     void setOverviewBackgroundColor( const QColor &bgColor );
 
-    void setTableType( KalziumTableType* ktt );
+    void setTableType( int ktt );
 
     /**
      * add <sup></sup> to the numbers
@@ -80,7 +80,7 @@ private:
     OrbitsWidget *wOrbits;
     QMap<QString, KHTMLPart*> m_htmlpages;
 
-    KalziumTableType *m_ktt;
+    int m_tableTyp;
 
     /**
      * Create the initial set of tabs. Used it *ONLY* once in the

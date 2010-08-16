@@ -47,7 +47,7 @@ public slots:
     /**
      * Set the background color to @p bgColor.
      */
-    void setBackgroundColor( const QColor& bgColor );
+    void setBackgroundColor( const QBrush& bgBrush );
 
 private:
     /**
@@ -61,7 +61,7 @@ private:
     /**
      * The background color.
      */
-    QColor m_backgroundColor;
+    QBrush m_backgroundBrush;
 
 protected:
     virtual void paintEvent( QPaintEvent* );

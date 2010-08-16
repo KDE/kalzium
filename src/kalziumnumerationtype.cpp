@@ -20,7 +20,6 @@
 #include "kalziumnumerationtype.h"
 
 #include "kalziumdataobject.h"
-#include "kalziumtabletype.h"
 
 #include <klocale.h>
 

@@ -23,7 +23,6 @@
 #include <kdialog.h>
 #include <QLabel>
 
-#include "kalziumpainter.h"
 #include "kalziumschemetype.h"
 
 /**
@@ -42,7 +41,7 @@ private:
     QLabel *m_tableType;
 
 public slots:
-    void setTableType( KalziumTableType * type );
+    void setTableType( int type );
 };
 
 #endif // TABLEINFOWIDGET_H

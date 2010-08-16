@@ -33,6 +33,20 @@ class KalziumGradientType;
 class KalziumGradientTypeFactory
 {
 public:
+
+    enum KalziumGradientTypes
+    {
+        SOMGradientType = 0,
+        CovalentRadiusGradientType,
+        VanDerWaalsRadiusGradientType,
+        MassGradientType,
+        BoilingPointGradientType,
+        MeltingPointGradientType,
+        ElectronaffinityGradientType,
+        DiscoverydateGradientType,
+        IonizationGradientType
+    };
+
     /**
      * Get the instance of this factory.
      */
@@ -54,6 +68,9 @@ public:
      * Returns a list with the names of the gradients we support.
      */
     QStringList gradients() const;
+
+
+    void setCurrentGradient(int newGradient);
 
 private:
     KalziumGradientTypeFactory();
@@ -100,6 +117,10 @@ public:
      * It will return -1 if the data is not available.
      */
     virtual double value( int el ) const = 0;
+    /**
+     * Gives back the unit of the current value.
+     */
+    virtual QString unit() const = 0; // TODO How can i get the unit from?
     /**
      * Returns the minimum value of the data this gradient
      * represents.
@@ -155,6 +176,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -179,6 +201,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -203,6 +226,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -227,6 +251,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -251,6 +276,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -259,6 +285,32 @@ public:
 
 private:
     KalziumMeltingPointGradientType();
+};
+
+
+/**
+ * The gradient for SOM Widget
+ *
+ * @author Etienne Rebetez
+ */
+class KalziumSOMGradientType : public KalziumGradientType
+{
+public:
+    static KalziumSOMGradientType* instance();
+
+    QByteArray name() const;
+    QString description() const;
+
+    double value( int el ) const;
+    QString unit() const;
+
+    double minValue() const;
+    double maxValue() const;
+
+    bool logarithmicGradient() const;
+
+private:
+    KalziumSOMGradientType();
 };
 
 /**
@@ -275,6 +327,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -299,6 +352,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -323,6 +377,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;
@@ -347,6 +402,7 @@ public:
     QString description() const;
 
     double value( int el ) const;
+    QString unit() const;
 
     double minValue() const;
     double maxValue() const;

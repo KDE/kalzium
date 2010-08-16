@@ -1,0 +1,157 @@
+/**********************************************************************
+ ElementItem - Element Item, part of the Periodic Table Graphics View for
+ Avogadro
+
+ Copyright (C) 2007-2009 by Marcus D. Hanwell
+ Some portions (C) 2010 by Konstantin Tokarev
+
+ This file is part of the Avogadro molecular editor project.
+ For more information, see <http://avogadro.openmolecules.net/>
+
+ Avogadro is free software; you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; either version 2.1 of the License, or
+ (at your option) any later version.
+
+ Avogadro is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ 02110-1301, USA.
+
+ **********************************************************************/
+
+#include "elementitem.h"
+
+#include <prefs.h>
+#include <klocale.h>
+
+#include <QGraphicsSceneMouseEvent>
+#include <QPainter>
+#include <QStyleOption>
+#include <QFont>
+#include <QFontMetrics>
+#include <QDebug>
+
+
+ElementItem::ElementItem(KalziumElementProperty *elProperty, int elementNumber) : m_width(40), m_height(40),
+        m_element(elementNumber), m_property(elProperty)
+{
+    // Want these items to be selectable
+    setFlags(QGraphicsItem::ItemIsSelectable);
+    setAcceptsHoverEvents(true);
+
+    m_symbol = KalziumDataObject::instance()->element(m_element)->dataAsString( ChemicalDataObject::symbol );
+
+    // Set some custom data to make it easy to figure out which element we are
+    setData(0, m_element);
+}
+
+ElementItem::~ElementItem()
+{
+}
+
+QRectF ElementItem::boundingRect() const
+{
+    return QRectF(0, 0, m_width, m_height);
+}
+
+QPainterPath ElementItem::shape() const
+{
+    QPainterPath path;
+    path.addRect(0, 0, m_width, m_height);
+    return path;
+}
+
+void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
+                        QWidget *)
+{
+    QPen pen;
+    pen.setColor( m_borderColor );
+    pen.setWidth(2);
+    painter->setPen( pen );
+
+    painter->setBrush( m_brush );
+
+    QRectF rect(0, 0, m_width, m_height);
+    painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
+
+    // Drawing the text and values
+    pen.setColor( m_textColor );
+    painter->setPen(pen);
+
+    QFont symbolFont;
+
+    switch ( m_property->getMode() ) {
+
+    case KalziumElementProperty::NORMAL:
+        symbolFont.setPointSize(12);
+        symbolFont.setBold(true);
+        painter->setFont(symbolFont);
+        painter->drawText(rect, Qt::AlignCenter, m_symbol);
+        symbolFont.setPointSize(7);
+        symbolFont.setBold(false);
+        painter->setFont(symbolFont);
+        rect.setRect(m_width / 14, m_height / 20, m_width, m_height/2 );
+        painter->drawText(rect, Qt::AlignLeft, QString::number(m_element));
+        break;
+
+    case KalziumElementProperty::GRADIENTVALUE:
+        rect.setRect(0, m_height / 20, m_width, m_height/2 );
+        painter->drawText(rect, Qt::AlignCenter, m_symbol);
+        rect.setRect(0, m_height / 2 - m_height / 20, m_width, m_height/2 );
+
+        symbolFont.setPointSize(7);
+        painter->setFont(symbolFont);
+
+        if (m_value == -1) {
+            painter->drawText(rect, Qt::AlignCenter, i18n("n/a"));
+        } else {
+            painter->drawText(rect, Qt::AlignCenter, QString::number(m_value));
+        }
+        break;
+    }
+
+    // Handle the case where the item is selected
+    if (isSelected()) {
+        rect.setRect(0, 0, m_width, m_height);
+        painter->setBrush( QBrush( QColor(200,200,200,150)) );
+        pen.setColor(m_brush.color().darker(150));
+        pen.setWidth(3);
+	painter->setPen(pen);
+        painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
+    }
+}
+
+void ElementItem::redraw()
+{
+    m_brush = m_property->getElementBrush(m_element);
+    m_textColor = m_property->getTextColor(m_element);
+    m_borderColor = m_property->getBorderColor(m_element);
+    m_value = m_property->getValue(m_element);
+    update();
+}
+
+void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event)
+{
+    Q_UNUSED(event);
+    moveBy(-m_width/4, -m_height/4);
+
+    setZValue(200);
+    scale(1.5, 1.5);
+}
+
+void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event)
+{
+    Q_UNUSED(event);
+    resetTransform();
+    moveBy(m_width/4, m_height/4);
+    setZValue(100);
+    QGraphicsItem::hoverLeaveEvent(event);
+}
+
+#include "elementitem.moc"

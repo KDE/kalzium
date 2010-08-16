@@ -14,6 +14,7 @@ email                : cniehaus@kde.org
 #define KALZIUM_H
 
 #include <kxmlguiwindow.h>
+#include "periodsystembase.h"
 
 class KTabWidget;
 class KAction;
@@ -25,8 +26,7 @@ class DetailedInfoDlg;
 class PeriodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
-class SOMWidgetIMPL;
-class TimeWidgetImpl;
+class GradientWidgetImpl;
 class GlossaryDialog;
 class IsotopeTable;
 class SearchWidget;
@@ -34,8 +34,6 @@ class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
 class ExportDialog;
-
-#include "kalziumpainter.h"
 
 /**
  * @brief Application Main Window
@@ -68,7 +66,7 @@ private:
     /**
      * this pointer points to the PeriodicTableView.
      */
-    PeriodicTableView *m_PeriodicTableView;
+    periodSystem *m_periodicTable;
 
     /**
      *initialize actions
@@ -85,8 +83,6 @@ private:
     /**
      * all KActions Kalzium uses
      */
-    KSelectAction *look_action_menu_schemes;
-    KSelectAction *look_action_menu_gradients;
     KSelectAction *look_action_schemes;
     KSelectAction *look_action_gradients;
 
@@ -110,23 +106,21 @@ private:
 
     QAction *m_legendAction;
 
-    /**
-     * the layout of the central Widget ( CentralWidget )
-     */
-    QVBoxLayout *m_pCentralLayout;
 
     MolcalcWidget *m_calcWidget;
 
-    SOMWidgetIMPL *m_somWidget;
-    TimeWidgetImpl *m_timeWidget;
+    GradientWidgetImpl *m_gradientWidget;
 
     DetailedGraphicalOverview *m_detailWidget;
 
+    /**
+     * the dock of the central pse Widget
+     */
     QDockWidget *m_dockWin;
     QDockWidget *m_legendDock;
     QDockWidget *m_tableDock;
+
     QToolBox *m_toolbox;
-    KTabWidget *m_infoTabWidget;
 
     int m_toolboxCurrent;
 
@@ -136,10 +130,11 @@ private:
 
     ExportDialog *m_exportDialog;
 
-    KalziumPainter::MODE m_prevNormalMode;
-
 public slots:
     void slotSearchElements();
+
+  Q_SIGNALS:
+    void numerationChanged(int);
 
 private slots:
     /**
@@ -190,7 +185,7 @@ private slots:
 
     void slotExportTable();
 
-    void slotUpdateSettings();
+//     void slotUpdateSettings();
 
     void slotShowExportDialog();
 
@@ -199,10 +194,10 @@ private slots:
      */
     void showSettingsDialog();
 
-    void slotToolboxCurrentChanged(int);
+//     void slotToolboxCurrentChanged(int);
 
 protected:
-    virtual void keyPressEvent( QKeyEvent * e);
+//     virtual void keyPressEvent( QKeyEvent * e);
 };
 
 #endif // _KALZIUM_H_

@@ -67,22 +67,19 @@ set(kalzium_SRCS
    isotopetable/isotopeview.cpp
    kalzium.cpp
    main.cpp
-   periodictableview.cpp
    detailinfodlg.cpp
    tablesdialog.cpp
    detailedgraphicaloverview.cpp
    orbitswidget.cpp
    elementdataviewer.cpp
    molcalcwidget.cpp
-   somwidget_impl.cpp
-   timewidget_impl.cpp
+   gradientwidget_impl.cpp
    kalziumdataobject.cpp
    kalziumutils.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp
-   kalziumpainter.cpp
+   kalziumelementproperty.cpp
    kalziumschemetype.cpp
-   kalziumtabletype.cpp
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
@@ -91,6 +88,11 @@ set(kalzium_SRCS
    tableinfowidget.cpp
    spectrumviewimpl.cpp
    spectrumwidget.cpp
+   periodsystembase.cpp
+   periodictablescene_p.cpp
+   elementitem.cpp
+   statemachine.cpp
+   numerationitem.cpp
    )
 
 if (LIBFACILE_FOUND)
@@ -112,13 +114,12 @@ kde4_add_ui_files(kalzium_SRCS
    settings_colors.ui
    plotsetupwidget.ui
    molcalcwidgetbase.ui
-   somwidget.ui
-   spectrumview.ui 
+   spectrumview.ui
    settings_misc.ui
    settings_web.ui
    settings_units.ui
    rswidget.ui
-   timewidget.ui
+   gradientwidget.ui
    exportdialog.ui
    )
 

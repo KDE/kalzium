@@ -34,11 +34,10 @@ email                : cniehaus@kde.org
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
-        : QWidget( parent )
+        : QWidget( parent ), m_element(0)
 {
     setAttribute( Qt::WA_NoBackground, true );
 
-    m_element = 0;
     setMinimumSize( 300, 200 );
 
     // last operation: setting the background color and scheduling an update()
@@ -51,14 +50,14 @@ void DetailedGraphicalOverview::setElement( int el )
     update();
 }
 
-void DetailedGraphicalOverview::setBackgroundColor( const QColor& bgColor )
+void DetailedGraphicalOverview::setBackgroundColor( const QBrush& bgBrush )
 {
-    m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
-
+//     m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
+    m_backgroundBrush = bgBrush;
     //this check is needed because a QBrush( QPixmap() ) constructs
     //with a black brush. But black is a really bad color here ...
-    if ( bgColor == QColor( 0, 0, 0 ) )
-        m_backgroundColor = Qt::white;
+    if ( m_backgroundBrush.color() == QColor( 0, 0, 0 ) )
+        m_backgroundBrush = QBrush(Qt::white);
 
     update();
 }
@@ -108,7 +107,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         x2 = w;
         y2 = h;
 
-        p.setBrush( m_backgroundColor );
+        p.setBrush( m_backgroundBrush );
         p.drawRect( x1, y1, x2 - 1, y2 - 1 );
 
         p.setBrush( Qt::black );

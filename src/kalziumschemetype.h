@@ -22,6 +22,8 @@
 
 class KalziumSchemeType;
 
+#include "kalziumgradienttype.h"
+
 #include <QByteArray>
 #include <QColor>
 #include <QBrush>
@@ -62,7 +64,6 @@ public:
 
 private:
     KalziumSchemeTypeFactory();
-
     QList<KalziumSchemeType*> m_schemes;
 };
 
@@ -101,7 +102,7 @@ public:
      *
      * @return A brush for painting in @p elrect
      */
-    virtual QBrush elementBrush( int el, const QRect& elrect ) const = 0;
+    virtual QBrush elementBrush( int el ) const = 0;
     /**
      * Returns the color which will be used to draw the texts for
      * the element with atomic number @p el.
@@ -130,7 +131,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el, const QRect& elrect ) const;
+    QBrush elementBrush( int el ) const;
     QColor textColor( int el ) const;
 
     QList<legendPair> legendItems() const;
@@ -152,7 +153,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el, const QRect& elrect ) const;
+    QBrush elementBrush( int el ) const;
     QColor textColor( int el ) const;
 
     QList<legendPair> legendItems() const;
@@ -174,7 +175,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el, const QRect& elrect ) const;
+    QBrush elementBrush( int el ) const;
     QColor textColor( int el ) const;
 
     QList<legendPair> legendItems() const;
@@ -196,7 +197,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el, const QRect& elrect ) const;
+    QBrush elementBrush( int el ) const;
     QColor textColor( int el ) const;
 
     QList<legendPair> legendItems() const;
@@ -218,7 +219,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el, const QRect& elrect ) const;
+    QBrush elementBrush( int el ) const;
     QColor textColor( int el ) const;
 
     QList<legendPair> legendItems() const;
@@ -226,6 +227,30 @@ public:
 private:
     KalziumGroupsSchemeType();
 };
+
+#ifdef HAVE_OPENBABEL2
+/**
+ * The scheme for color
+ *
+ * @author Etienne Rebetez
+ */
+class KalziumColorSchemeType : public KalziumSchemeType
+{
+public:
+    static KalziumColorSchemeType* instance();
+
+    QByteArray name() const;
+    QString description() const;
+
+    QBrush elementBrush( int el ) const;
+    QColor textColor( int el ) const;
+
+    QList<legendPair> legendItems() const;
+
+private:
+    KalziumColorSchemeType();
+};
+#endif
 
 //X /**
 //X  * The scheme for the crystal structures.

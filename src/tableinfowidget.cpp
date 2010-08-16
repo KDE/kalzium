@@ -20,12 +20,12 @@
 #include "tableinfowidget.h"
 #include "prefs.h"
 #include "kalziumschemetype.h"
-#include "kalziumpainter.h"
-#include "kalziumtabletype.h"
 
 #include <kdebug.h>
 #include <klocale.h>
 #include <kglobalsettings.h>
+
+#include <libkdeedu/psetables.h>
 
 #include <QHBoxLayout>
 
@@ -36,12 +36,12 @@ TableInfoWidget::TableInfoWidget( QWidget *parent )
 
     QHBoxLayout * la = new QHBoxLayout(this);
     la->addWidget( m_tableType );
-    setLayout( la );    
+    setLayout( la );
 }
 
-void TableInfoWidget::setTableType( KalziumTableType * type )
+void TableInfoWidget::setTableType( int type )
 {
-    m_tableType->setText( type->description() );
+    m_tableType->setText( pseTables::instance()->getTabletype(type)->description() );
 }
 
 

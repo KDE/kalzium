@@ -22,12 +22,9 @@
 
 #include <kdialog.h>
 
-#include "kalziumpainter.h"
-#include "kalziumschemetype.h"
-#include "kalziumtabletype.h"
+#include "kalziumelementproperty.h"
 
 class LegendItem;
-// class LegendLayout;
 
 /**
  * @author Carsten Niehaus
@@ -52,16 +49,10 @@ private:
 
     QPixmap m_pixmap;
 
-    KalziumSchemeType * m_scheme;
-
-    KalziumPainter::MODE m_mode;
-
-    KalziumTableType * m_tableType;
-
-    KalziumGradientType * m_gradientType;
+    KalziumElementProperty *m_elementProerty;
 
     QList<LegendItem*> m_legendItemList;
-    
+
     Qt::DockWidgetArea m_dockArea;
 
     void updateLegendItemLayout( const QList<legendPair>& list );
@@ -69,14 +60,8 @@ private:
 public slots:
     void updateContent();
 
-    void setMode( KalziumPainter::MODE m );
+    void setElementProperty( KalziumElementProperty *propety);
 
-    void setScheme( KalziumSchemeType * type );
-
-    void setTableType( KalziumTableType * type );
-
-    void setGradientType( KalziumGradientType * type );
-    
     void setDockArea(Qt::DockWidgetArea newDockArea);
 };
 

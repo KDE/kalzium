@@ -1,0 +1,95 @@
+/**********************************************************************
+ ElementItem - Element Item, part of the Periodic Table Graphics View for
+ Avogadro
+
+ Copyright (C) 2007-2009 by Marcus D. Hanwell
+
+ This file is part of the Avogadro molecular editor project.
+ For more information, see <http://avogadro.openmolecules.net/>
+
+ Avogadro is free software; you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; either version 2.1 of the License, or
+ (at your option) any later version.
+
+ Avogadro is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ 02110-1301, USA.
+ **********************************************************************/
+
+#ifndef NUMERATIONTITEM_P_H
+#define NUMERATIONTITEM_P_H
+
+#include <QGraphicsItem>
+#include "kalziumdataobject.h"
+
+#include <chemicaldataobject.h>
+
+  /**
+   * @class NumerationItem
+   * @author Etienne Rebetez
+   * @brief An Numeration item, intended to display a id of the numeration row.
+   *
+   */
+  class NumerationItem : public QGraphicsObject
+  {
+    Q_OBJECT
+
+  public:
+    /**
+     * Constructor. Should be called with the element number for this item. The
+     * constructor uses setData to set the element number using the key 0. This
+     * is then used by PeriodicTable to figure out which element was clicked on.
+     */
+    NumerationItem(int xPosition = 0);
+
+    /**
+     * Destructor.
+     */
+    ~NumerationItem();
+
+    /**
+     * @return the bounding rectangle of the element item.
+     */
+    QRectF boundingRect() const;
+
+    /**
+     * @return the painter path which is also a rectangle in this case.
+     */
+    QPainterPath shape() const;
+
+    /**
+     * This is where most of the action takes place. The element box is drawn
+     * along with its symbol.
+     */
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+               QWidget *widget);
+
+  public Q_SLOTS:
+    void setNumerationType( int type );
+
+  private:
+    /**
+     * Width and height of the elements.
+     */
+    int m_width, m_height;
+    /**
+     * The row Position of the Numeration item
+     */
+    int m_xPosition;
+
+    /**
+     * The numeration symbol.
+     */
+    QString m_numeration;
+
+  };
+
+
+#endif // NUMERATIONTITEM_P_H

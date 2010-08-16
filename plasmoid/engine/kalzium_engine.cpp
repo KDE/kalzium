@@ -28,6 +28,7 @@
 
 #include "plasma/datacontainer.h"
 
+
 KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     : Plasma::DataEngine(parent)
 {
@@ -51,7 +52,7 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
 
     m_elements = parser->getElements();
     delete parser;
-     
+
     //Initialising the MoleculeParser
     m_parser = new MoleculeParser(m_elements);
 }
@@ -90,7 +91,7 @@ bool KalziumEngine::sourceRequestEvent(const QString &source)
     if (source.startsWith( QLatin1String("Molecule:Parser:") )) {
         updateSourceMolecule(source);
         return true;
-    }    
+    }
 
     if (source == "Fact" ) {
         // create the data
@@ -107,7 +108,7 @@ bool KalziumEngine::updateSourceElement(const QString &source)
     if (source == "BlueObelisk:RandomElement") {
         // decide for a randomly chosen element
         getRandomElement();
-    } else if ( source == "Fact" ) { 
+    } else if ( source == "Fact" ) {
         qDebug() << "Fact is the current source";
         setData(source, "fact", generateFact() );
     } else { // parse the string to know which element to display
@@ -130,7 +131,7 @@ bool KalziumEngine::updateSourceElement(const QString &source)
     setData(source, "group", m_currentElement->dataAsString( ChemicalDataObject::group )       );
     setData(source, "en", m_currentElement->dataAsString( ChemicalDataObject::electronegativityPauling )       );
     setData(source, "family", m_currentElement->dataAsString( ChemicalDataObject::family )       );
-    
+
     return true;
 }
 
@@ -154,10 +155,10 @@ QString KalziumEngine::generateFact()
 {
     int rand = m_random->getLong(3);
     int eNumber = m_random->getLong(95);
-        
+
     m_currentElement = m_elements.at(eNumber);
 
-    if ( !m_currentElement ) 
+    if ( !m_currentElement )
 	    return i18n( "An error occurred." );
 
     QString bp =        m_currentElement->dataAsString( ChemicalDataObject::boilingpoint );
@@ -194,7 +195,7 @@ bool KalziumEngine::updateSourceMolecule(const QString &source)
 
     setData(source, "molMass", mass  );
     setData(source, "niceMolecule", sumUpMolecue(elementMap));
-    return true;    
+    return true;
 }
 
 QString KalziumEngine::sumUpMolecue(ElementCountMap &elementMap)

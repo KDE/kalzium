@@ -22,11 +22,16 @@
 #include "kalziumdataobject.h"
 #include "prefs.h"
 
+#ifdef HAVE_OPENBABEL2
+#include <openbabel/mol.h>
+#endif
+
 #include <QBrush>
 
 #include <klocale.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
+
 
 KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 {
@@ -35,6 +40,9 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
     m_schemes << KalziumIconicSchemeType::instance();
     m_schemes << KalziumFamilySchemeType::instance();
     m_schemes << KalziumGroupsSchemeType::instance();
+    #ifdef HAVE_OPENBABEL2
+    m_schemes << KalziumColorSchemeType::instance();
+    #endif
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -81,6 +89,7 @@ KalziumSchemeType* KalziumSchemeType::instance()
 
 KalziumSchemeType::KalziumSchemeType()
 {
+
 }
 
 KalziumSchemeType::~KalziumSchemeType()
@@ -108,10 +117,9 @@ QString KalziumMonoColorSchemeType::description() const
     return i18n( "Monochrome" );
 }
 
-QBrush KalziumMonoColorSchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumMonoColorSchemeType::elementBrush( int el ) const
 {
     Q_UNUSED( el );
-    Q_UNUSED( elrect );
     return QBrush( Prefs::noscheme() );
 }
 
@@ -150,7 +158,7 @@ QString KalziumBlocksSchemeType::description() const
     return i18n( "Blocks" );
 }
 
-QBrush KalziumBlocksSchemeType::elementBrush( int el, const QRect& ) const
+QBrush KalziumBlocksSchemeType::elementBrush( int el ) const
 {
     QString block = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::periodTableBlock );
 
@@ -212,7 +220,7 @@ QString KalziumIconicSchemeType::description() const
     return i18n( "Iconic" );
 }
 
-QBrush KalziumIconicSchemeType::elementBrush( int el, const QRect& ) const
+QBrush KalziumIconicSchemeType::elementBrush( int el ) const
 {
     QPixmap pixmap = KalziumDataObject::instance()->pixmap( el );
     return QBrush( pixmap );
@@ -220,7 +228,7 @@ QBrush KalziumIconicSchemeType::elementBrush( int el, const QRect& ) const
 
 QColor KalziumIconicSchemeType::textColor( int ) const
 {
-    return Qt::black;
+    return Qt::transparent ;
 }
 
 QList<legendPair> KalziumIconicSchemeType::legendItems() const
@@ -253,7 +261,7 @@ QString KalziumFamilySchemeType::description() const
     return i18n( "Family" );
 }
 
-QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& ) const
+QBrush KalziumFamilySchemeType::elementBrush( int el ) const
 {
     QString family = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::family );
 
@@ -335,7 +343,7 @@ QString KalziumGroupsSchemeType::description() const
     return i18n( "Groups" );
 }
 
-QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& ) const
+QBrush KalziumGroupsSchemeType::elementBrush( int el ) const
 {
     QString group = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::group );
 
@@ -390,6 +398,53 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 
     return ll;
 }
+
+#ifdef HAVE_OPENBABEL2
+///OpenBabel Color///
+KalziumColorSchemeType::KalziumColorSchemeType()
+        : KalziumSchemeType()
+{
+}
+
+KalziumColorSchemeType* KalziumColorSchemeType::instance()
+{
+    static KalziumColorSchemeType kbst;
+    return &kbst;
+}
+
+QByteArray KalziumColorSchemeType::name() const
+{
+    return "Color";
+}
+
+QString KalziumColorSchemeType::description() const
+{
+    return i18n( "Colors" );
+}
+
+QBrush KalziumColorSchemeType::elementBrush( int el ) const
+{
+    QColor c;
+
+    std::vector<double> color = OpenBabel::etab.GetRGB(el);
+    c.setRgbF(color[0], color[1], color[2]);
+
+    return QBrush( c );
+}
+
+QColor KalziumColorSchemeType::textColor( int ) const
+{
+    return Qt::black;
+}
+
+QList<legendPair> KalziumColorSchemeType::legendItems() const
+{
+    QList<legendPair> ll;
+    ll << qMakePair( i18n( "Nice colors without meaning" ), QColor() );
+    return ll;
+}
+#endif
+
 
 ///CRYSTAL///
 //X KalziumCrystalSchemeType::KalziumCrystalSchemeType()

@@ -27,6 +27,7 @@
 #include <kpagewidgetmodel.h>
 #include <ktoolinvocation.h>
 
+#include <libkdeedu/psetables.h>
 
 #include <QFile>
 #include <QLabel>
@@ -39,11 +40,10 @@
 #include "detailedgraphicaloverview.h"
 #include "spectrumviewimpl.h"
 #include "kalziumutils.h"
-#include "kalziumtabletype.h"
 #include "prefs.h"
 
 DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
-        : KPageDialog( parent ), m_ktt( 0 )
+        : KPageDialog( parent ), m_tableTyp( 0 )
 {
     setFaceType( List );
     setButtons( Help | User1 | User2 | Close );
@@ -97,14 +97,14 @@ void DetailedInfoDlg::setElement( int el )
         enableButton( User1, false );
 }
 
-void DetailedInfoDlg::setOverviewBackgroundColor( const QColor &bgColor )
-{
-    dTab->setBackgroundColor( bgColor );
-}
+// void DetailedInfoDlg::setOverviewBackgroundColor( const QColor &bgColor )
+// {
+// //     dTab->setBackgroundColor( bgColor );
+// }
 
-void DetailedInfoDlg::setTableType( KalziumTableType* ktt )
+void DetailedInfoDlg::setTableType( int tableTyp )
 {
-    m_ktt = ktt;
+    m_tableTyp = tableTyp;
 }
 
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
@@ -417,16 +417,18 @@ void DetailedInfoDlg::createContent()
 {
     KPageWidgetItem *item = 0;
 
+
+   // Removed the overview Tab, because its an Dockwidget and dosn't show much information.
     // overview tab
-    QWidget *m_pOverviewTab = new QWidget();
-    item = addPage( m_pOverviewTab, i18n( "Overview" ) );
-    item->setHeader( i18n( "Overview" ) );
-    item->setIcon( KIcon( "overview" ) );
-    QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
-    overviewLayout->setMargin( 0 );
-    dTab = new DetailedGraphicalOverview( m_pOverviewTab );
-    dTab->setObjectName( "DetailedGraphicalOverview" );
-    overviewLayout->addWidget( dTab );
+//     QWidget *m_pOverviewTab = new QWidget();
+//     item = addPage( m_pOverviewTab, i18n( "Overview" ) );
+//     item->setHeader( i18n( "Overview" ) );
+//     item->setIcon( KIcon( "overview" ) );
+//     QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
+//     overviewLayout->setMargin( 0 );
+//     dTab = new DetailedGraphicalOverview( m_pOverviewTab );
+//     dTab->setObjectName( "DetailedGraphicalOverview" );
+//     overviewLayout->addWidget( dTab );
 
 //X 	// picture tab
 //X 	QWidget *m_pPictureTab = new QWidget();
@@ -439,6 +441,9 @@ void DetailedInfoDlg::createContent()
 //X 	piclabel->setMinimumSize( 400, 350 );
 //X 	mainLayout->addWidget( piclabel );
 
+    // html tab
+    m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "applications-science" );
+
     // atomic model tab
     QWidget *m_pModelTab = new QWidget();
     item = addPage( m_pModelTab, i18n( "Atom Model" ) );
@@ -450,9 +455,8 @@ void DetailedInfoDlg::createContent()
     modelLayout->addWidget( wOrbits );
 
     // html tabs
-    m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
     m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopemap" );
-    m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "applications-science" );
+    m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
     m_htmlpages["extra"] = addHTMLTab( i18n( "Extra information" ), i18n( "Extra Information" ), "applications-internet" );
 
     // spectrum widget tab
@@ -481,7 +485,7 @@ void DetailedInfoDlg::reloadContent()
     setCaption( i18nc( "For example Carbon (6)" , "%1 (%2)", element_name, m_elementNumber ) );
 
     // updating overview tab
-    dTab->setElement( m_elementNumber );
+//     dTab->setElement( m_elementNumber );
 
     //X 	// updating picture tab
     //X 	QString picpath = m_picsdir + element_symbol + ".jpg";
@@ -560,7 +564,7 @@ void DetailedInfoDlg::slotHelp()
 
 void DetailedInfoDlg::slotUser1()
 {
-    setElement( m_ktt->nextOf( m_elementNumber ) );
+    setElement( pseTables::instance()->getTabletype(m_tableTyp)->nextOf( m_elementNumber ) );
 }
 
 QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
@@ -581,7 +585,7 @@ QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
 
 void DetailedInfoDlg::slotUser2()
 {
-    setElement( m_ktt->previousOf( m_elementNumber ) );
+    setElement(  pseTables::instance()->getTabletype(m_tableTyp)->previousOf( m_elementNumber ) );
 }
 
 #include "detailinfodlg.moc"
