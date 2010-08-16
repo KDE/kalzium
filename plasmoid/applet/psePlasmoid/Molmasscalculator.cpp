@@ -109,7 +109,7 @@ void Molmasscalculator::newCalculatedMass()
     if ( m_molecule["molMass"].toString() != "" ) {
 
         //Set new MassLabel Text
-        m_MassLabel->setText ( m_molecule["molMass"].toString() + " u" );
+        m_MassLabel->setText ( QString::number( m_molecule["molMass"].toDouble(), 'g', 6) + " u" );
 
         //Sets the niceMolecule string in the Lineedit	  //Configuration Option?
         m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
