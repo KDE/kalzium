@@ -1,13 +1,13 @@
 [Desktop Entry]
 Name=Mass calculator
-Name[de]=Molmassenrechner
+Name[x-test]=xxMass calculatorxx
 Comment=Small Periodic Table with a mass calculator
-Comment[de]=Kleines Periodensystem mit Molmassenrechner
+Comment[x-test]=xxSmall Periodic Table with a mass calculatorxx
 
 Type=Service
 Icon=kalzium
 ServiceTypes=Plasma/Applet
- 
+
 X-KDE-Library=plasma_applet_molmassCalculator
 X-KDE-PluginInfo-Author=Etienne Rebetez
 X-KDE-PluginInfo-Email=etienne.rebetez@oberwallis.ch
@@ -17,4 +17,4 @@ X-KDE-PluginInfo-Website=http://plasma.kde.org/
 X-KDE-PluginInfo-Category=Science
 X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL
-X-KDE-PluginInfo-EnabledByDefault=true 
+X-KDE-PluginInfo-EnabledByDefault=true
