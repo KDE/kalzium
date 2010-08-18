@@ -94,11 +94,11 @@ void GradientWidgetImpl::slotGradientChanged()
 
     gradient_spinbox->setMaximum(dblMax);
     gradient_spinbox->setMinimum(dblMin);
-    // TODO get de decimals from Gradient class?
+    // TODO get the decimals from Gradient class?
     //gradient_spinbox->setDecimals(m_elementProperty->gradient()->decimals()); or so...
 
-    gradient_slider->setValue(intMin);
-    emit gradientValueChanged( intMin );
+    gradient_spinbox->setValue(dblMin);
+    emit gradientValueChanged( dblMin );
 
     // Disable Gradient widgets if no gradient is selected.
     if ( gradient_combo->currentIndex() == KalziumElementProperty::NOGRADIENT) {
@@ -129,12 +129,11 @@ void GradientWidgetImpl::doubleToSlider(double var)
     // converting back Temperature values to Kelvin.
     if (unitSymbol == QString("K")) {
         var = TempUnit::convert( var, Prefs::temperatureUnit(), (int)TempUnit::Kelvin);
-        intvar = var * MULTIPLIKATOR;
     }
 
-    emit gradientValueChanged( intvar );
+    emit gradientValueChanged( var );
 
-    setNewValue( intvar );
+    setNewValue( var );
 }
 
 
@@ -153,16 +152,15 @@ void GradientWidgetImpl::intToSpinbox(int var)
     // converting back Temperature values to Kelvin.
     if (unitSymbol == QString("K")) {
         doublevar = TempUnit::convert( doublevar, Prefs::temperatureUnit(), (int)TempUnit::Kelvin );
-        var = doublevar * MULTIPLIKATOR;
     }
 
-    emit gradientValueChanged( var );
+    emit gradientValueChanged( doublevar );
 
-    setNewValue( var );
+    setNewValue( doublevar );
 }
 
 
-void GradientWidgetImpl::setNewValue( int newValue )
+void GradientWidgetImpl::setNewValue( double newValue )
 {
     // Info text currently only for State of mater typ available.
     if (gradient_combo->currentIndex() != KalziumElementProperty::SOMGradientType) {
@@ -174,9 +172,6 @@ void GradientWidgetImpl::setNewValue( int newValue )
 
     const QString unitSymbol = lblUnit->text();
 
-    double temp = newValue;
-    temp = temp / MULTIPLIKATOR;
-
     QStringList listMeltingPoint;
     QStringList listBoilingPoint;
     QStringList listBoilingPointValue;
@@ -184,13 +179,13 @@ void GradientWidgetImpl::setNewValue( int newValue )
 
     foreach (Element * element, m_list) {
         double melting = element->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
-        if ( ( melting > 0.0 ) && fabs( melting - temp ) <= threshold ) {
+        if ( ( melting > 0.0 ) && fabs( melting - newValue ) <= threshold ) {
             listMeltingPoint << element->dataAsString( ChemicalDataObject::name );
             listMeltingPointValue << QString::number(TempUnit::convert(melting,(int)TempUnit::Kelvin,Prefs::temperatureUnit()));
         }
 
         double boiling = element->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
-        if ( ( boiling > 0.0 ) && fabs( boiling - temp ) <= threshold ) {
+        if ( ( boiling > 0.0 ) && fabs( boiling - newValue ) <= threshold ) {
             listBoilingPoint << element->dataAsString( ChemicalDataObject::name );
             listBoilingPointValue << QString::number(TempUnit::convert(boiling,(int)TempUnit::Kelvin,Prefs::temperatureUnit()));
         }

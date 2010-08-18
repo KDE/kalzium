@@ -52,7 +52,7 @@ public:
     /**
      * Is emitted when the value of the gradient or the spinbox is changed.
      */
-    void gradientValueChanged( int );
+    void gradientValueChanged( double );
 
 public slots:
     /**
@@ -70,7 +70,7 @@ private slots:
     /**
      * is used to display custom text in the widget accrding tu the current value of the gradient
      */
-    void setNewValue(int newValue);
+    void setNewValue(double newValue);
 
 private:
 

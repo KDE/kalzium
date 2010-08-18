@@ -119,12 +119,9 @@ int KalziumElementProperty::schemeId() const
 
 
 
-void KalziumElementProperty::setSliderValue(int slide)
+void KalziumElementProperty::setSliderValue(double slide)
 {
     m_slider = slide;
-    // To get the decimals the slidervalue is multipied and
-    // therefore must be devided again. The factor is from the gradientwidget.
-    m_slider = m_slider / 1000;
     propertyChanged();
 }
 

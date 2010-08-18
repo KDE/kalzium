@@ -323,8 +323,7 @@ void Kalzium::setupSidebars()
 
     m_gradientWidget = new GradientWidgetImpl( m_periodicTable->elProperty(), m_toolbox );
     m_gradientWidget->setObjectName( "viewtWidget" );
-    //TODO this connect might be replaced with the doublespinnbox signal, so that the factor 1000 is not needed.
-    connect( m_gradientWidget, SIGNAL( gradientValueChanged( int ) ), m_periodicTable->elProperty(), SLOT( setSliderValue( int ) ) );
+    connect( m_gradientWidget, SIGNAL( gradientValueChanged( double ) ), m_periodicTable->elProperty(), SLOT( setSliderValue( double ) ) );
     connect( m_gradientWidget->scheme_combo, SIGNAL( currentIndexChanged(int)), this, SLOT( slotSwitchtoLookScheme(int)));
     connect( m_gradientWidget->gradient_combo, SIGNAL( currentIndexChanged(int)), this, SLOT( slotSwitchtoLookGradient(int)));
 

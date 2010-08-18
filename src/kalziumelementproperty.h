@@ -130,7 +130,7 @@ public slots:
      * The value has to be factor 1000 bigger, so that decimals can be given as int's.
      * @param slide value of the current gradient * 1000
      */
-    void setSliderValue(int slide);
+    void setSliderValue(double slide);
     /**
      * sets the new scheme
      */
