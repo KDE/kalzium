@@ -39,7 +39,7 @@
 #include "search.h"
 #include "searchwidget.h"
 #include "tableinfowidget.h"
-#include <libkdeedu/psetables.h>
+#include "psetables.h"
 #include <config-kalzium.h>
 
 #include "calculator/calculator.h"

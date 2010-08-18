@@ -28,7 +28,7 @@
 #include <ktoolinvocation.h>
 #include <krun.h>
 
-#include <libkdeedu/psetables.h>
+#include "psetables.h"
 
 #include <QFile>
 #include <QLabel>

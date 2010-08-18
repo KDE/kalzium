@@ -2,7 +2,7 @@ include_directories(
    ${CMAKE_SOURCE_DIR}
    ${CMAKE_BINARY_DIR}
    ${KDE4_INCLUDES}
-   /usr/include/libkdeedu
+   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience
    )
 
 # We add our source code here

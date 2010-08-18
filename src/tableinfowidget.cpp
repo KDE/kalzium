@@ -25,7 +25,7 @@
 #include <klocale.h>
 #include <kglobalsettings.h>
 
-#include <libkdeedu/psetables.h>
+#include "psetables.h"
 
 #include <QHBoxLayout>
 

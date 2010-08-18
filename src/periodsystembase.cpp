@@ -24,7 +24,7 @@
 #include <QSvgGenerator>
 
 //Periodsystemdefinition
-#include <libkdeedu/psetables.h>
+#include "psetables.h"
 #include "statemachine.h"
 #include "periodsystembase.h"
 #include "numerationitem.h"
