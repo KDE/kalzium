@@ -26,6 +26,7 @@
 #include <kactioncollection.h>
 #include <kpagewidgetmodel.h>
 #include <ktoolinvocation.h>
+#include <krun.h>
 
 #include <libkdeedu/psetables.h>
 
@@ -115,7 +116,14 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& ico
     item->setIcon( KIcon( iconname ) );
     QVBoxLayout *layout = new QVBoxLayout( frame );
     layout->setMargin( 0 );
+    // TODO Since KHTML is too big for just showing some html:
+    // implement QTextBrowser instead.
     KHTMLPart *w = new KHTMLPart( frame, frame );
+    w->setJScriptEnabled(false);
+    w->setJavaEnabled(false);
+    w->setMetaRefreshEnabled(false);
+    w->setPluginsEnabled(false);
+    connect(w->browserExtension(), SIGNAL(openUrlRequest(KUrl)), this, SLOT(slotLinkClicked(KUrl)));
     layout->addWidget( w->view() );
 
     return w;
@@ -250,6 +258,9 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         QString language;
         QString link;
 
+        //FIXME
+	//Since ChemDataObject is translated acording to the used language
+	//The language should be selected from the global settings to.
         switch ( Prefs::language() )
         {
         case 0: //English
@@ -293,14 +304,16 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             link = "nl";
             break;
         }
+
+
         //Wikipedia.org
         html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
 
-        html.append ( "<a href=\"http:\\\\");        // http://
+        html.append ( "<a href=\"http://");        // http://
         html.append (link);                          // en.
-        html.append (".wikipedia.org\\");            // wikipedia.org
+        html.append (".wikipedia.org/wiki/");            // wikipedia.org
         html.append ( m_element->dataAsString( ChemicalDataObject::name ) ); // /hydrogen
-        html.append ( "\"> Wikipedia ");
+        html.append ( "\" target=\"_blank\" > Wikipedia ");
         html.append (language);
         html.append ( "</a></td></tr>" );
 
@@ -528,6 +541,15 @@ void DetailedInfoDlg::reloadContent()
         m_spectrumStack->setCurrentWidget( m_spectrumLabel );
     }
 }
+
+void DetailedInfoDlg::slotLinkClicked(const KUrl &url)
+{
+  if(!url.isEmpty() && url.isValid()) {
+      KRun *krun = new KRun(url, 0);
+      krun->setAutoDelete(true);
+  }
+}
+
 
 void DetailedInfoDlg::slotHelp()
 {

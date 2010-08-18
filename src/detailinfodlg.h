@@ -115,6 +115,8 @@ private:
     void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
 
 private slots:
+    void slotLinkClicked(const KUrl &url);
+
     virtual void slotUser1();
     virtual void slotUser2();
     /**
