@@ -94,8 +94,7 @@ void GradientWidgetImpl::slotGradientChanged()
 
     gradient_spinbox->setMaximum(dblMax);
     gradient_spinbox->setMinimum(dblMin);
-    // TODO get the decimals from Gradient class?
-    //gradient_spinbox->setDecimals(m_elementProperty->gradient()->decimals()); or so...
+    gradient_spinbox->setDecimals(m_elementProperty->gradient()->decimals());
 
     gradient_spinbox->setValue(dblMin);
     emit gradientValueChanged( dblMin );

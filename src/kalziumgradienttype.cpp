@@ -177,6 +177,11 @@ QString KalziumCovalentRadiusGradientType::unit() const
     return i18n("Å");
 }
 
+int KalziumCovalentRadiusGradientType::decimals() const
+{
+    return 2;
+}
+
 
 double KalziumCovalentRadiusGradientType::minValue() const
 {
@@ -225,6 +230,11 @@ double KalziumVanDerWaalsRadiusGradientType::value( int el ) const
 QString KalziumVanDerWaalsRadiusGradientType::unit() const
 {
     return i18n("Å");
+}
+
+int KalziumVanDerWaalsRadiusGradientType::decimals() const
+{
+    return 1;
 }
 
 
@@ -277,6 +287,10 @@ QString KalziumMassGradientType::unit() const
     return i18n("u");
 }
 
+int KalziumMassGradientType::decimals() const
+{
+    return 5;
+}
 
 double KalziumMassGradientType::minValue() const
 {
@@ -326,6 +340,10 @@ QString KalziumBoilingPointGradientType::unit() const
     return i18n("K");
 }
 
+int KalziumBoilingPointGradientType::decimals() const
+{
+    return 3;
+}
 
 double KalziumBoilingPointGradientType::minValue() const
 {
@@ -376,6 +394,11 @@ QString KalziumMeltingPointGradientType::unit() const
     return i18n("K");
 }
 
+int KalziumMeltingPointGradientType::decimals() const
+{
+    return 2;
+}
+
 double KalziumMeltingPointGradientType::minValue() const
 {
     return 0.94;
@@ -390,11 +413,6 @@ bool KalziumMeltingPointGradientType::logarithmicGradient() const
 {
     return Prefs::logarithmicMeltingPointGradient();
 }
-
-
-
-
-//
 
 KalziumSOMGradientType* KalziumSOMGradientType::instance()
 {
@@ -429,6 +447,11 @@ double KalziumSOMGradientType::value( int el ) const
 QString KalziumSOMGradientType::unit() const
 {
     return i18n("K");
+}
+
+int KalziumSOMGradientType::decimals() const
+{
+    return 2;
 }
 
 double KalziumSOMGradientType::minValue() const
@@ -481,6 +504,10 @@ QString KalziumElectronegativityGradientType::unit() const
     return QString();
 }
 
+int KalziumElectronaffinityGradientType::decimals() const
+{
+    return 2;
+}
 
 double KalziumElectronegativityGradientType::minValue() const
 {
@@ -531,6 +558,12 @@ QString KalziumDiscoverydateGradientType::unit() const
 {
     return QString();
 }
+
+int KalziumDiscoverydateGradientType::decimals() const
+{
+    return 0;
+}
+
 
 double KalziumDiscoverydateGradientType::minValue() const
 {
@@ -584,10 +617,15 @@ QString KalziumElectronaffinityGradientType::unit() const
     return i18n("eV");
 }
 
+int KalziumElectronegativityGradientType::decimals() const
+{
+    return 2;
+}
 
 double KalziumElectronaffinityGradientType::minValue() const
 {
-    return -0.08;
+//     return -0.08;
+    return 0;
 }
 
 double KalziumElectronaffinityGradientType::maxValue() const
@@ -635,6 +673,10 @@ QString KalziumIonizationGradientType::unit() const
     return i18n("eV");
 }
 
+int KalziumIonizationGradientType::decimals() const
+{
+    return 2;
+}
 
 double KalziumIonizationGradientType::minValue() const
 {

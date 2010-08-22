@@ -132,6 +132,11 @@ public:
      */
     virtual double maxValue() const = 0;
     /**
+     * Returns the numbers of decimal in which the gradient values
+     * look the best
+     */
+    virtual int decimals() const = 0;
+    /**
      * Returns whether to use a logarithmic gradient
      * instead of a linear one.
      */
@@ -180,6 +185,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -205,6 +211,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -230,6 +237,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -255,6 +263,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -280,6 +289,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -306,6 +316,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -331,6 +342,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -356,6 +368,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -381,6 +394,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
@@ -406,6 +420,7 @@ public:
 
     double minValue() const;
     double maxValue() const;
+    int decimals() const;
 
     bool logarithmicGradient() const;
 
