@@ -28,8 +28,8 @@
 
 /**
  * The logic of the scheme and the gradients is merged in this class. It provides
- * an api to set the gradient and scheme whitout worring about the real id's.
- * Elements can then get their propertys with the elementfunctions api.
+ * an api to set the gradient and scheme without worring about the real id's.
+ * Elements can then get their propertys with the element functions.
  * Here is also the place where the gradientslider is evaluated. (see gradientwidget)
  * @short This class holds the logic of the appiriance from the periodic table
  * @author Etienne Rebetez
@@ -85,50 +85,50 @@ public:
     KalziumGradientType *gradient() const;
 
     /**
-     * This is an Element function.
+     * This is an element function.
      * It returns the Brush (Backround) for the given element.
      * @param el Number of the element.
      */
     QBrush getElementBrush(int el);
     /**
-     * This is an Element function.
+     * This is an element function.
      * It returns the Text color for the given element.
      * @param el Number of the element.
      */
     QColor getTextColor(int el) const;
     /**
-     * This is an Element function.
+     * This is an element function.
      * It returns the border color of the for the given element.
      * @param el Number of the element.
      */
     QColor getBorderColor(int el) const;
 
     /**
-     * This is an Element function.
+     * This is an element function.
      * It returns the value from the current gradent type for the given element.
      * @param el Number of the element.
      */
     double getValue(int el) const;
 
     /**
-     * This is an Element function.
-     * The mode is reflects the enum ELEMENTTEXTINFORMATIONMODE.
-     * It is used to use different layouts in the elementitem.
+     * This is an element function.
+     * The mode returns the enum ELEMENTTEXTINFORMATIONMODE.
+     * The mode is used to differ different layouts in the elementitem.
      */
     int getMode() const;
 
 Q_SIGNALS:
     /**
-     * Is emitet every time a property (scheme, gradent, ...) is changed.
+     * Is emitted every time a property (scheme, gradent, ...) is changed.
      * all elements will be redrawn.
      */
     void propertyChanged();
 
 public slots:
     /**
-     * gets the value which is used to determin if an element is activ or not.
-     * The value has to be factor 1000 bigger, so that decimals can be given as int's.
-     * @param slide value of the current gradient * 1000
+     * gets the value from the gradientwidget. The value which is used to
+     * determin if an element is activ or not.
+     * @param slide value of the current gradient
      */
     void setSliderValue(double slide);
     /**
@@ -156,9 +156,5 @@ private:
     double m_slider;
     int m_mode;
 };
-
-
-
-
 
 #endif // KALZIUMELEMENTPROPERTY_H
