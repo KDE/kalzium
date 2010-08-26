@@ -1,7 +1,10 @@
 /**********************************************************************
- PeriodicTableScene - Periodic Table Graphics Scene for Avogadro
+ PeriodicTableScene - Periodic Table Graphics Scene for Kalzium
 
+ Copyright (C) 2005-2006 by Pino Toscano, toscano.pino@tiscali.it
+ Copyright (C) 2003-2006 by Carsten Niehaus, cniehaus@kde.org
  Copyright (C) 2007-2009 by Marcus D. Hanwell
+ Copyright (C) 2010 by Etienne Rebetez, etienne.rebetez@oberwallis.ch
 
  Kalzium is free software; you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
@@ -28,27 +31,26 @@
 
 #include "elementitem.h"
 
+/**
+ * @class PeriodicTableScene
+ * @author Marcus D. Hanwell
+ * @brief This class encapsulates the scene, all items are contained in it.
+ *
+ * This class implements a QGraphicsScene that holds all of the element items.
+ * Any items owned by this class are automatically deleted by it.
+ */
+class PeriodicTableScene : public QGraphicsScene
+{
+    Q_OBJECT
 
-  /**
-   * @class PeriodicTableScene
-   * @author Marcus D. Hanwell
-   * @brief This class encapsulates the scene, all items are contained in it.
-   *
-   * This class implements a QGraphicsScene that holds all of the element items.
-   * Any items owned by this class are automatically deleted by it.
-   */
-  class PeriodicTableScene : public QGraphicsScene
-  {
-  Q_OBJECT
-
-  public:
+public:
     /**
      * Constructor.
      */
     PeriodicTableScene(QObject *parent = 0);
     ~PeriodicTableScene();
 
-  Q_SIGNALS:
+Q_SIGNALS:
     /**
      * This signal is emitted when an element item is released.
      */
@@ -62,16 +64,15 @@
      */
     void freeSpaceClick();
 
-    private Q_SLOTS:
-      void slotMouseover();
+private Q_SLOTS:
+    void slotMouseover();
 
-  private:
-       QTimer m_hoverTimer;
-       int m_prevHoverElement;
+private:
+    QTimer m_hoverTimer;
+    int m_prevHoverElement;
+    QPointF m_eventPos;
 
-       QPointF m_eventPos;
-
-  protected:
+protected:
     /**
      * Generic event handler, currently defaults to calling parent class
      * (included for future compatibility)
@@ -92,7 +93,7 @@
      * Opens the Detailed view of the element.
      */
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-  };
+};
 
 
 #endif // PERIODICTABLESCENE_P_H

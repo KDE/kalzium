@@ -1,6 +1,8 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Etienne Rebetez                                 *
- *   etienne.rebetez@oberwallis.ch                                         *
+ *   Copyright (C) 2005-2006 by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2003-2006 by Carsten Niehaus, cniehaus@kde.org          *
+ *   Copyright (C) 2007-2009 by Marcus D. Hanwell                          *
+ *   Copyright (C) 2010 by Etienne Rebetez, etienne.rebetez@oberwallis.ch  *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -39,7 +41,10 @@
  * All elements, states, numeration item and animations are defined.
  * It provides slots to change the tables and accessing the element propertys
  * @short Base class and creation for the pse System
+ * @author Carsten Niehaus
+ * @author Marcus D. Hanwell
  * @author Etienne Rebetez
+ *
 */
 
 class periodSystem : public QGraphicsView
@@ -107,7 +112,10 @@ private:
     void setBiggerSceneRect();
     void setupStatesAndAnimation();
 
-    // Data
+    /**
+     * Key class that holds the Data for each elementItem
+     * according to the selected scheme or gradient.
+     */
     KalziumElementProperty *m_elementProperty;
 
     /**
@@ -135,7 +143,5 @@ protected:
      * is caled every time the view is resized.
      */
     void resizeEvent ( QResizeEvent * event );
-
-//     void mousePressEvent(QMouseEvent *event);
 };
 #endif // PERIODSYSTEMBASE_H

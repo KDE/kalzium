@@ -1,8 +1,8 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it*
- *   Copyright (C) 2006, 2007      by Carsten Niehaus, cniehaus@kde.org    *
- *   Copyright (C) 2010 by Etienne Rebetez                                 *
- *   etienne.rebetez@oberwallis.ch                                         *
+ *   Copyright (C) 2005-2006 by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2003-2006 by Carsten Niehaus, cniehaus@kde.org          *
+ *   Copyright (C) 2007-2009 by Marcus D. Hanwell                          *
+ *   Copyright (C) 2010 by Etienne Rebetez, etienne.rebetez@oberwallis.ch  *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -23,7 +23,6 @@
 
 #include <QSvgGenerator>
 
-//Periodsystemdefinition
 #include "psetables.h"
 #include "statemachine.h"
 #include "periodsystembase.h"
@@ -31,7 +30,7 @@
 #include <prefs.h>
 
 periodSystem::periodSystem(QWidget *parent)
-        : QGraphicsView(parent), m_width(42), m_height(42) //m_width(42), m_height(42) // Some space between the elements also looks nice.
+        : QGraphicsView(parent), m_width(42), m_height(42) // Some space between the elements (px40) looks nice.
 {
     setRenderHint(QPainter::Antialiasing);
     setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
@@ -60,7 +59,6 @@ periodSystem::periodSystem(QWidget *parent)
 
     setScene(m_table);
 
-//     connect(m_table, SIGNAL(elementChanged(int)), this, SLOT(slotElementClicked(int)));
 //     connect(m_table, SIGNAL(elementHovered(int)), this, SLOT(slotElementHovered(int)));
     connect(m_table, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
 
@@ -73,8 +71,6 @@ periodSystem::~periodSystem()
 {
     delete scene();
     delete m_elementProperty;
-//     delete m_table;
-
 }
 
 void periodSystem::setupStatesAndAnimation()
@@ -82,7 +78,6 @@ void periodSystem::setupStatesAndAnimation()
     QList<QState *> tableStates;
     StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
     QParallelAnimationGroup *group = new QParallelAnimationGroup;
-
 
     // Creating Nummerationitems here, we use the classic as reference, 18 in this case.
     QList<NumerationItem *> numerationItems;
@@ -92,13 +87,12 @@ void periodSystem::setupStatesAndAnimation()
         connect(this, SIGNAL(numerationChange(int)), numerationItems.at(j), SLOT(setNumerationType(int)));
     }
 
-
     // For every Tabletyp the Position of the Elements is setup.
     for (int j = 0; j < pseTables::instance()->tables().count(); ++j)
     {
         tableStates << new QState(stateSwitcher);
 
-        // Fist hide every numerationitem. It's easyer this way. Feel free to finde a better solution;)
+        // First hide every numerationitem. It's easyer this way. Feel free to finde a better solution;)
         for (int i = 0; i < numerationItems.count(); i++) {
             tableStates.at(j)->assignProperty(numerationItems.at( i ), "pos", QPointF( -m_width, -10 * m_width));
         }
@@ -137,7 +131,7 @@ void periodSystem::setupStatesAndAnimation()
             anim->setEasingCurve(QEasingCurve::InOutExpo);
             group->addAnimation(anim);
         }
-        // Finaly add the states to the statemachine
+        // Finally add the states to the statemachine
         stateSwitcher->addState(tableStates.at(j), group, j);
     }
 
@@ -190,9 +184,6 @@ void periodSystem::slotUnSelectElements()
     }
 }
 
-
-
-
 void periodSystem::setBiggerSceneRect()
 {
     QRectF newRect(0, 0, m_table->sceneRect().width(), m_table->sceneRect().height());
@@ -227,13 +218,6 @@ void periodSystem::resizeEvent ( QResizeEvent * event )
     QGraphicsView::resizeEvent(event);
 }
 
-// void periodSystem::mousePressEvent(QMouseEvent* event) // does not work with grahicscenemouseevent...
-// {
-//     fitPseInView();
-//     QGraphicsView::mousePressEvent(event);
-// }
-
-//
 // void periodSystem::slotElementHovered(int thisElement)
 // {
 //   qDebug() << "hoover the " << thisElement;
