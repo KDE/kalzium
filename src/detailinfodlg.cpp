@@ -255,60 +255,12 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
     }
     case EXTRA:
     {
-        QString language;
-        QString link;
-
-        //FIXME
-	//Since ChemDataObject is translated acording to the used language
-	//The language should be selected from the global settings to.
-        switch ( Prefs::language() )
-        {
-        case 0: //English
-            language = i18n("English");
-            link = "en";
-            break;
-        case 1: //German
-            language = i18n("German");
-            link = "de";
-            break;
-        case 2: //French
-            language = i18n("French");
-            link = "fr";
-            break;
-        case 3: //Italian
-            language = i18n("Italian");
-            link = "it";
-            break;
-        case 4: //Russian
-            language = i18n("Russian");
-            link = "ru";
-            break;
-        case 5: //Japanese
-            language = i18n("Japanese");
-            link = "ja";
-            break;
-        case 6: //Spanish
-            language = i18n("Spanish");
-            link = "es";
-            break;
-        case 7: //Polish
-            language = i18n("Polish");
-            link = "pl";
-            break;
-        case 8: //Portuguese
-            language = i18n("Portuguese");
-            link = "pt";
-            break;
-        case 9: //Dutch
-            language = i18n("Dutch");
-            link = "nl";
-            break;
-        }
-
+        QString link( KGlobal::locale()->language() );
+        QString language( KGlobal::locale()->languageCodeToName( link ));
 
         //Wikipedia.org
-        html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
-
+//         html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
+	html.append ( "<tr><td>" );
         html.append ( "<a href=\"http://");        // http://
         html.append (link);                          // en.
         html.append (".wikipedia.org/wiki/");            // wikipedia.org
@@ -316,8 +268,16 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         html.append ( "\" target=\"_blank\" > Wikipedia ");
         html.append (language);
         html.append ( "</a></td></tr>" );
+        // Example from the comment "http://en.wikipedia.org/wiki/hydrogen"
 
-        // Example from the comment "http://en.wikipedia.org/hydrogen"
+	// FIXME only works with english locals
+// 	html.append ( "<tr><td>" );
+//         html.append ( "<a href=\"http://");        // http://
+//         html.append ("www.webelements.com/");            //
+//         html.append ( m_element->dataAsString( ChemicalDataObject::name ) ); // /hydrogen
+//         html.append ( "\" target=\"_blank\" > Webelements ");
+//         html.append ( "</a></td></tr>" );
+
         //chemipedia.org
         //html.append( "<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>" );
 

@@ -20,7 +20,6 @@
 #include "ui_settings_colors.h"
 #include "ui_settings_misc.h"
 #include "ui_settings_units.h"
-#include "ui_settings_web.h"
 #include "ui_settings_calc.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
@@ -529,12 +528,6 @@ void Kalzium::showSettingsDialog()
     w_misc->setObjectName( "miscpage" );
     ui_misc.setupUi( w_misc );
     dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
-    // web page
-    Ui_setupWeb ui_web;
-    QWidget *w_web = new QWidget( 0 );
-    //w_web->setobjectName( "Web_lookup" );
-    ui_web.setupUi( w_web );
-    dialog->addPage( w_web, i18n(" Web look up" ), "preferences-system-network");
 
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget( 0 );
