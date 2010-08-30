@@ -314,7 +314,7 @@ void Kalzium::setupSidebars()
     m_toolbox = new QToolBox( m_dockWin );
     m_dockWin->setWidget( m_toolbox );
 
-    m_detailWidget = new DetailedGraphicalOverview( m_toolbox );
+    m_detailWidget = new DetailedGraphicalOverview( m_periodicTable->elProperty(), m_toolbox );
     m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
     m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
 
@@ -570,7 +570,6 @@ void Kalzium::elementHover( int num )
                                     e->dataAsString( ChemicalDataObject::atomicNumber ) ,
                                     e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 
-    m_detailWidget->setBackgroundColor( m_periodicTable->elProperty()->getElementBrush( num ) );
     m_detailWidget->setElement( num );
 }
 

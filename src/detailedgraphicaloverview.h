@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include <QWidget>
+#include "kalziumelementproperty.h"
 
 class Element;
 
@@ -36,7 +37,7 @@ public:
      *
      * @param parent the parent of this widget
      */
-    DetailedGraphicalOverview( QWidget *parent );
+    DetailedGraphicalOverview( KalziumElementProperty *elementProperty, QWidget *parent );
 
 public slots:
     /**
@@ -44,24 +45,24 @@ public slots:
      */
     void setElement( int el );
 
+private:
     /**
      * Set the background color to @p bgColor.
      */
     void setBackgroundColor( const QBrush& bgBrush );
 
-private:
     /**
      * the element whose data will be used
      */
     Element *m_element;
 
-    //calculation of the corners
-    int x1,x2,y1,y2,h_t;
-
     /**
      * The background color.
      */
     QBrush m_backgroundBrush;
+
+
+    KalziumElementProperty *m_elementproperty;
 
 protected:
     virtual void paintEvent( QPaintEvent* );

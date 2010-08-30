@@ -33,41 +33,40 @@ email                : cniehaus@kde.org
 #include <element.h>
 #include "prefs.h"
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
+DetailedGraphicalOverview::DetailedGraphicalOverview( KalziumElementProperty *elementProperty, QWidget *parent )
         : QWidget( parent ), m_element(0)
 {
+    m_elementproperty = elementProperty;
     setAttribute( Qt::WA_NoBackground, true );
 
     setMinimumSize( 300, 200 );
 
-    // last operation: setting the background color and scheduling an update()
-    setBackgroundColor( QColor() );
+    // Set Hydrogen as inital Element.
+    setElement(1);
 }
 
 void DetailedGraphicalOverview::setElement( int el )
 {
     m_element = KalziumDataObject::instance()->element( el );
+    setBackgroundColor(m_elementproperty->getElementBrush(el));
     update();
 }
 
 void DetailedGraphicalOverview::setBackgroundColor( const QBrush& bgBrush )
 {
-//     m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
     m_backgroundBrush = bgBrush;
-    //this check is needed because a QBrush( QPixmap() ) constructs
-    //with a black brush. But black is a really bad color here ...
-    if ( m_backgroundBrush.color() == QColor( 0, 0, 0 ) )
-        m_backgroundBrush = QBrush(Qt::white);
 
-    update();
+    // Transparency and gradients do not seem to work well. So the widget bg color is set instead.
+    if (m_backgroundBrush.color() == QColor( Qt::transparent )) {
+        m_backgroundBrush.setColor(palette().background().color());
+    }
 }
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 {
-    int h = height();
-    int w = width();
+    QRect rect(0, 0, width(), height());
 
-    QPixmap pm( w, h );
+    QPixmap pm( width(), height() );
 
     QPainter p;
     p.begin( &pm );
@@ -77,7 +76,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
     if ( !m_element )
     {
         pm.fill( palette().background().color() );
-        p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
+        p.drawText( 0, 0, width(), height(), Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
     } else if ( Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
         pm.fill( palette().background().color() );
 
@@ -90,26 +89,19 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         QSvgRenderer svgrenderer;
         if ( QFile::exists(filename) && svgrenderer.load(filename) ) {
             QSize size = svgrenderer.defaultSize();
-            size.scale( w, h, Qt::KeepAspectRatio );
+            size.scale( width(), height(), Qt::KeepAspectRatio );
 
             QRect bounds( QPoint( 0, 0 ), size );
-            bounds.moveCenter( QPoint( w/2, h/2 ) );
+            bounds.moveCenter( QPoint( width()/2, height()/2 ) );
             svgrenderer.render( &p, bounds );
         } else {
-            p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No graphic found" ) );
+            p.drawText( rect, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No graphic found" ) );
         }
     } else {
-        h_t = 20; //height of the texts
-
-        x1 =  0;
-        y1 =  0;
-
-        x2 = w;
-        y2 = h;
+        const int h_t = 20; //height of the texts
 
         p.setBrush( m_backgroundBrush );
-        p.drawRect( x1, y1, x2 - 1, y2 - 1 );
-
+        p.drawRect( rect );
         p.setBrush( Qt::black );
         p.setBrush(Qt::NoBrush);
 
@@ -126,8 +118,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         QFontMetrics fmB = QFontMetrics( fB );
 
         //coordinates for element symbol: near the center
-        int xA = 4 * w / 10;
-        int yA = h / 2;
+        int xA = 4 * width() / 10;
+        int yA = height() / 2;
 
         //coordinates for the atomic number: offset from element symbol to the upper left
         int xB = xA - fmB.width( m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
@@ -141,22 +133,14 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         p.setFont( fB );
         p.drawText( xB, yB, m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
 
-        QRect rect( 0, 20, w/2, h );
-
-        p.setFont( fC );
-
-        int size = KalziumUtils::maxSize(m_element->dataAsString( ChemicalDataObject::name), rect , fC, &p);
-
-
         //Name and other data
-        fC.setPointSize( size );
+        fC.setPointSize( h_t );
         p.setFont( fC );
 
         //Name
-        p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->dataAsString( ChemicalDataObject::name) );
+        p.drawText( 1, 0, width(), height(), Qt::AlignLeft, m_element->dataAsString( ChemicalDataObject::name) );
 
-        //Oxidationstates
-        p.setFont( fC );
+        //TODO Oxidationstates -> not there yet
 
         //Mass
         QString massString = i18nc( "For example '1.0079u', the mass of an element in units", "%1 u", m_element->dataAsString( ChemicalDataObject::mass ) );
@@ -164,9 +148,9 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         fC.setPointSize( size3 );
         p.setFont( fC );
         int offset = KalziumUtils::StringHeight( massString, fC, &p );
-        p.drawText( w/2,
-                    h-offset,
-                    w/2,
+        p.drawText( 0,
+                    height() - offset,
+                    width(),
                     offset,
                     Qt::AlignRight,
                     massString

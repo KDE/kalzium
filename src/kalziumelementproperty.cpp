@@ -149,8 +149,8 @@ QBrush KalziumElementProperty::getElementBrush(int el)
 
     // add an nice gradient
     QColor color = elementBrush.color();
-    // Pixmaps get the color black. And no stylepattern is set
-    if (color != QColor(Qt::black) && elementBrush.style() == Qt::SolidPattern) {
+    // Pixmaps get the color black. And no stylepattern is set. And not transparent in not good either
+    if ( color != QColor(Qt::black) && color != QColor(Qt::transparent) && elementBrush.style() == Qt::SolidPattern ) {
         QLinearGradient grad(QPointF(0, 0), QPointF(0, 40));
         grad.setColorAt(0,color);
         qreal h, s, v, a;
