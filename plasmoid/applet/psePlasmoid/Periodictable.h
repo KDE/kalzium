@@ -47,9 +47,6 @@ public:
     /// creates all element labels and put them in the grid.
     void create();
 
-signals:
-
-
 public slots:
     /// sets the new table typ and creates the table.
     void setCurrentPseTyp(int tableTyp);

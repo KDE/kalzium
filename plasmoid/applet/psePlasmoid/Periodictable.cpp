@@ -47,7 +47,11 @@ PeriodicGrid::~PeriodicGrid()
 
 void PeriodicGrid::create()
 {
-    int color = 100, period, group, intElement = 1;
+    int r, g, b, color, period, group, intElement = 1;
+
+    QColor bgColor(m_applet->palette().foreground().color());
+    bgColor.darker();
+    bgColor.getRgb(&r,&g,&b);
 
     foreach (ElementLabel * i, m_elementItemList ) {
         delete i;
@@ -57,7 +61,7 @@ void PeriodicGrid::create()
 
     int maxWidth = pseTables::instance()->getTabletype( m_psTableType )->coordsMax().x();
     // a parameter for the linear function. y(x) = ax + b
-    double a = 130 / ( maxWidth/2 );
+    double a = 80 / ( maxWidth/2 );
 
     foreach (intElement, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
         if ( intElement <= 112) {
@@ -65,12 +69,13 @@ void PeriodicGrid::create()
             period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
 
 	    // makes a v-like color scheme
-            color = 40 - period + ( abs(group - maxWidth/2 ) * a );
+
+            color = period + ( abs(group - maxWidth/2 ) * a );
 
             ElementLabel *element = new ElementLabel( intElement, m_applet );
             m_elementItemList.append(element);
 
-            element->setTextBackgroundColor(QColor ( color + period * 8, color - period * 3, color - period * 3));
+            element->setTextBackgroundColor(QColor ( r - color, g - color, b - color));
 
             connect ( element, SIGNAL ( ElementAction ( QString ) ), m_applet, SLOT ( appendElement ( QString ) ) );
 
