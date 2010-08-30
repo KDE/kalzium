@@ -1,18 +1,21 @@
 [Desktop Entry]
-Name=Mass calculator
-Name[es]=Calculadora de masas
-Name[pt]=Calculadora de massas
+Name=Molar mass calculator
+Name[es]=Calculadora de masas molar
+Name[pt]=Calculadora de massas molar
 Name[pt_BR]=Calculadora de massas
 Name[sv]=Massberäkning
 Name[uk]=Калькулятор мас
+Name[de]=Molmassen Rechner
 Name[x-test]=xxMass calculatorxx
 Name[zh_TW]=質量計算器
-Comment=Small Periodic Table with a mass calculator
+
+Comment=Small periodic table of elements with a molar mass calculator
 Comment[es]=Pequeña tabla periódica con una calculadora de masas
 Comment[pt]=Uma pequena tabela periódica com uma calculadora de massas
 Comment[pt_BR]=Uma pequena tabela periódica com uma calculadora de massas
 Comment[sv]=Litet periodiskt system med massberäkning
 Comment[uk]=Невеличка періодична система з калькулятором мас
+Comment[de]=Kleine Periodentabelle der Elemente mit einem Molmassenrechner
 Comment[x-test]=xxSmall Periodic Table with a mass calculatorxx
 Comment[zh_TW]=帶有質量計算器的小型元素週期表
 
