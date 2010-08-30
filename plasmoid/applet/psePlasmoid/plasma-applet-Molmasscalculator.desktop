@@ -6,6 +6,7 @@ Name[pt_BR]=Calculadora de massas
 Name[sv]=Massberäkning
 Name[uk]=Калькулятор мас
 Name[x-test]=xxMass calculatorxx
+Name[zh_TW]=質量計算器
 Comment=Small Periodic Table with a mass calculator
 Comment[es]=Pequeña tabla periódica con una calculadora de masas
 Comment[pt]=Uma pequena tabela periódica com uma calculadora de massas
@@ -13,6 +14,7 @@ Comment[pt_BR]=Uma pequena tabela periódica com uma calculadora de massas
 Comment[sv]=Litet periodiskt system med massberäkning
 Comment[uk]=Невеличка періодична система з калькулятором мас
 Comment[x-test]=xxSmall Periodic Table with a mass calculatorxx
+Comment[zh_TW]=帶有質量計算器的小型元素週期表
 
 Type=Service
 Icon=kalzium
