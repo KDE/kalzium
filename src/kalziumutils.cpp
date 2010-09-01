@@ -146,12 +146,12 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
             {
             case 0:
             {
+	        val *= 96.48534; // http://en.wikipedia.org/wiki/Electronvolt
                 result = i18nc( "kilo joule per mol", "%1 kJ/mol", val );
                 break;
             }
             case 1: // use electronvolt
             {
-                val /= 96.6;
                 result = i18nc( "electron volt", "%1 eV", val );
                 break;
             }
