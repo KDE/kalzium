@@ -34,53 +34,53 @@
 
 int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize )
 {
-	bool goodSizeFound = false;
-	int size = maxFontSize;
-	QRect r;
+    bool goodSizeFound = false;
+    int size = maxFontSize;
+    QRect r;
 
-	do
-	{
-		font.setPointSize( size );
-		p->setFont( font );
-		r = p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string );
-		r.translate( rect.left(), rect.top() );
-		
-		if ( rect.contains( r ) )
-			goodSizeFound = true;
-		else
-			size--;
-	}
-	while ( !goodSizeFound && ( size > minFontSize ) );
+    do
+    {
+        font.setPointSize( size );
+        p->setFont( font );
+        r = p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string );
+        r.translate( rect.left(), rect.top() );
 
-	return size;
+        if ( rect.contains( r ) )
+            goodSizeFound = true;
+        else
+            size--;
+    }
+    while ( !goodSizeFound && ( size > minFontSize ) );
+
+    return size;
 }
 
 int KalziumUtils::StringHeight( const QString& string, const QFont& font, QPainter* p )
 {
-	Q_UNUSED( font );
-	return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).height();
+    Q_UNUSED( font );
+    return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).height();
 }
 
 int KalziumUtils::StringWidth( const QString& string, const QFont& font, QPainter* p )
 {
-	Q_UNUSED( font );
-	return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).width();
+    Q_UNUSED( font );
+    return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).width();
 }
 
 double KalziumUtils::strippedValue( double num )
 {
-	if ( !finite( num ) )
-		return num;
+    if ( !finite( num ) )
+        return num;
 
-	double power;
-	power = 1e-6;
-	while ( power < num )
-		power *= 10;
+    double power;
+    power = 1e-6;
+    while ( power < num )
+        power *= 10;
 
-	num = num / power * 10000;
-	num = qRound( num );
+    num = num / power * 10000;
+    num = qRound( num );
 
-	return num * power / 10000;
+    return num * power / 10000;
 }
 
 QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind )
@@ -92,117 +92,117 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 
     switch ( kind )
     {
-        //FIXME I just copied the code from "boilingpoint", no clue 
+        //FIXME I just copied the code from "boilingpoint", no clue
         //if that really works
-        case ChemicalDataObject::meltingpoint: // a temperature
-            {
-                val = el->dataAsVariant( kind ).toDouble();
-                if ( val <= 0.0 )
-                    result = i18n( "Unknown Value" );
-                else
-                {
-                    val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
-                    result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", 
+    case ChemicalDataObject::meltingpoint: // a temperature
+    {
+        val = el->dataAsVariant( kind ).toDouble();
+        if ( val <= 0.0 )
+            result = i18n( "Unknown Value" );
+        else
+        {
+            val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
+            result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"",
                             "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
-                }
-                break;
-            }
-        case ChemicalDataObject::boilingpoint:
-            {
-                val = el->dataAsVariant( kind ).toDouble();
-                if ( val <= 0.0 )
-                    result = i18n( "Unknown Value" );
-                else
-                {
-                    val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
-                    result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", 
+        }
+        break;
+    }
+    case ChemicalDataObject::boilingpoint:
+    {
+        val = el->dataAsVariant( kind ).toDouble();
+        if ( val <= 0.0 )
+            result = i18n( "Unknown Value" );
+        else
+        {
+            val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
+            result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"",
                             "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
-                }
+        }
+        break;
+    }
+    case ChemicalDataObject::electronegativityPauling: // electronegativity
+    {
+        val = el->dataAsVariant( kind ).toDouble();
+        if ( val <= 0.0 )
+            result = i18n( "Value not defined" );
+        else
+            result = i18nc("Just a number", "%1", val );
+        break;
+    }
+    case ChemicalDataObject::electronAffinity: // an energy
+    {
+        val = el->dataAsVariant( kind ).toDouble();
+        result = i18nc( "electron volt", "%1 eV", val );
+        break;
+    }
+    case ChemicalDataObject::ionization:
+    {
+        val = el->dataAsVariant( kind ).toDouble();
+        if ( val <= 0.0 )
+            result = i18n( "Value not defined" );
+        else
+        {
+            switch ( Prefs::energies() )
+            {
+            case 0:
+            {
+                result = i18nc( "kilo joule per mol", "%1 kJ/mol", val );
                 break;
             }
-        case ChemicalDataObject::electronegativityPauling: // electronegativity
+            case 1: // use electronvolt
             {
-                val = el->dataAsVariant( kind ).toDouble();
-                if ( val <= 0.0 )
-                    result = i18n( "Value not defined" );
-                else
-                    result = i18nc("Just a number", "%1", val );
+                val /= 96.6;
+                result = i18nc( "electron volt", "%1 eV", val );
                 break;
             }
-        case ChemicalDataObject::electronAffinity: // an energy
-            {
-		    val = el->dataAsVariant( kind ).toDouble();
-		    result = i18nc( "electron volt", "%1 eV", val );
-		    break;
             }
-        case ChemicalDataObject::ionization:
-            {
-                val = el->dataAsVariant( kind ).toDouble();
-                if ( val <= 0.0 )
-                    result = i18n( "Value not defined" );
-                else
-                {
-                    switch ( Prefs::energies() )
-                    {
-                        case 0:
-                            {
-                                result = i18nc( "kilo joule per mol", "%1 kJ/mol", val );
-                                break;
-                            }
-                        case 1: // use electronvolt
-                            {
-                                val /= 96.6;
-                                result = i18nc( "electron volt", "%1 eV", val );
-                                break;
-                            }
-                    }
-                }
-                break;
-            }
-        case ChemicalDataObject::mass: // a mass
-            {
-                val = el->dataAsVariant( kind ).toDouble();
-                if ( val <= 0.0 )
-                    result = i18n( "Unknown Value" );
-                else
-                    result = i18nc( "x u (units). The atomic mass.", "%1 u", val );
-                break;
-            }
-        case ChemicalDataObject::date: // a date
-            {
-                val = el->dataAsVariant( kind ).toInt();
-                if ( val > 1600 ) {
-                    result = i18n( "This element was discovered in the year <numid>%1</numid>.", val );
-                }else if( val == -1 ){
-                    result = i18n( "The element has not yet been officially recognized by the IUPAC." );
-                } //this should now really be 0. If not there is a bug in the database 
-		else {
-                    result = i18n( "This element was known to ancient cultures." );
-                }
-                break;
-            }
-        case ChemicalDataObject::radiusCovalent: // a length
-            {
-                val = el->dataAsVariant( kind ).toDouble() * 100;
-                if ( val <= 0.0 )
-                    result = i18n( "Unknown Value" );
-                else
-                    result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
-                break;
-            }
-        case ChemicalDataObject::radiusVDW:
-            {
-                val = el->dataAsVariant( kind ).toDouble() * 100;
-                if ( val <= 0.0 )
-                    result = i18n( "Unknown Value" );
-                else
-                    result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
-                break;
-            }
-        default:
-            {
-                result = el->dataAsVariant( kind ).toString();
-            }
+        }
+        break;
+    }
+    case ChemicalDataObject::mass: // a mass
+    {
+        val = el->dataAsVariant( kind ).toDouble();
+        if ( val <= 0.0 )
+            result = i18n( "Unknown Value" );
+        else
+            result = i18nc( "x u (units). The atomic mass.", "%1 u", val );
+        break;
+    }
+    case ChemicalDataObject::date: // a date
+    {
+        val = el->dataAsVariant( kind ).toInt();
+        if ( val > 1600 ) {
+            result = i18n( "This element was discovered in the year <numid>%1</numid>.", val );
+        } else if ( val == -1 ) {
+            result = i18n( "The element has not yet been officially recognized by the IUPAC." );
+        } //this should now really be 0. If not there is a bug in the database
+        else {
+            result = i18n( "This element was known to ancient cultures." );
+        }
+        break;
+    }
+    case ChemicalDataObject::radiusCovalent: // a length
+    {
+        val = el->dataAsVariant( kind ).toDouble() * 100;
+        if ( val <= 0.0 )
+            result = i18n( "Unknown Value" );
+        else
+            result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
+        break;
+    }
+    case ChemicalDataObject::radiusVDW:
+    {
+        val = el->dataAsVariant( kind ).toDouble() * 100;
+        if ( val <= 0.0 )
+            result = i18n( "Unknown Value" );
+        else
+            result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
+        break;
+    }
+    default:
+    {
+        result = el->dataAsVariant( kind ).toString();
+    }
     }
 
     return result;
