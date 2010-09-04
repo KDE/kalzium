@@ -157,7 +157,7 @@ if (LIBFACILE_FOUND)
       set(kalzium_EXTRA_LIBS ${kalzium_EXTRA_LIBS} ${OCAML_NUMS_LIBRARY})
    endif (OCAML_NUMS_LIBRARY)
 
-   target_link_libraries(kalzium ${kalzium_EXTRA_LIBS} m dl)
+   target_link_libraries(kalzium ${kalzium_EXTRA_LIBS} m ${CMAKE_DL_LIBS})
 endif (LIBFACILE_FOUND)
 
 install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
