@@ -73,7 +73,7 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
 {
     QPen pen;
     pen.setColor( m_borderColor );
-    pen.setWidth(2);
+    pen.setWidth( 1 );
     painter->setPen( pen );
 
     painter->setBrush( m_brush );
@@ -139,16 +139,14 @@ void ElementItem::redraw()
 
 void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event)
 {
-    Q_UNUSED(event);
-    moveBy(-m_width/4, -m_height/4);
-
     setZValue(200);
+    moveBy(-m_width/4, -m_height/4);
     scale(1.5, 1.5);
+    QGraphicsItem::hoverEnterEvent(event);
 }
 
 void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event)
 {
-    Q_UNUSED(event);
     resetTransform();
     moveBy(m_width/4, m_height/4);
     setZValue(100);
