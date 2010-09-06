@@ -41,14 +41,9 @@ KalziumElementProperty::KalziumElementProperty()
     }
 }
 
-
 KalziumElementProperty::~KalziumElementProperty()
 {
-//     delete m_scheme;
-//     delete m_gradient;
 }
-
-
 
 void KalziumElementProperty::setScheme(int newScheme)
 {
@@ -91,7 +86,6 @@ QStringList KalziumElementProperty::gradientList() const
     return customList;
 }
 
-
 KalziumSchemeType* KalziumElementProperty::scheme() const
 {
     return m_scheme->build(m_currentScheme);
@@ -117,14 +111,11 @@ int KalziumElementProperty::schemeId() const
     return m_currentScheme;
 }
 
-
-
 void KalziumElementProperty::setSliderValue(double slide)
 {
     m_slider = slide;
     propertyChanged();
 }
-
 
 double KalziumElementProperty::getValue(int el) const
 {
@@ -134,10 +125,9 @@ double KalziumElementProperty::getValue(int el) const
     return 0;
 }
 
-
 QBrush KalziumElementProperty::getElementBrush(int el)
 {
-    // Hinding filtered elements
+    // Hide filtered elements
     if (!KalziumDataObject::instance()->search()->matches( el ) && KalziumDataObject::instance()->search()->isActive()) {
         return QBrush(Qt::darkGray, Qt::Dense7Pattern);
     }
@@ -147,7 +137,7 @@ QBrush KalziumElementProperty::getElementBrush(int el)
     // handel Gradient cases
     gradientBrushLogic(&elementBrush, el);
 
-    // add an nice gradient
+    // add a nice gradient
     QColor color = elementBrush.color();
     // Pixmaps get the color black. And no stylepattern is set. And not transparent in not good either
     if ( color != QColor(Qt::black) && color != QColor(Qt::transparent) && elementBrush.style() == Qt::SolidPattern ) {
@@ -163,7 +153,6 @@ QBrush KalziumElementProperty::getElementBrush(int el)
 
     return elementBrush;
 }
-
 
 QColor KalziumElementProperty::getTextColor(int el) const
 {
@@ -190,7 +179,6 @@ int KalziumElementProperty::getMode() const
 {
     return m_mode;
 }
-
 
 void KalziumElementProperty::gradientBrushLogic(QBrush* elementBrush, int el)
 {
@@ -221,24 +209,23 @@ void KalziumElementProperty::gradientBrushLogic(QBrush* elementBrush, int el)
     }
 
     bool isActiv = true;
-    switch( m_currentGradient ) {
+    switch ( m_currentGradient ) {
 
-      case DISCOVERYDATE:
+    case DISCOVERYDATE:
         if ( gradientValue >= m_slider ) {
             isActiv = false;
-	}
-	break;
+        }
+        break;
 
-      default: // All other gradients
+    default: // All other gradients
         if ( gradientValue < m_slider ) {
             isActiv = false;
-	}
-	break;
+        }
+        break;
     }
 
     if ( !isActiv && gradientValue != -1) { //FIXME No magic number...
         elementBrush->setColor(Qt::transparent);
-//         elementBrush->setStyle(Qt::Dense3Pattern);
     } else {
         const double coeff = gradient()->elementCoeff(el);
         elementBrush->setColor( gradient()->calculateColor(coeff) );
