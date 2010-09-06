@@ -155,7 +155,8 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
         "<base href=\"" + m_baseHtml + "\"/></head><body>"
         "<div class=\"chemdata\"><div><table summary=\"header\">"
-        "<tr><td>" + m_element->dataAsString( ChemicalDataObject::symbol ) + "<td><td>"
+        "<tr><td>" + m_element->dataAsString( ChemicalDataObject::symbol ) + "</td><td>"
+        + m_element->dataAsString( ChemicalDataObject::name ) + "</td><td>"
         + i18n( "Block: %1", m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) +
         "</td></tr></table></div>"
         "<table summary=\"characteristics\" class=\"characterstics\">";
@@ -211,9 +212,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
         html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
         html.append( "</td></tr>" );
-
-        html.append( "</table>" );
-        html.append( "<table summary=\"characteristics\" class=\"characterstics\">" );
 
         // electro affinity
         html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
