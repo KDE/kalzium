@@ -1,8 +1,16 @@
 [Desktop Entry]
 Name=Molar mass calculator
+Name[pt]=Calculadora de massas molares
+Name[pt_BR]=Calculadora de massas molares
+Name[sv]=Beräkning av molmassa
+Name[uk]=Калькулятор молярних мас
 Name[x-test]=xxMolar mass calculatorxx
 
 Comment=Small periodic table of elements with a molar mass calculator
+Comment[pt]=Uma pequena tabela periódica com uma calculadora de massas molares
+Comment[pt_BR]=Uma pequena tabela periódica de elementos com uma calculadora de massas molares
+Comment[sv]=Litet periodiskt system med beräkning av molmassa
+Comment[uk]=Невеличка періодична система елементів з калькулятором молярних мас
 Comment[x-test]=xxSmall periodic table of elements with a molar mass calculatorxx
 
 Type=Service
