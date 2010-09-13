@@ -32,7 +32,7 @@ namespace Plasma{
 }
 
 enum ERROR_TYPE_CONC {
-	RESET_CONC_MESG = 0,
+    RESET_CONC_MESG = 0,
     PERCENTAGE_ZERO,
     DENSITY_ZERO,
     MASS_ZERO,
@@ -111,6 +111,8 @@ class concentrationCalculator : public Plasma::PopupApplet
 	     * @param mode is the mode of calculation.
 	     */
 	    void setMode(int mode);
+            
+            void configChanged();
 
     protected:
         void createConcConfigurationInterface(KConfigDialog *parent);

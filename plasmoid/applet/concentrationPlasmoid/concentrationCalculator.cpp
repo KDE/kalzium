@@ -64,12 +64,16 @@ concentrationCalculator::~concentrationCalculator()
 
 void concentrationCalculator::init()
 {
+    configChanged();
+}
+
+void concentrationCalculator::configChanged()
+{
     KConfigGroup cg = config();
 
     m_soluteMass = cg.readEntry("soluteMass",true);
     m_solventVolume = cg.readEntry("solventVolume",true);
 }
-
 
 QGraphicsWidget *concentrationCalculator::graphicsWidget()
 {
