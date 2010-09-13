@@ -28,22 +28,22 @@
 #include "ui_nuclearCalculatorConfig.h"
 
 namespace Plasma{
-	class ComboBox;
-	class SpinBox;
-	class TextEdit;
-	class Label;
-	class Slider;
-	class RadioButton;
-	class PushButton;
+    class ComboBox;
+    class SpinBox;
+    class TextEdit;
+    class Label;
+    class Slider;
+    class RadioButton;
+    class PushButton;
 }
 
 // This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_MODE_NUKE {
-	RESET_NUKE_MESG = 0,
-	INIT_AMT_ZERO,
-	FINAL_AMT_ZERO,
-	HALFLIFE_ZERO,
-	FINAL_AMT_GREATER
+    RESET_NUKE_MESG = 0,
+    INIT_AMT_ZERO,
+    FINAL_AMT_ZERO,
+    HALFLIFE_ZERO,
+    FINAL_AMT_GREATER
 };
 
 using namespace KUnitConversion;
@@ -59,62 +59,62 @@ class nuclearCalculator : public Plasma::PopupApplet
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
 
-	public slots:
+    public slots:
         /// Calculates the initial amount
-		void calculateInitAmount();
+        void calculateInitAmount();
 
-		/// Calculates the final amount
-		void calculateFinalAmount();
+        /// Calculates the final amount
+        void calculateFinalAmount();
 
-		/// Calculates the time required
-		void calculateTime();
+        /// Calculates the time required
+        void calculateTime();
 
-		/// occurs when the element is changed
-		void elementChanged(int index);
+        /// occurs when the element is changed
+        void elementChanged(int index);
 
-		/// occurs when the isotope is changed
-		void isotopeChanged(int index);
+        /// occurs when the isotope is changed
+        void isotopeChanged(int index);
 
-		/// occurs when the halfLife is changed
-		void halfLifeChanged();
+        /// occurs when the halfLife is changed
+        void halfLifeChanged();
 
-		/// occurs when any quantity is changed
-		void calculate();
+        /// occurs when any quantity is changed
+        void calculate();
 
-		/// occurs when the initial amount is changed in the UI
-		void initAmtChanged();
+        /// occurs when the initial amount is changed in the UI
+        void initAmtChanged();
 
-		/// occurs when the final amount is changed in the UI
-		void finalAmtChanged();
+        /// occurs when the final amount is changed in the UI
+        void finalAmtChanged();
 
-		/// occurs when the time is changed in the UI
-		void timeChanged();
+        /// occurs when the time is changed in the UI
+        void timeChanged();
 
 #if 0
-		/*
-		 * occurs when the slider in the ui is moved
-		 * @param x is 10 times the number of halfLives indicated in the slider
-		 */
-		void sliderMoved(int x);
+        /*
+            * occurs when the slider in the ui is moved
+            * @param x is 10 times the number of halfLives indicated in the slider
+            */
+        void sliderMoved(int x);
 #endif
 
-		/*
-		 * Used to display error messages
-		 * @param mode is the error mode, refer ERROR_MODE_NUKE.
-		 */
-		void error(int mode);
+        /*
+            * Used to display error messages
+            * @param mode is the error mode, refer ERROR_MODE_NUKE.
+            */
+        void error(int mode);
 
-		/*
- 	     * Sets the mode of calculation eg, time, initial amount etc
- 	     * @param mode is the mode of calculation.
- 	     */
- 	    void setMode(int mode);
+        /*
+        * Sets the mode of calculation eg, time, initial amount etc
+        * @param mode is the mode of calculation.
+        */
+        void setMode(int mode);
 
-		/// This function is called to reset / initialise the calculator
-		void reset();
+        /// This function is called to reset / initialise the calculator
+        void reset();
 
-		/// This function hides the slider just under the time spinBox in the UI
-		void showSlider(bool show);
+        /// This function hides the slider just under the time spinBox in the UI
+        void showSlider(bool show);
                 
         void configChanged();
 
@@ -148,15 +148,15 @@ class nuclearCalculator : public Plasma::PopupApplet
         Plasma::Label *m_error;
 //        Plasma::Label *m_sliderLabel;
         Element m_Element;                      // Current element
-	    Isotope m_Isotope;                      // current isotope
-	    Value m_HalfLife;                       // The halfLife
-	    Value m_InitAmount;                     // initial amount present
-	    Value m_FinalAmount;                    // amount after time
-	    Value m_Time;                           // the time involved in calculation
-	    double m_Mass;                          // the atomic mass of the isotope
-	    int m_mode;
+        Isotope m_Isotope;                      // current isotope
+        Value m_HalfLife;                       // The halfLife
+        Value m_InitAmount;                     // initial amount present
+        Value m_FinalAmount;                    // amount after time
+        Value m_Time;                           // the time involved in calculation
+        double m_Mass;                          // the atomic mass of the isotope
+        int m_mode;
 
-	    /// Designer Config file
+        /// Designer Config file
         Ui::nuclearCalculatorConfig ui;
         bool m_configUpdated;
         bool m_massOnly;
