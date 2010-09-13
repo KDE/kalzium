@@ -75,7 +75,7 @@ void Molmasscalculator::init()
     }
 
     // loads the configuration
-    loadConfig();
+    configChanged();
 }
 
 //Sends the requests to the Dataengine
@@ -221,11 +221,11 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
 
     m_ui.tabletyp->setCurrentIndex(m_PeriodWidget->getCurrentPseTyp());
 
-    connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configChanged() ) );
-    connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configChanged() ) );
+    connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configAccepted() ) );
+    connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
 }
 
-void Molmasscalculator::configChanged()
+void Molmasscalculator::configAccepted()
 {
     if ( m_ui.showPeriodic->isChecked() != m_showPeriodicTable ) {
         m_showPeriodicTable = m_ui.showPeriodic->isChecked();
@@ -240,6 +240,7 @@ void Molmasscalculator::configChanged()
         m_PeriodWidget->setCurrentPseTyp(m_ui.tabletyp->currentIndex());
 	managePeriodSystem();
     }
+    saveConfig();
 }
 
 void Molmasscalculator::toggleTable()
@@ -259,7 +260,7 @@ void Molmasscalculator::saveConfig()
     config().writeEntry("tableType",m_PeriodWidget->getCurrentPseTyp());
 }
 
-void Molmasscalculator::loadConfig()
+void Molmasscalculator::configChanged()
 {
     m_showPeriodicTable = config().readEntry("showPeriodicTable", true );
     m_copyToClipboard = config().readEntry("copyToClipboard", false );

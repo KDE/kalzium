@@ -52,22 +52,25 @@ public:
 
 protected:
     void createConfigurationInterface (KConfigDialog* parent);
-    void configChanged();
+
 
 public slots:
     /// Appens the given String to the lineedit text and let it parse.
     void appendElement ( QString ElementSymbol );
+    void configChanged();
 
 private slots:
     void ParseMolecule( QString input);
     void ParseMolecule();
     void toggleTable();
 
+protected slots:
+    void configAccepted();
+    
 private:
     void managePeriodSystem();
     void newCalculatedMass();
     void saveConfig();
-    void loadConfig();
 
     // Configuration
     bool m_showPeriodicTable;
