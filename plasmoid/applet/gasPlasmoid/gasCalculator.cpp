@@ -63,6 +63,11 @@ gasCalculator::~gasCalculator()
 
 void gasCalculator::init()
 {
+    configChanged();
+}
+
+void gasCalculator::configChanged()
+{
     KConfigGroup cg = config();
 
     cg.readEntry("ideal",true);

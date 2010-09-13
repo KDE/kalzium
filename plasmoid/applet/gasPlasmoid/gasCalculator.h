@@ -122,6 +122,8 @@ class gasCalculator : public Plasma::PopupApplet
 
 	    // This function initialises/ resets the class
 	    void reset();
+            
+            void configChanged();
 
     protected:
         void createGasConfigurationInterface(KConfigDialog *parent);
