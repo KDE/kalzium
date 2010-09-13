@@ -1273,16 +1273,20 @@ void concentrationCalculator::error(int mode)
     }
 }
 
-void concentrationCalculator::createConcConfigurationInterface(KConfigDialog *parent)
+void concentrationCalculator::createConfigurationInterface(KConfigDialog *parent)
 {
     QWidget *widget = new QWidget();
     ui.setupUi(widget);
     parent->addPage(widget, i18n("General"), icon());
 
+    ui.soluteMass->setChecked(m_soluteMass);
     ui.solventVolume->setChecked(m_solventVolume);
+    
+    connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
+    connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
 }
 
-void concentrationCalculator::concConfigAccepted()
+void concentrationCalculator::configAccepted()
 {
     KConfigGroup cg = config();
     QGraphicsItem::update();

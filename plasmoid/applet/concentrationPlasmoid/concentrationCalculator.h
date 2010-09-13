@@ -115,8 +115,10 @@ class concentrationCalculator : public Plasma::PopupApplet
             void configChanged();
 
     protected:
-        void createConcConfigurationInterface(KConfigDialog *parent);
-        void concConfigAccepted();
+        void createConfigurationInterface(KConfigDialog *parent);
+    
+    protected slots:
+        void configAccepted();
 
     private:
     Converter *m_converter;
