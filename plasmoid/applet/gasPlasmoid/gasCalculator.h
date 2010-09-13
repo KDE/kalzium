@@ -54,84 +54,86 @@ class gasCalculator : public Plasma::PopupApplet
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
 
-	public slots:
+    public slots:
 
-		/// Calculates the Pressure
-		void calculatePressure();
+        /// Calculates the Pressure
+        void calculatePressure();
 
-		/// Calculates the Volume
-	    void calculateVol();
+        /// Calculates the Volume
+        void calculateVol();
 
-	    /// Calculates the Temperature
-	    void calculateTemp();
+        /// Calculates the Temperature
+        void calculateTemp();
 
-	    /// Calculates the number of moles
-	    void calculateMoles();
+        /// Calculates the number of moles
+        void calculateMoles();
 
-	    /// Calculates the mass of substance
-	    void calculateMass();
+        /// Calculates the mass of substance
+        void calculateMass();
 
-	    /// Calculates the molar mass of the substance
-	    void calculateMolarMass();
+        /// Calculates the molar mass of the substance
+        void calculateMolarMass();
 
-	    // Functions ( slots ) that occur on changing a value
-	    /// occurs when the volume is changed
-	    void volChanged();
+        // Functions ( slots ) that occur on changing a value
+        /// occurs when the volume is changed
+        void volChanged();
 
-	    /// occurs when the temperature is changed
-	    void tempChanged();
+        /// occurs when the temperature is changed
+        void tempChanged();
 
-	    /// occurs when the pressure is changed
-	    void pressureChanged();
+        /// occurs when the pressure is changed
+        void pressureChanged();
 
-	    /// occurs when the mass is changed
-	    void massChanged();
+        /// occurs when the mass is changed
+        void massChanged();
 
-	    /*
-	     * occurs when the number of moles is changed
-	     * @param value is the number of moles
-	     */
-	    void molesChanged(int value);
+        /*
+        * occurs when the number of moles is changed
+        * @param value is the number of moles
+        */
+        void molesChanged(int value);
 
-	    /*
-	     * occurs when the molar mass is change\
-	     * @param value is the molar mass
-	     */
-	    void molarMassChanged(int value);
+        /*
+        * occurs when the molar mass is change\
+        * @param value is the molar mass
+        */
+        void molarMassChanged(int value);
 
-	    // occurs when Vander Val's constant a is changed
-	    void Vand_aChanged();
+        // occurs when Vander Val's constant a is changed
+        void Vand_aChanged();
 
-	    // occurs when Vander Val's constant b is changed
-	    void Vand_bChanged();
+        // occurs when Vander Val's constant b is changed
+        void Vand_bChanged();
 
-	    // occurs when any quantity is changed
-	    void calculate();
+        // occurs when any quantity is changed
+        void calculate();
 
-	    /*
-	     * This function prints error messages on the screen
-	     * @param mode is the type of error that occurred, refer ERROR_TYPE_GAS
-	     */
-	    void error(int);
+        /*
+        * This function prints error messages on the screen
+        * @param mode is the type of error that occurred, refer ERROR_TYPE_GAS
+        */
+        void error(int);
 
-	    /*
-	     * This function sets the mode of calculation
-	     * @param mode is the mode of calculation
-	     */
-	    void setMode(int mode);
+        /*
+        * This function sets the mode of calculation
+        * @param mode is the mode of calculation
+        */
+        void setMode(int mode);
 
-	    // This function initialises/ resets the class
-	    void reset();
-            
-            void configChanged();
+        // This function initialises/ resets the class
+        void reset();
+
+        void configChanged();
 
     protected:
-        void createGasConfigurationInterface(KConfigDialog *parent);
+        void createConfigurationInterface(KConfigDialog *parent);
+        
+    protected slots:
         void gasConfigAccepted();
 
     private:
-    Converter *m_converter;
-    // The following objects are for the user interface
+        Converter *m_converter;
+        // The following objects are for the user interface
         QGraphicsWidget  *m_widget;
 
         Plasma::ComboBox *m_calculationMode;
@@ -155,20 +157,20 @@ class gasCalculator : public Plasma::PopupApplet
 
         Plasma::PushButton *m_reset;
 
-		double m_Moles;                     // Number of moles
-	    double m_MolarMass;                 // molarMass
-	    Value m_Mass;                       // mass
-	    Value m_Temp;                       // Temperature
-	    Value m_Pressure;                   // pressure
-	    Value m_Vol;                        // volume
-	    Value m_Vand_B;                     // vander val's constant b
+        double m_Moles;                     // Number of moles
+        double m_MolarMass;                 // molarMass
+        Value m_Mass;                       // mass
+        Value m_Temp;                       // Temperature
+        Value m_Pressure;                   // pressure
+        Value m_Vol;                        // volume
+        Value m_Vand_B;                     // vander val's constant b
 
-	    //( Unit conversion library not available for the following quantities)
-	    double m_Vand_A;                    // Vander val's constant a
+        //( Unit conversion library not available for the following quantities)
+        double m_Vand_A;                    // Vander val's constant a
 
-	    int m_mode;							// mode of calculation
+        int m_mode;							// mode of calculation
 
-   	    /// Designer Config file
+        /// Designer Config file
         Ui::gasCalculatorConfig ui;
         bool m_configUpdated;
         // Indicates whether gas is assumed to be ideal by default

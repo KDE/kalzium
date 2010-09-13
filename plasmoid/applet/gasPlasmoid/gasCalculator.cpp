@@ -611,47 +611,50 @@ void gasCalculator::setMode(int mode)
 // occurs when any quantity is changed
 void gasCalculator::calculate()
 {
-	error(RESET_GAS_MESG);
+    error(RESET_GAS_MESG);
 
-	switch(m_mode) {
-	    case 0:
-	        calculateMoles();
-	        break;
-		case 1:
-	        calculatePressure();
-	        break;
-		case 2:
-	        calculateTemp();
-	        break;
-	    case 3:
-	        calculateVol();
-	        break;
-	}
+    switch(m_mode) {
+    case 0:
+        calculateMoles();
+        break;
+    case 1:
+        calculatePressure();
+        break;
+    case 2:
+        calculateTemp();
+        break;
+    case 3:
+        calculateVol();
+        break;
+    }
 }
 
 void gasCalculator::error(int mode)
 {
     switch (mode) {
     case RESET_GAS_MESG:
-    	m_error->setText("");
-    	break;
+        m_error->setText("");
+        break;
     case VOL_ZERO :
         m_error->setText(i18n("Volume cannot be zero, please enter a valid value."));
         break;
     case MOLAR_MASS_ZERO_:
-    	m_error->setText(i18n("The molar mass cannot be zero, please enter a non-zero value."));
+        m_error->setText(i18n("The molar mass cannot be zero, please enter a non-zero value."));
     default:
         break;
     }
 }
 
-void gasCalculator::createGasConfigurationInterface(KConfigDialog *parent)
+void gasCalculator::createConfigurationInterface(KConfigDialog *parent)
 {
     QWidget *widget = new QWidget();
     ui.setupUi(widget);
     parent->addPage(widget, i18n("General"), icon());
 
     ui.ideal->setChecked(m_ideal);
+    
+    connect(parent, SIGNAL(applyClicked()), this, SLOT(gasConfigAccepted()));
+    connect(parent, SIGNAL(okClicked()), this, SLOT(gasConfigAccepted()));
 }
 
 void gasCalculator::gasConfigAccepted()
