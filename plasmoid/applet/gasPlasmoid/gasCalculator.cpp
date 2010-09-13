@@ -79,89 +79,89 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 // 1.> Currently the spin boxes are integer, please convert them into double
 // and uncomment certain lines of code which say 'setDecimals(4)'
 
-	if (!m_widget) {
-		m_widget = new QGraphicsWidget(this);
+    if (!m_widget) {
+        m_widget = new QGraphicsWidget(this);
 
-	    /**************************************************************************/
-	    //                       Gas Calculator set up
-	    /**************************************************************************/
-		// setup the label
-	    Plasma::Frame *pHeader = new Plasma::Frame(this);
-	    pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-	    pHeader->setText(i18n("Gas Calculator"));
+        /**************************************************************************/
+        //                       Gas Calculator set up
+        /**************************************************************************/
+            // setup the label
+        Plasma::Frame *pHeader = new Plasma::Frame(this);
+        pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+        pHeader->setText(i18n("Gas Calculator"));
 
-	    //setup the grid layout
-		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(m_widget);
-		pGridLayout->addItem(pHeader, 0, 0, 1, 4);
+        //setup the grid layout
+        QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(m_widget);
+        pGridLayout->addItem(pHeader, 0, 0, 1, 4);
 
-		// Set up the user interface
-		// Calculation mode
-		Plasma::Label *calcModeLabel = new Plasma::Label(this);
- 		calcModeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
- 		calcModeLabel->setText(i18n("Calculation Mode:"));
+        // Set up the user interface
+        // Calculation mode
+        Plasma::Label *calcModeLabel = new Plasma::Label(this);
+        calcModeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        calcModeLabel->setText(i18n("Calculation Mode:"));
 
- 		m_calculationMode = new Plasma::ComboBox(this);
- 		m_calculationMode->setZValue(3);
- 		m_calculationMode->nativeWidget()->insertItems(0, QStringList()
- 		 << i18n("Moles / Mass")
- 		 << i18n("Pressure")
- 		 << i18n("Temperature")
- 		 << i18n("Volume")
- 		);
+        m_calculationMode = new Plasma::ComboBox(this);
+        m_calculationMode->setZValue(3);
+        m_calculationMode->nativeWidget()->insertItems(0, QStringList()
+            << i18n("Moles / Mass")
+            << i18n("Pressure")
+            << i18n("Temperature")
+            << i18n("Volume")
+        );
 
-		pGridLayout->addItem(calcModeLabel, 1, 0);
- 		pGridLayout->addItem(m_calculationMode, 1, 1);
+        pGridLayout->addItem(calcModeLabel, 1, 0);
+        pGridLayout->addItem(m_calculationMode, 1, 1);
 
-		// molar mass
+        // molar mass
 
-		Plasma::Label *molarMassLabel = new Plasma::Label(this);
-	    molarMassLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    molarMassLabel->setText(i18n("Molar Mass of Gas:"));
+        Plasma::Label *molarMassLabel = new Plasma::Label(this);
+        molarMassLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        molarMassLabel->setText(i18n("Molar Mass of Gas:"));
 
-	    m_molarMass = new Plasma::SpinBox(this);
-	    m_molarMass->nativeWidget()->setMinimumWidth(80);
-	    m_molarMass->nativeWidget()->setMaximum(1000000000);
-		//m_MolarMass->setDecimals(4);
+        m_molarMass = new Plasma::SpinBox(this);
+        m_molarMass->nativeWidget()->setMinimumWidth(80);
+        m_molarMass->nativeWidget()->setMaximum(1000000000);
+        //m_MolarMass->setDecimals(4);
         m_molarMass->setMaximum(1e+09);
 
-		Plasma::Label *molarMassUnitLabel = new Plasma::Label(this);
-	    molarMassUnitLabel->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-	    molarMassUnitLabel->setText(i18n("u (mass)"));
+        Plasma::Label *molarMassUnitLabel = new Plasma::Label(this);
+        molarMassUnitLabel->nativeWidget()->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        molarMassUnitLabel->setText(i18n("u (mass)"));
 
-	    pGridLayout->addItem(molarMassLabel, 2, 0);
-	    pGridLayout->addItem(m_molarMass, 2, 1);
-	    pGridLayout->addItem(molarMassUnitLabel, 2, 2);
+        pGridLayout->addItem(molarMassLabel, 2, 0);
+        pGridLayout->addItem(m_molarMass, 2, 1);
+        pGridLayout->addItem(molarMassUnitLabel, 2, 2);
 
-	    // moles
+        // moles
 
-	    Plasma::Label *molesLabel = new Plasma::Label(this);
-	    molesLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    molesLabel->setText(i18n("Number of moles:"));
+        Plasma::Label *molesLabel = new Plasma::Label(this);
+        molesLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        molesLabel->setText(i18n("Number of moles:"));
 
-	    m_moles = new Plasma::SpinBox(this);
-	    m_moles->nativeWidget()->setMinimumWidth(80);
-	    m_moles->nativeWidget()->setMaximum(1000000000);
+        m_moles = new Plasma::SpinBox(this);
+        m_moles->nativeWidget()->setMinimumWidth(80);
+        m_moles->nativeWidget()->setMaximum(1000000000);
         //m_Moles->setDecimals(4);
         m_moles->setMaximum(1e+09);
 
-	    pGridLayout->addItem(molesLabel, 3, 0);
-	    pGridLayout->addItem(m_moles, 3, 1);
+        pGridLayout->addItem(molesLabel, 3, 0);
+        pGridLayout->addItem(m_moles, 3, 1);
 
-	    // mass
+        // mass
 
-	    Plasma::Label *massLabel = new Plasma::Label(this);
-	    massLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    massLabel->setText(i18n("Mass of the gas:"));
+        Plasma::Label *massLabel = new Plasma::Label(this);
+        massLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        massLabel->setText(i18n("Mass of the gas:"));
 
-	    m_mass = new Plasma::SpinBox(this);
-	    m_mass->nativeWidget()->setMinimumWidth(80);
-	    m_mass->nativeWidget()->setMaximum(1000000000);
-	    //m_Mass->setDecimals(4);
-	    m_mass->setMaximum(1e+09);
+        m_mass = new Plasma::SpinBox(this);
+        m_mass->nativeWidget()->setMinimumWidth(80);
+        m_mass->nativeWidget()->setMaximum(1000000000);
+        //m_Mass->setDecimals(4);
+        m_mass->setMaximum(1e+09);
 
-  	    m_massUnit = new Plasma::ComboBox(this);
-	    m_massUnit->setZValue(2);
-		m_massUnit->nativeWidget()->insertItems(0, QStringList()
+        m_massUnit = new Plasma::ComboBox(this);
+        m_massUnit->setZValue(2);
+        m_massUnit->nativeWidget()->insertItems(0, QStringList()
          << i18n("grams")
          << i18n("tons")
          << i18n("carats")
@@ -171,26 +171,26 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
         );
         m_massUnit->setZValue(6);
 
-		pGridLayout->addItem(massLabel, 4, 0);
-	    pGridLayout->addItem(m_mass, 4, 1);
-	    pGridLayout->addItem(m_massUnit, 4, 2);
+        pGridLayout->addItem(massLabel, 4, 0);
+        pGridLayout->addItem(m_mass, 4, 1);
+        pGridLayout->addItem(m_massUnit, 4, 2);
 
-		// pressure
+        // pressure
 
-		Plasma::Label *pressureLabel = new Plasma::Label(this);
-	    pressureLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    pressureLabel->setText(i18n("Pressure of the Gas:"));
+        Plasma::Label *pressureLabel = new Plasma::Label(this);
+        pressureLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        pressureLabel->setText(i18n("Pressure of the Gas:"));
 
-	    m_pressure = new Plasma::SpinBox(this);
-	    m_pressure->nativeWidget()->setMinimumWidth(80);
-	    m_pressure->nativeWidget()->setMaximum(1000000000);
+        m_pressure = new Plasma::SpinBox(this);
+        m_pressure->nativeWidget()->setMinimumWidth(80);
+        m_pressure->nativeWidget()->setMaximum(1000000000);
         //m_Pressure->setDecimals(4);
         m_pressure->setMaximum(1e+09);
 
-  	    m_pressureUnit = new Plasma::ComboBox(this);
-	    m_pressureUnit->setZValue(2);
-		m_pressureUnit->nativeWidget()->insertItems(0, QStringList()
-		 << i18n("atmospheres")
+        m_pressureUnit = new Plasma::ComboBox(this);
+        m_pressureUnit->setZValue(2);
+        m_pressureUnit->nativeWidget()->insertItems(0, QStringList()
+         << i18n("atmospheres")
          << i18n("pascal")
          << i18n("bars")
          << i18n("millibars")
@@ -198,27 +198,27 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
          << i18n("torrs")
          << i18n("inches of mercury")
         );
-	    m_pressureUnit->setZValue(5);
+        m_pressureUnit->setZValue(5);
 
-	    pGridLayout->addItem(pressureLabel, 5, 0);
-	    pGridLayout->addItem(m_pressure, 5, 1);
-	    pGridLayout->addItem(m_pressureUnit, 5, 2);
+        pGridLayout->addItem(pressureLabel, 5, 0);
+        pGridLayout->addItem(m_pressure, 5, 1);
+        pGridLayout->addItem(m_pressureUnit, 5, 2);
 
-		// temperature
+        // temperature
 
-		Plasma::Label *temperatureLabel = new Plasma::Label(this);
-	    temperatureLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    temperatureLabel->setText(i18n("Temperature:"));
+        Plasma::Label *temperatureLabel = new Plasma::Label(this);
+        temperatureLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        temperatureLabel->setText(i18n("Temperature:"));
 
-	    m_temperature = new Plasma::SpinBox(this);
-	    m_temperature->nativeWidget()->setMinimumWidth(80);
-	    m_temperature->nativeWidget()->setMaximum(1000000000);
-	    //m_Temp->setDecimals(4);
+        m_temperature = new Plasma::SpinBox(this);
+        m_temperature->nativeWidget()->setMinimumWidth(80);
+        m_temperature->nativeWidget()->setMaximum(1000000000);
+        //m_Temp->setDecimals(4);
         m_temperature->setMaximum(1e+09);
 
-	    m_temperatureUnit = new Plasma::ComboBox(this);
-	    m_temperatureUnit->setZValue(2);
-	    m_temperatureUnit->nativeWidget()->insertItems(0, QStringList()
+        m_temperatureUnit = new Plasma::ComboBox(this);
+        m_temperatureUnit->setZValue(2);
+        m_temperatureUnit->nativeWidget()->insertItems(0, QStringList()
          << i18n("kelvins")
          << i18n("celsius")
          << i18n("fahrenheit")
@@ -227,25 +227,25 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
         );
         m_temperatureUnit->setZValue(4);
 
-	    pGridLayout->addItem(temperatureLabel, 6, 0);
-	    pGridLayout->addItem(m_temperature, 6, 1);
-	    pGridLayout->addItem(m_temperatureUnit, 6, 2);
+        pGridLayout->addItem(temperatureLabel, 6, 0);
+        pGridLayout->addItem(m_temperature, 6, 1);
+        pGridLayout->addItem(m_temperatureUnit, 6, 2);
 
-	    // volume
+        // volume
 
-	    Plasma::Label *volumeLabel = new Plasma::Label(this);
-	    volumeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    volumeLabel->setText(i18n("Volume of the gas:"));
+        Plasma::Label *volumeLabel = new Plasma::Label(this);
+        volumeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        volumeLabel->setText(i18n("Volume of the gas:"));
 
-	    m_volume = new Plasma::SpinBox(this);
-	    m_volume->nativeWidget()->setMinimumWidth(80);
-	    m_volume->nativeWidget()->setMaximum(1000000000);
+        m_volume = new Plasma::SpinBox(this);
+        m_volume->nativeWidget()->setMinimumWidth(80);
+        m_volume->nativeWidget()->setMaximum(1000000000);
         //m_volume->setDecimals(4);
         m_volume->setMaximum(1e+09);
 
-	    m_volumeUnit = new Plasma::ComboBox(this);
-	    m_volumeUnit->setZValue(2);
-	    m_volumeUnit->nativeWidget()->insertItems(0, QStringList()
+        m_volumeUnit = new Plasma::ComboBox(this);
+        m_volumeUnit->setZValue(2);
+        m_volumeUnit->nativeWidget()->insertItems(0, QStringList()
          << i18n("liter")
          << i18n("cubic feet")
          << i18n("cubic inch")
@@ -256,48 +256,48 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
         );
         m_volumeUnit->setZValue(3);
 
-	    pGridLayout->addItem(volumeLabel, 7, 0);
-	    pGridLayout->addItem(m_volume, 7, 1);
-	    pGridLayout->addItem(m_volumeUnit, 7, 2);
+        pGridLayout->addItem(volumeLabel, 7, 0);
+        pGridLayout->addItem(m_volume, 7, 1);
+        pGridLayout->addItem(m_volumeUnit, 7, 2);
 
-	    // van der waals constant a
+        // van der waals constant a
 
-	    Plasma::Label *vand_aLabel = new Plasma::Label(this);
-	    vand_aLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    vand_aLabel->setText(i18n("Van der Waals constant 'a':"));
+        Plasma::Label *vand_aLabel = new Plasma::Label(this);
+        vand_aLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        vand_aLabel->setText(i18n("Van der Waals constant 'a':"));
 
-	    m_Vand_a = new Plasma::SpinBox(this);
-	    m_Vand_a->nativeWidget()->setMinimumWidth(80);
-	    m_Vand_a->nativeWidget()->setMaximum(1000000000);
+        m_Vand_a = new Plasma::SpinBox(this);
+        m_Vand_a->nativeWidget()->setMinimumWidth(80);
+        m_Vand_a->nativeWidget()->setMaximum(1000000000);
         //m_Vand_A->setDecimals(4);
         m_Vand_a->setMaximum(1e+09);
 
-  	    m_aUnit = new Plasma::ComboBox(this);
-	    m_aUnit->setZValue(2);
-	    m_aUnit->nativeWidget()->insertItems(0, QStringList()
+        m_aUnit = new Plasma::ComboBox(this);
+        m_aUnit->setZValue(2);
+        m_aUnit->nativeWidget()->insertItems(0, QStringList()
          << i18n("liter^2 atmosphere/mol^2")
         );
         m_aUnit->setZValue(2);
 
-   	    pGridLayout->addItem(vand_aLabel, 8, 0);
-	    pGridLayout->addItem(m_Vand_a, 8, 1);
-	    pGridLayout->addItem(m_aUnit, 8, 2);
+        pGridLayout->addItem(vand_aLabel, 8, 0);
+        pGridLayout->addItem(m_Vand_a, 8, 1);
+        pGridLayout->addItem(m_aUnit, 8, 2);
 
-	    // van der Waals constant b
+        // van der Waals constant b
 
-	    Plasma::Label *vand_bLabel = new Plasma::Label(this);
-	    vand_bLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-	    vand_bLabel->setText(i18n("Van der Waals constant 'b':"));
+        Plasma::Label *vand_bLabel = new Plasma::Label(this);
+        vand_bLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        vand_bLabel->setText(i18n("Van der Waals constant 'b':"));
 
-	    m_Vand_b = new Plasma::SpinBox(this);
-	    m_Vand_b->nativeWidget()->setMinimumWidth(80);
-	    m_Vand_b->nativeWidget()->setMaximum(1000000000);
+        m_Vand_b = new Plasma::SpinBox(this);
+        m_Vand_b->nativeWidget()->setMinimumWidth(80);
+        m_Vand_b->nativeWidget()->setMaximum(1000000000);
         //m_Vand_B->setDecimals(4);
         m_Vand_b->setMaximum(1e+09);
 
-  	    m_bUnit = new Plasma::ComboBox(this);
-	    m_bUnit->setZValue(2);
-	    m_bUnit->nativeWidget()->insertItems(0, QStringList()
+        m_bUnit = new Plasma::ComboBox(this);
+        m_bUnit->setZValue(2);
+        m_bUnit->nativeWidget()->insertItems(0, QStringList()
          << i18n("liters")
          << i18n("cubic meters")
          << i18n("cubic feet")
@@ -307,66 +307,66 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
         );
         m_bUnit->setZValue(1);
 
-   	    pGridLayout->addItem(vand_bLabel, 9, 0);
-	    pGridLayout->addItem(m_Vand_b, 9, 1);
-	    pGridLayout->addItem(m_bUnit, 9, 2);
+        pGridLayout->addItem(vand_bLabel, 9, 0);
+        pGridLayout->addItem(m_Vand_b, 9, 1);
+        pGridLayout->addItem(m_bUnit, 9, 2);
 
-	    // Results
-	    m_error = new Plasma::Label(this);
-	    pGridLayout->addItem(m_error, 10, 1, 4, 1);
+        // Results
+        m_error = new Plasma::Label(this);
+        pGridLayout->addItem(m_error, 10, 1, 4, 1);
 
-	    // Reset
-		m_reset = new Plasma::PushButton(this);
-		m_reset->setText(i18n("Reset"));
-		pGridLayout->addItem(m_reset, 10, 0);
+        // Reset
+        m_reset = new Plasma::PushButton(this);
+        m_reset->setText(i18n("Reset"));
+        pGridLayout->addItem(m_reset, 10, 0);
 
-	    // Adding objects to the UI done, now initialise
-	    reset();
+        // Adding objects to the UI done, now initialise
+        reset();
 
-	    // Connect signals with slots
-	    //FIXME replace all int with double after using the doubleSpinBox
-	    connect(m_temperature, SIGNAL(valueChanged(int)),
-	            this, SLOT(tempChanged()));
-	    connect(m_temperatureUnit->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(tempChanged()));
-	    connect(m_volume, SIGNAL(valueChanged(int)),
-	            this, SLOT(volChanged()));
-	    connect(m_volumeUnit->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(volChanged()));
-	    connect(m_pressure, SIGNAL(valueChanged(int)),
-	            this, SLOT(pressureChanged()));
-	    connect(m_pressureUnit->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(pressureChanged()));
-	    connect(m_mass, SIGNAL(valueChanged(int)),
-	            this, SLOT(massChanged()));
-	    connect(m_massUnit->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(massChanged()));
-	    connect(m_moles, SIGNAL(valueChanged(int)),
-	            this, SLOT(molesChanged(int)));
-	    connect(m_molarMass, SIGNAL(valueChanged(int)),
-	            this, SLOT(molarMassChanged(int)));
-	    connect(m_Vand_a, SIGNAL(valueChanged(int)),
-	            this, SLOT(Vand_aChanged()));
-	    connect(m_aUnit->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(Vand_aChanged()));
-	    connect(m_Vand_b,  SIGNAL(valueChanged(int)),
-	            this, SLOT(Vand_bChanged()));
-	    connect(m_bUnit->nativeWidget(), SIGNAL(activated(int)),
-	            this, SLOT(Vand_bChanged()));
-		connect(m_calculationMode->nativeWidget(), SIGNAL(activated(int)),
-				this, SLOT(setMode(int)));
-		connect(m_reset, SIGNAL(clicked()),
-				this, SLOT(reset()));
-	    /**************************************************************************/
-	    // gas Calculator setup complete
-	    /**************************************************************************/
-	}
+        // Connect signals with slots
+        //FIXME replace all int with double after using the doubleSpinBox
+        connect(m_temperature, SIGNAL(valueChanged(int)),
+                this, SLOT(tempChanged()));
+        connect(m_temperatureUnit->nativeWidget(), SIGNAL(activated(int)),
+                this, SLOT(tempChanged()));
+        connect(m_volume, SIGNAL(valueChanged(int)),
+                this, SLOT(volChanged()));
+        connect(m_volumeUnit->nativeWidget(), SIGNAL(activated(int)),
+                this, SLOT(volChanged()));
+        connect(m_pressure, SIGNAL(valueChanged(int)),
+                this, SLOT(pressureChanged()));
+        connect(m_pressureUnit->nativeWidget(), SIGNAL(activated(int)),
+                this, SLOT(pressureChanged()));
+        connect(m_mass, SIGNAL(valueChanged(int)),
+                this, SLOT(massChanged()));
+        connect(m_massUnit->nativeWidget(), SIGNAL(activated(int)),
+                this, SLOT(massChanged()));
+        connect(m_moles, SIGNAL(valueChanged(int)),
+                this, SLOT(molesChanged(int)));
+        connect(m_molarMass, SIGNAL(valueChanged(int)),
+                this, SLOT(molarMassChanged(int)));
+        connect(m_Vand_a, SIGNAL(valueChanged(int)),
+                this, SLOT(Vand_aChanged()));
+        connect(m_aUnit->nativeWidget(), SIGNAL(activated(int)),
+                this, SLOT(Vand_aChanged()));
+        connect(m_Vand_b,  SIGNAL(valueChanged(int)),
+                this, SLOT(Vand_bChanged()));
+        connect(m_bUnit->nativeWidget(), SIGNAL(activated(int)),
+                this, SLOT(Vand_bChanged()));
+        connect(m_calculationMode->nativeWidget(), SIGNAL(activated(int)),
+                        this, SLOT(setMode(int)));
+        connect(m_reset, SIGNAL(clicked()),
+                        this, SLOT(reset()));
+    /**************************************************************************/
+    // gas Calculator setup complete
+    /**************************************************************************/
+    }
     return m_widget;
 }
 
 void gasCalculator::reset()
 {
-	error(RESET_GAS_MESG);
+    error(RESET_GAS_MESG);
 
     m_molarMass    -> setValue(2.008);
     m_temperature  -> setValue(273.0);
@@ -551,10 +551,10 @@ void gasCalculator::molesChanged(int value)
 // occurs when the molar mass is changed
 void gasCalculator::molarMassChanged(int value)
 {
-	if ( value == 0.0 ) {
-		error(MOLAR_MASS_ZERO_);
-		return;
-	}
+    if ( value == 0.0 ) {
+            error(MOLAR_MASS_ZERO_);
+            return;
+    }
     m_MolarMass = value;
     m_Mass = Value(m_MolarMass * m_Moles, "grams");
     m_Mass = (m_converter->convert(m_Mass, m_massUnit->nativeWidget()->currentText()));
@@ -578,33 +578,32 @@ void gasCalculator::Vand_bChanged()
 
 void gasCalculator::setMode(int mode)
 {
-	m_mode = mode;
+    m_mode = mode;
 
-	m_moles->nativeWidget()->setReadOnly(false);
-	m_mass->nativeWidget()->setReadOnly(false);
-	m_pressure->nativeWidget()->setReadOnly(false);
-	m_temperature->nativeWidget()->setReadOnly(false);
-	m_volume->nativeWidget()->setReadOnly(false);
+    m_moles->nativeWidget()->setReadOnly(false);
+    m_mass->nativeWidget()->setReadOnly(false);
+    m_pressure->nativeWidget()->setReadOnly(false);
+    m_temperature->nativeWidget()->setReadOnly(false);
+    m_volume->nativeWidget()->setReadOnly(false);
 
-	// set the quantity that should be calculated to readOnly
-	switch (mode)
-	{
-		case 0:
-			m_moles->nativeWidget()->setReadOnly(true);
-			m_mass->nativeWidget()->setReadOnly(true);
-			break;
-		case 1:
-			m_pressure->nativeWidget()->setReadOnly(true);
-			break;
-		case 2:
-			m_temperature->nativeWidget()->setReadOnly(true);
-			break;
-		case 3:
-			m_volume->nativeWidget()->setReadOnly(true);
-			break;
-	}
+    // set the quantity that should be calculated to readOnly
+    switch (mode) {
+    case 0:
+            m_moles->nativeWidget()->setReadOnly(true);
+            m_mass->nativeWidget()->setReadOnly(true);
+            break;
+    case 1:
+            m_pressure->nativeWidget()->setReadOnly(true);
+            break;
+    case 2:
+            m_temperature->nativeWidget()->setReadOnly(true);
+            break;
+    case 3:
+            m_volume->nativeWidget()->setReadOnly(true);
+            break;
+    }
 
-	calculate();
+    calculate();
 }
 
 
