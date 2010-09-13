@@ -65,6 +65,11 @@ nuclearCalculator::~nuclearCalculator()
 
 void nuclearCalculator::init()
 {
+    configChanged();
+}
+
+void nuclearCalculator::configChanged()
+{
     KConfigGroup cg = config();
 
     m_massOnly = cg.readEntry("massOnly",true);

@@ -115,6 +115,8 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 		/// This function hides the slider just under the time spinBox in the UI
 		void showSlider(bool show);
+                
+        void configChanged();
 
     private slots:
     // will be added soon
