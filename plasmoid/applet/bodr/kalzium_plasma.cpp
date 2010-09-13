@@ -50,7 +50,7 @@ void KalziumPlasma::init()
 {
     qDebug() << "initializing Kalzium";
 
-    KConfigGroup cg = config();
+    configChanged();
 
     m_currentSource = "BlueObelisk:RandomElement";
     // connect to random source and update ever 5 seconds
@@ -60,8 +60,14 @@ void KalziumPlasma::init()
 
     m_label1 = new QGraphicsTextItem(this);
     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
-    m_label1->setFont(cg.readEntry("font",m_font));
+    m_label1->setFont(m_font);
     m_label1->setDefaultTextColor(Qt::white);
+}
+
+void KalziumPlasma::configChanged()
+{
+    KConfigGroup cg = config();
+    m_font = cg.readEntry("font",QFont());
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)

@@ -46,6 +46,7 @@ class KalziumPlasma : public Plasma::Applet
         void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
 
         void textChanged();
+        void configChanged();
 
     private:
         Plasma::Svg m_theme;
