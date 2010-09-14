@@ -104,9 +104,9 @@ void ElementLabel::drawToolTip ( Plasma::DataEngine::Data &element )
         "<table>"
         "<tr><td align=\"center\" colspan=\"2\"><b>"   + element["number"].toString()  + " " + element["name"].toString()            + "</b></td></tr>"
         "<tr><td align=\"right\"><i>" + i18n ( "Electronegativity:" ) +    "</i> </td><td>" +  element["en"].toString()              + "</td></tr>"
-        "<tr><td align=\"right\"><i>" + i18n ( "Molmass:" ) +              "</i> </td><td>" +  element["mass"].toString().left ( 6 ) + " u</td></tr>"
-        "<tr><td align=\"right\"><i>" + i18n ( "Boilingpoint:" ) +         "</i> </td><td>" +  element["bp"].toString()              + " K</td></tr>"
-        "<tr><td align=\"right\"><i>" + i18n ( "Meltingpoint:" ) +         "</i> </td><td>" +  element["mp"].toString()              + " K</td></tr>"
+        "<tr><td align=\"right\"><i>" + i18n ( "Atomic mass:" ) +          "</i> </td><td>" +  element["mass"].toString().left ( 6 ) + " u</td></tr>"
+        "<tr><td align=\"right\"><i>" + i18n ( "Boiling point:" ) +        "</i> </td><td>" +  element["bp"].toString()              + " K</td></tr>"
+        "<tr><td align=\"right\"><i>" + i18n ( "Melting point:" ) +        "</i> </td><td>" +  element["mp"].toString()              + " K</td></tr>"
         "<tr><td align=\"center\" colspan=\"2\">"    + element["electronconf"].toString()                                            + "</td></tr>"
         "</table>"
     );
