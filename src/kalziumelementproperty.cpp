@@ -212,7 +212,7 @@ void KalziumElementProperty::gradientBrushLogic(QBrush* elementBrush, int el)
     switch ( m_currentGradient ) {
 
     case DISCOVERYDATE:
-        if ( gradientValue >= m_slider ) {
+        if ( gradientValue > m_slider ) {
             isActiv = false;
         }
         break;
