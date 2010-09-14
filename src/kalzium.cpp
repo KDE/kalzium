@@ -18,7 +18,8 @@
 #include <kactioncollection.h>
 #include "prefs.h"
 #include "ui_settings_colors.h"
-#include "ui_settings_misc.h"
+// #include "ui_settings_misc.h"
+#include "ui_settings_gradients.h"
 #include "ui_settings_units.h"
 #include "ui_settings_calc.h"
 #include "elementdataviewer.h"
@@ -77,7 +78,6 @@
 #include <KTabWidget>
 
 
-#define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
 
 Kalzium::Kalzium() : KXmlGuiWindow( 0 )
@@ -513,12 +513,21 @@ void Kalzium::showSettingsDialog()
 //     connect( dialog, SIGNAL( settingsChanged( const QString &) ), this , SLOT( slotUpdateSettings() ) );
     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
+
     // colors page
     Ui_setupColors ui_colors;
     QWidget *w_colors = new QWidget( 0 );
     w_colors->setObjectName( "colors_page" );
     ui_colors.setupUi( w_colors );
-    dialog->addPage( w_colors, i18n( "Colors" ), "preferences-desktop-color" );
+    dialog->addPage( w_colors, i18n( "Schemes" ), "preferences-desktop-color" );
+
+     // gradients page
+    Ui_setupGradients ui_gradients;
+    QWidget *w_gradients = new QWidget( 0 );
+    w_gradients->setObjectName( "gradients_page" );
+    ui_gradients.setupUi( w_gradients );
+    dialog->addPage( w_gradients, i18n( "Gradients" ), "preferences-desktop-color" );
+
     // units page
     Ui_setupUnits ui_units;
     QWidget *w_units = new QWidget( 0 );
@@ -526,11 +535,11 @@ void Kalzium::showSettingsDialog()
     ui_units.setupUi( w_units );
     dialog->addPage( w_units, i18n( "Units" ), "system-run" );
     // misc page
-    Ui_setupMisc ui_misc;
-    QWidget *w_misc = new QWidget( 0 );
-    w_misc->setObjectName( "miscpage" );
-    ui_misc.setupUi( w_misc );
-    dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
+//     Ui_setupMisc ui_misc;
+//     QWidget *w_misc = new QWidget( 0 );
+//     w_misc->setObjectName( "miscpage" );
+//     ui_misc.setupUi( w_misc );
+//     dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
 
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget( 0 );
@@ -620,44 +629,6 @@ void Kalzium::openInformationDialog( int number )
     m_infoDialog->show();
 }
 
-// void Kalzium::slotToolboxCurrentChanged( int id )
-// {
-//     KalziumPainter::MODE cur = m_PeriodicTableView->mode();
-//     if ( ( id > 1 ) && ((cur == KalziumPainter::NORMAL) || (cur == KalziumPainter::GRADIENT) ||
-//                         (cur == KalziumPainter::NORMAL_GRADIENT)) ) {
-//         m_prevNormalMode = cur;
-//     }
-//     m_PeriodicTableView->setMode( m_prevNormalMode );
-
-
-//     m_legendWidget->setMode( m_prevNormalMode );
-
-//In the timeline and the calculator-mode we have to disable the searchwidget
-//because of focus-stealing and a conflict with the "hiding" of the elements
-//     switch ( id )
-//     {
-//     case 0: // nothing (overview)
-//         m_searchWidget->setEnabled( true );
-//         break;
-//     case 1: //state of matter
-// //         m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
-// //         m_PeriodicTableView->setMode( KalziumPainter::SOM );
-//         m_legendWidget->setMode( KalziumPainter::SOM );
-//         m_searchWidget->setEnabled( true );
-//         break;
-//     case 2: // timeline
-// //         m_PeriodicTableView->setTime( m_timeWidget->time_box->value() );
-// //         m_PeriodicTableView->setMode( KalziumPainter::TIME );
-//         m_legendWidget->setMode( KalziumPainter::TIME );
-//         m_searchWidget->setEnabled( false );
-//         break;
-//     case 3: // molecular calculator
-//         m_searchWidget->setEnabled( false );
-//         break;
-//     }
-//     if ( m_dockWin->isVisible() )
-//         m_toolboxCurrent = id;
-// }
 
 Kalzium::~Kalzium()
 {

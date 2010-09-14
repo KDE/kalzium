@@ -117,12 +117,12 @@ double KalziumGradientType::elementCoeff( int el ) const
 
 QColor KalziumGradientType::firstColor() const
 {
-    return Qt::white;
+    return Prefs::minColor();
 }
 
 QColor KalziumGradientType::secondColor() const
 {
-    return Qt::red;
+    return Prefs::maxColor();
 }
 
 QColor KalziumGradientType::notAvailableColor() const

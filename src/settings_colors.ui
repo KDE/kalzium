@@ -1,180 +1,127 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>setupColors</class>
- <widget class="QWidget" name="setupColors" >
-  <property name="geometry" >
+ <widget class="QWidget" name="setupColors">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>536</width>
-    <height>381</height>
+    <width>627</width>
+    <height>418</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Set Colors</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
+  <layout class="QVBoxLayout">
+   <property name="spacing">
     <number>6</number>
    </property>
-   <property name="leftMargin" >
-    <number>9</number>
-   </property>
-   <property name="topMargin" >
-    <number>9</number>
-   </property>
-   <property name="rightMargin" >
-    <number>9</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin">
     <number>9</number>
    </property>
    <item>
-    <widget class="KTabWidget" name="dfgdfg" >
-     <property name="currentIndex" >
+    <widget class="KTabWidget" name="dfgdfg">
+     <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tabBlocks" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tabBlocks">
+      <attribute name="title">
        <string>Blocks</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="leftMargin" >
-        <number>8</number>
-       </property>
-       <property name="topMargin" >
-        <number>8</number>
-       </property>
-       <property name="rightMargin" >
-        <number>8</number>
-       </property>
-       <property name="bottomMargin" >
+       <property name="margin">
         <number>8</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel13" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel13">
+           <property name="text">
             <string>s-Block:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_s" />
+          <widget class="KColorButton" name="kcfg_block_s"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel14" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel14">
+           <property name="text">
             <string>p-Block:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_p" />
+          <widget class="KColorButton" name="kcfg_block_p"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel15" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel15">
+           <property name="text">
             <string>d-Block:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_d" />
+          <widget class="KColorButton" name="kcfg_block_d"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel16" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel16">
+           <property name="text">
             <string>f-Block:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_f" />
+          <widget class="KColorButton" name="kcfg_block_f"/>
          </item>
         </layout>
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -184,264 +131,183 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabGroups" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tabGroups">
+      <attribute name="title">
        <string>Groups</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="leftMargin" >
-        <number>8</number>
-       </property>
-       <property name="topMargin" >
-        <number>8</number>
-       </property>
-       <property name="rightMargin" >
-        <number>8</number>
-       </property>
-       <property name="bottomMargin" >
+       <property name="margin">
         <number>8</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel2_2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel2_2_2">
+           <property name="text">
             <string>Group 1:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_1" />
+          <widget class="KColorButton" name="kcfg_group_1"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel8" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel8">
+           <property name="text">
             <string>Group 2:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_2" />
+          <widget class="KColorButton" name="kcfg_group_2"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel7" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel7">
+           <property name="text">
             <string>Group 3:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_3" />
+          <widget class="KColorButton" name="kcfg_group_3"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel6" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel6">
+           <property name="text">
             <string>Group 4:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_4" />
+          <widget class="KColorButton" name="kcfg_group_4"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel5_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel5_2">
+           <property name="text">
             <string>Group 5:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_5" />
+          <widget class="KColorButton" name="kcfg_group_5"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel4_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel4_2">
+           <property name="text">
             <string>Group 6:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_6" />
+          <widget class="KColorButton" name="kcfg_group_6"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel3_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel3_2">
+           <property name="text">
             <string>Group 7:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_7" />
+          <widget class="KColorButton" name="kcfg_group_7"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel2_2">
+           <property name="text">
             <string>Group 8:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_8" />
+          <widget class="KColorButton" name="kcfg_group_8"/>
          </item>
         </layout>
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -451,119 +317,83 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabStateOfMatter" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tabStateOfMatter">
+      <attribute name="title">
        <string>State of Matter</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="leftMargin" >
-        <number>8</number>
-       </property>
-       <property name="topMargin" >
-        <number>8</number>
-       </property>
-       <property name="rightMargin" >
-        <number>8</number>
-       </property>
-       <property name="bottomMargin" >
+       <property name="margin">
         <number>8</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel1" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel1">
+           <property name="text">
             <string>Solid:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_color_solid" />
+          <widget class="KColorButton" name="kcfg_color_solid"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel2">
+           <property name="text">
             <string>Liquid:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_color_liquid" />
+          <widget class="KColorButton" name="kcfg_color_liquid"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel3" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel3">
+           <property name="text">
             <string>Vaporous:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_color_vapor" />
+          <widget class="KColorButton" name="kcfg_color_vapor"/>
          </item>
         </layout>
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -573,293 +403,203 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabFamily" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tabFamily">
+      <attribute name="title">
        <string>Family</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="leftMargin" >
-        <number>8</number>
-       </property>
-       <property name="topMargin" >
-        <number>8</number>
-       </property>
-       <property name="rightMargin" >
-        <number>8</number>
-       </property>
-       <property name="bottomMargin" >
+       <property name="margin">
         <number>8</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel2_2_2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel2_2_2_2">
+           <property name="text">
             <string>Alkali metals:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_alkalie" />
+          <widget class="KColorButton" name="kcfg_alkalie"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel8_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel8_2">
+           <property name="text">
             <string>Rare earth:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_rare" />
+          <widget class="KColorButton" name="kcfg_rare"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel7_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel7_2">
+           <property name="text">
             <string>Non-metals:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_nonmetal" />
+          <widget class="KColorButton" name="kcfg_nonmetal"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel6_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel6_2">
+           <property name="text">
             <string>Alkaline earth metals:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_alkaline" />
+          <widget class="KColorButton" name="kcfg_alkaline"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel5_2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel5_2_2">
+           <property name="text">
             <string>Other metals:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_other_metal" />
+          <widget class="KColorButton" name="kcfg_other_metal"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel4_2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel4_2_2">
+           <property name="text">
             <string>Halogens:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_halogene" />
+          <widget class="KColorButton" name="kcfg_halogene"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel3_2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel3_2_2">
+           <property name="text">
             <string>Transition metals:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_transition" />
+          <widget class="KColorButton" name="kcfg_transition"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel2_2_3" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel2_2_3">
+           <property name="text">
             <string>Noble gases:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_noble_gas" />
+          <widget class="KColorButton" name="kcfg_noble_gas"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel2_2_3_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel2_2_3_2">
+           <property name="text">
             <string>Metalloids:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_metalloid" />
+          <widget class="KColorButton" name="kcfg_metalloid"/>
          </item>
         </layout>
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -869,56 +609,38 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabNoColor" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tabNoColor">
+      <attribute name="title">
        <string>No Color Scheme</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="leftMargin" >
-        <number>8</number>
-       </property>
-       <property name="topMargin" >
-        <number>8</number>
-       </property>
-       <property name="rightMargin" >
-        <number>8</number>
-       </property>
-       <property name="bottomMargin" >
+       <property name="margin">
         <number>8</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
+        <layout class="QHBoxLayout">
+         <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="textLabel8_2_2" >
-           <property name="text" >
+          <widget class="QLabel" name="textLabel8_2_2">
+           <property name="text">
             <string>All the elements:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_noscheme" >
-           <property name="toolTip" >
+          <widget class="KColorButton" name="kcfg_noscheme">
+           <property name="toolTip">
             <string>This color will be used if no other scheme is selected</string>
            </property>
-           <property name="whatsThis" >
+           <property name="whatsThis">
             <string>This color will be used if no other scheme is selected</string>
            </property>
           </widget>
@@ -927,164 +649,10 @@
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tabGradientTypes" >
-      <attribute name="title" >
-       <string>Gradient Types</string>
-      </attribute>
-      <layout class="QGridLayout" >
-       <item row="0" column="0" >
-        <layout class="QHBoxLayout" >
-         <item>
-          <layout class="QVBoxLayout" >
-           <item>
-            <widget class="QLabel" name="label" >
-             <property name="sizePolicy" >
-              <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize" >
-              <size>
-               <width>318</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet" >
-              <string/>
-             </property>
-             <property name="text" >
-              <string>Instead of using a linear gradient to display the given property of an element in the periodic table, Kalzium can also use a logarithmic gradient.
-
-Check the properties you want to have displayed with a logarithmic gradient.</string>
-             </property>
-             <property name="textFormat" >
-              <enum>Qt::AutoText</enum>
-             </property>
-             <property name="alignment" >
-              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-             </property>
-             <property name="wordWrap" >
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer>
-             <property name="orientation" >
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" >
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" >
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicCovalentRadiusGradient" >
-             <property name="text" >
-              <string>Covalent Radius</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicVanDerWaalsRadiusGradient" >
-             <property name="text" >
-              <string>Van der Waals Radius</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicMassGradient" >
-             <property name="text" >
-              <string>Mass</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicBoilingPointGradient" >
-             <property name="text" >
-              <string>Boiling Point</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicMeltingPointGradient" >
-             <property name="text" >
-              <string>Melting Point</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicElectronegativityGradient" >
-             <property name="text" >
-              <string>Electronegativity</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicDiscoverydateGradient" >
-             <property name="text" >
-              <string>Discovery Date</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicElectronaffinityGradient" >
-             <property name="text" >
-              <string>Electronaffinity</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="kcfg_LogarithmicIonizationGradient" >
-             <property name="text" >
-              <string>Ionization</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -1098,7 +666,7 @@ Check the properties you want to have displayed with a logarithmic gradient.</st
    </item>
   </layout>
  </widget>
-  <customwidgets>
+ <customwidgets>
   <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>

@@ -229,6 +229,16 @@
 			<whatsthis>Selects the color of the metalloid elements</whatsthis>
 			<default>#E8D888</default>
 		</entry>
+		<entry name="MaxColor" type="Color">
+			<label>Selects the color of the maximal value from the gradient</label>
+			<whatsthis>Selects the color of the maximal value from the gradient</whatsthis>
+			<default>#FF0000</default>
+		</entry>
+		<entry name="MinColor" type="Color">
+			<label>Selects the color of the minimal value from the gradient</label>
+			<whatsthis>Selects the color of the minimal value from the gradient</whatsthis>
+			<default>#FFFFFF</default>
+		</entry>
 	</group>
 	<group name="Units">
 		<entry name="energies" type="Int">
@@ -247,18 +257,11 @@
 			<default>true</default>
 		</entry>
 	</group>
-    <group name="Web">
-        <entry name = "language" type="Int">
-            <label>This value determines the Wikipedia language in the detailed elemental information</label>
-            <whatsthis>Selects the wikipedia language</whatsthis>
-            <default>0</default>
-        </entry>
-    </group>
     <group name="Calculator">
         <entry name = "mass" type="Bool">
         	<label>This setting tells the nuclear calculator whether the amounts are always in terms of mass</label>
         	<whatsthis>True if the user wants to specify amount only in terms of mass</whatsthis>
-        </entry>    
+        </entry>
         <entry name = "ideal" type="Bool">
             <label>This setting says whether the user wants the gas to be ideal by default</label>
             <whatsthis>True if gasses are assumed to be ideal, the Van der Waals co-efficients will not be shown in the calculator</whatsthis>
@@ -288,5 +291,5 @@
 			<default>true</default>
 		</entry>
 	</group>
-	
+
 </kcfg>

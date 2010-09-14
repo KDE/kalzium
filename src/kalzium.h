@@ -191,8 +191,6 @@ private slots:
      */
     void showSettingsDialog();
 
-//     void slotToolboxCurrentChanged(int);
-
 protected:
 //     virtual void keyPressEvent( QKeyEvent * e);
 };
