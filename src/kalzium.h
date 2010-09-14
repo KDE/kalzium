@@ -130,10 +130,7 @@ private:
 
     ExportDialog *m_exportDialog;
 
-public slots:
-    void slotSearchElements();
-
-  Q_SIGNALS:
+Q_SIGNALS:
     void numerationChanged(int);
 
 private slots:

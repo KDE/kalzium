@@ -92,8 +92,6 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
 
     Search *newsearch = new Search();
     KalziumDataObject::instance()->setSearch( newsearch );
-    connect( newsearch, SIGNAL( searchChanged() ), this, SLOT( slotSearchElements() ) );
-    connect( newsearch, SIGNAL( searchReset() ), this, SLOT( slotSearchElements() ) );
 
     m_infoDialog = 0;
     m_toolboxCurrent = 0;
@@ -108,7 +106,12 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     SearchWidget *searchWidget = new SearchWidget( pseTempWidget );
     searchWidget->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum));
 
+    // Creating the periodic table
     m_periodicTable = new periodSystem( pseTempWidget );
+
+    // Connecting the search to the periodic table
+    connect( newsearch, SIGNAL( searchChanged() ), m_periodicTable->elProperty(), SLOT( redrawPse() ) );
+    connect( newsearch, SIGNAL( searchReset() ), m_periodicTable->elProperty(), SLOT( redrawPse() ) );
 
     layout->addWidget( searchWidget );
     layout->addWidget( m_periodicTable );
@@ -680,10 +683,5 @@ Kalzium::~Kalzium()
 // 	e->accept();
 //     }
 // }
-
-void Kalzium::slotSearchElements()
-{
-    m_periodicTable->elProperty()->redrawPse();
-}
 
 #include "kalzium.moc"
