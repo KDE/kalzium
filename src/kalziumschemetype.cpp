@@ -291,7 +291,7 @@ QBrush KalziumFamilySchemeType::elementBrush( int el ) const
     else if (  family == QLatin1String(  "Metalloids" ) ) {
         c = Prefs::metalloid();
     }
-    else if (  family == QLatin1String(  "Halogene" ) ) {
+    else if (  family == QLatin1String(  "Halogen" ) ) {
         c = Prefs::halogene();
     } else {
         c = Qt::lightGray;
