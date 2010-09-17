@@ -25,7 +25,7 @@
 #include <kstandarddirs.h>
 #include <ktoolinvocation.h>
 
-calculator :: calculator(QWidget *parent)
+calculator::calculator(QWidget *parent)
         : KDialog(parent)
 {
     setCaption(i18n("Molecular Calculator"));
@@ -47,7 +47,9 @@ calculator :: calculator(QWidget *parent)
     // Add the molecular mass Calculator widget to the user interface
     m_moleCalculator = new MolcalcWidget(this);
     ui.stack->addWidget(m_moleCalculator);
-    // Add the molecular mass Calculator widget to the user interface
+    // Add the titration calculator
+    m_titrationCalculator = new titrationCalculator(this);
+    ui.stack->addWidget(m_titrationCalculator);
 
 #ifdef HAVE_FACILE
     // Add the equation balancer widget to the user interface
@@ -76,7 +78,7 @@ calculator :: ~calculator()
 
 }
 
-void calculator :: slotItemSelection(QTreeWidgetItem *item)
+void calculator::slotItemSelection(QTreeWidgetItem *item)
 {
     if (item == 0L) return;
 
@@ -90,6 +92,10 @@ void calculator :: slotItemSelection(QTreeWidgetItem *item)
     // Check if nuclear calculator is selected, show the widget in the user interface
     else if (!(s.compare(i18n("Nuclear Calculator"))))
         ui.stack->setCurrentWidget(m_nuclearCalculator);
+  
+    // Check ititration calculator is selected, show the widget in the user interface
+    else if (!(s.compare(i18n("Titration Calculator"))))
+        ui.stack->setCurrentWidget(m_titrationCalculator);
 
     // Check if gas calculator is selected, show the widget in the user interface
     else if (!(s.compare(i18n("Gas Calculator"))))
