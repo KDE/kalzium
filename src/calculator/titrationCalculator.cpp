@@ -47,7 +47,7 @@ titrationCalculator::titrationCalculator(QWidget * parent)
     ymin = 0;
     ymax = 50;
     width = int(xmax - xmin);
-    
+
     uid.setupUi(this);
     plot();
 
@@ -56,7 +56,7 @@ titrationCalculator::titrationCalculator(QWidget * parent)
     connect(uid.xmax, SIGNAL(valueChanged(double )),this, SLOT(on_xmax_valueChanged(double )));
     connect(uid.ymin, SIGNAL(valueChanged(double )),this, SLOT(on_ymin_valueChanged(double )));
     connect(uid.ymax, SIGNAL(valueChanged(double )),this, SLOT(on_ymax_valueChanged(double )));
-    
+
 
     connect(uid.saveimage, SIGNAL(clicked()),this, SLOT(on_actionSave_image_triggered()));
     connect(uid.open, SIGNAL(clicked()),this, SLOT(on_actionOpen_triggered()));
@@ -77,7 +77,7 @@ void titrationCalculator::plot()
     //now I'm preparing the kplot widget
     uid.kplotwidget->removeAllPlotObjects();
     uid.kplotwidget->setLimits( xmin, xmax, ymin, ymax ); //now I need to set the limits of the plot
-    
+
     KPlotObject *kpor = new KPlotObject( Qt::red, KPlotObject::Lines );
     KPlotObject *kpog = new KPlotObject( Qt::green, KPlotObject::Lines );
     KPlotObject *kpob = new KPlotObject( Qt::blue, KPlotObject::Lines );
@@ -203,7 +203,7 @@ void titrationCalculator::plot()
         if (temponu!=0) tempon="";
         uid.note->setText(tempon + "\n"+i18n("Approximated curve")+": "+as+"*tanh("+bs+"*(x+"+cs+"))+"+ds +"\n"+i18n("Equivalence point")+": "+es);
     } //here ends the experimental values mode
-    
+
     uid.kplotwidget->addPlotObject(kpor);
     uid.kplotwidget->addPlotObject(kpog);
     uid.kplotwidget->addPlotObject(kpob);
@@ -366,12 +366,12 @@ void titrationCalculator::on_actionRapid_Help_triggered()
 {
   on_actionNew_triggered();
   //now I'm going to fill the tables with the example values
-  
+
 //QTableWidgetItem *titemo = uid.tableWidget_2->item((i-1)/2,1) ;
 //if (titemo) {
 //titemo->setText(tempyval) ;
 //}
-  
+
   //table1
   QTableWidgetItem *titemo = uid.tableWidget->item(0,0);
   titemo->setText("A");
