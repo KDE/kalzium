@@ -122,9 +122,9 @@ void titrationCalculator::plot()
                 mreporto = solve(tmreport);
             }
         }
-        //if (mreporto!="") uid.note->setText("Theorical Curve: "+mreporto);
+        //if (mreporto!="") uid.note->setText("Theoretical Curve: "+mreporto);
         if (mreporto!="") {
-	  uid.note->setText(i18n("Theorical curve")+": "+mreporto);
+	  uid.note->setText(i18n("Theoretical curve")+": "+mreporto);
             for (int i=int(xmin); i<(int(xmax)); i++) {
                 double id = i;
                 QScriptEngine myEngine;
@@ -201,7 +201,7 @@ void titrationCalculator::plot()
         QString ds = QString::number(d);
         QString tempon = uid.note->toPlainText()+QString("\n");
         if (temponu!=0) tempon="";
-        uid.note->setText(tempon + "\n"+i18n("Aproximated curve")+": "+as+"*tanh("+bs+"*(x+"+cs+"))+"+ds +"\n"+i18n("Equivalence point")+": "+es);
+        uid.note->setText(tempon + "\n"+i18n("Approximated curve")+": "+as+"*tanh("+bs+"*(x+"+cs+"))+"+ds +"\n"+i18n("Equivalence point")+": "+es);
     } //here ends the experimental values mode
     
     uid.kplotwidget->addPlotObject(kpor);
@@ -421,7 +421,7 @@ titemo->setText("31,5");
 
 // I think it's better if I'don't give so many informations here.
 //  These ifnromation could be included into kalzium help, but I don't know how to do
-    //QMessageBox::information(this, "IceeQt Rapid Help", "There are two ways to use IceeQt:\n\nTheorical Equations\n Here you can fill the table with the equations you have previously obtained for the chemical equilibria. FOR EXAMPLE if you have this reaction A + B -> C + D then you will have the equation K=(C*D)/(A*B) so you must write 'K' in the Parameter column and '(C*D)/(A*B)' in the Value column. If you want to assign a known value to a parameter you can simply write the numeric value in the Value field. FOR EXAMPLE you can use the system \nA=(C*D)/(B*K) \nK=10^-3 \nC=OH \nOH=(10^-14)/H \nH=10^-4 \nB=6*(10^-2) \nThen you have to write D as X axis and A as Y axis: so you will find out how the concentration of A change in function of D concentration.\nPlease don't use parenthesis for exponents: 10^-3 is correct, while 10^(-3) is wrong. \n\nExperimental Values\n You can use this program to draw the plot of your experimental data obtained during a titration and find out the volume of equivalence. It's strongly recommended to insert a even number of points, because of the best fit algorithm, sorted by volume (the X axis value).\n\nPlot\n The plot shows in red the curve that cames from theorical equations, in blue the experimental points, and in green the aproximated curve for experimental points.");
+    //QMessageBox::information(this, "IceeQt Rapid Help", "There are two ways to use IceeQt:\n\nTheoretical Equations\n Here you can fill the table with the equations you have previously obtained for the chemical equilibria. FOR EXAMPLE if you have this reaction A + B -> C + D then you will have the equation K=(C*D)/(A*B) so you must write 'K' in the Parameter column and '(C*D)/(A*B)' in the Value column. If you want to assign a known value to a parameter you can simply write the numeric value in the Value field. FOR EXAMPLE you can use the system \nA=(C*D)/(B*K) \nK=10^-3 \nC=OH \nOH=(10^-14)/H \nH=10^-4 \nB=6*(10^-2) \nThen you have to write D as X axis and A as Y axis: so you will find out how the concentration of A change in function of D concentration.\nPlease don't use parenthesis for exponents: 10^-3 is correct, while 10^(-3) is wrong. \n\nExperimental Values\n You can use this program to draw the plot of your experimental data obtained during a titration and find out the volume of equivalence. It's strongly recommended to insert a even number of points, because of the best fit algorithm, sorted by volume (the X axis value).\n\nPlot\n The plot shows in red the curve that cames from theorical equations, in blue the experimental points, and in green the aproximated curve for experimental points.");
  }
 
 /*
@@ -661,14 +661,14 @@ void titrationCalculator::on_actionSave_image_triggered()
         cout << filec;
         cout << "|";
         if (!out) QMessageBox::critical(this,"Error","Unable to create "+file) ;
-	out << "Theorical curve\n";
+	out << "Theoretical curve\n";
 	out << "X axis:\n";
         out << strsavea;
 	out << "\n";
 	out << "Y axis:\n";
 	out << strsaveb;
 	out << "\n";
-	out << "Aproximated esperimental curve\n";
+	out << "Approximated esperimental curve\n";
 	out << "X axis:\n";
 	out << strsavec;
 	out << "\n";

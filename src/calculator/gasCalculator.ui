@@ -497,7 +497,7 @@ p, li { white-space: pre-wrap; }
    <item>
     <widget class="QGroupBox" name="non_ideal">
      <property name="title">
-      <string>Data for non-ideal gasses</string>
+      <string>Data for non-ideal gases</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
