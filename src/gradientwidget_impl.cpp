@@ -25,6 +25,7 @@
 #include "kalziumdataobject.h"
 #include "prefs.h"
 
+// used to convert the double variables to int's. (slider <-> spinbox)
 #define MULTIPLIKATOR 1000
 
 GradientWidgetImpl::GradientWidgetImpl( KalziumElementProperty *elementProperty, QWidget *parent )
@@ -96,14 +97,20 @@ void GradientWidgetImpl::slotGradientChanged()
     gradient_spinbox->setMinimum(dblMin);
     gradient_spinbox->setDecimals(m_elementProperty->gradient()->decimals());
 
-    gradient_spinbox->setValue(dblMin);
-    emit gradientValueChanged( dblMin );
+    if ( m_elementProperty->DISCOVERYDATE == m_elementProperty->gradientId() ) {
+        gradient_spinbox->setValue(dblMax);
+    } else {
+        gradient_spinbox->setValue(dblMin);
+    }
+
+    emit gradientValueChanged( gradient_spinbox->value() );
 
     // Disable Gradient widgets if no gradient is selected.
     if ( gradient_combo->currentIndex() == KalziumElementProperty::NOGRADIENT) {
         gradient_spinbox->setEnabled(false);
         gradient_slider->setEnabled(false);
         Play->setEnabled(false);
+        text->clear();
     }
 }
 
