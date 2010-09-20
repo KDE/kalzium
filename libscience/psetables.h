@@ -35,8 +35,8 @@
  * creating a table for the gridlayout
 @code
   foreach (intElement, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
-       group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).x();
-       period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
+       int group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).x();
+       int period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
 
        ElementLabel *element = new ElementLabel( intElement );
 
@@ -54,7 +54,7 @@
  * getting the position of the Numerations for the pse (j)
  @code
     for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); i++) {
-	int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
+        int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
     }
  @endcode
  * @short Provides shape and elements of diferent peridic tables of elements
