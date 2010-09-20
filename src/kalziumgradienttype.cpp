@@ -100,7 +100,11 @@ double KalziumGradientType::elementCoeff( int el ) const
     if ( val <= 0.0 ) return -1;
 
     if (logarithmicGradient()) {
-        double result = ( log(val) - log(minValue()) ) / ( log(maxValue()) - log(minValue()) );
+        double minVal = minValue();
+        // Fixing negativ values.
+        if ( minVal <= 0 ) minVal = 0.001;
+
+        double result = ( log(val) - log(minVal) ) / ( log(maxValue()) - log(minVal) );
 
         // now we perform a "gamma-correction" on the result. Indeed, logarithmic gradients
         // often have the problem that all high values have roughly the same color. Note that
@@ -109,8 +113,7 @@ double KalziumGradientType::elementCoeff( int el ) const
         const double gamma = 1.4;
         result = exp(gamma * log(result));
         return result;
-    }
-    else {
+    } else {
         return ( val - minValue() ) / ( maxValue() - minValue() );
     }
 }
@@ -299,7 +302,7 @@ double KalziumMassGradientType::minValue() const
 
 double KalziumMassGradientType::maxValue() const
 {
-    return 292.0;
+    return 294.0;
 }
 
 bool KalziumMassGradientType::logarithmicGradient() const
@@ -437,11 +440,8 @@ QString KalziumSOMGradientType::description() const
 
 double KalziumSOMGradientType::value( int el ) const
 {
-//     QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint );
-//     if ( v.type() != QVariant::Double ) return -1;
-//     return v.toDouble();
-       Q_UNUSED(el);
-       return -1000;
+    Q_UNUSED(el);
+    return -1000;
 }
 
 QString KalziumSOMGradientType::unit() const
@@ -466,7 +466,7 @@ double KalziumSOMGradientType::maxValue() const
 
 bool KalziumSOMGradientType::logarithmicGradient() const
 {
-   return true;
+    return true;
 //     return Prefs::logarithmicSOMGradient();
 }
 
@@ -607,8 +607,6 @@ QString KalziumElectronaffinityGradientType::description() const
 double KalziumElectronaffinityGradientType::value( int el ) const
 {
     QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronAffinity );
-    qDebug() << v;
-//     if ( v.type() != QVariant::Double ) return -1;
     return v.toDouble();
 }
 
@@ -624,8 +622,8 @@ int KalziumElectronegativityGradientType::decimals() const
 
 double KalziumElectronaffinityGradientType::minValue() const
 {
-//     return -0.08;
-    return 0;
+    return -0.08;
+//     return 0.01;
 }
 
 double KalziumElectronaffinityGradientType::maxValue() const
@@ -664,7 +662,6 @@ QString KalziumIonizationGradientType::description() const
 double KalziumIonizationGradientType::value( int el ) const
 {
     QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::ionization );
-qDebug() << v;
     return v.toDouble();
 }
 
