@@ -7,7 +7,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>665</width>
+    <width>818</width>
     <height>622</height>
    </rect>
   </property>
@@ -360,6 +360,23 @@
    <header>kplotwidget.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>xmin</tabstop>
+  <tabstop>xmax</tabstop>
+  <tabstop>ymin</tabstop>
+  <tabstop>ymax</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>xaxis</tabstop>
+  <tabstop>yaxis</tabstop>
+  <tabstop>tableWidget_2</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>note</tabstop>
+  <tabstop>newfile</tabstop>
+  <tabstop>open</tabstop>
+  <tabstop>save</tabstop>
+  <tabstop>saveimage</tabstop>
+  <tabstop>rapidhelp</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
