@@ -125,7 +125,7 @@ void ExportDialog::populateElementList()
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Mass" ), ChemicalDataObject::mass ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Exact Mass" ), ChemicalDataObject::exactMass ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Ionization" ), ChemicalDataObject::ionization ) );
-    ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Electron Affinity" ), ChemicalDataObject::exactMass ) );
+    ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Electron Affinity" ), ChemicalDataObject::electronAffinity ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Electronegativity" ), ChemicalDataObject::electronegativityPauling ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Covalent Radius" ), ChemicalDataObject::radiusCovalent ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Van der Waals Radius" ), ChemicalDataObject::radiusVDW ) );
@@ -153,7 +153,7 @@ void ExportDialog::slotOkClicked()
         KMessageBox::error( this, i18n( "Could not open file for writing." ) );
         return;
     }
-    
+
     delete m_outputStream;
     m_outputStream = new QTextStream( &outputFile );
     if(format == "html")
