@@ -31,6 +31,7 @@
 #include <QScriptEngine>
 #include <QScriptValue>
 #include <QScriptClass>
+#include <QVarLengthArray>
 #include <qscriptengine.h>
 #include <stdlib.h>
 #include <math.h>
@@ -38,6 +39,11 @@
 #include <QMessageBox>
 
 using namespace std;
+
+#ifdef _MSC_VER
+#define and &&
+#define or ||
+#endif
 
 titrationCalculator::titrationCalculator(QWidget * parent)
         : QWidget(parent)
@@ -154,8 +160,8 @@ void titrationCalculator::plot()
     } else {
         //now we can plot the values
         double a,b,c,d, xval;
-        double px[uid.tableWidget_2->rowCount()];
-        double py[uid.tableWidget_2->rowCount()];
+        QVarLengthArray<double, 64> px(uid.tableWidget_2->rowCount());
+        QVarLengthArray<double, 64> py(uid.tableWidget_2->rowCount());
         int totaldata=0;
         for (int i=0; i<uid.tableWidget_2->rowCount() ; i++) {
             if (!uid.tableWidget_2->item(i,0) || uid.tableWidget_2->item(i,0)->text().isEmpty()) {
