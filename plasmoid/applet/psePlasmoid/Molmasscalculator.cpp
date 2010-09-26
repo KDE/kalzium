@@ -115,7 +115,7 @@ void Molmasscalculator::newCalculatedMass()
         m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
 
         //Copy new Mass to Clipboard
-        if ( m_copyToClipboard and m_molecule["molMass"].toString() != "" )
+        if ( m_copyToClipboard && m_molecule["molMass"].toString() != "" )
             QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
 
     } else {
