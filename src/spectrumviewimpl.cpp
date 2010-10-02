@@ -36,16 +36,19 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 
 void SpectrumViewImpl::fillPeakList()
 {
-    int row;
     peakListTable->setRowCount(m_spectrumWidget->spectrum()->peaklist().count());
 
     for (int i = 0; i <  m_spectrumWidget->spectrum()->peaklist().count(); i++ )
     {
         Spectrum::peak * peak = m_spectrumWidget->spectrum()->peaklist().at(i);
-        row = i + 1;
-        peakListTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString::number(row)));
-        peakListTable->setItem ( i, 0, new QTableWidgetItem(QString::number(peak->wavelength)) );
-        peakListTable->setItem ( i, 1, new QTableWidgetItem(QString::number(peak->intensity)) );
+
+        peakListTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString::number(i + 1)));
+        QTableWidgetItem *waveItem = new QTableWidgetItem(QString::number(peak->wavelength));
+        QTableWidgetItem *valueItem = new QTableWidgetItem(QString::number(peak->intensity));
+        waveItem->setFlags(Qt::ItemFlags(Qt::ItemIsEnabled));
+        valueItem->setFlags(Qt::ItemFlags(Qt::ItemIsEnabled));
+        peakListTable->setItem ( i, 0, waveItem );
+        peakListTable->setItem ( i, 1, valueItem );
     }
 }
 

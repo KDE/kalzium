@@ -438,7 +438,7 @@ void DetailedInfoDlg::createContent()
     // html tabs
     m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopemap" );
     m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
-    m_htmlpages["extra"] = addHTMLTab( i18n( "Extra information" ), i18n( "Extra Information" ), "applications-internet" );
+
 
     // spectrum widget tab
     QWidget *m_pSpectrumTab = new QWidget();
@@ -454,6 +454,9 @@ void DetailedInfoDlg::createContent()
     m_spectrumStack->addWidget( m_spectrumview );
     m_spectrumLabel = new QLabel( m_spectrumStack );
     m_spectrumStack->addWidget( m_spectrumLabel );
+
+    // html extra tab
+    m_htmlpages["extra"] = addHTMLTab( i18n( "Extra information" ), i18n( "Extra Information" ), "applications-internet" );
 }
 
 void DetailedInfoDlg::reloadContent()
@@ -508,6 +511,7 @@ void DetailedInfoDlg::reloadContent()
         m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
         m_spectrumStack->setCurrentWidget( m_spectrumLabel );
     }
+
 }
 
 QString DetailedInfoDlg::createWikiLink(QString link)
