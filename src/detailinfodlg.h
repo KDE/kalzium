@@ -114,6 +114,17 @@ private:
      */
     void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
 
+    /**
+     * Creates a localized link to Wikipedia.
+     * http://en.wikipedia.org/wiki/link"
+     * @param link the link inside wikipedia
+     * @param displayString the displayed string to click on.
+     */
+    QString createWikiLink( QString link, QString displayString);
+
+    /// overloaded function to add link as the displayed String
+    QString createWikiLink( QString link );
+
 private slots:
     void slotLinkClicked(const KUrl &url);
 

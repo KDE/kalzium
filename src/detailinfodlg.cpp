@@ -154,9 +154,9 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         "<html><head><title>Chemical data</title>"
         "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
         "<base href=\"" + m_baseHtml + "\"/></head><body>"
-        "<div class=\"chemdata\"><div><table summary=\"header\">"
+        "<div class=\"chemdata\"><div><table summary=\"header\" class=\"header\">"
         "<tr><td>" + m_element->dataAsString( ChemicalDataObject::symbol ) + "</td><td>"
-        + m_element->dataAsString( ChemicalDataObject::name ) + "</td><td>"
+        + createWikiLink( m_element->dataAsString( ChemicalDataObject::name ) ) + "</td><td>"
         + i18n( "Block: %1", m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) +
         "</td></tr></table></div>"
         "<table summary=\"characteristics\" class=\"characterstics\">";
@@ -205,68 +205,78 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
     {
         // melting point
         html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
+        html.append( createWikiLink( i18n( "Melting Point") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) ;
         html.append( "</td></tr>" );
 
         // boiling point
         html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
+        html.append( createWikiLink( i18n( "Boiling Point") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint )  ) ;
         html.append( "</td></tr>" );
 
         // electro affinity
         html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
+	html.append( createWikiLink( i18n( "Electron Affinity") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity )  ) ;
         html.append( "</td></tr>" );
 
         //Electronic configuration
         html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-        //Probably beautify here...
-        QString config = beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) );
-        html.append( i18n( "Electronic configuration: %1", config ) );
+	html.append( createWikiLink( i18n( "Electronic configuration") ) );
+	html.append( "</td><td>" );
+	html.append( beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) ) ) ;
         html.append( "</td></tr>" );
 
         // covalent radius
         html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
+        html.append( createWikiLink( i18n( "Covalent Radius") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) ;
         html.append( "</td></tr>" );
 
         // van der Waals radius
         html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
+        html.append( createWikiLink( i18n( "van der Waals Radius") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) ;
         html.append( "</td></tr>" );
 
         // mass
-        html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
+        html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+        html.append( createWikiLink( i18n( "Atomic mass") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) ;
         html.append( "</td></tr>" );
 
         // 1st ionization energy
         html.append( "<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
+	html.append( createWikiLink( i18n( "Ionization energy"), i18n("First Ionization energy") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) ;
         html.append( "</td></tr>" );
 
         // electro negativity
         html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-        html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
+        html.append( createWikiLink( i18n( "Electronegativity") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) ;
         html.append( "</td></tr>" );
         break;
     }
     case EXTRA:
     {
-        QString link( KGlobal::locale()->language() );
-        QString language( KGlobal::locale()->languageCodeToName( link ));
+        QString language( KGlobal::locale()->languageCodeToName( KGlobal::locale()->language() ));
 
         //Wikipedia.org
 //         html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
 	html.append ( "<tr><td>" );
-        html.append ( "<a href=\"http://");        // http://
-        html.append (link);                          // en.
-        html.append (".wikipedia.org/wiki/");            // wikipedia.org
-        html.append ( m_element->dataAsString( ChemicalDataObject::name ) ); // /hydrogen
-        html.append ( "\" target=\"_blank\" > Wikipedia ");
-        html.append (language);
-        html.append ( "</a></td></tr>" );
-        // Example from the comment "http://en.wikipedia.org/wiki/hydrogen"
+        html.append ( createWikiLink(m_element->dataAsString( ChemicalDataObject::name ), "Wikipedia " + language) );
+        html.append ( "</td></tr>" );
+
 
 	// FIXME only works with english locals
 // 	html.append ( "<tr><td>" );
@@ -450,7 +460,7 @@ void DetailedInfoDlg::reloadContent()
 {
     // reading the most common data
     const QString element_name = m_element->dataAsString( ChemicalDataObject::name );
-    const QString element_symbol = m_element->dataAsString( ChemicalDataObject::symbol );
+//     const QString element_symbol = m_element->dataAsString( ChemicalDataObject::symbol );
 
     // updating caption
     setCaption( i18nc( "For example Carbon (6)" , "%1 (%2)", element_name, m_elementNumber ) );
@@ -498,6 +508,30 @@ void DetailedInfoDlg::reloadContent()
         m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
         m_spectrumStack->setCurrentWidget( m_spectrumLabel );
     }
+}
+
+QString DetailedInfoDlg::createWikiLink(QString link)
+{
+        return createWikiLink(link, link);
+}
+
+
+QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
+{
+        QString html;
+        QString language( KGlobal::locale()->language() );
+
+        //Wikipedia.org
+        html.append ( "<a href=\"http://" );        // http://
+        html.append ( language );                        // en.
+        html.append ( ".wikipedia.org/wiki/" );      // wikipedia.org
+        html.append ( link );             // /hydrogen
+        html.append ( "\" target=\"_blank\" > ");
+        html.append ( displayString );
+        html.append ( "</a>" );
+        // Example from the comment "http://en.wikipedia.org/wiki/hydrogen"
+
+	return html;
 }
 
 void DetailedInfoDlg::slotLinkClicked(const KUrl &url)

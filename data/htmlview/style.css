@@ -7,7 +7,7 @@ body
 div.chemdata
 {
 	border: 1px solid rgb(50,80,150);
-	overflow:visible;;
+	overflow:visible;
 }
 
 /* The header div */
@@ -34,10 +34,26 @@ div.chemdata div table td
 /* The second td inside the header table */
 div.chemdata div table td+td
 {
+	font-size:80%;
+}
+
+/* The third td inside the header table */
+div.chemdata div table td+td+td
+{
 	text-align:right;
 	font-size:80%;
 }
 
+table.header
+{
+  	table-layout:fixed;
+}
+
+/* The link color inside the header table */
+table.header a
+{
+        color: rgb(240,240,240);
+}
 
 /* The table containing the characterstics */
 table.characterstics
@@ -57,9 +73,15 @@ table.characterstics td
 	text-align:center;
 }
 
+/* The second td inside the characterstics-table (text) */
+table.characterstics td+td
+{
+	text-align:left;
+}
+
 table.isotopes td
 {
-	border-left:1px #000000 solid; 
+	border-left:1px #000000 solid;
 	border-bottom:1px #000000 solid;
 }
 
@@ -69,14 +91,3 @@ table.isotopes
 	border-top:1px #000000 solid;
 }
 
-/* The second td inside the characterstics-table (text) */
-table.characterstics td+td
-{
-	text-align:left;
-}
-
-/* Bold text inside the td's of the characterstics-table */
-table.characterstics td b
-{
-	color:rgb(80,80,80);
-}
