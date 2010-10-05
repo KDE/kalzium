@@ -2,6 +2,7 @@
 Name=Molar mass calculator
 Name[en_GB]=Molar mass calculator
 Name[es]=Calculadora de masas molares
+Name[et]=Molaarmassi kalkulaator
 Name[gl]=Calculadora da masa molecular
 Name[ja]=モル質量計算機
 Name[nds]=Molarmassenreekner
@@ -16,6 +17,7 @@ Name[zh_TW]=莫耳質量計算器
 Comment=Small periodic table of elements with a molar mass calculator
 Comment[en_GB]=Small periodic table of elements with a molar mass calculator
 Comment[es]=Pequeña tabla periódica con una calculadora de masas molares
+Comment[et]=Väike keemiliste elementide tabel molaarmassi kalkulaatoriga
 Comment[gl]=Pequena táboa periódica dos elementos cunha calculadora da masa molecular
 Comment[nds]=Lütt Periodensysteem mit Molarmassreekner
 Comment[nl]=Klein periodiek systeem der elementen met een molaire massa-rekenmachine
