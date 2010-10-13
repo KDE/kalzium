@@ -125,22 +125,37 @@ double KalziumElementProperty::getValue(int el) const
     return 0;
 }
 
+QColor KalziumElementProperty::getElementColor(int el)
+{
+    QColor elementColor;
+
+    if (m_currentGradient == NOGRADIENT)  {
+        elementColor = scheme()->elementBrush(el).color();
+    } else {
+        // handel Gradient cases
+        elementColor = gradientBrushLogic( el );
+    }
+    return elementColor;
+}
+
 QBrush KalziumElementProperty::getElementBrush(int el)
 {
-    // Hide filtered elements
+    QBrush elementBrush;
+    elementBrush.setStyle(Qt::SolidPattern);
+    elementBrush.setColor(Qt::transparent);
+
+    // Hide filtered elements from search
     if (!KalziumDataObject::instance()->search()->matches( el ) && KalziumDataObject::instance()->search()->isActive()) {
         return QBrush(Qt::darkGray, Qt::Dense7Pattern);
     }
 
-    QBrush elementBrush(scheme()->elementBrush(el));
-
-    // handel Gradient cases
-    gradientBrushLogic(&elementBrush, el);
+    //The iconic view is the 3rd view (0,1,2,...). Pixmaps don't make nice gradients.
+    if ( m_currentScheme ==  2) {
+        elementBrush =  scheme()->elementBrush(el);
 
     // add a nice gradient
-    QColor color = elementBrush.color();
-    // Pixmaps get the color black. And no stylepattern is set. And not transparent in not good either
-    if ( color != QColor(Qt::black) && color != QColor(Qt::transparent) && elementBrush.style() == Qt::SolidPattern ) {
+    } else {
+        QColor color = getElementColor(el);
         QLinearGradient grad(QPointF(0, 0), QPointF(0, 40));
         grad.setColorAt(0,color);
         qreal h, s, v, a;
@@ -162,7 +177,7 @@ QColor KalziumElementProperty::getTextColor(int el) const
 QColor KalziumElementProperty::getBorderColor(int el) const
 {
     // Show sheme color as border when gradients are selected.
-    if (m_currentGradient > 0 ) {
+    if (m_currentGradient != NOGRADIENT ) {
         return scheme()->elementBrush(el).color();
     }
 
@@ -180,32 +195,31 @@ int KalziumElementProperty::getMode() const
     return m_mode;
 }
 
-void KalziumElementProperty::gradientBrushLogic(QBrush* elementBrush, int el)
+QColor KalziumElementProperty::gradientBrushLogic( int el ) const
 {
-    if (m_currentGradient == NOGRADIENT) return;
-
+    QColor gradientColor;
     const double gradientValue = gradient()->value( el );
 
-    // Proof of concept SOM-Widget replacment. TODO make a class or somthing cool
+    // Proof of concept SOM-Widget replacment. TODO make a class or something cool
     if (m_currentGradient == SOMGradientType) {
         const double melting = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
         const double boiling = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
 
         if ( m_slider < melting ) {
             //the element is solid
-            elementBrush->setColor( Prefs::color_solid() );
+            gradientColor = Prefs::color_solid();
         }
         else if ( ( m_slider > melting ) && ( m_slider < boiling ) ) {
             //the element is liquid
-            elementBrush->setColor( Prefs::color_liquid() );
+            gradientColor = Prefs::color_liquid();
         }
         else if ( ( m_slider >= boiling ) && ( boiling > 0.0 ) ) {
             //the element is vaporous
-            elementBrush->setColor( Prefs::color_vapor() );
+            gradientColor = Prefs::color_vapor();
         } else {
-            elementBrush->setColor( Qt::lightGray );
+            gradientColor = Qt::lightGray;
         }
-        return;
+        return gradientColor;
     }
 
     bool isActiv = true;
@@ -225,11 +239,12 @@ void KalziumElementProperty::gradientBrushLogic(QBrush* elementBrush, int el)
     }
 
     if ( !isActiv && gradientValue != -1) { //FIXME No magic number...
-        elementBrush->setColor(Qt::transparent);
+        gradientColor = Qt::transparent;
     } else {
         const double coeff = gradient()->elementCoeff(el);
-        elementBrush->setColor( gradient()->calculateColor(coeff) );
+        gradientColor = gradient()->calculateColor(coeff) ;
     }
+    return gradientColor;
 }
 
 

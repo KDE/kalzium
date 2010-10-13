@@ -87,9 +87,16 @@ public:
     /**
      * This is an element function.
      * It returns the Brush (Backround) for the given element.
+     * It uses the color form getElementColor.
      * @param el Number of the element.
      */
     QBrush getElementBrush(int el);
+    /**
+     * This is an element function.
+     * It returns the Color (Backround) for the given element.
+     * @param el Number of the element.
+     */
+    QColor getElementColor(int el);
     /**
      * This is an element function.
      * It returns the Text color for the given element.
@@ -146,7 +153,7 @@ public slots:
     void redrawPse();
 
 private:
-    void gradientBrushLogic(QBrush *brush, int el);
+    QColor gradientBrushLogic(int el) const;
     KalziumSchemeTypeFactory *m_scheme;
     KalziumGradientTypeFactory *m_gradient;
 
