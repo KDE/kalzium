@@ -48,18 +48,21 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( KalziumElementProperty *el
 void DetailedGraphicalOverview::setElement( int el )
 {
     m_element = KalziumDataObject::instance()->element( el );
-    setBackgroundColor(m_elementproperty->getElementBrush(el));
+    setBackgroundColor( m_elementproperty->getElementColor( el ) );
     update();
 }
 
-void DetailedGraphicalOverview::setBackgroundColor( const QBrush& bgBrush )
+void DetailedGraphicalOverview::setBackgroundColor( QColor bgColor )
 {
-    m_backgroundBrush = bgBrush;
+    // add a gradient
+    QLinearGradient grad(QPointF(0, 0), QPointF(0, height()));
+    grad.setColorAt(0,bgColor);
+    qreal h, s, v, a;
+    bgColor.getHsvF(&h, &s, &v, &a);
+    bgColor.setHsvF(h, s, v*0.6, a);
+    grad.setColorAt(1,bgColor);
 
-    // Transparency and gradients do not seem to work well. So the widget bg color is set instead.
-    if (m_backgroundBrush.color() == QColor( Qt::transparent )) {
-        m_backgroundBrush.setColor(palette().background().color());
-    }
+    m_backgroundBrush = QBrush(grad);
 }
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )

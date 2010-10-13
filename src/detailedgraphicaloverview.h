@@ -49,7 +49,7 @@ private:
     /**
      * Set the background color to @p bgColor.
      */
-    void setBackgroundColor( const QBrush& bgBrush );
+    void setBackgroundColor( QColor bgColor );
 
     /**
      * the element whose data will be used
