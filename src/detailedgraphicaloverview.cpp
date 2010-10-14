@@ -54,6 +54,10 @@ void DetailedGraphicalOverview::setElement( int el )
 
 void DetailedGraphicalOverview::setBackgroundColor( QColor bgColor )
 {
+    if ( bgColor == Qt::transparent) {
+       bgColor = palette().background().color();
+    }
+
     // add a gradient
     QLinearGradient grad(QPointF(0, 0), QPointF(0, height()));
     grad.setColorAt(0,bgColor);
