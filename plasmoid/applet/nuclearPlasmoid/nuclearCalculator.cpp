@@ -51,6 +51,7 @@ nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
+    setAssociatedApplication("kalzium");
     resize(600, 450);
 }
 

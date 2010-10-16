@@ -29,6 +29,7 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
 //     setDrawStandardBackground(false);
+    setAssociatedApplication("kalzium");
 
     resize(512,256);
 }
@@ -53,7 +54,7 @@ void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
     if (constraints & Plasma::SizeConstraint) {
          m_theme.resize(size());
     }
-    
+
     m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
 }
 

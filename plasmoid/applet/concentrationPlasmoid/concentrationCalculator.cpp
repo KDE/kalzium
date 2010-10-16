@@ -50,6 +50,7 @@ concentrationCalculator::concentrationCalculator(QObject *parent, const QVariant
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
+    setAssociatedApplication("kalzium");
     resize(700, 400);
 }
 
@@ -1281,7 +1282,7 @@ void concentrationCalculator::createConfigurationInterface(KConfigDialog *parent
 
     ui.soluteMass->setChecked(m_soluteMass);
     ui.solventVolume->setChecked(m_solventVolume);
-    
+
     connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
 }

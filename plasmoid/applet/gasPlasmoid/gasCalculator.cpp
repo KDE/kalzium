@@ -49,6 +49,7 @@ gasCalculator::gasCalculator(QObject *parent, const QVariantList &args)
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
+    setAssociatedApplication("kalzium");
     resize(600, 250);
 }
 
@@ -651,7 +652,7 @@ void gasCalculator::createConfigurationInterface(KConfigDialog *parent)
     parent->addPage(widget, i18n("General"), icon());
 
     ui.ideal->setChecked(m_ideal);
-    
+
     connect(parent, SIGNAL(applyClicked()), this, SLOT(gasConfigAccepted()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(gasConfigAccepted()));
 }
