@@ -71,16 +71,15 @@ private:
     int end;
     int lettere;
     int temponu;
-    QStringList theoricalx;
-    QStringList theoricaly;
-    QStringList experimx;
-    QStringList experimy;
     double a;
     void plot();
     QString solve(char *yvalue);
     QString solvex(char *yvalue, QString dnum);
     QImage tempi;
     double setttanh(double x);
+    QString redplot;
+    QString greenplot;
+    QString blueplot;
   
     Ui::titrationCalculator *ui;               // The user interface pointer
     Ui::titrationCalculator uid;               // The user interface

@@ -87,6 +87,10 @@ void titrationCalculator::plot()
     KPlotObject *kpor = new KPlotObject( Qt::red, KPlotObject::Lines );
     KPlotObject *kpog = new KPlotObject( Qt::green, KPlotObject::Lines );
     KPlotObject *kpob = new KPlotObject( Qt::blue, KPlotObject::Lines );
+    redplot = "<polyline points=\"";
+    greenplot = "<polyline points=\"";
+    blueplot = "<polyline points=\"";
+    
     if (!uid.tableWidget->item(0,0) || uid.tableWidget->item(0,0)->text().isEmpty())
     {
         //go on
@@ -146,8 +150,7 @@ void titrationCalculator::plot()
 
                 double tvalue = three.toNumber();
                 kpor->addPoint(id, tvalue);
-		theoricalx << QString::number(id);
-		theoricaly << QString::number(tvalue);
+		redplot = redplot + " " + QString::number((id*10)+5).replace(QString(","), QString(".")) + "," + QString::number((ymax-tvalue)*10).replace(QString(","), QString("."));
             }
         }
         temponu = 0;
@@ -171,6 +174,7 @@ void titrationCalculator::plot()
                 kpob->addPoint(uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble(), uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble());
                 py[i] = uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble();
                 px[i] = uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble();
+		blueplot = blueplot + " " + QString::number((uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble()*10)+5).replace(QString(","), QString(".")) + "," + QString::number((ymax-uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble())*10).replace(QString(","), QString("."));
             }
         }
         a = py[totaldata-1]-py[0];
@@ -196,8 +200,7 @@ void titrationCalculator::plot()
             double id = i;
 	    xval =((a*(tanh(b*((id)+c))))+d);
 	    kpog->addPoint(id, xval);
-	    experimx << QString::number(id);
-	    experimy << QString::number(xval);
+	    greenplot = greenplot + " " + QString::number((id*10)+5).replace(QString(","), QString(".")) + "," + QString::number((ymax-xval)*10).replace(QString(","), QString("."));
         }
         //THIS IS THE EQUIVALENCE POINT (THE INFLECTION OF THE CURVE)
         QString es = QString::number(-c);
@@ -213,6 +216,10 @@ void titrationCalculator::plot()
     uid.kplotwidget->addPlotObject(kpor);
     uid.kplotwidget->addPlotObject(kpog);
     uid.kplotwidget->addPlotObject(kpob);
+    
+    redplot = redplot + "\" style=\"stroke:red;fill:none\"/> ";
+    blueplot = blueplot + "\" style=\"stroke:blue;fill:none\"/> ";
+    greenplot = greenplot + "\" style=\"stroke:green;fill:none\"/> ";
 
 }
 
@@ -372,11 +379,6 @@ void titrationCalculator::on_actionRapid_Help_triggered()
 {
   on_actionNew_triggered();
   //now I'm going to fill the tables with the example values
-
-//QTableWidgetItem *titemo = uid.tableWidget_2->item((i-1)/2,1) ;
-//if (titemo) {
-//titemo->setText(tempyval) ;
-//}
 
   //table1
   QTableWidgetItem *titemo = uid.tableWidget->item(0,0);
@@ -643,45 +645,26 @@ void titrationCalculator::on_actionOpen_triggered()
 
 void titrationCalculator::on_actionSave_image_triggered()
 {
-    // When I used QImage to make the plot I was able to save the plot image, but now I only can
-    // save the correct values in a text files.
-    // Maybe in the future i will save it in a format used by another program, but OpenOffice Calc
-    //is too much complex.
-    //QString file = QFileDialog::getSaveFileName(this,"Save plot","","Png Image (*.png)");
-    //tempi.save(file,"png");
-    QString file = QFileDialog::getSaveFileName(this,"Save plot","","Text file (*.txt)");
+    //This function saves the plot into a SVG file
+    QString svgheader = "<?xml version=\"1.0\" encoding=\"iso-8859-1\" standalone=\"no\"?> <!DOCTYPE svg PUBLIC \"-//W3C//Dtd SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/Dtd/svg11.dtd\"> <svg width=\""+ QString::number((xmax*10)+5)+ "\" height=\""+ QString::number((ymax*10)+5)+ "\"  version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><polyline points=\"5," + QString::number(ymax*10) + " " + QString::number((xmax*10)-5) + "," + QString::number(ymax*10) + " " + QString::number((xmax*10)-5) + "," + QString::number((ymax*10)-5) + " " + QString::number(xmax*10) + "," + QString::number(ymax*10) + " " + QString::number((xmax*10)-5) + "," + QString::number((ymax*10)+5) + " " + QString::number((xmax*10)-5) + "," + QString::number(ymax*10) + "\" style=\"stroke:black;fill:none\"/> <polyline points=\"5," + QString::number(ymax*10) + " 5,5 10,5 5,0 0,5 5,5\" style=\"stroke:black;fill:none\"/> ";    
+    QString svgcomplete = svgheader + redplot + greenplot + blueplot + "</svg> ";
+        
+    QString file = QFileDialog::getSaveFileName(this,"Save plot","","Svg image (*.svg)");
     if (file!="") {
-        QByteArray ba = theoricalx.join(",").toLatin1();
-        char *strsavea = ba.data();
-	QByteArray bab = theoricaly.join(",").toLatin1();
-        char *strsaveb = bab.data();
-	QByteArray bac = experimx.join(",").toLatin1();
-        char *strsavec = bac.data();
-	QByteArray bad = experimy.join(",").toLatin1();
-        char *strsaved = bad.data();
-        QByteArray ban = file.toLatin1();
-        char *filec = ban.data();
-
-        ofstream out(filec);
-        cout << "|";
-        cout << filec;
-        cout << "|";
-        if (!out) QMessageBox::critical(this,"Error","Unable to create "+file) ;
-	out << "Theoretical curve\n";
-	out << "X axis:\n";
-        out << strsavea;
-	out << "\n";
-	out << "Y axis:\n";
-	out << strsaveb;
-	out << "\n";
-	out << "Approximated esperimental curve\n";
-	out << "X axis:\n";
-	out << strsavec;
-	out << "\n";
-	out << "Y axis:\n";
-	out << strsaved;
-        out.close();
+      QByteArray svgt = svgcomplete.toLatin1();
+      char *strsave = svgt.data();
+      QByteArray ban = file.toLatin1();
+      char *filec = ban.data();
+      
+      ofstream out(filec);
+      cout << "|";
+      cout << filec;
+      cout << "|";
+      if (!out) QMessageBox::critical(this,"Error","Unable to create "+file) ;
+      out << strsave;
+      out.close();
     }
+  
 }
 
 //#include "titrationCalculator.moc"
