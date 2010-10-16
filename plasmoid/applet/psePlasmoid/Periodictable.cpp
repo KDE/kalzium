@@ -24,11 +24,12 @@
 #include <math.h>
 
 PeriodicGrid::PeriodicGrid ( int tableTyp, Plasma::Applet *applet )
+    : QGraphicsWidget(applet)
 {
     m_applet = applet;
     m_psTableType = tableTyp;
 
-    m_actualPeriodSystem = new QGraphicsGridLayout();
+    m_actualPeriodSystem = new QGraphicsGridLayout(this);
     m_actualPeriodSystem->setSpacing(0);
     m_actualPeriodSystem->setContentsMargins ( 0,0,0,0 );
 

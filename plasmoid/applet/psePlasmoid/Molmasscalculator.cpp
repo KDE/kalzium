@@ -43,7 +43,6 @@ Molmasscalculator::Molmasscalculator ( QObject *parent, const QVariantList &args
         m_switchButton( 0 )
 {
     // Some Applet settings
-    setBackgroundHints ( DefaultBackground );
     setAspectRatioMode ( Plasma::IgnoreAspectRatio );
     setHasConfigurationInterface ( true );
     setAcceptDrops ( false );
@@ -51,7 +50,6 @@ Molmasscalculator::Molmasscalculator ( QObject *parent, const QVariantList &args
 
     // Needed for the Popupapplet
     setPopupIcon ( "kalzium" );
-    setMinimumSize ( 300, 55 );
 }
 
 Molmasscalculator::~Molmasscalculator()
@@ -76,6 +74,17 @@ void Molmasscalculator::init()
 
     // loads the configuration
     configChanged();
+
+    // Create the Periodic Table
+    m_PeriodWidget = new PeriodicGrid( config().readEntry("tableType", 0 ), this );
+
+    graphicsWidget();
+
+    // Calculate the demo molecule.
+    ParseMolecule();
+
+    //set sizes
+    managePeriodSystem();
 }
 
 //Sends the requests to the Dataengine
@@ -115,8 +124,9 @@ void Molmasscalculator::newCalculatedMass()
         m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
 
         //Copy new Mass to Clipboard
-        if ( m_copyToClipboard && m_molecule["molMass"].toString() != "" )
+        if ( m_copyToClipboard && m_molecule["molMass"].toString() != "" ) {
             QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
+        }
 
     } else {
         m_MassLabel->setText ( i18n ( "Invalid Molecule" ) );
@@ -125,20 +135,19 @@ void Molmasscalculator::newCalculatedMass()
 
 QGraphicsWidget *Molmasscalculator::graphicsWidget()
 {
-    if ( !m_widget )
-    {
+    if ( !m_widget ) {
+
         m_widget = new QGraphicsWidget(this);
 
         QGraphicsLinearLayout *MainLayout = new QGraphicsLinearLayout ( Qt::Vertical , m_widget );
-        QGraphicsLinearLayout *TopLayout = new QGraphicsLinearLayout ( Qt::Horizontal );
+        QGraphicsLinearLayout *TopLayout = new QGraphicsLinearLayout ( Qt::Horizontal, MainLayout );
 
-        Plasma::Label *MoleculeLabel = new Plasma::Label();
+        Plasma::Label *MoleculeLabel = new Plasma::Label;
         MoleculeLabel->setText ( i18n ( "Molecule:" ) );
 
         // Adding Masslabel to Plasmoid
         m_MassLabel = new Plasma::Label;
         m_MassLabel->setAlignment ( Qt::AlignCenter );
-        m_MassLabel->setScaledContents ( true );
         m_MassLabel->setStyleSheet ( "font-size:18px" );
 
         m_lineedit = new Plasma::LineEdit();
@@ -156,22 +165,11 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
         TopLayout->addItem ( m_switchButton );
         TopLayout->setSpacing(0);
         TopLayout->setContentsMargins(0,0,0,0);
-        TopLayout->setAlignment(m_switchButton, Qt::AlignCenter);
-
-        // Create the Periodic Table
-        m_PeriodWidget = new PeriodicGrid( config().readEntry("tableType", 0 ), this );
 
         MainLayout->addItem ( TopLayout );
         MainLayout->addItem ( m_MassLabel );
         MainLayout->addItem ( m_PeriodWidget );
-        MainLayout->setSpacing(0);
-        MainLayout->setContentsMargins(0,0,0,0);
-
-        //set sizes
-        managePeriodSystem();
-
-        // Calculate the demo molecule.
-        ParseMolecule();
+        MainLayout->setSpacing(2);
     }
 
     return m_widget;
@@ -196,9 +194,10 @@ void Molmasscalculator::managePeriodSystem()
         y = 60;
     }
     m_switchButton->setIcon(newIcon);
-    resize( x, y );
+
     m_widget->setPreferredSize( x, y );
     m_widget->resize( x, y );
+    resize( x, y );
 }
 
 //The configuration interface.
@@ -216,7 +215,7 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
     m_ui.pasteToCliboard->setChecked ( m_copyToClipboard );
 
     foreach(QString thisTable, pseTables::instance()->tables()) {
-         m_ui.tabletyp->addItem(thisTable);
+        m_ui.tabletyp->addItem(thisTable);
     }
 
     m_ui.tabletyp->setCurrentIndex(m_PeriodWidget->getCurrentPseTyp());
@@ -238,7 +237,7 @@ void Molmasscalculator::configAccepted()
 
     if ( m_ui.tabletyp->currentIndex() != m_PeriodWidget->getCurrentPseTyp()) {
         m_PeriodWidget->setCurrentPseTyp(m_ui.tabletyp->currentIndex());
-	managePeriodSystem();
+        managePeriodSystem();
     }
     saveConfig();
 }
