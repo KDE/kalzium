@@ -4,7 +4,6 @@ Type=Application
 Exec=kalzium -caption "%c" %i
 Icon=kalzium
 X-DocPath=kalzium/index.html
-MimeType=chemical/x-cml;
 Comment=KDE Periodic Table of Elements
 Comment[be]=Перыядычная табліца элементаў KDE
 Comment[bg]=Таблица на химическите елементи
