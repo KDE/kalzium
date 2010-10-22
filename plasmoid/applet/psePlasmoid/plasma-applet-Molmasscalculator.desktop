@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Molar mass calculator
+Name[cs]=Kalkulačka molární hmotnosti
 Name[en_GB]=Molar mass calculator
 Name[es]=Calculadora de masas molares
 Name[et]=Molaarmassi kalkulaator
@@ -16,6 +17,7 @@ Name[x-test]=xxMolar mass calculatorxx
 Name[zh_TW]=莫耳質量計算器
 
 Comment=Small periodic table of elements with a molar mass calculator
+Comment[cs]=Mala periodická tabulka prvků s kalkulačkou molární hmotnosti
 Comment[en_GB]=Small periodic table of elements with a molar mass calculator
 Comment[es]=Pequeña tabla periódica con una calculadora de masas molares
 Comment[et]=Väike keemiliste elementide tabel molaarmassi kalkulaatoriga
