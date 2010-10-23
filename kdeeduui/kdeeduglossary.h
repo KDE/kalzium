@@ -35,7 +35,7 @@ class KDEEDUUI_EXPORT Glossary
 		 * @param url the path of the file to load
 		 * @param path the path of the pictures
 		 */
-		explicit Glossary( const KUrl& url, const QString& path = 0 );
+		explicit Glossary( const KUrl& url, const QString& path = QString() );
 
 		/**
 		 * Creates a new empty glossary
