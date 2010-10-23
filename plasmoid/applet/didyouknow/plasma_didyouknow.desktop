@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Chemistry: Did You Know
+Name[ast]=Química: Sabíes que
 Name[ca]=Química: sabíeu que...
 Name[ca@valencia]=Química: sabíeu que...
 Name[cs]=Chemie: Víte že...
@@ -44,6 +45,7 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
+Comment[ast]=Fechos sobre los elementos químicos
 Comment[ca]=Fets sobre els elements químics
 Comment[ca@valencia]=Fets sobre els elements químics
 Comment[cs]=Údaje o chemických prvcích
