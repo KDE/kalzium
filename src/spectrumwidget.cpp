@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
- *   
+ *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -72,10 +72,10 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 
 	QPainter p;
 	p.begin( &m_pixmap );
-	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
+	p.fillRect( 0, 0, width(), m_realHeight, Qt::black );
 
 	paintBands( &p );
-	
+
 	drawTickmarks( &p );
 
 	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
@@ -111,7 +111,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 
     int i = 0;
     int x = 0;
-    int temp = 0;	
+    int temp = 0;
 
     foreach ( Spectrum::peak * peak , m_spectrum->peaklist() )
     {
@@ -120,7 +120,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 
         x = xPos( peak->wavelength );
 
-        temp = 0;  
+        temp = 0;
 
         switch ( m_type )
         {
@@ -155,6 +155,9 @@ QColor SpectrumWidget::linecolor( double spectrum )
 void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
 {
     double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
+
+    //Not nice, but fixies the Angstrom nm issue.
+    wavelength = wavelength / 10;
 
     int wavelength_ = ( int ) floor( wavelength );
     if ( wavelength_ < 380 || wavelength_ > 780 )
@@ -239,9 +242,9 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
     {
         if( i%5 == 0 )
         {//long tickmarks plus text
-            p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );	
-            if ( i%10 == 0 && 
-                    i*d > space && 
+            p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );
+            if ( i%10 == 0 &&
+                    i*d > space &&
                     i*d < width()-space )
             {
                 pos = ( double ) ( i*d )/width();
@@ -330,7 +333,7 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
     if (  e->button() == Qt::RightButton ) {
         restart();
     }
-    
+
     findPeakFromMouseposition( Wavelength( ( double )e->pos().x()/width() ) );
 }
 

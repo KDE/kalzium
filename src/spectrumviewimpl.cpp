@@ -62,7 +62,7 @@ void SpectrumViewImpl::updateUI(int l, int r)
 void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
 {
     intensity_label->setText(i18n("%1 of 1000", peak->intensity));
-    wavelength_label->setText(i18n("%1 nm", peak->wavelength));
+    wavelength_label->setText(i18n("%1 Å", peak->wavelength));
 }
 
 

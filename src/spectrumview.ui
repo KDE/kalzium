@@ -25,6 +25,12 @@
    </property>
    <item row="1" column="0">
     <widget class="KTabWidget" name="tabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -66,7 +72,7 @@
             <string>This sets the rightmost wavelength of the spectrum.</string>
            </property>
            <property name="suffix">
-            <string>nm</string>
+            <string> Å</string>
            </property>
            <property name="minimum">
             <number>0</number>
@@ -121,7 +127,7 @@
             <string>This sets the leftmost wavelength of the spectrum.</string>
            </property>
            <property name="suffix">
-            <string>nm</string>
+            <string> Å</string>
            </property>
            <property name="minimum">
             <number>0</number>
@@ -232,7 +238,7 @@
          </column>
          <column>
           <property name="text">
-           <string>Wavelength</string>
+           <string>Wavelength Å</string>
           </property>
          </column>
          <column>
@@ -249,7 +255,7 @@
    <item row="0" column="0">
     <widget class="SpectrumWidget" name="m_spectrumWidget" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+      <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -267,19 +273,6 @@
       <string>This is the spectrum of the element.</string>
      </property>
     </widget>
-   </item>
-   <item row="2" column="0">
-    <spacer>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>
