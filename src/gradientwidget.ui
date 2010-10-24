@@ -125,7 +125,7 @@
            <string>Click to Play / Pause the increase in temperature.</string>
           </property>
           <property name="text">
-           <string>Play</string>
+           <string/>
           </property>
          </widget>
         </item>
