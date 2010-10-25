@@ -49,7 +49,7 @@ GradientWidgetImpl::GradientWidgetImpl( KalziumElementProperty *elementProperty,
     connect( Play, SIGNAL (clicked()), this, SLOT( play()));
     connect( m_timer, SIGNAL(timeout()), this, SLOT( tick()) );
 
-    Play->setIcon( KIconLoader::global()->loadIcon( "media-playback-start", KIconLoader::NoGroup, KIconLoader::SizeSmall ) );
+    Play->setIcon( KIcon( "media-playback-start" ) );
 //X
 //X     m_list = KalziumDataObject::instance()->ElementList;
 //X
@@ -257,14 +257,14 @@ void GradientWidgetImpl::play(void)
     m_timer->start( 200 );
 
     m_play = true;          //start playing
-    Play->setIcon(KIconLoader::global()->loadIcon( "media-playback-stop", KIconLoader::NoGroup, KIconLoader::SizeSmall ));
+    Play->setIcon( KIcon( "media-playback-pause" ) );
 }
 
 void GradientWidgetImpl::stop(void)
 {
     //Currently playing, stop the timer.
     m_timer -> stop();
-    Play->setIcon(KIconLoader::global()->loadIcon( "media-playback-start", KIconLoader::NoGroup, KIconLoader::SizeSmall ));
+    Play->setIcon( KIcon( "media-playback-start" ) );
     m_play = false;         //Stop
 }
 
