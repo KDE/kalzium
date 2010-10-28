@@ -179,21 +179,21 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
 //Resets the size of the plasmoid if the periodsystem is shown or not.
 void Molmasscalculator::managePeriodSystem()
 {
-    QPixmap newIcon;
+    QString newIconName;
     int x, y;
 
     if ( m_showPeriodicTable ) {
-        newIcon = KIconLoader::global()->loadIcon( "arrow-down", KIconLoader::NoGroup, KIconLoader::SizeSmall );
+        newIconName = "arrow-down";
         m_PeriodWidget->show();
         x = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().x() * 33;
         y = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().y() * 34;
     } else {
-        newIcon = KIconLoader::global()->loadIcon( "arrow-right", KIconLoader::NoGroup, KIconLoader::SizeSmall );
+        newIconName = "arrow-right";
         m_PeriodWidget->hide();
         x = 300;
         y = 60;
     }
-    m_switchButton->setIcon(newIcon);
+    m_switchButton->setIcon( KIcon( newIconName ) );
 
     m_widget->setPreferredSize( x, y );
     m_widget->resize( x, y );
