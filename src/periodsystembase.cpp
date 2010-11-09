@@ -29,7 +29,7 @@
 #include "numerationitem.h"
 #include <prefs.h>
 
-periodSystem::periodSystem(QWidget *parent)
+periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
         : QGraphicsView(parent), m_width(42), m_height(42) // Some space between the elements (px40) looks nice.
 {
     setRenderHint(QPainter::Antialiasing);
@@ -41,15 +41,15 @@ periodSystem::periodSystem(QWidget *parent)
     m_tableTyp = Prefs::table();
     m_maxCoords = pseTables::instance()->getTabletype( m_tableTyp )->coordsMax();
 
-    m_table = new PeriodicTableScene();
+    m_table = new PeriodicTableScene(this);
     m_table->setItemIndexMethod(QGraphicsScene::NoIndex);
     m_table->setBackgroundBrush(Qt::white);
 
-    m_elementProperty = new KalziumElementProperty();
+
 
     foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
-        ElementItem *item = new ElementItem(m_elementProperty, intElement);
-        connect(m_elementProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
+        ElementItem *item = new ElementItem(elProperty, intElement);
+        connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
         m_elementItems << item;
         m_table->addItem(item);
     }
@@ -59,7 +59,6 @@ periodSystem::periodSystem(QWidget *parent)
 
     setScene(m_table);
 
-//     connect(m_table, SIGNAL(elementHovered(int)), this, SLOT(slotElementHovered(int)));
     connect(m_table, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
 
     setupStatesAndAnimation();
@@ -70,7 +69,6 @@ periodSystem::periodSystem(QWidget *parent)
 periodSystem::~periodSystem()
 {
     delete scene();
-    delete m_elementProperty;
 }
 
 void periodSystem::setupStatesAndAnimation()
@@ -143,11 +141,6 @@ void periodSystem::setupStatesAndAnimation()
 }
 
 
-
-KalziumElementProperty* periodSystem::elProperty() const
-{
-    return m_elementProperty;
-}
 
 PeriodicTableScene* periodSystem::pseScene() const
 {

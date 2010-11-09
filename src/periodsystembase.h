@@ -51,13 +51,8 @@ class periodSystem : public QGraphicsView
 {
     Q_OBJECT
 public:
-    periodSystem(QWidget *parent = 0);
+    periodSystem(KalziumElementProperty *elProperty, QWidget *parent = 0);
     ~periodSystem();
-
-    /**
-     * Returns the KalziumElementProperty class.
-     */
-    KalziumElementProperty *elProperty() const;
 
     /**
      * Returns the qgraphicsscene
@@ -111,12 +106,6 @@ public slots:
 private:
     void setBiggerSceneRect();
     void setupStatesAndAnimation();
-
-    /**
-     * Key class that holds the Data for each elementItem
-     * according to the selected scheme or gradient.
-     */
-    KalziumElementProperty *m_elementProperty;
 
     /**
     * Width and height of the elements.

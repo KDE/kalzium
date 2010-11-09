@@ -61,12 +61,19 @@ private:
     DetailedInfoDlg   *m_infoDialog;
 
     LegendWidget *m_legendWidget;
+
     TableInfoWidget *m_TableInfoWidget;
 
     /**
      * this pointer points to the PeriodicTableView.
      */
     periodSystem *m_periodicTable;
+
+    /**
+     * Key class that holds the Data for each elementItem
+     * according to the selected scheme or gradient.
+     */
+    KalziumElementProperty *m_elementProperty;
 
     /**
      *initialize actions
@@ -105,7 +112,6 @@ private:
     QAction *export_action;
 
     QAction *m_legendAction;
-
 
     MolcalcWidget *m_calcWidget;
 
@@ -181,8 +187,6 @@ private slots:
     void showCalculator();
 
     void slotExportTable();
-
-//     void slotUpdateSettings();
 
     void slotShowExportDialog();
 
