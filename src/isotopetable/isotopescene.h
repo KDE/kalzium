@@ -30,6 +30,7 @@ class IsotopeScene : public QGraphicsScene
 
     public:
         IsotopeScene( QObject * parent = 0);
+        virtual ~IsotopeScene();
 
         void updateContextHelp( IsotopeItem * item );
 
@@ -46,5 +47,5 @@ class IsotopeScene : public QGraphicsScene
         void itemSelected(IsotopeItem *item);
 };
 
-	
+
 #endif // ISOTOPESCENE_H

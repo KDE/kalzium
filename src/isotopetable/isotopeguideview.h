@@ -44,7 +44,7 @@ class IsotopeGuideView : public QGraphicsView
         QPolygonF m_visibleSceneRect;
         QPoint m_lastMousePos;
         bool m_dragEvent;
-    
+
         void resizeEvent( QResizeEvent *event );
         void mousePressEvent( QMouseEvent *event );
         void mouseReleaseEvent( QMouseEvent *event );
@@ -55,4 +55,4 @@ class IsotopeGuideView : public QGraphicsView
         void setVisibleSceneRect( const QPolygonF &sceneRect );
 };
 #endif
-	
+

@@ -52,7 +52,7 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
     //Here comes the legend part
     QList< QPair<QString, QColor> > items;
 
-    QVBoxLayout * layout = new QVBoxLayout;
+    QVBoxLayout * layout = new QVBoxLayout(this);
 
     items << qMakePair( i18nc("alpha ray emission", "alpha" ), QColor(Qt::red) );
     items << qMakePair( i18nc("Electron capture method", "EC" ), QColor(Qt::blue) );

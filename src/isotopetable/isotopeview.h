@@ -32,6 +32,7 @@ class IsotopeView : public QGraphicsView
 
     public:
         IsotopeView( QWidget * parent = 0);
+    virtual ~IsotopeView();
 
     private:
 	IsotopeScene *m_scene;
@@ -51,11 +52,11 @@ class IsotopeView : public QGraphicsView
 
     public:
         void setZoom ( double zoom);
-        
+
     protected:
 	    void resizeEvent(QResizeEvent * event );
         void mouseMoveEvent( QMouseEvent *event );
         void wheelEvent( QWheelEvent * event );
 };
 #endif
-	
+

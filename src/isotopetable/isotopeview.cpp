@@ -33,6 +33,11 @@
     ensureVisible(m_scene->sceneRect());
 }
 
+IsotopeView::~IsotopeView()
+{
+    delete scene();
+}
+
 void IsotopeView::resizeEvent(QResizeEvent * event)
 {
     //ensureVisible(QRectF(0,0,100,100),0,0);

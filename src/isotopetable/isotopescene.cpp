@@ -39,6 +39,12 @@
     //m_isotopeGroup->scale(-1, 1);
 }
 
+IsotopeScene::~IsotopeScene()
+{
+    delete m_isotopeGroup;
+}
+
+
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
 {
     emit itemSelected( item );
