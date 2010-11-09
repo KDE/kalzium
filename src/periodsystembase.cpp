@@ -77,21 +77,21 @@ void periodSystem::setupStatesAndAnimation()
     StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
     QParallelAnimationGroup *group = new QParallelAnimationGroup;
 
-    // Creating Nummerationitems here, we use the classic as reference, 18 in this case.
+    // Creating Nummerationitems here, we use the classic periodic table as reference (18 in a row)
     QList<NumerationItem *> numerationItems;
-    for (int j = 0; j < pseTables::instance()->getTabletype( 0 )->coordsMax().x(); j++) {
+    for (int j = 0; j < pseTables::instance()->getTabletype( 0 )->coordsMax().x(); ++j) {
         numerationItems << new NumerationItem( j );
         m_table->addItem(numerationItems.at(j));
         connect(this, SIGNAL(numerationChange(int)), numerationItems.at(j), SLOT(setNumerationType(int)));
     }
 
-    // For every Tabletyp the Position of the Elements is setup.
+    // For every Tabletyp the Position of the Elements are set up.
     for (int j = 0; j < pseTables::instance()->tables().count(); ++j)
     {
         tableStates << new QState(stateSwitcher);
 
         // First hide every numerationitem. It's easyer this way. Feel free to finde a better solution;)
-        for (int i = 0; i < numerationItems.count(); i++) {
+        for (int i = 0; i < numerationItems.count(); ++i) {
             tableStates.at(j)->assignProperty(numerationItems.at( i ), "pos", QPointF( -m_width, -10 * m_width));
         }
 
@@ -139,7 +139,6 @@ void periodSystem::setupStatesAndAnimation()
     stateSwitcher->setInitialState(tableStates.at(m_tableTyp));
     m_states.start();
 }
-
 
 
 PeriodicTableScene* periodSystem::pseScene() const
@@ -210,11 +209,6 @@ void periodSystem::resizeEvent ( QResizeEvent * event )
     fitPseInView();
     QGraphicsView::resizeEvent(event);
 }
-
-// void periodSystem::slotElementHovered(int thisElement)
-// {
-//   qDebug() << "hoover the " << thisElement;
-// }
 
 void periodSystem::generateSvg(const QString& filename)
 {
