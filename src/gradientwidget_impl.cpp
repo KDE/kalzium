@@ -98,13 +98,19 @@ void GradientWidgetImpl::slotGradientChanged()
     gradient_spinbox->setMinimum(dblMin);
     gradient_spinbox->setDecimals(m_elementProperty->gradient()->decimals());
 
-    if ( m_elementProperty->DISCOVERYDATE == m_elementProperty->gradientId() ) {
+    switch ( m_elementProperty->gradientId() ) {
+    case KalziumElementProperty::DISCOVERYDATE:
         gradient_spinbox->setValue(dblMax);
-    } else {
-        gradient_spinbox->setValue(dblMin);
-    }
+        break;
 
-    emit gradientValueChanged( gradient_spinbox->value() );
+    case KalziumElementProperty::SOMGradientType:
+        gradient_spinbox->setValue(dblMin + 293);
+        break;
+
+    default:
+        gradient_spinbox->setValue(dblMin);
+        break;
+    }
 
     // Disable Gradient widgets if no gradient is selected.
     if ( gradient_combo->currentIndex() == KalziumElementProperty::NOGRADIENT) {
