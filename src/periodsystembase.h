@@ -26,6 +26,7 @@
 
 #include <QGraphicsView>
 #include <QtCore/QStateMachine>
+#include <QtCore/QParallelAnimationGroup>
 
 #include "kalziumdataobject.h"
 #include "kalziumelementproperty.h"
@@ -117,6 +118,9 @@ private:
     QPoint m_maxCoords;
 
     QStateMachine m_states;
+    QParallelAnimationGroup *m_group;
+
+    QList<QState *> m_tableStates;
     QList<ElementItem *> m_elementItems;
 
     PeriodicTableScene *m_table;

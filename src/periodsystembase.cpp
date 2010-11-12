@@ -45,8 +45,6 @@ periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
     m_table->setItemIndexMethod(QGraphicsScene::NoIndex);
     m_table->setBackgroundBrush(Qt::white);
 
-
-
     foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
         ElementItem *item = new ElementItem(elProperty, intElement);
         connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
@@ -69,13 +67,14 @@ periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
 periodSystem::~periodSystem()
 {
     delete scene();
+    delete m_group;
+    qDeleteAll(m_tableStates);
 }
 
 void periodSystem::setupStatesAndAnimation()
 {
-    QList<QState *> tableStates;
     StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
-    QParallelAnimationGroup *group = new QParallelAnimationGroup;
+    m_group= new QParallelAnimationGroup;
 
     // Creating Nummerationitems here, we use the classic periodic table as reference (18 in a row)
     QList<NumerationItem *> numerationItems;
@@ -88,11 +87,11 @@ void periodSystem::setupStatesAndAnimation()
     // For every Tabletyp the Position of the Elements are set up.
     for (int j = 0; j < pseTables::instance()->tables().count(); ++j)
     {
-        tableStates << new QState(stateSwitcher);
+        m_tableStates << new QState(stateSwitcher);
 
         // First hide every numerationitem. It's easyer this way. Feel free to finde a better solution;)
         for (int i = 0; i < numerationItems.count(); ++i) {
-            tableStates.at(j)->assignProperty(numerationItems.at( i ), "pos", QPointF( -m_width, -10 * m_width));
+            m_tableStates.at(j)->assignProperty(numerationItems.at( i ), "pos", QPointF( -m_width, -10 * m_width));
         }
 
         // Adding position of Nummeration for each tabletyp
@@ -100,12 +99,12 @@ void periodSystem::setupStatesAndAnimation()
             int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
 
             if ( itemAtPos > 0 ) {
-                tableStates.at(j)->assignProperty(numerationItems.at(itemAtPos - 1), "pos", QPointF( i * m_width, m_height / 4));
+                m_tableStates.at(j)->assignProperty(numerationItems.at(itemAtPos - 1), "pos", QPointF( i * m_width, m_height / 4));
                 // Animation for each element
                 QPropertyAnimation *anim = new QPropertyAnimation(numerationItems.at(itemAtPos - 1), "pos");
                 anim->setDuration( 1500 + i * 2);
                 anim->setEasingCurve(QEasingCurve::InOutExpo);
-                group->addAnimation(anim);
+                m_group->addAnimation(anim);
             }
         }
 
@@ -121,22 +120,22 @@ void periodSystem::setupStatesAndAnimation()
                 coords.setY(-10);
             }
 
-            tableStates.at(j)->assignProperty(item, "pos", QPointF((coords.x()-1) * m_width, (coords.y()) * m_height));
+            m_tableStates.at(j)->assignProperty(item, "pos", QPointF((coords.x()-1) * m_width, (coords.y()) * m_height));
 
             // Animation for each element
             QPropertyAnimation *anim = new QPropertyAnimation(m_elementItems.at(i), "pos");
             anim->setDuration( 1600 + i * 2);
             anim->setEasingCurve(QEasingCurve::InOutExpo);
-            group->addAnimation(anim);
+            m_group->addAnimation(anim);
         }
         // Finally add the states to the statemachine
-        stateSwitcher->addState(tableStates.at(j), group, j);
+        stateSwitcher->addState(m_tableStates.at(j), m_group, j);
     }
 
     connect(this , SIGNAL(tableChanged(int)), stateSwitcher, SLOT(slotSwitchState(int)));
 
     m_states.setInitialState(stateSwitcher);
-    stateSwitcher->setInitialState(tableStates.at(m_tableTyp));
+    stateSwitcher->setInitialState(m_tableStates.at(m_tableTyp));
     m_states.start();
 }
 

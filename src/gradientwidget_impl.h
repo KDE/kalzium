@@ -47,6 +47,7 @@ public:
      * @param parent The parent of this widget
      */
     GradientWidgetImpl(KalziumElementProperty *elementProperty, QWidget *parent = 0 );
+    virtual ~GradientWidgetImpl();
 
   Q_SIGNALS:
     /**

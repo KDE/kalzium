@@ -110,14 +110,13 @@ void DetailedInfoDlg::setTableType( int tableTyp )
 
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
 {
-    QWidget* frame = new QWidget();
+    QWidget* frame = new QWidget(this);
     KPageWidgetItem *item = addPage( frame, title );
     item->setHeader( icontext );
     item->setIcon( KIcon( iconname ) );
     QVBoxLayout *layout = new QVBoxLayout( frame );
     layout->setMargin( 0 );
-    // TODO Since KHTML is too big for just showing some html:
-    // implement QTextBrowser instead.
+
     KHTMLPart *w = new KHTMLPart( frame, frame );
     w->setJScriptEnabled(false);
     w->setJavaEnabled(false);
@@ -426,7 +425,7 @@ void DetailedInfoDlg::createContent()
     m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "applications-science" );
 
     // atomic model tab
-    QWidget *m_pModelTab = new QWidget();
+    QWidget *m_pModelTab = new QWidget(this);
     item = addPage( m_pModelTab, i18n( "Atom Model" ) );
     item->setHeader( i18n( "Atom Model" ) );
     item->setIcon( KIcon( "orbits" ) );
@@ -441,7 +440,7 @@ void DetailedInfoDlg::createContent()
 
 
     // spectrum widget tab
-    QWidget *m_pSpectrumTab = new QWidget();
+    QWidget *m_pSpectrumTab = new QWidget(this);
     item = addPage( m_pSpectrumTab, i18n( "Spectrum" ) );
     item->setHeader( i18n( "Spectrum" ) );
     item->setIcon( KIcon( "spectrum" ) );

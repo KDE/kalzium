@@ -60,6 +60,10 @@ GradientWidgetImpl::GradientWidgetImpl( KalziumElementProperty *elementProperty,
 //X             this, SLOT( setNewTime( int ) ) );
 }
 
+GradientWidgetImpl::~GradientWidgetImpl()
+{
+    delete m_timer;
+}
 
 void GradientWidgetImpl::slotGradientChanged()
 {
