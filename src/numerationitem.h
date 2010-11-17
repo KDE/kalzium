@@ -91,6 +91,11 @@
      */
     QString m_numeration;
 
+    /**
+     * The color of the element.
+     */
+    QColor m_color;
+
   };
 
 

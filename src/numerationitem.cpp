@@ -61,27 +61,28 @@ QPainterPath NumerationItem::shape() const
     return path;
 }
 
-void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
-                        QWidget *)
+void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     QPen pen;
-//     painter->setBrush(QColor(Qt::transparent));
-    painter->setBrush(QColor(Qt::white));
-    pen.setColor(Qt::black);
+    QLinearGradient grad(QPointF(0, 0), QPointF(0, m_height));
+    grad.setColorAt(0,m_color);
+    grad.setColorAt(1,m_color.darker());
+    painter->setBrush(grad);
+    pen.setColor(m_color.dark(1000));
     painter->setPen(pen);
 
     QRectF rect(0, 0, m_width, m_height);
     painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
     painter->drawText(rect, Qt::AlignCenter, m_numeration);
-
 }
-
 
 void NumerationItem::setNumerationType(int type)
 {
+   type == 0 ? m_color = QColor(Qt::transparent) : m_color = QColor(Qt::white);
+
    m_numeration = KalziumNumerationTypeFactory::instance()->build( type )->item( m_xPosition );
+
    update();
 }
-
 
 #include "numerationitem.moc"

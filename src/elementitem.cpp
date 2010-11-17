@@ -121,8 +121,8 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     if (isSelected()) {
         rect.setRect(0, 0, m_width, m_height);
         painter->setBrush( QBrush( QColor(200,200,200,150)) );
-        pen.setColor(m_brush.color().darker(150));
-        pen.setWidth(3);
+        pen.setColor(m_borderColor.darker());
+        pen.setWidth(2);
 	painter->setPen(pen);
         painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
     }
