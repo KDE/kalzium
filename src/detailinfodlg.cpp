@@ -227,7 +227,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 	html.append( createWikiLink( i18n( "Electronic configuration") ) );
 	html.append( "</td><td>" );
-	html.append( beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) ) ) ;
+	html.append( KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronicConfiguration ) ) ;
         html.append( "</td></tr>" );
 
         // covalent radius
@@ -582,22 +582,6 @@ void DetailedInfoDlg::slotHelp()
 void DetailedInfoDlg::slotUser1()
 {
     setElement( pseTables::instance()->getTabletype(m_tableTyp)->nextOf( m_elementNumber ) );
-}
-
-QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
-{
-    QString newOrbit = orbits;
-
-    QRegExp reg( "(.*)(f|s|d|p)(\\d+)(.?)" );
-
-    bool superindexesLeft = newOrbit.contains( reg );
-    while (superindexesLeft) {
-        newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
-
-        superindexesLeft = newOrbit.contains( reg );
-    }
-
-    return newOrbit;
 }
 
 void DetailedInfoDlg::slotUser2()

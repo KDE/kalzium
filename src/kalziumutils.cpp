@@ -199,6 +199,18 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
             result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
         break;
     }
+    case ChemicalDataObject::electronicConfiguration:
+    {
+        QString newOrbit = el->dataAsString( kind );
+
+        QRegExp reg( "(.*)([spdf])(\\d+)(.*)" );
+
+        while (newOrbit.contains( reg )) {
+            newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
+	}
+	result = newOrbit;
+	break;
+    }
     default:
     {
         result = el->dataAsVariant( kind ).toString();
