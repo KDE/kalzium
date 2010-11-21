@@ -107,6 +107,8 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
     m_legendItemList.clear();
 
     QGridLayout * layout = new QGridLayout( this );
+    layout->setSpacing(0);
+    layout->setMargin(0);
 
     int x = 0;
     int y = 0;
