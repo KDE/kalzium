@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include <QWidget>
+#include <QLabel>
 
 /**
  * @brief the widget which displays the Bohr-orbit of the element
@@ -26,23 +27,23 @@
  */
 class OrbitsWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		OrbitsWidget( QWidget *parent = 0 );
+public:
+    OrbitsWidget( QWidget *parent = 0 );
 
-		void setElementNumber( int num );
+    void setElementNumber( int num );
 
-	private:
-		/**
-		 * the elementnumber we are looking at
-		 */
-		int Elemno; 
-	
-		QList<int> numOfElectrons;
+private:
+    /**
+     * the elementnumber we are looking at
+     */
+    int Elemno;
+    
+    QList<int> numOfElectrons;
 
-	protected slots:
-		virtual void paintEvent(  QPaintEvent* );
+protected slots:
+    virtual void paintEvent(  QPaintEvent* );
 };
 
 #endif // ORBITSWIDGET_H

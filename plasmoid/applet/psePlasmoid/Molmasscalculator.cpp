@@ -205,7 +205,7 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
 {
     parent->setButtons ( KDialog::Ok | KDialog::Cancel | KDialog::Apply );
 
-    QWidget *widget = new QWidget;
+    QWidget *widget = new QWidget( parent );
 
     m_ui.setupUi ( widget );
 

@@ -70,7 +70,6 @@ void PeriodicGrid::create()
             period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
 
 	    // makes a v-like color scheme
-
             color = period + ( abs(group - maxWidth/2 ) * a );
 
             ElementLabel *element = new ElementLabel( intElement, m_applet );
