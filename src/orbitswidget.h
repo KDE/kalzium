@@ -40,6 +40,9 @@ private:
      */
     int Elemno;
     
+    /// Label that shows the electronic configuration
+    QLabel *m_electronConf;
+    
     QList<int> numOfElectrons;
 
 protected slots:

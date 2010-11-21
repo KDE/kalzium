@@ -14,14 +14,18 @@
  ***************************************************************************/
 
 #include "orbitswidget.h"
+#include "kalziumutils.h"
+#include "kalziumdataobject.h"
 
 //QT-Includes
 #include <QLatin1String>
 #include <QPainter>
+#include <QVBoxLayout>
 
 #include <KLocale>
 
 #include <math.h>
+
 
 static QStringList hulllist;
 
@@ -50,7 +54,12 @@ inline static double translateToDY( double r, double angle, int num )
 }
 
 OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
-{
+{    
+    m_electronConf = new QLabel( this );    
+    m_electronConf->setIndent(20);
+    QVBoxLayout *layout = new QVBoxLayout( m_electronConf );      
+    setLayout(layout);
+
     if ( hulllist.count() == 0 )
     {
         hulllist.append( QLatin1String("1") );
@@ -187,7 +196,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
     QPainter DC;
     DC.begin( this );
     DC.setRenderHint(  QPainter::Antialiasing, true );
-    DC.setPen( Qt::black );
 
     int min_size = qMin( width(), height() );
     int min_delta = min_size / 10;
@@ -197,7 +205,11 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
         DC.drawText( QPoint( width()/3, height()/3 ), i18n( "Unknown Electron Distribution" ) );
         return; // no orbits, do nothing
     }
-
+    
+    // setting the electronic configuration in the label.
+    m_electronConf->setText(KalziumUtils::prettyUnit(KalziumDataObject::instance()->element( Elemno ),
+                            ChemicalDataObject::electronicConfiguration ));
+    
     //make sure the biggest orbit fits in the widget
     //diameter
     int d = min_size - 2 * min_delta;
@@ -220,16 +232,24 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
         int my = min_delta + ddx * i; //the y-coordinate for the current circle
 
         DC.setBrush( Qt::NoBrush );
+        DC.setPen( Qt::black );
 
         //draw the big ellipses in concentric circles
         DC.drawEllipse( mx , my , d , d);
 
-        DC.setBrush( Qt::yellow );
+        DC.setPen( Qt::NoPen );
 
         for ( int e = 0 ; e < *it ; ++e )
         {
             int x = (int)translateToDX( d/2.0, (double)e, *it );
             int y = (int)translateToDY( d/2.0, (double)e, *it );
+
+            //Creating a gradient for the current electron.
+            QRadialGradient grad( QPointF(x + mx + d/2 - r_electron/2, y + my + d/2 - r_electron/2), r_electron);
+            grad.setColorAt(0, Qt::white);
+            grad.setColorAt(0.2, Qt::yellow );
+            grad.setColorAt(1, QColor(Qt::yellow).darker() );
+            DC.setBrush( QBrush(grad) );
 
             DC.drawEllipse( x + mx + d/2 - r_electron,
                             y + my + d/2 - r_electron,
