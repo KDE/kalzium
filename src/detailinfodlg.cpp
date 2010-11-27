@@ -272,18 +272,31 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
 
         //Wikipedia.org
 //         html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
-	html.append ( "<tr><td>" );
+        html.append ( "<tr><td>" );
         html.append ( createWikiLink(m_element->dataAsString( ChemicalDataObject::name ), "Wikipedia " + language) );
         html.append ( "</td></tr>" );
 
+        //http://education.jlab.org/itselemental/ele001.html
+        html.append ( "<tr><td>" );
+        html.append ( "<a href=\"http://" );        // http://
+        html.append ( "education.jlab.org/itselemental/ele" );
+        html.append ( QString("%1").arg(m_element->dataAsString( ChemicalDataObject::atomicNumber ), 3, '0' ));
+        html.append ( ".html" );
+        html.append ( "\" target=\"_blank\" > ");
+        html.append ( "Jefferson Lab" );
+        html.append ( "</a>" );
+        html.append ( "</td></tr>" );
 
-	// FIXME only works with english locals
-// 	html.append ( "<tr><td>" );
-//         html.append ( "<a href=\"http://");        // http://
-//         html.append ("www.webelements.com/");            //
-//         html.append ( m_element->dataAsString( ChemicalDataObject::name ) ); // /hydrogen
-//         html.append ( "\" target=\"_blank\" > Webelements ");
-//         html.append ( "</a></td></tr>" );
+        // FIXME only works with english locals
+        html.append ( "<tr><td>" );
+        html.append ( "<a href=\"http://");        // http://
+        html.append ("www.webelements.com/");
+        if ( KGlobal::locale()->language() == "en" ) {
+            html.append ( m_element->dataAsString( ChemicalDataObject::name ).toLower() ); // hydrogen
+        }
+        html.append ( "\" target=\"_blank\" >");
+        html.append ( "Webelements");
+        html.append ( "</a></td></tr>" );
 
         //chemipedia.org
         //html.append( "<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>" );
