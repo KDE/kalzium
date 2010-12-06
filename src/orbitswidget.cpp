@@ -26,7 +26,6 @@
 
 #include <math.h>
 
-
 static QStringList hulllist;
 
 /**
@@ -188,6 +187,10 @@ void OrbitsWidget::setElementNumber( int num )
     foreach( const QString& str, o.split( ' ', QString::SkipEmptyParts ) )
     numOfElectrons.append( str.toInt() );
 
+    m_electronConf->setMinimumWidth(width());
+    // setting the electronic configuration in the label.
+    m_electronConf->setText(KalziumUtils::prettyUnit(KalziumDataObject::instance()->element( Elemno ),
+                            ChemicalDataObject::electronicConfiguration ));
     update();
 }
 
@@ -205,10 +208,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
         DC.drawText( QPoint( width()/3, height()/3 ), i18n( "Unknown Electron Distribution" ) );
         return; // no orbits, do nothing
     }
-
-    // setting the electronic configuration in the label.
-    m_electronConf->setText(KalziumUtils::prettyUnit(KalziumDataObject::instance()->element( Elemno ),
-                            ChemicalDataObject::electronicConfiguration ));
 
     //make sure the biggest orbit fits in the widget
     //diameter
