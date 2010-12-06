@@ -26,7 +26,7 @@
 
 #include <config-kalzium.h>
 
-#define APP_VERSION "2.3.80"
+#define APP_VERSION "2.3.90"
 
 static const char description[] =
     I18N_NOOP("A periodic table of the elements");
@@ -71,6 +71,7 @@ int main(int argc, char **argv)
     about.addCredit(ki18n("Roberto Cunha"),ki18n("New interface design and usability improvements"));
     about.addCredit(ki18n("Tadeu Araujo"),ki18n("New interface design and usability improvements"));
     about.addCredit(ki18n("Tiago Porangaba"),ki18n("New interface design and usability improvements"));
+    about.addCredit(ki18n("Etienne Rebetez"),ki18n("Adding new sizable Periodic System"));
 
     KCmdLineArgs::init(argc, argv, &about);
 

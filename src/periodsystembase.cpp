@@ -76,11 +76,11 @@ void periodSystem::setupStatesAndAnimation()
     StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
     m_group= new QParallelAnimationGroup;
 
-    // Creating Nummerationitems here, we use the classic periodic table as reference (18 in a row)
+    // Creating Nummerationitems here, we use the classic periodic table (0) as reference (18 in a row)
     QList<NumerationItem *> numerationItems;
     for (int j = 0; j < pseTables::instance()->getTabletype( 0 )->coordsMax().x(); ++j) {
         numerationItems << new NumerationItem( j );
-        m_table->addItem(numerationItems.at(j));
+        m_table->addItem(numerationItems.at( j ));
         connect(this, SIGNAL(numerationChange(int)), numerationItems.at(j), SLOT(setNumerationType(int)));
     }
 
@@ -95,7 +95,7 @@ void periodSystem::setupStatesAndAnimation()
         }
 
         // Adding position of Nummeration for each tabletyp
-        for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); i++) {
+        for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); ++i) {
             int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
 
             if ( itemAtPos > 0 ) {

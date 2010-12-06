@@ -54,10 +54,10 @@ inline static double translateToDY( double r, double angle, int num )
 }
 
 OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
-{    
-    m_electronConf = new QLabel( this );    
+{
+    m_electronConf = new QLabel( this );
     m_electronConf->setIndent(20);
-    QVBoxLayout *layout = new QVBoxLayout( m_electronConf );      
+    QVBoxLayout *layout = new QVBoxLayout( m_electronConf );
     setLayout(layout);
 
     if ( hulllist.count() == 0 )
@@ -205,11 +205,11 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
         DC.drawText( QPoint( width()/3, height()/3 ), i18n( "Unknown Electron Distribution" ) );
         return; // no orbits, do nothing
     }
-    
+
     // setting the electronic configuration in the label.
     m_electronConf->setText(KalziumUtils::prettyUnit(KalziumDataObject::instance()->element( Elemno ),
                             ChemicalDataObject::electronicConfiguration ));
-    
+
     //make sure the biggest orbit fits in the widget
     //diameter
     int d = min_size - 2 * min_delta;
