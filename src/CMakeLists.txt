@@ -46,7 +46,6 @@ set(kalziumtools_SRCS
    calculator/nuclearCalculator.cpp
    calculator/gasCalculator.cpp
    calculator/concCalculator.cpp
-   calculator/titrationCalculator.cpp
 #   calculator/massCalculator.cpp
    )
 kde4_add_ui_files(kalziumtools_SRCS
@@ -55,7 +54,6 @@ kde4_add_ui_files(kalziumtools_SRCS
    calculator/gasCalculator.ui
    calculator/concCalculator.ui
    calculator/settings_calc.ui
-   calculator/titrationCalculator.ui
 #   calculator/massCalculator.ui
    )
 
@@ -132,7 +130,7 @@ kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png"
 
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} ${QT_QTSCRIPT_LIBRARIES} science kdeeduui)
+target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} science kdeeduui)
 
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})

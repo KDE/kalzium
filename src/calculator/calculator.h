@@ -24,7 +24,6 @@
 #include "ui_calculator.h"
 
 #include "nuclearCalculator.h"
-#include "titrationCalculator.h"
 #include "gasCalculator.h"
 #include "concCalculator.h"
 #include "molcalcwidget.h"
@@ -57,7 +56,6 @@ private:
     // These are the various calculator widgets that will be added to this calculator
 
     nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
-    titrationCalculator * m_titrationCalculator;    // The titration calculator
     gasCalculator *     m_gasCalculator;        // The gas calculator
     concCalculator *    m_concCalculator;       // The concentration calculator
     MolcalcWidget *     m_moleCalculator;       // The molecular mass calculator
