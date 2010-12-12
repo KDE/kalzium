@@ -305,7 +305,7 @@ void Kalzium::setupSidebars()
     m_legendWidget->setElementProperty(m_elementProperty);
     m_legendDock->setWidget(m_legendWidget);
 
-    m_TableInfoWidget = new TableInfoWidget( this );    
+    m_TableInfoWidget = new TableInfoWidget( this );
     m_tableDock = new QDockWidget( i18n("Table Information"), this );
     m_tableDock->setWidget(m_TableInfoWidget);
     m_tableDock->setObjectName( QLatin1String( "kalzium-tableinfo" ) );
@@ -342,7 +342,7 @@ void Kalzium::setupSidebars()
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);
     addDockWidget( Qt::BottomDockWidgetArea, m_legendDock, Qt::Horizontal );
-    
+
     m_tableDock->setVisible( false );
 
     connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
@@ -640,7 +640,7 @@ Kalzium::~Kalzium()
 
 QSize Kalzium::sizeHint() const
 {
-    return QSize(1500, 1000);
+    return QSize(700, 500);
 }
 
 
