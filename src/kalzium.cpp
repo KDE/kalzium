@@ -82,7 +82,7 @@
 Kalzium::Kalzium() : KXmlGuiWindow( 0 )
 {
     setObjectName( "KalziumMainWindow" );
-    
+
     // adding the libkdeedu catalog
     KGlobal::locale()->insertCatalog( "libkdeedu" );
 
@@ -338,9 +338,6 @@ void Kalzium::setupSidebars()
     m_calcWidget->setObjectName( "molcalcwidget" );
     m_calcWidget->hideExtra();
     m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
-    
-//     connect( m_toolbox, SIGNAL( currentChanged( int ) ),
-//              this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);
@@ -514,7 +511,6 @@ void Kalzium::showSettingsDialog()
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-//     connect( dialog, SIGNAL( settingsChanged( const QString &) ), this , SLOT( slotUpdateSettings() ) );
     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
 
@@ -538,12 +534,6 @@ void Kalzium::showSettingsDialog()
     w_units->setObjectName( "units_page" );
     ui_units.setupUi( w_units );
     dialog->addPage( w_units, i18n( "Units" ), "system-run" );
-    // misc page
-//     Ui_setupMisc ui_misc;
-//     QWidget *w_misc = new QWidget( 0 );
-//     w_misc->setObjectName( "miscpage" );
-//     ui_misc.setupUi( w_misc );
-//     dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
 
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget( 0 );
@@ -628,7 +618,7 @@ void Kalzium::openInformationDialog( int number )
         connect(m_infoDialog, SIGNAL(elementChanged(int)),
                 this, SLOT(elementHover(int)));
     }
-//     m_infoDialog->setOverviewBackgroundColor( m_elementProperty->getElementBrush( number ).color() );
+
     m_infoDialog->setTableType( m_periodicTable->table() );
     m_infoDialog->show();
 }
