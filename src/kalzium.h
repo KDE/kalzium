@@ -197,6 +197,7 @@ private slots:
 
 protected:
 //     virtual void keyPressEvent( QKeyEvent * e);
+    virtual QSize sizeHint() const;
 };
 
 #endif // _KALZIUM_H_

@@ -77,13 +77,12 @@
 #include <KPluginLoader>
 #include <KTabWidget>
 
-
 #define IDS_ELEMENTINFO     7
 
 Kalzium::Kalzium() : KXmlGuiWindow( 0 )
 {
     setObjectName( "KalziumMainWindow" );
-
+    
     // adding the libkdeedu catalog
     KGlobal::locale()->insertCatalog( "libkdeedu" );
 
@@ -306,7 +305,7 @@ void Kalzium::setupSidebars()
     m_legendWidget->setElementProperty(m_elementProperty);
     m_legendDock->setWidget(m_legendWidget);
 
-    m_TableInfoWidget = new TableInfoWidget( this );
+    m_TableInfoWidget = new TableInfoWidget( this );    
     m_tableDock = new QDockWidget( i18n("Table Information"), this );
     m_tableDock->setWidget(m_TableInfoWidget);
     m_tableDock->setObjectName( QLatin1String( "kalzium-tableinfo" ) );
@@ -316,6 +315,7 @@ void Kalzium::setupSidebars()
     m_dockWin = new QDockWidget(i18n("Information"), this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
     m_dockWin->setFeatures( QDockWidget::AllDockWidgetFeatures );
+    m_dockWin->setMinimumWidth(250);
 
     m_toolbox = new QToolBox( m_dockWin );
     m_dockWin->setWidget( m_toolbox );
@@ -338,13 +338,14 @@ void Kalzium::setupSidebars()
     m_calcWidget->setObjectName( "molcalcwidget" );
     m_calcWidget->hideExtra();
     m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
+    
 //     connect( m_toolbox, SIGNAL( currentChanged( int ) ),
 //              this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
-    addDockWidget( Qt::LeftDockWidgetArea, m_legendDock, Qt::Vertical );
-    addDockWidget( Qt::BottomDockWidgetArea, m_tableDock );
-
+    addDockWidget( Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);
+    addDockWidget( Qt::BottomDockWidgetArea, m_legendDock, Qt::Horizontal );
+    
     m_tableDock->setVisible( false );
 
     connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
@@ -646,6 +647,12 @@ Kalzium::~Kalzium()
     delete m_tableDock;
     delete m_elementProperty;
 }
+
+QSize Kalzium::sizeHint() const
+{
+    return QSize(1500, 1000);
+}
+
 
 // void Kalzium::keyPressEvent( QKeyEvent *e)
 // {
