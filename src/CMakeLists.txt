@@ -1,6 +1,5 @@
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ../compoundviewer
    tools
    calculator
@@ -93,6 +92,7 @@ set(kalzium_SRCS
    elementitem.cpp
    statemachine.cpp
    numerationitem.cpp
+   kdeeduglossary.cpp
    )
 
 if (LIBFACILE_FOUND)
