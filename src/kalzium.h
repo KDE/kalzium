@@ -105,7 +105,7 @@ class Kalzium : public KMainWindow
 		KToggleAction *m_actionCrystal;
 		
 		/**
-		 * the layout of the central Widget ( CentralWidget )
+		 * the tqlayout of the central Widget ( CentralWidget )
 		 */
 		TQVBoxLayout *m_pCentralLayout;
 
@@ -129,7 +129,7 @@ class Kalzium : public KMainWindow
 		 */
 		void openInformationDialog( int number );
 
-		void slotStatusbar( int num );
+		void slotqStatusbar( int num );
 		void setupStatusBar();
 
 

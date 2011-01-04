@@ -82,8 +82,8 @@ void KalziumTip::showTip( TQPoint mouse, Element* element, int visibleWidth, int
 	if( element == m_tippedElement )
 	{
 		// Avoid moving out of the current screen
-		if (m_mousePointer.x()+width() > qApp->desktop()->width())
-				m_mousePointer.setX(qApp->desktop()->width() - width());
+		if (m_mousePointer.x()+width() > tqApp->desktop()->width())
+				m_mousePointer.setX(tqApp->desktop()->width() - width());
 
 		move(m_mousePointer); //do not paint again if already painted
 	}
@@ -139,7 +139,7 @@ void KalziumTip::display()
 
 	m_richText->setWidth(400);
 
-	m_maskEffect = isVisible() ? Plain : Dissolve;
+	m_tqmaskEffect = isVisible() ? Plain : Dissolve;
     	m_dissolveSize = 24;
     	m_dissolveDelta = -1;
 
@@ -172,13 +172,13 @@ void KalziumTip::displayInternal()
     	int width = textX + textRect.width() + margin;
     	int textY = (height - textRect.height()) / 2;
 
-	//resize pixmap, mask and widget
-	m_mask.resize(width, height);
+	//resize pixmap, tqmask and widget
+	m_tqmask.resize(width, height);
 	m_pixmap.resize(width, height);
 	resize(width, height);
 
-	// create and set transparency mask
-    	switch(m_maskEffect)
+	// create and set transparency tqmask
+    	switch(m_tqmaskEffect)
     	{
         	case Plain:
             		plainMask();
@@ -206,32 +206,32 @@ void KalziumTip::displayInternal()
     	}
 	
 	// draw text shadow
-        TQColorGroup cg = colorGroup();
+        TQColorGroup cg = tqcolorGroup();
         cg.setColor(TQColorGroup::Text, cg.background().dark(115));
         int shadowOffset = TQApplication::reverseLayout() ? -1 : 1;
         m_richText->draw(&bufferPainter, 5 + textX + shadowOffset, textY + 1, TQRect(), cg);
 
         // draw text
-        cg = colorGroup();
+        cg = tqcolorGroup();
         m_richText->draw(&bufferPainter, 5 + textX, textY, rect(), cg);
 }
 
 void KalziumTip::dissolveMask()
 {
-    TQPainter maskPainter(&m_mask);
+    TQPainter tqmaskPainter(&m_tqmask);
 
-    m_mask.fill(Qt::black);
+    m_tqmask.fill(Qt::black);
 
-    maskPainter.setBrush(Qt::white);
-    maskPainter.setPen(Qt::white);
-    maskPainter.drawRoundRect(m_mask.rect(), 1600 / m_mask.rect().width(),
-                              1600 / m_mask.rect().height());
+    tqmaskPainter.setBrush(Qt::white);
+    tqmaskPainter.setPen(Qt::white);
+    tqmaskPainter.drawRoundRect(m_tqmask.rect(), 1600 / m_tqmask.rect().width(),
+                              1600 / m_tqmask.rect().height());
 
     m_dissolveSize += m_dissolveDelta;
 
     if (m_dissolveSize > 0)
     {
-        maskPainter.setRasterOp(Qt::EraseROP);
+        tqmaskPainter.setRasterOp(Qt::EraseROP);
 
         int x, y, s;
         const int size = 16;
@@ -247,7 +247,7 @@ void KalziumTip::dissolveMask()
                 {
                     s = 0;
                 }
-                maskPainter.drawEllipse(x - s / 2, y - s / 2, s, s);
+                tqmaskPainter.drawEllipse(x - s / 2, y - s / 2, s, s);
             }
         }
     }
@@ -257,7 +257,7 @@ void KalziumTip::dissolveMask()
         m_dissolveDelta = 1;
     }
 
-    setMask(m_mask);
+    setMask(m_tqmask);
 }
 
 void KalziumTip::hide()
@@ -269,15 +269,15 @@ void KalziumTip::hide()
 
 void KalziumTip::plainMask()
 {
-    	TQPainter maskPainter(&m_mask);
+    	TQPainter tqmaskPainter(&m_tqmask);
 
-    	m_mask.fill(Qt::black);
+    	m_tqmask.fill(Qt::black);
 
-    	maskPainter.setBrush(Qt::white);
-    	maskPainter.setPen(Qt::white);
-    	maskPainter.drawRoundRect(m_mask.rect(), 1600 / m_mask.rect().width(),
-                              1600 / m_mask.rect().height());
-    	setMask(m_mask);
+    	tqmaskPainter.setBrush(Qt::white);
+    	tqmaskPainter.setPen(Qt::white);
+    	tqmaskPainter.drawRoundRect(m_tqmask.rect(), 1600 / m_tqmask.rect().width(),
+                              1600 / m_tqmask.rect().height());
+    	setMask(m_tqmask);
     	m_frameTimer.stop();
 }
 

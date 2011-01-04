@@ -57,7 +57,7 @@ SpectrumWidget::SpectrumWidget( TQWidget *parent, const char* name ) : TQWidget(
 	setType( EmissionSpectrum );
 
 	setMinimumSize( 400, 230 );
-	setSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding );
+	tqsetSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding );
 	setBackgroundMode( NoBackground );
 }
 
@@ -223,7 +223,7 @@ int SpectrumWidget::Adjust( double color, double factor )
 	if ( color == 0.0 )
 		return 0;
 	else
-		return qRound( IntensityMax * pow( color*factor, Gamma ) );
+		return tqRound( IntensityMax * pow( color*factor, Gamma ) );
 }
 
 void SpectrumWidget::drawTickmarks( TQPainter* p )

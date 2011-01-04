@@ -61,7 +61,7 @@ void AnswerItem::paint( TQPainter* painter )
     TQRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
     painter->fillRect( r, m_bgcolor );
 
-    TQColorGroup cg = listBox()->colorGroup();
+    TQColorGroup cg = listBox()->tqcolorGroup();
     cg.setColor( TQColorGroup::Background, m_bgcolor );
 
     m_richtext->draw(painter, 0, 0, r, cg );
@@ -101,7 +101,7 @@ EqResult::~EqResult()
 
 void EqResult::add(const TQString & question, const TQString & answer)
 {
-    TQColor bgcolor = colorGroup().base();
+    TQColor bgcolor = tqcolorGroup().base();
 
     if ( m_alternate_color )
 	bgcolor = bgcolor.dark( 120 );

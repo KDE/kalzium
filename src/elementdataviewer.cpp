@@ -41,7 +41,7 @@ ElementDataViewer::ElementDataViewer( TQWidget *parent, const char* name )
 
 	yData = new AxisData();
 	
-	TQHBoxLayout *layout = new TQHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+	TQHBoxLayout *tqlayout = new TQHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
 
 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
@@ -51,10 +51,10 @@ ElementDataViewer::ElementDataViewer( TQWidget *parent, const char* name )
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
 
-	layout->addWidget( m_pPlotSetupWidget );
-	layout->addWidget( m_pPlotWidget );
-	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
-	layout->setStretchFactor( m_pPlotWidget, 1 );
+	tqlayout->addWidget( m_pPlotSetupWidget );
+	tqlayout->addWidget( m_pPlotWidget );
+	tqlayout->setStretchFactor( m_pPlotSetupWidget, 0 );
+	tqlayout->setStretchFactor( m_pPlotWidget, 1 );
 
 	// setup the list of names
 	EList::iterator it = d->ElementList.begin();
@@ -294,7 +294,7 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * reserve the memory for the KPlotObjects
 	 */
-	//TODO QT4 replace TQMemArray with QVector
+	//TODO QT4 tqreplace TQMemArray with QVector
 	TQMemArray<KPlotObject*> dataPoint(num);
 	TQMemArray<KPlotObject*> dataPointLabel(num);
 

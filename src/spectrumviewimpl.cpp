@@ -25,7 +25,7 @@
 SpectrumViewImpl::SpectrumViewImpl( TQWidget *parent, const char* name )
 	: SpectrumView( parent, name )
 {
-	resize( minimumSizeHint() );
+	resize( tqminimumSizeHint() );
 	// simulating an update
 	m_spectrumWidget->setRightBorder( maximumValue->value() );
 	exportButton->setGuiItem( KGuiItem( i18n( "&Export Spectrum as Image" ), "fileexport" ) );

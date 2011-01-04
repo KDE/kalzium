@@ -23,7 +23,7 @@
 #include "element.h"
 
 /**
- * @short This class contains all Element objects
+ * @short This class tqcontains all Element objects
  *
  * This singleton class collects all the information about the elements of the
  * Periodic Table as list of Element (TQValueList<Element*>).

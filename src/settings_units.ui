@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>setupUnits</cstring>
     </property>
-    <property name="geometry">
+    <property name="tqgeometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -163,5 +163,5 @@
         </widget>
     </grid>
 </widget>
-<layoutdefaults spacing="6" margin="11"/>
+<tqlayoutdefaults spacing="6" margin="11"/>
 </UI>

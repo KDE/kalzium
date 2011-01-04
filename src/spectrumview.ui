@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>SpectrumView</cstring>
     </property>
-    <property name="geometry">
+    <property name="tqgeometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -38,7 +38,7 @@
         </widget>
         <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>layout2</cstring>
+                <cstring>tqlayout2</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -110,7 +110,7 @@
         </widget>
         <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>layout4</cstring>
+                <cstring>tqlayout4</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -126,7 +126,7 @@
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="sizeHint">
+                    <property name="tqsizeHint">
                         <size>
                             <width>211</width>
                             <height>21</height>
@@ -159,7 +159,7 @@
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="sizeHint">
+            <property name="tqsizeHint">
                 <size>
                     <width>21</width>
                     <height>1</height>
@@ -216,7 +216,7 @@
 <slots>
     <slot access="protected">slotExportAsImage()</slot>
 </slots>
-<layoutdefaults spacing="6" margin="11"/>
+<tqlayoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>spectrumwidget.h</includehint>
     <includehint>kpushbutton.h</includehint>

@@ -35,7 +35,7 @@ SOMWidgetIMPL::SOMWidgetIMPL( TQWidget *parent, const char* name )
 {
 	m_list = KalziumDataObject::instance()->ElementList;
 
-	text->setAlignment( text->alignment() | Qt::WordBreak );
+	text->tqsetAlignment( text->tqalignment() | Qt::WordBreak );
 	text->setTextFormat( Qt::RichText );
 	text->setReadOnly( true );
 	text->setPaletteBackgroundColor( paletteBackgroundColor() );
