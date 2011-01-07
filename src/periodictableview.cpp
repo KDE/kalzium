@@ -328,7 +328,7 @@ void PerodicTableView::resizeEvent( TQResizeEvent * /*e*/ )
   table->resize( width(), height() );
   table2->resize( width(), height() );
   // XXX: I know it isn't the best way, but otherwise the table won't be redrawn
-  // on tqrepaint... Feel *free* to remove these two lines if you foind a better
+  // on repaint... Feel *free* to remove these two lines if you foind a better
   // solution...
   doFullDraw = true;
   update();
@@ -339,8 +339,8 @@ void PerodicTableView::paintEvent( TQPaintEvent * /*e*/ )
 	TQPainter p;
 
 	//JH: I have split the drawing into two pixmaps: table and table2.
-	//table tqcontains the "static" PerodicTableView table, and does not change very often.
-	//table2 tqcontains the tooltips and any other dynamic overlays.
+	//table contains the "static" PerodicTableView table, and does not change very often.
+	//table2 contains the tooltips and any other dynamic overlays.
 	//Usually, we can skip the code which renders the table, and just use the 
 	//image stored in table...when doFullDraw==false, the rendering code is skipped.
 	if ( doFullDraw )
@@ -393,7 +393,7 @@ void PerodicTableView::paintEvent( TQPaintEvent * /*e*/ )
 		doFullDraw = false;
 	}
 
-	//JH: Ok, now table tqcontains the static PerodicTableView table, and we may need to draw
+	//JH: Ok, now table contains the static PerodicTableView table, and we may need to draw
 	//a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
 	//so let's copy it to table2 and add the tooltip there.
 	*table2 = *table;
@@ -741,7 +741,7 @@ void PerodicTableView::mouseMoveEvent( TQMouseEvent * /*mouse*/ )
 	//JH: only update() if we were showing a tooltip
 	if ( m_tooltipElementNumber || m_showLegendTooltip )
 	{
-		//this tqinvalidates the number. If the mouse
+		//this invalidates the number. If the mouse
 		//is moved, the number is invalid. 
 		m_tooltipElementNumber = 0;
 		m_showLegendTooltip = false;

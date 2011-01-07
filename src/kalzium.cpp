@@ -75,9 +75,9 @@ Kalzium::Kalzium()
 	m_toolboxCurrent = 0;
 
 	connect( m_PerodicTableView, TQT_SIGNAL( ElementClicked( int ) ), this, TQT_SLOT( openInformationDialog( int ) ));
-	connect( m_PerodicTableView, TQT_SIGNAL( MouseOver( int ) ), this, TQT_SLOT( slotqStatusbar( int ) ));
+	connect( m_PerodicTableView, TQT_SIGNAL( MouseOver( int ) ), this, TQT_SLOT( slotStatusbar( int ) ));
 	
-	// tqlayouting
+	// layouting
 	setCentralWidget( centralWidget );
 	centralWidget->show();
 
@@ -212,7 +212,7 @@ void Kalzium::setupSidebars()
 	TQVBoxLayout *lay = new TQVBoxLayout( fake, 5 );
 	lay->activate();
 	m_detailWidget = new DetailedGraphicalOverview( fake, "DetailedGraphicalOverview" );
-	m_detailWidget->setMinimumSize( 200, m_detailWidget->tqminimumSize().height() );
+	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
 	connect( m_PerodicTableView, TQT_SIGNAL( MouseOver( int ) ), this, TQT_SLOT( slotSelectedNumber( int ) ));
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new TQSpacerItem( 10, 10, TQSizePolicy::Fixed, TQSizePolicy::MinimumExpanding ) );
@@ -419,7 +419,7 @@ void Kalzium::setupStatusBar()
 	statusBar()->show();
 }
 
-void Kalzium::slotqStatusbar( int num )
+void Kalzium::slotStatusbar( int num )
 {
 	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ).arg( e->elname() ).arg(e->number() ).arg( KalziumUtils::localizedValue( e->mass(), 6 ) ) , IDS_ELEMENTINFO );

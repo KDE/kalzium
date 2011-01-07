@@ -38,7 +38,7 @@ int KalziumUtils::maxSize( const TQString& string, const TQRect& rect, TQFont fo
 		r = p->boundingRect( TQRect(), Qt::AlignAuto, string );
 		r.moveBy( rect.left(), rect.top() );
 		
-		if ( rect.tqcontains( r ) )
+		if ( rect.contains( r ) )
 			goodSizeFound = true;
 		else
 			size--;
@@ -69,7 +69,7 @@ double KalziumUtils::strippedValue( double num )
 		power *= 10;
 
 	num = num / power * 10000;
-	num = tqRound( num );
+	num = qRound( num );
 
 	return num * power / 10000;
 }

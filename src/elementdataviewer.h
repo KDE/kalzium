@@ -79,9 +79,9 @@ class AxisData
 
 	private:
 		/**
-		 * the dataList tqcontains the values off all elements
+		 * the dataList contains the values off all elements
 		 * but only of the currently selected data type. This
-		 * means that it eg tqcontains all boiling points
+		 * means that it eg contains all boiling points
 		 */
 		DoubleList dataList;
 

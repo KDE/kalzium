@@ -58,7 +58,7 @@ signals:
     /**
      * Use this signal to change the content of the statusbar
      */
-    void signalChangetqStatusbar(const TQString& text);
+    void signalChangeStatusbar(const TQString& text);
 
     /**
      * Use this signal to change the content of the caption

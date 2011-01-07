@@ -94,10 +94,10 @@ void DetailedInfoDlg::setElement(Element *element)
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const TQString& title, const TQString& icontext, const TQString& iconname )
 {
 	TQFrame *frame = addPage(title, icontext, BarIcon(iconname));
-	TQVBoxLayout *tqlayout = new TQVBoxLayout( frame );
-	tqlayout->setMargin( 0 );
+	TQVBoxLayout *layout = new TQVBoxLayout( frame );
+	layout->setMargin( 0 );
 	KHTMLPart *w = new KHTMLPart( frame, "html-part", frame );
-	tqlayout->addWidget( w->view() );
+	layout->addWidget( w->view() );
 
 	return w;
 }

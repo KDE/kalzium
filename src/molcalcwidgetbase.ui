@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>MolcalcWidgetBase</cstring>
     </property>
-    <property name="tqgeometry">
+    <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -69,7 +69,7 @@
             <property name="text">
                 <string></string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>AlignCenter</set>
             </property>
         </widget>
@@ -83,7 +83,7 @@
             <property name="sizeType">
                 <enum>MinimumExpanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>20</width>
                     <height>10</height>
@@ -127,7 +127,7 @@
 <slots>
     <slot access="protected">slotCalcButtonClicked()</slot>
 </slots>
-<tqlayoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>klineedit.h</includehint>
     <includehint>kpushbutton.h</includehint>

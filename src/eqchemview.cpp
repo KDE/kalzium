@@ -50,7 +50,7 @@ eqchemView::eqchemView(TQWidget *parent) : TQWidget(parent)
 {
     settingsChanged();
 
-    TQGridLayout *l = new TQGridLayout(this, 2, 2, 11, 6, "eqchemView::eqchemView tqlayout");
+    TQGridLayout *l = new TQGridLayout(this, 2, 2, 11, 6, "eqchemView::eqchemView layout");
 
     m_eqResult = new EqResult(this);
     m_eqedit = new KLineEdit(this);
@@ -74,7 +74,7 @@ eqchemView::~eqchemView()
 void eqchemView::settingsChanged()
 {
     // i18n : internationalization
-    emit signalChangetqStatusbar( i18n("Settings changed") );
+    emit signalChangeStatusbar( i18n("Settings changed") );
 }
 
 
@@ -89,8 +89,8 @@ void eqchemView::clear()
 void eqchemView::compute()
 {
     TQString equation( m_eqedit->text() );
-    equation.tqreplace("+", "+");
-    equation.tqreplace("->", " -> ");
+    equation.replace("+", "+");
+    equation.replace("->", " -> ");
     equation.append(" ");
     equation.prepend(" ");
     

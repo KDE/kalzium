@@ -23,7 +23,7 @@
 TimeWidgetIMPL::TimeWidgetIMPL( TQWidget *parent, const char* name )
 	: TimeWidget( parent, name )
 {
-	text->tqsetAlignment( text->tqalignment() | Qt::WordBreak );
+	text->setAlignment( text->alignment() | Qt::WordBreak );
 	text->setTextFormat( Qt::RichText );
 	text->setReadOnly( true );
 	text->setPaletteBackgroundColor( paletteBackgroundColor() );

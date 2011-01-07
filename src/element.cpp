@@ -68,8 +68,8 @@ TQString Element::parsedOrbits( bool canBeEmpty )
 	TQString orbits = m_orbits;
 	TQRegExp rxs("([a-z])([0-9]+)");
 	TQRegExp rxb("([a-z]{2}) ",false);
-	orbits.tqreplace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
-	orbits.tqreplace(rxb,"<b>\\1</b> "); //bold around element symbols
+	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
+	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
 	return orbits;
 }
 

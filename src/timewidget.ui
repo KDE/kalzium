@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>TimeWidget</cstring>
     </property>
-    <property name="tqgeometry">
+    <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -26,7 +26,7 @@
             <property name="sizeType">
                 <enum>Fixed</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>21</width>
                     <height>20</height>
@@ -35,7 +35,7 @@
         </spacer>
         <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>tqlayout3</cstring>
+                <cstring>layout3</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -67,7 +67,7 @@
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>20</width>
                             <height>21</height>
@@ -78,7 +78,7 @@
         </widget>
         <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>tqlayout5</cstring>
+                <cstring>layout5</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -117,7 +117,7 @@
                     <property name="sizeType">
                         <enum>Fixed</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>5</width>
                             <height>21</height>
@@ -150,7 +150,7 @@
             <property name="sizeType">
                 <enum>Fixed</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>20</width>
                     <height>16</height>
@@ -194,7 +194,7 @@ of the elements</string>
         <slot>setValue(int)</slot>
     </connection>
 </connections>
-<tqlayoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>knuminput.h</includehint>
 </includehints>

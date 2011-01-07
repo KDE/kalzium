@@ -162,7 +162,7 @@ void OrbitsWidget::getNumberOfOrbits()
 	int cut = 0;
 	bool cont = true;
 
-	if ( !o.tqcontains( rxb ) ) //only true for H and He
+	if ( !o.contains( rxb ) ) //only true for H and He
 		numOfElectrons.append( o.toInt() );
 	else //every other element
 	{
@@ -175,7 +175,7 @@ void OrbitsWidget::getNumberOfOrbits()
 			o = o.right( cut );
 			num++;
 
-			if ( !o.tqcontains( rxb ) )
+			if ( !o.contains( rxb ) )
 			{
 				numOfElectrons.append( o.toInt() );
 				cont = false;

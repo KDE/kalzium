@@ -66,20 +66,20 @@ class KalziumTip : public QWidget
 		void internalUpdate();
 		
 	private:
-		TQBitmap m_tqmask;
+		TQBitmap m_mask;
 		TQPoint m_mousePointer;
     		TQPixmap m_pixmap;
     		TQPixmap m_icon; //icon shown on the tip
 		TQPixmap m_noElemIcon; //icon for element wich have no image
 
-    		MaskEffect m_tqmaskEffect; //inidicates to show tqmask effect or plain
+    		MaskEffect m_maskEffect; //inidicates to show mask effect or plain
     		TQSimpleRichText* m_richText;
 
     		int m_dissolveSize;
     		int m_dissolveDelta;
 
     		TQTimer m_frameTimer; //timer for the dissolve effect
-    		bool m_dirty;	//indicates tqrepainting the tooltip internal
+    		bool m_dirty;	//indicates repainting the tooltip internal
 
 		const Element* m_tippedElement; //the element the tip is about
 };

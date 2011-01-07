@@ -46,29 +46,29 @@ KalziumDataObject::KalziumDataObject()
 	KURL url;
 	url.setPath( locate("data", "kalzium/data/"));
 	url.setFileName( "data.xml" );
-	TQFile tqlayoutFile( url.path() );
+	TQFile layoutFile( url.path() );
 
-	if (!tqlayoutFile.exists())
+	if (!layoutFile.exists())
 	{
 		kdDebug() << "data.xml not found, exiting" << endl;
 		kapp->exit(0);
 		return;
 	}
 
-	if (!tqlayoutFile.open(IO_ReadOnly))
+	if (!layoutFile.open(IO_ReadOnly))
 	{
 		kdDebug() << "data.xml IO-error" << endl;
 		return;
 	}
 
 	// Check if the document is well-formed
-	if (!doc.setContent(&tqlayoutFile))
+	if (!doc.setContent(&layoutFile))
 	{
 		kdDebug() << "wrong xml" << endl;
-		tqlayoutFile.close();
+		layoutFile.close();
 		return;
 	}
-	tqlayoutFile.close();
+	layoutFile.close();
 
 	ElementList = readData( doc );
 	m_numOfElements = ElementList.count();
