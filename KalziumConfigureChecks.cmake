@@ -5,7 +5,7 @@ macro_optional_find_package(OCaml)
 macro_optional_find_package(Libfacile)
 macro_optional_find_package(OpenBabel2)
 macro_optional_find_package(Eigen2)
-macro_optional_find_package(Avogadro 1.0.0)
+macro_optional_find_package(Avogadro 1.0.0 NO_MODULE)
 
 check_include_files(ieeefp.h HAVE_IEEEFP_H)
 
