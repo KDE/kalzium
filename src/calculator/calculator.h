@@ -28,6 +28,7 @@
 #include "concCalculator.h"
 #include "molcalcwidget.h"
 #include <kactioncollection.h>
+#include <config-kalzium.h>
 #ifdef HAVE_FACILE
 #include <eqchemview.h>
 #endif

@@ -24,6 +24,8 @@ class KalziumSchemeType;
 
 #include "kalziumgradienttype.h"
 
+#include <config-kalzium.h>
+
 #include <QByteArray>
 #include <QColor>
 #include <QBrush>
