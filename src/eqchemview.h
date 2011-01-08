@@ -31,7 +31,7 @@ class EQChemDialog : public KDialog
 {
     Q_OBJECT
 
-    public: 
+    public:
         /**
          * public constructor
          *
@@ -43,17 +43,17 @@ class EQChemDialog : public KDialog
         Ui::EquationView ui;
         KDialog * m_helpWindow;
 
-        void copyAnswer();
-
     public slots:
         /**
           start the computation (balancing) of the equation
           */
         void compute();
 
-        void slotUser1();
+        void copyAnswer();
 
         void slotHelp();
+protected:
+  QSize sizeHint() const;
 };
 
 #endif // _EQCHEMVIEW_H_

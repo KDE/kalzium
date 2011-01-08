@@ -55,7 +55,6 @@ void EQChemDialog::compute()
 
     kDebug() << "Answer: " << answer;
 
-
 //    ui.question_label->setText(equation);
     ui.answer_label->setText(answer);
 
@@ -67,7 +66,7 @@ EQChemDialog::EQChemDialog( QWidget *parent )
         : KDialog( parent )
 {
     setCaption( i18n( "Solve Chemical Equations Viewer" ) );
-    setButtons( Help | User1 | Close );
+    setButtons( Help | User1 );
     setDefaultButton( None );
 
     m_helpWindow = NULL;
@@ -78,7 +77,7 @@ EQChemDialog::EQChemDialog( QWidget *parent )
     connect( ui.calculateButton , SIGNAL( clicked() ),
              this, SLOT( compute() ) );
     connect( this , SIGNAL( user1Clicked() ),
-             this, SLOT( slotUser1() ) );
+             this, SLOT( copyAnswer() ) );
     connect( this , SIGNAL( helpClicked() ),
              this, SLOT( slotHelp() ) );
 }
@@ -88,11 +87,6 @@ void EQChemDialog::copyAnswer()
     kDebug() << "EQChemDialog::copyAnswer()";
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText( ui.answer_label->text(), QClipboard::Clipboard);
-}
-
-void EQChemDialog::slotUser1()
-{
-    copyAnswer();
 }
 
 void EQChemDialog::slotHelp()
@@ -130,6 +124,13 @@ void EQChemDialog::slotHelp()
         }
         m_helpWindow->activateWindow();
     }
+}
+
+QSize EQChemDialog::sizeHint() const
+{
+   QSize size;
+   size.setWidth(200);
+   return size;
 }
 
 
