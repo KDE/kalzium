@@ -31,29 +31,29 @@ class EQChemDialog : public KDialog
 {
     Q_OBJECT
 
-    public:
-        /**
-         * public constructor
-         *
-         * @param parent the parent widget
-         */
-        EQChemDialog( QWidget *parent );
+public:
+    /**
+     * public constructor
+     *
+     * @param parent the parent widget
+     */
+    EQChemDialog( QWidget *parent );
 
-    private:
-        Ui::EquationView ui;
-        KDialog * m_helpWindow;
+private:
+    Ui::EquationView ui;
+    KDialog * m_helpWindow;
 
-    public slots:
-        /**
-          start the computation (balancing) of the equation
-          */
-        void compute();
+public slots:
+    /**
+      start the computation (balancing) of the equation
+      */
+    void compute();
 
-        void copyAnswer();
+    void copyAnswer();
 
-        void slotHelp();
+    void slotHelp();
 protected:
-  QSize sizeHint() const;
+    QSize sizeHint() const;
 };
 
 #endif // _EQCHEMVIEW_H_

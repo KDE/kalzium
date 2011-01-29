@@ -44,7 +44,6 @@ char* solve_equation(const char *) {
 void EQChemDialog::compute()
 {
     QString equation( ui.lineEdit->text() );
-//    equation.replace("+", "+");
     equation.replace("->", " -> ");
     equation.append(' ');
     equation.prepend(' ');
@@ -55,7 +54,6 @@ void EQChemDialog::compute()
 
     kDebug() << "Answer: " << answer;
 
-//    ui.question_label->setText(equation);
     ui.answer_label->setText(answer);
 
     // mem leak ?
@@ -128,9 +126,9 @@ void EQChemDialog::slotHelp()
 
 QSize EQChemDialog::sizeHint() const
 {
-   QSize size;
-   size.setWidth(200);
-   return size;
+    QSize size;
+    size.setWidth(200);
+    return size;
 }
 
 
