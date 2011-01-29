@@ -115,21 +115,20 @@ void Molmasscalculator::appendElement ( QString ElementSymbol )
 // Sets the new Mass and Molecule after a calculation.
 void Molmasscalculator::newCalculatedMass()
 {
-    if ( m_molecule["molMass"].toString() != QString() ) {
-
-        //Set new MassLabel Text
-        m_MassLabel->setText ( QString::number( m_molecule["molMass"].toDouble(), 'g', 6) + " u" );
-
-        //Sets the niceMolecule string in the Lineedit	  //Configuration Option?
-        m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
-
-        //Copy new Mass to Clipboard
-        if ( m_copyToClipboard && m_molecule["molMass"].toString() != QString() ) {
-            QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
-        }
-
-    } else {
+    if ( m_molecule["molMass"].toString() == QString() ) {
         m_MassLabel->setText ( i18n ( "Invalid Molecule" ) );
+        return;
+    }
+
+    //Set new MassLabel Text
+    m_MassLabel->setText ( QString::number( m_molecule["molMass"].toDouble(), 'g', 6) + " u" );
+
+    //Sets the niceMolecule string in the Lineedit	  //Configuration Option?
+    m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
+
+    //Copy new Mass to Clipboard
+    if ( m_copyToClipboard && m_molecule["molMass"].toString() != QString() ) {
+        QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
     }
 }
 
