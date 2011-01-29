@@ -61,6 +61,7 @@ KalziumEngine::~KalziumEngine()
 {
     delete m_random;
     delete m_parser;
+    qDeleteAll(m_elements);
 }
 
 QStringList KalziumEngine::sources() const
