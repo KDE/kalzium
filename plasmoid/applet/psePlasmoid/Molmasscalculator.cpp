@@ -115,7 +115,7 @@ void Molmasscalculator::appendElement ( QString ElementSymbol )
 // Sets the new Mass and Molecule after a calculation.
 void Molmasscalculator::newCalculatedMass()
 {
-    if ( m_molecule["molMass"].toString() != "" ) {
+    if ( m_molecule["molMass"].toString() != QString() ) {
 
         //Set new MassLabel Text
         m_MassLabel->setText ( QString::number( m_molecule["molMass"].toDouble(), 'g', 6) + " u" );
@@ -124,7 +124,7 @@ void Molmasscalculator::newCalculatedMass()
         m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
 
         //Copy new Mass to Clipboard
-        if ( m_copyToClipboard && m_molecule["molMass"].toString() != "" ) {
+        if ( m_copyToClipboard && m_molecule["molMass"].toString() != QString() ) {
             QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
         }
 
@@ -148,7 +148,9 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
         // Adding Masslabel to Plasmoid
         m_MassLabel = new Plasma::Label;
         m_MassLabel->setAlignment ( Qt::AlignCenter );
-        m_MassLabel->setStyleSheet ( "font-size:18px" );
+
+        QString css("font-size:18px; color:" + this->palette().text().color().name() + ";");
+        m_MassLabel->setStyleSheet ( css );
 
         m_lineedit = new Plasma::LineEdit();
         m_lineedit->setClearButtonShown ( true );
@@ -179,21 +181,23 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
 //Resets the size of the plasmoid if the periodsystem is shown or not.
 void Molmasscalculator::managePeriodSystem()
 {
-    QString newIconName;
+    QString iconName;
+    KIconLoader iconLoader;
     int x, y;
 
     if ( m_showPeriodicTable ) {
-        newIconName = "arrow-down";
+        iconName = "arrow-down";
         m_PeriodWidget->show();
-        x = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().x() * 33;
-        y = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().y() * 34;
+        x = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().x() * 32;
+        y = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().y() * 33;
     } else {
-        newIconName = "arrow-right";
+        iconName = "arrow-right";
         m_PeriodWidget->hide();
         x = 300;
         y = 60;
     }
-    m_switchButton->setIcon( KIcon( newIconName ) );
+
+    m_switchButton->setIcon( iconLoader.loadIcon(iconName, KIconLoader::Small ) );
 
     m_widget->setPreferredSize( x, y );
     m_widget->resize( x, y );
