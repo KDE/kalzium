@@ -80,6 +80,8 @@
     void redraw();
 
   private:
+    QString getCurrentElementValue();
+
     /**
      * Width and height of the elements.
      */
@@ -104,7 +106,7 @@
 
     QColor m_borderColor;
 
-    double m_value;
+    QString m_textValue;
 
     KalziumElementProperty *m_property;
 

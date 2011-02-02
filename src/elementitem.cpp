@@ -78,12 +78,11 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
 
     painter->setBrush( m_brush );
 
-    QRectF rect(0, 0, m_width, m_height);
-    painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
+    painter->drawRoundedRect( boundingRect(), m_width / 10, m_width / 10 );
 
     // Drawing the text and values
     pen.setColor( m_textColor );
-    painter->setPen(pen);
+    painter->setPen( pen );
 
     QFont symbolFont;
 
@@ -93,38 +92,32 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
         symbolFont.setPointSize(12);
         symbolFont.setBold(true);
         painter->setFont(symbolFont);
-        painter->drawText(rect, Qt::AlignCenter, m_symbol);
+        painter->drawText( boundingRect(), Qt::AlignCenter, m_symbol );
         symbolFont.setPointSize(7);
         symbolFont.setBold(false);
         painter->setFont(symbolFont);
-        rect.setRect(m_width / 14, m_height / 20, m_width, m_height/2 );
-        painter->drawText(rect, Qt::AlignLeft, QString::number(m_element));
+        painter->drawText( QRectF(m_width / 14, m_height / 20, m_width, m_height/2),
+                           Qt::AlignLeft, QString::number(m_element));
         break;
 
     case KalziumElementProperty::GRADIENTVALUE:
-        rect.setRect(0, m_height / 20, m_width, m_height/2 );
-        painter->drawText(rect, Qt::AlignCenter, m_symbol);
-        rect.setRect(0, m_height / 2 - m_height / 20, m_width, m_height/2 );
+        painter->drawText( QRectF(0, m_height / 20, m_width, m_height/2),
+                           Qt::AlignCenter, m_symbol);
 
         symbolFont.setPointSize(7);
         painter->setFont(symbolFont);
 
-        if (m_value == -1) {
-            painter->drawText(rect, Qt::AlignCenter, i18n("n/a"));
-        } else {
-            painter->drawText(rect, Qt::AlignCenter, QString::number(m_value));
-        }
+        painter->drawText( QRectF(0, m_height / 2 - m_height / 20, m_width, m_height/2),
+                           Qt::AlignCenter, m_textValue);
         break;
     }
 
-    // Handle the case where the item is selected
     if (isSelected()) {
-        rect.setRect(0, 0, m_width, m_height);
-        painter->setBrush( QBrush( QColor(200,200,200,150)) );
+        painter->setBrush( QBrush( QColor(200,200,200,150) ) );
         pen.setColor(m_borderColor.darker());
         pen.setWidth(2);
-	painter->setPen(pen);
-        painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
+        painter->setPen(pen);
+        painter->drawRoundedRect( boundingRect(), m_width / 10, m_width / 10 );
     }
 }
 
@@ -133,8 +126,18 @@ void ElementItem::redraw()
     m_brush = m_property->getElementBrush(m_element);
     m_textColor = m_property->getTextColor(m_element);
     m_borderColor = m_property->getBorderColor(m_element);
-    m_value = m_property->getValue(m_element);
+    m_textValue = getCurrentElementValue();
     update();
+}
+
+QString ElementItem::getCurrentElementValue()
+{
+    double value = m_property->getValue(m_element);
+
+    if (value == -1)
+        return i18n("n/a");
+
+    return QString::number(value);
 }
 
 void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event)
