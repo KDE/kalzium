@@ -119,23 +119,18 @@ void KalziumElementProperty::setSliderValue(double slide)
 
 double KalziumElementProperty::getValue(int el) const
 {
-    if (m_currentGradient > 0) {
+    if (m_currentGradient != NOGRADIENT)
         return gradient()->value(el);
-    }
+
     return 0;
 }
 
 QColor KalziumElementProperty::getElementColor(int el)
 {
-    QColor elementColor;
+    if (m_currentGradient == NOGRADIENT)
+        return scheme()->elementBrush(el).color();
 
-    if (m_currentGradient == NOGRADIENT)  {
-        elementColor = scheme()->elementBrush(el).color();
-    } else {
-        // handel Gradient cases
-        elementColor = gradientBrushLogic( el );
-    }
-    return elementColor;
+    return gradientBrushLogic( el );
 }
 
 QBrush KalziumElementProperty::getElementBrush(int el)
@@ -152,9 +147,8 @@ QBrush KalziumElementProperty::getElementBrush(int el)
     //The iconic view is the 3rd view (0,1,2,...). Pixmaps don't make nice gradients.
     if ( m_currentScheme ==  2) {
         elementBrush =  scheme()->elementBrush(el);
-
-    // add a nice gradient
     } else {
+        // add a nice gradient
         QColor color = getElementColor(el);
         QLinearGradient grad(QPointF(0, 0), QPointF(0, 40));
         grad.setColorAt(0,color);
@@ -182,7 +176,7 @@ QColor KalziumElementProperty::getBorderColor(int el) const
     }
 
     // Transparent Borders don't make sens.
-    if (getTextColor(el) == QColor(Qt::transparent)) {
+    if ( getTextColor(el) == QColor(Qt::transparent) ) {
         return QColor(Qt::black);
     }
 
@@ -198,12 +192,14 @@ int KalziumElementProperty::getMode() const
 QColor KalziumElementProperty::gradientBrushLogic( int el ) const
 {
     QColor gradientColor;
+    bool isActiv = true;
     const double gradientValue = gradient()->value( el );
+    const double melting = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+    const double boiling = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
 
-    // Proof of concept SOM-Widget replacment. TODO make a class or something cool
-    if (m_currentGradient == SOMGradientType) {
-        const double melting = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
-        const double boiling = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+    switch ( m_currentGradient ) {
+
+    case SOMGradientType:
 
         if ( m_slider < melting ) {
             //the element is solid
@@ -220,10 +216,6 @@ QColor KalziumElementProperty::gradientBrushLogic( int el ) const
             gradientColor = Qt::lightGray;
         }
         return gradientColor;
-    }
-
-    bool isActiv = true;
-    switch ( m_currentGradient ) {
 
     case DISCOVERYDATE:
         if ( gradientValue > m_slider ) {
@@ -246,6 +238,8 @@ QColor KalziumElementProperty::gradientBrushLogic( int el ) const
     }
     return gradientColor;
 }
+
+
 
 
 #include "kalziumelementproperty.moc"
