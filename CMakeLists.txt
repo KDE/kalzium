@@ -41,6 +41,7 @@ else (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN2_FOUND)
   message(STATUS "Kalzium molecular editor disabled")
 endif (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN2_FOUND)
 
+add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(data)
 add_subdirectory(plasmoid)
