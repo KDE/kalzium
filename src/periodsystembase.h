@@ -33,6 +33,7 @@
 #include "kalziumnumerationtype.h"
 
 #include "elementitem.h"
+#include "numerationitem.h"
 #include "periodictablescene_p.h"
 
 
@@ -105,25 +106,26 @@ public slots:
     void slotUnSelectElements();
 
 private:
-    void setBiggerSceneRect();
     void setupStatesAndAnimation();
+    void setBiggerSceneRect();
 
-    /**
-    * Width and height of the elements.
-    */
+    void createNumerationItems();
+    void hideAllNumerationItems(int tableIndex);
+
     int m_width, m_height;
 
-    int m_tableTyp;
+    int m_currentTableInex;
 
-    QPoint m_maxCoords;
+    QPoint m_hiddenPoint;
 
     QStateMachine m_states;
     QParallelAnimationGroup *m_group;
 
-    QList<QState *> m_tableStates;
-    QList<ElementItem *> m_elementItems;
+    QList<NumerationItem *> m_numerationItemList;
 
-    PeriodicTableScene *m_table;
+    QList<QState *> m_tableStatesList;
+
+    PeriodicTableScene *m_tableScene;
 
 protected:
     /**

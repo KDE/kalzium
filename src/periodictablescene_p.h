@@ -44,11 +44,12 @@ class PeriodicTableScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    /**
-     * Constructor.
-     */
     PeriodicTableScene(QObject *parent = 0);
     ~PeriodicTableScene();
+
+    void addObject(QGraphicsObject *object);
+
+    QList<QGraphicsObject*> objects() const;
 
 Q_SIGNALS:
     /**
@@ -68,31 +69,18 @@ private Q_SLOTS:
     void slotMouseover();
 
 private:
+    QList<QGraphicsObject*> itemList;
+
     QTimer m_hoverTimer;
     int m_prevHoverElement;
     QPointF m_eventPos;
 
 protected:
-    /**
-     * Generic event handler, currently defaults to calling parent class
-     * (included for future compatibility)
-     */
     bool event(QEvent *e);
-
-    /**
-     * Handles the mouse press events to change the active element.
-     */
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-
-    /**
-     * Not used at present.
-     */
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-
-    /**
-     * Opens the Detailed view of the element.
-     */
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+
 };
 
 

@@ -26,7 +26,6 @@
 #include "psetables.h"
 #include "statemachine.h"
 #include "periodsystembase.h"
-#include "numerationitem.h"
 #include <prefs.h>
 
 periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
@@ -38,26 +37,25 @@ periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
 
     setMouseTracking( true );
 
-    m_tableTyp = Prefs::table();
-    m_maxCoords = pseTables::instance()->getTabletype( m_tableTyp )->coordsMax();
+    m_currentTableInex = Prefs::table();
+    m_hiddenPoint = QPoint(-40, -400);
 
-    m_table = new PeriodicTableScene(this);
-    m_table->setItemIndexMethod(QGraphicsScene::NoIndex);
-    m_table->setBackgroundBrush(Qt::white);
+    m_tableScene = new PeriodicTableScene(this);
+    m_tableScene->setItemIndexMethod(QGraphicsScene::NoIndex);
+    m_tableScene->setBackgroundBrush(Qt::white);
 
     foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
         ElementItem *item = new ElementItem(elProperty, intElement);
         connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
-        m_elementItems << item;
-        m_table->addItem(item);
+        m_tableScene->addObject(item);
     }
 
     QPalette widgetPalette = palette();
-    m_table->setBackgroundBrush(QBrush(widgetPalette.window()));
+    m_tableScene->setBackgroundBrush(QBrush(widgetPalette.window()));
 
-    setScene(m_table);
+    setScene(m_tableScene);
 
-    connect(m_table, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
+    connect(m_tableScene, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
 
     setupStatesAndAnimation();
 
@@ -68,7 +66,8 @@ periodSystem::~periodSystem()
 {
     delete scene();
     delete m_group;
-    qDeleteAll(m_tableStates);
+    qDeleteAll(m_tableStatesList);
+//     qDeleteAll(m_numerationItemList);
 }
 
 void periodSystem::setupStatesAndAnimation()
@@ -76,32 +75,24 @@ void periodSystem::setupStatesAndAnimation()
     StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
     m_group= new QParallelAnimationGroup;
 
-    // Creating Nummerationitems here, we use the classic periodic table (0) as reference (18 in a row)
-    QList<NumerationItem *> numerationItems;
-    for (int j = 0; j < pseTables::instance()->getTabletype( 0 )->coordsMax().x(); ++j) {
-        numerationItems << new NumerationItem( j );
-        m_table->addItem(numerationItems.at( j ));
-        connect(this, SIGNAL(numerationChange(int)), numerationItems.at(j), SLOT(setNumerationType(int)));
-    }
+    createNumerationItems();
 
     // For every Tabletyp the Position of the Elements are set up.
-    for (int j = 0; j < pseTables::instance()->tables().count(); ++j)
-    {
-        m_tableStates << new QState(stateSwitcher);
+    for (int tableIndex = 0; tableIndex < pseTables::instance()->tables().count(); ++tableIndex) {
+
+        m_tableStatesList << new QState(stateSwitcher);
 
         // First hide every numerationitem. It's easyer this way. Feel free to finde a better solution;)
-        for (int i = 0; i < numerationItems.count(); ++i) {
-            m_tableStates.at(j)->assignProperty(numerationItems.at( i ), "pos", QPointF( -m_width, -10 * m_width));
-        }
+        hideAllNumerationItems( tableIndex );
 
         // Adding position of Nummeration for each tabletyp
-        for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); ++i) {
-            int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
+        for (int i = 0; i < pseTables::instance()->getTabletype( tableIndex )->coordsMax().x() || i < m_numerationItemList.count(); ++i) {
+            int itemAtPos = pseTables::instance()->getTabletype( tableIndex )->numeration( i );
 
             if ( itemAtPos > 0 ) {
-                m_tableStates.at(j)->assignProperty(numerationItems.at(itemAtPos - 1), "pos", QPointF( i * m_width, m_height / 4));
+                m_tableStatesList.at( tableIndex )->assignProperty(m_numerationItemList.at(itemAtPos - 1), "pos", QPointF( i * m_width, m_height / 4));
                 // Animation for each element
-                QPropertyAnimation *anim = new QPropertyAnimation(numerationItems.at(itemAtPos - 1), "pos");
+                QPropertyAnimation *anim = new QPropertyAnimation(m_numerationItemList.at(itemAtPos - 1), "pos");
                 anim->setDuration( 1500 + i * 2);
                 anim->setEasingCurve(QEasingCurve::InOutExpo);
                 m_group->addAnimation(anim);
@@ -109,54 +100,69 @@ void periodSystem::setupStatesAndAnimation()
         }
 
         // Values for each Element
-        for (int i = 0; i < m_elementItems.count(); ++i) {
-            ElementItem *item = m_elementItems.at(i);
-
-            QPoint coords = pseTables::instance()->getTabletype( j )->elementCoords( i + 1 );
+        for (int i = 0; i < m_tableScene->objects().count(); ++i) {
+            QPoint coords = pseTables::instance()->getTabletype( tableIndex )->elementCoords( i + 1 );
 
             // put the not needed elements a bit away
             if ( coords.x() == 0) {
-                coords.setX(-1);
-                coords.setY(-10);
+                coords = m_hiddenPoint;
             }
 
-            m_tableStates.at(j)->assignProperty(item, "pos", QPointF((coords.x()-1) * m_width, (coords.y()) * m_height));
+            m_tableStatesList.at( tableIndex )->assignProperty( m_tableScene->objects().at(i), "pos",
+                    QPointF((coords.x()-1) * m_width, (coords.y()) * m_height));
 
             // Animation for each element
-            QPropertyAnimation *anim = new QPropertyAnimation(m_elementItems.at(i), "pos");
+            QPropertyAnimation *anim = new QPropertyAnimation( m_tableScene->objects().at(i), "pos" );
             anim->setDuration( 1600 + i * 2);
             anim->setEasingCurve(QEasingCurve::InOutExpo);
             m_group->addAnimation(anim);
         }
         // Finally add the states to the statemachine
-        stateSwitcher->addState(m_tableStates.at(j), m_group, j);
+        stateSwitcher->addState(m_tableStatesList.at( tableIndex ), m_group, tableIndex);
     }
 
     connect(this , SIGNAL(tableChanged(int)), stateSwitcher, SLOT(slotSwitchState(int)));
 
     m_states.setInitialState(stateSwitcher);
-    stateSwitcher->setInitialState(m_tableStates.at(m_tableTyp));
+    stateSwitcher->setInitialState( m_tableStatesList.at( m_currentTableInex ) );
     m_states.start();
+}
+
+void periodSystem::createNumerationItems() {
+    // Creating Nummerationitems here, we use the classic periodic table (0) as reference (18 in a row)
+    const int xMax = pseTables::instance()->getTabletype( 0 )->coordsMax().x();
+
+    for (int i = 0; i < xMax; ++i) {
+        m_numerationItemList << new NumerationItem( i );
+        m_tableScene->addItem( m_numerationItemList.at( i ) );
+        connect(this, SIGNAL(numerationChange(int)), m_numerationItemList.at( i ), SLOT(setNumerationType(int)));
+    }
+}
+
+void periodSystem::hideAllNumerationItems(int tableIndex) {
+    foreach( NumerationItem *item, m_numerationItemList) {
+        m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( m_hiddenPoint ));
+    }
 }
 
 
 PeriodicTableScene* periodSystem::pseScene() const
 {
-    return  m_table;
+    return  m_tableScene;
 }
 
 int periodSystem::table() const
 {
-    return m_tableTyp;
+    return m_currentTableInex;
 }
 
 void periodSystem::slotChangeTable(int table)
 {
-    Prefs::setTable(table);
-    m_tableTyp = table;
-    m_maxCoords = pseTables::instance()->getTabletype( m_tableTyp )->coordsMax();
+    m_currentTableInex = table;
+    Prefs::setTable( m_currentTableInex );
+
     setBiggerSceneRect();
-    emit tableChanged(m_tableTyp);
+    emit tableChanged( m_currentTableInex );
 }
 
 void periodSystem::slotSelectElement(int element)
@@ -164,43 +170,36 @@ void periodSystem::slotSelectElement(int element)
     slotUnSelectElements();
 
     if (element > 0) {
-        m_elementItems.at(--element)->setSelected(true);
+        m_tableScene->items().at(--element)->setSelected(true);
     }
 }
 
 void periodSystem::slotUnSelectElements()
 {
-    foreach ( QGraphicsItem *item , m_table->selectedItems()) {
+    foreach ( QGraphicsItem *item , m_tableScene->selectedItems()) {
         item->setSelected( false );
     }
-}
-
-void periodSystem::setBiggerSceneRect()
-{
-    QRectF newRect(0, 0, m_table->sceneRect().width(), m_table->sceneRect().height());
-
-    if (m_table->sceneRect().width() < m_maxCoords.x() * m_width) {
-        newRect.setWidth((m_maxCoords.x() + 1) * m_width);
-    }
-
-    if ( m_table->sceneRect().height() < m_maxCoords.y() * m_height ) {
-        newRect.setHeight((m_maxCoords.y() + 2) * m_height );
-    }
-
-    m_table->setSceneRect(newRect);
-}
-
-void periodSystem::fitPseInView()
-{
-    if (operator!=(m_table->sceneRect(), QRectF(0, 0, m_maxCoords.x() * m_width, (m_maxCoords.y() + 1) * m_height)) ) {
-        m_table->setSceneRect(0, 0, m_maxCoords.x() * m_width, (m_maxCoords.y() + 1) * m_height);
-    }
-    fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
 bool periodSystem::event(QEvent *e)
 {
     return QGraphicsView::event(e);
+}
+
+void periodSystem::setBiggerSceneRect()
+{
+    QRectF newRect(0, 0, sceneRect().width(), sceneRect().height());
+    const QPoint maxCoords = pseTables::instance()->getTabletype( m_currentTableInex )->coordsMax();
+
+    if (sceneRect().width() < maxCoords.x() * m_width) {
+        newRect.setWidth((maxCoords.x() + 1) * m_width);
+    }
+
+    if ( sceneRect().height() < maxCoords.y() * m_height ) {
+        newRect.setHeight((maxCoords.y() + 1) * m_height );
+    }
+
+    setSceneRect(newRect);
 }
 
 void periodSystem::resizeEvent ( QResizeEvent * event )
@@ -209,14 +208,27 @@ void periodSystem::resizeEvent ( QResizeEvent * event )
     QGraphicsView::resizeEvent(event);
 }
 
+void periodSystem::fitPseInView()
+{
+    const QPoint maxCoords = pseTables::instance()->getTabletype( m_currentTableInex )->coordsMax();
+    if (operator!=(sceneRect(), QRectF(0, 0, maxCoords.x() * m_width, (maxCoords.y() + 1) * m_height)) ) {
+        setSceneRect(0, 0, maxCoords.x() * m_width, (maxCoords.y() + 1) * m_height);
+    }
+    fitInView(sceneRect(), Qt::KeepAspectRatio);
+}
+
 void periodSystem::generateSvg(const QString& filename)
 {
     QSvgGenerator *svgGen = new QSvgGenerator();
     svgGen->setFileName( filename );
 
+    const QPoint maxCoords = pseTables::instance()->getTabletype( m_currentTableInex )->coordsMax();
+
     QPainter painter;
     painter.begin( svgGen );
-    render( &painter , QRectF(0 , m_height, ( m_maxCoords.x() + 2.5) * m_width, (m_maxCoords.y() + 2.5) * m_height), QRect(0 , m_height, ( m_maxCoords.x() + 2.5) * m_width, (m_maxCoords.y() + 2.5) * m_height));
+    render( &painter ,
+            QRectF(0 , m_height, ( maxCoords.x() + 2.5) * m_width, (maxCoords.y() + 2.5) * m_height),
+            QRect(0 , m_height, ( maxCoords.x() + 2.5) * m_width, (maxCoords.y() + 2.5) * m_height));
     painter.rotate(180);
     painter.end();
 
