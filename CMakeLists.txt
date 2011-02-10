@@ -25,13 +25,6 @@ include(MacroBoolTo01)
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} libscience)
 
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
-
-set(CMAKE_MODULE_PATH ${cantor_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
-
-include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} ${QT4_INCLUDES})
-
 kde4_no_enable_final(kalzium)
 
 include(KalziumConfigureChecks.cmake)
