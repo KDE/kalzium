@@ -122,8 +122,8 @@ class nuclearCalculator : public Plasma::PopupApplet
     // will be added soon
 
     protected:
-        void createNuclearConfigurationInterface(KConfigDialog *parent);
-        void nuclearConfigAccepted();
+        void createConfigurationInterface(KConfigDialog *parent);
+        void configAccepted();
     private:
     Converter *m_converter;
         QGraphicsWidget  *m_widget;

@@ -638,16 +638,20 @@ void nuclearCalculator::error( int mode)
     }
 }
 
-void nuclearCalculator::createNuclearConfigurationInterface(KConfigDialog *parent)
+void nuclearCalculator::createConfigurationInterface(KConfigDialog *parent)
 {
     QWidget *widget = new QWidget();
     ui.setupUi(widget);
     parent->addPage(widget, i18n("General"), icon());
 
     ui.massOnly->setChecked(m_massOnly);
+    
+    connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configAccepted() ) );
+    connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
+    connect (ui.massOnly, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 
-void nuclearCalculator::nuclearConfigAccepted()
+void nuclearCalculator::configAccepted()
 {
     KConfigGroup cg = config();
     QGraphicsItem::update();
