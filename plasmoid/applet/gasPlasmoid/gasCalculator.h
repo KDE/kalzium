@@ -168,7 +168,7 @@ class gasCalculator : public Plasma::PopupApplet
         //( Unit conversion library not available for the following quantities)
         double m_Vand_A;                    // Vander val's constant a
 
-        int m_mode;							// mode of calculation
+        int m_mode;			    // mode of calculation
 
         /// Designer Config file
         Ui::gasCalculatorConfig ui;

@@ -655,6 +655,7 @@ void gasCalculator::createConfigurationInterface(KConfigDialog *parent)
 
     connect(parent, SIGNAL(applyClicked()), this, SLOT(gasConfigAccepted()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(gasConfigAccepted()));
+    connect (ui.ideal, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 
 void gasCalculator::gasConfigAccepted()
