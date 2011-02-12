@@ -1285,6 +1285,9 @@ void concentrationCalculator::createConfigurationInterface(KConfigDialog *parent
 
     connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
+    
+    connect (ui.soluteMass, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+    connect (ui.solventVolume, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 
 void concentrationCalculator::configAccepted()
