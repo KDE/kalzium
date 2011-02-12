@@ -225,6 +225,10 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
 
     connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configAccepted() ) );
     connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
+    
+    connect (m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+    connect (m_ui.pasteToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+    connect (m_ui.tabletyp, SIGNAL(currentIndexChanged(QString)), parent, SLOT(settingsModified()));
 }
 
 void Molmasscalculator::configAccepted()
