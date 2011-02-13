@@ -41,8 +41,6 @@ periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
     m_hiddenPoint = QPoint(-40, -400);
 
     m_tableScene = new PeriodicTableScene(this);
-    m_tableScene->setItemIndexMethod(QGraphicsScene::NoIndex);
-    m_tableScene->setBackgroundBrush(Qt::white);
 
     createNumerationItems();
 
@@ -52,9 +50,6 @@ periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
         connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
         m_tableScene->addObject(item);
     }
-
-    QPalette widgetPalette = palette();
-    m_tableScene->setBackgroundBrush(QBrush(widgetPalette.window()));
 
     setScene(m_tableScene);
 
@@ -99,7 +94,6 @@ void periodSystem::setupStatesAndAnimation()
 
     connect(this , SIGNAL(tableChanged(int)), stateSwitcher, SLOT(slotSwitchState(int)));
 
-    m_states.setInitialState(stateSwitcher);
     stateSwitcher->setInitialState( m_tableStatesList.at( m_currentTableInex ) );
     m_states.start();
 }
@@ -118,10 +112,10 @@ void periodSystem::setNumerationItemPositions( int tableIndex )
     }
 }
 
-void periodSystem::hideAllNumerationItems(int tableIndex) {
-    foreach( NumerationItem *item, m_numerationItemList) {
-        m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( m_hiddenPoint ));
-    }
+void periodSystem::hideAllNumerationItems(int tableIndex)
+{
+    foreach( NumerationItem *item, m_numerationItemList)
+    m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( m_hiddenPoint ));
 }
 
 int periodSystem::maxNumerationItemXCoordinate(int tableIndex)
@@ -174,20 +168,22 @@ void periodSystem::slotChangeTable(int table)
     emit tableChanged( m_currentTableInex );
 }
 
-void periodSystem::slotSelectElement(int element)
+void periodSystem::slotSelectOneElement(int element)
 {
     slotUnSelectElements();
+    slotSelectAdditionalElement( element );
+}
 
-    if (element > 0) {
-        m_tableScene->items().at(--element)->setSelected(true);
-    }
+void periodSystem::slotSelectAdditionalElement(int element)
+{
+    if (element > 0)
+        m_tableScene->items().at( --element )->setSelected( true );
 }
 
 void periodSystem::slotUnSelectElements()
 {
-    foreach ( QGraphicsItem *item , m_tableScene->selectedItems()) {
-        item->setSelected( false );
-    }
+    foreach ( QGraphicsItem *item , m_tableScene->selectedItems())
+    item->setSelected( false );
 }
 
 bool periodSystem::event(QEvent *e)
@@ -244,13 +240,11 @@ void periodSystem::generateSvg(const QString& filename)
     delete svgGen;
 }
 
-
 periodSystem::~periodSystem()
 {
     delete scene();
     delete m_group;
     qDeleteAll(m_tableStatesList);
-//     qDeleteAll(m_numerationItemList);
 }
 
 #include "periodsystembase.moc"

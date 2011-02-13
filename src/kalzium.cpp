@@ -614,7 +614,7 @@ void Kalzium::openInformationDialog( int number )
         connect(m_infoDialog, SIGNAL(hidden()),
                 m_periodicTable, SLOT(slotUnSelectElements()));
         connect(m_infoDialog, SIGNAL(elementChanged(int)),
-                m_periodicTable, SLOT(slotSelectElement(int)));
+                m_periodicTable, SLOT(slotSelectOneElement(int)));
         connect(m_infoDialog, SIGNAL(elementChanged(int)),
                 this, SLOT(elementHover(int)));
     }

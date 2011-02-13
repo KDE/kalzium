@@ -39,6 +39,11 @@
 PeriodicTableScene::PeriodicTableScene(QObject *parent)
         : QGraphicsScene(parent)
 {
+    QPalette widgetPalette = palette();
+    setBackgroundBrush(QBrush(widgetPalette.window()));
+
+    setItemIndexMethod(QGraphicsScene::NoIndex);
+
     m_hoverTimer.setSingleShot( true );
     connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
 }

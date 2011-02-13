@@ -95,11 +95,16 @@ public slots:
      */
     void fitPseInView();
     /**
-     * Elements can be selected with this function.
+     * One Element can be selected with this function.
      * The selection is only a graphical feedback for the user.
      * @param element number of the element.
      */
-    void slotSelectElement(int element);
+    void slotSelectOneElement(int element);
+    /**
+     * Selects an Element.
+     * @param element number of the element.
+     */
+    void slotSelectAdditionalElement(int element);
     /**
      * Unselects all elements
      */
