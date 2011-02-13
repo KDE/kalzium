@@ -110,7 +110,17 @@ private:
     void setBiggerSceneRect();
 
     void createNumerationItems();
+    void createElementItems();
+
+    /// Adding position of Nummeration for each tabletyp
+    void setNumerationItemPositions(int tableIndex);
     void hideAllNumerationItems(int tableIndex);
+    int maxNumerationItemXCoordinate(int tableIndex);
+
+    void addElementAnimation(QGraphicsObject *object, int factor = 1);
+
+    void setElementItemPositions(int tableIndex);
+
 
     int m_width, m_height;
 
