@@ -46,7 +46,7 @@ public:
      * @param elementProperty The elementProperty class
      * @param parent The parent of this widget
      */
-    GradientWidgetImpl(KalziumElementProperty *elementProperty, QWidget *parent = 0 );
+    GradientWidgetImpl( QWidget *parent = 0 );
     virtual ~GradientWidgetImpl();
 
   Q_SIGNALS:
@@ -74,8 +74,6 @@ private slots:
     void setNewValue(double newValue);
 
 private:
-
-    KalziumElementProperty *m_elementProperty;
     QList<Element*> m_list;
     int m_prevUnit;
 

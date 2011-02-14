@@ -105,15 +105,14 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     SearchWidget *searchWidget = new SearchWidget( pseTempWidget );
     searchWidget->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum));
 
-    // Holds the propertys (Colors, Border) of the elementitems.
-    m_elementProperty = new KalziumElementProperty();
-
     // Creating the periodic table
-    m_periodicTable = new periodSystem( m_elementProperty, pseTempWidget );
+    m_periodicTable = new periodSystem( pseTempWidget );
 
     // Connecting the search to the periodic table
-    connect( newsearch, SIGNAL( searchChanged() ), m_elementProperty, SLOT( redrawPse() ) );
-    connect( newsearch, SIGNAL( searchReset() ), m_elementProperty, SLOT( redrawPse() ) );
+    connect( newsearch, SIGNAL( searchChanged() ),
+             KalziumElementProperty::instance(), SLOT( redrawPse() ) );
+    connect( newsearch, SIGNAL( searchReset() ),
+             KalziumElementProperty::instance(), SLOT( redrawPse() ) );
 
     layout->addWidget( searchWidget );
     layout->addWidget( m_periodicTable );
@@ -154,8 +153,8 @@ void Kalzium::setupActions()
     connect( export_action, SIGNAL( triggered( bool ) ), this, SLOT( slotShowExportDialog() ) );
 
     // the action for swiching look: color schemes and gradients
-    QStringList schemes = m_elementProperty->schemeList();    /*KalziumSchemeTypeFactory::instance()->schemes();*/
-    QStringList gradients = m_elementProperty->gradientList();
+    QStringList schemes = KalziumElementProperty::instance()->schemeList();    /*KalziumSchemeTypeFactory::instance()->schemes();*/
+    QStringList gradients = KalziumElementProperty::instance()->gradientList();
 
     // the action for swiching look: schemes
     look_action_schemes = actionCollection()->add<KSelectAction>( "view_look_onlyschemes" );
@@ -302,7 +301,6 @@ void Kalzium::setupSidebars()
     m_legendDock = new QDockWidget( i18n("Legend"), this );
     m_legendDock->setObjectName( QLatin1String( "kalzium-legend" ) );
     m_legendDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
-    m_legendWidget->setElementProperty(m_elementProperty);
     m_legendDock->setWidget(m_legendWidget);
 
     m_TableInfoWidget = new TableInfoWidget( this );
@@ -320,15 +318,16 @@ void Kalzium::setupSidebars()
     m_toolbox = new QToolBox( m_dockWin );
     m_dockWin->setWidget( m_toolbox );
 
-    m_detailWidget = new DetailedGraphicalOverview( m_elementProperty, m_toolbox );
+    m_detailWidget = new DetailedGraphicalOverview( m_toolbox );
     m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
     m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
 
     m_toolbox->addItem( m_detailWidget, KIcon( "overview" ), i18n( "Overview" ) );
 
-    m_gradientWidget = new GradientWidgetImpl( m_elementProperty, m_toolbox );
+    m_gradientWidget = new GradientWidgetImpl( m_toolbox );
     m_gradientWidget->setObjectName( "viewtWidget" );
-    connect( m_gradientWidget, SIGNAL( gradientValueChanged( double ) ), m_elementProperty, SLOT( setSliderValue( double ) ) );
+    connect( m_gradientWidget, SIGNAL( gradientValueChanged( double ) ),
+             KalziumElementProperty::instance(), SLOT( setSliderValue( double ) ) );
     connect( m_gradientWidget->scheme_combo, SIGNAL( currentIndexChanged(int)), this, SLOT( slotSwitchtoLookScheme(int)));
     connect( m_gradientWidget->gradient_combo, SIGNAL( currentIndexChanged(int)), this, SLOT( slotSwitchtoLookGradient(int)));
 
@@ -469,7 +468,7 @@ void Kalzium::slotSwitchtoLookGradient( int which )
 {
     kDebug() << "slotSwitchtoLookGradient Kalzium";
 
-    m_elementProperty->setGradient(which);
+    KalziumElementProperty::instance()->setGradient(which);
 
     look_action_gradients->blockSignals( true );
     m_gradientWidget->gradient_combo->blockSignals( true );
@@ -489,7 +488,7 @@ void Kalzium::slotSwitchtoLookScheme( int which )
 {
     kDebug() << "slotSwitchtoLookScheme Kalzium";
 
-    m_elementProperty->setScheme( which );
+    KalziumElementProperty::instance()->setScheme( which );
 
     m_gradientWidget->scheme_combo->blockSignals( true );
     look_action_schemes->blockSignals( true );
@@ -521,7 +520,7 @@ void Kalzium::showSettingsDialog()
     ui_colors.setupUi( w_colors );
     dialog->addPage( w_colors, i18n( "Schemes" ), "preferences-desktop-color" );
 
-     // gradients page
+    // gradients page
     Ui_setupGradients ui_gradients;
     QWidget *w_gradients = new QWidget( 0 );
     w_gradients->setObjectName( "gradients_page" );
@@ -635,7 +634,6 @@ Kalzium::~Kalzium()
     delete m_dockWin;
     delete m_legendDock;
     delete m_tableDock;
-    delete m_elementProperty;
 }
 
 QSize Kalzium::sizeHint() const
@@ -646,7 +644,7 @@ QSize Kalzium::sizeHint() const
 
 // void Kalzium::keyPressEvent( QKeyEvent *e)
 // {
-    // FIXME makes kalzium crash:( don't know why...
+// FIXME makes kalzium crash:( don't know why...
 
 //     if (e->text() != QString()) {
 //         m_searchWidget->appendSearchText( e->text() );

@@ -49,8 +49,6 @@ private:
 
     QPixmap m_pixmap;
 
-    KalziumElementProperty *m_elementProerty;
-
     QList<LegendItem*> m_legendItemList;
 
     Qt::DockWidgetArea m_dockArea;
@@ -59,8 +57,6 @@ private:
 
 public slots:
     void updateContent();
-
-    void setElementProperty( KalziumElementProperty *propety);
 
     void setDockArea(Qt::DockWidgetArea newDockArea);
 };

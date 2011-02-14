@@ -40,8 +40,11 @@ class KalziumElementProperty : public QObject
     Q_OBJECT
 
 public:
-    KalziumElementProperty();
-    ~KalziumElementProperty();
+
+    /**
+    * Get the instance of this factory.
+    */
+    static KalziumElementProperty* instance();
 
     enum ELEMENTTEXTINFORMATIONMODE
     {
@@ -52,9 +55,9 @@ public:
 
     enum SPECIALGRADIENTYPDEF
     {
-       NOGRADIENT = 0,
-       SOMGradientType = 1,
-       DISCOVERYDATE = 9
+        NOGRADIENT = 0,
+        SOMGradientType = 1,
+        DISCOVERYDATE = 9
     };
 
     /**
@@ -153,6 +156,9 @@ public slots:
     void redrawPse();
 
 private:
+    KalziumElementProperty();
+    ~KalziumElementProperty();
+
     QColor gradientBrushLogic(int el) const;
     KalziumSchemeTypeFactory *m_scheme;
     KalziumGradientTypeFactory *m_gradient;

@@ -34,12 +34,6 @@ LegendWidget::LegendWidget( QWidget *parent )
     m_dockArea = Qt::BottomDockWidgetArea;
 }
 
-void LegendWidget::setElementProperty(KalziumElementProperty* propety)
-{
-    m_elementProerty = propety;
-    updateContent();
-}
-
 void LegendWidget::setDockArea( Qt::DockWidgetArea newDockArea )
 {
     kDebug() << "dock Area changed" << newDockArea;
@@ -63,32 +57,45 @@ void LegendWidget::updateContent()
     if (m_update) {
         QString gradientDesc;
         QList< QPair<QString, QColor> > items;
+        KalziumElementProperty *elementProperty = KalziumElementProperty::instance();
         // Handle different Gradients
-        switch ( m_elementProerty->gradientId() ) {
+        switch ( elementProperty->gradientId() ) {
         case KalziumElementProperty::NOGRADIENT: // None
             break;
 
         case KalziumElementProperty::SOMGradientType:
-            items << qMakePair( m_elementProerty->gradient()->description(), QColor());
-            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Solid" ), QColor( Prefs::color_solid() ));
-            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Liquid" ), QColor( Prefs::color_liquid() ) );
-            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Vaporous" ), QColor( Prefs::color_vapor() ) );
-            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Unknown" ), QColor( Qt::lightGray ) );
+            items << qMakePair( elementProperty->gradient()->description(), QColor());
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)",
+                                      "Solid" ), QColor( Prefs::color_solid() ));
+
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)",
+                                      "Liquid" ), QColor( Prefs::color_liquid() ) );
+
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)",
+                                      "Vaporous" ), QColor( Prefs::color_vapor() ) );
+
+            items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)",
+                                      "Unknown" ), QColor( Qt::lightGray ) );
             break;
 
         default:
-            if (m_elementProerty->gradient()->logarithmicGradient())
+            if (elementProperty->gradient()->logarithmicGradient())
                 gradientDesc = i18nc("one of the two types of gradients available", "logarithmic");
             else
                 gradientDesc = i18nc("one of the two types of gradients available", "linear");
-            items << qMakePair( i18n( "%1 (%2)" ,m_elementProerty->gradient()->description(), gradientDesc ), QColor() );
-            items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , QString::number(m_elementProerty->gradient()->minValue()) + " " + m_elementProerty->gradient()->unit()), QColor( m_elementProerty->gradient()->firstColor() ));
-            items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , QString::number(m_elementProerty->gradient()->maxValue()) + " " + m_elementProerty->gradient()->unit()), QColor( m_elementProerty->gradient()->secondColor() ));
+            items << qMakePair( i18n( "%1 (%2)" ,elementProperty->gradient()->description(), gradientDesc ), QColor() );
+            items << qMakePair( i18nc( "Minimum value of the gradient" ,
+                                       "Minimum: %1" , QString::number(elementProperty->gradient()->minValue()) + " " + elementProperty->gradient()->unit()),
+                                QColor( elementProperty->gradient()->firstColor() ));
+
+            items << qMakePair( i18nc( "Maximum value of the gradient" ,
+                                       "Maximum: %1" , QString::number(elementProperty->gradient()->maxValue()) + " " + elementProperty->gradient()->unit()),
+                                QColor( elementProperty->gradient()->secondColor() ));
             break;
         }
         // schemes are always there
-        items << qMakePair( i18n( "Scheme: %1" ,m_elementProerty->scheme()->description() ), QColor() );
-        items << m_elementProerty->scheme()->legendItems();
+        items << qMakePair( i18n( "Scheme: %1" ,elementProperty->scheme()->description() ), QColor() );
+        items << elementProperty->scheme()->legendItems();
 
         updateLegendItemLayout( items );
     }

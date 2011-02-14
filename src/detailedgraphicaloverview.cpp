@@ -33,10 +33,9 @@ email                : cniehaus@kde.org
 #include <element.h>
 #include "prefs.h"
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( KalziumElementProperty *elementProperty, QWidget *parent )
+DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
         : QWidget( parent ), m_element(0)
 {
-    m_elementproperty = elementProperty;
     setAttribute( Qt::WA_NoBackground, true );
 
     setMinimumSize( 300, 200 );
@@ -48,7 +47,7 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( KalziumElementProperty *el
 void DetailedGraphicalOverview::setElement( int el )
 {
     m_element = KalziumDataObject::instance()->element( el );
-    setBackgroundColor( m_elementproperty->getElementColor( el ) );
+    setBackgroundColor( KalziumElementProperty::instance()->getElementColor( el ) );
     update();
 }
 

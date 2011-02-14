@@ -53,7 +53,7 @@ class periodSystem : public QGraphicsView
 {
     Q_OBJECT
 public:
-    periodSystem(KalziumElementProperty *elProperty, QWidget *parent = 0);
+    periodSystem(QWidget *parent = 0);
     ~periodSystem();
 
     /**

@@ -70,12 +70,6 @@ private:
     periodSystem *m_periodicTable;
 
     /**
-     * Key class that holds the Data for each elementItem
-     * according to the selected scheme or gradient.
-     */
-    KalziumElementProperty *m_elementProperty;
-
-    /**
      *initialize actions
      */
     void setupActions();

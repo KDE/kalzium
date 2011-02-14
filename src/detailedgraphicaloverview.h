@@ -37,7 +37,7 @@ public:
      *
      * @param parent the parent of this widget
      */
-    DetailedGraphicalOverview( KalziumElementProperty *elementProperty, QWidget *parent );
+    DetailedGraphicalOverview( QWidget *parent );
 
 public slots:
     /**
@@ -60,9 +60,6 @@ private:
      * The background color.
      */
     QBrush m_backgroundBrush;
-
-
-    KalziumElementProperty *m_elementproperty;
 
 protected:
     virtual void paintEvent( QPaintEvent* );

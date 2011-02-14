@@ -25,7 +25,12 @@
 #include "klocale.h"
 
 #include <prefs.h>
-#include "qdebug.h"
+
+KalziumElementProperty* KalziumElementProperty::instance()
+{
+    static KalziumElementProperty elementProperty;
+    return &elementProperty;
+}
 
 KalziumElementProperty::KalziumElementProperty()
         : m_mode(0)
@@ -238,8 +243,6 @@ QColor KalziumElementProperty::gradientBrushLogic( int el ) const
     }
     return gradientColor;
 }
-
-
 
 
 #include "kalziumelementproperty.moc"

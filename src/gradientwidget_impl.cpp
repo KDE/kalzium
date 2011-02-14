@@ -28,17 +28,15 @@
 // used to convert the double variables to int's. (slider <-> spinbox)
 #define MULTIPLIKATOR 1000
 
-GradientWidgetImpl::GradientWidgetImpl( KalziumElementProperty *elementProperty, QWidget *parent )
+GradientWidgetImpl::GradientWidgetImpl( QWidget *parent )
         : QWidget( parent ), m_play(false)
 {
     setupUi( this );
 
-    m_elementProperty = elementProperty;
-
     m_list = KalziumDataObject::instance()->ElementList;
 
-    scheme_combo->addItems( elementProperty->schemeList() );
-    gradient_combo->addItems( elementProperty->gradientList() );
+    scheme_combo->addItems( KalziumElementProperty::instance()->schemeList() );
+    gradient_combo->addItems( KalziumElementProperty::instance()->gradientList() );
 
     m_prevUnit = TempUnit::Kelvin;
 
@@ -73,12 +71,13 @@ void GradientWidgetImpl::slotGradientChanged()
         Play->setEnabled(true);
     }
 
-    double dblMax = m_elementProperty->gradient()->maxValue();
-    double dblMin = m_elementProperty->gradient()->minValue();
+    KalziumElementProperty *elementProperty = KalziumElementProperty::instance();
+    double dblMax = elementProperty->gradient()->maxValue();
+    double dblMin = elementProperty->gradient()->minValue();
 
     // TODO a nice global unittype-settings assossiaton class.     // TODO make a universal unit class or lets chemicaldataobject have all units.
     // TODO Energy is also a settingoption. eV, kJ/mol
-    QString unitSymbol = m_elementProperty->gradient()->unit();
+    QString unitSymbol = elementProperty->gradient()->unit();
     if (unitSymbol == QString("K")) {
         unitSymbol = TempUnit::unitListSymbol( Prefs::temperatureUnit() );
         dblMax = TempUnit::convert( dblMax, (int)TempUnit::Kelvin, Prefs::temperatureUnit());
@@ -100,9 +99,9 @@ void GradientWidgetImpl::slotGradientChanged()
 
     gradient_spinbox->setMaximum(dblMax);
     gradient_spinbox->setMinimum(dblMin);
-    gradient_spinbox->setDecimals(m_elementProperty->gradient()->decimals());
+    gradient_spinbox->setDecimals(elementProperty->gradient()->decimals());
 
-    switch ( m_elementProperty->gradientId() ) {
+    switch ( elementProperty->gradientId() ) {
     case KalziumElementProperty::DISCOVERYDATE:
         gradient_spinbox->setValue(dblMax);
         break;
@@ -142,7 +141,7 @@ void GradientWidgetImpl::doubleToSlider(double var)
     gradient_slider->blockSignals( false );
 
 
-    QString unitSymbol = m_elementProperty->gradient()->unit();
+    QString unitSymbol = KalziumElementProperty::instance()->gradient()->unit();
     // converting back Temperature values to Kelvin.
     if (unitSymbol == QString("K")) {
         var = TempUnit::convert( var, Prefs::temperatureUnit(), (int)TempUnit::Kelvin);
@@ -165,7 +164,7 @@ void GradientWidgetImpl::intToSpinbox(int var)
 
     gradient_spinbox->blockSignals( false );
 
-    QString unitSymbol = m_elementProperty->gradient()->unit();
+    QString unitSymbol = KalziumElementProperty::instance()->gradient()->unit();
     // converting back Temperature values to Kelvin.
     if (unitSymbol == QString("K")) {
         doublevar = TempUnit::convert( doublevar, Prefs::temperatureUnit(), (int)TempUnit::Kelvin );

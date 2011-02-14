@@ -28,7 +28,7 @@
 #include "periodsystembase.h"
 #include <prefs.h>
 
-periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
+periodSystem::periodSystem(QWidget *parent)
         : QGraphicsView(parent), m_width(42), m_height(42) // Some space between the elements (px40) looks nice.
 {
     setRenderHint(QPainter::Antialiasing);
@@ -41,19 +41,12 @@ periodSystem::periodSystem(KalziumElementProperty *elProperty, QWidget *parent)
     m_hiddenPoint = QPoint(-40, -400);
 
     m_tableScene = new PeriodicTableScene(this);
+    setScene(m_tableScene);
+    connect(m_tableScene, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
+
+    createElementItems();
 
     createNumerationItems();
-
-    // TODO put this in the createElementItems function. make elementproerty class instance.
-    foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
-        ElementItem *item = new ElementItem(elProperty, intElement);
-        connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
-        m_tableScene->addObject(item);
-    }
-
-    setScene(m_tableScene);
-
-    connect(m_tableScene, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
 
     setupStatesAndAnimation();
 
@@ -73,7 +66,13 @@ void periodSystem::createNumerationItems() {
 
 void periodSystem::createElementItems()
 {
+    KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
+    foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
+        ElementItem *item = new ElementItem(elProperty, intElement);
+        connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
+        m_tableScene->addObject(item);
+    }
 }
 
 void periodSystem::setupStatesAndAnimation()
@@ -95,6 +94,7 @@ void periodSystem::setupStatesAndAnimation()
     connect(this , SIGNAL(tableChanged(int)), stateSwitcher, SLOT(slotSwitchState(int)));
 
     stateSwitcher->setInitialState( m_tableStatesList.at( m_currentTableInex ) );
+    m_states.setInitialState(stateSwitcher);
     m_states.start();
 }
 
@@ -106,7 +106,8 @@ void periodSystem::setNumerationItemPositions( int tableIndex )
         int itemAtPos = pseTables::instance()->getTabletype( tableIndex )->numeration( x );
 
         if ( itemAtPos > 0 ) {
-            m_tableStatesList.at( tableIndex )->assignProperty(m_numerationItemList.at(itemAtPos - 1), "pos", QPointF( x * m_width, m_height / 4));
+            m_tableStatesList.at( tableIndex )->assignProperty(m_numerationItemList.at(itemAtPos - 1), "pos",
+                    QPointF( x * m_width, m_height / 4));
             addElementAnimation( m_numerationItemList.at(itemAtPos - 1), x );
         }
     }
