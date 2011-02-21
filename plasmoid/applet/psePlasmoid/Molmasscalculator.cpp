@@ -180,6 +180,7 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
 void Molmasscalculator::managePeriodSystem()
 {
     QString newIconName;
+    KIconLoader iconLoader;
     int x, y;
 
     if ( m_showPeriodicTable ) {
@@ -193,7 +194,7 @@ void Molmasscalculator::managePeriodSystem()
         x = 300;
         y = 60;
     }
-    m_switchButton->setIcon( KIcon( newIconName ) );
+    m_switchButton->setIcon( iconLoader.loadIcon(newIconName, KIconLoader::Small ) );
 
     m_widget->setPreferredSize( x, y );
     m_widget->resize( x, y );
