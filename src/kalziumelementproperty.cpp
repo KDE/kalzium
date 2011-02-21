@@ -98,7 +98,7 @@ KalziumSchemeType* KalziumElementProperty::scheme() const
 
 KalziumGradientType* KalziumElementProperty::gradient() const
 {
-    if (m_currentGradient == NOGRADIENT ) {
+    if ( m_currentGradient == NOGRADIENT ) {
         // FIXME Fix the case when no gradient is choosen. gradientwidget or here.
         return m_gradient->build(0);
     }

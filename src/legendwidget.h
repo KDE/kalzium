@@ -23,6 +23,7 @@
 #include <kdialog.h>
 
 #include "kalziumelementproperty.h"
+#include "event.h"
 
 class LegendItem;
 
@@ -39,10 +40,22 @@ class LegendWidget : public QWidget
 public:
     LegendWidget( QWidget *parent );
 
-    ~LegendWidget() {}
+    ~LegendWidget();
 
     void LockWidget();
     void UnLockWidget();
+
+Q_SIGNALS:
+    void elementMatched(int element);
+    void resetElementMatch();
+
+public slots:
+    void updateContent();
+
+    void setDockArea(Qt::DockWidgetArea newDockArea);
+
+    /// is triggered when a LegenItem is Hoovered.
+    void legendItemAction(QColor color);
 
 private:
     bool m_update;
@@ -54,11 +67,6 @@ private:
     Qt::DockWidgetArea m_dockArea;
 
     void updateLegendItemLayout( const QList<legendPair>& list );
-
-public slots:
-    void updateContent();
-
-    void setDockArea(Qt::DockWidgetArea newDockArea);
 };
 
 /**
@@ -74,6 +82,16 @@ class LegendItem : public QWidget
 public:
     LegendItem( const QPair<QString, QColor>& pair, QWidget * parent = 0 );
     ~LegendItem() {}
+
+Q_SIGNALS:
+    void legenItemHoovered(QColor color);
+
+private:
+    QColor legendItemColor;
+
+protected:
+    void enterEvent( QEvent * event );
+    void leaveEvent ( QEvent * event );
 
 };
 

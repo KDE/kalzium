@@ -18,7 +18,6 @@
 #include <kactioncollection.h>
 #include "prefs.h"
 #include "ui_settings_colors.h"
-// #include "ui_settings_misc.h"
 #include "ui_settings_gradients.h"
 #include "ui_settings_units.h"
 #include "ui_settings_calc.h"
@@ -303,6 +302,13 @@ void Kalzium::setupSidebars()
     m_legendDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
     m_legendDock->setWidget(m_legendWidget);
 
+    connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
+             m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
+    connect (m_legendWidget, SIGNAL(elementMatched(int)),
+             m_periodicTable, SLOT(slotSelectAdditionalElement(int)));
+    connect (m_legendWidget, SIGNAL(resetElementMatch()),
+             m_periodicTable, SLOT(slotUnSelectElements()));
+
     m_TableInfoWidget = new TableInfoWidget( this );
     m_tableDock = new QDockWidget( i18n("Table Information"), this );
     m_tableDock->setWidget(m_TableInfoWidget);
@@ -326,10 +332,13 @@ void Kalzium::setupSidebars()
 
     m_gradientWidget = new GradientWidgetImpl( m_toolbox );
     m_gradientWidget->setObjectName( "viewtWidget" );
+
     connect( m_gradientWidget, SIGNAL( gradientValueChanged( double ) ),
              KalziumElementProperty::instance(), SLOT( setSliderValue( double ) ) );
-    connect( m_gradientWidget->scheme_combo, SIGNAL( currentIndexChanged(int)), this, SLOT( slotSwitchtoLookScheme(int)));
-    connect( m_gradientWidget->gradient_combo, SIGNAL( currentIndexChanged(int)), this, SLOT( slotSwitchtoLookGradient(int)));
+    connect( m_gradientWidget->scheme_combo, SIGNAL( currentIndexChanged(int)),
+             this, SLOT( slotSwitchtoLookScheme(int)));
+    connect( m_gradientWidget->gradient_combo, SIGNAL( currentIndexChanged(int)),
+             this, SLOT( slotSwitchtoLookGradient(int)));
 
     m_toolbox->addItem( m_gradientWidget, KIcon( "statematter" ), i18n( "View" ) );
 
@@ -343,8 +352,6 @@ void Kalzium::setupSidebars()
     addDockWidget( Qt::BottomDockWidgetArea, m_legendDock, Qt::Horizontal );
 
     m_tableDock->setVisible( false );
-
-    connect (m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)), m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
 }
 
 void Kalzium::slotExportTable()
