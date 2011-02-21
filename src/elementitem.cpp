@@ -80,7 +80,13 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
 
     painter->drawRoundedRect( boundingRect(), m_width / 10, m_width / 10 );
 
-    // Drawing the text and values
+    if ( isSelected() ) {
+        QColor selectedBackgroundColor = m_borderColor;
+        selectedBackgroundColor.setAlpha(120);
+        painter->setBrush( QBrush( QColor( selectedBackgroundColor ) ) );
+        painter->drawRoundedRect( boundingRect(), m_width / 10, m_width / 10 );
+    }
+
     pen.setColor( m_textColor );
     painter->setPen( pen );
 
@@ -110,14 +116,6 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
         painter->drawText( QRectF(0, m_height / 2 - m_height / 20, m_width, m_height/2),
                            Qt::AlignCenter, m_textValue);
         break;
-    }
-
-    if (isSelected()) {
-        painter->setBrush( QBrush( QColor(200,200,200,150) ) );
-        pen.setColor(m_borderColor.darker());
-        pen.setWidth(2);
-        painter->setPen(pen);
-        painter->drawRoundedRect( boundingRect(), m_width / 10, m_width / 10 );
     }
 }
 
