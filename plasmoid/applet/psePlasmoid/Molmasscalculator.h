@@ -91,5 +91,5 @@ private:
 };
 
 // This is the command that links your applet to the .desktop file
-K_EXPORT_PLASMA_APPLET ( molmassCalculator, Molmasscalculator )
+K_EXPORT_PLASMA_APPLET ( Molmasscalculator, Molmasscalculator )
 #endif
