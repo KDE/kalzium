@@ -23,7 +23,7 @@
    <item row="0" column="0">
     <widget class="QCheckBox" name="pasteToCliboard">
      <property name="text">
-      <string>Paste Result to Clipoard</string>
+      <string>Paste Result to Clipboard</string>
      </property>
     </widget>
    </item>
