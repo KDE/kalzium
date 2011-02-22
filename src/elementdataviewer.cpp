@@ -225,7 +225,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     {
         kind = ChemicalDataObject::mass;
         caption = i18n( "Atomic Mass [u]" );
-        unit = QString("u");
+        unit = i18n("u");
         break;
     }
     case AxisData::EN:
@@ -238,28 +238,28 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     {
         kind = ChemicalDataObject::meltingpoint;
         caption = i18n( "Melting Point [K]" );
-        unit = QString("K");
+        unit = i18n("K");
         break;
     }
     case AxisData::BOILINGPOINT:
     {
         kind = ChemicalDataObject::boilingpoint;
         caption = i18n( "Boiling Point [K]" );
-        unit = QString("K");
+        unit = i18n("K");
         break;
     }
     case AxisData::ATOMICRADIUS:
     {
         kind = ChemicalDataObject::radiusVDW;
         caption = i18n( "Atomic Radius [pm]" );
-        unit = QString("pm");
+        unit = i18n("pm");
         break;
     }
     case AxisData::COVALENTRADIUS:
     {
         kind = ChemicalDataObject::radiusCovalent;
         caption = i18n( "Covalent Radius [pm]" );
-        unit = QString("pm");
+        unit = i18n("pm");
         break;
     }
     }
