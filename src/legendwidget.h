@@ -23,7 +23,6 @@
 #include <kdialog.h>
 
 #include "kalziumelementproperty.h"
-#include "event.h"
 
 class LegendItem;
 
