@@ -48,6 +48,12 @@ Molmasscalculator::Molmasscalculator ( QObject *parent, const QVariantList &args
     setAcceptDrops ( false );
     setAssociatedApplication("kalzium");
 
+    m_triggerTimer = new QTimer();
+    m_triggerTimer->setSingleShot( true );
+    m_triggerTimer->setInterval( 700 );
+
+    connect(m_triggerTimer, SIGNAL(timeout()), this, SLOT(ParseMolecule()));
+
     // Needed for the Popupapplet
     setPopupIcon ( "kalzium" );
 }
@@ -63,6 +69,7 @@ Molmasscalculator::~Molmasscalculator()
     delete m_lineedit;
     delete m_PeriodWidget;
     delete m_widget;
+    delete m_triggerTimer;
 }
 
 void Molmasscalculator::init()
@@ -90,6 +97,7 @@ void Molmasscalculator::init()
 //Sends the requests to the Dataengine
 void Molmasscalculator::ParseMolecule( QString strInput)
 {
+    m_triggerTimer->stop();
     if ( !strInput.isEmpty() ) {
         m_molecule = dataEngine ( "kalzium" )->query ( QString ( "Molecule:Parser:" ) + strInput );
         newCalculatedMass();
@@ -144,7 +152,6 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
         Plasma::Label *MoleculeLabel = new Plasma::Label;
         MoleculeLabel->setText ( i18n ( "Molecule:" ) );
 
-        // Adding Masslabel to Plasmoid
         m_MassLabel = new Plasma::Label;
         m_MassLabel->setAlignment ( Qt::AlignCenter );
 
@@ -155,8 +162,7 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
         m_lineedit->setClearButtonShown ( true );
         m_lineedit->setMinimumWidth ( 100 );
         m_lineedit->setText ( i18n ( "C2H5OH" ) );
-        connect ( m_lineedit, SIGNAL ( editingFinished() ),this, SLOT ( ParseMolecule() ) );
-        connect ( m_lineedit, SIGNAL ( returnPressed() ),this, SLOT ( ParseMolecule() ) );
+        connect ( m_lineedit, SIGNAL ( textChanged(QString)), m_triggerTimer, SLOT( start() ) );
 
         m_switchButton = new Plasma::IconWidget();
         connect ( m_switchButton, SIGNAL ( clicked() ), this, SLOT ( toggleTable() ) );
@@ -225,7 +231,7 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
 
     connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configAccepted() ) );
     connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
-    
+
     connect (m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
     connect (m_ui.copyToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
     connect (m_ui.tabletyp, SIGNAL(currentIndexChanged(QString)), parent, SLOT(settingsModified()));

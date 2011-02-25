@@ -34,6 +34,7 @@
 #include "ui_Molmassconfig.h"
 
 #include "Periodictable.h"
+#include <QTimer>
 
 // Define our plasma Applet
 class Molmasscalculator : public Plasma::PopupApplet
@@ -80,6 +81,8 @@ private:
     // Widgets
     QGraphicsWidget *m_widget;
     PeriodicGrid *m_PeriodWidget;
+
+    QTimer *m_triggerTimer;
 
     Plasma::LineEdit *m_lineedit;
     Plasma::Label *m_MassLabel;
