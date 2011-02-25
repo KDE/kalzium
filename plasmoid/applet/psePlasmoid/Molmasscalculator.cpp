@@ -215,7 +215,7 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
     parent->addPage ( widget, i18n ( "General" ), "kalzium" );
 
     m_ui.showPeriodic->setChecked ( m_showPeriodicTable );
-    m_ui.pasteToCliboard->setChecked ( m_copyToClipboard );
+    m_ui.copyToCliboard->setChecked ( m_copyToClipboard );
 
     foreach(QString thisTable, pseTables::instance()->tables()) {
         m_ui.tabletyp->addItem(thisTable);
@@ -227,7 +227,7 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
     connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
     
     connect (m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
-    connect (m_ui.pasteToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+    connect (m_ui.copyToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
     connect (m_ui.tabletyp, SIGNAL(currentIndexChanged(QString)), parent, SLOT(settingsModified()));
 }
 
@@ -238,8 +238,8 @@ void Molmasscalculator::configAccepted()
         managePeriodSystem();
     }
 
-    if ( m_ui.pasteToCliboard->checkState() != m_copyToClipboard ) {
-        m_copyToClipboard = m_ui.pasteToCliboard->checkState();
+    if ( m_ui.copyToCliboard->checkState() != m_copyToClipboard ) {
+        m_copyToClipboard = m_ui.copyToCliboard->checkState();
     }
 
     if ( m_ui.tabletyp->currentIndex() != m_PeriodWidget->getCurrentPseTyp()) {

@@ -21,9 +21,9 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QCheckBox" name="pasteToCliboard">
+    <widget class="QCheckBox" name="copyToCliboard">
      <property name="text">
-      <string>Paste Result to Clipboard</string>
+      <string>Copy Result to Clipboard</string>
      </property>
     </widget>
    </item>
