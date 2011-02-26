@@ -94,33 +94,28 @@ void Molmasscalculator::init()
     managePeriodSystem();
 }
 
-//Sends the requests to the Dataengine
-void Molmasscalculator::ParseMolecule( QString strInput)
+void Molmasscalculator::appendElement ( QString elementSymbol )
 {
-    m_triggerTimer->stop();
+    QString molecule;
+    molecule = m_lineedit->text();
+    molecule.append ( elementSymbol );
+
+    ParseMolecule( molecule );
+}
+
+void Molmasscalculator::ParseMolecule( QString strInput )
+{
     if ( !strInput.isEmpty() ) {
         m_molecule = dataEngine ( "kalzium" )->query ( QString ( "Molecule:Parser:" ) + strInput );
         newCalculatedMass();
     }
 }
 
-//Without parameters the lineEdit Text is taken.
 void Molmasscalculator::ParseMolecule()
 {
-    ParseMolecule(m_lineedit->text());
+    ParseMolecule( m_lineedit->text() );
 }
 
-// Adding a new element to the Lineedit and Parse it.
-void Molmasscalculator::appendElement ( QString ElementSymbol )
-{
-    QString molecule;
-    molecule = m_lineedit->text();
-    molecule.append ( ElementSymbol );
-
-    ParseMolecule(molecule);
-}
-
-// Sets the new Mass and Molecule after a calculation.
 void Molmasscalculator::newCalculatedMass()
 {
     if ( m_molecule["molMass"].toString() == QString() ) {
@@ -135,55 +130,62 @@ void Molmasscalculator::newCalculatedMass()
     m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
 
     //Copy new Mass to Clipboard
-    if ( m_copyToClipboard && m_molecule["molMass"].toString() != QString() ) {
+    if ( m_copyToClipboard )
         QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
-    }
 }
 
 QGraphicsWidget *Molmasscalculator::graphicsWidget()
 {
-    if ( !m_widget ) {
+    if ( m_widget )
+        return m_widget;
 
-        m_widget = new QGraphicsWidget(this);
+    m_widget = new QGraphicsWidget(this);
 
-        QGraphicsLinearLayout *MainLayout = new QGraphicsLinearLayout ( Qt::Vertical , m_widget );
-        QGraphicsLinearLayout *TopLayout = new QGraphicsLinearLayout ( Qt::Horizontal, MainLayout );
+    QGraphicsLinearLayout *MainLayout = new QGraphicsLinearLayout ( Qt::Vertical , m_widget );
+    QGraphicsLinearLayout *TopLayout = new QGraphicsLinearLayout ( Qt::Horizontal, MainLayout );
 
-        Plasma::Label *MoleculeLabel = new Plasma::Label;
-        MoleculeLabel->setText ( i18n ( "Molecule:" ) );
+    Plasma::Label *MoleculeLabel = new Plasma::Label;
+    MoleculeLabel->setText ( i18n ( "Molecule:" ) );
 
-        m_MassLabel = new Plasma::Label;
-        m_MassLabel->setAlignment ( Qt::AlignCenter );
+    m_MassLabel = new Plasma::Label;
+    m_MassLabel->setAlignment ( Qt::AlignCenter );
 
-        QString css("font-size:18px; color:" + this->palette().text().color().name() + ";");
-        m_MassLabel->setStyleSheet ( css );
+    QString css("font-size:18px; color:" + this->palette().text().color().name() + ";");
+    m_MassLabel->setStyleSheet ( css );
 
-        m_lineedit = new Plasma::LineEdit();
-        m_lineedit->setClearButtonShown ( true );
-        m_lineedit->setMinimumWidth ( 100 );
-        m_lineedit->setText ( i18n ( "C2H5OH" ) );
-        connect ( m_lineedit, SIGNAL ( textChanged(QString)), m_triggerTimer, SLOT( start() ) );
+    m_lineedit = new Plasma::LineEdit();
+    m_lineedit->setClearButtonShown ( true );
+    m_lineedit->setMinimumWidth ( 100 );
+    m_lineedit->setText ( i18n ( "C2H5OH" ) );
+    connect ( m_lineedit, SIGNAL( textEdited(QString)), m_triggerTimer, SLOT( start() ) );
 
-        m_switchButton = new Plasma::IconWidget();
-        connect ( m_switchButton, SIGNAL ( clicked() ), this, SLOT ( toggleTable() ) );
+    m_switchButton = new Plasma::IconWidget();
+    connect ( m_switchButton, SIGNAL( clicked() ), this, SLOT( toggleTable() ) );
 
-        TopLayout->addItem ( MoleculeLabel );
-        TopLayout->addItem ( m_lineedit );
-        TopLayout->addItem ( m_switchButton );
-        TopLayout->setSpacing(0);
-        TopLayout->setContentsMargins(0,0,0,0);
+    TopLayout->addItem ( MoleculeLabel );
+    TopLayout->addItem ( m_lineedit );
+    TopLayout->addItem ( m_switchButton );
+    TopLayout->setSpacing( 0 );
+    TopLayout->setContentsMargins(0,0,0,0);
 
-        MainLayout->addItem ( TopLayout );
-        MainLayout->addItem ( m_MassLabel );
-        MainLayout->addItem ( m_PeriodWidget );
-        MainLayout->setSpacing(2);
-    }
+    MainLayout->addItem ( TopLayout );
+    MainLayout->addItem ( m_MassLabel );
+    MainLayout->addItem ( m_PeriodWidget );
+    MainLayout->setSpacing( 2 );
 
     return m_widget;
 }
 
+void Molmasscalculator::toggleTable()
+{
+    if ( m_showPeriodicTable ) {
+        m_showPeriodicTable = false;
+    } else {
+        m_showPeriodicTable = true;
+    }
+    managePeriodSystem();
+}
 
-//Resets the size of the plasmoid if the periodsystem is shown or not.
 void Molmasscalculator::managePeriodSystem()
 {
     QString iconName;
@@ -202,14 +204,13 @@ void Molmasscalculator::managePeriodSystem()
         y = 60;
     }
 
-    m_switchButton->setIcon( iconLoader.loadIcon(iconName, KIconLoader::Small ) );
+    m_switchButton->setIcon( iconLoader.loadIcon( iconName, KIconLoader::Small ) );
 
     m_widget->setPreferredSize( x, y );
     m_widget->resize( x, y );
     resize( x, y );
 }
 
-//The configuration interface.
 void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
 {
     parent->setButtons ( KDialog::Ok | KDialog::Cancel | KDialog::Apply );
@@ -253,16 +254,6 @@ void Molmasscalculator::configAccepted()
         managePeriodSystem();
     }
     saveConfig();
-}
-
-void Molmasscalculator::toggleTable()
-{
-    if (m_showPeriodicTable ) {
-        m_showPeriodicTable = false;
-    } else {
-        m_showPeriodicTable = true;
-    }
-    managePeriodSystem();
 }
 
 void Molmasscalculator::saveConfig()

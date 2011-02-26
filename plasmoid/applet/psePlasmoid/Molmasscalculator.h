@@ -51,26 +51,34 @@ public:
     /// loads the settings.
     void init();
 
-protected:
-    void createConfigurationInterface (KConfigDialog* parent);
-
-
 public slots:
-    /// Appens the given String to the lineedit text and let it parse.
+    /// Appens the given String to the lineedit text and let it parse by ParseMolecule.
     void appendElement ( QString ElementSymbol );
+
     void configChanged();
 
 private slots:
-    void ParseMolecule( QString input);
+    ///Sends the requests to the Dataengine
+    void ParseMolecule( QString molecule );
+
+    ///The lineEdit Text is parsed.
     void ParseMolecule();
+
     void toggleTable();
 
 protected slots:
     void configAccepted();
     
+protected:
+    void createConfigurationInterface (KConfigDialog* parent);
+
 private:
-    void managePeriodSystem();
+    /// Sets the new Mass and Molecule after a calculation.
     void newCalculatedMass();
+
+    ///Resets the size of the plasmoid if the periodsystem is shown or not.
+    void managePeriodSystem();
+
     void saveConfig();
 
     // Configuration

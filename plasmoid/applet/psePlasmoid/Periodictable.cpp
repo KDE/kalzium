@@ -24,7 +24,7 @@
 #include <math.h>
 
 PeriodicGrid::PeriodicGrid ( int tableTyp, Plasma::Applet *applet )
-    : QGraphicsWidget(applet)
+        : QGraphicsWidget(applet)
 {
     m_applet = applet;
     m_psTableType = tableTyp;
@@ -69,7 +69,7 @@ void PeriodicGrid::create()
             group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).x();
             period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
 
-	    // makes a v-like color scheme
+            // makes a v-like color scheme
             color = period + ( abs(group - maxWidth/2 ) * a );
 
             ElementLabel *element = new ElementLabel( intElement, m_applet );
