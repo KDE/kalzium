@@ -36,9 +36,6 @@ pseTables::pseTables()
 
 pseTables::~pseTables()
 {
-//     foreach(psTable *i, m_tables) {
-//         delete i;
-//     }
 }
 
 pseTables *pseTables::instance()
@@ -126,35 +123,38 @@ int pseTable::lastElement() const
     return m_elementList.last();
 }
 
-QPoint pseTable::elementCoords(const int element)
+QPoint pseTable::elementCoords(const int element) const
 {
+    int x = -1, y = -1;
     int elementIndex = m_elementList.indexOf( element );
 
     if ( elementIndex >= 0 && elementIndex < m_elementList.count() ) {
-        return QPoint(m_posX.at( elementIndex ), m_posY.at( elementIndex ) );
-    }
-    return QPoint(0,0);
-}
-
-QPoint pseTable::coordsMax() const
-{
-    int x = 0, y = 0, i;
-
-    for (i = 0; i < m_posX.count(); i++) {
-        if (m_posX.at(i) > x) {
-            x = m_posX.at(i) ;
-        }
-        if (m_posY.at(i) > y) {
-            y = m_posY.at(i);
-        }
+        // The positions lists are defined with the base of 1.
+        // But coordinates start mostly with 0.
+        x = m_posX.at( elementIndex ) - 1;
+        y = m_posY.at( elementIndex ) - 1;
     }
     return QPoint(x, y);
 }
 
-int pseTable::numeration( int xPos ) const
+QPoint pseTable::tableSize() const
+{
+    int x = 0, y = 0, i;
+
+    for (i = 0; i < m_posX.count(); ++i) {
+        if ( m_posX.at(i) > x)
+            x = m_posX.at(i);
+
+        if ( m_posY.at(i) > y)
+            y = m_posY.at(i);
+    }
+    return QPoint(x, y);
+}
+
+int pseTable::numerationAtPos( int xPos ) const
 {
   if ( xPos >= 0 && xPos < m_xCoordsNumeration.count() ) {
-     return m_xCoordsNumeration.at( xPos );
+     return m_xCoordsNumeration.at( xPos ) - 1;
   }
   return -1;
 }
@@ -217,7 +217,7 @@ pseLongTable::pseLongTable()
     m_description = i18n( "Long Periodic Table" );
 
     m_xCoordsNumeration <<
-    1 << 2 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12 <<13 <<14 <<15 <<16 <<17 <<18;
+    1 << 2 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12 <<13 <<14 <<15 <<16 <<17 <<18;
 
     m_posX <<
     1 <<                                                                                                                                                      32 <<

@@ -195,8 +195,8 @@ void Molmasscalculator::managePeriodSystem()
     if ( m_showPeriodicTable ) {
         iconName = "arrow-down";
         m_PeriodWidget->show();
-        x = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().x() * 32;
-        y = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->coordsMax().y() * 33;
+        x = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->tableSize().x() * 33;
+        y = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->tableSize().y() * 34;
     } else {
         iconName = "arrow-right";
         m_PeriodWidget->hide();

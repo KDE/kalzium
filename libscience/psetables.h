@@ -122,8 +122,9 @@ public:
     /**
      * Returns the coordinates of an element  @p element in
      * the periodic system.
+     * If the element is not in the periodic system QPoint(-1,-1) is returned.
      */
-    virtual QPoint elementCoords(int element);
+    virtual QPoint elementCoords(int element) const;
 
     /**
      * Returns a list with all elements in the actual periodic table
@@ -160,14 +161,14 @@ public:
     virtual int lastElement() const;
 
     /**
-     * Returns the maximal Coordinates of the periodic table.
+     * Returns the maximal size of the periodic table.
      */
-    virtual QPoint coordsMax() const;
+    virtual QPoint tableSize() const;
 
      /**
      * Returns the Numeration for the current Table according to the position in the Table. IUPAC Style eq. numbers
      */
-     virtual int numeration( int xPos ) const;
+     virtual int numerationAtPos( int xPos ) const;
 
 protected:
     pseTable();

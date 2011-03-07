@@ -112,7 +112,6 @@ public slots:
 
 private:
     void setupStatesAndAnimation();
-    void setBiggerSceneRect();
 
     void createNumerationItems();
     void createElementItems();
@@ -126,6 +125,8 @@ private:
 
     void setElementItemPositions(int tableIndex);
 
+    void setBiggerSceneRect();
+    QRectF currentPseRect() const;
 
     int m_width, m_height;
 
@@ -136,6 +137,7 @@ private:
     QStateMachine m_states;
     QParallelAnimationGroup *m_group;
 
+    QList<ElementItem *> m_elementItemList;
     QList<NumerationItem *> m_numerationItemList;
 
     QList<QState *> m_tableStatesList;

@@ -60,9 +60,9 @@ void PeriodicGrid::create()
 
     m_elementItemList.clear();
 
-    int maxWidth = pseTables::instance()->getTabletype( m_psTableType )->coordsMax().x();
+    int maxWidth = pseTables::instance()->getTabletype( m_psTableType )->tableSize().x();
     // a parameter for the linear function. y(x) = ax + b
-    double a = 80 / ( maxWidth/2 );
+    double a = 50 / ( maxWidth/2 );
 
     foreach (intElement, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
         if ( intElement <= 112) {
