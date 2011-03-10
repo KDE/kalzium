@@ -30,15 +30,15 @@
 
 /**
  * @class pseTables
- * Provides functions to easyli create pse tables with q*GridLayouts or qGraphicsView.
+ * Provides functions to easyli create pse tables with qGridLayouts or qGraphicsView.
  *
  * creating a table for the gridlayout
 @code
-  foreach (intElement, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
-       int group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).x();
-       int period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
+  foreach (int elementIndex, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
+       int group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( elementIndex ).x();
+       int period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( elementIndex ).y();
 
-       ElementLabel *element = new ElementLabel( intElement );
+       ElementLabel *element = new ElementLabel( elementIndex );
 
        gridLayoutOfPeriodSystem->addItem (element, period, group );
   }
@@ -51,10 +51,10 @@
 
 @endcode
 
- * getting the position of the Numerations for the pse (j)
+ * getting the position of the Numerations for the periodic system of elements (j)
  @code
-    for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); i++) {
-        int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
+    for (int i = 0; i < pseTables::instance()->getTabletype( j )->tableSize().x() || i < numerationItems.count(); i++) {
+        int itemAtPos = pseTables::instance()->getTabletype( j )->numerationAtPos( i );
     }
  @endcode
  * @short Provides shape and elements of diferent peridic tables of elements
@@ -166,7 +166,8 @@ public:
     virtual QPoint tableSize() const;
 
      /**
-     * Returns the Numeration for the current Table according to the position in the Table. IUPAC Style eq. numbers
+     * Returns the Numeration for the current Table according to the position in the Table.
+     * Coordinatates beginning wiht 0. Returns -1 if none is found.
      */
      virtual int numerationAtPos( int xPos ) const;
 
