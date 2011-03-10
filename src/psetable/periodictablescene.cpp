@@ -25,7 +25,7 @@
 
  **********************************************************************/
 
-#include "periodictablescene_p.h"
+#include "periodictablescene.h"
 
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsSceneDragDropEvent>
@@ -148,4 +148,4 @@ void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 }
 
 
-#include "periodictablescene_p.moc"
+#include "periodictablescene.moc"

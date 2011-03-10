@@ -25,10 +25,10 @@
 
 #include "psetables.h"
 #include "statemachine.h"
-#include "periodsystembase.h"
+#include "periodictableview.h"
 #include <prefs.h>
 
-periodSystem::periodSystem(QWidget *parent)
+PeriodicTableView::PeriodicTableView(QWidget *parent)
         : QGraphicsView(parent), m_width(42), m_height(42) // Some space between the elements (px40) looks nice.
 {
     setRenderHint(QPainter::Antialiasing);
@@ -53,7 +53,7 @@ periodSystem::periodSystem(QWidget *parent)
     fitPseInView();
 }
 
-void periodSystem::createNumerationItems() {
+void PeriodicTableView::createNumerationItems() {
     // Creating Nummerationitems here, we use the classic periodic table as reference (18 elements in a row)
     const int xMax = 18;
 
@@ -64,7 +64,7 @@ void periodSystem::createNumerationItems() {
     }
 }
 
-void periodSystem::createElementItems()
+void PeriodicTableView::createElementItems()
 {
     KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
@@ -77,7 +77,7 @@ void periodSystem::createElementItems()
     }
 }
 
-void periodSystem::setupStatesAndAnimation()
+void PeriodicTableView::setupStatesAndAnimation()
 {
     StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
     m_group= new QParallelAnimationGroup;
@@ -100,7 +100,7 @@ void periodSystem::setupStatesAndAnimation()
     m_states.start();
 }
 
-void periodSystem::setNumerationItemPositions( int tableIndex )
+void PeriodicTableView::setNumerationItemPositions( int tableIndex )
 {
     hideAllNumerationItems( tableIndex );
 
@@ -115,13 +115,13 @@ void periodSystem::setNumerationItemPositions( int tableIndex )
     }
 }
 
-void periodSystem::hideAllNumerationItems(int tableIndex)
+void PeriodicTableView::hideAllNumerationItems(int tableIndex)
 {
     foreach( NumerationItem *item, m_numerationItemList)
     m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( m_hiddenPoint ));
 }
 
-int periodSystem::maxNumerationItemXCoordinate(int tableIndex)
+int PeriodicTableView::maxNumerationItemXCoordinate(int tableIndex)
 {
     const int maxTableLenght = pseTables::instance()->getTabletype( tableIndex )->tableSize().x();
 
@@ -129,7 +129,7 @@ int periodSystem::maxNumerationItemXCoordinate(int tableIndex)
            maxTableLenght : m_numerationItemList.count();
 }
 
-void periodSystem::addElementAnimation(QGraphicsObject *object, int duration)
+void PeriodicTableView::addElementAnimation(QGraphicsObject *object, int duration)
 {
     QPropertyAnimation *anim = new QPropertyAnimation( object, "pos");
     anim->setDuration( 1600 + duration * 2);
@@ -137,7 +137,7 @@ void periodSystem::addElementAnimation(QGraphicsObject *object, int duration)
     m_group->addAnimation( anim );
 }
 
-void periodSystem::setElementItemPositions(int tableIndex)
+void PeriodicTableView::setElementItemPositions(int tableIndex)
 {
     for (int i = 0; i < m_elementItemList.size(); ++i) {
         const int elementNumber = m_elementItemList.at( i )->data(0).toInt();
@@ -154,17 +154,17 @@ void periodSystem::setElementItemPositions(int tableIndex)
     }
 }
 
-PeriodicTableScene* periodSystem::pseScene() const
+PeriodicTableScene* PeriodicTableView::pseScene() const
 {
     return  m_tableScene;
 }
 
-int periodSystem::table() const
+int PeriodicTableView::table() const
 {
     return m_currentTableInex;
 }
 
-void periodSystem::slotChangeTable(int table)
+void PeriodicTableView::slotChangeTable(int table)
 {
     m_currentTableInex = table;
     Prefs::setTable( m_currentTableInex );
@@ -173,25 +173,25 @@ void periodSystem::slotChangeTable(int table)
     emit tableChanged( m_currentTableInex );
 }
 
-void periodSystem::slotSelectOneElement(int element)
+void PeriodicTableView::slotSelectOneElement(int element)
 {
     slotUnSelectElements();
     slotSelectAdditionalElement( element );
 }
 
-void periodSystem::slotSelectAdditionalElement(int element)
+void PeriodicTableView::slotSelectAdditionalElement(int element)
 {
     if (element > 0)
         m_tableScene->items().at( --element )->setSelected( true );
 }
 
-void periodSystem::slotUnSelectElements()
+void PeriodicTableView::slotUnSelectElements()
 {
     foreach ( QGraphicsItem *item , m_tableScene->selectedItems())
     item->setSelected( false );
 }
 
-void periodSystem::setBiggerSceneRect()
+void PeriodicTableView::setBiggerSceneRect()
 {
     QRectF currentRect(sceneRect());
 
@@ -204,7 +204,7 @@ void periodSystem::setBiggerSceneRect()
     setSceneRect(currentRect);
 }
 
-QRectF periodSystem::currentPseRect() const
+QRectF PeriodicTableView::currentPseRect() const
 {
     const QPoint maxTableCoords = pseTables::instance()->getTabletype( m_currentTableInex )->tableSize();
 
@@ -216,13 +216,13 @@ QRectF periodSystem::currentPseRect() const
     return QRectF(0, -m_height, x * m_width, y * m_height);
 }
 
-void periodSystem::resizeEvent ( QResizeEvent * event )
+void PeriodicTableView::resizeEvent ( QResizeEvent * event )
 {
     fitPseInView();
     QGraphicsView::resizeEvent(event);
 }
 
-void periodSystem::fitPseInView()
+void PeriodicTableView::fitPseInView()
 {
     if ( operator!=( sceneRect(), currentPseRect() ) )
         setSceneRect( currentPseRect() );
@@ -230,12 +230,12 @@ void periodSystem::fitPseInView()
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
-bool periodSystem::event(QEvent *e)
+bool PeriodicTableView::event(QEvent *e)
 {
     return QGraphicsView::event(e);
 }
 
-void periodSystem::generateSvg(const QString& filename)
+void PeriodicTableView::generateSvg(const QString& filename)
 {
     QSvgGenerator *svgGen = new QSvgGenerator();
     svgGen->setFileName( filename );
@@ -249,11 +249,11 @@ void periodSystem::generateSvg(const QString& filename)
     delete svgGen;
 }
 
-periodSystem::~periodSystem()
+PeriodicTableView::~PeriodicTableView()
 {
     delete scene();
     delete m_group;
     qDeleteAll(m_tableStatesList);
 }
 
-#include "periodsystembase.moc"
+#include "periodictableview.moc"

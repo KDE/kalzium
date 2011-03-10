@@ -105,7 +105,7 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     searchWidget->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum));
 
     // Creating the periodic table
-    m_periodicTable = new periodSystem( pseTempWidget );
+    m_periodicTable = new PeriodicTableView( pseTempWidget );
 
     // Connecting the search to the periodic table
     connect( newsearch, SIGNAL( searchChanged() ),

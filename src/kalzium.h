@@ -14,7 +14,7 @@ email                : cniehaus@kde.org
 #define KALZIUM_H
 
 #include <kxmlguiwindow.h>
-#include "periodsystembase.h"
+#include "periodictableview.h"
 
 class KTabWidget;
 class KAction;
@@ -64,10 +64,7 @@ private:
 
     TableInfoWidget *m_TableInfoWidget;
 
-    /**
-     * this pointer points to the PeriodicTableView.
-     */
-    periodSystem *m_periodicTable;
+    PeriodicTableView *m_periodicTable;
 
     /**
      *initialize actions

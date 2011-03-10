@@ -3,6 +3,7 @@ include_directories(
    ../compoundviewer
    tools
    calculator
+   psetable
    isotopetable
    ${CMAKE_CURRENT_BINARY_DIR}/..
    )
@@ -64,6 +65,11 @@ set(kalzium_SRCS
    isotopetable/isotopescene.cpp
    isotopetable/isotopetabledialog.cpp
    isotopetable/isotopeview.cpp
+   psetable/elementitem.cpp
+   psetable/numerationitem.cpp
+   psetable/periodictableview.cpp
+   psetable/periodictablescene.cpp
+   psetable/statemachine.cpp
    kalzium.cpp
    main.cpp
    detailinfodlg.cpp
@@ -87,11 +93,6 @@ set(kalzium_SRCS
    tableinfowidget.cpp
    spectrumviewimpl.cpp
    spectrumwidget.cpp
-   periodsystembase.cpp
-   periodictablescene_p.cpp
-   elementitem.cpp
-   statemachine.cpp
-   numerationitem.cpp
    kdeeduglossary.cpp
    )
 
