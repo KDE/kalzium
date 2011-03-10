@@ -27,31 +27,35 @@
 
 #include "elementitem.h"
 #include "numerationitem.h"
+#include "statemachine.h"
 
-class PeriodicTableStates : public QObject
+class PeriodicTableStates
 {
-    Q_OBJECT
 public:
     PeriodicTableStates(const QList<ElementItem *> elementItemList,
-                        const QList<NumerationItem *> numerationItemList,
-                        const int width, const int height,
-                        QObject *parent = 0);
+                        const QList<NumerationItem *> numerationItemList);
+
     virtual ~PeriodicTableStates();
+
+    QRectF currentPseRect( const int tableIndex ) const;
+
+    void setTableState( const int tableIndex ) ;
 
 private:
     /// Adding position of Nummeration for each tabletyp
-    void setNumerationItemPositions(int tableIndex);
-    void hideAllNumerationItems(int tableIndex);
-    int maxNumerationItemXCoordinate(int tableIndex);
+    void setNumerationItemPositions(const int tableIndex);
+    void hideAllNumerationItems(const int tableIndex);
+    int maxNumerationItemXCoordinate(const int tableIndex);
 
     void addElementAnimation(QGraphicsObject *object, int factor = 1);
 
-    void setElementItemPositions(int tableIndex);
+    void setElementItemPositions(const int tableIndex);
 
     QPoint hiddenPoint() const;
 
     QStateMachine m_states;
     QParallelAnimationGroup *m_group;
+    StateSwitcher *m_stateSwitcher;
 
     QList<ElementItem *> m_elementItemList;
     QList<NumerationItem *> m_numerationItemList;

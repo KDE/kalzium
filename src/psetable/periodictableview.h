@@ -114,9 +114,6 @@ private:
     QList<NumerationItem *>  createNumerationItems() const;
 
     void setBiggerSceneRect();
-    QRectF currentPseRect() const;
-
-    int m_width, m_height;
 
     int m_currentTableInex;
 

@@ -21,16 +21,14 @@
  **********************************************************************/
 
 #include "statemachine.h"
-#include <QDebug>
-
 
 StateSwitcher::StateSwitcher(QStateMachine *machine)
         : QState(machine)
 {
 }
 
-
-void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, int id) {
+void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, int id)
+{
     StateSwitchTransition *trans = new StateSwitchTransition(id);
     trans->setTargetState(state);
     addTransition(trans);
@@ -38,10 +36,8 @@ void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, int i
 }
 
 
-void StateSwitcher::slotSwitchState(int n)
+void StateSwitcher::switchToState(int n)
 {
     machine()->postEvent(new StateSwitchEvent(n));
 }
 
-
-#include "statemachine.moc"

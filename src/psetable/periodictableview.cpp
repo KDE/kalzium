@@ -28,7 +28,7 @@
 #include <prefs.h>
 
 PeriodicTableView::PeriodicTableView(QWidget *parent)
-        : QGraphicsView(parent), m_width(42), m_height(42) // Some space between the elements (px40) looks nice.
+        : QGraphicsView(parent)
 {
     setRenderHint(QPainter::Antialiasing);
     setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
@@ -44,8 +44,7 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
 
     m_tableStates = new PeriodicTableStates(
         createElementItems(),
-        createNumerationItems(),
-        m_width, m_height, this);
+        createNumerationItems() );
 
     fitPseInView();
 }
@@ -98,7 +97,7 @@ void PeriodicTableView::slotChangeTable(int table)
     Prefs::setTable( m_currentTableInex );
 
     setBiggerSceneRect();
-    emit tableChanged( m_currentTableInex );
+    m_tableStates->setTableState( m_currentTableInex );
 }
 
 void PeriodicTableView::slotSelectOneElement(int element)
@@ -121,27 +120,16 @@ void PeriodicTableView::slotUnSelectElements()
 
 void PeriodicTableView::setBiggerSceneRect()
 {
-    QRectF currentRect(sceneRect());
+    QRectF newRect( sceneRect() );
+    QRectF pseRect(m_tableStates->currentPseRect( m_currentTableInex ));
 
-    if ( currentRect.width() < currentPseRect().width() )
-        currentRect.setWidth( currentPseRect().width() );
+    if ( sceneRect().width() < pseRect.width() )
+        newRect.setWidth( pseRect.width() );
 
-    if ( currentRect.height() < currentPseRect().width() )
-        currentRect.setHeight( currentPseRect().width() );
+    if ( sceneRect().height() < pseRect.width() )
+        newRect.setHeight( pseRect.width() );
 
-    setSceneRect(currentRect);
-}
-
-QRectF PeriodicTableView::currentPseRect() const
-{
-    const QPoint maxTableCoords = pseTables::instance()->getTabletype( m_currentTableInex )->tableSize();
-
-    const int x = maxTableCoords.x();
-
-    // adding one for the numeration row.
-    const int y = maxTableCoords.y() + 1;
-
-    return QRectF(0, -m_height, x * m_width, y * m_height);
+    setSceneRect( newRect );
 }
 
 void PeriodicTableView::resizeEvent ( QResizeEvent * event )
@@ -152,8 +140,8 @@ void PeriodicTableView::resizeEvent ( QResizeEvent * event )
 
 void PeriodicTableView::fitPseInView()
 {
-    if ( operator!=( sceneRect(), currentPseRect() ) )
-        setSceneRect( currentPseRect() );
+    if ( operator!=( sceneRect(), m_tableStates->currentPseRect( m_currentTableInex ) ) )
+        setSceneRect( m_tableStates->currentPseRect( m_currentTableInex ) );
 
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }

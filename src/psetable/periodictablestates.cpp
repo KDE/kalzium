@@ -20,42 +20,36 @@
 #include "periodictablestates.h"
 
 #include "psetables.h"
-#include "statemachine.h"
 
 #include <prefs.h>
 
 PeriodicTableStates::PeriodicTableStates(
     const QList< ElementItem* > elementItemList,
-    const QList< NumerationItem* > numerationItemList,
-    const int width, const int height,
-    QObject* parent)
-        : QObject(parent),
-        m_elementItemList(elementItemList),
+    const QList< NumerationItem* > numerationItemList)
+        : m_elementItemList(elementItemList),
         m_numerationItemList(numerationItemList),
-        m_width(width), m_height(height)
+        m_width(42), m_height(42)  // Some space between the elements (px40) looks nice.
 {
-    StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
+    m_stateSwitcher = new StateSwitcher(&m_states);
     m_group= new QParallelAnimationGroup;
 
     // For every Tabletyp the Position of the Elements are set up.
     for (int tableIndex = 0; tableIndex < pseTables::instance()->tables().count(); ++tableIndex) {
-        m_tableStatesList << new QState(stateSwitcher);
+        m_tableStatesList << new QState(m_stateSwitcher);
 
         setNumerationItemPositions( tableIndex );
 
         setElementItemPositions( tableIndex );
 
-        stateSwitcher->addState(m_tableStatesList.at( tableIndex ), m_group, tableIndex);
+        m_stateSwitcher->addState(m_tableStatesList.at( tableIndex ), m_group, tableIndex);
     }
 
-    connect(parent , SIGNAL( tableChanged(int) ), stateSwitcher, SLOT( slotSwitchState(int) ) );
-
-    stateSwitcher->setInitialState( m_tableStatesList.at( Prefs::table() ) );
-    m_states.setInitialState(stateSwitcher);
+    m_stateSwitcher->setInitialState( m_tableStatesList.at( Prefs::table() ) );
+    m_states.setInitialState( m_stateSwitcher );
     m_states.start();
 }
 
-void PeriodicTableStates::setNumerationItemPositions( int tableIndex )
+void PeriodicTableStates::setNumerationItemPositions( const int tableIndex )
 {
     hideAllNumerationItems( tableIndex );
 
@@ -70,7 +64,7 @@ void PeriodicTableStates::setNumerationItemPositions( int tableIndex )
     }
 }
 
-void PeriodicTableStates::hideAllNumerationItems(int tableIndex)
+void PeriodicTableStates::hideAllNumerationItems(const int tableIndex)
 {
     foreach( NumerationItem *item, m_numerationItemList)
     m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( hiddenPoint() ));
@@ -81,7 +75,7 @@ QPoint PeriodicTableStates::hiddenPoint() const
     return QPoint(-40, -400);
 }
 
-int PeriodicTableStates::maxNumerationItemXCoordinate(int tableIndex)
+int PeriodicTableStates::maxNumerationItemXCoordinate(const int tableIndex)
 {
     const int maxTableLenght = pseTables::instance()->getTabletype( tableIndex )->tableSize().x();
 
@@ -97,7 +91,7 @@ void PeriodicTableStates::addElementAnimation(QGraphicsObject *object, int durat
     m_group->addAnimation( anim );
 }
 
-void PeriodicTableStates::setElementItemPositions(int tableIndex)
+void PeriodicTableStates::setElementItemPositions(const int tableIndex)
 {
     for (int i = 0; i < m_elementItemList.size(); ++i) {
         const int elementNumber = m_elementItemList.at( i )->data(0).toInt();
@@ -114,10 +108,28 @@ void PeriodicTableStates::setElementItemPositions(int tableIndex)
     }
 }
 
+QRectF PeriodicTableStates::currentPseRect( const int tableIndex ) const
+{
+    const QPoint maxTableCoords = pseTables::instance()->getTabletype( tableIndex )->tableSize();
+
+    const int x = maxTableCoords.x();
+
+    // adding one for the numeration row.
+    const int y = maxTableCoords.y() + 1;
+
+    return QRectF(0, -m_height, x * m_width, y * m_height);
+}
+
+void PeriodicTableStates::setTableState( const int tableIndex )
+{
+    m_stateSwitcher->switchToState( tableIndex );
+}
+
 PeriodicTableStates::~PeriodicTableStates()
 {
     delete m_group;
     qDeleteAll(m_tableStatesList);
+    delete m_stateSwitcher;
 }
 
 #include "periodictablestates.moc"

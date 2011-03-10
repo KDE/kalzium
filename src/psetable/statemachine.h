@@ -43,7 +43,6 @@
 
 #include <QtCore>
 
-
 class StateSwitchEvent: public QEvent
 {
 public:
@@ -93,14 +92,13 @@ private:
 
 class StateSwitcher : public QState
 {
-    Q_OBJECT
 public:
     StateSwitcher(QStateMachine *machine);
 
     void addState(QState *state, QAbstractAnimation *animation, int id);
 
-public Q_SLOTS:
-    void slotSwitchState(int n);
+public:
+    void switchToState(int n);
 };
 
 #endif // STATEMACHIEN_H
