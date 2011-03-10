@@ -25,16 +25,15 @@
 #define PERIODSYSTEMBASE_H
 
 #include <QGraphicsView>
-#include <QtCore/QStateMachine>
-#include <QtCore/QParallelAnimationGroup>
 
 #include "kalziumdataobject.h"
-#include "kalziumelementproperty.h"
+
 #include "kalziumnumerationtype.h"
 
 #include "elementitem.h"
 #include "numerationitem.h"
 #include "periodictablescene.h"
+#include "periodictablestates.h"
 
 
 /**
@@ -111,19 +110,8 @@ public slots:
     void slotUnSelectElements();
 
 private:
-    void setupStatesAndAnimation();
-
-    void createNumerationItems();
-    void createElementItems();
-
-    /// Adding position of Nummeration for each tabletyp
-    void setNumerationItemPositions(int tableIndex);
-    void hideAllNumerationItems(int tableIndex);
-    int maxNumerationItemXCoordinate(int tableIndex);
-
-    void addElementAnimation(QGraphicsObject *object, int factor = 1);
-
-    void setElementItemPositions(int tableIndex);
+    QList<ElementItem *>  createElementItems() const;
+    QList<NumerationItem *>  createNumerationItems() const;
 
     void setBiggerSceneRect();
     QRectF currentPseRect() const;
@@ -132,17 +120,9 @@ private:
 
     int m_currentTableInex;
 
-    QPoint m_hiddenPoint;
-
-    QStateMachine m_states;
-    QParallelAnimationGroup *m_group;
-
-    QList<ElementItem *> m_elementItemList;
-    QList<NumerationItem *> m_numerationItemList;
-
-    QList<QState *> m_tableStatesList;
-
     PeriodicTableScene *m_tableScene;
+    
+    PeriodicTableStates *m_tableStates;
 
 protected:
     /**

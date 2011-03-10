@@ -23,9 +23,8 @@
 
 #include <QSvgGenerator>
 
-#include "psetables.h"
-#include "statemachine.h"
 #include "periodictableview.h"
+#include "psetables.h"
 #include <prefs.h>
 
 PeriodicTableView::PeriodicTableView(QWidget *parent)
@@ -38,34 +37,38 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
     setMouseTracking( true );
 
     m_currentTableInex = Prefs::table();
-    m_hiddenPoint = QPoint(-40, -400);
 
     m_tableScene = new PeriodicTableScene(this);
     setScene(m_tableScene);
     connect(m_tableScene, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
 
-    createElementItems();
-
-    createNumerationItems();
-
-    setupStatesAndAnimation();
+    m_tableStates = new PeriodicTableStates(
+        createElementItems(),
+        createNumerationItems(),
+        m_width, m_height, this);
 
     fitPseInView();
 }
 
-void PeriodicTableView::createNumerationItems() {
+QList<NumerationItem*> PeriodicTableView::createNumerationItems() const
+{
     // Creating Nummerationitems here, we use the classic periodic table as reference (18 elements in a row)
     const int xMax = 18;
 
+    QList<NumerationItem*> numerationItemList;
+
     for (int i = 0; i < xMax; ++i) {
-        m_numerationItemList << new NumerationItem( i );
-        m_tableScene->addItem( m_numerationItemList.at( i ) );
-        connect(this, SIGNAL(numerationChange(int)), m_numerationItemList.at( i ), SLOT(setNumerationType(int)));
+        numerationItemList << new NumerationItem( i );
+        m_tableScene->addItem( numerationItemList.at( i ) );
+        connect(this, SIGNAL(numerationChange(int)), numerationItemList.at( i ), SLOT(setNumerationType(int)));
     }
+
+    return numerationItemList;
 }
 
-void PeriodicTableView::createElementItems()
+QList<ElementItem*> PeriodicTableView::createElementItems() const
 {
+    QList<ElementItem*> elementItemList;
     KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
     foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
@@ -73,85 +76,10 @@ void PeriodicTableView::createElementItems()
 
         connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
         m_tableScene->addItem(item);
-        m_elementItemList << item;
-    }
-}
-
-void PeriodicTableView::setupStatesAndAnimation()
-{
-    StateSwitcher *stateSwitcher = new StateSwitcher(&m_states);
-    m_group= new QParallelAnimationGroup;
-
-    // For every Tabletyp the Position of the Elements are set up.
-    for (int tableIndex = 0; tableIndex < pseTables::instance()->tables().count(); ++tableIndex) {
-        m_tableStatesList << new QState(stateSwitcher);
-
-        setNumerationItemPositions( tableIndex );
-
-        setElementItemPositions( tableIndex );
-
-        stateSwitcher->addState(m_tableStatesList.at( tableIndex ), m_group, tableIndex);
+        elementItemList << item;
     }
 
-    connect(this , SIGNAL( tableChanged(int) ), stateSwitcher, SLOT( slotSwitchState(int) ) );
-
-    stateSwitcher->setInitialState( m_tableStatesList.at( m_currentTableInex ) );
-    m_states.setInitialState(stateSwitcher);
-    m_states.start();
-}
-
-void PeriodicTableView::setNumerationItemPositions( int tableIndex )
-{
-    hideAllNumerationItems( tableIndex );
-
-    for (int x = 0; x < maxNumerationItemXCoordinate( tableIndex ); ++x) {
-        int numerationId = pseTables::instance()->getTabletype( tableIndex )->numerationAtPos( x );
-
-        if ( numerationId >= 0 ) {
-            m_tableStatesList.at( tableIndex )->assignProperty(m_numerationItemList.at(numerationId), "pos",
-                    QPointF( x * m_width, - m_height * 3 / 4));
-            addElementAnimation( m_numerationItemList.at(numerationId), x );
-        }
-    }
-}
-
-void PeriodicTableView::hideAllNumerationItems(int tableIndex)
-{
-    foreach( NumerationItem *item, m_numerationItemList)
-    m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( m_hiddenPoint ));
-}
-
-int PeriodicTableView::maxNumerationItemXCoordinate(int tableIndex)
-{
-    const int maxTableLenght = pseTables::instance()->getTabletype( tableIndex )->tableSize().x();
-
-    return maxTableLenght > m_numerationItemList.count() ?
-           maxTableLenght : m_numerationItemList.count();
-}
-
-void PeriodicTableView::addElementAnimation(QGraphicsObject *object, int duration)
-{
-    QPropertyAnimation *anim = new QPropertyAnimation( object, "pos");
-    anim->setDuration( 1600 + duration * 2);
-    anim->setEasingCurve(QEasingCurve::InOutExpo);
-    m_group->addAnimation( anim );
-}
-
-void PeriodicTableView::setElementItemPositions(int tableIndex)
-{
-    for (int i = 0; i < m_elementItemList.size(); ++i) {
-        const int elementNumber = m_elementItemList.at( i )->data(0).toInt();
-        QPoint itemPosition = pseTables::instance()->getTabletype( tableIndex )->elementCoords( elementNumber );
-
-        // put the not needed elements a bit away
-        if ( itemPosition.x() < 0)
-            itemPosition = m_hiddenPoint;
-
-        m_tableStatesList.at( tableIndex )->assignProperty( m_elementItemList.at( i ), "pos",
-                QPointF( (itemPosition.x() ) * m_width, (itemPosition.y()) * m_height));
-
-        addElementAnimation( m_elementItemList.at( i ), i);
-    }
+    return elementItemList;
 }
 
 PeriodicTableScene* PeriodicTableView::pseScene() const
@@ -252,8 +180,7 @@ void PeriodicTableView::generateSvg(const QString& filename)
 PeriodicTableView::~PeriodicTableView()
 {
     delete scene();
-    delete m_group;
-    qDeleteAll(m_tableStatesList);
+    delete m_tableStates;
 }
 
 #include "periodictableview.moc"

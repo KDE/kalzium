@@ -51,17 +51,6 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
 PeriodicTableScene::~PeriodicTableScene()
 {}
 
-void PeriodicTableScene::addObject(QGraphicsObject* item)
-{
-    addItem(item);
-    itemList.append(item);
-}
-
-QList<QGraphicsObject*> PeriodicTableScene::objects() const
-{
-    return itemList;
-}
-
 bool PeriodicTableScene::event(QEvent *e)
 {
     return QGraphicsScene::event(e);

@@ -47,10 +47,6 @@ public:
     PeriodicTableScene(QObject *parent = 0);
     ~PeriodicTableScene();
 
-    void addObject(QGraphicsObject *object);
-
-    QList<QGraphicsObject*> objects() const;
-
 Q_SIGNALS:
     /**
      * This signal is emitted when an element item is released.
@@ -69,8 +65,6 @@ private Q_SLOTS:
     void slotMouseover();
 
 private:
-    QList<QGraphicsObject*> itemList;
-
     QTimer m_hoverTimer;
     int m_prevHoverElement;
     QPointF m_eventPos;

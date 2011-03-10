@@ -69,6 +69,7 @@ set(kalzium_SRCS
    psetable/numerationitem.cpp
    psetable/periodictableview.cpp
    psetable/periodictablescene.cpp
+   psetable/periodictablestates.cpp
    psetable/statemachine.cpp
    kalzium.cpp
    main.cpp
