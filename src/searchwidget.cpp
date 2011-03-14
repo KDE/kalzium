@@ -59,12 +59,6 @@ void SearchWidget::giveFocus()
     m_searchLine->setCursorPosition( m_searchLine->text().length() );
 }
 
-void SearchWidget::appendSearchText( const QString& text )
-{
-  // FIXME Reproducable crash when setting or getting text. Worked in old kalzium.
-//     m_searchLine->setText(m_searchLine->text() + text);
-}
-
 void SearchWidget::searchTextChanged( const QString& )
 {
     if ( m_timer )

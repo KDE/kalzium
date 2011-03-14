@@ -44,8 +44,6 @@ public:
 
     void giveFocus();
 
-    void appendSearchText( const QString& text );
-
 private slots:
     void searchTextChanged( const QString& text );
     void slotReturnPressed();

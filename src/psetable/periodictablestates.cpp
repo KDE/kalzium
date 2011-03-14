@@ -131,5 +131,3 @@ PeriodicTableStates::~PeriodicTableStates()
     qDeleteAll(m_tableStatesList);
     delete m_stateSwitcher;
 }
-
-#include "periodictablestates.moc"

@@ -649,15 +649,4 @@ QSize Kalzium::sizeHint() const
 }
 
 
-// void Kalzium::keyPressEvent( QKeyEvent *e)
-// {
-// FIXME makes kalzium crash:( don't know why...
-
-//     if (e->text() != QString()) {
-//         m_searchWidget->appendSearchText( e->text() );
-//         m_searchWidget->giveFocus();
-// 	e->accept();
-//     }
-// }
-
 #include "kalzium.moc"

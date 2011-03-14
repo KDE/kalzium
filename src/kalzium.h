@@ -187,7 +187,6 @@ private slots:
     void showSettingsDialog();
 
 protected:
-//     virtual void keyPressEvent( QKeyEvent * e);
     virtual QSize sizeHint() const;
 };
 

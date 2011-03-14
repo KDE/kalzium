@@ -81,6 +81,7 @@ void IsotopeGuideView::mousePressEvent(QMouseEvent *event)
 
 void IsotopeGuideView::mouseReleaseEvent(QMouseEvent *event)
 {
+    Q_UNUSED(event)
     m_dragEvent = false;
     setCursor( Qt::OpenHandCursor );
 }
