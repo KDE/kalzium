@@ -108,7 +108,7 @@ void PeriodicTableStates::setElementItemPositions(const int tableIndex)
     }
 }
 
-QRectF PeriodicTableStates::currentPseRect( const int tableIndex ) const
+QRectF PeriodicTableStates::pseRect( const int tableIndex ) const
 {
     const QPoint maxTableCoords = pseTables::instance()->getTabletype( tableIndex )->tableSize();
 

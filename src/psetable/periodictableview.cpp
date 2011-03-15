@@ -121,7 +121,7 @@ void PeriodicTableView::slotUnSelectElements()
 void PeriodicTableView::setBiggerSceneRect()
 {
     QRectF newRect( sceneRect() );
-    QRectF pseRect(m_tableStates->currentPseRect( m_currentTableInex ));
+    QRectF pseRect( m_tableStates->pseRect( m_currentTableInex ) );
 
     if ( sceneRect().width() < pseRect.width() )
         newRect.setWidth( pseRect.width() );
@@ -140,8 +140,8 @@ void PeriodicTableView::resizeEvent ( QResizeEvent * event )
 
 void PeriodicTableView::fitPseInView()
 {
-    if ( operator!=( sceneRect(), m_tableStates->currentPseRect( m_currentTableInex ) ) )
-        setSceneRect( m_tableStates->currentPseRect( m_currentTableInex ) );
+    if ( operator!=( sceneRect(), m_tableStates->pseRect( m_currentTableInex ) ) )
+        setSceneRect( m_tableStates->pseRect( m_currentTableInex ) );
 
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
