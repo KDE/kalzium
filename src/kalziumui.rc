@@ -33,15 +33,12 @@
 
  <ToolBar noMerge="1" name="mainToolBar" alreadyVisited="1">
   <text>Main Toolbar</text>
-  <Action name="view_sidebar"/>
-  <Action name="view_legend"/>  
   <Action name="view_table"/>
   <Action name="view_look_onlyschemes"/>
   <Action name="view_look_onlygradients"/>  
   <Action name="tools_isotopetable"/>
   <Action name="tools_moleculeviewer"/>
   <Action name="tools_calculate" />  
-  <Action name="tools_eqsolver"/>
   <Action name="tools_plotdata" />
  </ToolBar>
 </kpartgui>
