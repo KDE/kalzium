@@ -35,15 +35,11 @@ KalziumElementProperty* KalziumElementProperty::instance()
 KalziumElementProperty::KalziumElementProperty()
         : m_mode(0)
 {
-    m_gradient = KalziumGradientTypeFactory::instance();
-    m_scheme = KalziumSchemeTypeFactory::instance();
-
     m_currentScheme = Prefs::colorschemebox();
     m_currentGradient = Prefs::colorgradientbox();
 
-    if (m_currentGradient > 1) {
+    if (m_currentGradient > 1)
         m_mode = GRADIENTVALUE;
-    }
 }
 
 KalziumElementProperty::~KalziumElementProperty()
@@ -80,30 +76,28 @@ void KalziumElementProperty::redrawPse()
 
 QStringList KalziumElementProperty::schemeList() const
 {
-    return m_scheme->schemes();
+    return KalziumSchemeTypeFactory::instance()->schemes();
 }
 
 QStringList KalziumElementProperty::gradientList() const
 {
     QStringList customList;
     customList << i18n("None");
-    customList << m_gradient->gradients();
+    customList << KalziumGradientTypeFactory::instance()->gradients();
     return customList;
 }
 
 KalziumSchemeType* KalziumElementProperty::scheme() const
 {
-    return m_scheme->build(m_currentScheme);
+    return KalziumSchemeTypeFactory::instance()->build( m_currentScheme );
 }
 
 KalziumGradientType* KalziumElementProperty::gradient() const
 {
     if ( m_currentGradient == NOGRADIENT ) {
-        // FIXME Fix the case when no gradient is choosen. gradientwidget or here.
-        return m_gradient->build(0);
+        return KalziumGradientTypeFactory::instance()->build(NOGRADIENT);
     }
-
-    return m_gradient->build(m_currentGradient - 1);
+    return KalziumGradientTypeFactory::instance()->build(m_currentGradient - 1);
 }
 
 int KalziumElementProperty::gradientId() const

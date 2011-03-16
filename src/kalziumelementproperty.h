@@ -160,8 +160,6 @@ private:
     ~KalziumElementProperty();
 
     QColor gradientBrushLogic(int el) const;
-    KalziumSchemeTypeFactory *m_scheme;
-    KalziumGradientTypeFactory *m_gradient;
 
     int m_currentScheme;
     int m_currentGradient;
