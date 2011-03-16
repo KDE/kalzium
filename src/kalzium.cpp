@@ -278,8 +278,8 @@ void Kalzium::setupActions()
     m_legendWidget->LockWidget();
 
 
-    slotSwitchtoLookGradient( Prefs::colorgradientbox() );
-    slotSwitchtoLookScheme( Prefs::colorschemebox() );
+    slotSwitchtoLookGradient( KalziumElementProperty::instance()->gradientId() );
+    slotSwitchtoLookScheme( KalziumElementProperty::instance()->schemeId() );
 
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
