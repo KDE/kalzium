@@ -142,6 +142,7 @@ public slots:
     void init();
 
 private:
+    void setupUnitComboboxes();
     void populateUnitCombobox(QComboBox *comboBox, const QList<int> &unitList);
 
     int getCurrentUnitId(QComboBox *comboBox);

@@ -27,6 +27,8 @@ gasCalculator::gasCalculator(QWidget * parent)
 {
     ui.setupUi(this);
 
+    setupUnitComboboxes();
+
     init();
 
     connect(ui.temp , SIGNAL(valueChanged(double)),
@@ -78,6 +80,30 @@ void gasCalculator::init()
     ui.mass     -> setValue(2.016);
     ui.moles    -> setValue(1.0);
 
+    ui.mass_unit->setCurrentIndex(0);
+    ui.pressure_unit->setCurrentIndex(0);
+    ui.temp_unit->setCurrentIndex(0);
+    ui.volume_unit->setCurrentIndex(0);
+    ui.b_unit->setCurrentIndex(0);
+
+    m_temp = Value(273.0, KUnitConversion::Kelvin);
+    m_molarMass = 2.016;
+    m_pressure = Value(1.0, KUnitConversion::Atmosphere);
+    m_mass = Value(2.016, KUnitConversion::Gram);
+    m_moles = 1.0;
+    m_Vand_a = 0.0;
+    m_Vand_b = Value(0.0, KUnitConversion::Liter);
+    m_vol = Value(22.4, KUnitConversion::Liter);
+
+    if (Prefs::ideal()) {
+        ui.non_ideal->hide();
+    }
+
+    setMode(VOLUME);
+}
+
+void gasCalculator::setupUnitComboboxes()
+{
     QList<int> units;
     units << Gram << Milligram << Kilogram << Ton;
     populateUnitCombobox( ui.mass_unit, units );
@@ -97,25 +123,12 @@ void gasCalculator::init()
     units.clear();
     units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
     populateUnitCombobox( ui.b_unit, units );
-
-    m_temp = Value(273.0, KUnitConversion::Kelvin);
-    m_molarMass = 2.016;
-    m_pressure = Value(1.0, KUnitConversion::Atmosphere);
-    m_mass = Value(2.016, KUnitConversion::Gram);
-    m_moles = 1.0;
-    m_Vand_a = 0.0;
-    m_Vand_b = Value(0.0, KUnitConversion::Liter);
-    m_vol = Value(22.4, KUnitConversion::Liter);
-
-    if (Prefs::ideal()) {
-        ui.non_ideal->hide();
-    }
-
-    setMode(VOLUME);
 }
 
 void gasCalculator::populateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList)
 {
+    comboBox->clear();
+
     foreach( int unit, unitList) {
         comboBox->addItem( KUnitConversion::Converter().unit(unit).data()->description(), unit);
     }
