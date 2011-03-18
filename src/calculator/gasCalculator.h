@@ -27,11 +27,18 @@
 #include <prefs.h>
 #include <kalziumdataobject.h>
 #include <kunitconversion/unitcategory.h>
+#include <kunitconversion/converter.h>
+
+#include <QComboBox>
 
 #include "ui_gasCalculator.h"
 
 // The universal Gas constant is defined here.
 #define R 0.08206
+
+namespace KUnitConversion {
+enum UnitId;
+}
 
 // This is required for the units conversion
 using namespace KUnitConversion;
@@ -134,8 +141,12 @@ public slots:
 	
 	// Initialises the gasCalculator
 	void init();
-	
+
 private:
+    void poulateUnitCombobox(QComboBox *comboBox, const QList<int> &unitList);
+
+    int getCurrentUnitId(QComboBox *comboBox);
+
     Ui::gasCalculator ui;               // The user interface
 
     double m_moles;                     // Number of moles
@@ -145,6 +156,12 @@ private:
     Value m_pressure;                   // pressure
     Value m_vol;                        // volume
     Value m_Vand_b;                     // vander val's constant b
+    
+    QStringList m_massUnits;                       // mass
+    QStringList m_tempUnits;                       // Temperature
+    QStringList m_pressureUnits;                   // pressure
+    QStringList m_volUnits;                        // volume
+    QStringList m_Vand_bUnits;   
 
     //( Unit conversion library not available for the following quantities)
     double m_Vand_a;                    // Vander val's constant a

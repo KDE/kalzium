@@ -19,6 +19,8 @@
 
 #include "gasCalculator.h"
 #include "prefs.h"
+#include <kunitconversion/converter.h>
+
 
 using namespace KUnitConversion;
 
@@ -57,8 +59,6 @@ gasCalculator::gasCalculator(QWidget * parent)
             this, SLOT(molarMassChanged(double)));
     connect(ui.a , SIGNAL(valueChanged(double)),
             this, SLOT(Vand_aChanged()));
-    connect(ui.a_unit , SIGNAL(activated(int)),
-            this, SLOT(Vand_aChanged()));
     connect(ui.b ,  SIGNAL(valueChanged(double)),
             this, SLOT(Vand_bChanged()));
     connect(ui.b_unit , SIGNAL(activated(int)),
@@ -90,25 +90,36 @@ void gasCalculator::init()
     ui.mass     -> setValue(2.016);
     ui.moles    -> setValue(1.0);
     
-    ui.mass_unit	->setCurrentIndex(0);
-    ui.pressure_unit->setCurrentIndex(0);
-    ui.temp_unit	->setCurrentIndex(0);
-    ui.volume_unit	->setCurrentIndex(0);
-    ui.b_unit		->setCurrentIndex(0);
-    ui.a_unit		->setCurrentIndex(0);
-    
+    QList<int> units;
+    units << Gram << Milligram << Kilogram << Ton;
+    poulateUnitCombobox( ui.mass_unit, units );
+
+    units.clear();
+    units << Atmosphere << Pascal << Bar << Millibar << Torr;
+    poulateUnitCombobox( ui.pressure_unit, units );
+
+    units.clear();
+    units << Kelvin << Celsius << Fahrenheit;
+    poulateUnitCombobox( ui.temp_unit, units );
+
+    units.clear();
+    units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
+    poulateUnitCombobox( ui.volume_unit, units );
+
+    units.clear();
+    units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
+    poulateUnitCombobox( ui.b_unit, units );
     // Setup of the UI done
 
-	
     // Initialise values
-    m_temp = Value(273.0, "kelvins");
+    m_temp = Value(273.0, KUnitConversion::Kelvin);
     m_molarMass = 2.016;
-    m_pressure = Value(1.0, "atmosphere");
-    m_mass = Value(2.016, "grams");
+    m_pressure = Value(1.0, KUnitConversion::Atmosphere);
+    m_mass = Value(2.016, KUnitConversion::Gram);
     m_moles = 1.0;
     m_Vand_a = 0.0;
-    m_Vand_b = Value(0.0, "liters");
-    m_vol = Value(22.4, "liters");
+    m_Vand_b = Value(0.0, KUnitConversion::Liter);
+    m_vol = Value(22.4, KUnitConversion::Liter);
     // Initialisation of values done
     
     if (Prefs::ideal())
@@ -118,6 +129,20 @@ void gasCalculator::init()
     
     setMode(3);
 }
+
+void gasCalculator::poulateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList)
+{
+    foreach( int unit, unitList) {
+       comboBox->addItem( KUnitConversion::Converter().unit(unit).data()->description(), unit);
+    }
+}
+
+int gasCalculator::getCurrentUnitId(QComboBox* comboBox)
+{
+    return comboBox->itemData( comboBox->currentIndex() ).toInt();
+}
+
+
 /*
     Note:-
 
@@ -137,13 +162,13 @@ void gasCalculator::init()
 void gasCalculator::calculatePressure()
 {
     double pressure;
-    double volume = m_vol.convertTo("liters").number();
-    double temp = m_temp.convertTo("kelvins").number();
-    double b = m_Vand_b.convertTo("liters").number();
+    double volume = m_vol.convertTo( KUnitConversion::Liter ).number();
+    double temp = m_temp.convertTo( KUnitConversion::Kelvin ).number();
+    double b = m_Vand_b.convertTo( KUnitConversion::Liter ).number();
 
     pressure = m_moles * R * temp / (volume - m_moles * b) - m_moles * m_moles * m_Vand_a / volume / volume;
-    m_pressure = Value(pressure, "atmospheres");
-    m_pressure = m_pressure.convertTo(ui.pressure_unit->currentText());
+    m_pressure = Value(pressure, KUnitConversion::Atmosphere );
+    m_pressure = m_pressure.convertTo(getCurrentUnitId(ui.pressure_unit));
     ui.pressure->setValue(m_pressure.number());
 
     //pressure =
@@ -152,11 +177,11 @@ void gasCalculator::calculatePressure()
 // Calculates the molar mass of the gas
 void gasCalculator::calculateMolarMass()
 {
-    double mass = m_mass.convertTo("grams").number();
-    double volume = m_vol.convertTo("liters").number();
-    double pressure = m_pressure.convertTo("atmospheres").number();
-    double temp = m_temp.convertTo("kelvins").number();
-    double b = m_Vand_b.convertTo("liters").number();
+    double mass = m_mass.convertTo(KUnitConversion::Gram).number();
+    double volume = m_vol.convertTo(KUnitConversion::Liter).number();
+    double pressure = m_pressure.convertTo(KUnitConversion::Atmosphere).number();
+    double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
+    double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
     m_molarMass = mass * R * temp / (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
                   / (volume - m_moles * b);
@@ -167,13 +192,13 @@ void gasCalculator::calculateMolarMass()
 void gasCalculator::calculateVol()
 {
     double volume;
-    double pressure = m_pressure.convertTo("atmospheres").number();
-    double temp = m_temp.convertTo("kelvins").number();
-    double b = m_Vand_b.convertTo("liters").number();
+    double pressure = m_pressure.convertTo(KUnitConversion::Atmosphere).number();
+    double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
+    double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
     volume = m_moles * R * temp / pressure + (m_moles * b);
-    m_vol = Value(volume, "liters");
-    m_vol = m_vol.convertTo(ui.volume_unit->currentText());
+    m_vol = Value(volume, KUnitConversion::Liter);
+    m_vol = m_vol.convertTo( getCurrentUnitId(ui.volume_unit) );
     ui.volume->setValue(m_vol.number());
 }
 
@@ -181,24 +206,24 @@ void gasCalculator::calculateVol()
 void gasCalculator::calculateTemp()
 {
     double temp;
-    double volume = m_vol.convertTo("liters").number();
-    double pressure = m_pressure.convertTo("atmospheres").number();
-    double b = m_Vand_b.convertTo("liters").number();
+    double volume = m_vol.convertTo(KUnitConversion::Liter).number();
+    double pressure = m_pressure.convertTo(KUnitConversion::Atmosphere).number();
+    double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
     temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume))\
            * (volume - m_moles * b) / m_moles / R;
-    m_temp = Value(temp, "kelvins");
-    m_temp = m_temp.convertTo(ui.temp_unit->currentText());
+    m_temp = Value(temp, KUnitConversion::Kelvin);
+    m_temp = m_temp.convertTo( getCurrentUnitId( ui.temp_unit ) );
     ui.temp->setValue(m_temp.number());
 }
 
 // Calculates the number of moles
 void gasCalculator::calculateMoles()
 {
-    double volume = m_vol.convertTo("liters").number();
-    double pressure = m_pressure.convertTo("atmospheres").number();
-    double temp = m_temp.convertTo("kelvins").number();
-    double b = m_Vand_b.convertTo("liters").number();
+    double volume = m_vol.convertTo(KUnitConversion::Liter).number();
+    double pressure = m_pressure.convertTo(KUnitConversion::Atmosphere).number();
+    double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
+    double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
     m_moles = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
               * (volume - m_moles * b) / R / temp;
@@ -209,15 +234,15 @@ void gasCalculator::calculateMoles()
 void gasCalculator::calculateMass()
 {
     double mass;
-    double volume = m_vol.convertTo("liters").number();
-    double pressure = m_pressure.convertTo("atmospheres").number();
-    double temp = m_temp.convertTo("kelvins").number();
-    double b = m_Vand_b.convertTo("liters").number();
+    double volume = m_vol.convertTo(KUnitConversion::Liter).number();
+    double pressure = m_pressure.convertTo(KUnitConversion::Atmosphere).number();
+    double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
+    double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
     mass = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
            * (volume - m_moles * b) * m_molarMass / R / temp;
-    m_mass = Value(mass, "grams");
-    m_mass = m_mass.convertTo(ui.mass_unit->currentText());
+    m_mass = Value(mass, KUnitConversion::Gram);
+    m_mass = m_mass.convertTo( getCurrentUnitId( ui.mass_unit ) );
     ui.mass->setValue(m_mass.number());
 }
 
@@ -226,29 +251,29 @@ void gasCalculator::calculateMass()
 // occurs when the volume is changed
 void gasCalculator::volChanged()
 {
-    m_vol = Value(ui.volume->value(), ui.volume_unit->currentText());
+    m_vol = Value(ui.volume->value(), getCurrentUnitId( ui.volume_unit ) );
     calculate();
 }
 
 // occurs when the temperature is changed
 void gasCalculator::tempChanged()
 {
-    m_temp = Value(ui.temp->value(), ui.temp_unit->currentText());
+    m_temp = Value(ui.temp->value(), getCurrentUnitId( ui.temp_unit ) );
     calculate();
 }
 
 // occurs when the pressure is changed
 void gasCalculator::pressureChanged()
 {
-    m_pressure = Value(ui.pressure->value(), ui.pressure_unit->currentText());
+    m_pressure = Value(ui.pressure->value(), getCurrentUnitId( ui.pressure_unit ) );
     calculate();
 }
 
 // occurs when the mass is changed
 void gasCalculator::massChanged()
 {
-    m_mass = Value(ui.mass->value(), ui.mass_unit->currentText());
-    m_moles = m_mass.convertTo("grams").number() / m_molarMass;
+    m_mass = Value(ui.mass->value(), getCurrentUnitId( ui.mass_unit ) );
+    m_moles = m_mass.convertTo(KUnitConversion::Gram).number() / m_molarMass;
     ui.moles->setValue(m_moles);
     calculate();
 }
@@ -257,8 +282,8 @@ void gasCalculator::massChanged()
 void gasCalculator::molesChanged(double value)
 {
     m_moles = value;
-    m_mass = Value(m_moles * m_molarMass, "grams");
-    m_mass = m_mass.convertTo(ui.mass_unit->currentText());
+    m_mass = Value(m_moles * m_molarMass, KUnitConversion::Gram);
+    m_mass = m_mass.convertTo( getCurrentUnitId( ui.mass_unit ) );
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -271,8 +296,8 @@ void gasCalculator::molarMassChanged(double value)
 		return;
 	}
     m_molarMass = value;
-    m_mass = Value(m_molarMass * m_moles, "grams");
-    m_mass = m_mass.convertTo(ui.mass_unit->currentText());
+    m_mass = Value(m_molarMass * m_moles, KUnitConversion::Gram);
+    m_mass = m_mass.convertTo( getCurrentUnitId( ui.mass_unit ) );
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -287,7 +312,7 @@ void gasCalculator::Vand_aChanged()
 // occurs when the number of moles is changed
 void gasCalculator::Vand_bChanged()
 {
-    m_Vand_b = Value(ui.b->value(), ui.b_unit->currentText());
+    m_Vand_b = Value(ui.b->value(), getCurrentUnitId( ui.b_unit ) );
     calculate();
 }
 
