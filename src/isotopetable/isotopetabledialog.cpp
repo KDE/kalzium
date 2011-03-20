@@ -52,8 +52,6 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
     //Here comes the legend part
     QList< QPair<QString, QColor> > items;
 
-    QVBoxLayout * layout = new QVBoxLayout(this);
-
     items << qMakePair( i18nc("alpha ray emission", "alpha" ), QColor(Qt::red) );
     items << qMakePair( i18nc("Electron capture method", "EC" ), QColor(Qt::blue) );
     items << qMakePair( i18nc("Many ways", "Multiple" ), QColor(Qt::green) );
@@ -65,9 +63,9 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
     foreach ( const legendPair &pair, items )
     {
         LegendItem *item = new LegendItem( pair );
-        layout->addWidget(item);
+	ui.infoWidget->layout()->addWidget(item);
     }
-    ui.legendDisplay->setLayout(layout);
+    ui.infoWidget->setMinimumWidth(150);
 }
 
 void IsotopeTableDialog::zoom (int level)

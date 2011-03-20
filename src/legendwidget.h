@@ -23,6 +23,7 @@
 #include <kdialog.h>
 
 #include "kalziumelementproperty.h"
+#include <QLabel>
 
 class LegendItem;
 
@@ -74,7 +75,7 @@ private:
  *
  * @author Carsten Niehaus
  */
-class LegendItem : public QWidget
+class LegendItem : public QLabel
 {
     Q_OBJECT
 

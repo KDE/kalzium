@@ -23,7 +23,6 @@
 #include <kdebug.h>
 #include <klocale.h>
 
-#include <QLabel>
 #include <QHBoxLayout>
 #include <QGridLayout>
 
@@ -168,21 +167,26 @@ void LegendWidget::legendItemAction(QColor color)
 LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)
 {
     QHBoxLayout *ItemLayout = new QHBoxLayout(this);
-    ItemLayout->setMargin(1);
-    QLabel * LegendLabel = new QLabel(this);
+    ItemLayout->setMargin(0);
 
     if ( pair.second.isValid() ) {
         legendItemColor = pair.second;
         connect(this, SIGNAL(legenItemHoovered(QColor)), parent, SLOT(legendItemAction(QColor)));
 
-        QPixmap LegendPixmap(20, 20);
+        QPixmap LegendPixmap(20, height());
         LegendPixmap.fill(pair.second);
+
         QLabel * LabelPixmap = new QLabel(this);
         LabelPixmap->setPixmap(LegendPixmap);
         ItemLayout->addWidget(LabelPixmap);
+
+        setFrameShape(QFrame::StyledPanel);
+        setFrameShadow(QFrame::Sunken);
     }
+    QLabel * LegendLabel = new QLabel(this);
     LegendLabel->setText(pair.first);
     ItemLayout->addWidget(LegendLabel);
+
     ItemLayout->setAlignment(Qt::AlignLeft);
     setLayout(ItemLayout);
 }
