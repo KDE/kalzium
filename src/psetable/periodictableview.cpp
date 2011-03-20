@@ -126,8 +126,8 @@ void PeriodicTableView::setBiggerSceneRect()
     if ( sceneRect().width() < pseRect.width() )
         newRect.setWidth( pseRect.width() );
 
-    if ( sceneRect().height() < pseRect.width() )
-        newRect.setHeight( pseRect.width() );
+    if ( sceneRect().height() < pseRect.height() )
+        newRect.setHeight( pseRect.height() );
 
     setSceneRect( newRect );
 }
