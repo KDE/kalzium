@@ -95,10 +95,9 @@ class StateSwitcher : public QState
 public:
     StateSwitcher(QStateMachine *machine);
 
-    void addState(QState *state, QAbstractAnimation *animation, int id);
+    void addState(QState *state, QAbstractAnimation *animation, const int &id);
 
-public:
-    void switchToState(int n);
+    void switchToState(const int &n);
 };
 
 #endif // STATEMACHIEN_H

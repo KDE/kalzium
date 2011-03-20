@@ -114,8 +114,8 @@ void PeriodicTableView::slotSelectAdditionalElement(int element)
 
 void PeriodicTableView::slotUnSelectElements()
 {
-    foreach ( QGraphicsItem *item , m_tableScene->selectedItems())
-    item->setSelected( false );
+    foreach ( QGraphicsItem *item, m_tableScene->selectedItems() )
+        item->setSelected( false );
 }
 
 void PeriodicTableView::setBiggerSceneRect()

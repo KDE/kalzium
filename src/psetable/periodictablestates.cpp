@@ -49,7 +49,7 @@ PeriodicTableStates::PeriodicTableStates(
     m_states.start();
 }
 
-void PeriodicTableStates::setNumerationItemPositions( const int tableIndex )
+void PeriodicTableStates::setNumerationItemPositions( const int &tableIndex )
 {
     hideAllNumerationItems( tableIndex );
 
@@ -64,10 +64,10 @@ void PeriodicTableStates::setNumerationItemPositions( const int tableIndex )
     }
 }
 
-void PeriodicTableStates::hideAllNumerationItems(const int tableIndex)
+void PeriodicTableStates::hideAllNumerationItems(const int &tableIndex)
 {
     foreach( NumerationItem *item, m_numerationItemList)
-    m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( hiddenPoint() ));
+        m_tableStatesList.at( tableIndex )->assignProperty( item, "pos", QPointF( hiddenPoint() ));
 }
 
 QPoint PeriodicTableStates::hiddenPoint() const
@@ -75,7 +75,7 @@ QPoint PeriodicTableStates::hiddenPoint() const
     return QPoint(-40, -400);
 }
 
-int PeriodicTableStates::maxNumerationItemXCoordinate(const int tableIndex)
+int PeriodicTableStates::maxNumerationItemXCoordinate(const int &tableIndex)
 {
     const int maxTableLenght = pseTables::instance()->getTabletype( tableIndex )->tableSize().x();
 
@@ -91,7 +91,7 @@ void PeriodicTableStates::addElementAnimation(QGraphicsObject *object, int durat
     m_group->addAnimation( anim );
 }
 
-void PeriodicTableStates::setElementItemPositions(const int tableIndex)
+void PeriodicTableStates::setElementItemPositions(const int &tableIndex)
 {
     for (int i = 0; i < m_elementItemList.size(); ++i) {
         const int elementNumber = m_elementItemList.at( i )->data(0).toInt();
@@ -108,7 +108,7 @@ void PeriodicTableStates::setElementItemPositions(const int tableIndex)
     }
 }
 
-QRectF PeriodicTableStates::pseRect( const int tableIndex ) const
+QRectF PeriodicTableStates::pseRect( const int &tableIndex ) const
 {
     const QPoint maxTableCoords = pseTables::instance()->getTabletype( tableIndex )->tableSize();
 
@@ -120,7 +120,7 @@ QRectF PeriodicTableStates::pseRect( const int tableIndex ) const
     return QRectF(0, -m_height, x * m_width, y * m_height);
 }
 
-void PeriodicTableStates::setTableState( const int tableIndex )
+void PeriodicTableStates::setTableState( const int &tableIndex )
 {
     m_stateSwitcher->switchToState( tableIndex );
 }
