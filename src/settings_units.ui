@@ -33,33 +33,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KComboBox" name="kcfg_temperatureUnit">
-       <item>
-        <property name="text">
-         <string>Kelvin</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Degrees Celsius</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Degrees Fahrenheit</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Degrees Rankine</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Degrees Réaumur</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="KComboBox" name="kcfg_temperatureUnit"/>
      </item>
     </layout>
    </item>
@@ -79,18 +53,21 @@
       </widget>
      </item>
      <item>
-      <widget class="KComboBox" name="kcfg_energies">
-       <item>
-        <property name="text">
-         <string>kj/mol (kilojoule per mol)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>eV (electronvolt)</string>
-        </property>
-       </item>
+      <widget class="KComboBox" name="kcfg_energies"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="layout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Length:</string>
+       </property>
       </widget>
+     </item>
+     <item>
+      <widget class="KComboBox" name="kcfg_lengthUnit"/>
      </item>
     </layout>
    </item>

@@ -20,6 +20,8 @@
 
 #include "element.h"
 #include <kdebug.h>
+#include <kunitconversion/converter.h>
+
 
 Element::Element()
 {
@@ -34,14 +36,45 @@ QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
 	return QVariant();
 }
 
-QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
+QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) const
 {
 	foreach( const ChemicalDataObject &o, dataList ) {
-		if ( o.type() == type )
-			return o.valueAsString();
+		if ( o.type() == type ) {
+			KUnitConversion::Value data( o.value().toDouble(), o.unit() );
+			return QVariant( data.convertTo(unit).number() );
+		}
 	}
 	return QString();
 }
+
+QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
+{
+        return dataAsVariant(type).toString();
+}
+
+QString Element::dataAsString(ChemicalDataObject::BlueObelisk type, int unit) const
+{
+        return dataAsVariant(type, unit).toString();
+}
+
+QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int unit) const
+{
+       QString valueAndUnit;      
+       valueAndUnit = dataAsVariant(type, unit).toString();
+       
+       if(valueAndUnit.isEmpty()) 
+           return QString();
+
+       valueAndUnit.append(" ");
+       valueAndUnit.append( unitAsString( unit ) );
+       return valueAndUnit;
+}
+
+QString Element::unitAsString( int unit ) const
+{
+        return KUnitConversion::Converter().unit( unit ).data()->symbol();
+}
+
 
 Element::~Element()
 {

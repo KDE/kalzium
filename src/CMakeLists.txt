@@ -1,5 +1,5 @@
 include_directories(
-   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
+   ${CMAKE_SOURCE_DIR}/libscience/
    ../compoundviewer
    tools
    calculator
@@ -86,6 +86,7 @@ set(kalzium_SRCS
    kalziumnumerationtype.cpp
    kalziumelementproperty.cpp
    kalziumschemetype.cpp
+   kalziumunitcombobox.cpp
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
@@ -117,8 +118,6 @@ kde4_add_ui_files(kalzium_SRCS
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    spectrumview.ui
-#    settings_misc.ui
-#    settings_web.ui
    settings_units.ui
    settings_gradients.ui
    rswidget.ui

@@ -102,17 +102,17 @@
 		<entry name="color_liquid" type="Color">
 			<label>Selects the color of liquid elements</label>
 			<whatsthis>Selects the color of liquid elements</whatsthis>
-			<default>#2C72C7</default>
+			<default>#2C72C8</default>
 		</entry>
 		<entry name="color_solid" type="Color">
 			<label>Selects the color of solid elements</label>
 			<whatsthis>Selects the color of solid elements</whatsthis>
-			<default>#E85752</default>
+			<default>#E85753</default>
 		</entry>
 		<entry name="color_vapor" type="Color">
 			<label>Selects the color of vaporous elements</label>
 			<whatsthis>Selects the color of vaporous elements</whatsthis>
-			<default>#77B753</default>
+			<default>#77B754</default>
 		</entry>
 		<entry name="color_radioactive" type="Color">
 			<label>Selects the color of radioactive elements</label>
@@ -249,6 +249,11 @@
 		<entry name="temperatureUnit" type="Int">
 			<label>This value defines which temperature scale should be used within Kalzium</label>
 			<whatsthis>Select the scale for the temperature</whatsthis>
+			<default>0</default>
+		</entry>
+		<entry name="lengthUnit" type="Int">
+			<label>This value defines which lenght scale should be used within Kalzium</label>
+			<whatsthis>Select the scale for the lenght</whatsthis>
 			<default>0</default>
 		</entry>
 		<entry name="schemaSelected" type="Bool">

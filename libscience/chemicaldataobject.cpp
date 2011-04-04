@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "chemicaldataobject.h"
+#include <kunitconversion/converter.h>
 #include <kdebug.h>
 
 #include <QLatin1String>
@@ -32,7 +33,7 @@ class ChemicalDataObjectPrivate : public QSharedData
         QVariant m_value;
         QVariant m_errorValue;
         ChemicalDataObject::BlueObelisk m_type;
-        ChemicalDataObject::BlueObeliskUnit m_unit;
+        int m_unit;
 };
 
 //########################
@@ -52,14 +53,14 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, con
     d->m_value = v;
     d->m_errorValue = errorValue;
     d->m_type = type;
-    d->m_unit = ChemicalDataObject::noUnit;
+    d->m_unit = KUnitConversion::NoUnit;
 }
 
 ChemicalDataObject::ChemicalDataObject() 
   : d(new ChemicalDataObjectPrivate)
 {
     d->m_errorValue = QVariant();
-    d->m_unit = ChemicalDataObject::noUnit;
+    d->m_unit = KUnitConversion::NoUnit;
 }
 
 ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other)
@@ -139,12 +140,12 @@ QVariant ChemicalDataObject::errorValue() const
 	return d->m_errorValue;
 }
 
-void ChemicalDataObject::setUnit( ChemicalDataObject::BlueObeliskUnit unit )
+void ChemicalDataObject::setUnit( int unit )
 {
 	d->m_unit = unit;
 }
 
-ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit() const
+int ChemicalDataObject::unit() const
 {
 	return d->m_unit;
 }
@@ -169,177 +170,7 @@ void ChemicalDataObject::setType( int type )
 	d->m_type = ( ChemicalDataObject::BlueObelisk ) type;
 }
 
-QString ChemicalDataObject::dictRef() const
-{
-	QString botype;
-	switch ( d->m_type ){
-		case atomicNumber:
-			botype = "atomicNumber";
-			break;
-		case symbol:
-			botype = "symbol";
-			break;
-		case name:
-			botype = "name";
-			break;
-		case mass:
-			botype = "mass";
-			break;
-		case exactMass:
-			botype = "exactMass";
-			break;
-		case spin:
-			botype = "spin";
-			break;
-		case magneticMoment:
-			botype = "magneticMoment";
-			break;
-		case halfLife:
-			botype = "halfLife";
-			break;
-		case alphaDecay:
-			botype = "alphaDecay";
-			break;
-		case alphaDecayLikeliness:
-			botype = "alphaDecayLikeliness";
-			break;
-		case betaminusDecayLikeliness:
-			botype = "betaminusDecayLikeliness";
-			break;
-		case betaminusDecay:
-			botype = "betaminusDecay";
-			break;
-		case betaplusDecayLikeliness:
-			botype = "betaplusDecayLikeliness";
-			break;
-		case betaplusDecay:
-			botype = "betaplusDecay";
-			break;
-		case ecDecayLikeliness:
-			botype = "ecDecayLikeliness";
-			break;
-		case ecDecay:
-			botype = "ecDecay";
-			break;
-		case ionization:
-			botype = "ionization";
-			break;
-		case electronAffinity:
-			botype = "electronAffinity";
-			break;
-		case electronegativityPauling:
-			botype = "electronegativityPauling";
-			break;
-		case radiusCovalent:
-			botype = "radiusCovalent";
-			break;
-		case radiusVDW:
-			botype = "radiusVDW";
-			break;
-		case meltingpoint:
-			botype = "meltingpoint";
-			break;
-		case boilingpoint:
-			botype = "boilingpoint";
-			break;
-		case periodTableBlock:
-			botype = "periodTableBlock";
-			break;
-		case nameOrigin:
-			botype = "nameOrigin";
-			break;
-		case orbit:
-			botype = "orbit";
-			break;
-		case date:
-			botype = "date";
-			break;
-		case discoverers:
-			botype = "discoverers";
-			break;
-		case period:
-			botype = "period";
-			break;
-		case relativeAbundance:
-			botype = "relativeAbundance";
-			break;
-		case family:
-			botype ="family";
-			break;
-		case group:
-			botype ="group";
-			break;
-		case acidicbehaviour:
-			botype ="acidicbehaviour";
-			break;
-		case electronicConfiguration:
-			botype ="electronicConfiguration";
-			break;
-		case crystalstructure:
-			botype ="crystalstructure";
-			break;
-		case dangerSymbol:
-			botype ="dangerSymbol";
-			break;
-		case RPhrase:
-			botype ="RPhrase";
-			break;
-		case SPhrase:
-			botype ="SPhrase";
-			break;
-		case discoveryCountry:
-			botype ="discoveryCountry";
-			break;
-	}
-
-	botype = botype.prepend( QLatin1String("bo:") );
-	
-	return botype;
-}
-
 QString ChemicalDataObject::unitAsString() const
 {
-	QString bounit;
-	switch ( d->m_unit ){
-		case kelvin:
-			bounit = "kelvin";
-			break;
-		case nm:
-			bounit = "nm";
-			break;
-		case pm:
-			bounit = "pm";
-			break;
-		case ev:
-			bounit = "ev";
-			break;
-		case ang:
-			bounit = "degree";
-			break;
-		case noUnit:
-			return "noUnit";
-		case y:
-			return "y";
-		case s:
-			return "s";
-	}
-	
-//	bounit = bounit.prepend( "bo:" );
-	
-	return bounit;
-}
-	
-
-ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit( const QString& unit )
-{
-    if ( unit == "siUnits:kelvin" ) 
-        return ChemicalDataObject::kelvin;
-    else if ( unit == "units:ev" )
-        return ChemicalDataObject::ev;
-    else if ( unit == "units:ang" )
-        return ChemicalDataObject::ang;
-    else if ( unit == "bo:noUnit" )
-        return ChemicalDataObject::noUnit;
-    else
-        return ChemicalDataObject::noUnit;
+	return KUnitConversion::Converter().unit(d->m_unit).data()->symbol();
 }

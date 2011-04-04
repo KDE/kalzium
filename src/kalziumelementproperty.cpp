@@ -42,12 +42,17 @@ KalziumElementProperty::KalziumElementProperty()
 
     m_currentGradient = Prefs::colorgradientbox();
 
-    if (m_currentGradient > 1)
+    if ( isGradient() )
         m_mode = GRADIENTVALUE;
 }
 
 KalziumElementProperty::~KalziumElementProperty()
 {
+}
+
+bool KalziumElementProperty::isGradient()
+{
+    return m_currentGradient > 2;
 }
 
 void KalziumElementProperty::setScheme(int newScheme)
@@ -64,10 +69,10 @@ void KalziumElementProperty::setGradient(int newGradient)
     Prefs::setColorgradientbox(newGradient);
     Prefs::self()->writeConfig();
 
-    if ( m_currentGradient == NOGRADIENT )
-        m_mode = NORMAL;
-    else
+    if ( isGradient() )
         m_mode = GRADIENTVALUE;
+    else
+        m_mode = NORMAL;        
 
     propertyChanged();
 }
@@ -121,15 +126,15 @@ void KalziumElementProperty::setSliderValue(double slide)
 
 double KalziumElementProperty::getValue(int el) const
 {
-    if (m_currentGradient != NOGRADIENT)
-        return gradient()->value(el);
+    if ( m_currentGradient != NOGRADIENT )
+        return gradient()->value( el );
 
     return 0;
 }
 
 QColor KalziumElementProperty::getElementColor(int el)
 {
-    if (m_currentGradient == NOGRADIENT)
+    if ( m_currentGradient == NOGRADIENT )
         return scheme()->elementBrush(el).color();
 
     return gradientBrushLogic( el );
@@ -232,7 +237,7 @@ QColor KalziumElementProperty::gradientBrushLogic( int el ) const
         break;
     }
 
-    if ( !isActiv && gradientValue != -1) { //FIXME No magic number...
+    if ( !isActiv && gradientValue != -1) { //FIXME No magic number... Defined in KalziumGradientFactory
         gradientColor = Qt::transparent;
     } else {
         const double coeff = gradient()->elementCoeff(el);

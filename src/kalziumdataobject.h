@@ -73,6 +73,10 @@ class KalziumDataObject
      */
     Element* element ( int number );
 
+    double maxValue( int type );
+    
+    double minValue( int type );
+
     /**
      * @return the isotopes of the Element with the number @p number
      */

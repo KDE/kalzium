@@ -22,11 +22,11 @@
 #define ELEMENT_H
 
 #include "libkdeedu_science_export.h"
-
 #include <QtCore/QList>
 #include <QtCore/QVariant>
 
 #include "chemicaldataobject.h"
+
 
 class Spectrum;
 class Isotope;
@@ -64,10 +64,18 @@ class SCIENCE_EXPORT Element
 		 */
 		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type ) const;
 		
+		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type, int unit ) const;
+		
 		/**
 		 * @return the requested data of the type @p type as a QString
 		 */
 		QString dataAsString( ChemicalDataObject::BlueObelisk type ) const;
+		
+		QString dataAsString( ChemicalDataObject::BlueObelisk type, int unit ) const;
+		
+		QString dataAsStringWithUnit( ChemicalDataObject::BlueObelisk type, int unit ) const;
+		
+		QString unitAsString( int unit ) const;
 		
 		/**
 		 * @return the data of the Element

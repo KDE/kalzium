@@ -74,15 +74,7 @@ private slots:
     void setNewValue(double newValue);
 
 private:
-    QList<Element*> m_list;
-    int m_prevUnit;
-
     bool m_play;		//Indicates whether mode is play or stop
     QTimer *m_timer;
-//X         QString m_htmlBegin;
-//X         QString m_htmlEnd;
-
-//X     private slots:
-//X         void setNewTime( int newtime );
 };
 #endif // GRADIENTWIDGET_IMPL_H

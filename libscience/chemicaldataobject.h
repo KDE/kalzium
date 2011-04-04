@@ -87,17 +87,17 @@ class SCIENCE_EXPORT ChemicalDataObject
       discoveryCountry
 		};
 
-		enum BlueObeliskUnit
-		{
-			kelvin = 0/**< Degree Kelvin */,
-			ev/**< electron volt */,
-			nm/**< nanometer */,
-			pm/**< picometer */,
-			y/**< years */,
-			s/**< seconds */,
-                        ang/**< angstrom */,
-			noUnit/**< no unit */
-		};
+// 		enum BlueObeliskUnit
+// 		{
+// 			kelvin = 0/**< Degree Kelvin */,
+// 			ev/**< electron volt */,
+// 			nm/**< nanometer */,
+// 			pm/**< picometer */,
+// 			y/**< years */,
+// 			s/**< seconds */,
+//                         ang/**< angstrom */,
+// 			noUnit/**< no unit */
+// 		};
 
 		/**
 		 * Constructor.
@@ -202,12 +202,6 @@ class SCIENCE_EXPORT ChemicalDataObject
 		bool operator== ( const QString& v ) const;
 
 		/**
-		 * @return the dictRef attribute of the XML. This is an
-		 * identifier. For example, for the mass it is "bo:mass"
-		 */
-		QString dictRef() const;
-
-		/**
 		 * @return the unit of the object as a QString. For example kelvin 
 		 * will be returned as "bo:kelvin"
 		 */
@@ -216,31 +210,13 @@ class SCIENCE_EXPORT ChemicalDataObject
 		/**
 		 * @return the unit of the object
 		 */
-		BlueObeliskUnit unit() const;
+		int unit() const;
 
 		/**
 		 * set the unit of this object to @p unit
 		 * @param unit the BlueObeliskUnit for this object
 		 */
-		void setUnit( BlueObeliskUnit unit );
-
-		/**
-		 * Looks up a name @p unitname. The valid names are
-		 * hard-coded in the C++ code, currently
-		 *   - bo:kelvin
-		 *   - bo:ev
-		 *   - bo:nm
-		 *   - bo:pm
-		 *   - bo:y
-		 *   - bo:s
-		 *   - bo:noUnit
-		 *
-		 * @return the BlueObeliskUnit of a ChemicalDataObject 
-		 *   corresponding to @p unitname, or noUnit if the name
-		 *   doesn't match any of the known values.
-		 * @param unitname the attribute-text of the XML parsed
-		 */
-		static BlueObeliskUnit unit( const QString& unitname );
+		void setUnit( int unit );
 		
 		ChemicalDataObject& operator=(const ChemicalDataObject &other);
 

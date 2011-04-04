@@ -39,6 +39,7 @@
 #include "searchwidget.h"
 #include "tableinfowidget.h"
 #include "psetables.h"
+#include "kalziumunitcombobox.h"
 #include <config-kalzium.h>
 
 #include "calculator/calculator.h"
@@ -75,6 +76,7 @@
 #include <KLocale>
 #include <KPluginLoader>
 #include <KTabWidget>
+#include <QGridLayout>
 
 #define IDS_ELEMENTINFO     7
 
@@ -517,32 +519,39 @@ void Kalzium::showSettingsDialog()
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
-    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
+//     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
+//     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
 
     // colors page
     Ui_setupColors ui_colors;
-    QWidget *w_colors = new QWidget( 0 );
+    QWidget *w_colors = new QWidget( this );
     w_colors->setObjectName( "colors_page" );
     ui_colors.setupUi( w_colors );
     dialog->addPage( w_colors, i18n( "Schemes" ), "preferences-desktop-color" );
 
     // gradients page
     Ui_setupGradients ui_gradients;
-    QWidget *w_gradients = new QWidget( 0 );
+    QWidget *w_gradients = new QWidget( this );
     w_gradients->setObjectName( "gradients_page" );
     ui_gradients.setupUi( w_gradients );
     dialog->addPage( w_gradients, i18n( "Gradients" ), "preferences-desktop-color" );
 
     // units page
     Ui_setupUnits ui_units;
-    QWidget *w_units = new QWidget( 0 );
+    QWidget *w_units = new QWidget( this );
     w_units->setObjectName( "units_page" );
-    ui_units.setupUi( w_units );
+    
+//     QGridLayout *unitLayout = new QGridLayout( w_units );
+//     unitLayout->addWidget( new QLabel( i18n("Length:"), this ), 0, 0);
+//     
+//     KalziumUnitCombobox *lengthCombo = new KalziumUnitCombobox();
+    
+//     unitLayout->addWidget();
+
     dialog->addPage( w_units, i18n( "Units" ), "system-run" );
 
     Ui_setupCalc ui_calc;
-    QWidget *w_calc = new QWidget( 0 );
+    QWidget *w_calc = new QWidget( this );
     ui_calc.setupUi( w_calc );
     dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
 

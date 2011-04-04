@@ -13,6 +13,7 @@ email                : cniehaus@kde.org
 #include "elementparser.h"
 
 #include "chemicaldataobject.h"
+#include <kunitconversion/converter.h>
 #include "element.h"
 
 #include <kdebug.h>
@@ -22,7 +23,7 @@ class ElementSaxParser::Private
 {
     public:
         Private()
-            : currentUnit(ChemicalDataObject::noUnit),
+            : currentUnit(KUnitConversion::NoUnit),
             currentElement(0),
             inElement(false),
             inName(false),
@@ -60,7 +61,7 @@ class ElementSaxParser::Private
         }
 
         ChemicalDataObject currentDataObject;
-        ChemicalDataObject::BlueObeliskUnit currentUnit;
+        int currentUnit; // KUnitConversion::UnitId
         Element *currentElement;
 
         QList<Element*> elements;
@@ -116,9 +117,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
         {
             if ( attrs.localName( i ) == "units" )
             {
-                //kDebug() << "value of the unit: " << attrs.value(i);
-                d->currentUnit = ChemicalDataObject::unit( attrs.value( i ) );
-                //kDebug() << "Took " << d->currentUnit;
+//                 kDebug() << "value of the unit: " << attrs.value(i);
+                d->currentUnit = unit( attrs.value( i ) );
+//                 kDebug() << "Took " << d->currentUnit;
                 continue;
             }
 
@@ -362,11 +363,26 @@ bool ElementSaxParser::characters(const QString &ch)
 
     d->currentDataObject.setData( value );
     d->currentDataObject.setType( type );
+    d->currentDataObject.setUnit( d->currentUnit );
 
     if ( d->currentElement )
         d->currentElement->addData( d->currentDataObject );
 
     return true;
+}
+
+int ElementSaxParser::unit( const QString& unit ) const
+{
+    if ( unit == "siUnits:kelvin" ) 
+        return KUnitConversion::Kelvin;
+    else if ( unit == "units:ev" )
+        return KUnitConversion::Electronvolt;
+    else if ( unit == "units:ang" )
+        return KUnitConversion::Angstrom;
+    else if ( unit == "bo:noUnit" )
+        return KUnitConversion::NoUnit;
+    else
+        return KUnitConversion::NoUnit;
 }
 
 QList<Element*> ElementSaxParser::getElements()
