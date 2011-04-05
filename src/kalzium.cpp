@@ -19,7 +19,7 @@
 #include "prefs.h"
 #include "ui_settings_colors.h"
 #include "ui_settings_gradients.h"
-#include "ui_settings_units.h"
+// #include "ui_settings_units.h"
 #include "ui_settings_calc.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
@@ -39,7 +39,6 @@
 #include "searchwidget.h"
 #include "tableinfowidget.h"
 #include "psetables.h"
-#include "kalziumunitcombobox.h"
 #include <config-kalzium.h>
 
 #include "calculator/calculator.h"
@@ -537,18 +536,8 @@ void Kalzium::showSettingsDialog()
     dialog->addPage( w_gradients, i18n( "Gradients" ), "preferences-desktop-color" );
 
     // units page
-    Ui_setupUnits ui_units;
-    QWidget *w_units = new QWidget( this );
-    w_units->setObjectName( "units_page" );
-    
-//     QGridLayout *unitLayout = new QGridLayout( w_units );
-//     unitLayout->addWidget( new QLabel( i18n("Length:"), this ), 0, 0);
-//     
-//     KalziumUnitCombobox *lengthCombo = new KalziumUnitCombobox();
-    
-//     unitLayout->addWidget();
-
-    dialog->addPage( w_units, i18n( "Units" ), "system-run" );
+    m_unitsDialog = new UnitSettingsDialog( this );
+    dialog->addPage( m_unitsDialog, i18n( "Units" ), "system-run" );
 
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget( this );

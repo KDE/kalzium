@@ -15,6 +15,7 @@ email                : cniehaus@kde.org
 
 #include <kxmlguiwindow.h>
 #include "periodictableview.h"
+#include "unitsettingsdialog.h"
 
 class KTabWidget;
 class KAction;
@@ -126,6 +127,8 @@ private:
     SearchWidget *m_searchWidget;
 
     ExportDialog *m_exportDialog;
+
+    UnitSettingsDialog *m_unitsDialog;
 
 Q_SIGNALS:
     void numerationChanged(int);

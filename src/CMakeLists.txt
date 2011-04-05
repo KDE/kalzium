@@ -87,6 +87,7 @@ set(kalzium_SRCS
    kalziumelementproperty.cpp
    kalziumschemetype.cpp
    kalziumunitcombobox.cpp
+   unitsettingsdialog.cpp
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
@@ -118,7 +119,7 @@ kde4_add_ui_files(kalzium_SRCS
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    spectrumview.ui
-   settings_units.ui
+#    settings_units.ui
    settings_gradients.ui
    rswidget.ui
    gradientwidget.ui

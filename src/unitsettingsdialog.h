@@ -1,4 +1,5 @@
 /*
+    <one line to give the program's name and a brief idea of what it does.>
     Copyright (C) 2011  Rebetez Etienne <etienne.rebetez@oberwallis.ch>
 
     This program is free software: you can redistribute it and/or modify
@@ -16,24 +17,24 @@
 */
 
 
+#ifndef UNITSETTINGSDIALOG_H
+#define UNITSETTINGSDIALOG_H
+
+#include <QWidget>
 #include "kalziumunitcombobox.h"
-#include <kunitconversion/converter.h>
 
-
-KalziumUnitCombobox::KalziumUnitCombobox( const QList< int > &unitList, QWidget* parent )
-        : QComboBox(parent)
+class UnitSettingsDialog: public QWidget
 {
-    QString unitString;
-    foreach( int unit, unitList) {
-        unitString = KUnitConversion::Converter().unit(unit).data()->description();
-        unitString.append(" (");
-        unitString.append(KUnitConversion::Converter().unit(unit).data()->symbol());
-        unitString.append(")");
-        addItem( unitString, unit );
-    }
-}
 
-int KalziumUnitCombobox::getCurrentUnitId() const
-{
-    return itemData( currentIndex() ).toInt();
-}
+public:
+    explicit UnitSettingsDialog(QWidget* parent = 0);
+    
+
+private:
+  KalziumUnitCombobox *m_comboLenght;
+  KalziumUnitCombobox *m_comboEnergy;
+  KalziumUnitCombobox *m_comboTemerature;
+    
+};
+
+#endif // UNITSETTINGSDIALOG_H
