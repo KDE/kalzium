@@ -74,7 +74,7 @@
 #include <kfiledialog.h>
 #include <KLocale>
 #include <KPluginLoader>
-#include <KTabWidget>
+// #include <KTabWidget>
 #include <QGridLayout>
 
 #define IDS_ELEMENTINFO     7
@@ -537,6 +537,7 @@ void Kalzium::showSettingsDialog()
 
     // units page
     m_unitsDialog = new UnitSettingsDialog( this );
+    m_unitsDialog->setObjectName( "units_page" );
     dialog->addPage( m_unitsDialog, i18n( "Units" ), "system-run" );
 
     Ui_setupCalc ui_calc;
@@ -544,13 +545,27 @@ void Kalzium::showSettingsDialog()
     ui_calc.setupUi( w_calc );
     dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
 
+    connect( dialog, SIGNAL( settingsChanged(QString) ), this, SLOT(slotUpdateSettings() ) );
+    connect( m_unitsDialog, SIGNAL( comboboxChanged() ), this, SLOT(slotUpdateSettings() ) );
+
     // showing the dialog
     dialog->show();
 }
 
-// void Kalzium::slotUpdateSettings()
-// {
-// }
+void Kalzium::slotUpdateSettings()
+{
+    qDebug() << "settings changed.";
+    Prefs::setLengthUnit( m_unitsDialog->getLenghtUnitId() );
+    qDebug() << m_unitsDialog->getLenghtUnitId();
+
+    Prefs::setEnergies( m_unitsDialog->getEnergyUnitId() );
+    qDebug() << m_unitsDialog->getEnergyUnitId();
+
+    Prefs::setTemperatureUnit( m_unitsDialog->getTemperatureUnitId() );
+    qDebug() << m_unitsDialog->getTemperatureUnitId();
+
+    Prefs::self()->writeConfig();
+}
 
 void Kalzium::slotShowExportDialog()
 {

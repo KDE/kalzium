@@ -42,7 +42,7 @@ UnitSettingsDialog::UnitSettingsDialog(QWidget* parent): QWidget(parent)
     QLabel *labelTemperature = new QLabel(i18n("Temperature:"), this);
     QList<int> temperature;
     temperature << KUnitConversion::Kelvin << KUnitConversion::Celsius << KUnitConversion::Fahrenheit;
-    m_comboTemerature = new KalziumUnitCombobox(temperature, this);
+    m_comboTemperature = new KalziumUnitCombobox(temperature, this);
 
     QGridLayout *layout = new QGridLayout(this);
     layout->addWidget(labelEnergy, 0, 0);
@@ -52,10 +52,30 @@ UnitSettingsDialog::UnitSettingsDialog(QWidget* parent): QWidget(parent)
     layout->addWidget(m_comboLenght, 1, 1);
 
     layout->addWidget(labelTemperature, 2, 0);
-    layout->addWidget(m_comboTemerature, 2, 1);
+    layout->addWidget(m_comboTemperature, 2, 1);
 
     layout->setRowStretch(3, 1);
 
     setLayout(layout);
+
+    connect( m_comboEnergy, SIGNAL( currentIndexChanged(int)), this, SIGNAL( comboboxChanged()) );
+    connect( m_comboLenght, SIGNAL( currentIndexChanged(int)), this, SIGNAL( comboboxChanged()) );
+    connect( m_comboTemperature, SIGNAL( currentIndexChanged(int)), this, SIGNAL( comboboxChanged()) );
 }
 
+int UnitSettingsDialog::getEnergyUnitId()
+{
+    return m_comboEnergy->getCurrentUnitId();
+}
+
+int UnitSettingsDialog::getLenghtUnitId()
+{
+    return m_comboLenght->getCurrentUnitId();
+}
+
+int UnitSettingsDialog::getTemperatureUnitId()
+{
+    return m_comboTemperature->getCurrentUnitId();
+}
+
+#include "unitsettingsdialog.moc"

@@ -189,6 +189,8 @@ private slots:
      */
     void showSettingsDialog();
 
+    void slotUpdateSettings();
+
 protected:
     virtual QSize sizeHint() const;
 };

@@ -23,7 +23,6 @@
 
 class KalziumUnitCombobox : public QComboBox
 {
-    Q_OBJECT
 
 public:
     KalziumUnitCombobox( const QList< int > &unitList, QWidget *parent = 0 );

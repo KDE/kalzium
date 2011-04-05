@@ -63,14 +63,7 @@ void GradientWidgetImpl::slotGradientChanged()
     double dblMax = elementProperty->gradient()->maxValue();
     double dblMin = elementProperty->gradient()->minValue();
 
-//     QString unitSymbol = elementProperty->gradient()->unit();
-//     if (unitSymbol == QString("K")) {
-//         unitSymbol = TempUnit::unitListSymbol( Prefs::temperatureUnit() );
-//         dblMax = TempUnit::convert( dblMax, (int)TempUnit::Kelvin, Prefs::temperatureUnit());
-//         dblMin = TempUnit::convert( dblMin, (int)TempUnit::Kelvin, Prefs::temperatureUnit());
-//     }
-
-    // setting the Slider
+    // saving the decimals in the int
     const int intMax = dblMax * MULTIPLIKATOR;
     const int intMin = dblMin * MULTIPLIKATOR;
 
@@ -112,7 +105,7 @@ void GradientWidgetImpl::slotGradientChanged()
 
 
 
-void GradientWidgetImpl::doubleToSlider(double var)
+void GradientWidgetImpl::doubleToSlider(double doubleVar)
 {
     //the signals need to be blocked as both will return to this slot. But no
     //matter which UI elements (slider oder spinbox) was changed, the other
@@ -120,22 +113,16 @@ void GradientWidgetImpl::doubleToSlider(double var)
 
     gradient_slider->blockSignals( true );
 
-    int intvar = var * MULTIPLIKATOR;
+    // setting the decimals in int
+    int intvar = doubleVar * MULTIPLIKATOR;
 
     gradient_slider->setValue(intvar);
 
     gradient_slider->blockSignals( false );
 
+    emit gradientValueChanged( doubleVar );
 
-//     QString unitSymbol = KalziumElementProperty::instance()->gradient()->unit();
-//     // converting back Temperature values to Kelvin.
-//     if (unitSymbol == QString("K")) {
-//         var = TempUnit::convert( var, Prefs::temperatureUnit(), (int)TempUnit::Kelvin);
-//     }
-
-    emit gradientValueChanged( var );
-
-    setNewValue( var );
+    setNewValue( doubleVar );
 }
 
 
@@ -143,18 +130,13 @@ void GradientWidgetImpl::intToSpinbox(int var)
 {
     gradient_spinbox->blockSignals( true );
 
+    // put int back to double with decimals
     double doublevar = var;
     doublevar = doublevar / MULTIPLIKATOR;
 
     gradient_spinbox->setValue(doublevar);
 
     gradient_spinbox->blockSignals( false );
-
-//     QString unitSymbol = KalziumElementProperty::instance()->gradient()->unit();
-//     // converting back Temperature values to Kelvin.
-//     if (unitSymbol == QString("K")) {
-//         doublevar = TempUnit::convert( doublevar, Prefs::temperatureUnit(), (int)TempUnit::Kelvin );
-//     }
 
     emit gradientValueChanged( doublevar );
 
@@ -179,18 +161,17 @@ void GradientWidgetImpl::setNewValue( double newValue )
     QStringList listBoilingPointValue;
     QStringList listMeltingPointValue;
 
-    //FIXME port to Kunitconversiun -> remove tempunit
     foreach (Element * element, KalziumDataObject::instance()->ElementList) {
-        double melting = element->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+        double melting = element->dataAsVariant( ChemicalDataObject::meltingpoint, Prefs::temperatureUnit() ).toDouble();
         if ( ( melting > 0.0 ) && fabs( melting - newValue ) <= threshold ) {
             listMeltingPoint << element->dataAsString( ChemicalDataObject::name );
-            listMeltingPointValue << QString::number(TempUnit::convert(melting,(int)TempUnit::Kelvin,Prefs::temperatureUnit()));
+            listMeltingPointValue << QString::number( melting );
         }
 
-        double boiling = element->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+        double boiling = element->dataAsVariant( ChemicalDataObject::boilingpoint, Prefs::temperatureUnit() ).toDouble();
         if ( ( boiling > 0.0 ) && fabs( boiling - newValue ) <= threshold ) {
             listBoilingPoint << element->dataAsString( ChemicalDataObject::name );
-            listBoilingPointValue << QString::number(TempUnit::convert(boiling,(int)TempUnit::Kelvin,Prefs::temperatureUnit()));
+            listBoilingPointValue << QString::number( boiling );
         }
     }
     QString htmlcode;
@@ -222,7 +203,7 @@ void GradientWidgetImpl::setNewValue( double newValue )
 
 void GradientWidgetImpl::play(void)
 {
-    if ( m_play) {   //Currently playing
+    if ( m_play ) {   //Currently playing
         //The Mode is 'Play' so stop
         stop();
         return;
