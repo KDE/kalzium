@@ -68,7 +68,6 @@ KalziumSchemeType* KalziumSchemeTypeFactory::build( const QByteArray& id ) const
         }
     }
 
-    // not found
     return 0;
 }
 

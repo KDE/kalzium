@@ -52,7 +52,7 @@ KalziumElementProperty::~KalziumElementProperty()
 
 bool KalziumElementProperty::isGradient()
 {
-    return m_currentGradient > 2;
+    return m_currentGradient > 1;
 }
 
 void KalziumElementProperty::setScheme(int newScheme)

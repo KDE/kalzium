@@ -241,7 +241,7 @@
 		</entry>
 	</group>
 	<group name="Units">
-		<entry name="energies" type="Int">
+		<entry name="energiesUnit" type="Int">
 			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
 			<whatsthis>Use eV or kJ/mol</whatsthis>
 			<default>7022</default>
@@ -255,6 +255,21 @@
 			<label>This value defines which lenght scale should be used within Kalzium</label>
 			<whatsthis>Select the scale for the lenght</whatsthis>
 			<default>2015</default>
+		</entry>
+		<entry name="combobox_energies" type="Int">
+			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
+			<whatsthis>Use eV or kJ/mol</whatsthis>
+			<default>0</default>
+		</entry>
+		<entry name="combobox_temperature" type="Int">
+			<label>This value defines which temperature scale should be used within Kalzium</label>
+			<whatsthis>Select the scale for the temperature</whatsthis>
+			<default>0</default>
+		</entry>
+		<entry name="combobox_length" type="Int">
+			<label>This value defines which lenght scale should be used within Kalzium</label>
+			<whatsthis>Select the scale for the lenght</whatsthis>
+			<default>0</default>
 		</entry>
 		<entry name="schemaSelected" type="Bool">
 			<label>True if schema was last selected</label>

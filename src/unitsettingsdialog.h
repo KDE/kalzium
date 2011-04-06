@@ -25,8 +25,6 @@
 
 class UnitSettingsDialog: public QWidget
 {
-    Q_OBJECT
-
 public:
     explicit UnitSettingsDialog(QWidget* parent = 0);
 
@@ -36,13 +34,10 @@ public:
 
     int getTemperatureUnitId();
 
-Q_SIGNALS:
-    void comboboxChanged();
-
 private:
-    KalziumUnitCombobox *m_comboLenght;
-    KalziumUnitCombobox *m_comboEnergy;
-    KalziumUnitCombobox *m_comboTemperature;
+    KalziumUnitCombobox *m_comboBoxLengthUnit;
+    KalziumUnitCombobox *m_comboBoxLEnergiesUnit;
+    KalziumUnitCombobox *m_comboBoxLTemperatureUnit;
 
 };
 

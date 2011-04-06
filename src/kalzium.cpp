@@ -518,8 +518,6 @@ void Kalzium::showSettingsDialog()
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-//     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
-//     connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
 
     // colors page
     Ui_setupColors ui_colors;
@@ -546,9 +544,9 @@ void Kalzium::showSettingsDialog()
     dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
 
     connect( dialog, SIGNAL( settingsChanged(QString) ), this, SLOT(slotUpdateSettings() ) );
-    connect( m_unitsDialog, SIGNAL( comboboxChanged() ), this, SLOT(slotUpdateSettings() ) );
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
 
-    // showing the dialog
     dialog->show();
 }
 
@@ -558,13 +556,16 @@ void Kalzium::slotUpdateSettings()
     Prefs::setLengthUnit( m_unitsDialog->getLenghtUnitId() );
     qDebug() << m_unitsDialog->getLenghtUnitId();
 
-    Prefs::setEnergies( m_unitsDialog->getEnergyUnitId() );
+    Prefs::setEnergiesUnit( m_unitsDialog->getEnergyUnitId() );
     qDebug() << m_unitsDialog->getEnergyUnitId();
 
     Prefs::setTemperatureUnit( m_unitsDialog->getTemperatureUnitId() );
     qDebug() << m_unitsDialog->getTemperatureUnitId();
 
     Prefs::self()->writeConfig();
+
+    m_legendWidget->updateContent();
+    KalziumElementProperty::instance()->redrawPse();
 }
 
 void Kalzium::slotShowExportDialog()
