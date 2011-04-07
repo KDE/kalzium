@@ -19,7 +19,6 @@
 #include "prefs.h"
 #include "ui_settings_colors.h"
 #include "ui_settings_gradients.h"
-// #include "ui_settings_units.h"
 #include "ui_settings_calc.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
@@ -552,20 +551,15 @@ void Kalzium::showSettingsDialog()
 
 void Kalzium::slotUpdateSettings()
 {
-    qDebug() << "settings changed.";
     Prefs::setLengthUnit( m_unitsDialog->getLenghtUnitId() );
-    qDebug() << m_unitsDialog->getLenghtUnitId();
 
     Prefs::setEnergiesUnit( m_unitsDialog->getEnergyUnitId() );
-    qDebug() << m_unitsDialog->getEnergyUnitId();
 
     Prefs::setTemperatureUnit( m_unitsDialog->getTemperatureUnitId() );
-    qDebug() << m_unitsDialog->getTemperatureUnitId();
 
     Prefs::self()->writeConfig();
 
     m_legendWidget->updateContent();
-    KalziumElementProperty::instance()->redrawPse();
 }
 
 void Kalzium::slotShowExportDialog()

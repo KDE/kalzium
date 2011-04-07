@@ -26,19 +26,19 @@
 
 class ChemicalDataObjectPrivate : public QSharedData
 {
-    public:
-        ChemicalDataObjectPrivate();
-        ~ChemicalDataObjectPrivate();
+public:
+    ChemicalDataObjectPrivate();
+    ~ChemicalDataObjectPrivate();
 
-        QVariant m_value;
-        QVariant m_errorValue;
-        ChemicalDataObject::BlueObelisk m_type;
-        int m_unit;
+    QVariant m_value;
+    QVariant m_errorValue;
+    ChemicalDataObject::BlueObelisk m_type;
+    int m_unit;
 };
 
 //########################
 ChemicalDataObjectPrivate::ChemicalDataObjectPrivate()
-: QSharedData()
+        : QSharedData()
 {
 }
 
@@ -47,8 +47,8 @@ ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
 }
 //##############
 
-ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) 
-  : d(new ChemicalDataObjectPrivate)
+ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue )
+        : d(new ChemicalDataObjectPrivate)
 {
     d->m_value = v;
     d->m_errorValue = errorValue;
@@ -56,15 +56,15 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, con
     d->m_unit = KUnitConversion::NoUnit;
 }
 
-ChemicalDataObject::ChemicalDataObject() 
-  : d(new ChemicalDataObjectPrivate)
+ChemicalDataObject::ChemicalDataObject()
+        : d(new ChemicalDataObjectPrivate)
 {
     d->m_errorValue = QVariant();
     d->m_unit = KUnitConversion::NoUnit;
 }
 
 ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other)
-  : d(other.d)
+        : d(other.d)
 {
 }
 
@@ -74,103 +74,103 @@ ChemicalDataObject::~ChemicalDataObject()
 
 ChemicalDataObject& ChemicalDataObject::operator=(const ChemicalDataObject &other)
 {
-	d = other.d;
-	return *this;
+    d = other.d;
+    return *this;
 }
 
 bool ChemicalDataObject::operator==( const int v ) const
 {
-	if ( d->m_value.type() != QVariant::Int )	
-		return false;
-	
-	return d->m_value.toInt() == v;
+    if ( d->m_value.type() != QVariant::Int )
+        return false;
+
+    return d->m_value.toInt() == v;
 }
 
 bool ChemicalDataObject::operator==( const bool v ) const
 {
-	if ( d->m_value.type() != QVariant::Bool )	
-		return false;
-	
-	return d->m_value.toBool() == v;
+    if ( d->m_value.type() != QVariant::Bool )
+        return false;
+
+    return d->m_value.toBool() == v;
 }
 
 bool ChemicalDataObject::operator==( const double v ) const
 {
-	if ( d->m_value.type() != QVariant::Double )	
-		return false;
-	
-	return d->m_value.toDouble() == v;
+    if ( d->m_value.type() != QVariant::Double )
+        return false;
+
+    return d->m_value.toDouble() == v;
 }
 
 bool ChemicalDataObject::operator==( const QString& v ) const
 {
-	if ( d->m_value.type() != QVariant::String )	
-		return false;
+    if ( d->m_value.type() != QVariant::String )
+        return false;
 
-	return d->m_value.toString() == v;
+    return d->m_value.toString() == v;
 }
 
 bool ChemicalDataObject::operator==(const ChemicalDataObject &other) const
 {
-	return d == other.d;
+    return d == other.d;
 }
 
 bool ChemicalDataObject::operator!=(const ChemicalDataObject &other) const
 {
-	return d != other.d;
+    return d != other.d;
 }
 
 QString ChemicalDataObject::valueAsString() const
 {
-	return d->m_value.toString();
+    return d->m_value.toString();
 }
 
 ChemicalDataObject::BlueObelisk ChemicalDataObject::type() const
 {
-	return d->m_type;
+    return d->m_type;
 }
 
 QVariant ChemicalDataObject::value() const
 {
-	return d->m_value;
+    return d->m_value;
 }
 
 QVariant ChemicalDataObject::errorValue() const
 {
-	return d->m_errorValue;
+    return d->m_errorValue;
 }
 
 void ChemicalDataObject::setUnit( int unit )
 {
-	d->m_unit = unit;
+    d->m_unit = unit;
 }
 
 int ChemicalDataObject::unit() const
 {
-	return d->m_unit;
+    return d->m_unit;
 }
 
 void ChemicalDataObject::setData( const QVariant& v )
 {
-	d->m_value = v;
+    d->m_value = v;
 }
 
 void ChemicalDataObject::setErrorValue( const QVariant& v )
 {
-	d->m_errorValue = v;
+    d->m_errorValue = v;
 }
 
 void ChemicalDataObject::setType( BlueObelisk type )
 {
-	d->m_type = type;
+    d->m_type = type;
 }
 
 void ChemicalDataObject::setType( int type )
 {
-	d->m_type = ( ChemicalDataObject::BlueObelisk ) type;
+    d->m_type = ( ChemicalDataObject::BlueObelisk ) type;
 }
 
 QString ChemicalDataObject::unitAsString() const
 {
-	return KUnitConversion::Converter().unit(d->m_unit).data()->symbol();
+    return KUnitConversion::Converter().unit(d->m_unit).data()->symbol();
 }

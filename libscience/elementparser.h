@@ -26,40 +26,40 @@ class Element;
  */
 class SCIENCE_EXPORT ElementSaxParser : public QXmlDefaultHandler
 {
-	public:
-		/**
-		 * Constructor
-		 */
-		ElementSaxParser();
-		~ElementSaxParser();
-		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
+public:
+    /**
+     * Constructor
+     */
+    ElementSaxParser();
+    ~ElementSaxParser();
+    bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
-		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
-		
-		bool characters(const QString &ch);
+    bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
 
-		QList<Element*> getElements();
+    bool characters(const QString &ch);
 
-	private:
-	  	 /**
-		 * Looks up a name @p unitname. The valid names are
-		 * hard-coded in the C++ code, currently
-		 *   - bo:kelvin
-		 *   - bo:ev
-		 *   - bo:nm
-		 *   - bo:pm
-		 *   - bo:y
-		 *   - bo:s
-		 *   - bo:noUnit
-		 *
-		 * @return the BlueObeliskUnit of a ChemicalDataObject 
-		 *   corresponding to @p unitname, or noUnit if the name
-		 *   doesn't match any of the known values.
-		 * @param unitname the attribute-text of the XML parsed
-		 */
-		int unit( const QString& unitname ) const;
+    QList<Element*> getElements();
 
-		class Private;
-		Private *const d;
+private:
+    /**
+    * Looks up a name @p unitname. The valid names are
+    * hard-coded in the C++ code, currently
+    *   - bo:kelvin
+    *   - bo:ev
+    *   - bo:nm
+    *   - bo:pm
+    *   - bo:y
+    *   - bo:s
+    *   - bo:noUnit
+    *
+    * @return the BlueObeliskUnit of a ChemicalDataObject
+    *   corresponding to @p unitname, or noUnit if the name
+    *   doesn't match any of the known values.
+    * @param unitname the attribute-text of the XML parsed
+    */
+    int unit( const QString& unitname ) const;
+
+    class Private;
+    Private *const d;
 };
 #endif // ELEMENTPARSER_H

@@ -21,8 +21,8 @@ email                : cniehaus@kde.org
 
 class ElementSaxParser::Private
 {
-    public:
-        Private()
+public:
+    Private()
             : currentUnit(KUnitConversion::NoUnit),
             currentElement(0),
             inElement(false),
@@ -54,49 +54,49 @@ class ElementSaxParser::Private
             inCountry( false )
     {}
 
-        ~Private()
-        {
-            delete currentElement;
-            //qDeleteAll(elements);
-        }
+    ~Private()
+    {
+        delete currentElement;
+        //qDeleteAll(elements);
+    }
 
-        ChemicalDataObject currentDataObject;
-        int currentUnit; // KUnitConversion::UnitId
-        Element *currentElement;
+    ChemicalDataObject currentDataObject;
+    int currentUnit; // KUnitConversion::UnitId
+    Element *currentElement;
 
-        QList<Element*> elements;
+    QList<Element*> elements;
 
-        bool inElement;
-        bool inName;
-        bool inMass;
-        bool inExactMass;
-        bool inAtomicNumber;
-        bool inSymbol;
-        bool inIonization;
-        bool inElectronAffinity;
-        bool inElectronegativityPauling;
-        bool inRadiusCovalent;
-        bool inRadiusVDW;
-        bool inBoilingPoint;
-        bool inMeltingPoint;
-        bool inPeriodTableBlock;
-        bool inNameOrigin;
-        bool inDiscoveryDate;
-        bool inDiscoverers;
-        bool inPeriod;
-        bool inCrystalstructure;
-        bool inAcidicbehaviour;
-        bool inFamily;
-        bool inGroup;
-        bool inElectronicconfiguration;
-        bool inDangerSymbol;
-        bool inRPhrase;
-        bool inSPhrase;
-        bool inCountry;
+    bool inElement;
+    bool inName;
+    bool inMass;
+    bool inExactMass;
+    bool inAtomicNumber;
+    bool inSymbol;
+    bool inIonization;
+    bool inElectronAffinity;
+    bool inElectronegativityPauling;
+    bool inRadiusCovalent;
+    bool inRadiusVDW;
+    bool inBoilingPoint;
+    bool inMeltingPoint;
+    bool inPeriodTableBlock;
+    bool inNameOrigin;
+    bool inDiscoveryDate;
+    bool inDiscoverers;
+    bool inPeriod;
+    bool inCrystalstructure;
+    bool inAcidicbehaviour;
+    bool inFamily;
+    bool inGroup;
+    bool inElectronicconfiguration;
+    bool inDangerSymbol;
+    bool inRPhrase;
+    bool inSPhrase;
+    bool inCountry;
 };
 
-    ElementSaxParser::ElementSaxParser()
-: QXmlDefaultHandler(), d( new Private )
+ElementSaxParser::ElementSaxParser()
+        : QXmlDefaultHandler(), d( new Private )
 {
 }
 
@@ -107,13 +107,13 @@ ElementSaxParser::~ElementSaxParser()
 
 bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-    if (localName == "atom") 
+    if (localName == "atom")
     {
         d->currentElement = new Element();
         d->inElement = true;
     } else if ( ( d->inElement && localName == "scalar" ) || localName == "array" )
     {
-        for (int i = 0; i < attrs.length(); ++i) 
+        for (int i = 0; i < attrs.length(); ++i)
         {
             if ( attrs.localName( i ) == "units" )
             {
@@ -174,30 +174,30 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
         }
     } else if (d->inElement && localName == "label")
     {
-        for (int i = 0; i < attrs.length(); ++i) 
+        for (int i = 0; i < attrs.length(); ++i)
         {
             if ( attrs.localName( i ) != "dictRef" )
                 continue;
 
-            if (attrs.value(i) == "bo:symbol"){
-                for (int i = 0; i < attrs.length(); ++i) 
+            if (attrs.value(i) == "bo:symbol") {
+                for (int i = 0; i < attrs.length(); ++i)
                 {
                     if (attrs.localName(i) == "value") {
                         d->currentDataObject.setData( attrs.value(i) );
                         d->currentDataObject.setType( ChemicalDataObject::symbol );
-                        
+
                         if ( d->currentElement )
                             d->currentElement->addData( d->currentDataObject );
                     }
                 }
             }
-            else if ( attrs.value(i) == "bo:name" ){
-                for (int i = 0; i < attrs.length(); ++i) 
+            else if ( attrs.value(i) == "bo:name" ) {
+                for (int i = 0; i < attrs.length(); ++i)
                 {
                     if (attrs.localName(i) == "value") {
                         d->currentDataObject.setData( i18n( attrs.value(i).toUtf8() ) );
                         d->currentDataObject.setType( ChemicalDataObject::name );
-    
+
                         if ( d->currentElement )
                             d->currentElement->addData( d->currentDataObject );
                     }
@@ -233,64 +233,64 @@ bool ElementSaxParser::characters(const QString &ch)
     ChemicalDataObject::BlueObelisk type;
     QVariant value;
 
-    if (d->inMass){
+    if (d->inMass) {
         value = ch.toDouble();
-        type = ChemicalDataObject::mass; 
+        type = ChemicalDataObject::mass;
         d->inMass = false;
     }
-    else if (d->inExactMass){
+    else if (d->inExactMass) {
         value = ch.toDouble();
-        type = ChemicalDataObject::exactMass; 
+        type = ChemicalDataObject::exactMass;
         d->inExactMass = false;
     }
     else if (d->inAtomicNumber) {
         value = ch.toInt();
-        type = ChemicalDataObject::atomicNumber; 
+        type = ChemicalDataObject::atomicNumber;
         d->inAtomicNumber = false;
     }
     else if (d->inIonization) {
         value = ch.toDouble();;
-        type = ChemicalDataObject::ionization; 
+        type = ChemicalDataObject::ionization;
         d->inIonization = false;
     }
     else if (d->inElectronAffinity) {
         value = ch.toDouble();
-        type = ChemicalDataObject::electronAffinity; 
+        type = ChemicalDataObject::electronAffinity;
         d->inElectronAffinity = false;
     }
     else if (d->inElectronegativityPauling) {
         value = ch.toDouble();
-        type = ChemicalDataObject::electronegativityPauling; 
+        type = ChemicalDataObject::electronegativityPauling;
         d->inElectronegativityPauling = false;
     }
     else if (d->inRadiusCovalent) {
         value = ch.toDouble();
-        type = ChemicalDataObject::radiusCovalent; 
+        type = ChemicalDataObject::radiusCovalent;
         d->inRadiusCovalent = false;
     }
     else if (d->inRadiusVDW) {
         value = ch.toDouble();
-        type = ChemicalDataObject::radiusVDW; 
+        type = ChemicalDataObject::radiusVDW;
         d->inRadiusVDW = false;
     }
     else if (d->inMeltingPoint) {
         value = ch.toDouble();
-        type = ChemicalDataObject::meltingpoint; 
+        type = ChemicalDataObject::meltingpoint;
         d->inMeltingPoint = false;
     }
     else if (d->inBoilingPoint) {
         value = ch.toDouble();
-        type = ChemicalDataObject::boilingpoint; 
+        type = ChemicalDataObject::boilingpoint;
         d->inBoilingPoint = false;
     }
     else if (d->inPeriodTableBlock) {
         value = ch;
-        type = ChemicalDataObject::periodTableBlock; 
+        type = ChemicalDataObject::periodTableBlock;
         d->inPeriodTableBlock = false;
     }
     else if (d->inNameOrigin) {
         value = i18n( ch.toUtf8() );
-        type = ChemicalDataObject::nameOrigin; 
+        type = ChemicalDataObject::nameOrigin;
         d->inNameOrigin = false;
     }
     else if (d->inDiscoveryDate) {
@@ -305,56 +305,56 @@ bool ElementSaxParser::characters(const QString &ch)
     }
     else if (d->inPeriod) {
         value = ch.toInt();
-        type = ChemicalDataObject::period; 
+        type = ChemicalDataObject::period;
         d->inPeriod = false;
     }
     else if (d->inCrystalstructure) {
         value = ch;
-        type = ChemicalDataObject::crystalstructure; 
+        type = ChemicalDataObject::crystalstructure;
         d->inCrystalstructure = false;
     }
     else if (d->inAcidicbehaviour) {
         value = ch.toInt();
-        type = ChemicalDataObject::acidicbehaviour; 
+        type = ChemicalDataObject::acidicbehaviour;
         d->inAcidicbehaviour = false;
     }
     else if (d->inFamily) {
         value = ch;
-        type = ChemicalDataObject::family; 
+        type = ChemicalDataObject::family;
         d->inFamily = false;
     }
     else if (d->inGroup) {
         value = ch.toInt();
-        type = ChemicalDataObject::group; 
+        type = ChemicalDataObject::group;
         d->inGroup = false;
     }
     else if (d->inElectronicconfiguration) {
         value = ch;
-        type = ChemicalDataObject::electronicConfiguration; 
+        type = ChemicalDataObject::electronicConfiguration;
         d->inElectronicconfiguration = false;
     }
-    else if (d->inDangerSymbol){
+    else if (d->inDangerSymbol) {
         value = ch;
-        type = ChemicalDataObject::dangerSymbol; 
+        type = ChemicalDataObject::dangerSymbol;
         d->inDangerSymbol = false;
     }
-    else if (d->inRPhrase){
+    else if (d->inRPhrase) {
         value = ch;
-        type = ChemicalDataObject::RPhrase; 
+        type = ChemicalDataObject::RPhrase;
         d->inRPhrase = false;
     }
-    else if (d->inSPhrase){
+    else if (d->inSPhrase) {
         value = ch;
-        type = ChemicalDataObject::SPhrase; 
+        type = ChemicalDataObject::SPhrase;
         d->inSPhrase = false;
     }
-    else if (d->inCountry){
+    else if (d->inCountry) {
         if ( ch == "ancient" ) {
             value = 0;
-            type = ChemicalDataObject::date; 
+            type = ChemicalDataObject::date;
         } else {
             value = ch;
-            type = ChemicalDataObject::discoveryCountry; 
+            type = ChemicalDataObject::discoveryCountry;
         }
         d->inCountry = false;
     }
@@ -373,7 +373,7 @@ bool ElementSaxParser::characters(const QString &ch)
 
 int ElementSaxParser::unit( const QString& unit ) const
 {
-    if ( unit == "siUnits:kelvin" ) 
+    if ( unit == "siUnits:kelvin" )
         return KUnitConversion::Kelvin;
     else if ( unit == "units:ev" )
         return KUnitConversion::Electronvolt;

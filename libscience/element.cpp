@@ -29,44 +29,44 @@ Element::Element()
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
 {
-	foreach( const ChemicalDataObject &o, dataList ) {
-		if ( o.type() == type )
-			return o.value();
-	}
-	return QVariant();
+    foreach( const ChemicalDataObject &o, dataList ) {
+        if ( o.type() == type )
+            return o.value();
+    }
+    return QVariant();
 }
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-	foreach( const ChemicalDataObject &o, dataList ) {
-		if ( o.type() == type ) {
-			KUnitConversion::Value data( o.value().toDouble(), o.unit() );
-			return QVariant( data.convertTo(unit).number() );
-		}
-	}
-	return QString();
+    foreach( const ChemicalDataObject &o, dataList ) {
+        if ( o.type() == type ) {
+            KUnitConversion::Value data( o.value().toDouble(), o.unit() );
+            return QVariant( data.convertTo(unit).number() );
+        }
+    }
+    return QString();
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 {
-        return dataAsVariant(type).toString();
+    return dataAsVariant(type).toString();
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-        return dataAsVariant(type, unit).toString();
+    return dataAsVariant(type, unit).toString();
 }
 
 QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-       QString valueAndUnit( QString::number( dataAsVariant( type, unit).toDouble(), 'g', 4 ) );
+    QString valueAndUnit( QString::number( dataAsVariant( type, unit).toDouble(), 'g', 4 ) );
 
-       if(valueAndUnit.isEmpty()) 
-           return QString();
+    if (valueAndUnit.isEmpty())
+        return QString();
 
-       valueAndUnit.append(" ");
-       valueAndUnit.append( KUnitConversion::Converter().unit( unit ).data()->symbol() );
-       return valueAndUnit;
+    valueAndUnit.append(" ");
+    valueAndUnit.append( KUnitConversion::Converter().unit( unit ).data()->symbol() );
+    return valueAndUnit;
 }
 
 Element::~Element()
@@ -75,11 +75,11 @@ Element::~Element()
 
 void Element::addData( const ChemicalDataObject& o )
 {
-	dataList.append( o );
+    dataList.append( o );
 }
 
 void Element::addData( const QVariant& value, ChemicalDataObject::BlueObelisk type )
 {
-	ChemicalDataObject tmp( value, type );
-	dataList.append( tmp );
+    ChemicalDataObject tmp( value, type );
+    dataList.append( tmp );
 }

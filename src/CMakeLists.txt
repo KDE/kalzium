@@ -119,7 +119,6 @@ kde4_add_ui_files(kalzium_SRCS
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    spectrumview.ui
-#    settings_units.ui
    settings_gradients.ui
    rswidget.ui
    gradientwidget.ui

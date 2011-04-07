@@ -40,53 +40,62 @@ class Isotope;
 */
 class SCIENCE_EXPORT Element
 {
-	public:
-		Element();
+public:
+    Element();
 
-		virtual ~Element();
-		
-		/**
-		 * Add the ChemicalDataObject @p o to this Element
-		 * @param o the ChemicalDataObject to be added
-		 */
-		void addData( const ChemicalDataObject& o );
+    virtual ~Element();
 
-		/**
-		 * Add a ChemicalDataObject with @p value of @p type to this
-		 * Element
-		 * @param value the QVariant to be added
-		 * @param type the BlueObelisk type to be added
-		 */
-		void addData( const QVariant& value, ChemicalDataObject::BlueObelisk type );
+    /**
+     * Add the ChemicalDataObject @p o to this Element
+     * @param o the ChemicalDataObject to be added
+     */
+    void addData( const ChemicalDataObject& o );
 
-		/**
-		 * @return the requested data of the type @p type as a QVariant
-		 */
-		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type ) const;
-		
-		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type, int unit ) const;
-		
-		/**
-		 * @return the requested data of the type @p type as a QString
-		 */
-		QString dataAsString( ChemicalDataObject::BlueObelisk type ) const;
-		
-		QString dataAsString( ChemicalDataObject::BlueObelisk type, int unit ) const;
-		
-		QString dataAsStringWithUnit( ChemicalDataObject::BlueObelisk type, int unit ) const;
-		
-		/**
-		 * @return the data of the Element
-		 */
-		QList<ChemicalDataObject> data()const{
-			return dataList;
-		}
+    /**
+     * Add a ChemicalDataObject with @p value of @p type to this
+     * Element
+     * @param value the QVariant to be added
+     * @param type the BlueObelisk type to be added
+     */
+    void addData( const QVariant& value, ChemicalDataObject::BlueObelisk type );
 
-	private:
-		/**
-		 * this QList stores all information about an element
-		 */
-		QList<ChemicalDataObject> dataList;
+    /**
+     * @return the requested data of the type @p type as a QVariant
+     */
+    QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type ) const;
+
+    /**
+     * @return the requested data of the type @p type with the unit @p unit as a QVariant
+     */
+    QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type, int unit ) const;
+
+    /**
+     * @return the requested data of the type @p type as a QString
+     */
+    QString dataAsString( ChemicalDataObject::BlueObelisk type ) const;
+    /**
+     * @return the requested data of the type @p type with the given unit @p unit as a QString
+     */
+    QString dataAsString( ChemicalDataObject::BlueObelisk type, int unit ) const;
+
+    /**
+     * @return the requested data of the type @p type with the unit @p unit as a QString
+     * The unit symbol is appended to the value. The value is round to show 4 significant decimals.
+     */
+    QString dataAsStringWithUnit( ChemicalDataObject::BlueObelisk type, int unit ) const;
+
+    /**
+     * @return the data of the Element
+     */
+    QList<ChemicalDataObject> data()const {
+        return dataList;
+    }
+
+private:
+    /**
+     * this QList stores all information about an element
+     */
+    QList<ChemicalDataObject> dataList;
 };
 
 #endif
