@@ -20,15 +20,13 @@
 #include "unitsettingsdialog.h"
 
 #include <kunitconversion/converter.h>
-
 #include <KLocale>
 
 #include <QGridLayout>
 #include <QLabel>
-#include <kunitconversion/unitcategory.h>
 
 UnitSettingsDialog::UnitSettingsDialog(QWidget* parent)
-: QWidget(parent)
+        : QWidget(parent)
 {
     QLabel *labelEnergy = new QLabel(i18n("Energy:"), this);
     QList<int> energy;
@@ -38,7 +36,7 @@ UnitSettingsDialog::UnitSettingsDialog(QWidget* parent)
 
     QLabel *labelLenght = new QLabel(i18n("Length:"), this);
     QList<int> length;
-    length << KUnitConversion::Nanometer << KUnitConversion::Picometer << KUnitConversion::Angstrom;
+    length << KUnitConversion::Picometer << KUnitConversion::Nanometer << KUnitConversion::Angstrom;
     m_comboBoxLengthUnit = new KalziumUnitCombobox(length, this);
     m_comboBoxLengthUnit->setObjectName("kcfg_combobox_length");
 
@@ -78,3 +76,9 @@ int UnitSettingsDialog::getTemperatureUnitId()
     return m_comboBoxLTemperatureUnit->getCurrentUnitId();
 }
 
+UnitSettingsDialog::~UnitSettingsDialog()
+{
+    delete m_comboBoxLEnergiesUnit;
+    delete m_comboBoxLengthUnit;
+    delete m_comboBoxLTemperatureUnit;
+}

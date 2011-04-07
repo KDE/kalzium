@@ -249,12 +249,12 @@
 		<entry name="temperatureUnit" type="Int">
 			<label>This value defines which temperature scale should be used within Kalzium</label>
 			<whatsthis>Select the scale for the temperature</whatsthis>
-			<default>6001</default>
+			<default>6000</default>
 		</entry>
 		<entry name="lengthUnit" type="Int">
 			<label>This value defines which lenght scale should be used within Kalzium</label>
 			<whatsthis>Select the scale for the lenght</whatsthis>
-			<default>2015</default>
+			<default>2016</default>
 		</entry>
 		<entry name="combobox_energies" type="Int">
 			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
