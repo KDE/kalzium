@@ -149,11 +149,6 @@ public slots:
      * sets the new gradient
      */
     void setGradient(int newGradient);
-    /**
-     * Used to trigger a redraw of the periodic system (all elements).
-     * just emits propertyChanged().
-     */
-    void redrawPse();
 
 private:
     KalziumElementProperty();

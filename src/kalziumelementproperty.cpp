@@ -72,11 +72,6 @@ void KalziumElementProperty::setGradient(int newGradient)
     propertyChanged();
 }
 
-void KalziumElementProperty::redrawPse()
-{
-    propertyChanged();
-}
-
 QStringList KalziumElementProperty::schemeList() const
 {
     return KalziumSchemeTypeFactory::instance()->schemes();

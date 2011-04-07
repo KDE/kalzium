@@ -109,9 +109,9 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
 
     // Connecting the search to the periodic table
     connect( newsearch, SIGNAL( searchChanged() ),
-             KalziumElementProperty::instance(), SLOT( redrawPse() ) );
+             KalziumElementProperty::instance(), SIGNAL( propertyChanged() ) );
     connect( newsearch, SIGNAL( searchReset() ),
-             KalziumElementProperty::instance(), SLOT( redrawPse() ) );
+             KalziumElementProperty::instance(), SIGNAL( propertyChanged() ) );
 
     layout->addWidget( searchWidget );
     layout->addWidget( m_periodicTable );
