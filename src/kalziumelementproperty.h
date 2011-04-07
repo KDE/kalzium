@@ -153,6 +153,8 @@ public slots:
 private:
     KalziumElementProperty();
     ~KalziumElementProperty();
+    
+    bool isGradient();
 
     QColor gradientBrushLogic(int el) const;
 

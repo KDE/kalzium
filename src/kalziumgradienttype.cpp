@@ -22,6 +22,7 @@
 #include "element.h"
 #include "prefs.h"
 #include "kalziumdataobject.h"
+#include <kunitconversion/converter.h>
 
 #include <QVariant>
 
@@ -66,7 +67,6 @@ KalziumGradientType* KalziumGradientTypeFactory::build( const QByteArray& id ) c
             return m_gradients.at( i );
     }
 
-    // not found
     return 0;
 }
 
@@ -101,10 +101,11 @@ double KalziumGradientType::elementCoeff( int el ) const
 
     if (logarithmicGradient()) {
         double minVal = minValue();
-        // Fixing negativ values.
+        double maxVal = maxValue();
+        // Fixing negativ values
         if ( minVal <= 0 ) minVal = 0.001;
 
-        double result = ( log(val) - log(minVal) ) / ( log(maxValue()) - log(minVal) );
+        double result = ( log(val) - log(minVal) ) / ( log(maxVal) - log(minVal) );
 
         // now we perform a "gamma-correction" on the result. Indeed, logarithmic gradients
         // often have the problem that all high values have roughly the same color. Note that
@@ -170,14 +171,15 @@ QString KalziumCovalentRadiusGradientType::description() const
 
 double KalziumCovalentRadiusGradientType::value( int el ) const
 {
-    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusCovalent );
+    QVariant v = KalziumDataObject::instance()->element( el )
+                 ->dataAsVariant( ChemicalDataObject::radiusCovalent, Prefs::lengthUnit() );
     if ( v.type() != QVariant::Double ) return -1;
     return v.toDouble();
 }
 
 QString KalziumCovalentRadiusGradientType::unit() const
 {
-    return i18n("Å");
+    return KalziumDataObject::instance()->unitAsString( Prefs::lengthUnit() );
 }
 
 int KalziumCovalentRadiusGradientType::decimals() const
@@ -185,15 +187,16 @@ int KalziumCovalentRadiusGradientType::decimals() const
     return 2;
 }
 
-
 double KalziumCovalentRadiusGradientType::minValue() const
 {
-    return 0.32;
+    KUnitConversion::Value minValue( 0.32, KUnitConversion::Angstrom );
+    return minValue.convertTo( Prefs::lengthUnit() ).number();
 }
 
 double KalziumCovalentRadiusGradientType::maxValue() const
 {
-    return 2.25;
+    KUnitConversion::Value minValue( 2.25, KUnitConversion::Angstrom );
+    return minValue.convertTo( Prefs::lengthUnit() ).number();
 }
 
 bool KalziumCovalentRadiusGradientType::logarithmicGradient() const
@@ -225,14 +228,15 @@ QString KalziumVanDerWaalsRadiusGradientType::description() const
 
 double KalziumVanDerWaalsRadiusGradientType::value( int el ) const
 {
-    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusVDW );
+    QVariant v = KalziumDataObject::instance()->element( el )
+                 ->dataAsVariant( ChemicalDataObject::radiusVDW, Prefs::lengthUnit() );
     if ( v.type() != QVariant::Double ) return -1;
     return v.toDouble();
 }
 
 QString KalziumVanDerWaalsRadiusGradientType::unit() const
 {
-    return i18n("Å");
+    return KalziumDataObject::instance()->unitAsString( Prefs::lengthUnit() );
 }
 
 int KalziumVanDerWaalsRadiusGradientType::decimals() const
@@ -243,12 +247,14 @@ int KalziumVanDerWaalsRadiusGradientType::decimals() const
 
 double KalziumVanDerWaalsRadiusGradientType::minValue() const
 {
-    return 1.2;
+    KUnitConversion::Value minValue( 1.2, KUnitConversion::Angstrom );
+    return minValue.convertTo( Prefs::lengthUnit() ).number();
 }
 
 double KalziumVanDerWaalsRadiusGradientType::maxValue() const
 {
-    return 3.0;
+    KUnitConversion::Value minValue( 3.0, KUnitConversion::Angstrom );
+    return minValue.convertTo( Prefs::lengthUnit() ).number();
 }
 
 bool KalziumVanDerWaalsRadiusGradientType::logarithmicGradient() const
@@ -333,14 +339,14 @@ QString KalziumBoilingPointGradientType::description() const
 
 double KalziumBoilingPointGradientType::value( int el ) const
 {
-    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint );
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint, Prefs::temperatureUnit() );
     if ( v.type() != QVariant::Double ) return -1;
     return v.toDouble();
 }
 
 QString KalziumBoilingPointGradientType::unit() const
 {
-    return i18n("K");
+    return KalziumDataObject::instance()->unitAsString( Prefs::temperatureUnit() );
 }
 
 int KalziumBoilingPointGradientType::decimals() const
@@ -350,12 +356,14 @@ int KalziumBoilingPointGradientType::decimals() const
 
 double KalziumBoilingPointGradientType::minValue() const
 {
-    return 4.216;
+    KUnitConversion::Value minValue( 4.216, KUnitConversion::Kelvin );
+    return minValue.convertTo( Prefs::temperatureUnit() ).number();
 }
 
 double KalziumBoilingPointGradientType::maxValue() const
 {
-    return 5870.0;
+    KUnitConversion::Value minValue( 5870.0, KUnitConversion::Kelvin );
+    return minValue.convertTo( Prefs::temperatureUnit() ).number();
 }
 
 bool KalziumBoilingPointGradientType::logarithmicGradient() const
@@ -387,14 +395,14 @@ QString KalziumMeltingPointGradientType::description() const
 
 double KalziumMeltingPointGradientType::value( int el ) const
 {
-    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint );
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint, Prefs::temperatureUnit() );
     if ( v.type() != QVariant::Double ) return -1;
     return v.toDouble();
 }
 
 QString KalziumMeltingPointGradientType::unit() const
 {
-    return i18n("K");
+    return KalziumDataObject::instance()->unitAsString( Prefs::temperatureUnit() );
 }
 
 int KalziumMeltingPointGradientType::decimals() const
@@ -404,12 +412,14 @@ int KalziumMeltingPointGradientType::decimals() const
 
 double KalziumMeltingPointGradientType::minValue() const
 {
-    return 0.94;
+    KUnitConversion::Value minValue( 0.94, KUnitConversion::Kelvin );
+    return minValue.convertTo( Prefs::temperatureUnit() ).number();
 }
 
 double KalziumMeltingPointGradientType::maxValue() const
 {
-    return 3825.0;
+    KUnitConversion::Value minValue( 3825.0, KUnitConversion::Kelvin );
+    return minValue.convertTo( Prefs::temperatureUnit() ).number();
 }
 
 bool KalziumMeltingPointGradientType::logarithmicGradient() const
@@ -446,7 +456,7 @@ double KalziumSOMGradientType::value( int el ) const
 
 QString KalziumSOMGradientType::unit() const
 {
-    return i18n("K");
+    return KalziumDataObject::instance()->unitAsString( Prefs::temperatureUnit() );;
 }
 
 int KalziumSOMGradientType::decimals() const
@@ -456,12 +466,14 @@ int KalziumSOMGradientType::decimals() const
 
 double KalziumSOMGradientType::minValue() const
 {
-    return 0.94;
+    KUnitConversion::Value minValue( 0.94, KUnitConversion::Kelvin );
+    return minValue.convertTo( Prefs::temperatureUnit() ).number();
 }
 
 double KalziumSOMGradientType::maxValue() const
 {
-    return 5870.0;
+    KUnitConversion::Value minValue( 5870.0, KUnitConversion::Kelvin );
+    return minValue.convertTo( Prefs::temperatureUnit() ).number();
 }
 
 bool KalziumSOMGradientType::logarithmicGradient() const
@@ -606,13 +618,13 @@ QString KalziumElectronaffinityGradientType::description() const
 
 double KalziumElectronaffinityGradientType::value( int el ) const
 {
-    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronAffinity );
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronAffinity, Prefs::energiesUnit() );
     return v.toDouble();
 }
 
 QString KalziumElectronaffinityGradientType::unit() const
 {
-    return i18n("eV");
+    return KalziumDataObject::instance()->unitAsString( Prefs::energiesUnit() );
 }
 
 int KalziumElectronegativityGradientType::decimals() const
@@ -622,13 +634,15 @@ int KalziumElectronegativityGradientType::decimals() const
 
 double KalziumElectronaffinityGradientType::minValue() const
 {
-    return -0.08;
+    KUnitConversion::Value minValue( -0.08, KUnitConversion::Electronvolt );
+    return minValue.convertTo( Prefs::energiesUnit() ).number();
 //     return 0.01;
 }
 
 double KalziumElectronaffinityGradientType::maxValue() const
 {
-    return 3.7;
+    KUnitConversion::Value minValue( 3.7, KUnitConversion::Electronvolt );
+    return minValue.convertTo( Prefs::energiesUnit() ).number();
 }
 
 bool KalziumElectronaffinityGradientType::logarithmicGradient() const
@@ -661,13 +675,13 @@ QString KalziumIonizationGradientType::description() const
 
 double KalziumIonizationGradientType::value( int el ) const
 {
-    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::ionization );
+    QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::ionization, Prefs::energiesUnit() );
     return v.toDouble();
 }
 
 QString KalziumIonizationGradientType::unit() const
 {
-    return i18n("eV");
+    return KalziumDataObject::instance()->unitAsString( Prefs::energiesUnit() );
 }
 
 int KalziumIonizationGradientType::decimals() const
@@ -677,12 +691,15 @@ int KalziumIonizationGradientType::decimals() const
 
 double KalziumIonizationGradientType::minValue() const
 {
-    return 3.89; //0.0;//
+    KUnitConversion::Value minValue( 3.89, KUnitConversion::Electronvolt );
+    return minValue.convertTo( Prefs::energiesUnit() ).number();
+//     return 3.89; //0.0;//
 }
 
 double KalziumIonizationGradientType::maxValue() const
 {
-    return 25.0;
+    KUnitConversion::Value minValue( 25.0, KUnitConversion::Electronvolt );
+    return minValue.convertTo( Prefs::energiesUnit() ).number();
 }
 
 bool KalziumIonizationGradientType::logarithmicGradient() const

@@ -74,6 +74,13 @@ class KalziumDataObject
     Element* element ( int number );
 
     /**
+     * retunrs the unit symbol from the given KUnitConversion UnitId.
+     * @param unit KUnitConversion UnitId
+     * @return unit symbol as string.
+     */
+    QString unitAsString( const int unit ) const;
+
+    /**
      * @return the isotopes of the Element with the number @p number
      */
     QList<Isotope*> isotopes ( int number );

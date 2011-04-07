@@ -19,7 +19,7 @@
 #include "prefs.h"
 #include "ui_settings_colors.h"
 #include "ui_settings_gradients.h"
-#include "ui_settings_units.h"
+// #include "ui_settings_units.h"
 #include "ui_settings_calc.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
@@ -74,7 +74,8 @@
 #include <kfiledialog.h>
 #include <KLocale>
 #include <KPluginLoader>
-#include <KTabWidget>
+// #include <KTabWidget>
+#include <QGridLayout>
 
 #define IDS_ELEMENTINFO     7
 
@@ -517,42 +518,55 @@ void Kalzium::showSettingsDialog()
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
     KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
-    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
 
     // colors page
     Ui_setupColors ui_colors;
-    QWidget *w_colors = new QWidget( 0 );
+    QWidget *w_colors = new QWidget( this );
     w_colors->setObjectName( "colors_page" );
     ui_colors.setupUi( w_colors );
     dialog->addPage( w_colors, i18n( "Schemes" ), "preferences-desktop-color" );
 
     // gradients page
     Ui_setupGradients ui_gradients;
-    QWidget *w_gradients = new QWidget( 0 );
+    QWidget *w_gradients = new QWidget( this );
     w_gradients->setObjectName( "gradients_page" );
     ui_gradients.setupUi( w_gradients );
     dialog->addPage( w_gradients, i18n( "Gradients" ), "preferences-desktop-color" );
 
     // units page
-    Ui_setupUnits ui_units;
-    QWidget *w_units = new QWidget( 0 );
-    w_units->setObjectName( "units_page" );
-    ui_units.setupUi( w_units );
-    dialog->addPage( w_units, i18n( "Units" ), "system-run" );
+    m_unitsDialog = new UnitSettingsDialog( this );
+    m_unitsDialog->setObjectName( "units_page" );
+    dialog->addPage( m_unitsDialog, i18n( "Units" ), "system-run" );
 
     Ui_setupCalc ui_calc;
-    QWidget *w_calc = new QWidget( 0 );
+    QWidget *w_calc = new QWidget( this );
     ui_calc.setupUi( w_calc );
     dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
 
-    // showing the dialog
+    connect( dialog, SIGNAL( settingsChanged(QString) ), this, SLOT(slotUpdateSettings() ) );
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
+    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
+
     dialog->show();
 }
 
-// void Kalzium::slotUpdateSettings()
-// {
-// }
+void Kalzium::slotUpdateSettings()
+{
+    qDebug() << "settings changed.";
+    Prefs::setLengthUnit( m_unitsDialog->getLenghtUnitId() );
+    qDebug() << m_unitsDialog->getLenghtUnitId();
+
+    Prefs::setEnergiesUnit( m_unitsDialog->getEnergyUnitId() );
+    qDebug() << m_unitsDialog->getEnergyUnitId();
+
+    Prefs::setTemperatureUnit( m_unitsDialog->getTemperatureUnitId() );
+    qDebug() << m_unitsDialog->getTemperatureUnitId();
+
+    Prefs::self()->writeConfig();
+
+    m_legendWidget->updateContent();
+    KalziumElementProperty::instance()->redrawPse();
+}
 
 void Kalzium::slotShowExportDialog()
 {

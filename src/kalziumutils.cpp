@@ -92,34 +92,11 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 
     switch ( kind )
     {
-        //FIXME I just copied the code from "boilingpoint", no clue
-        //if that really works
     case ChemicalDataObject::meltingpoint: // a temperature
-    {
-        val = el->dataAsVariant( kind ).toDouble();
-        if ( val <= 0.0 )
-            result = i18n( "Unknown Value" );
-        else
-        {
-            val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
-            result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"",
-                            "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
-        }
-        break;
-    }
     case ChemicalDataObject::boilingpoint:
-    {
-        val = el->dataAsVariant( kind ).toDouble();
-        if ( val <= 0.0 )
-            result = i18n( "Unknown Value" );
-        else
-        {
-            val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperatureUnit() );
-            result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"",
-                            "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperatureUnit() ) );
-        }
+        result = el->dataAsStringWithUnit( kind, Prefs::temperatureUnit() );
         break;
-    }
+
     case ChemicalDataObject::electronegativityPauling: // electronegativity
     {
         val = el->dataAsVariant( kind ).toDouble();
@@ -130,35 +107,10 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
         break;
     }
     case ChemicalDataObject::electronAffinity: // an energy
-    {
-        val = el->dataAsVariant( kind ).toDouble();
-        result = i18nc( "electron volt", "%1 eV", val );
-        break;
-    }
     case ChemicalDataObject::ionization:
-    {
-        val = el->dataAsVariant( kind ).toDouble();
-        if ( val <= 0.0 )
-            result = i18n( "Value not defined" );
-        else
-        {
-            switch ( Prefs::energies() )
-            {
-            case 0:
-            {
-	        val *= 96.48534; // http://en.wikipedia.org/wiki/Electronvolt
-                result = i18nc( "kilo joule per mol", "%1 kJ/mol", val );
-                break;
-            }
-            case 1: // use electronvolt
-            {
-                result = i18nc( "electron volt", "%1 eV", val );
-                break;
-            }
-            }
-        }
+        result = el->dataAsStringWithUnit( kind, Prefs::energiesUnit() );
         break;
-    }
+
     case ChemicalDataObject::mass: // a mass
     {
         val = el->dataAsVariant( kind ).toDouble();
@@ -181,22 +133,10 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
         }
         break;
     }
-    case ChemicalDataObject::radiusCovalent: // a length
-    {
-        val = el->dataAsVariant( kind ).toDouble() * 100;
-        if ( val <= 0.0 )
-            result = i18n( "Unknown Value" );
-        else
-            result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
-        break;
-    }
+    case ChemicalDataObject::radiusCovalent:
     case ChemicalDataObject::radiusVDW:
     {
-        val = el->dataAsVariant( kind ).toDouble() * 100;
-        if ( val <= 0.0 )
-            result = i18n( "Unknown Value" );
-        else
-            result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
+        result = el->dataAsStringWithUnit( kind, Prefs::lengthUnit() );
         break;
     }
     case ChemicalDataObject::electronicConfiguration:
@@ -207,14 +147,13 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 
         while (newOrbit.contains( reg )) {
             newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
-	}
-	result = newOrbit;
-	break;
+        }
+        result = newOrbit;
+        break;
     }
     default:
-    {
         result = el->dataAsVariant( kind ).toString();
-    }
+
     }
 
     return result;

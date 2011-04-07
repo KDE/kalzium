@@ -14,7 +14,7 @@ email                : cniehaus@kde.org
 
 #include "chemicaldataobject.h"
 #include "isotope.h"
-
+#include <kunitconversion/converter.h>
 #include <QDebug>
 
 
@@ -22,7 +22,7 @@ class IsotopeParser::Private
 {
 public:
 	Private()
-	:	currentUnit(ChemicalDataObject::noUnit),
+	:	currentUnit(KUnitConversion::NoUnit),
 	currentErrorValue(QVariant()),
 	currentElementSymbol(QString()),
 	currentIsotope(0),
@@ -51,7 +51,7 @@ public:
   }
 
 	ChemicalDataObject currentDataObject;
-	ChemicalDataObject::BlueObeliskUnit currentUnit;
+	int currentUnit;
 	QVariant currentErrorValue;
 	QString currentElementSymbol;
 	Isotope* currentIsotope;
@@ -130,11 +130,11 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
                 {
                     if (attrs.localName(i) == "units") {
                         if ( attrs.value(i) == "siUnits:s" ) {
-                            d->currentUnit = ChemicalDataObject::s;
+                            d->currentUnit = KUnitConversion::Second;
                         } else if ( attrs.value(i) == "units:y" ) {
-                            d->currentUnit = ChemicalDataObject::y;
+                            d->currentUnit = KUnitConversion::Year;
                         } else {
-                            d->currentUnit = ChemicalDataObject::noUnit;
+                            d->currentUnit = KUnitConversion::NoUnit;
                         }
                     }
                 }
