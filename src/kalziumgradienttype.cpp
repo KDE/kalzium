@@ -179,7 +179,7 @@ double KalziumCovalentRadiusGradientType::value( int el ) const
 
 QString KalziumCovalentRadiusGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::lengthUnit() );
+    return KalziumDataObject::instance()->unitAsString( Prefs::lengthUnit() );
 }
 
 int KalziumCovalentRadiusGradientType::decimals() const
@@ -236,7 +236,7 @@ double KalziumVanDerWaalsRadiusGradientType::value( int el ) const
 
 QString KalziumVanDerWaalsRadiusGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::lengthUnit() );
+    return KalziumDataObject::instance()->unitAsString( Prefs::lengthUnit() );
 }
 
 int KalziumVanDerWaalsRadiusGradientType::decimals() const
@@ -346,7 +346,7 @@ double KalziumBoilingPointGradientType::value( int el ) const
 
 QString KalziumBoilingPointGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::temperatureUnit() );
+    return KalziumDataObject::instance()->unitAsString( Prefs::temperatureUnit() );
 }
 
 int KalziumBoilingPointGradientType::decimals() const
@@ -402,7 +402,7 @@ double KalziumMeltingPointGradientType::value( int el ) const
 
 QString KalziumMeltingPointGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::temperatureUnit() );
+    return KalziumDataObject::instance()->unitAsString( Prefs::temperatureUnit() );
 }
 
 int KalziumMeltingPointGradientType::decimals() const
@@ -456,7 +456,7 @@ double KalziumSOMGradientType::value( int el ) const
 
 QString KalziumSOMGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::temperatureUnit() );;
+    return KalziumDataObject::instance()->unitAsString( Prefs::temperatureUnit() );;
 }
 
 int KalziumSOMGradientType::decimals() const
@@ -624,7 +624,7 @@ double KalziumElectronaffinityGradientType::value( int el ) const
 
 QString KalziumElectronaffinityGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::energiesUnit() );
+    return KalziumDataObject::instance()->unitAsString( Prefs::energiesUnit() );
 }
 
 int KalziumElectronegativityGradientType::decimals() const
@@ -681,7 +681,7 @@ double KalziumIonizationGradientType::value( int el ) const
 
 QString KalziumIonizationGradientType::unit() const
 {
-    return KalziumDataObject::instance()->element( 1 )->unitAsString( Prefs::energiesUnit() );
+    return KalziumDataObject::instance()->unitAsString( Prefs::energiesUnit() );
 }
 
 int KalziumIonizationGradientType::decimals() const

@@ -75,8 +75,6 @@ class SCIENCE_EXPORT Element
 		
 		QString dataAsStringWithUnit( ChemicalDataObject::BlueObelisk type, int unit ) const;
 		
-		QString unitAsString( int unit ) const;
-		
 		/**
 		 * @return the data of the Element
 		 */

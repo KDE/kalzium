@@ -59,22 +59,15 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type, int unit) co
 
 QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-       QString valueAndUnit;      
-       valueAndUnit = dataAsVariant(type, unit).toString();
-       
+       QString valueAndUnit( QString::number( dataAsVariant( type, unit).toDouble(), 'g', 4 ) );
+
        if(valueAndUnit.isEmpty()) 
            return QString();
 
        valueAndUnit.append(" ");
-       valueAndUnit.append( unitAsString( unit ) );
+       valueAndUnit.append( KUnitConversion::Converter().unit( unit ).data()->symbol() );
        return valueAndUnit;
 }
-
-QString Element::unitAsString( int unit ) const
-{
-        return KUnitConversion::Converter().unit( unit ).data()->symbol();
-}
-
 
 Element::~Element()
 {

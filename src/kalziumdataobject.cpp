@@ -34,6 +34,7 @@
 #include <kstandarddirs.h>
 #include <kpixmapcache.h>
 #include <kglobal.h>
+#include <kunitconversion/converter.h>
 
 struct StaticKalziumDataObject
 {
@@ -132,6 +133,11 @@ Element* KalziumDataObject::element( int number )
     if ( ( number <= 0 ) || ( number > m_numOfElements ) )
         return 0;
     return ElementList[ number-1 ];
+}
+
+QString KalziumDataObject::unitAsString( const int unit ) const
+{
+    return KUnitConversion::Converter().unit( unit ).data()->symbol();
 }
 
 QPixmap KalziumDataObject::pixmap( int number )

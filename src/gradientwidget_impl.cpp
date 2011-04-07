@@ -104,7 +104,6 @@ void GradientWidgetImpl::slotGradientChanged()
 }
 
 
-
 void GradientWidgetImpl::doubleToSlider(double doubleVar)
 {
     //the signals need to be blocked as both will return to this slot. But no
@@ -124,7 +123,6 @@ void GradientWidgetImpl::doubleToSlider(double doubleVar)
 
     setNewValue( doubleVar );
 }
-
 
 void GradientWidgetImpl::intToSpinbox(int var)
 {
