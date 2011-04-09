@@ -3,7 +3,7 @@ project(kalzium)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules )
 
 # search packages used by KDE
-find_package(KDE4 4.3.80 REQUIRED)
+find_package(KDE4 4.6.40 REQUIRED)
 if(WIN32)
   find_package(KDEWIN32 REQUIRED)
   # detect oxygen icon dir at configure time based on KDEDIRS - there may be different package installation locations
