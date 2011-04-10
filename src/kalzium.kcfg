@@ -252,8 +252,8 @@
 			<default>6000</default>
 		</entry>
 		<entry name="lengthUnit" type="Int">
-			<label>This value defines which lenght scale should be used within Kalzium</label>
-			<whatsthis>Select the scale for the lenght</whatsthis>
+			<label>This value defines which length scale should be used within Kalzium</label>
+			<whatsthis>Select the scale for the length</whatsthis>
 			<default>2016</default>
 		</entry>
 		<entry name="combobox_energies" type="Int">
@@ -267,8 +267,8 @@
 			<default>0</default>
 		</entry>
 		<entry name="combobox_length" type="Int">
-			<label>This value defines which lenght scale should be used within Kalzium</label>
-			<whatsthis>Select the scale for the lenght</whatsthis>
+			<label>This value defines which length scale should be used within Kalzium</label>
+			<whatsthis>Select the scale for the length</whatsthis>
 			<default>0</default>
 		</entry>
 		<entry name="schemaSelected" type="Bool">

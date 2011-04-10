@@ -45,7 +45,7 @@ class SpectrumParser::Private
         bool inPeakList_;
         bool inPeak_;
 
-        double wavelenght;
+        double wavelength;
         int intensity;
 
         QList<Spectrum*> spectra;
@@ -86,10 +86,10 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
                                 d->intensity = attrs.value(i).toInt();
                         }
                         else if (attrs.localName(i) == "yValue"){
-                                d->wavelenght = attrs.value(i).toDouble();
+                                d->wavelength = attrs.value(i).toDouble();
                         }
 		}
-                d->currentPeak = new Spectrum::peak(d->wavelenght, d->intensity);
+                d->currentPeak = new Spectrum::peak(d->wavelength, d->intensity);
 	}
 	return true;
 }
