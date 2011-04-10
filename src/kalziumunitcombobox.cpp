@@ -19,11 +19,24 @@
 #include "kalziumunitcombobox.h"
 #include <kunitconversion/converter.h>
 
+KalziumUnitCombobox::KalziumUnitCombobox(QWidget* parent): QComboBox(parent)
+{
+
+}
+
 
 KalziumUnitCombobox::KalziumUnitCombobox( const QList< int > &unitList, QWidget* parent )
         : QComboBox(parent)
 {
+    setUnitList(unitList);
+}
+
+void KalziumUnitCombobox::setUnitList(const QList< int >& unitList)
+{
     QString unitString;
+
+    clear();
+
     foreach( int unit, unitList) {
         unitString = KUnitConversion::Converter().unit(unit).data()->description();
         unitString.append(" (");

@@ -25,8 +25,10 @@ class KalziumUnitCombobox : public QComboBox
 {
 
 public:
+    KalziumUnitCombobox( QWidget *parent = 0 );
     KalziumUnitCombobox( const QList< int > &unitList, QWidget *parent = 0 );
 
+    void setUnitList( const QList< int > &unitList );
     int getCurrentUnitId() const;
 
 };
