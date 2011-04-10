@@ -26,81 +26,81 @@
 
 double Spectrum::minPeak()
 {
-	double value = m_peaklist.first()->wavelength;
-	
-	foreach( peak * p, m_peaklist )
-	{
-		if ( value > p->wavelength )
-			value = p->wavelength;
-	}
-	return value;
+    double value = m_peaklist.first()->wavelength;
+
+    foreach( peak * p, m_peaklist )
+    {
+        if ( value > p->wavelength )
+            value = p->wavelength;
+    }
+    return value;
 }
 
 double Spectrum::maxPeak()
 {
-	double value = m_peaklist.first()->wavelength;
-	
-	foreach( peak * p, m_peaklist )
-	{
-		if ( value < p->wavelength )
-			value = p->wavelength;
-	}
-	
-	return value;
+    double value = m_peaklist.first()->wavelength;
+
+    foreach( peak * p, m_peaklist )
+    {
+        if ( value < p->wavelength )
+            value = p->wavelength;
+    }
+
+    return value;
 }
 
 
 Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
-	Spectrum *spec = new Spectrum();
+    Spectrum *spec = new Spectrum();
 
-	foreach( peak * p , m_peaklist )
-	{
-		if ( p->wavelength >= min || p->wavelength <= max )
-			spec->addPeak( p );
-	}
+    foreach( peak * p , m_peaklist )
+    {
+        if ( p->wavelength >= min || p->wavelength <= max )
+            spec->addPeak( p );
+    }
 
-	return spec;
+    return spec;
 }
 
 void Spectrum::adjustIntensities()
 {
-	int maxInt = 0;
-	//find the highest intensity
-	foreach ( Spectrum::peak * p, m_peaklist)
-	{
-		if ( p->intensity > maxInt )
-			maxInt = p->intensity;
-	}
+    int maxInt = 0;
+    //find the highest intensity
+    foreach ( Spectrum::peak * p, m_peaklist)
+    {
+        if ( p->intensity > maxInt )
+            maxInt = p->intensity;
+    }
 
-	//check if an adjustment is needed or not
-	if ( maxInt == 1000 ) return;
+    //check if an adjustment is needed or not
+    if ( maxInt == 1000 ) return;
 
-	//now adjust the intensities.
-	foreach ( Spectrum::peak * p, m_peaklist)
-	{
-		double newInt = p->intensity*1000/maxInt;
+    //now adjust the intensities.
+    foreach ( Spectrum::peak * p, m_peaklist)
+    {
+        double newInt = p->intensity*1000/maxInt;
 
-		p->intensity = ( int ) qRound( newInt );
-	}
+        p->intensity = ( int ) qRound( newInt );
+    }
 }
 
 QList<double> Spectrum::wavelengths( double min, double max )
 {
-	QList<double> list;
-	
-	foreach( peak * p , m_peaklist )
-	{
-		if ( p->wavelength >= min || p->wavelength <= max )
-			list.append( p->wavelength );
-	}
+    QList<double> list;
 
-	return list;
+    foreach( peak * p , m_peaklist )
+    {
+        if ( p->wavelength >= min || p->wavelength <= max )
+            list.append( p->wavelength );
+    }
+
+    return list;
 }
 
 int Spectrum::parentElementNumber() const
 {
-	return  m_parentElementNumber;
+    return  m_parentElementNumber;
 }
 
 Spectrum::~Spectrum()

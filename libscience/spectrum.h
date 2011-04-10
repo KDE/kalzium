@@ -3,7 +3,7 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
- *   
+ *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -34,108 +34,108 @@ class Element;
  */
 class SCIENCE_EXPORT Spectrum
 {
-	public:
-		/**
-		 * This spectrum doesn't belong to any element
-		 */
-		Spectrum();
-		
-		/**
-		 * public destructor
-		 */
-		~Spectrum();
+public:
+    /**
+     * This spectrum doesn't belong to any element
+     */
+    Spectrum();
 
-		/**
-		 * a peak is one line in the spectrum of an element
-		 */
-		class peak
-		{
-			public:
-				peak(){
-					wavelength = -1.0;
-					intensity = -1;
-				}
+    /**
+     * public destructor
+     */
+    ~Spectrum();
 
-				peak(double wl, int in ){
-					wavelength = wl;
-					intensity = in;
-				}
+    /**
+     * a peak is one line in the spectrum of an element
+     */
+    class peak
+    {
+    public:
+        peak() {
+            wavelength = -1.0;
+            intensity = -1;
+        }
 
-			///in nm
-			double wavelength;
+        peak(double wl, int in ) {
+            wavelength = wl;
+            intensity = in;
+        }
 
-			///relative. The highest is per definition 1000
-			int intensity;
-		};
+        ///in nm
+        double wavelength;
 
-		/**
-		 * adds the peak @p b to the internal
-		 * lists of peaks
-		 */
-		void addPeak( Spectrum::peak* b ){
-			if ( b )
-				m_peaklist.append( b );
-		}
+        ///relative. The highest is per definition 1000
+        int intensity;
+    };
 
-		/**
-		 * @param min the lowest allowed wavelength in nanometer
-		 * @param max the highest allowed wavelength in nanometer
-		 * 
-		 * @returns a spectrum with the wavelength in the range
-		 * of @p min to @p max. The intensities are readjusted
-		 * so that the biggest intensity is again 1000 and the 
-		 * others are adopted.
-		 */
-		Spectrum* adjustToWavelength( double min, double max );
+    /**
+     * adds the peak @p b to the internal
+     * lists of peaks
+     */
+    void addPeak( Spectrum::peak* b ) {
+        if ( b )
+            m_peaklist.append( b );
+    }
 
-		/**
-		 * sets the highest intensity to 1000 and adjusts the
-		 * others
-		 */
-		void adjustIntensities();
+    /**
+     * @param min the lowest allowed wavelength in nanometer
+     * @param max the highest allowed wavelength in nanometer
+     *
+     * @returns a spectrum with the wavelength in the range
+     * of @p min to @p max. The intensities are readjusted
+     * so that the biggest intensity is again 1000 and the
+     * others are adopted.
+     */
+    Spectrum* adjustToWavelength( double min, double max );
 
-		/**
-		 * @param min the lowest allowed wavelength in nanometer
-		 * @param max the highest allowed wavelength in nanometer
-		 * 
-		 * @return the wavelength in a QList<double>
-		 */
-		QList<double> wavelengths( double min, double max );
+    /**
+     * sets the highest intensity to 1000 and adjusts the
+     * others
+     */
+    void adjustIntensities();
 
-		/**
-		 * @return the list of peaks of the spectrum
-		 */
-		QList<Spectrum::peak*> peaklist(){
-			return m_peaklist;
-		}
+    /**
+     * @param min the lowest allowed wavelength in nanometer
+     * @param max the highest allowed wavelength in nanometer
+     *
+     * @return the wavelength in a QList<double>
+     */
+    QList<double> wavelengths( double min, double max );
 
-                /**
-		 * If the spectrum belongs to Iron, this method will return "26"
-		 * @return the number of the element the spectrum belongs to
-		 */
-		int parentElementNumber() const;
+    /**
+     * @return the list of peaks of the spectrum
+     */
+    QList<Spectrum::peak*> peaklist() {
+        return m_peaklist;
+    }
 
-		/**
-		 * @return the smallest wavelength
-		 */
-		double minPeak();
-		
-		/**
-		 * @return the biggest wavelength
-		 */
-		double maxPeak();
+    /**
+    * If the spectrum belongs to Iron, this method will return "26"
+    * @return the number of the element the spectrum belongs to
+    */
+    int parentElementNumber() const;
 
-                void setParentElementNumber( int num )
-                {
-                    m_parentElementNumber = num;
-                }
+    /**
+     * @return the smallest wavelength
+     */
+    double minPeak();
 
-	private:
-		/**
-		 * the internal dataset
-		 */
-		QList<peak*> m_peaklist;
+    /**
+     * @return the biggest wavelength
+     */
+    double maxPeak();
 
-                int m_parentElementNumber;
+    void setParentElementNumber( int num )
+    {
+        m_parentElementNumber = num;
+    }
+
+private:
+    /**
+     * the internal dataset
+     */
+    QList<peak*> m_peaklist;
+
+    int m_parentElementNumber;
 };
 #endif // SPECTRUM_H
