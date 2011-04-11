@@ -23,7 +23,60 @@
    <property name="spacing">
     <number>6</number>
    </property>
-   <item row="2" column="0">
+   <item row="2" column="2">
+    <widget class="QTableWidget" name="peakListTable">
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>140</number>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Wavelength</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Intensity</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="SpectrumWidget" name="m_spectrumWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>This is the spectrum of the element.</string>
+     </property>
+     <property name="whatsThis">
+      <string>This is the spectrum of the element.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
     <layout class="QGridLayout" name="gridLayout">
      <item row="7" column="0">
       <widget class="QLabel" name="label_3">
@@ -78,7 +131,7 @@
         <string>This sets the leftmost wavelength of the spectrum.</string>
        </property>
        <property name="suffix">
-        <string> Å</string>
+        <string/>
        </property>
        <property name="minimum">
         <number>1</number>
@@ -113,7 +166,7 @@
         <string>This sets the rightmost wavelength of the spectrum.</string>
        </property>
        <property name="suffix">
-        <string> Å</string>
+        <string/>
        </property>
        <property name="minimum">
         <number>1</number>
@@ -162,76 +215,10 @@
        </property>
       </widget>
      </item>
+     <item row="9" column="0" colspan="2">
+      <widget class="KalziumUnitCombobox" name="m_lengthUnit"/>
+     </item>
     </layout>
-   </item>
-   <item row="2" column="3">
-    <widget class="QTableWidget" name="peakListTable">
-     <property name="sortingEnabled">
-      <bool>true</bool>
-     </property>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>140</number>
-     </attribute>
-     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="horizontalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <row>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>Wavelength [Å]</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Intensity</string>
-      </property>
-     </column>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="4">
-    <widget class="SpectrumWidget" name="m_spectrumWidget" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>100</height>
-      </size>
-     </property>
-     <property name="toolTip">
-      <string>This is the spectrum of the element.</string>
-     </property>
-     <property name="whatsThis">
-      <string>This is the spectrum of the element.</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Minimum</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>
@@ -240,6 +227,11 @@
    <class>SpectrumWidget</class>
    <extends>QWidget</extends>
    <header>spectrumwidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KalziumUnitCombobox</class>
+   <extends>QComboBox</extends>
+   <header>kalziumunitcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

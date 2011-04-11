@@ -15,6 +15,7 @@
 #include <QTreeWidget>
 #include <QTableWidget>
 
+#include <kunitconversion/converter.h>
 #include <kdebug.h>
 
 SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
@@ -30,6 +31,10 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
              this, SLOT( updateUI(int,int) ) );
     connect(m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
             this, SLOT(updatePeakInformation(Spectrum::peak*)));
+
+    QList<int> length;
+    length << KUnitConversion::Nanometer << KUnitConversion::Angstrom;
+    m_lengthUnit->setUnitList(length);
 
     resize( minimumSizeHint() );
 }
