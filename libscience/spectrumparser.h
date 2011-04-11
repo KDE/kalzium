@@ -29,26 +29,26 @@ class Spectrum;
  */
 class SCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
 {
-	public:
-		/**
-		 * Constructor
-		 */
-		SpectrumParser();
-                ~SpectrumParser();
-		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
+public:
+    /**
+     * Constructor
+     */
+    SpectrumParser();
+    ~SpectrumParser();
+    bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
-		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
+    bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
 
-		bool characters(const QString &ch);
+    bool characters(const QString &ch);
 
-		QList<Spectrum*> getSpectrums();
+    QList<Spectrum*> getSpectrums();
 
-	private:
-                QString currentElementID;
+private:
+    QString currentElementID;
 
-        private:
-		class Private;
-		Private *const d;
+private:
+    class Private;
+    Private *const d;
 };
 #endif // SPECTRUMPARSER_H
 
