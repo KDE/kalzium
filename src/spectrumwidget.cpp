@@ -28,6 +28,7 @@
 
 #include <kdebug.h>
 #include <klocale.h>
+#include <kunitconversion/converter.h>
 #include <math.h>
 
 #include <QKeyEvent>
@@ -43,18 +44,19 @@
 SpectrumWidget::SpectrumWidget( QWidget *parent )
         : QWidget( parent )
 {
-    startValue = 0;
-    endValue = 0;
+    m_startValue = 0;
+    m_endValue = 0;
 
     m_LMBPointCurrent.setX( -1 );
     m_LMBPointPress.setX( -1 );
 
     m_realHeight = 200;
 
-    Gamma = 0.8;
-    IntensityMax = 255;
+    m_gamma = 0.8;
+    m_intensityMax = 255;
 
     setType( EmissionSpectrum );
+//     setType( AbsorptionSpectrum );
 
     setMinimumSize( 400, 230 );
     setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
@@ -97,12 +99,11 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 
 void SpectrumWidget::paintBands( QPainter* p )
 {
-    if ( m_type == AbsorptionSpectrum )
-    {
-        for ( double va = startValue; va <= endValue ; va += 0.1 )
+    if ( m_type == AbsorptionSpectrum ) {
+        for ( double va = m_startValue; va <= m_endValue ; va += 0.1 )
         {
             int x = xPos( va );
-            p->setPen( linecolor( va ) );
+            p->setPen( wavelengthToRGB( va ) );
             p->drawLine( x,0,x, m_realHeight );
         }
 
@@ -112,20 +113,24 @@ void SpectrumWidget::paintBands( QPainter* p )
     int i = 0;
     int x = 0;
     int temp = 0;
+    double currentWavelength;
 
     foreach ( Spectrum::peak * peak , m_spectrum->peaklist() )
     {
-        if ( peak->wavelength < startValue || peak->wavelength > endValue )
+        currentWavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
+                            .convertTo( KUnitConversion::Nanometer ).number(); //use settings
+
+        if ( currentWavelength < m_startValue || currentWavelength > m_endValue )
             continue;
 
-        x = xPos( peak->wavelength );
+        x = xPos( currentWavelength );
 
         temp = 0;
 
         switch ( m_type )
         {
         case EmissionSpectrum:
-            p->setPen( linecolor( peak->wavelength ) );
+            p->setPen( wavelengthToRGB( peak ) );
             p->drawLine( x,0,x, m_realHeight-1 );
 
             p->setPen( Qt::black );
@@ -142,29 +147,21 @@ void SpectrumWidget::paintBands( QPainter* p )
     }
 }
 
-QColor SpectrumWidget::linecolor( double spectrum )
+QColor SpectrumWidget::wavelengthToRGB( Spectrum::peak * peak )
 {
-    int r,g,b;
-    wavelengthToRGB( spectrum, r,g,b );
-
-    QColor c( r,g,b );
-    return c;
+    double wavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
+                        .convertTo( KUnitConversion::Nanometer ).number();
+    return wavelengthToRGB( wavelength );
 }
 
-
-void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
+QColor SpectrumWidget::wavelengthToRGB( double wavelength  )
 {
     double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
-    //Not nice, but fixies the Angstrom nm issue.
-    wavelength = wavelength / 10;
-
     int wavelength_ = ( int ) floor( wavelength );
-    if ( wavelength_ < 380 || wavelength_ > 780 )
-    {
-        //make everything white
-        r = g = b = 255;
-        return;
+
+    if ( wavelength_ < 380 || wavelength_ > 780 ) {
+        return QColor(Qt::white);
     }
     else if ( wavelength_ > 380 && wavelength_ < 439 )
     {
@@ -212,9 +209,9 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
     else
         factor = 0.0;
 
-    r = Adjust( red, factor );
-    g = Adjust( green, factor );
-    b = Adjust( blue, factor );
+    return QColor(Adjust( red, factor ),
+                  Adjust( green, factor ),
+                  Adjust( blue, factor ) );
 }
 
 int SpectrumWidget::Adjust( double color, double factor )
@@ -222,7 +219,7 @@ int SpectrumWidget::Adjust( double color, double factor )
     if ( color == 0.0 )
         return 0;
     else
-        return qRound( IntensityMax * pow( color*factor, Gamma ));
+        return qRound( m_intensityMax * pow( color*factor, m_gamma ));
 }
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
@@ -273,50 +270,50 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 
 void SpectrumWidget::slotZoomOut()
 {
-    kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue;
+    kDebug() << "SpectrumWidget::slotZoomOut() "<< m_startValue << ":: "<< m_endValue;
 
-    double diff = endValue - startValue;
+    double diff = m_endValue - m_startValue;
 
     double offset = diff * 0.05;
 
-    endValue = endValue + offset;
-    startValue = startValue - offset;
+    m_endValue = m_endValue + offset;
+    m_startValue = m_startValue - offset;
 
     //check for invalid values
-    if ( startValue < 0.0 )
-        startValue = 0.0;
+    if ( m_startValue < 0.0 )
+        m_startValue = 0.0;
 
-    if ( endValue > 10000.0 )
-        endValue = 40000.0;
+    if ( m_endValue > 10000.0 )
+        m_endValue = 40000.0;
 
-    setBorders( startValue, endValue );
+    setBorders( m_startValue, m_endValue );
 }
 
 void SpectrumWidget::setBorders( double left, double right )
 {
     kDebug() << "setBorders    " << left << ".."<< right;
 
-    startValue = left;
-    endValue = right;
+    m_startValue = left;
+    m_endValue = right;
 
     //round the startValue down and the endValue up
-    emit bordersChanged( int(startValue+0.5), int(endValue+0.5) );
+    emit bordersChanged( int(m_startValue+0.5), int(m_endValue+0.5) );
 
     update();
 }
 
 void SpectrumWidget::slotZoomIn()
 {
-    kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue;
+    kDebug() << "SpectrumWidget::slotZoomIn() "<< m_startValue << ":: "<< m_endValue;
 
-    double diff = endValue - startValue;
+    double diff = m_endValue - m_startValue;
 
     double offset = diff * 0.05;
 
-    endValue = endValue - offset;
-    startValue = startValue + offset;
+    m_endValue = m_endValue - offset;
+    m_startValue = m_startValue + offset;
 
-    setBorders( startValue, endValue );
+    setBorders( m_startValue, m_endValue );
 }
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
@@ -350,7 +347,10 @@ void SpectrumWidget::findPeakFromMouseposition( double wavelength )
     //find the highest intensity
     foreach( Spectrum::peak *currentPeak, m_spectrum->peaklist() )
     {
-        double thisdif = currentPeak->wavelength / wavelength;
+        double currentWavelength = KUnitConversion::Value(currentPeak->wavelength, KUnitConversion::Angstrom )
+                                   .convertTo( KUnitConversion::Nanometer ).number();
+
+        double thisdif = currentWavelength / wavelength;
 
         if ( thisdif < 0.9 || thisdif > 1.1 )
             continue;
@@ -396,7 +396,12 @@ void SpectrumWidget::restart()
 {
     //set the minimum and maximum peak to the min/max wavelength
     //plus/minus ten. This makes then always visible
-    setBorders(m_spectrum->minPeak()-10.0, m_spectrum->maxPeak()+10.0);
+    double minimumPeak = KUnitConversion::Value( m_spectrum->minPeak()-10.0, KUnitConversion::Angstrom )
+                         .convertTo( KUnitConversion::Nanometer ).number();
+    double maximumPeak = KUnitConversion::Value( m_spectrum->maxPeak()+10.0, KUnitConversion::Angstrom )
+                         .convertTo( KUnitConversion::Nanometer ).number();
+
+    setBorders( minimumPeak,maximumPeak );
 }
 
 #include "spectrumwidget.moc"

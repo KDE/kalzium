@@ -61,11 +61,9 @@ public:
             intensity = in;
         }
 
-        ///in nm
-        double wavelength;
-
         ///relative. The highest is per definition 1000
         int intensity;
+        double wavelength;
     };
 
     /**

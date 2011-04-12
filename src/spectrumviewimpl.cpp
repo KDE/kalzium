@@ -17,6 +17,7 @@
 
 #include <kunitconversion/converter.h>
 #include <kdebug.h>
+#include "kalziumdataobject.h"
 
 SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
         : QWidget( parent )
@@ -48,7 +49,11 @@ void SpectrumViewImpl::fillPeakList()
         Spectrum::peak * peak = m_spectrumWidget->spectrum()->peaklist().at(i);
 
         peakListTable->setVerticalHeaderItem(i, new QTableWidgetItem(QString::number(i + 1)));
-        QTableWidgetItem *waveItem = new QTableWidgetItem(QString::number(peak->wavelength));
+
+        double peakWavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
+                                .convertTo( KUnitConversion::Nanometer ).number();
+
+        QTableWidgetItem *waveItem = new QTableWidgetItem(QString::number(peakWavelength));
         QTableWidgetItem *valueItem = new QTableWidgetItem(QString::number(peak->intensity));
         waveItem->setFlags(Qt::ItemFlags(Qt::ItemIsEnabled));
         valueItem->setFlags(Qt::ItemFlags(Qt::ItemIsEnabled));
@@ -66,7 +71,14 @@ void SpectrumViewImpl::updateUI(int l, int r)
 void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
 {
     intensity_label->setText(i18n("%1 of 1000", peak->intensity));
-    wavelength_label->setText(i18n("%1 Å", peak->wavelength));
+
+    double peakWavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
+                            .convertTo( KUnitConversion::Nanometer ).number();
+
+    QString label = QString::number( peakWavelength );
+    label.append(" ");
+    label.append(KalziumDataObject::instance()->unitAsString( KUnitConversion::Nanometer ) );// TODO form settings
+    wavelength_label->setText( label );
 }
 
 
