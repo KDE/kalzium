@@ -8,7 +8,6 @@ set(science_LIB_SRCS
    spectrumparser.cpp
    elementparser.cpp
    isotopeparser.cpp
-   tempunit.cpp
    chemicaldataobject.cpp
    moleculeparser.cpp
    parser.cpp
@@ -34,7 +33,6 @@ install(FILES
    parser.h
    spectrum.h
    spectrumparser.h
-   tempunit.h
    psetables.h
    DESTINATION ${INCLUDE_INSTALL_DIR}/libkdeedu  COMPONENT Devel
 )

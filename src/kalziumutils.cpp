@@ -22,7 +22,6 @@
 #include <kdebug.h>
 #include <klocale.h>
 
-#include <tempunit.h>
 #include <element.h>
 
 #include "prefs.h"

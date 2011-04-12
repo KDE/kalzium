@@ -19,7 +19,6 @@
 #include <klocale.h>
 
 #include <element.h>
-#include <tempunit.h>
 #include <math.h>
 
 #include "kalziumdataobject.h"
