@@ -10,8 +10,6 @@
  *   (at your option) any later version.                                   *
  ***************************************************************************/
 
-#include "libkdeedu_ui_export.h"
-
 #include <kdialog.h>
 
 class QDomDocument;
@@ -25,7 +23,7 @@ class GlossaryItem;
  * This class stores all items to be displayed. It also
  * has access-methods to the items
  */
-class KDEEDUUI_EXPORT Glossary
+class Glossary
 {
 	public:
 		/**
@@ -152,7 +150,7 @@ class KDEEDUUI_EXPORT Glossary
  * a number of pictures or references associated to it.
  * These are stored as QStringLists.
  */
-class KDEEDUUI_EXPORT GlossaryItem
+class GlossaryItem
 {
 	public:
 		GlossaryItem(){}
@@ -203,7 +201,7 @@ class KDEEDUUI_EXPORT GlossaryItem
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class KDEEDUUI_EXPORT GlossaryDialog : public KDialog
+class GlossaryDialog : public KDialog
 {
 	Q_OBJECT
 

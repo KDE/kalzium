@@ -30,15 +30,15 @@
 
 /**
  * @class pseTables
- * Provides functions to easyli create pse tables with qGridLayouts or qGraphicsView.
+ * Provides functions to easyli create pse tables with q*GridLayouts or qGraphicsView.
  *
  * creating a table for the gridlayout
 @code
-  foreach (int elementIndex, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
-       int group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( elementIndex ).x();
-       int period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( elementIndex ).y();
+  foreach (intElement, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
+       int group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).x();
+       int period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( intElement ).y();
 
-       ElementLabel *element = new ElementLabel( elementIndex );
+       ElementLabel *element = new ElementLabel( intElement );
 
        gridLayoutOfPeriodSystem->addItem (element, period, group );
   }
@@ -51,10 +51,10 @@
 
 @endcode
 
- * getting the position of the Numerations for the periodic system of elements (j)
+ * getting the position of the Numerations for the pse (j)
  @code
-    for (int i = 0; i < pseTables::instance()->getTabletype( j )->tableSize().x() || i < numerationItems.count(); i++) {
-        int itemAtPos = pseTables::instance()->getTabletype( j )->numerationAtPos( i );
+    for (int i = 0; i < pseTables::instance()->getTabletype( j )->coordsMax().x() || i < numerationItems.count(); i++) {
+        int itemAtPos = pseTables::instance()->getTabletype( j )->numeration( i );
     }
  @endcode
  * @short Provides shape and elements of diferent peridic tables of elements
@@ -122,9 +122,8 @@ public:
     /**
      * Returns the coordinates of an element  @p element in
      * the periodic system.
-     * If the element is not in the periodic system QPoint(-1,-1) is returned.
      */
-    virtual QPoint elementCoords(int element) const;
+    virtual QPoint elementCoords(int element);
 
     /**
      * Returns a list with all elements in the actual periodic table
@@ -161,15 +160,14 @@ public:
     virtual int lastElement() const;
 
     /**
-     * Returns the maximal size of the periodic table.
+     * Returns the maximal Coordinates of the periodic table.
      */
-    virtual QPoint tableSize() const;
+    virtual QPoint coordsMax() const;
 
      /**
-     * Returns the Numeration for the current Table according to the position in the Table.
-     * Coordinatates beginning wiht 0. Returns -1 if none is found.
+     * Returns the Numeration for the current Table according to the position in the Table. IUPAC Style eq. numbers
      */
-     virtual int numerationAtPos( int xPos ) const;
+     virtual int numeration( int xPos ) const;
 
 protected:
     pseTable();

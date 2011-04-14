@@ -36,6 +36,9 @@ pseTables::pseTables()
 
 pseTables::~pseTables()
 {
+//     foreach(psTable *i, m_tables) {
+//         delete i;
+//     }
 }
 
 pseTables *pseTables::instance()
@@ -123,38 +126,35 @@ int pseTable::lastElement() const
     return m_elementList.last();
 }
 
-QPoint pseTable::elementCoords(const int element) const
+QPoint pseTable::elementCoords(const int element)
 {
-    int x = -1, y = -1;
     int elementIndex = m_elementList.indexOf( element );
 
     if ( elementIndex >= 0 && elementIndex < m_elementList.count() ) {
-        // The positions lists are defined with the base of 1.
-        // But coordinates start mostly with 0.
-        x = m_posX.at( elementIndex ) - 1;
-        y = m_posY.at( elementIndex ) - 1;
+        return QPoint(m_posX.at( elementIndex ), m_posY.at( elementIndex ) );
     }
-    return QPoint(x, y);
+    return QPoint(0,0);
 }
 
-QPoint pseTable::tableSize() const
+QPoint pseTable::coordsMax() const
 {
     int x = 0, y = 0, i;
 
-    for (i = 0; i < m_posX.count(); ++i) {
-        if ( m_posX.at(i) > x)
-            x = m_posX.at(i);
-
-        if ( m_posY.at(i) > y)
+    for (i = 0; i < m_posX.count(); i++) {
+        if (m_posX.at(i) > x) {
+            x = m_posX.at(i) ;
+        }
+        if (m_posY.at(i) > y) {
             y = m_posY.at(i);
+        }
     }
     return QPoint(x, y);
 }
 
-int pseTable::numerationAtPos( int xPos ) const
+int pseTable::numeration( int xPos ) const
 {
   if ( xPos >= 0 && xPos < m_xCoordsNumeration.count() ) {
-     return m_xCoordsNumeration.at( xPos ) - 1;
+     return m_xCoordsNumeration.at( xPos );
   }
   return -1;
 }
@@ -217,7 +217,7 @@ pseLongTable::pseLongTable()
     m_description = i18n( "Long Periodic Table" );
 
     m_xCoordsNumeration <<
-    1 << 2 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12 <<13 <<14 <<15 <<16 <<17 <<18;
+    1 << 2 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 <<-1 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12 <<13 <<14 <<15 <<16 <<17 <<18;
 
     m_posX <<
     1 <<                                                                                                                                                      32 <<
@@ -355,9 +355,9 @@ pseDZTable::pseDZTable()
     m_posX <<
     1<< 2<<
     2<< 2<<
-         3<< 4<< 5<< 6<< 7<< 8<<
+    3<< 4<< 5<< 6<< 7<< 8<<
     1<< 2<<
-         3<< 4<< 5<< 6<< 7<< 8<<
+    3<< 4<< 5<< 6<< 7<< 8<<
     1<< 2<<
                            9<<10<<11<<12<<13<<14<<15<<16<<17<<18<<
          3<< 4<< 5<< 6<< 7<< 8<<
@@ -377,15 +377,15 @@ pseDZTable::pseDZTable()
     m_posY <<
     1<< 1<<
     2<< 2<<
-         3<< 3<< 3<< 3<< 3<< 3<<
+    3<< 3<< 3<< 3<< 3<< 3<<
     4<< 4<<
-         5<< 5<< 5<< 5<< 5<< 5<<
+    5<< 5<< 5<< 5<< 5<< 5<<
     6<< 6<<
                           7<< 7<< 7<< 7<< 7<< 7<< 7<< 7<< 7<< 7<<
          8<< 8<< 8<< 8<< 8<< 8<<
     9<< 9<<
-                         10<<10<<10<<10<<10<<10<<10<<10<<10<<10<<
-         11<<11<<11<<11<<11<<11<<
+    10<<10<<10<<10<<10<<10<<10<<10<<10<<10<<
+    11<<11<<11<<11<<11<<11<<
     12<<12<<
 
                                                               13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<13<<
