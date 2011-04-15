@@ -65,20 +65,39 @@ void SpectrumViewImpl::fillPeakList()
 void SpectrumViewImpl::updateUI(int l, int r)
 {
     minimumValue->setValue(l);
+    minimumValue->setSuffix( KalziumDataObject::instance()->unitAsString( KUnitConversion::Nanometer ) );
     maximumValue->setValue(r);
+    maximumValue->setSuffix( KalziumDataObject::instance()->unitAsString( KUnitConversion::Nanometer ) );
 }
 
 void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
 {
-    intensity_label->setText(i18n("%1 of 1000", peak->intensity));
+    QTableWidgetItem *item;
 
     double peakWavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
                             .convertTo( KUnitConversion::Nanometer ).number();
 
-    QString label = QString::number( peakWavelength );
-    label.append(" ");
-    label.append(KalziumDataObject::instance()->unitAsString( KUnitConversion::Nanometer ) );// TODO form settings
-    wavelength_label->setText( label );
+    for (int i = 0; i <  peakListTable->rowCount(); i++ ) {
+        item = peakListTable->item(i, 0);
+
+        kDebug()<<item->text() <<  peakWavelength;
+
+        if ( item->text().operator==( QString::number(peakWavelength) ) ) {
+            item->setBackgroundColor( Qt::red );
+            break;
+        }
+
+    }
+
+//     intensity_label->setText(i18n("%1 of 1000", peak->intensity));
+//
+//     double peakWavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
+//                             .convertTo( KUnitConversion::Nanometer ).number();
+//
+//     QString label = QString::number( peakWavelength );
+//     label.append(" ");
+//     label.append(KalziumDataObject::instance()->unitAsString( KUnitConversion::Nanometer ) );// TODO form settings
+//     wavelength_label->setText( label );
 }
 
 
