@@ -23,6 +23,8 @@
 #include <kactioncollection.h>
 #include <kstandardaction.h>
 #include <ktoolinvocation.h>
+#include <kunitconversion/converter.h>
+#include "prefs.h"
 
 //QT-Includes
 #include <QKeyEvent>
@@ -212,7 +214,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     // init to _something_
     ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
     QString caption;
-    QString unit = QString();
+    int unit = KUnitConversion::NoUnit;
     switch (selectedData)
     {
     case AxisData::NUMBER:
@@ -224,8 +226,8 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     case AxisData::MASS:
     {
         kind = ChemicalDataObject::mass;
-        caption = i18n( "Atomic Mass [u]" );
-        unit = i18n("u");
+        caption = i18n( "Atomic Mass" );
+//         unit = i18n("u");
         break;
     }
     case AxisData::EN:
@@ -237,43 +239,53 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     case AxisData::MELTINGPOINT:
     {
         kind = ChemicalDataObject::meltingpoint;
-        caption = i18n( "Melting Point [K]" );
-        unit = i18n("K");
+        caption = i18n( "Melting Point" );
+        unit = Prefs::temperatureUnit();
         break;
     }
     case AxisData::BOILINGPOINT:
     {
         kind = ChemicalDataObject::boilingpoint;
-        caption = i18n( "Boiling Point [K]" );
-        unit = i18n("K");
+        caption = i18n( "Boiling Point" );
+        unit = Prefs::temperatureUnit();
         break;
     }
     case AxisData::ATOMICRADIUS:
     {
         kind = ChemicalDataObject::radiusVDW;
-        caption = i18n( "Atomic Radius [pm]" );
-        unit = i18n("pm");
+        caption = i18n( "Atomic Radius" );
+        unit = Prefs::lengthUnit();
         break;
     }
     case AxisData::COVALENTRADIUS:
     {
         kind = ChemicalDataObject::radiusCovalent;
-        caption = i18n( "Covalent Radius [pm]" );
-        unit = i18n("pm");
+        caption = i18n( "Covalent Radius" );
+        unit = Prefs::lengthUnit();
         break;
     }
     }
     KalziumDataObject *kdo = KalziumDataObject::instance();
 
     foreach (Element * element, kdo->ElementList) {
-        double value = element->dataAsVariant( kind ).toDouble();
+        double value = element->dataAsVariant( kind, unit ).toDouble();
         l << ( value > 0.0 ? value : 0.0 );
     }
 
     data->dataList.clear();
     data->dataList << l;
-    data->unit = unit;
     data->kind = kind;
+
+    if ( unit != KUnitConversion::NoUnit ) {
+        QString stringUnit =  KalziumDataObject::instance()->unitAsString( unit );
+        data->unit = QString(" " + stringUnit);
+
+        caption.append(" [");
+        caption.append( stringUnit );
+        caption.append("]");
+    }/* else { FIXME
+        data->unit = QString();
+    }*/
 
     if ( data->type() == AxisData::X )
     {
@@ -507,26 +519,15 @@ void ElementDataViewer::drawPlot()
 
     if ( num > 0 )
     {
-
-        QString unit_x;
-        QString unit_y;
-
-        if (!m_xData->unit.isEmpty()) {
-            unit_x = " " + m_xData->unit;
-        }
-        if (!m_yData->unit.isEmpty()) {
-            unit_y = " " + m_yData->unit;
-        }
-
         //now set the values for the min, max and avarage value
-        ui.av_x->setText( QString::number( av_x / num ).append(unit_x) );
-        ui.minimum_x->setText( QString::number( min_x ).append(unit_x) );
-        ui.maximum_x->setText( QString::number( max_x ).append(unit_x) );
-        ui.av_y->setText( QString::number( av_y / num ).append(unit_y) );
-        ui.minimum_y->setText( QString::number( min_y ).append(unit_y) );
-        ui.maximum_y->setText( QString::number( max_y ).append(unit_y) );
-    }
+        ui.av_x->setText( QString::number( av_x / num ).append(m_xData->unit) );
+        ui.minimum_x->setText( QString::number( min_x ).append(m_xData->unit) );
+        ui.maximum_x->setText( QString::number( max_x ).append(m_xData->unit) );
 
+        ui.av_y->setText( QString::number( av_y / num ).append(m_yData->unit) );
+        ui.minimum_y->setText( QString::number( min_y ).append(m_yData->unit) );
+        ui.maximum_y->setText( QString::number( max_y ).append(m_yData->unit) );
+    }
     else
     {
         ui.av_x->setText( QString::number( 0.0 ) );
