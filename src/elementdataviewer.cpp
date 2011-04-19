@@ -201,8 +201,6 @@ void ElementDataViewer::slotZoomOut() {}
 
 void ElementDataViewer::setupAxisData( AxisData * data )
 {
-    DoubleList l;
-
     int selectedData = 0;
     if ( data->type() == AxisData::X )
         selectedData = ui.KCB_x->currentIndex();
@@ -215,6 +213,7 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
     QString caption;
     int unit = KUnitConversion::NoUnit;
+
     switch (selectedData)
     {
     case AxisData::NUMBER:
@@ -227,7 +226,6 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     {
         kind = ChemicalDataObject::mass;
         caption = i18n( "Atomic Mass" );
-//         unit = i18n("u");
         break;
     }
     case AxisData::EN:
@@ -267,13 +265,13 @@ void ElementDataViewer::setupAxisData( AxisData * data )
     }
     KalziumDataObject *kdo = KalziumDataObject::instance();
 
+    DoubleList dblDataList;
     foreach (Element * element, kdo->ElementList) {
-        double value = element->dataAsVariant( kind, unit ).toDouble();
-        l << ( value > 0.0 ? value : 0.0 );
+        dblDataList << element->dataAsVariant( kind, unit ).toDouble();
     }
 
     data->dataList.clear();
-    data->dataList << l;
+    data->dataList << dblDataList;
     data->kind = kind;
 
     if ( unit != KUnitConversion::NoUnit ) {
@@ -283,16 +281,11 @@ void ElementDataViewer::setupAxisData( AxisData * data )
         caption.append(" [");
         caption.append( stringUnit );
         caption.append("]");
-    }/* else { FIXME
-        data->unit = QString();
-    }*/
-
-    if ( data->type() == AxisData::X )
-    {
-        ui.plotwidget->axis(KPlotWidget::BottomAxis)->setLabel( caption );
     }
-    else
-    {
+
+    if ( data->type() == AxisData::X ) {
+        ui.plotwidget->axis(KPlotWidget::BottomAxis)->setLabel( caption );
+    } else {
         ui.plotwidget->axis(KPlotWidget::LeftAxis)->setLabel( caption );
         ui.plotwidget->axis(KPlotWidget::RightAxis)->setLabel( caption );
     }
