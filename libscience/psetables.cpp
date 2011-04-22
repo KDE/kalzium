@@ -104,7 +104,7 @@ QList<int> pseTable::elements() const
 int pseTable::previousOf( int element ) const
 {
     int index = m_elementList.indexOf( element );
-    return index > 1 ? m_elementList.at( index - 1 ) : -1;
+    return index > 0 ? m_elementList.at( index - 1 ) : -1;
 }
 
 int pseTable::nextOf( int element ) const
