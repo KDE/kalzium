@@ -84,7 +84,8 @@ public:
         dangerSymbol/**< the danger symbols are the dangers associated with an element, for example Xn,T+ */,
         RPhrase/**< */,
         SPhrase/**< */,
-        discoveryCountry
+        discoveryCountry,
+        oxidation/**< Oxidation states*/
     };
 
     /**

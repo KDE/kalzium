@@ -264,6 +264,13 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
 	html.append( "</td><td>" );
 	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) ;
         html.append( "</td></tr>" );
+
+	// Oxidation numbers
+        html.append( "<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>" );
+	html.append( createWikiLink( i18n( "Oxidation numbers") ) );
+	html.append( "</td><td>" );
+	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::oxidation ) ) ;
+        html.append( "</td></tr>" );
         break;
     }
     case EXTRA:

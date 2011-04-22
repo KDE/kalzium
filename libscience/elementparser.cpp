@@ -51,7 +51,8 @@ public:
             inDangerSymbol( false ),
             inRPhrase( false ),
             inSPhrase( false ),
-            inCountry( false )
+            inCountry( false ),
+            inOxidation( false )
     {}
 
     ~Private()
@@ -93,6 +94,7 @@ public:
     bool inRPhrase;
     bool inSPhrase;
     bool inCountry;
+    bool inOxidation;
 };
 
 ElementSaxParser::ElementSaxParser()
@@ -171,6 +173,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                 d->inRPhrase = true;
             else if (attrs.value(i) == "bo:SPhrase")
                 d->inSPhrase = true;
+            else if (attrs.value(i) == "bo:oxidation")
+                d->inOxidation = true;
         }
     } else if (d->inElement && localName == "label")
     {
@@ -357,6 +361,11 @@ bool ElementSaxParser::characters(const QString &ch)
             type = ChemicalDataObject::discoveryCountry;
         }
         d->inCountry = false;
+    }
+    else if (d->inOxidation) {
+        value = ch;
+        type = ChemicalDataObject::oxidation;
+        d->inOxidation = false;
     }
     else//it is a non known value. Do not create a wrong object but return
         return true;
