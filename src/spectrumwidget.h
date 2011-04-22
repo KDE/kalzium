@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "spectrum.h"
+#include "prefs.h"
 
 /**
  * @author Carsten Niehaus
@@ -37,10 +38,7 @@ public:
 
     ~SpectrumWidget() {}
 
-    void setSpectrum( Spectrum* spec ) {
-        m_spectrum = spec;
-        restart();
-    }
+    void setSpectrum( Spectrum* spec );
 
     Spectrum* spectrum()const {
         return m_spectrum;
@@ -69,7 +67,7 @@ public:
      * sets the type of the spectrum to @p t
      * @param t the type of the spectrum
      */
-    void setType( SpectrumType t ) {
+    void setType( int t ) {
         m_type = t;
     }
 
@@ -77,7 +75,7 @@ public:
      * @return the currently active type
      * of the spectrum
      */
-    SpectrumType spectrumType() const {
+    int spectrumType() const {
         return m_type;
     }
 
@@ -118,26 +116,22 @@ public:
     /**
      * This method changes the three values @p r, @p g and @p b to the
      * correct values
-     * @param peak the peak for which the color is searched
+     * @param wavelength the wavelength for which the color is searched
      * @return the wavelenth color
      */
-    QColor wavelengthToRGB( Spectrum::peak * peak );
-
     QColor wavelengthToRGB( double wavelength );
 
 private:
     ///(re)create startconditions
-    void restart();
+    void resetSpectrum();
 
     QList<double> m_spectra;
 
-    SpectrumType m_type;
+    int m_type;
 
     Spectrum *m_spectrum;
 
     QPixmap m_pixmap;
-
-    bool m_showtooltip;
 
     void paintBands( QPainter* p );
     void drawZoomLine( QPainter* p );
@@ -195,7 +189,9 @@ public slots:
      * activates the spectrum of the type @p spectrumtype
      */
     void slotActivateSpectrum( int spectrumtype ) {
-        m_type = ( SpectrumType )spectrumtype;
+        m_type = spectrumtype;
+        Prefs::setSpectrumType( spectrumtype );
+        Prefs::self()->writeConfig();
         update();
     }
 
