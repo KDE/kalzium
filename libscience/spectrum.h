@@ -64,6 +64,8 @@ public:
         ///relative. The highest is per definition 1000
         int intensity;
         double wavelength;
+
+        double wavelengthToUnit( const int unit );
     };
 
     /**
@@ -117,11 +119,13 @@ public:
      * @return the smallest wavelength
      */
     double minPeak();
+    double minPeak( const int unit );
 
     /**
      * @return the biggest wavelength
      */
     double maxPeak();
+    double maxPeak( const int unit );
 
     void setParentElementNumber( int num )
     {

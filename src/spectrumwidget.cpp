@@ -117,8 +117,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 
     foreach ( Spectrum::peak * peak , m_spectrum->peaklist() )
     {
-        currentWavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
-                            .convertTo( KUnitConversion::Nanometer ).number(); //use settings
+        currentWavelength = peak->wavelengthToUnit( KUnitConversion::Nanometer );
 
         if ( currentWavelength < m_startValue || currentWavelength > m_endValue )
             continue;
@@ -149,8 +148,8 @@ void SpectrumWidget::paintBands( QPainter* p )
 
 QColor SpectrumWidget::wavelengthToRGB( Spectrum::peak * peak )
 {
-    double wavelength = KUnitConversion::Value( peak->wavelength, KUnitConversion::Angstrom )
-                        .convertTo( KUnitConversion::Nanometer ).number();
+    double wavelength = peak->wavelengthToUnit( KUnitConversion::Nanometer );
+
     return wavelengthToRGB( wavelength );
 }
 
@@ -347,8 +346,7 @@ void SpectrumWidget::findPeakFromMouseposition( double wavelength )
     //find the highest intensity
     foreach( Spectrum::peak *currentPeak, m_spectrum->peaklist() )
     {
-        double currentWavelength = KUnitConversion::Value(currentPeak->wavelength, KUnitConversion::Angstrom )
-                                   .convertTo( KUnitConversion::Nanometer ).number();
+        double currentWavelength = currentPeak->wavelengthToUnit( KUnitConversion::Nanometer );
 
         double thisdif = currentWavelength / wavelength;
 
@@ -396,12 +394,10 @@ void SpectrumWidget::restart()
 {
     //set the minimum and maximum peak to the min/max wavelength
     //plus/minus ten. This makes then always visible
-    double minimumPeak = KUnitConversion::Value( m_spectrum->minPeak()-10.0, KUnitConversion::Angstrom )
-                         .convertTo( KUnitConversion::Nanometer ).number();
-    double maximumPeak = KUnitConversion::Value( m_spectrum->maxPeak()+10.0, KUnitConversion::Angstrom )
-                         .convertTo( KUnitConversion::Nanometer ).number();
+    double minimumPeak = m_spectrum->minPeak( KUnitConversion::Nanometer ) - 20.0;
+    double maximumPeak = m_spectrum->maxPeak( KUnitConversion::Nanometer ) + 20.0;
 
-    setBorders( minimumPeak,maximumPeak );
+    setBorders( minimumPeak, maximumPeak );
 }
 
 #include "spectrumwidget.moc"

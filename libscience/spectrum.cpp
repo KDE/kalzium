@@ -21,6 +21,7 @@
 #include "element.h"
 
 #include <klocale.h>
+#include <kunitconversion/converter.h>
 
 #include <math.h>
 
@@ -36,6 +37,12 @@ double Spectrum::minPeak()
     return value;
 }
 
+double Spectrum::minPeak(const int unit)
+{
+    return KUnitConversion::Value( minPeak(), KUnitConversion::Angstrom ).convertTo( unit ).number();
+}
+
+
 double Spectrum::maxPeak()
 {
     double value = m_peaklist.first()->wavelength;
@@ -47,6 +54,11 @@ double Spectrum::maxPeak()
     }
 
     return value;
+}
+
+double Spectrum::maxPeak(const int unit)
+{
+    return KUnitConversion::Value( maxPeak(), KUnitConversion::Angstrom ).convertTo( unit ).number();
 }
 
 
@@ -112,4 +124,9 @@ Spectrum::Spectrum()
 {
     //FIXME this shouldn't be hardcoded
     m_parentElementNumber = 16;
+}
+
+double Spectrum::peak::wavelengthToUnit( const int unit )
+{
+    return KUnitConversion::Value( wavelength, KUnitConversion::Angstrom ).convertTo( unit ).number();
 }
