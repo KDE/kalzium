@@ -47,46 +47,6 @@
    </item>
    <item row="2" column="1">
     <layout class="QGridLayout" name="detailGridLayout">
-     <item row="6" column="1">
-      <widget class="KalziumUnitCombobox" name="m_lengthUnit"/>
-     </item>
-     <item row="1" column="1" rowspan="5">
-      <widget class="QTableWidget" name="peakListTable">
-       <property name="selectionMode">
-        <enum>QAbstractItemView::SingleSelection</enum>
-       </property>
-       <property name="selectionBehavior">
-        <enum>QAbstractItemView::SelectRows</enum>
-       </property>
-       <property name="sortingEnabled">
-        <bool>true</bool>
-       </property>
-       <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>140</number>
-       </attribute>
-       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-        <bool>true</bool>
-       </attribute>
-       <attribute name="horizontalHeaderStretchLastSection">
-        <bool>true</bool>
-       </attribute>
-       <row>
-        <property name="text">
-         <string>1</string>
-        </property>
-       </row>
-       <column>
-        <property name="text">
-         <string>Wavelength</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Intensity</string>
-        </property>
-       </column>
-      </widget>
-     </item>
      <item row="2" column="2">
       <widget class="QSpinBox" name="maximumValue">
        <property name="toolTip">
@@ -155,6 +115,34 @@
        <property name="value">
         <number>3800</number>
        </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="0">
+      <widget class="KalziumUnitCombobox" name="m_lengthUnit"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QComboBox" name="m_spectrumType"/>
+     </item>
+     <item row="1" column="1" rowspan="6">
+      <widget class="QTreeWidget" name="peakListTable">
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
       </widget>
      </item>
     </layout>
