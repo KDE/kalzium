@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "spectrum.h"
+#include "prefs.h"
 
 /**
  * @author Carsten Niehaus
@@ -37,10 +38,7 @@ public:
 
     ~SpectrumWidget() {}
 
-    void setSpectrum( Spectrum* spec ) {
-        m_spectrum = spec;
-        restart();
-    }
+    void setSpectrum( Spectrum* spec );
 
     Spectrum* spectrum()const {
         return m_spectrum;
@@ -69,7 +67,7 @@ public:
      * sets the type of the spectrum to @p t
      * @param t the type of the spectrum
      */
-    void setType( SpectrumType t ) {
+    void setType( int t ) {
         m_type = t;
     }
 
@@ -77,18 +75,9 @@ public:
      * @return the currently active type
      * of the spectrum
      */
-    SpectrumType spectrumType() const {
+    int spectrumType() const {
         return m_type;
     }
-
-    /**
-     * @returns the color of a line
-     * @param spectrum the value of the spectrum
-     */
-    QColor linecolor( double spectrum );
-
-    double Gamma;
-    int IntensityMax;
 
     /**
      * @return the adjusted value of the @p color. The
@@ -104,7 +93,7 @@ public:
      * @param wavelength the wavelength for which the position is needed
      */
     inline int xPos( double wavelength ) {
-        return ( int ) ( ( wavelength-startValue ) * width() / ( endValue - startValue ) );
+        return ( int ) ( ( wavelength-m_startValue ) * width() / ( m_endValue - m_startValue ) );
     }
 
     /**
@@ -121,32 +110,28 @@ public:
      * @return the wavelength on position @p xpos
      */
     inline double Wavelength( double xpos ) {
-        return startValue + (  (  endValue-startValue ) *  xpos );
+        return m_startValue + (  (  m_endValue-m_startValue ) *  xpos );
     }
 
     /**
      * This method changes the three values @p r, @p g and @p b to the
      * correct values
      * @param wavelength the wavelength for which the color is searched
-     * @param r red
-     * @param g green
-     * @param b blue
+     * @return the wavelenth color
      */
-    void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
+    QColor wavelengthToRGB( double wavelength );
 
 private:
     ///(re)create startconditions
-    void restart();
+    void resetSpectrum();
 
     QList<double> m_spectra;
 
-    SpectrumType m_type;
+    int m_type;
 
     Spectrum *m_spectrum;
 
     QPixmap m_pixmap;
-
-    bool m_showtooltip;
 
     void paintBands( QPainter* p );
     void drawZoomLine( QPainter* p );
@@ -156,8 +141,11 @@ private:
      */
     void drawTickmarks( QPainter *p );
 
-    double startValue;
-    double endValue;
+    double m_startValue;
+    double m_endValue;
+
+    double m_gamma;
+    int m_intensityMax;
 
     int m_realHeight;
 
@@ -175,10 +163,10 @@ public slots:
      * set the maximum value to @p value
      */
     void setRightBorder( int value ) {
-        if (value != endValue) {
-            endValue = value;
-            if ( endValue < startValue ) {
-                startValue = endValue-1;
+        if (value != m_endValue) {
+            m_endValue = value;
+            if ( m_endValue < m_startValue ) {
+                m_startValue = m_endValue-1;
             }
             update();
         }
@@ -188,10 +176,10 @@ public slots:
      * set the minimum value to @p value
      */
     void setLeftBorder( int value ) {
-        if (value != startValue) {
-            startValue = value;
-            if ( startValue > endValue ) {
-                endValue = startValue+1;
+        if (value != m_startValue) {
+            m_startValue = value;
+            if ( m_startValue > m_endValue ) {
+                m_endValue = m_startValue+1;
             }
             update();
         }
@@ -201,7 +189,9 @@ public slots:
      * activates the spectrum of the type @p spectrumtype
      */
     void slotActivateSpectrum( int spectrumtype ) {
-        m_type = ( SpectrumType )spectrumtype;
+        m_type = spectrumtype;
+        Prefs::setSpectrumType( spectrumtype );
+        Prefs::self()->writeConfig();
         update();
     }
 

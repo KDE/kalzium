@@ -30,6 +30,7 @@ public:
 
     void setUnitList( const QList< int > &unitList );
     int getCurrentUnitId() const;
+    void setIndexWithUnitId( int unit );
 
 };
 
