@@ -279,7 +279,7 @@
 	</group>
 	<group name="Spectrum">
 		<entry name="spectrumWavelengthUnit" type="Int">
-			<label>This value defines wich unit is used for the wavelength</label>
+			<label>This value defines which unit is used for the wavelength</label>
 			<whatsthis>Unit of the Wavelength</whatsthis>
 			<default>2015</default>
 		</entry>
