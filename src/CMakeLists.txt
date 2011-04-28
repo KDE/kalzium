@@ -46,6 +46,7 @@ set(kalziumtools_SRCS
    calculator/nuclearCalculator.cpp
    calculator/gasCalculator.cpp
    calculator/concCalculator.cpp
+   calculator/titrationCalculator.cpp
 #   calculator/massCalculator.cpp
    )
 kde4_add_ui_files(kalziumtools_SRCS
@@ -54,6 +55,7 @@ kde4_add_ui_files(kalziumtools_SRCS
    calculator/gasCalculator.ui
    calculator/concCalculator.ui
    calculator/settings_calc.ui
+   calculator/titrationCalculator.ui
 #   calculator/massCalculator.ui
    )
 
