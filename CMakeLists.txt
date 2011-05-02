@@ -1,6 +1,6 @@
 project(kalzium)
 
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+set(CMAKE_MODULE_PATH ${kalzium_SOURCE_DIR}/cmake)
 
 # search packages used by KDE
 find_package(KDE4 4.3.80 REQUIRED)
