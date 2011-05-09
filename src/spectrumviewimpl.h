@@ -53,6 +53,8 @@ private slots:
 
     void updatePeakInformation( Spectrum::peak * peak );
 
+    void setUnit();
+
 private:
     /**
      * filling the list of peaks

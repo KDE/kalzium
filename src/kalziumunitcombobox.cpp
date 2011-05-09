@@ -21,7 +21,6 @@
 
 KalziumUnitCombobox::KalziumUnitCombobox(QWidget* parent): QComboBox(parent)
 {
-
 }
 
 
@@ -49,4 +48,9 @@ void KalziumUnitCombobox::setUnitList(const QList< int >& unitList)
 int KalziumUnitCombobox::getCurrentUnitId() const
 {
     return itemData( currentIndex() ).toInt();
+}
+
+void KalziumUnitCombobox::setIndexWithUnitId( int unit )
+{
+    setCurrentIndex( findData( unit ) );
 }

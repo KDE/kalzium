@@ -277,6 +277,18 @@
 			<default>true</default>
 		</entry>
 	</group>
+	<group name="Spectrum">
+		<entry name="spectrumWavelengthUnit" type="Int">
+			<label>This value defines which unit is used for the wavelength</label>
+			<whatsthis>Unit of the Wavelength</whatsthis>
+			<default>2015</default>
+		</entry>
+		<entry name="spectrumType" type="Int">
+			<label>This value defines which Spectrum type is used. Emission or absorption spectrum</label>
+			<whatsthis>SpectrumType</whatsthis>
+			<default>0</default>
+		</entry>
+	</group>
     <group name="Calculator">
         <entry name = "mass" type="Bool">
         	<label>This setting tells the nuclear calculator whether the amounts are always in terms of mass</label>
