@@ -42,6 +42,9 @@ public:
         m_spectrumWidget->update();
     }
 
+Q_SIGNALS:
+    void settingsChanged();
+
 private slots:
     /**
      * set the correct ranges and min/max values of the

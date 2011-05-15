@@ -26,22 +26,6 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 {
     setupUi( this );
 
-    connect( minimumValue, SIGNAL( valueChanged( int ) ),
-             m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
-    connect( maximumValue, SIGNAL( valueChanged( int ) ),
-             m_spectrumWidget, SLOT( setRightBorder( int ) ) );
-    connect( m_spectrumWidget, SIGNAL( bordersChanged(int,int) ),
-             this, SLOT( updateUI(int,int) ) );
-    connect( m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
-             this, SLOT(updatePeakInformation(Spectrum::peak*)));
-
-    connect( m_spectrumType, SIGNAL( currentIndexChanged( int ) ),
-             m_spectrumWidget, SLOT( slotActivateSpectrum( int ) ));
-    connect( m_lengthUnit, SIGNAL( currentIndexChanged( int ) ),
-             this, SLOT( setUnit() ));
-
-    connect( btn_resetZoom, SIGNAL( pressed() ), m_spectrumWidget, SLOT( resetSpectrum() ));
-
     QStringList headers = QStringList() << i18n("Wavelength") << i18n("Intensity");
     peakListTable->setHeaderLabels(headers);
     peakListTable->setRootIsDecorated(false);
@@ -53,6 +37,24 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
     m_lengthUnit->setIndexWithUnitId( Prefs::spectrumWavelengthUnit() );
 
     m_spectrumType->setCurrentIndex( Prefs::spectrumType() );
+
+    connect( minimumValue, SIGNAL( valueChanged( int ) ),
+             m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
+    connect( maximumValue, SIGNAL( valueChanged( int ) ),
+             m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+    connect( m_spectrumWidget, SIGNAL( bordersChanged(int,int) ),
+             this, SLOT( updateUI(int,int) ) );
+    connect( m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
+             this, SLOT(updatePeakInformation(Spectrum::peak*)));
+
+    connect( m_spectrumType, SIGNAL( currentIndexChanged( int ) ),
+             m_spectrumWidget, SLOT( slotActivateSpectrum( int ) ));
+
+    connect( btn_resetZoom, SIGNAL( pressed() ), m_spectrumWidget, SLOT( resetSpectrum() ));
+    connect( this, SIGNAL( settingsChanged() ), m_spectrumWidget, SLOT( resetSpectrum() ));
+
+    connect( m_lengthUnit, SIGNAL( currentIndexChanged( int ) ),
+             this, SLOT( setUnit() ));
 
     resize( minimumSizeHint() );
 }
@@ -85,7 +87,7 @@ void SpectrumViewImpl::updateUI(int l, int r)
     maximumValue->setSuffix( KalziumDataObject::instance()->unitAsString( Prefs::spectrumWavelengthUnit() ) );
 }
 
-void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
+void SpectrumViewImpl::updatePeakInformation( Spectrum::peak * peak )
 {
     double peakWavelength = peak->wavelengthToUnit( Prefs::spectrumWavelengthUnit() );
 
@@ -107,11 +109,8 @@ void SpectrumViewImpl::setUnit()
     Prefs::self()->writeConfig();
     qDebug() << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
 
-//     fillPeakList();
-//     minimumValue->setValue( m_spectrumWidget->spectrum()->minPeak( Prefs::spectrumWavelengthUnit() ) );
-
-    m_spectrumWidget->update();
-
+    emit settingsChanged();
+    fillPeakList();
 }
 
 
