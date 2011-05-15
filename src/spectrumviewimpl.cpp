@@ -40,6 +40,8 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
     connect( m_lengthUnit, SIGNAL( currentIndexChanged( int ) ),
              this, SLOT( setUnit() ));
 
+    connect( btn_resetZoom, SIGNAL( pressed() ), m_spectrumWidget, SLOT( resetSpectrum() ));
+
     QStringList headers = QStringList() << i18n("Wavelength") << i18n("Intensity");
     peakListTable->setHeaderLabels(headers);
     peakListTable->setRootIsDecorated(false);

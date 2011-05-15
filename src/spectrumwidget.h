@@ -122,9 +122,6 @@ public:
     QColor wavelengthToRGB( double wavelength );
 
 private:
-    ///(re)create startconditions
-    void resetSpectrum();
-
     QList<double> m_spectra;
 
     int m_type;
@@ -159,6 +156,9 @@ private:
     QPoint m_LMBPointCurrent;
 
 public slots:
+    ///(re)create startconditions
+    void resetSpectrum();
+
     /**
      * set the maximum value to @p value
      */
