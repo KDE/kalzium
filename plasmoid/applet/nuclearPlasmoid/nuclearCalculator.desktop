@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kalzium nuclear Calculator
+Name[bs]=Kalzium nuklearniKalkulator
 Name[ca]=Calculadora nuclear del Kalzium
 Name[ca@valencia]=Calculadora nuclear del Kalzium
 Name[cs]=Nukleární kalkulačka programu Kalzium
@@ -31,6 +32,7 @@ Name[x-test]=xxKalzium nuclear Calculatorxx
 Name[zh_CN]=Kalzium 原子计算器
 Name[zh_TW]=Kalzium 核子計算機
 Comment=Kalzium Nuclear Calculator
+Comment[bs]=Kalzium nuklearni kalkulator
 Comment[ca]=Calculadora nuclear del Kalzium
 Comment[ca@valencia]=Calculadora nuclear del Kalzium
 Comment[cs]=Nukleární kalkulačka programu Kalzium
