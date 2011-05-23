@@ -640,9 +640,8 @@ int KalziumElectronegativityGradientType::decimals() const
 
 double KalziumElectronaffinityGradientType::minValue() const
 {
-    KUnitConversion::Value minValue( -0.08, KUnitConversion::Electronvolt );
+    KUnitConversion::Value minValue( -0.07, KUnitConversion::Electronvolt );
     return minValue.convertTo( Prefs::energiesUnit() ).number();
-//     return 0.01;
 }
 
 double KalziumElectronaffinityGradientType::maxValue() const
@@ -699,7 +698,6 @@ double KalziumIonizationGradientType::minValue() const
 {
     KUnitConversion::Value minValue( 3.89, KUnitConversion::Electronvolt );
     return minValue.convertTo( Prefs::energiesUnit() ).number();
-//     return 3.89; //0.0;//
 }
 
 double KalziumIonizationGradientType::maxValue() const
