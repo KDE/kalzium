@@ -152,8 +152,10 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
     }
     default:
         result = el->dataAsVariant( kind ).toString();
-
     }
+
+    if( result.isEmpty() )
+      result = i18n("No Data");
 
     return result;
 }
