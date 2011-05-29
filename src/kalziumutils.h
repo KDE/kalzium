@@ -66,6 +66,12 @@ public:
      * @return the formatted string
      */
     static QString prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind );
+
+    /** converts integers into roman numbers.
+     * @param number number to be converted. Only values between -10 and 10 are supported.
+     * @return the Roman number.
+     */
+    static QString intToRomanNumbers( int number );
 };
 
 #endif // KALZIUMUTILS_H
