@@ -59,7 +59,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">1s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:oxidation">1, -1</scalar>
+    <array dataType="xsd:int" delimiter="," size="2" dictRef="bo:oxidation">1, -1</array>
   </atom>
   <atom id="He">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">2</scalar>
@@ -107,7 +107,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:oxidation">1</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">1</array>
   </atom>
   <atom id="Be">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">4</scalar>
@@ -132,7 +132,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:oxidation">2</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">2</array>
   </atom>
   <atom id="B">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">5</scalar>
@@ -157,6 +157,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s2 2p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">3</array>
   </atom>
   <atom id="C">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">6</scalar>
@@ -180,6 +181,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s2 2p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
+    <array dataType="xsd:int" delimiter="," size="3" dictRef="bo:oxidation">4,2,-4</array>
   </atom>
   <atom id="N">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">7</scalar>
@@ -204,7 +206,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s2 2p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:oxidation">5, 4, 3, 2, -3</scalar>
+    <array dataType="xsd:int" delimiter="," size="5" dictRef="bo:oxidation">5, 4, 3, 2, -3</array>
   </atom>
   <atom id="O">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">8</scalar>
@@ -229,6 +231,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s2 2p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
+    <array dataType="xsd:int" delimiter="," size="2" dictRef="bo:oxidation">-2,-1</array>
   </atom>
   <atom id="F">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">9</scalar>
@@ -253,6 +256,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[He] 2s2 2p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">-1</array>
   </atom>
   <atom id="Ne">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">10</scalar>
@@ -300,6 +304,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">1</array>
   </atom>
   <atom id="Mg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">12</scalar>
@@ -324,6 +329,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">2</array>
   </atom>
   <atom id="Al">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">13</scalar>
@@ -348,6 +354,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s2 3p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
+    <array dataType="xsd:int" delimiter="," size="1" dictRef="bo:oxidation">3</array>
   </atom>
   <atom id="Si">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">14</scalar>
@@ -372,6 +379,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s2 3p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
+    <array dataType="xsd:int" delimiter="," size="2" dictRef="bo:oxidation">4,-4</array>
   </atom>
   <atom id="P">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">15</scalar>
@@ -396,6 +404,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s2 3p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
+    <array dataType="xsd:int" delimiter="," size="3" dictRef="bo:oxidation">5,3,-3</array>
   </atom>
   <atom id="S">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">16</scalar>
@@ -419,6 +428,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s2 3p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
+    <array dataType="xsd:int" delimiter="," size="4" dictRef="bo:oxidation">6,4,2,-2</array>
   </atom>
   <atom id="Cl">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">17</scalar>
@@ -443,6 +453,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Ne] 3s2 3p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
+    <array dataType="xsd:int" delimiter="," size="5" dictRef="bo:oxidation">7,5,3,1,-1</array>
   </atom>
   <atom id="Ar">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">18</scalar>
