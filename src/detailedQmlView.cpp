@@ -14,10 +14,10 @@
 #include "detailedQmlView.h"
 #include "kalziumutils.h"
 
-DetailedQmlView::DetailedQmlView( KalziumElementProperty *elementProperty, QWidget *parent )
+DetailedQmlView::DetailedQmlView( QWidget *parent )
         : QWidget(parent)
 {
-    m_elementProperty = elementProperty;
+    m_elementProperty = KalziumElementProperty::instance();
 
     QVBoxLayout *layout = new QVBoxLayout( this );
 

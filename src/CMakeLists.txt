@@ -99,6 +99,7 @@ set(kalzium_SRCS
    spectrumviewimpl.cpp
    spectrumwidget.cpp
    kdeeduglossary.cpp
+   detailedQmlView.cpp
    )
 
 if (LIBFACILE_FOUND)
@@ -133,7 +134,7 @@ kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png"
 
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} ${QT_QTSCRIPT_LIBRARY} science)
+target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} ${QT_QTSCRIPT_LIBRARY} QtDeclarative science)
 
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})

@@ -13,7 +13,7 @@
    Q_OBJECT
  public:
 
-   DetailedQmlView( KalziumElementProperty *elementProperty, QWidget *parent );
+   DetailedQmlView( QWidget *parent );
    ~DetailedQmlView();
 
 public slots:
