@@ -38,6 +38,7 @@
 #include "searchwidget.h"
 #include "tableinfowidget.h"
 #include "psetables.h"
+#include "detailedQmlView.h"
 #include <config-kalzium.h>
 
 #include "calculator/calculator.h"
@@ -330,6 +331,9 @@ void Kalzium::setupSidebars()
 
     m_toolbox->addItem( m_detailWidget, KIcon( "overview" ), i18n( "Overview" ) );
 
+    m_detailQmlWidget = new DetailedQmlView( m_toolbox );
+    m_toolbox->addItem( m_detailQmlWidget, KIcon("Error") , i18n("QML Test"));
+
     m_gradientWidget = new GradientWidgetImpl( m_toolbox );
     m_gradientWidget->setObjectName( "viewtWidget" );
 
@@ -591,6 +595,7 @@ void Kalzium::elementHover( int num )
                                     e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 
     m_detailWidget->setElement( num );
+    m_detailQmlWidget->setElement( num );
 }
 
 // FIXME What is that function for? Does not seem to do anything usefull... yet?

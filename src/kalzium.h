@@ -35,6 +35,7 @@ class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
 class ExportDialog;
+class DetailedQmlView;
 
 /**
  * @brief Application Main Window
@@ -110,6 +111,8 @@ private:
     GradientWidgetImpl *m_gradientWidget;
 
     DetailedGraphicalOverview *m_detailWidget;
+
+    DetailedQmlView *m_detailQmlWidget;
 
     /**
      * the dock of the central pse Widget

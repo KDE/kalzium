@@ -6,6 +6,7 @@ add_subdirectory(toolpics)
 add_subdirectory(latticeicons)
 add_subdirectory(maps)
 add_subdirectory(molecules)
+add_subdirectory(qml)
 
 
 
