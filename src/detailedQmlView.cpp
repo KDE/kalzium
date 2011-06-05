@@ -23,13 +23,14 @@ DetailedQmlView::DetailedQmlView( QWidget *parent )
 
     QDeclarativeView *view = new QDeclarativeView( this );
 
-    QString qmlPath = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/qml/";
+    QString qmlPath = KGlobal::dirs()->findResourceDir( "appdata", "qml/" ) + "qml/";
 
     m_context = view->rootContext();
 
     view->setSource(QUrl::fromLocalFile(qmlPath + "detailview.qml"));
 
     layout->addWidget(view);
+    layout->setMargin(0);
     setLayout(layout);
 
 //     resize(200, 200);
@@ -82,11 +83,21 @@ void DetailedQmlView::setElement( int el )
 
     if ( Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
         m_context->setContextProperty("showSvg", true);
-    }else{
+    } else {
         m_context->setContextProperty("showSvg", false);
     }
 
 }
+
+void DetailedQmlView::itemPressed()
+{
+    QVariant value;
+    value = m_context->contextProperty("idSymbol");
+    qDebug() << "from qml:" << value;
+
+}
+
+
 
 void DetailedQmlView::resizeEvent(QResizeEvent* event)
 {

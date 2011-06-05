@@ -211,5 +211,6 @@ QString KalziumEngine::sumUpMolecue(ElementCountMap &elementMap)
     return niceMolecule;
 }
 
+
 #include "kalzium_engine.moc"
 

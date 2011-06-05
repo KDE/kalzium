@@ -41,7 +41,6 @@
 	text: atomicSymbol
 	font.pointSize: 26;
 	font.bold: true
-
     }
 
     Text {

@@ -22,6 +22,8 @@ public slots:
      */
     void setElement( int el );
 
+    void itemPressed();
+
  private:
 
    KalziumElementProperty *m_elementProperty;
