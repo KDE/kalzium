@@ -16,6 +16,7 @@
 
 #include <element.h>
 #include <elementparser.h>
+#include <psetables.h>
 
 #include <QFile>
 #include <QLatin1String>
@@ -30,7 +31,7 @@
 
 
 KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
-    : Plasma::DataEngine(parent)
+        : Plasma::DataEngine(parent)
 {
     KGlobal::locale()->insertCatalog( "libkdeedu" );
     Q_UNUSED(args)
@@ -54,13 +55,13 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     delete parser;
 
     //Initialising the MoleculeParser
-    m_parser = new MoleculeParser(m_elements);
+    m_moleculeParser = new MoleculeParser(m_elements);
 }
 
 KalziumEngine::~KalziumEngine()
 {
     delete m_random;
-    delete m_parser;
+    delete m_moleculeParser;
     qDeleteAll(m_elements);
 }
 
@@ -75,81 +76,89 @@ QStringList KalziumEngine::sources() const
 
 bool KalziumEngine::sourceRequestEvent(const QString &source)
 {
+    currentSource = &source;
+
     // return a randomly chosen element
-    if (source == "BlueObelisk:RandomElement"){
-        // create the data
-        updateSourceElement(source);
+    if (currentSource->operator==("BlueObelisk:")) {
+        setElementData();
         return true;
     }
 
-    // return element #
-    if (source.startsWith( QLatin1String("BlueObelisk:Element:") ) ) {
-        // create the data
-        updateSourceElement(source);
+    if (currentSource->startsWith( "Molecule:Parser:" )) {
+        setMoleculeData();
         return true;
     }
 
-    if (source.startsWith( QLatin1String("Molecule:Parser:") )) {
-        updateSourceMolecule(source);
-        return true;
-    }
-
-    if (source == "Fact" ) {
-        // create the data
-        updateSourceElement(source);
-        return true;
+    if (currentSource->startsWith( "Table:" )) {
+        setPeriodicTableData();
     }
 
     return false;
 }
 
-bool KalziumEngine::updateSourceElement(const QString &source)
+
+
+bool KalziumEngine::setElementData()
 {
 //     qDebug() << "updateSourceElement";
-    if (source == "BlueObelisk:RandomElement") {
+    Element *currentElement;
+
+    if (currentSource->operator==("BlueObelisk:RandomElement")) {
         // decide for a randomly chosen element
-        getRandomElement();
-    } else if ( source == "Fact" ) {
-        qDebug() << "Fact is the current source";
-        setData(source, "fact", generateFact() );
-    } else { // parse the string to know which element to display
-        setElementNumber( source.right(source.length()-source.lastIndexOf(':') - 1 ).toInt() );
+        currentElement = getRandomElement();
+    } else if ( currentSource->operator==("Fact") ) {
+        qDebug() << "Fact is the current currentSource";
+        setData(*currentSource, "fact", generateFact() );
+    } else { // Keyword 2: "BlueObelisk:Element:1"
+        currentElement = getElement( getKeyWord(2).toInt() );
     }
 
-    if (!m_currentElement) {
+    if (!currentElement) {
         return false;
     }
 
     // fill the engine with data
-    setData(source, "number", m_currentElement->dataAsString( ChemicalDataObject::atomicNumber )       );
-    setData(source, "bp", m_currentElement->dataAsString( ChemicalDataObject::boilingpoint )       );
-    setData(source, "mp", m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       );
-    setData(source, "name", m_currentElement->dataAsString( ChemicalDataObject::name )       );
-    setData(source, "mass", m_currentElement->dataAsString( ChemicalDataObject::mass )       );
-    setData(source, "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
-    setData(source, "electronconf", m_currentElement->dataAsString( ChemicalDataObject::electronicConfiguration )       );
-    setData(source, "period", m_currentElement->dataAsString( ChemicalDataObject::period )       );
-    setData(source, "group", m_currentElement->dataAsString( ChemicalDataObject::group )       );
-    setData(source, "en", m_currentElement->dataAsString( ChemicalDataObject::electronegativityPauling )       );
-    setData(source, "family", m_currentElement->dataAsString( ChemicalDataObject::family )       );
+    setData(*currentSource, "number", currentElement->dataAsString( ChemicalDataObject::atomicNumber )       );
+    setData(*currentSource, "bp", currentElement->dataAsString( ChemicalDataObject::boilingpoint )       );
+    setData(*currentSource, "mp", currentElement->dataAsString( ChemicalDataObject::meltingpoint )       );
+    setData(*currentSource, "name", currentElement->dataAsString( ChemicalDataObject::name )       );
+    setData(*currentSource, "mass", currentElement->dataAsString( ChemicalDataObject::mass )       );
+    setData(*currentSource, "symbol", currentElement->dataAsString( ChemicalDataObject::symbol )       );
+    setData(*currentSource, "electronconf", currentElement->dataAsString( ChemicalDataObject::electronicConfiguration )       );
+    setData(*currentSource, "period", currentElement->dataAsString( ChemicalDataObject::period )       );
+    setData(*currentSource, "group", currentElement->dataAsString( ChemicalDataObject::group )       );
+    setData(*currentSource, "en", currentElement->dataAsString( ChemicalDataObject::electronegativityPauling )       );
+    setData(*currentSource, "family", currentElement->dataAsString( ChemicalDataObject::family )       );
+    // TODO add more/all data.
 
     return true;
 }
 
-void KalziumEngine::setElementNumber( int number )
+QString KalziumEngine::getKeyWord(int id)
 {
-    if (number > 0 && number <= m_elements.count()) {
-        //Element N is N-1 in the list
-        m_currentElement = m_elements.at(number-1);
-    } else {
-        m_currentElement = 0;
-    }
+    QStringList idList;
+    idList = currentSource->split(":");
+
+    if ( idList.length() < id )
+        return QString();
+
+    return idList.at(id);
 }
 
-void KalziumEngine::getRandomElement()
+
+Element* KalziumEngine::getElement( int number )
+{
+    if (number > 0 && number <= m_elements.count())
+        //Element N is N-1 in the list
+        return m_elements.at(number-1);
+
+    return 0;
+}
+
+Element* KalziumEngine::getRandomElement()
 {
     qDebug() << "setting a random element";
-    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
+    return m_elements.at(m_random->getLong(m_elements.count()));
 }
 
 QString KalziumEngine::generateFact()
@@ -157,45 +166,91 @@ QString KalziumEngine::generateFact()
     int rand = m_random->getLong(3);
     int eNumber = m_random->getLong(95);
 
-    m_currentElement = m_elements.at(eNumber);
+    Element *currentElement;
 
-    if ( !m_currentElement )
-	    return i18n( "An error occurred." );
+    currentElement = getElement(eNumber);
 
-    QString bp =        m_currentElement->dataAsString( ChemicalDataObject::boilingpoint );
-    QString mp =        m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       ;
-    QString name =      m_currentElement->dataAsString( ChemicalDataObject::name )      ;
-    QString mass =      m_currentElement->dataAsString( ChemicalDataObject::mass )      ;
-    QString symbol =    m_currentElement->dataAsString( ChemicalDataObject::symbol )       ;
+    if ( !currentElement )
+        return i18n( "An error occurred. No element found." );
+
+    QString bp =        currentElement->dataAsString( ChemicalDataObject::boilingpoint );
+    QString mp =        currentElement->dataAsString( ChemicalDataObject::meltingpoint )       ;
+    QString name =      currentElement->dataAsString( ChemicalDataObject::name )      ;
+    QString mass =      currentElement->dataAsString( ChemicalDataObject::mass )      ;
+    QString symbol =    currentElement->dataAsString( ChemicalDataObject::symbol )       ;
 
     switch (rand) {
-        case 0:
-            return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
-        case 1:
-            return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
-        case 2:
-            return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
-        default:
-            return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
+    case 0:
+        return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
+    case 1:
+        return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
+    case 2:
+        return i18n( "Did you know that\n %1 (%2) weighs %3 u?", name, symbol, mass );
+    default:
+        return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
     }
 
     return i18n( "An error occurred." );
 }
 
-bool KalziumEngine::updateSourceMolecule(const QString &source)
+
+bool KalziumEngine::setPeriodicTableData()
+{
+    // "Table:typ:element"
+
+    if ( getKeyWord(1) == "list" ) {
+        setData(*currentSource, "tablelist", pseTables::instance()->tables() );
+        return true;
+    }
+
+    QString tableType;
+    tableType = getKeyWord(1);
+
+    if ( tableType.isEmpty() )
+        return false;
+
+    pseTable *currentTable = pseTables::instance()->getTabletype( tableType );
+
+    setData(*currentSource, "description", currentTable->description()  );
+    setData(*currentSource, "tablesize", currentTable->tableSize()  );
+    setData(*currentSource, "firstelement", currentTable->firstElement()  );
+    setData(*currentSource, "lastelement", currentTable->lastElement()  );
+//     setData(*currentSource, "elementlist", currentTable->elements()  );
+
+
+    bool isNumber;
+    int elementNumber = getKeyWord(2).toInt(&isNumber);
+    qDebug() << elementNumber;
+
+    if ( !isNumber )
+        return true;
+
+    setData(*currentSource, "coords", currentTable->elementCoords( elementNumber )  );
+    setData(*currentSource, "previousof", currentTable->previousOf( elementNumber )  );
+    setData(*currentSource, "nextof", currentTable->nextOf( elementNumber )  );
+
+    /*
+        virtual int numerationAtPos( int xPos ) const;
+    */
+    return true;
+}
+
+
+bool KalziumEngine::setMoleculeData()
 {
     QString          molecule;
     double           mass;
     ElementCountMap  elementMap;
 
-    molecule = source.right(source.length()-source.lastIndexOf(':') - 1 );
+    // Molecule:Parser:CH4
+    molecule = getKeyWord(2);
 
-    if ( !m_parser->weight(molecule, &mass, &elementMap)) {
+    if ( !m_moleculeParser->weight(molecule, &mass, &elementMap)) {
         return false;
     }
 
-    setData(source, "molMass", mass  );
-    setData(source, "niceMolecule", sumUpMolecue(elementMap));
+    setData(*currentSource, "molMass", mass  );
+    setData(*currentSource, "niceMolecule", sumUpMolecue(elementMap));
     return true;
 }
 
@@ -204,9 +259,9 @@ QString KalziumEngine::sumUpMolecue(ElementCountMap &elementMap)
     QString niceMolecule;
     foreach (ElementCount * Ecount , elementMap.map()) {
         niceMolecule.append(Ecount->element()->dataAsString( ChemicalDataObject::symbol));
-        if (Ecount->count() > 1){
+        if (Ecount->count() > 1) {
             niceMolecule.append(QString::number(Ecount->count()));
-	}
+        }
     }
     return niceMolecule;
 }
