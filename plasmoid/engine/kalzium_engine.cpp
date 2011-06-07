@@ -107,7 +107,6 @@ bool KalziumEngine::setElementData()
         // decide for a randomly chosen element
         currentElement = getRandomElement();
     } else if ( currentSource->operator==("Fact") ) {
-        qDebug() << "Fact is the current currentSource";
         setData(*currentSource, "fact", generateFact() );
     } else { // Keyword 2: "BlueObelisk:Element:1"
         currentElement = getElement( getKeyWord(2).toInt() );
