@@ -56,6 +56,9 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
 
     //Initialising the MoleculeParser
     m_moleculeParser = new MoleculeParser(m_elements);
+
+    // Initialising the Table typ.
+    m_currentTableTyp = "Classic";
 }
 
 KalziumEngine::~KalziumEngine()
@@ -108,8 +111,8 @@ bool KalziumEngine::setElementData()
         currentElement = getRandomElement();
     } else if ( currentSource->operator==("Fact") ) {
         setData(*currentSource, "fact", generateFact() );
-    } else { // Keyword 2: "BlueObelisk:Element:1"
-        currentElement = getElement( getKeyWord(2).toInt() );
+    } else {
+        currentElement = getElement( getKeyWord().toInt() );
     }
 
     if (!currentElement) {
@@ -128,6 +131,15 @@ bool KalziumEngine::setElementData()
     setData(*currentSource, "group", currentElement->dataAsString( ChemicalDataObject::group )       );
     setData(*currentSource, "en", currentElement->dataAsString( ChemicalDataObject::electronegativityPauling )       );
     setData(*currentSource, "family", currentElement->dataAsString( ChemicalDataObject::family )       );
+
+    // position Information
+    int elementNumber = currentElement->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+    pseTable *currentTable = pseTables::instance()->getTabletype( m_currentTableTyp );
+    setData(*currentSource, "x", currentTable->elementCoords(elementNumber ).x()  );
+    setData(*currentSource, "y", currentTable->elementCoords( elementNumber ).y()  );
+    setData(*currentSource, "previousof", currentTable->previousOf( elementNumber )  );
+    setData(*currentSource, "nextof", currentTable->nextOf( elementNumber )  );
+
     // TODO add more/all data.
 
     return true;
@@ -137,6 +149,9 @@ QString KalziumEngine::getKeyWord(int id)
 {
     QStringList idList;
     idList = currentSource->split(":");
+
+    if ( id == -1)
+        return idList.last();
 
     if ( idList.length() < id )
         return QString();
@@ -195,20 +210,28 @@ QString KalziumEngine::generateFact()
 
 bool KalziumEngine::setPeriodicTableData()
 {
-    // "Table:typ:element"
+    // "Table:typ"
 
-    if ( getKeyWord(1) == "list" ) {
+    if ( getKeyWord() == "list" ) {
         setData(*currentSource, "tablelist", pseTables::instance()->tables() );
         return true;
     }
 
     QString tableType;
-    tableType = getKeyWord(1);
+    tableType = getKeyWord();
 
     if ( tableType.isEmpty() )
         return false;
 
+
+
     pseTable *currentTable = pseTables::instance()->getTabletype( tableType );
+
+    if ( currentTable == 0 ) {
+        return false;
+    }
+
+    m_currentTableTyp = tableType;
 
     setData(*currentSource, "description", currentTable->description()  );
     setData(*currentSource, "tablesize", currentTable->tableSize()  );
@@ -216,21 +239,6 @@ bool KalziumEngine::setPeriodicTableData()
     setData(*currentSource, "lastelement", currentTable->lastElement()  );
 //     setData(*currentSource, "elementlist", currentTable->elements()  );
 
-
-    bool isNumber;
-    int elementNumber = getKeyWord(2).toInt(&isNumber);
-    qDebug() << elementNumber;
-
-    if ( !isNumber )
-        return true;
-
-    setData(*currentSource, "coords", currentTable->elementCoords( elementNumber )  );
-    setData(*currentSource, "previousof", currentTable->previousOf( elementNumber )  );
-    setData(*currentSource, "nextof", currentTable->nextOf( elementNumber )  );
-
-    /*
-        virtual int numerationAtPos( int xPos ) const;
-    */
     return true;
 }
 
@@ -242,7 +250,7 @@ bool KalziumEngine::setMoleculeData()
     ElementCountMap  elementMap;
 
     // Molecule:Parser:CH4
-    molecule = getKeyWord(2);
+    molecule = getKeyWord();
 
     if ( !m_moleculeParser->weight(molecule, &mass, &elementMap)) {
         return false;

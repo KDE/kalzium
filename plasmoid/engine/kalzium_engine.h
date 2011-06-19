@@ -23,7 +23,7 @@ class Element;
 
 class KalziumEngine : public Plasma::DataEngine
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     KalziumEngine(QObject* parent, const QVariantList& args);
@@ -54,7 +54,7 @@ protected: // FIXME is protected needed? private?
     bool setPeriodicTableData();
 
 private:
-    ///Summs up all Elements of a Molecule. 
+    ///Summs up all Elements of a Molecule.
     QString sumUpMolecue(ElementCountMap &elementMap);
 
     /**
@@ -62,7 +62,10 @@ private:
      * given the source string: "source:my:keyword"
      * @parm id
      */
-    QString getKeyWord( int id );
+    QString getKeyWord( int id = -1);
+
+    /// TODO:use int instead of a QString
+    QString m_currentTableTyp;
 
     const QString *currentSource;
 
