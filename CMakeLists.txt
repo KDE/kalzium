@@ -3,7 +3,7 @@ project(kalzium)
 set(CMAKE_MODULE_PATH ${kalzium_SOURCE_DIR}/cmake/modules )
 
 # search packages used by KDE
-find_package(KDE4 4.6.40 REQUIRED)
+find_package(KDE4 4.6.80 REQUIRED)
 if(WIN32)
   find_package(KDEWIN32 REQUIRED)
   # detect oxygen icon dir at configure time based on KDEDIRS - there may be different package installation locations
@@ -23,6 +23,7 @@ include(MacroOptionalAddSubdirectory)
 include(MacroBoolTo01)
 
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} libscience)
 
 kde4_no_enable_final(kalzium)
