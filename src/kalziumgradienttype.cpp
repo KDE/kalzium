@@ -97,15 +97,21 @@ KalziumGradientType* KalziumGradientType::instance()
 double KalziumGradientType::elementCoeff( int el ) const
 {
     double val = value( el );
-    if ( val <= 0.0 ) return -1;
+    if ( val == -1 ) return val;
 
-    if (logarithmicGradient()) {
+    if ( logarithmicGradient() ) {
         double minVal = minValue();
         double maxVal = maxValue();
-        // Fixing negativ values
-        if ( minVal <= 0 ) minVal = 0.001;
 
-        double result = ( log(val) - log(minVal) ) / ( log(maxVal) - log(minVal) );
+        // Fixing negativ values for log calculation (no negativ values alowed -> NaN)
+        if ( minVal < 0 ) {
+            minVal = abs(minVal) + 1; // make shure it's bigger than 0
+            maxVal += minVal;
+            val += minVal;
+            minVal = 0.01;
+        };
+
+        double result = ( log(val) - log(minVal) ) / ( log(maxVal) - log(minVal));
 
         // now we perform a "gamma-correction" on the result. Indeed, logarithmic gradients
         // often have the problem that all high values have roughly the same color. Note that
@@ -634,9 +640,8 @@ int KalziumElectronegativityGradientType::decimals() const
 
 double KalziumElectronaffinityGradientType::minValue() const
 {
-    KUnitConversion::Value minValue( -0.08, KUnitConversion::Electronvolt );
+    KUnitConversion::Value minValue( -0.07, KUnitConversion::Electronvolt );
     return minValue.convertTo( Prefs::energiesUnit() ).number();
-//     return 0.01;
 }
 
 double KalziumElectronaffinityGradientType::maxValue() const
@@ -693,7 +698,6 @@ double KalziumIonizationGradientType::minValue() const
 {
     KUnitConversion::Value minValue( 3.89, KUnitConversion::Electronvolt );
     return minValue.convertTo( Prefs::energiesUnit() ).number();
-//     return 3.89; //0.0;//
 }
 
 double KalziumIonizationGradientType::maxValue() const

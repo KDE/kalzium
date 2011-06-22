@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 #endif
 
     KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
-                     KAboutData::License_GPL, ki18n("(C) 2002-2008 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
+                     KAboutData::License_GPL, ki18n("(C) 2002-2011 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
     about.addAuthor( ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org" );
     about.addCredit( ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
     about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));

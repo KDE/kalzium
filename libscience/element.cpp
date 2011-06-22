@@ -40,13 +40,13 @@ QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) 
 {
     foreach( const ChemicalDataObject &o, dataList ) {
         if ( o.type() == type ) {
-	    if( unit == KUnitConversion::NoUnit )
-	      return o.value();
+            if ( unit == KUnitConversion::NoUnit )
+                return o.value();
             KUnitConversion::Value data( o.value().toDouble(), o.unit() );
             return QVariant( data.convertTo(unit).number() );
         }
     }
-    return QString();
+    return QVariant();
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
