@@ -46,6 +46,9 @@ calculator::calculator(QWidget *parent)
     // Add the molecular mass Calculator widget to the user interface
     m_moleCalculator = new MolcalcWidget(this);
     ui.stack->addWidget(m_moleCalculator);
+    // Add the molecular mass Calculator widget to the user interface
+    m_titraCalculator = new titrationCalculator(this);
+    ui.stack->addWidget(m_titraCalculator);
 
 #ifdef HAVE_FACILE
     // Add the equation balancer widget to the user interface
@@ -105,6 +108,8 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 #endif
     else if (!(s.compare(i18n("Molecular mass Calculator"))))
         ui.stack->setCurrentWidget(m_moleCalculator);
+    else if (!(s.compare(i18n("Titration Calculator"))))
+        ui.stack->setCurrentWidget(m_titraCalculator);
 }
 
 

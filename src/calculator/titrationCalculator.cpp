@@ -55,6 +55,9 @@ titrationCalculator::titrationCalculator(QWidget * parent)
     width = int(xmax - xmin);
 
     uid.setupUi(this);
+    uid.tabWidget->setTabText(0, i18n("Experimental values"));
+    uid.tabWidget->setTabText(1, i18n("Theoretical equations"));
+    uid.tab->setFocus();
     plot();
 
     connect(uid.pushButton, SIGNAL(clicked()),this, SLOT(on_pushButton_clicked()));
