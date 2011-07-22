@@ -42,6 +42,7 @@ Molmasscalculator::Molmasscalculator ( QObject *parent, const QVariantList &args
         m_MassLabel( 0 ),
         m_switchButton( 0 )
 {
+    KGlobal::locale()->insertCatalog("kalzium");
     // Some Applet settings
     setAspectRatioMode ( Plasma::IgnoreAspectRatio );
     setHasConfigurationInterface ( true );
