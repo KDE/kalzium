@@ -280,7 +280,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         //Wikipedia.org
 //         html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
         html.append ( "<tr><td>" );
-        html.append ( createWikiLink(m_element->dataAsString( ChemicalDataObject::name ), "Wikipedia " + language) );
+        html.append ( createWikiLink(m_element->dataAsString( ChemicalDataObject::name ), i18nc( "Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", language ) ) );
         html.append ( "</td></tr>" );
 
         //http://education.jlab.org/itselemental/ele001.html
