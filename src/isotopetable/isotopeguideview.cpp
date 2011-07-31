@@ -36,10 +36,10 @@
 void IsotopeGuideView::setGuidedView(IsotopeView *guidedView)
 {
     m_guidedView = guidedView;
-    connect( m_guidedView, SIGNAL( zoomLevelChanged( double ) ),
-             this,         SLOT( setZoomLevel( double ) ) );
-    connect( m_guidedView, SIGNAL( visibleSceneRectChanged( const QPolygonF& ) ),
-             this,         SLOT( setVisibleSceneRect( const QPolygonF& ) ) );
+    connect( m_guidedView, SIGNAL(zoomLevelChanged(double)),
+             this,         SLOT(setZoomLevel(double)) );
+    connect( m_guidedView, SIGNAL(visibleSceneRectChanged(QPolygonF)),
+             this,         SLOT(setVisibleSceneRect(QPolygonF)) );
     m_zoomLevel = m_guidedView->zoomLevel();
 
     setScene(m_guidedView->scene());

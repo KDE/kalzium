@@ -61,10 +61,10 @@ titrationCalculator::titrationCalculator(QWidget * parent)
     plot();
 
     connect(uid.pushButton, SIGNAL(clicked()),this, SLOT(on_pushButton_clicked()));
-    connect(uid.xmin, SIGNAL(valueChanged(double )),this, SLOT(on_xmin_valueChanged(double )));
-    connect(uid.xmax, SIGNAL(valueChanged(double )),this, SLOT(on_xmax_valueChanged(double )));
-    connect(uid.ymin, SIGNAL(valueChanged(double )),this, SLOT(on_ymin_valueChanged(double )));
-    connect(uid.ymax, SIGNAL(valueChanged(double )),this, SLOT(on_ymax_valueChanged(double )));
+    connect(uid.xmin, SIGNAL(valueChanged(double)),this, SLOT(on_xmin_valueChanged(double)));
+    connect(uid.xmax, SIGNAL(valueChanged(double)),this, SLOT(on_xmax_valueChanged(double)));
+    connect(uid.ymin, SIGNAL(valueChanged(double)),this, SLOT(on_ymin_valueChanged(double)));
+    connect(uid.ymax, SIGNAL(valueChanged(double)),this, SLOT(on_ymax_valueChanged(double)));
 
 
     connect(uid.saveimage, SIGNAL(clicked()),this, SLOT(on_actionSave_image_triggered()));

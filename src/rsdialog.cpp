@@ -42,10 +42,10 @@ RSDialog::RSDialog( QWidget* parent )
 
 	ui.setupUi( mainWidget() );
 
-	connect( ui.filterButton, SIGNAL( clicked() ), 
-                this, SLOT( filter() ) );
-	connect( this, SIGNAL( helpClicked() ), 
-                this, SLOT( slotHelp() ) );
+	connect( ui.filterButton, SIGNAL(clicked()), 
+                this, SLOT(filter()) );
+	connect( this, SIGNAL(helpClicked()), 
+                this, SLOT(slotHelp()) );
 
         filter();
 }

@@ -63,13 +63,13 @@ calculator::calculator(QWidget *parent)
     ui.pic->setPixmap( (KIcon( "calculate" )).pixmap(128,128) );
 
     // Connect the tree item selection signal to the corresponding slot
-    connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
-            SLOT(slotItemSelection(QTreeWidgetItem *)));
+    connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this,
+            SLOT(slotItemSelection(QTreeWidgetItem*)));
 
     ui.tree->setCurrentItem ( ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent );
 
     // help clicked
-    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
+    connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
 }
 
 calculator :: ~calculator()

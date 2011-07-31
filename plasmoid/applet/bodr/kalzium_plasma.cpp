@@ -35,8 +35,8 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     m_label1 = 0;
     m_lineedit = new Plasma::LineEdit( this );
     m_lineedit->setDefaultText( i18n("Enter the atomic number.") );
-    connect( m_lineedit, SIGNAL(editingFinished() ),
-            this, SLOT(textChanged() ) );
+    connect( m_lineedit, SIGNAL(editingFinished()),
+            this, SLOT(textChanged()) );
 
     setHasConfigurationInterface(true);
     setAcceptDrops(false);

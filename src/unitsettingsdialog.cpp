@@ -82,3 +82,4 @@ UnitSettingsDialog::~UnitSettingsDialog()
     delete m_comboBoxLengthUnit;
     delete m_comboBoxLTemperatureUnit;
 }
+

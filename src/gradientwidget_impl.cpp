@@ -35,12 +35,12 @@ GradientWidgetImpl::GradientWidgetImpl( QWidget *parent )
     scheme_combo->addItems( KalziumElementProperty::instance()->schemeList() );
     gradient_combo->addItems( KalziumElementProperty::instance()->gradientList() );
 
-    connect( gradient_spinbox, SIGNAL( valueChanged(double)), this, SLOT( doubleToSlider(double)));
-    connect( gradient_slider, SIGNAL( valueChanged(int)), this, SLOT( intToSpinbox(int)));
+    connect( gradient_spinbox, SIGNAL(valueChanged(double)), this, SLOT(doubleToSlider(double)));
+    connect( gradient_slider, SIGNAL(valueChanged(int)), this, SLOT(intToSpinbox(int)));
 
     m_timer = new QTimer( this );
-    connect( Play, SIGNAL (clicked()), this, SLOT( play()));
-    connect( m_timer, SIGNAL(timeout()), this, SLOT( tick()) );
+    connect( Play, SIGNAL (clicked()), this, SLOT(play()));
+    connect( m_timer, SIGNAL(timeout()), this, SLOT(tick()) );
 
     Play->setIcon( KIcon( "media-playback-start" ) );
 }

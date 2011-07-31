@@ -70,25 +70,25 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
     }
 
     m_actionCollection = new KActionCollection (this );
-    KStandardAction::quit( this, SLOT( close() ), m_actionCollection );
+    KStandardAction::quit( this, SLOT(close()), m_actionCollection );
 
-    connect( m_timer, SIGNAL( timeout() ),
-             this, SLOT( drawPlot() ) );
-    connect( ui.KCB_y, SIGNAL( activated(int) ),
-             this, SLOT( rangeChanged()) );
-    connect( ui.KCB_x, SIGNAL( activated(int) ),
-             this, SLOT( rangeChanged()) );
-    connect( ui.comboElementLabels, SIGNAL( activated( int ) ),
-             this, SLOT( rangeChanged()) );
-    connect( ui.comboElementType,   SIGNAL( activated( int ) ),
-             this, SLOT( rangeChanged()) );
-    connect( ui.from, SIGNAL( valueChanged( int ) ),
-             this, SLOT( rangeChanged() ) );
-    connect( ui.to, SIGNAL( valueChanged( int ) ),
-             this, SLOT( rangeChanged() ) );
-    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
-    connect( ui.full, SIGNAL ( clicked() ) ,
-             this, SLOT( fullRange() ) );
+    connect( m_timer, SIGNAL(timeout()),
+             this, SLOT(drawPlot()) );
+    connect( ui.KCB_y, SIGNAL(activated(int)),
+             this, SLOT(rangeChanged()) );
+    connect( ui.KCB_x, SIGNAL(activated(int)),
+             this, SLOT(rangeChanged()) );
+    connect( ui.comboElementLabels, SIGNAL(activated(int)),
+             this, SLOT(rangeChanged()) );
+    connect( ui.comboElementType,   SIGNAL(activated(int)),
+             this, SLOT(rangeChanged()) );
+    connect( ui.from, SIGNAL(valueChanged(int)),
+             this, SLOT(rangeChanged()) );
+    connect( ui.to, SIGNAL(valueChanged(int)),
+             this, SLOT(rangeChanged()) );
+    connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
+    connect( ui.full, SIGNAL (clicked()) ,
+             this, SLOT(fullRange()) );
     drawPlot();
 
     resize( 650, 500 );

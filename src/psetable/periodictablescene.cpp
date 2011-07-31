@@ -45,7 +45,7 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
     setItemIndexMethod(QGraphicsScene::NoIndex);
 
     m_hoverTimer.setSingleShot( true );
-    connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
+    connect( &m_hoverTimer, SIGNAL(timeout()), this, SLOT(slotMouseover()) );
 }
 
 PeriodicTableScene::~PeriodicTableScene()

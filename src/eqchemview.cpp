@@ -72,12 +72,12 @@ EQChemDialog::EQChemDialog( QWidget *parent )
     ui.setupUi( mainWidget() );
     setButtonGuiItem( User1, KGuiItem( i18n( "Copy" ), "edit-copy", i18n( "Copy answer to clipboard" ) ) );
 
-    connect( ui.calculateButton , SIGNAL( clicked() ),
-             this, SLOT( compute() ) );
-    connect( this , SIGNAL( user1Clicked() ),
-             this, SLOT( copyAnswer() ) );
-    connect( this , SIGNAL( helpClicked() ),
-             this, SLOT( slotHelp() ) );
+    connect( ui.calculateButton , SIGNAL(clicked()),
+             this, SLOT(compute()) );
+    connect( this , SIGNAL(user1Clicked()),
+             this, SLOT(copyAnswer()) );
+    connect( this , SIGNAL(helpClicked()),
+             this, SLOT(slotHelp()) );
 }
 
 void EQChemDialog::copyAnswer()

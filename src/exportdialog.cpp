@@ -88,8 +88,8 @@ ExportDialog::ExportDialog( QWidget * parent )
     ui.formatList->addItem( ".xml (raw element data)", "xml" );
     ui.formatList->addItem( ".csv (comma-separated data)", "csv" );
 
-    connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotOkClicked() ) );
-    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelpClicked() ) );
+    connect( this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()) );
+    connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelpClicked()) );
     setHelp(QString(),"kalzium");
 }
 
