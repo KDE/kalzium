@@ -42,8 +42,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2008-07-27</date>
-		 <releaseinfo>2.0.80</releaseinfo>
+		 <date>2011-08-14</date>
+		 <releaseinfo>2.4.00</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -75,7 +75,7 @@
 		 <para>
 			 You can visualize the Periodic Table of the Elements by groups, blocks,
 			 and families. You can
-			 plot data for a range of elements for properties like the boilingpoint or the
+			 plot data for a range of elements for properties like the boiling point or the
 			 atomic mass. You can go back in time and see what elements were known at a 
 			 given date. You can also calculate the molecular mass of molecules.
 		 </para>
@@ -97,7 +97,7 @@
 		 </screenshot>
 
 		 <para>
-			 &kalzium; is divided in a navigation panel on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the status bar reports facts. You can hide the navigation panel using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Show Sidebar</guimenuitem> </menuchoice> menu.
+		   &kalzium; is divided in an information panel on the left (in red), the table view (in blue) which shows the elements of the periodic table, and a legend panel at the bottom (in green). The standard menubar allows you to choose what you want to display and the status bar reports facts. The table view and the panels can be hidden using the corresponding items in <guimenu>View</guimenu> menu. For example, you can hide the information panel with <menuchoice> <guimenu>View</guimenu> <guimenuitem>Information</guimenuitem> </menuchoice>.
 		 </para>
 
 		 <para>
@@ -105,7 +105,7 @@
 		 </para>
 
 		 <para>
-			 You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Scheme</guimenuitem> </menuchoice> menu.
+			 You can choose several views for the table: classic periodic table, short periodic table, long periodic table, &etc;. It is also possible to change numeration scheme or display the elements per families, per groups, per crystal structure, depending on their acidic behavior, &etc;. You can change all that in the <guimenu>View</guimenu> menu.
 		 </para>
 		 <para>
 			 If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
@@ -143,7 +143,7 @@
 	 <chapter id="using-kalzium">
 		 <title>Using &kalzium;</title>
 
-		 <sect1 id="foo"><title>Overview of Kalziums usage</title>
+		 <sect1 id="foo"><title>Overview of &kalzium; usage</title>
 			 <para>Here are some screenshots of &kalzium; in action:</para>
 
 			 <para>&kalzium; is very easy to use. It is specially designed for students of all ages to use as a small and quick database.</para>
@@ -165,29 +165,39 @@
 				 any element. This is the place to get information about an element. With the
 				 buttons at the bottom of the dialog you can change the element which is displayed without closing the
 				 dialog.</para>
-			 <sect2 id="infodialog_overview">
-				 <title>Overview</title>
-				 <para>In the <guilabel>Overview</guilabel> you will find the most
-					 important information about the element. In the middle you see the
-					 symbol of the Element with it's elemental number in the bottom left.
-					 The top-left corner displays the name of the element while the
-					 bottom-right corner shows the elemental weight.</para>
+			<sect2 id="infodialog_dataoverview">
+				 <title>Data Overview</title>
+				 <para>The <guilabel>Data Overview</guilabel> page tells you about different
+					 facts related to the element.</para>
+				 <para> Depending on the data available in &kalzium; you will see
+					 different radii of the element. The covalent radius is the radius
+					 of a non charged atom of the element in a molecule. The could for
+					 example be the O-H-distance in Water. The atomic radius is the
+					 radius of an elemental atom, &eg; not bound to anything. The van der
+					 Waals-radius is defined as the distance of two atoms of the same
+					 sort in two equal molecules, for example two carbon-atoms in
+					 propane. The last possible radius is the ionic radius including its
+					 charge.</para>
+				 <para>The mass of an element is the average mass of all isotopes in
+					 relation to their percentage.
+				 </para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
-							 <imagedata fileref="infodialog_overview.png" format="PNG"/>
+							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para></caption>
+						 <caption><para></para>
+						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
 			 <sect2 id="infodialog_orbits">
 				 <title>Bohr Orbitals</title>
-				 <para>The <guilabel>Atom Model</guilabel> tab displays the atomic
+				 <para>The <guilabel>Atom Model</guilabel> page displays the atomic
 					 shells. Every orbit stands for a atomic shell and every yellow
 					 circle represents an electron.</para>
 				 <screenshot>
@@ -204,28 +214,10 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-			 <sect2 id="infodialog_misc">
-				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other information about the current element, 
-				including when it was discovered and the origin of the name.</para>
-				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
-					 <mediaobject>
-						 <imageobject>
-							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
-						 </imageobject>
-						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
-						 </textobject>
-						 <caption><para></para>
-						 </caption>
-					 </mediaobject>
-				 </screenshot>
-			 </sect2>
 			 <sect2 id="infodialog_isotopes">
 				 <title>Isotopes</title>
 				 <para>
-					 The <guilabel>Isotopes</guilabel> tab presents information about the isotopes of an element.
+					 The <guilabel>Isotopes</guilabel> page presents information about the isotopes of an element.
 					 <variablelist>
 
 						 <varlistentry>
@@ -276,7 +268,7 @@
 						 <varlistentry>
 							 <term>Magnetic Moment</term>
 							 <listitem><para>
-									 The magnetic dipolemoment of the nucleus. Measured in units of the nuclear magneton.
+									 The magnetic dipole moment of the nucleus. Measured in units of the nuclear magneton.
 							 </para></listitem>
 						 </varlistentry>
 
@@ -297,27 +289,15 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-			 <sect2 id="infodialog_dataoverview">
-				 <title>Data Overview</title>
-				 <para>The <guilabel>Data Overview</guilabel> tab tells you about different
-					 facts related to the element.</para>
-				 <para> Depending on the data available in &kalzium; you will see
-					 different radii of the element. The covalent radius is the radius
-					 of a non charged atom of the element in a molecule. The could for
-					 example be the O-H-distance in Water. The atomic radius is the
-					 radius of an elemental atom, &eg; not bound to anything. The van der
-					 Waals-radius is defined as the distance of two atoms of the same
-					 sort in two equal molecules, for example two carbon-atoms in
-					 propane. The last possible radius is the ionic radius including its
-					 charge.</para>
-				 <para>The mass of an element is the average mass of all isotopes in
-					 relation to their percentage.
-				 </para>
+			 <sect2 id="infodialog_misc">
+				 <title>Miscellaneous</title>
+				 <para>The <guilabel>Miscellaneous</guilabel> page tells you other information about the current element, 
+				including when it was discovered and the origin of the name.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
-							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
+							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
@@ -327,16 +307,9 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-
-<!-- Uncomment this when it has some content, since otherwise it -->
-<!-- breaks checkXML -->
-<!--   <sect2 id="infodialog_warnings">
-				 <title>Warnings</title>
-				 <para></para>
-			 </sect2>
--->
 			 <sect2 id="infodialog_spectrum">
 				 <title>Spectrum</title>
+				 <para>The <guilabel>Spectrum</guilabel> page shows you elements spectrum. You can choose the range of the wavelengths, units and type of the spectrum. The intensity table can be seen at the right bottom part of the page.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -351,17 +324,83 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
+			 <sect2 id="infodialog_extra">
+				 <title>Extra Information</title>
+				 <para>The <guilabel>Extra information</guilabel> page gives you the links to the element pages on Wikipedia, <ulink url="http://education.jlab.org/">Jefferson Lab</ulink>, and <ulink url="http://www.webelements.com/">WebElements</ulink>.</para>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_extra.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
 		 </sect1>
+		 <sect1 id="tables_view">
+			 <title>Tables</title>
+			 
+			 <para>The periodic table can be presented in various ways. You can switch the table view from <guimenu>View</guimenu> menu or toolbar drop-down list.</para>
+			 
+			 <para>The following options in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Tables</guimenuitem></menuchoice> menu can be used to change the table shown:
+			 <variablelist>
+			   <varlistentry>
+			     <term>Classic Periodic Table</term>
+			     <listitem>
+			       <para>
+				 <action>Display</action> the classic periodic table with all elements.
+			       </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term>Short Periodic Table</term>
+			     <listitem>
+			       <para>
+				 <action>Display</action> a periodic table without transition elements.
+			       </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term>Long Periodic Table</term>
+			     <listitem>
+			       <para>
+				 <action>Display</action> a periodic table with inner transition elements (f-elements) embedded.
+			       </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term>Transition Elements</term>
+			     <listitem>
+			       <para>
+				 <action>Display</action> a periodic table only with transition elements.
+			       </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term>DZ Periodic Table</term>
+			     <listitem>
+			       <para>
+				 This item represents the table the DZ <foreignphrase lang="de">Deutscher Zentralausschuss</foreignphrase> "German Central Committee" suggests.
+			       </para>
+			     </listitem>
+			   </varlistentry>
+			 </variablelist>
+			 </para>
 
-		 <!-- Don't have empty chapters if possible - comment them out until -->
+		 </sect1>
 		 <sect1 id="numeration">
 			 <title>Numeration</title>
 
 			 <para>The numeration is the way  of numbering the 18 groups of the periodic table. You can change the numeration to
 				 <guilabel>IUPAC</guilabel>, <guilabel>old IUPAC</guilabel> or
 				 <guilabel>CAS</guilabel>, or you can switch it off entirely.</para>
-
-			 <para>The following options in the <guimenu>View</guimenu> <guimenuitem>Numeration</guimenuitem> menu can be used to change the numeration shown:
+				 
+				 <para>The following options in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Numeration</guimenuitem></menuchoice> menu can be used to change the numeration shown:
 				 <itemizedlist>
 					 <listitem><para>
 							 <guimenuitem>No Numeration</guimenuitem>: if this option is active, no period-numeration will be
@@ -389,12 +428,11 @@
 			 <title>Color schemes</title>
 
 			 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
-
-			 <para>Color schemes can be changed in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Scheme</guimenuitem></menuchoice> menu. </para>
+			 <para>Color schemes can be changed in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Scheme</guimenuitem></menuchoice> menu, toolbar drop-down list, or <link linkend="view_tab">View</link> tab of the Sidebar.</para>
 			 <itemizedlist>
 				 <listitem><para>
 						 <guimenuitem>Monochrome</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
-						 </menuchoice> and going to the <guilabel>Colors</guilabel> tab.
+						 </menuchoice> and going to the <guilabel>Colors</guilabel> page.
 				 </para></listitem>
 				 <listitem><para>
 						 <guimenuitem>Blocks</guimenuitem>: displays a color for each block.
@@ -408,46 +446,85 @@
 				 <listitem><para>
 						 <guimenuitem>Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
 				 </para></listitem>
-				 <listitem>
-					 <para><guimenuitem>Gradient</guimenuitem></para>
-					 <para>The gradient views displays the elements according to a property you can select below and with a gradient colored scheme. The elements for which the data is not available are displayed in grey.</para>
-					 <screenshot>
-						 <screeninfo>Gradient for Covalent Radius</screeninfo>
-						 <mediaobject>
-							 <imageobject>
-								 <imagedata fileref="gradient.png" format="PNG"/>
-							 </imageobject>
-							 <textobject>
-								 <phrase>Gradient for Covalent Radius</phrase>
-							 </textobject>
-						 </mediaobject>
-					 </screenshot>
-					 <itemizedlist>
-						 <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>van der Waals Radius</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Atomic Mass</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Boiling Point</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Melting Point</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Electronegativity (Pauling)</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Electronaffinity</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Discovery date</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>First Ionisation</guimenuitem>
-						 </para></listitem>
-					 </itemizedlist>
-				 </listitem>
 			 </itemizedlist>
-
+		</sect1>
+		<sect1 id="gradients">
+			 <title>Gradients</title>
+			 <para>The gradient views displays the elements according to a property you can select below and with a gradient colored scheme. The elements for which the data is not available are displayed in gray.</para>
+			 <para>Gradients can be changed in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Gradients</guimenuitem></menuchoice> menu, toolbar drop-down list, or <link linkend="view_tab">View</link> tab of the Sidebar.</para>
+			<screenshot>
+			  <screeninfo>Gradient for Covalent Radius</screeninfo>
+			  <mediaobject>
+			    <imageobject>
+			      <imagedata fileref="gradient.png" format="PNG"/>
+			      </imageobject>
+			      <textobject>
+				<phrase>Gradient for Covalent Radius</phrase>
+			      </textobject>
+			   </mediaobject>
+			   </screenshot>
+			   <para>Implemented are the following gradients</para>
+			   <itemizedlist>
+			     <listitem><para><guimenuitem>None</guimenuitem>: Do not use gradients.
+			     </para></listitem>
+			     <listitem><para><guimenuitem>State of matter</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>van der Waals</guimenuitem>: gradient by van der Waals radius.
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Atomic Mass</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Boiling Point</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Melting Point</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Electronegativity (Pauling)</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Electronaffinity</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>Discovery date</guimenuitem>
+			     </para></listitem>
+			     <listitem><para><guimenuitem>First Ionization</guimenuitem>
+			     </para></listitem>
+			   </itemizedlist>
 		 </sect1>
 		 <sect1 id="tools">
 			 <title>Tools</title>
+			 <sect2 id="mol_editor">
+				 <title>Molecular Editor</title>
+				 <para>
+				   The Molecular Editor allows you to view and edit molecules using <ulink url="http://avogadro.openmolecules.net/wiki/Main_Page">Avogadro</ulink> libraries.
+				 </para>
+				 <para>
+				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually.
+				 </para>
+				 <para>
+				   <guilabel>Statistics</guilabel> pane shows name (if available), formula, and weight of the molecule.
+			         </para> 
+				 <para>
+				   The <guilabel>Display</guilabel> tab can be used to change <guilabel>Quality</guilabel> of the image (<guimenuitem>Low</guimenuitem>, <guimenuitem>Medium</guimenuitem>, or <guimenuitem>High</guimenuitem>, can be useful on low-end system), <guilabel>Style</guilabel> (can be <guimenuitem>Balls and sticks</guimenuitem>, <guimenuitem>Sticks</guimenuitem>, <guimenuitem>Van der Waals</guimenuitem>, or <guimenuitem>Wireframe</guimenuitem>),  <guilabel>2nd Style</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Ribbon</guimenuitem>, <guimenuitem>Ring</guimenuitem>, or <guimenuitem>Molecular Orbital</guimenuitem>), and  <guilabel>Labels</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Atom Numbers</guimenuitem>, <guimenuitem>Element Names</guimenuitem>, or <guimenuitem>Element Symbols</guimenuitem>).
+				 </para>
+				 <para>
+				   The <guilabel>Edit</guilabel> tab is aimed to edit molecule. You can add elements by choosing them in <guilabel>Elements</guilabel> drop-down list and clicking with &LMB; on view panel. The molecule can be optimized by clicking <guibutton>Optimize</guibutton> button.
+				 </para>
+				 <para>
+				   The <guilabel>Measure</guilabel> tab can be used to measure distances and angles in the molecule. To make the measurement use the instructions shown on the tab.
+				 </para>
+				 <para>
+				   On the right of the <guilabel>Molecular Editor</guilabel> window the molecule will be shown. Use &LMB; to rotate molecule, &RMB; to move it, and &MMB; to zoom.
+				 </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-mol-edit.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Molecular Editor</quote></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
 			 <sect2 id="nuclid_board">
 				 <title>Isotope Table</title>
 				 <para>
@@ -469,32 +546,6 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-			 
-			 <sect2 id="rs_phrases">
-				 <title>Risk/Security Phrases</title>
-				 <para>The R/S Phrases, also known as Risk and Safety Statements, R/S statements, R/S numbers, and R/S sentences,
-				 is a system of hazard codes and phrases for labeling dangerous chemicals and compounds. The R/S phrase of a compound
-				consists of a risk part (R) and a safety part (S), each followed by a combination of numbers. Each number corresponds 
-				to a phrase. The phrase corresponding to the letter/number combination has the same meaning in different languages.
-				 </para>
-			 </sect2>
-
-			 <sect2 id="glossary">
-				 <title>Glossary</title>
-				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of laboratory-tools. </para>
-				 <para>On the top of the widget you can see a searchbar. If you type in the bar the trees will be adjusted immediately. The small button in the right end of the searchbar will clear it.
-				 </para>
-				 <screenshot>
-					 <mediaobject>
-						 <imageobject>
-							 <imagedata fileref="screenshot7.png" format="PNG"/>
-						 </imageobject>
-						 <textobject>
-							 <phrase>the <quote>Glossary</quote></phrase>
-						 </textobject>
-					 </mediaobject>
-				 </screenshot>
-			 </sect2>
 			 <sect2 id="plot_data">
 				 <title>Plot Data</title>
 				 <para>
@@ -512,6 +563,140 @@
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
+			 </sect2>
+			 <sect2 id="perf_calculation">
+				 <title>Perform Calculation</title>
+				 <para>
+				   The <guilabel>Perform Calculation</guilabel> is the &kalzium; calculator. This calculator contains a variety of calculators for different tasks performing different calculations.
+				 </para>
+				 <para>
+				   You can find the following calculators in &kalzium;
+				 </para>
+				 <variablelist>
+				   <varlistentry>
+				     <term>Molecular mass calculator</term>
+				     <listitem>
+				       <para>
+					 This calculator helps you calculate the molecular masses of different molecules.
+				       </para>
+				       <para>
+					 You can specify short form of the molecule names add more such aliases.
+				       </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-mass.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Molecular mass calculator</quote> dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; calculates molecular mass of phenol.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term>Concentrations calculator</term>
+				     <listitem>
+				       <para>
+					 You can calculate quantities which include
+				       </para>
+				       <itemizedlist>
+					 <listitem>
+					   <para>
+					     Amount of substance
+					   </para>
+					 </listitem>
+					 <listitem>
+					   <para>
+					     Volume of solvent
+					   </para>
+					 </listitem>
+					 <listitem>
+					   <para>
+					     Concentration of substance
+					   </para>
+					 </listitem>
+				       </itemizedlist>
+				       <para>
+					 There are a wide range of units to choose from and different methods to specify quantities.
+				       </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-conc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Concentrations calculator</quote> dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; calculates solution parameters.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term>Nuclear calculator</term>
+				     <listitem>
+				       <para>
+					 This calculator makes use of the nuclear data available in &kalzium; to predict the expected masses of a material after time.
+				       </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-nucl.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Nuclear calculator</quote> dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; calculates parameters of uranium decay.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term>Gas calculator</term>
+				     <listitem>
+				       <para>
+					 This calculator can calculate the values of Temperature, pressure, volume, amount of gas etc. for various ideal as well as non-ideal gases.
+				       </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-gas.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Gas calculator</quote> dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; calculates gas parameters.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term>Equation Balancer</term>
+				     <listitem>
+				       <para>
+					 This calculator can balance chemical equations. The glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of laboratory-tools.
+				       </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-eq.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Equation Balancer</quote> dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; calculates equation balance.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				 </variablelist>
 			 </sect2>
 			 <sect2 id="eq_solver">
 				 <title>Equation Solver</title>
@@ -534,7 +719,56 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-
+			 <sect2 id="rs_phrases">
+				 <title>Risk/Security Phrases</title>
+				 <para>The R/S Phrases, also known as Risk and Safety Statements, R/S statements, R/S numbers, and R/S sentences,
+				 is a system of hazard codes and phrases for labeling dangerous chemicals and compounds. The R/S phrase of a compound
+				consists of a risk part (R) and a safety part (S), each followed by a combination of numbers. Each number corresponds 
+				to a phrase. The phrase corresponding to the letter/number combination has the same meaning in different languages.
+				 </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-rs-phrases.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>R/S Phrases</quote> window</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; can display Risk/Security Phrases</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="glossary">
+				 <title>Glossary</title>
+				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of laboratory-tools. </para>
+				 <para>On the top of the widget you can see a searchbar. If you type in the bar the trees will be adjusted immediately. The small button in the right end of the searchbar will clear it.
+				 </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot7.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Glossary</quote></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="tables">
+				 <title>Tables</title>
+				 <para>The Tables shows you the tables for Greek alphabet which is used to denote some chemical and physical entities, and for Latin prefixes and Roman numbers which correspond to common Arabic numbers. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-tables.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Tables</quote> window</phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
 			 <sect2 id="sidebar">
 				 <title>Sidebar</title>
 				 <sect3 id="overview">
@@ -571,26 +805,15 @@
 						 </mediaobject>
 					 </screenshot>
 				 </sect3>
-				 <sect3 id="timeline">
-					 <title>Timeline</title>
-
-					 <para>The <guilabel>Timeline</guilabel> feature allows you to explore the elements of the
-						 set time period. This is great for getting a feel for how the PSE
-						 evolved over time, as more and more elements were discovered. If you move the slider you will
-						 notice that some elements disappear if you move it to the left and
-						 reappear if you move it to the right. Furthermore the number will
-						 change constantly.</para>
+				 <sect3 id="view_tab">
+					 <title>View</title>
 
 					 <para>
-						 The number represents the date you are looking at. If you move the slider
-						 to &eg; 1856 you will only see the elements which where known in the
-						 year 1856. 
+					   The <guilabel>View</guilabel> tab can be used to filter PSE. For example, this feature allows you to explore the elements of the set time period. This is great for getting a feel for how the PSE evolved over time, as more and more elements were discovered. Choose <guimenuitem>Discovery date</guimenuitem> from <guilabel>Gradient</guilabel> list. If you move the slider you will notice that color of some elements disappear if you move it to the left and reappear if you move it to the right. Furthermore the number will change constantly.
 					 </para>
 
 					 <para>
-						 You will notice that some elements are not even shown in the current year.
-						 This is because some of the elements have not been discovered yet but are
-						 predicted to exist.
+						 The number represents the date you are looking at. If you move the slider to &eg; 1856 you will only see the elements which where known in the year 1856. 
 					 </para>
 
 					 <screenshot>
@@ -599,7 +822,7 @@
 								 <imagedata fileref="screenshot6.png" format="PNG"/>
 							 </imageobject>
 							 <textobject>
-								 <phrase>the <quote>Timeline</quote></phrase>
+								 <phrase>the <quote>Discovery date</quote> gradient</phrase>
 							 </textobject>
 							 <caption><para>The PSE back in time (elements known in 1856)</para>
 							 </caption>
@@ -625,12 +848,6 @@
 						 </mediaobject>
 					 </screenshot>
 				 </sect3>
-				 <sect3 id="show_hide_legend">
-					 <title>Show Legend</title>
-					 <para>The <guimenuitem>Show Legend</guimenuitem> action allows you to display the legend for the scheme you are in (Groups, Family, Blocks). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
-					 </para>
-				 </sect3>
-
 			 </sect2>
 		 </sect1>
 	 </chapter>
@@ -650,11 +867,11 @@
 					 <imagedata fileref="settings1.png" format="PNG"/>
 				 </imageobject>
 				 <textobject>
-					 <phrase>Colors</phrase>
+					 <phrase>Schemes</phrase>
 				 </textobject>
 			 </mediaobject>
 		 </screenshot>
-		 <para>In the <guilabel>Colors</guilabel> tab, you can change the different
+		 <para>In the <guilabel>Schemes</guilabel> tab, you can change the different
 			 colors for each scheme.
 		 </para>
 		 <screenshot>
@@ -664,15 +881,13 @@
 					 <imagedata fileref="settings2.png" format="PNG"/>
 				 </imageobject>
 				 <textobject>
-					 <phrase>Units</phrase>
+					 <phrase>Gradients</phrase>
 				 </textobject>
 			 </mediaobject>
 		 </screenshot>
-		 <para>In the <guilabel>Units</guilabel> tab, you can
-			 choose the units. You can select if you prefer kJ/mol by default or
-			 you can choose eV. The Temperature is in Kelvin by default but you can 
-			 change to degrees Celsius or degrees Fahrenheit.
-		 </para>
+		 <para>Instead of using a linear gradient to display the given property of an element in the periodic table, &kalzium; can also use a logarithmic gradient.</para>
+		 <para>In the <guilabel>Gradients</guilabel> tab, you can check the properties you want to have displayed with a logarithmic gradient.</para>
+		 <para>You can also choose <guilabel>Maximal Value Color</guilabel> and <guilabel>Minimal Value Color</guilabel> for the gradient.</para>
 		 <screenshot>
 			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
 			 <mediaobject>
@@ -680,11 +895,27 @@
 					 <imagedata fileref="settings3.png" format="PNG"/>
 				 </imageobject>
 				 <textobject>
-					 <phrase>Miscellaneous</phrase>
+					 <phrase>Units</phrase>
 				 </textobject>
 			 </mediaobject>
 		 </screenshot>
-		 <para>In the <guilabel>Miscellaneous</guilabel> tab, you can select to display the atomic mass or only the element numbers in the PSE.
+		 <para>In the <guilabel>Units</guilabel> tab, you can
+			 choose the units for temperature and energy. You can select if you prefer kJ/mol by default or
+			 you can choose eV. The Temperature is in Kelvin by default but you can 
+			 change to degrees Celsius or degrees Fahrenheit.
+		 </para>
+		 <screenshot>
+			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings4.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase>Calculator</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para>Using the <guilabel>Calculator</guilabel> page, you can configure &kalzium; calculators.
 		 </para>
 
 	 </chapter>
@@ -703,10 +934,23 @@
 								 <guimenu>File</guimenu>
 								 <guimenuitem>Save As...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Save</action> &kalzium;s table as image.</para></listitem>
+						 <listitem><para><action>Save</action> &kalzium;'s table as image.</para></listitem>
 					 </varlistentry>
-				 </variablelist>
-				 <variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>File</guimenu>
+								 <guimenuitem>Export Data...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> a dialog where you can select <guilabel>Elements</guilabel> 
+						and their <guilabel>Properties</guilabel> to export them to a &HTML;, &XML;, or CSV file.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>File</guimenu>
+								 <guimenuitem>Convert chemical files...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> a dialog to import and export a wide range of chemical file formats and data types with the <ulink url="http://openbabel.org/wiki/Main_Page">Open Babel library</ulink>.</para></listitem>
+					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <shortcut>
@@ -723,8 +967,49 @@
 
 			 <sect2>
 				 <title>The <guimenu>View</guimenu> Menu</title>
-
 				 <variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Classic Periodic Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the classic periodic table with all elements.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Short Periodic Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> a periodic table without transition elements.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Long Periodic Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> a periodic table with inner transition elements (f-elements) embedded.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>Transition Elements</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> a periodic table only with transition elements.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Tables</guisubmenu>
+								 <guimenuitem>DZ Periodic Table</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para>This item represents the table the DZ <foreignphrase
+							lang="de">Deutscher Zentralausschuss</foreignphrase> "German Central Committee" suggests.</para></listitem>
+					 </varlistentry>
+
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
@@ -763,7 +1048,7 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Scheme</guisubmenu>
-								 <guimenuitem>One Color</guimenuitem>
+								 <guimenuitem>Monochrome</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> all elements with one background color.</para></listitem>
 					 </varlistentry>
@@ -806,7 +1091,7 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Gradient</guisubmenu>
-								 <guimenuitem>No Gradient</guimenuitem>
+								 <guimenuitem>None</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Disable</action> any gradient for the table.</para></listitem>
 					 </varlistentry>
@@ -814,17 +1099,25 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Gradient</guisubmenu>
-								 <guimenuitem>Covalent Radius</guimenuitem>
+								 <guimenuitem>State of matter</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements covalent radius.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' state of matter.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Gradient</guisubmenu>
-								 <guimenuitem>van Der Waals</guimenuitem>
+								 <guimenuitem>Covalent Radius</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements van der Waals radius.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' covalent radius.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Gradient</guisubmenu>
+								 <guimenuitem>van der Waals</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements' van der Waals radius.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -832,7 +1125,7 @@
 								 <guisubmenu>Gradient</guisubmenu>
 								 <guimenuitem>Atomic Mass</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements atomic mass.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' atomic mass.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -840,7 +1133,7 @@
 								 <guisubmenu>Gradient</guisubmenu>
 								 <guimenuitem>Boiling Point</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements boiling point.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' boiling point.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -848,7 +1141,7 @@
 								 <guisubmenu>Gradient</guisubmenu>
 								 <guimenuitem>Melting Point</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements melting point.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' melting point.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -856,7 +1149,7 @@
 								 <guisubmenu>Gradient</guisubmenu>
 								 <guimenuitem>Electronegativity (Pauling)</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements electronegativity.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' electronegativity.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -864,7 +1157,7 @@
 								 <guisubmenu>Gradient</guisubmenu>
 								 <guimenuitem>Electronaffinity</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements electron affinity.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' electron affinity.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -879,58 +1172,32 @@
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Gradient</guisubmenu>
-								 <guimenuitem>First Ionisation</guimenuitem>
+								 <guimenuitem>First Ionization</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the elements energy of first ionisation.</para></listitem>
+						 <listitem><para><action>Display</action> the elements' energy of first ionization.</para></listitem>
 					 </varlistentry>
 
+					 
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: Classic Periodic Table</guimenuitem>
+								 <guimenuitem>Legend</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the classic periodic table with all elements.</para></listitem>
+						 <listitem><para><action>Toggle</action> the legend view. Allows you to display the legend for the scheme you are in (Groups, Family, Blocks). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: Short Periodic Table</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> a periodic table without transition elements.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: Transition Elements</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> a periodic table only with transition elements.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guisubmenu>Tables</guisubmenu>
-								 <guimenuitem>Table: DZ Periodic Table</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para>This item represents the table the DZ <foreignphrase
-							lang="de">Deutscher Zentralausschuss</foreignphrase> "German Central Committee" suggests.</para></listitem>
-					 </varlistentry>
-
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guimenuitem>Show/Hide Legend</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the legend view.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guimenuitem>Show/Hide Sidebar</guimenuitem>
+								 <guimenuitem>Information</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the Sidebar.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guimenuitem>Table Information</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Toggle</action> the Table Information view.</para></listitem>
 					 </varlistentry>
 
 				 </variablelist>
@@ -944,9 +1211,9 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Plot Data...</guimenuitem>
+								 <guimenuitem>Molecular Editor...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Plot Data dialog.</para></listitem>
+						 <listitem><para><action>Open</action> the Molecular Editor dialog.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -955,13 +1222,19 @@
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the Isotope Table window.</para></listitem>
 					 </varlistentry>
-
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Glossary...</guimenuitem>
+								 <guimenuitem>Plot Data...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Glossary.</para></listitem>
+						 <listitem><para><action>Open</action> the Plot Data dialog.</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
+								 <guimenuitem>Perform Calculation...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the <link linkend="perf_calculation">Perform Calculation dialog</link>.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -973,16 +1246,16 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Convert chemical files...</guimenuitem>
+								 <guimenuitem>R/S Phrases</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> a dialog to import and export a wide range of chemical file formats and data types with the Open Babel library.</para></listitem>
+						 <listitem><para><action>Open</action> the <guilabel>Risk/Security Phrases</guilabel> dialog.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
-								 <guimenuitem>R/S Phrases</guimenuitem>
+								 <guimenuitem>Glossary...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the <guilabel>Risk/Security Phrases</guilabel> dialog.</para></listitem>
+						 <listitem><para><action>Open</action> the Glossary.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -991,22 +1264,6 @@
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> a dialog with the <guilabel>Greek alphabet</guilabel> and 
 						<guilabel>Numeric Prefixes and Roman Numerals</guilabel>.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>View</guimenu>
-								 <guisubmenu>Tools</guisubmenu>
-								 <guimenuitem>Molecular Editor...</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Molecular Editor dialog.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Export Data...</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Opens</action> a dialog where you can select <guilabel>Elements</guilabel> 
-						and their <guilabel>Properties</guilabel> to export them to a &HTML; file.</para></listitem>
 					 </varlistentry>
 				 </variablelist>
 
@@ -1028,7 +1285,7 @@
 								 <guimenu>Settings</guimenu>
 								 <guimenuitem>Show Statusbar</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the Statusbar.</para></listitem>
+						 <listitem><para><action>Toggle</action> the Status bar.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -1150,8 +1407,8 @@
 
 		 </sect1>
 
-		 <sect1 id="requirements">
-			 <title>Requirements</title>
+		 <sect1 id="web_presence">
+			 <title>Web Presence</title>
 
 			 <para>
 				 &kalzium; itself can be found on <ulink
