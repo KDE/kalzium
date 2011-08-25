@@ -10,7 +10,7 @@
 
 	 <bookinfo>
 		 <title>The &kalzium; Handbook</title>
-	
+
 		 <authorgroup>
 			 <author>
 				 <firstname>Carsten</firstname>
@@ -76,7 +76,7 @@
 			 You can visualize the Periodic Table of the Elements by groups, blocks,
 			 and families. You can
 			 plot data for a range of elements for properties like the boiling point or the
-			 atomic mass. You can go back in time and see what elements were known at a 
+			 atomic mass. You can go back in time and see what elements were known at a
 			 given date. You can also calculate the molecular mass of molecules.
 		 </para>
 
@@ -85,8 +85,8 @@
 	 <chapter id="quick-start">
 		 <title>&kalzium; quick start guide</title>
 
-		 <para>Here is &kalzium; the first time you run it, either by selecting <menuchoice><guimenu>Applications</guimenu> 
-                 <guisubmenu>Edutainment</guisubmenu><guisubmenu>Science</guisubmenu><guimenuitem>&kalzium;</guimenuitem></menuchoice> from the &kmenu; 
+		 <para>Here is &kalzium; the first time you run it, either by selecting <menuchoice><guimenu>Applications</guimenu>
+                 <guisubmenu>Edutainment</guisubmenu><guisubmenu>Science</guisubmenu><guimenuitem>&kalzium;</guimenuitem></menuchoice> from the &kmenu;
                  or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
 		 <screenshot>
 			 <screeninfo>&kalzium; main window</screeninfo>
@@ -291,7 +291,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_misc">
 				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> page tells you other information about the current element, 
+				 <para>The <guilabel>Miscellaneous</guilabel> page tells you other information about the current element,
 				including when it was discovered and the origin of the name.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
@@ -344,9 +344,9 @@
 		 </sect1>
 		 <sect1 id="tables_view">
 			 <title>Tables</title>
-			 
+
 			 <para>The periodic table can be presented in various ways. You can switch the table view from <guimenu>View</guimenu> menu or toolbar drop-down list.</para>
-			 
+
 			 <para>The following options in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Tables</guimenuitem></menuchoice> menu can be used to change the table shown:
 			 <variablelist>
 			   <varlistentry>
@@ -399,7 +399,7 @@
 			 <para>The numeration is the way  of numbering the 18 groups of the periodic table. You can change the numeration to
 				 <guilabel>IUPAC</guilabel>, <guilabel>old IUPAC</guilabel> or
 				 <guilabel>CAS</guilabel>, or you can switch it off entirely.</para>
-				 
+
 				 <para>The following options in the <menuchoice><guimenu>View</guimenu> <guimenuitem>Numeration</guimenuitem></menuchoice> menu can be used to change the numeration shown:
 				 <itemizedlist>
 					 <listitem><para>
@@ -497,11 +497,15 @@
 				   The Molecular Editor allows you to view and edit molecules using <ulink url="http://avogadro.openmolecules.net/wiki/Main_Page">Avogadro</ulink> libraries.
 				 </para>
 				 <para>
-				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually.
+				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually. <envar>$KDEHOME</envar> is usually a hidden folder in your Home folder called <filename class="directory">.kde</filename> or <filename class="directory">.kde4</filename>
+				   <!-- "$KDEHOME" is not always defined eg not in kubuntu 11.04
+				   <filename class="directory">`kde4-config - -localprefix`/share/apps/kvtml</filename>
+				   (without whitespace between '- -') is afaik always defined
+				   -->
 				 </para>
 				 <para>
 				   <guilabel>Statistics</guilabel> pane shows name (if available), formula, and weight of the molecule.
-			         </para> 
+			         </para>
 				 <para>
 				   The <guilabel>Display</guilabel> tab can be used to change <guilabel>Quality</guilabel> of the image (<guimenuitem>Low</guimenuitem>, <guimenuitem>Medium</guimenuitem>, or <guimenuitem>High</guimenuitem>, can be useful on low-end system), <guilabel>Style</guilabel> (can be <guimenuitem>Balls and sticks</guimenuitem>, <guimenuitem>Sticks</guimenuitem>, <guimenuitem>Van der Waals</guimenuitem>, or <guimenuitem>Wireframe</guimenuitem>),  <guilabel>2nd Style</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Ribbon</guimenuitem>, <guimenuitem>Ring</guimenuitem>, or <guimenuitem>Molecular Orbital</guimenuitem>), and  <guilabel>Labels</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Atom Numbers</guimenuitem>, <guimenuitem>Element Names</guimenuitem>, or <guimenuitem>Element Symbols</guimenuitem>).
 				 </para>
@@ -531,7 +535,7 @@
 					 The <guimenuitem>Isotope Table...</guimenuitem> shows you the isotopes of the elements.
 				 </para>
 				 <para>
-					 There are different kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two different beta-rays. These differences are encoded by using different colors. 
+					 There are different kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two different beta-rays. These differences are encoded by using different colors.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -723,7 +727,7 @@
 				 <title>Risk/Security Phrases</title>
 				 <para>The R/S Phrases, also known as Risk and Safety Statements, R/S statements, R/S numbers, and R/S sentences,
 				 is a system of hazard codes and phrases for labeling dangerous chemicals and compounds. The R/S phrase of a compound
-				consists of a risk part (R) and a safety part (S), each followed by a combination of numbers. Each number corresponds 
+				consists of a risk part (R) and a safety part (S), each followed by a combination of numbers. Each number corresponds
 				to a phrase. The phrase corresponding to the letter/number combination has the same meaning in different languages.
 				 </para>
 				 <screenshot>
@@ -813,7 +817,7 @@
 					 </para>
 
 					 <para>
-						 The number represents the date you are looking at. If you move the slider to &eg; 1856 you will only see the elements which where known in the year 1856. 
+						 The number represents the date you are looking at. If you move the slider to &eg; 1856 you will only see the elements which where known in the year 1856.
 					 </para>
 
 					 <screenshot>
@@ -901,7 +905,7 @@
 		 </screenshot>
 		 <para>In the <guilabel>Units</guilabel> tab, you can
 			 choose the units for temperature and energy. You can select if you prefer kJ/mol by default or
-			 you can choose eV. The Temperature is in Kelvin by default but you can 
+			 you can choose eV. The Temperature is in Kelvin by default but you can
 			 change to degrees Celsius or degrees Fahrenheit.
 		 </para>
 		 <screenshot>
@@ -941,7 +945,7 @@
 								 <guimenu>File</guimenu>
 								 <guimenuitem>Export Data...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> a dialog where you can select <guilabel>Elements</guilabel> 
+						 <listitem><para><action>Open</action> a dialog where you can select <guilabel>Elements</guilabel>
 						and their <guilabel>Properties</guilabel> to export them to a &HTML;, &XML;, or CSV file.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -1165,7 +1169,7 @@
 								 <guisubmenu>Gradient</guisubmenu>
 								 <guimenuitem>Discovery date</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the discovery date of each element with different 
+						 <listitem><para><action>Display</action> the discovery date of each element with different
 								background colors for each century.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -1177,7 +1181,7 @@
 						 <listitem><para><action>Display</action> the elements' energy of first ionization.</para></listitem>
 					 </varlistentry>
 
-					 
+
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
@@ -1262,7 +1266,7 @@
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Tables...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> a dialog with the <guilabel>Greek alphabet</guilabel> and 
+						 <listitem><para><action>Display</action> a dialog with the <guilabel>Greek alphabet</guilabel> and
 						<guilabel>Numeric Prefixes and Roman Numerals</guilabel>.</para></listitem>
 					 </varlistentry>
 				 </variablelist>
@@ -1333,7 +1337,7 @@
 				 </question>
 				 <answer>
 					 <para>No, never. But the author always welcomes a nice mail or a
-						 DVD as a <quote>Thank You</quote>. &kalzium; is licensed 
+						 DVD as a <quote>Thank You</quote>. &kalzium; is licensed
 						 under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
 				 </answer>
 			 </qandaentry>
@@ -1365,7 +1369,7 @@
 				 <answer>
 					 <para>
 						 If you find any bugs in the program, or have a few suggestions for
-						 improvements, please let me know at &Carsten.Niehaus.mail;. 
+						 improvements, please let me know at &Carsten.Niehaus.mail;.
 					 </para>
 				 </answer>
 
