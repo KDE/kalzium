@@ -112,8 +112,6 @@ private:
 
     DetailedGraphicalOverview *m_detailWidget;
 
-    DetailedQmlView *m_detailQmlWidget;
-
     /**
      * the dock of the central pse Widget
      */

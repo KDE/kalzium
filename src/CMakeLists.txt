@@ -99,7 +99,6 @@ set(kalzium_SRCS
    spectrumviewimpl.cpp
    spectrumwidget.cpp
    kdeeduglossary.cpp
-   detailedQmlView.cpp
    )
 
 if (LIBFACILE_FOUND)
