@@ -28,7 +28,7 @@
 calculator::calculator(QWidget *parent)
         : KDialog(parent)
 {
-    setCaption(i18n("Molecular Calculator"));
+    setCaption(i18n("Chemical Calculator"));
     setButtons(Help | Close);
     setDefaultButton(Close);
 
