@@ -101,7 +101,6 @@ private:
     QAction *m_pTables;
     QAction *m_pMoleculesviewer;
     QAction *m_pOBConverterAction;
-    QAction *m_EQSolverAction;
     QAction *export_action;
 
     QAction *m_legendAction;
@@ -142,8 +141,6 @@ private slots:
 
     void elementHover( int num );
     void setupStatusBar();
-
-    void slotShowEQSolver();
 
     /**
      * switched to the table with the index @p index

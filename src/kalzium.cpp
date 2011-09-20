@@ -186,18 +186,6 @@ void Kalzium::setupActions()
     numeration_action->setCurrentItem(Prefs::numeration());
     connect( numeration_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoNumeration(int)) );
 
-    m_EQSolverAction =  actionCollection()->addAction( "tools_eqsolver" );
-    m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
-    m_EQSolverAction->setIcon(  KIcon( "eqchem" ) );
-    m_EQSolverAction->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to solve chemical equations." ) );
-
-#ifdef HAVE_FACILE
-    connect( m_EQSolverAction, SIGNAL(triggered()), this, SLOT(slotShowEQSolver()) );
-    m_EQSolverAction->setEnabled( true );
-#else
-    m_EQSolverAction->setEnabled( false );
-#endif
-
     // tools actions
     m_pPlotAction = actionCollection()->addAction( "tools_plotdata" );
     m_pPlotAction->setText( i18n( "&Plot Data..." ) );
@@ -420,15 +408,6 @@ void Kalzium::slotTables()
     TablesDialog *t = new TablesDialog( this );
     t->setAttribute(Qt::WA_DeleteOnClose);
     t->show();
-}
-
-void Kalzium::slotShowEQSolver()
-{
-#ifdef HAVE_FACILE
-    EQChemDialog *dlg = new EQChemDialog( this );
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->show();
-#endif
 }
 
 void Kalzium::slotIsotopeTable()
