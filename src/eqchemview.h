@@ -20,14 +20,14 @@
 #ifndef _EQCHEMVIEW_H_
 #define _EQCHEMVIEW_H_
 
-#include <kdialog.h>
+#include <qwidget.h>
 
 #include "ui_equationview.h"
 
 /**
  * @author Carsten Niehaus
  */
-class EQChemDialog : public KDialog
+class EQChemDialog : public QWidget
 {
     Q_OBJECT
 
@@ -40,8 +40,9 @@ public:
     EQChemDialog( QWidget *parent );
 
 private:
+    const QString getHelpText();
+
     Ui::EquationView ui;
-    KDialog * m_helpWindow;
 
 public slots:
     /**
@@ -51,7 +52,6 @@ public slots:
 
     void copyAnswer();
 
-    void slotHelp();
 protected:
     QSize sizeHint() const;
 };
