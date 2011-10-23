@@ -42,8 +42,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2011-08-14</date>
-		 <releaseinfo>2.4.00</releaseinfo>
+		 <date>2011-10-23</date>
+		 <releaseinfo>2.4.00 (&kde; 4.8)</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -681,6 +681,29 @@
 				     </listitem>
 				   </varlistentry>
 				   <varlistentry>
+				     <term>Titration calculator</term>
+				     <listitem>
+				       <para>
+					 This calculator tries to find out the equivalence point of a pH-meter followed titration best fitting it with an hyperbolic tangent. You can also let it solve an equilibrium system of equations and see how the concentration of a species changes in function of another one.
+				       </para>
+				       <para>
+					 The results are visualized on plot. You can save them as SVG image. Experimental results (blue line) can be compared with theoretical curve (red line).
+				       </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-titr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Titration calculator</quote> dialog</phrase>
+						 </textobject>
+						 <caption><para>Predefined example of titration results.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
 				     <term>Equation Balancer</term>
 				     <listitem>
 				       <para>
@@ -931,7 +954,7 @@
 			 <title>Menus and shortcut keys</title>
 
 			 <sect2>
-				 <title>The <guimenu>File</guimenu> Menu</title>
+				 <title>The File Menu</title>
 				 <variablelist>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -970,7 +993,7 @@
 			 </sect2>
 
 			 <sect2>
-				 <title>The <guimenu>View</guimenu> Menu</title>
+				 <title>The View Menu</title>
 				 <variablelist>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -1210,7 +1233,7 @@
 
 
 			 <sect2>
-				 <title>The <guimenu>Tools</guimenu> Menu</title>
+				 <title>The Tools Menu</title>
 				 <variablelist>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -1274,7 +1297,7 @@
 			 </sect2>
 
 			 <sect2>
-				 <title>The <guimenu>Settings</guimenu> Menu</title>
+				 <title>The Settings Menu</title>
 
 				 <variablelist>
 					 <varlistentry>
@@ -1321,7 +1344,7 @@
 			 </sect2>
 
 			 <sect2>
-				 <title>The <guimenu>Help</guimenu> Menu</title>
+				 <title>The Help Menu</title>
 				 &help.menu.documentation;
 			 </sect2>
 		 </sect1>
