@@ -153,10 +153,6 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
     case ChemicalDataObject::oxidation:
     {
         QStringList oxidationList = el->dataAsString( kind ).split(",");
-        for ( int i = 0; i < oxidationList.length(); ++i ) {
-            int number = oxidationList.at(i).toInt();
-            oxidationList.replace(i, intToRomanNumbers(number));
-        }
         result = oxidationList.join(", ");
         break;
     }
@@ -164,20 +160,8 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
         result = el->dataAsVariant( kind ).toString();
     }
 
-    if ( result.isEmpty() )
+    if ( result.isEmpty() ) {
         result = i18n("No Data");
-
+    }
     return result;
-}
-
-QString KalziumUtils::intToRomanNumbers( int number )
-{
-    if( number > 10 ) return QString();
-
-    QStringList romanNumbers;
-    romanNumbers << "" << "I" << "II" << "III" << "IV" << "V" << "VI" << "VII" << "VIII" << "IX" << "X";
-
-    QString roman = romanNumbers.at(abs(number));
-    if ( number < 0 ) roman.prepend("-");
-    return roman;
 }

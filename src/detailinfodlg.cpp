@@ -267,7 +267,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
 
 	// Oxidation numbers
         html.append( "<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>" );
-	html.append( createWikiLink( i18n( "Oxidation numbers") ) );
+	html.append( createWikiLink( i18n( "Oxidation states") ) );
 	html.append( "</td><td>" );
 	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::oxidation ) ) ;
         html.append( "</td></tr>" );
