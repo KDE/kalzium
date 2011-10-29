@@ -687,7 +687,60 @@
 					 This calculator tries to find out the equivalence point of a pH-meter followed titration best fitting it with an hyperbolic tangent. You can also let it solve an equilibrium system of equations and see how the concentration of a species changes in function of another one.
 				       </para>
 				       <para>
-					 The results are visualized on plot. You can save them as SVG image. Experimental results (blue line) can be compared with theoretical curve (red line).
+					 There are two tabs on the calculator page, namely:
+				       </para>
+				       <variablelist>
+					 <varlistentry>
+					   <term><guilabel>Experimental Values</guilabel></term>
+					   <listitem>
+					     <para>
+					       You can use this calculator to draw the plot of your experimental data obtained during a titration and find out the volume of equivalence. It's strongly recommended to insert a even number of points, because of the best fit algorithm, sorted by volume (the X axis value).
+					     </para>
+					   </listitem>
+					 </varlistentry>
+					 <varlistentry>
+					   <term><guilabel>Theoretical Equations</guilabel></term>
+					   <listitem>
+					     <para>
+					       Here you can fill the table with the equations you have previously obtained for the chemical equilibrium.
+					     </para>
+					     <para>
+					       For example, if you have this reaction <emphasis>A + B -> C + D</emphasis> then you will have the equation <emphasis>K=(C*D)/(A*B)</emphasis> so you must write <userinput>K</userinput> in the <guilabel>Parameter</guilabel> column and <userinput>(C*D)/(A*B)</userinput> in the <guilabel>Value</guilabel> column. If you want to assign a known value to a parameter you can simply write the numeric value in the <guilabel>Value</guilabel> field.
+					     </para>
+					     <para>
+					       For example, you can use the system
+					     </para>
+					     <para>
+					       <userinput>A=(C*D)/(B*K)</userinput>
+					     </para>
+					     <para>
+					       <userinput>K=10^-3</userinput>
+					     </para>
+					     <para>
+					       <userinput>C=OH</userinput>
+					     </para>
+					     <para>
+					       <userinput>OH=(10^-14)/H</userinput>
+					     </para>
+					     <para>
+					       <userinput>H=10^-4</userinput>
+					     </para>
+					     <para>
+					       <userinput>B=6*(10^-2)</userinput>
+					     </para>
+					     <para>
+					       Then you have to write <userinput>D</userinput> as <guilabel>X axis</guilabel> and <userinput>A</userinput> as <guilabel>Y axis</guilabel>: so you will find out how the concentration of A changes as a function of D concentration.
+					     </para>
+					     <note>
+					       <para>
+						 Please don't use parenthesis for exponents: <userinput>10^-3</userinput> is correct, while <userinput>10^(-3)</userinput> is wrong.
+					       </para>
+					     </note>
+					   </listitem>
+					 </varlistentry>
+				       </variablelist>
+				       <para>
+					 The results can be visualized by pressing <guibutton>Draw Plot</guibutton> button. The plot shows in red the curve that comes from theoretical equations, in blue the experimental points, and in green the approximated curve for experimental points. You can save the plot as SVG image.
 				       </para>
 					 <screenshot>
 					 <mediaobject>
