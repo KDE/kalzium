@@ -652,7 +652,7 @@ void titrationCalculator::on_actionSave_image_triggered()
     QString svgheader = "<?xml version=\"1.0\" encoding=\"iso-8859-1\" standalone=\"no\"?> <!DOCTYPE svg PUBLIC \"-//W3C//Dtd SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/Dtd/svg11.dtd\"> <svg width=\""+ QString::number((xmax*10)+5)+ "\" height=\""+ QString::number((ymax*10)+5)+ "\"  version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><polyline points=\"5," + QString::number(ymax*10) + " " + QString::number((xmax*10)-5) + "," + QString::number(ymax*10) + " " + QString::number((xmax*10)-5) + "," + QString::number((ymax*10)-5) + " " + QString::number(xmax*10) + "," + QString::number(ymax*10) + " " + QString::number((xmax*10)-5) + "," + QString::number((ymax*10)+5) + " " + QString::number((xmax*10)-5) + "," + QString::number(ymax*10) + "\" style=\"stroke:black;fill:none\"/> <polyline points=\"5," + QString::number(ymax*10) + " 5,5 10,5 5,0 0,5 5,5\" style=\"stroke:black;fill:none\"/> ";    
     QString svgcomplete = svgheader + redplot + greenplot + blueplot + "</svg> ";
         
-    QString file = QFileDialog::getSaveFileName(this,"Save plot","","Svg image (*.svg)");
+    QString file = QFileDialog::getSaveFileName(this, i18n( "Save plot") ,"",i18n( "Svg image (*.svg)") );
     if (file!="") {
       QByteArray svgt = svgcomplete.toLatin1();
       char *strsave = svgt.data();
