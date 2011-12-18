@@ -1170,7 +1170,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>None</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Disable</action> any gradient for the table.</para></listitem>
@@ -1178,7 +1178,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>State of matter</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' state of matter.</para></listitem>
@@ -1186,7 +1186,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Covalent Radius</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' covalent radius.</para></listitem>
@@ -1194,7 +1194,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>van der Waals</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' van der Waals radius.</para></listitem>
@@ -1202,7 +1202,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Atomic Mass</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' atomic mass.</para></listitem>
@@ -1210,7 +1210,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Boiling Point</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' boiling point.</para></listitem>
@@ -1218,7 +1218,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Melting Point</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' melting point.</para></listitem>
@@ -1226,7 +1226,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Electronegativity (Pauling)</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' electronegativity.</para></listitem>
@@ -1234,7 +1234,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Electronaffinity</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' electron affinity.</para></listitem>
@@ -1242,7 +1242,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>Discovery date</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the discovery date of each element with different
@@ -1251,7 +1251,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guisubmenu>Gradient</guisubmenu>
+								 <guisubmenu>Gradients</guisubmenu>
 								 <guimenuitem>First Ionization</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements' energy of first ionization.</para></listitem>
