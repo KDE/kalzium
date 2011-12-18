@@ -760,7 +760,11 @@
 				     <term>Equation Balancer</term>
 				     <listitem>
 				       <para>
-					 This calculator can balance chemical equations.
+					 The <guimenuitem>Equation Balancer</guimenuitem> enables the user to solve chemical equations. This is an example:
+				       </para>
+				       <blockquote><para>aH2O + bCO2 -> cH2CO3</para></blockquote>
+				       <para>
+					 The computed equation will be displayed on the top of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be adjusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.
 				       </para>
 				       <screenshot>
 					 <mediaobject>
@@ -777,27 +781,6 @@
 				     </listitem>
 				   </varlistentry>
 				 </variablelist>
-			 </sect2>
-			 <sect2 id="eq_solver">
-				 <title>Equation Solver</title>
-				 <para>
-					 The <guimenuitem>Equation Solver</guimenuitem> enables the user to solve chemical equations. This is an example:
-				 </para>
-				 <blockquote><para>aH2O + bCO2 -> cH2CO3</para></blockquote>
-				 <para>
-					 The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be adjusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
-				 <screenshot>
-					 <mediaobject>
-						 <imageobject>
-							 <imagedata fileref="screenshoteqsolver.png" format="PNG"/>
-						 </imageobject>
-						 <textobject>
-							 <phrase>the <quote>Equation Solver</quote> Dialog</phrase>
-						 </textobject>
-						 <caption><para>&kalzium; can solve chemical equations</para>
-						 </caption>
-					 </mediaobject>
-				 </screenshot>
 			 </sect2>
 			 <sect2 id="rs_phrases">
 				 <title>Risk/Security Phrases</title>
