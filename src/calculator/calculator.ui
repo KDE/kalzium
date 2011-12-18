@@ -39,7 +39,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Select the calculator that you want to use&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="whatsThis">
-      <string>This is the index of the various calculators available.  For more information on each calculator, click on 'Introduction'.</string>
+      <string>This is the index of the various calculators available. For more information on each calculator, click on 'Introduction'.</string>
      </property>
      <property name="animated">
       <bool>true</bool>

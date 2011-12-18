@@ -80,7 +80,7 @@
 	<item>
 		<picture>pileusball.jpg</picture>
 		<name>Pipette Bulb</name>
-		<desc>A pipette bulb is used to fill pipettes.  Squeezing then releasing the bulb produces a negative pressure, causing fluid to flow into the pipette; squeezing the bulb then causes the fluid to flow out of the pipette.</desc>
+		<desc>A pipette bulb is used to fill pipettes. Squeezing then releasing the bulb produces a negative pressure, causing fluid to flow into the pipette; squeezing the bulb then causes the fluid to flow out of the pipette.</desc>
 	</item>
 	<item>
 		<picture>rg.jpg</picture>
@@ -105,12 +105,12 @@
 	<item>
 		<picture>trockenrohr.jpg</picture>
 		<name>Drying Tube</name>
-		<desc>Some reactions need to be kept free of water: to make this possible a drying tube can be used.  Drying tubes contains a hygroscopic chemical to absorb water from the atmosphere.</desc>
+		<desc>Some reactions need to be kept free of water: to make this possible a drying tube can be used. Drying tubes contains a hygroscopic chemical to absorb water from the atmosphere.</desc>
 	</item>
 	<item>
 		<picture>rg-halter.jpg</picture>
 		<name>Test Tube Holder</name>
-		<desc>Test tube holders make it easier to hold test tubes. By using a holder, there is a safe distance between ones hand and the test tube when the tube is hot.  Typically, test tube holders are used to hold test tubes over open flames.</desc>
+		<desc>Test tube holders make it easier to hold test tubes. By using a holder, there is a safe distance between ones hand and the test tube when the tube is hot. Typically, test tube holders are used to hold test tubes over open flames.</desc>
 	</item>
 	<item>
 		<picture>messzylinder.jpg</picture>
@@ -212,12 +212,12 @@
 	<item>
 		<picture>becherglas.jpg</picture>
 		<name>Beaker</name>
-		<desc>Beakers can be used for many tasks.  For instance, they are used to store chemicals and to perform chemical reactions.  They are often also used for titrations.</desc>
+		<desc>Beakers can be used for many tasks. For instance, they are used to store chemicals and to perform chemical reactions.  They are often also used for titrations.</desc>
 	</item>
 	<item>
 		<picture>dsc.jpg</picture>
 		<name>DSC (Differential Scanning Calorimeter)</name>
-		<desc>A DSC measures the heat flow volume of a compound.  This value is very specific for every kind of matter, and thus a DSC can be used to identify chemicals or to describe them.</desc>
+		<desc>A DSC measures the heat flow volume of a compound. This value is very specific for every kind of matter, and thus a DSC can be used to identify chemicals or to describe them.</desc>
 	</item>
 	<item>
 		<picture></picture>
