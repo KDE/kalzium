@@ -94,7 +94,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
 	    Plasma::GroupBox *pGroupBox1 = new Plasma::GroupBox(this);
 		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(pGroupBox1);
-		pGridLayout->addItem(pHeader, 0, 0, 1, 5);
+		pGridLayout->addItem(pHeader, 0, 0, 1, 4);
 		pVLayout->addItem(pGroupBox1);
 
 		// Set up the user interface
