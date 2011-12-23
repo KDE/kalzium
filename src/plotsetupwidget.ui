@@ -118,7 +118,7 @@
           </item>
           <item>
            <property name="text" >
-            <string>Mass</string>
+            <string>Atomic Mass</string>
            </property>
           </item>
           <item>
@@ -270,7 +270,7 @@
           </item>
           <item>
            <property name="text" >
-            <string>Mass</string>
+            <string>Atomic Mass</string>
            </property>
           </item>
           <item>
