@@ -282,7 +282,7 @@ void MoleculeDialog::elementCombo()
   m_elementsIndex.append(17);
   ui.elementCombo->addItem(ElementTranslator::name(35) + " (35)");
   m_elementsIndex.append(35);
-  ui.elementCombo->addItem(tr("Other..."));
+  ui.elementCombo->addItem(i18nc("Other element", "Other..."));
   m_elementsIndex.append(0);
   ui.elementCombo->setCurrentIndex(2);
 }
