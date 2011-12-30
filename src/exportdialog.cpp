@@ -23,6 +23,7 @@
 static const char HTML_HEADER[] =
 "<html>"
 "\n<head>"
+"\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 "\n<style type=\"text/css\">"
 "\nbody {"
 "\n   font-family:arial;"
@@ -44,7 +45,7 @@ static const char HTML_FOOTER[] =
 "\n</html>";
 
 static const char XML_HEADER[] =
-"<?xml version=\"1.0\"?>\n";
+"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 
 ElementListEntry::ElementListEntry( Element * element)
     : QListWidgetItem()
