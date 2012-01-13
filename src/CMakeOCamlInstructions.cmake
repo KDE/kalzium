@@ -2,7 +2,7 @@ link_directories (${OCAMLC_DIR})
 
 macro(OCAML_MLI_TO_CMI _cmi _mli)
    add_custom_command(OUTPUT ${_cmi}
-                      COMMAND ${OCAML_OCAMLC_EXECUTABLE} ARGS -o ${_cmi} -I +facile -c ${_mli} 
+                      COMMAND ${OCAML_OCAMLC_EXECUTABLE} ARGS -o ${_cmi} -I ${LIBFACILE_INCLUDE_DIR} -c ${_mli}
                       DEPENDS ${_mli} ${ARGN}
                       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
    set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${_cmi})
@@ -10,7 +10,7 @@ endmacro(OCAML_MLI_TO_CMI)
 
 macro(OCAML_ML_TO_CMX _cmx _ml)
    add_custom_command(OUTPUT ${_cmx}
-                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} ARGS -o ${_cmx} -I +facile -c ${_ml} 
+                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} ARGS -o ${_cmx} -I ${LIBFACILE_INCLUDE_DIR} -c ${_ml}
                    DEPENDS ${_ml} ${ARGN}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
    set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${_cmx})
@@ -58,7 +58,7 @@ ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_SOURCE_DIR
 # object files
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
-                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -I +facile -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c -o ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
+                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -I ${LIBFACILE_INCLUDE_DIR} -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c -o ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
                    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c ${CMAKE_CURRENT_BINARY_DIR}/solver.o
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o)
