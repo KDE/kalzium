@@ -1,384 +1,306 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>PlotSetupWidget</class>
- <widget class="QWidget" name="PlotSetupWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="PlotSetupWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>735</width>
-    <height>433</height>
+    <width>615</width>
+    <height>325</height>
    </rect>
   </property>
-  <layout class="QGridLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
-    <number>6</number>
-   </property>
-   <item row="5" column="0" colspan="3" >
-    <widget class="KPlotWidget" name="plotwidget" />
-   </item>
-   <item row="1" column="2" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="textLabel4" >
-       <property name="text" >
-        <string>Last element:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSpinBox" name="to" >
-       <property name="minimum" >
-        <number>2</number>
-       </property>
-       <property name="maximum" >
-        <number>111</number>
-       </property>
-       <property name="value" >
-        <number>36</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="0" column="2" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="textLabel3" >
-       <property name="text" >
-        <string>First element:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSpinBox" name="from" >
-       <property name="minimum" >
-        <number>1</number>
-       </property>
-       <property name="maximum" >
-        <number>110</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item rowspan="4" row="0" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
       <string>X-Axis</string>
      </property>
-     <layout class="QGridLayout" >
-      <property name="margin" >
+     <layout class="QGridLayout">
+      <property name="margin">
        <number>9</number>
       </property>
-      <property name="spacing" >
+      <property name="spacing">
        <number>6</number>
       </property>
-      <item row="0" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_3" >
-          <property name="text" >
-           <string>X:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>KCB_x</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KComboBox" name="KCB_x" >
-          <property name="whatsThis" >
-           <string>Here you can define what you want to plot</string>
-          </property>
-          <item>
-           <property name="text" >
-            <string>Atomic Number</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Atomic Mass</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Electronegativity</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Melting Point</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Boiling Point</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Atomic Radius</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Covalent Radius</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="3" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="textLabel1_2" >
-          <property name="text" >
-           <string>Average value:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="av_x" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="textLabel2" >
-          <property name="text" >
-           <string>Maximum value:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="maximum_x" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="textLabel3_2" >
-          <property name="text" >
-           <string>Minimum value:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="minimum_x" >
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item rowspan="4" row="0" column="1" >
-    <widget class="QGroupBox" name="groupBox_2" >
-     <property name="title" >
-      <string>Y-Axis</string>
-     </property>
-     <layout class="QGridLayout" >
-      <property name="margin" >
-       <number>9</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item row="0" column="0" colspan="2" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_2" >
-          <property name="text" >
-           <string>Y:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>KCB_x</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KComboBox" name="KCB_y" >
-          <property name="whatsThis" >
-           <string>Here you can define what you want to plot</string>
-          </property>
-          <property name="currentIndex" >
-           <number>1</number>
-          </property>
-          <item>
-           <property name="text" >
-            <string>Atomic Number</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Atomic Mass</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Electronegativity</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Melting Point</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Boiling Point</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Atomic Radius</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Covalent Radius</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="3" column="1" >
-       <widget class="QLabel" name="av_y" >
-        <property name="text" >
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" >
-       <widget class="QLabel" name="textLabel1_3" >
-        <property name="text" >
+      <item row="3" column="0">
+       <widget class="QLabel" name="textLabel1_2">
+        <property name="text">
          <string>Average value:</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1" >
-       <widget class="QLabel" name="maximum_y" >
-        <property name="text" >
+      <item row="1" column="1">
+       <widget class="QLabel" name="minimum_x">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" >
-       <widget class="QLabel" name="textLabel2_2" >
-        <property name="text" >
+      <item row="3" column="1">
+       <widget class="QLabel" name="av_x">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="KComboBox" name="KCB_x">
+        <property name="whatsThis">
+         <string>Here you can define what you want to plot</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Atomic Number</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Atomic Mass</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Electronegativity</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Melting Point</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Boiling Point</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Atomic Radius</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Covalent Radius</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="textLabel2">
+        <property name="text">
          <string>Maximum value:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" >
-       <widget class="QLabel" name="textLabel3_3" >
-        <property name="text" >
-         <string>Minimum value:</string>
+      <item row="2" column="1">
+       <widget class="QLabel" name="maximum_x">
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
-      <item row="1" column="1" >
-       <widget class="QLabel" name="minimum_y" >
-        <property name="text" >
-         <string/>
+      <item row="1" column="0">
+       <widget class="QLabel" name="textLabel3_2">
+        <property name="text">
+         <string>Minimum value:</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="2" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
-      <number>6</number>
+   <item row="0" column="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
      </property>
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="label" >
-       <property name="text" >
+     <item row="3" column="0">
+      <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
         <string>Display:</string>
        </property>
-       <property name="buddy" >
+       <property name="buddy">
         <cstring>comboElementLabels</cstring>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="KComboBox" name="comboElementLabels" >
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Element Type</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="to">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimum">
+        <number>2</number>
+       </property>
+       <property name="maximum">
+        <number>111</number>
+       </property>
+       <property name="value">
+        <number>36</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="textLabel3">
+       <property name="text">
+        <string>First element:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="textLabel4">
+       <property name="text">
+        <string>Last element:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="from">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>110</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="full">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Full range</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="comboElementType">
        <item>
-        <property name="text" >
+        <property name="text">
+         <string>All elements</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Metals</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Non-Metals / Metalloids</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>s block elements</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>p block elements</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>d block elements</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>f block elements</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Noble gases</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Alkalie metals</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Alkaline earth metals</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Lanthanides</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Actinides</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Radio-active elements</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="KComboBox" name="comboElementLabels">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <item>
+        <property name="text">
          <string>No Labels</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>Element Names</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>Element Symbols</string>
         </property>
        </item>
@@ -386,102 +308,127 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="2" >
-    <layout class="QHBoxLayout" >
-     <item>
-      <widget class="QPushButton" name="full" >
-       <property name="text" >
-        <string>Full range</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_4" >
-       <property name="minimumSize" >
-        <size>
-         <width>81</width>
-         <height>58</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>Element Type</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="comboElementType" >
-       <item>
-        <property name="text" >
-         <string>All elements</string>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Y-Axis</string>
+     </property>
+     <layout class="QGridLayout">
+      <property name="margin">
+       <number>9</number>
+      </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <item row="3" column="1">
+       <widget class="QLabel" name="av_y">
+        <property name="text">
+         <string/>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Metals</string>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="textLabel1_3">
+        <property name="text">
+         <string>Average value:</string>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Non-Metals / Metalloids</string>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="maximum_y">
+        <property name="text">
+         <string/>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>s block elements</string>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="textLabel2_2">
+        <property name="text">
+         <string>Maximum value:</string>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>p block elements</string>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="textLabel3_3">
+        <property name="text">
+         <string>Minimum value:</string>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>d block elements</string>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="minimum_y">
+        <property name="text">
+         <string/>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>f block elements</string>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="KComboBox" name="KCB_y">
+        <property name="whatsThis">
+         <string>Here you can define what you want to plot</string>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Noble gases</string>
+        <property name="currentIndex">
+         <number>1</number>
         </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Alkalie metals</string>
-        </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Alkaline earth metals</string>
-        </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Lanthanides</string>
-        </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Actinides</string>
-        </property>
-       </item>
-       <item>
-        <property name="text" >
-         <string>Radio-active elements</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-    </layout>
+        <item>
+         <property name="text">
+          <string>Atomic Number</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Atomic Mass</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Electronegativity</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Melting Point</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Boiling Point</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Atomic Radius</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Covalent Radius</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="KPlotWidget" name="plotwidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
-  <customwidgets>
+ <customwidgets>
   <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
