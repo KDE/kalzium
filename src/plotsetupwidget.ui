@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>615</width>
-    <height>325</height>
+    <height>293</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
@@ -420,8 +420,8 @@
      </property>
      <property name="minimumSize">
       <size>
-       <width>50</width>
-       <height>50</height>
+       <width>150</width>
+       <height>150</height>
       </size>
      </property>
     </widget>
@@ -441,6 +441,15 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>KCB_x</tabstop>
+  <tabstop>KCB_y</tabstop>
+  <tabstop>from</tabstop>
+  <tabstop>to</tabstop>
+  <tabstop>full</tabstop>
+  <tabstop>comboElementLabels</tabstop>
+  <tabstop>comboElementType</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
