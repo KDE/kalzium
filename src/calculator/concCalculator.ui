@@ -151,7 +151,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the equivalent mass of the solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="whatsThis">
-         <string>This box is used to specify the equivalent mass of the solute. This is required only only if concentration in terms of normality is involved.
+         <string>This box is used to specify the equivalent mass of the solute. This is required only if concentration in terms of normality is involved.
 Normality = Number of Equivalents / liter of solution</string>
         </property>
         <property name="decimals">
