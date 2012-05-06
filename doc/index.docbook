@@ -101,7 +101,7 @@
 		 </para>
 
 		 <para>
-			 When you move the mouse cursor on an element of the table, an overview of the current element in the <guilabel>Overview</guilabel> tab of the information panel is displayed.
+			 When you move the mouse cursor on an element of the table, an overview of the current element is displayed in the <guilabel>Overview</guilabel> tab of the information panel.
 		 </para>
 
 		 <para>
@@ -510,7 +510,7 @@
 				   The <guilabel>Display</guilabel> tab can be used to change <guilabel>Quality</guilabel> of the image (<guimenuitem>Low</guimenuitem>, <guimenuitem>Medium</guimenuitem>, or <guimenuitem>High</guimenuitem>, can be useful on low-end system), <guilabel>Style</guilabel> (can be <guimenuitem>Balls and sticks</guimenuitem>, <guimenuitem>Sticks</guimenuitem>, <guimenuitem>Van der Waals</guimenuitem>, or <guimenuitem>Wireframe</guimenuitem>),  <guilabel>2nd Style</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Ribbon</guimenuitem>, <guimenuitem>Ring</guimenuitem>, or <guimenuitem>Molecular Orbital</guimenuitem>), and  <guilabel>Labels</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Atom Numbers</guimenuitem>, <guimenuitem>Element Names</guimenuitem>, or <guimenuitem>Element Symbols</guimenuitem>).
 				 </para>
 				 <para>
-				   The <guilabel>Edit</guilabel> tab is aimed to edit molecule. You can add elements by choosing them in <guilabel>Element</guilabel> drop-down list and clicking with &LMB; on view panel. The molecule can be optimized by clicking <guibutton>Optimize</guibutton> button.
+				   The <guilabel>Edit</guilabel> tab allows you to edit the molecule. You can add elements by choosing them in the <guilabel>Element</guilabel> drop-down list then clicking with the &LMB; on the view panel on the right. The molecule can be optimized by clicking <guibutton>Optimize</guibutton>  button.
 				 </para>
 				 <para>
 				   The <guilabel>Measure</guilabel> tab can be used to measure distances and angles in the molecule. To make the measurement use the instructions shown on the tab.
