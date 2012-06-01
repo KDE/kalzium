@@ -146,7 +146,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Element Type</string>
+        <string>Element Type:</string>
        </property>
       </widget>
      </item>
