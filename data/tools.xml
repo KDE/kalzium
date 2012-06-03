@@ -156,12 +156,12 @@
 	<item>
 		<picture>waage.jpg</picture>
 		<name>Scales</name>
-		<desc>In a laboratory, very precise quantities of reagents often have to be weighed out. High precision scales can measure masses down to 1/10000 gram.  As such, they stand on granite blocks to avoid vibrations and are protected against changes in airflow by a dome.</desc>
+		<desc>In a laboratory, very precise quantities of reagents often have to be weighed out. High precision scales can measure masses down to 1/10000 gram. As such, they stand on granite blocks to avoid vibrations and are protected against changes in airflow by a dome.</desc>
 	</item>
 	<item>
 		<picture>destillierbruecke.jpg</picture>
 		<name>Distillation bridge</name>
-		<desc>One means of separating a mixture is to use distillation.  In this setting, a distillation bridge acts as a conduit between the two pots.  One pot contains the mixture to be separated, and through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed and drips into a round flask.  Typically, the bridge is cooled by return flow.  Also, there is often a thermometer for controlling the temperature of the distillation bridge.</desc>
+		<desc>One means of separating a mixture is to use distillation. In this setting, a distillation bridge acts as a conduit between the two pots. One pot contains the mixture to be separated, and through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed and drips into a round flask. Typically, the bridge is cooled by return flow. Also, there is often a thermometer for controlling the temperature of the distillation bridge.</desc>
 	</item>
 	<!-- proofreaders: start here! -->
 	<item>
@@ -172,7 +172,7 @@
 	<item>
 		<picture>verteiler.jpg</picture>
 		<name>Separation Beaker</name>
-		<desc>First, four small caps are placed at the four ends of the separation beaker.  Then, whilst distilling, the beaker is turned by 60 degrees after a certain temperate has been reached.  In doing so, at the end of the distillation, all four caps contain a specific liquid, depending on the boiling point of the liquid distilled.</desc>
+		<desc>First, four small caps are placed at the four ends of the separation beaker. Then, whilst distilling, the beaker is turned by 60 degrees after a certain temperate has been reached. In doing so, at the end of the distillation, all four caps contain a specific liquid, depending on the boiling point of the liquid distilled.</desc>
 	</item>
 	<item>
 		<picture>brenner.jpg</picture>
@@ -182,12 +182,12 @@
 	<item>
 		<picture>abzug.jpg</picture>
 		<name>Extractor Hood</name>
-		<desc>Extractor hoods are used to filter out gases from chemical reactions.  The air, once cleaned, is pumped outside of the building.</desc>
+		<desc>Extractor hoods are used to filter out gases from chemical reactions. The air, once cleaned, is pumped outside of the building.</desc>
 	</item>
 	<item>
 		<picture>thermometer2.jpg</picture>
 		<name>Contact Thermometer</name>
-		<desc>Contact thermometers differ from regular thermometers in that they are connected to a heating coil, and are hence able to both sense and control the current temperature.  In doing so, they allow experiments to be performed under a constant temperature.  Contact thermometers work using a negative feedback loop: once the desired temperature has been reached, the heating coil is deactivated; when the temperature falls, the heating coil is reactivated.</desc>
+		<desc>Contact thermometers differ from regular thermometers in that they are connected to a heating coil, and are hence able to both sense and control the current temperature. In doing so, they allow experiments to be performed under a constant temperature. Contact thermometers work using a negative feedback loop: once the desired temperature has been reached, the heating coil is deactivated; when the temperature falls, the heating coil is reactivated.</desc>
 	</item>
 	<item>
 		<picture>halter.jpg</picture>
@@ -197,7 +197,7 @@
 	<item>
 		<picture>phpapier.jpg</picture>
 		<name>Indicator Paper</name>
-		<desc>There are multiple ways of measuring the pH value of a solution, one of which is to use indicator paper. Indicator paper changes color depending on the pH of the solution applied to it, and by comparing to a chart a fairly accurate measure of the solution's pH can be obtained.  If a more accurate measure is needed, a glass electrode can be used, which works by measuring the conductivity of the solution.</desc>
+		<desc>There are multiple ways of measuring the pH value of a solution, one of which is to use indicator paper. Indicator paper changes color depending on the pH of the solution applied to it, and by comparing to a chart a fairly accurate measure of the solution's pH can be obtained. If a more accurate measure is needed, a glass electrode can be used, which works by measuring the conductivity of the solution.</desc>
 	</item>
 	<item>
 		<picture>trichter.jpg</picture>
@@ -207,7 +207,7 @@
 	<item>
 		<picture></picture>
 		<name>Buret</name>
-		<desc>Burets are used to titrate liquids.  A buret is filled with a specific volume of a liquid, and placed beneath it is a container such as an Erlenmeyer flask.  By opening the valve on the buret, the liquid in the container will then be titrated.  High-quality burets have a venting mechanism with which they can be very easily refilled with the exact volume for which the buret is calibrated.</desc>
+		<desc>Burets are used to titrate liquids. A buret is filled with a specific volume of a liquid, and placed beneath it is a container such as an Erlenmeyer flask. By opening the valve on the buret, the liquid in the container will then be titrated. High-quality burets have a venting mechanism with which they can be very easily refilled with the exact volume for which the buret is calibrated.</desc>
 	</item>
 	<item>
 		<picture>becherglas.jpg</picture>
@@ -222,6 +222,6 @@
 	<item>
 		<picture></picture>
 		<name>Dewar Vessel</name>
-		<desc>A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar (1842-1923), is a double-walled vacuum flask, designed to provide good thermal insulation.  As such, they are useful for keeping liquids cool or warm.  One well-known example of a Dewar vessel is a Thermos flask.</desc>
+		<desc>A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar (1842-1923), is a double-walled vacuum flask, designed to provide good thermal insulation. As such, they are useful for keeping liquids cool or warm. One well-known example of a Dewar vessel is a Thermos flask.</desc>
 	</item>
 </tools>

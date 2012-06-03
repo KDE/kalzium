@@ -1258,7 +1258,7 @@ void concentrationCalculator::error(int mode)
         m_error->setText(i18n("Insufficient data, please specify molarity / mole fraction / molality to calculate."));
         break;
     case INSUFFICIENT_DATA_MOLES:
-        m_error->setText(i18n("Amount is specified in moles, cannot calculate molar/equivalent masses.  Please specify mass/volume."));
+        m_error->setText(i18n("Amount is specified in moles, cannot calculate molar/equivalent masses. Please specify mass/volume."));
         break;
     case INSUFFICIENT_DATA_SOLVENT:
         m_error->setText(i18n("You can only calculate the molar mass of a solvent if the mole fraction is specified."));
