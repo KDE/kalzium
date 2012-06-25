@@ -2620,11 +2620,11 @@
   </atom>
   <atom id="Uuq">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">114</scalar>
-    <label dictRef="bo:symbol" value="Uuq" />
-    <label dictRef="bo:name" xml:lang="en" value="Ununquadium" />
+    <label dictRef="bo:symbol" value="Fl" />
+    <label dictRef="bo:name" xml:lang="en" value="Flerovium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">289</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">289.18728</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-lead. Ununquadium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-lead. Named after Flerov Laboratory of Nuclear Reactions (Dubna, Russia) where superheavy elements are synthesized.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.96 0.00 0.10</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
@@ -2650,11 +2650,11 @@
   </atom>
   <atom id="Uuh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">116</scalar>
-    <label dictRef="bo:symbol" value="Uuh" />
-    <label dictRef="bo:name" xml:lang="en" value="Ununhexium" />
+    <label dictRef="bo:symbol" value="Lv" />
+    <label dictRef="bo:name" xml:lang="en" value="Livermorium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">293</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">292.19979</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-polonium. Ununhexium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-polonium. Named after Livermore National Laboratory (USA).</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.98 0.00 0.08</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ru</array>
