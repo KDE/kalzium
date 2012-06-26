@@ -2594,7 +2594,7 @@
     <label dictRef="bo:name" xml:lang="en" value="Copernicium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">285</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">285.17411</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-mercury. Ununbium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-mercury. Named after the astronomer Nicolaus Copernicus.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.94 0.00 0.12</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">de</array>
