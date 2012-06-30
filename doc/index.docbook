@@ -1302,13 +1302,6 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Equation Solver...</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Equation solver dialog.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Tools</guimenu>
 								 <guimenuitem>R/S Phrases</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the <guilabel>Risk/Security Phrases</guilabel> dialog.</para></listitem>
