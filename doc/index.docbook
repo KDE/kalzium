@@ -42,8 +42,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2011-10-23</date>
-		 <releaseinfo>2.4.00 (&kde; 4.8)</releaseinfo>
+		 <date>2012-09-04</date>
+		 <releaseinfo>2.4.00 (&kde; 4.9)</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -144,9 +144,8 @@
 		 <title>Using &kalzium;</title>
 
 		 <sect1 id="foo"><title>Overview of &kalzium; usage</title>
-			 <para>Here are some screenshots of &kalzium; in action:</para>
-
 			 <para>&kalzium; is very easy to use. It is specially designed for students of all ages to use as a small and quick database.</para>
+			 <para>Here is a screenshot of &kalzium; in action:</para>
 			 <screenshot>
 				 <screeninfo>&kalzium; main screen, immediately after the first start</screeninfo>
 				 <mediaobject>
@@ -849,10 +848,10 @@
 					 <para>The <guilabel>Overview</guilabel> tab is the first one and it shows you an overview of the element the mouse is over.</para>
 
 				 </sect3>
-				 <sect3 id="stateofmatter">
-					 <title>State of Matter</title>
+				 <sect3 id="view_tab">
+					 <title>View</title>
 
-					 <para>The <guilabel>State of Matter</guilabel> tab is the second in the navigation panel.</para>
+					 <para>The <guilabel>View</guilabel> tab is the second in the navigation panel.</para>
 					 <para>You are first presented with the following icons and text:</para>
 					 <screenshot>
 						 <mediaobject>
@@ -867,9 +866,6 @@
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-				 </sect3>
-				 <sect3 id="view_tab">
-					 <title>View</title>
 
 					 <para>
 					   The <guilabel>View</guilabel> tab can be used to filter PSE. For example, this feature allows you to explore the elements of the set time period. This is great for getting a feel for how the PSE evolved over time, as more and more elements were discovered. Choose <guimenuitem>Discovery date</guimenuitem> from <guilabel>Gradient</guilabel> list. If you move the slider you will notice that color of some elements disappear if you move it to the left and reappear if you move it to the right. Furthermore the number will change constantly.
