@@ -79,10 +79,10 @@
      <item>
       <widget class="KPushButton" name="calculateButton">
        <property name="toolTip">
-        <string>If you press this button the equation on the left will be balanced.</string>
+        <string>If you press this button the above equation will be balanced.</string>
        </property>
        <property name="whatsThis">
-        <string>If you press this button the equation on the left will be balanced.</string>
+        <string>If you press this button the above equation will be balanced.</string>
        </property>
        <property name="text">
         <string>&amp;Calculate</string>
