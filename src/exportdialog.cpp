@@ -77,7 +77,7 @@ ExportDialog::ExportDialog( QWidget * parent )
 {
     setButtons( Help | User1 | Cancel );
     ui.setupUi( mainWidget() );
-    setButtonGuiItem( User1, KGuiItem( i18n( "Ok" ) ) );
+    setButtonGuiItem( User1, KGuiItem( i18n( "OK" ) ) );
 
     ui.targetFile->setMode( KFile::File | KFile::Directory | KFile::LocalOnly );
 
