@@ -543,8 +543,9 @@ void nuclearCalculator::setMode(int mode)
 	calculate();
 }
 
-void nuclearCalculator::showSlider(bool show)
+void nuclearCalculator::showSlider(bool /*show*/)
 {
+// TODO
 /*	if (show) {
 		m_sliderLabel->hide();
 		m_slider->hide();
