@@ -5,7 +5,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 set(elementparsertest_SRCS xmlreadingtest.cpp)
 
-kde4_add_unit_test(elementparsertest TEST ${elementparsertest_SRCS})
+kde4_add_executable(elementparsertest NOGUI ${elementparsertest_SRCS})
 
 target_link_libraries(elementparsertest science ${QT_QTCORE_LIBRARY} ${QT_QTXML_LIBRARY})
 
@@ -13,7 +13,7 @@ target_link_libraries(elementparsertest science ${QT_QTCORE_LIBRARY} ${QT_QTXML_
 
 set(isotopeparsertest_SRCS isotopereadingtest.cpp)
 
-kde4_add_unit_test(isotopeparsertest TEST ${isotopeparsertest_SRCS})
+kde4_add_executable(isotopeparsertest NOGUI ${isotopeparsertest_SRCS})
 
 target_link_libraries(isotopeparsertest science ${QT_QTCORE_LIBRARY} ${QT_QTXML_LIBRARY})
 
@@ -21,7 +21,7 @@ target_link_libraries(isotopeparsertest science ${QT_QTCORE_LIBRARY} ${QT_QTXML_
 
 set(spectrumtest_SRCS spectrumreadingtests.cpp)
 
-kde4_add_unit_test(spectrumtest TEST ${spectrumtest_SRCS})
+kde4_add_executable(spectrumtest NOGUI ${spectrumtest_SRCS})
 
 target_link_libraries(spectrumtest science ${QT_QTCORE_LIBRARY} ${QT_QTXML_LIBRARY})
 
