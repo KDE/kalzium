@@ -37,7 +37,8 @@
 #include <QPainter>
 
 PeriodicTableScene::PeriodicTableScene(QObject *parent)
-        : QGraphicsScene(parent)
+        : QGraphicsScene(parent),
+          m_prevHoverElement(-1)
 {
     QPalette widgetPalette = palette();
     setBackgroundBrush(QBrush(widgetPalette.window()));
