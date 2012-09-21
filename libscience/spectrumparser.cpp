@@ -109,6 +109,7 @@ bool SpectrumParser::endElement( const QString&, const QString& localName, const
     else if ( localName == "peak" ) {
 //X             qDebug() << "in 'peak'" << " with this data: " << d->currentPeak->intensity << " (intesity)" ;
         d->currentSpectrum->addPeak(d->currentPeak);
+        d->currentPeak = 0;
         d->inPeak_ = false;
     }
     return true;

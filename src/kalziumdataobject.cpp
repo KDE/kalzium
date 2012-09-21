@@ -125,6 +125,9 @@ KalziumDataObject::~KalziumDataObject()
         i.next();
         qDeleteAll( i.value());
     }
+    
+    //Delete the spectra
+    qDeleteAll(m_spectra);
 }
 
 Element* KalziumDataObject::element( int number )
