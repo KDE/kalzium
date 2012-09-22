@@ -23,7 +23,7 @@ class Element;
 
 class KalziumEngine : public Plasma::DataEngine
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     KalziumEngine(QObject* parent, const QVariantList& args);
@@ -34,33 +34,46 @@ public:
       * set the element to the element with the number @number. For example, setElementNumber( 1 )
       * will make Hydrogen the currently active element
       */
-    void setElementNumber( int number );
+    Element* getElement( int number );
 
     /**
      * This methods makes a random element the current one.
      */
-    void getRandomElement();
+    Element* getRandomElement();
 
     /**
      * This methods generates a random fact about the chemical elements.
      */
     QString generateFact();
-    
+
     bool sourceRequestEvent(const QString &name);
 
-protected:
-    bool updateSourceElement(const QString& source);
-    bool updateSourceMolecule ( const QString& source );
+protected: // FIXME is protected needed? private?
+    bool setElementData();
+    bool setMoleculeData();
+    bool setPeriodicTableData();
 
 private:
-    ///Summs up all Elements of a Molecule. 
+    ///Summs up all Elements of a Molecule.
     QString sumUpMolecue(ElementCountMap &elementMap);
-    
+
+    /**
+     * Get keyword from source string
+     * given the source string: "source:my:keyword"
+     * @parm id
+     */
+    QString getKeyWord( int id = -1);
+
+    /// TODO:use int instead of a QString
+    QString m_currentTableTyp;
+
+    const QString *currentSource;
+
     Element * m_currentElement;
     QList<Element*> m_elements;
     KRandomSequence * m_random;
-    
-    MoleculeParser   *m_parser;
+
+    MoleculeParser *m_moleculeParser;
 };
 
 K_EXPORT_PLASMA_DATAENGINE(kalzium, KalziumEngine)
