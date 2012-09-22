@@ -21,7 +21,6 @@
 #include "ui_settings_gradients.h"
 #include "ui_settings_calc.h"
 #include "detailinfodlg.h"
-#include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "gradientwidget_impl.h"
 #include "kalziumdataobject.h"
@@ -303,11 +302,6 @@ void Kalzium::setupSidebars()
              this, SLOT(slotSwitchtoLookGradient(int)));
 
     m_toolbox->addItem( m_gradientWidget, KIcon( "statematter" ), i18n( "View" ) );
-
-    m_calcWidget = new MolcalcWidget( m_toolbox );
-    m_calcWidget->setObjectName( "molcalcwidget" );
-    m_calcWidget->hideExtra();
-    m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
 
     addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
     addDockWidget( Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);

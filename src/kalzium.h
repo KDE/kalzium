@@ -30,12 +30,10 @@ class QVBoxLayout;
 class QDockWidget;
 class DetailedInfoDlg;
 class PeriodicTableView;
-class MolcalcWidget;
 class DetailedGraphicalOverview;
 class GradientWidgetImpl;
 class GlossaryDialog;
 class IsotopeTable;
-class SearchWidget;
 class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
@@ -119,8 +117,6 @@ private:
 
     QAction *m_legendAction;
 
-    MolcalcWidget *m_calcWidget;
-
     GradientWidgetImpl *m_gradientWidget;
 
     DetailedGraphicalOverview *m_detailWidget;
@@ -137,8 +133,6 @@ private:
     int m_toolboxCurrent = 0;
 
     GlossaryDialog *m_glossarydlg = 0;
-
-    SearchWidget *m_searchWidget = 0;
 
     ExportDialog *m_exportDialog = 0;
 
