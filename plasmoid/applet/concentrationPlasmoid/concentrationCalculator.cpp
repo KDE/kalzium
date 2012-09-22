@@ -84,6 +84,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 
 	if (!m_widget) {
 		m_widget = new QGraphicsWidget(this);
+		m_widget->setMinimumSize(600, 350);
 
 		// setup the label
 	    Plasma::Frame *pHeader = new Plasma::Frame(this);

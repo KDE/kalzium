@@ -50,7 +50,7 @@ gasCalculator::gasCalculator(QObject *parent, const QVariantList &args)
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
     setAssociatedApplication("kalzium");
-    resize(600, 250);
+    resize(600, 300);
 }
 
 gasCalculator::~gasCalculator()
@@ -82,6 +82,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 
     if (!m_widget) {
         m_widget = new QGraphicsWidget(this);
+	m_widget->setMinimumSize(500, 300);
 
         /**************************************************************************/
         //                       Gas Calculator set up
