@@ -16,6 +16,7 @@ email                : cniehaus@kde.org
 #include <kxmlguiwindow.h>
 #include "periodictableview.h"
 #include "unitsettingsdialog.h"
+#include "isotopetabledialog.h"
 
 class KTabWidget;
 class KAction;
@@ -67,6 +68,9 @@ private:
     TableInfoWidget *m_TableInfoWidget;
 
     PeriodicTableView *m_periodicTable;
+
+    IsotopeTableDialog *m_isotopeDialog = 0;
+
 
     /**
      *initialize actions

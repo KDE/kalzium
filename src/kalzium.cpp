@@ -26,7 +26,6 @@
 #include "detailedgraphicaloverview.h"
 #include "gradientwidget_impl.h"
 #include "kalziumdataobject.h"
-#include "isotopetabledialog.h"
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
@@ -412,9 +411,11 @@ void Kalzium::slotTables()
 
 void Kalzium::slotIsotopeTable()
 {
-    IsotopeTableDialog *ndialog = new IsotopeTableDialog( this );
-    ndialog->setAttribute(Qt::WA_DeleteOnClose);
-    ndialog->show();
+   if(!m_isotopeDialog){
+     m_isotopeDialog = new IsotopeTableDialog( this );
+     m_isotopeDialog->setAttribute(Qt::WA_DeleteOnClose);
+   }
+   m_isotopeDialog->show();
 }
 
 void Kalzium::slotPlotData()
