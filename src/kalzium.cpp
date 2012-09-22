@@ -20,7 +20,6 @@
 #include "ui_settings_colors.h"
 #include "ui_settings_gradients.h"
 #include "ui_settings_calc.h"
-#include "elementdataviewer.h"
 #include "detailinfodlg.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
@@ -29,8 +28,6 @@
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
-#include "rsdialog.h"
-#include "tablesdialog.h"
 #include "legendwidget.h"
 #include "exportdialog.h"
 #include "search.h"
@@ -38,8 +35,6 @@
 #include "tableinfowidget.h"
 #include "psetables.h"
 #include <config-kalzium.h>
-
-#include "calculator/calculator.h"
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
@@ -358,9 +353,10 @@ void Kalzium::slotGlossary()
 
 void Kalzium::slotRS()
 {
-    RSDialog *rs = new RSDialog( this );
-    rs->setAttribute(Qt::WA_DeleteOnClose);
-    rs->show();
+    if(!m_rsDialog){
+      m_rsDialog = new RSDialog( this );
+    }
+    m_rsDialog->show();
 }
 
 void Kalzium::slotOBConverter()
@@ -400,32 +396,34 @@ void Kalzium::slotMoleculeviewer()
 
 void Kalzium::slotTables()
 {
-    TablesDialog *t = new TablesDialog( this );
-    t->setAttribute(Qt::WA_DeleteOnClose);
-    t->show();
+    if(!m_tablesDialog){
+      m_tablesDialog = new TablesDialog( this );
+    }
+    m_tablesDialog->show();
 }
 
 void Kalzium::slotIsotopeTable()
 {
    if(!m_isotopeDialog){
      m_isotopeDialog = new IsotopeTableDialog( this );
-     m_isotopeDialog->setAttribute(Qt::WA_DeleteOnClose);
    }
    m_isotopeDialog->show();
 }
 
 void Kalzium::slotPlotData()
 {
-    ElementDataViewer *edw = new ElementDataViewer( this );
-    edw->setAttribute(Qt::WA_DeleteOnClose);
-    edw->show();
+    if(!m_elementDataPlotter){
+      m_elementDataPlotter = new ElementDataViewer( this );
+    }
+    m_elementDataPlotter->show();
 }
 
 void Kalzium::showCalculator()
 {
-    calculator *Cal = new calculator ( this );
-    Cal->setAttribute(Qt::WA_DeleteOnClose);
-    Cal -> show();
+    if(!m_calculator){
+      m_calculator = new calculator ( this );
+    }
+    m_calculator -> show();
 }
 
 void Kalzium::slotSwitchtoTable( int index )

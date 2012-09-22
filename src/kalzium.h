@@ -17,6 +17,10 @@ email                : cniehaus@kde.org
 #include "periodictableview.h"
 #include "unitsettingsdialog.h"
 #include "isotopetabledialog.h"
+#include "elementdataviewer.h"
+#include "tablesdialog.h"
+#include "rsdialog.h"
+#include "calculator/calculator.h"
 
 class KTabWidget;
 class KAction;
@@ -36,7 +40,6 @@ class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
 class ExportDialog;
-class DetailedQmlView;
 
 /**
  * @brief Application Main Window
@@ -71,6 +74,13 @@ private:
 
     IsotopeTableDialog *m_isotopeDialog = 0;
 
+    ElementDataViewer *m_elementDataPlotter = 0;
+
+    TablesDialog *m_tablesDialog = 0;
+
+    RSDialog *m_rsDialog = 0;
+
+    calculator *m_calculator = 0;
 
     /**
      *initialize actions
