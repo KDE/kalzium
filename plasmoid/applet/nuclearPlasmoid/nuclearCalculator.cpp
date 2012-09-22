@@ -132,6 +132,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
     if (!m_widget) {
         // Position all UI elements
         m_widget = new QGraphicsWidget(this);
+	m_widget->setMinimumSize(550, 400);
         Plasma::Frame *pHeader = new Plasma::Frame(this);
         pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
         pHeader->setText(i18n("Nuclear Calculator"));
