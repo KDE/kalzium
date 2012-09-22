@@ -90,10 +90,6 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     Search *newsearch = new Search();
     KalziumDataObject::instance()->setSearch( newsearch );
 
-    m_infoDialog = 0;
-    m_toolboxCurrent = 0;
-    m_exportDialog = 0;
-
     // Main pse-Table Tablewidget
     QWidget *pseTempWidget = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout( pseTempWidget );
