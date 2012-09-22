@@ -42,6 +42,7 @@ Molmasscalculator::Molmasscalculator ( QObject *parent, const QVariantList &args
         m_MassLabel( 0 ),
         m_switchButton( 0 )
 {
+    KGlobal::locale()->insertCatalog("kalzium");
     // Some Applet settings
     setAspectRatioMode ( Plasma::IgnoreAspectRatio );
     setHasConfigurationInterface ( true );
@@ -157,10 +158,10 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
     m_lineedit->setClearButtonShown ( true );
     m_lineedit->setMinimumWidth ( 100 );
     m_lineedit->setText ( i18n ( "C2H5OH" ) );
-    connect ( m_lineedit, SIGNAL( textEdited(QString)), m_triggerTimer, SLOT( start() ) );
+    connect ( m_lineedit, SIGNAL(textEdited(QString)), m_triggerTimer, SLOT(start()) );
 
     m_switchButton = new Plasma::IconWidget();
-    connect ( m_switchButton, SIGNAL( clicked() ), this, SLOT( toggleTable() ) );
+    connect ( m_switchButton, SIGNAL(clicked()), this, SLOT(toggleTable()) );
 
     TopLayout->addItem ( MoleculeLabel );
     TopLayout->addItem ( m_lineedit );
@@ -230,8 +231,8 @@ void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
 
     m_ui.tabletyp->setCurrentIndex(m_PeriodWidget->getCurrentPseTyp());
 
-    connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configAccepted() ) );
-    connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
+    connect ( parent, SIGNAL (applyClicked()), this, SLOT (configAccepted()) );
+    connect ( parent, SIGNAL (okClicked()), this, SLOT (configAccepted()) );
 
     connect (m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
     connect (m_ui.copyToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));

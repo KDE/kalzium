@@ -38,7 +38,6 @@
 #include "searchwidget.h"
 #include "tableinfowidget.h"
 #include "psetables.h"
-#include "detailedQmlView.h"
 #include <config-kalzium.h>
 
 #include "calculator/calculator.h"
@@ -109,10 +108,10 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     m_periodicTable = new PeriodicTableView( pseTempWidget );
 
     // Connecting the search to the periodic table
-    connect( newsearch, SIGNAL( searchChanged() ),
-             KalziumElementProperty::instance(), SIGNAL( propertyChanged() ) );
-    connect( newsearch, SIGNAL( searchReset() ),
-             KalziumElementProperty::instance(), SIGNAL( propertyChanged() ) );
+    connect( newsearch, SIGNAL(searchChanged()),
+             KalziumElementProperty::instance(), SIGNAL(propertyChanged()) );
+    connect( newsearch, SIGNAL(searchReset()),
+             KalziumElementProperty::instance(), SIGNAL(propertyChanged()) );
 
     layout->addWidget( searchWidget );
     layout->addWidget( m_periodicTable );
@@ -150,7 +149,7 @@ void Kalzium::setupActions()
 {
     export_action = actionCollection()->add<QAction>( "file_exporter" );
     export_action->setText( i18n("&Export Data...") );
-    connect( export_action, SIGNAL( triggered( bool ) ), this, SLOT( slotShowExportDialog() ) );
+    connect( export_action, SIGNAL(triggered(bool)), this, SLOT(slotShowExportDialog()) );
 
     // the action for swiching look: color schemes and gradients
     QStringList schemes = KalziumElementProperty::instance()->schemeList();    /*KalziumSchemeTypeFactory::instance()->schemes();*/
@@ -162,7 +161,7 @@ void Kalzium::setupActions()
     look_action_schemes->setItems( schemes );
     look_action_schemes->setToolBarMode( KSelectAction::MenuMode );
     look_action_schemes->setToolButtonPopupMode( QToolButton::InstantPopup );
-    connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookScheme( int ) ) );
+    connect( look_action_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)) );
 
     // the action for swiching look: gradients
     look_action_gradients = actionCollection()->add<KSelectAction>( "view_look_onlygradients" );
@@ -170,7 +169,7 @@ void Kalzium::setupActions()
     look_action_gradients->setItems( gradients );
     look_action_gradients->setToolBarMode( KSelectAction::MenuMode );
     look_action_gradients->setToolButtonPopupMode( QToolButton::InstantPopup );
-    connect( look_action_gradients, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLookGradient( int ) ) );
+    connect( look_action_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)) );
 
     // the action for swiching tables
     QStringList table_schemes = pseTables::instance()->tables();
@@ -178,61 +177,49 @@ void Kalzium::setupActions()
     table_action->setText( i18n( "&Tables" ) );
     table_action->setItems(table_schemes);
     table_action->setCurrentItem(Prefs::table());
-    connect( table_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoTable( int ) ) );
+    connect( table_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoTable(int)) );
 
     // the actions for switching numeration
     numeration_action = actionCollection()->add<KSelectAction>( "view_numerationtype" );
     numeration_action->setText( i18n( "&Numeration" ) );
     numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
     numeration_action->setCurrentItem(Prefs::numeration());
-    connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
-
-    m_EQSolverAction =  actionCollection()->addAction( "tools_eqsolver" );
-    m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
-    m_EQSolverAction->setIcon(  KIcon( "eqchem" ) );
-    m_EQSolverAction->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to solve chemical equations." ) );
-
-#ifdef HAVE_FACILE
-    connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
-    m_EQSolverAction->setEnabled( true );
-#else
-    m_EQSolverAction->setEnabled( false );
-#endif
+    connect( numeration_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoNumeration(int)) );
 
     // tools actions
     m_pPlotAction = actionCollection()->addAction( "tools_plotdata" );
     m_pPlotAction->setText( i18n( "&Plot Data..." ) );
     m_pPlotAction->setIcon( KIcon( "plot" ) );
-    connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
+    connect( m_pPlotAction, SIGNAL(triggered()), this, SLOT(slotPlotData()) );
 
     // calculator actions
     m_pcalculator = actionCollection()->addAction( "tools_calculate" );
     m_pcalculator->setText( i18n( "Perform &Calculations..." ) );
     m_pcalculator->setIcon( KIcon( "calculate" ) );
     m_pcalculator->setWhatsThis( i18nc( "WhatsThis Help", "This is the calculator, it performs basic chemical calculations." ) );
-    connect( m_pcalculator, SIGNAL( triggered() ), this, SLOT( showCalculator() ) );
+    connect( m_pcalculator, SIGNAL(triggered()), this, SLOT(showCalculator()) );
 
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
     m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
     m_pIsotopeTableAction->setIcon(  KIcon( "isotopemap" ) );
     m_pIsotopeTableAction->setWhatsThis( i18nc( "WhatsThis Help", "This table shows all of the known isotopes of the chemical elements." ) );
-    connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
+    connect( m_pIsotopeTableAction, SIGNAL(triggered()), this, SLOT(slotIsotopeTable()) );
 
     m_pGlossaryAction = actionCollection()->addAction( "tools_glossary" );
     m_pGlossaryAction->setText(i18n( "&Glossary..." ) );
     m_pGlossaryAction->setIcon( KIcon( "glossary" ) );
-    connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
+    connect( m_pGlossaryAction, SIGNAL(triggered()), this, SLOT(slotGlossary()) );
 
     m_pRSAction = actionCollection()->addAction( "tools_rs" );
     m_pRSAction->setText( i18n( "&R/S Phrases..." ) );
     m_pRSAction->setIcon( KIcon( "kalzium_rs" ) );
-    connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
+    connect( m_pRSAction, SIGNAL(triggered()), this, SLOT(slotRS()) );
 
     m_pOBConverterAction = actionCollection()->addAction( "tools_obconverter" );
     m_pOBConverterAction->setText( i18n( "Convert chemical files..." ) );
     m_pOBConverterAction->setIcon( KIcon( "edit-copy" ) );
     m_pOBConverterAction->setWhatsThis( i18nc( "WhatsThis Help", "With this tool, you can convert files containing chemical data between various file formats." ) );
-    connect( m_pOBConverterAction, SIGNAL( triggered() ), this, SLOT( slotOBConverter() ) );
+    connect( m_pOBConverterAction, SIGNAL(triggered()), this, SLOT(slotOBConverter()) );
 #ifndef HAVE_OPENBABEL2
     m_pOBConverterAction->setEnabled( false );
 #endif
@@ -241,7 +228,7 @@ void Kalzium::setupActions()
     m_pMoleculesviewer->setText( i18n( "Molecular Editor..." ) );
     m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
     m_pMoleculesviewer->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to view and edit 3D molecular structures." ) );
-    connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
+    connect( m_pMoleculesviewer, SIGNAL(triggered()), this, SLOT(slotMoleculeviewer()) );
 #if !defined(HAVE_OPENBABEL2) || !defined(HAVE_EIGEN) || !defined(HAVE_AVOGADRO)
     m_pMoleculesviewer->setEnabled( false );
 #endif
@@ -251,7 +238,7 @@ void Kalzium::setupActions()
     m_pTables->setIcon( KIcon( "kalzium_tables" ) );
     m_pTables->setWhatsThis(i18nc("WhatsThis Help", "This will open a dialog with listings of symbols and numbers related to chemistry."));
 
-    connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
+    connect( m_pTables, SIGNAL(triggered()), this, SLOT(slotTables()) );
 
     // other period view options
     m_pLegendAction = m_legendDock->toggleViewAction();
@@ -331,18 +318,15 @@ void Kalzium::setupSidebars()
 
     m_toolbox->addItem( m_detailWidget, KIcon( "overview" ), i18n( "Overview" ) );
 
-    m_detailQmlWidget = new DetailedQmlView( m_toolbox );
-    m_toolbox->addItem( m_detailQmlWidget, KIcon("Error") , i18n("QML Test"));
-
     m_gradientWidget = new GradientWidgetImpl( m_toolbox );
     m_gradientWidget->setObjectName( "viewtWidget" );
 
-    connect( m_gradientWidget, SIGNAL( gradientValueChanged( double ) ),
-             KalziumElementProperty::instance(), SLOT( setSliderValue( double ) ) );
-    connect( m_gradientWidget->scheme_combo, SIGNAL( currentIndexChanged(int)),
-             this, SLOT( slotSwitchtoLookScheme(int)));
-    connect( m_gradientWidget->gradient_combo, SIGNAL( currentIndexChanged(int)),
-             this, SLOT( slotSwitchtoLookGradient(int)));
+    connect( m_gradientWidget, SIGNAL(gradientValueChanged(double)),
+             KalziumElementProperty::instance(), SLOT(setSliderValue(double)) );
+    connect( m_gradientWidget->scheme_combo, SIGNAL(currentIndexChanged(int)),
+             this, SLOT(slotSwitchtoLookScheme(int)));
+    connect( m_gradientWidget->gradient_combo, SIGNAL(currentIndexChanged(int)),
+             this, SLOT(slotSwitchtoLookGradient(int)));
 
     m_toolbox->addItem( m_gradientWidget, KIcon( "statematter" ), i18n( "View" ) );
 
@@ -424,15 +408,6 @@ void Kalzium::slotTables()
     TablesDialog *t = new TablesDialog( this );
     t->setAttribute(Qt::WA_DeleteOnClose);
     t->show();
-}
-
-void Kalzium::slotShowEQSolver()
-{
-#ifdef HAVE_FACILE
-    EQChemDialog *dlg = new EQChemDialog( this );
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->show();
-#endif
 }
 
 void Kalzium::slotIsotopeTable()
@@ -546,9 +521,9 @@ void Kalzium::showSettingsDialog()
     ui_calc.setupUi( w_calc );
     dialog->addPage( w_calc, i18n("Calculator"), "accessories-calculator");
 
-    connect( dialog, SIGNAL( settingsChanged(QString) ), this, SLOT(slotUpdateSettings() ) );
-    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_gradientWidget, SLOT( slotGradientChanged()) );
-    connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
+    connect( dialog, SIGNAL(settingsChanged(QString)), this, SLOT(slotUpdateSettings()) );
+    connect( dialog, SIGNAL(settingsChanged(QString)), m_gradientWidget, SLOT(slotGradientChanged()) );
+    connect( dialog, SIGNAL(settingsChanged(QString)), m_legendWidget, SLOT(updateContent()) );
 
     dialog->show();
 }
@@ -595,7 +570,6 @@ void Kalzium::elementHover( int num )
                                     e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 
     m_detailWidget->setElement( num );
-    m_detailQmlWidget->setElement( num );
 }
 
 // FIXME What is that function for? Does not seem to do anything usefull... yet?

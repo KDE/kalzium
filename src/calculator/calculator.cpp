@@ -28,7 +28,7 @@
 calculator::calculator(QWidget *parent)
         : KDialog(parent)
 {
-    setCaption(i18n("Molecular Calculator"));
+    setCaption(i18n("Chemical Calculator"));
     setButtons(Help | Close);
     setDefaultButton(Close);
 
@@ -46,12 +46,14 @@ calculator::calculator(QWidget *parent)
     // Add the molecular mass Calculator widget to the user interface
     m_moleCalculator = new MolcalcWidget(this);
     ui.stack->addWidget(m_moleCalculator);
+    // Add the molecular mass Calculator widget to the user interface
+    m_titraCalculator = new titrationCalculator(this);
+    ui.stack->addWidget(m_titraCalculator);
 
 #ifdef HAVE_FACILE
     // Add the equation balancer widget to the user interface
-    new QTreeWidgetItem(ui.tree);
-    QTreeWidgetItem *___qtreewidgetitem6 = ui.tree->topLevelItem(5);
-    ___qtreewidgetitem6->setText(0, i18n("Equation Balancer", 0));
+    QTreeWidgetItem *treeItem = new QTreeWidgetItem(ui.tree);
+    treeItem->setText(0, i18n("Equation Balancer"));
 
     m_equationBalancer = new EQChemDialog(this);
     ui.stack->addWidget(m_equationBalancer);
@@ -60,13 +62,13 @@ calculator::calculator(QWidget *parent)
     ui.pic->setPixmap( (KIcon( "calculate" )).pixmap(128,128) );
 
     // Connect the tree item selection signal to the corresponding slot
-    connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
-            SLOT(slotItemSelection(QTreeWidgetItem *)));
+    connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this,
+            SLOT(slotItemSelection(QTreeWidgetItem*)));
 
     ui.tree->setCurrentItem ( ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent );
 
     // help clicked
-    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
+    connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
 }
 
 calculator :: ~calculator()
@@ -105,6 +107,8 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 #endif
     else if (!(s.compare(i18n("Molecular mass Calculator"))))
         ui.stack->setCurrentWidget(m_moleCalculator);
+    else if (!(s.compare(i18n("Titration Calculator"))))
+        ui.stack->setCurrentWidget(m_titraCalculator);
 }
 
 

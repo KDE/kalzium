@@ -150,10 +150,18 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
         result = newOrbit;
         break;
     }
+    case ChemicalDataObject::oxidation:
+    {
+        QStringList oxidationList = el->dataAsString( kind ).split(",");
+        result = oxidationList.join(", ");
+        break;
+    }
     default:
         result = el->dataAsVariant( kind ).toString();
-
     }
 
+    if ( result.isEmpty() ) {
+        result = i18n("No Data");
+    }
     return result;
 }

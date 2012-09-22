@@ -51,9 +51,9 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	
     ui.setupUi( this );
 	
-    connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
-    connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
-    connect( m_timer, SIGNAL( timeout() ), this, SLOT( slotCalculate() ) );
+    connect( ui.calcButton, SIGNAL(clicked()), this, SLOT(slotCalculate()) );
+    connect( ui.formulaEdit, SIGNAL(returnPressed()), this, SLOT(slotCalculate()) );
+    connect( m_timer, SIGNAL(timeout()), this, SLOT(slotCalculate()) );
 
     ui.formulaEdit->setClearButtonShown(true);
 
@@ -67,7 +67,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 
 	if (Prefs::addAlias())
 	{
-		connect( ui.alias, SIGNAL(clicked()), this, SLOT( addAlias()));	
+		connect( ui.alias, SIGNAL(clicked()), this, SLOT(addAlias()));	
 		QString shortForm, fullForm;	// short form (symbol) and full form (expansion)
 		QList<QString> shortList, fullList; // Used to store the short and full forms
 		int i = 0;                          // loop counter

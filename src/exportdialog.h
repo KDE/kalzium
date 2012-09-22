@@ -24,12 +24,12 @@ class KDialog;
 class ElementListEntry : public QListWidgetItem
 {
     public:
-        ElementListEntry( Element * element );
+        ElementListEntry( Element *element );
         ~ElementListEntry();
 
         int       m_atomicNum;
         QString   m_name;
-        Element * m_element;
+        Element  *m_element;
 };
 
 class PropertyListEntry : public QListWidgetItem
@@ -49,7 +49,7 @@ class ExportDialog : public KDialog
     Q_OBJECT
 
     public:
-        ExportDialog( QWidget * parent );
+        ExportDialog( QWidget *parent );
         ~ExportDialog();
 
         void populateElementList();
@@ -59,12 +59,10 @@ class ExportDialog : public KDialog
 
     private:
         Ui::exportDialogForm ui;
-        QTextStream * m_outputStream;
-        
+        QTextStream *m_outputStream;
 
     public slots:
         void slotOkClicked();
-        void slotHelpClicked();
 };
 
 #endif // EXPORTDIALOG_H

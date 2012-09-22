@@ -94,7 +94,7 @@ QGraphicsWidget *concentrationCalculator::graphicsWidget()
 	    QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
 	    Plasma::GroupBox *pGroupBox1 = new Plasma::GroupBox(this);
 		QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(pGroupBox1);
-		pGridLayout->addItem(pHeader, 0, 0, 1, 5);
+		pGridLayout->addItem(pHeader, 0, 0, 1, 4);
 		pVLayout->addItem(pGroupBox1);
 
 		// Set up the user interface
@@ -1258,7 +1258,7 @@ void concentrationCalculator::error(int mode)
         m_error->setText(i18n("Insufficient data, please specify molarity / mole fraction / molality to calculate."));
         break;
     case INSUFFICIENT_DATA_MOLES:
-        m_error->setText(i18n("Amount is specified in moles, cannot calculate molar/equivalent masses.  Please specify mass/volume."));
+        m_error->setText(i18n("Amount is specified in moles, cannot calculate molar/equivalent masses. Please specify mass/volume."));
         break;
     case INSUFFICIENT_DATA_SOLVENT:
         m_error->setText(i18n("You can only calculate the molar mass of a solvent if the mole fraction is specified."));

@@ -77,7 +77,7 @@ void PeriodicGrid::create()
 
             element->setTextBackgroundColor(QColor ( r - color, g - color, b - color));
 
-            connect ( element, SIGNAL ( ElementAction ( QString ) ), m_applet, SLOT ( appendElement ( QString ) ) );
+            connect ( element, SIGNAL (ElementAction(QString)), m_applet, SLOT (appendElement(QString)) );
 
             m_actualPeriodSystem->addItem (element, period, group );
         }
@@ -123,7 +123,7 @@ ElementLabel::ElementLabel ( int element,  Plasma::Applet *applet, QGraphicsWidg
     setText ( thisElement["symbol"].toString() );
 
     drawToolTip ( thisElement );
-    connect ( this, SIGNAL ( clicked() ), this, SLOT ( ElementPressed() ) );
+    connect ( this, SIGNAL (clicked()), this, SLOT (ElementPressed()) );
 }
 
 #include "Periodictable.moc"

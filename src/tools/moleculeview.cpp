@@ -98,14 +98,14 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
       this, SLOT(setViewEdit(int)));
 
   // Visualization parameters
-  connect(ui.qualityCombo, SIGNAL(activated( int )), 
-          ui.glWidget , SLOT( setQuality( int ) ) );
-  connect(ui.styleCombo, SIGNAL(activated( int )), 
-          ui.glWidget , SLOT( setStyle( int ) ) );
-  connect(ui.style2Combo, SIGNAL(activated( int )),
-          ui.glWidget , SLOT( setStyle2( int ) ) );
-  connect(ui.labelsCombo, SIGNAL(activated( int )), 
-          ui.glWidget , SLOT( setLabels( int ) ) );
+  connect(ui.qualityCombo, SIGNAL(activated(int)), 
+          ui.glWidget , SLOT(setQuality(int)) );
+  connect(ui.styleCombo, SIGNAL(activated(int)), 
+          ui.glWidget , SLOT(setStyle(int)) );
+  connect(ui.style2Combo, SIGNAL(activated(int)),
+          ui.glWidget , SLOT(setStyle2(int)) );
+  connect(ui.labelsCombo, SIGNAL(activated(int)), 
+          ui.glWidget , SLOT(setLabels(int)) );
 
   // Editing parameters
   connect(ui.elementCombo, SIGNAL(currentIndexChanged(int)),
@@ -122,12 +122,12 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
   connect(ui.glWidget->molecule(), SIGNAL(updated()),
           this, SLOT(slotUpdateStatistics()));
 
-  connect(this, SIGNAL( user1Clicked() ), 
-          this, SLOT( slotLoadMolecule() ) );
-  connect(this, SIGNAL( user2Clicked() ), 
-          this, SLOT( slotDownloadNewStuff() ) );
-  connect(this, SIGNAL( user3Clicked() ),
-          this, SLOT( slotSaveMolecule() ) );
+  connect(this, SIGNAL(user1Clicked()), 
+          this, SLOT(slotLoadMolecule()) );
+  connect(this, SIGNAL(user2Clicked()), 
+          this, SLOT(slotDownloadNewStuff()) );
+  connect(this, SIGNAL(user3Clicked()),
+          this, SLOT(slotSaveMolecule()) );
 
 	// Check that we have managed to load up some tools and engines
   int nEngines = ui.glWidget->engines().size() - 1;
@@ -282,7 +282,7 @@ void MoleculeDialog::elementCombo()
   m_elementsIndex.append(17);
   ui.elementCombo->addItem(ElementTranslator::name(35) + " (35)");
   m_elementsIndex.append(35);
-  ui.elementCombo->addItem(tr("Other..."));
+  ui.elementCombo->addItem(i18nc("Other element", "Other..."));
   m_elementsIndex.append(0);
   ui.elementCombo->setCurrentIndex(2);
 }

@@ -48,7 +48,7 @@ public:
     /**
      * a peak is one line in the spectrum of an element
      */
-    class peak
+    class SCIENCE_EXPORT peak
     {
     public:
         peak() {

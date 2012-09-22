@@ -1,186 +1,106 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>RSWidget</class>
- <widget class="QWidget" name="RSWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="RSWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>597</width>
-    <height>429</height>
+    <height>430</height>
    </rect>
   </property>
-  <layout class="QGridLayout" >
-   <property name="leftMargin" >
+  <layout class="QGridLayout">
+   <property name="margin">
     <number>9</number>
    </property>
-   <property name="topMargin" >
-    <number>9</number>
-   </property>
-   <property name="rightMargin" >
-    <number>9</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>9</number>
-   </property>
-   <property name="horizontalSpacing" >
+   <property name="spacing">
     <number>6</number>
    </property>
-   <property name="verticalSpacing" >
-    <number>6</number>
-   </property>
-   <item row="2" column="0" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <property name="leftMargin" >
+   <item row="6" column="0">
+    <layout class="QGridLayout" name="gridLayout5">
+     <property name="margin">
       <number>0</number>
      </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
-      <number>0</number>
-     </property>
-     <item>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
-        <number>6</number>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>S-Phrases: </string>
        </property>
-       <property name="leftMargin" >
-        <number>0</number>
+       <property name="buddy">
+        <cstring>s_le</cstring>
        </property>
-       <property name="topMargin" >
-        <number>0</number>
-       </property>
-       <property name="rightMargin" >
-        <number>0</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>0</number>
-       </property>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label" >
-           <property name="text" >
-            <string>R-Phrases:</string>
-           </property>
-           <property name="buddy" >
-            <cstring>r_le</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="KLineEdit" name="r_le" >
-           <property name="toolTip" >
-            <string>Enter the R-Phrases you want to read. Only "-" is allowed as a delimiter. The combinations with "/" are not yet implemented.</string>
-           </property>
-           <property name="statusTip" >
-            <string/>
-           </property>
-           <property name="whatsThis" >
-            <string>Enter the R-Phrases you want to read</string>
-           </property>
-           <property name="text" >
-            <string>1-2-3-4-5-6-7-8-9</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_2" >
-           <property name="text" >
-            <string>S-Phrases: </string>
-           </property>
-           <property name="buddy" >
-            <cstring>s_le</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="KLineEdit" name="s_le" >
-           <property name="toolTip" >
-            <string>Enter the S-Phrases you want to read. Only "-" is allowed as a delimiter. The combinations with "/" are not yet implemented.</string>
-           </property>
-           <property name="whatsThis" >
-            <string>Enter the S-Phrases you want to read</string>
-           </property>
-           <property name="text" >
-            <string>1-2-3-4-5-6-7-8-9</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+      </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="filterButton" >
-       <property name="toolTip" >
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>R-Phrases:</string>
+       </property>
+       <property name="buddy">
+        <cstring>r_le</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="KLineEdit" name="r_le">
+       <property name="toolTip">
+        <string>Enter the R-Phrases you want to read. Only &quot;-&quot; is allowed as a delimiter. The combinations with &quot;/&quot; are not yet implemented.</string>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="whatsThis">
+        <string>Enter the R-Phrases you want to read</string>
+       </property>
+       <property name="text">
+        <string>1-2-3-4-5-6-7-8-9</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="KLineEdit" name="s_le">
+       <property name="toolTip">
+        <string>Enter the S-Phrases you want to read. Only &quot;-&quot; is allowed as a delimiter. The combinations with &quot;/&quot; are not yet implemented.</string>
+       </property>
+       <property name="whatsThis">
+        <string>Enter the S-Phrases you want to read</string>
+       </property>
+       <property name="text">
+        <string>1-2-3-4-5-6-7-8-9</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="filterButton">
+       <property name="toolTip">
         <string>Click here to search for the phrases you entered on the left</string>
        </property>
-       <property name="whatsThis" >
+       <property name="whatsThis">
         <string>Click here to search for the phrases you entered on the left</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>&amp;Filter</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="0" >
-    <widget class="KTextBrowser" name="text" >
-     <property name="minimumSize" >
+   <item row="1" column="0">
+    <widget class="KTextBrowser" name="text">
+     <property name="minimumSize">
       <size>
        <width>500</width>
        <height>300</height>
       </size>
      </property>
-     <property name="frameShape" >
+     <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
-     <property name="frameShadow" >
+     <property name="frameShadow">
       <enum>QFrame::Plain</enum>
      </property>
-     <property name="lineWidth" >
+     <property name="lineWidth">
       <number>1</number>
      </property>
     </widget>

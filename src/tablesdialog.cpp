@@ -263,7 +263,7 @@ MyTableWidget::MyTableWidget( QWidget* parent )
 void MyTableWidget::contextMenuEvent( QContextMenuEvent* event )
 {
 	QMenu* menu = new QMenu( (QWidget*) sender() );
-	menu->addAction( i18n( "&Copy" ), this, SLOT( copyToClipboard()  ), QKeySequence( Qt::Key_C | Qt::CTRL ) );
+	menu->addAction( i18n( "&Copy" ), this, SLOT(copyToClipboard()), QKeySequence( Qt::Key_C | Qt::CTRL ) );
 	menu->exec( event->globalPos() );
 }
 

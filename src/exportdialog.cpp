@@ -21,33 +21,34 @@
 
 
 static const char HTML_HEADER[] =
-"<html>"
-"\n<head>"
-"\n<style type=\"text/css\">"
-"\nbody {"
-"\n   font-family:arial;"
-"\n}"
-"\n.property {"
-"\n   font-style:italic;"
-"\n}"
-"\nth {"
-"\n   font-weight:bold;"
-"\n   text-align:left;"
-"\n   background-color:#F0F0F0;"
-"\n}"
-"\n</style>"
-"\n</head>"
-"\n<body>";
+    "<html>"
+    "\n<head>"
+    "\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
+    "\n<style type=\"text/css\">"
+    "\nbody {"
+    "\n   font-family:arial;"
+    "\n}"
+    "\n.property {"
+    "\n   font-style:italic;"
+    "\n}"
+    "\nth {"
+    "\n   font-weight:bold;"
+    "\n   text-align:left;"
+    "\n   background-color:#F0F0F0;"
+    "\n}"
+    "\n</style>"
+    "\n</head>"
+    "\n<body>";
 
 static const char HTML_FOOTER[] =
-"\n</body>"
-"\n</html>";
+    "\n</body>"
+    "\n</html>";
 
 static const char XML_HEADER[] =
-"<?xml version=\"1.0\"?>\n";
+    "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 
-ElementListEntry::ElementListEntry( Element * element)
-    : QListWidgetItem()
+ElementListEntry::ElementListEntry( Element * element )
+        : QListWidgetItem()
 {
     m_atomicNum = element->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
     m_name      = element->dataAsString(ChemicalDataObject::name);
@@ -61,7 +62,7 @@ ElementListEntry::~ElementListEntry()
 }
 
 PropertyListEntry::PropertyListEntry( const QString & name, ChemicalDataObject::BlueObelisk type )
-    : QListWidgetItem()
+        : QListWidgetItem()
 {
     setText( name );
     m_type = type;
@@ -72,11 +73,11 @@ PropertyListEntry::~PropertyListEntry()
 }
 
 ExportDialog::ExportDialog( QWidget * parent )
-    : KDialog( parent ),m_outputStream(0)
+        : KDialog( parent ),m_outputStream(0)
 {
     setButtons( Help | User1 | Cancel );
     ui.setupUi( mainWidget() );
-    setButtonGuiItem( User1, KGuiItem( i18n( "Ok" ) ) );
+    setButtonGuiItem( User1, KGuiItem( i18n( "OK" ) ) );
 
     ui.targetFile->setMode( KFile::File | KFile::Directory | KFile::LocalOnly );
 
@@ -88,8 +89,7 @@ ExportDialog::ExportDialog( QWidget * parent )
     ui.formatList->addItem( ".xml (raw element data)", "xml" );
     ui.formatList->addItem( ".csv (comma-separated data)", "csv" );
 
-    connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotOkClicked() ) );
-    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelpClicked() ) );
+    connect( this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()) );
     setHelp(QString(),"kalzium");
 }
 
@@ -101,8 +101,8 @@ ExportDialog::~ExportDialog()
 void ExportDialog::populateElementList()
 {
     // Add descriptive headers
-    QListWidgetItem * header1 = new QListWidgetItem( i18n( "Elements" ) );
-    QListWidgetItem * header2 = new QListWidgetItem( i18n( "Properties" ) );
+    QListWidgetItem *header1 = new QListWidgetItem( i18n( "Elements" ) );
+    QListWidgetItem *header2 = new QListWidgetItem( i18n( "Properties" ) );
     header1->setFlags( Qt::ItemIsEnabled );
     header2->setFlags( Qt::ItemIsEnabled );
     QFont font;
@@ -113,9 +113,8 @@ void ExportDialog::populateElementList()
     ui.propertyListWidget->addItem( header2 );
 
     // Add elements
-    foreach( Element * element, KalziumDataObject::instance()->ElementList )
-    {
-        ElementListEntry * entry = new ElementListEntry( element );
+    foreach( Element *element, KalziumDataObject::instance()->ElementList ) {
+        ElementListEntry *entry = new ElementListEntry( element );
         ui.elementListWidget->addItem( entry );
     }
 
@@ -138,30 +137,31 @@ void ExportDialog::slotOkClicked()
 {
     QString format = ui.formatList->itemData( ui.formatList->currentIndex(), Qt::UserRole ).toString();
     QString filename = ui.targetFile->url().toLocalFile();
-    if( !filename.endsWith( format ) )
+    if ( !filename.endsWith( format ) ) {
         filename += '.' + format;
+    }
     QFile outputFile( filename );
-    if( outputFile.exists() )
-    {
-        if( KMessageBox::questionYesNo( this, i18n( "File already exists. Do you want to overwrite it?" ) ) == KMessageBox::No )
-        {
+    if ( outputFile.exists() ) {
+        if ( KMessageBox::questionYesNo( this, i18n( "File already exists. Do you want to overwrite it?" ) ) == KMessageBox::No ) {
             return;
         }
     }
-    if( !outputFile.open( QIODevice::WriteOnly ) )
-    {
+    if ( !outputFile.open( QIODevice::WriteOnly ) ) {
         KMessageBox::error( this, i18n( "Could not open file for writing." ) );
         return;
     }
 
     delete m_outputStream;
     m_outputStream = new QTextStream( &outputFile );
-    if(format == "html")
-       exportToHtml();
-    else if(format == "xml")
+    if ( format == "html" ) {
+        exportToHtml();
+    }
+    else if ( format == "xml" ) {
         exportToXml();
-    else
-       exportToCsv();
+    }
+    else {
+        exportToCsv();
+    }
 
     // close the dialog
     done(0);
@@ -170,20 +170,20 @@ void ExportDialog::slotOkClicked()
 void ExportDialog::exportToHtml()
 {
     *m_outputStream << HTML_HEADER << "<table>\n";
-    foreach( QListWidgetItem * element, ui.elementListWidget->selectedItems() )
+    foreach( QListWidgetItem *element, ui.elementListWidget->selectedItems() )
     {
         *m_outputStream << "<tr>\n<th colspan=\"2\">"
-                        << ( (ElementListEntry* )element )->m_element->dataAsString( ChemicalDataObject::name )
-                        << "</th>\n</tr>\n";
-        foreach( QListWidgetItem * property, ui.propertyListWidget->selectedItems() )
+        << ( (ElementListEntry* )element )->m_element->dataAsString( ChemicalDataObject::name )
+        << "</th>\n</tr>\n";
+        foreach( QListWidgetItem *property, ui.propertyListWidget->selectedItems() )
         {
             *m_outputStream << "<tr>\n<td class=\"property\">"
-                            << ( ( PropertyListEntry* )property )->text()
-                            << "</td>\n<td class=\"value\">"
-                            << KalziumUtils::prettyUnit(
-                                         ( ( ElementListEntry* )element )->m_element,
-                                         ( ( PropertyListEntry* )property )->m_type )
-                            << "</td>\n</tr>\n";
+            << ( ( PropertyListEntry* )property )->text()
+            << "</td>\n<td class=\"value\">"
+            << KalziumUtils::prettyUnit(
+                ( ( ElementListEntry* )element )->m_element,
+                ( ( PropertyListEntry* )property )->m_type )
+            << "</td>\n</tr>\n";
         }
     }
     *m_outputStream << "</table>\n" << HTML_FOOTER;
@@ -192,20 +192,20 @@ void ExportDialog::exportToHtml()
 void ExportDialog::exportToXml()
 {
     *m_outputStream << XML_HEADER << "<elements>\n";
-    foreach( QListWidgetItem * element, ui.elementListWidget->selectedItems() )
+    foreach( QListWidgetItem *element, ui.elementListWidget->selectedItems() )
     {
         *m_outputStream << "  <element name=\""
-                        << ( (ElementListEntry* )element )->m_element->dataAsString( ChemicalDataObject::name )
-                        << "\">\n";
-        foreach( QListWidgetItem * property, ui.propertyListWidget->selectedItems() )
+        << ( (ElementListEntry* )element )->m_element->dataAsString( ChemicalDataObject::name )
+        << "\">\n";
+        foreach( QListWidgetItem *property, ui.propertyListWidget->selectedItems() )
         {
             *m_outputStream << "    <property name=\""
-                            << ( ( PropertyListEntry* )property )->text()
-                            << "\">"
-                            << KalziumUtils::prettyUnit(
-                                         ( ( ElementListEntry* )element )->m_element,
-                                         ( ( PropertyListEntry* )property )->m_type )
-                            << "</property>\n";
+            << ( ( PropertyListEntry* )property )->text()
+            << "\">"
+            << KalziumUtils::prettyUnit(
+                ( ( ElementListEntry* )element )->m_element,
+                ( ( PropertyListEntry* )property )->m_type )
+            << "</property>\n";
         }
         *m_outputStream << "  </element>\n";
     }
@@ -215,30 +215,27 @@ void ExportDialog::exportToXml()
 void ExportDialog::exportToCsv()
 {
     *m_outputStream << "Name";
-    foreach( QListWidgetItem * property, ui.propertyListWidget->selectedItems() )
+    foreach( QListWidgetItem *property, ui.propertyListWidget->selectedItems() )
     {
-         *m_outputStream << ", \""
-                         << ( ( PropertyListEntry* )property )->text()
-                         << "\"";
+        *m_outputStream << ", \""
+        << ( ( PropertyListEntry* )property )->text()
+        << "\"";
     }
     *m_outputStream << "\n";
-    foreach( QListWidgetItem * element, ui.elementListWidget->selectedItems() )
+    foreach( QListWidgetItem *element, ui.elementListWidget->selectedItems() )
     {
         *m_outputStream << "\""
-                        << ( (ElementListEntry* )element )->m_element->dataAsString( ChemicalDataObject::name )
-                        << "\"";
-        foreach( QListWidgetItem * property, ui.propertyListWidget->selectedItems() )
+        << ( (ElementListEntry* )element )->m_element->dataAsString( ChemicalDataObject::name )
+        << "\"";
+        foreach( QListWidgetItem *property, ui.propertyListWidget->selectedItems() )
         {
             *m_outputStream << ", \""
-                            << KalziumUtils::prettyUnit(
-                                         ( ( ElementListEntry* )element )->m_element,
-                                         ( ( PropertyListEntry* )property )->m_type )
-                            << "\"";
+            << KalziumUtils::prettyUnit(
+                ( ( ElementListEntry* )element )->m_element,
+                ( ( PropertyListEntry* )property )->m_type )
+            << "\"";
         }
         *m_outputStream << "\n";
     }
 }
 
-void ExportDialog::slotHelpClicked()
-{
-}

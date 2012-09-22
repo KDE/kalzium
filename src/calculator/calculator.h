@@ -26,6 +26,7 @@
 #include "nuclearCalculator.h"
 #include "gasCalculator.h"
 #include "concCalculator.h"
+#include "titrationCalculator.h"
 #include "molcalcwidget.h"
 #include <kactioncollection.h>
 #include <config-kalzium.h>
@@ -59,6 +60,7 @@ private:
     nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
     gasCalculator *     m_gasCalculator;        // The gas calculator
     concCalculator *    m_concCalculator;       // The concentration calculator
+    titrationCalculator *    m_titraCalculator;       // The concentration calculator
     MolcalcWidget *     m_moleCalculator;       // The molecular mass calculator
 #ifdef HAVE_FACILE
     EQChemDialog *      m_equationBalancer;     // The equation balancer

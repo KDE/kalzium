@@ -65,9 +65,9 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
     m_actionCollection = new KActionCollection(this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
-    connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotUser1() ) );
-    connect( this, SIGNAL( user2Clicked() ), this, SLOT( slotUser2() ) );
-    connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
+    connect( this, SIGNAL(user1Clicked()), this, SLOT(slotUser1()) );
+    connect( this, SIGNAL(user2Clicked()), this, SLOT(slotUser2()) );
+    connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
 
     // setting the element and updating the whole dialog
     setElement( el );
@@ -267,7 +267,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
 
 	// Oxidation numbers
         html.append( "<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>" );
-	html.append( createWikiLink( i18n( "Oxidation numbers") ) );
+	html.append( createWikiLink( i18n( "Oxidation states") ) );
 	html.append( "</td><td>" );
 	html.append( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::oxidation ) ) ;
         html.append( "</td></tr>" );
@@ -280,7 +280,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         //Wikipedia.org
 //         html.append ( "<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>" );
         html.append ( "<tr><td>" );
-        html.append ( createWikiLink(m_element->dataAsString( ChemicalDataObject::name ), "Wikipedia " + language) );
+        html.append ( createWikiLink(m_element->dataAsString( ChemicalDataObject::name ), i18nc( "Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", language ) ) );
         html.append ( "</td></tr>" );
 
         //http://education.jlab.org/itselemental/ele001.html

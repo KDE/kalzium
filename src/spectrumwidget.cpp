@@ -206,7 +206,7 @@ QColor SpectrumWidget::wavelengthToRGB( double wavelength  )
                   Adjust( blue, factor ) );
 }
 
-int SpectrumWidget::Adjust( double color, double factor )
+int SpectrumWidget::Adjust( double color, double /*factor*/ )
 {
     if ( color == 0.0 )
         return 0;

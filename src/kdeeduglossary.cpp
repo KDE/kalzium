@@ -356,9 +356,9 @@ GlossaryDialog::GlossaryDialog( QWidget *parent )
  
 	d->m_htmlpart = new KHTMLPart( vs );
 
-    connect( d->m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ),
-             this, SLOT( displayItem( const KUrl &, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
-	connect( d->m_glosstree, SIGNAL( itemActivated( QTreeWidgetItem * , int ) ), this, SLOT( itemActivated( QTreeWidgetItem * , int ) ) );
+    connect( d->m_htmlpart->browserExtension(), SIGNAL(openUrlRequestDelayed(KUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)),
+             this, SLOT(displayItem(KUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)) );
+	connect( d->m_glosstree, SIGNAL(itemActivated(QTreeWidgetItem*,int)), this, SLOT(itemActivated(QTreeWidgetItem*,int)) );
 
 	resize( 600, 400 );
 }

@@ -543,8 +543,9 @@ void nuclearCalculator::setMode(int mode)
 	calculate();
 }
 
-void nuclearCalculator::showSlider(bool show)
+void nuclearCalculator::showSlider(bool /*show*/)
 {
+// TODO
 /*	if (show) {
 		m_sliderLabel->hide();
 		m_slider->hide();
@@ -646,8 +647,8 @@ void nuclearCalculator::createConfigurationInterface(KConfigDialog *parent)
 
     ui.massOnly->setChecked(m_massOnly);
     
-    connect ( parent, SIGNAL ( applyClicked() ), this, SLOT ( configAccepted() ) );
-    connect ( parent, SIGNAL ( okClicked() ), this, SLOT ( configAccepted() ) );
+    connect ( parent, SIGNAL (applyClicked()), this, SLOT (configAccepted()) );
+    connect ( parent, SIGNAL (okClicked()), this, SLOT (configAccepted()) );
     connect (ui.massOnly, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 

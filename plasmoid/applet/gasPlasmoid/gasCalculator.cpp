@@ -93,7 +93,7 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 
         //setup the grid layout
         QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(m_widget);
-        pGridLayout->addItem(pHeader, 0, 0, 1, 4);
+        pGridLayout->addItem(pHeader, 0, 0, 1, 3);
 
         // Set up the user interface
         // Calculation mode

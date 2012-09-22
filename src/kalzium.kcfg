@@ -73,7 +73,7 @@
 			<default>false</default>
 		</entry>
 		<entry name="LogarithmicDiscoverydateGradient" type="Bool">
-			<label>whether to use a logarithmic gradient for the Kalzium Discovery Date Gradient feature</label>
+			<label>Whether to use a logarithmic gradient for the Kalzium Discovery Date Gradient feature</label>
 			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the Kalzium Discovery Date Gradient feature</whatsthis>
 			<default>false</default>
 		</entry>

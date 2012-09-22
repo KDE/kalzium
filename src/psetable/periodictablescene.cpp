@@ -37,7 +37,8 @@
 #include <QPainter>
 
 PeriodicTableScene::PeriodicTableScene(QObject *parent)
-        : QGraphicsScene(parent)
+        : QGraphicsScene(parent),
+          m_prevHoverElement(-1)
 {
     QPalette widgetPalette = palette();
     setBackgroundBrush(QBrush(widgetPalette.window()));
@@ -45,7 +46,7 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
     setItemIndexMethod(QGraphicsScene::NoIndex);
 
     m_hoverTimer.setSingleShot( true );
-    connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
+    connect( &m_hoverTimer, SIGNAL(timeout()), this, SLOT(slotMouseover()) );
 }
 
 PeriodicTableScene::~PeriodicTableScene()

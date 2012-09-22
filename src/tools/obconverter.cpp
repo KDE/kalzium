@@ -80,19 +80,19 @@ void KOpenBabel::setupWindow()
 
     // Create connection
     connect(ui.addFileButton,
-            SIGNAL( clicked() ), SLOT( slotAddFile() ));
+            SIGNAL(clicked()), SLOT(slotAddFile()));
  
     connect(ui.deleteFileButton, 
-            SIGNAL( clicked() ), SLOT( slotDeleteFile() ));
+            SIGNAL(clicked()), SLOT(slotDeleteFile()));
  
     connect(ui.selectAllFileButton, 
-            SIGNAL( clicked() ), SLOT( slotSelectAll() ));
+            SIGNAL(clicked()), SLOT(slotSelectAll()));
  
     connect(this,
-            SIGNAL( user1Clicked() ), SLOT( slotConvert() ));
+            SIGNAL(user1Clicked()), SLOT(slotConvert()));
     
     connect(ui.FileListView,
-            SIGNAL( itemSelectionChanged() ), SLOT( slotGuessInput() ));
+            SIGNAL(itemSelectionChanged()), SLOT(slotGuessInput()));
 }
 
 void KOpenBabel::slotAddFile()

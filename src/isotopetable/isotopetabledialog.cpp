@@ -42,12 +42,12 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
     ui.setupUi( mainWidget() );
     ui.guide->setGuidedView( ui.gv );
 
-    connect( ui.gv->scene(), SIGNAL( itemSelected(IsotopeItem*) ),
-             this, SLOT( updateDockWidget( IsotopeItem*) )  );
-    connect( ui.gv, SIGNAL( zoomLevelChanged( double ) ),
-             this, SLOT( slotZoomLevelChanged( double ) ) );
-    connect( ui.Slider,   SIGNAL( valueChanged( int ) ),
-             this, SLOT( zoom ( int ) ));
+    connect( ui.gv->scene(), SIGNAL(itemSelected(IsotopeItem*)),
+             this, SLOT(updateDockWidget(IsotopeItem*))  );
+    connect( ui.gv, SIGNAL(zoomLevelChanged(double)),
+             this, SLOT(slotZoomLevelChanged(double)) );
+    connect( ui.Slider,   SIGNAL(valueChanged(int)),
+             this, SLOT(zoom(int)));
 
     //Here comes the legend part
     QList< QPair<QString, QColor> > items;
