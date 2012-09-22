@@ -208,7 +208,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Full range</string>
+        <string>All elements</string>
        </property>
       </widget>
      </item>
