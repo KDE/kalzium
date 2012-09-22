@@ -62,23 +62,23 @@ public:
     virtual ~Kalzium();
 
 private:
-    DetailedInfoDlg   *m_infoDialog = 0;
+    DetailedInfoDlg   *m_infoDialog;
 
-    LegendWidget *m_legendWidget = 0;
+    LegendWidget *m_legendWidget;
 
-    TableInfoWidget *m_TableInfoWidget = 0;
+    TableInfoWidget *m_TableInfoWidget;
 
-    PeriodicTableView *m_periodicTable = 0;
+    PeriodicTableView *m_periodicTable;
 
-    IsotopeTableDialog *m_isotopeDialog = 0;
+    IsotopeTableDialog *m_isotopeDialog;
 
-    ElementDataViewer *m_elementDataPlotter = 0;
+    ElementDataViewer *m_elementDataPlotter;
 
-    TablesDialog *m_tablesDialog = 0;
+    TablesDialog *m_tablesDialog;
 
-    RSDialog *m_rsDialog = 0;
+    RSDialog *m_rsDialog;
 
-    calculator *m_calculator = 0;
+    calculator *m_calculator;
 
     /**
      *initialize actions
@@ -130,11 +130,11 @@ private:
 
     QToolBox *m_toolbox;
 
-    int m_toolboxCurrent = 0;
+    int m_toolboxCurrent;
 
-    GlossaryDialog *m_glossarydlg = 0;
+    GlossaryDialog *m_glossarydlg;
 
-    ExportDialog *m_exportDialog = 0;
+    ExportDialog *m_exportDialog;
 
     UnitSettingsDialog *m_unitsDialog;
 

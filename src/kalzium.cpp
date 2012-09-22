@@ -78,6 +78,15 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     // adding the libkdeedu catalog
     KGlobal::locale()->insertCatalog( "libkdeedu" );
 
+    // Init pointers with null
+    m_glossarydlg = 0;
+    m_infoDialog = 0;
+    m_isotopeDialog = 0;
+    m_elementDataPlotter = 0;
+    m_tablesDialog = 0;
+    m_rsDialog = 0;
+    m_calculator = 0;
+
     // reading the elements from file
     KalziumDataObject::instance();
 
