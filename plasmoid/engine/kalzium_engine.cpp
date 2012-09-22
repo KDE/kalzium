@@ -73,6 +73,7 @@ QStringList KalziumEngine::sources() const
     // BlueObelisk:Element:# is created dynamically, so we don't advertise it here.
     QStringList list;
     list << QLatin1String("BlueObelisk:RandomElement");
+    list << QLatin1String("BlueObelisk:Element:<n>:");
     list << QLatin1String("Fact");
     return list;
 }
@@ -82,7 +83,7 @@ bool KalziumEngine::sourceRequestEvent(const QString &source)
     currentSource = &source;
 
     // return a randomly chosen element
-    if (currentSource->operator==("BlueObelisk:")) {
+    if (currentSource->startsWith("BlueObelisk:")) {
         setElementData();
         return true;
     }
