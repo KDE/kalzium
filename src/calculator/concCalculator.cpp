@@ -21,7 +21,11 @@
 
 #include <kdebug.h>
 #include <ktoolinvocation.h>
+#include "kalziumutils.h"
+#include <kunitconversion/converter.h>
 #include "prefs.h"
+
+using namespace KUnitConversion;
 
 concCalculator::concCalculator(QWidget * parent)
         : QFrame(parent)
@@ -119,16 +123,16 @@ void concCalculator::init()
     ui.conc_unit	->setCurrentIndex(0);
 
     // Initialise values
-    m_amtSolute = Value(117.0, "grams");
-    m_amtSolvent = Value(1.0, "liter");
+    m_amtSolute = Value(117.0, KUnitConversion::Gram);
+    m_amtSolvent = Value(1.0, KUnitConversion::Liter);
     m_molarMass = 58.5;
     m_eqtMass = 58.5;
     m_molesSolute = 2.0;
     m_molesSolvent = 55.5;
     m_molarMassSolvent = 18.0;
-    m_densitySolute = Value(2.7, "grams per milliliter");
+    m_densitySolute = Value(2.7, KUnitConversion::GramPerMilliliter);
     m_concentration = 2.0;
-    m_densitySolvent = Value(1000.0, "grams per liter");
+    m_densitySolvent = Value(1000.0, KUnitConversion::GramPerLiter);
     // Initialisation of values done
     
     setMode(5);
@@ -233,7 +237,7 @@ void concCalculator::calculateAmtSolute()
             break;
         }
         // update volume of solute
-        m_amtSolute = Value(volSolute, "liters");
+        m_amtSolute = Value(volSolute, KUnitConversion::Liter);
         m_amtSolute = m_amtSolute.convertTo(ui.amtSlt_unit->currentText());
         ui.amtSolute -> setValue(m_amtSolute.number());
         break;
@@ -450,7 +454,7 @@ void concCalculator::calculateAmtSolvent()
         case 3: // volume already known
             break;
         }
-        m_amtSolvent = Value(volSolvent, "liters");
+        m_amtSolvent = Value(volSolvent, KUnitConversion::Liter);
         m_amtSolvent = m_amtSolvent.convertTo(ui.amtSlvt_unit->currentText());
         ui.amtSolvent->setValue(m_amtSolvent.number());
         break;
@@ -466,7 +470,7 @@ void concCalculator::calculateAmtSolvent()
             massSolvent = volSolvent / densitySolvent();
             break;
         }
-        m_amtSolvent = Value(massSolvent, "grams");
+        m_amtSolvent = Value(massSolvent, KUnitConversion::Gram);
         m_amtSolvent = m_amtSolvent.convertTo(ui.amtSlvt_unit->currentText());
         ui.amtSolvent->setValue(m_amtSolvent.number());
         break;
@@ -538,7 +542,7 @@ double concCalculator::volumeSolvent()
     double volume;
     switch (type) {
     case 0: // If volume is specified, return it in liters
-        volume = m_amtSolvent.convertTo("liter").number();
+        volume = m_amtSolvent.convertTo(KUnitConversion::Liter).number();
         break;
     case 1: // If mass is specified, calculate volume and return it.
         volume = massSolvent() / densitySolvent();
@@ -581,7 +585,7 @@ double concCalculator::massSolvent()
         mass = volumeSolvent() * densitySolvent();
         break;
     case 1:
-        mass = m_amtSolvent.convertTo("gram").number();
+        mass = m_amtSolvent.convertTo(KUnitConversion::Gram).number();
         break;
     case 2:
         mass = m_molesSolvent * m_molarMassSolvent;
@@ -594,7 +598,7 @@ double concCalculator::massSolvent()
 
 double concCalculator::densitySolvent()
 {
-    return (m_densitySolvent.convertTo("grams per liter").number());
+    return (m_densitySolvent.convertTo(KUnitConversion::GramPerLiter).number());
 }
 
 double concCalculator::volumeSolute()
@@ -606,7 +610,7 @@ double concCalculator::volumeSolute()
         volume = massSolute() / densitySolute();
         break;
     case 1:
-        volume = m_amtSolute.convertTo("liter").number();
+        volume = m_amtSolute.convertTo(KUnitConversion::Liter).number();
         break;
     case 2:
         volume = massSolute() / densitySolute();
@@ -674,7 +678,7 @@ double concCalculator::massSolute()
     double mass;
     switch (type) {
     case 0:
-        mass = m_amtSolute.convertTo("gram").number();
+        mass = m_amtSolute.convertTo(KUnitConversion::Gram).number();
         break;
     case 1:
         mass = volumeSolute() * densitySolute();
@@ -690,7 +694,7 @@ double concCalculator::massSolute()
 
 double concCalculator::densitySolute()
 {
-    return (m_densitySolute.convertTo("grams per liter").number());
+    return (m_densitySolute.convertTo(KUnitConversion::GramPerLiter).number());
 }
 
 
@@ -698,40 +702,61 @@ double concCalculator::densitySolute()
 void concCalculator::amtSoluteTypeChanged()
 {
     int type = ui.amtSltType -> currentIndex();
-    if (type == 0) {         // amount of solute specified in terms of mass
-        ui.amtSlt_unit -> show();
-        ui.amtSlt_unit->clear();
-        ui.amtSlt_unit->insertItems(0, QStringList()
-         << i18n("grams")
-         << i18n("tons")
-         << i18n("carats")
-         << i18n("pounds")
-         << i18n("ounces")
-         << i18n("troy ounces")
-        );
-        ui.amtSlt_unit->setCurrentIndex(0);
+    if (type == 0) {
+        // amount of solute specified in terms of mass
+        massUnitCombobox(ui.amtSlt_unit);
+
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
-    } else if (type == 1) { // amount of solute is specified in terms of volume
-        ui.amtSlt_unit -> show();
-		ui.amtSlt_unit->clear();
-        ui.amtSlt_unit->insertItems(0, QStringList()
-         << i18n("liter")
-         << i18n("cubic meters")
-         << i18n("cubic feet")
-         << i18n("cubic inch")
-         << i18n("cubic mile")
-         << i18n("fluid ounce")
-         << i18n("cups")
-         << i18n("gallons")
-         << i18n("pints")
-        );
-        ui.amtSlt_unit->setCurrentIndex(0);
+    } else if (type == 1) { 
+        // amount of solute is specified in terms of volume
+        volumeUnitCombobox(ui.amtSlt_unit);
+
         m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
     } else {                 // amount of solute is specified in terms of moles
         m_molesSolute = ui.amtSolute -> value();
         ui.amtSlt_unit -> hide();
     }
     calculate();
+}
+
+void concCalculator::massUnitCombobox(QComboBox* comboBox)
+{
+    comboBox->show();
+
+    QList<int> units;
+    units
+    << Gram
+    << Milligram
+    << Kilogram
+    << Ton
+    << Carat
+    << Pound
+    << Ounce
+    << TroyOunce;
+    KalziumUtils::populateUnitCombobox( comboBox, units );
+
+    comboBox->setCurrentIndex(0);
+}
+
+void concCalculator::volumeUnitCombobox(QComboBox* comboBox)
+{
+    comboBox->show();
+
+    QList<int> units;
+    units
+    << Liter
+    << Milliliter
+    << CubicMeter
+    << CubicFoot
+    << CubicInch
+    << CubicMile
+    << FluidOunce
+    << Cup
+    << GallonUS
+    << PintImperial;
+    KalziumUtils::populateUnitCombobox( comboBox, units );
+
+    comboBox->setCurrentIndex(0);
 }
 
 void concCalculator::amtSoluteChanged()
@@ -752,32 +777,15 @@ void concCalculator::amtSoluteChanged()
 void concCalculator::amtSolventTypeChanged()
 {
     int type = ui.amtSlvtType -> currentIndex();
-    if (type == 0) {     // amount of solvent specified in terms of volume
-        ui.amtSlvt_unit-> show();
-		ui.amtSlvt_unit->clear();
-        ui.amtSlvt_unit->insertItems(0, QStringList()
-         << i18n("liter")
-         << i18n("cubic meters")
-         << i18n("cubic feet")
-         << i18n("cubic inch")
-         << i18n("cubic mile")
-         << i18n("fluid ounce")
-         << i18n("cups")
-         << i18n("gallons")
-         << i18n("pints")
-        );
+    if (type == 0) {
+        // amount of solvent specified in terms of volume
+        volumeUnitCombobox(ui.amtSlvt_unit);
+
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
-    } else if (type == 1) { // amount of solvent is specified in terms of mass
-        ui.amtSlvt_unit -> show();
-        ui.amtSlvt_unit->clear();
-        ui.amtSlvt_unit->insertItems(0, QStringList()
-         << i18n("grams")
-         << i18n("tons")
-         << i18n("carats")
-         << i18n("pounds")
-         << i18n("ounces")
-         << i18n("troy ounces")
-         );
+    } else if (type == 1) {
+        // amount of solvent is specified in terms of mass
+        massUnitCombobox(ui.amtSlvt_unit);
+
         m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
     } else {
         ui.amtSlvt_unit -> hide();
@@ -785,6 +793,7 @@ void concCalculator::amtSolventTypeChanged()
     }
     calculate();
 }
+
 
 // Occurs when the amount of solute is changed
 void concCalculator::amtSolventChanged()
@@ -895,7 +904,7 @@ void concCalculator::calculate()
 		    if (ui.conc_unit -> currentIndex() > 2 && ui.concentration -> value() > 100)
 		    {
 	        	error ( PERCENTAGE );
-				return;	        	
+				return;
 			}
 			calculateAmtSolute();
 			break;

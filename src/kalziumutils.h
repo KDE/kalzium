@@ -21,6 +21,7 @@ class QPainter;
 class Element;
 
 #include <chemicaldataobject.h>
+#include <QComboBox>
 
 class KalziumUtils
 {
@@ -66,6 +67,14 @@ public:
      * @return the formatted string
      */
     static QString prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind );
+
+    /**
+     * Populates a a combobox wiht the names of the units. @see KUnitConversion.
+     * @param combobox the pointer to the combobox
+     * @param unitList Unit list with enums of KUnitConversion
+     */
+    static void populateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList);
+
 };
 
 #endif // KALZIUMUTILS_H

@@ -16,15 +16,18 @@
 #include <avogadro/elementtranslator.h>
 #include <avogadro/periodictableview.h>
 
+#include <QFileInfo>
 #include <QGLFormat>
 #include <QUndoStack>
 #include <QSettings>
 #include <kdebug.h>
 #include <kfiledialog.h>
+#include <kjob.h>
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <KLocale>
 #include <knewstuff3/downloaddialog.h>
+#include <kio/job.h>
 
 #include <openbabel2wrapper.h>
 
@@ -174,8 +177,13 @@ void MoleculeDialog::slotLoadMolecule()
           this,
           i18n( "Choose a file to open" ) );
 
-  if( filename.isEmpty() ) return;
+  loadMolecule(filename);
+}
 
+void MoleculeDialog::loadMolecule(const QString &filename)
+{
+  if( filename.isEmpty() ) return;
+  
   kDebug() << "Filename to load: " << filename;
 
   Molecule* molecule = OpenBabel2Wrapper::readMolecule( filename );
@@ -252,10 +260,44 @@ void MoleculeDialog::slotDownloadNewStuff()
     dialog.exec();
 
     // list of changed entries
+    QString destinationDir = KGlobalSettings::documentPath();
+    QDir dir(destinationDir);
+    if (!dir.exists())
+        destinationDir = QDir::homePath();
+    bool anyError = false;
+    bool anySuccess = false;
+    bool moreOneInstalledFile = false;
+    QString exactlyOneFile;
     foreach (const KNS3::Entry& entry, dialog.changedEntries()) {
         // care only about installed ones
         if (entry.status() == KNS3::Entry::Installed) {
             kDebug() << "Changed Entry: " << entry.installedFiles();
+            foreach (const QString &origFile, entry.installedFiles()) {
+                const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
+                KJob *job = KIO::file_move(KUrl::fromPath(origFile), KUrl::fromPath(destFile));
+                const bool success = job->exec();
+                if (success) {
+                    if (exactlyOneFile.isEmpty()) {
+                        exactlyOneFile = destFile;
+                    } else {
+                        moreOneInstalledFile = true;
+                    }
+                    anySuccess = true;
+                } else {
+                    KMessageBox::error(this, i18n("Failed to download molecule %1 to %2.", entry.name(), destFile));
+                    anyError = true;
+                }
+            }
+        }
+    }
+    if (anySuccess) {
+        if (anyError) {
+            KMessageBox::information(this, i18n("The molecules that could be downloaded have been saved to %1.", destinationDir));
+        } else {
+            KMessageBox::information(this, i18n("The molecules have been saved to %1.", destinationDir));
+        }
+        if (!moreOneInstalledFile) {
+            loadMolecule(exactlyOneFile);
         }
     }
 }

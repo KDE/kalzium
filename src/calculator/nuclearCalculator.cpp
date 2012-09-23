@@ -20,6 +20,9 @@
 #include "nuclearCalculator.h"
 #include <math.h>
 #include "prefs.h"
+#include "kalziumutils.h"
+
+
 using namespace KUnitConversion;
 
 nuclearCalculator::nuclearCalculator(QWidget * parent)
@@ -84,7 +87,7 @@ nuclearCalculator::nuclearCalculator(QWidget * parent)
     
     if(Prefs::mass()) {
     	ui.initAmtType->hide();
-    	ui.finalAmtType->hide();    	
+    	ui.finalAmtType->hide();
     }
 }
 
@@ -100,13 +103,13 @@ void nuclearCalculator::init()
     // Add all isotope names of Uranium ( by default )to the isotope comboBox
     QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(92);
     QString isotope;
-    
+
     ui.isotope->clear();
     foreach(Isotope * i , list) {
         isotope.setNum(i -> mass());
         ui.isotope  -> addItem(isotope);
     }
-    
+
 	// initialise the data, initially selected values ( Uranium, 92, 238)
     ui.element    -> setCurrentIndex(91);
     ui.isotope    -> setCurrentIndex(ISOTOPE_NUM);
@@ -114,32 +117,72 @@ void nuclearCalculator::init()
     ui.initAmt    -> setValue(6.0);
     ui.finalAmt   -> setValue(3.0);
     ui.time		  -> setValue(list.at(ISOTOPE_NUM) -> halflife());
-    
-    ui.halfLife_unit	->setCurrentIndex(0);
-    ui.initAmtType		->setCurrentIndex(0);
-    ui.finalAmtType		->setCurrentIndex(0);
-    ui.initAmt_unit		->setCurrentIndex(0);
-    ui.finalAmt_unit	->setCurrentIndex(0);
-    ui.time_unit		->setCurrentIndex(0);
-    
+
+    timeUnitCombobox(ui.halfLife_unit);
+
+    ui.initAmtType->setCurrentIndex(0);
+
+    ui.finalAmtType->setCurrentIndex(0);
+
+    massUnitCombobox(ui.initAmt_unit);
+
+    massUnitCombobox(ui.finalAmt_unit);
+
+    timeUnitCombobox(ui.time_unit);
+
     QString tempStr;
     tempStr.setNum(list.at(ISOTOPE_NUM) -> mass());
     ui.mass -> setText(tempStr);
 
     // Setup of the UI done
     // Initialise values
-    m_initAmount  = Value(6.0, "g") ;
-    m_finalAmount = Value(3.0, "g");
+    m_initAmount  = Value(6.0, KUnitConversion::Gram);
+    m_finalAmount = Value(3.0, KUnitConversion::Gram);
     m_mass = list.at(ISOTOPE_NUM) -> mass();
-    m_time = Value((list.at(ISOTOPE_NUM) -> halflife()), "years");
-    m_halfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), "years");
+    m_time = Value((list.at(ISOTOPE_NUM) -> halflife()), KUnitConversion::Year);
+    m_halfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), KUnitConversion::Year);
 
     m_element = * KalziumDataObject::instance() -> element(92);
     m_isotope = * list.at(ISOTOPE_NUM);
 
-	setMode(2);
-    // Initialisation of values done
+    setMode(2);
 }
+
+void nuclearCalculator::massUnitCombobox(QComboBox* comboBox)
+{
+    QList<int> units;
+    units
+    << Gram
+    << Milligram
+    << Kilogram
+    << Ton
+    << Carat
+    << Pound
+    << Ounce
+    << TroyOunce;
+    KalziumUtils::populateUnitCombobox( comboBox, units );
+
+    comboBox->setCurrentIndex(0);
+}
+
+
+void nuclearCalculator::timeUnitCombobox(QComboBox* comboBox)
+{
+    QList<int> units;
+    units
+    << KUnitConversion::Year
+    << KUnitConversion::Week
+    << KUnitConversion::Day
+    << KUnitConversion::Hour
+    << KUnitConversion::Minute
+    << KUnitConversion::Second;
+
+    KalziumUtils::populateUnitCombobox( comboBox, units );
+
+    comboBox->setCurrentIndex(0);
+}
+
+
 // This function is executed when the element is changed
 void nuclearCalculator::elementChanged(int index)
 {
@@ -175,19 +218,20 @@ void  nuclearCalculator::isotopeChanged(int index)
     double halfLife = list.at(index) -> halflife();
     m_mass = list.at(index) -> mass();
 
-    // A string used for searching the right unit
-    QString halfLifeUnit = list.at(index) -> halflifeUnit();
-    halfLifeUnit = (halfLifeUnit == "y") ? "years" : "seconds";
+    // A string in isotope for searching the right unit
+    int halfLifeUnit = (list.at(index)->halflifeUnit().operator==("y"))
+        ? KUnitConversion::Year : KUnitConversion::Second;
 
-    QString tempStr;                // A temporary string
+    QString tempStr;
     tempStr.setNum(m_mass);
     ui.mass -> setText(tempStr);
     // Update the UI with the halfLife value
     ui.halfLife -> setValue(halfLife);
-    int x = ui.halfLife_unit -> findText(halfLifeUnit);
-    if (x >= 0)
-        ui.halfLife_unit -> setCurrentIndex(x);
-    m_halfLife = Value(halfLife , halfLifeUnit);
+    int x = ui.halfLife_unit->findData(halfLifeUnit);
+    if (x >= 0) {
+        ui.halfLife_unit->setCurrentIndex(x);
+    }
+    m_halfLife = Value(halfLife, halfLifeUnit);
     // Recalculate and update
     calculate();
 }
@@ -196,26 +240,30 @@ void  nuclearCalculator::isotopeChanged(int index)
 void  nuclearCalculator::halfLifeChanged()
 {
     // update the halfLife value
-    m_halfLife = Value(ui.halfLife -> value(), ui.halfLife_unit -> currentText());
+    m_halfLife = Value(ui.halfLife -> value(), getUnitIdFromCombobox(ui.halfLife_unit) );
     // recalculate the required
     calculate();
 }
 
+int nuclearCalculator::getUnitIdFromCombobox(QComboBox* comboBox)
+{
+    return comboBox->itemData( comboBox->currentIndex() ).toInt();
+}
+
 void  nuclearCalculator::initAmtChanged()
 {
-
     // If quantity is specified in terms of mass, quantity <- ( mass , unit)
     if (ui.initAmtType -> currentIndex() == 0) {
     	ui.initAmt_unit->show();
-        m_initAmount = Value(ui.initAmt -> value(), ui.initAmt_unit -> currentText());
-	}        
+        m_initAmount = Value(ui.initAmt -> value(), getUnitIdFromCombobox(ui.initAmt_unit));
+    }
 
     // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, unit )
     else {
     	ui.initAmt_unit->hide();
-        m_initAmount = Value(((ui.initAmt -> value()) * m_mass), \
-                             ui.initAmt_unit -> currentText());
-	}
+        m_initAmount = Value(((ui.initAmt -> value()) * m_mass),
+                             getUnitIdFromCombobox(ui.initAmt_unit));
+    }
 
     calculate();
 }
@@ -225,14 +273,14 @@ void  nuclearCalculator::finalAmtChanged()
     // If quantity is specified in terms of mass, quantity <- ( mass , unit)
     if (ui.finalAmtType -> currentIndex() == 0) {
     	ui.finalAmt_unit ->show();
-        m_finalAmount = Value(ui.finalAmt -> value(), \
-                              ui.finalAmt_unit -> currentText());
+        m_finalAmount = Value(ui.finalAmt -> value(),
+                              getUnitIdFromCombobox(ui.finalAmt_unit));
 	}
     // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, unit )
     else {
     	ui.finalAmt_unit->hide();
-        m_finalAmount = Value(((ui.finalAmt -> value()) * m_mass), \
-                              ui.finalAmt_unit -> currentText());
+        m_finalAmount = Value(((ui.finalAmt -> value()) * m_mass),
+                              getUnitIdFromCombobox(ui.finalAmt_unit));
 	}
 
     calculate();
@@ -250,8 +298,8 @@ void  nuclearCalculator::sliderMoved(int numHlives)
 
 void  nuclearCalculator::timeChanged()
 {
-    m_time = Value(ui.time -> value(), ui.time_unit -> currentText());
-	
+    m_time = Value(ui.time -> value(), getUnitIdFromCombobox(ui.time_unit));
+
     calculate();
 
 }
@@ -312,8 +360,7 @@ void  nuclearCalculator::calculate()
 	        calculateFinalAmount();
         	break;
     	case 2: 	// final amount greater than initial
-    	    if (m_finalAmount.number() > m_initAmount.convertTo\
-	    	    (m_finalAmount.unit()).number())
+    	    if (m_finalAmount.number() > m_initAmount.convertTo(m_finalAmount.unit()).number())
     	    {
         	    error ( FINAL_AMT_GREATER );
         	    return;
@@ -349,7 +396,7 @@ void nuclearCalculator::calculateInitAmount()
     // find out the initial amount
     m_initAmount = Value(m_initAmount.number() * pow(2.0 , ratio), m_initAmount.unit());
     // Convert into the required units
-    m_initAmount = m_initAmount.convertTo( ui.initAmt_unit->currentText());
+    m_initAmount = m_initAmount.convertTo( getUnitIdFromCombobox(ui.initAmt_unit));
     ui.initAmt -> setValue(m_initAmount.number());
 }
 
@@ -367,7 +414,7 @@ void nuclearCalculator::calculateFinalAmount()
     // Calculate the final amount
     m_finalAmount = Value(m_finalAmount.number() / pow(2.0, ratio), m_initAmount.unit());
     // Convert into the required units
-    m_finalAmount = m_finalAmount.convertTo( ui.finalAmt_unit->currentText());
+    m_finalAmount = m_finalAmount.convertTo( getUnitIdFromCombobox(ui.finalAmt_unit));
     ui.finalAmt -> setValue(m_finalAmount.number());
 }
 
@@ -375,7 +422,7 @@ void nuclearCalculator::calculateTime()
 {
     // If initial and final masses are the same ( both units and value )
     // the time is also 0
-    if (m_initAmount.number() == m_finalAmount.number() && \
+    if (m_initAmount.number() == m_finalAmount.number() &&
             m_initAmount.unit() == m_finalAmount.unit()) {
         m_time = Value(0.0, m_time.unit());
         ui.time -> setValue(0.0);
@@ -383,15 +430,14 @@ void nuclearCalculator::calculateTime()
     }
 
     // calculate the ratio of final to initial masses
-    double ratio = m_initAmount.convertTo(m_finalAmount.unit()).number()
-    						 / m_finalAmount.number();
-                    
+    double ratio = m_initAmount.convertTo(m_finalAmount.unit()).number() / m_finalAmount.number();
+
     // The number of halfLives ( log 2 ( x ) = log x / log 2 )
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_halfLife.number();
     // Calculate the total time taken
 	Value time = Value(time_value, m_halfLife.unit());
-    m_time = time.convertTo( ui.time_unit->currentText());
+    m_time = time.convertTo( getUnitIdFromCombobox(ui.time_unit));
     ui.time -> setValue(m_time.number());
     
     return;

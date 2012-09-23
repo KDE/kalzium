@@ -23,6 +23,7 @@
 #include <klocale.h>
 
 #include <element.h>
+#include <kunitconversion/converter.h>
 
 #include "prefs.h"
 
@@ -164,4 +165,21 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
         result = i18n("No Data");
     }
     return result;
+}
+
+
+void KalziumUtils::populateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList)
+{
+    comboBox->clear();
+
+    QString unitString;
+
+    foreach( int unit, unitList) {
+        unitString = KUnitConversion::Converter().unit(unit).data()->description();
+        unitString.append(" (");
+        unitString.append(KUnitConversion::Converter().unit(unit).data()->symbol());
+        unitString.append(")");
+        comboBox->addItem( unitString, unit );
+    }
+
 }

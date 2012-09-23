@@ -27,6 +27,7 @@
 #include <prefs.h>
 #include <kalziumdataobject.h>
 #include <kunitconversion/unitcategory.h>
+#include <kunitconversion/converter.h>
 #include "ui_nuclearCalculator.h"
 
 // This is required for the unit conversion
@@ -93,7 +94,15 @@ public slots:
     /// This function is called when the time is changed in the UI
     void timeChanged();
 
-    
+    /// Fills a Combobox with vulumina units
+    void timeUnitCombobox(QComboBox *comboBox);
+
+    /// Fills a Combobox with mass units
+    void massUnitCombobox(QComboBox *comboBox);
+
+    /// Fetch the active unit id (KUnitConversion) from the combobox
+    int getUnitIdFromCombobox(QComboBox *comboBox);
+
     /*
      * This function is called when the slider in the ui is moved
      * @param x, is 10 times the number of halfLives

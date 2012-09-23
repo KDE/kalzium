@@ -18,7 +18,9 @@
  ***************************************************************************/
 
 #include "gasCalculator.h"
+#include "kalziumunitcombobox.h"
 #include "prefs.h"
+#include "kalziumutils.h"
 
 using namespace KUnitConversion;
 
@@ -106,33 +108,25 @@ void gasCalculator::setupUnitComboboxes()
 {
     QList<int> units;
     units << Gram << Milligram << Kilogram << Ton;
-    populateUnitCombobox( ui.mass_unit, units );
+    KalziumUtils::populateUnitCombobox( ui.mass_unit, units );
 
     units.clear();
     units << Atmosphere << Pascal << Bar << Millibar << Torr;
-    populateUnitCombobox( ui.pressure_unit, units );
+    KalziumUtils::populateUnitCombobox( ui.pressure_unit, units );
 
     units.clear();
     units << Kelvin << Celsius << Fahrenheit;
-    populateUnitCombobox( ui.temp_unit, units );
+    KalziumUtils::populateUnitCombobox( ui.temp_unit, units );
 
     units.clear();
     units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
-    populateUnitCombobox( ui.volume_unit, units );
+    KalziumUtils::populateUnitCombobox( ui.volume_unit, units );
 
     units.clear();
     units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
-    populateUnitCombobox( ui.b_unit, units );
+    KalziumUtils::populateUnitCombobox( ui.b_unit, units );
 }
 
-void gasCalculator::populateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList)
-{
-    comboBox->clear();
-
-    foreach( int unit, unitList) {
-        comboBox->addItem( KUnitConversion::Converter().unit(unit).data()->description(), unit);
-    }
-}
 
 int gasCalculator::getCurrentUnitId(QComboBox* comboBox)
 {

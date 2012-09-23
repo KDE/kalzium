@@ -51,6 +51,8 @@ class MoleculeDialog : public KDialog
      * Set up the element combo box
      */
      void elementCombo();
+     
+     void loadMolecule(const QString &filename);
 	
 	private slots:
 		/**
