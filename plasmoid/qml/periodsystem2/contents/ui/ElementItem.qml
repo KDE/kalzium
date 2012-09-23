@@ -30,7 +30,7 @@ Rectangle {
 
     property int elementNumber: 1
 
-    
+
     PlasmaCore.DataSource {
         id: dataSource
         engine: "kalzium"
@@ -44,7 +44,7 @@ Rectangle {
     color: "red"
     border.color: "black"
     radius: width/10
-    
+
 
     Column{
 
@@ -58,6 +58,6 @@ Rectangle {
           text: dataSource.data["BlueObelisk:Element:" + elementNumber]["symbol"]
       }
     }
-    
+
 }
 

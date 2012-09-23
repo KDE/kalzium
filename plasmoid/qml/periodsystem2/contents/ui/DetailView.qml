@@ -24,13 +24,83 @@ import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.graphicslayouts 4.7 as GraphicsLayouts
 
-Item {
-    width: 100
-    height: 300
+ QGraphicsWidget{
 
-    Text{
-      text: "Detailview"
+    property int elementNumber: 1
+
+    Item{
+
+      PlasmaCore.DataSource {
+	  id: dataSource
+	  engine: "kalzium"
+	  connectedSources: ['BlueObelisk:Element:' + elementNumber]
+	  interval: 1000
+      }
+
+
+      MouseArea { id: mouseArea; anchors.fill: parent }
+
+
+      Text {
+	  anchors.leftMargin: 5
+	  anchors.left: detailview.left
+	  text: dataSource.data["BlueObelisk:Element:" + elementNumber]["name"]
+	  font.pointSize: 24
+      }
+
+      Text {
+	  id: idSymbol
+	  anchors.horizontalCenter: detailview.horizontalCenter
+	  anchors.verticalCenter: detailview.verticalCenter
+	  text: dataSource.data["BlueObelisk:Element:" + elementNumber]["symbol"]
+	  font.pointSize: 26;
+	  font.bold: true
+      }
+
+      Text {
+	  anchors.right: idSymbol.left
+	  anchors.verticalCenter: detailview.verticalCenter
+	  text: "<sub>" + elementNumber + "</sub>"
+	  font.pointSize: 24;
+      }
+
+      Column {
+	id: extraValues
+	anchors.bottom: parent.bottom
+	anchors.leftMargin: 20;
+  //       anchors.rightMargin: 30;
+	anchors.bottomMargin: 10;
+	width: parent.width - 20
+
+	Text {
+	    anchors.right: parent.right
+	    text: dataSource.data["BlueObelisk:Element:" + elementNumber]["en"]
+	    font.pointSize: 16
+	}
+
+	Text {
+	    anchors.right: parent.right
+	    text: dataSource.data["BlueObelisk:Element:" + elementNumber]["mass"]
+	    font.pointSize: 16
+	}
+
+	Text {
+	    text: dataSource.data["BlueObelisk:Element:" + elementNumber]["electronconf"]
+	}
+
+      }
+
     }
-      
-    
+//     Image {
+// 	sourceSize.height: 150; sourceSize.width: 150
+// 	height: 150; width: 150
+// 
+// 	anchors.right: parent.right
+// 	anchors.bottom: parent.bottom
+// 	visible: showSvg == true
+//     	        fillMode: Image.PreserveAspectFit
+//                     fillMode: Image.PreserveAspectCrop
+// 	source:"../iconsets/school/" + atomicNumber + ".svg"
+//     }
 }
+

@@ -26,36 +26,47 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.plasma.graphicslayouts 4.7 as GraphicsLayouts
 
 
+QGraphicsWidget {
+    id : main
 
-Item {
-    property int minimumWidth: paintedWidth
-    property int minimumHeight: paintedHeight
+    Item {
+        id: mainItem
+        anchors.fill: main
 
 
-    
-    
-    Column{
-      Text{
-	text: "Hi!"
-      }
-      
-      PlasmaComponents.TextField{
-      
-      }
-    
-    
-      Row{
-	
-	Periodsystem {
-	  
+      Column{
+	Text{
+	  text: "Hi!"
 	}
+
+	PlasmaComponents.TextField{
 	
-	DetailView {
-	  
 	}
+
+
+	PlasmaWidgets.TabBar {
+	    id : mainView
+	    anchors.fill : mainItem
+	    tabBarShown: true
+
+
+	    Periodsystem {
+	      id: periodSystem
+	      onItemClicked: {
+		detailView.elementNumber = elementItem.elementNumber
+                mainView.currentIndex = 1
+	      }
+	    }
 	
-      }
+	    DetailView {
+	      id: detailView
+	      elementNumber: 2
+	    }
+
+	}
     }
-      
-    
+
+
+  }
+
 }

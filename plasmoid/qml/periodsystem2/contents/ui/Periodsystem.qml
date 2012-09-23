@@ -24,17 +24,34 @@ import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.graphicslayouts 4.7 as GraphicsLayouts
 
-Item {
-    width: 1000
-    height: 300
+QGraphicsWidget {
+  id: mainWidget
+
+  signal itemClicked(variant elementItem)
+
+  Item{
+    id: mainItem
+
 
     Repeater{
       model: 120
+
       ElementItem {
+	id: elementItem
+
 	elementNumber: index + 1
+
+	MouseArea {
+	    id: itemMouse
+	    anchors.fill: parent
+	    onClicked: {
+	        console.log("Clicked " + elementItem)
+		mainWidget.itemClicked(elementItem)
+	    }
+        }
       }
     }
-      
-    
+  }
+
 }
 
