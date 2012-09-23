@@ -1,6 +1,6 @@
 include_directories(
    ${CMAKE_SOURCE_DIR}/libscience/
-   ../compoundviewer
+   ${CMAKE_SOURCE_DIR}/compoundviewer
    tools
    calculator
    psetable
@@ -30,7 +30,7 @@ if (OPENBABEL2_FOUND)
       set(kalziumtools_SRCS
          ${kalziumtools_SRCS}
          tools/moleculeview.cpp
-         ../compoundviewer/kalziumglwidget.cpp
+         ${CMAKE_SOURCE_DIR}/compoundviewer/kalziumglwidget.cpp
          )
       kde4_add_ui_files(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui

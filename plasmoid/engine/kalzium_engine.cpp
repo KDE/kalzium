@@ -73,8 +73,11 @@ QStringList KalziumEngine::sources() const
     // BlueObelisk:Element:# is created dynamically, so we don't advertise it here.
     QStringList list;
     list << QLatin1String("BlueObelisk:RandomElement");
-    list << QLatin1String("BlueObelisk:Element:<n>:");
+    list << QLatin1String("BlueObelisk:Element:1");
     list << QLatin1String("Fact");
+    list << QLatin1String("Table:list");
+    list << QLatin1String("Molecule:Parser:CH3CH2OH");
+
     return list;
 }
 
@@ -214,7 +217,7 @@ bool KalziumEngine::setPeriodicTableData()
     // "Table:typ"
 
     if ( getKeyWord() == "list" ) {
-        setData(*currentSource, "tablelist", pseTables::instance()->tables() );
+        setData(*currentSource, pseTables::instance()->tables() );
         return true;
     }
 

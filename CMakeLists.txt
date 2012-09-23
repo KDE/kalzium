@@ -45,9 +45,8 @@ endif (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN2_FOUND)
 add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(data)
-add_subdirectory(plasmoid)
 add_subdirectory(libscience)
-add_subdirectory(qml)
+add_subdirectory(plasmoid)
 
 macro_display_feature_log()
 
