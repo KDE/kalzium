@@ -76,6 +76,7 @@ int main(int argc, char **argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
+    options.add("molecule <file>", ki18n("Open the given molecule file"));
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
 
@@ -94,6 +95,17 @@ int main(int argc, char **argv)
 
         mainWin = new Kalzium();
         mainWin->show();
+        
+        const QStringList molecules = args->getOptionList("molecule");
+        if (molecules.count() == 1)
+        {
+            mainWin->loadMolecule(molecules[0]);
+        }
+        else if (molecules.count() > 1)
+        {
+            QTextStream ts(stderr);
+            ts << i18n("Can't open more than one molecule at a time");
+        }
 
         args->clear();
     }

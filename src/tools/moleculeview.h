@@ -36,6 +36,8 @@ class MoleculeDialog : public KDialog
 	public:
 		MoleculeDialog( QWidget  * parent );
 		~MoleculeDialog();
+        
+        void loadMolecule(const QString &filename);
 
 	private:
 		QString  m_path;///to store the path were the molecules are located
@@ -51,8 +53,6 @@ class MoleculeDialog : public KDialog
      * Set up the element combo box
      */
      void elementCombo();
-     
-     void loadMolecule(const QString &filename);
 	
 	private slots:
 		/**

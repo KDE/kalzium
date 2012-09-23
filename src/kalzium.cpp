@@ -373,17 +373,18 @@ void Kalzium::slotOBConverter()
 #endif
 }
 
-void Kalzium::slotMoleculeviewer()
+MoleculeDialog *Kalzium::slotMoleculeviewer()
 {
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 
     if (!QGLFormat::hasOpenGL()) {
         KMessageBox::error(0, i18n("This system does not support OpenGL."), i18n("Kalzium Error"));
-        return;
+        return NULL;
     }
 
     MoleculeDialog * d = new MoleculeDialog( this );
     d->show();
+    return d;
 
 #if 0
     KPluginLoader loader("libkalziumglpart" );
@@ -397,6 +398,7 @@ void Kalzium::slotMoleculeviewer()
     }
 #endif
 #endif
+    return NULL;
 }
 
 void Kalzium::slotTables()
@@ -628,6 +630,14 @@ Kalzium::~Kalzium()
     delete m_dockWin;
     delete m_legendDock;
     delete m_tableDock;
+}
+
+void Kalzium::loadMolecule(const QString &moleculeFile)
+{
+    MoleculeDialog *d = slotMoleculeviewer ();
+    if (d) {
+        d->loadMolecule(moleculeFile);
+    }
 }
 
 QSize Kalzium::sizeHint() const

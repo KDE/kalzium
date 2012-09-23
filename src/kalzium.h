@@ -38,6 +38,7 @@ class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
 class ExportDialog;
+class MoleculeDialog;
 
 /**
  * @brief Application Main Window
@@ -60,6 +61,8 @@ public:
      * Default Destructor
      */
     virtual ~Kalzium();
+    
+    void loadMolecule(const QString &moleculeFile);
 
 private:
     DetailedInfoDlg   *m_infoDialog;
@@ -165,7 +168,7 @@ private slots:
      */
     void slotRS();
 
-    void slotMoleculeviewer();
+    MoleculeDialog *slotMoleculeviewer();
 
     void slotOBConverter();
 
