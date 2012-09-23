@@ -41,6 +41,9 @@ p, li { white-space: pre-wrap; }
      <property name="whatsThis">
       <string>This is the index of the various calculators available. For more information on each calculator, click on 'Introduction'.</string>
      </property>
+     <property name="rootIsDecorated">
+      <bool>false</bool>
+     </property>
      <property name="animated">
       <bool>true</bool>
      </property>
