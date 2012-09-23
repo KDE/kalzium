@@ -33,6 +33,15 @@ calculator::calculator(QWidget *parent)
     setDefaultButton(Close);
 
     ui.setupUi(mainWidget());
+    
+    int maxTextWidth = 0;
+    QStyleOptionViewItemV4 option;
+    option.initFrom(ui.tree);
+    for(int i = 0; i < ui.tree->topLevelItemCount(); ++i) {
+        maxTextWidth = qMax(maxTextWidth, ui.tree->itemDelegate()->sizeHint(option, ui.tree->model()->index(i, 0)).width());
+    }
+    // 20 because we want some margins, not a too tight text
+    ui.tree->setMaximumWidth(qMax(ui.tree->maximumWidth(), maxTextWidth + 20));
 
     // Add the nuclear calculator to the user interface
     m_nuclearCalculator = new nuclearCalculator(this);
