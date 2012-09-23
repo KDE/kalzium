@@ -634,10 +634,12 @@ Kalzium::~Kalzium()
 
 void Kalzium::loadMolecule(const QString &moleculeFile)
 {
+#if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
     MoleculeDialog *d = slotMoleculeviewer ();
     if (d) {
         d->loadMolecule(moleculeFile);
     }
+#endif
 }
 
 QSize Kalzium::sizeHint() const

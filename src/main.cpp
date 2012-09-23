@@ -76,7 +76,9 @@ int main(int argc, char **argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
+#if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)    
     options.add("molecule <file>", ki18n("Open the given molecule file"));
+#endif
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
 
