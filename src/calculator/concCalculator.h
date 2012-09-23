@@ -32,7 +32,7 @@ using namespace KUnitConversion;
 
 // Enumeration for type of error used in the error() function
 enum ERROR_TYPE_CONC {
-	RESET_CONC_MESSAGE = 0,
+    RESET_CONC_MESSAGE = 0,
     PERCENTAGE,
     DENSITY_ZERO,
     MASS_ZERO,
@@ -161,7 +161,13 @@ public slots:
     double eqtsSolute();
     
     /// returns density of solute in grams per liter
-    double densitySolute();             
+    double densitySolute();
+
+    /// Fills a Combobox with vulumina units
+    void volumeUnitCombobox(QComboBox *comboBox);
+
+    /// Fills a Combobox with mass units
+    void massUnitCombobox(QComboBox *comboBox);
 
 	/// Performs initialisation of the class.
 	void init();
