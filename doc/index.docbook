@@ -496,8 +496,9 @@
 				   The Molecular Editor allows you to view and edit molecules using <ulink url="http://avogadro.openmolecules.net/wiki/Main_Page">Avogadro</ulink> libraries.
 				 </para>
 				 <para>
-				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually. <envar>$KDEHOME</envar> is usually a hidden folder in your Home folder called <filename class="directory">.kde</filename> or <filename class="directory">.kde4</filename>
-				   <!-- "$KDEHOME" is not always defined eg not in kubuntu 11.04
+				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window.
+				   <!-- The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually. <envar>$KDEHOME</envar> is usually a hidden folder in your Home folder called <filename class="directory">.kde</filename> or <filename class="directory">.kde4</filename>
+				   "$KDEHOME" is not always defined eg not in kubuntu 11.04
 				   <filename class="directory">`kde4-config - -localprefix`/share/apps/kvtml</filename>
 				   (without whitespace between '- -') is afaik always defined
 				   -->
