@@ -66,8 +66,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	ui.qualityCombo->setCurrentIndex(2); //default to high quality
 	
 	//default to atom symbols
-	ui.labelsCombo->setCurrentIndex(2);
-	ui.glWidget->setLabels(2);
+	ui.labelsCombo->setCurrentIndex(1);
+	ui.glWidget->setLabels(1);
 	
 	//default to balls-and-sticks
 	ui.styleCombo->setCurrentIndex(0); 

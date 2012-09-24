@@ -142,15 +142,11 @@ void KalziumGLWidget::setLabels(int style)
         case 0: // Display no labels
           enabled = false;
           break;
-        case 1: // Display the atom index
-          enabled = true;
-          atomType = 1;
-          break;
-        case 2: // Display the atom symbol
+        case 1: // Display the atom symbol
           enabled = true;
           atomType = 3;
           break;
-        case 3: // Display the atom name
+        case 2: // Display the atom name
           enabled = true;
           atomType = 2;
           break;

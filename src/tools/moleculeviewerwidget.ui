@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>moleculeViewerForm</class>
- <widget class="QWidget" name="moleculeViewerForm" >
-  <property name="geometry" >
+ <widget class="QWidget" name="moleculeViewerForm">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,73 +10,65 @@
     <height>520</height>
    </rect>
   </property>
-  <property name="sizePolicy" >
-   <sizepolicy vsizetype="Preferred" hsizetype="MinimumExpanding" >
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" >
-    <widget class="KTabWidget" name="tabWidget" >
-     <property name="currentIndex" >
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="KTabWidget" name="tabWidget">
+     <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="display" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>257</width>
-        <height>184</height>
-       </rect>
-      </property>
-      <attribute name="title" >
+     <widget class="QWidget" name="display">
+      <attribute name="title">
        <string>Display</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout" >
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <layout class="QGridLayout" name="gridLayout_3" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label" >
-           <property name="text" >
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
             <string>Quality:</string>
            </property>
-           <property name="alignment" >
+           <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy" >
+           <property name="buddy">
             <cstring>qualityCombo</cstring>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <layout class="QHBoxLayout" name="horizontalLayout_6" >
+         <item row="0" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
-            <widget class="KComboBox" name="qualityCombo" >
+            <widget class="KComboBox" name="qualityCombo">
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Low</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Medium</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>High</string>
               </property>
              </item>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_5" >
-             <property name="orientation" >
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -85,51 +78,51 @@
            </item>
           </layout>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_2" >
-           <property name="text" >
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
             <string>Style:</string>
            </property>
-           <property name="alignment" >
+           <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy" >
+           <property name="buddy">
             <cstring>styleCombo</cstring>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <layout class="QHBoxLayout" name="horizontalLayout_5" >
+         <item row="1" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="KComboBox" name="styleCombo" >
+            <widget class="KComboBox" name="styleCombo">
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Balls and sticks</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Sticks</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Van der Waals</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Wireframe</string>
               </property>
              </item>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_6" >
-             <property name="orientation" >
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -139,51 +132,51 @@
            </item>
           </layout>
          </item>
-         <item row="2" column="0" >
-          <widget class="QLabel" name="label_9" >
-           <property name="text" >
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
             <string>2nd Style:</string>
            </property>
-           <property name="alignment" >
+           <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy" >
+           <property name="buddy">
             <cstring>styleCombo</cstring>
            </property>
           </widget>
          </item>
-         <item row="2" column="1" >
-          <layout class="QHBoxLayout" name="horizontalLayout_7" >
+         <item row="2" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <widget class="KComboBox" name="style2Combo" >
+            <widget class="KComboBox" name="style2Combo">
              <item>
-              <property name="text" >
+              <property name="text">
                <string>None</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Ribbon</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Ring</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Molecular Orbital</string>
               </property>
              </item>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_6" >
-             <property name="orientation" >
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -193,51 +186,46 @@
            </item>
           </layout>
          </item>
-         <item row="3" column="0" >
-          <widget class="QLabel" name="label_5" >
-           <property name="text" >
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
             <string>Labels:</string>
            </property>
-           <property name="alignment" >
+           <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy" >
+           <property name="buddy">
             <cstring>styleCombo</cstring>
            </property>
           </widget>
          </item>
-         <item row="3" column="1" >
-          <layout class="QHBoxLayout" name="horizontalLayout_4" >
+         <item row="3" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <widget class="KComboBox" name="labelsCombo" >
+            <widget class="KComboBox" name="labelsCombo">
              <item>
-              <property name="text" >
+              <property name="text">
                <string>None</string>
               </property>
              </item>
              <item>
-              <property name="text" >
-               <string>Atom numbers</string>
-              </property>
-             </item>
-             <item>
-              <property name="text" >
+              <property name="text">
                <string>Element symbols</string>
               </property>
              </item>
              <item>
-              <property name="text" >
+              <property name="text">
                <string>Element names</string>
               </property>
              </item>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_7" >
-             <property name="orientation" >
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -250,11 +238,11 @@
         </layout>
        </item>
        <item>
-        <spacer name="spacer" >
-         <property name="orientation" >
+        <spacer name="spacer">
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>148</width>
            <height>43</height>
@@ -264,45 +252,37 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="edit" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>257</width>
-        <height>184</height>
-       </rect>
-      </property>
-      <attribute name="title" >
+     <widget class="QWidget" name="edit">
+      <attribute name="title">
        <string>Edit</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2" >
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <layout class="QGridLayout" name="gridLayout_2" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_6" >
-           <property name="text" >
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
             <string>Element:</string>
            </property>
-           <property name="alignment" >
+           <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy" >
+           <property name="buddy">
             <cstring>qualityCombo</cstring>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <layout class="QHBoxLayout" name="horizontalLayout_2" >
+         <item row="0" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="KComboBox" name="elementCombo" />
+            <widget class="KComboBox" name="elementCombo"/>
            </item>
            <item>
-            <spacer name="horizontalSpacer_4" >
-             <property name="orientation" >
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -312,30 +292,30 @@
            </item>
           </layout>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_8" >
-           <property name="text" >
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
             <string>Bond Order:</string>
            </property>
-           <property name="alignment" >
+           <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy" >
+           <property name="buddy">
             <cstring>qualityCombo</cstring>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <layout class="QHBoxLayout" name="horizontalLayout_3" >
+         <item row="1" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
-            <widget class="KComboBox" name="bondCombo" />
+            <widget class="KComboBox" name="bondCombo"/>
            </item>
            <item>
-            <spacer name="horizontalSpacer_3" >
-             <property name="orientation" >
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
                <height>20</height>
@@ -348,23 +328,23 @@
         </layout>
        </item>
        <item>
-        <widget class="QCheckBox" name="hydrogenBox" >
-         <property name="text" >
+        <widget class="QCheckBox" name="hydrogenBox">
+         <property name="text">
           <string>Adjust Hydrogens Automatically</string>
          </property>
-         <property name="checked" >
+         <property name="checked">
           <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8" >
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
          <item>
-          <spacer name="horizontalSpacer" >
-           <property name="orientation" >
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" stdset="0" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -373,18 +353,18 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="hydrogensButton" >
-           <property name="text" >
+          <widget class="QPushButton" name="hydrogensButton">
+           <property name="text">
             <string>Add Hydrogens</string>
            </property>
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_2" >
-           <property name="orientation" >
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" stdset="0" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -395,13 +375,13 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout" >
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <spacer name="horizontalSpacer" >
-           <property name="orientation" >
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" stdset="0" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -410,18 +390,18 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="optimizeButton" >
-           <property name="text" >
+          <widget class="QPushButton" name="optimizeButton">
+           <property name="text">
             <string>Optimize</string>
            </property>
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_2" >
-           <property name="orientation" >
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" stdset="0" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -432,11 +412,11 @@
         </layout>
        </item>
        <item>
-        <spacer name="spacer_2" >
-         <property name="orientation" >
+        <spacer name="spacer_2">
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>88</width>
            <height>43</height>
@@ -446,20 +426,12 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="measure" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>257</width>
-        <height>184</height>
-       </rect>
-      </property>
-      <attribute name="title" >
+     <widget class="QWidget" name="measure">
+      <attribute name="title">
        <string>Measure</string>
       </attribute>
-      <widget class="QLabel" name="label_10" >
-       <property name="geometry" >
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
         <rect>
          <x>20</x>
          <y>20</y>
@@ -467,34 +439,34 @@
          <height>141</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>Click on 2 atoms to measure a distance, on 3 atoms to measure an angle, on 4 atoms to measure a dihedral angle.</string>
        </property>
-       <property name="alignment" >
+       <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
        </property>
-       <property name="wordWrap" >
+       <property name="wordWrap">
         <bool>true</bool>
        </property>
       </widget>
      </widget>
     </widget>
    </item>
-   <item rowspan="3" row="0" column="1" >
-    <widget class="KalziumGLWidget" native="1" name="glWidget" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+   <item row="0" column="1" rowspan="3">
+    <widget class="KalziumGLWidget" name="glWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>10</horstretch>
        <verstretch>10</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize" >
+     <property name="minimumSize">
       <size>
        <width>240</width>
        <height>240</height>
       </size>
      </property>
-     <property name="sizeIncrement" >
+     <property name="sizeIncrement">
       <size>
        <width>10</width>
        <height>10</height>
@@ -502,73 +474,73 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize" >
+     <property name="minimumSize">
       <size>
        <width>240</width>
        <height>110</height>
       </size>
      </property>
-     <property name="title" >
+     <property name="title">
       <string>Statistics</string>
      </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" >
-       <layout class="QGridLayout" >
-        <item row="0" column="0" >
-         <widget class="QLabel" name="label_3" >
-          <property name="text" >
+     <layout class="QGridLayout">
+      <item row="0" column="0">
+       <layout class="QGridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
            <string>Name:</string>
           </property>
-          <property name="alignment" >
+          <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="0" column="1" >
-         <widget class="QLabel" name="nameLabel" >
-          <property name="text" >
+        <item row="0" column="1">
+         <widget class="QLabel" name="nameLabel">
+          <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="1" column="0" >
-         <widget class="QLabel" name="label_7" >
-          <property name="text" >
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
            <string>Formula:</string>
           </property>
-          <property name="alignment" >
+          <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="1" column="1" >
-         <widget class="QLabel" name="formulaLabel" >
-          <property name="text" >
+        <item row="1" column="1">
+         <widget class="QLabel" name="formulaLabel">
+          <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="2" column="0" >
-         <widget class="QLabel" name="label_4" >
-          <property name="text" >
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
            <string>Weight:</string>
           </property>
-          <property name="alignment" >
+          <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="2" column="1" >
-         <widget class="QLabel" name="weightLabel" >
-          <property name="text" >
+        <item row="2" column="1">
+         <widget class="QLabel" name="weightLabel">
+          <property name="text">
            <string/>
           </property>
          </widget>
@@ -578,12 +550,12 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0" >
+   <item row="2" column="0">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>237</width>
        <height>194</height>
@@ -595,12 +567,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KalziumGLWidget</class>
-   <extends>QWidget</extends>
-   <header>../../compoundviewer/kalziumglwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
@@ -609,6 +575,12 @@
    <class>KTabWidget</class>
    <extends>QTabWidget</extends>
    <header>ktabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KalziumGLWidget</class>
+   <extends>QWidget</extends>
+   <header>../../compoundviewer/kalziumglwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
