@@ -121,7 +121,9 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
       this, SLOT(slotAdjustHydrogens()));
   connect(ui.optimizeButton, SIGNAL(clicked()),
       this, SLOT(slotGeometryOptimize()));
-      
+  connect(ui.clearDrawingButton, SIGNAL(clicked()),
+      this, SLOT(clearAllElementsInEditor()));
+
   connect(ui.glWidget->molecule(), SIGNAL(updated()),
           this, SLOT(slotUpdateStatistics()));
 
@@ -202,6 +204,11 @@ void MoleculeDialog::loadMolecule(const QString &filename)
     connect(molecule, SIGNAL(updated()), this, SLOT(slotUpdateStatistics()));
   }
   ui.glWidget->invalidateDLs();
+}
+
+void MoleculeDialog::clearAllElementsInEditor(){
+  ui.glWidget->molecule()->clear();
+  ui.glWidget->update();
 }
 
 void MoleculeDialog::slotSaveMolecule()

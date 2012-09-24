@@ -47,7 +47,9 @@ class MoleculeDialog : public KDialog
     QSettings *m_drawSettings;
     bool m_addHydrogens;
 
-		Ui::moleculeViewerForm ui;	
+    Ui::moleculeViewerForm ui;
+
+
 
     /**
      * Set up the element combo box
@@ -109,6 +111,9 @@ class MoleculeDialog : public KDialog
      * Geometry optimization
      */
      void slotGeometryOptimize();
+
+     /// Clears the view
+     void clearAllElementsInEditor();
 
 };
 
