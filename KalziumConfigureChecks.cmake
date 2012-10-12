@@ -6,7 +6,6 @@ macro_optional_find_package(Libfacile)
 macro_optional_find_package(OpenBabel2)
 macro_optional_find_package(Eigen2)
 macro_optional_find_package(Avogadro 1.0.0 NO_MODULE)
-pkg_check_modules(CHEMICAL_MIME_DATA chemical-mime-data)
 
 check_include_files(ieeefp.h HAVE_IEEEFP_H)
 
@@ -26,5 +25,4 @@ macro_log_feature(LIBFACILE_FOUND "LibFacile" "libfacile is needed by Kalzium fo
 macro_log_feature(OPENBABEL2_FOUND "OpenBabel2" "OpenBabel is needed by Kalzium for the 3D-molecule viewer" "http://openbabel.sourceforge.net/" FALSE "2.2" "")
 macro_log_feature(EIGEN2_FOUND "Eigen2" "A generic C++ template library for dense and sparse matrices" "http://eigen.tuxfamily.org" FALSE "2.0.0" "")
 macro_log_feature(Avogadro_FOUND "Avogadro" "Advanced molecular editor" "http://avogadro.openmolecules.net" FALSE "1.0" "")
-macro_log_feature(CHEMICAL_MIME_DATA_FOUND "Chemical mime data" "Needed to open CML molecules from the file manager" "http://chemical-mime.sourceforge.net/" FALSE "" "")
 
