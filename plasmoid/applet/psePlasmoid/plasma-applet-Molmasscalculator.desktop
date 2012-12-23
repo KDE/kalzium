@@ -2,7 +2,6 @@
 Name=Molar mass calculator
 Name[ast]=Calculadora gráfica Molar
 Name[bg]=Калкулатор на моларна маса
-Name[bs]=Kalkulator molarne mase
 Name[ca]=Calculadora de massa molar
 Name[ca@valencia]=Calculadora de massa molar
 Name[cs]=Kalkulačka molární hmotnosti
@@ -41,7 +40,6 @@ Name[zh_CN]=分子质量计算器
 Name[zh_TW]=莫耳質量計算器
 
 Comment=Small periodic table of elements with a molar mass calculator
-Comment[bs]=Mali periodni sistem elemenata s kalkulatorom molarne mase
 Comment[ca]=Petita taula periòdica dels elements amb una calculadora de massa molar
 Comment[ca@valencia]=Petita taula periòdica dels elements amb una calculadora de massa molar
 Comment[cs]=Mala periodická tabulka prvků s kalkulačkou molární hmotnosti

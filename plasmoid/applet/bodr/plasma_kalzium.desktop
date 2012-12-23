@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Chemical Data
 Name[ast]=Datos químicos
-Name[bs]=Hemijski podaci
 Name[ca]=Dades químiques
 Name[ca@valencia]=Dades químiques
 Name[cs]=Chemická data
@@ -51,7 +50,6 @@ Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
 Comment[ast]=Miniaplicación de datos químicos
-Comment[bs]=Aplet za hemijske podatke
 Comment[ca]=Miniaplicació de dades químiques
 Comment[ca@valencia]=Miniaplicació de dades químiques
 Comment[cs]=Applet pracující s chemickými daty
