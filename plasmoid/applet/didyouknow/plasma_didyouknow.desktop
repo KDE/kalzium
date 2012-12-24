@@ -2,6 +2,7 @@
 Name=Chemistry: Did You Know
 Name[ast]=Química: Sabíes que
 Name[bg]=Химия: знаете ли, че...
+Name[bs]=Hemija: Da li ste znali
 Name[ca]=Química: sabíeu que...
 Name[ca@valencia]=Química: sabíeu que...
 Name[cs]=Chemie: Víte že...
@@ -53,6 +54,7 @@ ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
 Comment[ast]=Fechos sobre los elementos químicos
 Comment[bg]=Факти за химичните елементи
+Comment[bs]=Činjenice o hemijskim elementima
 Comment[ca]=Fets sobre els elements químics
 Comment[ca@valencia]=Fets sobre els elements químics
 Comment[cs]=Údaje o chemických prvcích

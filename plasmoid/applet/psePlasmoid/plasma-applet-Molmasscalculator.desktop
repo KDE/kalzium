@@ -2,11 +2,13 @@
 Name=Molar mass calculator
 Name[ast]=Calculadora gráfica Molar
 Name[bg]=Калкулатор на моларна маса
+Name[bs]=Kalkulator molarne mase
 Name[ca]=Calculadora de massa molar
 Name[ca@valencia]=Calculadora de massa molar
 Name[cs]=Kalkulačka molární hmotnosti
 Name[da]=Regnemaskine til molmasse
 Name[de]=Molekülmassen-Rechner
+Name[el]=Μικροϋπολογιστής γραμμομοριακής μάζας
 Name[en_GB]=Molar mass calculator
 Name[es]=Calculadora de masas molares
 Name[et]=Molaarmassi kalkulaator
@@ -40,11 +42,13 @@ Name[zh_CN]=分子质量计算器
 Name[zh_TW]=莫耳質量計算器
 
 Comment=Small periodic table of elements with a molar mass calculator
+Comment[bs]=Mali periodni sistem elemenata s kalkulatorom molarne mase
 Comment[ca]=Petita taula periòdica dels elements amb una calculadora de massa molar
 Comment[ca@valencia]=Petita taula periòdica dels elements amb una calculadora de massa molar
 Comment[cs]=Mala periodická tabulka prvků s kalkulačkou molární hmotnosti
 Comment[da]=Lille periodisk system for grundstofferne med regnemaskine til molmasse
 Comment[de]=Kurzes Periodensystem der Elemente mit Molekülmassen-Rechner
+Comment[el]=Μικρός περιοδικός πίνακας στοιχείων με μικροϋπολογιστή γραμμομοριακής μάζας
 Comment[en_GB]=Small periodic table of elements with a molar mass calculator
 Comment[es]=Pequeña tabla periódica con una calculadora de masas molares
 Comment[et]=Väike keemiliste elementide tabel molaarmassi kalkulaatoriga
