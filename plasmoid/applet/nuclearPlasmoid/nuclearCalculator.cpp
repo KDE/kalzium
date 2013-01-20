@@ -156,7 +156,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         isoLabel->setText(i18n("Isotope mass:"));
         Plasma::Label *hLifeLabel = new Plasma::Label(this);
         hLifeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        hLifeLabel->setText(i18n("Half-Life"));
+        hLifeLabel->setText(i18n("Half-Life:"));
 
         m_element = new Plasma::ComboBox(this);
         m_element->setZValue(2);
@@ -211,7 +211,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         finalLabel->setText(i18n("Final amount:"));
         Plasma::Label *timeLabel = new Plasma::Label(this);
         timeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        timeLabel->setText(i18n("Time"));
+        timeLabel->setText(i18n("Time:"));
 /*x	Plasma::Label *m_sliderLabel = new Plasma::Label(this);
         m_sliderLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_sliderLabel->setText(i18n("Time in Half-Lives"));*/
