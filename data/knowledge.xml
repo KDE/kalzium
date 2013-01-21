@@ -151,14 +151,14 @@
 	</item>
 	<item>
 		<name>Magnetic Moment</name>
-		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It is measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]</desc>
+		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It is measured in units of the nuclear magneton µ[sub]n[/sub]=(5.0507866 ± 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]</desc>
 		<references>
 			<refitem>Isotope</refitem>
 		</references>
 	</item>
 	<item>
 		<name>Decay Mode</name>
-		<desc>The decay mode describes a particular way a particle decays. For radioactive decay (the decay of nuclides) the decay modes are:[br] -> alpha decay (emission of a Helium-4 nucleus).[br] -> &#946;[sup]-[/sup] decay (emission of an electron)[br] -> &#946;[sup]+[/sup] decay (emission of a positron) [br] -> electron capture (EC) [br] -> proton emission [br] -> spontaneous fission [br] Typically one decay mode predominates for a particular nuclide.</desc>
+		<desc>The decay mode describes a particular way a particle decays. For radioactive decay (the decay of nuclides) the decay modes are:[br] -> alpha decay (emission of a Helium-4 nucleus).[br] -> ß[sup]-[/sup] decay (emission of an electron)[br] -> ß[sup]+[/sup] decay (emission of a positron) [br] -> electron capture (EC) [br] -> proton emission [br] -> spontaneous fission [br] Typically one decay mode predominates for a particular nuclide.</desc>
 		<references>
 			<refitem>Isotope</refitem>
 		</references>
@@ -200,7 +200,7 @@
 	</item>
 	<item>
 		<name>Nuclear Isomer</name>
-		<desc>A nuclear isomer is a metastable or isomeric state of an atom caused by the excitation of a proton or neutron in its nucleus so that it requires a change in spin before it can release its extra energy. They decay to lower energy states of the nuclide through two isomeric transitions:[br] -> &#947;- emission (emission of a high-energy photon)[br] -> internal conversion (the energy is used to ionize the atom)[br] Contrast this with the definition of a chemical isomer, the more common use of the word. Also contrast with the meaning of isotope, in which the difference is the number of neutrons in the nucleus. Metastable isomers of a particular atom are usually designated with an "m" (or, in the case of atoms with more than one isomer, 2m, 3m, and so on). This designation is usually placed after the atomic symbol and number of the atom (e.g., Co-58m), but is sometimes placed as a superscript before (e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co).</desc>
+		<desc>A nuclear isomer is a metastable or isomeric state of an atom caused by the excitation of a proton or neutron in its nucleus so that it requires a change in spin before it can release its extra energy. They decay to lower energy states of the nuclide through two isomeric transitions:[br] -> γ- emission (emission of a high-energy photon)[br] -> internal conversion (the energy is used to ionize the atom)[br] Contrast this with the definition of a chemical isomer, the more common use of the word. Also contrast with the meaning of isotope, in which the difference is the number of neutrons in the nucleus. Metastable isomers of a particular atom are usually designated with an "m" (or, in the case of atoms with more than one isomer, 2m, 3m, and so on). This designation is usually placed after the atomic symbol and number of the atom (e.g., Co-58m), but is sometimes placed as a superscript before (e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co).</desc>
 		<references>
 			<refitem>Isotope</refitem>
 			<refitem>Isobar</refitem>
@@ -213,7 +213,7 @@
 	</item>
 	<item>
 		<name>Electron</name>
-		<desc>The electron is a subatomic particle with a mass of m[sub]e[/sub]=(9.1093897 &#177; 0.0000054)e-31 kg and a negative charge of [i]e[/i]=(1.60217733 &#177; 0.00000049)e-19 C
+		<desc>The electron is a subatomic particle with a mass of m[sub]e[/sub]=(9.1093897 ± 0.0000054)e-31 kg and a negative charge of [i]e[/i]=(1.60217733 ± 0.00000049)e-19 C
 		</desc>
 		<references>
 			<refitem>Atom</refitem>
@@ -221,7 +221,7 @@
 	</item>
 	<item>
 		<name>Proton</name>
-		<desc>The proton is a subatomic particle with a mass of m[sub]e[/sub]=(1.6726231 &#177; 0.0000010) 10[sup]-27[/sup] kg and a positive charge of [i]e[/i]=(1.60217733 &#177; 0.00000049) 10[sup]-19[/sup] C which occurs in the nucleus of an atom.</desc>
+		<desc>The proton is a subatomic particle with a mass of m[sub]e[/sub]=(1.6726231 ± 0.0000010) 10[sup]-27[/sup] kg and a positive charge of [i]e[/i]=(1.60217733 ± 0.00000049) 10[sup]-19[/sup] C which occurs in the nucleus of an atom.</desc>
 		<references>
 			<refitem>Atom</refitem>
 			<refitem>Electron</refitem>
@@ -230,7 +230,7 @@
 	</item>
 	<item>
 		<name>Neutron</name>
-		<desc>The neutron is a subatomic particle with a mass of m[sub]e[/sub]=(1.6749286 &#177; 0.0000010) 10[sup]-27[/sup] kg which occurs in the nucleus of an atom.</desc>
+		<desc>The neutron is a subatomic particle with a mass of m[sub]e[/sub]=(1.6749286 ± 0.0000010) 10[sup]-27[/sup] kg which occurs in the nucleus of an atom.</desc>
 		<references>
 			<refitem>Atom</refitem>
 			<refitem>Electron</refitem>
