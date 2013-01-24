@@ -69,7 +69,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QComboBox" name="amtSltType">
+       <widget class="KComboBox" name="amtSltType">
         <property name="toolTip">
          <string>The method by which you want to specify the amount of solute</string>
         </property>
@@ -231,7 +231,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="QComboBox" name="amtSlvtType">
+       <widget class="KComboBox" name="amtSlvtType">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -376,7 +376,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="mode">
+       <widget class="KComboBox" name="mode">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -436,7 +436,7 @@ p, li { white-space: pre-wrap; }
        </spacer>
       </item>
       <item row="7" column="2">
-       <widget class="QComboBox" name="densSlvt_unit">
+       <widget class="KComboBox" name="densSlvt_unit">
         <property name="toolTip">
          <string>Specify the units for density of solvent</string>
         </property>
@@ -483,7 +483,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="QComboBox" name="conc_unit">
+       <widget class="KComboBox" name="conc_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -524,7 +524,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QComboBox" name="amtSlvt_unit">
+       <widget class="KComboBox" name="amtSlvt_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -595,7 +595,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QComboBox" name="densSlt_unit">
+       <widget class="KComboBox" name="densSlt_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -649,7 +649,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QComboBox" name="amtSlt_unit">
+       <widget class="KComboBox" name="amtSlt_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;

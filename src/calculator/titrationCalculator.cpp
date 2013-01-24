@@ -34,7 +34,6 @@
 #include <QVarLengthArray>
 #include <qscriptengine.h>
 #include <stdlib.h>
-#include <math.h>
 #include <float.h>
 #include <QMessageBox>
 
@@ -136,7 +135,7 @@ void titrationCalculator::plot()
             }
         }
         //if (mreporto!="") uid.note->setText("Theoretical Curve: "+mreporto);
-        if (mreporto!="") {
+        if (!mreporto.isEmpty()) {
 	  uid.note->setText(i18n("Theoretical curve")+": "+mreporto);
             for (int i=int(xmin); i<(int(xmax)); i++) {
                 double id = i;
@@ -153,7 +152,7 @@ void titrationCalculator::plot()
 
                 double tvalue = three.toNumber();
                 kpor->addPoint(id, tvalue);
-		redplot = redplot + " " + QString::number((id*10)+5).replace(QString(","), QString(".")) + "," + QString::number((ymax-tvalue)*10).replace(QString(","), QString("."));
+		redplot = redplot + ' ' + QString::number((id*10)+5).replace(QChar(','), QChar('.')) + ',' + QString::number((ymax-tvalue)*10).replace(QChar(','), QChar('.'));
             }
         }
         temponu = 0;
@@ -177,7 +176,7 @@ void titrationCalculator::plot()
                 kpob->addPoint(uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble(), uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble());
                 py[i] = uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble();
                 px[i] = uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble();
-		blueplot = blueplot + " " + QString::number((uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble()*10)+5).replace(QString(","), QString(".")) + "," + QString::number((ymax-uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble())*10).replace(QString(","), QString("."));
+		blueplot = blueplot + ' ' + QString::number((uid.tableWidget_2->item(i,1)->data(Qt::DisplayRole).toDouble()*10)+5).replace(QChar(','), QChar('.')) + ',' + QString::number((ymax-uid.tableWidget_2->item(i,0)->data(Qt::DisplayRole).toDouble())*10).replace(QChar(','), QChar('.'));
             }
         }
         a = py[totaldata-1]-py[0];
@@ -203,7 +202,7 @@ void titrationCalculator::plot()
             double id = i;
 	    xval =((a*(tanh(b*((id)+c))))+d);
 	    kpog->addPoint(id, xval);
-	    greenplot = greenplot + " " + QString::number((id*10)+5).replace(QString(","), QString(".")) + "," + QString::number((ymax-xval)*10).replace(QString(","), QString("."));
+	    greenplot = greenplot + " " + QString::number((id*10)+5).replace(QChar(','), QChar('.')) + ',' + QString::number((ymax-xval)*10).replace(QChar(','), QChar('.'));
         }
         //THIS IS THE EQUIVALENCE POINT (THE INFLECTION OF THE CURVE)
         QString es = QString::number(-c);
@@ -211,9 +210,9 @@ void titrationCalculator::plot()
         QString bs = QString::number(b);
         QString cs = QString::number(c);
         QString ds = QString::number(d);
-        QString tempon = uid.note->toPlainText()+QString("\n");
+        QString tempon = uid.note->toPlainText()+QChar('\n');
         if (temponu!=0) tempon="";
-        uid.note->setText(tempon + "\n"+i18n("Approximated curve")+": "+as+"*tanh("+bs+"*(x+"+cs+"))+"+ds +"\n"+i18n("Equivalence point")+": "+es);
+        uid.note->setText(tempon + '\n'+i18n("Approximated curve")+": "+as+"*tanh("+bs+"*(x+"+cs+"))+"+ds +'\n'+i18n("Equivalence point")+": "+es);
     } //here ends the experimental values mode
 
     uid.kplotwidget->addPlotObject(kpor);
@@ -266,7 +265,7 @@ QString titrationCalculator::solve(char *yvalue) {
                         QString yvaluerq = titemo->data(Qt::DisplayRole).toString() ;
                         QByteArray ba = yvaluerq.toLatin1();
                         char *yvalure = ba.data();
-                        tempyval = QString("(") + QString(yvalure) + QString(")");
+                        tempyval = QChar('(') + QString(yvalure) + QChar(')');
                         tempy = "";
                         end = 1;
                     }
@@ -282,7 +281,7 @@ QString titrationCalculator::solve(char *yvalue) {
             }
 
         } // simbol end
-        if (tempyval!="") {
+        if (!tempyval.isEmpty()) {
             mreport = mreport + tempyval ;
         }
         tempyval = "";
@@ -310,10 +309,10 @@ QString titrationCalculator::solvex(char *yvalue, QString dnum) {
         if (!(yvalue[i]=='q' or yvalue[i]=='w' or yvalue[i]=='e' or yvalue[i]=='r' or yvalue[i]=='t' or yvalue[i]=='y' or yvalue[i]=='u' or yvalue[i]=='i' or yvalue[i]=='o' or yvalue[i]=='p' or yvalue[i]=='a' or yvalue[i]=='s' or yvalue[i]=='d' or yvalue[i]=='f' or yvalue[i]=='g' or yvalue[i]=='h' or yvalue[i]=='j' or yvalue[i]=='k' or yvalue[i]=='l' or yvalue[i]=='z' or yvalue[i]=='x' or yvalue[i]=='c' or yvalue[i]=='v' or yvalue[i]=='b' or yvalue[i]=='n' or yvalue[i]=='m' or yvalue[i]=='+' or yvalue[i]=='-' or yvalue[i]=='^' or yvalue[i]=='*' or yvalue[i]=='/' or yvalue[i]=='(' or yvalue[i]==')' or yvalue[i]=='Q' or yvalue[i]=='W' or yvalue[i]=='E' or yvalue[i]=='R' or yvalue[i]=='T' or yvalue[i]=='Y' or yvalue[i]=='U' or yvalue[i]=='I' or yvalue[i]=='O' or yvalue[i]=='P' or yvalue[i]=='A' or yvalue[i]=='S' or yvalue[i]=='D' or yvalue[i]=='F' or yvalue[i]=='G' or yvalue[i]=='H' or yvalue[i]=='J' or yvalue[i]=='K' or yvalue[i]=='L' or yvalue[i]=='Z' or yvalue[i]=='X' or yvalue[i]=='C' or yvalue[i]=='V' or yvalue[i]=='B' or yvalue[i]=='N' or yvalue[i]=='M' or yvalue[i]=='1' or yvalue[i]=='2' or yvalue[i]=='3' or yvalue[i]=='4' or yvalue[i]=='5' or yvalue[i]=='6' or yvalue[i]=='7' or yvalue[i]=='8' or yvalue[i]=='9' or yvalue[i]=='0' or yvalue[i]=='.' or yvalue[i]==',')) break; //if current value is not a permitted value, this means that something is wrong
         if (yvalue[i]=='q' or yvalue[i]=='w' or yvalue[i]=='e' or yvalue[i]=='r' or yvalue[i]=='t' or yvalue[i]=='y' or yvalue[i]=='u' or yvalue[i]=='i' or yvalue[i]=='o' or yvalue[i]=='p' or yvalue[i]=='a' or yvalue[i]=='s' or yvalue[i]=='d' or yvalue[i]=='f' or yvalue[i]=='g' or yvalue[i]=='h' or yvalue[i]=='j' or yvalue[i]=='k' or yvalue[i]=='l' or yvalue[i]=='z' or yvalue[i]=='x' or yvalue[i]=='c' or yvalue[i]=='v' or yvalue[i]=='b' or yvalue[i]=='n' or yvalue[i]=='m' or yvalue[i]=='Q' or yvalue[i]=='W' or yvalue[i]=='E' or yvalue[i]=='R' or yvalue[i]=='T' or yvalue[i]=='Y' or yvalue[i]=='U' or yvalue[i]=='I' or yvalue[i]=='O' or yvalue[i]=='P' or yvalue[i]=='A' or yvalue[i]=='S' or yvalue[i]=='D' or yvalue[i]=='F' or yvalue[i]=='G' or yvalue[i]=='H' or yvalue[i]=='J' or yvalue[i]=='K' or yvalue[i]=='L' or yvalue[i]=='Z' or yvalue[i]=='X' or yvalue[i]=='C' or yvalue[i]=='V' or yvalue[i]=='B' or yvalue[i]=='N' or yvalue[i]=='M' or yvalue[i]=='.' or yvalue[i]==',') tempy = tempy + yvalue[i]; //if lettere =0 then the equation contains only mnumbers
         if  (yvalue[i]=='+' or yvalue[i]=='-' or yvalue[i]=='^' or yvalue[i]=='*' or yvalue[i]=='/' or yvalue[i]=='(' or yvalue[i]==')' or yvalue[i]=='1' or yvalue[i]=='2' or yvalue[i]=='3' or yvalue[i]=='4' or yvalue[i]=='5' or yvalue[i]=='6' or yvalue[i]=='7' or yvalue[i]=='8' or yvalue[i]=='9' or yvalue[i]=='0' or yvalue[i]=='.' or yvalue[i]==',' ) {
-            if (tempyolda!="") {
+            if (!tempyolda.isEmpty()) {
                 tempy = tempy + yvalue[i];
                 if (tempyolda==uid.xaxis->text()) tempyolda=dnum;
-                tempyval = tempyval + QString("Math.pow(") + tempyolda + QString(",") + tempy + QString(")");
+                tempyval = tempyval + QString("Math.pow(") + tempyolda + QChar(',') + tempy + QChar(')');
                 tempyolda = "";
                 tempyold = "";
                 olda = 1;
@@ -326,19 +325,19 @@ QString titrationCalculator::solvex(char *yvalue, QString dnum) {
             }
 
         } else {
-            if (tempyolda!="") {
-                tempyval = tempyval + QString("Math.pow(") + tempyolda + QString(",") + tempy + QString(")");
+            if (!tempyolda.isEmpty()) {
+                tempyval = tempyval + QString("Math.pow(") + tempyolda + QChar(',') + tempy + QChar(')');
                 tempyolda = "";
                 tempyold = "";
                 olda = 1;
             }
-            if ((tempy==uid.xaxis->text()) and (tempyolda=="") ) {
+            if ((tempy==uid.xaxis->text()) and (!tempyolda.isEmpty()) ) {
                 if (yvalue[i+1]!='^') tempyval = tempyval + dnum;
                 tempyold = tempy;
                 tempy = "";
             }
         } // simbol end
-        if (tempyval!="") {
+        if (!tempyval.isEmpty()) {
             mreport = mreport + tempyval;
         }
         tempyval = "";
@@ -431,7 +430,7 @@ titemo = uid.tableWidget_2->item(3,1);
 titemo->setText("31,5");
 
 // I think it's better if I'don't give so many informations here.
-//  These ifnromation could be included into kalzium help, but I don't know how to do
+//  These information could be included into kalzium help, but I don't know how to do
     //QMessageBox::information(this, "IceeQt Rapid Help", "There are two ways to use IceeQt:\n\nTheoretical Equations\n Here you can fill the table with the equations you have previously obtained for the chemical equilibria. FOR EXAMPLE if you have this reaction A + B -> C + D then you will have the equation K=(C*D)/(A*B) so you must write 'K' in the Parameter column and '(C*D)/(A*B)' in the Value column. If you want to assign a known value to a parameter you can simply write the numeric value in the Value field. FOR EXAMPLE you can use the system \nA=(C*D)/(B*K) \nK=10^-3 \nC=OH \nOH=(10^-14)/H \nH=10^-4 \nB=6*(10^-2) \nThen you have to write D as X axis and A as Y axis: so you will find out how the concentration of A change in function of D concentration.\nPlease don't use parenthesis for exponents: 10^-3 is correct, while 10^(-3) is wrong. \n\nExperimental Values\n You can use this program to draw the plot of your experimental data obtained during a titration and find out the volume of equivalence. It's strongly recommended to insert a even number of points, because of the best fit algorithm, sorted by volume (the X axis value).\n\nPlot\n The plot shows in red the curve that cames from theorical equations, in blue the experimental points, and in green the aproximated curve for experimental points.");
  }
 
@@ -500,13 +499,13 @@ void titrationCalculator::on_actionSave_triggered()
         } else {
             QString yvaluerq = titemo->data(Qt::DisplayRole).toString() ;
             QString valuerq = titem->data(Qt::DisplayRole).toString() ;
-            tempyval = tempyval + QString("\n") + valuerq + QString("|\n") + yvaluerq + QString("|");
+            tempyval = tempyval + QChar('\n') + valuerq + QString("|\n") + yvaluerq + QChar('|');
         }
     }
     tempyval =  tempyval + QString("\nxaxis|");
-    tempyval = tempyval + QString("\n") + uid.xaxis->text() + QString("|");
+    tempyval = tempyval + QString("\n") + uid.xaxis->text() + QChar('|');
     tempyval =  tempyval + QString("\nyaxis|");
-    tempyval = tempyval + QString("\n") + uid.yaxis->text() + QString("|");
+    tempyval = tempyval + QString("\n") + uid.yaxis->text() + QChar('|');
     tempyval =  tempyval + QString("\ntable2|");
     for (int i=0; i<uid.tableWidget_2->rowCount() ; i++) {
         QTableWidgetItem *titem = uid.tableWidget_2->item(i,0) ;
@@ -516,13 +515,13 @@ void titrationCalculator::on_actionSave_triggered()
         } else {
             QString yvaluerq = titemo->data(Qt::DisplayRole).toString() ;
             QString valuerq = titem->data(Qt::DisplayRole).toString() ;
-            tempyval = tempyval + QString("\n") + valuerq + QString("|\n") + yvaluerq + QString("|");
+            tempyval = tempyval + QChar('\n') + valuerq + QString("|\n") + yvaluerq + QChar('|');
         }
     }
-    tempyval =  tempyval + QString("\nnote|\n") + uid.note->toPlainText() + QString("|");
+    tempyval =  tempyval + QString("\nnote|\n") + uid.note->toPlainText() + QChar('|');
 
     QString file = QFileDialog::getSaveFileName(this,"Save work","","Icee File (*.icee)");
-    if (file!="") {
+    if (!file.isEmpty()) {
         QByteArray ba = tempyval.toLatin1();
         char *strsave = ba.data();
         QByteArray bac = file.toLatin1();
@@ -535,7 +534,7 @@ void titrationCalculator::on_actionSave_triggered()
         if (!out) QMessageBox::critical(this,"Error","Unable to create "+file) ;
         out << strsave;
         out.close();
-        //if(out) QMessageBox::information(this, "Information", "File "+file + " succesfully saved.");
+        //if(out) QMessageBox::information(this, "Information", "File "+file + " successfully saved.");
     }
 }
 
@@ -543,7 +542,7 @@ void titrationCalculator::on_actionOpen_triggered()
 {
     //loads all the cells text from a file prevoiusly saved
     QString file = QFileDialog::getOpenFileName(this,"Open work","","Icee File (*.icee)");
-    if (file!="") {
+    if (!file.isEmpty()) {
         QByteArray bac = file.toLatin1();
         char *filec = bac.data();
         ifstream texto(filec);
@@ -653,7 +652,7 @@ void titrationCalculator::on_actionSave_image_triggered()
     QString svgcomplete = svgheader + redplot + greenplot + blueplot + "</svg> ";
         
     QString file = QFileDialog::getSaveFileName(this, i18n( "Save plot") ,"",i18n( "Svg image (*.svg)") );
-    if (file!="") {
+    if (!file.isEmpty()) {
       QByteArray svgt = svgcomplete.toLatin1();
       char *strsave = svgt.data();
       QByteArray ban = file.toLatin1();

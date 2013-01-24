@@ -82,7 +82,7 @@
         </widget>
        </item>
        <item row="7" column="0">
-        <widget class="QTextEdit" name="note"/>
+        <widget class="KTextEdit" name="note"/>
        </item>
        <item row="0" column="5">
         <widget class="QDoubleSpinBox" name="xmax">
@@ -112,7 +112,7 @@
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QTabWidget" name="tabWidget">
+        <widget class="KTabWidget" name="tabWidget">
          <property name="currentIndex">
           <number>0</number>
          </property>
@@ -301,7 +301,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="xaxis">
+              <widget class="KLineEdit" name="xaxis">
                <property name="maximumSize">
                 <size>
                  <width>174</width>
@@ -318,7 +318,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="yaxis"/>
+              <widget class="KLineEdit" name="yaxis"/>
              </item>
             </layout>
            </item>

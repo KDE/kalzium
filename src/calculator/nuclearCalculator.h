@@ -42,7 +42,7 @@ enum ERROR_MODE_NUKE {
 	FINAL_AMT_GREATER
 };
 
-// This is the enumeration for the mode of calulation in the nuclear calculator
+// This is the enumeration for the mode of calculation in the nuclear calculator
 enum MODE_CALCULATION_NUKE {
 	INIT_AMT =0,
 	FINAL_AMT,

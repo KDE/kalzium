@@ -142,7 +142,7 @@ Mass = moles * molar mass</string>
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QComboBox" name="mass_unit">
+       <widget class="KComboBox" name="mass_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -203,7 +203,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QComboBox" name="pressure_unit">
+       <widget class="KComboBox" name="pressure_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -251,7 +251,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QComboBox" name="temp_unit">
+       <widget class="KComboBox" name="temp_unit">
         <property name="toolTip">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -302,7 +302,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QComboBox" name="volume_unit">
+       <widget class="KComboBox" name="volume_unit">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -333,7 +333,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="mode">
+       <widget class="KComboBox" name="mode">
         <property name="currentIndex">
          <number>3</number>
         </property>
@@ -440,7 +440,7 @@ p, li { white-space: pre-wrap; }
         <item row="0" column="2">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QComboBox" name="b_unit">
+           <widget class="KComboBox" name="b_unit">
             <property name="toolTip">
              <string>The units of the van der Waals constant 'b'</string>
             </property>
