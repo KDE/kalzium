@@ -530,6 +530,7 @@ void concCalculator::calculateConcentration()
         m_concentration = molesSolute() / (molesSolute() + molesSolvent()) * 100.0;
         break;
     default:
+        m_concentration = 0;
         break;
     }
     ui.concentration->setValue(m_concentration);
@@ -550,6 +551,7 @@ double concCalculator::volumeSolvent()
     case 2: // If moles are specified, calculated volume and return it.
         volume = massSolvent() / densitySolvent();
     default:
+        volume = 0;
         break;
     }
     return volume;
@@ -571,6 +573,7 @@ double concCalculator::molesSolvent()
         moles = m_molesSolvent;
         break;
     default:
+        moles = 0;
         break;
     }
     return moles;
@@ -591,6 +594,7 @@ double concCalculator::massSolvent()
         mass = m_molesSolvent * m_molarMassSolvent;
         break;
     default:
+        mass = 0;
         break;
     }
     return mass;
@@ -615,6 +619,7 @@ double concCalculator::volumeSolute()
     case 2:
         volume = massSolute() / densitySolute();
     default:
+        volume = 0;
         break;
     }
     return volume;
@@ -640,6 +645,7 @@ double concCalculator::molesSolute()
         moles = m_molesSolute;
         break;
     default:
+        moles = 0;
         break;
     }
     return moles;
@@ -666,6 +672,7 @@ double concCalculator::eqtsSolute()
         eqts = 1.0;
         break;
     default:
+        eqts = 0;
         break;
     }
     return eqts;
@@ -687,6 +694,7 @@ double concCalculator::massSolute()
         mass = m_molesSolute * m_molarMass;
         break;
     default:
+        mass = 0;
         break;
     }
     return mass;
