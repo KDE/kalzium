@@ -91,11 +91,11 @@ void LegendWidget::updateContent()
             gradientDesc = i18nc("one of the two types of gradients available", "linear");
         items << qMakePair( i18n( "%1 (%2)" ,elementProperty->gradient()->description(), gradientDesc ), QColor() );
         items << qMakePair( i18nc( "Minimum value of the gradient" ,
-                                   "Minimum: %1" , QString::number(elementProperty->gradient()->minValue()) + " " + elementProperty->gradient()->unit()),
+                                   "Minimum: %1" , QString::number(elementProperty->gradient()->minValue()) + ' ' + elementProperty->gradient()->unit()),
                             QColor( elementProperty->gradient()->firstColor() ));
 
         items << qMakePair( i18nc( "Maximum value of the gradient" ,
-                                   "Maximum: %1" , QString::number(elementProperty->gradient()->maxValue()) + " " + elementProperty->gradient()->unit()),
+                                   "Maximum: %1" , QString::number(elementProperty->gradient()->maxValue()) + ' ' + elementProperty->gradient()->unit()),
                             QColor( elementProperty->gradient()->secondColor() ));
         break;
     }

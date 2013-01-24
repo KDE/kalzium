@@ -325,7 +325,7 @@ void Kalzium::slotExportTable()
                        this,
                        i18n("Save Kalzium's Table In"));
 
-    if (fileName.endsWith(".svg")) {
+    if (fileName.endsWith(QLatin1String(".svg"))) {
         m_periodicTable->generateSvg( fileName );
     } else {
         QPixmap pix = QPixmap::grabWidget( m_periodicTable );
@@ -574,7 +574,7 @@ void Kalzium::elementHover( int num )
     m_detailWidget->setElement( num );
 }
 
-// FIXME What is that function for? Does not seem to do anything usefull... yet?
+// FIXME What is that function for? Does not seem to do anything useful... yet?
 void Kalzium::extractIconicInformationAboutElement( int elementNumber )
 {
     QString setname = "school";

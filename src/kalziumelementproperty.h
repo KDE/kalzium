@@ -61,11 +61,11 @@ public:
     };
 
     /**
-     * all available schemes. Can be used to populate menues.
+     * all available schemes. Can be used to populate menus.
      */
     QStringList schemeList() const;
     /**
-     * all available gradients. Can be used to populate menues.
+     * all available gradients. Can be used to populate menus.
      */
     QStringList gradientList() const;
 
@@ -137,7 +137,7 @@ Q_SIGNALS:
 public slots:
     /**
      * gets the value from the gradientwidget. The value which is used to
-     * determin if an element is activ or not.
+     * determine if an element is active or not.
      * @param slide value of the current gradient
      */
     void setSliderValue(double slide);

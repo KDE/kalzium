@@ -276,11 +276,11 @@ void ElementDataViewer::setupAxisData( AxisData * data )
 
     if ( unit != KUnitConversion::NoUnit ) {
         QString stringUnit =  KalziumDataObject::instance()->unitAsString( unit );
-        data->unit = QString(" " + stringUnit);
+        data->unit = QString(' ' + stringUnit);
 
         caption.append(" [");
         caption.append( stringUnit );
-        caption.append("]");
+        caption.append(']');
     }
 
     if ( data->type() == AxisData::X ) {
@@ -414,16 +414,16 @@ void ElementDataViewer::drawPlot()
                 belongs = ( block [ i - 1 ] == "f");
                 break;
             case 7: // Noble gases
-                belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("p6") );
+                belongs = ( ( elecConfig [ i - 1 ] ) . endsWith(QLatin1String("p6")) );
                 belongs |= ( i == 2 );		//Include Helium
                 break;
             case 8: // Alkalie metals
-                belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("s1") );
+                belongs = ( ( elecConfig [ i - 1 ] ) . endsWith(QLatin1String("s1")) );
                 belongs &= ( block [ i - 1 ] == "s" ); //exclude chromium
                 belongs &= ( i != 1 );		//exclude Hydrogen
                 break;
             case 9: // Alkaline earth metals
-                belongs = ( ( elecConfig [ i - 1 ] ) . endsWith("s2") );
+                belongs = ( ( elecConfig [ i - 1 ] ) . endsWith(QLatin1String("s2")) );
                 belongs &= ( block [ i - 1 ] == "s" ); //exclude chromium
                 belongs &= ( i != 2 );		//exclude Helium
                 break;

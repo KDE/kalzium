@@ -74,11 +74,11 @@ public:
 
 Q_SIGNALS:
     /**
-     * Is emited when the pse table is changed.
+     * Is emitted when the pse table is changed.
      */
     void tableChanged(int tableTyp);
     /**
-     * Is emited when the numeration of the pse table is changed.
+     * Is emitted when the numeration of the pse table is changed.
      */
     void numerationChange(int num);
 

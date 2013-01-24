@@ -351,7 +351,7 @@ MoleculeParser::expandFormula( const QString& _shortString)
 			// If an expansion was made, return the expansion
 			else if (!((expandedTerm = expandTerm(temp)).isEmpty())) {
 				kDebug() << "expanded" << temp << "to" << expandedTerm;
-				_fullString += "("+expandedTerm+")";
+				_fullString += '('+expandedTerm+')';
 			}
 			// invalid term, append it. ( Validation is done later anyway. )
 			else {

@@ -172,7 +172,7 @@ QColor KalziumElementProperty::getTextColor(int el) const
 
 QColor KalziumElementProperty::getBorderColor(int el) const
 {
-    // Show sheme color as border when gradients are selected.
+    // Show scheme color as border when gradients are selected.
     if (m_currentGradient != NOGRADIENT ) {
         return scheme()->elementBrush(el).color();
     }

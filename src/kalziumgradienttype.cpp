@@ -103,9 +103,9 @@ double KalziumGradientType::elementCoeff( int el ) const
         double minVal = minValue();
         double maxVal = maxValue();
 
-        // Fixing negativ values for log calculation (no negativ values alowed -> NaN)
+        // Fixing negative values for log calculation (no negative values allowed -> NaN)
         if ( minVal < 0 ) {
-            minVal = abs(minVal) + 1; // make shure it's bigger than 0
+            minVal = abs(minVal) + 1; // make sure it's bigger than 0
             maxVal += minVal;
             val += minVal;
             minVal = 0.01;

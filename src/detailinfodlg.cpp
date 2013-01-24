@@ -298,7 +298,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         html.append ( "<tr><td>" );
         html.append ( "<a href=\"http://");        // http://
         html.append ("www.webelements.com/");
-        if ( KGlobal::locale()->language().split("_").at(0) == "en" ) {
+        if ( KGlobal::locale()->language().split('_').at(0) == "en" ) {
             html.append ( m_element->dataAsString( ChemicalDataObject::name ).toLower() ); // hydrogen
         }
         html.append ( "\" target=\"_blank\" >");
@@ -546,7 +546,7 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 
         //Wikipedia.org
         html.append ( "<a href=\"http://" );        // http://
-        html.append ( language.split("_").at(0) );                        // en.
+        html.append ( language.split('_').at(0) );                        // en.
         html.append ( ".wikipedia.org/wiki/" );      // wikipedia.org
         html.append ( link );             // /hydrogen
         html.append ( "\" target=\"_blank\" > ");

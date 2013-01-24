@@ -119,7 +119,7 @@ void Molmasscalculator::ParseMolecule()
 
 void Molmasscalculator::newCalculatedMass()
 {
-    if ( m_molecule["molMass"].toString() == QString() ) {
+    if ( m_molecule["molMass"].toString().isEmpty() ) {
         m_MassLabel->setText ( i18n ( "Invalid Molecule" ) );
         return;
     }
@@ -151,7 +151,7 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
     m_MassLabel = new Plasma::Label;
     m_MassLabel->setAlignment ( Qt::AlignCenter );
 
-    QString css("font-size:18px; color:" + this->palette().text().color().name() + ";");
+    QString css("font-size:18px; color:" + this->palette().text().color().name() + ';');
     m_MassLabel->setStyleSheet ( css );
 
     m_lineedit = new Plasma::LineEdit();

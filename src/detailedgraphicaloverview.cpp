@@ -40,7 +40,7 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 
     setMinimumSize( 300, 200 );
 
-    // Set Hydrogen as inital Element.
+    // Set Hydrogen as initial element.
     setElement(1);
 }
 

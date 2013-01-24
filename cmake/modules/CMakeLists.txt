@@ -1,4 +1,4 @@
-# explicitely install the "public" cmake files
+# explicitly install the "public" cmake files
 
 set(cmakeFiles
   FindKDEEdu.cmake

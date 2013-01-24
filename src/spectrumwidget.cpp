@@ -146,7 +146,7 @@ QColor SpectrumWidget::wavelengthToRGB( double wavelength  )
 {
     double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
-    // wavelengthTo RGB functin works with nanometers.
+    // wavelengthTo RGB function works with nanometers.
     wavelength = KUnitConversion::Value( wavelength, Prefs::spectrumWavelengthUnit() )
                  .convertTo( KUnitConversion::Nanometer ).number();
 

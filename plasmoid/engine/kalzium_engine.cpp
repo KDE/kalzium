@@ -83,17 +83,17 @@ bool KalziumEngine::sourceRequestEvent(const QString &source)
     currentSource = &source;
 
     // return a randomly chosen element
-    if (currentSource->startsWith("BlueObelisk:")) {
+    if (currentSource->startsWith( QLatin1String("BlueObelisk:") )) {
         setElementData();
         return true;
     }
 
-    if (currentSource->startsWith( "Molecule:Parser:" )) {
+    if (currentSource->startsWith( QLatin1String("Molecule:Parser:") )) {
         setMoleculeData();
         return true;
     }
 
-    if (currentSource->startsWith( "Table:" )) {
+    if (currentSource->startsWith( QLatin1String("Table:") )) {
         setPeriodicTableData();
     }
 
@@ -149,7 +149,7 @@ bool KalziumEngine::setElementData()
 QString KalziumEngine::getKeyWord(int id)
 {
     QStringList idList;
-    idList = currentSource->split(":");
+    idList = currentSource->split(':');
 
     if ( id == -1)
         return idList.last();

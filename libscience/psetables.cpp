@@ -305,7 +305,7 @@ pseShortTable *pseShortTable::init()
 pseDTable::pseDTable()
         : pseTable()
 {
-    m_name = "D";
+    m_name = 'D';
 
     m_description = i18n( "Transition Elements" );
 
