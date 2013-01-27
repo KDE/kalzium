@@ -207,6 +207,7 @@ void Molmasscalculator::managePeriodSystem()
 
     m_switchButton->setIcon( iconLoader.loadIcon( iconName, KIconLoader::Small ) );
 
+    m_widget->setMinimumSize( x, y );
     m_widget->setPreferredSize( x, y );
     m_widget->resize( x, y );
     resize( x, y );
