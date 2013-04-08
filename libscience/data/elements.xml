@@ -75,7 +75,7 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.85 1.00 1.00</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">4.216</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">0.95</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">s</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">se,uk</array>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1895</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">P. J. Janssen;J. N. Lockyer</array>
