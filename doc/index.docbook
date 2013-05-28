@@ -464,27 +464,27 @@
 			   </screenshot>
 			   <para>Implemented are the following gradients</para>
 			   <itemizedlist>
-			     <listitem><para><guimenuitem>None</guimenuitem>: Do not use gradients.
+			     <listitem><para>None: Do not use gradients.
 			     </para></listitem>
-			     <listitem><para><guimenuitem>State of matter</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/State_of_matter">State of matter</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Covalent_Radius">Covalent Radius</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>van der Waals</guimenuitem>: gradient by van der Waals radius.
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Van_der_Waals_radius">van der Waals</ulink>: gradient by van der Waals radius
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Atomic Mass</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Atomic_Mass">Atomic Mass</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Boiling Point</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Boiling_Point">Boiling Point</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Melting Point</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Melting_Point">Melting Point</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Electronegativity (Pauling)</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Electronegativity">Electronegativity (Pauling)</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Electronaffinity</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Electron_affinity">Electronaffinity</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><guimenuitem>Discovery date</guimenuitem>
+			     <listitem><para>Discovery date
 			     </para></listitem>
-			     <listitem><para><guimenuitem>First Ionization</guimenuitem>
+			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Ionization_energy">First Ionization</ulink>&nbsp;
 			     </para></listitem>
 			   </itemizedlist>
 		 </sect1>
