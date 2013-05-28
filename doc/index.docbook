@@ -42,8 +42,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2012-09-04</date>
-		 <releaseinfo>2.4.00 (&kde; 4.9)</releaseinfo>
+		 <date>2013-05-28</date>
+		 <releaseinfo>2.4.00 (&kde; 4.11)</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -114,7 +114,7 @@
 		 <screenshot>
 			 <screeninfo>Information dialog</screeninfo>
 			 <mediaobject>
-				 <imageobject><imagedata fileref="quick-2.png" format="PNG" /></imageobject>
+				 <imageobject><imagedata fileref="infodialog_data_overview.png" format="PNG" /></imageobject>
 				 <textobject><phrase>Information dialog</phrase></textobject>
 			 </mediaobject>
 		 </screenshot>
@@ -496,7 +496,7 @@
 				   The Molecular Editor allows you to view and edit molecules using <ulink url="http://avogadro.openmolecules.net/wiki/Main_Page">Avogadro</ulink> libraries.
 				 </para>
 				 <para>
-				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window.
+				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The files downloaded files will be saved in your <filename class="directory">Documents</filename> folder from where you can load them into the editor.
 				   <!-- The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually. <envar>$KDEHOME</envar> is usually a hidden folder in your Home folder called <filename class="directory">.kde</filename> or <filename class="directory">.kde4</filename>
 				   "$KDEHOME" is not always defined eg not in kubuntu 11.04
 				   <filename class="directory">`kde4-config - -localprefix`/share/apps/kvtml</filename>
@@ -890,24 +890,6 @@
 					 </screenshot>
 				 </sect3>
 
-				 <sect3 id="calculate">
-					 <title>Calculate</title>
-
-					 <para>The <guilabel>Calculate</guilabel> tab is the last in the sidebar. It allows you to calculate molecules weights.</para>
-					 <para>You are first presented with the following icons and text:</para>
-					 <screenshot>
-						 <mediaobject>
-							 <imageobject>
-								 <imagedata fileref="sidebar2.png" format="PNG"/>
-							 </imageobject>
-							 <textobject>
-								 <phrase>Calculate</phrase>
-							 </textobject>
-							 <caption><para>Calculate</para>
-							 </caption>
-						 </mediaobject>
-					 </screenshot>
-				 </sect3>
 			 </sect2>
 		 </sect1>
 	 </chapter>
@@ -960,9 +942,10 @@
 			 </mediaobject>
 		 </screenshot>
 		 <para>In the <guilabel>Units</guilabel> tab, you can
-			 choose the units for temperature and energy. You can select if you prefer kJ/mol by default or
-			 you can choose eV. The Temperature is in Kelvin by default but you can
-			 change to degrees Celsius or degrees Fahrenheit.
+			 choose the units for temperature and energy. You can select if you prefer electronvolts (eV), kilojoule 
+       per mole (kJ/mol) or joule per mole (J/mol) by default. 
+       For lenght set picometers (pm), nanometers (nm) or Ångström (Å) as default.
+       The emperature is in Kelvin by default but you can change to Celsius (°C), Fahrenheit (°F) and Réaumur (°Ré).
 		 </para>
 		 <screenshot>
 			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
@@ -1322,57 +1305,15 @@
 
 			 </sect2>
 
-			 <sect2>
-				 <title>The Settings Menu</title>
-
-				 <variablelist>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Show Toolbar</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the Main Toolbar.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Show Statusbar</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Toggle</action> the Status bar.</para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Configure Shortcuts...</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Configure</action> the keyboard keys you use to access the different actions.</para>
-						 </listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Configure Toolbars...</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Configure</action> the items you want to put in the toolbar.
-						 </para></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Configure &kalzium;...</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the &kalzium; settings dialog.
-						 </para></listitem>
-					 </varlistentry>
-
-				 </variablelist>
-
-			 </sect2>
-
-			 <sect2>
-				 <title>The Help Menu</title>
-				 &help.menu.documentation;
-			 </sect2>
+<sect2>
+<title>The Settings and Help Menu</title> 
+<para>
+&kalzium; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
+</sect2>
 		 </sect1>
 	 </chapter>
 
@@ -1489,6 +1430,6 @@
  sgml-indent-step:0
  sgml-indent-data:nil
  End:
-
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
  // vim:ts=2:sw=2:tw=78:noet:noai
  -->
