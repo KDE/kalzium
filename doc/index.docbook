@@ -942,10 +942,10 @@
 			 </mediaobject>
 		 </screenshot>
 		 <para>In the <guilabel>Units</guilabel> tab, you can
-			 choose the units for temperature and energy. You can select if you prefer electronvolts (eV), kilojoule 
+			 choose the units for temperature, length and energy. You can select if you prefer electronvolts (eV), kilojoule 
        per mole (kJ/mol) or joule per mole (J/mol) by default. 
        For length set picometers (pm), nanometers (nm) or Ångström (Å) as default.
-       The temperature is in Kelvin by default but you can change to Celsius (°C), Fahrenheit (°F) and Réaumur (°Ré).
+       The temperature is in kelvin by default but you can change to Celsius (°C), Fahrenheit (°F) and Réaumur (°Ré).
 		 </para>
 		 <screenshot>
 			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
