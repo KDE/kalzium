@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>706</width>
-    <height>433</height>
+    <height>465</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -23,8 +23,8 @@
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Some of the following data is not necessary. For instance, if you specify the amount of solute in moles, you do not have to specify the molar mass of the solute.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Some of the following data is not necessary. For instance, if you specify the amount of solute in moles, you do not have to specify the molar mass of the solute.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -37,11 +37,7 @@ p, li { white-space: pre-wrap; }
       <item row="1" column="0">
        <widget class="QLabel" name="label_36">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Amount of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Amount of solute:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -51,11 +47,7 @@ p, li { white-space: pre-wrap; }
       <item row="1" column="1">
        <widget class="QDoubleSpinBox" name="amtSolute">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the amount of solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the amount of solute&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This is the box used to specify the amount of solute in the solution.</string>
@@ -69,38 +61,19 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="KComboBox" name="amtSltType">
+       <widget class="KComboBox" name="amtSltType" native="true">
         <property name="toolTip">
          <string>The method by which you want to specify the amount of solute</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to change the mode in which the amount of solute is specified, i.e. mass, moles or volume.</string>
         </property>
-        <item>
-         <property name="text">
-          <string>Mass</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>volume</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>moles</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_39">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Molar mass of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Molar mass of solute:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -110,11 +83,7 @@ p, li { white-space: pre-wrap; }
       <item row="2" column="1">
        <widget class="QDoubleSpinBox" name="molarMass">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the molar mass of the solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the molar mass of the solute&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the molar mass of the substance.</string>
@@ -130,11 +99,7 @@ p, li { white-space: pre-wrap; }
       <item row="3" column="0">
        <widget class="QLabel" name="label_40">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Equivalent mass of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Equivalent mass of solute:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -144,11 +109,7 @@ p, li { white-space: pre-wrap; }
       <item row="3" column="1">
        <widget class="QDoubleSpinBox" name="eqtMass">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the equivalent mass of the solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the equivalent mass of the solute&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the equivalent mass of the solute. This is required only if concentration in terms of normality is involved.
@@ -165,11 +126,7 @@ Normality = Number of Equivalents / liter of solution</string>
       <item row="4" column="0">
        <widget class="QLabel" name="label_52">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Density of solute:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Density of solute:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -179,11 +136,7 @@ p, li { white-space: pre-wrap; }
       <item row="4" column="1">
        <widget class="QDoubleSpinBox" name="densitySolute">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the density of the solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the density of the solute&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the value of the density of the solute. This is required only if you are specifying the amount of solute in terms of volume.</string>
@@ -199,11 +152,7 @@ p, li { white-space: pre-wrap; }
       <item row="5" column="0">
        <widget class="QLabel" name="label_31">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Amount of Solvent:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Amount of Solvent:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -213,11 +162,7 @@ p, li { white-space: pre-wrap; }
       <item row="5" column="1">
        <widget class="QDoubleSpinBox" name="amtSolvent">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the amount of solvent&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the amount of solvent&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the amount of solvent in the solution.</string>
@@ -231,42 +176,19 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="KComboBox" name="amtSlvtType">
+       <widget class="KComboBox" name="amtSlvtType" native="true">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;The method by which you want to specify volume&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;The method by which you want to specify volume&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to change the mode in which amount of solvent is specified, i.e. mass, moles or volume.</string>
         </property>
-        <item>
-         <property name="text">
-          <string>volume</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Mass</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>moles</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="6" column="0">
        <widget class="QLabel" name="label_42">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Molar mass of solvent:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Molar mass of solvent:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -276,11 +198,7 @@ p, li { white-space: pre-wrap; }
       <item row="6" column="1">
        <widget class="QDoubleSpinBox" name="molarMassSolvent">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the molar mass of the solvent&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the molar mass of the solvent&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the molar mass of the solvent.</string>
@@ -296,11 +214,7 @@ p, li { white-space: pre-wrap; }
       <item row="7" column="0">
        <widget class="QLabel" name="label_55">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Density of Solvent:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Density of Solvent:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -310,11 +224,7 @@ p, li { white-space: pre-wrap; }
       <item row="7" column="1">
        <widget class="QDoubleSpinBox" name="densitySolvent">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the density of the solvent&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the density of the solvent&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the density of the solution and is required only if the amount of solution is specified/needed in terms of mass.</string>
@@ -330,11 +240,7 @@ p, li { white-space: pre-wrap; }
       <item row="8" column="0">
        <widget class="QLabel" name="label_41">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Concentration:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Concentration:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -344,11 +250,7 @@ p, li { white-space: pre-wrap; }
       <item row="8" column="1">
        <widget class="QDoubleSpinBox" name="concentration">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the concentration of the solution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the concentration of the solution&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the concentration of the solution in respective units to the right.</string>
@@ -364,11 +266,7 @@ p, li { white-space: pre-wrap; }
       <item row="0" column="0">
        <widget class="QLabel" name="label_37">
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Calculate:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;&lt;b&gt;Calculate:&lt;/b&gt;&lt;/big&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -376,50 +274,16 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KComboBox" name="mode">
+       <widget class="KComboBox" name="mode" native="true">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify what you want to calculate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify what you want to calculate&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This is the list of quantities that you can calculate. Choose one of the quantities and specify the other required values to calculate it.</string>
         </property>
-        <property name="currentIndex">
+        <property name="currentIndex" stdset="0">
          <number>5</number>
         </property>
-        <item>
-         <property name="text">
-          <string>Amount of Solute</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Molar Mass of Solute</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Equivalent Mass</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Amount of Solvent</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Molar Mass of Solvent</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Concentration</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="1" column="5">
@@ -436,155 +300,33 @@ p, li { white-space: pre-wrap; }
        </spacer>
       </item>
       <item row="7" column="2">
-       <widget class="KComboBox" name="densSlvt_unit">
+       <widget class="KComboBox" name="densSlvt_unit" native="true">
         <property name="toolTip">
          <string>Specify the units for density of solvent</string>
         </property>
-        <item>
-         <property name="text">
-          <string>grams per liter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>grams per milliliter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>kilograms per cubic meter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>kilograms per liter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>ounces per cubic inch</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds per cubic inch</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds per cubic foot</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds per cubic yard</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="KComboBox" name="conc_unit">
+       <widget class="KComboBox" name="conc_unit" native="true">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the unit/method for specifying concentration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the unit/method for specifying concentration&lt;/big&gt;</string>
         </property>
-        <item>
-         <property name="text">
-          <string>molar</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Normal</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>molal</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>% ( mass )</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>% ( volume )</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>% ( moles )</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="KComboBox" name="amtSlvt_unit">
+       <widget class="KComboBox" name="amtSlvt_unit" native="true">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;The units for amount of solvent&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;The units for amount of solvent&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the units for the amount of solvent in the solution.</string>
         </property>
-        <item>
-         <property name="text">
-          <string>liter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>cubic feet</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>cubic inch</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>cubic mile</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>fluid ounce</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>cups</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>gallons</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pints</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="6" column="2">
        <widget class="QLabel" name="label_19">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;The units for molar mass of solvent&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;The units for molar mass of solvent&lt;/big&gt;</string>
         </property>
         <property name="text">
          <string>(g/mole)</string>
@@ -595,116 +337,29 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="KComboBox" name="densSlt_unit">
+       <widget class="KComboBox" name="densSlt_unit" native="true">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the units of density&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the units of density&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the units of the density of the solute. This is required only if you are specifying the amount of solute in terms of volume.</string>
         </property>
-        <item>
-         <property name="text">
-          <string>grams per liter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>grams per milliliter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>kilograms per cubic meter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>kilograms per liter</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>ounces per cubic inch</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds per cubic inch</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds per cubic foot</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds per cubic yard</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="KComboBox" name="amtSlt_unit">
+       <widget class="KComboBox" name="amtSlt_unit" native="true">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Specify the units for the amount of solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Specify the units for the amount of solute&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This box is used to specify the units for the amount of solute in the solution.</string>
         </property>
-        <item>
-         <property name="text">
-          <string>grams</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>kilograms</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>tons</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>carats</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>pounds</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>ounces</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>troy ounces</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="2" column="2">
        <widget class="QLabel" name="label_17">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Units for molar mass of solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Units for molar mass of solute&lt;/big&gt;</string>
         </property>
         <property name="text">
          <string>(g/mol)</string>
@@ -717,11 +372,7 @@ p, li { white-space: pre-wrap; }
       <item row="3" column="2">
        <widget class="QLabel" name="label_18">
         <property name="toolTip">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Units for equivalent mass of solute&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;big&gt;Units for equivalent mass of solute&lt;/big&gt;</string>
         </property>
         <property name="text">
          <string>(g/mole)</string>
@@ -785,11 +436,7 @@ p, li { white-space: pre-wrap; }
      <item>
       <widget class="QPushButton" name="reset">
        <property name="toolTip">
-        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Reset all values to initial values&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;big&gt;Reset all values to initial values&lt;/big&gt;</string>
        </property>
        <property name="text">
         <string>Reset</string>
@@ -805,6 +452,11 @@ p, li { white-space: pre-wrap; }
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QWidget</extends>
+   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
