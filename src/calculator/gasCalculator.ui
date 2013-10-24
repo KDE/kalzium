@@ -11,6 +11,9 @@
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="margin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="KTextEdit" name="ktextedit">
      <property name="maximumSize">
@@ -114,7 +117,7 @@ Mass = moles * molar mass</string>
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="KComboBox" name="mass_unit" native="true">
+       <widget class="KComboBox" name="mass_unit">
         <property name="toolTip">
          <string>&lt;big&gt;Specify the unit of mass of the gas&lt;/big&gt;</string>
         </property>
@@ -163,7 +166,7 @@ Mass = moles * molar mass</string>
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="KComboBox" name="pressure_unit" native="true">
+       <widget class="KComboBox" name="pressure_unit">
         <property name="toolTip">
          <string>&lt;big&gt;Specify the units for pressure of the gas&lt;/big&gt;</string>
         </property>
@@ -199,7 +202,7 @@ Mass = moles * molar mass</string>
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="KComboBox" name="temp_unit" native="true">
+       <widget class="KComboBox" name="temp_unit">
         <property name="toolTip">
          <string>&lt;big&gt;Specify the units for the temperature of the gas&lt;/big&gt;</string>
         </property>
@@ -238,7 +241,7 @@ Mass = moles * molar mass</string>
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="KComboBox" name="volume_unit" native="true">
+       <widget class="KComboBox" name="volume_unit">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -261,8 +264,8 @@ Mass = moles * molar mass</string>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KComboBox" name="mode" native="true">
-        <property name="currentIndex" stdset="0">
+       <widget class="KComboBox" name="mode">
+        <property name="currentIndex">
          <number>3</number>
         </property>
        </widget>
@@ -340,7 +343,7 @@ Mass = moles * molar mass</string>
         <item row="0" column="2">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="KComboBox" name="b_unit" native="true">
+           <widget class="KComboBox" name="b_unit">
             <property name="toolTip">
              <string>The units of the van der Waals constant 'b'</string>
             </property>
@@ -398,6 +401,19 @@ Mass = moles * molar mass</string>
     </widget>
    </item>
    <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_12">
      <item>
       <spacer name="horizontalSpacer_22">
@@ -428,14 +444,14 @@ Mass = moles * molar mass</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QWidget</extends>
-   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

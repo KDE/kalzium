@@ -14,6 +14,9 @@
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="margin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="KTextEdit" name="ktextedit">
      <property name="readOnly">
@@ -61,7 +64,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="KComboBox" name="amtSltType" native="true">
+       <widget class="KComboBox" name="amtSltType">
         <property name="toolTip">
          <string>The method by which you want to specify the amount of solute</string>
         </property>
@@ -176,7 +179,7 @@ Normality = Number of Equivalents / liter of solution</string>
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="KComboBox" name="amtSlvtType" native="true">
+       <widget class="KComboBox" name="amtSlvtType">
         <property name="toolTip">
          <string>&lt;big&gt;The method by which you want to specify volume&lt;/big&gt;</string>
         </property>
@@ -274,14 +277,14 @@ Normality = Number of Equivalents / liter of solution</string>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KComboBox" name="mode" native="true">
+       <widget class="KComboBox" name="mode">
         <property name="toolTip">
          <string>&lt;big&gt;Specify what you want to calculate&lt;/big&gt;</string>
         </property>
         <property name="whatsThis">
          <string>This is the list of quantities that you can calculate. Choose one of the quantities and specify the other required values to calculate it.</string>
         </property>
-        <property name="currentIndex" stdset="0">
+        <property name="currentIndex">
          <number>5</number>
         </property>
        </widget>
@@ -300,21 +303,21 @@ Normality = Number of Equivalents / liter of solution</string>
        </spacer>
       </item>
       <item row="7" column="2">
-       <widget class="KComboBox" name="densSlvt_unit" native="true">
+       <widget class="KComboBox" name="densSlvt_unit">
         <property name="toolTip">
          <string>Specify the units for density of solvent</string>
         </property>
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="KComboBox" name="conc_unit" native="true">
+       <widget class="KComboBox" name="conc_unit">
         <property name="toolTip">
          <string>&lt;big&gt;Specify the unit/method for specifying concentration&lt;/big&gt;</string>
         </property>
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="KComboBox" name="amtSlvt_unit" native="true">
+       <widget class="KComboBox" name="amtSlvt_unit">
         <property name="toolTip">
          <string>&lt;big&gt;The units for amount of solvent&lt;/big&gt;</string>
         </property>
@@ -337,7 +340,7 @@ Normality = Number of Equivalents / liter of solution</string>
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="KComboBox" name="densSlt_unit" native="true">
+       <widget class="KComboBox" name="densSlt_unit">
         <property name="toolTip">
          <string>&lt;big&gt;Specify the units of density&lt;/big&gt;</string>
         </property>
@@ -347,7 +350,7 @@ Normality = Number of Equivalents / liter of solution</string>
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="KComboBox" name="amtSlt_unit" native="true">
+       <widget class="KComboBox" name="amtSlt_unit">
         <property name="toolTip">
          <string>&lt;big&gt;Specify the units for the amount of solute&lt;/big&gt;</string>
         </property>
@@ -449,14 +452,14 @@ Normality = Number of Equivalents / liter of solution</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QWidget</extends>
-   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
