@@ -2345,7 +2345,7 @@
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the US-State of California.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.63 0.21 0.83</array>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">1173</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">1743</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1172</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1950</scalar>
@@ -2366,7 +2366,7 @@
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Albert Einstein.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.12 0.83</array>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1130</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1133</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1952</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</array>
@@ -2386,7 +2386,7 @@
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Enrico Fermi.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.12 0.73</array>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1800</scalar>
+    <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1125</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1953</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</array>
