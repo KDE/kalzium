@@ -2503,6 +2503,7 @@
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Albert Ghiorso;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d4 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Bh">
@@ -2520,6 +2521,7 @@
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d5 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Hs">
@@ -2537,6 +2539,7 @@
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d6 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Mt">
@@ -2554,6 +2557,7 @@
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d7 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Ds">
@@ -2570,6 +2574,7 @@
     <array dataType="xsd:string" delimiter=";" size="8" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;H. J. Schött;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d8 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Rg">
@@ -2586,6 +2591,7 @@
     <array dataType="xsd:string" delimiter=";" size="7" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d9 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Cn">
@@ -2601,6 +2607,8 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1996</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">First created at the Gesellschaft für Schwerionenforschung</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
   <atom id="Uut">
@@ -2616,9 +2624,11 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2003</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
-  <atom id="Uuq">
+  <atom id="Fl">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">114</scalar>
     <label dictRef="bo:symbol" value="Fl" />
     <label dictRef="bo:name" xml:lang="en" value="Flerovium" />
@@ -2631,6 +2641,8 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1998</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Joint Institute for Nuclear Research</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
   <atom id="Uup">
@@ -2646,9 +2658,11 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2004</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
-  <atom id="Uuh">
+  <atom id="Lv">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">116</scalar>
     <label dictRef="bo:symbol" value="Lv" />
     <label dictRef="bo:name" xml:lang="en" value="Livermorium" />
@@ -2661,6 +2675,8 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2000</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Joint Institute for Nuclear Research</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
   <atom id="Uus">
@@ -2672,6 +2688,8 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
   <atom id="Uuo">
@@ -2686,6 +2704,8 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2002</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
   </atom>
 </list>

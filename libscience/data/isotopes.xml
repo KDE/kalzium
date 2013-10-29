@@ -16321,28 +16321,28 @@
 		<scalar dictRef="bo:atomicNumber">113</scalar>
 	</isotope>
 </isotopeList>
-<isotopeList id="Uuq">
-	<isotope id="Uuq285" number="285" elementType="Uuq">
+<isotopeList id="Fl">
+	<isotope id="Fl285" number="285" elementType="Fl">
 		<scalar dictRef="bo:exactMass" errorValue="1110E-6">285.1837</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">0.00058</scalar>
 		<scalar dictRef="bo:atomicNumber">114</scalar>
 	</isotope>
-	<isotope id="Uuq286" number="286" elementType="Uuq">
+	<isotope id="Fl286" number="286" elementType="Fl">
 		<scalar dictRef="bo:exactMass" errorValue="830E-6">286.18386</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">0.1</scalar>
 		<scalar dictRef="bo:atomicNumber">114</scalar>
 	</isotope>
-	<isotope id="Uuq287" number="287" elementType="Uuq">
+	<isotope id="Fl287" number="287" elementType="Fl">
 		<scalar dictRef="bo:exactMass" errorValue="830E-6">287.1856</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">5</scalar>
 		<scalar dictRef="bo:atomicNumber">114</scalar>
 	</isotope>
-	<isotope id="Uuq288" number="288" elementType="Uuq">
+	<isotope id="Fl288" number="288" elementType="Fl">
 		<scalar dictRef="bo:exactMass" errorValue="910E-6">288.18569</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">6</scalar>
 		<scalar dictRef="bo:atomicNumber">114</scalar>
 	</isotope>
-	<isotope id="Uuq289" number="289" elementType="Uuq">
+	<isotope id="Fl289" number="289" elementType="Fl">
 		<scalar dictRef="bo:exactMass" errorValue="790E-6">289.18728</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">21</scalar>
 		<scalar dictRef="bo:atomicNumber">114</scalar>
