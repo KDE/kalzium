@@ -435,8 +435,9 @@ void MoleculeDialog::slotGeometryOptimize()
   // Warn the user if the force field cannot be set up for the molecule
   if (!m_forceField->Setup(obmol))
   {
-    KMessageBox::error(this, i18n("Kalzium"),
-      i18n("Could not set up force field for this molecule"));
+    KMessageBox::error(this,
+                       i18n("Could not set up force field for this molecule"),
+                       i18n("Kalzium"));
     return;
   }
 
