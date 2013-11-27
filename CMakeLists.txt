@@ -25,6 +25,11 @@ include(MacroBoolTo01)
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} libscience)
+if(MSVC)
+# for correctly linking openbabel:
+# see http://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
+add_definitions(-DUSING_DYNAMIC_LIBS)
+endif(MSVC)
 
 kde4_no_enable_final(kalzium)
 
