@@ -121,6 +121,32 @@ public:
      */
     QColor wavelengthToRGB( double wavelength );
 
+    /**
+     * set the maximum value to @p value
+     */
+    void setRightBorder( int value ) {
+        if (value != m_endValue) {
+            m_endValue = value;
+            if ( m_endValue < m_startValue ) {
+                m_startValue = m_endValue-1;
+            }
+            update();
+        }
+    }
+
+    /**
+     * set the minimum value to @p value
+     */
+    void setLeftBorder( int value ) {
+        if (value != m_startValue) {
+            m_startValue = value;
+            if ( m_startValue > m_endValue ) {
+                m_endValue = m_startValue+1;
+            }
+            update();
+        }
+    }
+
 private:
     QList<double> m_spectra;
 
@@ -158,32 +184,6 @@ private:
 public slots:
     ///(re)create startconditions
     void resetSpectrum();
-
-    /**
-     * set the maximum value to @p value
-     */
-    void setRightBorder( int value ) {
-        if (value != m_endValue) {
-            m_endValue = value;
-            if ( m_endValue < m_startValue ) {
-                m_startValue = m_endValue-1;
-            }
-            update();
-        }
-    }
-
-    /**
-     * set the minimum value to @p value
-     */
-    void setLeftBorder( int value ) {
-        if (value != m_startValue) {
-            m_startValue = value;
-            if ( m_startValue > m_endValue ) {
-                m_endValue = m_startValue+1;
-            }
-            update();
-        }
-    }
 
     /**
      * activates the spectrum of the type @p spectrumtype

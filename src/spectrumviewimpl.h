@@ -58,6 +58,9 @@ private slots:
 
     void setUnit();
 
+    void updateMin(int left);
+    void updateMax(int right);
+
 private:
     /**
      * filling the list of peaks

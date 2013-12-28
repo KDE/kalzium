@@ -39,9 +39,9 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
     m_spectrumType->setCurrentIndex( Prefs::spectrumType() );
 
     connect( minimumValue, SIGNAL(valueChanged(int)),
-             m_spectrumWidget, SLOT(setLeftBorder(int)) );
+             this, SLOT(updateMin(int)) );
     connect( maximumValue, SIGNAL(valueChanged(int)),
-             m_spectrumWidget, SLOT(setRightBorder(int)) );
+             this, SLOT(updateMax(int)) );
     connect( m_spectrumWidget, SIGNAL(bordersChanged(int,int)),
              this, SLOT(updateUI(int,int)) );
     connect( m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
@@ -113,5 +113,16 @@ void SpectrumViewImpl::setUnit()
     fillPeakList();
 }
 
+void SpectrumViewImpl::updateMin(int left)
+{
+    m_spectrumWidget->setRightBorder(maximumValue->value());
+    m_spectrumWidget->setLeftBorder(left);
+}
+
+void SpectrumViewImpl::updateMax(int right)
+{
+    m_spectrumWidget->setLeftBorder(minimumValue->value());
+    m_spectrumWidget->setRightBorder(right);
+}
 
 #include "spectrumviewimpl.moc"
