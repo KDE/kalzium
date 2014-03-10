@@ -2,7 +2,7 @@ include(${Avogadro_USE_FILE})
 
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}/..
-  ${EIGEN2_INCLUDE_DIR}
+  ${EIGEN3_INCLUDE_DIR}
   ${OPENBABEL2_INCLUDE_DIR}
   )
 

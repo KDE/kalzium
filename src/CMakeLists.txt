@@ -23,7 +23,7 @@ if (OPENBABEL2_FOUND)
       )
    include_directories(${OPENBABEL2_INCLUDE_DIR})
 
-   if (EIGEN2_FOUND AND Avogadro_FOUND)
+   if (EIGEN3_FOUND AND Avogadro_FOUND)
 
       include(${Avogadro_USE_FILE})
 
@@ -35,8 +35,8 @@ if (OPENBABEL2_FOUND)
       kde4_add_ui_files(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
-      include_directories(${EIGEN2_INCLUDE_DIR})
-   endif (EIGEN2_FOUND AND Avogadro_FOUND)
+      include_directories(${EIGEN3_INCLUDE_DIR})
+   endif (EIGEN3_FOUND AND Avogadro_FOUND)
 endif (OPENBABEL2_FOUND)
 
 ## Kalzium calculator files
@@ -137,9 +137,9 @@ target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KD
 
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-   if (EIGEN2_FOUND AND Avogadro_FOUND)
+   if (EIGEN3_FOUND AND Avogadro_FOUND)
       target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro)
-   endif (EIGEN2_FOUND AND Avogadro_FOUND)
+   endif (EIGEN3_FOUND AND Avogadro_FOUND)
 endif (OPENBABEL2_FOUND)
 
 if (LIBFACILE_FOUND)
