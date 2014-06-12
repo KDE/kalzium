@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<component type="desktop">
+  <id>kalzium.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Kalzium</name>
+  <summary>Periodic Table of Elements</summary>
+  <description>
+    <p>Kalzium is a program that shows you the Periodic Table of Elements. You can use Kalzium to search for information about the elements or to learn facts about the periodic table. It provides an overview of the important data (like melting points, electron affinity, electron negativity, electron configuration, radii, mass, ionisation energy), an isotope table, and different colored views of the periodic table (separation of the different blocks, year simulator, temperature simulator). It contains tools to visualize the spectral lines of each element, a molecular weight calculator, a 3D molecule editor, and an equation solver for stoichiometric problems.</p>
+  </description>
+  <url type="homepage">http://edu.kde.org/kalzium/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kalzium</url>
+  <url type="help">http://docs.kde.org/stable/en/kdeedu/kalzium/</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://kde.org/images/screenshots/kalzium.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>kalzium</binary>
+  </provides>
+</component>

@@ -54,5 +54,7 @@ add_subdirectory(plasmoid)
 add_subdirectory(libscience)
 add_subdirectory(qml)
 
+install(FILES kalzium.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
+
 macro_display_feature_log()
 
