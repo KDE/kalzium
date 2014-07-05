@@ -7,6 +7,7 @@
   <name xml:lang="cs">Kalzium</name>
   <name xml:lang="es">Kalzium</name>
   <name xml:lang="fi">Kalzium</name>
+  <name xml:lang="lt">Kalzium</name>
   <name xml:lang="nds">Kalzium</name>
   <name xml:lang="nl">Kalzium</name>
   <name xml:lang="pl">Kalzium</name>
@@ -21,6 +22,7 @@
   <summary xml:lang="cs">Periodická tabulka</summary>
   <summary xml:lang="es">Tabla periódica de los elementos</summary>
   <summary xml:lang="fi">Alkuaineiden jaksollinen järjestelmä</summary>
+  <summary xml:lang="lt">Periodinė elementų lentelė</summary>
   <summary xml:lang="nds">Periodensysteem vun de Elementen</summary>
   <summary xml:lang="nl">Periodieke systeem der Elementen</summary>
   <summary xml:lang="pl">Tablica okresowa pierwiastków</summary>
