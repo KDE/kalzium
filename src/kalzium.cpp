@@ -86,6 +86,7 @@ Kalzium::Kalzium() : KXmlGuiWindow( 0 )
     m_tablesDialog = 0;
     m_rsDialog = 0;
     m_calculator = 0;
+    m_exportDialog = 0;
 
     // reading the elements from file
     KalziumDataObject::instance();
