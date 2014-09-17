@@ -1,7 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005, 2006 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
- *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,8 +15,9 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
 #ifndef SPECTRUMWIDGET_H
 #define SPECTRUMWIDGET_H
 
@@ -34,13 +34,14 @@ class SpectrumWidget : public QWidget
     Q_OBJECT
 
 public:
-    SpectrumWidget( QWidget *parent );
+    SpectrumWidget(QWidget *parent);
 
     ~SpectrumWidget() {}
 
-    void setSpectrum( Spectrum* spec );
+    void setSpectrum(Spectrum* spec);
 
-    Spectrum* spectrum()const {
+    Spectrum* spectrum()const
+    {
         return m_spectrum;
     }
 
@@ -52,13 +53,12 @@ public:
      * @param left the left border
      * @param right the right border
      */
-    void setBorders( double left, double right );
+    void setBorders(double left, double right);
 
     /**
      * there are several possible types.
      */
-    enum SpectrumType
-    {
+    enum SpectrumType {
         EmissionSpectrum = 0,
         AbsorptionSpectrum
     };
@@ -67,7 +67,8 @@ public:
      * sets the type of the spectrum to @p t
      * @param t the type of the spectrum
      */
-    void setType( int t ) {
+    void setType(int t)
+    {
         m_type = t;
     }
 
@@ -75,7 +76,8 @@ public:
      * @return the currently active type
      * of the spectrum
      */
-    int spectrumType() const {
+    int spectrumType() const
+    {
         return m_type;
     }
 
@@ -84,7 +86,7 @@ public:
      * correction depends on @p factor which has been
      * figured out emperically
      */
-    int Adjust( double color, double factor );
+    int Adjust(double color, double factor);
 
     /**
      * @return the postion in the widget of a band
@@ -92,8 +94,9 @@ public:
      *
      * @param wavelength the wavelength for which the position is needed
      */
-    inline int xPos( double wavelength ) {
-        return ( int ) ( ( wavelength-m_startValue ) * width() / ( m_endValue - m_startValue ) );
+    inline int xPos(double wavelength)
+    {
+        return (int)((wavelength - m_startValue) * width() / (m_endValue - m_startValue));
     }
 
     /**
@@ -102,15 +105,16 @@ public:
      *
      * @see peakSelected
      */
-    void findPeakFromMouseposition( double wavelength );
+    void findPeakFromMouseposition(double wavelength);
 
     /**
      * @param xpos The ratio of the position relative to the width
      * of the widget.
      * @return the wavelength on position @p xpos
      */
-    inline double Wavelength( double xpos ) {
-        return m_startValue + (  (  m_endValue-m_startValue ) *  xpos );
+    inline double Wavelength(double xpos)
+    {
+        return m_startValue + ((m_endValue - m_startValue) *  xpos);
     }
 
     /**
@@ -119,16 +123,17 @@ public:
      * @param wavelength the wavelength for which the color is searched
      * @return the wavelenth color
      */
-    QColor wavelengthToRGB( double wavelength );
+    QColor wavelengthToRGB(double wavelength);
 
     /**
      * set the maximum value to @p value
      */
-    void setRightBorder( int value ) {
+    void setRightBorder(int value)
+    {
         if (value != m_endValue) {
             m_endValue = value;
-            if ( m_endValue < m_startValue ) {
-                m_startValue = m_endValue-1;
+            if (m_endValue < m_startValue) {
+                m_startValue = m_endValue - 1;
             }
             update();
         }
@@ -137,11 +142,12 @@ public:
     /**
      * set the minimum value to @p value
      */
-    void setLeftBorder( int value ) {
+    void setLeftBorder(int value)
+    {
         if (value != m_startValue) {
             m_startValue = value;
-            if ( m_startValue > m_endValue ) {
-                m_endValue = m_startValue+1;
+            if (m_startValue > m_endValue) {
+                m_endValue = m_startValue + 1;
             }
             update();
         }
@@ -156,13 +162,13 @@ private:
 
     QPixmap m_pixmap;
 
-    void paintBands( QPainter* p );
-    void drawZoomLine( QPainter* p );
+    void paintBands(QPainter* p);
+    void drawZoomLine(QPainter* p);
 
     /**
      * Draw the scale
      */
-    void drawTickmarks( QPainter *p );
+    void drawTickmarks(QPainter *p);
 
     double m_startValue;
     double m_endValue;
@@ -188,9 +194,10 @@ public slots:
     /**
      * activates the spectrum of the type @p spectrumtype
      */
-    void slotActivateSpectrum( int spectrumtype ) {
+    void slotActivateSpectrum(int spectrumtype)
+    {
         m_type = spectrumtype;
-        Prefs::setSpectrumType( spectrumtype );
+        Prefs::setSpectrumType(spectrumtype);
         Prefs::self()->writeConfig();
         update();
     }
@@ -200,23 +207,23 @@ signals:
      * the minimum and maximum displayed wavelength have
      * changed so emit the new minimum and maximum
      */
-    void bordersChanged( int, int );
+    void bordersChanged(int, int);
 
     /**
      * the user selected a peak
      */
-    void peakSelected( Spectrum::peak * peak );
+    void peakSelected(Spectrum::peak * peak);
 
 private slots:
     void slotZoomIn();
     void slotZoomOut();
 
 protected:
-    virtual void paintEvent( QPaintEvent *e );
+    virtual void paintEvent(QPaintEvent *e);
     virtual void keyPressEvent(QKeyEvent *e);
-    virtual void mouseMoveEvent( QMouseEvent *e );
-    virtual void mousePressEvent( QMouseEvent *e );
-    virtual void mouseReleaseEvent( QMouseEvent *e );
+    virtual void mouseMoveEvent(QMouseEvent *e);
+    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mouseReleaseEvent(QMouseEvent *e);
 };
 
 #endif // SPECTRUMWIDGET_H

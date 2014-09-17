@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010     by Luca Tringali, TRINGALINVENT@libero.it      *
+ *   Copyright (C) 2010 by Luca Tringali, TRINGALINVENT@libero.it          *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
-#ifndef titrationCalculator_H
-#define titrationCalculator_H
+#ifndef TITRATIONCALCULATOR_H
+#define TITRATIONCALCULATOR_H
 
 #include <element.h>
 #include <isotope.h>
@@ -37,7 +37,7 @@
 /*
  * This class implements the titration calculator: it can solve a system of chemical equilibria equations
  * and find out the equivalence point of an experimental titration.
- * 
+ *
  * @author Luca Tringali
  */
 class titrationCalculator : public QWidget
@@ -47,20 +47,20 @@ class titrationCalculator : public QWidget
 public:
     titrationCalculator(QWidget * parent = 0);
     ~titrationCalculator();
-    
-  public slots:
+
+public slots:
     void on_pushButton_clicked();
     void on_xmin_valueChanged(double val);
     void on_xmax_valueChanged(double val);
     void on_ymin_valueChanged(double val);
     void on_ymax_valueChanged(double val);
-    
+
     void on_actionSave_image_triggered();
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
     void on_actionNew_triggered();
     void on_actionRapid_Help_triggered();
-      
+
 private:
     void resize();
     double xmin;
@@ -80,9 +80,9 @@ private:
     QString redplot;
     QString greenplot;
     QString blueplot;
-  
+
     Ui::titrationCalculator *ui;               // The user interface pointer
     Ui::titrationCalculator uid;               // The user interface
 };
 
-#endif // titrationCalculator_H
+#endif // TITRATIONCALCULATOR_H

@@ -19,8 +19,8 @@
 ***********************************************************************************/
 
 // Here we avoid loading the header multiple times
-#ifndef periodicTable_HEADER
-#define periodicTable_HEADER
+#ifndef MOLMASSCALCULATOR_H
+#define MOLMASSCALCULATOR_H
 
 #include <QGraphicsGridLayout>
 #include <QColor>
@@ -42,24 +42,24 @@ class Molmasscalculator : public Plasma::PopupApplet
     Q_OBJECT
 public:
     // Basic Create/Destroy
-    Molmasscalculator ( QObject *parent, const QVariantList &args );
+    Molmasscalculator(QObject *parent, const QVariantList &args);
     ~Molmasscalculator();
 
     /// Returns the GraphicsWidget used by the plasmoid
-    QGraphicsWidget *graphicsWidget ();
+    QGraphicsWidget *graphicsWidget();
 
     /// loads the settings.
     void init();
 
 public slots:
     /// Appens the given String to the lineedit text and let it parse by ParseMolecule.
-    void appendElement ( QString ElementSymbol );
+    void appendElement(QString ElementSymbol);
 
     void configChanged();
 
 private slots:
     ///Sends the requests to the Dataengine
-    void ParseMolecule( QString molecule );
+    void ParseMolecule(QString molecule);
 
     ///The lineEdit Text is parsed.
     void ParseMolecule();
@@ -68,9 +68,9 @@ private slots:
 
 protected slots:
     void configAccepted();
-    
+
 protected:
-    void createConfigurationInterface (KConfigDialog* parent);
+    void createConfigurationInterface(KConfigDialog* parent);
 
 private:
     /// Sets the new Mass and Molecule after a calculation.
@@ -102,5 +102,5 @@ private:
 };
 
 // This is the command that links your applet to the .desktop file
-K_EXPORT_PLASMA_APPLET ( Molmasscalculator, Molmasscalculator )
-#endif
+K_EXPORT_PLASMA_APPLET(Molmasscalculator, Molmasscalculator)
+#endif // MOLMASSCALCULATOR_H

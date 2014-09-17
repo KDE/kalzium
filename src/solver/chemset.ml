@@ -56,7 +56,7 @@ let createchem (sym:string) (qte:int) =
     let prettyformula () =
         if String.contains sym '+' || String.contains sym '-' then begin
             if qte == 1 then "<b><sup>"^sym^"</sup></b>"
-		else "<b><sup>"^string_of_int(qte)^sym^"</sup></b>" end 
+            else "<b><sup>"^string_of_int(qte)^sym^"</sup></b>" end 
         else begin
             if qte == 1 then sym
             else sym^"<b><sub>"^string_of_int(qte)^"</sub></b>"
@@ -79,4 +79,3 @@ let chem_printitem (i:item) =
     Printf.printf "item : %s %s %d \n" i.ikey (i.itbl).formula i.sign;
     Hashtbl.iter (fun sym qte -> Printf.printf " * %s %d\n" sym qte) i.itbl.hashtbl
 ;;
-

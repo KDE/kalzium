@@ -1,9 +1,6 @@
-#ifndef OBCONVERTER_H
-#define OBCONVERTER_H
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>
- *   Copyright (C) 2006 by Jerome Pansanel                                 *
- *   j.pansanel@pansanel.net
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
+ *   Copyright (C) 2006 by Jerome Pansanel <j.pansanel@pansanel.net>       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,9 +15,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.           *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
+#ifndef OBCONVERTER_H
+#define OBCONVERTER_H
 
 #include "ui_obconverterwidget.h"
 
@@ -37,62 +36,62 @@ class KOpenBabel : public KDialog
 {
     Q_OBJECT
 
-    public: 
-        /**
-         * public constructor
-         *
-         * @param parent the parent widget
-         */
-        KOpenBabel( QWidget *parent );
+public:
+    /**
+     * public constructor
+     *
+     * @param parent the parent widget
+     */
+    KOpenBabel(QWidget *parent);
 
-        /**
-         *          * Destructor
-         *                   */
-        virtual ~KOpenBabel();
+    /**
+     * Destructor
+     */
+    virtual ~KOpenBabel();
 
 
-        /**
-         * Add file to the list
-         */
-        void addFile( const QString &filename );
-        
-    private:
-        Ui::OBConverterWidget ui;
+    /**
+     * Add file to the list
+     */
+    void addFile(const QString &filename);
 
-        OpenBabel::OBConversion *OBConvObject;
-        
-        QString File;
+private:
+    Ui::OBConverterWidget ui;
 
-        /**
-         * Setup the interface for the window
-         */
-        void setupWindow();
+    OpenBabel::OBConversion *OBConvObject;
 
-    private slots:
-        /**
-         * Add file to the list
-         */
-        void slotAddFile();
+    QString File;
 
-        /**
-         * Select every file in the list
-         */
-        void slotSelectAll();
+    /**
+     * Setup the interface for the window
+     */
+    void setupWindow();
 
-        /**
-         * Delete file from the list
-         */
-        void slotDeleteFile();
+private slots:
+    /**
+     * Add file to the list
+     */
+    void slotAddFile();
 
-        /**
-         * Try to guess the input file type from the selection
-         */
-        void slotGuessInput();
+    /**
+     * Select every file in the list
+     */
+    void slotSelectAll();
 
-        /**
-         * Convert the file in the selected type
-         */
-        void slotConvert();
+    /**
+     * Delete file from the list
+     */
+    void slotDeleteFile();
+
+    /**
+     * Try to guess the input file type from the selection
+     */
+    void slotGuessInput();
+
+    /**
+     * Convert the file in the selected type
+     */
+    void slotConvert();
 
 };
 

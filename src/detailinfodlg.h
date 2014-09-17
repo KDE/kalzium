@@ -40,14 +40,14 @@ class DetailedInfoDlg : public KPageDialog
     Q_OBJECT
 
 public:
-    explicit DetailedInfoDlg( int el, QWidget *parent = 0 );
+    explicit DetailedInfoDlg(int el, QWidget *parent = 0);
     ~DetailedInfoDlg();
 
-    void setElement( int el );
+    void setElement(int el);
 
-//     void setOverviewBackgroundColor( const QColor &bgColor );
+//     void setOverviewBackgroundColor(const QColor &bgColor);
 
-    void setTableType( int ktt );
+    void setTableType(int ktt);
 
     /**
      * add <sup></sup> to the numbers
@@ -56,16 +56,15 @@ public:
     QString beautifyOrbitalString(const QString& orbits);
 
 private:
-    enum DATATYPE
-    {
+    enum DATATYPE {
         MISC = 0,
         ISOTOPES,
         DATA, /** <the overview about atomic and compound data */
         EXTRA/** Links to wikipedia and other sites where useful information can be found*/
     };
 
-    Element            *m_element;
-    int                m_elementNumber;
+    Element *m_element;
+    int m_elementNumber;
 
     KActionCollection* m_actionCollection;
 
@@ -76,7 +75,7 @@ private:
     QString isotopeTable() const;
 
     DetailedGraphicalOverview *dTab;
-//X 		QLabel *piclabel;
+//X         QLabel *piclabel;
     OrbitsWidget *wOrbits;
     QMap<QString, KHTMLPart*> m_htmlpages;
 
@@ -89,11 +88,11 @@ private:
     void createContent();
     void reloadContent();
 
-    QString getHtml( DATATYPE );
+    QString getHtml(DATATYPE);
 
     QString m_baseHtml;
     QString m_baseHtml2;
-//X 		QString m_picsdir;
+//X         QString m_picsdir;
 
     /**
      * Add a new HTML page to the dialog.
@@ -105,14 +104,14 @@ private:
      * @returns the pointer to the resulting KHTMLPart, needed for
      * writing HTML code on it
      */
-    KHTMLPart* addHTMLTab( const QString& title, const QString& icontext, const QString& iconname );
+    KHTMLPart* addHTMLTab(const QString& title, const QString& icontext, const QString& iconname);
     /**
      * Change the HTML code in an HTML page.
      *
      * @param htmlpart the KHTMLPart to edit
      * @param htmlcode the HTML code to display
      */
-    void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
+    void fillHTMLTab(KHTMLPart* htmlpart, const QString& htmlcode);
 
     /**
      * Creates a localized link to Wikipedia.
@@ -120,10 +119,10 @@ private:
      * @param link the link inside wikipedia
      * @param displayString the displayed string to click on.
      */
-    QString createWikiLink( QString link, QString displayString);
+    QString createWikiLink(QString link, QString displayString);
 
     /// overloaded function to add link as the displayed String
-    QString createWikiLink( QString link );
+    QString createWikiLink(QString link);
 
 private slots:
     void slotLinkClicked(const KUrl &url);
@@ -136,7 +135,7 @@ private slots:
     virtual void slotHelp();
 
 signals:
-    void elementChanged( int );
+    void elementChanged(int);
 };
 
-#endif
+#endif // DETAILINFODLG_H

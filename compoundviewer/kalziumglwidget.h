@@ -11,6 +11,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef KALZIUMGLWIDGET_H
 #define KALZIUMGLWIDGET_H
 
@@ -19,20 +20,20 @@
 class KalziumGLWidget : public Avogadro::GLWidget
 {
     Q_OBJECT
-    public:
-        KalziumGLWidget(QWidget *parent = 0);
-        virtual ~KalziumGLWidget();
-        
-    public slots:
-      void setStyle(int style);
-      void setStyle2(int style);
-      void setLabels(int style);
-      void setQuality(int quality);
-      bool openFile(const QString &file);
+public:
+    KalziumGLWidget(QWidget *parent = 0);
+    virtual ~KalziumGLWidget();
 
-    protected:
-      QByteArray m_lc_numeric;
-      int m_lastEngine1, m_lastEngine2;
+public slots:
+    void setStyle(int style);
+    void setStyle2(int style);
+    void setLabels(int style);
+    void setQuality(int quality);
+    bool openFile(const QString &file);
+
+protected:
+    QByteArray m_lc_numeric;
+    int m_lastEngine1, m_lastEngine2;
 };
 
 #endif // KALZIUMGLWIDGET_H

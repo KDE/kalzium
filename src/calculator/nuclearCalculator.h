@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
+ *   Copyright (C) 2009     by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
-#ifndef nuclearCalculator_H
-#define nuclearCalculator_H
+#ifndef NUCLEARCALCULATOR_H
+#define NUCLEARCALCULATOR_H
 
 #include <element.h>
 #include <isotope.h>
@@ -35,24 +35,24 @@ using namespace KUnitConversion;
 
 // This is the enumeration for the error type required in the error(int mode) function
 enum ERROR_MODE_NUKE {
-	RESET_NUKE_MESSAGE = 0,
-	INIT_AMT_ZERO,
-	FINAL_AMT_ZERO,
-	HALFLIFE_ZERO,
-	FINAL_AMT_GREATER
+    RESET_NUKE_MESSAGE = 0,
+    INIT_AMT_ZERO,
+    FINAL_AMT_ZERO,
+    HALFLIFE_ZERO,
+    FINAL_AMT_GREATER
 };
 
 // This is the enumeration for the mode of calculation in the nuclear calculator
 enum MODE_CALCULATION_NUKE {
-	INIT_AMT =0,
-	FINAL_AMT,
-	TIME
+    INIT_AMT =0,
+    FINAL_AMT,
+    TIME
 };
 
 /*
  * This class implements the nuclear calculator which calculates the amount of substance,
  * remaining after a given time and given initial amount and so on after a radio-active decay.
- * 
+ *
  * @author Kashyap R Puranik
  */
 class nuclearCalculator : public QFrame
@@ -73,7 +73,7 @@ public slots:
     /// Calculates the time required and updates the UI
     void calculateTime();
 
-	/// This function is called when the element is changed
+    /// This function is called when the element is changed
     void elementChanged(int index);
 
     /// This function is called when the isotope is changed
@@ -109,24 +109,24 @@ public slots:
      * The slider is used to change the halfLife
      */
     void sliderMoved(int x);
-    
-    /* 
+
+    /*
      * This function is called when the mode is changed
      * @param indicates the mode of calculation.
      * Refer MODE_CALCULATION_NUKE for various modes
      */
     void setMode(int mode);
-    
+
     /// This function is called during initialisation
     void init();
-    
+
     /*
      * This function is called when an error occurs
      * @param mode indicates the mode of error
      * Refer ERROR_MODE_NUKE for various modes
      */
-	void error(int mode);
-	
+    void error(int mode);
+
 private:
     Ui::nuclearCalculator ui;               // The user interface
 
@@ -138,8 +138,8 @@ private:
     Value m_finalAmount;                    // amount after time
     Value m_time;                           // the time involved in calculation
     double m_mass;                          // the atomic mass of the isotope
-    
-    int m_mode;								// the mode of calculation
+
+    int m_mode;                             // the mode of calculation
 };
 
-#endif // nuclearCalculator_H
+#endif // NUCLEARCALCULATOR_H

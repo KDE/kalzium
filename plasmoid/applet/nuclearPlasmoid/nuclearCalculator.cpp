@@ -10,7 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "nuclearCalculator.h"
+
 #include <QPainter>
 #include <QFontMetrics>
 #include <QApplication>
@@ -47,8 +49,8 @@ nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
 {
-    KGlobal::locale()->insertCatalog( "libkdeedu" );
-    m_converter = new Converter( this );
+    KGlobal::locale()->insertCatalog("libkdeedu");
+    m_converter = new Converter(this);
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
     setHasConfigurationInterface(true);
@@ -79,23 +81,23 @@ void nuclearCalculator::configChanged()
 
 void nuclearCalculator::reset()
 {
-	const int ISOTOPE_NUM = 22;
-	error(RESET_NUKE_MESG);
+    const int ISOTOPE_NUM = 22;
+    error(RESET_NUKE_MESG);
 
-    // Add all isotope names of Uranium ( by default )to the isotope comboBox
+    // Add all isotope names of Uranium (by default) to the isotope comboBox
     QList<Isotope*> list = KalziumDataObject::instance()->isotopes(92);
     QString iso;
 
     m_isotope->clear();
-    foreach(Isotope * i , list) {
+    foreach (Isotope *i, list) {
         iso.setNum(i->mass());
         m_isotope->addItem(iso);
     }
 
-	// initialize the data, initially selected values ( Uranium, 92, 238)
-    m_element->nativeWidget()-> setCurrentIndex(91);
-    m_isotope->nativeWidget()-> setCurrentIndex(ISOTOPE_NUM);
-    m_halfLife->setValue(list.at(ISOTOPE_NUM) -> halflife());
+    // initialize the data, initially selected values (Uranium, 92, 238)
+    m_element->nativeWidget()->setCurrentIndex(91);
+    m_isotope->nativeWidget()->setCurrentIndex(ISOTOPE_NUM);
+    m_halfLife->setValue(list.at(ISOTOPE_NUM)->halflife());
     m_initAmt->setValue(6.0);
     m_finalAmt->setValue(3.0);
     m_time->setValue(list.at(ISOTOPE_NUM)->halflife());
@@ -112,11 +114,11 @@ void nuclearCalculator::reset()
     // Initialize values
     m_InitAmount  = Value(6.0, "g") ;
     m_FinalAmount = Value(3.0, "g");
-    m_Mass = list.at(ISOTOPE_NUM) -> mass();
-    m_Time = Value((list.at(ISOTOPE_NUM) -> halflife()), "y");
-    m_HalfLife = Value(list.at(ISOTOPE_NUM) -> halflife(), "y");
+    m_Mass = list.at(ISOTOPE_NUM)->mass();
+    m_Time = Value((list.at(ISOTOPE_NUM)->halflife()), "y");
+    m_HalfLife = Value(list.at(ISOTOPE_NUM)->halflife(), "y");
 
-    m_Element = * KalziumDataObject::instance() -> element(92);
+    m_Element = * KalziumDataObject::instance()->element(92);
     m_Isotope = * list.at(ISOTOPE_NUM);
 
     setMode(2);
@@ -132,7 +134,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
     if (!m_widget) {
         // Position all UI elements
         m_widget = new QGraphicsWidget(this);
-	m_widget->setMinimumSize(550, 400);
+        m_widget->setMinimumSize(550, 400);
         Plasma::Frame *pHeader = new Plasma::Frame(this);
         pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
         pHeader->setText(i18n("Nuclear Calculator"));
@@ -142,7 +144,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
 
         QGraphicsGridLayout *pGridLayout = new QGraphicsGridLayout(pGroupBox1);
         QGraphicsGridLayout *pGridLayout2 = new QGraphicsGridLayout(pGroupBox2);
-        QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical,m_widget);
+        QGraphicsLinearLayout *pVLayout = new QGraphicsLinearLayout(Qt::Vertical, m_widget);
         pVLayout->addItem(pGroupBox1);
         pVLayout->addItem(pGroupBox2);
         // pVLayout->addItem(new Plasma::)
@@ -212,7 +214,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         Plasma::Label *timeLabel = new Plasma::Label(this);
         timeLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         timeLabel->setText(i18n("Time:"));
-/*x	Plasma::Label *m_sliderLabel = new Plasma::Label(this);
+/*x        Plasma::Label *m_sliderLabel = new Plasma::Label(this);
         m_sliderLabel->nativeWidget()->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_sliderLabel->setText(i18n("Time in Half-Lives"));*/
 
@@ -280,7 +282,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         m_finalType->nativeWidget()->insertItems(0, QStringList()
          << i18n("Mass")
          << i18n("moles"));
-		m_finalType->setZValue(1);
+        m_finalType->setZValue(1);
 
         /*m_slider = new Plasma::Slider(this);
         m_slider->setRange(0, 100);
@@ -296,7 +298,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         pGridLayout2->addItem(initLabel, 6, 0);
         pGridLayout2->addItem(finalLabel, 7, 0);
         pGridLayout2->addItem(timeLabel, 8, 0);
-// 	    pGridLayout2->addItem(m_sliderLabel, 9, 0);
+//         pGridLayout2->addItem(m_sliderLabel, 9, 0);
         pGridLayout2->addItem(m_error, 10, 1, 1, 3);
         pGridLayout2->addItem(m_reset, 10, 0);
 
@@ -304,7 +306,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         pGridLayout2->addItem(m_initAmt, 6, 1);
         pGridLayout2->addItem(m_finalAmt, 7, 1);
         pGridLayout2->addItem(m_time, 8, 1);
-// 	    pGridLayout2->addItem(m_slider , 9, 1);
+//         pGridLayout2->addItem(m_slider, 9, 1);
 
         pGridLayout2->addItem(m_initType, 6, 3);
         pGridLayout2->addItem(m_finalType, 7, 3);
@@ -323,8 +325,8 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         KalziumDataObject *kdo = KalziumDataObject::instance();
 
         // add all element names to the comboBox in the user interface
-        foreach(Element * e, kdo -> ElementList) {
-            m_element->nativeWidget()->addItem(e -> dataAsString(ChemicalDataObject::name));
+        foreach (Element *e, kdo->ElementList) {
+            m_element->nativeWidget()->addItem(e->dataAsString(ChemicalDataObject::name));
         }
             ///FIXME
         /* The last three elements will be removed because information is not available
@@ -333,7 +335,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         m_element->nativeWidget()->removeItem(count - 1);
         m_element->nativeWidget()->removeItem(count - 2);
         m_element->nativeWidget()->removeItem(count - 3);
-        // Add all isotope names of Uranium ( by default )to the isotope comboBox
+        // Add all isotope names of Uranium (by default) to the isotope comboBox
         reset();
 
         // Connect signals with slots
@@ -362,7 +364,7 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
                 this, SLOT(timeChanged()));
         connect(m_timeUnit->nativeWidget(), SIGNAL(activated(int)),
                 this, SLOT(timeChanged()));
-/*	    connect(m_slider, SIGNAL(valueChanged(int)),
+/*        connect(m_slider, SIGNAL(valueChanged(int)),
                 this, SLOT(sliderMoved(int)));*/
         connect(m_calculationMode->nativeWidget(), SIGNAL(activated(int)),
                         this, SLOT(setMode(int)));
@@ -371,27 +373,27 @@ QGraphicsWidget *nuclearCalculator::graphicsWidget()
         /**************************************************************************/
         // Nuclear Calculator setup complete
         /**************************************************************************/
-	}
+    }
     return m_widget;
 }
 
 void nuclearCalculator::elementChanged (int index)
 {
     // set the newly chosen element
-    m_Element = * KalziumDataObject::instance()-> element(index + 1);
+    m_Element = * KalziumDataObject::instance()->element(index + 1);
 
-    // Add all isotope names of Uranium ( by default ) to the isotope comboBox
-    QList<Isotope*> list = KalziumDataObject::instance()-> isotopes(index + 1);
-    QString isotope;                        // A temporary string
-    m_isotope  -> clear();               // Clear the contents of the combo box
+    // Add all isotope names of Uranium (by default) to the isotope comboBox
+    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(index + 1);
+    QString isotope;                  // A temporary string
+    m_isotope->clear();               // Clear the contents of the combo box
     // update the combobox with isotopes of the new element
-    foreach(Isotope * i , list) {
-        isotope.setNum(i -> mass());
-        m_isotope-> addItem(isotope);
+    foreach (Isotope *i, list) {
+        isotope.setNum(i->mass());
+        m_isotope->addItem(isotope);
     }
 
     // Set the halfLife to that of the first isotope of the element.
-    m_halfLife-> setValue(list. at(0)-> halflife());
+    m_halfLife->setValue(list. at(0)->halflife());
     // Recalculate and update
     calculate();
 }
@@ -399,23 +401,24 @@ void nuclearCalculator::elementChanged (int index)
 void nuclearCalculator::isotopeChanged(int index)
 {
     // update the nuclear Calculator
-    int elementNumber = m_element->nativeWidget()-> currentIndex() + 1;
-    QList<Isotope*> list = KalziumDataObject::instance() -> isotopes(elementNumber);
+    int elementNumber = m_element->nativeWidget()->currentIndex() + 1;
+    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(elementNumber);
     m_Isotope = * list.at(index);
 
     // get the halfLife of the new isotope
-    double halfLife = list . at(index) -> halflife();
-    m_Mass = list.at(index)-> mass();
+    double halfLife = list.at(index)->halflife();
+    m_Mass = list.at(index)->mass();
 
     // A string used for searching the right Unit
-    QString halfLifeUnit = list . at(index) -> halflifeUnit();
+    QString halfLifeUnit = list . at(index)->halflifeUnit();
     halfLifeUnit = (halfLifeUnit == "y") ? "year" : "seconds";
 
     // Update the UI with the halfLife value
-    m_halfLife-> setValue(halfLife);
-    int x = m_halfLifeUnit->nativeWidget()-> findText(halfLifeUnit);
-    if (x >= 0)
-        m_halfLifeUnit->nativeWidget()-> setCurrentIndex(x);
+    m_halfLife->setValue(halfLife);
+    int x = m_halfLifeUnit->nativeWidget()->findText(halfLifeUnit);
+    if (x >= 0) {
+        m_halfLifeUnit->nativeWidget()->setCurrentIndex(x);
+    }
     m_HalfLife = Value(halfLife, halfLifeUnit);
     // Recalculate and update
     calculate();
@@ -424,7 +427,7 @@ void nuclearCalculator::isotopeChanged(int index)
 void nuclearCalculator::halfLifeChanged()
 {
     // update the halfLife value
-    m_HalfLife = Value(m_halfLife -> value(), m_halfLifeUnit->nativeWidget()-> currentText());
+    m_HalfLife = Value(m_halfLife->value(), m_halfLifeUnit->nativeWidget()->currentText());
     // recalculate the required
     calculate();
 }
@@ -432,28 +435,27 @@ void nuclearCalculator::halfLifeChanged()
 void nuclearCalculator::initAmtChanged()
 {
 
-    // If quantity is specified in terms of mass, quantity <- ( mass , Unit)
-    if (m_initType->nativeWidget() -> currentIndex() == 0)
-        m_InitAmount = Value(m_initAmt -> value(), m_initUnit->nativeWidget() -> currentText());
+    // If quantity is specified in terms of mass, quantity <- (mass , Unit)
+    if (m_initType->nativeWidget()->currentIndex() == 0) {
+        m_InitAmount = Value(m_initAmt->value(), m_initUnit->nativeWidget()->currentText());
+    } else { // If quantity is specified in terms of moles quantity <- (moles * atomicMass, Unit)
+        m_InitAmount = Value(((m_initAmt->value()) * m_Mass), \
+                             m_initUnit->nativeWidget()->currentText());
+    }
 
-    // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, Unit )
-    else
-        m_InitAmount = Value(((m_initAmt -> value()) * m_Mass), \
-                             m_initUnit->nativeWidget()-> currentText());
-
-	calculate();
+    calculate();
 }
 
 void nuclearCalculator::finalAmtChanged()
 {
-    // If quantity is specified in terms of mass, quantity <- ( mass , Unit)
-    if (m_finalType->nativeWidget() -> currentIndex() == 0) {
-        m_FinalAmount = Value(m_finalAmt -> value(), \
-                              m_finalUnit->nativeWidget()-> currentText());
-    // If quantity is specified in terms of moles quantity <- ( moles * atomicMass, Unit )
+    // If quantity is specified in terms of mass, quantity <- (mass , Unit)
+    if (m_finalType->nativeWidget()->currentIndex() == 0) {
+        m_FinalAmount = Value(m_finalAmt->value(), \
+                              m_finalUnit->nativeWidget()->currentText());
+    // If quantity is specified in terms of moles quantity <- (moles * atomicMass, Unit)
     } else {
-        m_FinalAmount = Value(((m_finalAmt -> value()) * m_Mass), \
-                              m_finalUnit->nativeWidget() -> currentText());
+        m_FinalAmount = Value(((m_finalAmt->value()) * m_Mass), \
+                              m_finalUnit->nativeWidget()->currentText());
     }
 
     calculate();
@@ -461,7 +463,7 @@ void nuclearCalculator::finalAmtChanged()
 
 void nuclearCalculator::timeChanged()
 {
-    m_Time = Value(m_time-> value(), m_timeUnit->nativeWidget()-> currentText());
+    m_Time = Value(m_time->value(), m_timeUnit->nativeWidget()->currentText());
 
     calculate();
 }
@@ -471,9 +473,9 @@ void nuclearCalculator::timeChanged()
     double num = numHlives / 10.0;
     m_Time = Value(num * m_HalfLife. number() , m_HalfLife. unit());
 
-    m_time-> setValue(m_Time. number());
-    m_timeUnit->nativeWidget()-> setCurrentIndex(m_halfLifeUnit->nativeWidget()-> currentIndex());
-    m_numHalfLives-> setText(m_Time . toString());
+    m_time->setValue(m_Time. number());
+    m_timeUnit->nativeWidget()->setCurrentIndex(m_halfLifeUnit->nativeWidget()->currentIndex());
+    m_numHalfLives->setText(m_Time.toString());
 }*/
 
 void nuclearCalculator::calculate()
@@ -481,12 +483,12 @@ void nuclearCalculator::calculate()
     error(RESET_NUKE_MESG);
     // Validate the values involved in calculation
     if (m_HalfLife. number() == 0.0) {
-    	error(HALFLIFE_ZERO);
+        error(HALFLIFE_ZERO);
         return;
     }
 
     switch (m_mode) {
-        case 0: // Calculate initial amount
+    case 0: // Calculate initial amount
         if (m_FinalAmount.number() == 0.0) {
             error(FINAL_AMT_ZERO);
             return;
@@ -506,57 +508,54 @@ void nuclearCalculator::calculate()
         m_FinalAmount.unit()->symbol())).number()) {
             error(FINAL_AMT_GREATER);
             return;
-        } else if (m_finalAmt-> value() == 0.0)
-        { // final amount is 0.0
+        } else if (m_finalAmt->value() == 0.0) { // final amount is 0.0
             error(FINAL_AMT_ZERO);
             return;
         }
         calculateTime();
         break;
-	}
+    }
 }
 
 void nuclearCalculator::setMode(int mode)
 {
-	m_mode = mode;
+    m_mode = mode;
 
-	m_initAmt->nativeWidget()->setReadOnly(false);
-	m_finalAmt->nativeWidget()->setReadOnly(false);
-	m_time->nativeWidget()->setReadOnly(false);
+    m_initAmt->nativeWidget()->setReadOnly(false);
+    m_finalAmt->nativeWidget()->setReadOnly(false);
+    m_time->nativeWidget()->setReadOnly(false);
 
-	// set the quantity that should be calculated to readOnly
-	switch (mode)
-	{
-            case 0:
-                m_initAmt->nativeWidget()->setReadOnly(true);
-//			showSlider(true);
-                break;
-            case 1:
-                m_finalAmt->nativeWidget()->setReadOnly(true);
-//			showSlider(true);
-                break;
-            case 2:
-                m_time->nativeWidget()->setReadOnly(true);
-//			showSlider(false);
-                break;
-	}
+    // set the quantity that should be calculated to readOnly
+    switch (mode) {
+    case 0:
+        m_initAmt->nativeWidget()->setReadOnly(true);
+//        showSlider(true);
+        break;
+    case 1:
+        m_finalAmt->nativeWidget()->setReadOnly(true);
+//        showSlider(true);
+        break;
+    case 2:
+        m_time->nativeWidget()->setReadOnly(true);
+//        showSlider(false);
+        break;
+    }
 
-	calculate();
+    calculate();
 }
 
 void nuclearCalculator::showSlider(bool /*show*/)
 {
 // TODO
-/*	if (show) {
-		m_sliderLabel->hide();
-		m_slider->hide();
-		m_numHalfLives->hide();
-	}
-	else {
-		m_sliderLabel->show();
-		m_slider->show();
-		m_numHalfLives->show();
-	}
+/*    if (show) {
+        m_sliderLabel->hide();
+        m_slider->hide();
+        m_numHalfLives->hide();
+    } else {
+        m_sliderLabel->show();
+        m_slider->show();
+        m_numHalfLives->show();
+    }
 */
 }
 
@@ -565,7 +564,7 @@ void nuclearCalculator::calculateInitAmount()
     // If no time has elapsed, initial and final amounts are the same
     m_InitAmount = m_FinalAmount;
     if (m_Time. number() == 0.0) {
-        m_initAmt-> setValue(m_InitAmount . number());
+        m_initAmt->setValue(m_InitAmount . number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
@@ -575,7 +574,7 @@ void nuclearCalculator::calculateInitAmount()
     m_InitAmount = Value(m_InitAmount. number() * pow(2.0 , ratio), m_InitAmount. unit());
     // Convert into the required units
     m_InitAmount = m_converter->convert(m_InitAmount, m_InitAmount. unit()->symbol());
-    m_initAmt-> setValue(m_InitAmount . number());
+    m_initAmt->setValue(m_InitAmount . number());
 }
 
 void nuclearCalculator::calculateFinalAmount()
@@ -583,7 +582,7 @@ void nuclearCalculator::calculateFinalAmount()
     // If no time has elapsed, initial and final amounts are the same
     m_FinalAmount = m_InitAmount;
     if (m_Time. number() == 0.0) {
-            m_finalAmt-> setValue(m_FinalAmount. number());
+        m_finalAmt->setValue(m_FinalAmount.number());
         return;
     }
     // Calculate the number of halfLives that have elapsed
@@ -593,50 +592,50 @@ void nuclearCalculator::calculateFinalAmount()
     m_FinalAmount = Value(m_FinalAmount . number() / pow(2.0, ratio), m_InitAmount. unit());
     // Convert into the required units
     m_FinalAmount = m_converter->convert(m_FinalAmount, m_FinalAmount. unit()->symbol());
-    m_finalAmt-> setValue(m_FinalAmount. number());
+    m_finalAmt->setValue(m_FinalAmount. number());
 }
 
 void nuclearCalculator::calculateTime()
 {
-    // If initial and final masses are the same ( both units and value )
+    // If initial and final masses are the same (both units and value)
     // the time is also 0
     if (m_InitAmount.number() == m_FinalAmount.number() && \
             m_InitAmount. unit() == m_FinalAmount . unit()) {
         m_Time = Value(0.0, m_Time. unit());
-        m_time-> setValue(m_Time. number());
+        m_time->setValue(m_Time. number());
         return;
     }
 
     // calculate the ratio of final to initial masses
     double ratio = (m_converter->convert(m_InitAmount , m_FinalAmount.unit()\
-    				->symbol())).number() / m_FinalAmount.number();
-    // The number of halfLives ( log 2 ( x ) = log x / log 2 )
+                    ->symbol())).number() / m_FinalAmount.number();
+    // The number of halfLives (log 2 (x) = log x / log 2)
     double numHalfLives = log(ratio) / log(2.0);
     double time_value = numHalfLives  * m_HalfLife . number();
     // Calculate the total time taken
     Value temp = Value(time_value, m_HalfLife. unit());
     m_Time = m_converter->convert(temp , m_Time.unit()->symbol());
-    m_time-> setValue(m_Time. number());
+    m_time->setValue(m_Time. number());
 }
 
-void nuclearCalculator::error( int mode)
+void nuclearCalculator::error(int mode)
 {
     switch (mode) { // Depending on the mode, set the error messages.
-        case RESET_NUKE_MESG:
-            m_error->setText("");
-            break;
-        case INIT_AMT_ZERO:
-            m_error->setText(i18n("Initial amount cannot be zero."));
-            break;
-        case FINAL_AMT_ZERO:
-            m_error->setText(i18n("Final amount cannot be zero."));
-            break;
-        case HALFLIFE_ZERO:
-            m_error->setText(i18n("Time is zero, please enter a valid value."));
-            break;
-        case FINAL_AMT_GREATER:
-            m_error->setText(i18n("Final amount cannot be greater than initial amount."));
-            break;
+    case RESET_NUKE_MESG:
+        m_error->setText("");
+        break;
+    case INIT_AMT_ZERO:
+        m_error->setText(i18n("Initial amount cannot be zero."));
+        break;
+    case FINAL_AMT_ZERO:
+        m_error->setText(i18n("Final amount cannot be zero."));
+        break;
+    case HALFLIFE_ZERO:
+        m_error->setText(i18n("Time is zero, please enter a valid value."));
+        break;
+    case FINAL_AMT_GREATER:
+        m_error->setText(i18n("Final amount cannot be greater than initial amount."));
+        break;
     }
 }
 
@@ -647,10 +646,10 @@ void nuclearCalculator::createConfigurationInterface(KConfigDialog *parent)
     parent->addPage(widget, i18n("General"), icon());
 
     ui.massOnly->setChecked(m_massOnly);
-    
-    connect ( parent, SIGNAL (applyClicked()), this, SLOT (configAccepted()) );
-    connect ( parent, SIGNAL (okClicked()), this, SLOT (configAccepted()) );
-    connect (ui.massOnly, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+
+    connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
+    connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
+    connect(ui.massOnly, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 
 void nuclearCalculator::configAccepted()

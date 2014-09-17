@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2003, 2004, 2005 by Carsten Niehaus                     *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2003, 2004, 2005 by Carsten Niehaus <cniehaus@kde.org>  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -15,10 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #include "element.h"
+
 #include <kdebug.h>
 #include <kunitconversion/converter.h>
 
@@ -27,23 +27,25 @@ Element::Element()
 {
 }
 
-QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
+QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type) const
 {
-    foreach( const ChemicalDataObject &o, dataList ) {
-        if ( o.type() == type )
+    foreach (const ChemicalDataObject &o, dataList) {
+        if (o.type() == type) {
             return o.value();
+        }
     }
     return QVariant();
 }
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-    foreach( const ChemicalDataObject &o, dataList ) {
-        if ( o.type() == type ) {
-            if ( unit == KUnitConversion::NoUnit )
+    foreach (const ChemicalDataObject &o, dataList) {
+        if (o.type() == type) {
+            if (unit == KUnitConversion::NoUnit) {
                 return o.value();
-            KUnitConversion::Value data( o.value().toDouble(), o.unit() );
-            return QVariant( data.convertTo(unit).number() );
+            }
+            KUnitConversion::Value data(o.value().toDouble(), o.unit());
+            return QVariant(data.convertTo(unit).number());
         }
     }
     return QVariant();
@@ -61,13 +63,14 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type, int unit) co
 
 QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-    QString valueAndUnit( QString::number( dataAsVariant( type, unit).toDouble(), 'g', 4 ) );
+    QString valueAndUnit(QString::number(dataAsVariant(type, unit).toDouble(), 'g', 4));
 
-    if (valueAndUnit.isEmpty())
+    if (valueAndUnit.isEmpty()) {
         return QString();
+    }
 
     valueAndUnit.append(" ");
-    valueAndUnit.append( KUnitConversion::Converter().unit( unit ).data()->symbol() );
+    valueAndUnit.append(KUnitConversion::Converter().unit(unit).data()->symbol());
     return valueAndUnit;
 }
 
@@ -75,13 +78,13 @@ Element::~Element()
 {
 }
 
-void Element::addData( const ChemicalDataObject& o )
+void Element::addData(const ChemicalDataObject& o)
 {
-    dataList.append( o );
+    dataList.append(o);
 }
 
-void Element::addData( const QVariant& value, ChemicalDataObject::BlueObelisk type )
+void Element::addData(const QVariant& value, ChemicalDataObject::BlueObelisk type)
 {
-    ChemicalDataObject tmp( value, type );
-    dataList.append( tmp );
+    ChemicalDataObject tmp(value, type);
+    dataList.append(tmp);
 }

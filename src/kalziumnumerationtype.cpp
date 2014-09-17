@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2005, 2006 by Pino Toscano, toscano.pino@tiscali.it     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -37,20 +37,21 @@ KalziumNumerationTypeFactory* KalziumNumerationTypeFactory::instance()
     return &kntf;
 }
 
-KalziumNumerationType* KalziumNumerationTypeFactory::build( int id ) const
+KalziumNumerationType* KalziumNumerationTypeFactory::build(int id) const
 {
-    if ( ( id < 0 ) || ( id >= m_numerations.count() ) )
+    if ((id < 0) || (id >= m_numerations.count())) {
         return 0;
+    }
 
-    return m_numerations.at( id );
+    return m_numerations.at(id);
 }
 
-KalziumNumerationType* KalziumNumerationTypeFactory::build( const QByteArray& id ) const
+KalziumNumerationType* KalziumNumerationTypeFactory::build(const QByteArray& id) const
 {
-    for ( int i = 0; i < m_numerations.count(); i++ )
-    {
-        if ( m_numerations.at( i )->name() == id )
-            return m_numerations.at( i );
+    for (int i = 0; i < m_numerations.count(); ++i) {
+        if (m_numerations.at(i)->name() == id) {
+            return m_numerations.at(i);
+        }
     }
 
     // not found
@@ -60,9 +61,8 @@ KalziumNumerationType* KalziumNumerationTypeFactory::build( const QByteArray& id
 QStringList KalziumNumerationTypeFactory::numerations() const
 {
     QStringList l;
-    for ( int i = 0; i < m_numerations.count(); i++ )
-    {
-        l << m_numerations.at( i )->description();
+    for (int i = 0; i < m_numerations.count(); ++i) {
+        l << m_numerations.at(i)->description();
     }
     return l;
 }
@@ -81,12 +81,13 @@ KalziumNumerationType::~KalziumNumerationType()
 {
 }
 
-QString KalziumNumerationType::item( const int num ) const
+QString KalziumNumerationType::item(const int num) const
 {
-    if ( ( num < 0 ) || ( num >= m_items.count() ) )
+    if ((num < 0) || (num >= m_items.count())) {
         return QString();
+    }
 
-    return m_items.at( num );
+    return m_items.at(num);
 }
 
 QStringList KalziumNumerationType::items() const
@@ -113,12 +114,12 @@ QByteArray KalziumNoneNumerationType::name() const
 
 QString KalziumNoneNumerationType::description() const
 {
-    return i18n( "No Numeration" );
+    return i18n("No Numeration");
 }
 
-QString KalziumNoneNumerationType::item( const int num ) const
+QString KalziumNoneNumerationType::item(const int num) const
 {
-    Q_UNUSED( num );
+    Q_UNUSED(num);
     return QString();
 }
 
@@ -137,24 +138,24 @@ KalziumIUPACNumerationType::KalziumIUPACNumerationType()
         : KalziumNumerationType()
 {
     // cache them
-    m_items << QString( "1" );
-    m_items << QString( "2" );
-    m_items << QString( "3" );
-    m_items << QString( "4" );
-    m_items << QString( "5" );
-    m_items << QString( "6" );
-    m_items << QString( "7" );
-    m_items << QString( "8" );
-    m_items << QString( "9" );
-    m_items << QString( "10" );
-    m_items << QString( "11" );
-    m_items << QString( "12" );
-    m_items << QString( "13" );
-    m_items << QString( "14" );
-    m_items << QString( "15" );
-    m_items << QString( "16" );
-    m_items << QString( "17" );
-    m_items << QString( "18" );
+    m_items << QString("1");
+    m_items << QString("2");
+    m_items << QString("3");
+    m_items << QString("4");
+    m_items << QString("5");
+    m_items << QString("6");
+    m_items << QString("7");
+    m_items << QString("8");
+    m_items << QString("9");
+    m_items << QString("10");
+    m_items << QString("11");
+    m_items << QString("12");
+    m_items << QString("13");
+    m_items << QString("14");
+    m_items << QString("15");
+    m_items << QString("16");
+    m_items << QString("17");
+    m_items << QString("18");
 }
 
 QByteArray KalziumIUPACNumerationType::name() const
@@ -164,7 +165,7 @@ QByteArray KalziumIUPACNumerationType::name() const
 
 QString KalziumIUPACNumerationType::description() const
 {
-    return i18n( "IUPAC" );
+    return i18n("IUPAC");
 }
 
 KalziumCASNumerationType* KalziumCASNumerationType::instance()
@@ -177,24 +178,24 @@ KalziumCASNumerationType::KalziumCASNumerationType()
         : KalziumNumerationType()
 {
     // cache them
-    m_items << QString( "IA" );
-    m_items << QString( "IIA" );
-    m_items << QString( "IIIB" );
-    m_items << QString( "IVB" );
-    m_items << QString( "VB" );
-    m_items << QString( "VIB" );
-    m_items << QString( "VIIB" );
-    m_items << QString( "VIII" );
-    m_items << QString( "VIII" );
-    m_items << QString( "VIII" );
-    m_items << QString( "IB" );
-    m_items << QString( "IIB" );
-    m_items << QString( "IIIA" );
-    m_items << QString( "IVA" );
-    m_items << QString( "VA" );
-    m_items << QString( "VIA" );
-    m_items << QString( "VIIA" );
-    m_items << QString( "VIIIA" );
+    m_items << QString("IA");
+    m_items << QString("IIA");
+    m_items << QString("IIIB");
+    m_items << QString("IVB");
+    m_items << QString("VB");
+    m_items << QString("VIB");
+    m_items << QString("VIIB");
+    m_items << QString("VIII");
+    m_items << QString("VIII");
+    m_items << QString("VIII");
+    m_items << QString("IB");
+    m_items << QString("IIB");
+    m_items << QString("IIIA");
+    m_items << QString("IVA");
+    m_items << QString("VA");
+    m_items << QString("VIA");
+    m_items << QString("VIIA");
+    m_items << QString("VIIIA");
 }
 
 QByteArray KalziumCASNumerationType::name() const
@@ -204,7 +205,7 @@ QByteArray KalziumCASNumerationType::name() const
 
 QString KalziumCASNumerationType::description() const
 {
-    return i18n( "CAS" );
+    return i18n("CAS");
 }
 
 KalziumOldIUPACNumerationType* KalziumOldIUPACNumerationType::instance()
@@ -217,24 +218,24 @@ KalziumOldIUPACNumerationType::KalziumOldIUPACNumerationType()
         : KalziumNumerationType()
 {
     // cache them
-    m_items << QString( "1A" );
-    m_items << QString( "2A" );
-    m_items << QString( "3A" );
-    m_items << QString( "4A" );
-    m_items << QString( "5A" );
-    m_items << QString( "6A" );
-    m_items << QString( "7A" );
-    m_items << QString( "8" );
-    m_items << QString( "8" );
-    m_items << QString( "8" );
-    m_items << QString( "1B" );
-    m_items << QString( "2B" );
-    m_items << QString( "3B" );
-    m_items << QString( "4B" );
-    m_items << QString( "5B" );
-    m_items << QString( "6B" );
-    m_items << QString( "7B" );
-    m_items << QString( "0" );
+    m_items << QString("1A");
+    m_items << QString("2A");
+    m_items << QString("3A");
+    m_items << QString("4A");
+    m_items << QString("5A");
+    m_items << QString("6A");
+    m_items << QString("7A");
+    m_items << QString("8");
+    m_items << QString("8");
+    m_items << QString("8");
+    m_items << QString("1B");
+    m_items << QString("2B");
+    m_items << QString("3B");
+    m_items << QString("4B");
+    m_items << QString("5B");
+    m_items << QString("6B");
+    m_items << QString("7B");
+    m_items << QString("0");
 }
 
 QByteArray KalziumOldIUPACNumerationType::name() const
@@ -244,5 +245,5 @@ QByteArray KalziumOldIUPACNumerationType::name() const
 
 QString KalziumOldIUPACNumerationType::description() const
 {
-    return i18n( "Old IUPAC" );
+    return i18n("Old IUPAC");
 }

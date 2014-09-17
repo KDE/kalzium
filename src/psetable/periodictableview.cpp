@@ -21,9 +21,10 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
+#include "periodictableview.h"
+
 #include <QSvgGenerator>
 
-#include "periodictableview.h"
 #include "psetables.h"
 #include <prefs.h>
 
@@ -34,7 +35,7 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
     setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     setCacheMode(QGraphicsView::CacheBackground);
 
-    setMouseTracking( true );
+    setMouseTracking(true);
 
     m_currentTableInex = Prefs::table();
 
@@ -44,7 +45,7 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
 
     m_tableStates = new PeriodicTableStates(
         createElementItems(),
-        createNumerationItems() );
+        createNumerationItems());
 
     fitPseInView();
 }
@@ -57,9 +58,9 @@ QList<NumerationItem*> PeriodicTableView::createNumerationItems() const
     QList<NumerationItem*> numerationItemList;
 
     for (int i = 0; i < xMax; ++i) {
-        numerationItemList << new NumerationItem( i );
-        m_tableScene->addItem( numerationItemList.at( i ) );
-        connect(this, SIGNAL(numerationChange(int)), numerationItemList.at( i ), SLOT(setNumerationType(int)));
+        numerationItemList << new NumerationItem(i);
+        m_tableScene->addItem(numerationItemList.at(i));
+        connect(this, SIGNAL(numerationChange(int)), numerationItemList.at(i), SLOT(setNumerationType(int)));
     }
 
     return numerationItemList;
@@ -70,7 +71,7 @@ QList<ElementItem*> PeriodicTableView::createElementItems() const
     QList<ElementItem*> elementItemList;
     KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
-    foreach (int intElement, pseTables::instance()->getTabletype( 0 )->elements()) {
+    foreach (int intElement, pseTables::instance()->getTabletype(0)->elements()) {
         ElementItem *item = new ElementItem(elProperty, intElement);
 
         connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
@@ -94,45 +95,49 @@ int PeriodicTableView::table() const
 void PeriodicTableView::slotChangeTable(int table)
 {
     m_currentTableInex = table;
-    Prefs::setTable( m_currentTableInex );
+    Prefs::setTable(m_currentTableInex);
 
     setBiggerSceneRect();
-    m_tableStates->setTableState( m_currentTableInex );
+    m_tableStates->setTableState(m_currentTableInex);
 }
 
 void PeriodicTableView::slotSelectOneElement(int element)
 {
     slotUnSelectElements();
-    slotSelectAdditionalElement( element );
+    slotSelectAdditionalElement(element);
 }
 
 void PeriodicTableView::slotSelectAdditionalElement(int element)
 {
-    if (element > 0)
-        m_tableScene->items().at( --element )->setSelected( true );
+    if (element > 0) {
+        m_tableScene->items().at(--element)->setSelected(true);
+    }
 }
 
 void PeriodicTableView::slotUnSelectElements()
 {
-    foreach ( QGraphicsItem *item, m_tableScene->selectedItems() )
-        item->setSelected( false );
+    foreach (QGraphicsItem *item, m_tableScene->selectedItems()) {
+        item->setSelected(false);
+    }
 }
 
 void PeriodicTableView::setBiggerSceneRect()
 {
-    QRectF newRect( sceneRect() );
-    QRectF pseRect( m_tableStates->pseRect( m_currentTableInex ) );
+    QRectF newRect(sceneRect());
+    QRectF pseRect(m_tableStates->pseRect(m_currentTableInex));
 
-    if ( sceneRect().width() < pseRect.width() )
-        newRect.setWidth( pseRect.width() );
+    if (sceneRect().width() < pseRect.width()) {
+        newRect.setWidth(pseRect.width());
+    }
 
-    if ( sceneRect().height() < pseRect.height() )
-        newRect.setHeight( pseRect.height() );
+    if (sceneRect().height() < pseRect.height()) {
+        newRect.setHeight(pseRect.height());
+    }
 
-    setSceneRect( newRect );
+    setSceneRect(newRect);
 }
 
-void PeriodicTableView::resizeEvent ( QResizeEvent * event )
+void PeriodicTableView::resizeEvent (QResizeEvent * event)
 {
     fitPseInView();
     QGraphicsView::resizeEvent(event);
@@ -140,8 +145,9 @@ void PeriodicTableView::resizeEvent ( QResizeEvent * event )
 
 void PeriodicTableView::fitPseInView()
 {
-    if ( operator!=( sceneRect(), m_tableStates->pseRect( m_currentTableInex ) ) )
-        setSceneRect( m_tableStates->pseRect( m_currentTableInex ) );
+    if (operator!=(sceneRect(), m_tableStates->pseRect(m_currentTableInex))) {
+        setSceneRect(m_tableStates->pseRect(m_currentTableInex));
+    }
 
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
@@ -154,12 +160,12 @@ bool PeriodicTableView::event(QEvent *e)
 void PeriodicTableView::generateSvg(const QString& filename)
 {
     QSvgGenerator *svgGen = new QSvgGenerator();
-    svgGen->setFileName( filename );
+    svgGen->setFileName(filename);
 
     QPainter painter;
-    painter.begin( svgGen );
+    painter.begin(svgGen);
     painter.rotate(180);
-    render( &painter );
+    render(&painter);
     painter.end();
 
     delete svgGen;

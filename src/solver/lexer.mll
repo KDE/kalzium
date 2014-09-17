@@ -38,4 +38,3 @@ rule token = parse
 | "->"            { ARROW }
 | _               { raise IllegalChar; }
 | eof             { EOF }
-

@@ -1,5 +1,3 @@
-#ifndef EXPORTDIALOG_H
-#define EXPORTDIALOG_H
 /***************************************************************************
     copyright            : (C) 2007 by Johannes Simon
     email                : johannes.simon@gmail.com
@@ -13,6 +11,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef EXPORTDIALOG_H
+#define EXPORTDIALOG_H
+
 #include <QListWidget>
 #include <element.h>
 
@@ -23,22 +24,22 @@ class KDialog;
 
 class ElementListEntry : public QListWidgetItem
 {
-    public:
-        ElementListEntry( Element *element );
-        ~ElementListEntry();
+public:
+    ElementListEntry(Element *element);
+    ~ElementListEntry();
 
-        int       m_atomicNum;
-        QString   m_name;
-        Element  *m_element;
+    int       m_atomicNum;
+    QString   m_name;
+    Element  *m_element;
 };
 
 class PropertyListEntry : public QListWidgetItem
 {
-    public:
-        PropertyListEntry( const QString & name, ChemicalDataObject::BlueObelisk type );
-        ~PropertyListEntry();
+public:
+    PropertyListEntry(const QString & name, ChemicalDataObject::BlueObelisk type);
+    ~PropertyListEntry();
 
-        ChemicalDataObject::BlueObelisk m_type;
+    ChemicalDataObject::BlueObelisk m_type;
 };
 
 /**
@@ -48,21 +49,21 @@ class ExportDialog : public KDialog
 {
     Q_OBJECT
 
-    public:
-        ExportDialog( QWidget *parent );
-        ~ExportDialog();
+public:
+    ExportDialog(QWidget *parent);
+    ~ExportDialog();
 
-        void populateElementList();
-        void exportToHtml();
-        void exportToXml();
-        void exportToCsv();
+    void populateElementList();
+    void exportToHtml();
+    void exportToXml();
+    void exportToCsv();
 
-    private:
-        Ui::exportDialogForm ui;
-        QTextStream *m_outputStream;
+private:
+    Ui::exportDialogForm ui;
+    QTextStream *m_outputStream;
 
-    public slots:
-        void slotOkClicked();
+public slots:
+    void slotOkClicked();
 };
 
 #endif // EXPORTDIALOG_H

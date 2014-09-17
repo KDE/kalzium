@@ -85,4 +85,3 @@ if(KDE4_BUILD_TESTS)
 
 	   #install( PROGRAMS atestprog.opt DESTINATION  ${BIN_INSTALL_DIR} )
 endif(KDE4_BUILD_TESTS)
-

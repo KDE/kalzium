@@ -1,5 +1,3 @@
-#ifndef KDEEDUGLOSSARY_H
-#define KDEEDUGLOSSARY_H
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Carsten Niehaus <cniehaus@kde.org>        *
  *   Copyright (C) 2005 - 2007 by Pino Toscano <pino@kde.org>              *
@@ -9,6 +7,9 @@
  *   the Free Software Foundation; either version 2 of the License, or     *
  *   (at your option) any later version.                                   *
  ***************************************************************************/
+
+#ifndef KDEEDUGLOSSARY_H
+#define KDEEDUGLOSSARY_H
 
 #include <kdialog.h>
 
@@ -25,120 +26,120 @@ class GlossaryItem;
  */
 class Glossary
 {
-	public:
-		/**
-		 * Creates a new glossary and add contents from an XML file.
-		 * Use isEmpty() to know if any items were loaded.
-		 *
-		 * @param url the path of the file to load
-		 * @param path the path of the pictures
-		 */
-		explicit Glossary( const KUrl& url, const QString& path = QString() );
+public:
+    /**
+     * Creates a new glossary and add contents from an XML file.
+     * Use isEmpty() to know if any items were loaded.
+     *
+     * @param url the path of the file to load
+     * @param path the path of the pictures
+     */
+    explicit Glossary(const KUrl& url, const QString& path = QString());
 
-		/**
-		 * Creates a new empty glossary
-		 */
-		Glossary();
+    /**
+     * Creates a new empty glossary
+     */
+    Glossary();
 
-		virtual ~Glossary();
+    virtual ~Glossary();
 
-		/**
-		 * add the item @p item to the glossary
-		 */
-		void addItem( GlossaryItem* item );
+    /**
+     * add the item @p item to the glossary
+     */
+    void addItem(GlossaryItem* item);
 
-		QList<GlossaryItem*> itemlist()const;
+    QList<GlossaryItem*> itemlist()const;
 
-		/**
-		 * clear the Glossary
-		 */
-		void clear();
+    /**
+     * clear the Glossary
+     */
+    void clear();
 
-		/**
-		 * does this glossary have items?
-		 */
-		bool isEmpty() const;
+    /**
+     * does this glossary have items?
+     */
+    bool isEmpty() const;
 
-		/**
-		 * Every glossary can have a name. It will be
-		 * set to @p name
-		 */
-		void setName( const QString& name );
+    /**
+     * Every glossary can have a name. It will be
+     * set to @p name
+     */
+    void setName(const QString& name);
 
-		/**
-		 * @returns the name of the glossary
-		 */
-		QString name()const;
+    /**
+     * @returns the name of the glossary
+     */
+    QString name()const;
 
-		/**
-		 * sets the internal list of items to @p list
-		 */
-		void setItemlist( QList<GlossaryItem*> list );
+    /**
+     * sets the internal list of items to @p list
+     */
+    void setItemlist(QList<GlossaryItem*> list);
 
-		/**
-		 * Every glossaryitem can show pictures. [img src="foo.png]
-		 * will look for the file foo.png in the path defined by
-		 * @p path
-		 */
-		void setPicturePath( const QString& path );
+    /**
+     * Every glossaryitem can show pictures. [img src="foo.png]
+     * will look for the file foo.png in the path defined by
+     * @p path
+     */
+    void setPicturePath(const QString& path);
 
-		QString picturePath()const;
+    QString picturePath()const;
 
-		/**
-		 * defines which picture to use as the background
-		 * of the htmlview. The dialog
-		 * will use the file specifiec by the @p filename
-		 */
-		void setBackgroundPicture( const QString& filename );
+    /**
+     * defines which picture to use as the background
+     * of the htmlview. The dialog
+     * will use the file specifiec by the @p filename
+     */
+    void setBackgroundPicture(const QString& filename);
 
-		/**
-		 * @return the picuture used as the background in 
-		 * this background
-		 */
-		QString backgroundPicture()const;
+    /**
+     * @return the picuture used as the background in
+     * this background
+     */
+    QString backgroundPicture()const;
 
-	protected:
-		void init( const KUrl& url, const QString& path );
-	
-	private:
-		/**
-		 * This methods parses the given XML code. It will extract
-		 * the information of the items and return them as a
-		 * QList<GlossaryItem*>
-		 */
-		virtual QList<GlossaryItem*> readItems( QDomDocument &itemDocument );
-		
-		QString m_backgroundpicture;
+protected:
+    void init(const KUrl& url, const QString& path);
 
-		/**
-		 * replaces the [img]-pseudocode with valid HTML. The path where
-		 * the pictures are stored will be used for pictures
-		 */
-		void fixImagePath();
+private:
+    /**
+     * This methods parses the given XML code. It will extract
+     * the information of the items and return them as a
+     * QList<GlossaryItem*>
+     */
+    virtual QList<GlossaryItem*> readItems(QDomDocument &itemDocument);
 
-		/**
-		 * the path in which pictures of the glossary will be searched
-		 */
-		QString m_picturepath;
-		
-		/**
-		 * Load the layout from an XML file.
-		 *
-		 * @param doc The QDomDocument which will contain the read XML
-		 *            contents.
-		 * @param url The path of the file to load
-		 *
-		 * @return a bool indicating whether the loading of the XML was
-		 *         successful or not
-		 */
-		bool loadLayout( QDomDocument& doc, const KUrl& url );
-	
-		QList<GlossaryItem*> m_itemlist;
-		
-		/**
-		 * the name of the glossary
-		 */
-		QString m_name;
+    QString m_backgroundpicture;
+
+    /**
+     * replaces the [img]-pseudocode with valid HTML. The path where
+     * the pictures are stored will be used for pictures
+     */
+    void fixImagePath();
+
+    /**
+     * the path in which pictures of the glossary will be searched
+     */
+    QString m_picturepath;
+
+    /**
+     * Load the layout from an XML file.
+     *
+     * @param doc The QDomDocument which will contain the read XML
+     *            contents.
+     * @param url The path of the file to load
+     *
+     * @return a bool indicating whether the loading of the XML was
+     *         successful or not
+     */
+    bool loadLayout(QDomDocument& doc, const KUrl& url);
+
+    QList<GlossaryItem*> m_itemlist;
+
+    /**
+     * the name of the glossary
+     */
+    QString m_name;
 };
 
 /**
@@ -146,54 +147,54 @@ class Glossary
  * @author Carsten Niehaus
  *
  * A GlossaryItem stores the information of the content of
- * the item and its name. Furthermore, every item can have 
+ * the item and its name. Furthermore, every item can have
  * a number of pictures or references associated to it.
  * These are stored as QStringLists.
  */
 class GlossaryItem
 {
-	public:
-		GlossaryItem(){}
-		~GlossaryItem(){}
+public:
+    GlossaryItem() {}
+    ~GlossaryItem() {}
 
-		void setName( const QString& s );
+    void setName(const QString& s);
 
-		void setDesc( const QString& s);
+    void setDesc(const QString& s);
 
-		/**
-		 * Set the references for the current GlossaryItem to
-		 * @p s.
-		 * There's no need to sort the list before, as they
-		 * will be sorted automatically
-		 */
-		void setRef( const QStringList& s);
-	
-		void setPictures( const QString& s );
+    /**
+     * Set the references for the current GlossaryItem to
+     * @p s.
+     * There's no need to sort the list before, as they
+     * will be sorted automatically
+     */
+    void setRef(const QStringList& s);
 
-		QString name() const;
-		
-		QString desc() const;
-		
-		QStringList ref() const;
-		
-		QStringList pictures() const;
-		
-		/**
-		 * @return the formated HTML code for current item.
-		 */
-		QString toHtml() const;
+    void setPictures(const QString& s);
 
-		/**
-		 * This method parses the references.
-		 * @return the HTML code with the references as HTML links
-		 */
-		QString parseReferences() const;
+    QString name() const;
 
-	private:
-		QString m_name;
-		QString m_desc;
-		QStringList m_ref;
-		QStringList m_pic;
+    QString desc() const;
+
+    QStringList ref() const;
+
+    QStringList pictures() const;
+
+    /**
+     * @return the formated HTML code for current item.
+     */
+    QString toHtml() const;
+
+    /**
+     * This method parses the references.
+     * @return the HTML code with the references as HTML links
+     */
+    QString parseReferences() const;
+
+private:
+    QString m_name;
+    QString m_desc;
+    QStringList m_ref;
+    QStringList m_pic;
 };
 
 /**
@@ -203,37 +204,37 @@ class GlossaryItem
  */
 class GlossaryDialog : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		/**
-		 * Creates a new dialog for a glossary.
-		 *
-		 * @param parent the parent of the new dialog
-		 */
-		explicit GlossaryDialog( QWidget *parent = 0 );
+public:
+    /**
+     * Creates a new dialog for a glossary.
+     *
+     * @param parent the parent of the new dialog
+     */
+    explicit GlossaryDialog(QWidget *parent = 0);
 
-		virtual ~GlossaryDialog();
+    virtual ~GlossaryDialog();
 
-		/**
-		 * Add a new glossary.
-		 *
-		 * @param newgloss the new glossary to add
-		 * @param folded whether to fold the various items in subtrees depending on the
-		 * first letter of every item
-		 */
-		void addGlossary( Glossary* newgloss, bool folded = true );
+    /**
+     * Add a new glossary.
+     *
+     * @param newgloss the new glossary to add
+     * @param folded whether to fold the various items in subtrees depending on the
+     * first letter of every item
+     */
+    void addGlossary(Glossary* newgloss, bool folded = true);
 
-	protected:
-		void keyPressEvent(QKeyEvent*);
+protected:
+    void keyPressEvent(QKeyEvent*);
 
-	private:
-		class Private;
-		Private * const d;
+private:
+    class Private;
+    Private * const d;
 
-		Q_PRIVATE_SLOT( d, void itemActivated( QTreeWidgetItem *, int ) )
-		Q_PRIVATE_SLOT( d, void displayItem( const KUrl &, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) )
+    Q_PRIVATE_SLOT(d, void itemActivated(QTreeWidgetItem *, int))
+    Q_PRIVATE_SLOT(d, void displayItem(const KUrl &, const KParts::OpenUrlArguments &,
+                                       const KParts::BrowserArguments &))
 };
 
 #endif // KDEEDUGLOSSARY_H
-

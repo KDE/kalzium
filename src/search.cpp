@@ -22,8 +22,7 @@
 #include "element.h"
 #include "kalziumdataobject.h"
 
-Search::Search()
-        : m_isActive( false ), m_searchKind( Search::SearchAll )
+Search::Search() : m_isActive(false), m_searchKind(Search::SearchAll)
 {
 }
 
@@ -47,33 +46,38 @@ const QList<Element*>& Search::foundElements() const
     return m_foundElements;
 }
 
-bool Search::matches( Element* e ) const
+bool Search::matches(Element* e) const
 {
-    return m_foundElements.contains( e );
+    return m_foundElements.contains(e);
 }
 
 bool Search::matches(int el) const
 {
-    Element *element =  KalziumDataObject::instance()->element( el );
+    Element *element =  KalziumDataObject::instance()->element(el);
     return matches(element);
 }
 
-void Search::doSearch( const QString& text, SearchKind kind )
+void Search::doSearch(const QString& text, SearchKind kind)
 {
     m_isActive = true;
     m_searchText = text;
     m_searchKind = kind;
     QList<Element*> newresults;
-    foreach( Element* e, KalziumDataObject::instance()->ElementList )
-    {
+    foreach (Element *e, KalziumDataObject::instance()->ElementList) {
         bool found = false;
-        if ( !found && e->dataAsString( ChemicalDataObject::name ).contains( text, Qt::CaseInsensitive ) ) found = true;
-        if ( !found && e->dataAsString( ChemicalDataObject::symbol ).contains( text, Qt::CaseInsensitive ) ) found = true;
-        if ( found )
+        if (!found
+            && e->dataAsString(ChemicalDataObject::name).contains(text, Qt::CaseInsensitive)) {
+            found = true;
+        }
+        if (!found
+            && e->dataAsString(ChemicalDataObject::symbol).contains(text, Qt::CaseInsensitive)) {
+            found = true;
+        }
+        if (found) {
             newresults << e;
+        }
     }
-    if ( newresults != m_foundElements )
-    {
+    if (newresults != m_foundElements) {
         m_foundElements = newresults;
         emit searchChanged();
     }
@@ -81,7 +85,9 @@ void Search::doSearch( const QString& text, SearchKind kind )
 
 void Search::resetSearch()
 {
-    if ( !m_isActive ) return;
+    if (!m_isActive) {
+        return;
+    }
 
     m_foundElements.clear();
     m_isActive = false;

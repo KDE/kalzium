@@ -10,7 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "gasCalculator.h"
+
 #include <QPainter>
 #include <QFontMetrics>
 #include <QApplication>
@@ -82,12 +84,12 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
 
     if (!m_widget) {
         m_widget = new QGraphicsWidget(this);
-	m_widget->setMinimumSize(500, 300);
+        m_widget->setMinimumSize(500, 300);
 
         /**************************************************************************/
         //                       Gas Calculator set up
         /**************************************************************************/
-            // setup the label
+        // setup the label
         Plasma::Frame *pHeader = new Plasma::Frame(this);
         pHeader->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
         pHeader->setText(i18n("Gas Calculator"));
@@ -356,9 +358,9 @@ QGraphicsWidget *gasCalculator::graphicsWidget()
         connect(m_bUnit->nativeWidget(), SIGNAL(activated(int)),
                 this, SLOT(Vand_bChanged()));
         connect(m_calculationMode->nativeWidget(), SIGNAL(activated(int)),
-                        this, SLOT(setMode(int)));
+                this, SLOT(setMode(int)));
         connect(m_reset, SIGNAL(clicked()),
-                        this, SLOT(reset()));
+                this, SLOT(reset()));
     /**************************************************************************/
     // gas Calculator setup complete
     /**************************************************************************/
@@ -370,22 +372,22 @@ void gasCalculator::reset()
 {
     error(RESET_GAS_MESG);
 
-    m_molarMass    -> setValue(2.008);
-    m_temperature  -> setValue(273.0);
-    m_volume       -> setValue(22.4024);
-    m_pressure     -> setValue(1.0);
-    m_Vand_a       -> setValue(0.0);
-    m_Vand_b       -> setValue(0.0);
-    m_mass         -> setValue(2.016);
-    m_moles        -> setValue(1.0);
+    m_molarMass   ->setValue(2.008);
+    m_temperature ->setValue(273.0);
+    m_volume      ->setValue(22.4024);
+    m_pressure    ->setValue(1.0);
+    m_Vand_a      ->setValue(0.0);
+    m_Vand_b      ->setValue(0.0);
+    m_mass        ->setValue(2.016);
+    m_moles       ->setValue(1.0);
     // Setup of the UI done
 
-    m_massUnit	      ->nativeWidget()->setCurrentIndex(0);
+    m_massUnit        ->nativeWidget()->setCurrentIndex(0);
     m_pressureUnit    ->nativeWidget()->setCurrentIndex(0);
     m_temperatureUnit ->nativeWidget()->setCurrentIndex(0);
     m_volumeUnit      ->nativeWidget()->setCurrentIndex(0);
-    m_bUnit		      ->nativeWidget()->setCurrentIndex(0);
-    m_aUnit		      ->nativeWidget()->setCurrentIndex(0);
+    m_bUnit           ->nativeWidget()->setCurrentIndex(0);
+    m_aUnit           ->nativeWidget()->setCurrentIndex(0);
     m_calculationMode ->nativeWidget()->setCurrentIndex(3);
 
     // Initialise values
@@ -421,13 +423,13 @@ void gasCalculator::reset()
 void gasCalculator::calculatePressure()
 {
     double pressure;
-    double volume = ((m_converter->convert(m_Vol, "liters")).number());
-    double temp = ((m_converter->convert(m_Temp, "kelvins")).number());
-    double b = ((m_converter->convert(m_Vand_B, "liters")).number());
+    double volume = (m_converter->convert(m_Vol, "liters")).number();
+    double temp = (m_converter->convert(m_Temp, "kelvins")).number();
+    double b = (m_converter->convert(m_Vand_B, "liters")).number();
 
     pressure = m_Moles * R * temp / (volume - m_Moles * b) - m_Moles * m_Moles * m_Vand_A / volume / volume;
     m_Pressure = Value(pressure, "atmospheres");
-    m_Pressure = (m_converter->convert(m_Pressure, m_pressureUnit->nativeWidget()->currentText()));
+    m_Pressure = m_converter->convert(m_Pressure, m_pressureUnit->nativeWidget()->currentText());
     m_pressure->setValue(m_Pressure.number());
 
     //pressure =
@@ -554,8 +556,8 @@ void gasCalculator::molesChanged(int value)
 void gasCalculator::molarMassChanged(int value)
 {
     if ( value == 0.0 ) {
-            error(MOLAR_MASS_ZERO_);
-            return;
+        error(MOLAR_MASS_ZERO_);
+        return;
     }
     m_MolarMass = value;
     m_Mass = Value(m_MolarMass * m_Moles, "grams");
@@ -591,18 +593,18 @@ void gasCalculator::setMode(int mode)
     // set the quantity that should be calculated to readOnly
     switch (mode) {
     case 0:
-            m_moles->nativeWidget()->setReadOnly(true);
-            m_mass->nativeWidget()->setReadOnly(true);
-            break;
+        m_moles->nativeWidget()->setReadOnly(true);
+        m_mass->nativeWidget()->setReadOnly(true);
+        break;
     case 1:
-            m_pressure->nativeWidget()->setReadOnly(true);
-            break;
+        m_pressure->nativeWidget()->setReadOnly(true);
+        break;
     case 2:
-            m_temperature->nativeWidget()->setReadOnly(true);
-            break;
+        m_temperature->nativeWidget()->setReadOnly(true);
+        break;
     case 3:
-            m_volume->nativeWidget()->setReadOnly(true);
-            break;
+        m_volume->nativeWidget()->setReadOnly(true);
+        break;
     }
 
     calculate();

@@ -18,6 +18,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
 #include "obconverter.h"
 
 // Qt includes
@@ -35,19 +36,19 @@
 using namespace std;
 using namespace OpenBabel;
 
-KOpenBabel::KOpenBabel( QWidget *parent )
-    : KDialog( parent )
+KOpenBabel::KOpenBabel(QWidget *parent)
+    : KDialog(parent)
 {
-    setCaption( i18n( "OpenBabel Frontend" ) );
-    setButtons( Help | User1| Close );
-    setDefaultButton( User1 );
-    
+    setCaption(i18n("OpenBabel Frontend"));
+    setButtons(Help | User1| Close);
+    setDefaultButton(User1);
+
     OBConvObject = new OBConversion();
-	
-    ui.setupUi( mainWidget() );
-    
-    setButtonGuiItem( User1, KGuiItem( i18n( "Convert" ), "edit-copy", i18n( "Convert selected files" ) ) );
-    
+
+    ui.setupUi(mainWidget());
+
+    setButtonGuiItem(User1, KGuiItem(i18n("Convert"), "edit-copy", i18n("Convert selected files")));
+
     setupWindow();
     setHelp(QString(), "kalzium");
 }
@@ -61,7 +62,7 @@ KOpenBabel::~KOpenBabel()
 void KOpenBabel::setupWindow()
 {
     // Set multiple selection possible
-    ui.FileListView->setSelectionMode( QAbstractItemView::SelectionMode(3) );
+    ui.FileListView->setSelectionMode(QAbstractItemView::SelectionMode(3));
 
     // Creating the main layout
     QStringList InputType;
@@ -69,28 +70,28 @@ void KOpenBabel::setupWindow()
     for (vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
         InputType << QString((*it).c_str());
     }
-    ui.InputTypeComboBox->addItems( InputType );
+    ui.InputTypeComboBox->addItems(InputType);
 
     QStringList OutputType;
     vector<string> OutputFormat = OBConvObject->GetSupportedOutputFormat();
     for (vector<string>::iterator it = OutputFormat.begin(); it!=OutputFormat.end(); ++it) {
         OutputType << QString((*it).c_str());
     }
-    ui.OutputTypeComboBox->addItems( OutputType );
+    ui.OutputTypeComboBox->addItems(OutputType);
 
     // Create connection
     connect(ui.addFileButton,
             SIGNAL(clicked()), SLOT(slotAddFile()));
- 
+
     connect(ui.deleteFileButton, 
             SIGNAL(clicked()), SLOT(slotDeleteFile()));
- 
+
     connect(ui.selectAllFileButton, 
             SIGNAL(clicked()), SLOT(slotSelectAll()));
- 
+
     connect(this,
             SIGNAL(user1Clicked()), SLOT(slotConvert()));
-    
+
     connect(ui.FileListView,
             SIGNAL(itemSelectionChanged()), SLOT(slotGuessInput()));
 }
@@ -101,7 +102,6 @@ void KOpenBabel::slotAddFile()
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
     for (vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
         InputType << QString((*it).c_str());
-
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // InputType is now something like this:                                                                                    //
@@ -109,9 +109,9 @@ void KOpenBabel::slotAddFile()
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     QStringList tmpList = InputType;
-    tmpList.replaceInStrings( QRegExp("^"), "*." );
-    tmpList.replaceInStrings( QRegExp(" -- "), "|" );
-    tmpList.replaceInStrings( QRegExp("/"), "\\/" ); //escape all '/' (because of MimeTypes)
+    tmpList.replaceInStrings(QRegExp("^"), "*.");
+    tmpList.replaceInStrings(QRegExp(" -- "), "|");
+    tmpList.replaceInStrings(QRegExp("/"), "\\/"); //escape all '/' (because of MimeTypes)
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // tmpList is now something like this:                                                                                      //
     // "*.acr|ACR format [Read-only]", "*.alc|Alchemy format"                                                                   //
@@ -119,11 +119,11 @@ void KOpenBabel::slotAddFile()
 
     KUrl::List fl = KFileDialog::getOpenUrls(
             KUrl(),
-            "*|" +i18n("All Files") + "\n"+tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
+            "*|" +i18n("All Files") + '\n' + tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
             );
 
-    foreach ( const KUrl& u , fl ) {
-        new QListWidgetItem( u.prettyUrl(), ui.FileListView);
+    foreach (const KUrl& u , fl) {
+        new QListWidgetItem(u.prettyUrl(), ui.FileListView);
     }
 }
 
@@ -148,16 +148,14 @@ void KOpenBabel::slotGuessInput()
     bool first = true;
     QString suffix;
     if (p.count()) {
-        foreach( QListWidgetItem * item, p) {
-            if( first ) {
+        foreach (QListWidgetItem * item, p) {
+            if (first) {
                 first = false;
                 suffix = item->text().remove(QRegExp("^.*\\."));
-            }
-            else {
-                if( item->text().remove(QRegExp("^.*\\.")) == suffix ) {
+            } else {
+                if (item->text().remove(QRegExp("^.*\\.")) == suffix) {
                     continue;
-                }
-                else {
+                } else {
                     // All the file types are not same, set type to default
                     ui.InputTypeComboBox->setCurrentIndex(0);
                     return;
@@ -165,8 +163,8 @@ void KOpenBabel::slotGuessInput()
             }
         }
     }
-    for (int i = 0; i < ui.InputTypeComboBox->count(); i++) {
-        if( ui.InputTypeComboBox->itemText(i).indexOf(QRegExp('^' + suffix + " --")) >=0 ) {
+    for (int i = 0; i < ui.InputTypeComboBox->count(); ++i) {
+        if (ui.InputTypeComboBox->itemText(i).indexOf(QRegExp('^' + suffix + " --")) >= 0) {
             ui.InputTypeComboBox->setCurrentIndex(i);
             return;
         }
@@ -183,59 +181,59 @@ void KOpenBabel::slotConvert()
     oformat = oformat.remove(QRegExp(" --.*"));
 
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
-    if( p.count() == 0 ) {
+    if (p.count() == 0) {
         KMessageBox::error(this,
                 i18n("You must select some files first."),
                 i18n("No files selected")
                 );
         return;
     }
-    QListIterator<QListWidgetItem*> it( p );
+    QListIterator<QListWidgetItem*> it(p);
     QStringList cmdList; // Full command
     QLinkedList<QStringList> cmdArgList; // Arguments only
     foreach (QListWidgetItem * item, p) {
-        QString ifname = KUrl( item->text() ).toLocalFile();
+        QString ifname = KUrl(item->text()).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
         ofname = ofname + QLatin1String(".") + oformat;
 
         bool proceed = true;
-        
-        if( QFile::exists(ofname) ) {
+
+        if (QFile::exists(ofname)) {
             //something named ofname already exists
-            switch( KMessageBox::warningContinueCancel(
+            switch (KMessageBox::warningContinueCancel(
                         this,
-                        i18n( "The file %1 already exists. Do you want to overwrite if possible?", ofname ),
-                        i18n( "The File %1 Already Exists -- KOpenBabel", ofname )
-                    )
-                  ) {
-                case KMessageBox::No:
-                    proceed = false;
-                    break;
-                default:
-                    break;
+                        i18n("The file %1 already exists. Do you want to overwrite if possible?", ofname),
+                        i18n("The File %1 Already Exists -- KOpenBabel", ofname)
+                      )
+                    ) {
+            case KMessageBox::No:
+                proceed = false;
+                break;
+            default:
+                break;
             }
         }
         if (proceed) {
             QStringList arguments;
-            arguments << QString( "-i") + iformat << ifname << QString("-o") + oformat << ofname;
-            cmdArgList.append( arguments );
-            cmdList.append( QString("babel ") + arguments.join(" ") );
+            arguments << QString("-i") + iformat << ifname << QString("-o") + oformat << ofname;
+            cmdArgList.append(arguments);
+            cmdList.append(QString("babel ") + arguments.join(" "));
         }
     }
     if (cmdArgList.count() > 0) {
-        switch( KMessageBox::questionYesNo(
+        switch (KMessageBox::questionYesNo(
                     this, cmdList.join("\n"),
                     i18n("Is it okay to run these commands? -- KOpenBabel")
-                )
+                  )
                 ) {
-            case KMessageBox::Yes:
-                foreach(const QStringList &s, cmdArgList) {
-                    QProcess::startDetached( "babel", s);
-                }
-                break;
-            default:
-                break;
+        case KMessageBox::Yes:
+            foreach (const QStringList &s, cmdArgList) {
+                QProcess::startDetached("babel", s);
+            }
+            break;
+        default:
+            break;
         }
     }
 }
@@ -246,4 +244,3 @@ void KOpenBabel::addFile(const QString &filename)
 }
 
 #include "obconverter.moc"
-

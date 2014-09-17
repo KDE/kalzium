@@ -1,7 +1,5 @@
-#ifndef KALZIUMDATAOBJECT_H
-#define KALZIUMDATAOBJECT_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005, 2006 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -17,8 +15,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
+
+#ifndef KALZIUMDATAOBJECT_H
+#define KALZIUMDATAOBJECT_H
 
 #include <element.h>
 #include <QHash>
@@ -38,15 +39,15 @@ class Search;
  * @endcode
  * to get the whole list of Element, while a
  * @code
- * KalziumDataObject::instance()->element( num );
+ * KalziumDataObject::instance()->element(num);
  * @endcode
  * will return you the pointer to the num'th element of the Periodic Table.
  *
  * @author Carsten Niehaus
  */
 class KalziumDataObject
-  {
-  public:
+{
+public:
     /**
      * @return the instance of this class
      */
@@ -60,7 +61,7 @@ class KalziumDataObject
     /**
      * Set the main Search to @p srch
      */
-    void setSearch ( Search *srch );
+    void setSearch(Search *srch);
 
     /**
      * @return the main Search
@@ -71,31 +72,31 @@ class KalziumDataObject
      * @return the Element with the number @p number
      * @param number the number of the Element which will be returned
      */
-    Element* element ( int number );
+    Element* element(int number);
 
     /**
      * retunrs the unit symbol from the given KUnitConversion UnitId.
      * @param unit KUnitConversion UnitId
      * @return unit symbol as string.
      */
-    QString unitAsString( const int unit ) const;
+    QString unitAsString(const int unit) const;
 
     /**
      * @return the isotopes of the Element with the number @p number
      */
-    QList<Isotope*> isotopes ( int number );
+    QList<Isotope*> isotopes(int number);
 
     /**
      * @return the isotopes of the Element @p Element
      */
-    QList<Isotope*> isotopes ( Element * element );
+    QList<Isotope*> isotopes(Element * element);
 
     /**
     * @return the Spectrum of the Element with the number @p number
      */
-    Spectrum * spectrum ( int number );
+    Spectrum * spectrum(int number);
 
-    QPixmap pixmap ( int number );
+    QPixmap pixmap(int number);
 
     /**
      * Use this to get the number of elements we have. It is cached
@@ -103,9 +104,12 @@ class KalziumDataObject
      * the number of elements.
      * @return the number of elements we have
      */
-    int numberOfElements() const { return m_numOfElements; }
+    int numberOfElements() const
+    {
+        return m_numOfElements;
+    }
 
-  private:
+private:
     KalziumDataObject();
     ~KalziumDataObject();
 
@@ -127,5 +131,6 @@ class KalziumDataObject
     Search *m_search;
 
     friend class StaticKalziumDataObject;
-  };
+};
+
 #endif // KALZIUMDATAOBJECT_H

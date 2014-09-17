@@ -1,6 +1,3 @@
-#ifndef KALZIUMUTILS_H
-#define KALZIUMUTILS_H
-
 /***************************************************************************
     copyright            : (C) 2005, 2006 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -13,6 +10,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#ifndef KALZIUMUTILS_H
+#define KALZIUMUTILS_H
 
 class QString;
 class QRect;
@@ -34,7 +33,8 @@ public:
      * @param maxFontSize the maximum fontsize
      * @param minFontSize the maximum fontsize
      */
-    static int maxSize( const QString& string, const QRect& rect, QFont font, QPainter* painter, int minFontSize = 4, int maxFontSize = 20 );
+    static int maxSize(const QString &string, const QRect &rect, QFont font, QPainter *painter,
+                       int minFontSize = 4, int maxFontSize = 20);
 
     /**
      * calculate the 4-digit value of the value @p w. For
@@ -42,7 +42,7 @@ public:
      * @param value the value which will be stripped
      * @return the 4-digit value
      */
-    static double strippedValue( double value );
+    static double strippedValue(double value);
 
     /**
      * @param string the string which is measured
@@ -50,14 +50,14 @@ public:
      * @param painter the used painter
      * @return the width of the string @p string
      */
-    static int StringWidth( const QString& string, const QFont& font, QPainter* painter );
+    static int StringWidth(const QString &string, const QFont &font, QPainter *painter);
     /**
      * @param string the string which is measured
      * @param font the used font
      * @param painter the used painter
      * @return the height of the string @p string
      */
-    static int StringHeight( const QString& string, const QFont& font, QPainter* painter );
+    static int StringHeight(const QString &string, const QFont& font, QPainter *painter);
 
     /**
      * An almost standard way to get an unit well converted for
@@ -66,16 +66,15 @@ public:
      * @param kind the unit we want to print of the element @p el
      * @return the formatted string
      */
-    static QString prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind );
+    static QString prettyUnit(const Element *el, ChemicalDataObject::BlueObelisk kind);
 
     /**
      * Populates a a combobox wiht the names of the units. @see KUnitConversion.
      * @param combobox the pointer to the combobox
      * @param unitList Unit list with enums of KUnitConversion
      */
-    static void populateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList);
+    static void populateUnitCombobox(QComboBox *comboBox, const QList<int> &unitList);
 
 };
 
 #endif // KALZIUMUTILS_H
-

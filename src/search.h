@@ -39,8 +39,7 @@ public:
     /**
      * The kind of search we can perform
      */
-    enum SearchKind
-    {
+    enum SearchKind {
         SearchByName = 0x01,
         SearchBySymbol = 0x02,
         SearchAll = 0xFF
@@ -75,20 +74,20 @@ public:
     /**
      * @return whether the element @p el matches the search
      */
-    bool matches( Element* el ) const;
+    bool matches(Element* el) const;
 
     /**
      * @return whether the element @p el matches the search
      * overloaded function to use direct the element number.
      */
-    bool matches( int el) const;
+    bool matches(int el) const;
 
 public slots:
     /**
      * Search the @p text by looking at the element using the
      * specified @p kind
      */
-    void doSearch( const QString& text, SearchKind kind );
+    void doSearch(const QString& text, SearchKind kind);
     /**
      * Reset the current search (and put it not active).
      */

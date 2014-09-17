@@ -15,7 +15,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef KALZIUMUNITCOMBOBOX_H
 #define KALZIUMUNITCOMBOBOX_H
 
@@ -25,12 +24,12 @@ class KalziumUnitCombobox : public QComboBox
 {
 
 public:
-    KalziumUnitCombobox( QWidget *parent = 0 );
-    KalziumUnitCombobox( const QList< int > &unitList, QWidget *parent = 0 );
+    KalziumUnitCombobox(QWidget *parent = 0);
+    KalziumUnitCombobox(const QList< int > &unitList, QWidget *parent = 0);
 
-    void setUnitList( const QList< int > &unitList );
+    void setUnitList(const QList< int > &unitList);
     int getCurrentUnitId() const;
-    void setIndexWithUnitId( int unit );
+    void setIndexWithUnitId(int unit);
 
 };
 

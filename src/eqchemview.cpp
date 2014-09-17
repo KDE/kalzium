@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005, 2006 by Thomas Nagy <tnagy2^8@yahoo.fr>
- *   Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+ *   Copyright (C) 2004, 2005, 2006 by Thomas Nagy <tnagy2^8@yahoo.fr>     *
+ *   Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -15,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
 #include "eqchemview.h"
@@ -42,12 +42,12 @@ char* solve_equation(const char *) {
 
 void EQChemDialog::compute()
 {
-    QString equation( ui.lineEdit->text() );
+    QString equation(ui.lineEdit->text());
     equation.replace("->", " -> ");
     equation.append(' ');
     equation.prepend(' ');
 
-    char * result = solve_equation( equation.toLatin1() );
+    char * result = solve_equation(equation.toLatin1());
 
     QString answer = QString(result);
 
@@ -59,24 +59,23 @@ void EQChemDialog::compute()
     free(result);
 }
 
-EQChemDialog::EQChemDialog( QWidget *parent )
-        : QWidget( parent )
+EQChemDialog::EQChemDialog(QWidget *parent) : QWidget(parent)
 {
-    ui.setupUi( this );
+    ui.setupUi(this);
 
     ui.lblHelp->setText(getHelpText());
 
-    connect( ui.calculateButton , SIGNAL(clicked()),
-             this, SLOT(compute()) );
-    connect( ui.btnCopy , SIGNAL(clicked()),
-             this, SLOT(copyAnswer()) );
+    connect(ui.calculateButton, SIGNAL(clicked()),
+            this, SLOT(compute()));
+    connect(ui.btnCopy, SIGNAL(clicked()),
+            this, SLOT(copyAnswer()));
 }
 
 void EQChemDialog::copyAnswer()
 {
     kDebug() << "EQChemDialog::copyAnswer()";
     QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText( ui.answer_label->text(), QClipboard::Clipboard);
+    clipboard->setText(ui.answer_label->text(), QClipboard::Clipboard);
 }
 
 const QString EQChemDialog::getHelpText()
@@ -104,6 +103,4 @@ QSize EQChemDialog::sizeHint() const
     return size;
 }
 
-
 #include "eqchemview.moc"
-

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010     by Etienne Rebetez etienne.rebetez@oberwallis.ch    *
+ *   Copyright (C) 2010   by Etienne Rebetez etienne.rebetez@oberwallis.ch *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -37,12 +37,12 @@ KalziumElementProperty::KalziumElementProperty()
 {
     m_currentScheme = Prefs::colorschemebox();
 
-    if ( schemeList().count() <= m_currentScheme )
+    if (schemeList().count() <= m_currentScheme)
         m_currentScheme = 0;
 
     m_currentGradient = Prefs::colorgradientbox();
 
-    if ( isGradient() )
+    if (isGradient())
         m_mode = GRADIENTVALUE;
 }
 
@@ -69,10 +69,11 @@ void KalziumElementProperty::setGradient(int newGradient)
     Prefs::setColorgradientbox(newGradient);
     Prefs::self()->writeConfig();
 
-    if ( isGradient() )
+    if (isGradient()) {
         m_mode = GRADIENTVALUE;
-    else
-        m_mode = NORMAL;        
+    } else {
+        m_mode = NORMAL;
+    }
 
     propertyChanged();
 }
@@ -92,12 +93,12 @@ QStringList KalziumElementProperty::gradientList() const
 
 KalziumSchemeType* KalziumElementProperty::scheme() const
 {
-    return KalziumSchemeTypeFactory::instance()->build( m_currentScheme );
+    return KalziumSchemeTypeFactory::instance()->build(m_currentScheme);
 }
 
 KalziumGradientType* KalziumElementProperty::gradient() const
 {
-    if ( m_currentGradient == NOGRADIENT ) {
+    if (m_currentGradient == NOGRADIENT) {
         return KalziumGradientTypeFactory::instance()->build(NOGRADIENT);
     }
     return KalziumGradientTypeFactory::instance()->build(m_currentGradient - 1);
@@ -121,18 +122,18 @@ void KalziumElementProperty::setSliderValue(double slide)
 
 double KalziumElementProperty::getValue(int el) const
 {
-    if ( m_currentGradient != NOGRADIENT )
-        return gradient()->value( el );
+    if (m_currentGradient != NOGRADIENT)
+        return gradient()->value(el);
 
     return 0;
 }
 
 QColor KalziumElementProperty::getElementColor(int el)
 {
-    if ( m_currentGradient == NOGRADIENT )
+    if (m_currentGradient == NOGRADIENT)
         return scheme()->elementBrush(el).color();
 
-    return gradientBrushLogic( el );
+    return gradientBrushLogic(el);
 }
 
 QBrush KalziumElementProperty::getElementBrush(int el)
@@ -142,12 +143,12 @@ QBrush KalziumElementProperty::getElementBrush(int el)
     elementBrush.setColor(Qt::transparent);
 
     // Hide filtered elements from search
-    if (!KalziumDataObject::instance()->search()->matches( el ) && KalziumDataObject::instance()->search()->isActive()) {
+    if (!KalziumDataObject::instance()->search()->matches(el) && KalziumDataObject::instance()->search()->isActive()) {
         return QBrush(Qt::darkGray, Qt::Dense7Pattern);
     }
 
     //The iconic view is the 3rd view (0,1,2,...). Pixmaps don't make nice gradients.
-    if ( m_currentScheme ==  2) {
+    if (m_currentScheme ==  2) {
         elementBrush =  scheme()->elementBrush(el);
     } else {
         // add a nice gradient
@@ -173,12 +174,12 @@ QColor KalziumElementProperty::getTextColor(int el) const
 QColor KalziumElementProperty::getBorderColor(int el) const
 {
     // Show scheme color as border when gradients are selected.
-    if (m_currentGradient != NOGRADIENT ) {
+    if (m_currentGradient != NOGRADIENT) {
         return scheme()->elementBrush(el).color();
     }
 
     // Transparent Borders don't make sens.
-    if ( getTextColor(el) == QColor(Qt::transparent) ) {
+    if (getTextColor(el) == QColor(Qt::transparent)) {
         return QColor(Qt::black);
     }
 
@@ -191,27 +192,24 @@ int KalziumElementProperty::getMode() const
     return m_mode;
 }
 
-QColor KalziumElementProperty::gradientBrushLogic( int el ) const
+QColor KalziumElementProperty::gradientBrushLogic(int el) const
 {
     QColor gradientColor;
     bool isActiv = true;
-    const double gradientValue = gradient()->value( el );
-    const double melting = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
-    const double boiling = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+    const double gradientValue = gradient()->value(el);
+    const double melting = KalziumDataObject::instance()->element(el)->dataAsVariant(ChemicalDataObject::meltingpoint).toDouble();
+    const double boiling = KalziumDataObject::instance()->element(el)->dataAsVariant(ChemicalDataObject::boilingpoint).toDouble();
 
-    switch ( m_currentGradient ) {
+    switch (m_currentGradient) {
 
     case SOMGradientType:
-
-        if ( m_slider < melting ) {
+        if (m_slider < melting) {
             //the element is solid
             gradientColor = Prefs::color_solid();
-        }
-        else if ( ( m_slider > melting ) && ( m_slider < boiling ) ) {
+        } else if ((m_slider > melting) && (m_slider < boiling)) {
             //the element is liquid
             gradientColor = Prefs::color_liquid();
-        }
-        else if ( ( m_slider >= boiling ) && ( boiling > 0.0 ) ) {
+        } else if ((m_slider >= boiling) && (boiling > 0.0)) {
             //the element is vaporous
             gradientColor = Prefs::color_vapor();
         } else {
@@ -220,26 +218,25 @@ QColor KalziumElementProperty::gradientBrushLogic( int el ) const
         return gradientColor;
 
     case DISCOVERYDATE:
-        if ( gradientValue > m_slider ) {
+        if (gradientValue > m_slider) {
             isActiv = false;
         }
         break;
 
     default: // All other gradients
-        if ( gradientValue < m_slider ) {
+        if (gradientValue < m_slider) {
             isActiv = false;
         }
         break;
     }
 
-    if ( !isActiv && gradientValue != -1) { //FIXME No magic number... Defined in KalziumGradientFactory
+    if (!isActiv && gradientValue != -1) { //FIXME No magic number... Defined in KalziumGradientFactory
         gradientColor = Qt::transparent;
     } else {
         const double coeff = gradient()->elementCoeff(el);
-        gradientColor = gradient()->calculateColor(coeff) ;
+        gradientColor = gradient()->calculateColor(coeff);
     }
     return gradientColor;
 }
-
 
 #include "kalziumelementproperty.moc"

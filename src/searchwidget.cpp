@@ -28,23 +28,22 @@
 #include "kalziumdataobject.h"
 #include "search.h"
 
-SearchWidget::SearchWidget( QWidget *parent )
-        : QWidget( parent ), m_timer( 0 )
+SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(0)
 {
-    QHBoxLayout *mainlay = new QHBoxLayout( this );
-    mainlay->setMargin( 2 );
-    mainlay->setSpacing( 5 );
+    QHBoxLayout *mainlay = new QHBoxLayout(this);
+    mainlay->setMargin(2);
+    mainlay->setSpacing(5);
 
-    mainlay->addWidget( new QLabel( i18n( "Search:" ), this ) );
+    mainlay->addWidget(new QLabel(i18n("Search:"), this));
 
-    m_searchLine = new KLineEdit( this );
+    m_searchLine = new KLineEdit(this);
     m_searchLine->setClearButtonShown(true);
     m_searchLine->setTrapReturnKey(true);
-    connect( m_searchLine, SIGNAL(textChanged(QString)),
-             this, SLOT(searchTextChanged(QString)) );
-    connect( m_searchLine, SIGNAL(returnPressed()),
-             this, SLOT(slotReturnPressed()) );
-    mainlay->addWidget( m_searchLine );
+    connect(m_searchLine, SIGNAL(textChanged(QString)),
+             this, SLOT(searchTextChanged(QString)));
+    connect(m_searchLine, SIGNAL(returnPressed()),
+             this, SLOT(slotReturnPressed()));
+    mainlay->addWidget(m_searchLine);
 }
 
 SearchWidget::~SearchWidget()
@@ -55,30 +54,26 @@ SearchWidget::~SearchWidget()
 
 void SearchWidget::giveFocus()
 {
-    m_searchLine->setFocus( Qt::MouseFocusReason );
-    m_searchLine->setCursorPosition( m_searchLine->text().length() );
+    m_searchLine->setFocus(Qt::MouseFocusReason);
+    m_searchLine->setCursorPosition(m_searchLine->text().length());
 }
 
-void SearchWidget::searchTextChanged( const QString& )
+void SearchWidget::searchTextChanged(const QString&)
 {
-    if ( m_timer )
-    {
+    if (m_timer) {
         m_timer->stop();
-    }
-    else
-    {
-        m_timer = new QTimer( this );
-        m_timer->setSingleShot( true );
-        connect( m_timer, SIGNAL(timeout()), this, SLOT(doSearch()) );
+    } else {
+        m_timer = new QTimer(this);
+        m_timer->setSingleShot(true);
+        connect(m_timer, SIGNAL(timeout()), this, SLOT(doSearch()));
     }
     // 1/3 of second should be ok
-    m_timer->start( 333 );
+    m_timer->start(333);
 }
 
 void SearchWidget::slotReturnPressed()
 {
-    if ( m_timer )
-    {
+    if (m_timer) {
         m_timer->stop();
     }
     doSearch();
@@ -87,13 +82,16 @@ void SearchWidget::slotReturnPressed()
 void SearchWidget::doSearch()
 {
     Search *s = KalziumDataObject::instance()->search();
-    if ( !s ) return;
+    if (!s) {
+        return;
+    }
 
     QString txt = m_searchLine->text();
-    if ( txt.length() > 0 )
-        s->doSearch( txt, Search::SearchAll );
-    else
+    if (txt.length() > 0) {
+        s->doSearch(txt, Search::SearchAll);
+    } else {
         s->resetSearch();
+    }
 }
 
 #include "searchwidget.moc"

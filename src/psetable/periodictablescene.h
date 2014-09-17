@@ -22,8 +22,8 @@
  02110-1301, USA.
  **********************************************************************/
 
-#ifndef PERIODICTABLESCENE_P_H
-#define PERIODICTABLESCENE_P_H
+#ifndef PERIODICTABLESCENE_H
+#define PERIODICTABLESCENE_H
 
 #include <QGraphicsScene>
 #include <QTimer>
@@ -77,5 +77,4 @@ protected:
 
 };
 
-
-#endif // PERIODICTABLESCENE_P_H
+#endif // PERIODICTABLESCENE_H

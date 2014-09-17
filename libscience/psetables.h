@@ -34,13 +34,13 @@
  *
  * creating a table for the gridlayout
 @code
-  foreach (int elementIndex, pseTables::instance()->getTabletype( m_psTableType )->elements()) {
-       int group = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( elementIndex ).x();
-       int period = pseTables::instance()->getTabletype( m_psTableType )->elementCoords( elementIndex ).y();
+  foreach (int elementIndex, pseTables::instance()->getTabletype(m_psTableType)->elements()) {
+       int group = pseTables::instance()->getTabletype(m_psTableType)->elementCoords(elementIndex).x();
+       int period = pseTables::instance()->getTabletype(m_psTableType)->elementCoords(elementIndex).y();
 
-       ElementLabel *element = new ElementLabel( elementIndex );
+       ElementLabel *element = new ElementLabel(elementIndex);
 
-       gridLayoutOfPeriodSystem->addItem (element, period, group );
+       gridLayoutOfPeriodSystem->addItem(element, period, group);
   }
 
 @endcode
@@ -51,10 +51,10 @@
 
 @endcode
 
- * getting the position of the Numerations for the periodic system of elements (j)
+ * getting the position of the Numerations for the periodic system of elements(j)
  @code
-    for (int i = 0; i < pseTables::instance()->getTabletype( j )->tableSize().x() || i < numerationItems.count(); i++) {
-        int itemAtPos = pseTables::instance()->getTabletype( j )->numerationAtPos( i );
+    for (int i = 0; i < pseTables::instance()->getTabletype(j)->tableSize().x() || i < numerationItems.count(); ++i) {
+        int itemAtPos = pseTables::instance()->getTabletype(j)->numerationAtPos(i);
     }
  @endcode
  * @short Provides shape and elements of diferent peridic tables of elements
@@ -139,7 +139,7 @@ public:
      * The default implementation returns <tt>element - 1</tt> if @p element
      * is not 1, else -1.
      */
-    virtual int previousOf ( int element ) const;
+    virtual int previousOf(int element) const;
 
     /**
      * Returns the element that comes right after the specified @p element.
@@ -148,7 +148,7 @@ public:
      * The default implementation returns <tt>element + 1</tt> if @p element
      * is not the latest element, else -1.
      */
-    virtual int nextOf ( int element ) const;
+    virtual int nextOf(int element) const;
 
     /**
      * Returns the first element of the table.
@@ -169,7 +169,7 @@ public:
      * Returns the Numeration for the current Table according to the position in the Table.
      * Coordinatates beginning wiht 0. Returns -1 if none is found.
      */
-     virtual int numerationAtPos( int xPos ) const;
+     virtual int numerationAtPos(int xPos) const;
 
 protected:
     pseTable();
@@ -229,4 +229,5 @@ public:
 private:
     pseDZTable();
 };
+
 #endif // PSTABLES_H

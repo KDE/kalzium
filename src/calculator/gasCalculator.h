@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
+ *   Copyright (C) 2009     by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
-#ifndef gasCalculator_H
-#define gasCalculator_H
+#ifndef GASCALCULATOR_H
+#define GASCALCULATOR_H
 
 #include <kdebug.h>
 #include <kalziumdataobject.h>
@@ -91,7 +91,7 @@ public slots:
     /// Calculates the molar mass of the substance and updates the UI
     void calculateMolarMass();
 
-    /// Functions ( slots ) that occur on changing a value
+    /// Functions (slots) that occur on changing a value
     /// This function is called when the volume is changed
     void volChanged();
 
@@ -161,4 +161,4 @@ private:
     int m_mode;
 };
 
-#endif // gasCalculator_H
+#endif // GASCALCULATOR_H

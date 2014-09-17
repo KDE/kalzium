@@ -1,5 +1,3 @@
-#ifndef TABLESDIALOG_H
-#define TABLESDIALOG_H
 /***************************************************************************
     copyright            : (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
                            (C) 2007 by Ian Monroe <ian@monroe.nu>
@@ -14,6 +12,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef TABLESDIALOG_H
+#define TABLESDIALOG_H
+
 #include <kpagedialog.h>
 
 #include <Qt>
@@ -25,14 +26,14 @@
  */
 class TablesDialog : public KPageDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		TablesDialog( QWidget *parent = 0 );
-		virtual ~TablesDialog();
+public:
+    TablesDialog(QWidget *parent = 0);
+    virtual ~TablesDialog();
 
-		void createNumbersTable();
-		void createGreekSymbolTable();
+    void createNumbersTable();
+    void createGreekSymbolTable();
 };
 
 /**
@@ -41,10 +42,11 @@ class TablesDialog : public KPageDialog
  */
 class MyWidgetItem : public QTableWidgetItem
 {
-	public:
-		MyWidgetItem( const QString& s) 
-		  : QTableWidgetItem( s )
-		{ setFlags( Qt::ItemIsEnabled ); }
+public:
+    MyWidgetItem(const QString& s) : QTableWidgetItem(s)
+    {
+        setFlags(Qt::ItemIsEnabled);
+    }
 
 };
 
@@ -54,13 +56,14 @@ class MyWidgetItem : public QTableWidgetItem
  */
 class MyTableWidget : public QTableWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		MyTableWidget( QWidget* parent );
-	protected:
-		void contextMenuEvent( QContextMenuEvent* event );
-	private slots:
-		void copyToClipboard();
+public:
+    MyTableWidget(QWidget* parent);
+protected:
+    void contextMenuEvent(QContextMenuEvent* event);
+private slots:
+    void copyToClipboard();
 };
+
 #endif // TABLESDIALOG_H

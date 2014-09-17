@@ -10,6 +10,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "didyouknow.h"
 
 #include <QDebug>
@@ -21,7 +22,7 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
 {
     m_theme.setImagePath("widgets/chalkboard");
     // init random sequence
-    m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
+    m_random = new KRandomSequence(QDateTime::currentDateTime().toTime_t());
 
     m_engine = dataEngine("kalzium");
     m_label1 = 0;
@@ -38,13 +39,13 @@ void KalziumDidyouknow::init()
 {
     qDebug() << "initializing DidYouKnow-Applet";
 
-    m_engine->connectSource( "Fact" , this, 1000);
+    m_engine->connectSource("Fact", this, 1000);
 
     m_theme.setContainsMultipleImages(false);
 
     m_label1 = new QGraphicsTextItem(this);
-    m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
-    m_label1->setDefaultTextColor( Qt::white );
+    m_label1->setPos(m_theme.elementRect("canvas").topLeft());
+    m_label1->setDefaultTextColor(Qt::white);
 }
 
 void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
@@ -55,7 +56,7 @@ void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
          m_theme.resize(size());
     }
 
-    m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
+    m_label1->setPos(m_theme.elementRect("canvas").topLeft());
 }
 
 KalziumDidyouknow::~KalziumDidyouknow()
@@ -70,7 +71,7 @@ void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEng
 
     if (m_label1)  {
 //      m_label1->setAlignment(Qt::AlignLeft);
-        m_label1->setPlainText( data["fact"].toString() );
+        m_label1->setPlainText(data["fact"].toString());
     }
 }
 
@@ -86,7 +87,7 @@ void KalziumDidyouknow::paintInterface(QPainter *p,
 
     // Now we draw the applet, starting with our svg
     m_theme.resize(size());
-    m_theme.paint(p, 0, 0 );
+    m_theme.paint(p, 0, 0);
 }
 
 #include "didyouknow.moc"

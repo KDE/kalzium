@@ -1,5 +1,3 @@
-#ifndef ELEMENTDATAVIEWER_H
-#define ELEMENTDATAVIEWER_H
 /***************************************************************************
     copyright            : (C) 2004, 2005, 2006 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -13,6 +11,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#ifndef ELEMENTDATAVIEWER_H
+#define ELEMENTDATAVIEWER_H
 
 #include <kdialog.h>
 #include "ui_plotsetupwidget.h"
@@ -49,12 +49,12 @@ public:
         Y
     };
 
-    AxisData( AxisData::AXISTYPE );
+    AxisData(AxisData::AXISTYPE);
 
     /**
      * @return the value of the selected dataset of element @p element
      */
-    double value( int element ) const;
+    double value(int element) const;
 
     /**
      * the dataList contains the values off all elements
@@ -69,7 +69,8 @@ public:
 
     ChemicalDataObject::BlueObelisk kind;
 
-    AXISTYPE type() const {
+    AXISTYPE type() const
+    {
         return m_type;
     }
 
@@ -88,7 +89,7 @@ class ElementDataViewer : public KDialog
     Q_OBJECT
 
 public:
-    ElementDataViewer( QWidget *parent = 0 );
+    ElementDataViewer(QWidget *parent = 0);
 
     ~ElementDataViewer();
 
@@ -113,14 +114,14 @@ private:
 
     QStringList         names;
     QStringList         symbols;
-    QStringList         elecConfig;	//Electronic configuration of elements
-    QStringList 	    block;	//Indicates the periodic table block s,p,d,f...
+    QStringList         elecConfig; //Electronic configuration of elements
+    QStringList         block;  //Indicates the periodic table block s,p,d,f...
     QTimer *m_timer;
 
     KActionCollection* m_actionCollection;
 
     void initData();
-    void setupAxisData( AxisData * data );
+    void setupAxisData(AxisData * data);
 
     void setLimits();
 
@@ -145,4 +146,3 @@ public slots:
 };
 
 #endif // ELEMENTDATAVIEWER_H
-

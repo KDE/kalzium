@@ -27,18 +27,18 @@
  */
 class COMPOUNDVIEWER_EXPORT OpenBabel2Wrapper
 {
-	public:
-		/**
-		 * This class reads the molecule in the file @p filename. It returns 0 if
-		 * the file couldn't be read.
-		 */
-		static Avogadro::Molecule* readMolecule( const QString& filename );
+public:
+    /**
+     * This class reads the molecule in the file @p filename. It returns 0 if
+     * the file couldn't be read.
+     */
+    static Avogadro::Molecule *readMolecule(const QString& filename);
 
-    static bool writeMolecule( const QString& filename, Avogadro::Molecule* );
-		
-		static QString getFormula( Avogadro::Molecule* molecule );
-		
-		static QString getPrettyFormula( Avogadro::Molecule* molecule );
+    static bool writeMolecule(const QString& filename, Avogadro::Molecule *);
+
+    static QString getFormula(Avogadro::Molecule *molecule);
+
+    static QString getPrettyFormula(Avogadro::Molecule *molecule);
 };
 
 #endif // OPENBABEL2WRAPPER_H

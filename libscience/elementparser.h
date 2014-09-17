@@ -1,5 +1,3 @@
-#ifndef ELEMENTPARSER_H
-#define ELEMENTPARSER_H
 /***************************************************************************
     copyright            : (C) 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -12,6 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#ifndef ELEMENTPARSER_H
+#define ELEMENTPARSER_H
 
 #include <QtCore/QList>
 
@@ -32,9 +33,10 @@ public:
      */
     ElementSaxParser();
     ~ElementSaxParser();
-    bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
+    bool startElement(const QString&, const QString &localName, const QString&,
+                      const QXmlAttributes &attrs);
 
-    bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
+    bool endElement(const QString& namespaceURI, const QString &localName, const QString& qName);
 
     bool characters(const QString &ch);
 
@@ -57,9 +59,10 @@ private:
     *   doesn't match any of the known values.
     * @param unitname the attribute-text of the XML parsed
     */
-    int unit( const QString& unitname ) const;
+    int unit(const QString& unitname) const;
 
     class Private;
     Private *const d;
 };
+
 #endif // ELEMENTPARSER_H

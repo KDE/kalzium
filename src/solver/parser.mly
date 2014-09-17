@@ -79,6 +79,3 @@ element:
     CAPITAL MINOR { $1 ^ $2 }
     | CAPITAL { $1 } 
 ;
-
-
-

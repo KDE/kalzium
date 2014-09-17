@@ -17,6 +17,8 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 *
 ***********************************************************************************/
+// own
+#include "Molmasscalculator.h"
 
 // Qt
 #include <QtGui/QApplication>
@@ -32,31 +34,30 @@
 #include <plasma/theme.h>
 
 // local
-#include "Molmasscalculator.h"
 
-Molmasscalculator::Molmasscalculator ( QObject *parent, const QVariantList &args )
-        : Plasma::PopupApplet ( parent, args ),
-        m_widget( 0 ),
-        m_PeriodWidget( 0 ),
-        m_lineedit( 0 ),
-        m_MassLabel( 0 ),
-        m_switchButton( 0 )
+Molmasscalculator::Molmasscalculator(QObject *parent, const QVariantList &args)
+        : Plasma::PopupApplet(parent, args),
+        m_widget(0),
+        m_PeriodWidget(0),
+        m_lineedit(0),
+        m_MassLabel(0),
+        m_switchButton(0)
 {
     KGlobal::locale()->insertCatalog("kalzium");
     // Some Applet settings
-    setAspectRatioMode ( Plasma::IgnoreAspectRatio );
-    setHasConfigurationInterface ( true );
-    setAcceptDrops ( false );
+    setAspectRatioMode(Plasma::IgnoreAspectRatio);
+    setHasConfigurationInterface(true);
+    setAcceptDrops(false);
     setAssociatedApplication("kalzium");
 
     m_triggerTimer = new QTimer();
-    m_triggerTimer->setSingleShot( true );
-    m_triggerTimer->setInterval( 700 );
+    m_triggerTimer->setSingleShot(true);
+    m_triggerTimer->setInterval(700);
 
     connect(m_triggerTimer, SIGNAL(timeout()), this, SLOT(ParseMolecule()));
 
     // Needed for the Popupapplet
-    setPopupIcon ( "kalzium" );
+    setPopupIcon("kalzium");
 }
 
 Molmasscalculator::~Molmasscalculator()
@@ -76,7 +77,7 @@ Molmasscalculator::~Molmasscalculator()
 void Molmasscalculator::init()
 {
     // checking if the Dataengine is availiable
-    if (!dataEngine( "kalzium" )->isValid()) {
+    if (!dataEngine("kalzium")->isValid()) {
         setFailedToLaunch(true, i18n("Dataengine \"kalzium\" not found"));
     }
 
@@ -84,7 +85,7 @@ void Molmasscalculator::init()
     configChanged();
 
     // Create the Periodic Table
-    m_PeriodWidget = new PeriodicGrid( config().readEntry("tableType", 0 ), this );
+    m_PeriodWidget = new PeriodicGrid(config().readEntry("tableType", 0), this);
 
     graphicsWidget();
 
@@ -95,91 +96,93 @@ void Molmasscalculator::init()
     managePeriodSystem();
 }
 
-void Molmasscalculator::appendElement ( QString elementSymbol )
+void Molmasscalculator::appendElement(QString elementSymbol)
 {
     QString molecule;
     molecule = m_lineedit->text();
-    molecule.append ( elementSymbol );
+    molecule.append(elementSymbol);
 
-    ParseMolecule( molecule );
+    ParseMolecule(molecule);
 }
 
-void Molmasscalculator::ParseMolecule( QString strInput )
+void Molmasscalculator::ParseMolecule(QString strInput)
 {
-    if ( !strInput.isEmpty() ) {
-        m_molecule = dataEngine ( "kalzium" )->query ( QString ( "Molecule:Parser:" ) + strInput );
+    if (!strInput.isEmpty()) {
+        m_molecule = dataEngine("kalzium")->query(QString("Molecule:Parser:") + strInput);
         newCalculatedMass();
     }
 }
 
 void Molmasscalculator::ParseMolecule()
 {
-    ParseMolecule( m_lineedit->text() );
+    ParseMolecule(m_lineedit->text());
 }
 
 void Molmasscalculator::newCalculatedMass()
 {
-    if ( m_molecule["molMass"].toString().isEmpty() ) {
-        m_MassLabel->setText ( i18n ( "Invalid Molecule" ) );
+    if (m_molecule["molMass"].toString().isEmpty()) {
+        m_MassLabel->setText(i18n("Invalid Molecule"));
         return;
     }
 
     //Set new MassLabel Text
-    m_MassLabel->setText ( QString::number( m_molecule["molMass"].toDouble(), 'g', 6) + " u" );
+    m_MassLabel->setText(QString::number(m_molecule["molMass"].toDouble(), 'g', 6) + " u");
 
-    //Sets the niceMolecule string in the Lineedit	  //Configuration Option?
-    m_lineedit->setText ( m_molecule["niceMolecule"].toString() );
+    //Sets the niceMolecule string in the Lineedit //Configuration Option?
+    m_lineedit->setText(m_molecule["niceMolecule"].toString());
 
     //Copy new Mass to Clipboard
-    if ( m_copyToClipboard )
-        QApplication::clipboard()->setText ( m_molecule["molMass"].toString() );
+    if (m_copyToClipboard) {
+        QApplication::clipboard()->setText(m_molecule["molMass"].toString());
+    }
 }
 
 QGraphicsWidget *Molmasscalculator::graphicsWidget()
 {
-    if ( m_widget )
+    if (m_widget) {
         return m_widget;
+    }
 
     m_widget = new QGraphicsWidget(this);
 
-    QGraphicsLinearLayout *MainLayout = new QGraphicsLinearLayout ( Qt::Vertical , m_widget );
-    QGraphicsLinearLayout *TopLayout = new QGraphicsLinearLayout ( Qt::Horizontal, MainLayout );
+    QGraphicsLinearLayout *MainLayout = new QGraphicsLinearLayout(Qt::Vertical , m_widget);
+    QGraphicsLinearLayout *TopLayout = new QGraphicsLinearLayout(Qt::Horizontal, MainLayout);
 
     Plasma::Label *MoleculeLabel = new Plasma::Label;
-    MoleculeLabel->setText ( i18n ( "Molecule:" ) );
+    MoleculeLabel->setText(i18n("Molecule:"));
 
     m_MassLabel = new Plasma::Label;
-    m_MassLabel->setAlignment ( Qt::AlignCenter );
+    m_MassLabel->setAlignment(Qt::AlignCenter);
 
     QString css("font-size:18px; color:" + this->palette().text().color().name() + ';');
-    m_MassLabel->setStyleSheet ( css );
+    m_MassLabel->setStyleSheet(css);
 
     m_lineedit = new Plasma::LineEdit();
-    m_lineedit->setClearButtonShown ( true );
-    m_lineedit->setMinimumWidth ( 100 );
-    m_lineedit->setText ( i18n ( "C2H5OH" ) );
-    connect ( m_lineedit, SIGNAL(textEdited(QString)), m_triggerTimer, SLOT(start()) );
+    m_lineedit->setClearButtonShown(true);
+    m_lineedit->setMinimumWidth(100);
+    m_lineedit->setText(i18n("C2H5OH"));
+    connect(m_lineedit, SIGNAL(textEdited(QString)), m_triggerTimer, SLOT(start()));
 
     m_switchButton = new Plasma::IconWidget();
-    connect ( m_switchButton, SIGNAL(clicked()), this, SLOT(toggleTable()) );
+    connect(m_switchButton, SIGNAL(clicked()), this, SLOT(toggleTable()));
 
-    TopLayout->addItem ( MoleculeLabel );
-    TopLayout->addItem ( m_lineedit );
-    TopLayout->addItem ( m_switchButton );
-    TopLayout->setSpacing( 0 );
+    TopLayout->addItem(MoleculeLabel);
+    TopLayout->addItem(m_lineedit);
+    TopLayout->addItem(m_switchButton);
+    TopLayout->setSpacing(0);
     TopLayout->setContentsMargins(0,0,0,0);
 
-    MainLayout->addItem ( TopLayout );
-    MainLayout->addItem ( m_MassLabel );
-    MainLayout->addItem ( m_PeriodWidget );
-    MainLayout->setSpacing( 2 );
+    MainLayout->addItem(TopLayout);
+    MainLayout->addItem(m_MassLabel);
+    MainLayout->addItem(m_PeriodWidget);
+    MainLayout->setSpacing(2);
 
     return m_widget;
 }
 
 void Molmasscalculator::toggleTable()
 {
-    if ( m_showPeriodicTable ) {
+    if (m_showPeriodicTable) {
         m_showPeriodicTable = false;
     } else {
         m_showPeriodicTable = true;
@@ -193,7 +196,7 @@ void Molmasscalculator::managePeriodSystem()
     KIconLoader iconLoader;
     int x, y;
 
-    if ( m_showPeriodicTable ) {
+    if (m_showPeriodicTable) {
         iconName = "arrow-down";
         m_PeriodWidget->show();
         x = pseTables::instance()->getTabletype(m_PeriodWidget->getCurrentPseTyp())->tableSize().x() * 33;
@@ -205,53 +208,53 @@ void Molmasscalculator::managePeriodSystem()
         y = 60;
     }
 
-    m_switchButton->setIcon( iconLoader.loadIcon( iconName, KIconLoader::Small ) );
+    m_switchButton->setIcon(iconLoader.loadIcon(iconName, KIconLoader::Small));
 
-    m_widget->setMinimumSize( x, y );
-    m_widget->setPreferredSize( x, y );
-    m_widget->resize( x, y );
-    resize( x, y );
+    m_widget->setMinimumSize(x, y);
+    m_widget->setPreferredSize(x, y);
+    m_widget->resize(x, y);
+    resize(x, y);
 }
 
-void Molmasscalculator::createConfigurationInterface ( KConfigDialog* parent )
+void Molmasscalculator::createConfigurationInterface(KConfigDialog* parent)
 {
-    parent->setButtons ( KDialog::Ok | KDialog::Cancel | KDialog::Apply );
+    parent->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-    QWidget *widget = new QWidget( parent );
+    QWidget *widget = new QWidget(parent);
 
-    m_ui.setupUi ( widget );
+    m_ui.setupUi(widget);
 
-    parent->addPage ( widget, i18n ( "General" ), "kalzium" );
+    parent->addPage(widget, i18n("General"), "kalzium");
 
-    m_ui.showPeriodic->setChecked ( m_showPeriodicTable );
-    m_ui.copyToCliboard->setChecked ( m_copyToClipboard );
+    m_ui.showPeriodic->setChecked(m_showPeriodicTable);
+    m_ui.copyToCliboard->setChecked(m_copyToClipboard);
 
-    foreach(QString thisTable, pseTables::instance()->tables()) {
+    foreach (const QString &thisTable, pseTables::instance()->tables()) {
         m_ui.tabletyp->addItem(thisTable);
     }
 
     m_ui.tabletyp->setCurrentIndex(m_PeriodWidget->getCurrentPseTyp());
 
-    connect ( parent, SIGNAL (applyClicked()), this, SLOT (configAccepted()) );
-    connect ( parent, SIGNAL (okClicked()), this, SLOT (configAccepted()) );
+    connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
+    connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
 
-    connect (m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
-    connect (m_ui.copyToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
-    connect (m_ui.tabletyp, SIGNAL(currentIndexChanged(QString)), parent, SLOT(settingsModified()));
+    connect(m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+    connect(m_ui.copyToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
+    connect(m_ui.tabletyp, SIGNAL(currentIndexChanged(QString)), parent, SLOT(settingsModified()));
 }
 
 void Molmasscalculator::configAccepted()
 {
-    if ( m_ui.showPeriodic->isChecked() != m_showPeriodicTable ) {
+    if (m_ui.showPeriodic->isChecked() != m_showPeriodicTable) {
         m_showPeriodicTable = m_ui.showPeriodic->isChecked();
         managePeriodSystem();
     }
 
-    if ( m_ui.copyToCliboard->checkState() != m_copyToClipboard ) {
+    if (m_ui.copyToCliboard->checkState() != m_copyToClipboard) {
         m_copyToClipboard = m_ui.copyToCliboard->checkState();
     }
 
-    if ( m_ui.tabletyp->currentIndex() != m_PeriodWidget->getCurrentPseTyp()) {
+    if (m_ui.tabletyp->currentIndex() != m_PeriodWidget->getCurrentPseTyp()) {
         m_PeriodWidget->setCurrentPseTyp(m_ui.tabletyp->currentIndex());
         managePeriodSystem();
     }
@@ -267,8 +270,8 @@ void Molmasscalculator::saveConfig()
 
 void Molmasscalculator::configChanged()
 {
-    m_showPeriodicTable = config().readEntry("showPeriodicTable", true );
-    m_copyToClipboard = config().readEntry("copyToClipboard", false );
+    m_showPeriodicTable = config().readEntry("showPeriodicTable", true);
+    m_copyToClipboard = config().readEntry("copyToClipboard", false);
 }
 
 #include "Molmasscalculator.moc"

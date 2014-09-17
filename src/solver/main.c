@@ -15,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
 #include <stdio.h>
@@ -23,24 +23,23 @@
 
 int main(int argc, char ** argv)
 {
-	caml_startup(argv);
+    caml_startup(argv);
 
-	char * eq = " a CH3(CH2)3COOH + b O2 -> c H2O + d CO2";
-	char * eq2= " a CH3(CH2)3COOH + b O2 -> c H2O + d CO";
-	char * result = solve_equation(eq);
-	char * result2 = solve_equation(eq2);
+    char *eq = " a CH3(CH2)3COOH + b O2 -> c H2O + d CO2";
+    char *eq2= " a CH3(CH2)3COOH + b O2 -> c H2O + d CO";
+    char *result = solve_equation(eq);
+    char *result2 = solve_equation(eq2);
 
-	printf("solution : %s\n", result);
+    printf("solution : %s\n", result);
 
-	printf("solution : %s\n", result2);
-	free(result2);
+    printf("solution : %s\n", result2);
+    free(result2);
 
-	result2 = solve_equation(eq);
-	printf("solution : %s\n", result2);
-	
-	free(result);
-	free(result2);
-	
-	return 0;
+    result2 = solve_equation(eq);
+    printf("solution : %s\n", result2);
+
+    free(result);
+    free(result2);
+
+    return 0;
 }
-

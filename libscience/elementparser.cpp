@@ -10,6 +10,7 @@ email                : cniehaus@kde.org
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "elementparser.h"
 
 #include "chemicaldataobject.h"
@@ -43,16 +44,16 @@ public:
             inDiscoveryDate(false),
             inDiscoverers(false),
             inPeriod(false),
-            inCrystalstructure( false ),
-            inAcidicbehaviour( false ),
-            inFamily( false ),
-            inGroup( false ),
-            inElectronicconfiguration( false ),
-            inDangerSymbol( false ),
-            inRPhrase( false ),
-            inSPhrase( false ),
-            inCountry( false ),
-            inOxidation( false )
+            inCrystalstructure(false),
+            inAcidicbehaviour(false),
+            inFamily(false),
+            inGroup(false),
+            inElectronicconfiguration(false),
+            inDangerSymbol(false),
+            inRPhrase(false),
+            inSPhrase(false),
+            inCountry(false),
+            inOxidation(false)
     {}
 
     ~Private()
@@ -98,7 +99,7 @@ public:
 };
 
 ElementSaxParser::ElementSaxParser()
-        : QXmlDefaultHandler(), d( new Private )
+        : QXmlDefaultHandler(), d(new Private)
 {
 }
 
@@ -109,101 +110,96 @@ ElementSaxParser::~ElementSaxParser()
 
 bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-    if (localName == "atom")
-    {
+    if (localName == "atom") {
         d->currentElement = new Element();
         d->inElement = true;
-    } else if ( ( d->inElement && localName == "scalar" ) || localName == "array" )
-    {
-        for (int i = 0; i < attrs.length(); ++i)
-        {
-            if ( attrs.localName( i ) == "units" )
-            {
+    } else if ((d->inElement && localName == "scalar") || localName == "array") {
+        for (int i = 0; i < attrs.length(); ++i) {
+            if (attrs.localName(i) == "units") {
 //                 kDebug() << "value of the unit: " << attrs.value(i);
-                d->currentUnit = unit( attrs.value( i ) );
+                d->currentUnit = unit(attrs.value(i));
 //                 kDebug() << "Took " << d->currentUnit;
                 continue;
             }
 
-            if (attrs.value(i) == "bo:atomicNumber")
+            if (attrs.value(i) == "bo:atomicNumber") {
                 d->inAtomicNumber = true;
-            else if (attrs.value(i) == "bo:mass")
+            } else if (attrs.value(i) == "bo:mass") {
                 d->inMass = true;
-            else if (attrs.value(i) == "bo:exactMass")
+            } else if (attrs.value(i) == "bo:exactMass") {
                 d->inExactMass = true;
-            else if (attrs.value(i) == "bo:ionization")
+            } else if (attrs.value(i) == "bo:ionization") {
                 d->inIonization = true;
-            else if (attrs.value(i) == "bo:electronAffinity")
+            } else if (attrs.value(i) == "bo:electronAffinity") {
                 d->inElectronAffinity = true;
-            else if (attrs.value(i) == "bo:electronegativityPauling")
+            } else if (attrs.value(i) == "bo:electronegativityPauling") {
                 d->inElectronegativityPauling = true;
-            else if (attrs.value(i) == "bo:radiusCovalent")
+            } else if (attrs.value(i) == "bo:radiusCovalent") {
                 d->inRadiusCovalent = true;
-            else if (attrs.value(i) == "bo:radiusVDW")
+            } else if (attrs.value(i) == "bo:radiusVDW") {
                 d->inRadiusVDW = true;
-            else if (attrs.value(i) == "bo:meltingpoint")
+            } else if (attrs.value(i) == "bo:meltingpoint") {
                 d->inMeltingPoint = true;
-            else if (attrs.value(i) == "bo:boilingpoint")
+            } else if (attrs.value(i) == "bo:boilingpoint") {
                 d->inBoilingPoint = true;
-            else if (attrs.value(i) == "bo:periodTableBlock")
+            } else if (attrs.value(i) == "bo:periodTableBlock") {
                 d->inPeriodTableBlock = true;
-            else if (attrs.value(i) == "bo:nameOrigin")
+            } else if (attrs.value(i) == "bo:nameOrigin") {
                 d->inNameOrigin = true;
-            else if (attrs.value(i) == "bo:discoveryDate")
+            } else if (attrs.value(i) == "bo:discoveryDate") {
                 d->inDiscoveryDate = true;
-            else if (attrs.value(i) == "bo:discoverers")
+            } else if (attrs.value(i) == "bo:discoverers") {
                 d->inDiscoverers = true;
-            else if (attrs.value(i) == "bo:discoveryCountry")
+            } else if (attrs.value(i) == "bo:discoveryCountry") {
                 d->inCountry = true;
-            else if (attrs.value(i) == "bo:period")
+            } else if (attrs.value(i) == "bo:period") {
                 d->inPeriod = true;
-            else if (attrs.value(i) == "bo:crystalstructure")
+            } else if (attrs.value(i) == "bo:crystalstructure") {
                 d->inCrystalstructure = true;
-            else if (attrs.value(i) == "bo:acidicbehaviour")
+            } else if (attrs.value(i) == "bo:acidicbehaviour") {
                 d->inAcidicbehaviour = true;
-            else if (attrs.value(i) == "bo:family")
+            } else if (attrs.value(i) == "bo:family") {
                 d->inFamily = true;
-            else if (attrs.value(i) == "bo:group")
+            } else if (attrs.value(i) == "bo:group") {
                 d->inGroup = true;
-            else if (attrs.value(i) == "bo:electronicConfiguration")
+            } else if (attrs.value(i) == "bo:electronicConfiguration") {
                 d->inElectronicconfiguration = true;
-            else if (attrs.value(i) == "bo:dangerSymbol")
+            } else if (attrs.value(i) == "bo:dangerSymbol") {
                 d->inDangerSymbol = true;
-            else if (attrs.value(i) == "bo:RPhrase")
+            } else if (attrs.value(i) == "bo:RPhrase") {
                 d->inRPhrase = true;
-            else if (attrs.value(i) == "bo:SPhrase")
+            } else if (attrs.value(i) == "bo:SPhrase") {
                 d->inSPhrase = true;
-            else if (attrs.value(i) == "bo:oxidation")
+            } else if (attrs.value(i) == "bo:oxidation") {
                 d->inOxidation = true;
+            }
         }
-    } else if (d->inElement && localName == "label")
-    {
-        for (int i = 0; i < attrs.length(); ++i)
-        {
-            if ( attrs.localName( i ) != "dictRef" )
+    } else if (d->inElement && localName == "label") {
+        for (int i = 0; i < attrs.length(); ++i) {
+            if (attrs.localName(i) != "dictRef") {
                 continue;
+            }
 
             if (attrs.value(i) == "bo:symbol") {
-                for (int i = 0; i < attrs.length(); ++i)
-                {
+                for (int i = 0; i < attrs.length(); ++i) {
                     if (attrs.localName(i) == "value") {
-                        d->currentDataObject.setData( attrs.value(i) );
-                        d->currentDataObject.setType( ChemicalDataObject::symbol );
+                        d->currentDataObject.setData(attrs.value(i));
+                        d->currentDataObject.setType(ChemicalDataObject::symbol);
 
-                        if ( d->currentElement )
-                            d->currentElement->addData( d->currentDataObject );
+                        if (d->currentElement) {
+                            d->currentElement->addData(d->currentDataObject);
+                        }
                     }
                 }
-            }
-            else if ( attrs.value(i) == "bo:name" ) {
-                for (int i = 0; i < attrs.length(); ++i)
-                {
+            } else if (attrs.value(i) == "bo:name") {
+                for (int i = 0; i < attrs.length(); ++i) {
                     if (attrs.localName(i) == "value") {
-                        d->currentDataObject.setData( i18n( attrs.value(i).toUtf8() ) );
-                        d->currentDataObject.setType( ChemicalDataObject::name );
+                        d->currentDataObject.setData(i18n(attrs.value(i).toUtf8()));
+                        d->currentDataObject.setType(ChemicalDataObject::name);
 
-                        if ( d->currentElement )
-                            d->currentElement->addData( d->currentDataObject );
+                        if (d->currentElement) {
+                            d->currentElement->addData(d->currentDataObject);
+                        }
                     }
                 }
             }
@@ -212,21 +208,19 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     return true;
 }
 
-bool ElementSaxParser::endElement( const QString &, const QString& localName, const QString& )
+bool ElementSaxParser::endElement(const QString &, const QString &localName, const QString &)
 {
-    if ( localName == "atom" )
-    {
-        if ( d->currentElement->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
+    if (localName == "atom") {
+        if (d->currentElement->dataAsString(ChemicalDataObject::symbol) != "Xx") {
             d->elements.append(d->currentElement);
-        else
+        } else {
             delete d->currentElement;
+        }
 
         d->currentElement = 0;
         d->inElement = false;
-    }
-    else if ( localName == "scalar" || localName == "label" || localName == "array" )
-    {
-        d->currentDataObject.setUnit( d->currentUnit );
+    } else if (localName == "scalar" || localName == "label" || localName == "array") {
+        d->currentDataObject.setUnit(d->currentUnit);
     }
     return true;
 }
@@ -241,119 +235,96 @@ bool ElementSaxParser::characters(const QString &ch)
         value = ch.toDouble();
         type = ChemicalDataObject::mass;
         d->inMass = false;
-    }
-    else if (d->inExactMass) {
+    } else if (d->inExactMass) {
         value = ch.toDouble();
         type = ChemicalDataObject::exactMass;
         d->inExactMass = false;
-    }
-    else if (d->inAtomicNumber) {
+    } else if (d->inAtomicNumber) {
         value = ch.toInt();
         type = ChemicalDataObject::atomicNumber;
         d->inAtomicNumber = false;
-    }
-    else if (d->inIonization) {
+    } else if (d->inIonization) {
         value = ch.toDouble();;
         type = ChemicalDataObject::ionization;
         d->inIonization = false;
-    }
-    else if (d->inElectronAffinity) {
+    } else if (d->inElectronAffinity) {
         value = ch.toDouble();
         type = ChemicalDataObject::electronAffinity;
         d->inElectronAffinity = false;
-    }
-    else if (d->inElectronegativityPauling) {
+    } else if (d->inElectronegativityPauling) {
         value = ch.toDouble();
         type = ChemicalDataObject::electronegativityPauling;
         d->inElectronegativityPauling = false;
-    }
-    else if (d->inRadiusCovalent) {
+    } else if (d->inRadiusCovalent) {
         value = ch.toDouble();
         type = ChemicalDataObject::radiusCovalent;
         d->inRadiusCovalent = false;
-    }
-    else if (d->inRadiusVDW) {
+    } else if (d->inRadiusVDW) {
         value = ch.toDouble();
         type = ChemicalDataObject::radiusVDW;
         d->inRadiusVDW = false;
-    }
-    else if (d->inMeltingPoint) {
+    } else if (d->inMeltingPoint) {
         value = ch.toDouble();
         type = ChemicalDataObject::meltingpoint;
         d->inMeltingPoint = false;
-    }
-    else if (d->inBoilingPoint) {
+    } else if (d->inBoilingPoint) {
         value = ch.toDouble();
         type = ChemicalDataObject::boilingpoint;
         d->inBoilingPoint = false;
-    }
-    else if (d->inPeriodTableBlock) {
+    } else if (d->inPeriodTableBlock) {
         value = ch;
         type = ChemicalDataObject::periodTableBlock;
         d->inPeriodTableBlock = false;
-    }
-    else if (d->inNameOrigin) {
-        value = i18n( ch.toUtf8() );
+    } else if (d->inNameOrigin) {
+        value = i18n(ch.toUtf8());
         type = ChemicalDataObject::nameOrigin;
         d->inNameOrigin = false;
-    }
-    else if (d->inDiscoveryDate) {
+    } else if (d->inDiscoveryDate) {
         value = ch.toInt();
         type = ChemicalDataObject::date;
         d->inDiscoveryDate = false;
-    }
-    else if (d->inDiscoverers) {
+    } else if (d->inDiscoverers) {
         value = ch;
         type = ChemicalDataObject::discoverers;
         d->inDiscoverers = false;
-    }
-    else if (d->inPeriod) {
+    } else if (d->inPeriod) {
         value = ch.toInt();
         type = ChemicalDataObject::period;
         d->inPeriod = false;
-    }
-    else if (d->inCrystalstructure) {
+    } else if (d->inCrystalstructure) {
         value = ch;
         type = ChemicalDataObject::crystalstructure;
         d->inCrystalstructure = false;
-    }
-    else if (d->inAcidicbehaviour) {
+    } else if (d->inAcidicbehaviour) {
         value = ch.toInt();
         type = ChemicalDataObject::acidicbehaviour;
         d->inAcidicbehaviour = false;
-    }
-    else if (d->inFamily) {
+    } else if (d->inFamily) {
         value = ch;
         type = ChemicalDataObject::family;
         d->inFamily = false;
-    }
-    else if (d->inGroup) {
+    } else if (d->inGroup) {
         value = ch.toInt();
         type = ChemicalDataObject::group;
         d->inGroup = false;
-    }
-    else if (d->inElectronicconfiguration) {
+    } else if (d->inElectronicconfiguration) {
         value = ch;
         type = ChemicalDataObject::electronicConfiguration;
         d->inElectronicconfiguration = false;
-    }
-    else if (d->inDangerSymbol) {
+    } else if (d->inDangerSymbol) {
         value = ch;
         type = ChemicalDataObject::dangerSymbol;
         d->inDangerSymbol = false;
-    }
-    else if (d->inRPhrase) {
+    } else if (d->inRPhrase) {
         value = ch;
         type = ChemicalDataObject::RPhrase;
         d->inRPhrase = false;
-    }
-    else if (d->inSPhrase) {
+    } else if (d->inSPhrase) {
         value = ch;
         type = ChemicalDataObject::SPhrase;
         d->inSPhrase = false;
-    }
-    else if (d->inCountry) {
-        if ( ch == "ancient" ) {
+    } else if (d->inCountry) {
+        if (ch == "ancient") {
             value = 0;
             type = ChemicalDataObject::date;
         } else {
@@ -361,37 +332,38 @@ bool ElementSaxParser::characters(const QString &ch)
             type = ChemicalDataObject::discoveryCountry;
         }
         d->inCountry = false;
-    }
-    else if (d->inOxidation) {
+    } else if (d->inOxidation) {
         value = ch;
         type = ChemicalDataObject::oxidation;
         d->inOxidation = false;
-    }
-    else//it is a non known value. Do not create a wrong object but return
+    } else { //it is a non known value. Do not create a wrong object but return
         return true;
+    }
 
-    d->currentDataObject.setData( value );
-    d->currentDataObject.setType( type );
-    d->currentDataObject.setUnit( d->currentUnit );
+    d->currentDataObject.setData(value);
+    d->currentDataObject.setType(type);
+    d->currentDataObject.setUnit(d->currentUnit);
 
-    if ( d->currentElement )
-        d->currentElement->addData( d->currentDataObject );
+    if (d->currentElement) {
+        d->currentElement->addData(d->currentDataObject);
+    }
 
     return true;
 }
 
-int ElementSaxParser::unit( const QString& unit ) const
+int ElementSaxParser::unit(const QString& unit) const
 {
-    if ( unit == "siUnits:kelvin" )
+    if (unit == "siUnits:kelvin") {
         return KUnitConversion::Kelvin;
-    else if ( unit == "units:ev" )
+    } else if (unit == "units:ev") {
         return KUnitConversion::Electronvolt;
-    else if ( unit == "units:ang" )
+    } else if (unit == "units:ang") {
         return KUnitConversion::Angstrom;
-    else if ( unit == "bo:noUnit" )
+    } else if (unit == "bo:noUnit") {
         return KUnitConversion::NoUnit;
-    else
+    } else {
         return KUnitConversion::NoUnit;
+    }
 }
 
 QList<Element*> ElementSaxParser::getElements()

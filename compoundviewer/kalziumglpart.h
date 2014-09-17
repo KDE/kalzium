@@ -11,6 +11,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef KALZIUMGLPART_H
 #define KALZIUMGLPART_H
 
@@ -21,14 +22,14 @@ class KalziumGLWidget;
 class KalziumGLPart : public KParts::ReadOnlyPart
 {
     Q_OBJECT
-    public:
-        KalziumGLPart(QWidget*, QObject*, const QVariantList&);
-        virtual ~KalziumGLPart();
+public:
+    KalziumGLPart(QWidget*, QObject*, const QVariantList&);
+    virtual ~KalziumGLPart();
 
-    protected:
-        bool openFile();
+protected:
+    bool openFile();
 
-        KalziumGLWidget* m_widget;
+    KalziumGLWidget* m_widget;
 };
 
 #endif // KALZIUMGLPART_H

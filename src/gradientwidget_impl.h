@@ -1,10 +1,6 @@
-#ifndef GRADIENTWIDGET_IMPL_H
-#define GRADIENTWIDGET_IMPL_H
 /***************************************************************************
  *   copyright (C) 2006 by Carsten Niehau                                  *
  *   Copyright (C) 2010 by Etienne Rebetez  etienne.rebetez@oberwallis.ch  *
- *                                                                         *
- *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,6 +17,9 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+#ifndef GRADIENTWIDGET_IMPL_H
+#define GRADIENTWIDGET_IMPL_H
+
 #include <QWidget>
 #include "ui_gradientwidget.h"
 
@@ -46,14 +45,14 @@ public:
      * @param elementProperty The elementProperty class
      * @param parent The parent of this widget
      */
-    GradientWidgetImpl( QWidget *parent = 0 );
+    GradientWidgetImpl(QWidget *parent = 0);
     virtual ~GradientWidgetImpl();
 
-  Q_SIGNALS:
+Q_SIGNALS:
     /**
      * Is emitted when the value of the gradient or the spinbox is changed.
      */
-    void gradientValueChanged( double );
+    void gradientValueChanged(double);
 
 public slots:
     /**
@@ -63,9 +62,9 @@ public slots:
     void slotGradientChanged();
 
 private slots:
-    void play ( void );
-    void stop ( void );
-    void tick ( void );
+    void play(void);
+    void stop(void);
+    void tick(void);
     void doubleToSlider(double var);
     void intToSpinbox(int var);
     /**
@@ -74,7 +73,7 @@ private slots:
     void setNewValue(double newValue);
 
 private:
-    bool m_play;		//Indicates whether mode is play or stop
+    bool m_play;        //Indicates whether mode is play or stop
     QTimer *m_timer;
 };
 #endif // GRADIENTWIDGET_IMPL_H

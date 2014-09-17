@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+ *   Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -14,11 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.           *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _EQCHEMVIEW_H_
-#define _EQCHEMVIEW_H_
+#ifndef EQCHEMVIEW_H
+#define EQCHEMVIEW_H
 
 #include <qwidget.h>
 
@@ -37,7 +37,7 @@ public:
      *
      * @param parent the parent widget
      */
-    EQChemDialog( QWidget *parent );
+    EQChemDialog(QWidget *parent);
 
 private:
     const QString getHelpText();
@@ -56,4 +56,4 @@ protected:
     QSize sizeHint() const;
 };
 
-#endif // _EQCHEMVIEW_H_
+#endif // EQCHEMVIEW_H

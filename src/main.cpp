@@ -1,5 +1,5 @@
-/*
- *   Copyright (C) 2003-2008 Carsten Niehaus <cniehaus@kde.org>
+/***************************************************************************
+ *   Copyright (C) 2003-2008 Carsten Niehaus <cniehaus@kde.org>            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -28,8 +28,7 @@
 
 #define APP_VERSION "2.4.02"
 
-static const char description[] =
-    I18N_NOOP("A periodic table of the elements");
+static const char description[] = I18N_NOOP("A periodic table of the elements");
 
 static const char version[] = APP_VERSION;
 
@@ -47,24 +46,24 @@ int main(int argc, char **argv)
 
     KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
                      KAboutData::License_GPL, ki18n("(C) 2002-2014 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
-    about.addAuthor( ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org" );
-    about.addCredit( ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
-    about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));
-    about.addCredit( ki18n("Marcus Hanwell"), ki18n( "SoC on the molecular viewer and libavogadro porting/integration" ));
-    about.addCredit( ki18n("Kashyap R Puranik"), ki18n("SoC on the calculator widget and a few smaller improvements" ));    
-    about.addCredit( ki18n("Thomas Nagy"), ki18n("EqChem, the equation solver" ));
-    about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, parser for the molecule weight calculator, and a lot of smaller improvements" ));
-    about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));
-    about.addCredit( ki18n("Johannes Simon"), ki18n( "Code and documentation contributions to the equation solver and molecular viewer" ));
-    about.addCredit( ki18n("Jarle Akselsen"), ki18n("Many beautiful element icons" ));
-    about.addCredit( ki18n("Noémie Scherer"), ki18n("Many beautiful element icons, too!" ));
-    about.addCredit( ki18n("Danny Allen"), ki18n("Several icons" ));
-    about.addCredit( ki18n("Lee Olson"), ki18n( "Several icons in the information dialog" ));
-    
-    about.addCredit( ki18n("Jörg Buchwald"), ki18n("Contributed most isotope information" ));
-    about.addCredit( ki18n("Marco Martin"), ki18n("Some icons and inspiration for others" ));
-    about.addCredit( ki18n("Daniel Haas"), ki18n( "The design of the information dialog" ));
-    about.addCredit( ki18n("Brian Beck"), ki18n( "The orbits icon" ));
+    about.addAuthor(ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org");
+    about.addCredit(ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
+    about.addCredit(ki18n("Benoit Jacob"), ki18n("Base work on the molecular viewer, mentored Marcus during his SoC"));
+    about.addCredit(ki18n("Marcus Hanwell"), ki18n("SoC on the molecular viewer and libavogadro porting/integration"));
+    about.addCredit(ki18n("Kashyap R Puranik"), ki18n("SoC on the calculator widget and a few smaller improvements"));
+    about.addCredit(ki18n("Thomas Nagy"), ki18n("EqChem, the equation solver"));
+    about.addCredit(ki18n("Inge Wallin"), ki18n("Code cleaning, parser for the molecule weight calculator, and a lot of smaller improvements"));
+    about.addCredit(ki18n("Anne-Marie Mahfouf"), ki18n("A lot of small things and the documentation"));
+    about.addCredit(ki18n("Johannes Simon"), ki18n("Code and documentation contributions to the equation solver and molecular viewer"));
+    about.addCredit(ki18n("Jarle Akselsen"), ki18n("Many beautiful element icons"));
+    about.addCredit(ki18n("Noémie Scherer"), ki18n("Many beautiful element icons, too!"));
+    about.addCredit(ki18n("Danny Allen"), ki18n("Several icons"));
+    about.addCredit(ki18n("Lee Olson"), ki18n("Several icons in the information dialog"));
+
+    about.addCredit(ki18n("Jörg Buchwald"), ki18n("Contributed most isotope information"));
+    about.addCredit(ki18n("Marco Martin"), ki18n("Some icons and inspiration for others"));
+    about.addCredit(ki18n("Daniel Haas"), ki18n("The design of the information dialog"));
+    about.addCredit(ki18n("Brian Beck"), ki18n("The orbits icon"));
 
     about.addCredit(ki18n("Paulo Cattai"),ki18n("New interface design and usability improvements"));
     about.addCredit(ki18n("Danilo Balzaque"),ki18n("New interface design and usability improvements"));
@@ -76,20 +75,17 @@ int main(int argc, char **argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
-#if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)    
+#if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
     options.add("molecule <file>", ki18n("Open the given molecule file"));
 #endif
-    KCmdLineArgs::addCmdLineOptions( options );
+    KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
 
     Kalzium *mainWin = 0;
 
-    if (app.isSessionRestored())
-    {
+    if (app.isSessionRestored()) {
         RESTORE(Kalzium);
-    }
-    else
-    {
+    } else {
         // no session.. just start up normally
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
@@ -97,14 +93,11 @@ int main(int argc, char **argv)
 
         mainWin = new Kalzium();
         mainWin->show();
-        
+
         const QStringList molecules = args->getOptionList("molecule");
-        if (molecules.count() == 1)
-        {
+        if (molecules.count() == 1) {
             mainWin->loadMolecule(molecules[0]);
-        }
-        else if (molecules.count() > 1)
-        {
+        } else if (molecules.count() > 1) {
             QTextStream ts(stderr);
             ts << i18n("Can't open more than one molecule at a time");
         }
@@ -115,4 +108,3 @@ int main(int argc, char **argv)
     // mainWin has WDestructiveClose flag by default, so it will delete itself.
     return app.exec();
 }
-

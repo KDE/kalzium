@@ -25,10 +25,10 @@
 
 #ifndef COMPOUNDVIEWER_EXPORT
 # if defined(MAKE_COMPOUNDVIEWER_LIB)
-   /* We are building this library */ 
+/* We are building this library */
 #  define COMPOUNDVIEWER_EXPORT KDE_EXPORT
 # else
-   /* We are using this library */ 
+/* We are using this library */
 #  define COMPOUNDVIEWER_EXPORT KDE_IMPORT
 # endif
 #endif
@@ -37,4 +37,4 @@
 #  define COMPOUNDVIEWER_EXPORT_DEPRECATED KDE_DEPRECATED COMPOUNDVIEWER_EXPORT
 # endif
 
-#endif
+#endif // LIBKDEEDU_COMPOUNDVIEWER_EXPORT_H

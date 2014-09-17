@@ -1,8 +1,5 @@
-#ifndef ISOTOPEVIEW_H
-#define ISOTOPEVIEW_H
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef ISOTOPEVIEW_H
+#define ISOTOPEVIEW_H
 
 #include <QWidget>
 #include <QGraphicsView>
@@ -30,33 +30,33 @@ class IsotopeView : public QGraphicsView
 {
     Q_OBJECT
 
-    public:
-        IsotopeView( QWidget * parent = 0);
+public:
+    IsotopeView(QWidget *parent = 0);
     virtual ~IsotopeView();
 
-    private:
-	IsotopeScene *m_scene;
+private:
+    IsotopeScene *m_scene;
     double m_zoomLevel;
 
-    public:
-        double zoomLevel() {
-            return m_zoomLevel;
-        }
-        QPolygonF visibleSceneRect() const {
-            return mapToScene( viewport()->rect() );
-        }
+public:
+    double zoomLevel() {
+        return m_zoomLevel;
+    }
+    QPolygonF visibleSceneRect() const {
+        return mapToScene(viewport()->rect());
+    }
 
-    signals:
-        void zoomLevelChanged( double zoomLevel );
-        void visibleSceneRectChanged( const QPolygonF &sceneRect );
+signals:
+    void zoomLevelChanged(double zoomLevel);
+    void visibleSceneRectChanged(const QPolygonF &sceneRect);
 
-    public:
-        void setZoom ( double zoom);
+public:
+    void setZoom(double zoom);
 
-    protected:
-	    void resizeEvent(QResizeEvent * event );
-        void mouseMoveEvent( QMouseEvent *event );
-        void wheelEvent( QWheelEvent * event );
+protected:
+    void resizeEvent(QResizeEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void wheelEvent(QWheelEvent *event);
 };
-#endif
 
+#endif // ISOTOPEVIEW_H

@@ -1,8 +1,5 @@
-  #ifndef TABLEINFOWIDGET_H
-#define TABLEINFOWIDGET_H
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef TABLEINFOWIDGET_H
+#define TABLEINFOWIDGET_H
 
 #include <kdialog.h>
 #include <QLabel>
@@ -33,7 +33,7 @@ class TableInfoWidget : public QWidget
     Q_OBJECT
 
 public:
-    TableInfoWidget( QWidget *parent );
+    TableInfoWidget(QWidget *parent);
 
     ~TableInfoWidget() {}
 
@@ -41,7 +41,7 @@ private:
     QLabel *m_tableType;
 
 public slots:
-    void setTableType( int type );
+    void setTableType(int type);
 };
 
 #endif // TABLEINFOWIDGET_H

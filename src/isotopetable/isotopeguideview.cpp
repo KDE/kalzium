@@ -1,7 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
- *
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,30 +14,29 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-
 #include "isotopeguideview.h"
+
 #include "isotopescene.h"
 #include <QScrollBar>
-    
-	IsotopeGuideView::IsotopeGuideView(QWidget *parent)
-: QGraphicsView(parent)
+
+IsotopeGuideView::IsotopeGuideView(QWidget *parent) : QGraphicsView(parent)
 {
     m_guidedView = 0;
     m_scale = 1.0;
 
-    setCursor( Qt::OpenHandCursor );
+    setCursor(Qt::OpenHandCursor);
 }
 
 void IsotopeGuideView::setGuidedView(IsotopeView *guidedView)
 {
     m_guidedView = guidedView;
-    connect( m_guidedView, SIGNAL(zoomLevelChanged(double)),
-             this,         SLOT(setZoomLevel(double)) );
-    connect( m_guidedView, SIGNAL(visibleSceneRectChanged(QPolygonF)),
-             this,         SLOT(setVisibleSceneRect(QPolygonF)) );
+    connect(m_guidedView, SIGNAL(zoomLevelChanged(double)),
+            this, SLOT(setZoomLevel(double)));
+    connect(m_guidedView, SIGNAL(visibleSceneRectChanged(QPolygonF)),
+            this, SLOT(setVisibleSceneRect(QPolygonF)));
     m_zoomLevel = m_guidedView->zoomLevel();
 
     setScene(m_guidedView->scene());
@@ -47,35 +44,34 @@ void IsotopeGuideView::setGuidedView(IsotopeView *guidedView)
     ensureVisible(scene()->sceneRect());
 }
 
-void IsotopeGuideView::setVisibleSceneRect( const QPolygonF& sceneRect )
+void IsotopeGuideView::setVisibleSceneRect(const QPolygonF& sceneRect)
 {
     m_visibleSceneRect = sceneRect;
     viewport()->update();
 }
 
-void IsotopeGuideView::drawForeground( QPainter *painter, const QRectF &rect )
+void IsotopeGuideView::drawForeground(QPainter *painter, const QRectF &rect)
 {
-    if ( m_guidedView && m_visibleSceneRect.boundingRect().intersects( rect ) )
-    {
-        painter->setPen( QPen( Qt::red ) );
-        painter->drawRect( m_visibleSceneRect.boundingRect().adjusted( 0, 0, -1, -1 ) );
+    if (m_guidedView && m_visibleSceneRect.boundingRect().intersects(rect)) {
+        painter->setPen(QPen(Qt::red));
+        painter->drawRect(m_visibleSceneRect.boundingRect().adjusted(0, 0, -1, -1));
     }
 }
 
 void IsotopeGuideView::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
-    m_scale = qMin( qreal( viewport()->width() ) / scene()->width(),
-                    qreal( viewport()->height() ) / scene()->height() );
-    setTransform( QTransform::fromScale( m_scale, m_scale ) );
+    m_scale = qMin(qreal(viewport()->width()) / scene()->width(),
+                   qreal(viewport()->height()) / scene()->height());
+    setTransform(QTransform::fromScale(m_scale, m_scale));
 }
 
 void IsotopeGuideView::mousePressEvent(QMouseEvent *event)
 {
-    m_dragEvent = mapFromScene( m_visibleSceneRect ).boundingRect().contains( event->pos() );
-    if ( m_dragEvent && event->buttons() & Qt::LeftButton ) {
+    m_dragEvent = mapFromScene(m_visibleSceneRect).boundingRect().contains(event->pos());
+    if (m_dragEvent && event->buttons() & Qt::LeftButton) {
         m_lastMousePos = event->pos();
-        setCursor( Qt::ClosedHandCursor );
+        setCursor(Qt::ClosedHandCursor);
     }
 }
 
@@ -83,24 +79,26 @@ void IsotopeGuideView::mouseReleaseEvent(QMouseEvent *event)
 {
     Q_UNUSED(event)
     m_dragEvent = false;
-    setCursor( Qt::OpenHandCursor );
+    setCursor(Qt::OpenHandCursor);
 }
 
 void IsotopeGuideView::mouseMoveEvent(QMouseEvent *event)
 {
-    if ( m_dragEvent && event->buttons() & Qt::LeftButton ) {
-        QPoint p1( m_guidedView->mapFromScene( mapToScene( m_lastMousePos ) ) );
-        QPoint p2( m_guidedView->mapFromScene( mapToScene( event->pos() ) ) );
-        m_guidedView->horizontalScrollBar()->setValue( m_guidedView->horizontalScrollBar()->value() + p2.x() - p1.x() );
-        m_guidedView->verticalScrollBar()->setValue( m_guidedView->verticalScrollBar()->value() + p2.y() - p1.y() );
-        m_lastMousePos = event->pos(); 
+    if (m_dragEvent && event->buttons() & Qt::LeftButton) {
+        QPoint p1(m_guidedView->mapFromScene(mapToScene(m_lastMousePos)));
+        QPoint p2(m_guidedView->mapFromScene(mapToScene(event->pos())));
+        m_guidedView->horizontalScrollBar()->setValue(m_guidedView->horizontalScrollBar()->value()
+                                                      + p2.x() - p1.x());
+        m_guidedView->verticalScrollBar()->setValue(m_guidedView->verticalScrollBar()->value()
+                                                      + p2.y() - p1.y());
+        m_lastMousePos = event->pos();
 
         m_visibleSceneRect = m_guidedView->visibleSceneRect();
         viewport()->update();
     }
 }
 
-void IsotopeGuideView::setZoomLevel( double zoomLevel )
+void IsotopeGuideView::setZoomLevel(double zoomLevel)
 {
     m_zoomLevel = zoomLevel;
 }

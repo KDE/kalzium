@@ -11,8 +11,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef gasCalculator_HEADER
-#define gasCalculator_HEADER
+#ifndef GASCALCULATOR_H
+#define GASCALCULATOR_H
 
 #include <KIcon>
 
@@ -26,17 +26,17 @@
 #define R 0.08206
 
 namespace Plasma{
-	class ComboBox;
-	class TextEdit;
-	class Label;
-	class Slider;
-	class SpinBox;
-	class RadioButton;
-	class PushButton;
+    class ComboBox;
+    class TextEdit;
+    class Label;
+    class Slider;
+    class SpinBox;
+    class RadioButton;
+    class PushButton;
 }
 
 enum ERROR_TYPE_GAS {
-	RESET_GAS_MESG = 0,
+    RESET_GAS_MESG = 0,
     VOL_ZERO,
     MOLAR_MASS_ZERO_
 };
@@ -127,7 +127,7 @@ class gasCalculator : public Plasma::PopupApplet
 
     protected:
         void createConfigurationInterface(KConfigDialog *parent);
-        
+
     protected slots:
         void gasConfigAccepted();
 
@@ -168,7 +168,7 @@ class gasCalculator : public Plasma::PopupApplet
         //( Unit conversion library not available for the following quantities)
         double m_Vand_A;                    // Vander val's constant a
 
-        int m_mode;			    // mode of calculation
+        int m_mode;                         // mode of calculation
 
         /// Designer Config file
         Ui::gasCalculatorConfig ui;
@@ -180,4 +180,5 @@ class gasCalculator : public Plasma::PopupApplet
 
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(gasCalculator, gasCalculator)
-#endif //gasCalculator_HEADER
+
+#endif // GASCALCULATOR_H

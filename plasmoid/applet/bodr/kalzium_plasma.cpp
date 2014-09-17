@@ -11,6 +11,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "kalzium_plasma.h"
 
 #include <KDialog>
@@ -33,10 +34,10 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
 
     m_dialog = 0;
     m_label1 = 0;
-    m_lineedit = new Plasma::LineEdit( this );
-    m_lineedit->setDefaultText( i18n("Enter the atomic number.") );
-    connect( m_lineedit, SIGNAL(editingFinished()),
-            this, SLOT(textChanged()) );
+    m_lineedit = new Plasma::LineEdit(this);
+    m_lineedit->setDefaultText(i18n("Enter the atomic number."));
+    connect(m_lineedit, SIGNAL(editingFinished()),
+            this, SLOT(textChanged()));
 
     setHasConfigurationInterface(true);
     setAcceptDrops(false);
@@ -54,12 +55,12 @@ void KalziumPlasma::init()
 
     m_currentSource = "BlueObelisk:RandomElement";
     // connect to random source and update ever 5 seconds
-    m_engine->connectSource( m_currentSource, this, 5000);
+    m_engine->connectSource(m_currentSource, this, 5000);
 
     m_theme.setContainsMultipleImages(false);
 
     m_label1 = new QGraphicsTextItem(this);
-    m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
+    m_label1->setPos(m_theme.elementRect("name").topLeft());
     m_label1->setFont(m_font);
     m_label1->setDefaultTextColor(Qt::white);
 }
@@ -79,7 +80,7 @@ void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
         m_theme.resize(size());
     }
 
-    m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
+    m_label1->setPos(m_theme.elementRect("canvas").topLeft());
 }
 
 KalziumPlasma::~KalziumPlasma()
@@ -100,11 +101,11 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     QString symbol = data["symbol"].toString();
     QString name = data["name"].toString();
     QString text;
-    text = QString(i18n( "\nName: %1", name ));
-    text.append(QString(i18n( "\nSymbol: %1", symbol)));
-    text.append(QString(i18n( "\nBoiling point: %1", bp)));
-    text.append(QString(i18n( "\nMelting point: %1", mp)));
-    text.append(QString(i18n( "\nMass: %1", mass)));
+    text = QString(i18n("\nName: %1", name));
+    text.append(QString(i18n("\nSymbol: %1", symbol)));
+    text.append(QString(i18n("\nBoiling point: %1", bp)));
+    text.append(QString(i18n("\nMelting point: %1", mp)));
+    text.append(QString(i18n("\nMass: %1", mass)));
     if (m_label1)  {
 //         m_label1->setAlignment(Qt::AlignLeft);
         m_label1->setPlainText(text);
@@ -124,26 +125,26 @@ void KalziumPlasma::paintInterface(QPainter *p,
     //m_theme.resize((int)contentsRect.width(), (int)contentsRect.height());
     m_theme.resize(size());
     //m_theme.paint(p, (int)contentsRect.left(), (int)contentsRect.top());
-    m_theme.paint(p, 0,0 );
+    m_theme.paint(p, 0, 0);
 
-    m_lineedit->setPos( 0,150 );
+    m_lineedit->setPos(0, 150);
 }
 
 void KalziumPlasma::showConfigurationInterface()
 {
-if (m_dialog == 0) {
-    m_dialog = new KDialog;
-    m_dialog->setWindowIcon(KIcon("kalzium"));
-        m_dialog->setCaption( i18n("KalziumPlasma Configuration") );
+    if (m_dialog == 0) {
+        m_dialog = new KDialog;
+        m_dialog->setWindowIcon(KIcon("kalzium"));
+        m_dialog->setCaption(i18n("KalziumPlasma Configuration"));
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setMargin(0);
-        m_dialog->setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Apply );
-        connect( m_dialog, SIGNAL(applyClicked()), 
-                this, SLOT(configAccepted()) );
-        connect( m_dialog, SIGNAL(okClicked()), 
-                this, SLOT(configAccepted()) );
-        connect( ui.fontSelectButton, SIGNAL(clicked()), 
-                this, SLOT(showFontSelectDlg()) );
+        m_dialog->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+        connect(m_dialog, SIGNAL(applyClicked()),
+                this, SLOT(configAccepted()));
+        connect(m_dialog, SIGNAL(okClicked()),
+                this, SLOT(configAccepted()));
+        connect(ui.fontSelectButton, SIGNAL(clicked()),
+                this, SLOT(showFontSelectDlg()));
     }
 
     m_dialog->show();
@@ -176,7 +177,7 @@ void KalziumPlasma::textChanged()
     } else {
         m_currentSource = QString("BlueObelisk:RandomElement");
     }
-    m_engine->connectSource( m_currentSource, this, 5000);
+    m_engine->connectSource(m_currentSource, this, 5000);
 }
 
 #include "kalzium_plasma.moc"

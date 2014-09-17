@@ -40,4 +40,3 @@ void StateSwitcher::switchToState(const int &n)
 {
     machine()->postEvent(new StateSwitchEvent(n));
 }
-

@@ -14,7 +14,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #include "isotopeparser.h"
@@ -44,14 +44,13 @@ int main(int argc, char *argv[])
 
     qDebug() << "As a test I am now issuing all isotopes with 50 nuclueons: ";
 
-    foreach( Isotope* i, v ){
-        if ( i )
-        {
-//X             if (i->nucleons() == 50 ){
+    foreach (Isotope* i, v) {
+        if (i) {
+//X             if (i->nucleons() == 50 ) {
 //X                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
 //X                 qDebug() << "       Halflife: " << i->halflife() << i->halflifeUnit( );
 //X             }
-            if (i->parentElementSymbol() == "Ti" ){
+            if (i->parentElementSymbol() == "Ti") {
                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
                 qDebug() << "       Halflife: " << i->halflife() << i->halflifeUnit( );
             }

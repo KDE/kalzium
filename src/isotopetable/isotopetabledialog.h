@@ -1,8 +1,5 @@
-#ifndef ISOTOPETABLEDIALOG_H
-#define ISOTOPETABLEDIALOG_H
 /***************************************************************************
- *   Copyright (C) 2007, 2008 by Carsten Niehaus                           *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2007, 2008 by Carsten Niehaus <cniehaus@kde.org>        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef ISOTOPETABLEDIALOG_H
+#define ISOTOPETABLEDIALOG_H
 
 #include "ui_isotopedialog.h"
 
@@ -36,17 +36,17 @@ class IsotopeTableDialog : public KDialog
 {
     Q_OBJECT
 
-    public:
-        explicit IsotopeTableDialog( QWidget* parent = 0 );
+public:
+    explicit IsotopeTableDialog(QWidget* parent = 0);
 
-    private:
-        Ui::isotopeWidget ui;
+private:
+    Ui::isotopeWidget ui;
 
-    private slots:
-        void updateDockWidget( IsotopeItem * );
-        void zoom (int);
-        void slotZoomLevelChanged( double );
-        
+private slots:
+    void updateDockWidget(IsotopeItem *);
+    void zoom(int);
+    void slotZoomLevelChanged(double);
+
 };
 
 #endif // ISOTOPETABLEDIALOG_H

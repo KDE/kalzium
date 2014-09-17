@@ -1,5 +1,3 @@
-#ifndef SPECTRUMPARSER_H
-#define SPECTRUMPARSER_H
 /***************************************************************************
     copyright            : (C) 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -12,6 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#ifndef SPECTRUMPARSER_H
+#define SPECTRUMPARSER_H
 
 #include "libkdeedu_science_export.h"
 
@@ -50,5 +51,5 @@ private:
     class Private;
     Private *const d;
 };
-#endif // SPECTRUMPARSER_H
 
+#endif // SPECTRUMPARSER_H

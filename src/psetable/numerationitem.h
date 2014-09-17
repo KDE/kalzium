@@ -24,26 +24,26 @@
  02110-1301, USA.
  **********************************************************************/
 
-#ifndef NUMERATIONTITEM_P_H
-#define NUMERATIONTITEM_P_H
+#ifndef NUMERATIONITEM_H
+#define NUMERATIONITEM_H
 
 #include <QGraphicsItem>
 #include "kalziumdataobject.h"
 
 #include <chemicaldataobject.h>
 
-  /**
-   * @class NumerationItem
-   * @author Marcus D. Hanwell
-   * @author Etienne Rebetez
-   * @brief An Numeration item, intended to display a id of the numeration row.
-   *
-   */
-  class NumerationItem : public QGraphicsObject
-  {
+/**
+ * @class NumerationItem
+ * @author Marcus D. Hanwell
+ * @author Etienne Rebetez
+ * @brief An Numeration item, intended to display a id of the numeration row.
+ *
+ */
+class NumerationItem : public QGraphicsObject
+{
     Q_OBJECT
 
-  public:
+public:
     /**
      * Constructor. Should be called with the element number for this item. The
      * constructor uses setData to set the element number using the key 0. This
@@ -70,17 +70,22 @@
      * This is where most of the action takes place. The element box is drawn
      * along with its symbol.
      */
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-  public Q_SLOTS:
-    void setNumerationType( int type );
+public Q_SLOTS:
+    void setNumerationType(int type);
 
-  private:
+private:
     /**
-     * Width and height of the elements.
+     * Width of the elements.
      */
-    int m_width, m_height;
+    int m_width;
+
+    /**
+     * Height of the elements.
+     */
+    int m_height;
+
     /**
      * The row Position of the Numeration item
      */
@@ -96,7 +101,6 @@
      */
     QColor m_color;
 
-  };
+};
 
-
-#endif // NUMERATIONTITEM_P_H
+#endif // NUMERATIONITEM_H

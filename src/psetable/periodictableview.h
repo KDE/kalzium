@@ -4,7 +4,6 @@
  *   Copyright (C) 2007-2009 by Marcus D. Hanwell                          *
  *   Copyright (C) 2010-2011 by Etienne Rebetez, etienne.rebetez@oberwallis.ch  *
  *                                                                         *
- *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
@@ -21,8 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef PERIODSYSTEMBASE_H
-#define PERIODSYSTEMBASE_H
+#ifndef PERIODICTABLEVIEW_H
+#define PERIODICTABLEVIEW_H
 
 #include <QGraphicsView>
 
@@ -117,7 +116,7 @@ private:
     int m_currentTableInex;
 
     PeriodicTableScene *m_tableScene;
-    
+
     PeriodicTableStates *m_tableStates;
 
 protected:
@@ -130,6 +129,7 @@ protected:
     /**
      * is caled every time the view is resized.
      */
-    void resizeEvent ( QResizeEvent * event );
+    void resizeEvent(QResizeEvent * event);
 };
-#endif // PERIODSYSTEMBASE_H
+
+#endif // PERIODICTABLEVIEW_H

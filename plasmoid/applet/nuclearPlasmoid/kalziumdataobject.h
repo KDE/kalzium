@@ -1,8 +1,5 @@
-#ifndef KALZIUMDATAOBJECT_H
-#define KALZIUMDATAOBJECT_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2005, 2006 by Carsten Niehaus <cniehaus@kde.org>        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
+
+#ifndef KALZIUMDATAOBJECT_H
+#define KALZIUMDATAOBJECT_H
 
 #include <element.h>
 #include <QHash>
@@ -46,72 +46,73 @@ class Search;
  */
 class KalziumDataObject
 {
-	public:
-		/**
-		 * @return the instance of this class
-		 */
-		static KalziumDataObject* instance();
+    public:
+        /**
+         * @return the instance of this class
+         */
+        static KalziumDataObject* instance();
 
-		/**
-		 * The list of elements
-		 */
-		QList<Element*> ElementList;
+        /**
+         * The list of elements
+         */
+        QList<Element*> ElementList;
 
-		/**
-		 * Set the main Search to @p srch
-		 */
-		void setSearch( Search *srch );
-		
-		/**
-		 * @return the main Search
-		 */
-		Search* search() const;
+        /**
+         * Set the main Search to @p srch
+         */
+        void setSearch( Search *srch );
 
-		/**
-		 * @return the Element with the number @p number
-		 * @param number the number of the Element which will be returned
-		 */
-		Element* element( int number );
+        /**
+         * @return the main Search
+         */
+        Search* search() const;
 
-		/**
-		 * @return the isotopes of the Element with the number @p number
-		 */
-		QList<Isotope*> isotopes( int number );
-		
-		/**
-		 * @return the isotopes of the Element @p Element
-		 */
-		QList<Isotope*> isotopes( Element * element );
+        /**
+         * @return the Element with the number @p number
+         * @param number the number of the Element which will be returned
+         */
+        Element* element( int number );
+
+        /**
+         * @return the isotopes of the Element with the number @p number
+         */
+        QList<Isotope*> isotopes( int number );
+
+        /**
+         * @return the isotopes of the Element @p Element
+         */
+        QList<Isotope*> isotopes( Element * element );
 
                 /**
-		 * @return the Spectrum of the Element with the number @p number
+         * @return the Spectrum of the Element with the number @p number
                  */
                 Spectrum * spectrum( int number );
 
-		QPixmap pixmap( int number );
-		
-		/**
-		 * Use this to get the number of elements we have. It is cached
-		 * so you are strongly suggested to use this instead of hardcode
-		 * the number of elements.
-		 * @return the number of elements we have
-		 */
-		int numberOfElements() const { return m_numOfElements; }
+        QPixmap pixmap( int number );
 
-	private:
-		KalziumDataObject();
-		~KalziumDataObject();
-	
-		QList<QPixmap> PixmapList;
+        /**
+         * Use this to get the number of elements we have. It is cached
+         * so you are strongly suggested to use this instead of hardcode
+         * the number of elements.
+         * @return the number of elements we have
+         */
+        int numberOfElements() const { return m_numOfElements; }
 
-		QHash<int, QList<Isotope*> > m_isotopes;
-		QList<Spectrum*> m_spectra;
+    private:
+        KalziumDataObject();
+        ~KalziumDataObject();
 
-		/**
-		 * Caching the number of elements
-		 */
-		int m_numOfElements;
+        QList<QPixmap> PixmapList;
 
-		Search *m_search;
+        QHash<int, QList<Isotope*> > m_isotopes;
+        QList<Spectrum*> m_spectra;
+
+        /**
+         * Caching the number of elements
+         */
+        int m_numOfElements;
+
+        Search *m_search;
 };
+
 #endif // KALZIUMDATAOBJECT_H

@@ -10,6 +10,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef SPECTRUMVIEWIMPL_H
 #define SPECTRUMVIEWIMPL_H
 
@@ -28,14 +29,15 @@ public:
     /**
      * @param parent the parent widget
      */
-    SpectrumViewImpl( QWidget* parent );
+    SpectrumViewImpl(QWidget* parent);
 
     /**
      * sets the spectrum to @p spec
      * @param spec the spectrum to display
      */
-    void setSpectrum( Spectrum* spec ) {
-        m_spectrumWidget->setSpectrum( spec );
+    void setSpectrum(Spectrum* spec)
+    {
+        m_spectrumWidget->setSpectrum(spec);
 
         fillPeakList();
 
@@ -54,7 +56,7 @@ private slots:
      */
     void updateUI(int left, int right);
 
-    void updatePeakInformation( Spectrum::peak * peak );
+    void updatePeakInformation(Spectrum::peak * peak);
 
     void setUnit();
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
+ *   Copyright (C) 2009     by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -77,4 +77,4 @@ private slots:
 public slots:
 };
 
-#endif
+#endif // CALCULATOR_H

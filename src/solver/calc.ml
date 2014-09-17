@@ -50,4 +50,3 @@ let solve_equation (str:string) =
 ;;
 
 let _ = Callback.register "solve_equation" solve_equation;;
-

@@ -1,8 +1,5 @@
-#ifndef LEGENDWIDGET_H
-#define LEGENDWIDGET_H
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef LEGENDWIDGET_H
+#define LEGENDWIDGET_H
 
 #include <kdialog.h>
 
@@ -38,7 +38,7 @@ class LegendWidget : public QWidget
     Q_OBJECT
 
 public:
-    LegendWidget( QWidget *parent );
+    LegendWidget(QWidget *parent);
 
     ~LegendWidget();
 
@@ -66,7 +66,7 @@ private:
 
     Qt::DockWidgetArea m_dockArea;
 
-    void updateLegendItemLayout( const QList<legendPair>& list );
+    void updateLegendItemLayout(const QList<legendPair>& list);
 };
 
 /**
@@ -80,7 +80,7 @@ class LegendItem : public QLabel
     Q_OBJECT
 
 public:
-    LegendItem( const QPair<QString, QColor>& pair, QWidget * parent = 0 );
+    LegendItem(const QPair<QString, QColor>& pair, QWidget * parent = 0);
     ~LegendItem() {}
 
 Q_SIGNALS:
@@ -90,8 +90,8 @@ private:
     QColor legendItemColor;
 
 protected:
-    void enterEvent( QEvent * event );
-    void leaveEvent ( QEvent * event );
+    void enterEvent(QEvent * event);
+    void leaveEvent(QEvent * event);
 
 };
 

@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "unitsettingsdialog.h"
 
 #include <kunitconversion/converter.h>
@@ -25,12 +24,12 @@
 #include <QGridLayout>
 #include <QLabel>
 
-UnitSettingsDialog::UnitSettingsDialog(QWidget* parent)
-        : QWidget(parent)
+UnitSettingsDialog::UnitSettingsDialog(QWidget* parent) : QWidget(parent)
 {
     QLabel *labelEnergy = new QLabel(i18n("Energy:"), this);
     QList<int> energy;
-    energy << KUnitConversion::Electronvolt << KUnitConversion::KiloJoulePerMole << KUnitConversion::JoulePerMole << KUnitConversion::Joule;
+    energy << KUnitConversion::Electronvolt << KUnitConversion::KiloJoulePerMole <<
+           KUnitConversion::JoulePerMole << KUnitConversion::Joule;
     m_comboBoxLEnergiesUnit = new KalziumUnitCombobox(energy, this);
     m_comboBoxLEnergiesUnit->setObjectName("kcfg_combobox_energies");
 
@@ -42,7 +41,8 @@ UnitSettingsDialog::UnitSettingsDialog(QWidget* parent)
 
     QLabel *labelTemperature = new QLabel(i18n("Temperature:"), this);
     QList<int> temperature;
-    temperature << KUnitConversion::Kelvin << KUnitConversion::Celsius << KUnitConversion::Fahrenheit << KUnitConversion::Reaumur;
+    temperature << KUnitConversion::Kelvin << KUnitConversion::Celsius << KUnitConversion::Fahrenheit <<
+                KUnitConversion::Reaumur;
     m_comboBoxLTemperatureUnit = new KalziumUnitCombobox(temperature, this);
     m_comboBoxLTemperatureUnit->setObjectName("kcfg_combobox_temperature");
 
@@ -82,4 +82,3 @@ UnitSettingsDialog::~UnitSettingsDialog()
     delete m_comboBoxLengthUnit;
     delete m_comboBoxLTemperatureUnit;
 }
-

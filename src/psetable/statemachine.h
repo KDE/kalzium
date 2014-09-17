@@ -38,27 +38,26 @@
 **
 ****************************************************************************/
 
-#ifndef STATEMACHIEN_H
-#define STATEMACHIEN_H
+#ifndef STATEMACHINE_H
+#define STATEMACHINE_H
 
 #include <QtCore>
 
 class StateSwitchEvent: public QEvent
 {
 public:
-    StateSwitchEvent()
-            : QEvent(Type(StateSwitchType))
+    StateSwitchEvent() : QEvent(Type(StateSwitchType))
     {
     }
 
-    StateSwitchEvent(int id)
-            : QEvent(Type(StateSwitchType)),
-            m_id(id)
-    {}
+    StateSwitchEvent(int id) : QEvent(Type(StateSwitchType)), m_id(id)
+    {
+    }
 
     enum { StateSwitchType = QEvent::User + 256 };
 
-    int id() const {
+    int id() const
+    {
         return m_id;
     }
 
@@ -70,10 +69,9 @@ private:
 class StateSwitchTransition: public QAbstractTransition
 {
 public:
-    StateSwitchTransition(int id)
-            : QAbstractTransition(),
-            m_id(id)
-    {}
+    StateSwitchTransition(int id) : QAbstractTransition(), m_id(id)
+    {
+    }
 
 protected:
 
@@ -100,4 +98,4 @@ public:
     void switchToState(const int &n);
 };
 
-#endif // STATEMACHIEN_H
+#endif // STATEMACHINE_H

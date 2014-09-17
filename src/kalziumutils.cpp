@@ -32,154 +32,157 @@
 #include <ieeefp.h>
 #endif
 
-int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize )
+int KalziumUtils::maxSize(const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize)
 {
     bool goodSizeFound = false;
     int size = maxFontSize;
     QRect r;
 
-    do
-    {
-        font.setPointSize( size );
-        p->setFont( font );
-        r = p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string );
-        r.translate( rect.left(), rect.top() );
+    do {
+        font.setPointSize(size);
+        p->setFont(font);
+        r = p->boundingRect(QRect(), Qt::AlignTop | Qt::AlignLeft, string);
+        r.translate(rect.left(), rect.top());
 
-        if ( rect.contains( r ) )
+        if (rect.contains(r)) {
             goodSizeFound = true;
-        else
-            size--;
+        } else {
+            --size;
+        }
     }
-    while ( !goodSizeFound && ( size > minFontSize ) );
+    while (!goodSizeFound && (size > minFontSize));
 
     return size;
 }
 
-int KalziumUtils::StringHeight( const QString& string, const QFont& font, QPainter* p )
+int KalziumUtils::StringHeight(const QString& string, const QFont& font, QPainter* p)
 {
-    Q_UNUSED( font );
-    return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).height();
+    Q_UNUSED(font);
+    return p->boundingRect(QRect(), Qt::AlignTop | Qt::AlignLeft, string).height();
 }
 
-int KalziumUtils::StringWidth( const QString& string, const QFont& font, QPainter* p )
+int KalziumUtils::StringWidth(const QString& string, const QFont& font, QPainter* p)
 {
-    Q_UNUSED( font );
-    return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).width();
+    Q_UNUSED(font);
+    return p->boundingRect(QRect(), Qt::AlignTop | Qt::AlignLeft, string).width();
 }
 
-double KalziumUtils::strippedValue( double num )
+double KalziumUtils::strippedValue(double num)
 {
-    if ( !finite( num ) )
+    if (!finite(num)) {
         return num;
+    }
 
     double power;
     power = 1e-6;
-    while ( power < num )
+    while (power < num) {
         power *= 10;
+    }
 
     num = num / power * 10000;
-    num = qRound( num );
+    num = qRound(num);
 
     return num * power / 10000;
 }
 
-QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind )
+QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObelisk kind)
 {
-    if (!el) return i18n("Error");
+    if (!el) {
+        return i18n("Error");
+    }
 
     QString result;
     double val = 0.0; //the value to convert
 
-    switch ( kind )
-    {
+    switch (kind) {
     case ChemicalDataObject::meltingpoint: // a temperature
     case ChemicalDataObject::boilingpoint:
-        result = el->dataAsStringWithUnit( kind, Prefs::temperatureUnit() );
+        result = el->dataAsStringWithUnit(kind, Prefs::temperatureUnit());
         break;
 
     case ChemicalDataObject::electronegativityPauling: // electronegativity
     {
-        val = el->dataAsVariant( kind ).toDouble();
-        if ( val <= 0.0 )
-            result = i18n( "Value not defined" );
-        else
-            result = i18nc("Just a number", "%1", val );
+        val = el->dataAsVariant(kind).toDouble();
+        if (val <= 0.0) {
+            result = i18n("Value not defined");
+        } else {
+            result = i18nc("Just a number", "%1", val);
+        }
         break;
     }
     case ChemicalDataObject::electronAffinity: // an energy
     case ChemicalDataObject::ionization:
-        result = el->dataAsStringWithUnit( kind, Prefs::energiesUnit() );
+        result = el->dataAsStringWithUnit(kind, Prefs::energiesUnit());
         break;
 
     case ChemicalDataObject::mass: // a mass
     {
-        val = el->dataAsVariant( kind ).toDouble();
-        if ( val <= 0.0 )
-            result = i18n( "Unknown Value" );
-        else
-            result = i18nc( "x u (units). The atomic mass.", "%1 u", val );
+        val = el->dataAsVariant(kind).toDouble();
+        if (val <= 0.0) {
+            result = i18n("Unknown Value");
+        } else {
+            result = i18nc("x u (units). The atomic mass.", "%1 u", val);
+        }
         break;
     }
     case ChemicalDataObject::date: // a date
     {
-        val = el->dataAsVariant( kind ).toInt();
-        if ( val > 1600 ) {
-            result = i18n( "This element was discovered in the year <numid>%1</numid>.", val );
-        } else if ( val == -1 ) {
-            result = i18n( "The element has not yet been officially recognized by the IUPAC." );
-        } //this should now really be 0. If not there is a bug in the database
-        else {
-            result = i18n( "This element was known to ancient cultures." );
+        val = el->dataAsVariant(kind).toInt();
+        if (val > 1600) {
+            result = i18n("This element was discovered in the year <numid>%1</numid>.", val);
+        } else if (val == -1) {
+            result = i18n("The element has not yet been officially recognized by the IUPAC.");
+        } else { // this should now really be 0. If not there is a bug in the database
+            result = i18n("This element was known to ancient cultures.");
         }
         break;
     }
     case ChemicalDataObject::radiusCovalent:
     case ChemicalDataObject::radiusVDW:
     {
-        result = el->dataAsStringWithUnit( kind, Prefs::lengthUnit() );
+        result = el->dataAsStringWithUnit(kind, Prefs::lengthUnit());
         break;
     }
     case ChemicalDataObject::electronicConfiguration:
     {
-        QString newOrbit = el->dataAsString( kind );
+        QString newOrbit = el->dataAsString(kind);
 
-        QRegExp reg( "(.*)([spdf])(\\d+)(.*)" );
+        QRegExp reg("(.*)([spdf])(\\d+)(.*)");
 
-        while (newOrbit.contains( reg )) {
-            newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
+        while (newOrbit.contains(reg)) {
+            newOrbit = newOrbit.replace(reg, "\\1\\2<sup>\\3</sup>\\4");
         }
         result = newOrbit;
         break;
     }
     case ChemicalDataObject::oxidation:
     {
-        QStringList oxidationList = el->dataAsString( kind ).split(',');
+        QStringList oxidationList = el->dataAsString(kind).split(',');
         result = oxidationList.join(", ");
         break;
     }
     default:
-        result = el->dataAsVariant( kind ).toString();
+        result = el->dataAsVariant(kind).toString();
     }
 
-    if ( result.isEmpty() ) {
+    if (result.isEmpty()) {
         result = i18n("No Data");
     }
     return result;
 }
 
 
-void KalziumUtils::populateUnitCombobox(QComboBox *comboBox, const QList< int > &unitList)
+void KalziumUtils::populateUnitCombobox(QComboBox *comboBox, const QList<int> &unitList)
 {
     comboBox->clear();
 
     QString unitString;
 
-    foreach( int unit, unitList) {
+    foreach (int unit, unitList) {
         unitString = KUnitConversion::Converter().unit(unit).data()->description();
         unitString.append(" (");
         unitString.append(KUnitConversion::Converter().unit(unit).data()->symbol());
         unitString.append(")");
-        comboBox->addItem( unitString, unit );
+        comboBox->addItem(unitString, unit);
     }
-
 }

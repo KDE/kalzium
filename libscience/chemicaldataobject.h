@@ -1,8 +1,5 @@
-#ifndef CHEMICALDATAOBJECT_H
-#define CHEMICALDATAOBJECT_H
 /***************************************************************************
- *   Copyright (C) 2005 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2005 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,6 +16,9 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef CHEMICALDATAOBJECT_H
+#define CHEMICALDATAOBJECT_H
 
 #include <QtCore/QSharedData>
 #include <QtCore/QSharedDataPointer>
@@ -44,8 +44,7 @@ public:
      * it is "bo:symbol". To avoid confusion I will choose the very
      * same naming
      */
-    enum BlueObelisk
-    {
+    enum BlueObelisk {
         atomicNumber = 0 /**< The atomic number of the element */,
         symbol/**< the symbol of the element */,
         name/**< The IUPAC name of the element */,
@@ -101,9 +100,9 @@ public:
      *
      * @see errorValue()
      */
-    ChemicalDataObject( const QVariant& v,
-                        BlueObelisk type,
-                        const QVariant& errorValue = QVariant(0) );
+    ChemicalDataObject(const QVariant& v,
+                       BlueObelisk type,
+                       const QVariant& errorValue = QVariant(0));
 
     /**
      * Copy constructor.
@@ -119,14 +118,14 @@ public:
      * Set the data of this object to @p v
      * @param v the value of the object
      */
-    void setData( const QVariant& v );
+    void setData(const QVariant& v);
 
     /**
      * Set the error value of this object to @p v.
      * The error has to have the same unit as the value.
      * @param v the value of the object
      */
-    void setErrorValue(  const QVariant& v );
+    void setErrorValue(const QVariant& v);
 
     /**
      * Every ChemicalDataObject contains one data. For example a
@@ -163,32 +162,32 @@ public:
     /**
      * @param type the type of this object
      */
-    void setType( BlueObelisk type );
+    void setType(BlueObelisk type);
 
     /**
      * @overload
      */
-    void setType( int type );
+    void setType(int type);
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== ( const int v ) const;
+    bool operator== (const int v) const;
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== ( const double v ) const;
+    bool operator== (const double v) const;
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== ( const bool v ) const;
+    bool operator== (const bool v) const;
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== ( const QString& v ) const;
+    bool operator== (const QString& v) const;
 
     /**
      * @return the unit of the object as a QString. For example kelvin
@@ -205,7 +204,7 @@ public:
      * set the unit of this object to @p unit
      * @param unit the BlueObeliskUnit for this object
      */
-    void setUnit( int unit );
+    void setUnit(int unit);
 
     ChemicalDataObject& operator=(const ChemicalDataObject &other);
 

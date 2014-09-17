@@ -11,6 +11,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef MOLECULEVIEW_H
 #define MOLECULEVIEW_H
 
@@ -18,11 +19,13 @@
 
 #include "ui_moleculeviewerwidget.h"
 
-namespace OpenBabel {
-  class OBForceField;
+namespace OpenBabel
+{
+class OBForceField;
 }
-namespace Avogadro{
-  class PeriodicTableView;
+namespace Avogadro
+{
+class PeriodicTableView;
 }
 class QSettings;
 
@@ -31,16 +34,16 @@ class QSettings;
  */
 class MoleculeDialog : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		MoleculeDialog( QWidget  * parent );
-		~MoleculeDialog();
-        
-        void loadMolecule(const QString &filename);
+public:
+    MoleculeDialog(QWidget * parent);
+    ~MoleculeDialog();
 
-	private:
-		QString  m_path;///to store the path were the molecules are located
+    void loadMolecule(const QString &filename);
+
+private:
+    QString m_path;///to store the path were the molecules are located
     QList<int> m_elementsIndex; // Index storing the element combo index
     Avogadro::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
@@ -49,72 +52,69 @@ class MoleculeDialog : public KDialog
 
     Ui::moleculeViewerForm ui;
 
+    /**
+    * Set up the element combo box
+    */
+    void elementCombo();
 
+private slots:
+    /**
+     * Load a molecule
+     */
+    void slotLoadMolecule();
 
     /**
-     * Set up the element combo box
+     * Get a new molecule using hot new stuff
      */
-     void elementCombo();
-	
-	private slots:
-		/**
-		 * Load a molecule
-		 */
-		void slotLoadMolecule();
-
-		/**
-		 * Get a new molecule using hot new stuff
-		 */
-		void slotDownloadNewStuff();
+    void slotDownloadNewStuff();
 
     /**
-     * Save a molecule
-     */
+    * Save a molecule
+    */
     void slotSaveMolecule();
 
     /**
-     * Set view/edit mode
-     */
+    * Set view/edit mode
+    */
     void setViewEdit(int mode);
 
     /**
-     * Current element has changed
-     */
+    * Current element has changed
+    */
     void slotElementChanged(int element);
 
     /**
-     * Custom element has been selected
-     */
+    * Custom element has been selected
+    */
     void slotCustomElementChanged(int);
 
     /**
-     * Bond order has been changed
-     */
+    * Bond order has been changed
+    */
     void slotBondOrderChanged(int);
 
     /**
-     * Automatic hydrogen addition on drawing
-     */
+    * Automatic hydrogen addition on drawing
+    */
     void slotAddHydrogensChanged(int);
 
     /**
-     * Update the statistical information about the current molecule
-     */
+    * Update the statistical information about the current molecule
+    */
     void slotUpdateStatistics();
 
     /**
-     * Add/remove hydrogens
-     */
-     void slotAdjustHydrogens();
+    * Add/remove hydrogens
+    */
+    void slotAdjustHydrogens();
 
     /**
-     * Geometry optimization
-     */
-     void slotGeometryOptimize();
+    * Geometry optimization
+    */
+    void slotGeometryOptimize();
 
-     /// Clears the view
-     void clearAllElementsInEditor();
-
+    /// Clears the view
+    void clearAllElementsInEditor();
 };
 
 #endif // MOLECULEVIEW_H

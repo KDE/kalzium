@@ -1,9 +1,5 @@
-#ifndef SPECTRUM_H
-#define SPECTRUM_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                           *
- *   cniehaus@kde.org                                                      *
- *
+ *   Copyright (C) 2005, 2006 by Carsten Niehaus <cniehaus@kde.org>        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef SPECTRUM_H
+#define SPECTRUM_H
 
 #include "libkdeedu_science_export.h"
 
@@ -56,7 +55,7 @@ public:
             intensity = -1;
         }
 
-        peak(double wl, int in ) {
+        peak(double wl, int in) {
             wavelength = wl;
             intensity = in;
         }
@@ -65,16 +64,17 @@ public:
         int intensity;
         double wavelength;
 
-        double wavelengthToUnit( const int unit );
+        double wavelengthToUnit(const int unit);
     };
 
     /**
      * adds the peak @p b to the internal
      * lists of peaks
      */
-    void addPeak( Spectrum::peak* b ) {
-        if ( b )
-            m_peaklist.append( b );
+    void addPeak(Spectrum::peak* b) {
+        if (b) {
+            m_peaklist.append(b);
+        }
     }
 
     /**
@@ -86,7 +86,7 @@ public:
      * so that the biggest intensity is again 1000 and the
      * others are adopted.
      */
-    Spectrum* adjustToWavelength( double min, double max );
+    Spectrum* adjustToWavelength(double min, double max);
 
     /**
      * sets the highest intensity to 1000 and adjusts the
@@ -100,7 +100,7 @@ public:
      *
      * @return the wavelength in a QList<double>
      */
-    QList<double> wavelengths( double min, double max );
+    QList<double> wavelengths(double min, double max);
 
     /**
      * @return the list of peaks of the spectrum
@@ -119,15 +119,15 @@ public:
      * @return the smallest wavelength
      */
     double minPeak();
-    double minPeak( const int unit );
+    double minPeak(const int unit);
 
     /**
      * @return the biggest wavelength
      */
     double maxPeak();
-    double maxPeak( const int unit );
+    double maxPeak(const int unit);
 
-    void setParentElementNumber( int num )
+    void setParentElementNumber(int num)
     {
         m_parentElementNumber = num;
     }
@@ -140,4 +140,5 @@ private:
 
     int m_parentElementNumber;
 };
+
 #endif // SPECTRUM_H

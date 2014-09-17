@@ -1,8 +1,5 @@
-#ifndef RSDIALOG_H
-#define RSDIALOG_H
 /***************************************************************************
- *   Copyright (C) 2006-2008 by Carsten Niehaus                            *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2006-2008 by Carsten Niehaus <cniehaus@kde.org>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef RSDIALOG_H
+#define RSDIALOG_H
 
 #include <kdialog.h>
 #include <QWidget>
@@ -27,43 +27,42 @@
 #include "ui_rswidget.h"
 
 /**
- * This class 
+ * This class
  *
  * @author Carsten Niehaus
  */
 class RSDialog : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		RSDialog( QWidget * parent );
+public:
+    RSDialog(QWidget * parent);
 
-		Ui::RSWidget ui;
+    Ui::RSWidget ui;
 
-		/**
-		 * Filter the R- and S-Phrases.
-		 */
-		void filterRS( const QList<int>& r, const QList<int>& s );
+    /**
+     * Filter the R- and S-Phrases.
+     */
+    void filterRS(const QList<int>& r, const QList<int>& s);
 
-		QString rphrase( int number );
-		
-		QString sphrase( int number );
+    QString rphrase(int number);
 
-	public slots:
-		void filter();
+    QString sphrase(int number);
 
-        private slots:
-                void slotHelp();
+public slots:
+    void filter();
 
-	private:
-		QMap<int, QString> rphrases_map;
-		QMap<int, QString> sphrases_map;
-		
-		void createSPhrases();
-		void createRPhrases();
+private slots:
+    void slotHelp();
 
-		void invalidPhaseString();
+private:
+    QMap<int, QString> rphrases_map;
+    QMap<int, QString> sphrases_map;
+
+    void createSPhrases();
+    void createRPhrases();
+
+    void invalidPhaseString();
 };
 
 #endif // RSDIALOG_H
-

@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2005 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,6 +18,7 @@
  ***************************************************************************/
 
 #include "chemicaldataobject.h"
+
 #include <kunitconversion/converter.h>
 #include <kdebug.h>
 
@@ -47,7 +47,7 @@ ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
 }
 //##############
 
-ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue )
+ChemicalDataObject::ChemicalDataObject(const QVariant& v, BlueObelisk type, const QVariant& errorValue)
         : d(new ChemicalDataObjectPrivate)
 {
     d->m_value = v;
@@ -78,34 +78,38 @@ ChemicalDataObject& ChemicalDataObject::operator=(const ChemicalDataObject &othe
     return *this;
 }
 
-bool ChemicalDataObject::operator==( const int v ) const
+bool ChemicalDataObject::operator==(const int v) const
 {
-    if ( d->m_value.type() != QVariant::Int )
+    if (d->m_value.type() != QVariant::Int) {
         return false;
+    }
 
     return d->m_value.toInt() == v;
 }
 
-bool ChemicalDataObject::operator==( const bool v ) const
+bool ChemicalDataObject::operator==(const bool v) const
 {
-    if ( d->m_value.type() != QVariant::Bool )
+    if (d->m_value.type() != QVariant::Bool) {
         return false;
+    }
 
     return d->m_value.toBool() == v;
 }
 
-bool ChemicalDataObject::operator==( const double v ) const
+bool ChemicalDataObject::operator==(const double v) const
 {
-    if ( d->m_value.type() != QVariant::Double )
+    if (d->m_value.type() != QVariant::Double) {
         return false;
+    }
 
     return d->m_value.toDouble() == v;
 }
 
-bool ChemicalDataObject::operator==( const QString& v ) const
+bool ChemicalDataObject::operator==(const QString& v) const
 {
-    if ( d->m_value.type() != QVariant::String )
+    if (d->m_value.type() != QVariant::String) {
         return false;
+    }
 
     return d->m_value.toString() == v;
 }
@@ -140,7 +144,7 @@ QVariant ChemicalDataObject::errorValue() const
     return d->m_errorValue;
 }
 
-void ChemicalDataObject::setUnit( int unit )
+void ChemicalDataObject::setUnit(int unit)
 {
     d->m_unit = unit;
 }
@@ -150,24 +154,24 @@ int ChemicalDataObject::unit() const
     return d->m_unit;
 }
 
-void ChemicalDataObject::setData( const QVariant& v )
+void ChemicalDataObject::setData(const QVariant& v)
 {
     d->m_value = v;
 }
 
-void ChemicalDataObject::setErrorValue( const QVariant& v )
+void ChemicalDataObject::setErrorValue(const QVariant& v)
 {
     d->m_errorValue = v;
 }
 
-void ChemicalDataObject::setType( BlueObelisk type )
+void ChemicalDataObject::setType(BlueObelisk type)
 {
     d->m_type = type;
 }
 
-void ChemicalDataObject::setType( int type )
+void ChemicalDataObject::setType(int type)
 {
-    d->m_type = ( ChemicalDataObject::BlueObelisk ) type;
+    d->m_type = (ChemicalDataObject::BlueObelisk) type;
 }
 
 QString ChemicalDataObject::unitAsString() const

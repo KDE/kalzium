@@ -45,8 +45,8 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
 
     setItemIndexMethod(QGraphicsScene::NoIndex);
 
-    m_hoverTimer.setSingleShot( true );
-    connect( &m_hoverTimer, SIGNAL(timeout()), this, SLOT(slotMouseover()) );
+    m_hoverTimer.setSingleShot(true);
+    connect(&m_hoverTimer, SIGNAL(timeout()), this, SLOT(slotMouseover()));
 }
 
 PeriodicTableScene::~PeriodicTableScene()
@@ -75,36 +75,36 @@ void PeriodicTableScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    QGraphicsItem *item = QGraphicsScene::itemAt( m_eventPos );
+    QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos);
 
-    if (( QApplication::mouseButtons() & Qt::LeftButton ) &&
-            ( event->pos() - m_eventPos ).manhattanLength() > QApplication::startDragDistance() &&
+    if ((QApplication::mouseButtons() & Qt::LeftButton) &&
+            (event->pos() - m_eventPos).manhattanLength() > QApplication::startDragDistance() &&
             item->data(0).toInt() > 0) {
-        Element* pointedElement = KalziumDataObject::instance()->element( item->data(0).toInt() );
+        Element* pointedElement = KalziumDataObject::instance()->element(item->data(0).toInt());
 
-        QDrag *drag = new QDrag( event->widget() );
+        QDrag *drag = new QDrag(event->widget());
         QMimeData *mimeData = new QMimeData;
 
-        mimeData->setText( pointedElement->dataAsString( ChemicalDataObject::name ) );
-        drag->setMimeData( mimeData );
+        mimeData->setText(pointedElement->dataAsString(ChemicalDataObject::name));
+        drag->setMimeData(mimeData);
 
         QPixmap pix(item->boundingRect().width() + 1, item->boundingRect().height() + 1);
-        pix.fill( palette().color( QPalette::Window ) );
+        pix.fill(palette().color(QPalette::Window));
 
         QPainter painter(&pix);
         item->paint(&painter, new QStyleOptionGraphicsItem());
 
-        drag->setPixmap( pix );
-        drag->start( Qt::CopyAction | Qt::MoveAction );
+        drag->setPixmap(pix);
+        drag->start(Qt::CopyAction | Qt::MoveAction);
 
         m_eventPos = QPoint();
     } else {
         m_eventPos = event->scenePos();
 
-        if ( m_hoverTimer.isActive() ) {
+        if (m_hoverTimer.isActive()) {
             m_hoverTimer.stop();
         }
-        m_hoverTimer.start( 100 );
+        m_hoverTimer.start(100);
     }
 
     QGraphicsScene::mouseMoveEvent(event);
@@ -117,8 +117,8 @@ void PeriodicTableScene::slotMouseover()
 
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
         int num = item->data(0).toInt();
-        if ( ( num > 0 ) && ( num != m_prevHoverElement ) ) {
-            emit elementHovered( num );
+        if ((num > 0) && (num != m_prevHoverElement)) {
+            emit elementHovered(num);
         }
         m_prevHoverElement = num;
     }
@@ -127,8 +127,9 @@ void PeriodicTableScene::slotMouseover()
 
 void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (event->button() != Qt::LeftButton)
+    if (event->button() != Qt::LeftButton) {
         return;
+    }
 
     QGraphicsItem *item = QGraphicsScene::itemAt(event->scenePos());
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {

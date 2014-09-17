@@ -1,8 +1,5 @@
-#ifndef MOLCALCWIDGET_H
-#define MOLCALCWIDGET_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006, 2007 by Carsten Niehaus                     *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2005, 2006, 2007 by Carsten Niehaus <cniehaus@kde.org>  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
+
+#ifndef MOLCALCWIDGET_H
+#define MOLCALCWIDGET_H
 
 #include <QWidget>
 #include "ui_molcalcwidgetbase.h"
@@ -38,50 +38,49 @@ class QKeyEvent;
  */
 class MolcalcWidget : public QWidget
 {
-	Q_OBJECT
-	public:
-		/**
-		 * Constructor
-		 * @param parent parent widget
-		 */
-		MolcalcWidget( QWidget *parent = 0 );
-		void hideExtra();
-		virtual ~MolcalcWidget();
-		
-	protected slots:
-		void slotCalculate();
-        
-	protected:
-        void keyPressEvent(QKeyEvent *e);
+    Q_OBJECT
+public:
+    /**
+     * Constructor
+     * @param parent parent widget
+     */
+    MolcalcWidget(QWidget *parent = 0);
+    void hideExtra();
+    virtual ~MolcalcWidget();
 
-	private slots:
-		void clear();
-		void addAlias();
+protected slots:
+    void slotCalculate();
 
-	private:
-		/**
-		 * @return the HTML code of an element symbol and its
-		 * subscripted amount. Eg: Mg<sub>2</sub>
-		 */
-		QString compositionString( ElementCountMap &_map );
+protected:
+    void keyPressEvent(QKeyEvent *e);
 
-		/**
-		 * This methods gathers all the data and updates the 
-		 * contents of the widget.
-		 */
-		void updateUI();
+private slots:
+    void clear();
+    void addAlias();
 
-		Ui_MolcalcWidgetBase ui;
+private:
+    /**
+     * @return the HTML code of an element symbol and its
+     * subscripted amount. Eg: Mg<sub>2</sub>
+     */
+    QString compositionString(ElementCountMap &_map);
 
-        QTimer * m_timer;
+    /**
+     * This methods gathers all the data and updates the
+     * contents of the widget.
+     */
+    void updateUI();
 
-	private:
-		MoleculeParser   *m_parser;
-        QSet<QString>    m_aliasList;
-		double           m_mass;
-		bool             m_validInput;
-		ElementCountMap  m_elementMap;
+    Ui_MolcalcWidgetBase ui;
+
+    QTimer * m_timer;
+
+private:
+    MoleculeParser   *m_parser;
+    QSet<QString>    m_aliasList;
+    double           m_mass;
+    bool             m_validInput;
+    ElementCountMap  m_elementMap;
 };
 
-
-#endif // MOLCALC_IMPL_H
+#endif // MOLCALCWIDGET_H

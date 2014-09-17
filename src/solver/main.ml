@@ -40,7 +40,3 @@ Printf.printf "%s \n" (solve_equation myeq6);;
 
 Printf.printf "%s \n" (solve_equation myeq6);;*)
 Printf.printf "%s \n" (solve_equation myeq7);;
-
-
-
-

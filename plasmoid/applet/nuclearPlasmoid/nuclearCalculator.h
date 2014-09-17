@@ -11,8 +11,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef nuclearCalculator_HEADER
-#define nuclearCalculator_HEADER
+#ifndef NUCLEARCALCULATOR_H
+#define NUCLEARCALCULATOR_H
 
 #include <KIcon>
 
@@ -115,7 +115,7 @@ class nuclearCalculator : public Plasma::PopupApplet
 
         /// This function hides the slider just under the time spinBox in the UI
         void showSlider(bool show);
-                
+
         void configChanged();
 
     private slots:
@@ -142,7 +142,7 @@ class nuclearCalculator : public Plasma::PopupApplet
         Plasma::SpinBox *m_finalAmt;
         Plasma::SpinBox *m_time;
 
-//		Plasma::Slider *m_slider;
+//      Plasma::Slider *m_slider;
         Plasma::PushButton *m_reset;
         Plasma::Label *m_numHalfLives;
         Plasma::Label *m_error;
@@ -164,4 +164,5 @@ class nuclearCalculator : public Plasma::PopupApplet
 
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(nuclearCalculator, nuclearCalculator)
-#endif //nuclearCalculator_HEADER
+
+#endif // NUCLEARCALCULATOR_H

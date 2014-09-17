@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2005, 2006 by Pino Toscano, toscano.pino@tiscali.it     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -31,8 +31,8 @@ class KalziumNumerationType;
  * @author Pino Toscano
  */
 class KalziumNumerationTypeFactory
-  {
-  public:
+{
+public:
     /**
      * Get the instance of this factory.
      */
@@ -42,13 +42,13 @@ class KalziumNumerationTypeFactory
      * Returns the KalziumNumerationType with the @p id specified.
      * It will gives 0 if none found.
      */
-    KalziumNumerationType* build ( int id ) const;
+    KalziumNumerationType* build(int id) const;
     /**
      * Returns the KalziumNumerationType whose name is the @p id
      * specified.
      * It will gives 0 if none found.
      */
-    KalziumNumerationType* build ( const QByteArray& id ) const;
+    KalziumNumerationType* build(const QByteArray& id) const;
 
     /**
      * Returns a list with the names of the numeration types we
@@ -56,11 +56,11 @@ class KalziumNumerationTypeFactory
      */
     QStringList numerations() const;
 
-  private:
+private:
     KalziumNumerationTypeFactory();
 
     QList<KalziumNumerationType*> m_numerations;
-  };
+};
 
 /**
  * Base class for a numeration type.
@@ -69,8 +69,8 @@ class KalziumNumerationTypeFactory
  * @author Pino Toscano
  */
 class KalziumNumerationType
-  {
-  public:
+{
+public:
     /**
      * Get its instance.
      */
@@ -92,17 +92,17 @@ class KalziumNumerationType
     /**
      * Returns the @p num 'th item of this numeration type.
      */
-    virtual QString item ( const int num ) const;
+    virtual QString item(const int num) const;
     /**
      * Returns all the items of this numeration type.
      */
     virtual QStringList items() const;
 
-  protected:
+protected:
     KalziumNumerationType();
 
     QStringList m_items;
-  };
+};
 
 /**
  * The class representing no numeration.
@@ -112,19 +112,19 @@ class KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumNoneNumerationType : public KalziumNumerationType
-  {
-  public:
+{
+public:
     static KalziumNoneNumerationType* instance();
 
     QByteArray name() const;
     QString description() const;
 
-    QString item ( const int num ) const;
+    QString item(const int num) const;
     QStringList items() const;
 
-  private:
+private:
     KalziumNoneNumerationType();
-  };
+};
 
 /**
  * The numeration "International Union of Pure and Applied Chemistry" (IUPAC).
@@ -132,16 +132,16 @@ class KalziumNoneNumerationType : public KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumIUPACNumerationType : public KalziumNumerationType
-  {
-  public:
+{
+public:
     static KalziumIUPACNumerationType* instance();
 
     QByteArray name() const;
     QString description() const;
 
-  private:
+private:
     KalziumIUPACNumerationType();
-  };
+};
 
 /**
  * The numeration "Chemical Abstract Service" (CAS).
@@ -149,16 +149,16 @@ class KalziumIUPACNumerationType : public KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumCASNumerationType : public KalziumNumerationType
-  {
-  public:
+{
+public:
     static KalziumCASNumerationType* instance();
 
     QByteArray name() const;
     QString description() const;
 
-  private:
+private:
     KalziumCASNumerationType();
-  };
+};
 
 /**
  * The old IUPAC numeration.
@@ -166,15 +166,15 @@ class KalziumCASNumerationType : public KalziumNumerationType
  * @author Pino Toscano
  */
 class KalziumOldIUPACNumerationType : public KalziumNumerationType
-  {
-  public:
+{
+public:
     static KalziumOldIUPACNumerationType* instance();
 
     QByteArray name() const;
     QString description() const;
 
-  private:
+private:
     KalziumOldIUPACNumerationType();
-  };
+};
 
 #endif // KALZIUMNUMERATIONTYPE_H

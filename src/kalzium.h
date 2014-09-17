@@ -10,6 +10,7 @@ email                : cniehaus@kde.org
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef KALZIUM_H
 #define KALZIUM_H
 
@@ -61,11 +62,11 @@ public:
      * Default Destructor
      */
     virtual ~Kalzium();
-    
+
     void loadMolecule(const QString &moleculeFile);
 
 private:
-    DetailedInfoDlg   *m_infoDialog;
+    DetailedInfoDlg *m_infoDialog;
 
     LegendWidget *m_legendWidget;
 
@@ -93,7 +94,7 @@ private:
      */
     void setupSidebars();
 
-    void extractIconicInformationAboutElement( int elementNumber );
+    void extractIconicInformationAboutElement(int elementNumber);
 
     /**
      * all KActions Kalzium uses
@@ -133,8 +134,6 @@ private:
 
     QToolBox *m_toolbox;
 
-    int m_toolboxCurrent;
-
     GlossaryDialog *m_glossarydlg;
 
     ExportDialog *m_exportDialog;
@@ -148,15 +147,15 @@ private slots:
     /**
      * opens the information dialog for the element @p number
      */
-    void openInformationDialog( int number );
+    void openInformationDialog(int number);
 
-    void elementHover( int num );
+    void elementHover(int num);
     void setupStatusBar();
 
     /**
      * switched to the table with the index @p index
      */
-    void slotSwitchtoTable( int index );
+    void slotSwitchtoTable(int index);
 
     /**
      * start the glossary
@@ -174,8 +173,8 @@ private slots:
 
     void slotTables();
 
-    void slotSwitchtoLookGradient( int );
-    void slotSwitchtoLookScheme( int );
+    void slotSwitchtoLookGradient(int);
+    void slotSwitchtoLookScheme(int);
     void slotSwitchtoNumeration(int);
 
     /**
@@ -204,4 +203,4 @@ protected:
     virtual QSize sizeHint() const;
 };
 
-#endif // _KALZIUM_H_
+#endif // KALZIUM_H

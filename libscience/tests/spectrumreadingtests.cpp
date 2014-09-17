@@ -14,7 +14,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #include "spectrumparser.h"
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    SpectrumParser * parser = new SpectrumParser();
+    SpectrumParser *parser = new SpectrumParser();
     QFile xmlFile(argv[1]);
 
     QXmlInputSource source(&xmlFile);
@@ -38,15 +38,14 @@ int main(int argc, char *argv[])
     reader.setContentHandler(parser);
     reader.parse(source);
 
-    QList<Spectrum*> v = parser->getSpectrums();
+    QList<Spectrum *> v = parser->getSpectrums();
 
     qDebug() << "Found " << v.count() << " isotopes.";
 
-    foreach( Spectrum* s, v ){
-        if ( s )
-        {
+    foreach (Spectrum *s, v) {
+        if (s) {
             qDebug() << "Element:  " << s->parentElementNumber();
-            foreach (Spectrum::peak * p , s->peaklist() ) {
+            foreach (Spectrum::peak * p , s->peaklist()) {
                 qDebug() << "         Peak: " << p->wavelength;
             }
         }

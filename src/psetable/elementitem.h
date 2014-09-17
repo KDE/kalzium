@@ -24,8 +24,8 @@
  02110-1301, USA.
  **********************************************************************/
 
-#ifndef ELEMENTITEM_P_H
-#define ELEMENTITEM_P_H
+#ifndef ELEMENTITEM_H
+#define ELEMENTITEM_H
 
 #include <QGraphicsItem>
 #include "kalziumdataobject.h"
@@ -33,20 +33,20 @@
 
 #include <chemicaldataobject.h>
 
-  /**
-   * @class ElementItem
-   * @author Marcus D. Hanwell, Etienne Rebetez
-   * @brief An element item, intended to display a single element.
-   *
-   * This class implements a QGraphicsItem for displaying single elements in a
-   * perdiodic table. It currently allows the setting of the proton number.
-   * All other information come frome the kalziumElementProperty class.
-   */
-  class ElementItem : public QGraphicsObject
-  {
+/**
+* @class ElementItem
+* @author Marcus D. Hanwell, Etienne Rebetez
+* @brief An element item, intended to display a single element.
+*
+* This class implements a QGraphicsItem for displaying single elements in a
+* perdiodic table. It currently allows the setting of the proton number.
+* All other information come frome the kalziumElementProperty class.
+*/
+class ElementItem : public QGraphicsObject
+{
     Q_OBJECT
 
-  public:
+public:
     /**
      * Constructor. Should be called with the element number for this item. The
      * constructor uses setData to set the element number using the key 0. This
@@ -73,19 +73,24 @@
      * This is where most of the action takes place. The element box is drawn
      * along with its symbol.
      */
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-  public Q_SLOTS:
+public Q_SLOTS:
     void redraw();
 
-  private:
+private:
     QString getCurrentElementValue();
 
     /**
-     * Width and height of the elements.
+     * Width of the elements.
      */
-    int m_width, m_height;
+    int m_width;
+
+    /**
+     * Height of the elements.
+     */
+    int m_height;
+
     /**
      * The proton number of the item - all other attributes are derived from this.
      */
@@ -110,10 +115,9 @@
 
     KalziumElementProperty *m_property;
 
-  protected:
+protected:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
-  };
+};
 
-
-#endif // ELEMENTITEM_P_H
+#endif // ELEMENTITEM_H

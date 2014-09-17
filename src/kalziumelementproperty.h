@@ -17,7 +17,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
-
 #ifndef KALZIUMELEMENTPROPERTY_H
 #define KALZIUMELEMENTPROPERTY_H
 
@@ -46,15 +45,13 @@ public:
     */
     static KalziumElementProperty* instance();
 
-    enum ELEMENTTEXTINFORMATIONMODE
-    {
+    enum ELEMENTTEXTINFORMATIONMODE {
         NORMAL = 0, // Only Symbol Number
         ELNUMBER,
         GRADIENTVALUE
     };
 
-    enum SPECIALGRADIENTYPDEF
-    {
+    enum SPECIALGRADIENTYPDEF {
         NOGRADIENT = 0,
         SOMGradientType = 1,
         DISCOVERYDATE = 9
@@ -153,7 +150,7 @@ public slots:
 private:
     KalziumElementProperty();
     ~KalziumElementProperty();
-    
+
     bool isGradient();
 
     QColor gradientBrushLogic(int el) const;

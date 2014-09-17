@@ -38,14 +38,14 @@ public:
     /**
      * Construct a new empty search.
      */
-    SearchWidget( QWidget *parent = 0 );
+    SearchWidget(QWidget *parent = 0);
 
     ~SearchWidget();
 
     void giveFocus();
 
 private slots:
-    void searchTextChanged( const QString& text );
+    void searchTextChanged(const QString& text);
     void slotReturnPressed();
     void doSearch();
 

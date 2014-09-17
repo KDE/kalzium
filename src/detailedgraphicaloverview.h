@@ -1,5 +1,3 @@
-#ifndef DETAILEDGRAPHICALOVERVIEW_H
-#define DETAILEDGRAPHICALOVERVIEW_H
 /***************************************************************************
     copyright            : (C) 2004, 2005, 2006, 2007 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -14,6 +12,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#ifndef DETAILEDGRAPHICALOVERVIEW_H
+#define DETAILEDGRAPHICALOVERVIEW_H
 
 #include <QWidget>
 #include "kalziumelementproperty.h"
@@ -37,19 +38,19 @@ public:
      *
      * @param parent the parent of this widget
      */
-    DetailedGraphicalOverview( QWidget *parent );
+    DetailedGraphicalOverview(QWidget *parent);
 
 public slots:
     /**
      * Set @p el as the element to be drawn
      */
-    void setElement( int el );
+    void setElement(int el);
 
 private:
     /**
      * Set the background color to @p bgColor.
      */
-    void setBackgroundColor( QColor bgColor );
+    void setBackgroundColor(QColor bgColor);
 
     /**
      * the element whose data will be used
@@ -62,8 +63,7 @@ private:
     QBrush m_backgroundBrush;
 
 protected:
-    virtual void paintEvent( QPaintEvent* );
+    virtual void paintEvent(QPaintEvent*);
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H
-

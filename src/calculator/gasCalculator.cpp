@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 	by Kashyap R Puranik, kashthealien@gmail.com   *
+ *   Copyright (C) 2009     by Kashyap R Puranik, kashthealien@gmail.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "gasCalculator.h"
+
 #include "kalziumunitcombobox.h"
 #include "prefs.h"
 #include "kalziumutils.h"
@@ -33,31 +34,31 @@ gasCalculator::gasCalculator(QWidget * parent)
 
     init();
 
-    connect(ui.temp , SIGNAL(valueChanged(double)),
+    connect(ui.temp, SIGNAL(valueChanged(double)),
             this, SLOT(tempChanged()));
-    connect(ui.temp_unit , SIGNAL(activated(int)),
+    connect(ui.temp_unit, SIGNAL(activated(int)),
             this, SLOT(tempChanged()));
-    connect(ui.volume , SIGNAL(valueChanged(double)),
+    connect(ui.volume, SIGNAL(valueChanged(double)),
             this, SLOT(volChanged()));
-    connect(ui.volume_unit , SIGNAL(activated(int)),
+    connect(ui.volume_unit, SIGNAL(activated(int)),
             this, SLOT(volChanged()));
-    connect(ui.pressure , SIGNAL(valueChanged(double)),
+    connect(ui.pressure, SIGNAL(valueChanged(double)),
             this, SLOT(pressureChanged()));
-    connect(ui.pressure_unit , SIGNAL(activated(int)),
+    connect(ui.pressure_unit, SIGNAL(activated(int)),
             this, SLOT(pressureChanged()));
-    connect(ui.mass ,  SIGNAL(valueChanged(double)),
+    connect(ui.mass,  SIGNAL(valueChanged(double)),
             this, SLOT(massChanged()));
-    connect(ui.mass_unit , SIGNAL(activated(int)),
+    connect(ui.mass_unit, SIGNAL(activated(int)),
             this, SLOT(massChanged()));
-    connect(ui.moles , SIGNAL(valueChanged(double)),
+    connect(ui.moles, SIGNAL(valueChanged(double)),
             this, SLOT(molesChanged(double)));
     connect(ui.molarMass, SIGNAL(valueChanged(double)),
             this, SLOT(molarMassChanged(double)));
-    connect(ui.a , SIGNAL(valueChanged(double)),
+    connect(ui.a, SIGNAL(valueChanged(double)),
             this, SLOT(Vand_aChanged()));
-    connect(ui.b ,  SIGNAL(valueChanged(double)),
+    connect(ui.b,  SIGNAL(valueChanged(double)),
             this, SLOT(Vand_bChanged()));
-    connect(ui.b_unit , SIGNAL(activated(int)),
+    connect(ui.b_unit, SIGNAL(activated(int)),
             this, SLOT(Vand_bChanged()));
     connect(ui.mode, SIGNAL(activated(int)),
             this, SLOT(setMode(int)));
@@ -73,14 +74,14 @@ void gasCalculator::init()
 {
     error(RESET_GAS_MESSAGE);
 
-    ui.molarMass-> setValue(2.008);
-    ui.temp     -> setValue(273.0);
-    ui.volume   -> setValue(22.400);
-    ui.pressure -> setValue(1.0);
-    ui.a        -> setValue(0.0);
-    ui.b        -> setValue(0.0);
-    ui.mass     -> setValue(2.016);
-    ui.moles    -> setValue(1.0);
+    ui.molarMass ->setValue(2.008);
+    ui.temp      ->setValue(273.0);
+    ui.volume    ->setValue(22.400);
+    ui.pressure  ->setValue(1.0);
+    ui.a         ->setValue(0.0);
+    ui.b         ->setValue(0.0);
+    ui.mass      ->setValue(2.016);
+    ui.moles     ->setValue(1.0);
 
     ui.mass_unit->setCurrentIndex(0);
     ui.pressure_unit->setCurrentIndex(0);
@@ -108,40 +109,40 @@ void gasCalculator::setupUnitComboboxes()
 {
     QList<int> units;
     units << Gram << Milligram << Kilogram << Ton;
-    KalziumUtils::populateUnitCombobox( ui.mass_unit, units );
+    KalziumUtils::populateUnitCombobox(ui.mass_unit, units);
 
     units.clear();
     units << Atmosphere << Pascal << Bar << Millibar << Torr;
-    KalziumUtils::populateUnitCombobox( ui.pressure_unit, units );
+    KalziumUtils::populateUnitCombobox(ui.pressure_unit, units);
 
     units.clear();
     units << Kelvin << Celsius << Fahrenheit;
-    KalziumUtils::populateUnitCombobox( ui.temp_unit, units );
+    KalziumUtils::populateUnitCombobox(ui.temp_unit, units);
 
     units.clear();
     units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
-    KalziumUtils::populateUnitCombobox( ui.volume_unit, units );
+    KalziumUtils::populateUnitCombobox(ui.volume_unit, units);
 
     units.clear();
     units << Liter << Milliliter << CubicMeter << KUnitConversion::GallonUS;
-    KalziumUtils::populateUnitCombobox( ui.b_unit, units );
+    KalziumUtils::populateUnitCombobox(ui.b_unit, units);
 }
 
 
 int gasCalculator::getCurrentUnitId(QComboBox* comboBox)
 {
-    return comboBox->itemData( comboBox->currentIndex() ).toInt();
+    return comboBox->itemData(comboBox->currentIndex()).toInt();
 }
 
 void gasCalculator::calculatePressure()
 {
-    double volume = m_vol.convertTo( KUnitConversion::Liter ).number();
-    double temp = m_temp.convertTo( KUnitConversion::Kelvin ).number();
-    double b = m_Vand_b.convertTo( KUnitConversion::Liter ).number();
+    double volume = m_vol.convertTo(KUnitConversion::Liter).number();
+    double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
+    double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
     double pressure = m_moles * R * temp / (volume - m_moles * b) - m_moles * m_moles * m_Vand_a / volume / volume;
 
-    m_pressure = Value(pressure, KUnitConversion::Atmosphere );
+    m_pressure = Value(pressure, KUnitConversion::Atmosphere);
     m_pressure = m_pressure.convertTo(getCurrentUnitId(ui.pressure_unit));
     ui.pressure->setValue(m_pressure.number());
 }
@@ -167,7 +168,7 @@ void gasCalculator::calculateVol()
 
     double volume = m_moles * R * temp / pressure + (m_moles * b);
     m_vol = Value(volume, KUnitConversion::Liter);
-    m_vol = m_vol.convertTo( getCurrentUnitId(ui.volume_unit) );
+    m_vol = m_vol.convertTo(getCurrentUnitId(ui.volume_unit));
     ui.volume->setValue(m_vol.number());
 }
 
@@ -180,7 +181,7 @@ void gasCalculator::calculateTemp()
     double temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume))\
                   * (volume - m_moles * b) / m_moles / R;
     m_temp = Value(temp, KUnitConversion::Kelvin);
-    m_temp = m_temp.convertTo( getCurrentUnitId( ui.temp_unit ) );
+    m_temp = m_temp.convertTo(getCurrentUnitId(ui.temp_unit));
     ui.temp->setValue(m_temp.number());
 }
 
@@ -206,32 +207,32 @@ void gasCalculator::calculateMass()
     double mass = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
                   * (volume - m_moles * b) * m_molarMass / R / temp;
     m_mass = Value(mass, KUnitConversion::Gram);
-    m_mass = m_mass.convertTo( getCurrentUnitId( ui.mass_unit ) );
+    m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
     ui.mass->setValue(m_mass.number());
 }
 
 
 void gasCalculator::volChanged()
 {
-    m_vol = Value(ui.volume->value(), getCurrentUnitId( ui.volume_unit ) );
+    m_vol = Value(ui.volume->value(), getCurrentUnitId(ui.volume_unit));
     calculate();
 }
 
 void gasCalculator::tempChanged()
 {
-    m_temp = Value(ui.temp->value(), getCurrentUnitId( ui.temp_unit ) );
+    m_temp = Value(ui.temp->value(), getCurrentUnitId(ui.temp_unit));
     calculate();
 }
 
 void gasCalculator::pressureChanged()
 {
-    m_pressure = Value(ui.pressure->value(), getCurrentUnitId( ui.pressure_unit ) );
+    m_pressure = Value(ui.pressure->value(), getCurrentUnitId(ui.pressure_unit));
     calculate();
 }
 
 void gasCalculator::massChanged()
 {
-    m_mass = Value(ui.mass->value(), getCurrentUnitId( ui.mass_unit ) );
+    m_mass = Value(ui.mass->value(), getCurrentUnitId(ui.mass_unit));
     m_moles = m_mass.convertTo(KUnitConversion::Gram).number() / m_molarMass;
     ui.moles->setValue(m_moles);
     calculate();
@@ -241,7 +242,7 @@ void gasCalculator::molesChanged(double value)
 {
     m_moles = value;
     m_mass = Value(m_moles * m_molarMass, KUnitConversion::Gram);
-    m_mass = m_mass.convertTo( getCurrentUnitId( ui.mass_unit ) );
+    m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -254,7 +255,7 @@ void gasCalculator::molarMassChanged(double value)
     }
     m_molarMass = value;
     m_mass = Value(m_molarMass * m_moles, KUnitConversion::Gram);
-    m_mass = m_mass.convertTo( getCurrentUnitId( ui.mass_unit ) );
+    m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -267,7 +268,7 @@ void gasCalculator::Vand_aChanged()
 
 void gasCalculator::Vand_bChanged()
 {
-    m_Vand_b = Value(ui.b->value(), getCurrentUnitId( ui.b_unit ) );
+    m_Vand_b = Value(ui.b->value(), getCurrentUnitId(ui.b_unit));
     calculate();
 }
 
@@ -281,8 +282,7 @@ void gasCalculator::setMode(int mode)
     ui.temp->setReadOnly(false);
     ui.volume->setReadOnly(false);
 
-    switch (mode)
-    {
+    switch (mode) {
     case MOLES:
         ui.moles->setReadOnly(true);
         ui.mass->setReadOnly(true);
@@ -305,8 +305,7 @@ void gasCalculator::calculate()
 {
     error(RESET_GAS_MESSAGE);
 
-    switch (m_mode)
-    {
+    switch (m_mode) {
     case MOLES:
         calculateMoles();
         break;

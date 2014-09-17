@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2005, 2006 by Pino Toscano, toscano.pino@tiscali.it     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -34,8 +34,7 @@ class KalziumGradientTypeFactory
 {
 public:
 
-    enum KalziumGradientTypes
-    {
+    enum KalziumGradientTypes {
         SOMGradientType = 0,
         CovalentRadiusGradientType,
         VanDerWaalsRadiusGradientType,
@@ -56,13 +55,13 @@ public:
      * Returns the KalziumGradientType with the @p id specified.
      * It will gives 0 if none found.
      */
-    KalziumGradientType* build( int id ) const;
+    KalziumGradientType* build(int id) const;
     /**
      * Returns the KalziumGradientType whose name is the @p id
      * specified.
      * It will gives 0 if none found.
      */
-    KalziumGradientType* build( const QByteArray& id ) const;
+    KalziumGradientType* build(const QByteArray& id) const;
 
     /**
      * Returns a list with the names of the gradients we support.
@@ -110,13 +109,13 @@ public:
      * @p el according to this gradient. The calculated coefficient
      * will be always in the range [0, 1].
      */
-    virtual double elementCoeff( int el ) const;
+    virtual double elementCoeff(int el) const;
     /**
      * Return the value, related to the current gradient, of the
      * element with atomic number @p el.
      * It will return -1 if the data is not available.
      */
-    virtual double value( int el ) const = 0;
+    virtual double value(int el) const = 0;
     /**
      * Gives back the unit of the current value.
      */
@@ -161,7 +160,7 @@ public:
      * @param coeff is the coefficient in the range [0, 1], usually
      * calculated with elementCoeff()
      */
-    QColor calculateColor( const double coeff ) const;
+    QColor calculateColor(const double coeff) const;
 
 protected:
     KalziumGradientType();
@@ -180,7 +179,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -206,7 +205,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -232,7 +231,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -258,7 +257,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -284,7 +283,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -311,7 +310,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -337,7 +336,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -363,7 +362,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -389,7 +388,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;
@@ -415,7 +414,7 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    double value( int el ) const;
+    double value(int el) const;
     QString unit() const;
 
     double minValue() const;

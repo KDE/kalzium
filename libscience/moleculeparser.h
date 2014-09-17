@@ -27,121 +27,135 @@
  * @class ElementCount
  * @author Inge Wallin
  */
-class SCIENCE_EXPORT ElementCount 
+class SCIENCE_EXPORT ElementCount
 {
-	public:
-		/**
-		 * Constructor
-		 */
-		ElementCount(Element *_element, int _count)
-		{
-			m_element = _element;
-			m_count   = _count;
-		}
-		
-		/**
-		 * Constructor
-		 */
-		ElementCount(Element *_element)
-		{
-			m_element = _element;
-			m_count   = 0;
-		}
-		/**
-		 * Destructor
-		 */
-		~ElementCount();
+public:
+    /**
+     * Constructor
+     */
+    ElementCount(Element *_element, int _count)
+    {
+        m_element = _element;
+        m_count   = _count;
+    }
 
-		/**
-		 * @return the Element
-		 */
-		Element *element() const    { return m_element;   }
+    /**
+     * Constructor
+     */
+    ElementCount(Element *_element)
+    {
+        m_element = _element;
+        m_count   = 0;
+    }
+    /**
+     * Destructor
+     */
+    ~ElementCount();
 
-		/**
-		 * @return the number of occurrences of the Element
-		 */
-		int   count()  const        { return m_count;     }
-		
-		/**
-		 * Add @p _count occurrences of the Element
-		 * @param _count The number of times the Element occurs
-		 */
-		void  add(int _count)       { m_count += _count;  }
-		void  multiply(int _factor) { m_count *= _factor; }
+    /**
+     * @return the Element
+     */
+    Element *element() const
+    {
+        return m_element;
+    }
 
-		/**
-		 * The Element of the object
-		 */
-		Element  *m_element;
-		/**
-		 * The number of occurrences
-		 */
-		int       m_count;
+    /**
+     * @return the number of occurrences of the Element
+     */
+    int count()  const
+    {
+        return m_count;
+    }
+
+    /**
+     * Add @p _count occurrences of the Element
+     * @param _count The number of times the Element occurs
+     */
+    void add(int _count)
+    {
+        m_count += _count;
+    }
+    void multiply(int _factor)
+    {
+        m_count *= _factor;
+    }
+
+    /**
+     * The Element of the object
+     */
+    Element *m_element;
+    /**
+     * The number of occurrences
+     */
+    int m_count;
 };
 
 
 /**
  * This class is used to count the elements in the molecule
  * which is being calculated
- * 
+ *
  * @class ElementCountMap
  * @author Inge Wallin
  */
-class SCIENCE_EXPORT ElementCountMap 
+class SCIENCE_EXPORT ElementCountMap
 {
-	public:
-		/**
-		 * Constructor
-		 */
-		ElementCountMap();
+public:
+    /**
+     * Constructor
+     */
+    ElementCountMap();
 
-		/**
-		 * Destructor
-		 */
-		~ElementCountMap();
+    /**
+     * Destructor
+     */
+    ~ElementCountMap();
 
-		/**
-		 * Clear the map of ElementCount pointers
-		 */
-		void  clear(){ 
-        m_map.clear(); 
+    /**
+     * Clear the map of ElementCount pointers
+     */
+    void  clear()
+    {
+        m_map.clear();
     }
 
-		/**
-		 * @param _element the searched Element
-		 * @return the Element which is searched
-		 */
-		ElementCount  *search(Element *_element);
+    /**
+     * @param _element the searched Element
+     * @return the Element which is searched
+     */
+    ElementCount *search(Element *_element);
 
-		/**
-		 * @param _map
-		 */
-		void           add(ElementCountMap &_map);
+    /**
+     * @param _map
+     */
+    void add(ElementCountMap &_map);
 
-		/**
-		 * Returns the elements in the molecule. For example, if the molecule 
-		 * is CO2, a list with C and O will be returned.
-		 * @return the elements in the molecule
-		 */
-		QList<Element*> elements();
+    /**
+     * Returns the elements in the molecule. For example, if the molecule
+     * is CO2, a list with C and O will be returned.
+     * @return the elements in the molecule
+     */
+    QList<Element*> elements();
 
-		/**
-		 * @param _element
-		 * @param _count
-		 */
-		void           add(Element *_element, int _count);
+    /**
+     * @param _element
+     * @param _count
+     */
+    void add(Element *_element, int _count);
 
-		/**
-		 * @param _factor
-		 */
-		void           multiply(int _factor);
+    /**
+     * @param _factor
+     */
+    void multiply(int _factor);
 
-		QList<ElementCount*>  map(){
+    QList<ElementCount*>  map()
+    {
         return m_map;
     }
 
-	private:
-		QList<ElementCount*>  m_map;
+private:
+    QList<ElementCount*>  m_map;
 };
 
 
@@ -174,73 +188,72 @@ class SCIENCE_EXPORT ElementCountMap
  *     cout << "Weight of " << chemical_formula << " = " << weight << ".\n";
  *   else
  *     cout << "Parse error\n";
- * @endcode 
+ * @endcode
  *
  * @author Inge Wallin
  * @author Kashyap R Puranik
  */
-class SCIENCE_EXPORT MoleculeParser : public Parser {
+class SCIENCE_EXPORT MoleculeParser : public Parser
+{
 
 public:
-	/**
-	 * @param list This list of chemical elements will be used internally
-	 * for searching and matching with searched strings
-	 * Constructor
-	 */
-    MoleculeParser( const QList<Element*>& list );
-	
-	/**
-	 * Constructor
-	 * 
-	 * @param _str @ref Parser::start the parsing with @p _str
-	 */
-    MoleculeParser( const QString& _str);
-	
-	/**
-	 * Destructor
-	 */
+    /**
+     * @param list This list of chemical elements will be used internally
+     * for searching and matching with searched strings
+     * Constructor
+     */
+    MoleculeParser(const QList<Element*> &list);
+
+    /**
+     * Constructor
+     *
+     * @param _str @ref Parser::start the parsing with @p _str
+     */
+    MoleculeParser(const QString &_str);
+
+    /**
+     * Destructor
+     */
     virtual ~MoleculeParser();
 
     /**
      * Try to parse the molecule @p molecule and get the weight of it.
      * The calculated weight is stored in @p _result.
-	 *
-	 * @param _moleculeString
-	 * @param _resultMass
-	 * @param _resultMap
+     *
+     * @param _moleculeString
+     * @param _resultMass
+     * @param _resultMap
      *
      * @return whether the parsing was successful or not
      */
     bool  weight(const QString&         _moleculeString,
-				 double          *_resultMass,
-				 ElementCountMap *_resultMap);
-				 
-	QSet<QString> aliasList();
- private:
+                 double          *_resultMass,
+                 ElementCountMap *_resultMap);
+
+    QSet<QString> aliasList();
+private:
     // Helper functions
-    bool      parseSubmolecule(double          *_resultMass,
-							   ElementCountMap *_resultMap);
-    bool      parseTerm(double          *_resultMass, 
-						ElementCountMap *_resultMap);
-	// This function expands the molecule string
-	// eg expandFormula(EtOH)	returns (C2H5)OH
-	QString	  expandFormula(const QString& _shortMolecularMass);
-	// This function expands a term
-	// eg expandTerm(Et) returns (C2H5)
-	QString   expandTerm(const QString& _group);
-	
-	QList<Element*> m_elementList;
+    bool parseSubmolecule(double *_resultMass, ElementCountMap *_resultMap);
+    bool parseTerm(double *_resultMass, ElementCountMap *_resultMap);
+    // This function expands the molecule string
+    // eg expandFormula(EtOH)    returns (C2H5)OH
+    QString expandFormula(const QString &_shortMolecularMass);
+    // This function expands a term
+    // eg expandTerm(Et) returns (C2H5)
+    QString expandTerm(const QString &_group);
+
+    QList<Element*> m_elementList;
 
     static const int  ELEMENT_TOKEN = 300;
 
-    Element  *lookupElement( const QString& _name );
+    Element  *lookupElement(const QString& _name);
 
     QMap<Element*, int> m_elementMap;
-	
-	// Contains the list of aliases eg, { "Et - C2H5", "Me - CH3"}
-	QSet<QString> *m_aliasList; 	
-	//if this booloean is "true" the parser found an error
-	bool             m_error;
+
+    // Contains the list of aliases eg, { "Et - C2H5", "Me - CH3"}
+    QSet<QString> *m_aliasList;
+    //if this booloean is "true" the parser found an error
+    bool m_error;
 
 protected:
 
@@ -250,7 +263,7 @@ protected:
     virtual int  getNextToken();
 
 private:
-    Element  *m_elementVal;	// Valid if m_nextToken == ELEMENT_TOKEN
+    Element  *m_elementVal;    // Valid if m_nextToken == ELEMENT_TOKEN
 };
 
-#endif
+#endif // MOLECULEPARSER_H

@@ -10,6 +10,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef KALZIUM_PLASMA_H
 #define KALZIUM_PLASMA_H
 

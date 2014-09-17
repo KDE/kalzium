@@ -1,5 +1,3 @@
-#ifndef DIDYOUKNOW_H
-#define DIDYOUKNOW_H
 /***************************************************************************
     copyright            : (C) 2008 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -12,6 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#ifndef DIDYOUKNOW_H
+#define DIDYOUKNOW_H
 
 #include <Plasma/Applet>
 #include <Plasma/Svg>
@@ -45,9 +46,9 @@ class KalziumDidyouknow : public Plasma::Applet
         Plasma::Svg m_theme;
         QGraphicsTextItem *m_label1;
         Plasma::DataEngine* m_engine;
-    
+
         KRandomSequence * m_random;
-        
+
         QSizeF m_size;
 };
 

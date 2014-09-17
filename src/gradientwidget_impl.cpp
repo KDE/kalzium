@@ -27,22 +27,21 @@
 // used to convert the double variables to int's. (slider <-> spinbox)
 #define MULTIPLIKATOR 1000
 
-GradientWidgetImpl::GradientWidgetImpl( QWidget *parent )
-        : QWidget( parent ), m_play(false)
+GradientWidgetImpl::GradientWidgetImpl(QWidget *parent) : QWidget(parent), m_play(false)
 {
-    setupUi( this );
-    
-    scheme_combo->addItems( KalziumElementProperty::instance()->schemeList() );
-    gradient_combo->addItems( KalziumElementProperty::instance()->gradientList() );
+    setupUi(this);
 
-    connect( gradient_spinbox, SIGNAL(valueChanged(double)), this, SLOT(doubleToSlider(double)));
-    connect( gradient_slider, SIGNAL(valueChanged(int)), this, SLOT(intToSpinbox(int)));
+    scheme_combo->addItems(KalziumElementProperty::instance()->schemeList());
+    gradient_combo->addItems(KalziumElementProperty::instance()->gradientList());
 
-    m_timer = new QTimer( this );
-    connect( Play, SIGNAL (clicked()), this, SLOT(play()));
-    connect( m_timer, SIGNAL(timeout()), this, SLOT(tick()) );
+    connect(gradient_spinbox, SIGNAL(valueChanged(double)), this, SLOT(doubleToSlider(double)));
+    connect(gradient_slider, SIGNAL(valueChanged(int)), this, SLOT(intToSpinbox(int)));
 
-    Play->setIcon( KIcon( "media-playback-start" ) );
+    m_timer = new QTimer(this);
+    connect(Play, SIGNAL(clicked()), this, SLOT(play()));
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(tick()));
+
+    Play->setIcon(KIcon("media-playback-start"));
 }
 
 GradientWidgetImpl::~GradientWidgetImpl()
@@ -52,7 +51,7 @@ GradientWidgetImpl::~GradientWidgetImpl()
 
 void GradientWidgetImpl::slotGradientChanged()
 {
-    if ( !gradient_slider->isEnabled() ) {
+    if (!gradient_slider->isEnabled()) {
         gradient_spinbox->setEnabled(true);
         gradient_slider->setEnabled(true);
         Play->setEnabled(true);
@@ -67,19 +66,19 @@ void GradientWidgetImpl::slotGradientChanged()
     const int intMin = dblMin * MULTIPLIKATOR;
 
     // now we have the slider numbers, so put the speed to a adequate value.
-    Speed->setMaximum( intMax / 100 );
-    Speed->setValue( ( intMax / 100 ) / 2 );
+    Speed->setMaximum(intMax / 100);
+    Speed->setValue((intMax / 100) / 2);
 
     gradient_slider->setMaximum(intMax);
     gradient_slider->setMinimum(intMin);
 
-    lblUnit->setText( elementProperty->gradient()->unit() );
+    lblUnit->setText(elementProperty->gradient()->unit());
 
     gradient_spinbox->setMaximum(dblMax);
     gradient_spinbox->setMinimum(dblMin);
     gradient_spinbox->setDecimals(elementProperty->gradient()->decimals());
 
-    switch ( elementProperty->gradientId() ) {
+    switch (elementProperty->gradientId()) {
     case KalziumElementProperty::DISCOVERYDATE:
         gradient_spinbox->setValue(dblMax);
         break;
@@ -94,7 +93,7 @@ void GradientWidgetImpl::slotGradientChanged()
     }
 
     // Disable Gradient widgets if no gradient is selected.
-    if ( gradient_combo->currentIndex() == KalziumElementProperty::NOGRADIENT) {
+    if (gradient_combo->currentIndex() == KalziumElementProperty::NOGRADIENT) {
         gradient_spinbox->setEnabled(false);
         gradient_slider->setEnabled(false);
         Play->setEnabled(false);
@@ -109,23 +108,23 @@ void GradientWidgetImpl::doubleToSlider(double doubleVar)
     //matter which UI elements (slider oder spinbox) was changed, the other
     //has to be set to the same value
 
-    gradient_slider->blockSignals( true );
+    gradient_slider->blockSignals(true);
 
     // setting the decimals in int
     int intvar = doubleVar * MULTIPLIKATOR;
 
     gradient_slider->setValue(intvar);
 
-    gradient_slider->blockSignals( false );
+    gradient_slider->blockSignals(false);
 
-    emit gradientValueChanged( doubleVar );
+    emit gradientValueChanged(doubleVar);
 
-    setNewValue( doubleVar );
+    setNewValue(doubleVar);
 }
 
 void GradientWidgetImpl::intToSpinbox(int var)
 {
-    gradient_spinbox->blockSignals( true );
+    gradient_spinbox->blockSignals(true);
 
     // put int back to double with decimals
     double doublevar = var;
@@ -133,15 +132,15 @@ void GradientWidgetImpl::intToSpinbox(int var)
 
     gradient_spinbox->setValue(doublevar);
 
-    gradient_spinbox->blockSignals( false );
+    gradient_spinbox->blockSignals(false);
 
-    emit gradientValueChanged( doublevar );
+    emit gradientValueChanged(doublevar);
 
-    setNewValue( doublevar );
+    setNewValue(doublevar);
 }
 
 
-void GradientWidgetImpl::setNewValue( double newValue )
+void GradientWidgetImpl::setNewValue(double newValue)
 {
     // Info text currently only for State of mater typ available.
     if (gradient_combo->currentIndex() != KalziumElementProperty::SOMGradientType) {
@@ -159,48 +158,48 @@ void GradientWidgetImpl::setNewValue( double newValue )
     QStringList listMeltingPointValue;
 
     foreach (Element * element, KalziumDataObject::instance()->ElementList) {
-        double melting = element->dataAsVariant( ChemicalDataObject::meltingpoint, Prefs::temperatureUnit() ).toDouble();
-        if ( ( melting > 0.0 ) && fabs( melting - newValue ) <= threshold ) {
-            listMeltingPoint << element->dataAsString( ChemicalDataObject::name );
-            listMeltingPointValue << QString::number( melting );
+        double melting = element->dataAsVariant(ChemicalDataObject::meltingpoint, Prefs::temperatureUnit()).toDouble();
+        if ((melting > 0.0) && fabs(melting - newValue) <= threshold) {
+            listMeltingPoint << element->dataAsString(ChemicalDataObject::name);
+            listMeltingPointValue << QString::number(melting);
         }
 
-        double boiling = element->dataAsVariant( ChemicalDataObject::boilingpoint, Prefs::temperatureUnit() ).toDouble();
-        if ( ( boiling > 0.0 ) && fabs( boiling - newValue ) <= threshold ) {
-            listBoilingPoint << element->dataAsString( ChemicalDataObject::name );
-            listBoilingPointValue << QString::number( boiling );
+        double boiling = element->dataAsVariant(ChemicalDataObject::boilingpoint, Prefs::temperatureUnit()).toDouble();
+        if ((boiling > 0.0) && fabs(boiling - newValue) <= threshold) {
+            listBoilingPoint << element->dataAsString(ChemicalDataObject::name);
+            listBoilingPointValue << QString::number(boiling);
         }
     }
     QString htmlcode;
-    if ( listMeltingPoint.count() > 0 ) {
-        htmlcode += i18n( "Elements with melting point around this temperature:" ) + '\n';
-        for ( int i = 0; i < listMeltingPoint.count(); i++ ) {
-            htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2%3)",
-                                       listMeltingPoint.at( i ), listMeltingPointValue.at( i ), unitSymbol ) + '\n';
+    if (listMeltingPoint.count() > 0) {
+        htmlcode += i18n("Elements with melting point around this temperature:") + '\n';
+        for (int i = 0; i < listMeltingPoint.count(); ++i) {
+            htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)",
+                                       listMeltingPoint.at(i), listMeltingPointValue.at(i), unitSymbol) + '\n';
         }
         htmlcode += '\n';
     } else {
-        htmlcode += i18n( "No elements with a melting point around this temperature" );
+        htmlcode += i18n("No elements with a melting point around this temperature");
         htmlcode += "\n\n";
     }
-    if ( listBoilingPoint.count() > 0 ) {
-        htmlcode += i18n( "Elements with boiling point around this temperature:" ) + '\n';
-        for ( int i = 0; i < listBoilingPoint.count(); i++ ) {
-            htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2%3)",
-                                       listBoilingPoint.at( i ), listBoilingPointValue.at( i ), unitSymbol )  + '\n';
+    if (listBoilingPoint.count() > 0) {
+        htmlcode += i18n("Elements with boiling point around this temperature:") + '\n';
+        for (int i = 0; i < listBoilingPoint.count(); ++i) {
+            htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)",
+                                       listBoilingPoint.at(i), listBoilingPointValue.at(i), unitSymbol)  + '\n';
         }
         htmlcode += '\n';
     } else {
-        htmlcode += i18n( "No elements with a boiling point around this temperature" );
+        htmlcode += i18n("No elements with a boiling point around this temperature");
         htmlcode += '\n';
     }
 
-    text->setText( /*m_htmlBegin +*/ htmlcode /*+ m_htmlEnd*/ );
+    text->setText(/*m_htmlBegin +*/ htmlcode /*+ m_htmlEnd*/);
 }
 
 void GradientWidgetImpl::play(void)
 {
-    if ( m_play ) {   //Currently playing
+    if (m_play) {   //Currently playing
         //The Mode is 'Play' so stop
         stop();
         return;
@@ -209,20 +208,20 @@ void GradientWidgetImpl::play(void)
     //The mode is not 'play'
     //If the slider is at the maximum position bring it to the minimum
     if ((gradient_slider)->value() >= gradient_slider->maximum()) {
-        gradient_slider->setValue ( gradient_slider->minimum () );
+        gradient_slider->setValue (gradient_slider->minimum ());
     }
     //start the timer at 200 milisecond time interval with single shot disabled
-    m_timer->start( 200 );
+    m_timer->start(200);
 
     m_play = true;          //start playing
-    Play->setIcon( KIcon( "media-playback-pause" ) );
+    Play->setIcon(KIcon("media-playback-pause"));
 }
 
 void GradientWidgetImpl::stop(void)
 {
     //Currently playing, stop the timer.
     m_timer -> stop();
-    Play->setIcon( KIcon( "media-playback-start" ) );
+    Play->setIcon(KIcon("media-playback-start"));
     m_play = false;         //Stop
 }
 
@@ -231,8 +230,9 @@ void GradientWidgetImpl::tick(void)
     int increment = Speed->value();
     int temp = gradient_slider->value();
     int max = gradient_slider->maximum();
-    if (temp + increment > max)
+    if (temp + increment > max) {
         stop();
-    gradient_slider -> setValue ( temp + increment );
+    }
+    gradient_slider -> setValue (temp + increment);
 }
 // #include "gradientwidget_impl.moc"

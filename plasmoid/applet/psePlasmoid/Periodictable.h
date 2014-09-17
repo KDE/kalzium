@@ -17,10 +17,9 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 *
 ***********************************************************************************/
-
 // Here we avoid loading the header multiple times
-#ifndef ElementWidget_HEADER
-#define ElementWidget_HEADER
+#ifndef PERIODICTABLE_H
+#define PERIODICTABLE_H
 
 #include <QGraphicsGridLayout>
 
@@ -83,4 +82,4 @@ private:
     void drawToolTip( Plasma::DataEngine::Data &element );
 };
 
-#endif
+#endif // PERIODICTABLE_H

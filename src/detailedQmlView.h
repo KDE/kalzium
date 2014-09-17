@@ -1,6 +1,6 @@
 
-#ifndef DETAILQMLVIEW_H
-#define DETAILQMLVIEW_H
+#ifndef DETAILEDQMLVIEW_H
+#define DETAILEDQMLVIEW_H
 
 #include <QWidget>
 #include <QDeclarativeContext>
@@ -8,28 +8,28 @@
 #include "kalziumelementproperty.h"
 #include "element.h"
 
- class DetailedQmlView : public QWidget
- {
-   Q_OBJECT
- public:
+class DetailedQmlView : public QWidget
+{
+    Q_OBJECT
+public:
 
-   DetailedQmlView( QWidget *parent );
-   ~DetailedQmlView();
+    DetailedQmlView(QWidget *parent);
+    ~DetailedQmlView();
 
 public slots:
     /**
      * Set @p el as the element to be drawn
      */
-    void setElement( int el );
+    void setElement(int el);
 
     void itemPressed();
 
- private:
+private:
 
-   KalziumElementProperty *m_elementProperty;
-   Element *m_element;
+    KalziumElementProperty *m_elementProperty;
+    Element *m_element;
 
-   QDeclarativeContext *m_context;
+    QDeclarativeContext *m_context;
 
 protected:
     /**
@@ -41,7 +41,7 @@ protected:
     /**
      * is caled every time the view is resized.
      */
-    void resizeEvent ( QResizeEvent * event );
- };
+    void resizeEvent(QResizeEvent * event);
+};
 
-#endif //DETAILQMLVIEW_H
+#endif //DETAILEDQMLVIEW_H

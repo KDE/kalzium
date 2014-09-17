@@ -2,7 +2,7 @@
 
  Rectangle {
 
-  	Text {
+	Text {
 
 	    text: "<sub>"atomicNumber"</sub>" atomName
 	    width: parent.width

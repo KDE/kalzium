@@ -56,5 +56,3 @@ let cleanup (eq : eqtable) =
     let goal = Goals.GlArray.labeling dist in
     if not (Goals.solve goal) then failwith "fatal error"
 ;;
-
-

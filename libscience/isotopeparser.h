@@ -1,5 +1,3 @@
-#ifndef ISOTOPEPARSER_H
-#define ISOTOPEPARSER_H
 /***************************************************************************
     copyright            : (C) 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -12,6 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#ifndef ISOTOPEPARSER_H
+#define ISOTOPEPARSER_H
 
 #include <QtCore/QList>
 
@@ -26,23 +27,24 @@ class Isotope;
  */
 class SCIENCE_EXPORT IsotopeParser : public QXmlDefaultHandler
 {
-	public:
-		/**
-		 * Constructor
-		 */
-		IsotopeParser();
-		~IsotopeParser();
-		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
+public:
+    /**
+     * Constructor
+     */
+    IsotopeParser();
+    ~IsotopeParser();
+    bool startElement(const QString &, const QString &localName, const QString &,
+                      const QXmlAttributes &attrs);
 
-		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
-		
-		bool characters(const QString &ch);
+    bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName);
 
-		QList<Isotope*> getIsotopes();
+    bool characters(const QString &ch);
 
-	private:
-		class Private;
-		Private *const d;
+    QList<Isotope*> getIsotopes();
+
+private:
+    class Private;
+    Private *const d;
 };
 #endif // ISOTOPEPARSER_H
 

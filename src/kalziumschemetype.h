@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2005, 2006 by Pino Toscano, toscano.pino@tiscali.it     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -51,13 +51,13 @@ public:
      * Returns the KalziumSchemeType with the @p id specified.
      * It will gives 0 if none found.
      */
-    KalziumSchemeType* build( int id ) const;
+    KalziumSchemeType* build(int id) const;
     /**
      * Returns the KalziumSchemeType whose name is the @p id
      * specified.
      * It will gives 0 if none found.
      */
-    KalziumSchemeType* build( const QByteArray& id ) const;
+    KalziumSchemeType* build(const QByteArray& id) const;
 
     /**
      * Returns a list with the names of the schemes we support.
@@ -104,12 +104,12 @@ public:
      *
      * @return A brush for painting in @p elrect
      */
-    virtual QBrush elementBrush( int el ) const = 0;
+    virtual QBrush elementBrush(int el) const = 0;
     /**
      * Returns the color which will be used to draw the texts for
      * the element with atomic number @p el.
      */
-    virtual QColor textColor( int el ) const = 0;
+    virtual QColor textColor(int el) const = 0;
 
     /**
      * Returns a list with the legend of the current scheme.
@@ -133,8 +133,8 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el ) const;
-    QColor textColor( int el ) const;
+    QBrush elementBrush(int el) const;
+    QColor textColor(int el) const;
 
     QList<legendPair> legendItems() const;
 
@@ -155,8 +155,8 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el ) const;
-    QColor textColor( int el ) const;
+    QBrush elementBrush(int el) const;
+    QColor textColor(int el) const;
 
     QList<legendPair> legendItems() const;
 
@@ -177,8 +177,8 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el ) const;
-    QColor textColor( int el ) const;
+    QBrush elementBrush(int el) const;
+    QColor textColor(int el) const;
 
     QList<legendPair> legendItems() const;
 
@@ -199,8 +199,8 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el ) const;
-    QColor textColor( int el ) const;
+    QBrush elementBrush(int el) const;
+    QColor textColor(int el) const;
 
     QList<legendPair> legendItems() const;
 
@@ -221,8 +221,8 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el ) const;
-    QColor textColor( int el ) const;
+    QBrush elementBrush(int el) const;
+    QColor textColor(int el) const;
 
     QList<legendPair> legendItems() const;
 
@@ -244,8 +244,8 @@ public:
     QByteArray name() const;
     QString description() const;
 
-    QBrush elementBrush( int el ) const;
-    QColor textColor( int el ) const;
+    QBrush elementBrush(int el) const;
+    QColor textColor(int el) const;
 
     QList<legendPair> legendItems() const;
 
@@ -261,19 +261,19 @@ private:
 //X  */
 //X class KalziumCrystalSchemeType : public KalziumSchemeType
 //X {
-//X 	public:
-//X 		static KalziumCrystalSchemeType* instance();
+//X     public:
+//X         static KalziumCrystalSchemeType* instance();
 //X
-//X 		QByteArray name() const;
-//X 		QString description() const;
+//X         QByteArray name() const;
+//X         QString description() const;
 //X
-//X 		QBrush elementBrush( int el, const QRect& elrect ) const;
-//X 		QColor textColor( int el ) const;
+//X         QBrush elementBrush(int el, const QRect& elrect) const;
+//X         QColor textColor(int el) const;
 //X
-//X 		QList<legendPair> legendItems() const;
+//X         QList<legendPair> legendItems() const;
 //X
-//X 	private:
-//X 		KalziumCrystalSchemeType();
+//X     private:
+//X         KalziumCrystalSchemeType();
 //X };
 
 //X /**
@@ -281,19 +281,19 @@ private:
 //X  */
 //X class KalziumDiscoverymapSchemeType : public KalziumSchemeType
 //X {
-//X 	public:
-//X 		static KalziumDiscoverymapSchemeType* instance();
+//X     public:
+//X         static KalziumDiscoverymapSchemeType* instance();
 //X
-//X 		QByteArray name() const;
-//X 		QString description() const;
+//X         QByteArray name() const;
+//X         QString description() const;
 //X
-//X 		QBrush elementBrush( int el, const QRect& elrect ) const;
-//X 		QColor textColor( int el ) const;
+//X         QBrush elementBrush(int el, const QRect& elrect) const;
+//X         QColor textColor(int el) const;
 //X
-//X 		QList<legendPair> legendItems() const;
+//X         QList<legendPair> legendItems() const;
 //X
-//X 	private:
-//X 		KalziumDiscoverymapSchemeType();
+//X     private:
+//X         KalziumDiscoverymapSchemeType();
 //X };
 
 #endif // KALZIUMSCHEMETYPE_H

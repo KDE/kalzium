@@ -10,6 +10,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "spectrumviewimpl.h"
 
 #include <QTreeWidget>
@@ -21,10 +22,9 @@
 #include <klocalizedstring.h>
 #include "prefs.h"
 
-SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
-        : QWidget( parent )
+SpectrumViewImpl::SpectrumViewImpl(QWidget *parent) : QWidget(parent)
 {
-    setupUi( this );
+    setupUi(this);
 
     QStringList headers = QStringList() << i18n("Wavelength") << i18n("Intensity");
     peakListTable->setHeaderLabels(headers);
@@ -34,29 +34,29 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
     length << KUnitConversion::Nanometer << KUnitConversion::Angstrom;
     m_lengthUnit->setUnitList(length);
 
-    m_lengthUnit->setIndexWithUnitId( Prefs::spectrumWavelengthUnit() );
+    m_lengthUnit->setIndexWithUnitId(Prefs::spectrumWavelengthUnit());
 
-    m_spectrumType->setCurrentIndex( Prefs::spectrumType() );
+    m_spectrumType->setCurrentIndex(Prefs::spectrumType());
 
-    connect( minimumValue, SIGNAL(valueChanged(int)),
-             this, SLOT(updateMin(int)) );
-    connect( maximumValue, SIGNAL(valueChanged(int)),
-             this, SLOT(updateMax(int)) );
-    connect( m_spectrumWidget, SIGNAL(bordersChanged(int,int)),
-             this, SLOT(updateUI(int,int)) );
-    connect( m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
-             this, SLOT(updatePeakInformation(Spectrum::peak*)));
+    connect(minimumValue, SIGNAL(valueChanged(int)),
+            this, SLOT(updateMin(int)));
+    connect(maximumValue, SIGNAL(valueChanged(int)),
+            this, SLOT(updateMax(int)));
+    connect(m_spectrumWidget, SIGNAL(bordersChanged(int,int)),
+            this, SLOT(updateUI(int,int)));
+    connect(m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
+            this, SLOT(updatePeakInformation(Spectrum::peak*)));
 
-    connect( m_spectrumType, SIGNAL(currentIndexChanged(int)),
-             m_spectrumWidget, SLOT(slotActivateSpectrum(int)));
+    connect(m_spectrumType, SIGNAL(currentIndexChanged(int)),
+            m_spectrumWidget, SLOT(slotActivateSpectrum(int)));
 
-    connect( btn_resetZoom, SIGNAL(pressed()), m_spectrumWidget, SLOT(resetSpectrum()));
-    connect( this, SIGNAL(settingsChanged()), m_spectrumWidget, SLOT(resetSpectrum()));
+    connect(btn_resetZoom, SIGNAL(pressed()), m_spectrumWidget, SLOT(resetSpectrum()));
+    connect(this, SIGNAL(settingsChanged()), m_spectrumWidget, SLOT(resetSpectrum()));
 
-    connect( m_lengthUnit, SIGNAL(currentIndexChanged(int)),
-             this, SLOT(setUnit()));
+    connect(m_lengthUnit, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(setUnit()));
 
-    resize( minimumSizeHint() );
+    resize(minimumSizeHint());
 }
 
 void SpectrumViewImpl::fillPeakList()
@@ -65,11 +65,10 @@ void SpectrumViewImpl::fillPeakList()
 
     QList<QTreeWidgetItem *> items;
 
-    for (int i = 0; i <  m_spectrumWidget->spectrum()->peaklist().count(); i++ )
-    {
+    for (int i = 0; i < m_spectrumWidget->spectrum()->peaklist().count(); ++i) {
         Spectrum::peak * peak = m_spectrumWidget->spectrum()->peaklist().at(i);
 
-        double peakWavelength = peak->wavelengthToUnit( Prefs::spectrumWavelengthUnit() );
+        double peakWavelength = peak->wavelengthToUnit(Prefs::spectrumWavelengthUnit());
 
         QStringList row = QStringList() << QString::number(peakWavelength)
                           << QString::number(peak->intensity);
@@ -83,29 +82,33 @@ void SpectrumViewImpl::updateUI(int l, int r)
 {
     minimumValue->setValue(l);
     maximumValue->setValue(r);
-    minimumValue->setSuffix( KalziumDataObject::instance()->unitAsString( Prefs::spectrumWavelengthUnit() ) );
-    maximumValue->setSuffix( KalziumDataObject::instance()->unitAsString( Prefs::spectrumWavelengthUnit() ) );
+    minimumValue->setSuffix(KalziumDataObject::instance()->unitAsString(
+                                Prefs::spectrumWavelengthUnit()));
+    maximumValue->setSuffix(KalziumDataObject::instance()->unitAsString(
+                                Prefs::spectrumWavelengthUnit()));
 }
 
-void SpectrumViewImpl::updatePeakInformation( Spectrum::peak * peak )
+void SpectrumViewImpl::updatePeakInformation(Spectrum::peak *peak)
 {
-    double peakWavelength = peak->wavelengthToUnit( Prefs::spectrumWavelengthUnit() );
+    double peakWavelength = peak->wavelengthToUnit(Prefs::spectrumWavelengthUnit());
 
-    QList<QTreeWidgetItem *> foundItems = peakListTable->findItems( QString::number(peakWavelength) , Qt::MatchExactly );
+    QList<QTreeWidgetItem *> foundItems = peakListTable->findItems(QString::number(peakWavelength),
+                                          Qt::MatchExactly);
 
-    if ( foundItems.isEmpty() )
+    if (foundItems.isEmpty()) {
         return;
+    }
 
-    foreach( QTreeWidgetItem* item, peakListTable->selectedItems() )
-    item->setSelected( false );
+    foreach (QTreeWidgetItem * item, peakListTable->selectedItems())
+    item->setSelected(false);
 
-    foundItems.first()->setSelected( true );
-    peakListTable->scrollToItem( foundItems.first() );
+    foundItems.first()->setSelected(true);
+    peakListTable->scrollToItem(foundItems.first());
 }
 
 void SpectrumViewImpl::setUnit()
 {
-    Prefs::setSpectrumWavelengthUnit( m_lengthUnit->getCurrentUnitId() );
+    Prefs::setSpectrumWavelengthUnit(m_lengthUnit->getCurrentUnitId());
     Prefs::self()->writeConfig();
     qDebug() << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
 

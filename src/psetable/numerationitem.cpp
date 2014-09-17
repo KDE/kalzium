@@ -42,7 +42,7 @@
 NumerationItem::NumerationItem(int xPosition) : m_width(40), m_height(20),
         m_xPosition(xPosition)
 {
-    setNumerationType( Prefs::numeration() );
+    setNumerationType(Prefs::numeration());
 }
 
 NumerationItem::~NumerationItem()
@@ -65,8 +65,8 @@ void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 {
     QPen pen;
     QLinearGradient grad(QPointF(0, 0), QPointF(0, m_height));
-    grad.setColorAt(0,m_color);
-    grad.setColorAt(1,m_color.darker());
+    grad.setColorAt(0, m_color);
+    grad.setColorAt(1, m_color.darker());
     painter->setBrush(grad);
     pen.setColor(m_color.dark(1000));
     painter->setPen(pen);
@@ -80,7 +80,7 @@ void NumerationItem::setNumerationType(int type)
 {
    type == 0 ? m_color = QColor(Qt::transparent) : m_color = QColor(Qt::white);
 
-   m_numeration = KalziumNumerationTypeFactory::instance()->build( type )->item( m_xPosition );
+   m_numeration = KalziumNumerationTypeFactory::instance()->build(type)->item(m_xPosition);
 
    update();
 }

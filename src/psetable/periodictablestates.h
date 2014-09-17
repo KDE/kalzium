@@ -15,7 +15,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef PERIODICTABLESTATES_H
 #define PERIODICTABLESTATES_H
 
@@ -36,8 +35,7 @@
  * @short Setting up the pse states
  * @author Etienne Rebetez
  *
-*/
-
+ */
 
 class PeriodicTableStates
 {
@@ -57,13 +55,13 @@ public:
      * @param tableIndex Index of the table @see pseTables.
      * @return Rectangle in floating point precission.
      */
-    QRectF pseRect( const int &tableIndex ) const;
+    QRectF pseRect(const int &tableIndex) const;
 
     /**
      * Set the table index
      * @param tableIndex Index of the table @see pseTables..
      */
-    void setTableState( const int &tableIndex ) ;
+    void setTableState(const int &tableIndex) ;
 
 private:
     void setNumerationItemPositions(const int &tableIndex);
@@ -83,7 +81,8 @@ private:
     QList<ElementItem *> m_elementItemList;
     QList<NumerationItem *> m_numerationItemList;
 
-    int m_width, m_height;
+    int m_width;
+    int m_height;
 
     QList<QState *> m_tableStatesList;
 };

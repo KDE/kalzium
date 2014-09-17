@@ -15,32 +15,31 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "kalziumunitcombobox.h"
+
 #include "kalziumutils.h"
 
 KalziumUnitCombobox::KalziumUnitCombobox(QWidget* parent): QComboBox(parent)
 {
 }
 
-
-KalziumUnitCombobox::KalziumUnitCombobox( const QList< int > &unitList, QWidget* parent )
-        : QComboBox(parent)
+KalziumUnitCombobox::KalziumUnitCombobox(const QList< int > &unitList, QWidget* parent)
+    : QComboBox(parent)
 {
     setUnitList(unitList);
 }
 
 void KalziumUnitCombobox::setUnitList(const QList< int >& unitList)
 {
-    KalziumUtils::populateUnitCombobox( this, unitList ) ;
+    KalziumUtils::populateUnitCombobox(this, unitList);
 }
 
 int KalziumUnitCombobox::getCurrentUnitId() const
 {
-    return itemData( currentIndex() ).toInt();
+    return itemData(currentIndex()).toInt();
 }
 
-void KalziumUnitCombobox::setIndexWithUnitId( int unit )
+void KalziumUnitCombobox::setIndexWithUnitId(int unit)
 {
-    setCurrentIndex( findData( unit ) );
+    setCurrentIndex(findData(unit));
 }

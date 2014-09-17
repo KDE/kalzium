@@ -1,7 +1,7 @@
 /*********************************************************************************
  *   Copyright (C) 2005, 2006   by Pino Toscano, toscano.pino@tiscali.it         *
  *   Copyright (C) 2007         by Carste Niehaus, cniehaus@kde.org              *
- *   copyright (C) 2010         by Etienne Rebetez, etienne.rebetez@oberwallis.ch*
+ *   Copyright (C) 2010         by Etienne Rebetez, etienne.rebetez@oberwallis.ch*
  *                                                                               *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -47,27 +47,26 @@ pseTables *pseTables::instance()
 QStringList pseTables::tables() const
 {
     QStringList l;
-    for ( int i = 0; i < m_tables.count(); i++ )
-    {
-        l << m_tables.at( i )->description();
+    for (int i = 0; i < m_tables.count(); ++i) {
+        l << m_tables.at(i)->description();
     }
     return l;
 }
 
 pseTable* pseTables::getTabletype(const int tableType)
 {
-    if ( ( tableType < 0 ) || ( tableType >= m_tables.count() ) ) {
+    if ((tableType < 0) || (tableType >= m_tables.count())) {
         return 0;
     }
 
-    return m_tables.at( tableType );
+    return m_tables.at(tableType);
 }
 
 pseTable* pseTables::getTabletype(const QString tableName)
 {
-    for ( int i = 0; m_tables.count(); i++ ) {
-        if (tableName == m_tables.at( i )->name() ) {
-            return m_tables.at( i );
+    for (int i = 0; m_tables.count(); ++i) {
+        if (tableName == m_tables.at(i)->name()) {
+            return m_tables.at(i);
         }
     }
     return 0;
@@ -101,16 +100,16 @@ QList<int> pseTable::elements() const
     return m_elementList;
 }
 
-int pseTable::previousOf( int element ) const
+int pseTable::previousOf(int element) const
 {
-    int index = m_elementList.indexOf( element );
-    return index > 0 ? m_elementList.at( index - 1 ) : -1;
+    int index = m_elementList.indexOf(element);
+    return index > 0 ? m_elementList.at(index - 1) : -1;
 }
 
-int pseTable::nextOf( int element ) const
+int pseTable::nextOf(int element) const
 {
-    int index = m_elementList.indexOf( element );
-    return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
+    int index = m_elementList.indexOf(element);
+    return index != -1 && (index < m_elementList.count() - 1) ? m_elementList.at(index + 1) : -1;
 }
 
 int pseTable::firstElement() const
@@ -126,13 +125,13 @@ int pseTable::lastElement() const
 QPoint pseTable::elementCoords(const int element) const
 {
     int x = -1, y = -1;
-    int elementIndex = m_elementList.indexOf( element );
+    int elementIndex = m_elementList.indexOf(element);
 
-    if ( elementIndex >= 0 && elementIndex < m_elementList.count() ) {
+    if (elementIndex >= 0 && elementIndex < m_elementList.count()) {
         // The positions lists are defined with the base of 1.
         // But coordinates start mostly with 0.
-        x = m_posX.at( elementIndex ) - 1;
-        y = m_posY.at( elementIndex ) - 1;
+        x = m_posX.at(elementIndex) - 1;
+        y = m_posY.at(elementIndex) - 1;
     }
     return QPoint(x, y);
 }
@@ -142,19 +141,21 @@ QPoint pseTable::tableSize() const
     int x = 0, y = 0, i;
 
     for (i = 0; i < m_posX.count(); ++i) {
-        if ( m_posX.at(i) > x)
+        if (m_posX.at(i) > x) {
             x = m_posX.at(i);
+        }
 
-        if ( m_posY.at(i) > y)
+        if (m_posY.at(i) > y) {
             y = m_posY.at(i);
+        }
     }
     return QPoint(x, y);
 }
 
-int pseTable::numerationAtPos( int xPos ) const
+int pseTable::numerationAtPos(int xPos) const
 {
-  if ( xPos >= 0 && xPos < m_xCoordsNumeration.count() ) {
-     return m_xCoordsNumeration.at( xPos ) - 1;
+  if (xPos >= 0 && xPos < m_xCoordsNumeration.count()) {
+     return m_xCoordsNumeration.at(xPos) - 1;
   }
   return -1;
 }
@@ -165,7 +166,7 @@ pseRegularTable::pseRegularTable()
 {
     m_name = "Classic";
 
-    m_description = i18n( "Classic Periodic Table" );
+    m_description = i18n("Classic Periodic Table");
 
     m_xCoordsNumeration <<
     1 << 2 << 3 << 4 << 5 << 6 << 7 << 8 << 9 << 10 << 11 << 12 << 13 << 14 << 15 << 16 << 17 << 18;
@@ -195,8 +196,8 @@ pseRegularTable::pseRegularTable()
     ;
 
     // The classic PS has all Elements
-    if (m_posX.count() == m_posY.count() ) {
-        for (int i =  1; i <= m_posX.count(); i ++) {
+    if (m_posX.count() == m_posY.count()) {
+        for (int i = 1; i <= m_posX.count(); ++i) {
             m_elementList.append(i);
         }
     }
@@ -214,7 +215,7 @@ pseLongTable::pseLongTable()
 {
     m_name = "Long";
 
-    m_description = i18n( "Long Periodic Table" );
+    m_description = i18n("Long Periodic Table");
 
     m_xCoordsNumeration <<
     1 << 2 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12 <<13 <<14 <<15 <<16 <<17 <<18;
@@ -240,8 +241,8 @@ pseLongTable::pseLongTable()
     ;
 
     // The long PS has all Elements
-    if (m_posX.count() == m_posY.count() ) {
-        for (int i =  1; i <= m_posX.count(); i ++) {
+    if (m_posX.count() == m_posY.count()) {
+        for (int i = 1; i <= m_posX.count(); ++i) {
             m_elementList.append(i);
         }
     }
@@ -259,7 +260,7 @@ pseShortTable::pseShortTable()
 {
     m_name = "Short";
 
-    m_description = i18n( "Short Periodic Table" );
+    m_description = i18n("Short Periodic Table");
 
     m_xCoordsNumeration <<
     1 << 2 <<13 <<14 <<15 <<16 <<17 <<18;
@@ -307,7 +308,7 @@ pseDTable::pseDTable()
 {
     m_name = 'D';
 
-    m_description = i18n( "Transition Elements" );
+    m_description = i18n("Transition Elements");
 
     m_xCoordsNumeration <<
     3<< 4<< 5<< 6<< 7<< 8<< 9<<10<<11<< 12;
@@ -347,7 +348,7 @@ pseDZTable::pseDZTable()
 {
     m_name = "DZ";
 
-    m_description = i18n( "DZ Periodic Table" );
+    m_description = i18n("DZ Periodic Table");
 
     m_xCoordsNumeration <<
     1 << 2 <<13 <<14 <<15 <<16 <<17 <<18 << 3 << 4 << 5 << 6 << 7 << 8 << 9 <<10 <<11 <<12;
@@ -398,8 +399,8 @@ pseDZTable::pseDZTable()
     ;
 
     // The DZ PS has all Elements
-    if (m_posX.count() == m_posY.count() ) {
-        for (int i =  1; i <= m_posX.count(); i ++) {
+    if (m_posX.count() == m_posY.count()) {
+        for (int i = 1; i <= m_posX.count(); ++i) {
             m_elementList.append(i);
         }
     }

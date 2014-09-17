@@ -1,8 +1,5 @@
-#ifndef NUCLIDEBOARDGUIDEVIEW_H
-#define NUCLIDEBOARDGUIDEVIEW_H
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +14,11 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
+
+#ifndef ISOTOPEGUIDEVIEW_H
+#define ISOTOPEGUIDEVIEW_H
 
 #include <QGraphicsView>
 #include <QResizeEvent>
@@ -30,29 +30,29 @@ class IsotopeGuideView : public QGraphicsView
 {
     Q_OBJECT
 
-    public:
-        IsotopeGuideView( QWidget * parent = 0);
-        void setGuidedView( IsotopeView *guidedView );
+public:
+    IsotopeGuideView(QWidget *parent = 0);
+    void setGuidedView(IsotopeView *guidedView);
 
-    protected:
-        void drawForeground( QPainter *painter, const QRectF &rect );
+protected:
+    void drawForeground(QPainter *painter, const QRectF &rect);
 
-    private:
-        IsotopeView *m_guidedView;
-        double m_zoomLevel;
-        double m_scale;
-        QPolygonF m_visibleSceneRect;
-        QPoint m_lastMousePos;
-        bool m_dragEvent;
+private:
+    IsotopeView *m_guidedView;
+    double m_zoomLevel;
+    double m_scale;
+    QPolygonF m_visibleSceneRect;
+    QPoint m_lastMousePos;
+    bool m_dragEvent;
 
-        void resizeEvent( QResizeEvent *event );
-        void mousePressEvent( QMouseEvent *event );
-        void mouseReleaseEvent( QMouseEvent *event );
-        void mouseMoveEvent( QMouseEvent *event );
+    void resizeEvent(QResizeEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
-    private slots:
-        void setZoomLevel( double zoomLevel );
-        void setVisibleSceneRect( const QPolygonF &sceneRect );
+private slots:
+    void setZoomLevel(double zoomLevel);
+    void setVisibleSceneRect(const QPolygonF &sceneRect);
 };
-#endif
 
+#endif // ISOTOPEGUIDEVIEW_H

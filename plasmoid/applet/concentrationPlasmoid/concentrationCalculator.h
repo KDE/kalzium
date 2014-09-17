@@ -10,8 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef concentrationCalculator_HEADER
-#define concentrationCalculator_HEADER
+
+#ifndef CONCENTRATIONCALCULATOR_H
+#define CONCENTRATIONCALCULATOR_H
 
 #include <KIcon>
 
@@ -22,13 +23,13 @@
 
 #include "ui_concentrationCalculatorConfig.h"
 namespace Plasma{
-	class ComboBox;
-	class SpinBox;
-	class TextEdit;
-	class Label;
-	class Slider;
-	class RadioButton;
-	class PushButton;
+    class ComboBox;
+    class SpinBox;
+    class TextEdit;
+    class Label;
+    class Slider;
+    class RadioButton;
+    class PushButton;
 }
 
 enum ERROR_TYPE_CONC {
@@ -63,65 +64,65 @@ class concentrationCalculator : public Plasma::PopupApplet
         virtual void init();
         virtual QGraphicsWidget *graphicsWidget();
 
-	public slots:
-		// Sub-routines involved in calculations of the unit
-	    void calculateAmountSolute();       // Calculates the amount of solute
-	    void calculateAmountSolvent();      // Calculates the amount of solvent
-	    void calculateMolarMass();          // Calculates the molar mass
-	    void calculateEqtMass();            // Calculates the equivalent mass
-	    void calculateMolarMassSolvent();   // Calculates the calculate molar mass of the solvent
-	    void calculateConcentration();      // calculates the concentration
+    public slots:
+        // Sub-routines involved in calculations of the unit
+        void calculateAmountSolute();       // Calculates the amount of solute
+        void calculateAmountSolvent();      // Calculates the amount of solvent
+        void calculateMolarMass();          // Calculates the molar mass
+        void calculateEqtMass();            // Calculates the equivalent mass
+        void calculateMolarMassSolvent();   // Calculates the calculate molar mass of the solvent
+        void calculateConcentration();      // calculates the concentration
 
-	    // Functions ( slots ) that occur on changing a value
-	    // Sub routines which act as quantity change event handlers
+        // Functions (slots) that occur on changing a value
+        // Sub routines which act as quantity change event handlers
 
-	    void amountSoluteChanged();         // occurs when the amount of solute is changed
-	    void amountSoluteTypeChanged();		// occurs when the mode of amount of solute is changed
-	    void amountSolventChanged();        // occurs when the amount of solvent is changed
-	    void amountSolventTypeChanged();	// occurs when the mode of amount of solvent is changed
-	    void molarMassChanged(int);         // occurs when the molar mass of solute is changed
-	    void eqtMassChanged(int);           // occurs when the equivalent mass of solute is changed
-	    void molarMassSolventChanged(int);  // occurs when the molar mass of solvent is changed
-	    void densitySoluteChanged();        // occurs when the number of moles is changed
-	    void densitySolventChanged();       // occurs when the density of solvent is changed
-	    void concentrationChanged(int);     // occurs when the concentration is changed
-	    void calculate();                   // occurs when any quantity is changed
+        void amountSoluteChanged();         // occurs when the amount of solute is changed
+        void amountSoluteTypeChanged();     // occurs when the mode of amount of solute is changed
+        void amountSolventChanged();        // occurs when the amount of solvent is changed
+        void amountSolventTypeChanged();    // occurs when the mode of amount of solvent is changed
+        void molarMassChanged(int);         // occurs when the molar mass of solute is changed
+        void eqtMassChanged(int);           // occurs when the equivalent mass of solute is changed
+        void molarMassSolventChanged(int);  // occurs when the molar mass of solvent is changed
+        void densitySoluteChanged();        // occurs when the number of moles is changed
+        void densitySolventChanged();       // occurs when the density of solvent is changed
+        void concentrationChanged(int);     // occurs when the concentration is changed
+        void calculate();                   // occurs when any quantity is changed
 
-	    double volumeSolvent();             // returns volume of solvent in liters
-	    double massSolvent();               // returns mass of solvent in grams
-	    double molesSolvent();              // returns number of moles of solvent
-	    double densitySolvent();            // returns density of solvent in grams per liter
-	    double volumeSolute();              // returns volume of solute in liters
-	    double massSolute();                // returns mass of solute in grams
-	    double molesSolute();               // returns the number of moles of solute
-	    double eqtsSolute();                // returns the number of equivalents of solute
-	    double densitySolute();             // returns density of solute in grams per liter
+        double volumeSolvent();             // returns volume of solvent in liters
+        double massSolvent();               // returns mass of solvent in grams
+        double molesSolvent();              // returns number of moles of solvent
+        double densitySolvent();            // returns density of solvent in grams per liter
+        double volumeSolute();              // returns volume of solute in liters
+        double massSolute();                // returns mass of solute in grams
+        double molesSolute();               // returns the number of moles of solute
+        double eqtsSolute();                // returns the number of equivalents of solute
+        double densitySolute();             // returns density of solute in grams per liter
 
-		/*
-		 * outputs error messages on the screen
-		 * @param type is the type of error that occurred (refer ERROR_TYPE_CONC)
-		 */
-	    void error(int type);
+        /**
+         * outputs error messages on the screen
+         * @param type is the type of error that occurred (refer ERROR_TYPE_CONC)
+         */
+        void error(int type);
 
-	    /// Performs the initialisation for the class
-	    void reset();
+        /// Performs the initialisation for the class
+        void reset();
 
-	    /*
-	     * Sets the mode of calculation eg, volume, amount of substance etc
-	     * @param mode is the mode of calculation.
-	     */
-	    void setMode(int mode);
-            
-            void configChanged();
+        /**
+         * Sets the mode of calculation eg, volume, amount of substance etc
+         * @param mode is the mode of calculation.
+         */
+        void setMode(int mode);
+
+        void configChanged();
 
     protected:
         void createConfigurationInterface(KConfigDialog *parent);
-    
+
     protected slots:
         void configAccepted();
 
     private:
-    Converter *m_converter;
+        Converter *m_converter;
         QGraphicsWidget  *m_widget;
         Plasma::ComboBox *m_amountSoluteType;
         Plasma::ComboBox *m_amountSoluteUnit;
@@ -144,27 +145,28 @@ class concentrationCalculator : public Plasma::PopupApplet
 
         Plasma::PushButton *m_reset;
 
-        Value m_AmtSolute;                          // amount of solute
-	    Value m_AmtSolvent;                         // amount of solvent
-	    double m_MolesSolute;                       // amount of solute in moles
-	    double m_MolesSolvent;                      // amount of solvent in moles
-	    double m_MolarMass;                         // molar mass of solute
-	    double m_EqtMass;                           // equivalent mass of solute
-	    double m_MolarMassSolvent;                  // molar mass of solvent
-	    Value m_DensitySolute;                      // density of solute
-	    Value m_DensitySolvent;                     // density of the solvent
-	    double m_Concentration;                     // concentration of the solution
-	    int	m_mode;									// mode of calculation
+        Value m_AmtSolute;                  // amount of solute
+        Value m_AmtSolvent;                 // amount of solvent
+        double m_MolesSolute;               // amount of solute in moles
+        double m_MolesSolvent;              // amount of solvent in moles
+        double m_MolarMass;                 // molar mass of solute
+        double m_EqtMass;                   // equivalent mass of solute
+        double m_MolarMassSolvent;          // molar mass of solvent
+        Value m_DensitySolute;              // density of solute
+        Value m_DensitySolvent;             // density of the solvent
+        double m_Concentration;             // concentration of the solution
+        int m_mode;                         // mode of calculation
 
-   	    /// Designer Config file
+        /// Designer Config file
         Ui::concentrationCalculatorConfig ui;
         bool m_configUpdated;
         // Indicates solute is always given in terms of mass
-        bool m_soluteMass;					// For configuration
+        bool m_soluteMass;                    // For configuration
         // Indicates solvent is always given in terms of volume
-        bool m_solventVolume;				// For configuration
+        bool m_solventVolume;                // For configuration
 };
 
 // This is the command that links your applet to the .desktop file
 K_EXPORT_PLASMA_APPLET(concentrationCalculator, concentrationCalculator)
-#endif //concentrationCalculator_HEADER
+
+#endif // CONCENTRATIONCALCULATOR_H

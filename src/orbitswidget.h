@@ -1,7 +1,4 @@
-#ifndef ORBITSWIDGET_H
-#define ORBITSWIDGET_H
 /***************************************************************************
-
                            orbitswidget.h  -  description
                              -------------------
     begin                : June 2003
@@ -18,6 +15,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef ORBITSWIDGET_H
+#define ORBITSWIDGET_H
+
 #include <QWidget>
 #include <QLabel>
 
@@ -30,9 +30,9 @@ class OrbitsWidget : public QWidget
     Q_OBJECT
 
 public:
-    OrbitsWidget( QWidget *parent = 0 );
+    OrbitsWidget(QWidget *parent = 0);
 
-    void setElementNumber( int num );
+    void setElementNumber(int num);
 
 private:
     /**
@@ -46,8 +46,7 @@ private:
     QList<int> numOfElectrons;
 
 protected slots:
-    virtual void paintEvent(  QPaintEvent* );
+    virtual void paintEvent(QPaintEvent*);
 };
 
 #endif // ORBITSWIDGET_H
-

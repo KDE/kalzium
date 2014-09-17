@@ -1,7 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
- *   cniehaus@kde.org                                                      *
- *
+ *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,15 +14,14 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-
 #include "isotopeview.h"
+
 #include "isotopescene.h"
 
-    IsotopeView::IsotopeView(QWidget *parent)
-: QGraphicsView(parent)
+IsotopeView::IsotopeView(QWidget *parent) : QGraphicsView(parent)
 {
     m_scene = new IsotopeScene(this);
     m_zoomLevel = 1.0;
@@ -38,7 +35,7 @@ IsotopeView::~IsotopeView()
     delete scene();
 }
 
-void IsotopeView::resizeEvent(QResizeEvent * event)
+void IsotopeView::resizeEvent(QResizeEvent *event)
 {
     //ensureVisible(QRectF(0,0,100,100),0,0);
 
@@ -46,20 +43,20 @@ void IsotopeView::resizeEvent(QResizeEvent * event)
     event->ignore();
 }
 
-void IsotopeView::mouseMoveEvent(QMouseEvent *event )
+void IsotopeView::mouseMoveEvent(QMouseEvent *event)
 {
-    QPolygonF visibleSceneRect = mapToScene( viewport()->rect() );
-    emit visibleSceneRectChanged( visibleSceneRect );
+    QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
+    emit visibleSceneRectChanged(visibleSceneRect);
 
     QGraphicsView::mouseMoveEvent(event);
 }
 
-void IsotopeView::wheelEvent(QWheelEvent * event)
+void IsotopeView::wheelEvent(QWheelEvent *event)
 {
     double oldZoomLevel = m_zoomLevel;
     double factor;
 
-    if(event->delta() > 0) {
+    if (event->delta() > 0) {
         factor = event->delta() / 100.0;
         m_zoomLevel *= factor;
     } else {
@@ -67,39 +64,41 @@ void IsotopeView::wheelEvent(QWheelEvent * event)
         m_zoomLevel *= factor;
     }
 
-    if ( m_zoomLevel < 0.5 )
+    if (m_zoomLevel < 0.5) {
         m_zoomLevel = 0.5;
-    else if ( m_zoomLevel > 10.0 )
+    } else if (m_zoomLevel > 10.0) {
         m_zoomLevel = 10.0;
-
-    if ( oldZoomLevel != m_zoomLevel ) {
-        factor = m_zoomLevel / oldZoomLevel;
-        scale(factor,factor);
-        emit zoomLevelChanged( m_zoomLevel );
     }
-    QPolygonF visibleSceneRect = mapToScene( viewport()->rect() );
-    emit visibleSceneRectChanged( visibleSceneRect );
+
+    if (oldZoomLevel != m_zoomLevel) {
+        factor = m_zoomLevel / oldZoomLevel;
+        scale(factor, factor);
+        emit zoomLevelChanged(m_zoomLevel);
+    }
+    QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
+    emit visibleSceneRectChanged(visibleSceneRect);
 
     event->accept();
 }
 
-void IsotopeView::setZoom( double zoom)
+void IsotopeView::setZoom(double zoom)
 {
     double oldZoomLevel = m_zoomLevel;
     double factor;
 
     m_zoomLevel = zoom;
 
-    if ( m_zoomLevel < 0.5 )
+    if (m_zoomLevel < 0.5) {
         m_zoomLevel = 0.5;
-    else if ( m_zoomLevel > 10.0 )
+    } else if (m_zoomLevel > 10.0) {
         m_zoomLevel = 10.0;
+    }
 
     factor = m_zoomLevel / oldZoomLevel;
     scale(factor,factor);
-    emit zoomLevelChanged( m_zoomLevel );
-    QPolygonF visibleSceneRect = mapToScene( viewport()->rect() );
-    emit visibleSceneRectChanged( visibleSceneRect );
+    emit zoomLevelChanged(m_zoomLevel);
+    QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
+    emit visibleSceneRectChanged(visibleSceneRect);
 }
 
 #include "isotopeview.moc"
