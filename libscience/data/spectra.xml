@@ -523,19 +523,20 @@
 	</spectrum>
 	<spectrum id="e30">
 		<peakList>
-			<peak xValue="130" yValue="2165.09" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="150" yValue="2178.94" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="150" yValue="2181.72" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="200" yValue="2225.70" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="250" yValue="2230.08" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="250" yValue="2244.26" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="100" yValue="2441.64" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="200" yValue="2492.15" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="1000" yValue="3247.54" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="1000" yValue="3273.96" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="150" yValue="5105.54" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="200" yValue="5153.24" xUnits="units:dimensionless" yUnits="units:ang" />
-			<peak xValue="250" yValue="5218.20" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="1000" yValue="2138.57" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="20" yValue="2800.86" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="25" yValue="2801.05" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="60" yValue="3075.90" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="50" yValue="3282.33" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="200" yValue="3302.58" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="70" yValue="3302.94" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="400" yValue="3345.01" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="80" yValue="3345.57" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="15" yValue="3345.94" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="100" yValue="4680.14" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="250" yValue="4722.16" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="400" yValue="4810.53" xUnits="units:dimensionless" yUnits="units:ang" />
+			<peak xValue="30" yValue="6362.35" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
 	<spectrum id="e31">
