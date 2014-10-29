@@ -116,9 +116,9 @@ void titrationCalculator::plot()
         }
         QString mreporto;
         int iter=0;
-        if (uid.xaxis->text()=="" or uid.xaxis->text()==" ") uid.xaxis->setText("nothing");
+        if (uid.xaxis->text()=="" or uid.xaxis->text()==" ") uid.xaxis->setText(i18n("nothing"));
         if (tmpy==0) {
-            QMessageBox::critical(this,"Error","Unable to find an equation for Y-axis variable.") ;
+            QMessageBox::critical(this,i18n("Error"),i18n("Unable to find an equation for Y-axis variable.")) ;
         } else {
             //now we have to solve the system of equations NOTE:yvalue contains the equation of Y-axis variable
             //we iterates the process until you have an equation in one only unknown variable or a numeric expression
@@ -520,7 +520,7 @@ void titrationCalculator::on_actionSave_triggered()
     }
     tempyval =  tempyval + QString("\nnote|\n") + uid.note->toPlainText() + QChar('|');
 
-    QString file = QFileDialog::getSaveFileName(this,"Save work","","Icee File (*.icee)");
+    QString file = QFileDialog::getSaveFileName(this,i18n("Save work"),"",i18n("Icee File (*.icee)"));
     if (!file.isEmpty()) {
         QByteArray ba = tempyval.toLatin1();
         char *strsave = ba.data();
@@ -531,7 +531,7 @@ void titrationCalculator::on_actionSave_triggered()
         cout << "|";
         cout << filec;
         cout << "|";
-        if (!out) QMessageBox::critical(this,"Error","Unable to create "+file) ;
+        if (!out) QMessageBox::critical(this,i18n("Error"),i18n("Unable to create %1", file)) ;
         out << strsave;
         out.close();
         //if(out) QMessageBox::information(this, "Information", "File "+file + " successfully saved.");
@@ -541,12 +541,12 @@ void titrationCalculator::on_actionSave_triggered()
 void titrationCalculator::on_actionOpen_triggered()
 {
     //loads all the cells text from a file prevoiusly saved
-    QString file = QFileDialog::getOpenFileName(this,"Open work","","Icee File (*.icee)");
+    QString file = QFileDialog::getOpenFileName(this,i18n("Open work"),"",i18n("Icee File (*.icee)"));
     if (!file.isEmpty()) {
         QByteArray bac = file.toLatin1();
         char *filec = bac.data();
         ifstream texto(filec);
-        if (!texto) QMessageBox::critical(this,"Error","Unable to open "+file) ;
+        if (!texto) QMessageBox::critical(this,i18n("Error"),i18n("Unable to open %1", file)) ;
         if (texto) {
             on_actionNew_triggered();
             QString tempyval;
@@ -662,7 +662,7 @@ void titrationCalculator::on_actionSave_image_triggered()
       cout << "|";
       cout << filec;
       cout << "|";
-      if (!out) QMessageBox::critical(this,"Error","Unable to create "+file) ;
+      if (!out) QMessageBox::critical(this,i18n("Error"),i18n("Unable to create %1", file)) ;
       out << strsave;
       out.close();
     }
