@@ -151,7 +151,7 @@
             <widget class="KComboBox" name="style2Combo">
              <item>
               <property name="text">
-               <string>None</string>
+               <string comment="No 2nd Style">None</string>
               </property>
              </item>
              <item>
@@ -205,7 +205,7 @@
             <widget class="KComboBox" name="labelsCombo">
              <item>
               <property name="text">
-               <string>None</string>
+               <string comment="No element labels">None</string>
               </property>
              </item>
              <item>

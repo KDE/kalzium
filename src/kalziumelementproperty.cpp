@@ -86,7 +86,7 @@ QStringList KalziumElementProperty::schemeList() const
 QStringList KalziumElementProperty::gradientList() const
 {
     QStringList customList;
-    customList << i18n("None");
+    customList << i18nc("No Gradient", "None");
     customList << KalziumGradientTypeFactory::instance()->gradients();
     return customList;
 }
