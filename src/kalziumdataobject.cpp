@@ -147,7 +147,7 @@ QPixmap KalziumDataObject::pixmap(int number)
 {
     // checking that we are requesting a valid element
     if ((number <= 0) || (number > m_numOfElements))
-        return 0;
+        return QPixmap();
     if (PixmapList.isEmpty())
         loadIconSet();
     return PixmapList[ number-1 ];
