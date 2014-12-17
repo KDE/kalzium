@@ -26,7 +26,7 @@
 
 #include <config-kalzium.h>
 
-#define APP_VERSION "2.4.02"
+#define APP_VERSION "2.4.03"
 
 static const char description[] = I18N_NOOP("A periodic table of the elements");
 
