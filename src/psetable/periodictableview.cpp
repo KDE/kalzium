@@ -27,6 +27,7 @@
 
 #include "psetables.h"
 #include <prefs.h>
+#include<QTimer>
 
 PeriodicTableView::PeriodicTableView(QWidget *parent)
         : QGraphicsView(parent)
@@ -99,6 +100,8 @@ void PeriodicTableView::slotChangeTable(int table)
 
     setBiggerSceneRect();
     m_tableStates->setTableState(m_currentTableInex);
+
+    QTimer::singleShot(RESIZE_SCENE_TIMEOUT, this, SLOT(fitPseInView()));
 }
 
 void PeriodicTableView::slotSelectOneElement(int element)
