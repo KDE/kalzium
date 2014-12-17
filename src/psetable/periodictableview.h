@@ -114,6 +114,7 @@ private:
     void setBiggerSceneRect();
 
     int m_currentTableInex;
+    static int const RESIZE_SCENE_TIMEOUT = 2200;
 
     PeriodicTableScene *m_tableScene;
 
