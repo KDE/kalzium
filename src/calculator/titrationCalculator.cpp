@@ -193,8 +193,7 @@ void titrationCalculator::plot()
         } else if (a < 0) {
             d = py[totaldata - 1] - (a / 2);
         }
-        double cn;
-        kDebug() << cn;
+        double cn = 0.0;
         int th = 0;
         for (int i = 1; i < (totaldata - 1); ++i) {
             //now i'm using the value of the points to fit the curve
