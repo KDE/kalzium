@@ -81,7 +81,7 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
 
     if (isSelected()) {
         QColor selectedBackgroundColor = m_borderColor;
-        selectedBackgroundColor.setAlpha(120);
+        selectedBackgroundColor.setAlpha(160);
         painter->setBrush(QBrush(QColor(selectedBackgroundColor)));
         painter->drawRoundedRect(boundingRect(), m_width / 10, m_width / 10);
     }
