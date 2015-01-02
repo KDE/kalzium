@@ -156,9 +156,15 @@ void LegendWidget::legendItemAction(QColor color)
     KalziumElementProperty *elementProperty = KalziumElementProperty::instance();
 
     for (int element = 1; element <= 118; ++element) {
-        if (elementProperty->getBorderColor(element).operator==(color) ||
+        if(Prefs::colorgradientbox() == KalziumElementProperty::NOGRADIENT){
+            if (elementProperty->getElementColor(element).operator!=(color)) {
+                emit elementMatched(element);
+            }
+        }else{
+            if (elementProperty->getBorderColor(element).operator==(color) ||
                 elementProperty->getElementColor(element).operator==(color)) {
-            emit elementMatched(element);
+                emit elementMatched(element);
+            }
         }
     }
 }
