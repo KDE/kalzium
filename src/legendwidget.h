@@ -58,6 +58,8 @@ public slots:
     void legendItemAction(QColor color);
 
 private:
+    bool isElementMatch(int element, QColor &color);
+
     bool m_update;
 
     QPixmap m_pixmap;

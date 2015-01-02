@@ -58,8 +58,9 @@ void LegendWidget::UnLockWidget()
 
 void LegendWidget::updateContent()
 {
-    if (!m_update)
+    if (!m_update) {
         return;
+    }
 
     QString gradientDesc;
     QList< QPair<QString, QColor> > items;
@@ -150,23 +151,39 @@ void LegendWidget::legendItemAction(QColor color)
 {
     emit resetElementMatch();
 
-    if (color.operator==(QColor()))
+    if (color.operator==(QColor())) {
         return;
-
-    KalziumElementProperty *elementProperty = KalziumElementProperty::instance();
+    }
 
     for (int element = 1; element <= 118; ++element) {
-        if(Prefs::colorgradientbox() == KalziumElementProperty::NOGRADIENT){
-            if (elementProperty->getElementColor(element).operator!=(color)) {
-                emit elementMatched(element);
-            }
-        }else{
-            if (elementProperty->getBorderColor(element).operator==(color) ||
-                elementProperty->getElementColor(element).operator==(color)) {
-                emit elementMatched(element);
-            }
+        if (isElementMatch(element, color)) {
+            emit elementMatched(element);
         }
     }
+}
+
+bool LegendWidget::isElementMatch(int element, QColor &color){
+    QColor elementBackgroundColor;
+    QColor elementBorderColor;
+
+    elementBackgroundColor = KalziumElementProperty::instance()->getElementColor(element);
+    elementBorderColor = KalziumElementProperty::instance()->getBorderColor(element);
+
+    switch(Prefs::colorgradientbox()){
+
+      case KalziumElementProperty::NOGRADIENT:
+        if (elementBackgroundColor.operator!=(color)) {
+            return true;
+        }
+        break;
+
+      default: // all other gradients
+        if (elementBorderColor.operator==(color) ||
+            elementBackgroundColor.operator==(color)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 
