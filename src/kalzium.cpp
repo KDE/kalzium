@@ -542,6 +542,10 @@ void Kalzium::slotUpdateSettings()
     Prefs::self()->writeConfig();
 
     m_legendWidget->updateContent();
+
+    /*This slot function calls change the color of pse elements immideately after prefs change*/
+    slotSwitchtoLookGradient(Prefs::colorgradientbox());
+    slotSwitchtoLookScheme(Prefs::colorschemebox());
 }
 
 void Kalzium::slotShowExportDialog()
