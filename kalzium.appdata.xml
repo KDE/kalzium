@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kalzium</name>
+  <name xml:lang="bg">Kalzium</name>
   <name xml:lang="ca">Kalzium</name>
   <name xml:lang="cs">Kalzium</name>
   <name xml:lang="da">Kalzium</name>
@@ -26,6 +27,7 @@
   <name xml:lang="x-test">xxKalziumxx</name>
   <name xml:lang="zh-TW">化學_Kalzium</name>
   <summary>Periodic Table of Elements</summary>
+  <summary xml:lang="bg">Периодична таблица на химичните елементи</summary>
   <summary xml:lang="ca">Taula periòdica dels elements</summary>
   <summary xml:lang="cs">Periodická tabulka</summary>
   <summary xml:lang="de">Periodensystem der Elemente</summary>
