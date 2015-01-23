@@ -526,7 +526,6 @@ void Kalzium::showSettingsDialog()
 
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(slotUpdateSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), m_gradientWidget, SLOT(slotGradientChanged()));
-    connect(dialog, SIGNAL(settingsChanged(QString)), m_legendWidget, SLOT(updateContent()));
 
     dialog->show();
 }
@@ -540,8 +539,6 @@ void Kalzium::slotUpdateSettings()
     Prefs::setTemperatureUnit(m_unitsDialog->getTemperatureUnitId());
 
     Prefs::self()->writeConfig();
-
-    m_legendWidget->updateContent();
 
     /*This slot function calls change the color of pse elements immideately after prefs change*/
     slotSwitchtoLookGradient(Prefs::colorgradientbox());
