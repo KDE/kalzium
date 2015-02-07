@@ -1,18 +1,16 @@
 project(nuclearCalculator)
 
-include_directories(
-   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   )
+#include_directories(   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/)
 
 set(nuclearCalculator_SRCS
    nuclearCalculator.cpp
    kalziumdataobject.cpp
    )
-kde4_add_ui_files(nuclearCalculator_SRCS nuclearCalculatorConfig.ui)
-kde4_add_plugin(nuclearCalculator ${nuclearCalculator_SRCS})
+qt5_wrap_ui(nuclearCalculator_SRCS nuclearCalculatorConfig.ui)
+add_library(nuclearCalculator ${nuclearCalculator_SRCS})
 target_link_libraries(nuclearCalculator
-                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY}
-                      science ${KDE4_KUNITCONVERSION_LIBRARY}
+                      KF5::Plasma KF5::Ui KF5::KHtml
+                      science KF5::UnitConversion
                       )
 
 install(TARGETS nuclearCalculator DESTINATION ${PLUGIN_INSTALL_DIR})

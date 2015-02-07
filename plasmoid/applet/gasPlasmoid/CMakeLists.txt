@@ -1,11 +1,11 @@
 project(gasCalculator)
 
 set(gasCalculator_SRCS gasCalculator.cpp)
-kde4_add_ui_files(gasCalculator_SRCS gasCalculatorConfig.ui)
-kde4_add_plugin(gasCalculator ${gasCalculator_SRCS})
+qt5_wrap_ui(gasCalculator_SRCS gasCalculatorConfig.ui)
+add_library(gasCalculator ${gasCalculator_SRCS})
 target_link_libraries(gasCalculator
-                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS}
-                      ${KDE4_KUNITCONVERSION_LIBRARY}
+                      KF5::Plasma KF5::Ui KF5::WidgetsAddons
+                      KF5::UnitConversion
                       )
 
 install(TARGETS gasCalculator DESTINATION ${PLUGIN_INSTALL_DIR})
