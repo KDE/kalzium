@@ -18,7 +18,7 @@ if (OPENBABEL2_FOUND)
       tools/obconverter.cpp
       )
 
-   kde4_add_ui_files(kalziumtools_SRCS
+   qt5_wrap_ui(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
    include_directories(${OPENBABEL2_INCLUDE_DIR})
@@ -32,7 +32,7 @@ if (OPENBABEL2_FOUND)
          tools/moleculeview.cpp
          ../compoundviewer/kalziumglwidget.cpp
          )
-      kde4_add_ui_files(kalziumtools_SRCS
+      qt5_wrap_ui(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
       include_directories(${EIGEN3_INCLUDE_DIR})
@@ -49,7 +49,7 @@ set(kalziumtools_SRCS
    calculator/titrationCalculator.cpp
 #   calculator/massCalculator.cpp
    )
-kde4_add_ui_files(kalziumtools_SRCS
+qt5_wrap_ui(kalziumtools_SRCS
    calculator/calculator.ui
    calculator/nuclearCalculator.ui
    calculator/gasCalculator.ui
@@ -110,12 +110,12 @@ if (LIBFACILE_FOUND)
       ${CMAKE_CURRENT_BINARY_DIR}/solver.o
       ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
       )
-   kde4_add_ui_files(kalzium_SRCS
+   qt5_wrap_ui(kalzium_SRCS
       equationview.ui
       )
 endif (LIBFACILE_FOUND)
 
-kde4_add_ui_files(kalzium_SRCS
+qt5_wrap_ui(kalzium_SRCS
    isotopetable/isotopedialog.ui
    settings_colors.ui
    plotsetupwidget.ui
@@ -127,14 +127,14 @@ kde4_add_ui_files(kalzium_SRCS
    exportdialog.ui
    )
 
-kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
+kconfig_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
-kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
+#kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
 
-kde4_add_executable(kalzium ${kalzium_SRCS})
+add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} ${QT_QTSCRIPT_LIBRARY} ${QT_QTDECLARATIVE_LIBRARY} science)
-
+target_link_libraries(kalzium KDE5::KHTML  KF5::KDELibs4Support KDE5::NewStuff KDE4_KUNITCONVERSION_LIBS Qt5::Script  Qt5::Declarative science ${OPENBABEL2_LIBRARIES})
+#QT_QTSCRIPT_LIBRARY
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
    if (EIGEN3_FOUND AND Avogadro_FOUND)
@@ -174,4 +174,4 @@ install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES kalziumui.rc DESTINATION ${DATA_INSTALL_DIR}/kalzium)
 install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
-kde4_install_icons(${ICON_INSTALL_DIR})
+#kde4_install_icons(${ICON_INSTALL_DIR})
