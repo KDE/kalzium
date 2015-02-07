@@ -13,10 +13,12 @@
  ***************************************************************************/
 
 #include "openbabel2wrapper.h"
+#include <QApplication>
+#include <QDebug>
+#include <QLocale>
+#include <QMessageBox>
+#include <KLocalizedString>
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <KMessageBox>
 
 #include <sstream>
 #include <stdio.h>
@@ -29,7 +31,6 @@
 #include <QRegExp>
 #include <QFile>
 
-
 Avogadro::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
 {
     OpenBabel::OBConversion Conv;
@@ -40,8 +41,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
     OpenBabel::OBMol *obmol = new OpenBabel::OBMol;
     std::ifstream inFileStream(QFile::encodeName(filename));
     if (!inFileStream) {
-        KMessageBox::error(0,
-                           i18n("Problem while opening the file"),
+        QMessageBox::warning(0,i18n("Problem while opening the file"),
                            i18n("Cannot open the specified file."));
         delete mol;
         return 0;
@@ -50,8 +50,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
     //find out which format the file has...
     inFormat = Conv.FormatFromExt(QFile::encodeName(filename));
     if (!inFormat || !Conv.SetInFormat(inFormat)) {
-        KMessageBox::error(0,
-                           i18n("Cannot read the file format. Check your OpenBabel installation."),
+        QMessageBox::warning(0,i18n("Cannot read the file format. Check your OpenBabel installation."),
                            i18n("Problem reading file format"));
         delete mol;
         return 0;
@@ -59,7 +58,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
     Conv.SetInAndOutFormats(inFormat,inFormat);
     Conv.Read(obmol, &inFileStream);
 
-    kDebug() << QString::fromLatin1(obmol->GetFormula().c_str()) << " (Weight: " << obmol->GetMolWt() << ", Title: "<< obmol->GetTitle() << ")";
+    qDebug() << QString::fromLatin1(obmol->GetFormula().c_str()) << " (Weight: " << obmol->GetMolWt() << ", Title: "<< obmol->GetTitle() << ")";
     mol->setOBMol(obmol);
     return mol;
 }
@@ -71,13 +70,13 @@ bool OpenBabel2Wrapper::writeMolecule(const QString& filename, Avogadro::Molecul
 
     std::ofstream outFileStream(QFile::encodeName(filename));
     if (!outFileStream) {
-        KMessageBox::error(0, i18n("Cannot save to the specified file."));
+        QMessageBox::warning(0,i18n("Sorry"),i18n("Cannot save to the specified file."));
         return false;
     }
     outFormat = Conv.FormatFromExt(QFile::encodeName(filename));
     if (!outFormat || !Conv.SetOutFormat(outFormat)) {
-        KMessageBox::error(0, i18n("Unrecognized file format extension. Please append an extension to the file name, "
-                                "for example \".cml\"."));
+        QMessageBox::warning(0, i18n("Unrecognized file format extension. Please append an extension to the file name, "),
+                                     i18n("for example \".cml\"."));
         delete mol;
         return false;
     }
