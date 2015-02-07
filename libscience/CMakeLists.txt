@@ -15,10 +15,9 @@ set(science_LIB_SRCS
 )
 
 
-kde4_add_library(science SHARED ${science_LIB_SRCS})
+add_library(science SHARED ${science_LIB_SRCS})
 
-target_link_libraries(science  ${KDE4_KDECORE_LIBS} ${QT_QTXML_LIBRARY} ${KDE4_KUNITCONVERSION_LIBRARY})
-
+target_link_libraries(science   Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons)
 set_target_properties(science PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS science  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
