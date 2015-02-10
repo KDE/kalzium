@@ -1,5 +1,3 @@
-include(${Avogadro_USE_FILE})
-
 include_directories( ${CMAKE_CURRENT_BINARY_DIR}/..
   ${EIGEN3_INCLUDE_DIR}
   ${OPENBABEL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/compoundviewer)
@@ -11,14 +9,14 @@ set(compoundviewer_SRCS
 
 #add_subdirectory(widgets)
 
-add_library(compoundviewer SHARED ${compoundviewer_SRCS})
+add_library(compoundviewer ${compoundviewer_SRCS})
 
 target_link_libraries(compoundviewer avogadro
    ${OPENBABEL2_LIBRARIES}
    KF5::I18n
    KF5::WidgetsAddons
    KF5::CoreAddons
-   Qt5::Core
+   Qt5::OpenGL
 ${OPENGL_LIBRARIES}
 
 )

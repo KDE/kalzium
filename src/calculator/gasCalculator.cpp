@@ -143,7 +143,7 @@ void gasCalculator::calculatePressure()
     double pressure = m_moles * R * temp / (volume - m_moles * b) - m_moles * m_moles * m_Vand_a / volume / volume;
 
     m_pressure = Value(pressure, KUnitConversion::Atmosphere);
-    m_pressure = m_pressure.convertTo(getCurrentUnitId(ui.pressure_unit));
+    m_pressure = m_pressure.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.pressure_unit)));
     ui.pressure->setValue(m_pressure.number());
 }
 
@@ -168,7 +168,7 @@ void gasCalculator::calculateVol()
 
     double volume = m_moles * R * temp / pressure + (m_moles * b);
     m_vol = Value(volume, KUnitConversion::Liter);
-    m_vol = m_vol.convertTo(getCurrentUnitId(ui.volume_unit));
+    m_vol = m_vol.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.volume_unit)));
     ui.volume->setValue(m_vol.number());
 }
 
@@ -336,5 +336,3 @@ void gasCalculator::error(int mode)
         break;
     }
 }
-
-#include "gasCalculator.moc"

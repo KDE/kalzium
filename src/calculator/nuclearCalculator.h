@@ -101,7 +101,7 @@ public slots:
     void massUnitCombobox(QComboBox *comboBox);
 
     /// Fetch the active unit id (KUnitConversion) from the combobox
-    int getUnitIdFromCombobox(QComboBox *comboBox);
+    KUnitConversion::UnitId getUnitIdFromCombobox(QComboBox *comboBox);
 
     /*
      * This function is called when the slider in the ui is moved

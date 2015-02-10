@@ -28,6 +28,8 @@
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <KLocale>
+#include <KUrl>
+#include <KGlobal>
 #include <knewstuff3/downloaddialog.h>
 #include <kio/job.h>
 
@@ -464,5 +466,3 @@ void MoleculeDialog::slotGeometryOptimize()
         molecule->update();
     }
 }
-
-#include "moleculeview.moc"

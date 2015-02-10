@@ -167,4 +167,3 @@ void KalziumGLWidget::setQuality(int quality)
     invalidateDLs();
     GLWidget::update();
 }
-//#include "kalziumglwidget.moc"

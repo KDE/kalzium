@@ -24,6 +24,7 @@
 #include "kalziumutils.h"
 #include <kunitconversion/converter.h>
 #include "prefs.h"
+#include <klocalizedstring.h>
 
 using namespace KUnitConversion;
 
@@ -995,5 +996,3 @@ void concCalculator::error(int mode)
         break;
     }
 }
-
-#include "concCalculator.moc"

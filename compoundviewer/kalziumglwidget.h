@@ -17,7 +17,7 @@
 
 #include <avogadro/glwidget.h>
 
-class KalziumGLWidget : public Avogadro::GLWidget
+class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::GLWidget
 {
     Q_OBJECT
 public:

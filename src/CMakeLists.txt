@@ -6,6 +6,8 @@ include_directories(
    psetable
    isotopetable
    ${CMAKE_CURRENT_BINARY_DIR}/..
+   ${CMAKE_CURRENT_BINARY_DIR}
+   ${CMAKE_CURRENT_SOURCE_DIR}
    )
 
 ########### next target ###############
@@ -25,7 +27,7 @@ if (OPENBABEL2_FOUND)
 
    if (EIGEN3_FOUND AND Avogadro_FOUND)
 
-      include(${Avogadro_USE_FILE})
+      #include(${Avogadro_USE_FILE})
 
       set(kalziumtools_SRCS
          ${kalziumtools_SRCS}
@@ -133,7 +135,7 @@ kconfig_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium KDE5::KHTML  KF5::KDELibs4Support KDE5::NewStuff KDE4_KUNITCONVERSION_LIBS Qt5::Script  Qt5::Declarative science ${OPENBABEL2_LIBRARIES})
+target_link_libraries(kalzium KF5::KHtml KF5::KDELibs4Support KF5::NewStuff KF5::UnitConversion Qt5::Script Qt5::Declarative science ${OPENBABEL2_LIBRARIES})
 #QT_QTSCRIPT_LIBRARY
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})

@@ -230,7 +230,7 @@ void  nuclearCalculator::isotopeChanged(int index)
     if (x >= 0) {
         ui.halfLife_unit->setCurrentIndex(x);
     }
-    m_halfLife = Value(halfLife, halfLifeUnit);
+    m_halfLife = Value(halfLife, KUnitConversion::UnitId(halfLifeUnit));
     // Recalculate and update
     calculate();
 }
@@ -244,9 +244,9 @@ void  nuclearCalculator::halfLifeChanged()
     calculate();
 }
 
-int nuclearCalculator::getUnitIdFromCombobox(QComboBox *comboBox)
+KUnitConversion::UnitId nuclearCalculator::getUnitIdFromCombobox(QComboBox *comboBox)
 {
-    return comboBox->itemData(comboBox->currentIndex()).toInt();
+    return KUnitConversion::UnitId(comboBox->itemData(comboBox->currentIndex()).toInt());
 }
 
 void  nuclearCalculator::initAmtChanged()
@@ -448,5 +448,3 @@ void nuclearCalculator::error(int mode)
         break;
     }
 }
-
-#include "nuclearCalculator.moc"
