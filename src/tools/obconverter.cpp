@@ -25,32 +25,45 @@
 #include <QRegExp>
 #include <QProcess>
 #include <QLinkedList>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QPushButton>
+#include <QDialog>
 
 // KDE includes
 #include <KDebug>
 #include <KLocale>
 #include <KMessageBox>
 #include <KFileDialog>
+#include <KLocalizedString>
 #include <KUrl>
 
 using namespace std;
 using namespace OpenBabel;
 
 KOpenBabel::KOpenBabel(QWidget *parent)
-    : KDialog(parent)
+    : QDialog(parent)
 {
-    setCaption(i18n("OpenBabel Frontend"));
-    setButtons(Help | User1| Close);
-    setDefaultButton(User1);
-
+    setWindowTitle(i18n("OpenBabel Frontend"));
+    //setDefaultButton(User1);
+    QDialogButtonBox* dialogButtonBox = new QDialogButtonBox;
+    QPushButton* button = dialogButtonBox->addButton(
+    i18n("Convert"),
+    QDialogButtonBox::ApplyRole );
+    connect( button, &QAbstractButton::clicked, this,&KOpenBabel::slotConvert);
+    button = dialogButtonBox->addButton(
+    i18n("HELP"),
+    QDialogButtonBox::HelpRole );
+    button = dialogButtonBox->addButton(
+    i18n("CLOSE"),
+    QDialogButtonBox::RejectRole );
     OBConvObject = new OBConversion();
 
-    ui.setupUi(mainWidget());
-
-    setButtonGuiItem(User1, KGuiItem(i18n("Convert"), "edit-copy", i18n("Convert selected files")));
-
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget( dialogButtonBox );
+    setLayout( layout );
     setupWindow();
-    setHelp(QString(), "kalzium");
+    //setHelp(QString(), "kalzium");
 }
 
 KOpenBabel::~KOpenBabel()

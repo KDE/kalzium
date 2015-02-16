@@ -19,7 +19,7 @@
 
 #include "element.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kunitconversion/converter.h>
 
 

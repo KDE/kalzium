@@ -25,14 +25,14 @@
 
 // OpenBabel includes
 #include <openbabel/obconversion.h>
-
-class KDialog;
+#include <QDialog>
+class QDialog;
 
 /**
  * @author Carsten Niehaus
  * @author Jerome Pansanel
  */
-class KOpenBabel : public KDialog
+class KOpenBabel : public QDialog
 {
     Q_OBJECT
 

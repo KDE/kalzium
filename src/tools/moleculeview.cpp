@@ -49,6 +49,9 @@ using namespace Avogadro;
 MoleculeDialog::MoleculeDialog(QWidget * parent)
     : KDialog(parent), m_periodicTable(0), m_addHydrogens(false)
 {
+    KGlobalSettings globalSettings;
+
+    OpenBabel2Wrapper openBabel;
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
     defFormat.setSampleBuffers(true);
@@ -240,7 +243,8 @@ void MoleculeDialog::slotSaveMolecule()
         filename.append(".cml");
     }
 
-    OpenBabel2Wrapper::writeMolecule(filename, ui.glWidget->molecule());
+   OpenBabel2Wrapper openBabel;
+   openBabel.writeMolecule(filename, ui.glWidget->molecule());
 }
 
 void MoleculeDialog::setViewEdit(int mode)
@@ -271,7 +275,7 @@ void MoleculeDialog::slotUpdateStatistics()
 
     ui.nameLabel->setText(mol->OBMol().GetTitle());
     ui.weightLabel->setText(i18nc("This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->OBMol().GetMolWt()));
-    ui.formulaLabel->setText(OpenBabel2Wrapper::getPrettyFormula(mol));
+    ui.formulaLabel->setText(openBabel.getPrettyFormula(mol));
 //    ui.glWidget->update();
 }
 
@@ -281,9 +285,9 @@ void MoleculeDialog::slotDownloadNewStuff()
 
     KNS3::DownloadDialog dialog(this);
     dialog.exec();
-
+KGlobalSettings globalSettings;
     // list of changed entries
-    QString destinationDir = KGlobalSettings::documentPath();
+    QString destinationDir = globalSettings.documentPath();
     QDir dir(destinationDir);
     if (!dir.exists()) {
         destinationDir = QDir::homePath();
