@@ -22,6 +22,7 @@
 #include "kalziumunitcombobox.h"
 #include "prefs.h"
 #include "kalziumutils.h"
+#include <KLocalizedString>
 
 using namespace KUnitConversion;
 

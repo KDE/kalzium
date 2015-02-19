@@ -30,6 +30,7 @@
 #include <KLocale>
 #include <KUrl>
 #include <KGlobal>
+#include <KGlobalSettings>
 #include <knewstuff3/downloaddialog.h>
 #include <kio/job.h>
 
@@ -46,12 +47,11 @@
 using namespace OpenBabel;
 using namespace Avogadro;
 
+OpenBabel2Wrapper openBabel;
 MoleculeDialog::MoleculeDialog(QWidget * parent)
     : KDialog(parent), m_periodicTable(0), m_addHydrogens(false)
 {
-    KGlobalSettings globalSettings;
 
-    OpenBabel2Wrapper openBabel;
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
     defFormat.setSampleBuffers(true);
@@ -285,9 +285,9 @@ void MoleculeDialog::slotDownloadNewStuff()
 
     KNS3::DownloadDialog dialog(this);
     dialog.exec();
-KGlobalSettings globalSettings;
     // list of changed entries
-    QString destinationDir = globalSettings.documentPath();
+    QString destinationDir =
+            KGlobalSettings ::documentPath();
     QDir dir(destinationDir);
     if (!dir.exists()) {
         destinationDir = QDir::homePath();

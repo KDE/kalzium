@@ -24,10 +24,12 @@
 #include <kstandardaction.h>
 #include <kstandarddirs.h>
 #include <ktoolinvocation.h>
-
+#include <QDialog>
+#include <kicon.h>
+#include <KLocalizedString>
 calculator::calculator(QWidget *parent) : KDialog(parent)
 {
-    setCaption(i18n("Chemical Calculator"));
+    setWindowTitle(i18n("Chemical Calculator"));
     setButtons(Help | Close);
     setDefaultButton(Close);
 
@@ -123,5 +125,5 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 
 void calculator::slotHelp()
 {
-    KToolInvocation::invokeHelp("calculator", "kalzium");
+  // KToolInvocation::invokeHelp("calculator", "kalzium","");
 }

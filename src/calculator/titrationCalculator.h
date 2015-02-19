@@ -25,10 +25,9 @@
 
 #include <kdebug.h>
 #include <prefs.h>
-
-#include "kplotobject.h"
-#include "kplotwidget.h"
-#include "kplotpoint.h"
+#include <KPlotWidget>
+//#include "kplotobject.h"
+//#include <kplotpoint.h>
 #include "QString"
 #include "QStringList"
 

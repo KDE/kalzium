@@ -8,6 +8,7 @@ include_directories(
    ${CMAKE_CURRENT_BINARY_DIR}/..
    ${CMAKE_CURRENT_BINARY_DIR}
    ${CMAKE_CURRENT_SOURCE_DIR}
+${KF4_INCLUDES}
    )
 
 ########### next target ###############
@@ -135,7 +136,7 @@ kconfig_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium KF5::KHtml KF5::KDELibs4Support KF5::NewStuff KF5::UnitConversion Qt5::Script Qt5::Declarative science ${OPENBABEL2_LIBRARIES})
+target_link_libraries(kalzium KF5::Plotting KF5::KHtml KF5::KDELibs4Support KF5::NewStuff KF5::UnitConversion Qt5::Script Qt5::Declarative science ${OPENBABEL2_LIBRARIES} ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS})
 #QT_QTSCRIPT_LIBRARY
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
