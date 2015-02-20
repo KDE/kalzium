@@ -23,6 +23,7 @@
 #include "prefs.h"
 #include "kalziumutils.h"
 #include <KLocalizedString>
+#include <KComboBox>
 
 using namespace KUnitConversion;
 
