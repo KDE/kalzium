@@ -93,5 +93,3 @@ void SearchWidget::doSearch()
         s->resetSearch();
     }
 }
-
-#include "searchwidget.moc"

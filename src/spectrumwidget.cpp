@@ -392,4 +392,4 @@ void SpectrumWidget::resetSpectrum()
     setBorders(minimumPeak, maximumPeak);
 }
 
-#include "spectrumwidget.moc"
+

@@ -103,4 +103,3 @@ void IsotopeGuideView::setZoomLevel(double zoomLevel)
     m_zoomLevel = zoomLevel;
 }
 
-#include "isotopeguideview.moc"

@@ -12,6 +12,7 @@
 #define KDEEDUGLOSSARY_H
 
 #include <kdialog.h>
+#include <KUrl>
 
 class QDomDocument;
 class GlossaryItem;

@@ -154,4 +154,3 @@ void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event)
     QGraphicsItem::hoverLeaveEvent(event);
 }
 
-#include "elementitem.moc"

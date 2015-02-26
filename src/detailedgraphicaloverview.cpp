@@ -171,4 +171,3 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
     p.end();
 }
 
-#include "detailedgraphicaloverview.moc"

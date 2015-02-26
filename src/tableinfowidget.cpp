@@ -43,4 +43,3 @@ void TableInfoWidget::setTableType(int type)
 }
 
 
-#include "tableinfowidget.moc"

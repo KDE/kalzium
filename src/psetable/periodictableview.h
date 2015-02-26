@@ -33,6 +33,7 @@
 #include "numerationitem.h"
 #include "periodictablescene.h"
 #include "periodictablestates.h"
+#include <QtSvg/QSvgGenerator>
 
 
 /**

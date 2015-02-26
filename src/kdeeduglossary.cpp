@@ -545,4 +545,3 @@ QStringList GlossaryItem::pictures() const
     return m_pic;
 }
 
-#include "kdeeduglossary.moc"

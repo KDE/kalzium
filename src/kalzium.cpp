@@ -34,6 +34,7 @@
 #include "tableinfowidget.h"
 #include "psetables.h"
 #include <config-kalzium.h>
+#include <KGlobal>
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
@@ -50,6 +51,7 @@
 #include <QToolBox>
 #include <QKeyEvent>
 #include <QRegExp>
+#include <QStatusBar>
 
 #include <kmessagebox.h>
 #include <kconfigdialog.h>
@@ -57,7 +59,6 @@
 #include <kaction.h>
 #include <kparts/part.h>
 #include <kselectaction.h>
-#include <kstatusbar.h>
 #include <kstandarddirs.h>
 #include <kstandardaction.h>
 #include <kicon.h>
@@ -555,7 +556,7 @@ void Kalzium::slotShowExportDialog()
 
 void Kalzium::setupStatusBar()
 {
-    statusBar()->insertItem("", 0, 0);
+    statusBar()->insertWiget("", 0, 0);
     statusBar()->setItemAlignment(0, Qt::AlignRight);
 
     statusBar()->insertItem("", IDS_ELEMENTINFO, 1);
@@ -651,4 +652,3 @@ QSize Kalzium::sizeHint() const
     return QSize(700, 500);
 }
 
-#include "kalzium.moc"

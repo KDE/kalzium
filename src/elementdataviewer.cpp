@@ -530,4 +530,3 @@ void ElementDataViewer::initData()
     setupAxisData(m_yData);
 }
 
-#include "elementdataviewer.moc"

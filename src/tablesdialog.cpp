@@ -276,4 +276,3 @@ void MyTableWidget::copyToClipboard()
     QApplication::clipboard()->setText(currentItem()->data(QTableWidgetItem::Type).toString());
 }
 
-#include "tablesdialog.moc"

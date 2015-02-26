@@ -105,4 +105,3 @@ void IsotopeTableDialog::slotZoomLevelChanged(double value)
     ui.Slider->blockSignals(b);
 }
 
-#include "isotopetabledialog.moc"

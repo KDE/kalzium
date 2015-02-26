@@ -128,4 +128,3 @@ void SpectrumViewImpl::updateMax(int right)
     m_spectrumWidget->setRightBorder(right);
 }
 
-#include "spectrumviewimpl.moc"

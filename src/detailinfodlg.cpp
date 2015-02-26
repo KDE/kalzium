@@ -620,4 +620,3 @@ void DetailedInfoDlg::slotUser2()
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->previousOf(m_elementNumber));
 }
 
-#include "detailinfodlg.moc"
