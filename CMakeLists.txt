@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${OPENBABEL2_INCL
 find_package(OpenBabel2 REQUIRED)
 find_package(Qt5 REQUIRED COMPONENTS Widgets Script OpenGL)
 find_package(Qt5Svg REQUIRED)
-find_package(KF5 REQUIRED COMPONENTS CoreAddons Solid Config Archive I18n Parts UnitConversion WidgetsAddons NewStuff KDELibs4Support)
+find_package(KF5 REQUIRED COMPONENTS CoreAddons Solid Config Archive KHtml I18n Parts UnitConversion WidgetsAddons NewStuff KDELibs4Support)
 find_package(KF5DocTools REQUIRED)
 find_package(KF5Plotting REQUIRED)
 find_package(Qt5Widgets REQUIRED)

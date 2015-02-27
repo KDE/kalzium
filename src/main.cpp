@@ -22,6 +22,7 @@
 #include <klocale.h>
 #include <kapplication.h>
 
+
 #include "kalzium.h"
 
 #include <config-kalzium.h>
@@ -44,7 +45,7 @@ int main(int argc, char **argv)
    caml_startup(argv);
 #endif
 
-    KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
+  /*  KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
                      KAboutData::License_GPL, ki18n("(C) 2002-2014 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
     about.addAuthor(ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org");
     about.addCredit(ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
@@ -72,11 +73,10 @@ int main(int argc, char **argv)
     about.addCredit(ki18n("Tiago Porangaba"),ki18n("New interface design and usability improvements"));
     about.addCredit(ki18n("Etienne Rebetez"),ki18n("Adding new sizable Periodic System"));
 
-    KCmdLineArgs::init(argc, argv, &about);
-
+    KCmdLineArgs::init(argc, argv, &about);*/
     KCmdLineOptions options;
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
-    options.add("molecule <file>", ki18n("Open the given molecule file"));
+   options.add("molecule <file>", ki18n("Open the given molecule file"));
 #endif
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
