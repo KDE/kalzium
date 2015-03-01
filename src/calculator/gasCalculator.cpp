@@ -170,7 +170,7 @@ void gasCalculator::calculateVol()
 
     double volume = m_moles * R * temp / pressure + (m_moles * b);
     m_vol = Value(volume, KUnitConversion::Liter);
-   // m_vol = m_vol.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.volume_unit)));
+    m_vol = m_vol.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.volume_unit)));
     ui.volume->setValue(m_vol.number());
 }
 
@@ -183,7 +183,7 @@ void gasCalculator::calculateTemp()
     double temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume))\
                   * (volume - m_moles * b) / m_moles / R;
     m_temp = Value(temp, KUnitConversion::Kelvin);
-    //m_temp = m_temp.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.temp_unit)));
+    m_temp = m_temp.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.temp_unit)));
     ui.temp->setValue(m_temp.number());
 }
 
@@ -209,32 +209,32 @@ void gasCalculator::calculateMass()
     double mass = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
                   * (volume - m_moles * b) * m_molarMass / R / temp;
     m_mass = Value(mass, KUnitConversion::Gram);
-   // m_mass = m_mass.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.mass_unit)));
+    m_mass = m_mass.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
 }
 
 
 void gasCalculator::volChanged()
 {
-   // m_vol = Value(ui.volume->value(), getCurrentUnitId(KUnitConversion::UnitId(ui.volume_unit)));
+    m_vol = Value(ui.volume->value(), getCurrentUnitId(KUnitConversion::UnitId(ui.volume_unit)));
     calculate();
 }
 
 void gasCalculator::tempChanged()
 {
-  //  m_temp = Value(ui.temp->value(), getCurrentUnitId(ui.temp_unit));
+    m_temp = Value(ui.temp->value(), getCurrentUnitId(KUnitConversion::UnitId(ui.temp_unit)));
     calculate();
 }
 
 void gasCalculator::pressureChanged()
 {
-    //m_pressure = Value(ui.pressure->value(), getCurrentUnitId(ui.pressure_unit));
+    m_pressure = Value(ui.pressure->value(), getCurrentUnitId(KUnitConversion::UnitId(ui.pressure_unit)));
     calculate();
 }
 
 void gasCalculator::massChanged()
 {
-    //m_mass = Value(ui.mass->value(), getCurrentUnitId(ui.mass_unit));
+    m_mass = Value(ui.mass->value(), getCurrentUnitId(KUnitConversion::UnitId(ui.mass_unit)));
     m_moles = m_mass.convertTo(KUnitConversion::Gram).number() / m_molarMass;
     ui.moles->setValue(m_moles);
     calculate();
@@ -244,7 +244,7 @@ void gasCalculator::molesChanged(double value)
 {
     m_moles = value;
     m_mass = Value(m_moles * m_molarMass, KUnitConversion::Gram);
-   // m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
+    m_mass = m_mass.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -257,7 +257,7 @@ void gasCalculator::molarMassChanged(double value)
     }
     m_molarMass = value;
     m_mass = Value(m_molarMass * m_moles, KUnitConversion::Gram);
-   // m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
+    m_mass = m_mass.convertTo(getCurrentUnitId(KUnitConversion::UnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -270,7 +270,7 @@ void gasCalculator::Vand_aChanged()
 
 void gasCalculator::Vand_bChanged()
 {
-   // m_Vand_b = Value(ui.b->value(), getCurrentUnitId(ui.b_unit));
+   m_Vand_b = Value(ui.b->value(), getCurrentUnitId(KUnitConversion::UnitId(ui.b_unit)));
     calculate();
 }
 

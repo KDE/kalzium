@@ -22,6 +22,7 @@
 #include <kpagewidgetmodel.h>
 #include <kstandardaction.h>
 #include <ktoolinvocation.h>
+#include <kdialog.h>
 
 #include <QApplication>
 #include <QClipboard>
@@ -35,8 +36,9 @@
 TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
 {
     setFaceType(List);
-    setButtons(Help | Close);
-    setDefaultButton(Close);
+
+    //setButtons(Help | Close);
+    //setDefaultButton(Close);
 
     createGreekSymbolTable();
     createNumbersTable();

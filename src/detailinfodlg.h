@@ -17,7 +17,7 @@
 #define DETAILINFODLG_H
 
 #include <kpagedialog.h>
-
+#include <KUrl>
 #include <QMap>
 
 class DetailedGraphicalOverview;

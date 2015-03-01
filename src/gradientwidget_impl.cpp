@@ -17,6 +17,7 @@
 
 #include <kdebug.h>
 #include <klocale.h>
+#include <KIcon>
 
 #include <element.h>
 #include <math.h>

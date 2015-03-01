@@ -25,6 +25,8 @@
 #include <ktoolinvocation.h>
 #include <kunitconversion/converter.h>
 #include "prefs.h"
+#include <KConfig>
+#include <KConfigWidgets/khelpclient.h>
 
 //QT-Includes
 #include <QKeyEvent>
@@ -104,7 +106,7 @@ ElementDataViewer::~ElementDataViewer()
 
 void ElementDataViewer::slotHelp()
 {
-    KToolInvocation::invokeHelp("plot_data", "kalzium");
+    KHelpClient::invokeHelp("plot_data", "kalzium");
 }
 
 void ElementDataViewer::rangeChanged()

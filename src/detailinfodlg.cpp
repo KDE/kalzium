@@ -17,7 +17,7 @@
 
 #include "isotope.h"
 #include "kalziumdataobject.h"
-
+#include <kdialog.h>
 #include <klocale.h>
 #include <khtml_part.h>
 #include <dom/html_base.h>
@@ -26,17 +26,18 @@
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kpagewidgetmodel.h>
-#include <ktoolinvocation.h>
+#include <KConfig>
+#include <KConfigWidgets/khelpclient.h>
 #include <krun.h>
+#include <KGlobal>
+#include <KIcon>
 
 #include "psetables.h"
 
 #include <QFile>
 #include <QLabel>
 #include <QImage>
-#include <QPushButton>
 #include <QStackedWidget>
-
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
@@ -47,13 +48,24 @@
 DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent), m_tableTyp(0)
 {
     setFaceType(List);
-    setButtons(Help | User1 | User2 | Close);
+
+   /* QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Help| User1|User2
+                                                             | QDialogButtonBox::Close);
+
+        connect(buttonBox, SIGNAL(helpRequested()), this, SLOT(help()));
+        connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+        QDialogButtonBox* dialogButtonBox = new QDialogButtonBox;
+           QPushButton* button = dialogButtonBox->addButton( i18nc("Next element", "Next"),
+                                        (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element"));
+connect(this, SIGNAL(user1Clicked()), this, SLOT(slotUser1()));
+    button = dialogButtonBox->addButton(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element");
+connect(this, SIGNAL(user2Clicked()), this, SLOT(slotUser2()));*/
+    /*setButtons(Help | User1 | User2 | Close);
     setDefaultButton(Close);
-    setButtonGuiItem(User1, KGuiItem(i18nc("Next element", "Next"),
-                                       (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element")));
-    setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),
-                                       (layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
+    setButtonGuiItem(User1, KGuiItem(i18nc("Next element", "Next"),(layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element")));
+    setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
     resize(820, 580);
+   */
     m_baseHtml = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
     m_baseHtml2 = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
 
@@ -92,13 +104,13 @@ void DetailedInfoDlg::setElement(int el)
 
     reloadContent();
 
-    enableButton(User1, true);
-    enableButton(User2, true);
+   /*enableButton(User1, true);
+   enableButton(User2, true);
     if (m_elementNumber == 1) {
         enableButton(User2, false);
     } else if (m_elementNumber == KalziumDataObject::instance()->numberOfElements()) {
         enableButton(User1, false);
-    }
+    }*/
 }
 
 // void DetailedInfoDlg::setOverviewBackgroundColor(const QColor &bgColor)
@@ -501,7 +513,7 @@ void DetailedInfoDlg::reloadContent()
 //     const QString element_symbol = m_element->dataAsString(ChemicalDataObject::symbol);
 
     // updating caption
-    setCaption(i18nc("For example Carbon (6)", "%1 (%2)", element_name, m_elementNumber));
+    setWindowTitle(i18nc("For example Carbon (6)", "%1 (%2)", element_name, m_elementNumber));
 
     // updating overview tab
 //     dTab->setElement(m_elementNumber);
@@ -607,7 +619,7 @@ void DetailedInfoDlg::slotHelp()
         break;
     }
 #endif
-    KToolInvocation::invokeHelp("infodialog_spectrum", QLatin1String("kalzium"));
+   KHelpClient::invokeHelp("infodialog_spectrum", QLatin1String("kalzium"));
 }
 
 void DetailedInfoDlg::slotUser1()
