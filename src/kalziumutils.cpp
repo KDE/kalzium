@@ -179,9 +179,9 @@ void KalziumUtils::populateUnitCombobox(QComboBox *comboBox, const QList<int> &u
     QString unitString;
 
     foreach (int unit, unitList) {
-        unitString = KUnitConversion::Converter().unit(unit).data()->description();
+        //unitString = KUnitConversion::Converter().unit(unit).data()->description();
         unitString.append(" (");
-        unitString.append(KUnitConversion::Converter().unit(unit).data()->symbol());
+        //unitString.append(KUnitConversion::Converter().unit(unit).data()->symbol());
         unitString.append(")");
         comboBox->addItem(unitString, unit);
     }

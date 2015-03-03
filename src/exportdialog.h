@@ -16,7 +16,7 @@
 
 #include <QListWidget>
 #include <element.h>
-
+#include <KDialog>
 #include "kalziumdataobject.h"
 #include "ui_exportdialog.h"
 

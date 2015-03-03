@@ -17,8 +17,9 @@
 
 #include <QFont>
 #include <KMessageBox>
-
+#include <kdialog.h>
 #include <kdebug.h>
+#include <KLocalizedString>
 
 static const char HTML_HEADER[] =
     "<html>"

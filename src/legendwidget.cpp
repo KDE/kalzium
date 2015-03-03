@@ -226,4 +226,3 @@ void LegendItem::leaveEvent(QEvent* event)
     QWidget::leaveEvent(event);
 }
 
-#include "legendwidget.moc"
