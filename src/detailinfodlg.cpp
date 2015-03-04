@@ -31,6 +31,8 @@
 #include <krun.h>
 #include <KGlobal>
 #include <KIcon>
+#include <KPageDialog>
+#include <KMessage>
 
 #include "psetables.h"
 
@@ -49,23 +51,13 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
 {
     setFaceType(List);
 
-   /* QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Help| User1|User2
-                                                             | QDialogButtonBox::Close);
 
-        connect(buttonBox, SIGNAL(helpRequested()), this, SLOT(help()));
-        connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-        QDialogButtonBox* dialogButtonBox = new QDialogButtonBox;
-           QPushButton* button = dialogButtonBox->addButton( i18nc("Next element", "Next"),
-                                        (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element"));
-connect(this, SIGNAL(user1Clicked()), this, SLOT(slotUser1()));
-    button = dialogButtonBox->addButton(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element");
-connect(this, SIGNAL(user2Clicked()), this, SLOT(slotUser2()));*/
     /*setButtons(Help | User1 | User2 | Close);
     setDefaultButton(Close);
     setButtonGuiItem(User1, KGuiItem(i18nc("Next element", "Next"),(layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element")));
     setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
     resize(820, 580);
-   */
+*/
     m_baseHtml = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
     m_baseHtml2 = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
 
@@ -104,7 +96,7 @@ void DetailedInfoDlg::setElement(int el)
 
     reloadContent();
 
-   /*enableButton(User1, true);
+  /* enableButton(User1, true);
    enableButton(User2, true);
     if (m_elementNumber == 1) {
         enableButton(User2, false);
