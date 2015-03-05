@@ -137,12 +137,12 @@ Element* KalziumDataObject::element(int number)
         return 0;
     return ElementList[ number-1 ];
 }
-/*
+
 QString KalziumDataObject::unitAsString(const int unit) const
 {
-    return KUnitConversion::Converter().KUnitConversion::UnitId(unit(unit).data())->symbol();
+    return KUnitConversion::Converter().unit(KUnitConversion::UnitId(unit)).symbol();
 }
-*/
+
 QPixmap KalziumDataObject::pixmap(int number)
 {
     // checking that we are requesting a valid element
