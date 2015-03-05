@@ -15,6 +15,7 @@ find_package(OpenGL REQUIRED)
 
 include(KDEInstallDirs)
 include(KDECompilerSettings)
+include(KDECMakeSettings)
 include(FeatureSummary)
 include(ECMInstallIcons)
 include(ECMMarkNonGuiExecutable)
