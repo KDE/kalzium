@@ -9,7 +9,7 @@ find_package(Qt5Svg REQUIRED)
 find_package(KF5 REQUIRED COMPONENTS Plotting CoreAddons Solid Config Archive KHtml I18n Parts UnitConversion WidgetsAddons NewStuff KDELibs4Support)
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)
-find_package(Avogadro REQUIRED)
+find_package(AvogadroLibs REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
