@@ -24,7 +24,7 @@ if (OPENBABEL2_FOUND)
    qt5_wrap_ui(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
-   include_directories(${OPENBABEL2_INCLUDE_DIR} ${AVOGADROLIBS_INCLUDE_DIR})
+   include_directories(${OPENBABEL2_INCLUDE_DIR})
 
    if (EIGEN3_FOUND AND Avogadro_FOUND)
 

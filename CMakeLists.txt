@@ -19,7 +19,7 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(ECMInstallIcons)
 include(ECMMarkNonGuiExecutable)
-include_directories(${OPENBABEL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS} ${Qt5Declarative_INCLUDE_DIR})
+include_directories(${OPENBABEL2_INCLUDE_DIR} ${AVOGADRO_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS} ${Qt5Declarative_INCLUDE_DIR})
 set(CMAKE_MODULE_PATH ${kalzium_SOURCE_DIR}/cmake/modules )
 
 # search packages used by KDE 
