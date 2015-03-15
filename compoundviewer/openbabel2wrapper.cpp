@@ -19,7 +19,6 @@
 #include <QMessageBox>
 #include <KLocalizedString>
 
-
 #include <sstream>
 #include <stdio.h>
 #include <iostream>
