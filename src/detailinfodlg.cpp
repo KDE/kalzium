@@ -17,8 +17,8 @@
 
 #include "isotope.h"
 #include "kalziumdataobject.h"
-#include <kdialog.h>
-#include <klocale.h>
+#include <QDialog>
+#include <QLocale>
 #include <khtml_part.h>
 #include <dom/html_base.h>
 #include <dom/html_document.h>
@@ -29,10 +29,10 @@
 #include <KConfig>
 #include <KConfigWidgets/khelpclient.h>
 #include <krun.h>
-#include <KGlobal>
-#include <KIcon>
+#include <QGlobal>
+#include <QIcon>
 #include <KPageDialog>
-#include <KMessage>
+#include <QMessage>
 
 #include "psetables.h"
 
@@ -58,10 +58,10 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
     resize(820, 580);
 */
-    m_baseHtml = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
-    m_baseHtml2 = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
+    m_baseHtml = QGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
+    m_baseHtml2 = QGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
 
-//X     m_picsdir = KGlobal::dirs()->findResourceDir("appdata", "elempics/") + "elempics/";
+//X     m_picsdir = QGlobal::dirs()->findResourceDir("appdata", "elempics/") + "elempics/";
 
     // creating the tabs but not the contents, as that will be done when setting the element
     createContent();
@@ -120,7 +120,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     QWidget* frame = new QWidget(this);
     KPageWidgetItem *item = addPage(frame, title);
     item->setHeader(icontext);
-    item->setIcon(KIcon(iconname));
+    item->setIcon(QIcon(iconname));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -283,7 +283,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     }
     case EXTRA:
     {
-        QString language(KGlobal::locale()->languageCodeToName(KGlobal::locale()->language()));
+        QString language(QGlobal::locale()->languageCodeToName(QGlobal::locale()->language()));
 
         //Wikipedia.org
 //         html.append ("<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>");
@@ -306,7 +306,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("<tr><td>");
         html.append ("<a href=\"http://");        // http://
         html.append ("www.webelements.com/");
-        if (KGlobal::locale()->language().split('_').at(0) == "en") {
+        if (QGlobal::locale()->language().split('_').at(0) == "en") {
             html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
         }
         html.append ("\" target=\"_blank\" >");
@@ -443,7 +443,7 @@ void DetailedInfoDlg::createContent()
 //     QWidget *m_pOverviewTab = new QWidget();
 //     item = addPage(m_pOverviewTab, i18n("Overview"));
 //     item->setHeader(i18n("Overview"));
-//     item->setIcon(KIcon("overview"));
+//     item->setIcon(QIcon("overview"));
 //     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
 //     overviewLayout->setMargin(0);
 //     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
@@ -454,7 +454,7 @@ void DetailedInfoDlg::createContent()
 //X      QWidget *m_pPictureTab = new QWidget();
 //X      item = addPage(m_pPictureTab, i18n("Picture"));
 //X      item->setHeader(i18n("What does this element look like?"));
-//X      item->setIcon(KIcon("elempic"));
+//X      item->setIcon(QIcon("elempic"));
 //X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
 //X      mainLayout->setMargin(0);
 //X      piclabel = new QLabel(m_pPictureTab);
@@ -468,7 +468,7 @@ void DetailedInfoDlg::createContent()
     QWidget *m_pModelTab = new QWidget(this);
     item = addPage(m_pModelTab, i18n("Atom Model"));
     item->setHeader(i18n("Atom Model"));
-    item->setIcon(KIcon("orbits"));
+    item->setIcon(QIcon("orbits"));
     QVBoxLayout *modelLayout = new QVBoxLayout(m_pModelTab);
     modelLayout->setMargin(0);
     wOrbits = new OrbitsWidget(m_pModelTab);
@@ -483,7 +483,7 @@ void DetailedInfoDlg::createContent()
     QWidget *m_pSpectrumTab = new QWidget(this);
     item = addPage(m_pSpectrumTab, i18n("Spectrum"));
     item->setHeader(i18n("Spectrum"));
-    item->setIcon(KIcon("spectrum"));
+    item->setIcon(QIcon("spectrum"));
     QVBoxLayout *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
     spectrumLayout->setMargin(0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);
@@ -558,7 +558,7 @@ QString DetailedInfoDlg::createWikiLink(QString link)
 QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 {
     QString html;
-    QString language(KGlobal::locale()->language());
+    QString language(QGlobal::locale()->language());
 
     //Wikipedia.org
     html.append ("<a href=\"http://");         // http://
@@ -573,7 +573,7 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
      return html;
 }
 
-void DetailedInfoDlg::slotLinkClicked(const KUrl &url)
+void DetailedInfoDlg::slotLinkClicked(constQUrl &url)
 {
     if (!url.isEmpty() && url.isValid()) {
         KRun *krun = new KRun(url, 0);
