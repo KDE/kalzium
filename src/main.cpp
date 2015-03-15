@@ -74,12 +74,12 @@ int main(int argc, char **argv)
     about.addCredit(ki18n("Tiago Porangaba"),ki18n("New interface design and usability improvements"));
     about.addCredit(ki18n("Etienne Rebetez"),ki18n("Adding new sizable Periodic System"));
 
-    qCmdLineArgs::init(argc, argv, &about);
+    QCommandLineParser::init(argc, argv, &about);
     qCmdLineOptions options;
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
    options.add("molecule <file>", ki18n("Open the given molecule file"));
 #endif
-    qCmdLineArgs::addCmdLineOptions(options);
+    QCommandLineParser::addCmdLineOptions(options);
     KApplication app;
 
     Kalzium *mainWin = 0;
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
         RESTORE(Kalzium);
     } else {
         // no session.. just start up normally
-        qCmdLineArgs *args = qCmdLineArgs::parsedArgs();
+        QCommandLineParser *args = QCommandLineParser::parsedArgs();
 
         /// @todo do something with the command line args here
 

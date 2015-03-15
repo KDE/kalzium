@@ -33,7 +33,7 @@
 #include <QIcon>
 #include <KPageDialog>
 #include <QMessage>
-
+#include <KUrl>
 #include "psetables.h"
 
 #include <QFile>
@@ -573,7 +573,7 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
      return html;
 }
 
-void DetailedInfoDlg::slotLinkClicked(constQUrl &url)
+void DetailedInfoDlg::slotLinkClicked(const KUrl &url)
 {
     if (!url.isEmpty() && url.isValid()) {
         KRun *krun = new KRun(url, 0);

@@ -17,6 +17,7 @@ target_link_libraries(compoundviewer avogadro
    KF5::WidgetsAddons
    KF5::CoreAddons
    Qt5::OpenGL
+    Qt5::Gui
 ${OPENGL_LIBRARIES}
 
 )

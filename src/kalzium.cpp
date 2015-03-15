@@ -34,7 +34,7 @@
 #include "tableinfowidget.h"
 #include "psetables.h"
 #include <config-kalzium.h>
-#include <QGlobal>
+#include <KGlobal>
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
@@ -53,22 +53,23 @@
 #include <QRegExp>
 #include <QStatusBar>
 
-#include <QMessagebox>
+#include <QMessageBox>
 #include <kconfigdialog.h>
-#include <qiconloader.h>
+#include <kiconloader.h>
 #include <kaction.h>
 #include <kparts/part.h>
 #include <kselectaction.h>
-#include <Qstandarddirs>
+#include <kstandarddirs.h>
 #include <kstandardaction.h>
 #include <QIcon>
 #include <kservicetypetrader.h>
-#include <QUrl>
+#include <KUrl>
 #include <kfiledialog.h>
 #include <QLocale>
 #include <KPluginLoader>
 // #include <KTabWidget>
 #include <QGridLayout>
+#include <KLocalizedString>
 
 #define IDS_ELEMENTINFO     7
 
@@ -77,7 +78,7 @@ Kalzium::Kalzium() : KXmlGuiWindow(0)
     setObjectName("KalziumMainWindow");
 
     // adding the libkdeedu catalog
-    QGlobal::locale()->insertCatalog("libkdeedu");
+    KGlobal::locale()->insertCatalog("libkdeedu");
 
     // Init pointers with null
     m_infoDialog = 0;
@@ -341,14 +342,14 @@ void Kalzium::slotGlossary()
       // creating the glossary dialog and loading the glossaries we have
       m_glossarydlg = new GlossaryDialog(this);
       m_glossarydlg->setObjectName(QLatin1String("glossary"));
-      QString dir = QGlobal::dirs()->findResourceDir("data", "kalzium/data/");
+      QString dir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/");
       QString picturepath = dir + "kalzium/data/bg.jpg";
-      QUrl u = QUrl::fromPath(dir + "kalzium/data/knowledge.xml");
+      KUrl u = KUrl::fromPath(dir + "kalzium/data/knowledge.xml");
       Glossary *g = new Glossary(u);
       g->setName(i18n("Knowledge"));
       g->setBackgroundPicture(picturepath);
       m_glossarydlg->addGlossary(g, true);
-      u = QUrl::fromPath(dir + "kalzium/data/tools.xml");
+      u = KUrl::fromPath(dir + "kalzium/data/tools.xml");
       g = new Glossary(u, dir + "kalzium/data/toolpics/");
       g->setName(i18n("Tools"));
       g->setBackgroundPicture(picturepath);
@@ -584,7 +585,7 @@ void Kalzium::elementHover(int num)
 void Kalzium::extractIconicInformationAboutElement(int elementNumber)
 {
     QString setname = "school";
-    QString pathname = QGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+    QString pathname = kGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
     QString filename = pathname + setname + '/' + "iconinformation.txt";
 
     QFile file(filename);

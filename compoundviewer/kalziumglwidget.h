@@ -14,7 +14,8 @@
 
 #ifndef KALZIUMGLWIDGET_H
 #define KALZIUMGLWIDGET_H
-
+#include<QtWidgets>
+#include<QtOpenGL>
 #include <avogadro/glwidget.h>
 
 class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::GLWidget

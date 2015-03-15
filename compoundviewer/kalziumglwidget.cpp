@@ -20,10 +20,9 @@
 #include <avogadro/pluginmanager.h>
 #include <avogadro/toolgroup.h>
 #include <avogadro/engine.h>
-#include <QtOpenGL/QGLWidget>
 #include <QWidget>
 #include "openbabel2wrapper.h"
-
+#include<avogadro/glwidget.h>
 #include <config-kalzium.h>
 
 KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
