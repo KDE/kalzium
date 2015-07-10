@@ -32,8 +32,8 @@
 #include <kdebug.h>
 #include <QUrl>
 #include <kstandarddirs.h>
-#include <QPixmapCache>
-#include <QGlobal>
+#include <KPixmapCache>
+#include <KGlobal>
 #include <kunitconversion/converter.h>
 
 struct StaticKalziumDataObject
@@ -192,11 +192,11 @@ void KalziumDataObject::cleanup()
 
 void KalziumDataObject::loadIconSet()
 {
-    QPixmapCache cache("kalzium");
+    KPixmapCache cache("kalzium");
     //FIXME in case we ever get more than one theme we need
     //a settings-dialog where we can select the different iconsets...
     const QString setname = "school";
-    const QString pathname = QGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+    const QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
 
     for (int i = 0; i < m_numOfElements; ++i)
     {

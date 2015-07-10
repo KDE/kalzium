@@ -51,7 +51,7 @@
 #include <QToolBox>
 #include <QKeyEvent>
 #include <QRegExp>
-#include <QStatusBar>
+#include <KStatusBar>
 
 #include <QMessageBox>
 #include <kconfigdialog.h>
@@ -557,7 +557,7 @@ void Kalzium::slotShowExportDialog()
 
 void Kalzium::setupStatusBar()
 {
-    QStatusBar *statusBar = new QStatusBar(this);
+    KStatusBar *statusBar = new KStatusBar(this);
     setStatusBar(statusBar);
 
     statusBar->insertItem("", 0, 0);
@@ -571,7 +571,7 @@ void Kalzium::elementHover(int num)
 {
     //     extractIconicInformationAboutElement(num);
     Element *e = KalziumDataObject::instance()->element(num);
-    QStatusBar *statusBar = new QStatusBar(this);
+    KStatusBar *statusBar = new KStatusBar(this);
     setStatusBar(statusBar);
     statusBar->changeItem(i18nc("For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u",
                                     e->dataAsString(ChemicalDataObject::name),
@@ -585,7 +585,7 @@ void Kalzium::elementHover(int num)
 void Kalzium::extractIconicInformationAboutElement(int elementNumber)
 {
     QString setname = "school";
-    QString pathname = kGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+    QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
     QString filename = pathname + setname + '/' + "iconinformation.txt";
 
     QFile file(filename);

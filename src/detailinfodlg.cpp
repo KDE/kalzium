@@ -29,10 +29,9 @@
 #include <KConfig>
 #include <KConfigWidgets/khelpclient.h>
 #include <krun.h>
-#include <QGlobal>
+#include <KGlobal>
 #include <QIcon>
 #include <KPageDialog>
-#include <QMessage>
 #include <KUrl>
 #include "psetables.h"
 
@@ -58,10 +57,10 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
     resize(820, 580);
 */
-    m_baseHtml = QGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
-    m_baseHtml2 = QGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
+    m_baseHtml = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
+    m_baseHtml2 = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
 
-//X     m_picsdir = QGlobal::dirs()->findResourceDir("appdata", "elempics/") + "elempics/";
+//X     m_picsdir = KGlobal::dirs()->findResourceDir("appdata", "elempics/") + "elempics/";
 
     // creating the tabs but not the contents, as that will be done when setting the element
     createContent();
@@ -283,7 +282,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     }
     case EXTRA:
     {
-        QString language(QGlobal::locale()->languageCodeToName(QGlobal::locale()->language()));
+        QString language(KGlobal::locale()->languageCodeToName(KGlobal::locale()->language()));
 
         //Wikipedia.org
 //         html.append ("<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>");
@@ -306,7 +305,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("<tr><td>");
         html.append ("<a href=\"http://");        // http://
         html.append ("www.webelements.com/");
-        if (QGlobal::locale()->language().split('_').at(0) == "en") {
+        if (KGlobal::locale()->language().split('_').at(0) == "en") {
             html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
         }
         html.append ("\" target=\"_blank\" >");
@@ -558,7 +557,7 @@ QString DetailedInfoDlg::createWikiLink(QString link)
 QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 {
     QString html;
-    QString language(QGlobal::locale()->language());
+    QString language(KGlobal::locale()->language());
 
     //Wikipedia.org
     html.append ("<a href=\"http://");         // http://

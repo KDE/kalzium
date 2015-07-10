@@ -18,9 +18,9 @@
  ***************************************************************************/
 
 #include <kaboutdata.h>
-#include <QCommandLineOption>
-#include <QLocale>
-#include <kaboutdata.h>
+#include <KCmdLineArgs>
+#include <KLocale>
+#include <k4aboutdata.h>
 #include <kapplication.h>
 
 
@@ -46,8 +46,8 @@ int main(int argc, char **argv)
    caml_startup(argv);
 #endif
 
-    KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
-                     KAboutData::License_GPL, ki18n("(C) 2002-2014 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
+    K4AboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
+                     K4AboutData::License_GPL, ki18n("(C) 2002-2014 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
     about.addAuthor(ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org");
     about.addCredit(ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
     about.addCredit(ki18n("Benoit Jacob"), ki18n("Base work on the molecular viewer, mentored Marcus during his SoC"));
@@ -74,12 +74,12 @@ int main(int argc, char **argv)
     about.addCredit(ki18n("Tiago Porangaba"),ki18n("New interface design and usability improvements"));
     about.addCredit(ki18n("Etienne Rebetez"),ki18n("Adding new sizable Periodic System"));
 
-    QCommandLineParser::init(argc, argv, &about);
-    qCmdLineOptions options;
+    KCmdLineArgs::init(argc, argv, &about);
+    KCmdLineOptions options;
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
    options.add("molecule <file>", ki18n("Open the given molecule file"));
 #endif
-    QCommandLineParser::addCmdLineOptions(options);
+    KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
 
     Kalzium *mainWin = 0;
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
         RESTORE(Kalzium);
     } else {
         // no session.. just start up normally
-        QCommandLineParser *args = QCommandLineParser::parsedArgs();
+        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
         /// @todo do something with the command line args here
 

@@ -23,6 +23,7 @@
 #include <QClipboard>
 
 #include <kdebug.h>
+#include <klocale.h>
 
 #include "ui_equationview.h"
 
