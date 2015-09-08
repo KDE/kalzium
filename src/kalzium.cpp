@@ -381,7 +381,7 @@ MoleculeDialog *Kalzium::slotMoleculeviewer()
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 
     if (!QGLFormat::hasOpenGL()) {
-        QMessageBox::error(0, i18n("This system does not support OpenGL."), i18n("Kalzium Error"));
+        QMessageBox::critical(Q_NULLPTR, i18n("Kalzium Error"), i18n("This system does not support OpenGL."));
         return NULL;
     }
 
