@@ -16,7 +16,7 @@
 #ifndef DETAILINFODLG_H
 #define DETAILINFODLG_H
 
-#include <KUrl>
+#include <QUrl>
 #include <QMap>
 #include <KDialog>
 #include <KPageDialog>
@@ -126,7 +126,7 @@ private:
     QString createWikiLink(QString link);
 
 private slots:
-    void slotLinkClicked(const KUrl &url);
+    void slotLinkClicked(const QUrl &url);
 
     virtual void slotUser1();
     virtual void slotUser2();

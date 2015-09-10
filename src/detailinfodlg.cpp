@@ -32,7 +32,7 @@
 #include <KGlobal>
 #include <QIcon>
 #include <KPageDialog>
-#include <KUrl>
+#include <QUrl>
 #include "psetables.h"
 
 #include <QFile>
@@ -128,7 +128,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     w->setJavaEnabled(false);
     w->setMetaRefreshEnabled(false);
     w->setPluginsEnabled(false);
-    connect(w->browserExtension(), SIGNAL(openUrlRequest(KUrl)), this, SLOT(slotLinkClicked(KUrl)));
+    connect(w->browserExtension(), SIGNAL(openUrlRequest(QUrl)), this, SLOT(slotLinkClicked(QUrl)));
     layout->addWidget(w->view());
 
     return w;
@@ -572,7 +572,7 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
      return html;
 }
 
-void DetailedInfoDlg::slotLinkClicked(const KUrl &url)
+void DetailedInfoDlg::slotLinkClicked(const QUrl &url)
 {
     if (!url.isEmpty() && url.isValid()) {
         KRun *krun = new KRun(url, 0);

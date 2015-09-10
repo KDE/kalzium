@@ -23,7 +23,6 @@
 #include <QStringList>
 
 #include <KLocale>
-#include <KUrl>
 #include <KStandardDirs>
 #include <KConfigGroup>
 

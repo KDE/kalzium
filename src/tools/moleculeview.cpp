@@ -28,7 +28,7 @@
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <KLocale>
-#include <KUrl>
+#include <QUrl>
 #include <KGlobal>
 #include <KGlobalSettings>
 #include <knewstuff3/downloaddialog.h>
@@ -227,10 +227,9 @@ void MoleculeDialog::clearAllElementsInEditor()
 
 void MoleculeDialog::slotSaveMolecule()
 {
-    KUrl url("kfiledialog:///kalzium");
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
-    QString filename = KFileDialog::getSaveFileName(url,
+    QString filename = KFileDialog::getSaveFileName(QUrl(),
                        "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
@@ -302,7 +301,7 @@ void MoleculeDialog::slotDownloadNewStuff()
             kDebug() << "Changed Entry: " << entry.installedFiles();
             foreach (const QString &origFile, entry.installedFiles()) {
                 const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
-                KJob *job = KIO::file_move(KUrl::fromPath(origFile), KUrl::fromPath(destFile));
+                KJob *job = KIO::file_move(QUrl::fromLocalFile(origFile), QUrl::fromPath(destFile));
                 const bool success = job->exec();
                 if (success) {
                     if (exactlyOneFile.isEmpty()) {

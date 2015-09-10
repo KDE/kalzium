@@ -31,7 +31,6 @@
 
 #include <klocale.h>
 #include <kdebug.h>
-#include <kurl.h>
 #include <kstandarddirs.h>
 #include <kpixmapcache.h>
 #include <QXmlReader>

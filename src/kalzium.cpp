@@ -63,7 +63,7 @@
 #include <kstandardaction.h>
 #include <QIcon>
 #include <kservicetypetrader.h>
-#include <KUrl>
+#include <QUrl>
 #include <kfiledialog.h>
 #include <QLocale>
 #include <KPluginLoader>
@@ -344,12 +344,12 @@ void Kalzium::slotGlossary()
       m_glossarydlg->setObjectName(QLatin1String("glossary"));
       QString dir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/");
       QString picturepath = dir + "kalzium/data/bg.jpg";
-      KUrl u = KUrl::fromPath(dir + "kalzium/data/knowledge.xml");
+      QUrl u = QUrl::fromLocalFile(dir + "kalzium/data/knowledge.xml");
       Glossary *g = new Glossary(u);
       g->setName(i18n("Knowledge"));
       g->setBackgroundPicture(picturepath);
       m_glossarydlg->addGlossary(g, true);
-      u = KUrl::fromPath(dir + "kalzium/data/tools.xml");
+      u = QUrl::fromLocalFile(dir + "kalzium/data/tools.xml");
       g = new Glossary(u, dir + "kalzium/data/toolpics/");
       g->setName(i18n("Tools"));
       g->setBackgroundPicture(picturepath);
