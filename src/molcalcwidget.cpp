@@ -34,7 +34,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <QPushButton>
-#include <klineedit.h>
+#include <QLineEdit>
 #include <kstandarddirs.h>
 
 #include <QTimer>
@@ -54,7 +54,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
     connect(ui.formulaEdit, SIGNAL(returnPressed()), this, SLOT(slotCalculate()));
     connect(m_timer, SIGNAL(timeout()), this, SLOT(slotCalculate()));
 
-    ui.formulaEdit->setClearButtonShown(true);
+    ui.formulaEdit->setClearButtonEnabled(true);
 
     clear();
     if (!Prefs::addAlias()) {

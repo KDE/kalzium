@@ -46,7 +46,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="lineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -67,9 +67,6 @@
        </property>
        <property name="text">
         <string>aCH3(CH2)3COOH + bO2 -&gt; cH2O + dCO2</string>
-       </property>
-       <property name="urlDropsEnabled">
-        <bool>false</bool>
        </property>
        <property name="showClearButton" stdset="0">
         <bool>true</bool>
@@ -165,11 +162,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>

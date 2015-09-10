@@ -158,7 +158,7 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
     m_MassLabel->setStyleSheet(css);
 
     m_lineedit = new Plasma::LineEdit();
-    m_lineedit->setClearButtonShown(true);
+    m_lineedit->setClearButtonEnabled(true);
     m_lineedit->setMinimumWidth(100);
     m_lineedit->setText(i18n("C2H5OH"));
     connect(m_lineedit, SIGNAL(textEdited(QString)), m_triggerTimer, SLOT(start()));

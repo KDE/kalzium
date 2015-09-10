@@ -17,7 +17,7 @@
 #include <KDialog>
 #include <KConfigGroup>
 #include <KFontDialog>
-#include <KLineEdit>
+#include <QLineEdit>
 
 #include <QDebug>
 #include <QPainter>

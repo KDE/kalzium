@@ -25,6 +25,8 @@
 #include <kdebug.h>
 #include <klocale.h>
 
+#include <LineEditUrlDropEventFilter>
+
 #include "ui_equationview.h"
 
 #include <stdlib.h>
@@ -63,6 +65,9 @@ void EQChemDialog::compute()
 EQChemDialog::EQChemDialog(QWidget *parent) : QWidget(parent)
 {
     ui.setupUi(this);
+
+    LineEditUrlDropEventFilter *dropUrlEventFilter = new LineEditUrlDropEventFilter(parent);
+    dropUrlEventFilter->installEventFilter(ui.lineEdit);
 
     ui.lblHelp->setText(getHelpText());
 
