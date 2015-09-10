@@ -172,7 +172,7 @@ install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(PROGRAMS kalzium.desktop kalzium_cml.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES kalziumui.rc DESTINATION ${DATA_INSTALL_DIR}/kalzium)
 install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
