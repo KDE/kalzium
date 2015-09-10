@@ -174,35 +174,35 @@ void Kalzium::setupActions()
     // tools actions
     m_pPlotAction = actionCollection()->addAction("tools_plotdata");
     m_pPlotAction->setText(i18n("&Plot Data..."));
-    m_pPlotAction->setIcon(QIcon("plot"));
+    m_pPlotAction->setIcon(QIcon::fromTheme("plot"));
     connect(m_pPlotAction, SIGNAL(triggered()), this, SLOT(slotPlotData()));
 
     // calculator actions
     m_pcalculator = actionCollection()->addAction("tools_calculate");
     m_pcalculator->setText(i18n("Perform &Calculations..."));
-    m_pcalculator->setIcon(QIcon("calculate"));
+    m_pcalculator->setIcon(QIcon::fromTheme("calculate"));
     m_pcalculator->setWhatsThis(i18nc("WhatsThis Help", "This is the calculator, it performs basic chemical calculations."));
     connect(m_pcalculator, SIGNAL(triggered()), this, SLOT(showCalculator()));
 
     m_pIsotopeTableAction= actionCollection()->addAction("tools_isotopetable");
     m_pIsotopeTableAction->setText(i18n("&Isotope Table..."));
-    m_pIsotopeTableAction->setIcon(QIcon("isotopemap"));
+    m_pIsotopeTableAction->setIcon(QIcon::fromTheme("isotopemap"));
     m_pIsotopeTableAction->setWhatsThis(i18nc("WhatsThis Help", "This table shows all of the known isotopes of the chemical elements."));
     connect(m_pIsotopeTableAction, SIGNAL(triggered()), this, SLOT(slotIsotopeTable()));
 
     m_pGlossaryAction = actionCollection()->addAction("tools_glossary");
     m_pGlossaryAction->setText(i18n("&Glossary..."));
-    m_pGlossaryAction->setIcon(QIcon("glossary"));
+    m_pGlossaryAction->setIcon(QIcon::fromTheme("glossary"));
     connect(m_pGlossaryAction, SIGNAL(triggered()), this, SLOT(slotGlossary()));
 
     m_pRSAction = actionCollection()->addAction("tools_rs");
     m_pRSAction->setText(i18n("&R/S Phrases..."));
-    m_pRSAction->setIcon(QIcon("kalzium_rs"));
+    m_pRSAction->setIcon(QIcon::fromTheme("kalzium_rs"));
     connect(m_pRSAction, SIGNAL(triggered()), this, SLOT(slotRS()));
 
     m_pOBConverterAction = actionCollection()->addAction("tools_obconverter");
     m_pOBConverterAction->setText(i18n("Convert chemical files..."));
-    m_pOBConverterAction->setIcon(QIcon("edit-copy"));
+    m_pOBConverterAction->setIcon(QIcon::fromTheme("edit-copy"));
     m_pOBConverterAction->setWhatsThis(i18nc("WhatsThis Help", "With this tool, you can convert files containing chemical data between various file formats."));
     connect(m_pOBConverterAction, SIGNAL(triggered()), this, SLOT(slotOBConverter()));
 #ifndef HAVE_OPENBABEL2
@@ -211,7 +211,7 @@ void Kalzium::setupActions()
 
     m_pMoleculesviewer = actionCollection()->addAction("tools_moleculeviewer");
     m_pMoleculesviewer->setText(i18n("Molecular Editor..."));
-    m_pMoleculesviewer->setIcon(QIcon("kalzium_molviewer"));
+    m_pMoleculesviewer->setIcon(QIcon::fromTheme("kalzium_molviewer"));
     m_pMoleculesviewer->setWhatsThis(i18nc("WhatsThis Help", "This tool allows you to view and edit 3D molecular structures."));
     connect(m_pMoleculesviewer, SIGNAL(triggered()), this, SLOT(slotMoleculeviewer()));
 #if !defined(HAVE_OPENBABEL2) || !defined(HAVE_EIGEN) || !defined(HAVE_AVOGADRO)
@@ -220,7 +220,7 @@ void Kalzium::setupActions()
 
     m_pTables = actionCollection()->addAction("tools_tables");
     m_pTables->setText(i18n("&Tables..."));
-    m_pTables->setIcon(QIcon("kalzium_tables"));
+    m_pTables->setIcon(QIcon::fromTheme("kalzium_tables"));
     m_pTables->setWhatsThis(i18nc("WhatsThis Help", "This will open a dialog with listings of symbols and numbers related to chemistry."));
 
     connect(m_pTables, SIGNAL(triggered()), this, SLOT(slotTables()));
@@ -228,17 +228,17 @@ void Kalzium::setupActions()
     // other period view options
     m_pLegendAction = m_legendDock->toggleViewAction();
     actionCollection()->addAction("view_legend", m_pLegendAction);
-    m_pLegendAction->setIcon(QIcon("legend"));
+    m_pLegendAction->setIcon(QIcon::fromTheme("legend"));
     m_pLegendAction->setWhatsThis(i18nc("WhatsThis Help", "This will show or hide the legend for the periodic table."));
 
     m_SidebarAction = m_dockWin->toggleViewAction();
     actionCollection()->addAction("view_sidebar", m_SidebarAction);
-    m_SidebarAction->setIcon(QIcon("sidebar"));
+    m_SidebarAction->setIcon(QIcon::fromTheme("sidebar"));
     m_SidebarAction->setWhatsThis(i18nc("WhatsThis Help", "This will show or hide a sidebar with additional information and a set of tools."));
 
     m_SidebarAction = m_tableDock->toggleViewAction();
     actionCollection()->addAction("view_tablebar", m_SidebarAction);
-    m_SidebarAction->setIcon(QIcon("kalzium_tables"));
+    m_SidebarAction->setIcon(QIcon::fromTheme("kalzium_tables"));
     m_SidebarAction->setWhatsThis(i18nc("WhatsThis Help", "This will show or hide a sidebar with additional information about the table."));
 
     // the standard actions
@@ -301,7 +301,7 @@ void Kalzium::setupSidebars()
     m_detailWidget->setObjectName("DetailedGraphicalOverview");
     m_detailWidget->setMinimumSize(200, m_detailWidget->minimumSize().height());
 
-    m_toolbox->addItem(m_detailWidget, QIcon("overview"), i18n("Overview"));
+    m_toolbox->addItem(m_detailWidget, QIcon::fromTheme("overview"), i18n("Overview"));
 
     m_gradientWidget = new GradientWidgetImpl(m_toolbox);
     m_gradientWidget->setObjectName("viewtWidget");
@@ -313,7 +313,7 @@ void Kalzium::setupSidebars()
     connect(m_gradientWidget->gradient_combo, SIGNAL(currentIndexChanged(int)),
              this, SLOT(slotSwitchtoLookGradient(int)));
 
-    m_toolbox->addItem(m_gradientWidget, QIcon("statematter"), i18n("View"));
+    m_toolbox->addItem(m_gradientWidget, QIcon::fromTheme("statematter"), i18n("View"));
 
     addDockWidget(Qt::LeftDockWidgetArea, m_dockWin);
     addDockWidget(Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);

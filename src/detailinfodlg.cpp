@@ -119,7 +119,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     QWidget* frame = new QWidget(this);
     KPageWidgetItem *item = addPage(frame, title);
     item->setHeader(icontext);
-    item->setIcon(QIcon(iconname));
+    item->setIcon(QIcon::fromTheme(iconname));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -467,7 +467,7 @@ void DetailedInfoDlg::createContent()
     QWidget *m_pModelTab = new QWidget(this);
     item = addPage(m_pModelTab, i18n("Atom Model"));
     item->setHeader(i18n("Atom Model"));
-    item->setIcon(QIcon("orbits"));
+    item->setIcon(QIcon::fromTheme("orbits"));
     QVBoxLayout *modelLayout = new QVBoxLayout(m_pModelTab);
     modelLayout->setMargin(0);
     wOrbits = new OrbitsWidget(m_pModelTab);
@@ -482,7 +482,7 @@ void DetailedInfoDlg::createContent()
     QWidget *m_pSpectrumTab = new QWidget(this);
     item = addPage(m_pSpectrumTab, i18n("Spectrum"));
     item->setHeader(i18n("Spectrum"));
-    item->setIcon(QIcon("spectrum"));
+    item->setIcon(QIcon::fromTheme("spectrum"));
     QVBoxLayout *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
     spectrumLayout->setMargin(0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);

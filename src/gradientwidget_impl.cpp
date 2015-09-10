@@ -42,7 +42,7 @@ GradientWidgetImpl::GradientWidgetImpl(QWidget *parent) : QWidget(parent), m_pla
     connect(Play, SIGNAL(clicked()), this, SLOT(play()));
     connect(m_timer, SIGNAL(timeout()), this, SLOT(tick()));
 
-    Play->setIcon(QIcon("media-playback-start"));
+    Play->setIcon(QIcon::fromTheme("media-playback-start"));
 }
 
 GradientWidgetImpl::~GradientWidgetImpl()
@@ -215,14 +215,14 @@ void GradientWidgetImpl::play(void)
     m_timer->start(200);
 
     m_play = true;          //start playing
-    Play->setIcon(QIcon("media-playback-pause"));
+    Play->setIcon(QIcon::fromTheme("media-playback-pause"));
 }
 
 void GradientWidgetImpl::stop(void)
 {
     //Currently playing, stop the timer.
     m_timer -> stop();
-    Play->setIcon(QIcon("media-playback-start"));
+    Play->setIcon(QIcon::fromTheme("media-playback-start"));
     m_play = false;         //Stop
 }
 

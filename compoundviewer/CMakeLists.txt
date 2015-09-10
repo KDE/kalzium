@@ -11,7 +11,7 @@ set(compoundviewer_SRCS
 
 add_library(compoundviewer ${compoundviewer_SRCS})
 
-target_link_libraries(compoundviewer avogadro
+target_link_libraries(compoundviewer ${AvogadroLibs_LIBRARY_DIR}/libavogadro.so
    ${OPENBABEL2_LIBRARIES}
    KF5::I18n
    KF5::WidgetsAddons
