@@ -33,7 +33,7 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <kpushbutton.h>
+#include <QPushButton>
 #include <klineedit.h>
 #include <kstandarddirs.h>
 
