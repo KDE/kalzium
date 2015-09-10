@@ -23,7 +23,6 @@ email                : cniehaus@kde.org
 #include "rsdialog.h"
 #include "calculator/calculator.h"
 
-class KTabWidget;
 class KAction;
 class KSelectAction;
 class QToolBox;

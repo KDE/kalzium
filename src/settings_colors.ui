@@ -18,7 +18,7 @@
     <number>9</number>
    </property>
    <item>
-    <widget class="KTabWidget" name="dfgdfg">
+    <widget class="QTabWidget" name="dfgdfg">
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -668,12 +668,6 @@
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -27,7 +27,7 @@
         </widget>
        </item>
        <item>
-        <widget class="KTabWidget" name="tabWidget">
+        <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
           <number>0</number>
          </property>
@@ -405,12 +405,6 @@
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>

@@ -67,7 +67,6 @@
 #include <kfiledialog.h>
 #include <QLocale>
 #include <KPluginLoader>
-// #include <KTabWidget>
 #include <QGridLayout>
 #include <KLocalizedString>
 
