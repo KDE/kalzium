@@ -23,7 +23,7 @@
 #include <dom/html_base.h>
 #include <dom/html_document.h>
 #include <khtmlview.h>
-#include <kstandarddirs.h>
+
 #include <kactioncollection.h>
 #include <kpagewidgetmodel.h>
 #include <KConfig>
@@ -36,9 +36,11 @@
 #include "psetables.h"
 
 #include <QFile>
+#include <QFileInfo>
 #include <QLabel>
 #include <QImage>
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
@@ -57,10 +59,13 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
     resize(820, 580);
 */
-    m_baseHtml = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
-    m_baseHtml2 = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
+    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, "data/") + "data/htmlview/";
+    m_baseHtml = QFileInfo(m_baseHtml).absolutePath();
+    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, "data/") + "data/hazardsymbols/";
+    m_baseHtml2 = QFileInfo(m_baseHtml2).absolutePath();
 
-//X     m_picsdir = KGlobal::dirs()->findResourceDir("appdata", "elempics/") + "elempics/";
+//X     m_picsdir = QStandardPaths::locate(QStandardPaths::DataLocation, "elempics/") + "elempics/";
+//X     m_picsdir = QFileInfo(m_picsdir).absolutePath();
 
     // creating the tabs but not the contents, as that will be done when setting the element
     createContent();

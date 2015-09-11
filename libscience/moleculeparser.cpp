@@ -15,9 +15,10 @@
 
 #include <ctype.h>
 
-#include <kstandarddirs.h>
+
 #include <kdebug.h>
 #include <QFile>
+#include <QStandardPaths>
 
 // ================================================================
 //                    class ElementCountMap
@@ -371,7 +372,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
     QString temp;                    // A temporary QString used in Regular expressions
 
     // Search in User defined aliases.
-    QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
+    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
     QFile file(fileName);
 
     // Check file validity
@@ -399,7 +400,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
 
     // Find the system defined aliases    
     // Open the file
-    fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+    fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols.csv");
     QFile file2(fileName);
 
     // Check file validity

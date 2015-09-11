@@ -25,7 +25,6 @@
 #include <kdebug.h>
 #include <kfiledialog.h>
 #include <kjob.h>
-#include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <KLocale>
 #include <QUrl>
@@ -43,6 +42,7 @@
   #define HAVE_GCC_VISIBILITY
 #endif
 #include <openbabel/forcefield.h>
+#include <QStandardPaths>
 
 using namespace OpenBabel;
 using namespace Avogadro;
@@ -174,8 +174,8 @@ void MoleculeDialog::slotLoadMolecule()
         KMessageBox::information(this, error);
     }
 
-    m_path = KGlobal::dirs()->findResourceDir("appdata", "data/molecules/") +
-             "data/molecules/";
+    m_path = QStandardPaths::locate(QStandardPaths::DataLocation, "data/molecules/") + "data/molecules/";
+    m_path = QFileInfo(m_path).absolutePath();
 
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");

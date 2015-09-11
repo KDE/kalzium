@@ -16,7 +16,6 @@
 
 #include <klocale.h>
 #include <QIcon>
-#include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
 #include <kpagewidgetmodel.h>

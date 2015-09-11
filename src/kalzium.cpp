@@ -59,7 +59,7 @@
 #include <kaction.h>
 #include <kparts/part.h>
 #include <kselectaction.h>
-#include <kstandarddirs.h>
+
 #include <kstandardaction.h>
 #include <QIcon>
 #include <kservicetypetrader.h>
@@ -69,6 +69,7 @@
 #include <KPluginLoader>
 #include <QGridLayout>
 #include <KLocalizedString>
+#include <QStandardPaths>
 
 #define IDS_ELEMENTINFO     7
 
@@ -341,7 +342,8 @@ void Kalzium::slotGlossary()
       // creating the glossary dialog and loading the glossaries we have
       m_glossarydlg = new GlossaryDialog(this);
       m_glossarydlg->setObjectName(QLatin1String("glossary"));
-      QString dir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/");
+      QString dir = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kalzium/data/");
+      dir = QFileInfo(dir).absolutePath();
       QString picturepath = dir + "kalzium/data/bg.jpg";
       QUrl u = QUrl::fromLocalFile(dir + "kalzium/data/knowledge.xml");
       Glossary *g = new Glossary(u);
@@ -584,7 +586,8 @@ void Kalzium::elementHover(int num)
 void Kalzium::extractIconicInformationAboutElement(int elementNumber)
 {
     QString setname = "school";
-    QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
+    pathname = QFileInfo(pathname).absolutePath();
     QString filename = pathname + setname + '/' + "iconinformation.txt";
 
     QFile file(filename);

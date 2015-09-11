@@ -30,7 +30,8 @@
 
 #include <klocale.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <QStandardPaths>
+
 
 
 KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
@@ -457,7 +458,8 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/latticeicons/") + "data/latticeicons/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/") + "data/latticeicons/";
+//X         resourcepath = QFileInfo(resourcepath).absolutePath();
 //X     }
 //X
 //X     QString filename;
@@ -506,7 +508,8 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty())
 //X     {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/latticeicons/") + "data/latticeicons/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/") + "data/latticeicons/";
+//X         resourcepath = QFileInfo(resourcepath).absolutePath();
 //X     }
 //X
 //X     QList<legendPair> ll;
@@ -551,7 +554,8 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/maps/") + "data/maps/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/") + "data/maps/";
+//X         resourcepath = QFileInfo(resourcepath).absolutePath();
 //X     }
 //X
 //X     QString filename;
@@ -607,7 +611,8 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X {
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/maps/") + "data/maps/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/") + "data/maps/";
+//X         resourcepath = QFileInfo(resourcepath).absolutePath();
 //X     }
 //X
 //X     QList<legendPair> ll;

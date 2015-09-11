@@ -3,13 +3,14 @@
 
 #include "detailedQmlView.h"
 
-#include <kstandarddirs.h>
+
 
 #include <QVBoxLayout>
 #include <QDeclarativeView>
 
 #include <QDebug>
 #include <prefs.h>
+#include <QStandardPaths>
 
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
@@ -22,7 +23,8 @@ DetailedQmlView::DetailedQmlView(QWidget *parent) : QWidget(parent)
 
     QDeclarativeView *view = new QDeclarativeView(this);
 
-    QString qmlPath = KGlobal::dirs()->findResourceDir("appdata", "qml/") + "qml/";
+    QString qmlPath = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/") + "qml/";
+    qmlPath = QFileInfo(qmlPath).absolutePath();
 
     m_context = view->rootContext();
 

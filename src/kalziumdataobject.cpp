@@ -26,15 +26,17 @@
 #include <spectrumparser.h>
 
 #include <QFile>
+#include <QFileInfo>
 #include <QPainter>
 
 #include <QLocale>
 #include <kdebug.h>
 #include <QUrl>
-#include <kstandarddirs.h>
+
 #include <KPixmapCache>
 #include <KGlobal>
 #include <kunitconversion/converter.h>
+#include <QStandardPaths>
 
 struct StaticKalziumDataObject
 {
@@ -54,7 +56,7 @@ KalziumDataObject::KalziumDataObject()
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();
 
-    QFile xmlFile(KStandardDirs::locate("data", "libkdeedu/data/elements.xml"));
+    QFile xmlFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/elements.xml"));
     QXmlInputSource source(&xmlFile);
     QXmlSimpleReader reader;
 
@@ -69,7 +71,7 @@ KalziumDataObject::KalziumDataObject()
     //read the spectra
     SpectrumParser * spectrumparser = new SpectrumParser();
 
-    QFile xmlSpFile(KStandardDirs::locate("data", "libkdeedu/data/spectra.xml"));
+    QFile xmlSpFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/spectra.xml"));
     QXmlInputSource spsource(&xmlSpFile);
     QXmlSimpleReader sp_reader;
 
@@ -84,7 +86,7 @@ KalziumDataObject::KalziumDataObject()
     // reading isotopes
     IsotopeParser * isoparser = new IsotopeParser();
 
-    QFile xmlIsoFile(KStandardDirs::locate("data", "libkdeedu/data/isotopes.xml"));
+    QFile xmlIsoFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/isotopes.xml"));
     QXmlInputSource isosource(&xmlIsoFile);
     QXmlSimpleReader isoreader;
 
@@ -196,7 +198,8 @@ void KalziumDataObject::loadIconSet()
     //FIXME in case we ever get more than one theme we need
     //a settings-dialog where we can select the different iconsets...
     const QString setname = "school";
-    const QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
+    pathname = QFileInfo(pathname).absolutePath();
 
     for (int i = 0; i < m_numOfElements; ++i)
     {

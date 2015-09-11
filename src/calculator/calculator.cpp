@@ -22,7 +22,6 @@
 #include <kdebug.h>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
-#include <kstandarddirs.h>
 #include <ktoolinvocation.h>
 #include <QDialog>
 #include <QIcon>

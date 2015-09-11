@@ -23,15 +23,17 @@ email                : cniehaus@kde.org
 #include <klocale.h>
 #include <kglobalsettings.h>
 #include <kglobal.h>
-#include <kstandarddirs.h>
+
 
 //QT-Includes
 #include <QFile>
 #include <QPainter>
 #include <QSvgRenderer>
 #include <QRect>
+#include <QFileInfo>
 
 #include <element.h>
+#include <QStandardPaths>
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
@@ -87,7 +89,8 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
     } else if (Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
         pm.fill(palette().background().color());
 
-        QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
+        pathname = QFileInfo(pathname).absolutePath();
 
         int enumii = m_element->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
 

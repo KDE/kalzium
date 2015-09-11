@@ -35,11 +35,11 @@
 #include <klocale.h>
 #include <QPushButton>
 #include <QLineEdit>
-#include <kstandarddirs.h>
 
 #include <QTimer>
 #include <QKeyEvent>
 #include <QFile>
+#include <QStandardPaths>
 
 MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 {
@@ -72,7 +72,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
         int i = 0;                          // loop counter
 
         // Search in User defined aliases.
-        QString fileName = KStandardDirs::locate("data", "libkdeedu/data/symbols2.csv");
+        QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
         QFile file(fileName);
 
         // Check file validity
@@ -107,7 +107,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 
         // Find the system defined aliases
         // Open the file
-        fileName = KStandardDirs::locate("data", "libkdeedu/data/symbols.csv");
+        fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols.csv");
         QFile file2(fileName);
         shortList.clear();
         fullList.clear();
@@ -308,7 +308,7 @@ void MolcalcWidget::addAlias()
     }
 
     // Open the file to write
-    QString fileName = KStandardDirs::locate("data", "libkdeedu/data/symbols2.csv");
+    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
     QFile file(fileName);
 
     if (!(!file.open(QIODevice::WriteOnly| QIODevice::Append | QIODevice::Text))) {

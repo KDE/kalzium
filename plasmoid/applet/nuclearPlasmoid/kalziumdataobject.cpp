@@ -31,9 +31,10 @@
 
 #include <klocale.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+
 #include <kpixmapcache.h>
 #include <QXmlReader>
+#include <QStandardPaths>
 
 KalziumDataObject* KalziumDataObject::instance()
 {
@@ -47,7 +48,7 @@ KalziumDataObject::KalziumDataObject()
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();
 
-    QFile xmlFile(KStandardDirs::locate("data", "libkdeedu/data/elements.xml"));
+    QFile xmlFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/elements.xml"));
     QXmlInputSource source(&xmlFile);
     QXmlSimpleReader reader;
 
@@ -62,7 +63,7 @@ KalziumDataObject::KalziumDataObject()
     //read the spectra
     SpectrumParser * spectrumparser = new SpectrumParser();
 
-    QFile xmlSpFile(KStandardDirs::locate("data", "libkdeedu/data/spectra.xml"));
+    QFile xmlSpFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/spectra.xml"));
     QXmlInputSource spsource(&xmlSpFile);
     QXmlSimpleReader sp_reader;
 
@@ -77,7 +78,7 @@ KalziumDataObject::KalziumDataObject()
     // reading isotopes
     IsotopeParser * isoparser = new IsotopeParser();
 
-    QFile xmlIsoFile(KStandardDirs::locate("data", "libkdeedu/data/isotopes.xml"));
+    QFile xmlIsoFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/isotopes.xml"));
     QXmlInputSource isosource(&xmlIsoFile);
     QXmlSimpleReader isoreader;
 
@@ -110,7 +111,8 @@ KalziumDataObject::KalziumDataObject()
         //a settings-dialog where we can select the different iconsets...
         QString setname = "school";
 
-        QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
+        pathname = QFileInfo(pathname).absolutePath();
 
         QString filename = pathname + setname + '/' + QString::number(i + 1) + ".svg";
 
