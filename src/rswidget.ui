@@ -87,7 +87,7 @@
     </layout>
    </item>
    <item row="1" column="0">
-    <widget class="KTextBrowser" name="text">
+    <widget class="QTextBrowser" name="text">
      <property name="minimumSize">
       <size>
        <width>500</width>
@@ -108,11 +108,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KTextBrowser</class>
-   <extends>QTextBrowser</extends>
-   <header>ktextbrowser.h</header>
-  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>
