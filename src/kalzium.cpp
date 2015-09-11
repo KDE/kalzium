@@ -458,7 +458,7 @@ void Kalzium::slotSwitchtoNumeration(int index)
 
 void Kalzium::slotSwitchtoLookGradient(int which)
 {
-    kDebug() << "slotSwitchtoLookGradient Kalzium";
+    qDebug() << "slotSwitchtoLookGradient Kalzium";
 
     KalziumElementProperty::instance()->setGradient(which);
 
@@ -478,7 +478,7 @@ void Kalzium::slotSwitchtoLookGradient(int which)
 
 void Kalzium::slotSwitchtoLookScheme(int which)
 {
-    kDebug() << "slotSwitchtoLookScheme Kalzium";
+    qDebug() << "slotSwitchtoLookScheme Kalzium";
 
     KalziumElementProperty::instance()->setScheme(which);
 

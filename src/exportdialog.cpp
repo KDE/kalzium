@@ -18,7 +18,7 @@
 #include <QFont>
 #include <KMessageBox>
 #include <kdialog.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <KLocalizedString>
 
 static const char HTML_HEADER[] =
@@ -76,31 +76,31 @@ PropertyListEntry::~PropertyListEntry()
 ExportDialog::ExportDialog(QWidget * parent)
         : KDialog(parent),m_outputStream(0)
 {
-    kDebug() << "ExportDialog::ExportDialog";
+    qDebug() << "ExportDialog::ExportDialog";
     setButtons(Help | User1 | Cancel);
-    kDebug() << "ExportDialog: setButtons";
+    qDebug() << "ExportDialog: setButtons";
     ui.setupUi(mainWidget());
-    kDebug() << "ExportDialog: ui.setupUi(mainWidget());";
+    qDebug() << "ExportDialog: ui.setupUi(mainWidget());";
     setButtonGuiItem(User1, KGuiItem(i18n("OK")));
-    kDebug() << "ExportDialog: setButtonGuiItem(User1, KGuiItem(i18n(\"OK\")));";
+    qDebug() << "ExportDialog: setButtonGuiItem(User1, KGuiItem(i18n(\"OK\")));";
     ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);
-    kDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
+    qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
     setCaption(i18n("Export Chemical Data"));
-    kDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
+    qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
     populateElementList();
-    kDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
+    qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
     ui.formatList->addItem(".html (formatted html document)", "html");
     ui.formatList->addItem(".xml (raw element data)", "xml");
     ui.formatList->addItem(".csv (comma-separated data)", "csv");
-    kDebug() << "ui.formatList->addItem(...);";
+    qDebug() << "ui.formatList->addItem(...);";
 
     connect(this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()));
-    kDebug() << "connect(this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()));";
+    qDebug() << "connect(this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()));";
     setHelp(QString(),"kalzium");
-    kDebug() << "setHelp(QString(),\"kalzium\");";
+    qDebug() << "setHelp(QString(),\"kalzium\");";
 }
 
 ExportDialog::~ExportDialog()

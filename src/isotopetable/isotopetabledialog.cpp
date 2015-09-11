@@ -28,7 +28,7 @@
 
 #include <klocale.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include<prefs.h>
 
 IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : KDialog(parent)

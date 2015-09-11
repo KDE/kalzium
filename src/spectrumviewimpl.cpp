@@ -15,9 +15,9 @@
 
 #include <QTreeWidget>
 #include <QTableWidget>
+#include <QDebug>
 
 #include <kunitconversion/converter.h>
-#include <kdebug.h>
 #include "kalziumdataobject.h"
 #include <klocalizedstring.h>
 #include "prefs.h"

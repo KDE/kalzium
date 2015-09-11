@@ -22,7 +22,7 @@
 #include <QGLFormat>
 #include <QUndoStack>
 #include <QSettings>
-#include <kdebug.h>
+#include <QDebug>
 #include <kfiledialog.h>
 #include <kjob.h>
 #include <kmessagebox.h>
@@ -199,7 +199,7 @@ void MoleculeDialog::loadMolecule(const QString &filename)
         return;
     }
 
-    kDebug() << "Filename to load: " << filename;
+    qDebug() << "Filename to load: " << filename;
 
     Molecule* molecule = OpenBabel2Wrapper::readMolecule(filename);
 
@@ -280,7 +280,7 @@ void MoleculeDialog::slotUpdateStatistics()
 
 void MoleculeDialog::slotDownloadNewStuff()
 {
-    kDebug() << "Kalzium new stuff";
+    qDebug() << "Kalzium new stuff";
 
     KNS3::DownloadDialog dialog(this);
     dialog.exec();
@@ -298,7 +298,7 @@ void MoleculeDialog::slotDownloadNewStuff()
     foreach (const KNS3::Entry& entry, dialog.changedEntries()) {
         // care only about installed ones
         if (entry.status() == KNS3::Entry::Installed) {
-            kDebug() << "Changed Entry: " << entry.installedFiles();
+            qDebug() << "Changed Entry: " << entry.installedFiles();
             foreach (const QString &origFile, entry.installedFiles()) {
                 const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
                 KJob *job = KIO::file_move(QUrl::fromLocalFile(origFile), QUrl::fromPath(destFile));

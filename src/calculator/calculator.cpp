@@ -19,7 +19,7 @@
 
 #include "calculator.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
 #include <ktoolinvocation.h>
@@ -91,7 +91,7 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
     }
 
     //DEBUG
-    kDebug() << "Item clicked: " << item->text(0);
+    qDebug() << "Item clicked: " << item->text(0);
 
     QString s = item->text(0);
 

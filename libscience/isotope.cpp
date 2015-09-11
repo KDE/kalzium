@@ -21,7 +21,7 @@
 
 #include "chemicaldataobject.h"
 
-#include <kdebug.h>
+#include <QDebug>
 
 Isotope::Isotope()
 {

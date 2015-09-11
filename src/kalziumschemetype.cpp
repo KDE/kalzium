@@ -29,7 +29,7 @@
 #include <QBrush>
 
 #include <klocale.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <QStandardPaths>
 
 
@@ -454,7 +454,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X {
 //X     QString crystal = KalziumDataObject::instance()->element(el)->dataAsString(ChemicalDataObject::crystalstructure);
 //X
-//X     kDebug() << "crystal is " << crystal;
+//X     qDebug() << "crystal is " << crystal;
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
@@ -487,11 +487,11 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     QBrush ret;
 //X     if (!filename.isEmpty()) {
-//X         kDebug() << el << ": FILENAME is not EMPTY... " << filename;
+//X         qDebug() << el << ": FILENAME is not EMPTY... " << filename;
 //X         QPixmap pixmap(resourcepath + filename);
 //X         ret = QBrush(pixmap.scaled(elrect.size(), Qt::KeepAspectRatio));
 //X     } else {
-//X             kDebug() << el << ": FILENAME EMPTY... " << filename;
+//X             qDebug() << el << ": FILENAME EMPTY... " << filename;
 //X         ret.setColor(Qt::gray);
 //X     }
 //X

@@ -19,7 +19,6 @@
 #include <kplotobject.h>
 
 #include <klocale.h>
-#include <kdebug.h>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
 #include <ktoolinvocation.h>
@@ -32,6 +31,7 @@
 #include <QKeyEvent>
 #include <QPen>
 #include <QTimer>
+#include <QDebug>
 
 AxisData::AxisData(AXISTYPE type) : currentDataType(-1)
 {
@@ -128,14 +128,14 @@ void ElementDataViewer::fullRange()
 
 void ElementDataViewer::setLimits()
 {
-    kDebug() << "ElementDataViewer::setLimits()";
+    qDebug() << "ElementDataViewer::setLimits()";
 
     double x1 = 0.0, x2 = 0.0, y1 = 0.0, y2 = 0.0;
 
     getMinMax(x1, x2, m_xData);
     getMinMax(y1, y2, m_yData);
 
-    kDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2;
+    qDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2;
 
     //JH: add some padding to show all points
     double dx = 0.05*(x2-x1);
@@ -165,7 +165,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
     double minValue = data->value(firstElement);
     double maxValue = data->value(firstElement);
 
-    kDebug() << "Taking elements from " << firstElement << " to " << lastElement;
+    qDebug() << "Taking elements from " << firstElement << " to " << lastElement;
 
     for (int _currentVal = firstElement; _currentVal <= lastElement; ++_currentVal) { //go over all selected elements
         double v = data->value(_currentVal);
@@ -178,7 +178,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
         }
     }
 
-    kDebug() << "The value are ]"<< minValue << " , " << maxValue << "[.";
+    qDebug() << "The value are ]"<< minValue << " , " << maxValue << "[.";
 
     min = minValue;
     max = maxValue;

@@ -20,7 +20,6 @@
 
 #include "kdeeduglossary.h"
 
-#include <kdebug.h>
 #include <klocale.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
@@ -38,6 +37,7 @@
 #include <qstringlist.h>
 #include <qtreewidget.h>
 #include <QDomDocument>
+#include <QDebug>
 
 static const int FirstLetterRole = 0x00b00a00;
 
@@ -160,7 +160,7 @@ bool Glossary::loadLayout(QDomDocument &Document, const QUrl &url)
     QFile layoutFile(url.path());
 
     if (!layoutFile.exists()) {
-        kDebug() << "no such file: " << layoutFile.fileName();
+        qDebug() << "no such file: " << layoutFile.fileName();
         return false;
     }
 
@@ -170,7 +170,7 @@ bool Glossary::loadLayout(QDomDocument &Document, const QUrl &url)
 
     // check if document is well-formed
     if (!Document.setContent(&layoutFile)) {
-        kDebug() << "wrong xml of " << layoutFile.fileName();
+        qDebug() << "wrong xml of " << layoutFile.fileName();
         layoutFile.close();
         return false;
     }

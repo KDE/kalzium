@@ -20,7 +20,7 @@
 #ifndef CONCCALCULATOR_H
 #define CONCCALCULATOR_H
 
-#include <kdebug.h>
+#include <QDebug>
 #include <prefs.h>
 #include <kalziumdataobject.h>
 #include <kunitconversion/unitcategory.h>

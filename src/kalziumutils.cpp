@@ -18,8 +18,8 @@
 #include <QFont>
 #include <QRect>
 #include <QPainter>
+#include <QDebug>
 
-#include <kdebug.h>
 #include <klocale.h>
 
 #include <element.h>

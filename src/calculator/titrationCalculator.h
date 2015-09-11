@@ -23,7 +23,7 @@
 #include <element.h>
 #include <isotope.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include <prefs.h>
 #include <KPlotWidget>
 #include "kplotobject.h"

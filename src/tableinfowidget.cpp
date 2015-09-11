@@ -20,13 +20,13 @@
 #include "prefs.h"
 #include "kalziumschemetype.h"
 
-#include <kdebug.h>
 #include <klocale.h>
 #include <kglobalsettings.h>
 
 #include "psetables.h"
 
 #include <QHBoxLayout>
+#include <QDebug>
 
 TableInfoWidget::TableInfoWidget(QWidget *parent) : QWidget(parent)
 {

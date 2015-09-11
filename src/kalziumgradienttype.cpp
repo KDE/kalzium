@@ -25,9 +25,9 @@
 #include <kunitconversion/converter.h>
 
 #include <QVariant>
+#include <QDebug>
 
 #include <klocale.h>
-#include <kdebug.h>
 
 #include <math.h>
 

@@ -19,7 +19,6 @@ email                : cniehaus@kde.org
 #include "kalziumutils.h"
 
 //KDE-Includes
-#include <kdebug.h>
 #include <klocale.h>
 #include <kglobalsettings.h>
 #include <kglobal.h>
@@ -31,6 +30,7 @@ email                : cniehaus@kde.org
 #include <QSvgRenderer>
 #include <QRect>
 #include <QFileInfo>
+#include <QDebug>
 
 #include <element.h>
 #include <QStandardPaths>

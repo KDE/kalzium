@@ -19,13 +19,12 @@
 
 #include "concCalculator.h"
 
-#include <kdebug.h>
 #include <ktoolinvocation.h>
 #include "kalziumutils.h"
 #include <kunitconversion/converter.h>
 #include "prefs.h"
 #include <klocalizedstring.h>
-
+#include <QDebug>
 using namespace KUnitConversion;
 
 concCalculator::concCalculator(QWidget * parent) : QFrame(parent)

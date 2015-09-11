@@ -30,7 +30,7 @@
 #include <QPainter>
 
 #include <QLocale>
-#include <kdebug.h>
+#include <QDebug>
 #include <QUrl>
 
 #include <KPixmapCache>

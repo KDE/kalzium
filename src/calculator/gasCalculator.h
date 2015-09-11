@@ -20,7 +20,7 @@
 #ifndef GASCALCULATOR_H
 #define GASCALCULATOR_H
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kalziumdataobject.h>
 #include <kunitconversion/unitcategory.h>
 #include <kunitconversion/converter.h>

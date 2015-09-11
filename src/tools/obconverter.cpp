@@ -31,7 +31,7 @@
 
 
 // KDE includes
-#include <KDebug>
+#include <QDebug>
 #include <KLocale>
 #include <KMessageBox>
 #include <KFileDialog>
