@@ -25,7 +25,7 @@
 #include <kstandarddirs.h>
 #include <ktoolinvocation.h>
 #include <QDialog>
-#include <kicon.h>
+#include <QIcon>
 #include <KLocalizedString>
 calculator::calculator(QWidget *parent) : KDialog(parent)
 {
@@ -69,7 +69,7 @@ calculator::calculator(QWidget *parent) : KDialog(parent)
     ui.stack->addWidget(m_equationBalancer);
 #endif
     // Add an image to the file
-    ui.pic->setPixmap((KIcon("calculate")).pixmap(128,128));
+    ui.pic->setPixmap((QIcon::fromTheme("calculate")).pixmap(128,128));
 
     // Connect the tree item selection signal to the corresponding slot
     connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this,

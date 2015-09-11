@@ -15,7 +15,7 @@
 #include "tablesdialog.h"
 
 #include <klocale.h>
-#include <kicon.h>
+#include <QIcon>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
@@ -49,7 +49,7 @@ void TablesDialog::createGreekSymbolTable()
     QWidget *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Greek alphabet"));
     item->setHeader(i18n("Greek alphabet"));
-    item->setIcon(KIcon("numbers"));
+    item->setIcon(QIcon::fromTheme("numbers"));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -152,7 +152,7 @@ void TablesDialog::createNumbersTable()
     QWidget *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Numbers"));
     item->setHeader(i18n("Numeric Prefixes and Roman Numerals"));
-    item->setIcon(KIcon("numbers"));
+    item->setIcon(QIcon::fromTheme("numbers"));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 

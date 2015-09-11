@@ -134,7 +134,7 @@ void KalziumPlasma::showConfigurationInterface()
 {
     if (m_dialog == 0) {
         m_dialog = new KDialog;
-        m_dialog->setWindowIcon(KIcon("kalzium"));
+        m_dialog->setWindowIcon(QIcon::fromTheme("kalzium"));
         m_dialog->setCaption(i18n("KalziumPlasma Configuration"));
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setMargin(0);
