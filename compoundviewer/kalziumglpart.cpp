@@ -23,7 +23,7 @@ KAboutData kalziumGLPartAboutData()
     KAboutData aboutData(
         "kalzium", QByteArray(), ki18n("Kalzium OpenGL Part"), "1.1.1",
         ki18n("A cool thing"),
-        KAboutData::License_GPL, ki18n("(c) 2006, Carsten Niehaus"),
+        KAboutLicense::GPL, ki18n("(c) 2006, Carsten Niehaus"),
         KLocalizedString(),
         "http://edu.kde.org/kalzium/index.php"
     );
