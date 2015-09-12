@@ -139,6 +139,8 @@ private:
 
     UnitSettingsDialog *m_unitsDialog;
 
+    QLabel *m_elementInfo;
+
 Q_SIGNALS:
     void numerationChanged(int);
 

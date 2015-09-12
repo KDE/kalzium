@@ -51,7 +51,7 @@
 #include <QToolBox>
 #include <QKeyEvent>
 #include <QRegExp>
-#include <KStatusBar>
+#include <QStatusBar>
 
 #include <QMessageBox>
 #include <kconfigdialog.h>
@@ -558,13 +558,12 @@ void Kalzium::slotShowExportDialog()
 
 void Kalzium::setupStatusBar()
 {
-    KStatusBar *statusBar = new KStatusBar(this);
+    QStatusBar *statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
 
-    statusBar->insertItem("", 0, 0);
-    statusBar->setItemAlignment(0, Qt::AlignRight);
-    statusBar->insertItem("", IDS_ELEMENTINFO, 1);
-    statusBar->setItemAlignment(IDS_ELEMENTINFO, Qt::AlignRight);
+    m_elementInfo = new QLabel("");
+    m_elementInfo->setAlignment(Qt::AlignRight);
+    statusBar->addWidget(m_elementInfo, 1);
     statusBar->show();
 }
 
@@ -572,12 +571,11 @@ void Kalzium::elementHover(int num)
 {
     //     extractIconicInformationAboutElement(num);
     Element *e = KalziumDataObject::instance()->element(num);
-    KStatusBar *statusBar = new KStatusBar(this);
-    setStatusBar(statusBar);
-    statusBar->changeItem(i18nc("For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u",
-                                    e->dataAsString(ChemicalDataObject::name),
-                                    e->dataAsString(ChemicalDataObject::atomicNumber),
-                                    e->dataAsString(ChemicalDataObject::mass)), IDS_ELEMENTINFO);
+    m_elementInfo->setText(i18nc("For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u",
+                                 e->dataAsString(ChemicalDataObject::name),
+                                 e->dataAsString(ChemicalDataObject::atomicNumber),
+                                 e->dataAsString(ChemicalDataObject::mass)));
+    qDebug() << "change item in status bar";
 
     m_detailWidget->setElement(num);
 }
