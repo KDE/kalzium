@@ -59,7 +59,7 @@ void KalziumElementProperty::setScheme(int newScheme)
 {
     m_currentScheme = newScheme;
     Prefs::setColorschemebox(newScheme);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     propertyChanged();
 }
 
@@ -67,7 +67,7 @@ void KalziumElementProperty::setGradient(int newGradient)
 {
     m_currentGradient = newGradient;
     Prefs::setColorgradientbox(newGradient);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 
     if (isGradient()) {
         m_mode = GRADIENTVALUE;

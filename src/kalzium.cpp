@@ -447,14 +447,14 @@ void Kalzium::slotSwitchtoTable(int index)
         m_infoDialog->setTableType(m_periodicTable->table());
     }
     Prefs::setTable(index);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 }
 
 void Kalzium::slotSwitchtoNumeration(int index)
 {
     emit numerationChanged(index);
     Prefs::setNumeration(index);
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 }
 
 void Kalzium::slotSwitchtoLookGradient(int which)
@@ -542,7 +542,7 @@ void Kalzium::slotUpdateSettings()
 
     Prefs::setTemperatureUnit(m_unitsDialog->getTemperatureUnitId());
 
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 
     /*This slot function calls change the color of pse elements immideately after prefs change*/
     slotSwitchtoLookGradient(Prefs::colorgradientbox());

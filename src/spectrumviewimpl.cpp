@@ -109,7 +109,7 @@ void SpectrumViewImpl::updatePeakInformation(Spectrum::peak *peak)
 void SpectrumViewImpl::setUnit()
 {
     Prefs::setSpectrumWavelengthUnit(m_lengthUnit->getCurrentUnitId());
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     qDebug() << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
 
     emit settingsChanged();
