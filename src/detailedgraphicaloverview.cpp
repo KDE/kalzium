@@ -18,18 +18,13 @@ email                : cniehaus@kde.org
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-//KDE-Includes
-#include <klocale.h>
-#include <kglobalsettings.h>
-#include <kglobal.h>
-
-
-//QT-Includes
+#include <KLocalizedString>
 #include <QFile>
 #include <QPainter>
 #include <QSvgRenderer>
 #include <QRect>
 #include <QFileInfo>
+#include <QFontDatabase>
 #include <QDebug>
 
 #include <element.h>
@@ -115,9 +110,9 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
         p.setBrush(Qt::black);
         p.setBrush(Qt::NoBrush);
 
-        QFont fA = KGlobalSettings::generalFont();
-        QFont fB = KGlobalSettings::generalFont();
-        QFont fC = KGlobalSettings::generalFont();
+        QFont fA = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
+        QFont fB = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
+        QFont fC = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
 
         fA.setPointSize(fA.pointSize() + 20); //Huge font
         fA.setBold(true);

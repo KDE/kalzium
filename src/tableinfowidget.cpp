@@ -20,8 +20,7 @@
 #include "prefs.h"
 #include "kalziumschemetype.h"
 
-#include <klocale.h>
-#include <kglobalsettings.h>
+#include <KLocalizedString>
 
 #include "psetables.h"
 
