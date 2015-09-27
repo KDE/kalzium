@@ -1,27 +1,33 @@
-include_directories( ${CMAKE_CURRENT_BINARY_DIR}/..
-  ${EIGEN3_INCLUDE_DIR}
-  ${OPENBABEL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/compoundviewer)
+include_directories(
+    ${CMAKE_CURRENT_BINARY_DIR}/..
+    ${EIGEN3_INCLUDE_DIR}
+    ${OPENBABEL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS}
+    ${PROJECT_SOURCE_DIR}/compoundviewer
+)
 
 set(compoundviewer_SRCS
-  openbabel2wrapper.cpp
-  kalziumglwidget.cpp
+    openbabel2wrapper.cpp
+    kalziumglwidget.cpp
 )
 
 #add_subdirectory(widgets)
 
 add_library(compoundviewer ${compoundviewer_SRCS})
 
-target_link_libraries(compoundviewer ${AvogadroLibs_LIBRARY_DIR}/libavogadro.so
-   ${OPENBABEL2_LIBRARIES}
-   KF5::I18n
-   KF5::WidgetsAddons
-   KF5::CoreAddons
-   Qt5::OpenGL
+target_link_libraries(compoundviewer
+    KF5::I18n
+    KF5::WidgetsAddons
+    KF5::CoreAddons
+    Qt5::OpenGL
     Qt5::Gui
-${OPENGL_LIBRARIES}
-
+    ${OPENBABEL2_LIBRARIES}
+    ${OPENGL_LIBRARIES}
+    ${AvogadroLibs_LIBRARY_DIR}/libavogadro.so
 )
 
-set_target_properties(compoundviewer PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
+set_target_properties(compoundviewer PROPERTIES
+    VERSION ${GENERIC_LIB_VERSION}
+    SOVERSION ${GENERIC_LIB_SOVERSION}
+)
 
 install(TARGETS compoundviewer ${INSTALL_TARGETS_DEFAULT_ARGS})
