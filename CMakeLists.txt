@@ -1,17 +1,8 @@
 project(kalzium)
 cmake_minimum_required(VERSION 2.8.12)
 
-find_package(ECM 0.0.11 REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${OPENBABEL2_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}/cmake/modules)
-find_package(OpenBabel2 REQUIRED)
-find_package(Qt5 REQUIRED COMPONENTS Widgets Script Core Declarative Gui OpenGL)
-find_package(Qt5Svg REQUIRED)
-find_package(KF5 REQUIRED COMPONENTS Plotting CoreAddons Solid Config Archive KHtml I18n DocTools Parts UnitConversion WidgetsAddons NewStuff KDELibs4Support)
-find_package(Gettext REQUIRED)
-find_package(PythonInterp REQUIRED)
-find_package(AvogadroLibs)
-find_package(Eigen3)
-find_package(OpenGL REQUIRED)
+find_package(ECM 5.7.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${kalzium_SOURCE_DIR}/cmake/modules)
 
 include(KDEInstallDirs)
 include(KDECompilerSettings)
@@ -19,8 +10,39 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(ECMInstallIcons)
 include(ECMMarkNonGuiExecutable)
-include_directories(${OPENBABEL2_INCLUDE_DIR} ${AVOGADRO_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS} ${Qt5Declarative_INCLUDE_DIR})
-set(CMAKE_MODULE_PATH ${kalzium_SOURCE_DIR}/cmake/modules )
+
+find_package(OpenBabel2 REQUIRED)
+find_package(Gettext REQUIRED)
+find_package(PythonInterp REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(AvogadroLibs)
+find_package(Eigen3)
+
+find_package(Qt5 REQUIRED COMPONENTS
+    Widgets
+    Script
+    Core
+    Declarative
+    Gui
+    OpenGL
+    Svg
+)
+
+find_package(KF5 REQUIRED COMPONENTS
+    Archive
+    Config
+    CoreAddons
+    DocTools
+    I18n
+    KDELibs4Support
+    KHtml
+    NewStuff
+    Parts
+    Plotting
+    Solid
+    UnitConversion
+    WidgetsAddons
+)
 
 # search packages used by KDE 
 if(WIN32)
