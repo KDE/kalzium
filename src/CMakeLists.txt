@@ -51,7 +51,7 @@ set(kalziumtools_SRCS
    calculator/titrationCalculator.cpp
 #   calculator/massCalculator.cpp
    )
-qt5_wrap_ui(kalziumtools_SRCS
+ki18n_wrap_ui(kalziumtools_SRCS
    calculator/calculator.ui
    calculator/nuclearCalculator.ui
    calculator/gasCalculator.ui
