@@ -28,13 +28,12 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QPainter>
-
+#include <QGlobalStatic>
 #include <QLocale>
 #include <QDebug>
 #include <QUrl>
 
 #include <KPixmapCache>
-#include <KGlobal>
 #include <kunitconversion/converter.h>
 #include <QStandardPaths>
 
@@ -43,7 +42,7 @@ struct StaticKalziumDataObject
     KalziumDataObject kdo;
 };
 
-K_GLOBAL_STATIC(StaticKalziumDataObject, s_kdo)
+Q_GLOBAL_STATIC(StaticKalziumDataObject, s_kdo)
 
 KalziumDataObject* KalziumDataObject::instance()
 {

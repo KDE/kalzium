@@ -29,7 +29,6 @@
 #include <KConfig>
 #include <KConfigWidgets/khelpclient.h>
 #include <krun.h>
-#include <KGlobal>
 #include <QIcon>
 #include <KPageDialog>
 #include <QUrl>
@@ -41,6 +40,7 @@
 #include <QImage>
 #include <QStackedWidget>
 #include <QStandardPaths>
+#include <QLocale>
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
@@ -287,12 +287,10 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     }
     case EXTRA:
     {
-        QString language(KGlobal::locale()->languageCodeToName(KGlobal::locale()->language()));
-
         //Wikipedia.org
 //         html.append ("<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>");
         html.append ("<tr><td>");
-        html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", language)));
+        html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", QLocale().nativeLanguageName())));
         html.append ("</td></tr>");
 
         //http://education.jlab.org/itselemental/ele001.html
@@ -310,7 +308,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("<tr><td>");
         html.append ("<a href=\"http://");        // http://
         html.append ("www.webelements.com/");
-        if (KGlobal::locale()->language().split('_').at(0) == "en") {
+        if (QLocale().uiLanguages().first().startsWith("en")) {
             html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
         }
         html.append ("\" target=\"_blank\" >");
@@ -562,11 +560,11 @@ QString DetailedInfoDlg::createWikiLink(QString link)
 QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 {
     QString html;
-    QString language(KGlobal::locale()->language());
+    QString language(QLocale().uiLanguages().first());
 
     //Wikipedia.org
     html.append ("<a href=\"http://");         // http://
-    html.append (language.split('_').at(0));   // en.
+    html.append (language.split('-').at(0));   // en.
     html.append (".wikipedia.org/wiki/");      // wikipedia.org
     html.append (link);                        // /hydrogen
     html.append ("\" target=\"_blank\" > ");

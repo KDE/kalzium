@@ -22,7 +22,7 @@
 #include <QLatin1String>
 #include <QStringList>
 
-#include <KLocale>
+#include <QLocalizedString>
 
 #include <KConfigGroup>
 #include <QStandardPaths>
@@ -33,7 +33,6 @@
 KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
         : Plasma::DataEngine(parent)
 {
-    KGlobal::locale()->insertCatalog("libkdeedu");
     Q_UNUSED(args)
     // we don't need the data to fly by any faster - even at a second it's hard to read.
     setMinimumPollingInterval(1000);

@@ -28,8 +28,6 @@
 #include <kmessagebox.h>
 #include <KLocale>
 #include <QUrl>
-#include <KGlobal>
-#include <KGlobalSettings>
 #include <knewstuff3/downloaddialog.h>
 #include <kio/job.h>
 
@@ -285,8 +283,7 @@ void MoleculeDialog::slotDownloadNewStuff()
     KNS3::DownloadDialog dialog(this);
     dialog.exec();
     // list of changed entries
-    QString destinationDir =
-            KGlobalSettings ::documentPath();
+    QString destinationDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QDir dir(destinationDir);
     if (!dir.exists()) {
         destinationDir = QDir::homePath();

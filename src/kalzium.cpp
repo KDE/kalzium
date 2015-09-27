@@ -34,7 +34,6 @@
 #include "tableinfowidget.h"
 #include "psetables.h"
 #include <config-kalzium.h>
-#include <KGlobal>
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
@@ -76,9 +75,6 @@
 Kalzium::Kalzium() : KXmlGuiWindow(0)
 {
     setObjectName("KalziumMainWindow");
-
-    // adding the libkdeedu catalog
-    KGlobal::locale()->insertCatalog("libkdeedu");
 
     // Init pointers with null
     m_infoDialog = 0;

@@ -49,7 +49,6 @@ nuclearCalculator::nuclearCalculator(QObject *parent, const QVariantList &args)
 : Plasma::PopupApplet(parent, args)
 , m_widget(0)
 {
-    KGlobal::locale()->insertCatalog("libkdeedu");
     m_converter = new Converter(this);
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setPopupIcon("accessories-calculator");
