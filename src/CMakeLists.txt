@@ -20,7 +20,7 @@ if (OPENBABEL2_FOUND)
       tools/obconverter.cpp
       )
 
-   qt5_wrap_ui(kalziumtools_SRCS
+   ki18n_wrap_ui(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
    include_directories(${OPENBABEL2_INCLUDE_DIR})
@@ -34,7 +34,7 @@ if (OPENBABEL2_FOUND)
          tools/moleculeview.cpp
          ../compoundviewer/kalziumglwidget.cpp
          )
-      qt5_wrap_ui(kalziumtools_SRCS
+      ki18n_wrap_ui(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
       include_directories(${EIGEN3_INCLUDE_DIR})
@@ -112,12 +112,12 @@ if (LIBFACILE_FOUND)
       ${CMAKE_CURRENT_BINARY_DIR}/solver.o
       ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
       )
-   qt5_wrap_ui(kalzium_SRCS
+   ki18n_wrap_ui(kalzium_SRCS
       equationview.ui
       )
 endif (LIBFACILE_FOUND)
 
-qt5_wrap_ui(kalzium_SRCS
+ki18n_wrap_ui(kalzium_SRCS
    isotopetable/isotopedialog.ui
    settings_colors.ui
    plotsetupwidget.ui

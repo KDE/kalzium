@@ -8,7 +8,7 @@ include_directories(
 # We add our source code here
 set(periodic_SRCS Molmasscalculator.cpp Periodictable.cpp)
 
-qt5_wrap_ui(periodic_SRCS Molmassconfig.ui)
+ki18n_wrap_ui(periodic_SRCS Molmassconfig.ui)
 
 # Now make sure all files get to the right place
 add_library(plasma_applet_molmassCalculator ${periodic_SRCS})

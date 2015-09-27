@@ -1,7 +1,7 @@
 project(gasCalculator)
 
 set(gasCalculator_SRCS gasCalculator.cpp)
-qt5_wrap_ui(gasCalculator_SRCS gasCalculatorConfig.ui)
+ki18n_wrap_ui(gasCalculator_SRCS gasCalculatorConfig.ui)
 add_library(gasCalculator ${gasCalculator_SRCS})
 target_link_libraries(gasCalculator
                       KF5::Plasma KF5::Ui KF5::WidgetsAddons

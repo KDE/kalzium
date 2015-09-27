@@ -6,7 +6,7 @@ set(nuclearCalculator_SRCS
    nuclearCalculator.cpp
    kalziumdataobject.cpp
    )
-qt5_wrap_ui(nuclearCalculator_SRCS nuclearCalculatorConfig.ui)
+ki18n_wrap_ui(nuclearCalculator_SRCS nuclearCalculatorConfig.ui)
 add_library(nuclearCalculator ${nuclearCalculator_SRCS})
 target_link_libraries(nuclearCalculator
                       KF5::Plasma KF5::Ui KF5::KHtml
