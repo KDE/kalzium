@@ -27,13 +27,13 @@
 
 #include <QFile>
 #include <QFileInfo>
+#include <QSvgRenderer>
 #include <QPainter>
 #include <QGlobalStatic>
 #include <QLocale>
 #include <QDebug>
 #include <QUrl>
 
-#include <KPixmapCache>
 #include <kunitconversion/converter.h>
 #include <QStandardPaths>
 
@@ -193,28 +193,28 @@ void KalziumDataObject::cleanup()
 
 void KalziumDataObject::loadIconSet()
 {
-    KPixmapCache cache("kalzium");
     //FIXME in case we ever get more than one theme we need
     //a settings-dialog where we can select the different iconsets...
     const QString setname = "school";
-    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
-    pathname = QFileInfo(pathname).absolutePath();
+    QString pathname = QStandardPaths::locate(
+        QStandardPaths::DataLocation, "data/iconsets/" + setname + '/',
+        QStandardPaths::LocateDirectory);
+    QSvgRenderer renderer;
 
-    for (int i = 0; i < m_numOfElements; ++i)
-    {
-        QString filename = pathname + setname + '/' + QString::number(i + 1) + ".svg";
+    for (int i = 0; i < m_numOfElements; ++i) {
+        QString filename = pathname + QString::number(i + 1) + ".svg";
 
-        QPixmap pix = cache.loadFromSvg(filename, QSize(40, 40));
-        if (pix.isNull()) {
-            pix = QPixmap(40, 40);
-            pix.fill(Qt::transparent);
+        renderer.load(filename);
+        QPixmap pix(40, 40);
+        pix.fill(Qt::transparent);
+        QPainter p(&pix);
+        renderer.render(&p);
 
-            QPainter p(&pix);
-            Element *e =  ElementList.at(i);
-            QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
-            p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol);
-            p.end();
-        }
+        Element *e = ElementList.at(i);
+        QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
+        p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol);
+        p.end();
+
         PixmapList << pix;
     }
 }
