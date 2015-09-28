@@ -17,6 +17,8 @@ find_package(PythonInterp REQUIRED)
 find_package(AvogadroLibs)
 find_package(Eigen3)
 
+include_directories(${AvogadroLibs_INCLUDE_DIRS})
+
 find_package(Qt5 REQUIRED COMPONENTS
     Widgets
     Script
