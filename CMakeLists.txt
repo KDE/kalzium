@@ -14,7 +14,6 @@ include(ECMMarkNonGuiExecutable)
 find_package(OpenBabel2 REQUIRED)
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)
-find_package(OpenGL REQUIRED)
 find_package(AvogadroLibs)
 find_package(Eigen3)
 
@@ -72,7 +71,7 @@ endif(MSVC)
 
 include(KalziumConfigureChecks.cmake)
 
-if (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
+if (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?
   message(STATUS "Kalzium molecular editor enabled")
@@ -80,9 +79,9 @@ if (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
     add_definitions(-DHAVE_SNPRINTF -DHAVE_STRCASECMP -DHAVE_STRNCASECMP)
   endif (WIN32)
   add_subdirectory(compoundviewer)
-else (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
+else (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   message(STATUS "Kalzium molecular editor disabled")
-endif (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
+endif (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
 
 add_subdirectory(doc)
 add_subdirectory(src)

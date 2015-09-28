@@ -25,7 +25,7 @@ if (OPENBABEL2_FOUND)
       )
    include_directories(${OPENBABEL2_INCLUDE_DIR})
 
-   if (EIGEN3_FOUND AND Avogadro_FOUND)
+   if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 
       #include(${Avogadro_USE_FILE})
 
@@ -38,7 +38,7 @@ if (OPENBABEL2_FOUND)
          tools/moleculeviewerwidget.ui
          )
       include_directories(${EIGEN3_INCLUDE_DIR})
-   endif (EIGEN3_FOUND AND Avogadro_FOUND)
+   endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (OPENBABEL2_FOUND)
 
 ## Kalzium calculator files
@@ -139,9 +139,9 @@ target_link_libraries(kalzium KF5::Plotting KF5::KHtml KF5::KDELibs4Support KF5:
 #QT_QTSCRIPT_LIBRARY
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-   if (EIGEN3_FOUND AND Avogadro_FOUND)
+   if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
       target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro)
-   endif (EIGEN3_FOUND AND Avogadro_FOUND)
+   endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (OPENBABEL2_FOUND)
 
 if (LIBFACILE_FOUND)
