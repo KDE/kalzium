@@ -25,7 +25,10 @@ class OBForceField;
 }
 namespace Avogadro
 {
+namespace QtGui
+{
 class PeriodicTableView;
+}
 }
 class QSettings;
 
@@ -45,7 +48,7 @@ public:
 private:
     QString m_path;///to store the path were the molecules are located
     QList<int> m_elementsIndex; // Index storing the element combo index
-    Avogadro::PeriodicTableView *m_periodicTable;
+    Avogadro::QtGui::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
     QSettings *m_drawSettings;
     bool m_addHydrogens;

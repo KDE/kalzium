@@ -14,7 +14,6 @@ set(science_LIB_SRCS
    psetables.cpp
 )
 
-
 add_library(science SHARED ${science_LIB_SRCS})
 
 target_link_libraries(science Qt5::OpenGL Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::KDELibs4Support)

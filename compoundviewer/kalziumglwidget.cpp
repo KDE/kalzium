@@ -16,17 +16,20 @@
 
 #include <QSettings>
 
-#include <avogadro/primitive.h>
-#include <avogadro/pluginmanager.h>
-#include <avogadro/toolgroup.h>
-#include <avogadro/engine.h>
+#include <avogadro/rendering/primitive.h>
+#include <avogadro/qtplugins/pluginmanager.h>
+#include <avogadro/qtgui/molecule.h>
+// #include <avogadro/toolgroup.h>//FIXME:Avogadro2 port away from toolgroup
+// #include <avogadro/engine.h>//FIXME:Avogadro2 port away from engine.h
 #include <QWidget>
 #include "openbabel2wrapper.h"
-#include<avogadro/glwidget.h>
+#include <avogadro/qtopengl/glwidget.h>
 #include <config-kalzium.h>
 
-KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
-  m_lastEngine1(0), m_lastEngine2(0)
+KalziumGLWidget::KalziumGLWidget(QWidget *parent)
+    : Avogadro::QtOpenGL::GLWidget(parent)
+    , m_lastEngine1(0)
+    , m_lastEngine2(0)
 {
     // work around a bug in OpenBabel: the chemical data files parsing
     // is dependent on the LC_NUMERIC locale.
@@ -45,19 +48,19 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
         }
         s_pluginDirSet = true;
     }
-    Avogadro::PluginManager *manager = Avogadro::PluginManager::instance();
-    manager->loadFactories();
-    Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);
-    tools->append(manager->tools(this));
-    tools->setActiveTool("Navigate");
-    setToolGroup(tools);
+    Avogadro::QtPlugins::PluginManager *manager = Avogadro::QtPlugins::PluginManager::instance();
+//     manager->loadFactories();//FIXME:Avogadro2
+//     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);//FIXME:Avogadro2 port away from ToolGroup
+//     tools->append(manager->tools(this));
+//     tools->setActiveTool("Navigate");
+//     setToolGroup(tools);
     // Set the default engine to be active
-    loadDefaultEngines();
+//     loadDefaultEngines();//FIXME:Avogadro2 port away from engine.h
 
     // Set the default quality level to high
     setQuality(2);
 
-    setMolecule(new Avogadro::Molecule(this));
+    setMolecule(new Avogadro::QtGui::Molecule(this));
     update();
 }
 
@@ -69,11 +72,11 @@ KalziumGLWidget::~KalziumGLWidget()
 
 bool KalziumGLWidget::openFile(const QString &file)
 {
-    Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule(file);
+    Avogadro::QtGui::Molecule* mol;// = OpenBabel2Wrapper::readMolecule(file);//FIXME:Avogadro2
     if (!mol) {
         return false;
     }
-    Avogadro::Molecule* oldmol = molecule();
+    Avogadro::QtGui::Molecule* oldmol = molecule();
     if (oldmol) {
         oldmol->deleteLater();
     }
@@ -84,73 +87,76 @@ bool KalziumGLWidget::openFile(const QString &file)
 
 void KalziumGLWidget::setStyle(int style)
 {
-    foreach (Avogadro::Engine *engine, engines()) {
-        if ((m_lastEngine1 == 0 && engine->identifier() == "Ball and Stick")
-            || (m_lastEngine1 == 1 && engine->identifier() == "Stick")
-            || (m_lastEngine1 == 2 && engine->identifier() == "Van der Waals Spheres")
-            || (m_lastEngine1 == 3 && engine->identifier() == "Wireframe")) {
-            engine->setEnabled(false);
-        }
-        if ((style == 0 && engine->identifier() == "Ball and Stick")
-            || (style == 1 && engine->identifier() == "Stick")
-            || (style == 2 && engine->identifier() == "Van der Waals Spheres")
-            || (style == 3 && engine->identifier() == "Wireframe")) {
-            engine->setEnabled(true);
-        }
-    }
+    //FIXME:Avogadro2
+//     foreach (Avogadro::Engine *engine, engines()) {
+//         if ((m_lastEngine1 == 0 && engine->identifier() == "Ball and Stick")
+//             || (m_lastEngine1 == 1 && engine->identifier() == "Stick")
+//             || (m_lastEngine1 == 2 && engine->identifier() == "Van der Waals Spheres")
+//             || (m_lastEngine1 == 3 && engine->identifier() == "Wireframe")) {
+//             engine->setEnabled(false);
+//         }
+//         if ((style == 0 && engine->identifier() == "Ball and Stick")
+//             || (style == 1 && engine->identifier() == "Stick")
+//             || (style == 2 && engine->identifier() == "Van der Waals Spheres")
+//             || (style == 3 && engine->identifier() == "Wireframe")) {
+//             engine->setEnabled(true);
+//         }
+//     }
     m_lastEngine1 = style;
     update();
 }
 
 void KalziumGLWidget::setStyle2(int style)
 {
-    foreach (Avogadro::Engine *engine, engines()) {
-        if ((m_lastEngine2 == 1 && engine->identifier() == "Ribbon")
-            || (m_lastEngine2 == 2 && engine->identifier() == "Ring")
-            || (m_lastEngine2 == 3 && engine->identifier() == "Orbitals")) {
-            engine->setEnabled(false);
-        }
-        if ((style == 1 && engine->identifier() == "Ribbon")
-            || (style == 2 && engine->identifier() == "Ring")
-            || (style == 3 && engine->identifier() == "Orbitals")) {
-            engine->setEnabled(true);
-        }
-    }
+    //FIXME:Avogadro2
+//     foreach (Avogadro::Engine *engine, engines()) {
+//         if ((m_lastEngine2 == 1 && engine->identifier() == "Ribbon")
+//             || (m_lastEngine2 == 2 && engine->identifier() == "Ring")
+//             || (m_lastEngine2 == 3 && engine->identifier() == "Orbitals")) {
+//             engine->setEnabled(false);
+//         }
+//         if ((style == 1 && engine->identifier() == "Ribbon")
+//             || (style == 2 && engine->identifier() == "Ring")
+//             || (style == 3 && engine->identifier() == "Orbitals")) {
+//             engine->setEnabled(true);
+//         }
+//     }
     m_lastEngine2 = style;
     update();
 }
 
 void KalziumGLWidget::setLabels(int style)
 {
-    // Use the QSettings framework to configure the label engine
-    foreach (Avogadro::Engine *engine, engines()) {
-        if (engine->name() == "Label") {
-            QSettings settings;
-            int atomType = 0;
-            int bondType = 0;
-            bool enabled = false;
-            // We need to use 
-            switch(style) {
-            case 0: // Display no labels
-                enabled = false;
-                break;
-            case 1: // Display the atom symbol
-                enabled = true;
-                atomType = 3;
-                break;
-            case 2: // Display the atom name
-                enabled = true;
-                atomType = 2;
-                break;
-            default:
-                engine->setEnabled(false);
-            }
-            settings.setValue("atomLabel", atomType);
-            settings.setValue("bondLabel", bondType);
-            settings.setValue("enabled", enabled);
-            engine->readSettings(settings);
-        }
-    }
+    //FIXME:Avogadro2
+//     // Use the QSettings framework to configure the label engine
+//     foreach (Avogadro::Engine *engine, engines()) {
+//         if (engine->name() == "Label") {
+//             QSettings settings;
+//             int atomType = 0;
+//             int bondType = 0;
+//             bool enabled = false;
+//             // We need to use
+//             switch(style) {
+//             case 0: // Display no labels
+//                 enabled = false;
+//                 break;
+//             case 1: // Display the atom symbol
+//                 enabled = true;
+//                 atomType = 3;
+//                 break;
+//             case 2: // Display the atom name
+//                 enabled = true;
+//                 atomType = 2;
+//                 break;
+//             default:
+//                 engine->setEnabled(false);
+//             }
+//             settings.setValue("atomLabel", atomType);
+//             settings.setValue("bondLabel", bondType);
+//             settings.setValue("enabled", enabled);
+//             engine->readSettings(settings);
+//         }
+//     }
 }
 
 void KalziumGLWidget::setQuality(int quality)
@@ -162,7 +168,7 @@ void KalziumGLWidget::setQuality(int quality)
     } else if (quality == 2) {
         q = 4;
     }
-    GLWidget::setQuality(q);
-    invalidateDLs();
+//     GLWidget::setQuality(q);//FIXME:Avogadro2
+//     invalidateDLs();//FIXME:Avogadro2
     GLWidget::update();
 }

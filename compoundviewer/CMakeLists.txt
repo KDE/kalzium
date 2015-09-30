@@ -18,11 +18,13 @@ target_link_libraries(compoundviewer
     KF5::I18n
     KF5::WidgetsAddons
     KF5::CoreAddons
+    KF5::KDELibs4Support
     Qt5::OpenGL
     Qt5::Gui
     ${OPENBABEL2_LIBRARIES}
-    ${OPENGL_LIBRARIES}
-    ${AvogadroLibs_LIBRARY_DIR}/libavogadro.so
+    AvogadroQtGui
+    AvogadroQtOpenGL
+    AvogadroQtPlugins
 )
 
 set_target_properties(compoundviewer PROPERTIES

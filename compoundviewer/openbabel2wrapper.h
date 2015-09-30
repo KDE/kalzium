@@ -15,10 +15,7 @@
 #ifndef OPENBABEL2WRAPPER_H
 #define OPENBABEL2WRAPPER_H
 
-//includes for OpenBabel2
-#include <openbabel/obconversion.h>
-#include <openbabel/mol.h>
-#include <avogadro/molecule.h>
+#include <avogadro/qtgui/molecule.h>
 
 #include <libkdeedu_compoundviewer_export.h>
 
@@ -32,13 +29,13 @@ public:
      * This class reads the molecule in the file @p filename. It returns 0 if
      * the file couldn't be read.
      */
-    static Avogadro::Molecule *readMolecule(const QString& filename);
+    static Avogadro::QtGui::Molecule *readMolecule(const QString& filename);
 
-    static bool writeMolecule(const QString& filename, Avogadro::Molecule *);
+    static bool writeMolecule(const QString& filename, Avogadro::QtGui::Molecule *);
 
-    static QString getFormula(Avogadro::Molecule *molecule);
+    static QString getFormula(Avogadro::QtGui::Molecule *molecule);
 
-    static QString getPrettyFormula(Avogadro::Molecule *molecule);
+    static QString getPrettyFormula(Avogadro::QtGui::Molecule *molecule);
 };
 
 #endif // OPENBABEL2WRAPPER_H

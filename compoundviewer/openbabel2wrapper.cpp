@@ -26,17 +26,20 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <openbabel/obconversion.h>
+#include <openbabel/mol.h>
+
 #include <QMouseEvent>
 #include <QRegExp>
 #include <QFile>
 
-Avogadro::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
+Avogadro::QtGui::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
 {
     OpenBabel::OBConversion Conv;
     OpenBabel::OBFormat *inFormat = NULL;
 
     // the Avogadro Molecule
-    Avogadro::Molecule *mol = new Avogadro::Molecule;
+    Avogadro::QtGui::Molecule *mol = new Avogadro::QtGui::Molecule;
     OpenBabel::OBMol *obmol = new OpenBabel::OBMol;
     std::ifstream inFileStream(QFile::encodeName(filename));
     if (!inFileStream) {
@@ -58,11 +61,11 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
     Conv.Read(obmol, &inFileStream);
 
     qDebug() << QString::fromLatin1(obmol->GetFormula().c_str()) << " (Weight: " << obmol->GetMolWt() << ", Title: "<< obmol->GetTitle() << ")";
-    mol->setOBMol(obmol);
+//     mol->setOBMol(obmol);///*FIXME:Avogadro2*/ method gone
     return mol;
 }
 
-bool OpenBabel2Wrapper::writeMolecule(const QString& filename, Avogadro::Molecule* mol)
+bool OpenBabel2Wrapper::writeMolecule(const QString& filename, Avogadro::QtGui::Molecule* mol)
 {
     OpenBabel::OBConversion Conv;
     OpenBabel::OBFormat *outFormat = NULL;
@@ -80,20 +83,20 @@ bool OpenBabel2Wrapper::writeMolecule(const QString& filename, Avogadro::Molecul
         return false;
     }
     Conv.SetInAndOutFormats(outFormat,outFormat);
-    OpenBabel::OBMol obmol = mol->OBMol();
-    Conv.Write(&obmol, &outFileStream);
+//     OpenBabel::OBMol obmol = mol->OBMol();//FIXME:Avogadro2 method gone
+//     Conv.Write(&obmol, &outFileStream);//FIXME:Avogadro2
     return true;
 }
 
-QString OpenBabel2Wrapper::getFormula(Avogadro::Molecule* molecule)
+QString OpenBabel2Wrapper::getFormula(Avogadro::QtGui::Molecule* molecule)
 {
-    QString formula(molecule->OBMol().GetFormula().c_str());
+    QString formula;//(molecule->OBMol().GetFormula().c_str());//FIXME:Avogadro2 method gone
     return formula;
 }
 
-QString OpenBabel2Wrapper::getPrettyFormula(Avogadro::Molecule* molecule)
+QString OpenBabel2Wrapper::getPrettyFormula(Avogadro::QtGui::Molecule* molecule)
 {
-    QString formula(molecule->OBMol().GetSpacedFormula(1, "").c_str());
+    QString formula;//(molecule->OBMol().GetSpacedFormula(1, "").c_str());//FIXME:Avogadro2 method gone
     formula.replace(QRegExp("(\\d+)"), "<sub>\\1</sub>");
     return formula;
 }

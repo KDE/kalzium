@@ -140,7 +140,13 @@ target_link_libraries(kalzium KF5::Plotting KF5::KHtml KF5::KDELibs4Support KF5:
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
-      target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro)
+      target_link_libraries(kalzium
+         Qt5::OpenGL
+         compoundviewer
+         AvogadroQtGui
+         AvogadroQtOpenGL
+         AvogadroQtPlugins
+       )
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (OPENBABEL2_FOUND)
 

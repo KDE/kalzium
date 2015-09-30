@@ -14,11 +14,12 @@
 
 #ifndef KALZIUMGLWIDGET_H
 #define KALZIUMGLWIDGET_H
-#include<QtWidgets>
-#include<QtOpenGL>
-#include <avogadro/glwidget.h>
+#include <QtWidgets>
+#include <QtOpenGL>
+#include <QOpenGLWidget>
+#include <avogadro/qtopengl/glwidget.h>
 
-class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::GLWidget
+class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::QtOpenGL::GLWidget
 {
     Q_OBJECT
 public:

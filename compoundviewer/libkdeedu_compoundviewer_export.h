@@ -21,7 +21,7 @@
 #define LIBKDEEDU_COMPOUNDVIEWER_EXPORT_H
 
 /* needed for KDE_EXPORT and KDE_IMPORT macros */
-#include <QtGlobal>
+#include <kglobal.h>
 
 
 #ifndef COMPOUNDVIEWER_EXPORT
