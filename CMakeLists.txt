@@ -10,12 +10,29 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(ECMInstallIcons)
 include(ECMMarkNonGuiExecutable)
+include(CheckIncludeFiles)
 
-find_package(OpenBabel2 REQUIRED)
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)
+find_package(PkgConfig)
+find_package(OpenBabel2)
 find_package(AvogadroLibs)
 find_package(Eigen3)
+find_package(OCaml)
+find_package(Libfacile)
+
+pkg_check_modules(CHEMICAL_MIME_DATA chemical-mime-data)
+check_include_files(ieeefp.h HAVE_IEEEFP_H)
+
+# create configuration file
+set(HAVE_FACILE ${LIBFACILE_FOUND})
+set(HAVE_OPENBABEL2 ${OPENBABEL2_FOUND})
+set(HAVE_EIGEN ${EIGEN3_FOUND})
+set(HAVE_AVOGADRO ${AvogadroLibs_FOUND})
+configure_file(
+   ${CMAKE_CURRENT_SOURCE_DIR}/config-kalzium.h.cmake
+   ${CMAKE_CURRENT_BINARY_DIR}/config-kalzium.h
+)
 
 include_directories(${AvogadroLibs_INCLUDE_DIRS})
 
@@ -69,9 +86,6 @@ if(MSVC)
 # see http://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
 add_definitions(-DUSING_DYNAMIC_LIBS)
 endif(MSVC)
-
-
-include(KalziumConfigureChecks.cmake)
 
 if (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   # avoid compilerwarnings about redefinitions
