@@ -28,7 +28,7 @@
 #include "ui_gasCalculator.h"
 
 // The universal Gas constant is defined here.
-#define R 0.08206
+const double R = 0.08206;
 
 using namespace KUnitConversion;
 
