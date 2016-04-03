@@ -246,7 +246,7 @@ void MoleculeDialog::slotSaveMolecule()
     }
 
    OpenBabel2Wrapper openBabel;
-//    openBabel.writeMolecule(filename, ui.glWidget->molecule());//FIXME:Avogadro2
+   openBabel.writeMolecule(filename, ui.glWidget->molecule());
 }
 
 void MoleculeDialog::setViewEdit(int mode)

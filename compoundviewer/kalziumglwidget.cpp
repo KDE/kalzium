@@ -72,7 +72,7 @@ KalziumGLWidget::~KalziumGLWidget()
 
 bool KalziumGLWidget::openFile(const QString &file)
 {
-    Avogadro::QtGui::Molecule* mol;// = OpenBabel2Wrapper::readMolecule(file);//FIXME:Avogadro2
+    Avogadro::QtGui::Molecule* mol = OpenBabel2Wrapper::readMolecule(file);
     if (!mol) {
         return false;
     }

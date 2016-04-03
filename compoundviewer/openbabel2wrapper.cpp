@@ -13,71 +13,69 @@
  ***************************************************************************/
 
 #include "openbabel2wrapper.h"
-#include <QApplication>
-#include <QDebug>
-#include <QLocale>
-#include <QMessageBox>
-#include <KLocalizedString>
 
 #include <sstream>
-#include <stdio.h>
 #include <iostream>
 #include <fstream>
-#include <string.h>
-#include <stdlib.h>
 
 #include <openbabel/obconversion.h>
 #include <openbabel/mol.h>
 
+#include <QDebug>
+#include <QMessageBox>
 #include <QMouseEvent>
 #include <QRegExp>
 #include <QFile>
 
-Avogadro::QtGui::Molecule* OpenBabel2Wrapper::readMolecule(const QString& filename)
+#include <KLocalizedString>
+
+Avogadro::QtGui::Molecule * OpenBabel2Wrapper::readMolecule(const QString &filename)
 {
     OpenBabel::OBConversion Conv;
-    OpenBabel::OBFormat *inFormat = NULL;
+    OpenBabel::OBFormat *inFormat = nullptr;
 
     // the Avogadro Molecule
     Avogadro::QtGui::Molecule *mol = new Avogadro::QtGui::Molecule;
     OpenBabel::OBMol *obmol = new OpenBabel::OBMol;
     std::ifstream inFileStream(QFile::encodeName(filename));
     if (!inFileStream) {
-        QMessageBox::warning(0,i18n("Problem while opening the file"),
+        QMessageBox::warning(nullptr, i18n("Problem while opening the file"),
                            i18n("Cannot open the specified file."));
         delete mol;
-        return 0;
+        return nullptr;
     }
 
     //find out which format the file has...
     inFormat = Conv.FormatFromExt(QFile::encodeName(filename));
     if (!inFormat || !Conv.SetInFormat(inFormat)) {
-        QMessageBox::warning(0,i18n("Cannot read the file format. Check your OpenBabel installation."),
+        QMessageBox::warning(nullptr, i18n("Cannot read the file format. Check your OpenBabel installation."),
                            i18n("Problem reading file format"));
         delete mol;
-        return 0;
+        return nullptr;
     }
     Conv.SetInAndOutFormats(inFormat,inFormat);
     Conv.Read(obmol, &inFileStream);
 
-    qDebug() << QString::fromLatin1(obmol->GetFormula().c_str()) << " (Weight: " << obmol->GetMolWt() << ", Title: "<< obmol->GetTitle() << ")";
+    qDebug() << QString::fromLatin1(obmol->GetFormula().c_str())
+        << " (Weight: " << obmol->GetMolWt() << ", Title: "<< obmol->GetTitle() << ")";
+
 //     mol->setOBMol(obmol);///*FIXME:Avogadro2*/ method gone
     return mol;
 }
 
-bool OpenBabel2Wrapper::writeMolecule(const QString& filename, Avogadro::QtGui::Molecule* mol)
+bool OpenBabel2Wrapper::writeMolecule(const QString &filename, Avogadro::QtGui::Molecule *mol)
 {
     OpenBabel::OBConversion Conv;
-    OpenBabel::OBFormat *outFormat = NULL;
+    OpenBabel::OBFormat *outFormat = nullptr;
 
     std::ofstream outFileStream(QFile::encodeName(filename));
     if (!outFileStream) {
-        QMessageBox::warning(0,i18n("Sorry"),i18n("Cannot save to the specified file."));
+        QMessageBox::warning(nullptr, i18n("Sorry"), i18n("Cannot save to the specified file."));
         return false;
     }
     outFormat = Conv.FormatFromExt(QFile::encodeName(filename));
     if (!outFormat || !Conv.SetOutFormat(outFormat)) {
-        QMessageBox::warning(0, i18n("Unrecognized file format extension. Please append an extension to the file name, "),
+        QMessageBox::warning(nullptr, i18n("Unrecognized file format extension. Please append an extension to the file name, "),
                                      i18n("for example \".cml\"."));
         delete mol;
         return false;
@@ -88,15 +86,14 @@ bool OpenBabel2Wrapper::writeMolecule(const QString& filename, Avogadro::QtGui::
     return true;
 }
 
-QString OpenBabel2Wrapper::getFormula(Avogadro::QtGui::Molecule* molecule)
+QString OpenBabel2Wrapper::getFormula(Avogadro::QtGui::Molecule *molecule)
 {
-    QString formula;//(molecule->OBMol().GetFormula().c_str());//FIXME:Avogadro2 method gone
-    return formula;
+    return QString::fromStdString(molecule->formula());
 }
 
-QString OpenBabel2Wrapper::getPrettyFormula(Avogadro::QtGui::Molecule* molecule)
+QString OpenBabel2Wrapper::getPrettyFormula(Avogadro::QtGui::Molecule *molecule)
 {
-    QString formula;//(molecule->OBMol().GetSpacedFormula(1, "").c_str());//FIXME:Avogadro2 method gone
+    QString formula = QString::fromStdString(molecule->formula());
     formula.replace(QRegExp("(\\d+)"), "<sub>\\1</sub>");
     return formula;
 }
