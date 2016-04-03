@@ -20,7 +20,6 @@
 #include <avogadro/qtplugins/pluginmanager.h>
 #include <avogadro/qtgui/molecule.h>
 // #include <avogadro/toolgroup.h>//FIXME:Avogadro2 port away from toolgroup
-// #include <avogadro/engine.h>//FIXME:Avogadro2 port away from engine.h
 #include <QWidget>
 #include "openbabel2wrapper.h"
 #include <avogadro/qtopengl/glwidget.h>
@@ -49,7 +48,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
         s_pluginDirSet = true;
     }
     Avogadro::QtPlugins::PluginManager *manager = Avogadro::QtPlugins::PluginManager::instance();
-//     manager->loadFactories();//FIXME:Avogadro2
+    manager->load();
 //     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);//FIXME:Avogadro2 port away from ToolGroup
 //     tools->append(manager->tools(this));
 //     tools->setActiveTool("Navigate");
