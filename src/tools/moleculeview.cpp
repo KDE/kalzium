@@ -22,7 +22,6 @@
 
 #include <QFileInfo>
 #include <QGLFormat>
-#include <QUndoStack>
 #include <QSettings>
 #include <QDebug>
 #include <kfiledialog.h>
@@ -87,11 +86,6 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     if (!m_forceField) {
         ui.optimizeButton->setEnabled(false);
     }
-
-    // Need the undo stack even though we aren't using it just yet - atom deletion
-    // doesn't work without it...
-    QUndoStack* tmp = new QUndoStack(this);
-//     ui.glWidget->setUndoStack(tmp);//FIXME:Avogadro2
 
     // Set up the elements combo and bond order combo
     elementCombo();
