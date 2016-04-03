@@ -21,7 +21,7 @@
 #include <avogadro/qtgui/molecule.h>
 // #include <avogadro/toolgroup.h>//FIXME:Avogadro2 port away from toolgroup
 #include <QWidget>
-#include "openbabel2wrapper.h"
+#include "iowrapper.h"
 #include <avogadro/qtopengl/glwidget.h>
 #include <config-kalzium.h>
 
@@ -71,7 +71,9 @@ KalziumGLWidget::~KalziumGLWidget()
 
 bool KalziumGLWidget::openFile(const QString &file)
 {
-    Avogadro::QtGui::Molecule* mol = OpenBabel2Wrapper::readMolecule(file);
+    auto tmpMol = IoWrapper::readMolecule(file);
+    auto mol = new Avogadro::QtGui::Molecule(*tmpMol);
+    delete tmpMol;
     if (!mol) {
         return false;
     }

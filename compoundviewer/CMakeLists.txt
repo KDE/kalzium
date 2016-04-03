@@ -6,7 +6,7 @@ include_directories(
 )
 
 set(compoundviewer_SRCS
-    openbabel2wrapper.cpp
+    iowrapper.cpp
     kalziumglwidget.cpp
 )
 

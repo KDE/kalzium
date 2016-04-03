@@ -32,7 +32,7 @@
 #include <knewstuff3/downloaddialog.h>
 #include <kio/job.h>
 
-#include <openbabel2wrapper.h>
+#include "iowrapper.h"
 
 #include <openbabel/mol.h>
 #include <openbabel/obiter.h>
@@ -46,7 +46,6 @@
 using namespace OpenBabel;
 using namespace Avogadro::QtGui;
 
-OpenBabel2Wrapper openBabel;
 MoleculeDialog::MoleculeDialog(QWidget * parent)
     : KDialog(parent), m_periodicTable(0), m_addHydrogens(false)
 {
@@ -195,7 +194,11 @@ void MoleculeDialog::loadMolecule(const QString &filename)
 
     qDebug() << "Filename to load: " << filename;
 
-    Avogadro::QtGui::Molecule* molecule = OpenBabel2Wrapper::readMolecule(filename);
+    auto tmpMol = IoWrapper::readMolecule(filename);
+    auto molecule = new Avogadro::QtGui::Molecule(*tmpMol);
+    if (tmpMol) {
+        delete tmpMol;
+    }
 
     // Check that a valid molecule object was returned
     if (!molecule) {
@@ -238,8 +241,8 @@ void MoleculeDialog::slotSaveMolecule()
         filename.append(".cml");
     }
 
-   OpenBabel2Wrapper openBabel;
-   openBabel.writeMolecule(filename, ui.glWidget->molecule());
+   IoWrapper io;
+   io.writeMolecule(filename, ui.glWidget->molecule());
 }
 
 void MoleculeDialog::setViewEdit(int mode)

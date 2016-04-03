@@ -1,6 +1,7 @@
 /***************************************************************************
  *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
+ *  Copyright (C) 2016 by Andreas Cord-Landwehr <cordlandwehr@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -12,8 +13,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef OPENBABEL2WRAPPER_H
-#define OPENBABEL2WRAPPER_H
+#ifndef IOWRAPPER_H
+#define IOWRAPPER_H
 
 #include <avogadro/qtgui/molecule.h>
 
@@ -22,20 +23,20 @@
 /**
  * @author Carsten Niehaus
  */
-class COMPOUNDVIEWER_EXPORT OpenBabel2Wrapper
+class COMPOUNDVIEWER_EXPORT IoWrapper
 {
 public:
     /**
      * This class reads the molecule in the file @p filename. It returns 0 if
      * the file couldn't be read.
      */
-    static Avogadro::QtGui::Molecule *readMolecule(const QString& filename);
+    static Avogadro::Core::Molecule * readMolecule(const QString &filename);
 
-    static bool writeMolecule(const QString& filename, Avogadro::QtGui::Molecule *);
+    static bool writeMolecule(const QString& filename, Avogadro::Core::Molecule *);
 
     static QString getFormula(Avogadro::QtGui::Molecule *molecule);
 
     static QString getPrettyFormula(Avogadro::QtGui::Molecule *molecule);
 };
 
-#endif // OPENBABEL2WRAPPER_H
+#endif
