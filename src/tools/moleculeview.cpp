@@ -18,6 +18,7 @@
 #include <avogadro/qtgui/elementtranslator.h>
 #include <avogadro/qtgui/periodictableview.h>
 #include <avogadro/qtgui/molecule.h>
+// #include <avogadro/qtplugins/openbabel/openbabel.h>FIXME:Avogadro2
 
 #include <QFileInfo>
 #include <QGLFormat>
