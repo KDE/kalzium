@@ -174,18 +174,17 @@ void MoleculeDialog::slotLoadMolecule()
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
 
-    //FIXME:KF5
-//     QString filename = KFileDialog::getOpenFileName(
-//                        m_path,
-//                        "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
-//                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
-//                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-//                        " *.mpd *.mol2|" + commonMoleculeFormats + "\n"
-//                        "* *.*|" + allFiles,
-//                        this,
-//                        i18n("Choose a file to open"));
-//
-//     loadMolecule(filename);
+    QString filename = KFileDialog::getOpenFileName(
+                       QUrl::fromLocalFile(m_path),
+                       "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+                       " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
+                       " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
+                       " *.mpd *.mol2|" + commonMoleculeFormats + "\n"
+                       "* *.*|" + allFiles,
+                       this,
+                       i18n("Choose a file to open"));
+
+    loadMolecule(filename);
 }
 
 void MoleculeDialog::loadMolecule(const QString &filename)
