@@ -1,6 +1,7 @@
 /***************************************************************************
  *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
+ *  Copyright (C) 2016 by Andreas Cord-Landwehr <cordlandwehr@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -18,6 +19,7 @@
 #include <avogadro/qtgui/elementtranslator.h>
 #include <avogadro/qtgui/periodictableview.h>
 #include <avogadro/qtgui/molecule.h>
+#include <avogadro/qtgui/scenepluginmodel.h>
 // #include <avogadro/qtplugins/openbabel/openbabel.h>FIXME:Avogadro2
 
 #include <QFileInfo>
@@ -47,9 +49,11 @@ using namespace OpenBabel;
 using namespace Avogadro::QtGui;
 
 MoleculeDialog::MoleculeDialog(QWidget * parent)
-    : KDialog(parent), m_periodicTable(0), m_addHydrogens(false)
+    : KDialog(parent)
+    , m_path(QString())
+    , m_periodicTable(nullptr)
+    , m_addHydrogens(false)
 {
-
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
     defFormat.setSampleBuffers(true);
@@ -68,17 +72,9 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
 
     ui.setupUi(mainWidget());
 
-    ui.qualityCombo->setCurrentIndex(2); //default to high quality
-
     //default to atom symbols
     ui.labelsCombo->setCurrentIndex(1);
     ui.glWidget->setLabels(1);
-
-    //default to balls-and-sticks
-    ui.styleCombo->setCurrentIndex(0);
-    ui.glWidget->setStyle(0);
-
-    m_path = QString("");
 
     // Attempt to set up the UFF forcefield
     m_forceField = OBForceField::FindForceField("UFF");
@@ -97,16 +93,12 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     m_drawSettings->setValue("bondOrder", 1);
     m_drawSettings->setValue("addHydrogens", 0);
 
+    ui.styleCombo->setModel(
+        qobject_cast<QAbstractItemModel*>(&ui.glWidget->sceneModel()));
+
     connect(ui.tabWidget, SIGNAL(currentChanged(int)),
             this, SLOT(setViewEdit(int)));
 
-    // Visualization parameters
-    connect(ui.qualityCombo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setQuality(int)));
-    connect(ui.styleCombo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setStyle(int)));
-    connect(ui.style2Combo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setStyle2(int)));
     connect(ui.labelsCombo, SIGNAL(activated(int)),
             ui.glWidget, SLOT(setLabels(int)));
 
@@ -124,8 +116,8 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     connect(ui.clearDrawingButton, SIGNAL(clicked()),
             this, SLOT(clearAllElementsInEditor()));
 
-    connect(ui.glWidget->molecule(), SIGNAL(updated()),
-            this, SLOT(slotUpdateStatistics()));
+    connect(ui.glWidget->molecule(), &Avogadro::QtGui::Molecule::changed,
+            this, &MoleculeDialog::slotUpdateStatistics);
 
     connect(this, SIGNAL(user1Clicked()),
             this, SLOT(slotLoadMolecule()));
@@ -135,17 +127,10 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
             this, SLOT(slotSaveMolecule()));
 
     // Check that we have managed to load up some tools and engines
-//     int nEngines = ui.glWidget->engines().size() - 1;//FIXME:Avogadro2
 //     int nTools = ui.glWidget->toolGroup()->tools().size();//FIXME:Avogadro2
     QString error;
-//     if (!nEngines && !nTools) {//FIXME:Avogadro2
-//         error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located.");
-//     } else if (!nEngines) {
-//         error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located.");
-//     } else if (!nTools) {
+//     if (!nTools) {
 //         error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
-//     }
-//     if (!nEngines || !nTools) {
 //         KMessageBox::error(this, error, i18n("Kalzium"));
 //     }
 }
@@ -153,17 +138,11 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
 void MoleculeDialog::slotLoadMolecule()
 {
     // Check that we have managed to load up some tools and engines
-//     int nEngines = ui.glWidget->engines().size() - 1;//FIXME:Avogadro2
 //     int nTools = ui.glWidget->toolGroup()->tools().size();//FIXME:Avogadro2
 //     QString error;
-//     if (!nEngines && !nTools) {//FIXME:Avogadro2
-//         error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-//     } else if (!nEngines) {
-//         error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-//     } else if (!nTools) {
+
+//     if (!nTools) {
 //         error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-//     }
-//     if (!nEngines || !nTools) {
 //         KMessageBox::information(this, error);
 //     }
 
@@ -196,32 +175,31 @@ void MoleculeDialog::loadMolecule(const QString &filename)
 
     auto tmpMol = IoWrapper::readMolecule(filename);
     auto molecule = new Avogadro::QtGui::Molecule(*tmpMol);
-    if (tmpMol) {
-        delete tmpMol;
-    }
+    delete tmpMol;
 
     // Check that a valid molecule object was returned
     if (!molecule) {
+        qCritical() << "Could not load molecule, aborting.";
         return;
     }
 
-//FIXME:Avogadro2
-//     if (molecule->numAtoms() != 0) {
-//         disconnect(ui.glWidget->molecule(), 0, this, 0);
-//         molecule->center();
-//         ui.glWidget->setMolecule(molecule);
-//         ui.glWidget->update();
-//         slotUpdateStatistics();
-//         connect(molecule, SIGNAL(updated()), this, SLOT(slotUpdateStatistics()));
-//     }
-//     ui.glWidget->invalidateDLs();
+    if (molecule->atomCount() != 0) {
+        disconnect(ui.glWidget->molecule(), 0, this, 0);
+        ui.glWidget->setMolecule(molecule);
+        ui.glWidget->update();
+        slotUpdateStatistics();
+        connect(molecule, &Avogadro::QtGui::Molecule::changed,
+                this, &MoleculeDialog::slotUpdateStatistics);
+    }
+    ui.glWidget->resetCamera();
+    ui.glWidget->update();
 }
 
 void MoleculeDialog::clearAllElementsInEditor()
 {
-//FIXME:Avogadro2
-//     ui.glWidget->molecule()->clear();
-//     ui.glWidget->update();
+    ui.glWidget->molecule()->clearBonds();
+    ui.glWidget->molecule()->clearAtoms();
+    ui.glWidget->update();
 }
 
 void MoleculeDialog::slotSaveMolecule()
@@ -271,11 +249,11 @@ void MoleculeDialog::slotUpdateStatistics()
     if (!mol) {
         return;
     }
-//FIXME:Avogadro2
-//     ui.nameLabel->setText(mol->OBMol().GetTitle());
-//     ui.weightLabel->setText(i18nc("This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->OBMol().GetMolWt()));
-//     ui.formulaLabel->setText(openBabel.getPrettyFormula(mol));
-//    ui.glWidget->update();
+    const std::string name = mol->data(QString("name").toStdString()).toString();
+    ui.nameLabel->setText(QString::fromStdString(name));
+    ui.weightLabel->setText(i18nc("This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->mass()));
+    ui.formulaLabel->setText(IoWrapper::getPrettyFormula(mol));
+    ui.glWidget->update();
 }
 
 void MoleculeDialog::slotDownloadNewStuff()

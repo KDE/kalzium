@@ -19,6 +19,7 @@
 #include <avogadro/rendering/primitive.h>
 #include <avogadro/qtplugins/pluginmanager.h>
 #include <avogadro/qtgui/molecule.h>
+#include <avogadro/qtgui/sceneplugin.h>
 // #include <avogadro/toolgroup.h>//FIXME:Avogadro2 port away from toolgroup
 #include <QWidget>
 #include "iowrapper.h"
@@ -49,15 +50,21 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
     }
     Avogadro::QtPlugins::PluginManager *manager = Avogadro::QtPlugins::PluginManager::instance();
     manager->load();
+    QList<Avogadro::QtGui::ScenePluginFactory*> scenePluginFactories =
+        manager->pluginFactories<Avogadro::QtGui::ScenePluginFactory>();
+    foreach (auto *factory, scenePluginFactories) {
+        auto *scenePlugin = factory->createInstance();
+        // enable Ball-and-Sticks
+        if (scenePlugin->objectName() == "BallStick") {
+            scenePlugin->setEnabled(true);
+        }
+        sceneModel().addItem(scenePlugin);
+    }
+
 //     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);//FIXME:Avogadro2 port away from ToolGroup
 //     tools->append(manager->tools(this));
 //     tools->setActiveTool("Navigate");
 //     setToolGroup(tools);
-    // Set the default engine to be active
-//     loadDefaultEngines();//FIXME:Avogadro2 port away from engine.h
-
-    // Set the default quality level to high
-    setQuality(2);
 
     setMolecule(new Avogadro::QtGui::Molecule(this));
     update();
@@ -84,46 +91,6 @@ bool KalziumGLWidget::openFile(const QString &file)
     setMolecule(mol);
     update();
     return true;
-}
-
-void KalziumGLWidget::setStyle(int style)
-{
-    //FIXME:Avogadro2
-//     foreach (Avogadro::Engine *engine, engines()) {
-//         if ((m_lastEngine1 == 0 && engine->identifier() == "Ball and Stick")
-//             || (m_lastEngine1 == 1 && engine->identifier() == "Stick")
-//             || (m_lastEngine1 == 2 && engine->identifier() == "Van der Waals Spheres")
-//             || (m_lastEngine1 == 3 && engine->identifier() == "Wireframe")) {
-//             engine->setEnabled(false);
-//         }
-//         if ((style == 0 && engine->identifier() == "Ball and Stick")
-//             || (style == 1 && engine->identifier() == "Stick")
-//             || (style == 2 && engine->identifier() == "Van der Waals Spheres")
-//             || (style == 3 && engine->identifier() == "Wireframe")) {
-//             engine->setEnabled(true);
-//         }
-//     }
-    m_lastEngine1 = style;
-    update();
-}
-
-void KalziumGLWidget::setStyle2(int style)
-{
-    //FIXME:Avogadro2
-//     foreach (Avogadro::Engine *engine, engines()) {
-//         if ((m_lastEngine2 == 1 && engine->identifier() == "Ribbon")
-//             || (m_lastEngine2 == 2 && engine->identifier() == "Ring")
-//             || (m_lastEngine2 == 3 && engine->identifier() == "Orbitals")) {
-//             engine->setEnabled(false);
-//         }
-//         if ((style == 1 && engine->identifier() == "Ribbon")
-//             || (style == 2 && engine->identifier() == "Ring")
-//             || (style == 3 && engine->identifier() == "Orbitals")) {
-//             engine->setEnabled(true);
-//         }
-//     }
-    m_lastEngine2 = style;
-    update();
 }
 
 void KalziumGLWidget::setLabels(int style)
@@ -158,18 +125,4 @@ void KalziumGLWidget::setLabels(int style)
 //             engine->readSettings(settings);
 //         }
 //     }
-}
-
-void KalziumGLWidget::setQuality(int quality)
-{
-    // Set the global quality of the GLWidget, 0=min, 2=mid, 4=max
-    int q = 0;
-    if (quality == 1) {
-        q = 2;
-    } else if (quality == 2) {
-        q = 4;
-    }
-//     GLWidget::setQuality(q);//FIXME:Avogadro2
-//     invalidateDLs();//FIXME:Avogadro2
-    GLWidget::update();
 }

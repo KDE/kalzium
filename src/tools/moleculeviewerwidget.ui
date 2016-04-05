@@ -30,41 +30,25 @@
        <item>
         <layout class="QGridLayout" name="gridLayout_3">
          <item row="0" column="0">
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Quality:</string>
+            <string>Style:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
            <property name="buddy">
-            <cstring>qualityCombo</cstring>
+            <cstring>styleCombo</cstring>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="KComboBox" name="qualityCombo">
-             <item>
-              <property name="text">
-               <string>Low</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Medium</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>High</string>
-              </property>
-             </item>
-            </widget>
+            <widget class="KComboBox" name="styleCombo"/>
            </item>
            <item>
-            <spacer name="horizontalSpacer_5">
+            <spacer name="horizontalSpacer_6">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -79,114 +63,6 @@
           </layout>
          </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Style:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-           <property name="buddy">
-            <cstring>styleCombo</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <widget class="KComboBox" name="styleCombo">
-             <item>
-              <property name="text">
-               <string>Balls and sticks</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Sticks</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Van der Waals</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Wireframe</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>2nd Style:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-           <property name="buddy">
-            <cstring>styleCombo</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
-           <item>
-            <widget class="KComboBox" name="style2Combo">
-             <item>
-              <property name="text">
-               <string comment="No 2nd Style">None</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Ribbon</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Ring</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Molecular Orbital</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item row="3" column="0">
           <widget class="QLabel" name="label_5">
            <property name="text">
             <string>Labels:</string>
@@ -199,7 +75,7 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
+         <item row="1" column="1">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
             <widget class="KComboBox" name="labelsCombo">
@@ -267,9 +143,6 @@
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <property name="buddy">
-            <cstring>qualityCombo</cstring>
-           </property>
           </widget>
          </item>
          <item row="0" column="1">
@@ -299,9 +172,6 @@
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-           <property name="buddy">
-            <cstring>qualityCombo</cstring>
            </property>
           </widget>
          </item>
@@ -535,7 +405,6 @@
  </customwidgets>
  <tabstops>
   <tabstop>tabWidget</tabstop>
-  <tabstop>qualityCombo</tabstop>
   <tabstop>styleCombo</tabstop>
   <tabstop>labelsCombo</tabstop>
   <tabstop>elementCombo</tabstop>
