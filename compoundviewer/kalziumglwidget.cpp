@@ -1,6 +1,7 @@
 /***************************************************************************
  *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
+ *  Copyright (C) 2016 by Andreas Cord-Landwehr <cordlandwehr@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -13,23 +14,23 @@
  ***************************************************************************/
 
 #include "kalziumglwidget.h"
+#include "iowrapper.h"
 
-#include <QSettings>
-
-#include <avogadro/rendering/primitive.h>
-#include <avogadro/qtplugins/pluginmanager.h>
 #include <avogadro/qtgui/molecule.h>
 #include <avogadro/qtgui/sceneplugin.h>
-// #include <avogadro/toolgroup.h>//FIXME:Avogadro2 port away from toolgroup
-#include <QWidget>
-#include "iowrapper.h"
+#include <avogadro/qtgui/sceneplugin.h>
+#include <avogadro/qtgui/toolplugin.h>
 #include <avogadro/qtopengl/glwidget.h>
+#include <avogadro/qtplugins/pluginmanager.h>
+#include <avogadro/rendering/primitive.h>
+
+#include <QWidget>
+#include <QSettings>
+
 #include <config-kalzium.h>
 
 KalziumGLWidget::KalziumGLWidget(QWidget *parent)
     : Avogadro::QtOpenGL::GLWidget(parent)
-    , m_lastEngine1(0)
-    , m_lastEngine2(0)
 {
     // work around a bug in OpenBabel: the chemical data files parsing
     // is dependent on the LC_NUMERIC locale.
@@ -50,6 +51,8 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
     }
     Avogadro::QtPlugins::PluginManager *manager = Avogadro::QtPlugins::PluginManager::instance();
     manager->load();
+
+    // load render engines
     QList<Avogadro::QtGui::ScenePluginFactory*> scenePluginFactories =
         manager->pluginFactories<Avogadro::QtGui::ScenePluginFactory>();
     foreach (auto *factory, scenePluginFactories) {
@@ -61,10 +64,23 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
         sceneModel().addItem(scenePlugin);
     }
 
-//     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);//FIXME:Avogadro2 port away from ToolGroup
-//     tools->append(manager->tools(this));
-//     tools->setActiveTool("Navigate");
-//     setToolGroup(tools);
+    // load tools
+    if (!tools().isEmpty()) {
+        qCritical() << "Updating non-empty toolset, erasing first.";
+        qDeleteAll(tools());
+    }
+    auto toolPluginFactories =
+        manager->pluginFactories<Avogadro::QtGui::ToolPluginFactory>();
+    foreach (auto *factory, toolPluginFactories) {
+        auto *tool = factory->createInstance();
+        if (tool) {
+            addTool(tool);
+            if (factory->identifier() == QStringLiteral("Navigator")) {
+                setDefaultTool(tool);
+                setActiveTool(tool);
+            }
+        }
+    }
 
     setMolecule(new Avogadro::QtGui::Molecule(this));
     update();

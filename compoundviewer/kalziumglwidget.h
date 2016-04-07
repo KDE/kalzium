@@ -30,7 +30,6 @@ public slots:
 
 protected:
     QByteArray m_lc_numeric;
-    int m_lastEngine1, m_lastEngine2;
 };
 
 #endif // KALZIUMGLWIDGET_H
