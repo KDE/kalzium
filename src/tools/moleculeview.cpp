@@ -15,7 +15,6 @@
 
 #include "moleculeview.h"
 
-// #include <avogadro/toolgroup.h>//FIXME:Avogadro2
 #include <avogadro/qtgui/elementtranslator.h>
 #include <avogadro/qtgui/periodictableview.h>
 #include <avogadro/qtgui/molecule.h>
@@ -127,24 +126,24 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
             this, SLOT(slotSaveMolecule()));
 
     // Check that we have managed to load up some tools and engines
-//     int nTools = ui.glWidget->toolGroup()->tools().size();//FIXME:Avogadro2
-    QString error;
-//     if (!nTools) {
-//         error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
-//         KMessageBox::error(this, error, i18n("Kalzium"));
-//     }
+    int nTools = ui.glWidget->tools().size();
+    if (!nTools) {
+        QString error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
+        KMessageBox::error(this, error, i18n("Kalzium"));
+    }
 }
 
 void MoleculeDialog::slotLoadMolecule()
 {
     // Check that we have managed to load up some tools and engines
-//     int nTools = ui.glWidget->toolGroup()->tools().size();//FIXME:Avogadro2
-//     QString error;
+    int nTools = ui.glWidget->tools().size();
 
-//     if (!nTools) {
-//         error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-//         KMessageBox::information(this, error);
-//     }
+
+    if (!nTools) {
+        QString error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. "
+            "No molecules can be viewed until this issue is resolved.");
+        KMessageBox::information(this, error);
+    }
 
     m_path = QStandardPaths::locate(QStandardPaths::DataLocation, "data/molecules/") + "data/molecules/";
     m_path = QFileInfo(m_path).absolutePath();
@@ -225,17 +224,16 @@ void MoleculeDialog::slotSaveMolecule()
 
 void MoleculeDialog::setViewEdit(int mode)
 {
-//FIXME:Avogadro2
-//     if (mode == 0) {
-//         ui.glWidget->toolGroup()->setActiveTool("Navigate");
-//     } else if (mode == 1) {
-//         ui.glWidget->toolGroup()->setActiveTool("Draw");
-//         if (ui.glWidget->toolGroup()->activeTool()) {
-//             ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-//         }
-//     } else if (mode == 2) {
-//         ui.glWidget->toolGroup()->setActiveTool("Measure");
-//     }
+    if (mode == 0) {
+        ui.glWidget->setActiveTool("Navigator");
+    } else if (mode == 1) {
+        ui.glWidget->setActiveTool("Editor");
+        if (ui.glWidget->activeTool()) {
+//             ui.glWidget->activeTool()->readSettings(*m_drawSettings);//FIXME Avogadro2: settings
+        }
+    } else if (mode == 2) {
+        ui.glWidget->setActiveTool("MeasureTool");
+    }
 }
 
 MoleculeDialog::~MoleculeDialog()
@@ -354,9 +352,9 @@ void MoleculeDialog::slotCustomElementChanged(int element)
 {
     // Set the element so we can draw with it
     m_drawSettings->setValue("currentElement", element);
-//     if (ui.glWidget->toolGroup()->activeTool()) {//FIXME:Avogadro2
-//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-//     }
+    if (ui.glWidget->activeTool()) {
+//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
+    }
 
     // Check to see if we already have this in the comboBox list
     // If not, we get back -1 and need to create a new item
@@ -391,17 +389,17 @@ void MoleculeDialog::slotCustomElementChanged(int element)
 void MoleculeDialog::slotBondOrderChanged(int bond)
 {
     m_drawSettings->setValue("bondOrder", bond+1);
-//     if (ui.glWidget->toolGroup()->activeTool()) {//FIXME:Avogadro2
-//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-//     }
+    if (ui.glWidget->activeTool()) {
+//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
+    }
 }
 
 void MoleculeDialog::slotAddHydrogensChanged(int hydrogens)
 {
     m_drawSettings->setValue("addHydrogens", hydrogens);
-//     if (ui.glWidget->toolGroup()->activeTool()) {//FIXME:Avogadro2
-//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-//     }
+    if (ui.glWidget->activeTool()) {
+//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
+    }
 }
 
 void MoleculeDialog::slotAdjustHydrogens()
