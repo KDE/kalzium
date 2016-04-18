@@ -172,9 +172,8 @@ void MoleculeDialog::loadMolecule(const QString &filename)
 
     qDebug() << "Filename to load: " << filename;
 
-    auto tmpMol = IoWrapper::readMolecule(filename);
-    auto molecule = new Avogadro::QtGui::Molecule(*tmpMol);
-    delete tmpMol;
+    Avogadro::QtGui::Molecule tmpMol = *IoWrapper::readMolecule(filename);
+    auto molecule = new Avogadro::QtGui::Molecule(tmpMol);
 
     // Check that a valid molecule object was returned
     if (!molecule) {
