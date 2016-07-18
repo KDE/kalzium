@@ -54,7 +54,7 @@ macro_optional_add_subdirectory(plasmoid)
 add_subdirectory(libscience)
 add_subdirectory(qml)
 
-install(FILES kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFO})
+install(FILES kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 macro_display_feature_log()
 
