@@ -106,6 +106,6 @@ add_subdirectory(data)
 add_subdirectory(libscience)
 add_subdirectory(qml)
 
-install(FILES org.kde.kalzium.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
+install(FILES org.kde.kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
