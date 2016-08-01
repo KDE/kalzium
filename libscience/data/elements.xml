@@ -1757,7 +1757,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.8251</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Hafnia' is the old name of Kopenhagen (Denmark)</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Niels Bohr originally predicted the properties of this element before discovery, so it was named after his hometown of 'Hafnia' (the old Latin name of Copenhagen, Denmark)</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.50</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.25</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.30 0.76 1.00</array>
