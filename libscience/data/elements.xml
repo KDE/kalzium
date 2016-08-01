@@ -2611,18 +2611,18 @@
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
-  <atom id="Uut">
+  <atom id="Nh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">113</scalar>
-    <label dictRef="bo:symbol" value="Uut" />
-    <label dictRef="bo:name" xml:lang="en" value="Ununtrium" />
+    <label dictRef="bo:symbol" value="Nh" />
+    <label dictRef="bo:name" xml:lang="en" value="Nihonium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">284</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">284.17808</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-thallium. Ununtrium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after 'Nihon', the romanized spelling for 'Japan' in Japanese. The element was the first element discovered in Japan, at the RIKEN Nishina Center for Accelerator-Based Science. Historically known as eka-thallium.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.95 0.00 0.11</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">jp,ru,us</array>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2003</scalar>
-    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory.</array>
+    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Kosuke Morita at RIKEN Nishina Center for Accelerator-Based Science in Japan; confirmed by Russian scientists at Dubna (JINR) and American scientists at the Lawrence Livermore National Laboratory.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p1</scalar>
@@ -2645,18 +2645,18 @@
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
-  <atom id="Uup">
+  <atom id="Mc">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">115</scalar>
-    <label dictRef="bo:symbol" value="Uup" />
-    <label dictRef="bo:name" xml:lang="en" value="Ununpentium" />
+    <label dictRef="bo:symbol" value="Mc" />
+    <label dictRef="bo:name" xml:lang="en" value="Moscovium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">288</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">288.19249</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-bismuth. Ununpentium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named for the Moscow, Russia, region which is home to the Joint Institue for Nuclear Research that was a co-discoverer of this element. Historically known as eka-bismuth.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.97 0.00 0.09</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2004</scalar>
-    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory.</array>
+    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory, Oak Ridge National Laboratory and Vanderbilt University.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p3</scalar>
@@ -2679,25 +2679,26 @@
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
   </atom>
-  <atom id="Uus">
+  <atom id="Ts">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">117</scalar>
-    <label dictRef="bo:symbol" value="Uus" />
-    <label dictRef="bo:name" xml:lang="en" value="Ununseptium" />
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Temporary symbol and name. Can also be referred to as eka-astatine.</scalar>
+    <label dictRef="bo:symbol" value="Ts" />
+    <label dictRef="bo:name" xml:lang="en" value="Tennessine" />
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named for the American state of Tennessee which is home to the Oak Ridge National Laboratory and Vanderbilt University whom were co-discoverers of this element. Historically known as eka-astatine.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.99 0.00 0.07</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2010</scalar>
+    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Russian scientists at Dubna (JINR);American scientists at the Lawrence Livermore National Laboratory, Oak Ridge National Laboratory and Vanderbilt University.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">[Rn] 5f14 6d10 7s2 7p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
-  <atom id="Uuo">
+  <atom id="Og">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">118</scalar>
-    <label dictRef="bo:symbol" value="Uuo" />
-    <label dictRef="bo:name" xml:lang="en" value="Ununoctium" />
+    <label dictRef="bo:symbol" value="Og" />
+    <label dictRef="bo:name" xml:lang="en" value="Oganesson" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">294</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-radon, eka-emanation before 1960. Ununoctium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named in honor of Professor Yuri Oganessian's trans-actinide element research. Historically known as eka-radon, eka-emanation before 1960.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.00 0.06</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
