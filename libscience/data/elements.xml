@@ -1806,7 +1806,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8640</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.815</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.36</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">The names comes from the Swedish 'tung sten' which means 'heavy stone'. The symbol comes from the old German name for the element 'wolfram', which described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">The name comes from the Swedish 'tung sten' which means 'heavy stone'. The symbol comes from the old German name for the element 'wolfram', which described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.13 0.58 0.84</array>
@@ -2652,7 +2652,7 @@
     <label dictRef="bo:name" xml:lang="en" value="Moscovium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">288</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">288.19249</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named for the Moscow, Russia, region which is home to the Joint Institue for Nuclear Research that was a co-discoverer of this element. Historically known as eka-bismuth.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named for the Moscow, Russia, region which is home to the Joint Institute for Nuclear Research that was a co-discoverer of this element. Historically known as eka-bismuth.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.97 0.00 0.09</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
