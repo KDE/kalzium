@@ -111,8 +111,7 @@ KalziumDataObject::KalziumDataObject()
         //a settings-dialog where we can select the different iconsets...
         QString setname = "school";
 
-        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
-        pathname = QFileInfo(pathname).absolutePath();
+        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/", QStandardPaths::LocateDirectory);
 
         QString filename = pathname + setname + '/' + QString::number(i + 1) + ".svg";
 

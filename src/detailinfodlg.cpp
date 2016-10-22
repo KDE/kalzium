@@ -59,10 +59,8 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
     resize(820, 580);
 */
-    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, "data/") + "data/htmlview/";
-    m_baseHtml = QFileInfo(m_baseHtml).absolutePath();
-    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, "data/") + "data/hazardsymbols/";
-    m_baseHtml2 = QFileInfo(m_baseHtml2).absolutePath();
+    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, "data/htmlview/", QStandardPaths::LocateDirectory);
+    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, "data/hazardsymbols/", QStandardPaths::LocateDirectory);
 
 //X     m_picsdir = QStandardPaths::locate(QStandardPaths::DataLocation, "elempics/") + "elempics/";
 //X     m_picsdir = QFileInfo(m_picsdir).absolutePath();

@@ -339,7 +339,7 @@ void Kalzium::slotGlossary()
       // creating the glossary dialog and loading the glossaries we have
       m_glossarydlg = new GlossaryDialog(this);
       m_glossarydlg->setObjectName(QLatin1String("glossary"));
-      QString dir = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kalzium/data/");
+      QString dir = QStandardPaths::locate(QStandardPaths::DataLocation, "data/", QStandardPaths::LocateDirectory);
       dir = QFileInfo(dir).absolutePath();
       QString picturepath = dir + "kalzium/data/bg.jpg";
       QUrl u = QUrl::fromLocalFile(dir + "kalzium/data/knowledge.xml");
@@ -581,7 +581,7 @@ void Kalzium::elementHover(int num)
 void Kalzium::extractIconicInformationAboutElement(int elementNumber)
 {
     QString setname = "school";
-    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/") + "data/iconsets/";
+    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/", QStandardPaths::LocateDirectory);
     pathname = QFileInfo(pathname).absolutePath();
     QString filename = pathname + setname + '/' + "iconinformation.txt";
 

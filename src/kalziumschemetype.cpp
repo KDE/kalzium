@@ -458,8 +458,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/") + "data/latticeicons/";
-//X         resourcepath = QFileInfo(resourcepath).absolutePath();
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/");
 //X     }
 //X
 //X     QString filename;
@@ -508,8 +507,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty())
 //X     {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/") + "data/latticeicons/";
-//X         resourcepath = QFileInfo(resourcepath).absolutePath();
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/");
 //X     }
 //X
 //X     QList<legendPair> ll;
@@ -554,8 +552,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/") + "data/maps/";
-//X         resourcepath = QFileInfo(resourcepath).absolutePath();
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/");
 //X     }
 //X
 //X     QString filename;
@@ -611,8 +608,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X {
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/") + "data/maps/";
-//X         resourcepath = QFileInfo(resourcepath).absolutePath();
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/");
 //X     }
 //X
 //X     QList<legendPair> ll;
