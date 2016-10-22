@@ -132,13 +132,12 @@ int main(int argc, char **argv)
                     ki18n("Adding new sizable Periodic System").toString());
 
 
-    KAboutData::setApplicationData(about);
-
     QApplication::setApplicationName("kalzium");
     QApplication::setApplicationVersion(version);
     QApplication::setOrganizationDomain("kde.org");
-    QApplication::setApplicationDisplayName(i18n("kalzium"));
     QApplication app(argc, argv);
+
+    KAboutData::setApplicationData(about);
 
     QCommandLineParser parser;
     parser.addVersionOption();
