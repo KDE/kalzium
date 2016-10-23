@@ -161,7 +161,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     QString html =
         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
         "<html><head><title>Chemical data</title>"
-        "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"file://" + m_baseHtml + "style.css\" />"
         "<base href=\"" + m_baseHtml + "\"/></head><body>"
         "<div class=\"chemdata\"><div><table summary=\"header\" class=\"header\">"
         "<tr><td>" + m_element->dataAsString(ChemicalDataObject::symbol) + "</td><td>"
@@ -174,7 +174,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     case MISC:
     {
         // discovery date and discoverers
-        html.append("<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "discovery.png\" alt=\"icon\"/></td><td>");
         html += KalziumUtils::prettyUnit(m_element, ChemicalDataObject::date);
         QString discoverers = m_element->dataAsString(ChemicalDataObject::discoverers);
         if (!discoverers.isEmpty()) {
@@ -185,12 +185,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         // origin of the name
         QString nameorigin = m_element->dataAsString(ChemicalDataObject::nameOrigin);
         if (!nameorigin.isEmpty()) {
-            html.append("<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>");
+            html.append("<tr><td><img src=\"file://" + m_baseHtml + "book.png\" alt=\"icon\"/></td><td>");
             html.append(i18n("Origin of the name:<br/>%1", nameorigin));
             html.append("</td></tr>");
         }
         //X             if (m_element->artificial() || m_element->radioactive()) {
-        //X                 html.append("<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>");
+        //X                 html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         //X                 if (!m_element->radioactive()) {
         //X                     html.append(i18n("This element is artificial"));
         //X                 } else if (!m_element->artificial()) {
@@ -212,70 +212,70 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     case DATA:
     {
         // melting point
-        html.append("<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "meltingpoint.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Melting Point")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::meltingpoint));
         html.append("</td></tr>");
 
         // boiling point
-        html.append("<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "boilingpoint.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Boiling Point")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::boilingpoint));
         html.append("</td></tr>");
 
         // electro affinity
-        html.append("<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "electronaffinity.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electron Affinity")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronAffinity));
         html.append("</td></tr>");
 
         //Electronic configuration
-        html.append("<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electronic configuration")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronicConfiguration));
         html.append("</td></tr>");
 
         // covalent radius
-        html.append("<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "radius.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Covalent Radius")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::radiusCovalent));
         html.append("</td></tr>");
 
         // van der Waals radius
-        html.append("<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "radius.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("van der Waals Radius")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::radiusVDW));
         html.append("</td></tr>");
 
         // mass
-        html.append("<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "mass.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Atomic mass")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::mass));
         html.append("</td></tr>");
 
         // 1st ionization energy
-        html.append("<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "ionization.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Ionization energy"), i18n("First Ionization energy")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::ionization));
         html.append("</td></tr>");
 
         // electro negativity
-        html.append("<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electronegativity")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronegativityPauling));
         html.append("</td></tr>");
 
          // Oxidation numbers
-        html.append("<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "ionization.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Oxidation states")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::oxidation));
@@ -285,7 +285,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     case EXTRA:
     {
         //Wikipedia.org
-//         html.append ("<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>");
+//         html.append ("<tr><td><img src=\"file://" + m_baseHtml + "wiki.png\" alt=\"icon\"/></td><td>");
         html.append ("<tr><td>");
         html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", QLocale().nativeLanguageName())));
         html.append ("</td></tr>");
@@ -313,11 +313,11 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("</a></td></tr>");
 
         //chemipedia.org
-        //html.append("<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>");
+        //html.append("<tr><td><img src=\"file://" + m_baseHtml + "chemi.png\" alt=\"icon\"/></td><td>");
 
         //html.append("</td></tr>");
         //physics.nist.gov
-        //html.append("<tr><td><img src=\"nist.png\" alt=\"icon\"/></td><td>");
+        //html.append("<tr><td><img src=\"file://" + m_baseHtml + "nist.png\" alt=\"icon\"/></td><td>");
 
         //html.append("</td></tr>");
     }
