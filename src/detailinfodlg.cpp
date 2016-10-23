@@ -158,7 +158,6 @@ void DetailedInfoDlg::fillHTMLTab(KHTMLPart* htmlpart, const QString& htmlcode)
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-
     QString html =
         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
         "<html><head><title>Chemical data</title>"
@@ -575,12 +574,11 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 
 void DetailedInfoDlg::slotLinkClicked(const QUrl &url)
 {
-    if (!url.isEmpty() && url.isValid()) {
-        KRun *krun = new KRun(url, 0);
-        krun->setAutoDelete(true);
+    if (url.isEmpty() || !url.isValid()) {
+        return;
     }
+    KRun::runUrl(url, QStringLiteral("text/html"), nullptr);
 }
-
 
 void DetailedInfoDlg::slotHelp()
 {
