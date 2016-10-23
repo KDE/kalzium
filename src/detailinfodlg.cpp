@@ -33,6 +33,7 @@
 #include <KPageDialog>
 #include <QUrl>
 #include "psetables.h"
+#include <QDialogButtonBox>
 
 #include <QFile>
 #include <QFileInfo>
@@ -52,13 +53,23 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
 {
     setFaceType(List);
 
+    buttonBox()->clear();
+    buttonBox()->addButton(QDialogButtonBox::Close);
+    buttonBox()->addButton(QDialogButtonBox::Help);
 
-    /*setButtons(Help | User1 | User2 | Close);
-    setDefaultButton(Close);
-    setButtonGuiItem(User1, KGuiItem(i18nc("Next element", "Next"),(layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element")));
-    setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),(layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
+    const QString nextButtonIconSource = (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left";
+    QPushButton *nextButton = new QPushButton(QIcon::fromTheme(nextButtonIconSource), i18nc("Next element", "Next"), this);
+    nextButton->setToolTip(i18n("Goes to the next element"));
+
+    const QString prevButtonIconSource = (layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right";
+    QPushButton *prevButton = new QPushButton(QIcon::fromTheme(prevButtonIconSource), i18nc("Previous element", "Previous"), this);
+    prevButton->setToolTip(i18n("Goes to the previous element"));
+
+    buttonBox()->addButton(prevButton, QDialogButtonBox::ActionRole);
+    buttonBox()->addButton(nextButton, QDialogButtonBox::ActionRole);
+
     resize(820, 580);
-*/
+
     m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, "data/htmlview/", QStandardPaths::LocateDirectory);
     m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, "data/hazardsymbols/", QStandardPaths::LocateDirectory);
 
@@ -71,9 +82,12 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     m_actionCollection = new KActionCollection(this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
-    connect(this, SIGNAL(user1Clicked()), this, SLOT(slotUser1()));
-    connect(this, SIGNAL(user2Clicked()), this, SLOT(slotUser2()));
-    connect(this, SIGNAL(helpClicked()), this, SLOT(slotHelp()));
+    connect(prevButton, &QPushButton::clicked,
+            this, &DetailedInfoDlg::showPreviousElement);
+    connect(nextButton, &QPushButton::clicked,
+            this, &DetailedInfoDlg::showNextElement);
+    connect(buttonBox(), &QDialogButtonBox::helpRequested,
+            this, &DetailedInfoDlg::slotHelp);
 
     // setting the element and updating the whole dialog
     setElement(el);
@@ -612,12 +626,12 @@ void DetailedInfoDlg::slotHelp()
    KHelpClient::invokeHelp("infodialog_spectrum", QLatin1String("kalzium"));
 }
 
-void DetailedInfoDlg::slotUser1()
+void DetailedInfoDlg::showNextElement()
 {
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->nextOf(m_elementNumber));
 }
 
-void DetailedInfoDlg::slotUser2()
+void DetailedInfoDlg::showPreviousElement()
 {
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->previousOf(m_elementNumber));
 }

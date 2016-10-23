@@ -128,8 +128,8 @@ private:
 private slots:
     void slotLinkClicked(const QUrl &url);
 
-    virtual void slotUser1();
-    virtual void slotUser2();
+    void showNextElement();
+    void showPreviousElement();
     /**
      * invoke the help of the correct chapter
      */

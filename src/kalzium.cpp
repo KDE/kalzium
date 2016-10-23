@@ -612,8 +612,6 @@ void Kalzium::openInformationDialog(int number)
         m_infoDialog = new DetailedInfoDlg(number, this);
 
         // Remove the selection when this dialog finishes or hides.
-        connect(m_infoDialog, SIGNAL(hidden()),
-                m_periodicTable, SLOT(slotUnSelectElements()));
         connect(m_infoDialog, SIGNAL(elementChanged(int)),
                 m_periodicTable, SLOT(slotSelectOneElement(int)));
         connect(m_infoDialog, SIGNAL(elementChanged(int)),
