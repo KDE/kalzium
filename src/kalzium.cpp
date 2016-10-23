@@ -341,14 +341,14 @@ void Kalzium::slotGlossary()
       m_glossarydlg->setObjectName(QLatin1String("glossary"));
       QString dir = QStandardPaths::locate(QStandardPaths::DataLocation, "data/", QStandardPaths::LocateDirectory);
       dir = QFileInfo(dir).absolutePath();
-      QString picturepath = dir + "kalzium/data/bg.jpg";
-      QUrl u = QUrl::fromLocalFile(dir + "kalzium/data/knowledge.xml");
+      QString picturepath = dir + "/bg.jpg";
+      QUrl u = QUrl::fromLocalFile(dir + "/knowledge.xml");
       Glossary *g = new Glossary(u);
       g->setName(i18n("Knowledge"));
       g->setBackgroundPicture(picturepath);
       m_glossarydlg->addGlossary(g, true);
-      u = QUrl::fromLocalFile(dir + "kalzium/data/tools.xml");
-      g = new Glossary(u, dir + "kalzium/data/toolpics/");
+      u = QUrl::fromLocalFile(dir + "/tools.xml");
+      g = new Glossary(u, dir + "/toolpics/");
       g->setName(i18n("Tools"));
       g->setBackgroundPicture(picturepath);
       m_glossarydlg->addGlossary(g, true);

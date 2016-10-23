@@ -210,7 +210,7 @@ void Glossary::setBackgroundPicture(const QString& filename)
 
 void Glossary::fixImagePath()
 {
-    QString imgtag = "<img src=\"" + m_picturepath + '/' + "\\1\" />";
+    QString imgtag = "<img src=\"file://" + m_picturepath + '/' + "\\1\" />";
     QRegExp exp("\\[img\\]([^[]+)\\[/img\\]");
 
   foreach (GlossaryItem * item, m_itemlist) {
@@ -469,7 +469,7 @@ void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)
     QString html;
     QString bg_picture = glosstreeitem->glossary()->backgroundPicture();
     if (!bg_picture.isEmpty()) {
-        html = " background=\"" + bg_picture + "\"";
+        html = " background=\"file://" + bg_picture + "\"";
     }
 
     html = m_htmlbasestring.arg(html);
