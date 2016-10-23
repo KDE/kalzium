@@ -189,7 +189,7 @@ install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES kalziumui.rc DESTINATION ${DATA_INSTALL_DIR}/kalzium)
+install(FILES kalziumui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kalzium)
 install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
 #kde4_install_icons(${ICON_INSTALL_DIR})
