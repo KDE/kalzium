@@ -95,35 +95,35 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     ui.styleCombo->setModel(
         qobject_cast<QAbstractItemModel*>(&ui.glWidget->sceneModel()));
 
-    connect(ui.tabWidget, SIGNAL(currentChanged(int)),
-            this, SLOT(setViewEdit(int)));
+    connect(ui.tabWidget, &QTabWidget::currentChanged,
+            this, &MoleculeDialog::setViewEdit);
 
-    connect(ui.labelsCombo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setLabels(int)));
+    connect(ui.labelsCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::activated),
+            ui.glWidget, &KalziumGLWidget::setLabels);
 
     // Editing parameters
-    connect(ui.elementCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotElementChanged(int)));
-    connect(ui.bondCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotBondOrderChanged(int)));
-    connect(ui.hydrogenBox, SIGNAL(stateChanged(int)),
-            this, SLOT(slotAddHydrogensChanged(int)));
-    connect(ui.hydrogensButton, SIGNAL(clicked()),
-            this, SLOT(slotAdjustHydrogens()));
-    connect(ui.optimizeButton, SIGNAL(clicked()),
-            this, SLOT(slotGeometryOptimize()));
-    connect(ui.clearDrawingButton, SIGNAL(clicked()),
-            this, SLOT(clearAllElementsInEditor()));
+    connect(ui.elementCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::currentIndexChanged),
+            this, &MoleculeDialog::slotElementChanged);
+    connect(ui.bondCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::currentIndexChanged),
+            this, &MoleculeDialog::slotBondOrderChanged);
+    connect(ui.hydrogenBox, &QCheckBox::stateChanged,
+            this, &MoleculeDialog::slotAddHydrogensChanged);
+    connect(ui.hydrogensButton, &QPushButton::clicked,
+            this, &MoleculeDialog::slotAdjustHydrogens);
+    connect(ui.optimizeButton, &QPushButton::clicked,
+            this, &MoleculeDialog::slotGeometryOptimize);
+    connect(ui.clearDrawingButton, &QPushButton::clicked,
+            this, &MoleculeDialog::clearAllElementsInEditor);
 
     connect(ui.glWidget->molecule(), &Avogadro::QtGui::Molecule::changed,
             this, &MoleculeDialog::slotUpdateStatistics);
 
-    connect(this, SIGNAL(user1Clicked()),
-            this, SLOT(slotLoadMolecule()));
-    connect(this, SIGNAL(user2Clicked()),
-            this, SLOT(slotDownloadNewStuff()));
-    connect(this, SIGNAL(user3Clicked()),
-            this, SLOT(slotSaveMolecule()));
+    connect(this, &KDialog::user1Clicked,
+            this, &MoleculeDialog::slotLoadMolecule);
+    connect(this, &KDialog::user2Clicked,
+            this, &MoleculeDialog::slotDownloadNewStuff);
+    connect(this, &KDialog::user3Clicked,
+            this, &MoleculeDialog::slotSaveMolecule);
 
     // Check that we have managed to load up some tools and engines
     int nTools = ui.glWidget->tools().size();
