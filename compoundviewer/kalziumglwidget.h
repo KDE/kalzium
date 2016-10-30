@@ -15,25 +15,20 @@
 #ifndef KALZIUMGLWIDGET_H
 #define KALZIUMGLWIDGET_H
 
-#include <avogadro/glwidget.h>
+#include <avogadro/qtopengl/glwidget.h>
 
-class KalziumGLWidget : public Avogadro::GLWidget
+class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::QtOpenGL::GLWidget
 {
     Q_OBJECT
 public:
-    KalziumGLWidget(QWidget *parent = 0);
+    KalziumGLWidget(QWidget *parent = nullptr);
     virtual ~KalziumGLWidget();
 
 public slots:
-    void setStyle(int style);
-    void setStyle2(int style);
-    void setLabels(int style);
-    void setQuality(int quality);
     bool openFile(const QString &file);
 
 protected:
     QByteArray m_lc_numeric;
-    int m_lastEngine1, m_lastEngine2;
 };
 
 #endif // KALZIUMGLWIDGET_H

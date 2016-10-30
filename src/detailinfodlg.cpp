@@ -17,26 +17,31 @@
 
 #include "isotope.h"
 #include "kalziumdataobject.h"
-
-#include <klocale.h>
+#include <QDialog>
+#include <QLocale>
 #include <khtml_part.h>
 #include <dom/html_base.h>
 #include <dom/html_document.h>
 #include <khtmlview.h>
-#include <kstandarddirs.h>
+
 #include <kactioncollection.h>
 #include <kpagewidgetmodel.h>
-#include <ktoolinvocation.h>
+#include <KConfig>
+#include <KConfigWidgets/khelpclient.h>
 #include <krun.h>
-
+#include <QIcon>
+#include <KPageDialog>
+#include <QUrl>
 #include "psetables.h"
+#include <QDialogButtonBox>
 
 #include <QFile>
+#include <QFileInfo>
 #include <QLabel>
 #include <QImage>
-#include <QPushButton>
 #include <QStackedWidget>
-
+#include <QStandardPaths>
+#include <QLocale>
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
@@ -47,17 +52,29 @@
 DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent), m_tableTyp(0)
 {
     setFaceType(List);
-    setButtons(Help | User1 | User2 | Close);
-    setDefaultButton(Close);
-    setButtonGuiItem(User1, KGuiItem(i18nc("Next element", "Next"),
-                                       (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left", i18n("Goes to the next element")));
-    setButtonGuiItem(User2, KGuiItem(i18nc("Previous element", "Previous"),
-                                       (layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right", i18n("Goes to the previous element")));
-    resize(820, 580);
-    m_baseHtml = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/htmlview/";
-    m_baseHtml2 = KGlobal::dirs()->findResourceDir("appdata", "data/") + "data/hazardsymbols/";
 
-//X     m_picsdir = KGlobal::dirs()->findResourceDir("appdata", "elempics/") + "elempics/";
+    buttonBox()->clear();
+    buttonBox()->addButton(QDialogButtonBox::Close);
+    buttonBox()->addButton(QDialogButtonBox::Help);
+
+    const QString nextButtonIconSource = (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left";
+    QPushButton *nextButton = new QPushButton(QIcon::fromTheme(nextButtonIconSource), i18nc("Next element", "Next"), this);
+    nextButton->setToolTip(i18n("Goes to the next element"));
+
+    const QString prevButtonIconSource = (layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right";
+    QPushButton *prevButton = new QPushButton(QIcon::fromTheme(prevButtonIconSource), i18nc("Previous element", "Previous"), this);
+    prevButton->setToolTip(i18n("Goes to the previous element"));
+
+    buttonBox()->addButton(prevButton, QDialogButtonBox::ActionRole);
+    buttonBox()->addButton(nextButton, QDialogButtonBox::ActionRole);
+
+    resize(820, 580);
+
+    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, "data/htmlview/", QStandardPaths::LocateDirectory);
+    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, "data/hazardsymbols/", QStandardPaths::LocateDirectory);
+
+//X     m_picsdir = QStandardPaths::locate(QStandardPaths::DataLocation, "elempics/") + "elempics/";
+//X     m_picsdir = QFileInfo(m_picsdir).absolutePath();
 
     // creating the tabs but not the contents, as that will be done when setting the element
     createContent();
@@ -65,9 +82,12 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     m_actionCollection = new KActionCollection(this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
-    connect(this, SIGNAL(user1Clicked()), this, SLOT(slotUser1()));
-    connect(this, SIGNAL(user2Clicked()), this, SLOT(slotUser2()));
-    connect(this, SIGNAL(helpClicked()), this, SLOT(slotHelp()));
+    connect(prevButton, &QPushButton::clicked,
+            this, &DetailedInfoDlg::showPreviousElement);
+    connect(nextButton, &QPushButton::clicked,
+            this, &DetailedInfoDlg::showNextElement);
+    connect(buttonBox(), &QDialogButtonBox::helpRequested,
+            this, &DetailedInfoDlg::slotHelp);
 
     // setting the element and updating the whole dialog
     setElement(el);
@@ -92,13 +112,13 @@ void DetailedInfoDlg::setElement(int el)
 
     reloadContent();
 
-    enableButton(User1, true);
-    enableButton(User2, true);
+  /* enableButton(User1, true);
+   enableButton(User2, true);
     if (m_elementNumber == 1) {
         enableButton(User2, false);
     } else if (m_elementNumber == KalziumDataObject::instance()->numberOfElements()) {
         enableButton(User1, false);
-    }
+    }*/
 }
 
 // void DetailedInfoDlg::setOverviewBackgroundColor(const QColor &bgColor)
@@ -116,7 +136,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     QWidget* frame = new QWidget(this);
     KPageWidgetItem *item = addPage(frame, title);
     item->setHeader(icontext);
-    item->setIcon(KIcon(iconname));
+    item->setIcon(QIcon::fromTheme(iconname));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -125,7 +145,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     w->setJavaEnabled(false);
     w->setMetaRefreshEnabled(false);
     w->setPluginsEnabled(false);
-    connect(w->browserExtension(), SIGNAL(openUrlRequest(KUrl)), this, SLOT(slotLinkClicked(KUrl)));
+    connect(w->browserExtension(), SIGNAL(openUrlRequest(QUrl)), this, SLOT(slotLinkClicked(QUrl)));
     layout->addWidget(w->view());
 
     return w;
@@ -152,11 +172,10 @@ void DetailedInfoDlg::fillHTMLTab(KHTMLPart* htmlpart, const QString& htmlcode)
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-
     QString html =
         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
         "<html><head><title>Chemical data</title>"
-        "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"file://" + m_baseHtml + "style.css\" />"
         "<base href=\"" + m_baseHtml + "\"/></head><body>"
         "<div class=\"chemdata\"><div><table summary=\"header\" class=\"header\">"
         "<tr><td>" + m_element->dataAsString(ChemicalDataObject::symbol) + "</td><td>"
@@ -169,7 +188,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     case MISC:
     {
         // discovery date and discoverers
-        html.append("<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "discovery.png\" alt=\"icon\"/></td><td>");
         html += KalziumUtils::prettyUnit(m_element, ChemicalDataObject::date);
         QString discoverers = m_element->dataAsString(ChemicalDataObject::discoverers);
         if (!discoverers.isEmpty()) {
@@ -180,12 +199,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         // origin of the name
         QString nameorigin = m_element->dataAsString(ChemicalDataObject::nameOrigin);
         if (!nameorigin.isEmpty()) {
-            html.append("<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>");
+            html.append("<tr><td><img src=\"file://" + m_baseHtml + "book.png\" alt=\"icon\"/></td><td>");
             html.append(i18n("Origin of the name:<br/>%1", nameorigin));
             html.append("</td></tr>");
         }
         //X             if (m_element->artificial() || m_element->radioactive()) {
-        //X                 html.append("<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>");
+        //X                 html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         //X                 if (!m_element->radioactive()) {
         //X                     html.append(i18n("This element is artificial"));
         //X                 } else if (!m_element->artificial()) {
@@ -207,70 +226,70 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     case DATA:
     {
         // melting point
-        html.append("<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "meltingpoint.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Melting Point")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::meltingpoint));
         html.append("</td></tr>");
 
         // boiling point
-        html.append("<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "boilingpoint.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Boiling Point")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::boilingpoint));
         html.append("</td></tr>");
 
         // electro affinity
-        html.append("<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "electronaffinity.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electron Affinity")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronAffinity));
         html.append("</td></tr>");
 
         //Electronic configuration
-        html.append("<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electronic configuration")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronicConfiguration));
         html.append("</td></tr>");
 
         // covalent radius
-        html.append("<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "radius.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Covalent Radius")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::radiusCovalent));
         html.append("</td></tr>");
 
         // van der Waals radius
-        html.append("<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "radius.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("van der Waals Radius")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::radiusVDW));
         html.append("</td></tr>");
 
         // mass
-        html.append("<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "mass.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Atomic mass")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::mass));
         html.append("</td></tr>");
 
         // 1st ionization energy
-        html.append("<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "ionization.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Ionization energy"), i18n("First Ionization energy")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::ionization));
         html.append("</td></tr>");
 
         // electro negativity
-        html.append("<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electronegativity")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronegativityPauling));
         html.append("</td></tr>");
 
          // Oxidation numbers
-        html.append("<tr><td><img src=\"ionization.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td><img src=\"file://" + m_baseHtml + "ionization.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Oxidation states")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::oxidation));
@@ -279,12 +298,10 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     }
     case EXTRA:
     {
-        QString language(KGlobal::locale()->languageCodeToName(KGlobal::locale()->language()));
-
         //Wikipedia.org
-//         html.append ("<tr><td><img src=\"wiki.png\" alt=\"icon\"/></td><td>");
+//         html.append ("<tr><td><img src=\"file://" + m_baseHtml + "wiki.png\" alt=\"icon\"/></td><td>");
         html.append ("<tr><td>");
-        html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", language)));
+        html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", QLocale().nativeLanguageName())));
         html.append ("</td></tr>");
 
         //http://education.jlab.org/itselemental/ele001.html
@@ -302,7 +319,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("<tr><td>");
         html.append ("<a href=\"http://");        // http://
         html.append ("www.webelements.com/");
-        if (KGlobal::locale()->language().split('_').at(0) == "en") {
+        if (QLocale().uiLanguages().first().startsWith("en")) {
             html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
         }
         html.append ("\" target=\"_blank\" >");
@@ -310,11 +327,11 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("</a></td></tr>");
 
         //chemipedia.org
-        //html.append("<tr><td><img src=\"chemi.png\" alt=\"icon\"/></td><td>");
+        //html.append("<tr><td><img src=\"file://" + m_baseHtml + "chemi.png\" alt=\"icon\"/></td><td>");
 
         //html.append("</td></tr>");
         //physics.nist.gov
-        //html.append("<tr><td><img src=\"nist.png\" alt=\"icon\"/></td><td>");
+        //html.append("<tr><td><img src=\"file://" + m_baseHtml + "nist.png\" alt=\"icon\"/></td><td>");
 
         //html.append("</td></tr>");
     }
@@ -439,7 +456,7 @@ void DetailedInfoDlg::createContent()
 //     QWidget *m_pOverviewTab = new QWidget();
 //     item = addPage(m_pOverviewTab, i18n("Overview"));
 //     item->setHeader(i18n("Overview"));
-//     item->setIcon(KIcon("overview"));
+//     item->setIcon(QIcon("overview"));
 //     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
 //     overviewLayout->setMargin(0);
 //     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
@@ -450,7 +467,7 @@ void DetailedInfoDlg::createContent()
 //X      QWidget *m_pPictureTab = new QWidget();
 //X      item = addPage(m_pPictureTab, i18n("Picture"));
 //X      item->setHeader(i18n("What does this element look like?"));
-//X      item->setIcon(KIcon("elempic"));
+//X      item->setIcon(QIcon("elempic"));
 //X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
 //X      mainLayout->setMargin(0);
 //X      piclabel = new QLabel(m_pPictureTab);
@@ -464,7 +481,7 @@ void DetailedInfoDlg::createContent()
     QWidget *m_pModelTab = new QWidget(this);
     item = addPage(m_pModelTab, i18n("Atom Model"));
     item->setHeader(i18n("Atom Model"));
-    item->setIcon(KIcon("orbits"));
+    item->setIcon(QIcon::fromTheme("orbits"));
     QVBoxLayout *modelLayout = new QVBoxLayout(m_pModelTab);
     modelLayout->setMargin(0);
     wOrbits = new OrbitsWidget(m_pModelTab);
@@ -479,7 +496,7 @@ void DetailedInfoDlg::createContent()
     QWidget *m_pSpectrumTab = new QWidget(this);
     item = addPage(m_pSpectrumTab, i18n("Spectrum"));
     item->setHeader(i18n("Spectrum"));
-    item->setIcon(KIcon("spectrum"));
+    item->setIcon(QIcon::fromTheme("spectrum"));
     QVBoxLayout *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
     spectrumLayout->setMargin(0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);
@@ -501,7 +518,7 @@ void DetailedInfoDlg::reloadContent()
 //     const QString element_symbol = m_element->dataAsString(ChemicalDataObject::symbol);
 
     // updating caption
-    setCaption(i18nc("For example Carbon (6)", "%1 (%2)", element_name, m_elementNumber));
+    setWindowTitle(i18nc("For example Carbon (6)", "%1 (%2)", element_name, m_elementNumber));
 
     // updating overview tab
 //     dTab->setElement(m_elementNumber);
@@ -554,11 +571,11 @@ QString DetailedInfoDlg::createWikiLink(QString link)
 QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 {
     QString html;
-    QString language(KGlobal::locale()->language());
+    QString language(QLocale().uiLanguages().first());
 
     //Wikipedia.org
     html.append ("<a href=\"http://");         // http://
-    html.append (language.split('_').at(0));   // en.
+    html.append (language.split('-').at(0));   // en.
     html.append (".wikipedia.org/wiki/");      // wikipedia.org
     html.append (link);                        // /hydrogen
     html.append ("\" target=\"_blank\" > ");
@@ -569,14 +586,13 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
      return html;
 }
 
-void DetailedInfoDlg::slotLinkClicked(const KUrl &url)
+void DetailedInfoDlg::slotLinkClicked(const QUrl &url)
 {
-    if (!url.isEmpty() && url.isValid()) {
-        KRun *krun = new KRun(url, 0);
-        krun->setAutoDelete(true);
+    if (url.isEmpty() || !url.isValid()) {
+        return;
     }
+    KRun::runUrl(url, QStringLiteral("text/html"), nullptr);
 }
-
 
 void DetailedInfoDlg::slotHelp()
 {
@@ -607,17 +623,16 @@ void DetailedInfoDlg::slotHelp()
         break;
     }
 #endif
-    KToolInvocation::invokeHelp("infodialog_spectrum", QLatin1String("kalzium"));
+   KHelpClient::invokeHelp("infodialog_spectrum", QLatin1String("kalzium"));
 }
 
-void DetailedInfoDlg::slotUser1()
+void DetailedInfoDlg::showNextElement()
 {
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->nextOf(m_elementNumber));
 }
 
-void DetailedInfoDlg::slotUser2()
+void DetailedInfoDlg::showPreviousElement()
 {
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->previousOf(m_elementNumber));
 }
 
-#include "detailinfodlg.moc"

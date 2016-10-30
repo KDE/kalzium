@@ -1,6 +1,7 @@
 /***************************************************************************
  *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
+ *  Copyright (C) 2016 by Andreas Cord-Landwehr <cordlandwehr@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -14,24 +15,24 @@
 
 #include "moleculeview.h"
 
-#include <avogadro/toolgroup.h>
-#include <avogadro/elementtranslator.h>
-#include <avogadro/periodictableview.h>
+#include <avogadro/qtgui/elementtranslator.h>
+#include <avogadro/qtgui/periodictableview.h>
+#include <avogadro/qtgui/molecule.h>
+#include <avogadro/qtgui/scenepluginmodel.h>
+#include <avogadro/qtgui/toolplugin.h>
 
 #include <QFileInfo>
 #include <QGLFormat>
-#include <QUndoStack>
-#include <QSettings>
-#include <kdebug.h>
-#include <kfiledialog.h>
-#include <kjob.h>
-#include <kstandarddirs.h>
-#include <kmessagebox.h>
+#include <QDebug>
+#include <KFileDialog>
+#include <KJob>
+#include <KMessageBox>
 #include <KLocale>
+#include <QUrl>
 #include <knewstuff3/downloaddialog.h>
 #include <kio/job.h>
 
-#include <openbabel2wrapper.h>
+#include "iowrapper.h"
 
 #include <openbabel/mol.h>
 #include <openbabel/obiter.h>
@@ -40,12 +41,15 @@
   #define HAVE_GCC_VISIBILITY
 #endif
 #include <openbabel/forcefield.h>
+#include <QStandardPaths>
 
 using namespace OpenBabel;
-using namespace Avogadro;
+using namespace Avogadro::QtGui;
 
 MoleculeDialog::MoleculeDialog(QWidget * parent)
-    : KDialog(parent), m_periodicTable(0), m_addHydrogens(false)
+    : KDialog(parent)
+    , m_path(QString())
+    , m_periodicTable(nullptr)
 {
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
@@ -65,118 +69,72 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
 
     ui.setupUi(mainWidget());
 
-    ui.qualityCombo->setCurrentIndex(2); //default to high quality
-
-    //default to atom symbols
-    ui.labelsCombo->setCurrentIndex(1);
-    ui.glWidget->setLabels(1);
-
-    //default to balls-and-sticks
-    ui.styleCombo->setCurrentIndex(0);
-    ui.glWidget->setStyle(0);
-
-    m_path = QString("");
-
     // Attempt to set up the UFF forcefield
-    m_forceField = OBForceField::FindForceField("UFF");
-    if (!m_forceField) {
-        ui.optimizeButton->setEnabled(false);
-    }
+//     m_forceField = OBForceField::FindForceField("UFF");
+//     if (!m_forceField) {
+//         ui.optimizeButton->setEnabled(false);
+//     }
 
-    // Need the undo stack even though we aren't using it just yet - atom deletion
-    // doesn't work without it...
-    QUndoStack* tmp = new QUndoStack(this);
-    ui.glWidget->setUndoStack(tmp);
+    ui.styleCombo->addItems({"Ball and Stick", "Van der Waals", "Wireframe"});
+    connect(ui.styleCombo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
+            this, &MoleculeDialog::slotUpdateScenePlugin);
+    slotUpdateScenePlugin();
 
-    // Set up the elements combo and bond order combo
-    elementCombo();
-    ui.bondCombo->addItem(i18n("Single"));
-    ui.bondCombo->addItem(i18n("Double"));
-    ui.bondCombo->addItem(i18n("Triple"));
-    // Initialise the draw settings
-    m_drawSettings = new QSettings;
-    m_drawSettings->setValue("currentElement", 6);
-    m_drawSettings->setValue("bondOrder", 1);
-    m_drawSettings->setValue("addHydrogens", 0);
-
-    connect(ui.tabWidget, SIGNAL(currentChanged(int)),
-            this, SLOT(setViewEdit(int)));
-
-    // Visualization parameters
-    connect(ui.qualityCombo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setQuality(int)));
-    connect(ui.styleCombo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setStyle(int)));
-    connect(ui.style2Combo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setStyle2(int)));
-    connect(ui.labelsCombo, SIGNAL(activated(int)),
-            ui.glWidget, SLOT(setLabels(int)));
+    connect(ui.tabWidget, &QTabWidget::currentChanged,
+            this, &MoleculeDialog::setViewEdit);
 
     // Editing parameters
-    connect(ui.elementCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotElementChanged(int)));
-    connect(ui.bondCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotBondOrderChanged(int)));
-    connect(ui.hydrogenBox, SIGNAL(stateChanged(int)),
-            this, SLOT(slotAddHydrogensChanged(int)));
-    connect(ui.hydrogensButton, SIGNAL(clicked()),
-            this, SLOT(slotAdjustHydrogens()));
-    connect(ui.optimizeButton, SIGNAL(clicked()),
-            this, SLOT(slotGeometryOptimize()));
-    connect(ui.clearDrawingButton, SIGNAL(clicked()),
-            this, SLOT(clearAllElementsInEditor()));
+// commented out until we find new API for pumbling to OpenBabel
+//     connect(ui.optimizeButton, &QPushButton::clicked,
+//             this, &MoleculeDialog::slotGeometryOptimize);
+    connect(ui.clearDrawingButton, &QPushButton::clicked,
+            this, &MoleculeDialog::clearAllElementsInEditor);
 
-    connect(ui.glWidget->molecule(), SIGNAL(updated()),
-            this, SLOT(slotUpdateStatistics()));
+    connect(ui.glWidget->molecule(), &Avogadro::QtGui::Molecule::changed,
+            this, &MoleculeDialog::slotUpdateStatistics);
 
-    connect(this, SIGNAL(user1Clicked()),
-            this, SLOT(slotLoadMolecule()));
-    connect(this, SIGNAL(user2Clicked()),
-            this, SLOT(slotDownloadNewStuff()));
-    connect(this, SIGNAL(user3Clicked()),
-            this, SLOT(slotSaveMolecule()));
+    connect(this, &KDialog::user1Clicked,
+            this, &MoleculeDialog::slotLoadMolecule);
+    connect(this, &KDialog::user2Clicked,
+            this, &MoleculeDialog::slotDownloadNewStuff);
+    connect(this, &KDialog::user3Clicked,
+            this, &MoleculeDialog::slotSaveMolecule);
 
     // Check that we have managed to load up some tools and engines
-    int nEngines = ui.glWidget->engines().size() - 1;
-    int nTools = ui.glWidget->toolGroup()->tools().size();
-    QString error;
-    if (!nEngines && !nTools) {
-        error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located.");
-    } else if (!nEngines) {
-        error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located.");
-    } else if (!nTools) {
-        error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
-    }
-    if (!nEngines || !nTools) {
+    int nTools = ui.glWidget->tools().size();
+    if (!nTools) {
+        QString error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
         KMessageBox::error(this, error, i18n("Kalzium"));
+    }
+
+    // objectName is also used in Avogadro2 for identifying tools
+    foreach (auto *tool, ui.glWidget->tools()) {
+        if (tool->objectName() == "Editor") {
+            ui.editTabLayout->insertWidget(0, tool->toolWidget());
+            break;
+        }
     }
 }
 
 void MoleculeDialog::slotLoadMolecule()
 {
     // Check that we have managed to load up some tools and engines
-    int nEngines = ui.glWidget->engines().size() - 1;
-    int nTools = ui.glWidget->toolGroup()->tools().size();
-    QString error;
-    if (!nEngines && !nTools) {
-        error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-    } else if (!nEngines) {
-        error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-    } else if (!nTools) {
-        error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
-    }
-    if (!nEngines || !nTools) {
+    int nTools = ui.glWidget->tools().size();
+
+
+    if (!nTools) {
+        QString error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. "
+            "No molecules can be viewed until this issue is resolved.");
         KMessageBox::information(this, error);
     }
 
-    m_path = KGlobal::dirs()->findResourceDir("appdata", "data/molecules/") +
-             "data/molecules/";
+    m_path = QStandardPaths::locate(QStandardPaths::DataLocation, "data/molecules/", QStandardPaths::LocateDirectory);
 
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
 
     QString filename = KFileDialog::getOpenFileName(
-                       m_path,
+                       QUrl::fromLocalFile(m_path),
                        "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
@@ -188,44 +146,54 @@ void MoleculeDialog::slotLoadMolecule()
     loadMolecule(filename);
 }
 
+void MoleculeDialog::slotUpdateScenePlugin() {
+    const QString text = ui.styleCombo->currentText();
+    for (int i = 0; i < ui.glWidget->sceneModel().rowCount(QModelIndex()); ++i) {
+        QModelIndex index = ui.glWidget->sceneModel().index(i, 0);
+        if (text == ui.glWidget->sceneModel().data(index, Qt::DisplayRole)) {
+            ui.glWidget->sceneModel().setData(index, Qt::Checked, Qt::CheckStateRole);
+        } else {
+            ui.glWidget->sceneModel().setData(index, Qt::Unchecked, Qt::CheckStateRole);
+        }
+    }
+}
+
 void MoleculeDialog::loadMolecule(const QString &filename)
 {
     if (filename.isEmpty()) {
         return;
     }
 
-    kDebug() << "Filename to load: " << filename;
+    // 1. workaround for missing copy-constructor: fixed in Avogadro2 > 0.9
+    // 2. another workaround for broken copy-constructor that does not
+    //    initialize the m_undoMolecule private member variable;
+    //    this molecule should be created on the heap instead of the stack
+    m_molecule = *IoWrapper::readMolecule(filename);
 
-    Molecule* molecule = OpenBabel2Wrapper::readMolecule(filename);
-
-    // Check that a valid molecule object was returned
-    if (!molecule) {
-        return;
-    }
-
-    if (molecule->numAtoms() != 0) {
+    if (m_molecule.atomCount() != 0) {
         disconnect(ui.glWidget->molecule(), 0, this, 0);
-        molecule->center();
-        ui.glWidget->setMolecule(molecule);
+        ui.glWidget->setMolecule(&m_molecule);
         ui.glWidget->update();
         slotUpdateStatistics();
-        connect(molecule, SIGNAL(updated()), this, SLOT(slotUpdateStatistics()));
+        connect(&m_molecule, &Avogadro::QtGui::Molecule::changed,
+                this, &MoleculeDialog::slotUpdateStatistics);
     }
-    ui.glWidget->invalidateDLs();
+    ui.glWidget->resetCamera();
+    ui.glWidget->updateScene();
 }
 
 void MoleculeDialog::clearAllElementsInEditor()
 {
-    ui.glWidget->molecule()->clear();
-    ui.glWidget->update();
+    ui.glWidget->molecule()->clearBonds();
+    ui.glWidget->molecule()->clearAtoms();
+    ui.glWidget->updateScene();
 }
 
 void MoleculeDialog::slotSaveMolecule()
 {
-    KUrl url("kfiledialog:///kalzium");
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
-    QString filename = KFileDialog::getSaveFileName(url,
+    QString filename = KFileDialog::getSaveFileName(QUrl(),
                        "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
@@ -238,50 +206,46 @@ void MoleculeDialog::slotSaveMolecule()
         filename.append(".cml");
     }
 
-    OpenBabel2Wrapper::writeMolecule(filename, ui.glWidget->molecule());
+   IoWrapper io;
+   io.writeMolecule(filename, ui.glWidget->molecule());
 }
 
 void MoleculeDialog::setViewEdit(int mode)
 {
     if (mode == 0) {
-        ui.glWidget->toolGroup()->setActiveTool("Navigate");
+        ui.glWidget->setActiveTool("Navigator");
     } else if (mode == 1) {
-        ui.glWidget->toolGroup()->setActiveTool("Draw");
-        if (ui.glWidget->toolGroup()->activeTool()) {
-            ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-        }
+        ui.glWidget->setActiveTool("Editor");
     } else if (mode == 2) {
-        ui.glWidget->toolGroup()->setActiveTool("Measure");
+        ui.glWidget->setActiveTool("MeasureTool");
     }
 }
 
 MoleculeDialog::~MoleculeDialog()
 {
-    delete m_drawSettings;
 }
 
 void MoleculeDialog::slotUpdateStatistics()
 {
-    Avogadro::Molecule* mol = ui.glWidget->molecule();
+    Molecule* mol = ui.glWidget->molecule();
     if (!mol) {
         return;
     }
-
-    ui.nameLabel->setText(mol->OBMol().GetTitle());
-    ui.weightLabel->setText(i18nc("This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->OBMol().GetMolWt()));
-    ui.formulaLabel->setText(OpenBabel2Wrapper::getPrettyFormula(mol));
-//    ui.glWidget->update();
+    const std::string name = mol->data(QString("name").toStdString()).toString();
+    ui.nameLabel->setText(QString::fromStdString(name));
+    ui.weightLabel->setText(i18nc("This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->mass()));
+    ui.formulaLabel->setText(IoWrapper::getPrettyFormula(mol));
+    ui.glWidget->update();
 }
 
 void MoleculeDialog::slotDownloadNewStuff()
 {
-    kDebug() << "Kalzium new stuff";
+    qDebug() << "Kalzium new stuff";
 
     KNS3::DownloadDialog dialog(this);
     dialog.exec();
-
     // list of changed entries
-    QString destinationDir = KGlobalSettings::documentPath();
+    QString destinationDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QDir dir(destinationDir);
     if (!dir.exists()) {
         destinationDir = QDir::homePath();
@@ -293,10 +257,10 @@ void MoleculeDialog::slotDownloadNewStuff()
     foreach (const KNS3::Entry& entry, dialog.changedEntries()) {
         // care only about installed ones
         if (entry.status() == KNS3::Entry::Installed) {
-            kDebug() << "Changed Entry: " << entry.installedFiles();
+            qDebug() << "Changed Entry: " << entry.installedFiles();
             foreach (const QString &origFile, entry.installedFiles()) {
                 const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
-                KJob *job = KIO::file_move(KUrl::fromPath(origFile), KUrl::fromPath(destFile));
+                KJob *job = KIO::file_move(QUrl::fromLocalFile(origFile), QUrl::fromLocalFile(destFile));;
                 const bool success = job->exec();
                 if (success) {
                     if (exactlyOneFile.isEmpty()) {
@@ -324,145 +288,32 @@ void MoleculeDialog::slotDownloadNewStuff()
     }
 }
 
-void MoleculeDialog::elementCombo()
-{
-    ui.elementCombo->addItem(ElementTranslator::name(1) + " (1)");
-    m_elementsIndex.append(1);
-    ui.elementCombo->addItem(ElementTranslator::name(5) + " (5)");
-    m_elementsIndex.append(5);
-    ui.elementCombo->addItem(ElementTranslator::name(6) + " (6)");
-    m_elementsIndex.append(6);
-    ui.elementCombo->addItem(ElementTranslator::name(7) + " (7)");
-    m_elementsIndex.append(7);
-    ui.elementCombo->addItem(ElementTranslator::name(8) + " (8)");
-    m_elementsIndex.append(8);
-    ui.elementCombo->addItem(ElementTranslator::name(9) + " (9)");
-    m_elementsIndex.append(9);
-    ui.elementCombo->addItem(ElementTranslator::name(15) + " (15)");
-    m_elementsIndex.append(15);
-    ui.elementCombo->addItem(ElementTranslator::name(16) + " (16)");
-    m_elementsIndex.append(16);
-    ui.elementCombo->addItem(ElementTranslator::name(17) + " (17)");
-    m_elementsIndex.append(17);
-    ui.elementCombo->addItem(ElementTranslator::name(35) + " (35)");
-    m_elementsIndex.append(35);
-    ui.elementCombo->addItem(i18nc("Other element", "Other..."));
-    m_elementsIndex.append(0);
-    ui.elementCombo->setCurrentIndex(2);
-}
-
-void MoleculeDialog::slotElementChanged(int element)
-{
-    // Check if other was chosen
-    if (m_elementsIndex[element] == 0) {
-        if (!m_periodicTable) {
-            m_periodicTable = new PeriodicTableView(this);
-            connect(m_periodicTable, SIGNAL(elementChanged(int)),
-                    this, SLOT(slotCustomElementChanged(int)));
-        }
-        m_periodicTable->show();
-        return;
-    }
-
-    m_drawSettings->setValue("currentElement", m_elementsIndex[element]);
-    ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-}
-
-void MoleculeDialog::slotCustomElementChanged(int element)
-{
-    // Set the element so we can draw with it
-    m_drawSettings->setValue("currentElement", element);
-    if (ui.glWidget->toolGroup()->activeTool()) {
-        ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-    }
-
-    // Check to see if we already have this in the comboBox list
-    // If not, we get back -1 and need to create a new item
-    int comboItem = m_elementsIndex.indexOf(element);
-    if (comboItem != -1) {
-        ui.elementCombo->setCurrentIndex(comboItem);
-        return; // we found it in the list, so we're done
-    }
-
-    // Find where we should put the new entry
-    // (i.e., in order by atomic number)
-    int position = 0;
-    foreach (int entry, m_elementsIndex) {
-        // Two cases: entry > index -- insert the new element before this one
-        // Or... we hit the "Other" menu choice -- also insert here
-        if (entry > element || entry == 0) {
-            break;
-        }
-
-        ++position;
-    }
-
-    // And now we set up a new entry into the combo list
-    QString entryName(ElementTranslator::name(element)); // (e.g., "Hydrogen")
-    entryName += " (" + QString::number(element) + ')';
-
-    m_elementsIndex.insert(position, element);
-    ui.elementCombo->insertItem(position, entryName);
-    ui.elementCombo->setCurrentIndex(position);
-}
-
-void MoleculeDialog::slotBondOrderChanged(int bond)
-{
-    m_drawSettings->setValue("bondOrder", bond+1);
-    if (ui.glWidget->toolGroup()->activeTool()) {
-        ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-    }
-}
-
-void MoleculeDialog::slotAddHydrogensChanged(int hydrogens)
-{
-    m_drawSettings->setValue("addHydrogens", hydrogens);
-    if (ui.glWidget->toolGroup()->activeTool()) {
-        ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);
-    }
-}
-
-void MoleculeDialog::slotAdjustHydrogens()
-{
-    // Add/remove hydrogens from the molecule
-    if (!m_addHydrogens) {
-        ui.hydrogensButton->setText(i18n("Remove hydrogens"));
-        ui.glWidget->molecule()->addHydrogens();
-        m_addHydrogens = true;
-    } else {
-        ui.hydrogensButton->setText(i18n("Add hydrogens"));
-        ui.glWidget->molecule()->removeHydrogens();
-        m_addHydrogens = false;
-    }
-    ui.glWidget->molecule()->update();
-}
-
+//TODO there is currently no API to perform the necessary OpenBabel-Avogadro
+//     conversions, after the migration to Avogadro2; at least with v0.9
 void MoleculeDialog::slotGeometryOptimize()
 {
-    // Perform a geometry optimization
-    if (!m_forceField) {
-        return;
-    }
-
-    Molecule* molecule = ui.glWidget->molecule();
-    OpenBabel::OBMol obmol(molecule->OBMol());
-
-    // Warn the user if the force field cannot be set up for the molecule
-    if (!m_forceField->Setup(obmol)) {
-        KMessageBox::error(this,
-                        i18n("Could not set up force field for this molecule"),
-                        i18n("Kalzium"));
-        return;
-    }
-
-    // Reasonable default values for most users
-    m_forceField->SteepestDescentInitialize(500, 1.0e-5);
-    // Provide some feedback as the optimization runs
-    while (m_forceField->SteepestDescentTakeNSteps(5)) {
-        m_forceField->UpdateCoordinates(obmol);
-        molecule->setOBMol(&obmol);
-        molecule->update();
-    }
+//     // Perform a geometry optimization
+//     if (!m_forceField) {
+//         return;
+//     }
+//
+//     Molecule* molecule = ui.glWidget->molecule();
+//     OpenBabel::OBMol obmol;//(molecule->OBMol());
+//
+//     // Warn the user if the force field cannot be set up for the molecule
+//     if (!m_forceField->Setup(obmol)) {
+//         KMessageBox::error(this,
+//                         i18n("Could not set up force field for this molecule"),
+//                         i18n("Kalzium"));
+//         return;
+//     }
+//
+//     // Reasonable default values for most users
+//     m_forceField->SteepestDescentInitialize(500, 1.0e-5);
+//     // Provide some feedback as the optimization runs
+//     while (m_forceField->SteepestDescentTakeNSteps(5)) {
+//         m_forceField->UpdateCoordinates(obmol);
+//         molecule->setOBMol(&obmol);
+//         molecule->update();
+//     }
 }
-
-#include "moleculeview.moc"

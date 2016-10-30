@@ -40,7 +40,7 @@ double Spectrum::minPeak()
 
 double Spectrum::minPeak(const int unit)
 {
-    return KUnitConversion::Value(minPeak(), KUnitConversion::Angstrom).convertTo(unit).number();
+    return KUnitConversion::Value(minPeak(), KUnitConversion::Angstrom).convertTo(KUnitConversion::UnitId(unit)).number();
 }
 
 
@@ -59,7 +59,7 @@ double Spectrum::maxPeak()
 
 double Spectrum::maxPeak(const int unit)
 {
-    return KUnitConversion::Value(maxPeak(), KUnitConversion::Angstrom).convertTo(unit).number();
+    return KUnitConversion::Value(maxPeak(), KUnitConversion::Angstrom).convertTo(KUnitConversion::UnitId(unit)).number();
 }
 
 
@@ -130,5 +130,5 @@ Spectrum::Spectrum()
 
 double Spectrum::peak::wavelengthToUnit(const int unit)
 {
-    return KUnitConversion::Value(wavelength, KUnitConversion::Angstrom).convertTo(unit).number();
+    return KUnitConversion::Value(wavelength, KUnitConversion::Angstrom).convertTo(KUnitConversion::UnitId(unit)).number();
 }

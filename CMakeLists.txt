@@ -1,41 +1,93 @@
 project(kalzium)
+cmake_minimum_required(VERSION 2.8.12)
 
-set(CMAKE_MODULE_PATH ${kalzium_SOURCE_DIR}/cmake/modules )
+find_package(ECM 5.7.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${kalzium_SOURCE_DIR}/cmake/modules)
 
-# search packages used by KDE
-find_package(KDE4 4.6.80 REQUIRED)
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(FeatureSummary)
+include(ECMInstallIcons)
+include(ECMMarkNonGuiExecutable)
+include(CheckIncludeFiles)
+
+find_package(Gettext REQUIRED)
+find_package(PythonInterp REQUIRED)
+find_package(PkgConfig)
+find_package(OpenBabel2)
+find_package(AvogadroLibs)
+find_package(Eigen3)
+find_package(OCaml)
+find_package(Libfacile)
+
+pkg_check_modules(CHEMICAL_MIME_DATA chemical-mime-data)
+check_include_files(ieeefp.h HAVE_IEEEFP_H)
+
+# create configuration file
+set(HAVE_FACILE ${LIBFACILE_FOUND})
+set(HAVE_OPENBABEL2 ${OPENBABEL2_FOUND})
+set(HAVE_EIGEN ${EIGEN3_FOUND})
+set(HAVE_AVOGADRO ${AvogadroLibs_FOUND})
+configure_file(
+   ${CMAKE_CURRENT_SOURCE_DIR}/config-kalzium.h.cmake
+   ${CMAKE_CURRENT_BINARY_DIR}/config-kalzium.h
+)
+
+include_directories(${AvogadroLibs_INCLUDE_DIRS})
+
+find_package(Qt5 REQUIRED COMPONENTS
+    Widgets
+    Script
+    Core
+    Quick
+    Gui
+    OpenGL
+    Svg
+)
+
+find_package(KF5 REQUIRED COMPONENTS
+    Archive
+    Config
+    CoreAddons
+    DocTools
+    I18n
+    KDELibs4Support
+    KHtml
+    NewStuff
+    Parts
+    Plotting
+    Solid
+    UnitConversion
+    WidgetsAddons
+)
+
+# search packages used by KDE 
 if(WIN32)
   find_package(KDEWIN32 REQUIRED)
   # detect oxygen icon dir at configure time based on KDEDIRS - there may be different package installation locations
-  execute_process(COMMAND "${KDE4_KDECONFIG_EXECUTABLE}" --path icon OUTPUT_VARIABLE _dir ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
-  file(TO_CMAKE_PATH "${_dir}" __dir)
-  find_path(KDE4_ICON_DIR oxygen PATHS
-      ${__dir}
-  )
-  message(STATUS "using oxygen application icons from ${KDE4_ICON_DIR}")
+ #execute_process(COMMAND "${KDE4_KDECONFIG_EXECUTABLE}" --path icon OUTPUT_VARIABLE _dir #ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
+  #file(TO_CMAKE_PATH "${_dir}" __dir)
+  #find_path(KDE4_ICON_DIR oxygen PATHS
+   #  ${__dir})
+ # message(STATUS "using oxygen application icons from ${KDE4_ICON_DIR}")
 else(WIN32)
-    set (KDE4_ICON_DIR  ${CMAKE_INSTALL_PREFIX}/share/icons)
+ # set (KDE4_ICON_DIR  ${CMAKE_INSTALL_PREFIX}/share/icons)
 endif(WIN32)
 
-include(KDE4Defaults)
-include(MacroLibrary)
-include(MacroOptionalAddSubdirectory)
-include(MacroBoolTo01)
-
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} libscience)
+add_definitions(
+    -DQT_NO_URL_CAST_FROM_STRING
+    -DQT_USE_FAST_CONCATENATION
+    -DQT_USE_FAST_OPERATOR_PLUS
+)
+#include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} libscience)
 if(MSVC)
 # for correctly linking openbabel:
 # see http://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
 add_definitions(-DUSING_DYNAMIC_LIBS)
 endif(MSVC)
 
-kde4_no_enable_final(kalzium)
-
-include(KalziumConfigureChecks.cmake)
-
-if (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
+if (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?
   message(STATUS "Kalzium molecular editor enabled")
@@ -43,18 +95,17 @@ if (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
     add_definitions(-DHAVE_SNPRINTF -DHAVE_STRCASECMP -DHAVE_STRNCASECMP)
   endif (WIN32)
   add_subdirectory(compoundviewer)
-else (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
+else (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   message(STATUS "Kalzium molecular editor disabled")
-endif (OPENBABEL2_FOUND AND Avogadro_FOUND AND EIGEN3_FOUND)
+endif (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
 
 add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(data)
-macro_optional_add_subdirectory(plasmoid)
+# add_subdirectory(plasmoid)
 add_subdirectory(libscience)
 add_subdirectory(qml)
 
-install(FILES org.kde.kalzium.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/metainfo/)
+install(FILES org.kde.kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
-macro_display_feature_log()
-
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

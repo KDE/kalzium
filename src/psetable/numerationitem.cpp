@@ -85,4 +85,3 @@ void NumerationItem::setNumerationType(int type)
    update();
 }
 
-#include "numerationitem.moc"

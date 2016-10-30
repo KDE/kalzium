@@ -1,14 +1,15 @@
 <?xml version="1.0" ?>
-<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
 <!ENTITY % English "INCLUDE">
 ]>
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>KDE User's Manual</title>
+<title>&kalzium; User's Manual</title>
 <author><firstname>Ben</firstname><surname>Burton</surname> <contrib>Kalzium man page.</contrib></author>
-<date>2013-05-28</date>
-<productname>K Desktop Environment</productname>
+<date>2015-09-27</date><!--Update only when changing/reviewing this man page-->
+<releaseinfo>&kalzium; 2.4.03 (Applications 15.12)</releaseinfo><!--Update only when changing/reviewing this man page-->
+<productname>KDE Applications</productname>
 </refentryinfo>
 
 <refmeta>
@@ -25,8 +26,7 @@
 <cmdsynopsis>
 <command>kalzium</command>
 
-<group><option>KDE Generic Options</option></group>
-<group><option>Qt Generic Options</option></group>
+<group><option>Options</option></group>
 <group choice="opt"><option>--molecule <replaceable>filename</replaceable></option></group>
 
 </cmdsynopsis>

@@ -16,9 +16,10 @@
 #ifndef DETAILINFODLG_H
 #define DETAILINFODLG_H
 
-#include <kpagedialog.h>
-
+#include <QUrl>
 #include <QMap>
+#include <KDialog>
+#include <KPageDialog>
 
 class DetailedGraphicalOverview;
 class Element;
@@ -125,10 +126,10 @@ private:
     QString createWikiLink(QString link);
 
 private slots:
-    void slotLinkClicked(const KUrl &url);
+    void slotLinkClicked(const QUrl &url);
 
-    virtual void slotUser1();
-    virtual void slotUser2();
+    void showNextElement();
+    void showPreviousElement();
     /**
      * invoke the help of the correct chapter
      */

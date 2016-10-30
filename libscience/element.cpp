@@ -19,7 +19,7 @@
 
 #include "element.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kunitconversion/converter.h>
 
 
@@ -44,8 +44,8 @@ QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) 
             if (unit == KUnitConversion::NoUnit) {
                 return o.value();
             }
-            KUnitConversion::Value data(o.value().toDouble(), o.unit());
-            return QVariant(data.convertTo(unit).number());
+            KUnitConversion::Value data(o.value().toDouble(), KUnitConversion::UnitId(o.unit()));
+            return QVariant(data.convertTo(KUnitConversion::UnitId(unit)).number());
         }
     }
     return QVariant();
@@ -70,7 +70,7 @@ QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int 
     }
 
     valueAndUnit.append(" ");
-    valueAndUnit.append(KUnitConversion::Converter().unit(unit).data()->symbol());
+    valueAndUnit.append(KUnitConversion::Converter().unit(KUnitConversion::UnitId(unit)).symbol());
     return valueAndUnit;
 }
 

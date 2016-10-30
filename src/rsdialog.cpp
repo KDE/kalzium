@@ -26,8 +26,7 @@
 #include "kalziumutils.h"
 
 #include <KLocale>
-#include <ktoolinvocation.h>
-#include <KToolInvocation>
+#include <KConfigWidgets/khelpclient.h>
 #include <KMessageBox>
 
 RSDialog::RSDialog(QWidget* parent) : KDialog(parent)
@@ -313,7 +312,7 @@ void RSDialog::createRPhrases()
 
 void RSDialog::slotHelp()
 {
-    KToolInvocation::invokeHelp("rs_phrases", QLatin1String("kalzium"));
+    KHelpClient::invokeHelp("rs_phrases", QLatin1String("kalzium"));
 }
 
 void RSDialog::invalidPhaseString()
@@ -321,4 +320,3 @@ void RSDialog::invalidPhaseString()
     KMessageBox::error(0, i18n("At least one of the specified phrases is invalid."));
 }
 
-#include "rsdialog.moc"

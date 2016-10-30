@@ -21,11 +21,11 @@
 
 #include "prefs.h"
 
-#include <kdebug.h>
 #include <klocale.h>
 
 #include <QHBoxLayout>
 #include <QGridLayout>
+#include <QDebug>
 
 LegendWidget::LegendWidget(QWidget *parent) : QWidget(parent)
 {
@@ -40,7 +40,7 @@ LegendWidget::~LegendWidget()
 
 void LegendWidget::setDockArea(Qt::DockWidgetArea newDockArea)
 {
-    kDebug() << "dock Area changed" << newDockArea;
+    qDebug() << "dock Area changed" << newDockArea;
 
     m_dockArea = newDockArea;
     updateContent();
@@ -226,4 +226,3 @@ void LegendItem::leaveEvent(QEvent* event)
     QWidget::leaveEvent(event);
 }
 
-#include "legendwidget.moc"

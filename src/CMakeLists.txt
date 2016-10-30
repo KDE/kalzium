@@ -6,6 +6,8 @@ include_directories(
    psetable
    isotopetable
    ${CMAKE_CURRENT_BINARY_DIR}/..
+   ${CMAKE_CURRENT_BINARY_DIR}
+   ${CMAKE_CURRENT_SOURCE_DIR}
    )
 
 ########### next target ###############
@@ -18,25 +20,25 @@ if (OPENBABEL2_FOUND)
       tools/obconverter.cpp
       )
 
-   kde4_add_ui_files(kalziumtools_SRCS
+   ki18n_wrap_ui(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
    include_directories(${OPENBABEL2_INCLUDE_DIR})
 
-   if (EIGEN3_FOUND AND Avogadro_FOUND)
+   if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 
-      include(${Avogadro_USE_FILE})
+      #include(${Avogadro_USE_FILE})
 
       set(kalziumtools_SRCS
          ${kalziumtools_SRCS}
          tools/moleculeview.cpp
          ../compoundviewer/kalziumglwidget.cpp
          )
-      kde4_add_ui_files(kalziumtools_SRCS
+      ki18n_wrap_ui(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
       include_directories(${EIGEN3_INCLUDE_DIR})
-   endif (EIGEN3_FOUND AND Avogadro_FOUND)
+   endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (OPENBABEL2_FOUND)
 
 ## Kalzium calculator files
@@ -49,7 +51,7 @@ set(kalziumtools_SRCS
    calculator/titrationCalculator.cpp
 #   calculator/massCalculator.cpp
    )
-kde4_add_ui_files(kalziumtools_SRCS
+ki18n_wrap_ui(kalziumtools_SRCS
    calculator/calculator.ui
    calculator/nuclearCalculator.ui
    calculator/gasCalculator.ui
@@ -110,12 +112,12 @@ if (LIBFACILE_FOUND)
       ${CMAKE_CURRENT_BINARY_DIR}/solver.o
       ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
       )
-   kde4_add_ui_files(kalzium_SRCS
+   ki18n_wrap_ui(kalzium_SRCS
       equationview.ui
       )
 endif (LIBFACILE_FOUND)
 
-kde4_add_ui_files(kalzium_SRCS
+ki18n_wrap_ui(kalzium_SRCS
    isotopetable/isotopedialog.ui
    settings_colors.ui
    plotsetupwidget.ui
@@ -127,19 +129,35 @@ kde4_add_ui_files(kalzium_SRCS
    exportdialog.ui
    )
 
-kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
+kconfig_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
-kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
+#kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
 
-kde4_add_executable(kalzium ${kalzium_SRCS})
+add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_KUNITCONVERSION_LIBS} ${QT_QTSCRIPT_LIBRARY} ${QT_QTDECLARATIVE_LIBRARY} science)
-
+target_link_libraries(kalzium
+    KF5::Plotting
+    KF5::KHtml
+    KF5::KDELibs4Support
+    KF5::NewStuff
+    KF5::UnitConversion
+    Qt5::Script
+    Qt5::Svg
+    Qt5::Quick
+    science
+    ${OPENBABEL2_LIBRARIES}
+)
 if (OPENBABEL2_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-   if (EIGEN3_FOUND AND Avogadro_FOUND)
-      target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro)
-   endif (EIGEN3_FOUND AND Avogadro_FOUND)
+   if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
+      target_link_libraries(kalzium
+         Qt5::OpenGL
+         compoundviewer
+         AvogadroQtGui
+         AvogadroQtOpenGL
+         AvogadroQtPlugins
+       )
+   endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (OPENBABEL2_FOUND)
 
 if (LIBFACILE_FOUND)
@@ -171,7 +189,7 @@ install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES kalziumui.rc DESTINATION ${DATA_INSTALL_DIR}/kalzium)
+install(FILES kalziumui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kalzium)
 install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
-kde4_install_icons(${ICON_INSTALL_DIR})
+#kde4_install_icons(${ICON_INSTALL_DIR})

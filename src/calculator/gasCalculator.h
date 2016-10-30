@@ -20,7 +20,7 @@
 #ifndef GASCALCULATOR_H
 #define GASCALCULATOR_H
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kalziumdataobject.h>
 #include <kunitconversion/unitcategory.h>
 #include <kunitconversion/converter.h>
@@ -28,7 +28,7 @@
 #include "ui_gasCalculator.h"
 
 // The universal Gas constant is defined here.
-#define R 0.08206
+const double R = 0.08206;
 
 using namespace KUnitConversion;
 

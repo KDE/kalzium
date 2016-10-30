@@ -23,7 +23,6 @@ email                : cniehaus@kde.org
 #include "rsdialog.h"
 #include "calculator/calculator.h"
 
-class KTabWidget;
 class KAction;
 class KSelectAction;
 class QToolBox;
@@ -139,6 +138,8 @@ private:
     ExportDialog *m_exportDialog;
 
     UnitSettingsDialog *m_unitsDialog;
+
+    QLabel *m_elementInfo;
 
 Q_SIGNALS:
     void numerationChanged(int);

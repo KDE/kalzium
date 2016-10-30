@@ -28,7 +28,7 @@
 
 #include <klocale.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include<prefs.h>
 
 IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : KDialog(parent)
@@ -105,4 +105,3 @@ void IsotopeTableDialog::slotZoomLevelChanged(double value)
     ui.Slider->blockSignals(b);
 }
 
-#include "isotopetabledialog.moc"

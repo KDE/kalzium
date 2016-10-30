@@ -139,4 +139,3 @@ void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 }
 
 
-#include "periodictablescene.moc"

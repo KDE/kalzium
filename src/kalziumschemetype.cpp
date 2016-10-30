@@ -29,8 +29,9 @@
 #include <QBrush>
 
 #include <klocale.h>
-#include <kdebug.h>
-#include <kstandarddirs.h>
+#include <QDebug>
+#include <QStandardPaths>
+
 
 
 KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
@@ -453,11 +454,11 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X {
 //X     QString crystal = KalziumDataObject::instance()->element(el)->dataAsString(ChemicalDataObject::crystalstructure);
 //X
-//X     kDebug() << "crystal is " << crystal;
+//X     qDebug() << "crystal is " << crystal;
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/latticeicons/") + "data/latticeicons/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/");
 //X     }
 //X
 //X     QString filename;
@@ -485,11 +486,11 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     QBrush ret;
 //X     if (!filename.isEmpty()) {
-//X         kDebug() << el << ": FILENAME is not EMPTY... " << filename;
+//X         qDebug() << el << ": FILENAME is not EMPTY... " << filename;
 //X         QPixmap pixmap(resourcepath + filename);
 //X         ret = QBrush(pixmap.scaled(elrect.size(), Qt::KeepAspectRatio));
 //X     } else {
-//X             kDebug() << el << ": FILENAME EMPTY... " << filename;
+//X             qDebug() << el << ": FILENAME EMPTY... " << filename;
 //X         ret.setColor(Qt::gray);
 //X     }
 //X
@@ -506,7 +507,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty())
 //X     {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/latticeicons/") + "data/latticeicons/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/latticeicons/");
 //X     }
 //X
 //X     QList<legendPair> ll;
@@ -551,7 +552,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/maps/") + "data/maps/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/");
 //X     }
 //X
 //X     QString filename;
@@ -607,7 +608,7 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 //X {
 //X     static QString resourcepath;
 //X     if (resourcepath.isEmpty()) {
-//X         resourcepath = KGlobal::dirs()->findResourceDir("appdata", "data/maps/") + "data/maps/";
+//X         resourcepath = QStandardPaths::locate(QStandardPaths::DataLocation, "data/maps/");
 //X     }
 //X
 //X     QList<legendPair> ll;

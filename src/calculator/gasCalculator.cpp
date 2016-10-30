@@ -22,6 +22,8 @@
 #include "kalziumunitcombobox.h"
 #include "prefs.h"
 #include "kalziumutils.h"
+#include <KLocalizedString>
+#include <KComboBox>
 
 using namespace KUnitConversion;
 
@@ -143,7 +145,7 @@ void gasCalculator::calculatePressure()
     double pressure = m_moles * R * temp / (volume - m_moles * b) - m_moles * m_moles * m_Vand_a / volume / volume;
 
     m_pressure = Value(pressure, KUnitConversion::Atmosphere);
-    m_pressure = m_pressure.convertTo(getCurrentUnitId(ui.pressure_unit));
+    m_pressure = m_pressure.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.pressure_unit)));
     ui.pressure->setValue(m_pressure.number());
 }
 
@@ -168,7 +170,7 @@ void gasCalculator::calculateVol()
 
     double volume = m_moles * R * temp / pressure + (m_moles * b);
     m_vol = Value(volume, KUnitConversion::Liter);
-    m_vol = m_vol.convertTo(getCurrentUnitId(ui.volume_unit));
+    m_vol = m_vol.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.volume_unit)));
     ui.volume->setValue(m_vol.number());
 }
 
@@ -181,7 +183,7 @@ void gasCalculator::calculateTemp()
     double temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume))\
                   * (volume - m_moles * b) / m_moles / R;
     m_temp = Value(temp, KUnitConversion::Kelvin);
-    m_temp = m_temp.convertTo(getCurrentUnitId(ui.temp_unit));
+    m_temp = m_temp.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.temp_unit)));
     ui.temp->setValue(m_temp.number());
 }
 
@@ -207,32 +209,32 @@ void gasCalculator::calculateMass()
     double mass = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
                   * (volume - m_moles * b) * m_molarMass / R / temp;
     m_mass = Value(mass, KUnitConversion::Gram);
-    m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
+    m_mass = m_mass.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
 }
 
 
 void gasCalculator::volChanged()
 {
-    m_vol = Value(ui.volume->value(), getCurrentUnitId(ui.volume_unit));
+    m_vol = Value(ui.volume->value(), KUnitConversion::UnitId(getCurrentUnitId(ui.volume_unit)));
     calculate();
 }
 
 void gasCalculator::tempChanged()
 {
-    m_temp = Value(ui.temp->value(), getCurrentUnitId(ui.temp_unit));
+    m_temp = Value(ui.temp->value(), KUnitConversion::UnitId(getCurrentUnitId(ui.temp_unit)));
     calculate();
 }
 
 void gasCalculator::pressureChanged()
 {
-    m_pressure = Value(ui.pressure->value(), getCurrentUnitId(ui.pressure_unit));
+    m_pressure = Value(ui.pressure->value(), KUnitConversion::UnitId(getCurrentUnitId(ui.pressure_unit)));
     calculate();
 }
 
 void gasCalculator::massChanged()
 {
-    m_mass = Value(ui.mass->value(), getCurrentUnitId(ui.mass_unit));
+    m_mass = Value(ui.mass->value(), KUnitConversion::UnitId(getCurrentUnitId(ui.mass_unit)));
     m_moles = m_mass.convertTo(KUnitConversion::Gram).number() / m_molarMass;
     ui.moles->setValue(m_moles);
     calculate();
@@ -242,7 +244,7 @@ void gasCalculator::molesChanged(double value)
 {
     m_moles = value;
     m_mass = Value(m_moles * m_molarMass, KUnitConversion::Gram);
-    m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
+    m_mass = m_mass.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -255,7 +257,7 @@ void gasCalculator::molarMassChanged(double value)
     }
     m_molarMass = value;
     m_mass = Value(m_molarMass * m_moles, KUnitConversion::Gram);
-    m_mass = m_mass.convertTo(getCurrentUnitId(ui.mass_unit));
+    m_mass = m_mass.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
     calculate();
 }
@@ -268,7 +270,7 @@ void gasCalculator::Vand_aChanged()
 
 void gasCalculator::Vand_bChanged()
 {
-    m_Vand_b = Value(ui.b->value(), getCurrentUnitId(ui.b_unit));
+    m_Vand_b = Value(ui.b->value(), KUnitConversion::UnitId(getCurrentUnitId(ui.b_unit)));
     calculate();
 }
 
@@ -325,7 +327,7 @@ void gasCalculator::error(int mode)
 {
     switch (mode) { // Depending on the mode, set the error messages.
     case RESET_GAS_MESSAGE:
-        ui.error->setText("");
+        ui.error->setText(QString());
         break;
     case VOL_ZERO :
         ui.error->setText(i18n("Volume cannot be zero, please enter a valid value."));
@@ -336,5 +338,3 @@ void gasCalculator::error(int mode)
         break;
     }
 }
-
-#include "gasCalculator.moc"

@@ -21,8 +21,11 @@
 #include "eqchemview.h"
 
 #include <QClipboard>
+#include <QDebug>
 
-#include <kdebug.h>
+#include <klocale.h>
+
+#include <LineEditUrlDropEventFilter>
 
 #include "ui_equationview.h"
 
@@ -51,7 +54,7 @@ void EQChemDialog::compute()
 
     QString answer = QString(result);
 
-    kDebug() << "Answer: " << answer;
+    qDebug() << "Answer: " << answer;
 
     ui.answer_label->setText(answer);
 
@@ -63,6 +66,9 @@ EQChemDialog::EQChemDialog(QWidget *parent) : QWidget(parent)
 {
     ui.setupUi(this);
 
+    LineEditUrlDropEventFilter *dropUrlEventFilter = new LineEditUrlDropEventFilter(parent);
+    dropUrlEventFilter->installEventFilter(ui.lineEdit);
+
     ui.lblHelp->setText(getHelpText());
 
     connect(ui.calculateButton, SIGNAL(clicked()),
@@ -73,7 +79,7 @@ EQChemDialog::EQChemDialog(QWidget *parent) : QWidget(parent)
 
 void EQChemDialog::copyAnswer()
 {
-    kDebug() << "EQChemDialog::copyAnswer()";
+    qDebug() << "EQChemDialog::copyAnswer()";
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText(ui.answer_label->text(), QClipboard::Clipboard);
 }

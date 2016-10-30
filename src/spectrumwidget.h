@@ -198,7 +198,7 @@ public slots:
     {
         m_type = spectrumtype;
         Prefs::setSpectrumType(spectrumtype);
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
         update();
     }
 

@@ -16,6 +16,7 @@
 #define MOLECULEVIEW_H
 
 #include <kdialog.h>
+#include <avogadro/qtgui/molecule.h>
 
 #include "ui_moleculeviewerwidget.h"
 
@@ -25,7 +26,10 @@ class OBForceField;
 }
 namespace Avogadro
 {
+namespace QtGui
+{
 class PeriodicTableView;
+}
 }
 class QSettings;
 
@@ -45,23 +49,22 @@ public:
 private:
     QString m_path;///to store the path were the molecules are located
     QList<int> m_elementsIndex; // Index storing the element combo index
-    Avogadro::PeriodicTableView *m_periodicTable;
+    Avogadro::QtGui::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
     QSettings *m_drawSettings;
-    bool m_addHydrogens;
 
     Ui::moleculeViewerForm ui;
-
-    /**
-    * Set up the element combo box
-    */
-    void elementCombo();
 
 private slots:
     /**
      * Load a molecule
      */
     void slotLoadMolecule();
+
+    /**
+     * Update the currently active scene plugin.
+     */
+    void slotUpdateScenePlugin();
 
     /**
      * Get a new molecule using hot new stuff
@@ -79,34 +82,9 @@ private slots:
     void setViewEdit(int mode);
 
     /**
-    * Current element has changed
-    */
-    void slotElementChanged(int element);
-
-    /**
-    * Custom element has been selected
-    */
-    void slotCustomElementChanged(int);
-
-    /**
-    * Bond order has been changed
-    */
-    void slotBondOrderChanged(int);
-
-    /**
-    * Automatic hydrogen addition on drawing
-    */
-    void slotAddHydrogensChanged(int);
-
-    /**
     * Update the statistical information about the current molecule
     */
     void slotUpdateStatistics();
-
-    /**
-    * Add/remove hydrogens
-    */
-    void slotAdjustHydrogens();
 
     /**
     * Geometry optimization
@@ -115,6 +93,11 @@ private slots:
 
     /// Clears the view
     void clearAllElementsInEditor();
+
+private:
+    // workaround for broken copy-operator of QtGui::Molecule
+    // whould be removed after next Avogadro release greater 0.9
+    Avogadro::QtGui::Molecule m_molecule;
 };
 
 #endif // MOLECULEVIEW_H

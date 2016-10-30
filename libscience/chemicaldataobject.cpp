@@ -20,9 +20,9 @@
 #include "chemicaldataobject.h"
 
 #include <kunitconversion/converter.h>
-#include <kdebug.h>
 
 #include <QLatin1String>
+#include <QDebug>
 
 class ChemicalDataObjectPrivate : public QSharedData
 {
@@ -176,5 +176,5 @@ void ChemicalDataObject::setType(int type)
 
 QString ChemicalDataObject::unitAsString() const
 {
-    return KUnitConversion::Converter().unit(d->m_unit).data()->symbol();
+    return KUnitConversion::Converter().unit(KUnitConversion::UnitId(d->m_unit)).symbol();
 }

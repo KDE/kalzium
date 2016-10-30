@@ -27,7 +27,7 @@
         </widget>
        </item>
        <item>
-        <widget class="KTabWidget" name="tabWidget">
+        <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
           <number>0</number>
          </property>
@@ -216,7 +216,7 @@
               </widget>
              </item>
              <item>
-              <widget class="KLineEdit" name="xaxis">
+              <widget class="QLineEdit" name="xaxis">
                <property name="maximumSize">
                 <size>
                  <width>174</width>
@@ -233,7 +233,7 @@
               </widget>
              </item>
              <item>
-              <widget class="KLineEdit" name="yaxis"/>
+              <widget class="QLineEdit" name="yaxis"/>
              </item>
             </layout>
            </item>
@@ -392,11 +392,6 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
    <class>KPlotWidget</class>
    <extends>QFrame</extends>
    <header>kplotwidget.h</header>
@@ -405,12 +400,6 @@
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>

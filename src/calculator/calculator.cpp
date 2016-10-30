@@ -19,15 +19,16 @@
 
 #include "calculator.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
-#include <kstandarddirs.h>
 #include <ktoolinvocation.h>
-
+#include <QDialog>
+#include <QIcon>
+#include <KLocalizedString>
 calculator::calculator(QWidget *parent) : KDialog(parent)
 {
-    setCaption(i18n("Chemical Calculator"));
+    setWindowTitle(i18n("Chemical Calculator"));
     setButtons(Help | Close);
     setDefaultButton(Close);
 
@@ -67,7 +68,7 @@ calculator::calculator(QWidget *parent) : KDialog(parent)
     ui.stack->addWidget(m_equationBalancer);
 #endif
     // Add an image to the file
-    ui.pic->setPixmap((KIcon("calculate")).pixmap(128,128));
+    ui.pic->setPixmap((QIcon::fromTheme("calculate")).pixmap(128,128));
 
     // Connect the tree item selection signal to the corresponding slot
     connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this,
@@ -90,7 +91,7 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
     }
 
     //DEBUG
-    kDebug() << "Item clicked: " << item->text(0);
+    qDebug() << "Item clicked: " << item->text(0);
 
     QString s = item->text(0);
 
@@ -123,5 +124,5 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 
 void calculator::slotHelp()
 {
-    KToolInvocation::invokeHelp("calculator", "kalzium");
+  // KToolInvocation::invokeHelp("calculator", "kalzium","");
 }

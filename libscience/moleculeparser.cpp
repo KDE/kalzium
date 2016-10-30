@@ -15,9 +15,10 @@
 
 #include <ctype.h>
 
-#include <kstandarddirs.h>
-#include <kdebug.h>
+
+#include <QDebug>
 #include <QFile>
+#include <QStandardPaths>
 
 // ================================================================
 //                    class ElementCountMap
@@ -126,9 +127,9 @@ bool MoleculeParser::weight(const QString   &_shortMoleculeString,
 
     // Expand the molecule string
     // Example : MeOH -> (CH3)OH
-    kDebug() << _shortMoleculeString << "is going to be expanded";
+    qDebug() << _shortMoleculeString << "is going to be expanded";
     _moleculeString = expandFormula(_shortMoleculeString);
-    kDebug() << _moleculeString << "is the expanded string";
+    qDebug() << _moleculeString << "is the expanded string";
 
     // Now set the expanded string
     // Initialize the parsing process, and parse te molecule.
@@ -166,7 +167,7 @@ bool MoleculeParser::parseSubmolecule(double          *_resultMass,
     *_resultMass = 0.0;
     _resultMap->clear();
     while (parseTerm(&subMass, &subMap)) {
-        //kDebug() << "Parsed a term, weight = " << subresult;
+        //qDebug() << "Parsed a term, weight = " << subresult;
 
         // Add the mass and composition of the submolecule to the total.
         *_resultMass += subMass;
@@ -194,7 +195,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
     _resultMap->clear();
 
     if (nextToken() == ELEMENT_TOKEN) {
-        //kDebug() << "Parsed an element: " << m_elementVal->symbol();
+        //qDebug() << "Parsed an element: " << m_elementVal->symbol();
         *_resultMass = m_elementVal->dataAsVariant( ChemicalDataObject::mass ).toDouble();
         _resultMap->add(m_elementVal, 1);
 
@@ -207,7 +208,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
 
         // Must end in a ")".
         if (nextToken() == ')') {
-            //kDebug() << "Parsed a submolecule. weight = " << *_result;
+            //qDebug() << "Parsed a submolecule. weight = " << *_result;
             getNextToken();
         } else {
             return false;
@@ -219,7 +220,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
 
     // Optional number.
     if (nextToken() == INT_TOKEN) {
-        //kDebug() << "Parsed a number: " << intVal();
+        //qDebug() << "Parsed a number: " << intVal();
 
         *_resultMass *= intVal();
         _resultMap->multiply(intVal());
@@ -227,7 +228,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
         getNextToken();
     }
 
-    kDebug() << "Weight of term = " << *_resultMass;
+    qDebug() << "Weight of term = " << *_resultMass;
     return true;
 }
 
@@ -241,7 +242,7 @@ int MoleculeParser::getNextToken()
     QString name;
 
 #if 0
-    kDebug() << "getNextToken(): Next character = "
+    qDebug() << "getNextToken(): Next character = "
           << nextChar() << endl;
 #endif
 
@@ -274,11 +275,11 @@ int MoleculeParser::getNextToken()
 
 Element *MoleculeParser::lookupElement(const QString& _name)
 {
-    kDebug() << "looking up " << _name;
+    qDebug() << "looking up " << _name;
 
     foreach (Element* e, m_elementList) {
         if (e->dataAsVariant(ChemicalDataObject::symbol) == _name) {
-            kDebug() << "Found element " << _name;
+            qDebug() << "Found element " << _name;
             return e;
         }
     }
@@ -286,7 +287,7 @@ Element *MoleculeParser::lookupElement(const QString& _name)
     //if there is an error make m_error true.
     m_error = true;
 
-    kDebug() << "no such element!: " << _name;
+    qDebug() << "no such element!: " << _name;
 
     return NULL;
 }
@@ -318,7 +319,7 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
                 _fullString += temp;
             } else if (!((expandedTerm = expandTerm(temp)).isEmpty())) {
                 // If an expansion was made, return the expansion
-                kDebug() << "expanded" << temp << "to" << expandedTerm;
+                qDebug() << "expanded" << temp << "to" << expandedTerm;
                 _fullString += '('+expandedTerm+')';
             } else { // invalid term, append it. (Validation is done later anyway.)
                 _fullString += temp;
@@ -355,7 +356,7 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
         } else { // invalid character, return it, validation is done again later
             _fullString += *i;
             ++i;
-            kDebug() << *i << "invalid character!";
+            qDebug() << *i << "invalid character!";
         }
     }
 
@@ -371,12 +372,12 @@ QString MoleculeParser::expandTerm (const QString& _group)
     QString temp;                    // A temporary QString used in Regular expressions
 
     // Search in User defined aliases.
-    QString fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols2.csv");
+    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
     QFile file(fileName);
 
     // Check file validity
     if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text))) {
-        kDebug() << fileName << " opened";
+        qDebug() << fileName << " opened";
         QTextStream in(&file);
 
         // Get all shortForms and fullForms in the file.
@@ -394,17 +395,17 @@ QString MoleculeParser::expandTerm (const QString& _group)
             }
         }
     } else {
-        kDebug() << fileName << " could not be opened!";
+        qDebug() << fileName << " could not be opened!";
     }
 
     // Find the system defined aliases    
     // Open the file
-    fileName = KStandardDirs::locate( "data", "libkdeedu/data/symbols.csv");
+    fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols.csv");
     QFile file2(fileName);
 
     // Check file validity
     if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text))) {
-        kDebug() << fileName << " opened";
+        qDebug() << fileName << " opened";
         QTextStream in(&file2);
 
         // Get all shortForms and fullForms in the file.
@@ -421,7 +422,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
             }
         }
     } else {
-        kDebug() << fileName << " could not be opened!";
+        qDebug() << fileName << " could not be opened!";
     }
 
     // Sample expansions, work even when file is not found, testing purposes

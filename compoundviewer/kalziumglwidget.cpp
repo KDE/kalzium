@@ -1,6 +1,7 @@
 /***************************************************************************
  *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
+ *  Copyright (C) 2016 by Andreas Cord-Landwehr <cordlandwehr@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -13,20 +14,23 @@
  ***************************************************************************/
 
 #include "kalziumglwidget.h"
+#include "iowrapper.h"
 
+#include <avogadro/qtgui/molecule.h>
+#include <avogadro/qtgui/sceneplugin.h>
+#include <avogadro/qtgui/sceneplugin.h>
+#include <avogadro/qtgui/toolplugin.h>
+#include <avogadro/qtopengl/glwidget.h>
+#include <avogadro/qtplugins/pluginmanager.h>
+#include <avogadro/rendering/primitive.h>
+
+#include <QWidget>
 #include <QSettings>
-
-#include <avogadro/primitive.h>
-#include <avogadro/pluginmanager.h>
-#include <avogadro/toolgroup.h>
-#include <avogadro/engine.h>
-
-#include "openbabel2wrapper.h"
 
 #include <config-kalzium.h>
 
-KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
-  m_lastEngine1(0), m_lastEngine2(0)
+KalziumGLWidget::KalziumGLWidget(QWidget *parent)
+    : Avogadro::QtOpenGL::GLWidget(parent)
 {
     // work around a bug in OpenBabel: the chemical data files parsing
     // is dependent on the LC_NUMERIC locale.
@@ -45,19 +49,40 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent),
         }
         s_pluginDirSet = true;
     }
-    Avogadro::PluginManager *manager = Avogadro::PluginManager::instance();
-    manager->loadFactories();
-    Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);
-    tools->append(manager->tools(this));
-    tools->setActiveTool("Navigate");
-    setToolGroup(tools);
-    // Set the default engine to be active
-    loadDefaultEngines();
+    Avogadro::QtPlugins::PluginManager *manager = Avogadro::QtPlugins::PluginManager::instance();
+    manager->load();
 
-    // Set the default quality level to high
-    setQuality(2);
+    // load render engines
+    QList<Avogadro::QtGui::ScenePluginFactory*> scenePluginFactories =
+        manager->pluginFactories<Avogadro::QtGui::ScenePluginFactory>();
+    foreach (auto *factory, scenePluginFactories) {
+        auto *scenePlugin = factory->createInstance();
+        // enable Ball-and-Sticks
+        if (scenePlugin->objectName() == "BallStick") {
+            scenePlugin->setEnabled(true);
+        }
+        sceneModel().addItem(scenePlugin);
+    }
 
-    setMolecule(new Avogadro::Molecule(this));
+    // load tools
+    if (!tools().isEmpty()) {
+        qCritical() << "Updating non-empty toolset, erasing first.";
+        qDeleteAll(tools());
+    }
+    auto toolPluginFactories =
+        manager->pluginFactories<Avogadro::QtGui::ToolPluginFactory>();
+    foreach (auto *factory, toolPluginFactories) {
+        auto *tool = factory->createInstance();
+        if (tool) {
+            addTool(tool);
+            if (factory->identifier() == QStringLiteral("Navigator")) {
+                setDefaultTool(tool);
+                setActiveTool(tool);
+            }
+        }
+    }
+
+    setMolecule(new Avogadro::QtGui::Molecule(this));
     update();
 }
 
@@ -69,11 +94,15 @@ KalziumGLWidget::~KalziumGLWidget()
 
 bool KalziumGLWidget::openFile(const QString &file)
 {
-    Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule(file);
+    // workaround for missing copy-constructor: fixed in Avogadra2 > 0.9
+    Avogadro::QtGui::Molecule temp;
+    temp = *IoWrapper::readMolecule(file);
+    auto mol = new Avogadro::QtGui::Molecule(temp);
+
     if (!mol) {
         return false;
     }
-    Avogadro::Molecule* oldmol = molecule();
+    Avogadro::QtGui::Molecule* oldmol = molecule();
     if (oldmol) {
         oldmol->deleteLater();
     }
@@ -81,90 +110,3 @@ bool KalziumGLWidget::openFile(const QString &file)
     update();
     return true;
 }
-
-void KalziumGLWidget::setStyle(int style)
-{
-    foreach (Avogadro::Engine *engine, engines()) {
-        if ((m_lastEngine1 == 0 && engine->identifier() == "Ball and Stick")
-            || (m_lastEngine1 == 1 && engine->identifier() == "Stick")
-            || (m_lastEngine1 == 2 && engine->identifier() == "Van der Waals Spheres")
-            || (m_lastEngine1 == 3 && engine->identifier() == "Wireframe")) {
-            engine->setEnabled(false);
-        }
-        if ((style == 0 && engine->identifier() == "Ball and Stick")
-            || (style == 1 && engine->identifier() == "Stick")
-            || (style == 2 && engine->identifier() == "Van der Waals Spheres")
-            || (style == 3 && engine->identifier() == "Wireframe")) {
-            engine->setEnabled(true);
-        }
-    }
-    m_lastEngine1 = style;
-    update();
-}
-
-void KalziumGLWidget::setStyle2(int style)
-{
-    foreach (Avogadro::Engine *engine, engines()) {
-        if ((m_lastEngine2 == 1 && engine->identifier() == "Ribbon")
-            || (m_lastEngine2 == 2 && engine->identifier() == "Ring")
-            || (m_lastEngine2 == 3 && engine->identifier() == "Orbitals")) {
-            engine->setEnabled(false);
-        }
-        if ((style == 1 && engine->identifier() == "Ribbon")
-            || (style == 2 && engine->identifier() == "Ring")
-            || (style == 3 && engine->identifier() == "Orbitals")) {
-            engine->setEnabled(true);
-        }
-    }
-    m_lastEngine2 = style;
-    update();
-}
-
-void KalziumGLWidget::setLabels(int style)
-{
-    // Use the QSettings framework to configure the label engine
-    foreach (Avogadro::Engine *engine, engines()) {
-        if (engine->name() == "Label") {
-            QSettings settings;
-            int atomType = 0;
-            int bondType = 0;
-            bool enabled = false;
-            // We need to use 
-            switch(style) {
-            case 0: // Display no labels
-                enabled = false;
-                break;
-            case 1: // Display the atom symbol
-                enabled = true;
-                atomType = 3;
-                break;
-            case 2: // Display the atom name
-                enabled = true;
-                atomType = 2;
-                break;
-            default:
-                engine->setEnabled(false);
-            }
-            settings.setValue("atomLabel", atomType);
-            settings.setValue("bondLabel", bondType);
-            settings.setValue("enabled", enabled);
-            engine->readSettings(settings);
-        }
-    }
-}
-
-void KalziumGLWidget::setQuality(int quality)
-{
-    // Set the global quality of the GLWidget, 0=min, 2=mid, 4=max
-    int q = 0;
-    if (quality == 1) {
-        q = 2;
-    } else if (quality == 2) {
-        q = 4;
-    }
-    GLWidget::setQuality(q);
-    invalidateDLs();
-    GLWidget::update();
-}
-
-#include "kalziumglwidget.moc"

@@ -101,4 +101,3 @@ void IsotopeView::setZoom(double zoom)
     emit visibleSceneRectChanged(visibleSceneRect);
 }
 
-#include "isotopeview.moc"

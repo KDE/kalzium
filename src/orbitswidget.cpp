@@ -259,4 +259,3 @@ void OrbitsWidget::paintEvent(QPaintEvent*)
     }
 }
 
-#include "orbitswidget.moc"

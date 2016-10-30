@@ -94,4 +94,3 @@ void Search::resetSearch()
     emit searchReset();
 }
 
-#include "search.moc"

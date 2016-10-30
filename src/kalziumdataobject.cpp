@@ -26,22 +26,23 @@
 #include <spectrumparser.h>
 
 #include <QFile>
+#include <QFileInfo>
+#include <QSvgRenderer>
 #include <QPainter>
+#include <QGlobalStatic>
+#include <QLocale>
+#include <QDebug>
+#include <QUrl>
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kurl.h>
-#include <kstandarddirs.h>
-#include <kpixmapcache.h>
-#include <kglobal.h>
 #include <kunitconversion/converter.h>
+#include <QStandardPaths>
 
 struct StaticKalziumDataObject
 {
     KalziumDataObject kdo;
 };
 
-K_GLOBAL_STATIC(StaticKalziumDataObject, s_kdo)
+Q_GLOBAL_STATIC(StaticKalziumDataObject, s_kdo)
 
 KalziumDataObject* KalziumDataObject::instance()
 {
@@ -54,7 +55,7 @@ KalziumDataObject::KalziumDataObject()
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();
 
-    QFile xmlFile(KStandardDirs::locate("data", "libkdeedu/data/elements.xml"));
+    QFile xmlFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/elements.xml"));
     QXmlInputSource source(&xmlFile);
     QXmlSimpleReader reader;
 
@@ -69,7 +70,7 @@ KalziumDataObject::KalziumDataObject()
     //read the spectra
     SpectrumParser * spectrumparser = new SpectrumParser();
 
-    QFile xmlSpFile(KStandardDirs::locate("data", "libkdeedu/data/spectra.xml"));
+    QFile xmlSpFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/spectra.xml"));
     QXmlInputSource spsource(&xmlSpFile);
     QXmlSimpleReader sp_reader;
 
@@ -84,7 +85,7 @@ KalziumDataObject::KalziumDataObject()
     // reading isotopes
     IsotopeParser * isoparser = new IsotopeParser();
 
-    QFile xmlIsoFile(KStandardDirs::locate("data", "libkdeedu/data/isotopes.xml"));
+    QFile xmlIsoFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/isotopes.xml"));
     QXmlInputSource isosource(&xmlIsoFile);
     QXmlSimpleReader isoreader;
 
@@ -140,7 +141,7 @@ Element* KalziumDataObject::element(int number)
 
 QString KalziumDataObject::unitAsString(const int unit) const
 {
-    return KUnitConversion::Converter().unit(unit).data()->symbol();
+    return KUnitConversion::Converter().unit(KUnitConversion::UnitId(unit)).symbol();
 }
 
 QPixmap KalziumDataObject::pixmap(int number)
@@ -192,27 +193,28 @@ void KalziumDataObject::cleanup()
 
 void KalziumDataObject::loadIconSet()
 {
-    KPixmapCache cache("kalzium");
     //FIXME in case we ever get more than one theme we need
     //a settings-dialog where we can select the different iconsets...
     const QString setname = "school";
-    const QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+    QString pathname = QStandardPaths::locate(
+        QStandardPaths::DataLocation, "data/iconsets/" + setname + '/',
+        QStandardPaths::LocateDirectory);
+    QSvgRenderer renderer;
 
-    for (int i = 0; i < m_numOfElements; ++i)
-    {
-        QString filename = pathname + setname + '/' + QString::number(i + 1) + ".svg";
+    for (int i = 0; i < m_numOfElements; ++i) {
+        QString filename = pathname + QString::number(i + 1) + ".svg";
 
-        QPixmap pix = cache.loadFromSvg(filename, QSize(40, 40));
-        if (pix.isNull()) {
-            pix = QPixmap(40, 40);
-            pix.fill(Qt::transparent);
+        renderer.load(filename);
+        QPixmap pix(40, 40);
+        pix.fill(Qt::transparent);
+        QPainter p(&pix);
+        renderer.render(&p);
 
-            QPainter p(&pix);
-            Element *e =  ElementList.at(i);
-            QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
-            p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol);
-            p.end();
-        }
+        Element *e = ElementList.at(i);
+        QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
+        p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol);
+        p.end();
+
         PixmapList << pix;
     }
 }

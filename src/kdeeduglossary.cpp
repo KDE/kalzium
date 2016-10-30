@@ -20,7 +20,6 @@
 
 #include "kdeeduglossary.h"
 
-#include <kdebug.h>
 #include <klocale.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
@@ -38,6 +37,7 @@
 #include <qstringlist.h>
 #include <qtreewidget.h>
 #include <QDomDocument>
+#include <QDebug>
 
 static const int FirstLetterRole = 0x00b00a00;
 
@@ -105,7 +105,7 @@ class GlossaryDialog::Private
         // slots
         void itemActivated(QTreeWidgetItem * item, int column);
         // The user clicked on a href. Find and display the right item
-        void displayItem(const KUrl &url, const KParts::OpenUrlArguments& arguments,
+        void displayItem(const QUrl &url, const KParts::OpenUrlArguments& arguments,
                          const KParts::BrowserArguments &browserArguments);
 
         GlossaryDialog *q;
@@ -121,14 +121,14 @@ class GlossaryDialog::Private
 };
 
 
-Glossary::Glossary(const KUrl& url, const QString& path)
+Glossary::Glossary(const QUrl &url, const QString& path)
 {
     init(url, path);
 }
 
 Glossary::Glossary()
 {
-    init(KUrl(), QString());
+    init(QUrl(), QString());
 }
 
 Glossary::~Glossary()
@@ -136,7 +136,7 @@ Glossary::~Glossary()
     qDeleteAll(m_itemlist);
 }
 
-void Glossary::init(const KUrl& url, const QString& path)
+void Glossary::init(const QUrl &url, const QString& path)
 {
     // setting a generic name for a new glossary
     m_name = i18n("Glossary");
@@ -155,12 +155,12 @@ void Glossary::init(const KUrl& url, const QString& path)
     }
 }
 
-bool Glossary::loadLayout(QDomDocument &Document, const KUrl& url)
+bool Glossary::loadLayout(QDomDocument &Document, const QUrl &url)
 {
     QFile layoutFile(url.path());
 
     if (!layoutFile.exists()) {
-        kDebug() << "no such file: " << layoutFile.fileName();
+        qDebug() << "no such file: " << layoutFile.fileName();
         return false;
     }
 
@@ -170,7 +170,7 @@ bool Glossary::loadLayout(QDomDocument &Document, const KUrl& url)
 
     // check if document is well-formed
     if (!Document.setContent(&layoutFile)) {
-        kDebug() << "wrong xml of " << layoutFile.fileName();
+        qDebug() << "wrong xml of " << layoutFile.fileName();
         layoutFile.close();
         return false;
     }
@@ -210,7 +210,7 @@ void Glossary::setBackgroundPicture(const QString& filename)
 
 void Glossary::fixImagePath()
 {
-    QString imgtag = "<img src=\"" + m_picturepath + '/' + "\\1\" />";
+    QString imgtag = "<img src=\"file://" + m_picturepath + '/' + "\\1\" />";
     QRegExp exp("\\[img\\]([^[]+)\\[/img\\]");
 
   foreach (GlossaryItem * item, m_itemlist) {
@@ -354,8 +354,8 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : KDialog(parent), d(new Private
 
     d->m_htmlpart = new KHTMLPart(vs);
 
-    connect(d->m_htmlpart->browserExtension(), SIGNAL(openUrlRequestDelayed(KUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)),
-            this, SLOT(displayItem(KUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)));
+    connect(d->m_htmlpart->browserExtension(), SIGNAL(openUrlRequestDelayed(QUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)),
+            this, SLOT(displayItem(QUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)));
     connect(d->m_glosstree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
             this, SLOT(itemActivated(QTreeWidgetItem*,int)));
 
@@ -375,9 +375,9 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
     KDialog::keyPressEvent(e);
 }
 
-void GlossaryDialog::Private::displayItem(const KUrl &url, const KParts::OpenUrlArguments &, const KParts::BrowserArguments &)
+void GlossaryDialog::Private::displayItem(const QUrl &url, const KParts::OpenUrlArguments &, const KParts::BrowserArguments &)
 {
-    // using the "path" part of a kurl as reference
+    // using the "path" part of a qurl as reference
     QString myurl = url.path().toLower();
 
     QTreeWidgetItemIterator it(m_glosstree);
@@ -469,7 +469,7 @@ void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)
     QString html;
     QString bg_picture = glosstreeitem->glossary()->backgroundPicture();
     if (!bg_picture.isEmpty()) {
-        html = " background=\"" + bg_picture + "\"";
+        html = " background=\"file://" + bg_picture + "\"";
     }
 
     html = m_htmlbasestring.arg(html);
@@ -503,7 +503,7 @@ QString GlossaryItem::parseReferences() const
     static QString basehref = QString("<li><a href=\"item:%1\" title=\"%2\">%3</a></li>");
 
     foreach (const QString& ref, m_ref) {
-        htmlcode += basehref.arg(KUrl::toPercentEncoding(ref), i18n("Go to '%1'", ref), ref);
+        htmlcode += basehref.arg(QUrl::toPercentEncoding(ref), i18n("Go to '%1'", ref), ref);
     }
     htmlcode += "</ul>";
 
@@ -545,4 +545,4 @@ QStringList GlossaryItem::pictures() const
     return m_pic;
 }
 
-#include "kdeeduglossary.moc"
+#include "moc_kdeeduglossary.cpp"

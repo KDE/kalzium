@@ -27,7 +27,6 @@
 
 #include <element.h>
 
-#include <kdebug.h>
 #include <klocale.h>
 #include <kunitconversion/converter.h>
 #include <math.h>
@@ -36,6 +35,7 @@
 #include <QSizePolicy>
 #include <QPainter>
 #include <QPixmap>
+#include <QDebug>
 
 #include <qglobal.h>
 #if defined(HAVE_IEEEFP_H)
@@ -149,7 +149,7 @@ QColor SpectrumWidget::wavelengthToRGB(double wavelength)
     double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
     // wavelengthTo RGB function works with nanometers.
-    wavelength = KUnitConversion::Value(wavelength, Prefs::spectrumWavelengthUnit())
+    wavelength = KUnitConversion::Value(wavelength,KUnitConversion::UnitId(Prefs::spectrumWavelengthUnit()))
                  .convertTo(KUnitConversion::Nanometer).number();
 
     int wavelength_ = (int)floor(wavelength);
@@ -252,7 +252,7 @@ void SpectrumWidget::keyPressEvent(QKeyEvent *e)
 
 void SpectrumWidget::slotZoomOut()
 {
-    kDebug() << "SpectrumWidget::slotZoomOut() " << m_startValue << ":: " << m_endValue;
+    qDebug() << "SpectrumWidget::slotZoomOut() " << m_startValue << ":: " << m_endValue;
 
     double diff = m_endValue - m_startValue;
 
@@ -275,7 +275,7 @@ void SpectrumWidget::slotZoomOut()
 
 void SpectrumWidget::setBorders(double left, double right)
 {
-    kDebug() << "setBorders    " << left << ".." << right;
+    qDebug() << "setBorders    " << left << ".." << right;
 
     m_startValue = left;
     m_endValue = right;
@@ -288,7 +288,7 @@ void SpectrumWidget::setBorders(double left, double right)
 
 void SpectrumWidget::slotZoomIn()
 {
-    kDebug() << "SpectrumWidget::slotZoomIn() " << m_startValue << ":: " << m_endValue;
+    qDebug() << "SpectrumWidget::slotZoomIn() " << m_startValue << ":: " << m_endValue;
 
     double diff = m_endValue - m_startValue;
 
@@ -320,7 +320,7 @@ void SpectrumWidget::mousePressEvent(QMouseEvent *e)
 
 void SpectrumWidget::findPeakFromMouseposition(double wavelength)
 {
-    kDebug() << "SpectrumWidget::findPeakFromMouseposition()";
+    qDebug() << "SpectrumWidget::findPeakFromMouseposition()";
     Spectrum::peak *peak = NULL;
 
     //find the difference in percent (1.0 is 100%, 0.1 is 10%)
@@ -392,4 +392,4 @@ void SpectrumWidget::resetSpectrum()
     setBorders(minimumPeak, maximumPeak);
 }
 
-#include "spectrumwidget.moc"
+

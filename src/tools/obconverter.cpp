@@ -25,14 +25,20 @@
 #include <QRegExp>
 #include <QProcess>
 #include <QLinkedList>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QPushButton>
+
 
 // KDE includes
-#include <KDebug>
+#include <QDebug>
 #include <KLocale>
 #include <KMessageBox>
 #include <KFileDialog>
-#include <KUrl>
-
+#include <KLocalizedString>
+#include <QUrl>
+#include <KDialog>
+#include <kdialogbuttonbox.h>
 using namespace std;
 using namespace OpenBabel;
 
@@ -83,10 +89,10 @@ void KOpenBabel::setupWindow()
     connect(ui.addFileButton,
             SIGNAL(clicked()), SLOT(slotAddFile()));
 
-    connect(ui.deleteFileButton, 
+    connect(ui.deleteFileButton,
             SIGNAL(clicked()), SLOT(slotDeleteFile()));
 
-    connect(ui.selectAllFileButton, 
+    connect(ui.selectAllFileButton,
             SIGNAL(clicked()), SLOT(slotSelectAll()));
 
     connect(this,
@@ -117,13 +123,13 @@ void KOpenBabel::slotAddFile()
     // "*.acr|ACR format [Read-only]", "*.alc|Alchemy format"                                                                   //
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    KUrl::List fl = KFileDialog::getOpenUrls(
-            KUrl(),
+    QList<QUrl> fl = KFileDialog::getOpenUrls(
+            QUrl(),
             "*|" +i18n("All Files") + '\n' + tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
             );
 
-    foreach (const KUrl& u , fl) {
-        new QListWidgetItem(u.prettyUrl(), ui.FileListView);
+    foreach (const QUrl &u , fl) {
+        new QListWidgetItem(u.toDisplayString(), ui.FileListView);
     }
 }
 
@@ -192,7 +198,7 @@ void KOpenBabel::slotConvert()
     QStringList cmdList; // Full command
     QLinkedList<QStringList> cmdArgList; // Arguments only
     foreach (QListWidgetItem * item, p) {
-        QString ifname = KUrl(item->text()).toLocalFile();
+        QString ifname = QUrl(item->text()).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
         ofname = ofname + QLatin1String(".") + oformat;
@@ -242,5 +248,3 @@ void KOpenBabel::addFile(const QString &filename)
 {
     ui.FileListView->addItem(filename);
 }
-
-#include "obconverter.moc"

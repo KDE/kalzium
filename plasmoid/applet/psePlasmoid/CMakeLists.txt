@@ -8,13 +8,13 @@ include_directories(
 # We add our source code here
 set(periodic_SRCS Molmasscalculator.cpp Periodictable.cpp)
 
-kde4_add_ui_files(periodic_SRCS Molmassconfig.ui)
+ki18n_wrap_ui(periodic_SRCS Molmassconfig.ui)
 
 # Now make sure all files get to the right place
-kde4_add_plugin(plasma_applet_molmassCalculator ${periodic_SRCS})
+add_library(plasma_applet_molmassCalculator ${periodic_SRCS})
 
 target_link_libraries(plasma_applet_molmassCalculator
-                      ${KDE4_PLASMA_LIBS} ${KDE4_KDEUI_LIBS} science)
+                      KF5::Plasma KF5::WidgetAddons science)
 
 install(TARGETS plasma_applet_molmassCalculator
         DESTINATION ${PLUGIN_INSTALL_DIR})

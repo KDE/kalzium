@@ -15,7 +15,7 @@
 #ifndef KALZIUMGLPART_H
 #define KALZIUMGLPART_H
 
-#include <kparts/part.h>
+#include <readonlypart.h>
 
 class KalziumGLWidget;
 

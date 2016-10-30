@@ -37,6 +37,7 @@
 #include <stdlib.h>
 #include <float.h>
 #include <QMessageBox>
+#include <KLocalizedString>
 
 using namespace std;
 
@@ -84,7 +85,7 @@ void titrationCalculator::plot()
     uid.kplotwidget->removeAllPlotObjects();
     uid.kplotwidget->setLimits(xmin, xmax, ymin, ymax); //now I need to set the limits of the plot
 
-    KPlotObject *kpor = new KPlotObject(Qt::red, KPlotObject::Lines);
+    KPlotObject *kpor = new KPlotObject(Qt::red,KPlotObject::Lines);
     KPlotObject *kpog = new KPlotObject(Qt::green, KPlotObject::Lines);
     KPlotObject *kpob = new KPlotObject(Qt::blue, KPlotObject::Lines);
     redplot = "<polyline points=\"";

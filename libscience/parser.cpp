@@ -15,7 +15,7 @@
 
 #include <ctype.h>
 
-#include <kdebug.h>
+#include <QDebug>
 
 
 Parser::Parser()
@@ -133,8 +133,8 @@ bool Parser::parseSimpleFloat(double *_result)
 
 int Parser::getNextChar()
 {
-//    kDebug() << "Parser::getNextChar(): char = " << m_nextChar;
-//    kDebug() << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index;
+//    qDebug() << "Parser::getNextChar(): char = " << m_nextChar;
+//    qDebug() << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index;
 
     ++m_index;
 

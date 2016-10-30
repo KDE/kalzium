@@ -17,7 +17,7 @@ email                : cniehaus@kde.org
 #include <kunitconversion/converter.h>
 #include "element.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <klocale.h>
 
 class ElementSaxParser::Private
@@ -116,9 +116,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     } else if ((d->inElement && localName == "scalar") || localName == "array") {
         for (int i = 0; i < attrs.length(); ++i) {
             if (attrs.localName(i) == "units") {
-//                 kDebug() << "value of the unit: " << attrs.value(i);
+//                 qDebug() << "value of the unit: " << attrs.value(i);
                 d->currentUnit = unit(attrs.value(i));
-//                 kDebug() << "Took " << d->currentUnit;
+//                 qDebug() << "Took " << d->currentUnit;
                 continue;
             }
 

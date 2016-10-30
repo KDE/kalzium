@@ -22,10 +22,10 @@
 #include <QLatin1String>
 #include <QStringList>
 
-#include <KLocale>
-#include <KUrl>
-#include <KStandardDirs>
+#include <QLocalizedString>
+
 #include <KConfigGroup>
+#include <QStandardPaths>
 
 #include "plasma/datacontainer.h"
 
@@ -33,7 +33,6 @@
 KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
         : Plasma::DataEngine(parent)
 {
-    KGlobal::locale()->insertCatalog("libkdeedu");
     Q_UNUSED(args)
     // we don't need the data to fly by any faster - even at a second it's hard to read.
     setMinimumPollingInterval(1000);
@@ -44,7 +43,7 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();
 
-    QFile xmlFile(KStandardDirs::locate("data", "libkdeedu/data/elements.xml"));
+    QFile xmlFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/elements.xml"));
     QXmlInputSource source(&xmlFile);
     QXmlSimpleReader reader;
 

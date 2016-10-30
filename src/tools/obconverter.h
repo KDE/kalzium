@@ -25,8 +25,8 @@
 
 // OpenBabel includes
 #include <openbabel/obconversion.h>
-
-class KDialog;
+#include <KDialog>
+class QDialog;
 
 /**
  * @author Carsten Niehaus

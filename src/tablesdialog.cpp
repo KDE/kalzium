@@ -15,13 +15,13 @@
 #include "tablesdialog.h"
 
 #include <klocale.h>
-#include <kicon.h>
-#include <kstandarddirs.h>
+#include <QIcon>
 #include <kactioncollection.h>
 #include <kcombobox.h>
 #include <kpagewidgetmodel.h>
 #include <kstandardaction.h>
 #include <ktoolinvocation.h>
+#include <kdialog.h>
 
 #include <QApplication>
 #include <QClipboard>
@@ -35,8 +35,9 @@
 TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
 {
     setFaceType(List);
-    setButtons(Help | Close);
-    setDefaultButton(Close);
+
+    //setButtons(Help | Close);
+    //setDefaultButton(Close);
 
     createGreekSymbolTable();
     createNumbersTable();
@@ -47,7 +48,7 @@ void TablesDialog::createGreekSymbolTable()
     QWidget *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Greek alphabet"));
     item->setHeader(i18n("Greek alphabet"));
-    item->setIcon(KIcon("numbers"));
+    item->setIcon(QIcon::fromTheme("numbers"));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -150,7 +151,7 @@ void TablesDialog::createNumbersTable()
     QWidget *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Numbers"));
     item->setHeader(i18n("Numeric Prefixes and Roman Numerals"));
-    item->setIcon(KIcon("numbers"));
+    item->setIcon(QIcon::fromTheme("numbers"));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -276,4 +277,3 @@ void MyTableWidget::copyToClipboard()
     QApplication::clipboard()->setText(currentItem()->data(QTableWidgetItem::Type).toString());
 }
 
-#include "tablesdialog.moc"

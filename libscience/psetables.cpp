@@ -22,7 +22,7 @@
 #include "psetables.h"
 
 #include <klocale.h>
-#include <kdebug.h>
+#include <QDebug>
 
 
 pseTables::pseTables()

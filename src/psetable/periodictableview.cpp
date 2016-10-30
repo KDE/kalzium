@@ -180,4 +180,3 @@ PeriodicTableView::~PeriodicTableView()
     delete m_tableStates;
 }
 
-#include "periodictableview.moc"

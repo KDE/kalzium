@@ -23,12 +23,11 @@
 #include <element.h>
 #include <isotope.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include <prefs.h>
-
+#include <KPlotWidget>
 #include "kplotobject.h"
-#include "kplotwidget.h"
-#include "kplotpoint.h"
+#include <kplotpoint.h>
 #include "QString"
 #include "QStringList"
 

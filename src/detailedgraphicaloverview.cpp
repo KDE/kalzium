@@ -18,20 +18,17 @@ email                : cniehaus@kde.org
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-//KDE-Includes
-#include <kdebug.h>
-#include <klocale.h>
-#include <kglobalsettings.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
-
-//QT-Includes
+#include <KLocalizedString>
 #include <QFile>
 #include <QPainter>
 #include <QSvgRenderer>
 #include <QRect>
+#include <QFileInfo>
+#include <QFontDatabase>
+#include <QDebug>
 
 #include <element.h>
+#include <QStandardPaths>
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
@@ -87,7 +84,7 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
     } else if (Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
         pm.fill(palette().background().color());
 
-        QString pathname = KGlobal::dirs()->findResourceDir("appdata", "data/iconsets/") + "data/iconsets/";
+        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/", QStandardPaths::LocateDirectory);
 
         int enumii = m_element->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
 
@@ -112,9 +109,9 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
         p.setBrush(Qt::black);
         p.setBrush(Qt::NoBrush);
 
-        QFont fA = KGlobalSettings::generalFont();
-        QFont fB = KGlobalSettings::generalFont();
-        QFont fC = KGlobalSettings::generalFont();
+        QFont fA = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
+        QFont fB = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
+        QFont fC = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
 
         fA.setPointSize(fA.pointSize() + 20); //Huge font
         fA.setBold(true);
@@ -171,4 +168,3 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
     p.end();
 }
 
-#include "detailedgraphicaloverview.moc"

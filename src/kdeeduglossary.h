@@ -12,6 +12,7 @@
 #define KDEEDUGLOSSARY_H
 
 #include <kdialog.h>
+#include <QUrl>
 
 class QDomDocument;
 class GlossaryItem;
@@ -34,7 +35,7 @@ public:
      * @param url the path of the file to load
      * @param path the path of the pictures
      */
-    explicit Glossary(const KUrl& url, const QString& path = QString());
+    explicit Glossary(const QUrl& url, const QString& path = QString());
 
     /**
      * Creates a new empty glossary
@@ -99,7 +100,7 @@ public:
     QString backgroundPicture()const;
 
 protected:
-    void init(const KUrl& url, const QString& path);
+    void init(const QUrl& url, const QString& path);
 
 private:
     /**
@@ -132,7 +133,7 @@ private:
      * @return a bool indicating whether the loading of the XML was
      *         successful or not
      */
-    bool loadLayout(QDomDocument& doc, const KUrl& url);
+    bool loadLayout(QDomDocument& doc, const QUrl& url);
 
     QList<GlossaryItem*> m_itemlist;
 
@@ -233,7 +234,7 @@ private:
     Private * const d;
 
     Q_PRIVATE_SLOT(d, void itemActivated(QTreeWidgetItem *, int))
-    Q_PRIVATE_SLOT(d, void displayItem(const KUrl &, const KParts::OpenUrlArguments &,
+    Q_PRIVATE_SLOT(d, void displayItem(const QUrl &, const KParts::OpenUrlArguments &,
                                        const KParts::BrowserArguments &))
 };
 

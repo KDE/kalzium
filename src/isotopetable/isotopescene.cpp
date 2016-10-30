@@ -88,4 +88,3 @@ void IsotopeScene::drawIsotopes()
     }
 }
 
-#include "isotopescene.moc"

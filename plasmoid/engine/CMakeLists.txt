@@ -6,10 +6,10 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    )
 
-kde4_add_plugin(plasma_engine_kalzium ${kalzium_engine_SRCS})
+add_library(plasma_engine_kalzium ${kalzium_engine_SRCS})
 target_link_libraries(plasma_engine_kalzium
-   ${KDE4_PLASMA_LIBS}
-   ${QT_QTXML_LIBRARY}
+   KF5::Plasma
+   Qt5::Xml
    science
 )
 

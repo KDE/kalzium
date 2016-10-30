@@ -1,15 +1,13 @@
-include_directories(
-   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   )
+#include_directories(${CMAKE_SOURCE_DIR}/libkdeedu/libscience/)
 
 set(didyouknow_plasma_SRCS
     didyouknow.cpp
     )
 
-kde4_add_plugin(plasma_applet_didyouknow ${didyouknow_plasma_SRCS})
+add_library(plasma_applet_didyouknow ${didyouknow_plasma_SRCS})
 
 target_link_libraries(plasma_applet_didyouknow
-    ${KDE4_PLASMA_LIBS} ${KDE4_KIO_LIBS}
+    KF5::Plasma KF5::KIOWidgests
     science
     )
 

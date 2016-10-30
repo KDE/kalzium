@@ -15,9 +15,9 @@
 
 #include <QTreeWidget>
 #include <QTableWidget>
+#include <QDebug>
 
 #include <kunitconversion/converter.h>
-#include <kdebug.h>
 #include "kalziumdataobject.h"
 #include <klocalizedstring.h>
 #include "prefs.h"
@@ -109,7 +109,7 @@ void SpectrumViewImpl::updatePeakInformation(Spectrum::peak *peak)
 void SpectrumViewImpl::setUnit()
 {
     Prefs::setSpectrumWavelengthUnit(m_lengthUnit->getCurrentUnitId());
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
     qDebug() << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
 
     emit settingsChanged();
@@ -128,4 +128,3 @@ void SpectrumViewImpl::updateMax(int right)
     m_spectrumWidget->setRightBorder(right);
 }
 
-#include "spectrumviewimpl.moc"
