@@ -164,23 +164,18 @@ void MoleculeDialog::loadMolecule(const QString &filename)
         return;
     }
 
-    // workaround for missing copy-constructor: fixed in Avogadro2 > 0.9
-    Avogadro::QtGui::Molecule tmpMol;
-    tmpMol = *IoWrapper::readMolecule(filename);
-    auto molecule = new Avogadro::QtGui::Molecule(tmpMol);
+    // 1. workaround for missing copy-constructor: fixed in Avogadro2 > 0.9
+    // 2. another workaround for broken copy-constructor that does not
+    //    initialize the m_undoMolecule private member variable;
+    //    this molecule should be created on the heap instead of the stack
+    m_molecule = *IoWrapper::readMolecule(filename);
 
-    // Check that a valid molecule object was returned
-    if (!molecule) {
-        qCritical() << "Could not load molecule, aborting.";
-        return;
-    }
-
-    if (molecule->atomCount() != 0) {
+    if (m_molecule.atomCount() != 0) {
         disconnect(ui.glWidget->molecule(), 0, this, 0);
-        ui.glWidget->setMolecule(molecule);
+        ui.glWidget->setMolecule(&m_molecule);
         ui.glWidget->update();
         slotUpdateStatistics();
-        connect(molecule, &Avogadro::QtGui::Molecule::changed,
+        connect(&m_molecule, &Avogadro::QtGui::Molecule::changed,
                 this, &MoleculeDialog::slotUpdateStatistics);
     }
     ui.glWidget->resetCamera();

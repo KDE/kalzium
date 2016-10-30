@@ -16,6 +16,7 @@
 #define MOLECULEVIEW_H
 
 #include <kdialog.h>
+#include <avogadro/qtgui/molecule.h>
 
 #include "ui_moleculeviewerwidget.h"
 
@@ -92,6 +93,11 @@ private slots:
 
     /// Clears the view
     void clearAllElementsInEditor();
+
+private:
+    // workaround for broken copy-operator of QtGui::Molecule
+    // whould be removed after next Avogadro release greater 0.9
+    Avogadro::QtGui::Molecule m_molecule;
 };
 
 #endif // MOLECULEVIEW_H
