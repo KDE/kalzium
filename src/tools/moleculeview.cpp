@@ -20,7 +20,6 @@
 #include <avogadro/qtgui/molecule.h>
 #include <avogadro/qtgui/scenepluginmodel.h>
 #include <avogadro/qtgui/toolplugin.h>
-// #include <avogadro/qtplugins/openbabel/openbabel.h>FIXME:Avogadro2
 
 #include <QFileInfo>
 #include <QGLFormat>
@@ -71,10 +70,10 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     ui.setupUi(mainWidget());
 
     // Attempt to set up the UFF forcefield
-    m_forceField = OBForceField::FindForceField("UFF");
-    if (!m_forceField) {
-        ui.optimizeButton->setEnabled(false);
-    }
+//     m_forceField = OBForceField::FindForceField("UFF");
+//     if (!m_forceField) {
+//         ui.optimizeButton->setEnabled(false);
+//     }
 
     ui.styleCombo->addItems({"Ball and Stick", "Van der Waals", "Wireframe"});
     connect(ui.styleCombo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
@@ -85,8 +84,9 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
             this, &MoleculeDialog::setViewEdit);
 
     // Editing parameters
-    connect(ui.optimizeButton, &QPushButton::clicked,
-            this, &MoleculeDialog::slotGeometryOptimize);
+// commented out until we find new API for pumbling to OpenBabel
+//     connect(ui.optimizeButton, &QPushButton::clicked,
+//             this, &MoleculeDialog::slotGeometryOptimize);
     connect(ui.clearDrawingButton, &QPushButton::clicked,
             this, &MoleculeDialog::clearAllElementsInEditor);
 
@@ -293,28 +293,30 @@ void MoleculeDialog::slotDownloadNewStuff()
     }
 }
 
+//TODO there is currently no API to perform the necessary OpenBabel-Avogadro
+//     conversions, after the migration to Avogadro2; at least with v0.9
 void MoleculeDialog::slotGeometryOptimize()
 {
-    // Perform a geometry optimization
-    if (!m_forceField) {
-        return;
-    }
-
-    Molecule* molecule = ui.glWidget->molecule();
-    OpenBabel::OBMol obmol;//(molecule->OBMol());//FIXME:Avogadro2
-
-    // Warn the user if the force field cannot be set up for the molecule
-    if (!m_forceField->Setup(obmol)) {
-        KMessageBox::error(this,
-                        i18n("Could not set up force field for this molecule"),
-                        i18n("Kalzium"));
-        return;
-    }
-
-    // Reasonable default values for most users
-    m_forceField->SteepestDescentInitialize(500, 1.0e-5);
-    // Provide some feedback as the optimization runs
-//     while (m_forceField->SteepestDescentTakeNSteps(5)) {//FIXME:Avogadro2
+//     // Perform a geometry optimization
+//     if (!m_forceField) {
+//         return;
+//     }
+//
+//     Molecule* molecule = ui.glWidget->molecule();
+//     OpenBabel::OBMol obmol;//(molecule->OBMol());
+//
+//     // Warn the user if the force field cannot be set up for the molecule
+//     if (!m_forceField->Setup(obmol)) {
+//         KMessageBox::error(this,
+//                         i18n("Could not set up force field for this molecule"),
+//                         i18n("Kalzium"));
+//         return;
+//     }
+//
+//     // Reasonable default values for most users
+//     m_forceField->SteepestDescentInitialize(500, 1.0e-5);
+//     // Provide some feedback as the optimization runs
+//     while (m_forceField->SteepestDescentTakeNSteps(5)) {
 //         m_forceField->UpdateCoordinates(obmol);
 //         molecule->setOBMol(&obmol);
 //         molecule->update();

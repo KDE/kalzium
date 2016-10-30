@@ -138,13 +138,13 @@
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <layout class="QVBoxLayout" name="editTabLayout">
-              <item>
+<!--              <item>
                <widget class="QPushButton" name="optimizeButton">
                 <property name="text">
                  <string>Optimize</string>
                 </property>
                </widget>
-              </item>
+              </item>-->
               <item>
                <spacer name="spacer_2">
                 <property name="orientation">
@@ -288,7 +288,6 @@
  </customwidgets>
  <tabstops>
   <tabstop>styleCombo</tabstop>
-  <tabstop>optimizeButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>

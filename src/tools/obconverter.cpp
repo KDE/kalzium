@@ -89,10 +89,10 @@ void KOpenBabel::setupWindow()
     connect(ui.addFileButton,
             SIGNAL(clicked()), SLOT(slotAddFile()));
 
-    connect(ui.deleteFileButton, 
+    connect(ui.deleteFileButton,
             SIGNAL(clicked()), SLOT(slotDeleteFile()));
 
-    connect(ui.selectAllFileButton, 
+    connect(ui.selectAllFileButton,
             SIGNAL(clicked()), SLOT(slotSelectAll()));
 
     connect(this,
