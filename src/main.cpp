@@ -18,18 +18,14 @@
  ***************************************************************************/
 
 #include <KAboutData>
-
 #include <KLocale>
 #include <KLocalizedString>
-
-
-
-#include "kalzium.h"
-
 #include <config-kalzium.h>
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+
+#include "kalzium.h"
 
 #define APP_VERSION "2.4.03"
 
