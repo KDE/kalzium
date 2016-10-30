@@ -52,7 +52,7 @@ int main(int argc, char **argv)
                       version,
                       ki18n(description).toString(),
                       KAboutLicense::GPL,
-                      ki18n("(C) 2002-2014 Carsten Niehaus").toString(),
+                      ki18n("(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers").toString(),
                       QString(),
                       "http://edu.kde.org/kalzium");
 
