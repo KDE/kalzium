@@ -110,37 +110,3 @@ bool KalziumGLWidget::openFile(const QString &file)
     update();
     return true;
 }
-
-void KalziumGLWidget::setLabels(int style)
-{
-    //FIXME:Avogadro2
-//     // Use the QSettings framework to configure the label engine
-//     foreach (Avogadro::Engine *engine, engines()) {
-//         if (engine->name() == "Label") {
-//             QSettings settings;
-//             int atomType = 0;
-//             int bondType = 0;
-//             bool enabled = false;
-//             // We need to use
-//             switch(style) {
-//             case 0: // Display no labels
-//                 enabled = false;
-//                 break;
-//             case 1: // Display the atom symbol
-//                 enabled = true;
-//                 atomType = 3;
-//                 break;
-//             case 2: // Display the atom name
-//                 enabled = true;
-//                 atomType = 2;
-//                 break;
-//             default:
-//                 engine->setEnabled(false);
-//             }
-//             settings.setValue("atomLabel", atomType);
-//             settings.setValue("bondLabel", bondType);
-//             settings.setValue("enabled", enabled);
-//             engine->readSettings(settings);
-//         }
-//     }
-}

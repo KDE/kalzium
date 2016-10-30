@@ -71,10 +71,6 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
 
     ui.setupUi(mainWidget());
 
-    //default to atom symbols
-    ui.labelsCombo->setCurrentIndex(1);
-    ui.glWidget->setLabels(1);
-
     // Attempt to set up the UFF forcefield
     m_forceField = OBForceField::FindForceField("UFF");
     if (!m_forceField) {
@@ -95,13 +91,10 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     ui.styleCombo->addItems({"Wireframe", "Ball and Stick", "Van der Waals"});
     slotUpdateScenePlugin();
     connect(ui.styleCombo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
-        this, &MoleculeDialog::slotUpdateScenePlugin);
+            this, &MoleculeDialog::slotUpdateScenePlugin);
 
     connect(ui.tabWidget, &QTabWidget::currentChanged,
             this, &MoleculeDialog::setViewEdit);
-
-    connect(ui.labelsCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::activated),
-            ui.glWidget, &KalziumGLWidget::setLabels);
 
     // Editing parameters
     connect(ui.elementCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::currentIndexChanged),

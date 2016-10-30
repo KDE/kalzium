@@ -25,7 +25,6 @@ public:
     virtual ~KalziumGLWidget();
 
 public slots:
-    void setLabels(int style);
     bool openFile(const QString &file);
 
 protected:
