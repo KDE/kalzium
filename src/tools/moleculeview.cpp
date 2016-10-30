@@ -171,7 +171,9 @@ void MoleculeDialog::loadMolecule(const QString &filename)
 
     qDebug() << "Filename to load: " << filename;
 
-    Avogadro::QtGui::Molecule tmpMol = *IoWrapper::readMolecule(filename);
+    // workaround for missing copy-constructor: fixed in Avogadra2 > 0.9
+    Avogadro::QtGui::Molecule tmpMol;
+    tmpMol = *IoWrapper::readMolecule(filename);
     auto molecule = new Avogadro::QtGui::Molecule(tmpMol);
 
     // Check that a valid molecule object was returned

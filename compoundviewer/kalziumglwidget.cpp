@@ -94,9 +94,11 @@ KalziumGLWidget::~KalziumGLWidget()
 
 bool KalziumGLWidget::openFile(const QString &file)
 {
-    auto tmpMol = IoWrapper::readMolecule(file);
-    auto mol = new Avogadro::QtGui::Molecule(*tmpMol);
-    delete tmpMol;
+    // workaround for missing copy-constructor: fixed in Avogadra2 > 0.9
+    Avogadro::QtGui::Molecule temp;
+    temp = *IoWrapper::readMolecule(file);
+    auto mol = new Avogadro::QtGui::Molecule(temp);
+
     if (!mol) {
         return false;
     }
