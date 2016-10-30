@@ -92,8 +92,10 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     m_drawSettings->setValue("bondOrder", 1);
     m_drawSettings->setValue("addHydrogens", 0);
 
-    ui.styleCombo->setModel(
-        qobject_cast<QAbstractItemModel*>(&ui.glWidget->sceneModel()));
+    ui.styleCombo->addItems({"Wireframe", "Ball and Stick", "Van der Waals"});
+    slotUpdateScenePlugin();
+    connect(ui.styleCombo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
+        this, &MoleculeDialog::slotUpdateScenePlugin);
 
     connect(ui.tabWidget, &QTabWidget::currentChanged,
             this, &MoleculeDialog::setViewEdit);
@@ -163,6 +165,18 @@ void MoleculeDialog::slotLoadMolecule()
     loadMolecule(filename);
 }
 
+void MoleculeDialog::slotUpdateScenePlugin() {
+    const QString text = ui.styleCombo->currentText();
+    for (int i = 0; i < ui.glWidget->sceneModel().rowCount(QModelIndex()); ++i) {
+        QModelIndex index = ui.glWidget->sceneModel().index(i, 0);
+        if (text == ui.glWidget->sceneModel().data(index, Qt::DisplayRole)) {
+            ui.glWidget->sceneModel().setData(index, Qt::Checked, Qt::CheckStateRole);
+        } else {
+            ui.glWidget->sceneModel().setData(index, Qt::Unchecked, Qt::CheckStateRole);
+        }
+    }
+}
+
 void MoleculeDialog::loadMolecule(const QString &filename)
 {
     if (filename.isEmpty()) {
@@ -191,7 +205,7 @@ void MoleculeDialog::loadMolecule(const QString &filename)
                 this, &MoleculeDialog::slotUpdateStatistics);
     }
     ui.glWidget->resetCamera();
-    ui.glWidget->update();
+    ui.glWidget->updateScene();
 }
 
 void MoleculeDialog::clearAllElementsInEditor()

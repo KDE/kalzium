@@ -45,20 +45,7 @@
          <item row="0" column="1">
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="KComboBox" name="styleCombo"/>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
+            <widget class="QComboBox" name="styleCombo"/>
            </item>
           </layout>
          </item>

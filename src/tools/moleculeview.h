@@ -67,6 +67,11 @@ private slots:
     void slotLoadMolecule();
 
     /**
+     * Update the currently active scene plugin.
+     */
+    void slotUpdateScenePlugin();
+
+    /**
      * Get a new molecule using hot new stuff
      */
     void slotDownloadNewStuff();
