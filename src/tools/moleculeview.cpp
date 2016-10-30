@@ -19,15 +19,15 @@
 #include <avogadro/qtgui/periodictableview.h>
 #include <avogadro/qtgui/molecule.h>
 #include <avogadro/qtgui/scenepluginmodel.h>
+#include <avogadro/qtgui/toolplugin.h>
 // #include <avogadro/qtplugins/openbabel/openbabel.h>FIXME:Avogadro2
 
 #include <QFileInfo>
 #include <QGLFormat>
-#include <QSettings>
 #include <QDebug>
-#include <kfiledialog.h>
-#include <kjob.h>
-#include <kmessagebox.h>
+#include <KFileDialog>
+#include <KJob>
+#include <KMessageBox>
 #include <KLocale>
 #include <QUrl>
 #include <knewstuff3/downloaddialog.h>
@@ -51,7 +51,6 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     : KDialog(parent)
     , m_path(QString())
     , m_periodicTable(nullptr)
-    , m_addHydrogens(false)
 {
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
@@ -77,34 +76,15 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
         ui.optimizeButton->setEnabled(false);
     }
 
-    // Set up the elements combo and bond order combo
-    elementCombo();
-    ui.bondCombo->addItem(i18n("Single"));
-    ui.bondCombo->addItem(i18n("Double"));
-    ui.bondCombo->addItem(i18n("Triple"));
-    // Initialise the draw settings
-    m_drawSettings = new QSettings;
-    m_drawSettings->setValue("currentElement", 6);
-    m_drawSettings->setValue("bondOrder", 1);
-    m_drawSettings->setValue("addHydrogens", 0);
-
-    ui.styleCombo->addItems({"Wireframe", "Ball and Stick", "Van der Waals"});
-    slotUpdateScenePlugin();
+    ui.styleCombo->addItems({"Ball and Stick", "Van der Waals", "Wireframe"});
     connect(ui.styleCombo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
             this, &MoleculeDialog::slotUpdateScenePlugin);
+    slotUpdateScenePlugin();
 
     connect(ui.tabWidget, &QTabWidget::currentChanged,
             this, &MoleculeDialog::setViewEdit);
 
     // Editing parameters
-    connect(ui.elementCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::currentIndexChanged),
-            this, &MoleculeDialog::slotElementChanged);
-    connect(ui.bondCombo, static_cast<void (QComboBox::*)(int)>(&KComboBox::currentIndexChanged),
-            this, &MoleculeDialog::slotBondOrderChanged);
-    connect(ui.hydrogenBox, &QCheckBox::stateChanged,
-            this, &MoleculeDialog::slotAddHydrogensChanged);
-    connect(ui.hydrogensButton, &QPushButton::clicked,
-            this, &MoleculeDialog::slotAdjustHydrogens);
     connect(ui.optimizeButton, &QPushButton::clicked,
             this, &MoleculeDialog::slotGeometryOptimize);
     connect(ui.clearDrawingButton, &QPushButton::clicked,
@@ -125,6 +105,14 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     if (!nTools) {
         QString error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
         KMessageBox::error(this, error, i18n("Kalzium"));
+    }
+
+    // objectName is also used in Avogadro2 for identifying tools
+    foreach (auto *tool, ui.glWidget->tools()) {
+        if (tool->objectName() == "Editor") {
+            ui.editTabLayout->insertWidget(0, tool->toolWidget());
+            break;
+        }
     }
 }
 
@@ -203,7 +191,7 @@ void MoleculeDialog::clearAllElementsInEditor()
 {
     ui.glWidget->molecule()->clearBonds();
     ui.glWidget->molecule()->clearAtoms();
-    ui.glWidget->update();
+    ui.glWidget->updateScene();
 }
 
 void MoleculeDialog::slotSaveMolecule()
@@ -233,9 +221,6 @@ void MoleculeDialog::setViewEdit(int mode)
         ui.glWidget->setActiveTool("Navigator");
     } else if (mode == 1) {
         ui.glWidget->setActiveTool("Editor");
-        if (ui.glWidget->activeTool()) {
-//             ui.glWidget->activeTool()->readSettings(*m_drawSettings);//FIXME Avogadro2: settings
-        }
     } else if (mode == 2) {
         ui.glWidget->setActiveTool("MeasureTool");
     }
@@ -243,7 +228,6 @@ void MoleculeDialog::setViewEdit(int mode)
 
 MoleculeDialog::~MoleculeDialog()
 {
-    delete m_drawSettings;
 }
 
 void MoleculeDialog::slotUpdateStatistics()
@@ -307,119 +291,6 @@ void MoleculeDialog::slotDownloadNewStuff()
             loadMolecule(exactlyOneFile);
         }
     }
-}
-
-void MoleculeDialog::elementCombo()
-{
-    ui.elementCombo->addItem(ElementTranslator::name(1) + " (1)");
-    m_elementsIndex.append(1);
-    ui.elementCombo->addItem(ElementTranslator::name(5) + " (5)");
-    m_elementsIndex.append(5);
-    ui.elementCombo->addItem(ElementTranslator::name(6) + " (6)");
-    m_elementsIndex.append(6);
-    ui.elementCombo->addItem(ElementTranslator::name(7) + " (7)");
-    m_elementsIndex.append(7);
-    ui.elementCombo->addItem(ElementTranslator::name(8) + " (8)");
-    m_elementsIndex.append(8);
-    ui.elementCombo->addItem(ElementTranslator::name(9) + " (9)");
-    m_elementsIndex.append(9);
-    ui.elementCombo->addItem(ElementTranslator::name(15) + " (15)");
-    m_elementsIndex.append(15);
-    ui.elementCombo->addItem(ElementTranslator::name(16) + " (16)");
-    m_elementsIndex.append(16);
-    ui.elementCombo->addItem(ElementTranslator::name(17) + " (17)");
-    m_elementsIndex.append(17);
-    ui.elementCombo->addItem(ElementTranslator::name(35) + " (35)");
-    m_elementsIndex.append(35);
-    ui.elementCombo->addItem(i18nc("Other element", "Other..."));
-    m_elementsIndex.append(0);
-    ui.elementCombo->setCurrentIndex(2);
-}
-
-void MoleculeDialog::slotElementChanged(int element)
-{
-    // Check if other was chosen
-    if (m_elementsIndex[element] == 0) {
-        if (!m_periodicTable) {
-            m_periodicTable = new PeriodicTableView(this);
-            connect(m_periodicTable, SIGNAL(elementChanged(int)),
-                    this, SLOT(slotCustomElementChanged(int)));
-        }
-        m_periodicTable->show();
-        return;
-    }
-
-    m_drawSettings->setValue("currentElement", m_elementsIndex[element]);
-//     ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
-}
-
-void MoleculeDialog::slotCustomElementChanged(int element)
-{
-    // Set the element so we can draw with it
-    m_drawSettings->setValue("currentElement", element);
-    if (ui.glWidget->activeTool()) {
-//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
-    }
-
-    // Check to see if we already have this in the comboBox list
-    // If not, we get back -1 and need to create a new item
-    int comboItem = m_elementsIndex.indexOf(element);
-    if (comboItem != -1) {
-        ui.elementCombo->setCurrentIndex(comboItem);
-        return; // we found it in the list, so we're done
-    }
-
-    // Find where we should put the new entry
-    // (i.e., in order by atomic number)
-    int position = 0;
-    foreach (int entry, m_elementsIndex) {
-        // Two cases: entry > index -- insert the new element before this one
-        // Or... we hit the "Other" menu choice -- also insert here
-        if (entry > element || entry == 0) {
-            break;
-        }
-
-        ++position;
-    }
-
-    // And now we set up a new entry into the combo list
-    QString entryName(ElementTranslator::name(element)); // (e.g., "Hydrogen")
-    entryName += " (" + QString::number(element) + ')';
-
-    m_elementsIndex.insert(position, element);
-    ui.elementCombo->insertItem(position, entryName);
-    ui.elementCombo->setCurrentIndex(position);
-}
-
-void MoleculeDialog::slotBondOrderChanged(int bond)
-{
-    m_drawSettings->setValue("bondOrder", bond+1);
-    if (ui.glWidget->activeTool()) {
-//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
-    }
-}
-
-void MoleculeDialog::slotAddHydrogensChanged(int hydrogens)
-{
-    m_drawSettings->setValue("addHydrogens", hydrogens);
-    if (ui.glWidget->activeTool()) {
-//         ui.glWidget->toolGroup()->activeTool()->readSettings(*m_drawSettings);//FIXME:Avogadro2
-    }
-}
-
-void MoleculeDialog::slotAdjustHydrogens()
-{
-    // Add/remove hydrogens from the molecule
-    if (!m_addHydrogens) {
-        ui.hydrogensButton->setText(i18n("Remove hydrogens"));
-//         ui.glWidget->molecule()->addHydrogens();//FIXME:Avogadro2
-        m_addHydrogens = true;
-    } else {
-        ui.hydrogensButton->setText(i18n("Add hydrogens"));
-//         ui.glWidget->molecule()->removeHydrogens();//FIXME:Avogadro2
-        m_addHydrogens = false;
-    }
-//     ui.glWidget->molecule()->update();//FIXME:Avogadro2
 }
 
 void MoleculeDialog::slotGeometryOptimize()

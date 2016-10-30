@@ -51,14 +51,8 @@ private:
     Avogadro::QtGui::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
     QSettings *m_drawSettings;
-    bool m_addHydrogens;
 
     Ui::moleculeViewerForm ui;
-
-    /**
-    * Set up the element combo box
-    */
-    void elementCombo();
 
 private slots:
     /**
@@ -87,34 +81,9 @@ private slots:
     void setViewEdit(int mode);
 
     /**
-    * Current element has changed
-    */
-    void slotElementChanged(int element);
-
-    /**
-    * Custom element has been selected
-    */
-    void slotCustomElementChanged(int);
-
-    /**
-    * Bond order has been changed
-    */
-    void slotBondOrderChanged(int);
-
-    /**
-    * Automatic hydrogen addition on drawing
-    */
-    void slotAddHydrogensChanged(int);
-
-    /**
     * Update the statistical information about the current molecule
     */
     void slotUpdateStatistics();
-
-    /**
-    * Add/remove hydrogens
-    */
-    void slotAdjustHydrogens();
 
     /**
     * Geometry optimization
