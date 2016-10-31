@@ -23,7 +23,7 @@
 #include <KLineEdit>
 #include <QTimer>
 #include <QHBoxLayout>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "kalziumdataobject.h"
 #include "search.h"

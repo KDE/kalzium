@@ -19,7 +19,7 @@
 #include "unitsettingsdialog.h"
 
 #include <kunitconversion/converter.h>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QGridLayout>
 #include <QLabel>

@@ -32,7 +32,6 @@
 
 // KDE includes
 #include <QDebug>
-#include <KLocale>
 #include <KMessageBox>
 #include <KFileDialog>
 #include <KLocalizedString>

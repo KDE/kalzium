@@ -25,7 +25,7 @@
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KConfigWidgets/khelpclient.h>
 #include <KMessageBox>
 

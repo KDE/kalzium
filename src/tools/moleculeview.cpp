@@ -27,7 +27,7 @@
 #include <KFileDialog>
 #include <KJob>
 #include <KMessageBox>
-#include <KLocale>
+#include <KLocalizedString>
 #include <QUrl>
 #include <knewstuff3/downloaddialog.h>
 #include <kio/job.h>

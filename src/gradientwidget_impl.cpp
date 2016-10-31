@@ -16,7 +16,7 @@
 #include <QTimer>
 
 #include <QDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <QIcon>
 
 #include <element.h>

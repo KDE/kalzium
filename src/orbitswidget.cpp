@@ -23,7 +23,7 @@
 #include <QPainter>
 #include <QVBoxLayout>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <math.h>
 

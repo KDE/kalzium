@@ -18,7 +18,6 @@
  ***************************************************************************/
 
 #include <KAboutData>
-#include <KLocale>
 #include <KLocalizedString>
 #include <config-kalzium.h>
 #include <QApplication>
@@ -28,8 +27,6 @@
 #include "kalzium.h"
 
 #define APP_VERSION "2.5.0"
-
-static const char description[] = I18N_NOOP("A periodic table of the elements");
 
 static const char version[] = APP_VERSION;
 
@@ -45,93 +42,93 @@ int main(int argc, char **argv)
    caml_startup(argv);
 #endif
 
+    QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kalzium");
 
     KAboutData about("kalzium",
-                      ki18n("Kalzium").toString(),
+                      i18n("Kalzium"),
                       version,
-                      ki18n(description).toString(),
+                      i18n("A periodic table of the elements"),
                       KAboutLicense::GPL,
-                      ki18n("(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers").toString(),
+                      i18n("(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"),
                       QString(),
                       "http://edu.kde.org/kalzium");
 
-    about.addAuthor(ki18n("Carsten Niehaus").toString(),
+    about.addAuthor(i18n("Carsten Niehaus"),
                     QString(),
                     "cniehaus@kde.org");
 
 
-    about.addCredit(ki18n("Pino Toscano").toString(),
-                    ki18n("Large code contributions; resident guru helping the other developers").toString());
+    about.addCredit(i18n("Pino Toscano"),
+                    i18n("Large code contributions; resident guru helping the other developers"));
 
-    about.addCredit(ki18n("Benoit Jacob").toString(),
-                    ki18n("Base work on the molecular viewer, mentored Marcus during his SoC").toString());
+    about.addCredit(i18n("Benoit Jacob"),
+                    i18n("Base work on the molecular viewer, mentored Marcus during his SoC"));
 
-    about.addCredit(ki18n("Marcus Hanwell").toString(),
-                    ki18n("SoC on the molecular viewer and libavogadro porting/integration").toString());
+    about.addCredit(i18n("Marcus Hanwell"),
+                    i18n("SoC on the molecular viewer and libavogadro porting/integration"));
 
-    about.addCredit(ki18n("Kashyap R Puranik").toString(),
-                    ki18n("SoC on the calculator widget and a few smaller improvements").toString());
+    about.addCredit(i18n("Kashyap R Puranik"),
+                    i18n("SoC on the calculator widget and a few smaller improvements"));
 
-    about.addCredit(ki18n("Thomas Nagy").toString(),
-                    ki18n("EqChem, the equation solver").toString());
+    about.addCredit(i18n("Thomas Nagy"),
+                    i18n("EqChem, the equation solver"));
 
-    about.addCredit(ki18n("Inge Wallin").toString(),
-                    ki18n("Code cleaning, parser for the molecule weight calculator, and a lot of smaller improvements").toString());
+    about.addCredit(i18n("Inge Wallin"),
+                    i18n("Code cleaning, parser for the molecule weight calculator, and a lot of smaller improvements"));
 
-    about.addCredit(ki18n("Anne-Marie Mahfouf").toString(),
-                    ki18n("A lot of small things and the documentation").toString());
+    about.addCredit(i18n("Anne-Marie Mahfouf"),
+                    i18n("A lot of small things and the documentation"));
 
-    about.addCredit(ki18n("Johannes Simon").toString(),
-                    ki18n("Code and documentation contributions to the equation solver and molecular viewer").toString());
+    about.addCredit(i18n("Johannes Simon"),
+                    i18n("Code and documentation contributions to the equation solver and molecular viewer"));
 
-    about.addCredit(ki18n("Jarle Akselsen").toString(),
-                    ki18n("Many beautiful element icons").toString());
+    about.addCredit(i18n("Jarle Akselsen"),
+                    i18n("Many beautiful element icons"));
 
-    about.addCredit(ki18n("Noémie Scherer").toString(),
-                    ki18n("Many beautiful element icons, too!").toString());
+    about.addCredit(i18n("Noémie Scherer"),
+                    i18n("Many beautiful element icons, too!"));
 
-    about.addCredit(ki18n("Danny Allen").toString(),
-                    ki18n("Several icons").toString());
+    about.addCredit(i18n("Danny Allen"),
+                    i18n("Several icons"));
 
-    about.addCredit(ki18n("Lee Olson").toString(),
-                    ki18n("Several icons in the information dialog").toString());
+    about.addCredit(i18n("Lee Olson"),
+                    i18n("Several icons in the information dialog"));
 
-    about.addCredit(ki18n("Jörg Buchwald").toString(),
-                    ki18n("Contributed most isotope information").toString());
+    about.addCredit(i18n("Jörg Buchwald"),
+                    i18n("Contributed most isotope information"));
 
-    about.addCredit(ki18n("Marco Martin").toString(),
-                    ki18n("Some icons and inspiration for others").toString());
+    about.addCredit(i18n("Marco Martin"),
+                    i18n("Some icons and inspiration for others"));
 
-    about.addCredit(ki18n("Daniel Haas").toString(),
-                    ki18n("The design of the information dialog").toString());
+    about.addCredit(i18n("Daniel Haas"),
+                    i18n("The design of the information dialog"));
 
-    about.addCredit(ki18n("Brian Beck").toString(),
-                    ki18n("The orbits icon").toString());
+    about.addCredit(i18n("Brian Beck"),
+                    i18n("The orbits icon"));
 
-    about.addCredit(ki18n("Paulo Cattai").toString(),
-                    ki18n("New interface design and usability improvements").toString());
+    about.addCredit(i18n("Paulo Cattai"),
+                    i18n("New interface design and usability improvements"));
 
-    about.addCredit(ki18n("Danilo Balzaque").toString(),
-                    ki18n("New interface design and usability improvements").toString());
+    about.addCredit(i18n("Danilo Balzaque"),
+                    i18n("New interface design and usability improvements"));
 
-    about.addCredit(ki18n("Roberto Cunha").toString(),
-                    ki18n("New interface design and usability improvements").toString());
+    about.addCredit(i18n("Roberto Cunha"),
+                    i18n("New interface design and usability improvements"));
 
-    about.addCredit(ki18n("Tadeu Araujo").toString(),
-                    ki18n("New interface design and usability improvements").toString());
+    about.addCredit(i18n("Tadeu Araujo"),
+                    i18n("New interface design and usability improvements"));
 
-    about.addCredit(ki18n("Tiago Porangaba").toString(),
-                    ki18n("New interface design and usability improvements").toString());
+    about.addCredit(i18n("Tiago Porangaba"),
+                    i18n("New interface design and usability improvements"));
 
-    about.addCredit(ki18n("Etienne Rebetez").toString(),
-                    ki18n("Adding new sizable Periodic System").toString());
+    about.addCredit(i18n("Etienne Rebetez"),
+                    i18n("Adding new sizable Periodic System"));
 
 
     QApplication::setApplicationName("kalzium");
     QApplication::setApplicationVersion(version);
     QApplication::setOrganizationDomain("kde.org");
-    QApplication app(argc, argv);
 
     KAboutData::setApplicationData(about);
 
@@ -139,9 +136,9 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.addHelpOption();
 
-    parser.addPositionalArgument(ki18n("[molecule]").toString(), ki18n("Open the given molecule file").toString());
+    parser.addPositionalArgument(i18n("[molecule]"), i18n("Open the given molecule file"));
 
-    QCommandLineOption moleculeOption(ki18n("molecule").toString(), ki18n("Open the given molecule file").toString());
+    QCommandLineOption moleculeOption(i18n("molecule"), i18n("Open the given molecule file"));
     parser.addOption(moleculeOption);
 
     about.setupCommandLine(&parser);
