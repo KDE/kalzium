@@ -7,8 +7,8 @@
 <refentryinfo>
 <title>&kalzium; User's Manual</title>
 <author><firstname>Ben</firstname><surname>Burton</surname> <contrib>Kalzium man page.</contrib></author>
-<date>2015-09-27</date><!--Update only when changing/reviewing this man page-->
-<releaseinfo>&kalzium; 2.4.03 (Applications 15.12)</releaseinfo><!--Update only when changing/reviewing this man page-->
+<date>2016-10-31</date><!--Update only when changing/reviewing this man page-->
+<releaseinfo>2.5.0 (Applications 16.12)</releaseinfo><!--Update only when changing/reviewing this man page-->
 <productname>KDE Applications</productname>
 </refentryinfo>
 
@@ -63,11 +63,14 @@ use visualisations to show them.</para>
 <refsect1>
 <title>See Also</title>
 
-<para>More detailed user documentation is available from <ulink
+<simplelist><member>More detailed user documentation is available from <ulink
 url="help:/kalzium">help:/kalzium</ulink> (either enter this
 <acronym>URL</acronym> into &konqueror;, or run
 <userinput><command>khelpcenter</command>
-<parameter>help:/kalzium</parameter></userinput>).</para>
+<parameter>help:/kalzium</parameter></userinput>).</member>
+<member>kf5options(7)</member>
+<member>qt5options(7)</member>
+</simplelist>
 
 
 </refsect1>
