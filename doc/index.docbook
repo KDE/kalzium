@@ -1,7 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY kappname "&kalzium;"><!-- replace kapp here -->
- <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE"><!-- change language only here -->
  ]>
@@ -42,8 +40,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2015-09-27</date>
-		 <releaseinfo>&kalzium; 2.4.03 (Applications 15.12)</releaseinfo>
+		 <date>2016-10-31</date>
+		 <releaseinfo>2.5.0 (Applications 16.12)</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -86,7 +84,7 @@
 		 <title>&kalzium; quick start guide</title>
 
 		 <para>Here is &kalzium; the first time you run it, either by selecting <menuchoice><guimenu>Applications</guimenu>
-                 <guisubmenu>Edutainment</guisubmenu><guisubmenu>Science</guisubmenu><guimenuitem>&kalzium;</guimenuitem></menuchoice> from the &kmenu;
+                 <guisubmenu>Education</guisubmenu><guisubmenu>Science</guisubmenu><guimenuitem>&kalzium;</guimenuitem></menuchoice> from the application starter
                  or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
 		 <screenshot>
 			 <screeninfo>&kalzium; main window</screeninfo>
@@ -974,6 +972,9 @@
 				 <variablelist>
 					 <varlistentry>
 						 <term><menuchoice>
+								 <shortcut>
+									 <keycombo action="simul">&Ctrl;&Shift;<keycap>S</keycap></keycombo>
+								 </shortcut>
 								 <guimenu>File</guimenu>
 								 <guimenuitem>Save As...</guimenuitem>
 						 </menuchoice></term>
@@ -1390,35 +1391,6 @@ of the &kde; Fundamentals.
 		 &underGPL;        	 <!-- GPL License -->
 
 	 </chapter>
-
-	 <appendix id="installation">
-		 <title>Installation</title>
-
-		 <sect1 id="getting-kalzium">
-			 <title>How to obtain &kalzium;</title>
-
-			 &install.intro.documentation;
-
-		 </sect1>
-
-		 <sect1 id="web_presence">
-			 <title>Web Presence</title>
-
-			 <para>
-				 &kalzium; itself can be found on <ulink
-					 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
-				 is part of the &kde;-Edu project</para>
-
-		 </sect1>
-
-		 <sect1 id="compilation">
-			 <title>Compilation and Installation</title>
-
-			 &install.compile.documentation;
-
-		 </sect1>
-
-	 </appendix>
 
 	 &documentation.index;
  </book>
