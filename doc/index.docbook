@@ -491,10 +491,10 @@
 			 <sect2 id="mol_editor">
 				 <title>Molecular Editor</title>
 				 <para>
-				   The Molecular Editor allows you to view and edit molecules using <ulink url="http://avogadro.openmolecules.net/wiki/Main_Page">Avogadro</ulink> libraries.
+				   The Molecular Editor allows you to view and edit molecules using <ulink url="http://avogadro.openmolecules.net/wiki/Main_Page">Avogadro 2</ulink> libraries.
 				 </para>
 				 <para>
-				   Using control panel on the left you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The downloaded files will be saved in your <filename class="directory">Documents</filename> folder from where you can load them into the editor.
+				   Using the control panel on the left, you can change the view parameters, edit molecule, or measure molecules. There are three tabs on this panel: <guilabel>Display</guilabel>, <guilabel>Edit</guilabel>, and <guilabel>Measure</guilabel>. At the top of the window, there is a control to select the viewer <guilabel>Style</guilabel> (can be <guimenuitem>Balls and Stick</guimenuitem>, <guimenuitem>Van der Waals</guimenuitem>, or <guimenuitem>Wireframe</guimenuitem>). The buttons along the bottom of the window can be used to <guibutton>Save molecule</guibutton>, <guibutton>Download New Molecules</guibutton>, <guibutton>Load Molecule</guibutton>, and <guibutton>Close</guibutton> the window. The downloaded files will be saved in your <filename class="directory">Documents</filename> folder from where you can load them into the editor.
 				   <!-- The downloaded from kde-apps data will be saved in <filename class="directory">$KDEHOME/share/apps/kalzium/molecules</filename>, they should be renamed to <filename><replaceable>molecule_name</replaceable>.cml</filename> manually. <envar>$KDEHOME</envar> is usually a hidden folder in your Home folder called <filename class="directory">.kde</filename> or <filename class="directory">.kde4</filename>
 				   "$KDEHOME" is not always defined eg not in kubuntu 11.04
 				   <filename class="directory">`kde4-config - -localprefix`/share/apps/kvtml</filename>
@@ -503,18 +503,15 @@
 				 </para>
 				 <para>
 				   <guilabel>Statistics</guilabel> pane shows name (if available), formula, and weight of the molecule.
-			         </para>
-				 <para>
-				   The <guilabel>Display</guilabel> tab can be used to change <guilabel>Quality</guilabel> of the image (<guimenuitem>Low</guimenuitem>, <guimenuitem>Medium</guimenuitem>, or <guimenuitem>High</guimenuitem>, can be useful on low-end system), <guilabel>Style</guilabel> (can be <guimenuitem>Balls and sticks</guimenuitem>, <guimenuitem>Sticks</guimenuitem>, <guimenuitem>Van der Waals</guimenuitem>, or <guimenuitem>Wireframe</guimenuitem>),  <guilabel>2nd Style</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Ribbon</guimenuitem>, <guimenuitem>Ring</guimenuitem>, or <guimenuitem>Molecular Orbital</guimenuitem>), and  <guilabel>Labels</guilabel> (can be <guimenuitem>None</guimenuitem>, <guimenuitem>Atom Numbers</guimenuitem>, <guimenuitem>Element Names</guimenuitem>, or <guimenuitem>Element Symbols</guimenuitem>).
 				 </para>
 				 <para>
-				   The <guilabel>Edit</guilabel> tab allows you to edit the molecule. You can add elements by choosing them in the <guilabel>Element</guilabel> drop-down list then clicking with the &LMB; on the view panel on the right. The molecule can be optimized by clicking <guibutton>Optimize</guibutton>  button.
+				   The <guilabel>Display</guilabel> tab can be used to view a loaded molecule. By pressing the mouse pointer in the view, you can change the view point. Use &LMB; to rotate molecule, &RMB; to move it, and &MMB; to zoom.
+				 </para>
+				 <para>
+				   The <guilabel>Edit</guilabel> tab allows you to edit the molecule. You can add elements by choosing them in the <guilabel>Element</guilabel> drop-down list then clicking with the &LMB; on the view panel on the right.
 				 </para>
 				 <para>
 				   The <guilabel>Measure</guilabel> tab can be used to measure distances and angles in the molecule. To make the measurement use the instructions shown on the tab.
-				 </para>
-				 <para>
-				   On the right of the <guilabel>Molecular Editor</guilabel> window the molecule will be shown. Use &LMB; to rotate molecule, &RMB; to move it, and &MMB; to zoom.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -940,8 +937,8 @@
 			 </mediaobject>
 		 </screenshot>
 		 <para>In the <guilabel>Units</guilabel> tab, you can
-			 choose the units for temperature, length and energy. You can select if you prefer electronvolts (eV), kilojoule 
-       per mole (kJ/mol) or joule per mole (J/mol) by default. 
+			 choose the units for temperature, length and energy. You can select if you prefer electronvolts (eV), kilojoule
+       per mole (kJ/mol) or joule per mole (J/mol) by default.
        For length set picometers (pm), nanometers (nm) or Ångström (Å) as default.
        The temperature is in kelvin by default but you can change to Celsius (°C), Fahrenheit (°F) and Réaumur (°Ré).
 		 </para>
@@ -1307,7 +1304,7 @@
 			 </sect2>
 
 <sect2>
-<title>The Settings and Help Menu</title> 
+<title>The Settings and Help Menu</title>
 <para>
 &kalzium; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
 menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
