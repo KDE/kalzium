@@ -243,7 +243,7 @@ void Kalzium::setupActions()
 
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 
-    actionCollection()->addAction("quit", KStandardAction::quit(kapp, SLOT(closeAllWindows()), actionCollection()));
+    actionCollection()->addAction("quit", KStandardAction::quit(qApp, SLOT(quit()), actionCollection()));
 
     m_legendWidget->LockWidget();
 
