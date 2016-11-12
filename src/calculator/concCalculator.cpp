@@ -89,10 +89,10 @@ concCalculator::concCalculator(QWidget * parent) : QFrame(parent)
     //              concentration Calculator setup complete
     /**************************************************************************/
     if (Prefs::soluteMass()) {
-        ui.amtSltType->hide();
+        ui.amtSltType->setCurrentIndex(0);
     }
     if (Prefs::solventVolume()) {
-        ui.amtSlvtType->hide();
+        ui.amtSlvtType->setCurrentIndex(0);
     }
 }
 
@@ -105,14 +105,23 @@ void concCalculator::init()
 {
     error(RESET_CONC_MESSAGE);
 
-    ui.amtSolute       -> setValue(117.0);
-    ui.molarMass       -> setValue(58.5);
-    ui.eqtMass         -> setValue(58.5);
-    ui.densitySolute   -> setValue(2.7);
-    ui.amtSolvent      -> setValue(1.0);
+    ui.amtSltType->addItems({"Mass", "Volume", "Moles"});
+    ui.amtSlvtType->addItems({"Volume", "Mass", "Moles"});
+    ui.densSlt_unit->addItems({"grams per liter"});
+    ui.densSlvt_unit->addItems({"grams per liter"});
+    ui.conc_unit->addItems({"molar", "Normal", "% (mass)", "% (volume)", "% (moles)"});
+
+    amtSoluteTypeChanged();
+    amtSolventTypeChanged();
+
+    ui.amtSolute      ->setValue(117.0);
+    ui.molarMass      ->setValue(58.5);
+    ui.eqtMass        ->setValue(58.5);
+    ui.densitySolute  ->setValue(2.7);
+    ui.amtSolvent     ->setValue(1.0);
     ui.molarMassSolvent-> setValue(18.0);
-    ui.densitySolvent  -> setValue(1000.0);
-    ui.concentration   -> setValue(2.0);
+    ui.densitySolvent ->setValue(1000.0);
+    ui.concentration  ->setValue(2.0);
 
     ui.amtSltType      ->setCurrentIndex(0);
     ui.amtSlt_unit     ->setCurrentIndex(0);
@@ -141,8 +150,8 @@ void concCalculator::init()
 // Calculates the amount of solute
 void concCalculator::calculateAmtSolute()
 {
-    int type1 = ui.conc_unit -> currentIndex();
-    int type2 = ui.amtSltType -> currentIndex();
+    int type1 = ui.conc_unit->currentIndex();
+    int type2 = ui.amtSltType->currentIndex();
 
     double molesSolute, eqtsSolute, massSolute, volSolute; // variables
     int mode = 0;
@@ -214,7 +223,7 @@ void concCalculator::calculateAmtSolute()
         // update mass of solute
         m_amtSolute = Value(massSolute, "grams");
         m_amtSolute = m_amtSolute.convertTo(ui.amtSlt_unit->currentText());
-        ui.amtSolute -> setValue(m_amtSolute.number());
+        ui.amtSolute->setValue(m_amtSolute.number());
         break;
 
     case 1: // amount should be specified in terms of volume
@@ -239,7 +248,7 @@ void concCalculator::calculateAmtSolute()
         // update volume of solute
         m_amtSolute = Value(volSolute, KUnitConversion::Liter);
         m_amtSolute = m_amtSolute.convertTo(ui.amtSlt_unit->currentText());
-        ui.amtSolute -> setValue(m_amtSolute.number());
+        ui.amtSolute->setValue(m_amtSolute.number());
         break;
 
     case 2: // amount should be specified in terms of moles
@@ -258,7 +267,7 @@ void concCalculator::calculateAmtSolute()
         }
         // Update the number of moles
         m_molesSolute = molesSolute;
-        ui.amtSolute -> setValue(molesSolute);
+        ui.amtSolute->setValue(molesSolute);
         break;
     }
     return;
@@ -268,8 +277,8 @@ void concCalculator::calculateAmtSolute()
 void concCalculator::calculateMolarMass()
 {
     // molarity / molality / mole fraction required
-    int type = ui.conc_unit -> currentIndex();
-    int type2 = ui.amtSlvtType -> currentIndex();
+    int type = ui.conc_unit->currentIndex();
+    int type2 = ui.amtSlvtType->currentIndex();
     double numMoles;
     switch (type) {
     case 0:     //molarity specified
@@ -310,8 +319,8 @@ void concCalculator::calculateMolarMass()
 void concCalculator::calculateEqtMass()
 {
     // Normality required
-    int type = ui.conc_unit -> currentIndex();
-    int type2 = ui.amtSltType -> currentIndex();
+    int type = ui.conc_unit->currentIndex();
+    int type2 = ui.amtSltType->currentIndex();
 
     double numEqts;
     switch (type) {
@@ -349,8 +358,8 @@ void concCalculator::calculateEqtMass()
 void concCalculator::calculateMolarMassSolvent()
 {
     // molarity / molality / mole fraction required
-    int type = ui.conc_unit -> currentIndex();
-    int type2 = ui.amtSlvtType -> currentIndex();
+    int type = ui.conc_unit->currentIndex();
+    int type2 = ui.amtSlvtType->currentIndex();
     double numMoles;
     switch (type) {
     case 0:         // molarity specified
@@ -379,8 +388,8 @@ void concCalculator::calculateMolarMassSolvent()
 // Calculates the amount of solvent
 void concCalculator::calculateAmtSolvent()
 {
-    int type1 = ui.conc_unit -> currentIndex();
-    int type2 = ui.amtSlvtType -> currentIndex();
+    int type1 = ui.conc_unit->currentIndex();
+    int type2 = ui.amtSlvtType->currentIndex();
 
     double moleSolvent, massSolvent, volSolvent;
 
@@ -496,7 +505,7 @@ void concCalculator::calculateAmtSolvent()
 // calculates the concentration
 void concCalculator::calculateConcentration()
 {
-    int type = ui.conc_unit -> currentIndex();
+    int type = ui.conc_unit->currentIndex();
 
     if (volumeSolvent() == 0.0) {
         error(SOLVENT_VOLUME_ZERO);
@@ -539,27 +548,23 @@ void concCalculator::calculateConcentration()
 
 double concCalculator::volumeSolvent()
 {
-    int type = ui.amtSlvtType -> currentIndex();
-    double volume;
+    int type = ui.amtSlvtType->currentIndex();
     switch (type) {
     case 0: // If volume is specified, return it in liters
-        volume = m_amtSolvent.convertTo(KUnitConversion::Liter).number();
-        break;
+        return m_amtSolvent.convertTo(KUnitConversion::Liter).number();
     case 1: // If mass is specified, calculate volume and return it.
-        volume = massSolvent() / densitySolvent();
-        break;
+        return massSolvent() / densitySolvent();
     case 2: // If moles are specified, calculated volume and return it.
-        volume = massSolvent() / densitySolvent();
+        return massSolvent() / densitySolvent();
     default:
-        volume = 0;
-        break;
+        return 0;
     }
-    return volume;
+    Q_UNREACHABLE();
 }
 
 double concCalculator::molesSolvent()
 {
-    int type = ui.amtSlvtType -> currentIndex();
+    int type = ui.amtSlvtType->currentIndex();
 
     double moles;
     switch (type) {
@@ -581,7 +586,7 @@ double concCalculator::molesSolvent()
 }
 double concCalculator::massSolvent()
 {
-    int type = ui.amtSlvtType -> currentIndex();
+    int type = ui.amtSlvtType->currentIndex();
     double mass;
     switch (type) {
     case 0:
@@ -607,7 +612,7 @@ double concCalculator::densitySolvent()
 
 double concCalculator::volumeSolute()
 {
-    int type = ui.amtSltType -> currentIndex();
+    int type = ui.amtSltType->currentIndex();
     double volume;
     switch (type) {
     case 0:
@@ -627,7 +632,7 @@ double concCalculator::volumeSolute()
 
 double concCalculator::molesSolute()
 {
-    int type = ui.amtSltType -> currentIndex();
+    int type = ui.amtSltType->currentIndex();
 
     double moles;
     if (m_molarMass == 0.0) {
@@ -653,7 +658,7 @@ double concCalculator::molesSolute()
 
 double concCalculator::eqtsSolute()
 {
-    int type = ui.amtSltType -> currentIndex();
+    int type = ui.amtSltType->currentIndex();
     double eqts;
     if (m_eqtMass == 0.0) {
         error(EQT_MASS_ZERO);
@@ -681,7 +686,7 @@ double concCalculator::eqtsSolute()
 
 double concCalculator::massSolute()
 {
-    int type = ui.amtSltType -> currentIndex();
+    int type = ui.amtSltType->currentIndex();
     double mass;
     switch (type) {
     case 0:
@@ -709,20 +714,20 @@ double concCalculator::densitySolute()
 // occurs when the type in which amount of solute is specified is changed
 void concCalculator::amtSoluteTypeChanged()
 {
-    int type = ui.amtSltType -> currentIndex();
+    int type = ui.amtSltType->currentIndex();
     if (type == 0) {
         // amount of solute specified in terms of mass
         massUnitCombobox(ui.amtSlt_unit);
 
-        m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
+        m_amtSolute = Value(ui.amtSolute->value(), ui.amtSlt_unit->currentText());
     } else if (type == 1) {
         // amount of solute is specified in terms of volume
         volumeUnitCombobox(ui.amtSlt_unit);
 
-        m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
+        m_amtSolute = Value(ui.amtSolute->value(), ui.amtSlt_unit->currentText());
     } else {                 // amount of solute is specified in terms of moles
-        m_molesSolute = ui.amtSolute -> value();
-        ui.amtSlt_unit -> hide();
+        m_molesSolute = ui.amtSolute->value();
+        ui.amtSlt_unit->hide();
     }
     calculate();
 }
@@ -769,14 +774,14 @@ void concCalculator::volumeUnitCombobox(QComboBox* comboBox)
 
 void concCalculator::amtSoluteChanged()
 {
-    int type = ui.amtSltType -> currentIndex();
+    int type = ui.amtSltType->currentIndex();
     switch (type) {
     case 0:
     case 1:
-        m_amtSolute = Value(ui.amtSolute -> value(), ui.amtSlt_unit -> currentText());
+        m_amtSolute = Value(ui.amtSolute->value(), ui.amtSlt_unit->currentText());
         break;
     case 2:
-        m_molesSolute = ui.amtSolute -> value();
+        m_molesSolute = ui.amtSolute->value();
         break;
     }
     calculate();
@@ -784,20 +789,20 @@ void concCalculator::amtSoluteChanged()
 // occurs when the type in which amount of solvent is specified is changed
 void concCalculator::amtSolventTypeChanged()
 {
-    int type = ui.amtSlvtType -> currentIndex();
+    int type = ui.amtSlvtType->currentIndex();
     if (type == 0) {
         // amount of solvent specified in terms of volume
         volumeUnitCombobox(ui.amtSlvt_unit);
 
-        m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
+        m_amtSolvent = Value(ui.amtSolvent->value(), ui.amtSlvt_unit->currentText());
     } else if (type == 1) {
         // amount of solvent is specified in terms of mass
         massUnitCombobox(ui.amtSlvt_unit);
 
-        m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
+        m_amtSolvent = Value(ui.amtSolvent->value(), ui.amtSlvt_unit->currentText());
     } else {
-        ui.amtSlvt_unit -> hide();
-        m_molesSolvent = ui.amtSolvent -> value();
+        ui.amtSlvt_unit->hide();
+        m_molesSolvent = ui.amtSolvent->value();
     }
     calculate();
 }
@@ -806,14 +811,14 @@ void concCalculator::amtSolventTypeChanged()
 // Occurs when the amount of solute is changed
 void concCalculator::amtSolventChanged()
 {
-    int type = ui.amtSlvtType -> currentIndex();
+    int type = ui.amtSlvtType->currentIndex();
     switch (type) {     // amount of solvent specified in terms of volume
     case 0:
     case 1:
-        m_amtSolvent = Value(ui.amtSolvent -> value(), ui.amtSlvt_unit -> currentText());
+        m_amtSolvent = Value(ui.amtSolvent->value(), ui.amtSlvt_unit->currentText());
         break;
     case 2:
-        m_molesSolvent = ui.amtSolvent -> value();
+        m_molesSolvent = ui.amtSolvent->value();
         break;
     }
     calculate();
@@ -842,14 +847,14 @@ void concCalculator::molarMassSolventChanged(double value)
 // occurs when the number of moles is changed
 void concCalculator::densitySoluteChanged()
 {
-    m_densitySolute = Value(ui.densitySolute -> value(), ui.densSlt_unit -> currentText());
+    m_densitySolute = Value(ui.densitySolute->value(), ui.densSlt_unit->currentText());
     calculate();
 }
 
 // occurs when the density of solvent is changed
 void concCalculator::densitySolventChanged()
 {
-    m_densitySolvent = Value(ui.densitySolvent -> value(), ui.densSlvt_unit -> currentText());
+    m_densitySolvent = Value(ui.densitySolvent->value(), ui.densSlvt_unit->currentText());
     calculate();
 }
 
@@ -908,7 +913,7 @@ void concCalculator::calculate()
     // Calculate the amount of solute
     switch (m_mode) {
     case AMT_SOLUTE:        // Calculate the amount of solute
-        if (ui.conc_unit -> currentIndex() > 2 && ui.concentration -> value() > 100) {
+        if (ui.conc_unit->currentIndex() > 2 && ui.concentration->value() > 100) {
             error(PERCENTAGE);
             return;
         }
