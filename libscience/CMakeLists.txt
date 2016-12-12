@@ -17,7 +17,7 @@ set(science_LIB_SRCS
 add_library(science SHARED ${science_LIB_SRCS})
 
 target_link_libraries(science Qt5::OpenGL Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::KDELibs4Support)
-set_target_properties(science PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
+set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )
 install(TARGETS science  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES

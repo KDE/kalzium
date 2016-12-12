@@ -11,6 +11,7 @@ include(FeatureSummary)
 include(ECMInstallIcons)
 include(ECMMarkNonGuiExecutable)
 include(CheckIncludeFiles)
+include(ECMSetupVersion)
 
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)
@@ -60,6 +61,10 @@ find_package(KF5 REQUIRED COMPONENTS
     Solid
     UnitConversion
     WidgetsAddons
+)
+
+ecm_setup_version("5.0.0"
+    VARIABLE_PREFIX KALZIUMLIB
 )
 
 # search packages used by KDE 
