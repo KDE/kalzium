@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Chemical Data
-Name[ast]=Datos químicos
 Name[bg]=Химични данни
 Name[bs]=Hemijski podaci
 Name[ca]=Dades químiques
@@ -54,7 +53,6 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
-Comment[ast]=Miniaplicación de datos químicos
 Comment[bs]=Aplet za hemijske podatke
 Comment[ca]=Miniaplicació de dades químiques
 Comment[ca@valencia]=Miniaplicació de dades químiques
