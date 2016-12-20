@@ -192,4 +192,14 @@ install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES kalziumui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kalzium)
 install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
-#kde4_install_icons(${ICON_INSTALL_DIR})
+ecm_install_icons(ICONS
+    16-apps-kalzium.png
+    22-apps-kalzium.png
+    32-apps-kalzium.png
+    48-apps-kalzium.png
+    64-apps-kalzium.png
+    128-apps-kalzium.png
+    sc-apps-kalzium.svgz
+    DESTINATION ${KDE_INSTALL_ICONDIR}
+    THEME hicolor
+)
