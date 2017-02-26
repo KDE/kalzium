@@ -67,6 +67,7 @@
   <summary xml:lang="tr">Elementlerin Periyodik Tablosu</summary>
   <summary xml:lang="uk">Періодична таблиця елементів</summary>
   <summary xml:lang="x-test">xxPeriodic Table of Elementsxx</summary>
+  <summary xml:lang="zh-CN">元素周期表</summary>
   <summary xml:lang="zh-TW">元素週期表</summary>
   <description>
     <p>Kalzium is a program that shows you the Periodic Table of Elements. You can use Kalzium to search for information about the elements or to learn facts about the periodic table. It provides an overview of the important data (like melting points, electron affinity, electron negativity, electron configuration, radii, mass, ionisation energy), an isotope table, and different colored views of the periodic table (separation of the different blocks, year simulator, temperature simulator). It contains tools to visualize the spectral lines of each element, a molecular weight calculator, a 3D molecule editor, and an equation solver for stoichiometric problems.</p>
