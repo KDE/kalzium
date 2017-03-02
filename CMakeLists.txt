@@ -109,7 +109,7 @@ add_subdirectory(src)
 add_subdirectory(data)
 # add_subdirectory(plasmoid)
 add_subdirectory(libscience)
-add_subdirectory(qml)
+# add_subdirectory(qml)
 
 install(FILES org.kde.kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
