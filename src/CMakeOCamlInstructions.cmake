@@ -58,7 +58,7 @@ ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_SOURCE_DIR
 # object files
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
-                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -I ${LIBFACILE_INCLUDE_DIR} -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c -o ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
+                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -I ${LIBFACILE_INCLUDE_DIR} -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c
                    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c ${CMAKE_CURRENT_BINARY_DIR}/solver.o
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o)
