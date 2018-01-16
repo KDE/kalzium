@@ -55,7 +55,6 @@ find_package(KF5 REQUIRED COMPONENTS
     I18n
     KDELibs4Support
     KHtml
-    NewStuff
     Parts
     Plotting
     Solid
@@ -93,6 +92,7 @@ add_definitions(-DUSING_DYNAMIC_LIBS)
 endif(MSVC)
 
 if (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
+  find_package(KF5NewStuff REQUIRED)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?
   message(STATUS "Kalzium molecular editor enabled")
