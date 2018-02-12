@@ -2,6 +2,7 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/..
     ${EIGEN3_INCLUDE_DIR}
     ${OPENBABEL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIRS}
+    ${AvogadroLibs_INCLUDE_DIRS}
     ${PROJECT_SOURCE_DIR}/compoundviewer
 )
 
