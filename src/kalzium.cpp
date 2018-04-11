@@ -42,6 +42,7 @@
 #ifdef HAVE_OPENBABEL2
 #if defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 #include "tools/moleculeview.h"
+#include <QGLFormat>
 #endif
 #include "tools/obconverter.h"
 #endif
