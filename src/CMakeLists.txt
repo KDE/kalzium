@@ -142,7 +142,6 @@ target_link_libraries(kalzium
     KF5::UnitConversion
     Qt5::Script
     Qt5::Svg
-    Qt5::Quick
     science
 )
 if (OPENBABEL2_FOUND)

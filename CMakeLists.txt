@@ -41,7 +41,6 @@ find_package(Qt5 REQUIRED COMPONENTS
     Widgets
     Script
     Core
-    Quick
     Gui
     OpenGL
     Svg
