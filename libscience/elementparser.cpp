@@ -25,7 +25,7 @@ class ElementSaxParser::Private
 public:
     Private()
             : currentUnit(KUnitConversion::NoUnit),
-            currentElement(0),
+            currentElement(nullptr),
             inElement(false),
             inName(false),
             inMass(false),
@@ -217,7 +217,7 @@ bool ElementSaxParser::endElement(const QString &, const QString &localName, con
             delete d->currentElement;
         }
 
-        d->currentElement = 0;
+        d->currentElement = nullptr;
         d->inElement = false;
     } else if (localName == "scalar" || localName == "label" || localName == "array") {
         d->currentDataObject.setUnit(d->currentUnit);

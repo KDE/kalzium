@@ -317,6 +317,6 @@ void RSDialog::slotHelp()
 
 void RSDialog::invalidPhaseString()
 {
-    KMessageBox::error(0, i18n("At least one of the specified phrases is invalid."));
+    KMessageBox::error(nullptr, i18n("At least one of the specified phrases is invalid."));
 }
 

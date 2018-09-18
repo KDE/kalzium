@@ -23,7 +23,7 @@ class SpectrumParser::Private
 {
 public:
     Private()
-            : currentSpectrum(0),
+            : currentSpectrum(nullptr),
             inMetadata_(false),
             inSpectrum_(false),
             inSpectrumList_(false),
@@ -100,14 +100,14 @@ bool SpectrumParser::endElement(const QString&, const QString& localName, const 
 
         d->spectra.append(d->currentSpectrum);
 
-        d->currentSpectrum = 0;
+        d->currentSpectrum = nullptr;
         d->inSpectrum_ = false;
     } else if (localName == "peakList") {
         d->inSpectrumList_ = false;
     } else if (localName == "peak") {
 //X             qDebug() << "in 'peak'" << " with this data: " << d->currentPeak->intensity << " (intesity)" ;
         d->currentSpectrum->addPeak(d->currentPeak);
-        d->currentPeak = 0;
+        d->currentPeak = nullptr;
         d->inPeak_ = false;
     }
     return true;

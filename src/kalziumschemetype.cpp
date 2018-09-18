@@ -55,7 +55,7 @@ KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
 KalziumSchemeType* KalziumSchemeTypeFactory::build(int id) const
 {
     if ((id < 0) || (id >= m_schemes.count())) {
-        return 0;
+        return nullptr;
     }
 
     return m_schemes.at(id);
@@ -69,7 +69,7 @@ KalziumSchemeType* KalziumSchemeTypeFactory::build(const QByteArray& id) const
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 QStringList KalziumSchemeTypeFactory::schemes() const
@@ -84,7 +84,7 @@ QStringList KalziumSchemeTypeFactory::schemes() const
 
 KalziumSchemeType* KalziumSchemeType::instance()
 {
-    return 0;
+    return nullptr;
 }
 
 KalziumSchemeType::KalziumSchemeType()

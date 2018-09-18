@@ -73,20 +73,20 @@
 
 #define IDS_ELEMENTINFO     7
 
-Kalzium::Kalzium() : KXmlGuiWindow(0)
+Kalzium::Kalzium() : KXmlGuiWindow(nullptr)
 {
     setObjectName("KalziumMainWindow");
 
     // Init pointers with null
-    m_infoDialog = 0;
-    m_isotopeDialog = 0;
-    m_elementDataPlotter = 0;
-    m_tablesDialog = 0;
-    m_rsDialog = 0;
-    m_calculator = 0;
-    m_exportDialog = 0;
-    m_glossarydlg = 0;
-    m_elementInfo = 0;
+    m_infoDialog = nullptr;
+    m_isotopeDialog = nullptr;
+    m_elementDataPlotter = nullptr;
+    m_tablesDialog = nullptr;
+    m_rsDialog = nullptr;
+    m_calculator = nullptr;
+    m_exportDialog = nullptr;
+    m_glossarydlg = nullptr;
+    m_elementInfo = nullptr;
 
     // reading the elements from file
     KalziumDataObject::instance();
@@ -381,7 +381,7 @@ MoleculeDialog *Kalzium::slotMoleculeviewer()
 
     if (!QGLFormat::hasOpenGL()) {
         QMessageBox::critical(Q_NULLPTR, i18n("Kalzium Error"), i18n("This system does not support OpenGL."));
-        return NULL;
+        return nullptr;
     }
 
     MoleculeDialog * d = new MoleculeDialog(this);
@@ -400,7 +400,7 @@ MoleculeDialog *Kalzium::slotMoleculeviewer()
     }
 #endif
 #endif
-    return NULL;
+    return nullptr;
 }
 
 void Kalzium::slotTables()

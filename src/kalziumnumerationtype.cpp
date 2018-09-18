@@ -40,7 +40,7 @@ KalziumNumerationTypeFactory* KalziumNumerationTypeFactory::instance()
 KalziumNumerationType* KalziumNumerationTypeFactory::build(int id) const
 {
     if ((id < 0) || (id >= m_numerations.count())) {
-        return 0;
+        return nullptr;
     }
 
     return m_numerations.at(id);
@@ -55,7 +55,7 @@ KalziumNumerationType* KalziumNumerationTypeFactory::build(const QByteArray& id)
     }
 
     // not found
-    return 0;
+    return nullptr;
 }
 
 QStringList KalziumNumerationTypeFactory::numerations() const
@@ -70,7 +70,7 @@ QStringList KalziumNumerationTypeFactory::numerations() const
 
 KalziumNumerationType* KalziumNumerationType::instance()
 {
-    return 0;
+    return nullptr;
 }
 
 KalziumNumerationType::KalziumNumerationType()

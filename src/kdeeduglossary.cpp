@@ -454,7 +454,7 @@ QTreeWidgetItem* GlossaryDialog::Private::findTreeWithLetter(const QChar& l, QTr
             return itemchild;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)

@@ -74,7 +74,7 @@ PropertyListEntry::~PropertyListEntry()
 }
 
 ExportDialog::ExportDialog(QWidget * parent)
-        : KDialog(parent),m_outputStream(0)
+        : KDialog(parent),m_outputStream(nullptr)
 {
     qDebug() << "ExportDialog::ExportDialog";
     setButtons(Help | User1 | Cancel);

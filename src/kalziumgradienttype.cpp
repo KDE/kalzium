@@ -54,7 +54,7 @@ KalziumGradientTypeFactory* KalziumGradientTypeFactory::instance()
 KalziumGradientType* KalziumGradientTypeFactory::build(int id) const
 {
     if ((id < 0) || (id >= m_gradients.count()))
-        return 0;
+        return nullptr;
 
     return m_gradients.at(id);
 }
@@ -67,7 +67,7 @@ KalziumGradientType* KalziumGradientTypeFactory::build(const QByteArray& id) con
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 QStringList KalziumGradientTypeFactory::gradients() const
@@ -90,7 +90,7 @@ KalziumGradientType::~KalziumGradientType()
 
 KalziumGradientType* KalziumGradientType::instance()
 {
-    return 0;
+    return nullptr;
 }
 
 double KalziumGradientType::elementCoeff(int el) const

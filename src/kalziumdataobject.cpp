@@ -50,7 +50,7 @@ KalziumDataObject* KalziumDataObject::instance()
 }
 
 KalziumDataObject::KalziumDataObject()
-        : m_search(0)
+        : m_search(nullptr)
 {
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();
@@ -135,7 +135,7 @@ Element* KalziumDataObject::element(int number)
 {
     // checking that we are requesting a valid element
     if ((number <= 0) || (number > m_numOfElements))
-        return 0;
+        return nullptr;
     return ElementList[ number-1 ];
 }
 
@@ -172,7 +172,7 @@ Spectrum * KalziumDataObject::spectrum(int number)
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 

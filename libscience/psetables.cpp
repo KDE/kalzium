@@ -56,7 +56,7 @@ QStringList pseTables::tables() const
 pseTable* pseTables::getTabletype(const int tableType)
 {
     if ((tableType < 0) || (tableType >= m_tables.count())) {
-        return 0;
+        return nullptr;
     }
 
     return m_tables.at(tableType);
@@ -69,7 +69,7 @@ pseTable* pseTables::getTabletype(const QString tableName)
             return m_tables.at(i);
         }
     }
-    return 0;
+    return nullptr;
 }
 
 pseTable::pseTable()
@@ -82,7 +82,7 @@ pseTable::~pseTable()
 
 pseTable *pseTable::init()
 {
-    return 0;
+    return nullptr;
 }
 
 QString pseTable::name() const

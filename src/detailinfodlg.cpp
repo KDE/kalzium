@@ -449,7 +449,7 @@ QString DetailedInfoDlg::isotopeTable() const
 
 void DetailedInfoDlg::createContent()
 {
-    KPageWidgetItem *item = 0;
+    KPageWidgetItem *item = nullptr;
 
    // Removed the overview Tab, because its an Dockwidget and dosn't show much information.
     // overview tab

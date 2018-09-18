@@ -361,8 +361,8 @@ void ElementDataViewer::drawPlot()
      */
     int whichType = ui.comboElementType->currentIndex();
 
-    KPlotObject* dataPointGreen = 0;
-    KPlotObject* dataPointRed = 0;
+    KPlotObject* dataPointGreen = nullptr;
+    KPlotObject* dataPointRed = nullptr;
 
     double av_x = 0.0;
     double max_x = m_xData->value(from);

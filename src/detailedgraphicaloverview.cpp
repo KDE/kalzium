@@ -32,7 +32,7 @@ email                : cniehaus@kde.org
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
-        : QWidget(parent), m_element(0)
+        : QWidget(parent), m_element(nullptr)
 {
     setAttribute(Qt::WA_NoBackground, true);
 

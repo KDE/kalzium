@@ -149,7 +149,7 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringList() << QLatin1String("m") << QLatin1String("molecule"), i18n("Open the given molecule file"), QLatin1String("file")));
     #endif
 
-    Kalzium *mainWin = 0;
+    Kalzium *mainWin = nullptr;
 
     if (app.isSessionRestored()) {
         RESTORE(Kalzium);

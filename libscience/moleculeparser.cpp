@@ -40,7 +40,7 @@ ElementCount *ElementCountMap::search(Element *_element)
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 void ElementCountMap::add(ElementCountMap &_map)
@@ -289,7 +289,7 @@ Element *MoleculeParser::lookupElement(const QString& _name)
 
     qDebug() << "no such element!: " << _name;
 
-    return NULL;
+    return nullptr;
 }
 
 QString MoleculeParser::expandFormula( const QString& _shortString)

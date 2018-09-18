@@ -26,7 +26,7 @@ public:
     :    currentUnit(KUnitConversion::NoUnit),
     currentErrorValue(QVariant()),
     currentElementSymbol(QString()),
-    currentIsotope(0),
+    currentIsotope(nullptr),
     inIsotope(false),
     inElement(false),
     inAtomicNumber(false),
@@ -167,7 +167,7 @@ bool IsotopeParser::endElement(const QString&, const QString& localName, const Q
     if (localName == "isotope") {
         d->isotopes.append(d->currentIsotope);
 
-        d->currentIsotope = 0;
+        d->currentIsotope = nullptr;
         d->inIsotope = false;
     } else if (localName == "isotopeList") { //a new list of isotopes start...
         d->inElement = false;

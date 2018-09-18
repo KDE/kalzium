@@ -73,7 +73,7 @@ void SpectrumViewImpl::fillPeakList()
         QStringList row = QStringList() << QString::number(peakWavelength)
                           << QString::number(peak->intensity);
 
-        items.append(new QTreeWidgetItem((QTreeWidget*)0, row));
+        items.append(new QTreeWidgetItem((QTreeWidget*)nullptr, row));
     }
     peakListTable->insertTopLevelItems(0, items);
 }

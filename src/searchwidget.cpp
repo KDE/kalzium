@@ -28,7 +28,7 @@
 #include "kalziumdataobject.h"
 #include "search.h"
 
-SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(0)
+SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(nullptr)
 {
     QHBoxLayout *mainlay = new QHBoxLayout(this);
     mainlay->setMargin(2);

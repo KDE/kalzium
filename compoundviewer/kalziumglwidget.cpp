@@ -34,7 +34,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
 {
     // work around a bug in OpenBabel: the chemical data files parsing
     // is dependent on the LC_NUMERIC locale.
-    m_lc_numeric = QByteArray(setlocale(LC_NUMERIC, 0));
+    m_lc_numeric = QByteArray(setlocale(LC_NUMERIC, nullptr));
     setlocale(LC_NUMERIC, "C");
 
     // Prevent What's this from intercepting right mouse clicks

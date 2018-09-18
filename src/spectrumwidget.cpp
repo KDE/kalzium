@@ -321,7 +321,7 @@ void SpectrumWidget::mousePressEvent(QMouseEvent *e)
 void SpectrumWidget::findPeakFromMouseposition(double wavelength)
 {
     qDebug() << "SpectrumWidget::findPeakFromMouseposition()";
-    Spectrum::peak *peak = NULL;
+    Spectrum::peak *peak = nullptr;
 
     //find the difference in percent (1.0 is 100%, 0.1 is 10%)
     double dif = 0.0;
