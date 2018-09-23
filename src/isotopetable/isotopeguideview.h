@@ -31,7 +31,7 @@ class IsotopeGuideView : public QGraphicsView
     Q_OBJECT
 
 public:
-    IsotopeGuideView(QWidget *parent = 0);
+    IsotopeGuideView(QWidget *parent = nullptr);
     void setGuidedView(IsotopeView *guidedView);
 
 protected:

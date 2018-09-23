@@ -51,7 +51,7 @@ class PeriodicTableView : public QGraphicsView
 {
     Q_OBJECT
 public:
-    PeriodicTableView(QWidget *parent = 0);
+    PeriodicTableView(QWidget *parent = nullptr);
     ~PeriodicTableView();
 
     /**

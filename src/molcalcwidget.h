@@ -44,7 +44,7 @@ public:
      * Constructor
      * @param parent parent widget
      */
-    MolcalcWidget(QWidget *parent = 0);
+    MolcalcWidget(QWidget *parent = nullptr);
     void hideExtra();
     virtual ~MolcalcWidget();
 

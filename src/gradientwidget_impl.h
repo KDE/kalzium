@@ -45,7 +45,7 @@ public:
      * @param elementProperty The elementProperty class
      * @param parent The parent of this widget
      */
-    GradientWidgetImpl(QWidget *parent = 0);
+    GradientWidgetImpl(QWidget *parent = nullptr);
     virtual ~GradientWidgetImpl();
 
 Q_SIGNALS:

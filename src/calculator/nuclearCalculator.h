@@ -60,7 +60,7 @@ class nuclearCalculator : public QFrame
     Q_OBJECT
 
 public:
-    nuclearCalculator(QWidget * parent = 0);
+    nuclearCalculator(QWidget * parent = nullptr);
     ~nuclearCalculator();
 
 public slots:

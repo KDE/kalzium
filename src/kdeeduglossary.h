@@ -213,7 +213,7 @@ public:
      *
      * @param parent the parent of the new dialog
      */
-    explicit GlossaryDialog(QWidget *parent = 0);
+    explicit GlossaryDialog(QWidget *parent = nullptr);
 
     virtual ~GlossaryDialog();
 

@@ -194,7 +194,7 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
             } else if (attrs.value(i) == "bo:name") {
                 for (int i = 0; i < attrs.length(); ++i) {
                     if (attrs.localName(i) == "value") {
-                        d->currentDataObject.setData(i18n(attrs.value(i).toUtf8()));
+                        d->currentDataObject.setData(i18n(attrs.value(i).toUtf8().constData()));
                         d->currentDataObject.setType(ChemicalDataObject::name);
 
                         if (d->currentElement) {
@@ -276,7 +276,7 @@ bool ElementSaxParser::characters(const QString &ch)
         type = ChemicalDataObject::periodTableBlock;
         d->inPeriodTableBlock = false;
     } else if (d->inNameOrigin) {
-        value = i18n(ch.toUtf8());
+        value = i18n(ch.toUtf8().constData());
         type = ChemicalDataObject::nameOrigin;
         d->inNameOrigin = false;
     } else if (d->inDiscoveryDate) {

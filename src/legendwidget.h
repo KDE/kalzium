@@ -82,7 +82,7 @@ class LegendItem : public QLabel
     Q_OBJECT
 
 public:
-    LegendItem(const QPair<QString, QColor>& pair, QWidget * parent = 0);
+    LegendItem(const QPair<QString, QColor>& pair, QWidget * parent = nullptr);
     ~LegendItem() {}
 
 Q_SIGNALS:

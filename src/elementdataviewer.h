@@ -89,7 +89,7 @@ class ElementDataViewer : public KDialog
     Q_OBJECT
 
 public:
-    ElementDataViewer(QWidget *parent = 0);
+    ElementDataViewer(QWidget *parent = nullptr);
 
     ~ElementDataViewer();
 

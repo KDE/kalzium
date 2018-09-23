@@ -69,7 +69,7 @@ class gasCalculator : public QWidget
     Q_OBJECT
 
 public:
-    gasCalculator(QWidget * parent = 0);
+    gasCalculator(QWidget * parent = nullptr);
     ~gasCalculator();
 
 public slots:

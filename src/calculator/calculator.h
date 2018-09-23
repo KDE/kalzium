@@ -48,7 +48,7 @@ public:
     /*
      * The clas constructor and destructor, takes in a Widget as parent
      */
-    calculator(QWidget *parent = 0);             // constructor
+    calculator(QWidget *parent = nullptr);             // constructor
     ~ calculator();                             // destructor
 
 private:

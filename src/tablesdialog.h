@@ -29,7 +29,7 @@ class TablesDialog : public KPageDialog
     Q_OBJECT
 
 public:
-    TablesDialog(QWidget *parent = 0);
+    TablesDialog(QWidget *parent = nullptr);
     virtual ~TablesDialog();
 
     void createNumbersTable();

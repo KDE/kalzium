@@ -44,7 +44,7 @@ class titrationCalculator : public QWidget
     Q_OBJECT
 
 public:
-    titrationCalculator(QWidget * parent = 0);
+    titrationCalculator(QWidget * parent = nullptr);
     ~titrationCalculator();
 
 public slots:

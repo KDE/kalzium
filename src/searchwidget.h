@@ -38,7 +38,7 @@ public:
     /**
      * Construct a new empty search.
      */
-    SearchWidget(QWidget *parent = 0);
+    SearchWidget(QWidget *parent = nullptr);
 
     ~SearchWidget();
 

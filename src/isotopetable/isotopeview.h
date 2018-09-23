@@ -31,7 +31,7 @@ class IsotopeView : public QGraphicsView
     Q_OBJECT
 
 public:
-    IsotopeView(QWidget *parent = 0);
+    IsotopeView(QWidget *parent = nullptr);
     virtual ~IsotopeView();
 
 private:
