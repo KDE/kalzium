@@ -44,15 +44,15 @@ public:
      * Constructor
      * @param parent parent widget
      */
-    MolcalcWidget(QWidget *parent = nullptr);
+    explicit MolcalcWidget(QWidget *parent = nullptr);
     void hideExtra();
-    virtual ~MolcalcWidget();
+    ~MolcalcWidget() override;
 
 protected slots:
     void slotCalculate();
 
 protected:
-    void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(QKeyEvent *e) override;
 
 private slots:
     void clear();

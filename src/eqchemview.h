@@ -37,7 +37,7 @@ public:
      *
      * @param parent the parent widget
      */
-    EQChemDialog(QWidget *parent);
+    explicit EQChemDialog(QWidget *parent);
 
 private:
     const QString getHelpText();
@@ -53,7 +53,7 @@ public slots:
     void copyAnswer();
 
 protected:
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
 };
 
 #endif // EQCHEMVIEW_H

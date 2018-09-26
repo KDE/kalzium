@@ -44,8 +44,8 @@ class PeriodicTableScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    PeriodicTableScene(QObject *parent = 0);
-    ~PeriodicTableScene();
+    explicit PeriodicTableScene(QObject *parent = nullptr);
+    ~PeriodicTableScene() override;
 
 Q_SIGNALS:
     /**
@@ -70,10 +70,10 @@ private:
     QPointF m_eventPos;
 
 protected:
-    bool event(QEvent *e);
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    bool event(QEvent *e) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 };
 

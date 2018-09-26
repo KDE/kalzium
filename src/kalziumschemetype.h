@@ -130,13 +130,13 @@ class KalziumMonoColorSchemeType : public KalziumSchemeType
 public:
     static KalziumMonoColorSchemeType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QBrush elementBrush(int el) const;
-    QColor textColor(int el) const;
+    QBrush elementBrush(int el) const override;
+    QColor textColor(int el) const override;
 
-    QList<legendPair> legendItems() const;
+    QList<legendPair> legendItems() const override;
 
 private:
     KalziumMonoColorSchemeType();
@@ -152,13 +152,13 @@ class KalziumBlocksSchemeType : public KalziumSchemeType
 public:
     static KalziumBlocksSchemeType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QBrush elementBrush(int el) const;
-    QColor textColor(int el) const;
+    QBrush elementBrush(int el) const override;
+    QColor textColor(int el) const override;
 
-    QList<legendPair> legendItems() const;
+    QList<legendPair> legendItems() const override;
 
 private:
     KalziumBlocksSchemeType();
@@ -174,13 +174,13 @@ class KalziumIconicSchemeType : public KalziumSchemeType
 public:
     static KalziumIconicSchemeType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QBrush elementBrush(int el) const;
-    QColor textColor(int el) const;
+    QBrush elementBrush(int el) const override;
+    QColor textColor(int el) const override;
 
-    QList<legendPair> legendItems() const;
+    QList<legendPair> legendItems() const override;
 
 private:
     KalziumIconicSchemeType();
@@ -196,13 +196,13 @@ class KalziumFamilySchemeType : public KalziumSchemeType
 public:
     static KalziumFamilySchemeType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QBrush elementBrush(int el) const;
-    QColor textColor(int el) const;
+    QBrush elementBrush(int el) const override;
+    QColor textColor(int el) const override;
 
-    QList<legendPair> legendItems() const;
+    QList<legendPair> legendItems() const override;
 
 private:
     KalziumFamilySchemeType();
@@ -218,13 +218,13 @@ class KalziumGroupsSchemeType : public KalziumSchemeType
 public:
     static KalziumGroupsSchemeType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QBrush elementBrush(int el) const;
-    QColor textColor(int el) const;
+    QBrush elementBrush(int el) const override;
+    QColor textColor(int el) const override;
 
-    QList<legendPair> legendItems() const;
+    QList<legendPair> legendItems() const override;
 
 private:
     KalziumGroupsSchemeType();
@@ -241,13 +241,13 @@ class KalziumColorSchemeType : public KalziumSchemeType
 public:
     static KalziumColorSchemeType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QBrush elementBrush(int el) const;
-    QColor textColor(int el) const;
+    QBrush elementBrush(int el) const override;
+    QColor textColor(int el) const override;
 
-    QList<legendPair> legendItems() const;
+    QList<legendPair> legendItems() const override;
 
 private:
     KalziumColorSchemeType();

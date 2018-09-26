@@ -62,18 +62,18 @@ public:
     /**
      * @return the bounding rectangle of the element item.
      */
-    QRectF boundingRect() const;
+    QRectF boundingRect() const override;
 
     /**
      * @return the painter path which is also a rectangle in this case.
      */
-    QPainterPath shape() const;
+    QPainterPath shape() const override;
 
     /**
      * This is where most of the action takes place. The element box is drawn
      * along with its symbol.
      */
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
 public Q_SLOTS:
     void redraw();
@@ -116,8 +116,8 @@ private:
     KalziumElementProperty *m_property;
 
 protected:
-    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
-    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
 };
 
 #endif // ELEMENTITEM_H

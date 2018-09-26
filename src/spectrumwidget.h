@@ -34,9 +34,9 @@ class SpectrumWidget : public QWidget
     Q_OBJECT
 
 public:
-    SpectrumWidget(QWidget *parent);
+    explicit SpectrumWidget(QWidget *parent);
 
-    ~SpectrumWidget() {}
+    ~SpectrumWidget() override {}
 
     void setSpectrum(Spectrum* spec);
 
@@ -219,11 +219,11 @@ private slots:
     void slotZoomOut();
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
-    virtual void keyPressEvent(QKeyEvent *e);
-    virtual void mouseMoveEvent(QMouseEvent *e);
-    virtual void mousePressEvent(QMouseEvent *e);
-    virtual void mouseReleaseEvent(QMouseEvent *e);
+    void paintEvent(QPaintEvent *e) override;
+    void keyPressEvent(QKeyEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
 };
 
 #endif // SPECTRUMWIDGET_H

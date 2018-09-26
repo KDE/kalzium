@@ -38,7 +38,7 @@ public:
      *
      * @param parent the parent of this widget
      */
-    DetailedGraphicalOverview(QWidget *parent);
+    explicit DetailedGraphicalOverview(QWidget *parent);
 
 public slots:
     /**
@@ -63,7 +63,7 @@ private:
     QBrush m_backgroundBrush;
 
 protected:
-    virtual void paintEvent(QPaintEvent*);
+    void paintEvent(QPaintEvent*) override;
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H

@@ -215,7 +215,7 @@ public:
      */
     explicit GlossaryDialog(QWidget *parent = nullptr);
 
-    virtual ~GlossaryDialog();
+    ~GlossaryDialog() override;
 
     /**
      * Add a new glossary.
@@ -227,7 +227,7 @@ public:
     void addGlossary(Glossary* newgloss, bool folded = true);
 
 protected:
-    void keyPressEvent(QKeyEvent*);
+    void keyPressEvent(QKeyEvent*) override;
 
 private:
     class Private;

@@ -60,7 +60,7 @@ public:
     /**
      * Default Destructor
      */
-    virtual ~Kalzium();
+    ~Kalzium() override;
 
     void loadMolecule(const QString &moleculeFile);
 
@@ -201,7 +201,7 @@ private slots:
     void slotUpdateSettings();
 
 protected:
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const override;
 };
 
 #endif // KALZIUM_H

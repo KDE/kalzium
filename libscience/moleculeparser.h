@@ -214,7 +214,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~MoleculeParser();
+    ~MoleculeParser() override;
 
     /**
      * Try to parse the molecule @p molecule and get the weight of it.
@@ -260,7 +260,7 @@ protected:
     /**
      * Extends the standard tokenizer in Parser::getNextToken().
      */
-    virtual int  getNextToken();
+    int  getNextToken() override;
 
 private:
     Element  *m_elementVal;    // Valid if m_nextToken == ELEMENT_TOKEN

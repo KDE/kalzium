@@ -51,8 +51,8 @@ class PeriodicTableView : public QGraphicsView
 {
     Q_OBJECT
 public:
-    PeriodicTableView(QWidget *parent = nullptr);
-    ~PeriodicTableView();
+    explicit PeriodicTableView(QWidget *parent = nullptr);
+    ~PeriodicTableView() override;
 
     /**
      * Returns the qgraphicsscene
@@ -126,12 +126,12 @@ protected:
      * Generic event handler, currently defaults to calling parent class
      * (included for future compatibility)
      */
-    bool event(QEvent *e);
+    bool event(QEvent *e) override;
 
     /**
      * is caled every time the view is resized.
      */
-    void resizeEvent(QResizeEvent * event);
+    void resizeEvent(QResizeEvent * event) override;
 };
 
 #endif // PERIODICTABLEVIEW_H

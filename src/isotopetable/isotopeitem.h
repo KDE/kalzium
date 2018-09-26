@@ -48,22 +48,22 @@ public:
     /**
       * @return the Isotope the item represents
       */
-    Isotope* isotope() const {
+    Isotope* isotope() const{
         return m_isotope;
     }
 
-    QRectF boundingRect() const {
+    QRectF boundingRect() const override {
         return m_rect;
     }
 
     /**
      * @return the Type of the item
      */
-    int type() const {
+    int type() const override {
         return Type;
     }
 
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 
 private:
     IsotopeType m_type;
@@ -78,7 +78,7 @@ private:
     static IsotopeType getType(Isotope *);
 
 protected:
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 };
 
 #endif // ISOTOPEITEM_H

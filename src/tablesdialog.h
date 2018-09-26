@@ -29,7 +29,7 @@ class TablesDialog : public KPageDialog
     Q_OBJECT
 
 public:
-    TablesDialog(QWidget *parent = nullptr);
+    explicit TablesDialog(QWidget *parent = nullptr);
     virtual ~TablesDialog();
 
     void createNumbersTable();
@@ -59,9 +59,9 @@ class MyTableWidget : public QTableWidget
     Q_OBJECT
 
 public:
-    MyTableWidget(QWidget* parent);
+    explicit MyTableWidget(QWidget* parent);
 protected:
-    void contextMenuEvent(QContextMenuEvent* event);
+    void contextMenuEvent(QContextMenuEvent* event) override;
 private slots:
     void copyToClipboard();
 };

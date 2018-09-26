@@ -176,17 +176,17 @@ class KalziumCovalentRadiusGradientType : public KalziumGradientType
 public:
     static KalziumCovalentRadiusGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumCovalentRadiusGradientType();
@@ -202,17 +202,17 @@ class KalziumVanDerWaalsRadiusGradientType : public KalziumGradientType
 public:
     static KalziumVanDerWaalsRadiusGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumVanDerWaalsRadiusGradientType();
@@ -228,17 +228,17 @@ class KalziumMassGradientType : public KalziumGradientType
 public:
     static KalziumMassGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumMassGradientType();
@@ -254,17 +254,17 @@ class KalziumBoilingPointGradientType : public KalziumGradientType
 public:
     static KalziumBoilingPointGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumBoilingPointGradientType();
@@ -280,17 +280,17 @@ class KalziumMeltingPointGradientType : public KalziumGradientType
 public:
     static KalziumMeltingPointGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumMeltingPointGradientType();
@@ -307,17 +307,17 @@ class KalziumSOMGradientType : public KalziumGradientType
 public:
     static KalziumSOMGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumSOMGradientType();
@@ -333,17 +333,17 @@ class KalziumElectronegativityGradientType : public KalziumGradientType
 public:
     static KalziumElectronegativityGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumElectronegativityGradientType();
@@ -359,17 +359,17 @@ class KalziumDiscoverydateGradientType : public KalziumGradientType
 public:
     static KalziumDiscoverydateGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumDiscoverydateGradientType();
@@ -385,17 +385,17 @@ class KalziumElectronaffinityGradientType : public KalziumGradientType
 public:
     static KalziumElectronaffinityGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumElectronaffinityGradientType();
@@ -411,17 +411,17 @@ class KalziumIonizationGradientType : public KalziumGradientType
 public:
     static KalziumIonizationGradientType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    double value(int el) const;
-    QString unit() const;
+    double value(int el) const override;
+    QString unit() const override;
 
-    double minValue() const;
-    double maxValue() const;
-    int decimals() const;
+    double minValue() const override;
+    double maxValue() const override;
+    int decimals() const override;
 
-    bool logarithmicGradient() const;
+    bool logarithmicGradient() const override;
 
 private:
     KalziumIonizationGradientType();

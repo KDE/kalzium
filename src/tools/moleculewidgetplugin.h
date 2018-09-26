@@ -28,7 +28,7 @@ class MoleculeWidgetPlugin : public QObject, public QDesignerCustomWidgetInterfa
     Q_INTERFACES(QDesignerCustomWidgetInterface)
 
 public:
-    MoleculeWidgetPlugin(QObject *parent = 0);
+    MoleculeWidgetPlugin(QObject *parent = nullptr);
 
     bool isContainer() const;
     bool isInitialized() const;

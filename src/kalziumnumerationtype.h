@@ -116,11 +116,11 @@ class KalziumNoneNumerationType : public KalziumNumerationType
 public:
     static KalziumNoneNumerationType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
-    QString item(const int num) const;
-    QStringList items() const;
+    QString item(const int num) const override;
+    QStringList items() const override;
 
 private:
     KalziumNoneNumerationType();
@@ -136,8 +136,8 @@ class KalziumIUPACNumerationType : public KalziumNumerationType
 public:
     static KalziumIUPACNumerationType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
 private:
     KalziumIUPACNumerationType();
@@ -153,8 +153,8 @@ class KalziumCASNumerationType : public KalziumNumerationType
 public:
     static KalziumCASNumerationType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
 private:
     KalziumCASNumerationType();
@@ -170,8 +170,8 @@ class KalziumOldIUPACNumerationType : public KalziumNumerationType
 public:
     static KalziumOldIUPACNumerationType* instance();
 
-    QByteArray name() const;
-    QString description() const;
+    QByteArray name() const override;
+    QString description() const override;
 
 private:
     KalziumOldIUPACNumerationType();

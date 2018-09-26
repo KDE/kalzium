@@ -37,7 +37,7 @@ class IsotopeTableDialog : public KDialog
     Q_OBJECT
 
 public:
-    explicit IsotopeTableDialog(QWidget* parent = 0);
+    explicit IsotopeTableDialog(QWidget* parent = nullptr);
 
 private:
     Ui::isotopeWidget ui;

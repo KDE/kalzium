@@ -31,11 +31,11 @@ class IsotopeGuideView : public QGraphicsView
     Q_OBJECT
 
 public:
-    IsotopeGuideView(QWidget *parent = nullptr);
+    explicit IsotopeGuideView(QWidget *parent = nullptr);
     void setGuidedView(IsotopeView *guidedView);
 
 protected:
-    void drawForeground(QPainter *painter, const QRectF &rect);
+    void drawForeground(QPainter *painter, const QRectF &rect) override;
 
 private:
     IsotopeView *m_guidedView;
@@ -45,10 +45,10 @@ private:
     QPoint m_lastMousePos;
     bool m_dragEvent;
 
-    void resizeEvent(QResizeEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
+    void resizeEvent(QResizeEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private slots:
     void setZoomLevel(double zoomLevel);

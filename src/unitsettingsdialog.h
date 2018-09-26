@@ -25,7 +25,7 @@
 class UnitSettingsDialog: public QWidget
 {
 public:
-    explicit UnitSettingsDialog(QWidget* parent = 0);
+    explicit UnitSettingsDialog(QWidget* parent = nullptr);
     virtual ~UnitSettingsDialog();
 
     int getLenghtUnitId();

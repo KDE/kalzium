@@ -38,7 +38,7 @@ class LegendWidget : public QWidget
     Q_OBJECT
 
 public:
-    LegendWidget(QWidget *parent);
+    explicit LegendWidget(QWidget *parent);
 
     ~LegendWidget();
 
@@ -92,8 +92,8 @@ private:
     QColor legendItemColor;
 
 protected:
-    void enterEvent(QEvent * event);
-    void leaveEvent(QEvent * event);
+    void enterEvent(QEvent * event) override;
+    void leaveEvent(QEvent * event) override;
 
 };
 

@@ -105,7 +105,7 @@ public:
 
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(QKeyEvent *e) override;
 
 private:
     Ui::PlotSetupWidget ui;

@@ -75,13 +75,13 @@ public:
 
 protected:
 
-    virtual bool eventTest(QEvent *event)
+    bool eventTest(QEvent *event) override
     {
         return (event->type() == QEvent::Type(StateSwitchEvent::StateSwitchType))
                && (static_cast<StateSwitchEvent *>(event)->id() == m_id);
     }
 
-    virtual void onTransition(QEvent *) {}
+    void onTransition(QEvent *) override {}
 
 private:
     int m_id;
