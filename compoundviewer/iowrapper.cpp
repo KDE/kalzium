@@ -30,7 +30,7 @@
 
 Avogadro::Core::Molecule * IoWrapper::readMolecule(const QString &filename)
 {
-    std::ifstream inFileStream(QFile::encodeName(filename));
+    std::ifstream inFileStream(QFile::encodeName(filename).constData());
     if (!inFileStream) {
         QMessageBox::warning(nullptr, i18n("Problem while opening the file"),
                            i18n("Cannot open the specified file."));
@@ -48,7 +48,7 @@ Avogadro::Core::Molecule * IoWrapper::readMolecule(const QString &filename)
 
 bool IoWrapper::writeMolecule(const QString &filename, Avogadro::Core::Molecule *mol)
 {
-    std::ofstream outFileStream(QFile::encodeName(filename));
+    std::ofstream outFileStream(QFile::encodeName(filename).constData());
     if (!outFileStream) {
         QMessageBox::warning(nullptr, i18n("Sorry"), i18n("Cannot save to the specified file."));
         return false;

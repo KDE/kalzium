@@ -50,7 +50,7 @@ void EQChemDialog::compute()
     equation.append(' ');
     equation.prepend(' ');
 
-    char * result = solve_equation(equation.toLatin1());
+    char * result = solve_equation(equation.toLatin1().constData());
 
     QString answer = QString(result);
 
