@@ -41,7 +41,12 @@
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
 
-#include <QtCore>
+#include <QAbstractAnimation>
+#include <QAbstractTransition>
+#include <QEvent>
+#include <QPropertyAnimation>
+#include <QState>
+#include <QStateMachine>
 
 class StateSwitchEvent: public QEvent
 {

@@ -25,9 +25,9 @@
 #include <QRegExp>
 #include <QProcess>
 #include <QLinkedList>
-#include <QtWidgets/QDialogButtonBox>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QPushButton>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 
 // KDE includes

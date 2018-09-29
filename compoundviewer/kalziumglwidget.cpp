@@ -18,7 +18,6 @@
 
 #include <avogadro/qtgui/molecule.h>
 #include <avogadro/qtgui/sceneplugin.h>
-#include <avogadro/qtgui/sceneplugin.h>
 #include <avogadro/qtgui/toolplugin.h>
 #include <avogadro/qtopengl/glwidget.h>
 #include <avogadro/qtplugins/pluginmanager.h>

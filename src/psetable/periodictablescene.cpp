@@ -3,7 +3,7 @@
 
  Copyright (C) 2005-2006 by Pino Toscano, toscano.pino@tiscali.it
  Copyright (C) 2003-2006 by Carsten Niehaus, cniehaus@kde.org
- Copyright (C) 2007-2009 by Marcus D. Hanwell
+ Copyright (C) 2007-2009 by Marcus D. Hanwell, marcus@cryos.org
  Copyright (C) 2010 by Etienne Rebetez, etienne.rebetez@oberwallis.ch
 
  This file is part of the Kalzium molecular editor project.

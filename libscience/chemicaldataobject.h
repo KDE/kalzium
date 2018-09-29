@@ -20,9 +20,9 @@
 #ifndef CHEMICALDATAOBJECT_H
 #define CHEMICALDATAOBJECT_H
 
-#include <QtCore/QSharedData>
-#include <QtCore/QSharedDataPointer>
-#include <QtCore/QVariant>
+#include <QSharedData>
+#include <QSharedDataPointer>
+#include <QVariant>
 
 #include "libkdeedu_science_export.h"
 

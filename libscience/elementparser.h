@@ -14,11 +14,12 @@
 #ifndef ELEMENTPARSER_H
 #define ELEMENTPARSER_H
 
-#include <QtCore/QList>
+#include <QList>
 
 #include "libkdeedu_science_export.h"
 
-#include <QtXml/QtXml>
+#include <QXmlAttributes>
+#include <QXmlDefaultHandler>
 
 class Element;
 

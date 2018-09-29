@@ -29,6 +29,7 @@
 #include <QFileInfo>
 #include <QSvgRenderer>
 #include <QPainter>
+#include <QCoreApplication>
 #include <QGlobalStatic>
 #include <QLocale>
 #include <QDebug>

@@ -2,9 +2,9 @@
  NumerationItem - Numeration Item, part of the Periodic Table Graphics View
  for Kalzium
 
- Copyright (C) 2007-2009 by Marcus D. Hanwell
+ Copyright (C) 2007-2009 by Marcus D. Hanwell marcus@cryos.org
  Some portions (C) 2010  by Konstantin Tokarev
- Copyright (C) 2010      by Etienne Rebetez
+ Copyright (C) 2010      by Etienne Rebetez etienne.rebetez@oberwallis.ch
 
  This file is part of the Avogadro molecular editor project.
  For more information, see <http://avogadro.openmolecules.net/>

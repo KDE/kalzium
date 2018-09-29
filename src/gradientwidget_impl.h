@@ -1,5 +1,5 @@
 /***************************************************************************
- *   copyright (C) 2006 by Carsten Niehau                                  *
+ *   copyright (C) 2006 by Carsten Niehaus  cniehaus@kde.org               *
  *   Copyright (C) 2010 by Etienne Rebetez  etienne.rebetez@oberwallis.ch  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

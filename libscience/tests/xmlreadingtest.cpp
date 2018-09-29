@@ -20,7 +20,7 @@
 #include "elementparser.h"
 #include "element.h"
 #include "chemicaldataobject.h"
-#include <QtCore/QDebug>
+#include <QDebug>
 #include <iostream>
 
 int main(int argc, char *argv[])

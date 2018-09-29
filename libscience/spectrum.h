@@ -22,7 +22,7 @@
 
 #include "libkdeedu_science_export.h"
 
-#include <QtCore/QList>
+#include <QList>
 
 class Element;
 

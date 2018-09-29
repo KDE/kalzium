@@ -107,7 +107,7 @@ void titrationCalculator::plot()
         }
         QString mreporto;
         int iter = 0;
-        if (uid.xaxis->text() == "" || uid.xaxis->text() == " ") {
+        if (uid.xaxis->text().isEmpty() || uid.xaxis->text() == " ") {
             uid.xaxis->setText(i18n("nothing"));
         }
         if (tmpy == 0) {

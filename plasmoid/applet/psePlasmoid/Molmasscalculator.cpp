@@ -21,7 +21,7 @@
 #include "Molmasscalculator.h"
 
 // Qt
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QGraphicsLinearLayout>
 #include <QClipboard>
 

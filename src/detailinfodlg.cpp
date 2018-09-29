@@ -41,7 +41,6 @@
 #include <QImage>
 #include <QStackedWidget>
 #include <QStandardPaths>
-#include <QLocale>
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
@@ -319,7 +318,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("<tr><td>");
         html.append ("<a href=\"http://");        // http://
         html.append ("www.webelements.com/");
-        if (QLocale().uiLanguages().first().startsWith("en")) {
+        if (QLocale().uiLanguages().first().startsWith(QLatin1String("en"))) {
             html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
         }
         html.append ("\" target=\"_blank\" >");

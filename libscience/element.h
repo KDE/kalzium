@@ -22,8 +22,8 @@
 #define ELEMENT_H
 
 #include "libkdeedu_science_export.h"
-#include <QtCore/QList>
-#include <QtCore/QVariant>
+#include <QList>
+#include <QVariant>
 
 #include "chemicaldataobject.h"
 
