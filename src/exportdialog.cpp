@@ -179,18 +179,16 @@ void ExportDialog::exportToHtml()
 {
     *m_outputStream << HTML_HEADER << "<table>\n";
     foreach (QListWidgetItem *element, ui.elementListWidget->selectedItems()) {
-        ElementListEntry* element_entry = static_cast<ElementListEntry*>(element);
         *m_outputStream << "<tr>\n<th colspan=\"2\">"
-        << element_entry->m_element->dataAsString(ChemicalDataObject::name)
+        << ((ElementListEntry*)element)->m_element->dataAsString(ChemicalDataObject::name)
         << "</th>\n</tr>\n";
         foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
-            PropertyListEntry* property_entry = static_cast<PropertyListEntry*>(property);
             *m_outputStream << "<tr>\n<td class=\"property\">"
-            << property_entry->text()
+            << ((PropertyListEntry*) property)->text()
             << "</td>\n<td class=\"value\">"
             << KalziumUtils::prettyUnit(
-                element_entry->m_element,
-                property_entry->m_type)
+                ((ElementListEntry*) element)->m_element,
+                ((PropertyListEntry*) property)->m_type)
             << "</td>\n</tr>\n";
         }
     }
@@ -201,18 +199,16 @@ void ExportDialog::exportToXml()
 {
     *m_outputStream << XML_HEADER << "<elements>\n";
     foreach (QListWidgetItem *element, ui.elementListWidget->selectedItems()) {
-        ElementListEntry* element_entry = static_cast<ElementListEntry*>(element);
         *m_outputStream << "  <element name=\""
-        << element_entry->m_element->dataAsString(ChemicalDataObject::name)
+        << ((ElementListEntry*) element)->m_element->dataAsString(ChemicalDataObject::name)
         << "\">\n";
         foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
-            PropertyListEntry* property_entry = static_cast<PropertyListEntry*>(property);
             *m_outputStream << "    <property name=\""
-            << property_entry->text()
+            << ((PropertyListEntry*) property)->text()
             << "\">"
             << KalziumUtils::prettyUnit(
-                element_entry->m_element,
-                property_entry->m_type)
+                ((ElementListEntry*) element)->m_element,
+                ((PropertyListEntry*) property)->m_type)
             << "</property>\n";
         }
         *m_outputStream << "  </element>\n";
@@ -225,20 +221,19 @@ void ExportDialog::exportToCsv()
     *m_outputStream << "Name";
     foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
         *m_outputStream << ", \""
-        << static_cast<PropertyListEntry*>(property)->text()
+        << ((PropertyListEntry*) property)->text()
         << "\"";
     }
     *m_outputStream << "\n";
     foreach (QListWidgetItem *element, ui.elementListWidget->selectedItems()) {
-        ElementListEntry* element_entry = static_cast<ElementListEntry*>(element);
         *m_outputStream << "\""
-        << element_entry->m_element->dataAsString(ChemicalDataObject::name)
+        << ((ElementListEntry*) element)->m_element->dataAsString(ChemicalDataObject::name)
         << "\"";
         foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
             *m_outputStream << ", \""
             << KalziumUtils::prettyUnit(
-                element_entry->m_element,
-                static_cast<PropertyListEntry*>(property)->m_type)
+                ((ElementListEntry*) element)->m_element,
+                ((PropertyListEntry*) property)->m_type)
             << "\"";
         }
         *m_outputStream << "\n";
