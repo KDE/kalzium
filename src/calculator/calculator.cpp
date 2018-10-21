@@ -138,5 +138,5 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 
 void calculator::slotHelp()
 {
-    KHelpClient::invokeHelp("calculator", "kalzium");
+    KHelpClient::invokeHelp("tools.html#perf_calculation", "kalzium");
 }

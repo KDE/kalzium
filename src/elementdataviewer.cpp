@@ -116,7 +116,7 @@ ElementDataViewer::~ElementDataViewer()
 
 void ElementDataViewer::slotHelp()
 {
-    KHelpClient::invokeHelp("plot_data", "kalzium");
+    KHelpClient::invokeHelp("tools.html#plot_data", "kalzium");
 }
 
 void ElementDataViewer::rangeChanged()

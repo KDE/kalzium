@@ -254,7 +254,7 @@ void KOpenBabel::slotConvert()
 
 void KOpenBabel::slotHelpRequested()
 {
-    KHelpClient::invokeHelp("kalzium-mainwindow", "kalzium");
+    KHelpClient::invokeHelp("commands", "kalzium");
 }
 
 void KOpenBabel::addFile(const QString &filename)

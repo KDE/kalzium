@@ -622,7 +622,7 @@ void DetailedInfoDlg::slotHelp()
         break;
     }
 #endif
-   KHelpClient::invokeHelp("infodialog_spectrum", QLatin1String("kalzium"));
+   KHelpClient::invokeHelp("info-dlg.html#infodialog_spectrum", QLatin1String("kalzium"));
 }
 
 void DetailedInfoDlg::showNextElement()

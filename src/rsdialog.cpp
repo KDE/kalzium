@@ -321,7 +321,7 @@ void RSDialog::createRPhrases()
 
 void RSDialog::slotHelp()
 {
-    KHelpClient::invokeHelp("rs_phrases", QLatin1String("kalzium"));
+    KHelpClient::invokeHelp("tools.html#rs_phrases", QLatin1String("kalzium"));
 }
 
 void RSDialog::invalidPhaseString()
