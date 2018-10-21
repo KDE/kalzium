@@ -26,17 +26,25 @@
 
 #include <isotope.h>
 
-#include <klocale.h>
-
+#include <KConfigGroup>
 #include <QDebug>
-#include<prefs.h>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <prefs.h>
 
-IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : KDialog(parent)
+IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
 {
-    setCaption(i18n("Isotope Table"));
-    setButtons(Close);
-    setDefaultButton(Close);
-    ui.setupUi(mainWidget());
+    setWindowTitle(i18n("Isotope Table"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &IsotopeTableDialog::reject);
+    mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+    ui.setupUi(mainWidget);
     ui.guide->setGuidedView(ui.gv);
 
     connect(ui.gv->scene(), SIGNAL(itemSelected(IsotopeItem*)),

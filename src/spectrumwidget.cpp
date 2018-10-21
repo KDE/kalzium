@@ -27,7 +27,6 @@
 
 #include <element.h>
 
-#include <klocale.h>
 #include <kunitconversion/converter.h>
 #include <math.h>
 

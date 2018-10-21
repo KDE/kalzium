@@ -21,7 +21,7 @@
 
 #include "kalziumdataobject.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 KalziumNumerationTypeFactory::KalziumNumerationTypeFactory()
 {

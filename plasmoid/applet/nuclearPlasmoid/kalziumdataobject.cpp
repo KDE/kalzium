@@ -29,7 +29,7 @@
 #include <QSvgRenderer>
 #include <QPainter>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <QDebug>
 
 #include <kpixmapcache.h>

@@ -41,6 +41,7 @@
 #include <plasma/theme.h>
 
 #include <KConfigDialog>
+#include <KConfigGroup>
 
 using namespace KUnitConversion;
 
@@ -1282,8 +1283,10 @@ void concentrationCalculator::createConfigurationInterface(KConfigDialog *parent
     ui.soluteMass->setChecked(m_soluteMass);
     ui.solventVolume->setChecked(m_solventVolume);
 
-    connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
-    connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
+    connect(parent->okButton, &QPushButton::clicked,
+            this, &concentrationCalculator::configAccepted);
+    connect(parent->buttonBox, &QDialogButtonBox::Apply::clicked,
+                this, &concentrationCalculator::configAccepted);
 
     connect (ui.soluteMass, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
     connect (ui.solventVolume, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));

@@ -23,7 +23,7 @@
 
 #include "ui_config.h"
 
-class KDialog;
+class QDialog;
 class QFont;
 
 class KalziumPlasma : public Plasma::Applet
@@ -58,7 +58,7 @@ class KalziumPlasma : public Plasma::Applet
         QString m_currentSource;
 
         Ui::config ui;
-        KDialog *m_dialog;
+        QDialog *m_dialog;
 
         QFont m_font;
 };

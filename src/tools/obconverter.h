@@ -25,14 +25,14 @@
 
 // OpenBabel includes
 #include <openbabel/obconversion.h>
-#include <KDialog>
+#include <QDialog>
 class QDialog;
 
 /**
  * @author Carsten Niehaus
  * @author Jerome Pansanel
  */
-class KOpenBabel : public KDialog
+class KOpenBabel : public QDialog
 {
     Q_OBJECT
 
@@ -92,6 +92,11 @@ private slots:
      * Convert the file in the selected type
      */
     void slotConvert();
+
+    /**
+     * Open help page
+     */
+    void slotHelpRequested();
 
 };
 

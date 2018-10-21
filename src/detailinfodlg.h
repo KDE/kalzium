@@ -18,7 +18,6 @@
 
 #include <QUrl>
 #include <QMap>
-#include <KDialog>
 #include <KPageDialog>
 
 class DetailedGraphicalOverview;

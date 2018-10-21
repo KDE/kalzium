@@ -29,7 +29,7 @@
 #include "numerationitem.h"
 
 #include <prefs.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 #include <QStyleOption>

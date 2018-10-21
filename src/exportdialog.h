@@ -16,7 +16,7 @@
 
 #include <QListWidget>
 #include <element.h>
-#include <KDialog>
+#include <QDialog>
 #include "kalziumdataobject.h"
 #include "ui_exportdialog.h"
 
@@ -45,7 +45,7 @@ public:
 /**
 * @author: Johannes Simon
 */
-class ExportDialog : public KDialog
+class ExportDialog : public QDialog
 {
     Q_OBJECT
 
@@ -64,6 +64,11 @@ private:
 
 public slots:
     void slotOkClicked();
+    /**
+     * Open help page
+     */
+    void slotHelpRequested();
+
 };
 
 #endif // EXPORTDIALOG_H

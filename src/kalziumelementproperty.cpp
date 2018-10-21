@@ -22,7 +22,7 @@
 #include "kalziumdataobject.h"
 #include "search.h"
 
-#include "klocale.h"
+#include <KLocalizedString>
 
 #include <prefs.h>
 

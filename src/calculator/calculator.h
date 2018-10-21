@@ -20,7 +20,7 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
-#include <kdialog.h>
+#include <QDialog>
 #include "ui_calculator.h"
 
 #include "nuclearCalculator.h"
@@ -40,7 +40,7 @@
  *
  * @author Kashyap R Puranik
  */
-class calculator : public KDialog
+class calculator : public QDialog
 {
     Q_OBJECT
 

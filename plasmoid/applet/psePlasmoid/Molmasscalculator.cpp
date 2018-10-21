@@ -32,6 +32,10 @@
 
 // Plasma
 #include <plasma/theme.h>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 // local
 
@@ -53,7 +57,7 @@ Molmasscalculator::Molmasscalculator(QObject *parent, const QVariantList &args)
     m_triggerTimer->setSingleShot(true);
     m_triggerTimer->setInterval(700);
 
-    connect(m_triggerTimer, SIGNAL(timeout()), this, SLOT(ParseMolecule()));
+    connect(m_triggerTimer, &QTimer::timeout, this, &Molmasscalculator::ParseMolecule);
 
     // Needed for the Popupapplet
     setPopupIcon("kalzium");
@@ -160,10 +164,10 @@ QGraphicsWidget *Molmasscalculator::graphicsWidget()
     m_lineedit->setClearButtonEnabled(true);
     m_lineedit->setMinimumWidth(100);
     m_lineedit->setText(i18n("C2H5OH"));
-    connect(m_lineedit, SIGNAL(textEdited(QString)), m_triggerTimer, SLOT(start()));
+    connect(m_lineedit, &Plasma::LineEdit::textEdited, m_triggerTimer, &QTimer::start);
 
     m_switchButton = new Plasma::IconWidget();
-    connect(m_switchButton, SIGNAL(clicked()), this, SLOT(toggleTable()));
+    connect(m_switchButton, &Plasma::IconWidget::clicked, this, &graphicsWidget::toggleTable);
 
     TopLayout->addItem(MoleculeLabel);
     TopLayout->addItem(m_lineedit);
@@ -217,7 +221,17 @@ void Molmasscalculator::managePeriodSystem()
 
 void Molmasscalculator::createConfigurationInterface(KConfigDialog* parent)
 {
-    parent->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    parent->setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    parent->connect(buttonBox, &QDialogButtonBox::accepted, this, &createConfigurationInterface::accept);
+    parent->connect(buttonBox, &QDialogButtonBox::rejected, this, &createConfigurationInterface::reject);
+    mainLayout->addWidget(buttonBox);
 
     QWidget *widget = new QWidget(parent);
 
@@ -234,8 +248,10 @@ void Molmasscalculator::createConfigurationInterface(KConfigDialog* parent)
 
     m_ui.tabletyp->setCurrentIndex(m_PeriodWidget->getCurrentPseTyp());
 
-    connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
-    connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
+    connect(parent->okButton, &QPushButton::clicked,
+            this, &Molmasscalculator::configAccepted);
+    connect(parent->buttonBox, &QDialogButtonBox::Apply::clicked,
+                this, &Molmasscalculator::configAccepted);
 
     connect(m_ui.showPeriodic, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
     connect(m_ui.copyToCliboard, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));

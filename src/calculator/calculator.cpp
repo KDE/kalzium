@@ -20,19 +20,33 @@
 #include "calculator.h"
 
 #include <QDebug>
-#include <kactioncollection.h>
-#include <kstandardaction.h>
-#include <ktoolinvocation.h>
 #include <QDialog>
+#include <QDialogButtonBox>
 #include <QIcon>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KHelpClient>
 #include <KLocalizedString>
-calculator::calculator(QWidget *parent) : KDialog(parent)
+#include <KStandardAction>
+#include <KToolInvocation>
+
+calculator::calculator(QWidget *parent) : QDialog(parent)
 {
     setWindowTitle(i18n("Chemical Calculator"));
-    setButtons(Help | Close);
-    setDefaultButton(Close);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &calculator::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &calculator::reject);
+    mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
-    ui.setupUi(mainWidget());
+    ui.setupUi(mainWidget);
 
     int maxTextWidth = 0;
     QStyleOptionViewItem option;
@@ -77,7 +91,7 @@ calculator::calculator(QWidget *parent) : KDialog(parent)
     ui.tree->setCurrentItem(ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent);
 
     // help clicked
-    connect(this, SIGNAL(helpClicked()), this, SLOT(slotHelp()));
+    connect(buttonBox->button(QDialogButtonBox::Help), &QPushButton::clicked, this, &calculator::slotHelp);
 }
 
 calculator :: ~calculator()
@@ -124,5 +138,5 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 
 void calculator::slotHelp()
 {
-  // KToolInvocation::invokeHelp("calculator", "kalzium","");
+    KHelpClient::invokeHelp("calculator", "kalzium");
 }

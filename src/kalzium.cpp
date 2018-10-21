@@ -70,6 +70,7 @@
 #include <QGridLayout>
 #include <KLocalizedString>
 #include <QStandardPaths>
+#include <QFileDialog>
 
 #define IDS_ELEMENTINFO     7
 
@@ -322,9 +323,7 @@ void Kalzium::setupSidebars()
 
 void Kalzium::slotExportTable()
 {
-    QString fileName = KFileDialog::getSaveFileName(QUrl(), i18n("*.png *.xpm *.jpg *.svg"), //
-                       this,
-                       i18n("Save Kalzium's Table In"));
+    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalzium's Table In"), QString(), i18n("Image files (*.png *.xpm *.jpg *.svg)"));
 
     if (fileName.endsWith(QLatin1String(".svg"))) {
         m_periodicTable->generateSvg(fileName);

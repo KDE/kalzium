@@ -21,16 +21,16 @@
 #include <avogadro/qtgui/scenepluginmodel.h>
 #include <avogadro/qtgui/toolplugin.h>
 
+#include <QDebug>
 #include <QFileInfo>
 #include <QGLFormat>
-#include <QDebug>
-#include <KFileDialog>
-#include <KJob>
-#include <KMessageBox>
-#include <KLocalizedString>
 #include <QUrl>
-#include <knewstuff3/downloaddialog.h>
-#include <kio/job.h>
+
+#include <KIO/Job>
+#include <KJob>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KNS3/DownloadDialog>
 
 #include "iowrapper.h"
 
@@ -42,12 +42,18 @@
 #endif
 #include <openbabel/forcefield.h>
 #include <QStandardPaths>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <KGuiItem>
+#include <QVBoxLayout>
+#include <QFileDialog>
 
 using namespace OpenBabel;
 using namespace Avogadro::QtGui;
 
 MoleculeDialog::MoleculeDialog(QWidget * parent)
-    : KDialog(parent)
+    : QDialog(parent)
     , m_path(QString())
     , m_periodicTable(nullptr)
 {
@@ -56,18 +62,29 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     defFormat.setSampleBuffers(true);
     QGLFormat::setDefaultFormat(defFormat);
 
-    setCaption(i18n("Molecular Editor"));
-    setButtons(User3 | User2 | User1 | Close);
+    setWindowTitle(i18n("Molecular Editor"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *user1Button = new QPushButton;
+    buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
+    QPushButton *user2Button = new QPushButton;
+    buttonBox->addButton(user2Button, QDialogButtonBox::ActionRole);
+    QPushButton *user3Button = new QPushButton;
+    buttonBox->addButton(user3Button, QDialogButtonBox::ActionRole);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &MoleculeDialog::reject);
 
-    setDefaultButton(User1);
+    user1Button->setDefault(true);
 
-    setButtonGuiItem(User1, KGuiItem(i18n("Load Molecule"), "document-open", i18n("Loading a molecule")));
+    KGuiItem::assign(user1Button, KGuiItem(i18n("Load Molecule")));
 
-    setButtonGuiItem(User2, KGuiItem(i18n("Download New Molecules"), "get-hot-new-stuff", i18n("Download new molecule files")));
+    KGuiItem::assign(user2Button, KGuiItem(i18n("Download New Molecules")));
 
-    setButtonGuiItem(User3, KGuiItem(i18n("Save Molecule"), "document-save", i18n("Saving a molecule")));
+    KGuiItem::assign(user3Button, KGuiItem(i18n("Save Molecule")));
 
-    ui.setupUi(mainWidget());
+    ui.setupUi(mainWidget);
 
     // Attempt to set up the UFF forcefield
 //     m_forceField = OBForceField::FindForceField("UFF");
@@ -93,12 +110,15 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     connect(ui.glWidget->molecule(), &Avogadro::QtGui::Molecule::changed,
             this, &MoleculeDialog::slotUpdateStatistics);
 
-    connect(this, &KDialog::user1Clicked,
+    connect(user1Button, &QPushButton::clicked,
             this, &MoleculeDialog::slotLoadMolecule);
-    connect(this, &KDialog::user2Clicked,
+    connect(user2Button, &QPushButton::clicked,
             this, &MoleculeDialog::slotDownloadNewStuff);
-    connect(this, &KDialog::user3Clicked,
+    connect(user3Button, &QPushButton::clicked,
             this, &MoleculeDialog::slotSaveMolecule);
+
+    mainLayout->addWidget(buttonBox);
+
 
     // Check that we have managed to load up some tools and engines
     int nTools = ui.glWidget->tools().size();
@@ -133,15 +153,14 @@ void MoleculeDialog::slotLoadMolecule()
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
 
-    QString filename = KFileDialog::getOpenFileName(
-                       QUrl::fromLocalFile(m_path),
-                       "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+    QString filename = QFileDialog::getOpenFileName(
+                       this,
+                       i18n("Choose a file to open"),
+                       m_path,
+                       commonMoleculeFormats + "(*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-                       " *.mpd *.mol2|" + commonMoleculeFormats + "\n"
-                       "* *.*|" + allFiles,
-                       this,
-                       i18n("Choose a file to open"));
+                       " *.mpd *.mol2);;" + allFiles + "(*.*)");
 
     loadMolecule(filename);
 }
@@ -193,14 +212,12 @@ void MoleculeDialog::slotSaveMolecule()
 {
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
-    QString filename = KFileDialog::getSaveFileName(QUrl(),
-                       "*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+    QString filename = QFileDialog::getSaveFileName(this, i18n("Choose a file to save to"), QString(),
+                       commonMoleculeFormats + " (*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-                       " *.mpd *.mol2|" + commonMoleculeFormats + "\n"
-                       "* *.*|" + allFiles,
-                       this,
-                       i18n("Choose a file to save to"));
+                       " *.mpd *.mol2);;" + allFiles + " (*.*)"
+                       );
 
     if (!filename.contains('.')) {
         filename.append(".cml");

@@ -21,11 +21,11 @@
 
 #include "prefs.h"
 
-#include <klocale.h>
-
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QDebug>
+
+#include <KLocalizedString>
 
 LegendWidget::LegendWidget(QWidget *parent) : QWidget(parent)
 {

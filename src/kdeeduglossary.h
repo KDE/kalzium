@@ -11,7 +11,7 @@
 #ifndef KDEEDUGLOSSARY_H
 #define KDEEDUGLOSSARY_H
 
-#include <kdialog.h>
+#include <QDialog>
 #include <QUrl>
 
 class QDomDocument;
@@ -203,7 +203,7 @@ private:
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class GlossaryDialog : public KDialog
+class GlossaryDialog : public QDialog
 {
     Q_OBJECT
 

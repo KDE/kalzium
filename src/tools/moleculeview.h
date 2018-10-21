@@ -15,7 +15,7 @@
 #ifndef MOLECULEVIEW_H
 #define MOLECULEVIEW_H
 
-#include <kdialog.h>
+#include <QDialog>
 #include <avogadro/qtgui/molecule.h>
 
 #include "ui_moleculeviewerwidget.h"
@@ -36,7 +36,7 @@ class QSettings;
 /**
  * @author Carsten Niehaus
  */
-class MoleculeDialog : public KDialog
+class MoleculeDialog : public QDialog
 {
     Q_OBJECT
 

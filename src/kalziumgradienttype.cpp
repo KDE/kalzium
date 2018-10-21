@@ -27,7 +27,7 @@
 #include <QVariant>
 #include <QDebug>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <math.h>
 

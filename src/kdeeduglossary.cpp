@@ -20,24 +20,28 @@
 
 #include "kdeeduglossary.h"
 
-#include <klocale.h>
-#include <khtml_part.h>
-#include <khtmlview.h>
-#include <ktreewidgetsearchline.h>
-#include <kactioncollection.h>
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KHTMLPart>
+#include <KHTMLView>
+#include <KLocalizedString>
+#include <KTreeWidgetSearchLine>
 
-#include <qevent.h>
-#include <qfile.h>
-#include <qheaderview.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qlist.h>
-#include <qregexp.h>
-#include <qsplitter.h>
-#include <qstringlist.h>
-#include <qtreewidget.h>
-#include <QDomDocument>
 #include <QDebug>
+#include <QDialogButtonBox>
+#include <QDomDocument>
+#include <QEvent>
+#include <QFile>
+#include <QHeaderView>
+#include <QLabel>
+#include <QLayout>
+#include <QList>
+#include <QPushButton>
+#include <QRegExp>
+#include <QSplitter>
+#include <QStringList>
+#include <QTreeWidget>
+#include <QVBoxLayout>
 
 static const int FirstLetterRole = 0x00b00a00;
 
@@ -313,19 +317,17 @@ QString Glossary::backgroundPicture()const
     return m_backgroundpicture;
 }
 
-GlossaryDialog::GlossaryDialog(QWidget *parent) : KDialog(parent), d(new Private(this))
+GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private(this))
 {
-    setCaption(i18n("Glossary"));
-    setButtons(Close);
-    setDefaultButton(Close);
+    setWindowTitle(i18n("Glossary"));
 
     //this string will be used for all items. If a backgroundpicture should
     //be used call Glossary::setBackgroundPicture().
     d->m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>";
 
     QWidget *main = new QWidget(this);
-    setMainWidget(main);
     QVBoxLayout *vbox = new QVBoxLayout(main);
+    setLayout(vbox);
     vbox->setMargin(0);
 
     QHBoxLayout *hbox = new QHBoxLayout();
@@ -359,7 +361,12 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : KDialog(parent), d(new Private
     connect(d->m_glosstree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
             this, SLOT(itemActivated(QTreeWidgetItem*,int)));
 
-    resize(600, 400);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &GlossaryDialog::reject);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+    vbox->addWidget(buttonBox);
+
+    resize(800, 400);
 }
 
 GlossaryDialog::~GlossaryDialog()
@@ -372,7 +379,7 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
     if (e->key() == Qt::Key_Return) {
         e->ignore();
     }
-    KDialog::keyPressEvent(e);
+    QDialog::keyPressEvent(e);
 }
 
 void GlossaryDialog::Private::displayItem(const QUrl &url, const KParts::OpenUrlArguments &, const KParts::BrowserArguments &)

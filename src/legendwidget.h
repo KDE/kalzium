@@ -20,8 +20,6 @@
 #ifndef LEGENDWIDGET_H
 #define LEGENDWIDGET_H
 
-#include <kdialog.h>
-
 #include "kalziumelementproperty.h"
 #include <QLabel>
 

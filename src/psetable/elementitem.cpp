@@ -29,7 +29,7 @@
 #include "elementitem.h"
 
 #include <prefs.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>

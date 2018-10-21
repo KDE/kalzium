@@ -14,7 +14,7 @@
 #ifndef ELEMENTDATAVIEWER_H
 #define ELEMENTDATAVIEWER_H
 
-#include <kdialog.h>
+#include <QDialog>
 #include "ui_plotsetupwidget.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
@@ -84,7 +84,7 @@ private:
  * where you can setup the plot
  * @author Carsten Niehaus
  */
-class ElementDataViewer : public KDialog
+class ElementDataViewer : public QDialog
 {
     Q_OBJECT
 

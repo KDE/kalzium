@@ -112,11 +112,11 @@ void DetailedInfoDlg::setElement(int el)
     reloadContent();
 
   /* enableButton(User1, true);
-   enableButton(User2, true);
+   user2Button->setEnabled(true);
     if (m_elementNumber == 1) {
-        enableButton(User2, false);
+        user2Button->setEnabled(false);
     } else if (m_elementNumber == KalziumDataObject::instance()->numberOfElements()) {
-        enableButton(User1, false);
+        user1Button->setEnabled(false);
     }*/
 }
 
@@ -590,7 +590,7 @@ void DetailedInfoDlg::slotLinkClicked(const QUrl &url)
     if (url.isEmpty() || !url.isValid()) {
         return;
     }
-    KRun::runUrl(url, QStringLiteral("text/html"), nullptr);
+    KRun::runUrl(url, QStringLiteral("text/html"), this, KRun::RunFlags(), QString(), QByteArray());
 }
 
 void DetailedInfoDlg::slotHelp()

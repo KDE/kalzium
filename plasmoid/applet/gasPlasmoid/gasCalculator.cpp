@@ -40,6 +40,7 @@
 #include <plasma/theme.h>
 
 #include <KConfigDialog>
+#include <KConfigGroup>
 
 using namespace KUnitConversion;
 
@@ -656,8 +657,10 @@ void gasCalculator::createConfigurationInterface(KConfigDialog *parent)
 
     ui.ideal->setChecked(m_ideal);
 
-    connect(parent, SIGNAL(applyClicked()), this, SLOT(gasConfigAccepted()));
-    connect(parent, SIGNAL(okClicked()), this, SLOT(gasConfigAccepted()));
+    connect(parent->okButton, &QPushButton::clicked,
+            this, &gasCalculator::gasConfigAccepted);
+    connect(parent->buttonBox, &QDialogButtonBox::Apply::clicked,
+            this, &gasCalculator::gasConfigAccepted);
     connect (ui.ideal, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 

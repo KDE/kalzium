@@ -20,7 +20,7 @@
 #ifndef TABLEINFOWIDGET_H
 #define TABLEINFOWIDGET_H
 
-#include <kdialog.h>
+#include <QDialog>
 #include <QLabel>
 
 #include "kalziumschemetype.h"

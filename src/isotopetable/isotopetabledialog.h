@@ -22,7 +22,7 @@
 
 #include "ui_isotopedialog.h"
 
-#include <kdialog.h>
+#include <QDialog>
 
 class IsotopeItem;
 
@@ -32,7 +32,7 @@ class IsotopeItem;
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class IsotopeTableDialog : public KDialog
+class IsotopeTableDialog : public QDialog
 {
     Q_OBJECT
 

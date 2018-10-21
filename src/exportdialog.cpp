@@ -15,11 +15,19 @@
 
 #include "kalziumutils.h"
 
-#include <QFont>
-#include <KMessageBox>
-#include <kdialog.h>
 #include <QDebug>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QFont>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KConfigGroup>
+#include <KGuiItem>
+#include <KHelpClient>
 #include <KLocalizedString>
+#include <KMessageBox>
+
 
 static const char HTML_HEADER[] =
     "<html>"
@@ -74,19 +82,28 @@ PropertyListEntry::~PropertyListEntry()
 }
 
 ExportDialog::ExportDialog(QWidget * parent)
-        : KDialog(parent),m_outputStream(nullptr)
+        : QDialog(parent),m_outputStream(nullptr)
 {
     qDebug() << "ExportDialog::ExportDialog";
-    setButtons(Help | User1 | Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *user1Button = new QPushButton;
+    buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ExportDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ExportDialog::reject);
+    mainLayout->addWidget(buttonBox);
     qDebug() << "ExportDialog: setButtons";
-    ui.setupUi(mainWidget());
-    qDebug() << "ExportDialog: ui.setupUi(mainWidget());";
-    setButtonGuiItem(User1, KGuiItem(i18n("OK")));
+    ui.setupUi(mainWidget);
+    qDebug() << "ExportDialog: ui.setupUi(mainWidget)";
+    KGuiItem::assign(user1Button, KGuiItem(i18n("OK")));
     qDebug() << "ExportDialog: setButtonGuiItem(User1, KGuiItem(i18n(\"OK\")));";
     ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);
     qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
-    setCaption(i18n("Export Chemical Data"));
+    setWindowTitle(i18n("Export Chemical Data"));
     qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
     populateElementList();
@@ -97,10 +114,10 @@ ExportDialog::ExportDialog(QWidget * parent)
     ui.formatList->addItem(".csv (comma-separated data)", "csv");
     qDebug() << "ui.formatList->addItem(...);";
 
-    connect(this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()));
-    qDebug() << "connect(this, SIGNAL(user1Clicked()), this, SLOT(slotOkClicked()));";
-    setHelp(QString(),"kalzium");
-    qDebug() << "setHelp(QString(),\"kalzium\");";
+    connect(user1Button, &QPushButton::clicked, this, &ExportDialog::slotOkClicked);
+    qDebug() << "connect(user1Button, SIGNAL(clicked()), this, SLOT(slotOkClicked()));";
+    connect(buttonBox, &QDialogButtonBox::helpRequested, this, &ExportDialog::slotHelpRequested);
+    qDebug() << "KHelpClient::invokeHelp(QString(), \"kalzium\");";
 }
 
 ExportDialog::~ExportDialog()
@@ -173,6 +190,11 @@ void ExportDialog::slotOkClicked()
 
     // close the dialog
     done(0);
+}
+
+void ExportDialog::slotHelpRequested()
+{
+    KHelpClient::invokeHelp(QString(), "kalzium");
 }
 
 void ExportDialog::exportToHtml()

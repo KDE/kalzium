@@ -20,29 +20,38 @@
 
 #include "rsdialog.h"
 
+#include <QDialogButtonBox>
+#include <QPushButton>
 #include <QRegExp>
+#include <QVBoxLayout>
 
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
+#include <KConfigGroup>
+#include <KHelpClient>
 #include <KLocalizedString>
-#include <KConfigWidgets/khelpclient.h>
 #include <KMessageBox>
 
-RSDialog::RSDialog(QWidget* parent) : KDialog(parent)
+RSDialog::RSDialog(QWidget* parent) : QDialog(parent)
 {
-    setCaption(i18n("Risks/Security Phrases"));
-    setButtons(Help | Close);
+    setWindowTitle(i18n("Risks/Security Phrases"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &RSDialog::reject);
+    mainLayout->addWidget(buttonBox);
 
     createRPhrases();
     createSPhrases();
 
-    ui.setupUi(mainWidget());
+    ui.setupUi(mainWidget);
 
     connect(ui.filterButton, SIGNAL(clicked()),
             this, SLOT(filter()));
-    connect(this, SIGNAL(helpClicked()),
-            this, SLOT(slotHelp()));
+    connect(buttonBox, &QDialogButtonBox::helpRequested, this, &RSDialog::slotHelp);
 
         filter();
 }

@@ -18,20 +18,23 @@
 #include <kplotaxis.h>
 #include <kplotobject.h>
 
-#include <klocale.h>
-#include <kactioncollection.h>
-#include <kstandardaction.h>
-#include <ktoolinvocation.h>
-#include <kunitconversion/converter.h>
 #include "prefs.h"
+#include <KActionCollection>
 #include <KConfig>
-#include <KConfigWidgets/khelpclient.h>
+#include <KConfigGroup>
+#include <KHelpClient>
+#include <KStandardAction>
+#include <KToolInvocation>
+#include <KUnitConversion/Converter>
 
 //QT-Includes
+#include <QDebug>
+#include <QDialogButtonBox>
 #include <QKeyEvent>
 #include <QPen>
+#include <QPushButton>
 #include <QTimer>
-#include <QDebug>
+#include <QVBoxLayout>
 
 AxisData::AxisData(AXISTYPE type) : currentDataType(-1)
 {
@@ -49,17 +52,24 @@ double AxisData::value(int element) const
 
 
 ElementDataViewer::ElementDataViewer(QWidget *parent)
-        : KDialog(parent),
+        : QDialog(parent),
         m_yData(new AxisData(AxisData::Y)),
         m_xData(new AxisData(AxisData::X))
 {
-    setCaption(i18n("Plot Data"));
-    setButtons(Help | Close);
-    setDefaultButton(Close);
+    setWindowTitle(i18n("Plot Data"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ElementDataViewer::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ElementDataViewer::reject);
+    mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
     KalziumDataObject *kdo  = KalziumDataObject::instance();
 
-    ui.setupUi(mainWidget());
+    ui.setupUi(mainWidget);
 
     m_timer = new QTimer(this);
     m_timer->setSingleShot(true);
@@ -75,24 +85,24 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
     m_actionCollection = new KActionCollection (this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
-    connect(m_timer, SIGNAL(timeout()),
-            this, SLOT(drawPlot()));
-    connect(ui.KCB_y, SIGNAL(activated(int)),
-            this, SLOT(rangeChanged()));
-    connect(ui.KCB_x, SIGNAL(activated(int)),
-            this, SLOT(rangeChanged()));
-    connect(ui.comboElementLabels, SIGNAL(activated(int)),
-            this, SLOT(rangeChanged()));
-    connect(ui.comboElementType,SIGNAL(activated(int)),
-            this, SLOT(rangeChanged()));
-    connect(ui.from, SIGNAL(valueChanged(int)),
-            this, SLOT(rangeChanged()));
-    connect(ui.to, SIGNAL(valueChanged(int)),
-            this, SLOT(rangeChanged()));
-    connect(this, SIGNAL(helpClicked()),
-            this, SLOT(slotHelp()));
-    connect(ui.full, SIGNAL(clicked()),
-            this, SLOT(fullRange()));
+    connect(m_timer, &QTimer::timeout,
+            this, &ElementDataViewer::drawPlot);
+    connect(ui.KCB_y, QOverload<int>::of(&KComboBox::activated),
+            this, &ElementDataViewer::rangeChanged);
+    connect(ui.KCB_x, QOverload<int>::of(&KComboBox::activated),
+            this, &ElementDataViewer::rangeChanged);
+    connect(ui.comboElementLabels, QOverload<int>::of(&KComboBox::activated),
+            this, &ElementDataViewer::rangeChanged);
+    connect(ui.comboElementType, QOverload<int>::of(&KComboBox::activated),
+            this, &ElementDataViewer::rangeChanged);
+    connect(ui.from, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &ElementDataViewer::rangeChanged);
+    connect(ui.to, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &ElementDataViewer::rangeChanged);
+    connect(buttonBox->button(QDialogButtonBox::Help), &QPushButton::clicked,
+            this, &ElementDataViewer::slotHelp);
+    connect(ui.full, &QPushButton::clicked,
+            this, &ElementDataViewer::fullRange);
     drawPlot();
 
     resize(650, 500);

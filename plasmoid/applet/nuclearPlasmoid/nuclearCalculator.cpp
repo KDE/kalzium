@@ -42,6 +42,7 @@
 #include <math.h>
 
 #include <KConfigDialog>
+#include <KConfigGroup>
 
 using namespace KUnitConversion;
 
@@ -646,8 +647,10 @@ void nuclearCalculator::createConfigurationInterface(KConfigDialog *parent)
 
     ui.massOnly->setChecked(m_massOnly);
 
-    connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
-    connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
+    connect(parent->okButton, &QPushButton::clicked,
+            this, &nuclearCalculator::configAccepted);
+    connect(parent->buttonBox, &QDialogButtonBox::Apply::clicked,
+            this, &nuclearCalculator::configAccepted);
     connect(ui.massOnly, SIGNAL(toggled(bool)), parent, SLOT(settingsModified()));
 }
 

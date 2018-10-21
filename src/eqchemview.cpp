@@ -23,8 +23,6 @@
 #include <QClipboard>
 #include <QDebug>
 
-#include <klocale.h>
-
 #include <LineEditUrlDropEventFilter>
 
 #include "ui_equationview.h"

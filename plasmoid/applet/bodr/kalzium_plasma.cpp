@@ -14,15 +14,18 @@
 
 #include "kalzium_plasma.h"
 
-#include <KDialog>
 #include <KConfigGroup>
 #include <KFontDialog>
-#include <QLineEdit>
 
+#include <QDialog>
+#include <QLineEdit>
 #include <QDebug>
 #include <QPainter>
 #include <QPen>
 #include <QColor>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
@@ -133,16 +136,26 @@ void KalziumPlasma::paintInterface(QPainter *p,
 void KalziumPlasma::showConfigurationInterface()
 {
     if (m_dialog == 0) {
-        m_dialog = new KDialog;
+        m_dialog = new QDialog;
         m_dialog->setWindowIcon(QIcon::fromTheme("kalzium"));
-        m_dialog->setCaption(i18n("KalziumPlasma Configuration"));
+        m_dialog->setWindowTitle(i18n("KalziumPlasma Configuration"));
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setMargin(0);
-        m_dialog->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
-        connect(m_dialog, SIGNAL(applyClicked()),
-                this, SLOT(configAccepted()));
-        connect(m_dialog, SIGNAL(okClicked()),
-                this, SLOT(configAccepted()));
+        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+        QWidget *mainWidget = new QWidget(this);
+        QVBoxLayout *mainLayout = new QVBoxLayout;
+        m_dialog->setLayout(mainLayout);
+        mainLayout->addWidget(mainWidget);
+        QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+        okButton->setDefault(true);
+        okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+        m_dialog->connect(buttonBox, &QDialogButtonBox::accepted, this, &KalziumPlasma::accept);
+        m_dialog->connect(buttonBox, &QDialogButtonBox::rejected, this, &KalziumPlasma::reject);
+        mainLayout->addWidget(buttonBox);
+        connect(okButton, &QPushButton::clicked,
+                this, &KalziumPlasma::configAccepted);
+        connect(buttonBox, &QDialogButtonBox::Apply::clicked,
+                this, &KalziumPlasma::configAccepted);
         connect(ui.fontSelectButton, SIGNAL(clicked()),
                 this, SLOT(showFontSelectDlg()));
     }

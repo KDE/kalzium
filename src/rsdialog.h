@@ -20,7 +20,7 @@
 #ifndef RSDIALOG_H
 #define RSDIALOG_H
 
-#include <kdialog.h>
+#include <QDialog>
 #include <QWidget>
 #include <QMap>
 
@@ -31,7 +31,7 @@
  *
  * @author Carsten Niehaus
  */
-class RSDialog : public KDialog
+class RSDialog : public QDialog
 {
     Q_OBJECT
 

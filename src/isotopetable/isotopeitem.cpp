@@ -28,7 +28,7 @@
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 IsotopeItem::IsotopeItem(Isotope *i, qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent)
     : QAbstractGraphicsShapeItem(parent)

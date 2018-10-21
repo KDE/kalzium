@@ -20,7 +20,7 @@
 #include <QPainter>
 #include <QDebug>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <element.h>
 #include <kunitconversion/converter.h>

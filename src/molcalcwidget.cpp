@@ -32,7 +32,7 @@
 
 #include <QDebug>
 #include <kiconloader.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <QPushButton>
 #include <QLineEdit>
 

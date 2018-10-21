@@ -22,40 +22,51 @@
 #include "obconverter.h"
 
 // Qt includes
-#include <QRegExp>
-#include <QProcess>
-#include <QLinkedList>
+#include <QDebug>
+#include <QDialog>
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
+#include <QFileDialog>
+#include <QLinkedList>
+#include <QProcess>
 #include <QPushButton>
-
+#include <QRegExp>
+#include <QUrl>
+#include <QVBoxLayout>
 
 // KDE includes
-#include <QDebug>
-#include <KMessageBox>
-#include <KFileDialog>
+#include <KConfigGroup>
+#include <KGuiItem>
+#include <KHelpClient>
 #include <KLocalizedString>
-#include <QUrl>
-#include <KDialog>
-#include <kdialogbuttonbox.h>
+#include <KMessageBox>
 using namespace std;
 using namespace OpenBabel;
 
 KOpenBabel::KOpenBabel(QWidget *parent)
-    : KDialog(parent)
+    : QDialog(parent)
 {
-    setCaption(i18n("OpenBabel Frontend"));
-    setButtons(Help | User1| Close);
-    setDefaultButton(User1);
+    setWindowTitle(i18n("OpenBabel Frontend"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *user1Button = new QPushButton;
+    buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &KOpenBabel::reject);
+    connect(user1Button, &QPushButton::clicked, this, &KOpenBabel::slotConvert);
+    connect(buttonBox, &QDialogButtonBox::helpRequested, this, &KOpenBabel::slotHelpRequested);
+
+    user1Button->setDefault(true);
 
     OBConvObject = new OBConversion();
 
-    ui.setupUi(mainWidget());
+    ui.setupUi(mainWidget);
 
-    setButtonGuiItem(User1, KGuiItem(i18n("Convert"), "edit-copy", i18n("Convert selected files")));
+    KGuiItem::assign(user1Button, KGuiItem(i18n("Convert")));
+    mainLayout->addWidget(buttonBox);
 
     setupWindow();
-    setHelp(QString(), "kalzium");
 }
 
 KOpenBabel::~KOpenBabel()
@@ -94,9 +105,6 @@ void KOpenBabel::setupWindow()
     connect(ui.selectAllFileButton,
             SIGNAL(clicked()), SLOT(slotSelectAll()));
 
-    connect(this,
-            SIGNAL(user1Clicked()), SLOT(slotConvert()));
-
     connect(ui.FileListView,
             SIGNAL(itemSelectionChanged()), SLOT(slotGuessInput()));
 }
@@ -115,16 +123,17 @@ void KOpenBabel::slotAddFile()
 
     QStringList tmpList = InputType;
     tmpList.replaceInStrings(QRegExp("^"), "*.");
-    tmpList.replaceInStrings(QRegExp(" -- "), "|");
-    tmpList.replaceInStrings(QRegExp("/"), "\\/"); //escape all '/' (because of MimeTypes)
+    tmpList.replaceInStrings(QRegExp("(.*) -- (.*)"), "\\2(\\1)");
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // tmpList is now something like this:                                                                                      //
-    // "*.acr|ACR format [Read-only]", "*.alc|Alchemy format"                                                                   //
+    // "ACR format [Read-only] (*.acr)", "Alchemy format (*.alc)"                                                                   //
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    QList<QUrl> fl = KFileDialog::getOpenUrls(
+    QList<QUrl> fl = QFileDialog::getOpenFileUrls(
+            this,
+            i18n("Open Molecule File"),
             QUrl(),
-            "*|" +i18n("All Files") + '\n' + tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
+            i18n("All Files") + "(*.*);;" + tmpList.join(";;") //add all possible extensions like "*.cml *.mol"
             );
 
     foreach (const QUrl &u , fl) {
@@ -241,6 +250,11 @@ void KOpenBabel::slotConvert()
             break;
         }
     }
+}
+
+void KOpenBabel::slotHelpRequested()
+{
+    KHelpClient::invokeHelp("kalzium-mainwindow", "kalzium");
 }
 
 void KOpenBabel::addFile(const QString &filename)

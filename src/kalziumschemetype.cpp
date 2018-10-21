@@ -27,12 +27,10 @@
 #endif
 
 #include <QBrush>
-
-#include <klocale.h>
 #include <QDebug>
 #include <QStandardPaths>
 
-
+#include <KLocalizedString>
 
 KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 {
