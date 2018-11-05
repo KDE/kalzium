@@ -100,7 +100,7 @@ calculator :: ~calculator()
 
 void calculator::slotItemSelection(QTreeWidgetItem *item)
 {
-    if (item == 0L) {
+    if (item == nullptr) {
         return;
     }
 

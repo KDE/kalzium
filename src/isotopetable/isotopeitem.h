@@ -43,7 +43,7 @@ public:
     /**
      * @param isotope The Isotope represented
      */
-    IsotopeItem(Isotope *isotope, qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+    IsotopeItem(Isotope *isotope, qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr);
 
     /**
       * @return the Isotope the item represents

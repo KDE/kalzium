@@ -24,7 +24,7 @@
 
 IsotopeGuideView::IsotopeGuideView(QWidget *parent) : QGraphicsView(parent)
 {
-    m_guidedView = 0;
+    m_guidedView = nullptr;
     m_scale = 1.0;
 
     setCursor(Qt::OpenHandCursor);

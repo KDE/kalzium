@@ -34,7 +34,7 @@ public:
     /**
      * @param isotope The Isotope represented
      */
-    InformationItem(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+    InformationItem(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr);
 
     /**
      * @return the Type of the item
