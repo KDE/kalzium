@@ -101,6 +101,7 @@
   <url type="help">http://docs.kde.org/stable/en/kdeedu/kalzium/</url>
   <screenshots>
     <screenshot type="default">
+      <caption>Periodic table of elements view in Kalzium</caption>
       <image>http://kde.org/images/screenshots/kalzium.png</image>
     </screenshot>
   </screenshots>
