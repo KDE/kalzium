@@ -106,6 +106,7 @@
       <caption xml:lang="ca">Vista de la taula periòdica dels elements al Kalzium</caption>
       <caption xml:lang="ca-valencia">Vista de la taula periòdica dels elements al Kalzium</caption>
       <caption xml:lang="de">Absicht des Periodensystems der Elemente in Kalzium</caption>
+      <caption xml:lang="en-GB">Periodic table of elements view in Kalzium</caption>
       <caption xml:lang="es">Vista de la tabla periódica de los elementos en Kalzium</caption>
       <caption xml:lang="gl">Vista da táboa periódica dos elementos en Kalzium</caption>
       <caption xml:lang="nl">Weergave van Periodiek systeem der elementen in Kalzium</caption>
@@ -114,6 +115,7 @@
       <caption xml:lang="sv">Periodiska systemet visat i Kalzium</caption>
       <caption xml:lang="uk">Перегляд періодичної таблиці елементів у Kalzium</caption>
       <caption xml:lang="x-test">xxPeriodic table of elements view in Kalziumxx</caption>
+      <caption xml:lang="zh-TW">在 Kalzium 觀看元素週期表</caption>
       <image>http://kde.org/images/screenshots/kalzium.png</image>
     </screenshot>
   </screenshots>
