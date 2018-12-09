@@ -160,7 +160,7 @@ void MoleculeDialog::slotLoadMolecule()
                        commonMoleculeFormats + "(*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-                       " *.mpd *.mol2);;" + allFiles + "(*.*)");
+                       " *.mpd *.mol2);;" + allFiles + "(*)");
 
     loadMolecule(filename);
 }
@@ -213,14 +213,14 @@ void MoleculeDialog::slotSaveMolecule()
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
     QString filename = QFileDialog::getSaveFileName(this, i18n("Choose a file to save to"), QString(),
-                       commonMoleculeFormats + " (*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+                       commonMoleculeFormats + QLatin1String(" (*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-                       " *.mpd *.mol2);;" + allFiles + " (*.*)"
+                       " *.mpd *.mol2);;") + allFiles + QLatin1String(" (*)")
                        );
 
-    if (!filename.contains('.')) {
-        filename.append(".cml");
+    if (!filename.contains(QLatin1String("."))) {
+        filename.append(QLatin1String(".cml"));
     }
 
    IoWrapper io;

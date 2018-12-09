@@ -133,7 +133,7 @@ void KOpenBabel::slotAddFile()
             this,
             i18n("Open Molecule File"),
             QUrl(),
-            i18n("All Files") + "(*.*);;" + tmpList.join(";;") //add all possible extensions like "*.cml *.mol"
+            i18n("All Files") + QLatin1String("(*);;") + tmpList.join(QLatin1String(";;")) //add all possible extensions like "*.cml *.mol"
             );
 
     foreach (const QUrl &u , fl) {

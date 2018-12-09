@@ -19,11 +19,11 @@
 
 #include "concCalculator.h"
 
-#include <ktoolinvocation.h>
 #include "kalziumutils.h"
 #include <kunitconversion/converter.h>
 #include "prefs.h"
-#include <klocalizedstring.h>
+#include <KLocalizedString>
+#include <KToolInvocation>
 #include <QDebug>
 using namespace KUnitConversion;
 
@@ -221,7 +221,7 @@ void concCalculator::calculateAmtSolute()
             break;
         }
         // update mass of solute
-        m_amtSolute = Value(massSolute, "grams");
+        m_amtSolute = Value(massSolute, KUnitConversion::Gram);
         m_amtSolute = m_amtSolute.convertTo(ui.amtSlt_unit->currentText());
         ui.amtSolute->setValue(m_amtSolute.number());
         break;
