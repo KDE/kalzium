@@ -44,7 +44,7 @@ ElementItem::ElementItem(KalziumElementProperty *elProperty, int elementNumber) 
 {
     // Want these items to be selectable
     setFlags(QGraphicsItem::ItemIsSelectable);
-    setAcceptsHoverEvents(true);
+    setAcceptHoverEvents(true);
 
     m_symbol = KalziumDataObject::instance()->element(m_element)->dataAsString(ChemicalDataObject::symbol);
 
@@ -142,7 +142,7 @@ void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event)
 {
     setZValue(200);
     moveBy(-m_width / 4, -m_height / 4);
-    scale(1.5, 1.5);
+    setScale(1.5);
     QGraphicsItem::hoverEnterEvent(event);
 }
 
@@ -151,6 +151,7 @@ void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event)
     resetTransform();
     moveBy(m_width / 4, m_height / 4);
     setZValue(100);
+    setScale(1);
     QGraphicsItem::hoverLeaveEvent(event);
 }
 

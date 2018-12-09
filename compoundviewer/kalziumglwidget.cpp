@@ -23,8 +23,9 @@
 #include <avogadro/qtplugins/pluginmanager.h>
 #include <avogadro/rendering/primitive.h>
 
-#include <QWidget>
+#include <QDebug>
 #include <QSettings>
+#include <QWidget>
 
 #include <config-kalzium.h>
 

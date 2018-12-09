@@ -56,7 +56,6 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     CoreAddons
     DocTools
     I18n
-    KDELibs4Support
     KHtml
     Parts
     Plotting

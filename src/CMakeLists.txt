@@ -138,8 +138,8 @@ add_executable(kalzium ${kalzium_SRCS})
 target_link_libraries(kalzium
     KF5::Plotting
     KF5::KHtml
-    KF5::KDELibs4Support
     KF5::UnitConversion
+    KF5::ItemViews
     Qt5::Script
     Qt5::Svg
     science

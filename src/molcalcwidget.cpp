@@ -31,15 +31,14 @@
 #include "prefs.h"
 
 #include <QDebug>
-#include <kiconloader.h>
-#include <KLocalizedString>
-#include <QPushButton>
-#include <QLineEdit>
-
-#include <QTimer>
-#include <QKeyEvent>
 #include <QFile>
+#include <QKeyEvent>
+#include <QLineEdit>
+#include <QPushButton>
 #include <QStandardPaths>
+#include <QTimer>
+
+#include <KLocalizedString>
 
 MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 {

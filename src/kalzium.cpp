@@ -12,10 +12,8 @@
  ***************************************************************************/
 #include "kalzium.h"
 
-#include <kapplication.h>
 #include <element.h>
 #include <kdeeduglossary.h>
-#include <kactioncollection.h>
 #include "prefs.h"
 #include "ui_settings_colors.h"
 #include "ui_settings_gradients.h"
@@ -48,29 +46,26 @@
 #endif
 
 #include <QDockWidget>
-#include <QToolBox>
-#include <QKeyEvent>
-#include <QRegExp>
-#include <QStatusBar>
-
-#include <QMessageBox>
-#include <kconfigdialog.h>
-#include <kiconloader.h>
-#include <kaction.h>
-#include <kparts/part.h>
-#include <kselectaction.h>
-
-#include <kstandardaction.h>
-#include <QIcon>
-#include <kservicetypetrader.h>
-#include <QUrl>
-#include <kfiledialog.h>
-#include <QLocale>
-#include <KPluginLoader>
-#include <QGridLayout>
-#include <KLocalizedString>
-#include <QStandardPaths>
 #include <QFileDialog>
+#include <QGridLayout>
+#include <QIcon>
+#include <QKeyEvent>
+#include <QLocale>
+#include <QMessageBox>
+#include <QRegExp>
+#include <QStandardPaths>
+#include <QStatusBar>
+#include <QToolBox>
+#include <QUrl>
+
+#include <KActionCollection>
+#include <KConfigDialog>
+#include <KLocalizedString>
+#include <KParts/Part>
+#include <KPluginLoader>
+#include <KSelectAction>
+#include <KServiceTypeTrader>
+#include <KStandardAction>
 
 #define IDS_ELEMENTINFO     7
 

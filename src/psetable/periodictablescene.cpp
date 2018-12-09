@@ -46,7 +46,7 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
     setItemIndexMethod(QGraphicsScene::NoIndex);
 
     m_hoverTimer.setSingleShot(true);
-    connect(&m_hoverTimer, SIGNAL(timeout()), this, SLOT(slotMouseover()));
+    connect(&m_hoverTimer, &QTimer::timeout, this, &PeriodicTableScene::slotMouseover);
 }
 
 PeriodicTableScene::~PeriodicTableScene()
@@ -63,7 +63,7 @@ void PeriodicTableScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    QGraphicsItem *item = QGraphicsScene::itemAt(event->scenePos());
+    QGraphicsItem *item = QGraphicsScene::itemAt(event->scenePos(), QTransform());
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
         m_eventPos = event->scenePos();
     } else {
@@ -75,7 +75,7 @@ void PeriodicTableScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos);
+    QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos, QTransform());
 
     if ((QApplication::mouseButtons() & Qt::LeftButton) &&
             (event->pos() - m_eventPos).manhattanLength() > QApplication::startDragDistance() &&
@@ -113,7 +113,7 @@ void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void PeriodicTableScene::slotMouseover()
 {
-    QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos);
+    QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos, QTransform());
 
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
         int num = item->data(0).toInt();
@@ -131,7 +131,7 @@ void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    QGraphicsItem *item = QGraphicsScene::itemAt(event->scenePos());
+    QGraphicsItem *item = QGraphicsScene::itemAt(event->scenePos(), QTransform());
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
         emit(elementChanged(item->data(0).toInt()));
     }
