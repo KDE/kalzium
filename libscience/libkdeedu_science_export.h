@@ -20,16 +20,13 @@
 #ifndef LIBKDEEDU_SCIENCE_EXPORT_H
 #define LIBKDEEDU_SCIENCE_EXPORT_H
 
-/* needed for KDE_EXPORT and KDE_IMPORT macros */
-#include <kdemacros.h>
-
 #ifndef SCIENCE_EXPORT
 # if defined(MAKE_SCIENCE_LIB)
    /* We are building this library */ 
-#  define SCIENCE_EXPORT KDE_EXPORT
+#  define SCIENCE_EXPORT Q_DECL_EXPORT
 # else
    /* We are using this library */ 
-#  define SCIENCE_EXPORT KDE_IMPORT
+#  define SCIENCE_EXPORT Q_DECL_IMPORT
 # endif
 #endif
 
