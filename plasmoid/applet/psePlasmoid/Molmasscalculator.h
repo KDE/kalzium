@@ -52,7 +52,7 @@ public:
     void init();
 
 public slots:
-    /// Appens the given String to the lineedit text and let it parse by ParseMolecule.
+    /// Appends the given String to the lineedit text and let it parse by ParseMolecule.
     void appendElement(QString ElementSymbol);
 
     void configChanged();

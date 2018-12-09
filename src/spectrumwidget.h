@@ -84,12 +84,12 @@ public:
     /**
      * @return the adjusted value of the @p color. The
      * correction depends on @p factor which has been
-     * figured out emperically
+     * figured out empirically
      */
     int Adjust(double color, double factor);
 
     /**
-     * @return the postion in the widget of a band
+     * @return the position in the widget of a band
      * with the wavelength @p wavelength
      *
      * @param wavelength the wavelength for which the position is needed

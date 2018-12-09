@@ -494,7 +494,7 @@ void concentrationCalculator::calculateAmountSolute()
     // We have the amount of solvent in some form (moles, equivalents, mass, volume etc)
     // Now we have to present it in the UI
     switch (type2) {
-    case 0: // amount should be specified interms of mass
+    case 0: // amount should be specified in terms of mass
         switch (mode) {
         case 1: // we should get mass from moles
             massSolute = molesSolute * m_MolarMass;
@@ -1156,7 +1156,7 @@ void concentrationCalculator::setMode (int mode)
         return;
     }
 
-    // set all to writeable
+    // set all to writable
     m_amountSolute->nativeWidget()->setReadOnly(false);
     m_molarMass->nativeWidget()->setReadOnly(false);
     m_eqtMass->nativeWidget()->setReadOnly(false);

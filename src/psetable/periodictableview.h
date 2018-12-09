@@ -39,7 +39,7 @@
 /**
  * @class PeriodicTableView
  * In this class the periodic table of elements is created.
- * It provides slots to change the tables and accessing the element propertys
+ * It provides slots to change the tables and accessing the element properties
  * @short Base class and creation for the pse System
  * @author Carsten Niehaus
  * @author Marcus D. Hanwell
@@ -61,12 +61,12 @@ public:
 
     /**
      * Returns the current id of the pse-table.
-     * The id is the same as the menü and the pse list from the pseTables class.
+     * The id is the same as the menu and the pse list from the pseTables class.
      */
     int table() const;
 
     /**
-     * Genarates and saves the pse as svg in the given filename.
+     * Generates and saves the pse as svg in the given filename.
      * @param filename filename of the destination.
      */
     void generateSvg(const QString& filename);
@@ -129,7 +129,7 @@ protected:
     bool event(QEvent *e) override;
 
     /**
-     * is caled every time the view is resized.
+     * is called every time the view is resized.
      */
     void resizeEvent(QResizeEvent * event) override;
 };

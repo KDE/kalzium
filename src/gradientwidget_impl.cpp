@@ -211,7 +211,7 @@ void GradientWidgetImpl::play(void)
     if ((gradient_slider)->value() >= gradient_slider->maximum()) {
         gradient_slider->setValue (gradient_slider->minimum ());
     }
-    //start the timer at 200 milisecond time interval with single shot disabled
+    //start the timer at 200 millisecond time interval with single shot disabled
     m_timer->start(200);
 
     m_play = true;          //start playing

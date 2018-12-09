@@ -495,7 +495,7 @@ void nuclearCalculator::calculate()
         }
         calculateInitAmount();
         break;
-    case 1: // Calulate final Amount after time
+    case 1: // Calculate final Amount after time
         if (m_InitAmount.number() == 0.0) {
             error(INIT_AMT_ZERO);
             return;

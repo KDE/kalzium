@@ -46,7 +46,7 @@ class calculator : public QDialog
 
 public:
     /*
-     * The clas constructor and destructor, takes in a Widget as parent
+     * The class constructor and destructor, takes in a Widget as parent
      */
     calculator(QWidget *parent = nullptr);             // constructor
     ~ calculator();                             // destructor

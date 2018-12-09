@@ -130,11 +130,11 @@ void Kalzium::setupActions()
     export_action->setText(i18n("&Export Data..."));
     connect(export_action, SIGNAL(triggered(bool)), this, SLOT(slotShowExportDialog()));
 
-    // the action for swiching look: color schemes and gradients
+    // the action for switching look: color schemes and gradients
     QStringList schemes = KalziumElementProperty::instance()->schemeList();    /*KalziumSchemeTypeFactory::instance()->schemes();*/
     QStringList gradients = KalziumElementProperty::instance()->gradientList();
 
-    // the action for swiching look: schemes
+    // the action for switching look: schemes
     look_action_schemes = actionCollection()->add<KSelectAction>("view_look_onlyschemes");
     look_action_schemes->setText(i18n("&Scheme"));
     look_action_schemes->setItems(schemes);
@@ -142,7 +142,7 @@ void Kalzium::setupActions()
     look_action_schemes->setToolButtonPopupMode(QToolButton::InstantPopup);
     connect(look_action_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
 
-    // the action for swiching look: gradients
+    // the action for switching look: gradients
     look_action_gradients = actionCollection()->add<KSelectAction>("view_look_onlygradients");
     look_action_gradients->setText(i18n("&Gradients"));
     look_action_gradients->setItems(gradients);
@@ -150,7 +150,7 @@ void Kalzium::setupActions()
     look_action_gradients->setToolButtonPopupMode(QToolButton::InstantPopup);
     connect(look_action_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)));
 
-    // the action for swiching tables
+    // the action for switching tables
     QStringList table_schemes = pseTables::instance()->tables();
     table_action =  actionCollection()->add<KSelectAction>("view_table");
     table_action->setText(i18n("&Tables"));
@@ -535,7 +535,7 @@ void Kalzium::slotUpdateSettings()
 
     Prefs::self()->save();
 
-    /*This slot function calls change the color of pse elements immideately after prefs change*/
+    /*This slot function calls change the color of pse elements immediately after prefs change*/
     slotSwitchtoLookGradient(Prefs::colorgradientbox());
     slotSwitchtoLookScheme(Prefs::colorschemebox());
 }

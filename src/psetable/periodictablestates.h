@@ -53,7 +53,7 @@ public:
     /**
      * Get the rectangle of the given periodic table.
      * @param tableIndex Index of the table @see pseTables.
-     * @return Rectangle in floating point precission.
+     * @return Rectangle in floating point precision.
      */
     QRectF pseRect(const int &tableIndex) const;
 

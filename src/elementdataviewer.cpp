@@ -382,7 +382,7 @@ void ElementDataViewer::drawPlot()
     double min_y = m_yData->value(from);
 
     /*
-     * iterate for example from element 20 to 30 and contruct
+     * iterate for example from element 20 to 30 and construct
      * the KPlotObjects
      */
     dataPointGreen = new KPlotObject(
@@ -518,7 +518,7 @@ void ElementDataViewer::drawPlot()
     ui.plotwidget->addPlotObject(dataPointRed);
 
     if (num > 0) {
-        //now set the values for the min, max and avarage value
+        //now set the values for the min, max and average value
         ui.av_x->setText(QString::number(av_x / num).append(m_xData->unit));
         ui.minimum_x->setText(QString::number(min_x).append(m_xData->unit));
         ui.maximum_x->setText(QString::number(max_x).append(m_xData->unit));

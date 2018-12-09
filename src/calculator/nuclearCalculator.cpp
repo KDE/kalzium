@@ -342,7 +342,7 @@ void nuclearCalculator::calculate()
         }
         calculateInitAmount();
         break;
-    case 1:        // calulate final amount after given time
+    case 1:        // calculate final amount after given time
         if (ui.initAmt->value() == 0.0) {
             error(INIT_AMT_ZERO);
             return;

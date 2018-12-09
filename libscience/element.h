@@ -35,7 +35,7 @@ class Isotope;
  * In this class all information about an element are stored. This means that
  * both the chemical date and the data about the position are stored
  * in this class.
- * @short This class is the represention of a chemical element
+ * @short This class is the representation of a chemical element
  * @author Carsten Niehaus
 */
 class SCIENCE_EXPORT Element

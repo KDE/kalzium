@@ -79,7 +79,7 @@ Molmasscalculator::~Molmasscalculator()
 
 void Molmasscalculator::init()
 {
-    // checking if the Dataengine is availiable
+    // checking if the Dataengine is available
     if (!dataEngine("kalzium")->isValid()) {
         setFailedToLaunch(true, i18n("Dataengine \"kalzium\" not found"));
     }

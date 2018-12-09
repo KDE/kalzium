@@ -30,7 +30,7 @@
 
 /**
  * @class pseTables
- * Provides functions to easyli create pse tables with qGridLayouts or qGraphicsView.
+ * Provides functions to easily create pse tables with qGridLayouts or qGraphicsView.
  *
  * creating a table for the gridlayout
 @code
@@ -57,7 +57,7 @@
         int itemAtPos = pseTables::instance()->getTabletype(j)->numerationAtPos(i);
     }
  @endcode
- * @short Provides shape and elements of diferent peridic tables of elements
+ * @short Provides shape and elements of different periodic tables of elements
  * @author Etienne Rebetez
  */
 class pseTable;
@@ -93,13 +93,13 @@ public:
 private:
     pseTables();
     QList<pseTable*> m_tables;
-    int m_currentTable;
+    //int m_currentTable;
 };
 
 
 /**
  * defines a Periodic Table.
- * Holds the position (x,y) and all the displaed elements
+ * Holds the position (x,y) and all the displayed elements
  */
 class pseTable
 
@@ -167,7 +167,7 @@ public:
 
      /**
      * Returns the Numeration for the current Table according to the position in the Table.
-     * Coordinatates beginning wiht 0. Returns -1 if none is found.
+     * Coordinates beginning with 0. Returns -1 if none is found.
      */
      virtual int numerationAtPos(int xPos) const;
 

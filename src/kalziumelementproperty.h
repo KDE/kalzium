@@ -27,10 +27,10 @@
 
 /**
  * The logic of the scheme and the gradients is merged in this class. It provides
- * an api to set the gradient and scheme without worring about the real id's.
- * Elements can then get their propertys with the element functions.
+ * an API to set the gradient and scheme without worrying about the real id's.
+ * Elements can then get their properties with the element functions.
  * Here is also the place where the gradientslider is evaluated. (see gradientwidget)
- * @short This class holds the logic of the appiriance from the periodic table
+ * @short This class holds the logic of the appearance from the periodic table
  * @author Etienne Rebetez
 */
 
@@ -71,7 +71,7 @@ public:
      */
     int schemeId() const;
     /**
-     * Returns the current gradient id as int. Equivalent to the gradent list.
+     * Returns the current gradient id as int. Equivalent to the gradient list.
      */
     int gradientId() const;
 
@@ -86,14 +86,14 @@ public:
 
     /**
      * This is an element function.
-     * It returns the Brush (Backround) for the given element.
+     * It returns the Brush (Background) for the given element.
      * It uses the color form getElementColor.
      * @param el Number of the element.
      */
     QBrush getElementBrush(int el);
     /**
      * This is an element function.
-     * It returns the Color (Backround) for the given element.
+     * It returns the Color (Background) for the given element.
      * @param el Number of the element.
      */
     QColor getElementColor(int el);
@@ -112,7 +112,7 @@ public:
 
     /**
      * This is an element function.
-     * It returns the value from the current gradent type for the given element.
+     * It returns the value from the current gradient type for the given element.
      * @param el Number of the element.
      */
     double getValue(int el) const;
@@ -126,7 +126,7 @@ public:
 
 Q_SIGNALS:
     /**
-     * Is emitted every time a property (scheme, gradent, ...) is changed.
+     * Is emitted every time a property (scheme, gradient, ...) is changed.
      * all elements will be redrawn.
      */
     void propertyChanged();

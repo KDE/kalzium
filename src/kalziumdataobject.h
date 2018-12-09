@@ -130,7 +130,7 @@ private:
 
     Search *m_search;
 
-    friend class StaticKalziumDataObject;
+    friend struct StaticKalziumDataObject;
 };
 
 #endif // KALZIUMDATAOBJECT_H

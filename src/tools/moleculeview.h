@@ -96,7 +96,7 @@ private slots:
 
 private:
     // workaround for broken copy-operator of QtGui::Molecule
-    // whould be removed after next Avogadro release greater 0.9
+    // would be removed after next Avogadro release greater 0.9
     Avogadro::QtGui::Molecule m_molecule;
 };
 

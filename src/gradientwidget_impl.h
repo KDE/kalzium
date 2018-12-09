@@ -68,7 +68,7 @@ private slots:
     void doubleToSlider(double var);
     void intToSpinbox(int var);
     /**
-     * is used to display custom text in the widget accrding tu the current value of the gradient
+     * is used to display custom text in the widget according to the current value of the gradient
      */
     void setNewValue(double newValue);
 

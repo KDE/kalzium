@@ -450,7 +450,7 @@ void DetailedInfoDlg::createContent()
 {
     KPageWidgetItem *item = nullptr;
 
-   // Removed the overview Tab, because its an Dockwidget and dosn't show much information.
+   // Removed the overview Tab, because its an Dockwidget and doesn't show much information.
     // overview tab
 //     QWidget *m_pOverviewTab = new QWidget();
 //     item = addPage(m_pOverviewTab, i18n("Overview"));

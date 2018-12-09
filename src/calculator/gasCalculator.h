@@ -49,7 +49,7 @@ enum MODE_CALCULATION_GAS {
 
 /**
  * This class implements the gas calculator. It performs basic calculations like
- * calculation of volume given pressure, temerature, amount etc. and so on.
+ * calculation of volume given pressure, temperature, amount etc. and so on.
  *
  *   Van der Val's gas equation
  *   ( P + n^2 a / V^2) ( V - nb ) = nRT

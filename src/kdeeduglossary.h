@@ -89,12 +89,12 @@ public:
     /**
      * defines which picture to use as the background
      * of the htmlview. The dialog
-     * will use the file specifiec by the @p filename
+     * will use the file specific by the @p filename
      */
     void setBackgroundPicture(const QString& filename);
 
     /**
-     * @return the picuture used as the background in
+     * @return the picture used as the background in
      * this background
      */
     QString backgroundPicture()const;
@@ -181,7 +181,7 @@ public:
     QStringList pictures() const;
 
     /**
-     * @return the formated HTML code for current item.
+     * @return the formatted HTML code for current item.
      */
     QString toHtml() const;
 

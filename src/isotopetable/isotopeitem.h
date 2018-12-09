@@ -26,7 +26,7 @@
 class Isotope;
 
 /**
- * The class represtens the items which is drawn on the QGraphicsScene. Each such item represents on
+ * The class represents the items which is drawn on the QGraphicsScene. Each such item represents on
  * Isotope.
  * @author Carsten Niehaus
  */
