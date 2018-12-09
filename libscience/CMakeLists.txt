@@ -1,6 +1,10 @@
 add_subdirectory(data)
 add_subdirectory(tests)
 
+remove_definitions(
+     -DQT_RESTRICTED_CAST_FROM_ASCII # temporarily, until all Avogadro's glwidget.h will be fixed
+)
+
 set(science_LIB_SRCS
    element.cpp
    spectrum.cpp
@@ -16,7 +20,7 @@ set(science_LIB_SRCS
 
 add_library(science SHARED ${science_LIB_SRCS})
 
-target_link_libraries(science Qt5::OpenGL Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::KDELibs4Support)
+target_link_libraries(science Qt5::OpenGL Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
 set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )
 install(TARGETS science  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
