@@ -18,7 +18,8 @@ email                : cniehaus@kde.org
 #include "element.h"
 
 #include <QDebug>
-#include <klocale.h>
+
+#include <KLocalizedString>
 
 class ElementSaxParser::Private
 {

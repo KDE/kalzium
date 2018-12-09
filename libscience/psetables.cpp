@@ -21,8 +21,10 @@
 
 #include "psetables.h"
 
-#include <klocale.h>
 #include <QDebug>
+
+#include <KLocalizedString>
+
 
 
 pseTables::pseTables()

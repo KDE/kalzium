@@ -26,7 +26,7 @@
 #include <QClipboard>
 
 // KDE
-#include <KLocale>
+#include <KLocalizedString>
 #include <KConfigDialog>
 #include <psetables.h>
 

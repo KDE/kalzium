@@ -21,7 +21,7 @@
 
 #include "element.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kunitconversion/converter.h>
 
 #include <math.h>
