@@ -1,10 +1,6 @@
 add_subdirectory(data)
 add_subdirectory(tests)
 
-remove_definitions(
-     -DQT_RESTRICTED_CAST_FROM_ASCII # temporarily, until all Avogadro's glwidget.h will be fixed
-)
-
 set(science_LIB_SRCS
    element.cpp
    spectrum.cpp
