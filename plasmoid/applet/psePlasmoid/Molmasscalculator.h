@@ -22,8 +22,8 @@
 #ifndef MOLMASSCALCULATOR_H
 #define MOLMASSCALCULATOR_H
 
-#include <QGraphicsGridLayout>
 #include <QColor>
+#include <QGraphicsGridLayout>
 
 // We need the Plasma Applet headers
 #include <plasma/widgets/label.h>

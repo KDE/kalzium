@@ -21,9 +21,11 @@
 #define CONCCALCULATOR_H
 
 #include <QDebug>
+
+#include <KUnitConversion/UnitCategory>
+
 #include <prefs.h>
 #include <kalziumdataobject.h>
-#include <kunitconversion/unitcategory.h>
 
 #include "ui_concCalculator.h"
 

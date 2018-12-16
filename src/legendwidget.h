@@ -20,8 +20,9 @@
 #ifndef LEGENDWIDGET_H
 #define LEGENDWIDGET_H
 
-#include "kalziumelementproperty.h"
 #include <QLabel>
+
+#include "kalziumelementproperty.h"
 
 class LegendItem;
 

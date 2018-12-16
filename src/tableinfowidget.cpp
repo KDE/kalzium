@@ -17,15 +17,15 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 #include "tableinfowidget.h"
-#include "prefs.h"
-#include "kalziumschemetype.h"
+
+#include <QDebug>
+#include <QHBoxLayout>
 
 #include <KLocalizedString>
 
+#include "prefs.h"
+#include "kalziumschemetype.h"
 #include "psetables.h"
-
-#include <QHBoxLayout>
-#include <QDebug>
 
 TableInfoWidget::TableInfoWidget(QWidget *parent) : QWidget(parent)
 {

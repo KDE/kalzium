@@ -13,11 +13,11 @@
 
 #include "gradientwidget_impl.h"
 
-#include <QTimer>
+#include <KLocalizedString>
 
 #include <QDebug>
-#include <KLocalizedString>
 #include <QIcon>
+#include <QTimer>
 
 #include <element.h>
 #include <math.h>

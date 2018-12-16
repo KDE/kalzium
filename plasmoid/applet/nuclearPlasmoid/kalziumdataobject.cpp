@@ -24,17 +24,18 @@
 #include <isotopeparser.h>
 #include <spectrumparser.h>
 
+#include <QDebug>
 #include <QFile>
-#include <QVariant>
-#include <QSvgRenderer>
 #include <QPainter>
+#include <QStandardPaths>
+#include <QSvgRenderer>
+#include <QVariant>
+#include <QXmlReader>
 
 #include <KLocalizedString>
-#include <QDebug>
 
-#include <kpixmapcache.h>
-#include <QXmlReader>
-#include <QStandardPaths>
+// kdelibs4support
+#include <KPixmapCache>
 
 KalziumDataObject* KalziumDataObject::instance()
 {

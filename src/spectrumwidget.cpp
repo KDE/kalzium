@@ -26,17 +26,17 @@
 #include <config-kalzium.h>
 
 #include <element.h>
-
-#include <kunitconversion/converter.h>
 #include <math.h>
 
+#include <QDebug>
+#include <QGlobalStatic>
 #include <QKeyEvent>
-#include <QSizePolicy>
 #include <QPainter>
 #include <QPixmap>
-#include <QDebug>
+#include <QSizePolicy>
 
-#include <qglobal.h>
+#include <KUnitConversion/Converter>
+
 #if defined(HAVE_IEEEFP_H)
 #include <ieeefp.h>
 #endif

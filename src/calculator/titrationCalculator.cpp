@@ -19,25 +19,28 @@
 
 #include "titrationCalculator.h"
 
-#include <math.h>
-#include "prefs.h"
-#include <iostream>
-#include <fstream>
-#include <cstring>
 #include <cctype>
-#include <cstdlib>
 #include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <float.h>
+#include <fstream>
+#include <iostream>
+#include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
+
 #include <QFileDialog>
+#include <QMessageBox>
+#include <QScriptClass>
+#include <QScriptEngine>
 #include <QScriptEngine>
 #include <QScriptValue>
-#include <QScriptClass>
 #include <QVarLengthArray>
-#include <qscriptengine.h>
-#include <stdlib.h>
-#include <float.h>
-#include <QMessageBox>
+
 #include <KLocalizedString>
+
+#include "prefs.h"
 
 using namespace std;
 

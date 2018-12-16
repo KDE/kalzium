@@ -26,11 +26,13 @@
 
 #include <isotope.h>
 
-#include <KConfigGroup>
 #include <QDebug>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+#include <KConfigGroup>
+
 #include <prefs.h>
 
 IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)

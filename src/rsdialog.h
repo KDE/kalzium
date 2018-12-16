@@ -21,13 +21,13 @@
 #define RSDIALOG_H
 
 #include <QDialog>
-#include <QWidget>
 #include <QMap>
+#include <QWidget>
 
 #include "ui_rswidget.h"
 
 /**
- * This class
+ * This class is the main class for R- and S-Phrases dialog.
  *
  * @author Carsten Niehaus
  */

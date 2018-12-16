@@ -20,10 +20,11 @@
 #include "nuclearCalculator.h"
 
 #include <math.h>
-#include "prefs.h"
-#include "kalziumutils.h"
+
 #include <KLocalizedString>
 
+#include "prefs.h"
+#include "kalziumutils.h"
 
 using namespace KUnitConversion;
 

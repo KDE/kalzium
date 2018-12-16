@@ -26,9 +26,9 @@ class KalziumSchemeType;
 
 #include <config-kalzium.h>
 
+#include <QBrush>
 #include <QByteArray>
 #include <QColor>
-#include <QBrush>
 #include <QPair>
 #include <QRect>
 

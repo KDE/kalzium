@@ -20,7 +20,7 @@
 #ifndef EQCHEMVIEW_H
 #define EQCHEMVIEW_H
 
-#include <qwidget.h>
+#include <QWidget>
 
 #include "ui_equationview.h"
 

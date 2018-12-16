@@ -19,15 +19,12 @@
 
 #include "detailedQmlView.h"
 
-
-
-#include <QVBoxLayout>
-#include <QDeclarativeView>
-
 #include <QDebug>
-#include <prefs.h>
+#include <QDeclarativeView>
 #include <QStandardPaths>
+#include <QVBoxLayout>
 
+#include <prefs.h>
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 

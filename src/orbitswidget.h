@@ -18,8 +18,8 @@
 #ifndef ORBITSWIDGET_H
 #define ORBITSWIDGET_H
 
-#include <QWidget>
 #include <QLabel>
+#include <QWidget>
 
 /**
  * @brief the widget which displays the Bohr-orbit of the element

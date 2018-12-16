@@ -13,28 +13,30 @@
 
 #include "gasCalculator.h"
 
-#include <QPainter>
-#include <QFontMetrics>
 #include <QApplication>
+#include <QFontMetrics>
+#include <QGraphicsGridLayout>
 #include <QGridLayout>
+#include <QLabel>
+#include <QPainter>
 #include <QPushButton>
 #include <QRadioButton>
-#include <KTextEdit>
+#include <QSizeF>
 #include <QSlider>
 #include <QSpinBox>
-#include <KIntSpinBox>
-#include <KComboBox>
-#include <QSizeF>
-#include <QLabel>
+
 #include <Plasma/ComboBox>
-#include <Plasma/LineEdit>
-#include <Plasma/Label>
 #include <Plasma/Frame>
-#include <Plasma/RadioButton>
-#include <Plasma/SpinBox>
+#include <Plasma/Label>
+#include <Plasma/LineEdit>
 #include <Plasma/PushButton>
+#include <Plasma/RadioButton>
 #include <Plasma/Slider>
-#include <QGraphicsGridLayout>
+#include <Plasma/SpinBox>
+
+#include <KComboBox>
+#include <KIntSpinBox>
+#include <KTextEdit>
 
 #include <plasma/svg.h>
 #include <plasma/theme.h>

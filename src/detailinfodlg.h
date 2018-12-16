@@ -16,8 +16,9 @@
 #ifndef DETAILINFODLG_H
 #define DETAILINFODLG_H
 
-#include <QUrl>
 #include <QMap>
+#include <QUrl>
+
 #include <KPageDialog>
 
 class DetailedGraphicalOverview;

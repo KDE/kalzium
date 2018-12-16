@@ -15,9 +15,10 @@ email                : cniehaus@kde.org
 
 #include "chemicaldataobject.h"
 #include "isotope.h"
-#include <kunitconversion/converter.h>
+
 #include <QDebug>
 
+#include <KUnitConversion/Converter>
 
 class IsotopeParser::Private
 {

@@ -20,8 +20,8 @@
 #include <Plasma/Svg>
 #include <element.h>
 #include <isotope.h>
-#include <kunitconversion/converter.h>
-#include <kunitconversion/value.h>
+#include <KUnitConversion/Converter>
+#include <KUnitConversion/Value>
 
 #include "kalziumdataobject.h"
 

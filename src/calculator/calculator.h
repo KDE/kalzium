@@ -21,14 +21,16 @@
 #define CALCULATOR_H
 
 #include <QDialog>
-#include "ui_calculator.h"
 
+#include <KActionCollection>
+
+#include "ui_calculator.h"
 #include "nuclearCalculator.h"
 #include "gasCalculator.h"
 #include "concCalculator.h"
 #include "titrationCalculator.h"
 #include "molcalcwidget.h"
-#include <kactioncollection.h>
+
 #include <config-kalzium.h>
 #ifdef HAVE_FACILE
 #include <eqchemview.h>

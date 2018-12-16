@@ -20,12 +20,11 @@
 
 #include <QFile>
 #include <QLatin1String>
+#include <QLocalizedString>
+#include <QStandardPaths>
 #include <QStringList>
 
-#include <QLocalizedString>
-
 #include <KConfigGroup>
-#include <QStandardPaths>
 
 #include "plasma/datacontainer.h"
 

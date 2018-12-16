@@ -15,19 +15,10 @@
 #include "elementdataviewer.h"
 
 #include <element.h>
-#include <kplotaxis.h>
-#include <kplotobject.h>
 
 #include "prefs.h"
-#include <KActionCollection>
-#include <KConfig>
-#include <KConfigGroup>
-#include <KHelpClient>
-#include <KStandardAction>
-#include <KToolInvocation>
-#include <KUnitConversion/Converter>
 
-//QT-Includes
+//Qt-Includes
 #include <QDebug>
 #include <QDialogButtonBox>
 #include <QKeyEvent>
@@ -35,6 +26,16 @@
 #include <QPushButton>
 #include <QTimer>
 #include <QVBoxLayout>
+
+#include <KActionCollection>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KHelpClient>
+#include <KPlotAxis>
+#include <KPlotObject>
+#include <KStandardAction>
+#include <KToolInvocation>
+#include <KUnitConversion/Converter>
 
 AxisData::AxisData(AXISTYPE type) : currentDataType(-1)
 {

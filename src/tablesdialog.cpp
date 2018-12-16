@@ -14,24 +14,23 @@
 
 #include "tablesdialog.h"
 
-#include <KLocalizedString>
-#include <QIcon>
-#include <kactioncollection.h>
-#include <kcombobox.h>
-#include <kpagewidgetmodel.h>
-#include <kstandardaction.h>
-#include <ktoolinvocation.h>
-#include <QDialog>
-
 #include <QApplication>
 #include <QClipboard>
 #include <QContextMenuEvent>
+#include <QDialog>
+#include <QHeaderView>
+#include <QIcon>
 #include <QLayout>
 #include <QMenu>
-#include <QHeaderView>
-#include <Qt>
 #include <QTableWidget>
+
+#include <KActionCollection>
+#include <KComboBox>
 #include <KConfigGroup>
+#include <KLocalizedString>
+#include <KPageWidgetModel>
+#include <KStandardAction>
+#include <KToolInvocation>
 
 TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
 {

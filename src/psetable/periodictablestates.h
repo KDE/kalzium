@@ -18,8 +18,8 @@
 #ifndef PERIODICTABLESTATES_H
 #define PERIODICTABLESTATES_H
 
-#include <QStateMachine>
 #include <QParallelAnimationGroup>
+#include <QStateMachine>
 
 #include "kalziumelementproperty.h"
 

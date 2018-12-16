@@ -15,11 +15,11 @@
 #define ISOTOPEPARSER_H
 
 #include <QList>
+#include <QXmlAttributes>
+#include <QXmlDefaultHandler>
 
 #include "libkdeedu_science_export.h"
 
-#include <QXmlAttributes>
-#include <QXmlDefaultHandler>
 
 class Isotope;
 

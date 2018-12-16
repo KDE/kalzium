@@ -21,9 +21,9 @@
 
 #include "prefs.h"
 
-#include <QHBoxLayout>
-#include <QGridLayout>
 #include <QDebug>
+#include <QGridLayout>
+#include <QHBoxLayout>
 
 #include <KLocalizedString>
 

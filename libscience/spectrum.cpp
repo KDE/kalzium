@@ -22,7 +22,7 @@
 #include "element.h"
 
 #include <KLocalizedString>
-#include <kunitconversion/converter.h>
+#include <KUnitConversion/Converter>
 
 #include <math.h>
 

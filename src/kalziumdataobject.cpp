@@ -25,18 +25,18 @@
 #include <isotopeparser.h>
 #include <spectrumparser.h>
 
+#include <QCoreApplication>
+#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
-#include <QSvgRenderer>
-#include <QPainter>
-#include <QCoreApplication>
 #include <QGlobalStatic>
 #include <QLocale>
-#include <QDebug>
+#include <QPainter>
+#include <QStandardPaths>
+#include <QSvgRenderer>
 #include <QUrl>
 
-#include <kunitconversion/converter.h>
-#include <QStandardPaths>
+#include <KUnitConversion/Converter>
 
 struct StaticKalziumDataObject
 {

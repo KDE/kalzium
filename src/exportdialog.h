@@ -14,9 +14,10 @@
 #ifndef EXPORTDIALOG_H
 #define EXPORTDIALOG_H
 
-#include <QListWidget>
-#include <element.h>
 #include <QDialog>
+#include <QListWidget>
+
+#include <element.h>
 #include "kalziumdataobject.h"
 #include "ui_exportdialog.h"
 

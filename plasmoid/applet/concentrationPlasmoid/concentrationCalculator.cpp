@@ -13,18 +13,24 @@
 
 #include "concentrationCalculator.h"
 
-#include <QPainter>
-#include <QFontMetrics>
 #include <QApplication>
+#include <QFontMetrics>
+#include <QGraphicsGridLayout>
+#include <QGraphicsLinearLayout>
 #include <QGridLayout>
+#include <QLabel>
+#include <QPainter>
 #include <QPushButton>
 #include <QRadioButton>
-#include <KTextEdit>
-#include <QSlider>
-#include <KIntSpinBox>
-#include <KComboBox>
 #include <QSizeF>
-#include <QLabel>
+#include <QSlider>
+
+#include <KComboBox>
+#include <KConfigDialog>
+#include <KConfigGroup>
+#include <KIntSpinBox>
+#include <KTextEdit>
+
 #include <Plasma/ComboBox>
 #include <Plasma/LineEdit>
 #include <Plasma/Label>
@@ -34,14 +40,9 @@
 #include <Plasma/SpinBox>
 #include <Plasma/Slider>
 #include <Plasma/PushButton>
-#include <QGraphicsGridLayout>
-#include <QGraphicsLinearLayout>
 
 #include <plasma/svg.h>
 #include <plasma/theme.h>
-
-#include <KConfigDialog>
-#include <KConfigGroup>
 
 using namespace KUnitConversion;
 

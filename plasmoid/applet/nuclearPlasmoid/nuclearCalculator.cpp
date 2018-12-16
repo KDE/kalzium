@@ -13,36 +13,39 @@
 
 #include "nuclearCalculator.h"
 
-#include <QPainter>
-#include <QFontMetrics>
 #include <QApplication>
-#include <QGridLayout>
-#include <QPushButton>
-#include <QRadioButton>
-#include <KTextEdit>
-#include <QSlider>
-#include <QSpinBox>
-#include <KIntSpinBox>
-#include <KComboBox>
-#include <QSizeF>
-#include <QLabel>
-#include <Plasma/ComboBox>
-#include <Plasma/LineEdit>
-#include <Plasma/Label>
-#include <Plasma/Frame>
-#include <Plasma/RadioButton>
-#include <Plasma/SpinBox>
-#include <Plasma/Slider>
-#include <Plasma/GroupBox>
-#include <Plasma/PushButton>
+#include <QFontMetrics>
 #include <QGraphicsGridLayout>
 #include <QGraphicsLinearLayout>
-#include <plasma/svg.h>
-#include <plasma/theme.h>
-#include <math.h>
+#include <QGridLayout>
+#include <QLabel>
+#include <QPainter>
+#include <QPushButton>
+#include <QRadioButton>
+#include <QSizeF>
+#include <QSlider>
+#include <QSpinBox>
 
+#include <Plasma/ComboBox>
+#include <Plasma/Frame>
+#include <Plasma/GroupBox>
+#include <Plasma/Label>
+#include <Plasma/LineEdit>
+#include <Plasma/PushButton>
+#include <Plasma/RadioButton>
+#include <Plasma/Slider>
+#include <Plasma/SpinBox>
+#include <Plasma/Svg>
+#include <Plasma/Theme>
+
+#include <KComboBox>
 #include <KConfigDialog>
 #include <KConfigGroup>
+#include <KIntSpinBox>
+#include <KTextEdit>
+
+#include <math.h>
+
 
 using namespace KUnitConversion;
 

@@ -20,14 +20,15 @@
 #ifndef NUCLEARCALCULATOR_H
 #define NUCLEARCALCULATOR_H
 
+#include <QDebug>
+
+#include <KUnitConversion/UnitCategory>
+#include <KUnitConversion/Converter>
+
 #include <element.h>
 #include <isotope.h>
-
-#include <QDebug>
 #include <prefs.h>
 #include <kalziumdataobject.h>
-#include <kunitconversion/unitcategory.h>
-#include <kunitconversion/converter.h>
 #include "ui_nuclearCalculator.h"
 
 // This is required for the unit conversion

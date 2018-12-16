@@ -22,22 +22,22 @@
 
 // Qt
 #include <QApplication>
-#include <QGraphicsLinearLayout>
 #include <QClipboard>
-
-// KDE
-#include <KLocalizedString>
-#include <KConfigDialog>
-#include <psetables.h>
-
-// Plasma
-#include <plasma/theme.h>
-#include <KConfigGroup>
+#include <QGraphicsLinearLayout>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
+// KDE
+#include <KLocalizedString>
+#include <KConfigDialog>
+#include <KConfigGroup>
+
+// Plasma
+#include <Plasma/Theme>
+
 // local
+#include <psetables.h>
 
 Molmasscalculator::Molmasscalculator(QObject *parent, const QVariantList &args)
         : Plasma::PopupApplet(parent, args),

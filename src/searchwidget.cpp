@@ -19,10 +19,11 @@
 
 #include "searchwidget.h"
 
-#include <QLabel>
-#include <KLineEdit>
-#include <QTimer>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QTimer>
+
+#include <KLineEdit>
 #include <KLocalizedString>
 
 #include "kalziumdataobject.h"

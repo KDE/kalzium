@@ -19,9 +19,8 @@
 #include "element.h"
 #include "parser.h"
 
-#include <QMap>
 #include <QList>
-
+#include <QMap>
 
 /**
  * @class ElementCount

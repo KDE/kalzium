@@ -15,15 +15,15 @@
 
 #include <config-kalzium.h>
 
-#include <QFont>
-#include <QRect>
-#include <QPainter>
 #include <QDebug>
+#include <QFont>
+#include <QPainter>
+#include <QRect>
 
 #include <KLocalizedString>
+#include <KUnitConversion/Converter>
 
 #include <element.h>
-#include <kunitconversion/converter.h>
 
 #include "prefs.h"
 

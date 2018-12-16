@@ -28,9 +28,9 @@
 #define ELEMENTITEM_H
 
 #include <QGraphicsItem>
+
 #include "kalziumdataobject.h"
 #include "kalziumelementproperty.h"
-
 #include <chemicaldataobject.h>
 
 /**

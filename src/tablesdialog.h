@@ -15,11 +15,10 @@
 #ifndef TABLESDIALOG_H
 #define TABLESDIALOG_H
 
-#include <kpagedialog.h>
-
-#include <Qt>
-#include <QTableWidgetItem>
 #include <QTableWidget>
+#include <QTableWidgetItem>
+
+#include <KPageDialog>
 
 /**
  * @author Carsten Niehaus

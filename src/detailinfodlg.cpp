@@ -15,38 +15,38 @@
 
 #include "detailinfodlg.h"
 
+#include "detailedgraphicaloverview.h"
+#include "element.h"
 #include "isotope.h"
 #include "kalziumdataobject.h"
-#include <QDialog>
-#include <QLocale>
-#include <khtml_part.h>
-#include <dom/html_base.h>
-#include <dom/html_document.h>
-#include <khtmlview.h>
-
-#include <kactioncollection.h>
-#include <kpagewidgetmodel.h>
-#include <KConfig>
-#include <KConfigWidgets/khelpclient.h>
-#include <krun.h>
-#include <QIcon>
-#include <KPageDialog>
-#include <QUrl>
+#include "kalziumutils.h"
+#include "orbitswidget.h"
+#include "prefs.h"
 #include "psetables.h"
-#include <QDialogButtonBox>
+#include "spectrumviewimpl.h"
 
+#include <QDialog>
+#include <QDialogButtonBox>
 #include <QFile>
 #include <QFileInfo>
-#include <QLabel>
+#include <QIcon>
 #include <QImage>
+#include <QLabel>
+#include <QLocale>
 #include <QStackedWidget>
 #include <QStandardPaths>
-#include "element.h"
-#include "orbitswidget.h"
-#include "detailedgraphicaloverview.h"
-#include "spectrumviewimpl.h"
-#include "kalziumutils.h"
-#include "prefs.h"
+#include <QUrl>
+
+#include <dom/html_base.h>
+#include <dom/html_document.h>
+#include <KActionCollection>
+#include <KConfig>
+#include <KHTMLPart>
+#include <KHTMLView>
+#include <KHelpClient>
+#include <KPageDialog>
+#include <KPageWidgetModel>
+#include <KRun>
 
 DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent), m_tableTyp(0)
 {

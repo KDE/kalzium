@@ -29,15 +29,15 @@
 #include "elementitem.h"
 
 #include <prefs.h>
-#include <KLocalizedString>
 
+#include <QDebug>
+#include <QFont>
+#include <QFontMetrics>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QStyleOption>
-#include <QFont>
-#include <QFontMetrics>
-#include <QDebug>
 
+#include <KLocalizedString>
 
 ElementItem::ElementItem(KalziumElementProperty *elProperty, int elementNumber) : m_width(40),
     m_height(40), m_element(elementNumber), m_property(elProperty)

@@ -19,16 +19,17 @@ email                : cniehaus@kde.org
 #include "kalziumutils.h"
 
 #include <KLocalizedString>
+
+#include <QDebug>
 #include <QFile>
-#include <QPainter>
-#include <QSvgRenderer>
-#include <QRect>
 #include <QFileInfo>
 #include <QFontDatabase>
-#include <QDebug>
+#include <QPainter>
+#include <QRect>
+#include <QStandardPaths>
+#include <QSvgRenderer>
 
 #include <element.h>
-#include <QStandardPaths>
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)

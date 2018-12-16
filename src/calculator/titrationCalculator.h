@@ -20,16 +20,17 @@
 #ifndef TITRATIONCALCULATOR_H
 #define TITRATIONCALCULATOR_H
 
+#include <QDebug>
+#include <QString>
+#include <QStringList>
+
+#include <KPlotObject>
+#include <KPlotPoint>
+#include <KPlotWidget>
+
 #include <element.h>
 #include <isotope.h>
-
-#include <QDebug>
 #include <prefs.h>
-#include <KPlotWidget>
-#include "kplotobject.h"
-#include <kplotpoint.h>
-#include "QString"
-#include "QStringList"
 
 #include "ui_titrationCalculator.h"
 

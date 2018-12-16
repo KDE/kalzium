@@ -17,12 +17,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
+#include <config-kalzium.h>
+
+#include <QApplication>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
+
 #include <KAboutData>
 #include <KLocalizedString>
-#include <config-kalzium.h>
-#include <QApplication>
-#include <QCommandLineParser>
-#include <QCommandLineOption>
 
 #include "kalzium.h"
 

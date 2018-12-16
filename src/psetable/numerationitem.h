@@ -28,8 +28,8 @@
 #define NUMERATIONITEM_H
 
 #include <QGraphicsItem>
-#include "kalziumdataobject.h"
 
+#include "kalziumdataobject.h"
 #include <chemicaldataobject.h>
 
 /**

@@ -13,13 +13,14 @@
 
 #include "spectrumviewimpl.h"
 
-#include <QTreeWidget>
-#include <QTableWidget>
 #include <QDebug>
+#include <QTableWidget>
+#include <QTreeWidget>
 
-#include <kunitconversion/converter.h>
+#include <KLocalizedString>
+#include <KUnitConversion/Converter>
+
 #include "kalziumdataobject.h"
-#include <klocalizedstring.h>
 #include "prefs.h"
 
 SpectrumViewImpl::SpectrumViewImpl(QWidget *parent) : QWidget(parent)

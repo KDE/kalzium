@@ -22,11 +22,11 @@
 #define ELEMENT_H
 
 #include "libkdeedu_science_export.h"
+
 #include <QList>
 #include <QVariant>
 
 #include "chemicaldataobject.h"
-
 
 class Spectrum;
 class Isotope;

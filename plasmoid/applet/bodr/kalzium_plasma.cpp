@@ -17,13 +17,13 @@
 #include <KConfigGroup>
 #include <KFontDialog>
 
-#include <QDialog>
-#include <QLineEdit>
+#include <QColor>
 #include <QDebug>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QLineEdit>
 #include <QPainter>
 #include <QPen>
-#include <QColor>
-#include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 

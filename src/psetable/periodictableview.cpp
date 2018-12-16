@@ -23,11 +23,11 @@
 
 #include "periodictableview.h"
 
+#include <QTimer>
 #include <QSvgGenerator>
 
 #include "psetables.h"
 #include <prefs.h>
-#include<QTimer>
 
 PeriodicTableView::PeriodicTableView(QWidget *parent)
         : QGraphicsView(parent)

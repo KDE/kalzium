@@ -14,10 +14,9 @@ email                : cniehaus@kde.org
 
 #include "spectrum.h"
 
-#include <qdom.h>
-#include <QList>
-#include <QFile>
 #include <QDebug>
+#include <QFile>
+#include <QList>
 
 class SpectrumParser::Private
 {

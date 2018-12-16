@@ -22,9 +22,9 @@
 #include <avogadro/io/cmlformat.h>
 
 #include <QDebug>
+#include <QFile>
 #include <QMessageBox>
 #include <QRegExp>
-#include <QFile>
 
 #include <KLocalizedString>
 

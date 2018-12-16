@@ -14,12 +14,12 @@ email                : cniehaus@kde.org
 #include "elementparser.h"
 
 #include "chemicaldataobject.h"
-#include <kunitconversion/converter.h>
 #include "element.h"
 
 #include <QDebug>
 
 #include <KLocalizedString>
+#include <KUnitConversion/Converter>
 
 class ElementSaxParser::Private
 {

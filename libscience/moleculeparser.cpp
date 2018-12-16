@@ -15,7 +15,6 @@
 
 #include <ctype.h>
 
-
 #include <QDebug>
 #include <QFile>
 #include <QStandardPaths>

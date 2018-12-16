@@ -24,8 +24,8 @@
 
 #include "libkdeedu_science_export.h"
 
-#include <QPoint>
 #include <QList>
+#include <QPoint>
 #include <QStringList>
 
 /**

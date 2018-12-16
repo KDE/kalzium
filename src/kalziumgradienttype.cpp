@@ -22,12 +22,12 @@
 #include "element.h"
 #include "prefs.h"
 #include "kalziumdataobject.h"
-#include <kunitconversion/converter.h>
 
-#include <QVariant>
 #include <QDebug>
+#include <QVariant>
 
 #include <KLocalizedString>
+#include <KUnitConversion/Converter>
 
 #include <math.h>
 

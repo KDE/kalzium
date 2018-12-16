@@ -20,8 +20,8 @@
 #include "element.h"
 
 #include <QDebug>
-#include <kunitconversion/converter.h>
 
+#include <KUnitConversion/Converter>
 
 Element::Element()
 {

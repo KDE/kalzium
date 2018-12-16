@@ -19,10 +19,10 @@
 
 #include "chemicaldataobject.h"
 
-#include <kunitconversion/converter.h>
-
-#include <QLatin1String>
 #include <QDebug>
+#include <QLatin1String>
+
+#include <KUnitConversion/Converter>
 
 class ChemicalDataObjectPrivate : public QSharedData
 {

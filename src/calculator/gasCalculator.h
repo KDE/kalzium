@@ -21,9 +21,11 @@
 #define GASCALCULATOR_H
 
 #include <QDebug>
+
+#include <KUnitConversion/Converter>
+#include <KUnitConversion/UnitCategory>
+
 #include <kalziumdataobject.h>
-#include <kunitconversion/unitcategory.h>
-#include <kunitconversion/converter.h>
 
 #include "ui_gasCalculator.h"
 

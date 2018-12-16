@@ -18,8 +18,8 @@
 
 #include <Plasma/PopupApplet>
 #include <Plasma/Svg>
-#include <kunitconversion/converter.h>
-#include <kunitconversion/value.h>
+#include <KUnitConversion/Converter>
+#include <KUnitConversion/Value>
 
 #include "ui_concentrationCalculatorConfig.h"
 namespace Plasma{

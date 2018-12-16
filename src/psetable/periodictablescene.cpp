@@ -27,14 +27,14 @@
 
 #include "periodictablescene.h"
 
-#include <QGraphicsSceneMouseEvent>
-#include <QGraphicsSceneDragDropEvent>
 #include <QApplication>
-#include <QMimeData>
 #include <QDrag>
+#include <QGraphicsSceneDragDropEvent>
+#include <QGraphicsSceneMouseEvent>
+#include <QMimeData>
+#include <QPainter>
 #include <QPixmap>
 #include <QStyleOptionGraphicsItem>
-#include <QPainter>
 
 PeriodicTableScene::PeriodicTableScene(QObject *parent)
         : QGraphicsScene(parent),

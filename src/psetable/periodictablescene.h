@@ -26,8 +26,8 @@
 #define PERIODICTABLESCENE_H
 
 #include <QGraphicsScene>
-#include <QTimer>
 #include <QPointF>
+#include <QTimer>
 
 #include "elementitem.h"
 

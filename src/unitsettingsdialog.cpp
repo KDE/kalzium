@@ -1,5 +1,4 @@
 /*
-    <one line to give the program's name and a brief idea of what it does.>
     Copyright (C) 2011  Rebetez Etienne <etienne.rebetez@oberwallis.ch>
 
     This program is free software: you can redistribute it and/or modify
@@ -18,11 +17,11 @@
 
 #include "unitsettingsdialog.h"
 
-#include <kunitconversion/converter.h>
-#include <KLocalizedString>
-
 #include <QGridLayout>
 #include <QLabel>
+
+#include <KLocalizedString>
+#include <KUnitConversion/Converter>
 
 UnitSettingsDialog::UnitSettingsDialog(QWidget* parent) : QWidget(parent)
 {

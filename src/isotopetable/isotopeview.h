@@ -20,9 +20,9 @@
 #ifndef ISOTOPEVIEW_H
 #define ISOTOPEVIEW_H
 
-#include <QWidget>
 #include <QGraphicsView>
 #include <QResizeEvent>
+#include <QWidget>
 
 class IsotopeScene;
 

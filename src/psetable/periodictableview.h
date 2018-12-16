@@ -24,17 +24,15 @@
 #define PERIODICTABLEVIEW_H
 
 #include <QGraphicsView>
+#include <QSvgGenerator>
 
 #include "kalziumdataobject.h"
-
 #include "kalziumnumerationtype.h"
 
 #include "elementitem.h"
 #include "numerationitem.h"
 #include "periodictablescene.h"
 #include "periodictablestates.h"
-#include <QSvgGenerator>
-
 
 /**
  * @class PeriodicTableView

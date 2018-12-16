@@ -23,9 +23,11 @@
 
 #include "ui_obconverterwidget.h"
 
+#include <QDialog>
+
 // OpenBabel includes
 #include <openbabel/obconversion.h>
-#include <QDialog>
+
 class QDialog;
 
 /**
