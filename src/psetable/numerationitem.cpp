@@ -7,7 +7,7 @@
  Copyright (C) 2010      by Etienne Rebetez etienne.rebetez@oberwallis.ch
 
  This file is part of the Avogadro molecular editor project.
- For more information, see <http://avogadro.openmolecules.net/>
+ For more information, see <https://avogadro.cc/>
 
  Kalzium is free software; you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
