@@ -36,13 +36,13 @@ GradientWidgetImpl::GradientWidgetImpl(QWidget *parent) : QWidget(parent), m_pla
     gradient_combo->addItems(KalziumElementProperty::instance()->gradientList());
 
     connect(gradient_spinbox, SIGNAL(valueChanged(double)), this, SLOT(doubleToSlider(double)));
-    connect(gradient_slider, SIGNAL(valueChanged(int)), this, SLOT(intToSpinbox(int)));
+    connect(gradient_slider, &QAbstractSlider::valueChanged, this, &GradientWidgetImpl::intToSpinbox);
 
     m_timer = new QTimer(this);
-    connect(Play, SIGNAL(clicked()), this, SLOT(play()));
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(tick()));
+    connect(Play, &QAbstractButton::clicked, this, &GradientWidgetImpl::play);
+    connect(m_timer, &QTimer::timeout, this, &GradientWidgetImpl::tick);
 
-    Play->setIcon(QIcon::fromTheme("media-playback-start"));
+    Play->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
 }
 
 GradientWidgetImpl::~GradientWidgetImpl()
@@ -181,7 +181,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
         htmlcode += '\n';
     } else {
         htmlcode += i18n("No elements with a melting point around this temperature");
-        htmlcode += "\n\n";
+        htmlcode += QLatin1String("\n\n");
     }
     if (listBoilingPoint.count() > 0) {
         htmlcode += i18n("Elements with boiling point around this temperature:") + '\n';
@@ -215,14 +215,14 @@ void GradientWidgetImpl::play(void)
     m_timer->start(200);
 
     m_play = true;          //start playing
-    Play->setIcon(QIcon::fromTheme("media-playback-pause"));
+    Play->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
 }
 
 void GradientWidgetImpl::stop(void)
 {
     //Currently playing, stop the timer.
     m_timer -> stop();
-    Play->setIcon(QIcon::fromTheme("media-playback-start"));
+    Play->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
     m_play = false;         //Stop
 }
 

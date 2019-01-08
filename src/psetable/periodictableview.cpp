@@ -42,7 +42,7 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
 
     m_tableScene = new PeriodicTableScene(this);
     setScene(m_tableScene);
-    connect(m_tableScene, SIGNAL(freeSpaceClick()), this, SLOT(fitPseInView()));
+    connect(m_tableScene, &PeriodicTableScene::freeSpaceClick, this, &PeriodicTableView::fitPseInView);
 
     m_tableStates = new PeriodicTableStates(
         createElementItems(),
@@ -61,7 +61,7 @@ QList<NumerationItem*> PeriodicTableView::createNumerationItems() const
     for (int i = 0; i < xMax; ++i) {
         numerationItemList << new NumerationItem(i);
         m_tableScene->addItem(numerationItemList.at(i));
-        connect(this, SIGNAL(numerationChange(int)), numerationItemList.at(i), SLOT(setNumerationType(int)));
+        connect(this, &PeriodicTableView::numerationChange, numerationItemList.at(i), &NumerationItem::setNumerationType);
     }
 
     return numerationItemList;
@@ -75,7 +75,7 @@ QList<ElementItem*> PeriodicTableView::createElementItems() const
     foreach (int intElement, pseTables::instance()->getTabletype(0)->elements()) {
         ElementItem *item = new ElementItem(elProperty, intElement);
 
-        connect(elProperty, SIGNAL(propertyChanged()), item, SLOT(redraw()));
+        connect(elProperty, &KalziumElementProperty::propertyChanged, item, &ElementItem::redraw);
         m_tableScene->addItem(item);
         elementItemList << item;
     }
@@ -101,7 +101,7 @@ void PeriodicTableView::slotChangeTable(int table)
     setBiggerSceneRect();
     m_tableStates->setTableState(m_currentTableInex);
 
-    QTimer::singleShot(RESIZE_SCENE_TIMEOUT, this, SLOT(fitPseInView()));
+    QTimer::singleShot(RESIZE_SCENE_TIMEOUT, this, &PeriodicTableView::fitPseInView);
 }
 
 void PeriodicTableView::slotSelectOneElement(int element)

@@ -300,7 +300,7 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
 
     // Go through all letters in the string.
     for (i = _shortString.constBegin(); i != _shortString.constEnd(); ) {
-        temp = "";
+        temp = QLatin1String("");
 
         // If a capital letter was found
         if ((*i).category() == QChar::Letter_Uppercase) {
@@ -371,7 +371,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
     QString temp;                    // A temporary QString used in Regular expressions
 
     // Search in User defined aliases.
-    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
+    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols2.csv"));
     QFile file(fileName);
 
     // Check file validity
@@ -399,7 +399,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
 
     // Find the system defined aliases    
     // Open the file
-    fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols.csv");
+    fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols.csv"));
     QFile file2(fileName);
 
     // Check file validity
@@ -425,9 +425,9 @@ QString MoleculeParser::expandTerm (const QString& _group)
     }
 
     // Sample expansions, work even when file is not found, testing purposes
-    if (_group == "Me") {
+    if (_group == QLatin1String("Me")) {
         return ("CH3");
-    } else if (_group == "Et") {
+    } else if (_group == QLatin1String("Et")) {
         return ("C2H5");
     } else { // If not found return an empty string.
         return ("");

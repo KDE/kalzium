@@ -129,7 +129,7 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
 
     // objectName is also used in Avogadro2 for identifying tools
     foreach (auto *tool, ui.glWidget->tools()) {
-        if (tool->objectName() == "Editor") {
+        if (tool->objectName() == QLatin1String("Editor")) {
             ui.editTabLayout->insertWidget(0, tool->toolWidget());
             break;
         }
@@ -148,7 +148,7 @@ void MoleculeDialog::slotLoadMolecule()
         KMessageBox::information(this, error);
     }
 
-    m_path = QStandardPaths::locate(QStandardPaths::DataLocation, "data/molecules/", QStandardPaths::LocateDirectory);
+    m_path = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/molecules/"), QStandardPaths::LocateDirectory);
 
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
@@ -213,10 +213,10 @@ void MoleculeDialog::slotSaveMolecule()
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");
     QString filename = QFileDialog::getSaveFileName(this, i18n("Choose a file to save to"), QString(),
-                       commonMoleculeFormats + QLatin1String(" (*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+                       commonMoleculeFormats + QStringLiteral(" (*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
                        " *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
                        " *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-                       " *.mpd *.mol2);;") + allFiles + QLatin1String(" (*)")
+                       " *.mpd *.mol2);;") + allFiles + QStringLiteral(" (*)")
                        );
 
     if (!filename.contains(QLatin1String("."))) {
@@ -230,11 +230,11 @@ void MoleculeDialog::slotSaveMolecule()
 void MoleculeDialog::setViewEdit(int mode)
 {
     if (mode == 0) {
-        ui.glWidget->setActiveTool("Navigator");
+        ui.glWidget->setActiveTool(QStringLiteral("Navigator"));
     } else if (mode == 1) {
-        ui.glWidget->setActiveTool("Editor");
+        ui.glWidget->setActiveTool(QStringLiteral("Editor"));
     } else if (mode == 2) {
-        ui.glWidget->setActiveTool("MeasureTool");
+        ui.glWidget->setActiveTool(QStringLiteral("MeasureTool"));
     }
 }
 
@@ -248,7 +248,7 @@ void MoleculeDialog::slotUpdateStatistics()
     if (!mol) {
         return;
     }
-    const std::string name = mol->data(QString("name").toStdString()).toString();
+    const std::string name = mol->data(QStringLiteral("name").toStdString()).toString();
     ui.nameLabel->setText(QString::fromStdString(name));
     ui.weightLabel->setText(i18nc("This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->mass()));
     ui.formulaLabel->setText(IoWrapper::getPrettyFormula(mol));

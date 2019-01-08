@@ -85,7 +85,7 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
     } else if (Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
         pm.fill(palette().background().color());
 
-        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/", QStandardPaths::LocateDirectory);
+        QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/iconsets/"), QStandardPaths::LocateDirectory);
 
         int enumii = m_element->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
 

@@ -109,9 +109,9 @@ ExportDialog::ExportDialog(QWidget * parent)
     populateElementList();
     qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
-    ui.formatList->addItem(".html (formatted html document)", "html");
-    ui.formatList->addItem(".xml (raw element data)", "xml");
-    ui.formatList->addItem(".csv (comma-separated data)", "csv");
+    ui.formatList->addItem(QStringLiteral(".html (formatted html document)"), "html");
+    ui.formatList->addItem(QStringLiteral(".xml (raw element data)"), "xml");
+    ui.formatList->addItem(QStringLiteral(".csv (comma-separated data)"), "csv");
     qDebug() << "ui.formatList->addItem(...);";
 
     connect(user1Button, &QPushButton::clicked, this, &ExportDialog::slotOkClicked);
@@ -180,9 +180,9 @@ void ExportDialog::slotOkClicked()
 
     delete m_outputStream;
     m_outputStream = new QTextStream(&outputFile);
-    if (format == "html") {
+    if (format == QLatin1String("html")) {
         exportToHtml();
-    } else if (format == "xml") {
+    } else if (format == QLatin1String("xml")) {
         exportToXml();
     } else {
         exportToCsv();
@@ -194,7 +194,7 @@ void ExportDialog::slotOkClicked()
 
 void ExportDialog::slotHelpRequested()
 {
-    KHelpClient::invokeHelp(QString(), "kalzium");
+    KHelpClient::invokeHelp(QString(), QStringLiteral("kalzium"));
 }
 
 void ExportDialog::exportToHtml()

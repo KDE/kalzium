@@ -44,7 +44,7 @@ char* solve_equation(const char *) {
 void EQChemDialog::compute()
 {
     QString equation(ui.lineEdit->text());
-    equation.replace("->", " -> ");
+    equation.replace(QLatin1String("->"), QLatin1String(" -> "));
     equation.append(' ');
     equation.prepend(' ');
 
@@ -69,10 +69,10 @@ EQChemDialog::EQChemDialog(QWidget *parent) : QWidget(parent)
 
     ui.lblHelp->setText(getHelpText());
 
-    connect(ui.calculateButton, SIGNAL(clicked()),
-            this, SLOT(compute()));
-    connect(ui.btnCopy, SIGNAL(clicked()),
-            this, SLOT(copyAnswer()));
+    connect(ui.calculateButton, &QAbstractButton::clicked,
+            this, &EQChemDialog::compute);
+    connect(ui.btnCopy, &QAbstractButton::clicked,
+            this, &EQChemDialog::copyAnswer);
 }
 
 void EQChemDialog::copyAnswer()

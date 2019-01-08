@@ -159,7 +159,7 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
     case ChemicalDataObject::oxidation:
     {
         QStringList oxidationList = el->dataAsString(kind).split(',');
-        result = oxidationList.join(", ");
+        result = oxidationList.join(QStringLiteral(", "));
         break;
     }
     default:

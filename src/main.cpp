@@ -47,18 +47,18 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kalzium");
 
-    KAboutData about("kalzium",
+    KAboutData about(QStringLiteral("kalzium"),
                       i18n("Kalzium"),
                       version,
                       i18n("A periodic table of the elements"),
                       KAboutLicense::GPL,
                       i18n("(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"),
                       QString(),
-                      "http://edu.kde.org/kalzium");
+                      QStringLiteral("http://edu.kde.org/kalzium"));
 
     about.addAuthor(i18n("Carsten Niehaus"),
                     QString(),
-                    "cniehaus@kde.org");
+                    QStringLiteral("cniehaus@kde.org"));
 
 
     about.addCredit(i18n("Pino Toscano"),
@@ -128,9 +128,9 @@ int main(int argc, char **argv)
                     i18n("Adding new sizable Periodic System"));
 
 
-    QApplication::setApplicationName("kalzium");
+    QApplication::setApplicationName(QStringLiteral("kalzium"));
     QApplication::setApplicationVersion(version);
-    QApplication::setOrganizationDomain("kde.org");
+    QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
     KAboutData::setApplicationData(about);
 
@@ -148,7 +148,7 @@ int main(int argc, char **argv)
     about.processCommandLine(&parser);
 
     #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
-    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("m") << QLatin1String("molecule"), i18n("Open the given molecule file"), QLatin1String("file")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("m") << QStringLiteral("molecule"), i18n("Open the given molecule file"), QStringLiteral("file")));
     #endif
 
     Kalzium *mainWin = nullptr;
@@ -163,7 +163,7 @@ int main(int argc, char **argv)
         mainWin = new Kalzium();
         mainWin->show();
 
-        const QStringList molecules = parser.values("molecule");
+        const QStringList molecules = parser.values(QStringLiteral("molecule"));
         if (molecules.count() == 1) {
             mainWin->loadMolecule(molecules[0]);
         } else if (molecules.count() > 1) {

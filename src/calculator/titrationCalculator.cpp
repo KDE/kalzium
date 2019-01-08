@@ -58,18 +58,18 @@ titrationCalculator::titrationCalculator(QWidget * parent) : QWidget(parent)
     uid.tab->setFocus();
     plot();
 
-    connect(uid.pushButton, SIGNAL(clicked()),this, SLOT(on_pushButton_clicked()));
+    connect(uid.pushButton, &QAbstractButton::clicked,this, &titrationCalculator::on_pushButton_clicked);
     connect(uid.xmin, SIGNAL(valueChanged(double)),this, SLOT(on_xmin_valueChanged(double)));
     connect(uid.xmax, SIGNAL(valueChanged(double)),this, SLOT(on_xmax_valueChanged(double)));
     connect(uid.ymin, SIGNAL(valueChanged(double)),this, SLOT(on_ymin_valueChanged(double)));
     connect(uid.ymax, SIGNAL(valueChanged(double)),this, SLOT(on_ymax_valueChanged(double)));
 
 
-    connect(uid.saveimage, SIGNAL(clicked()),this, SLOT(on_actionSave_image_triggered()));
-    connect(uid.open, SIGNAL(clicked()),this, SLOT(on_actionOpen_triggered()));
-    connect(uid.save, SIGNAL(clicked()),this, SLOT(on_actionSave_triggered()));
-    connect(uid.newfile, SIGNAL(clicked()),this, SLOT(on_actionNew_triggered()));
-    connect(uid.rapidhelp, SIGNAL(clicked()),this, SLOT(on_actionRapid_Help_triggered()));
+    connect(uid.saveimage, &QAbstractButton::clicked,this, &titrationCalculator::on_actionSave_image_triggered);
+    connect(uid.open, &QAbstractButton::clicked,this, &titrationCalculator::on_actionOpen_triggered);
+    connect(uid.save, &QAbstractButton::clicked,this, &titrationCalculator::on_actionSave_triggered);
+    connect(uid.newfile, &QAbstractButton::clicked,this, &titrationCalculator::on_actionNew_triggered);
+    connect(uid.rapidhelp, &QAbstractButton::clicked,this, &titrationCalculator::on_actionRapid_Help_triggered);
 }
 
 titrationCalculator:: ~titrationCalculator()
@@ -86,9 +86,9 @@ void titrationCalculator::plot()
     KPlotObject *kpor = new KPlotObject(Qt::red,KPlotObject::Lines);
     KPlotObject *kpog = new KPlotObject(Qt::green, KPlotObject::Lines);
     KPlotObject *kpob = new KPlotObject(Qt::blue, KPlotObject::Lines);
-    redplot = "<polyline points=\"";
-    greenplot = "<polyline points=\"";
-    blueplot = "<polyline points=\"";
+    redplot = QStringLiteral("<polyline points=\"");
+    greenplot = QStringLiteral("<polyline points=\"");
+    blueplot = QStringLiteral("<polyline points=\"");
 
     if (!uid.tableWidget->item(0,0) || uid.tableWidget->item(0,0)->text().isEmpty()) {
         //go on
@@ -110,7 +110,7 @@ void titrationCalculator::plot()
         }
         QString mreporto;
         int iter = 0;
-        if (uid.xaxis->text().isEmpty() || uid.xaxis->text() == " ") {
+        if (uid.xaxis->text().isEmpty() || uid.xaxis->text() == QLatin1String(" ")) {
             uid.xaxis->setText(i18n("nothing"));
         }
         if (tmpy == 0) {
@@ -142,7 +142,7 @@ void titrationCalculator::plot()
                 char *tmreporto = ban.data();
 
                 QString istr;
-                istr.append(QString("%1").arg((id)));
+                istr.append(QStringLiteral("%1").arg((id)));
                 //now i'm using QScript language to solve the expression
                 //in a future we can consider to change it supporting some backends, but it's really complex
                 QString myscript = solvex(tmreporto,istr);
@@ -223,7 +223,7 @@ void titrationCalculator::plot()
         QString ds = QString::number(d);
         QString tempon = uid.note->toPlainText()+QChar('\n');
         if (temponu != 0) {
-            tempon = "";
+            tempon = QLatin1String("");
         }
         uid.note->setText(tempon
                           + '\n'
@@ -265,9 +265,9 @@ QString titrationCalculator::solve(char *yvalue)
     lettere = 0;
     //now we have to solve the system of equations
     //yvalue contains the equation of Y-axis variable
-    QString tempy = "";
+    QString tempy = QLatin1String("");
     end = 1;
-    mreport = "";
+    mreport = QLatin1String("");
     QString tempyval;
     QString ptem;
     for (int i = 0; strlen(yvalue) + 1; ++i) {
@@ -289,14 +289,14 @@ QString titrationCalculator::solve(char *yvalue)
                 } else {
                     if (tempy == uid.xaxis->text()) {
                         tempyval = uid.xaxis->text();
-                        tempy = "";
+                        tempy = QLatin1String("");
                     }
                     if (titem->data(Qt::DisplayRole).toString() == tempy) {
                         QString yvaluerq = titemo->data(Qt::DisplayRole).toString();
                         QByteArray ba = yvaluerq.toLatin1();
                         char *yvalure = ba.data();
                         tempyval = QChar('(') + QString(yvalure) + QChar(')');
-                        tempy = "";
+                        tempy = QLatin1String("");
                         end = 1;
                     }
                     if (tempy!=uid.xaxis->text()) {
@@ -312,7 +312,7 @@ QString titrationCalculator::solve(char *yvalue)
         if (!tempyval.isEmpty()) {
             mreport = mreport + tempyval;
         }
-        tempyval = "";
+        tempyval = QLatin1String("");
     }
     return mreport;
 
@@ -320,18 +320,18 @@ QString titrationCalculator::solve(char *yvalue)
 
 QString titrationCalculator::solvex(char *yvalue, QString dnum) {
 
-    QString mreport = "";
+    QString mreport = QLatin1String("");
     lettere = 0;
     //now we have to solve the system of equations
     //yvalue contains the equation of Y-axis variable
     //Remember that the function to elevate to power is Math.pow(b,e)
     QString tempy;
     QString tempyold;
-    QString tempyolda = "";
+    QString tempyolda = QLatin1String("");
     int olda = 0;
     end = 1;
     QString tempyval;
-    tempy = "";
+    tempy = QLatin1String("");
     for (int i = 0; strlen(yvalue) + 1; ++i) {
         if (!(yvalue[i]=='q' || yvalue[i]=='w' || yvalue[i]=='e' || yvalue[i]=='r' || yvalue[i]=='t' || yvalue[i]=='y' || yvalue[i]=='u' || yvalue[i]=='i' || yvalue[i]=='o' || yvalue[i]=='p' || yvalue[i]=='a' || yvalue[i]=='s' || yvalue[i]=='d' || yvalue[i]=='f' || yvalue[i]=='g' || yvalue[i]=='h' || yvalue[i]=='j' || yvalue[i]=='k' || yvalue[i]=='l' || yvalue[i]=='z' || yvalue[i]=='x' || yvalue[i]=='c' || yvalue[i]=='v' || yvalue[i]=='b' || yvalue[i]=='n' || yvalue[i]=='m' || yvalue[i]=='+' || yvalue[i]=='-' || yvalue[i]=='^' || yvalue[i]=='*' || yvalue[i]=='/' || yvalue[i]=='(' || yvalue[i]==')' || yvalue[i]=='Q' || yvalue[i]=='W' || yvalue[i]=='E' || yvalue[i]=='R' || yvalue[i]=='T' || yvalue[i]=='Y' || yvalue[i]=='U' || yvalue[i]=='I' || yvalue[i]=='O' || yvalue[i]=='P' || yvalue[i]=='A' || yvalue[i]=='S' || yvalue[i]=='D' || yvalue[i]=='F' || yvalue[i]=='G' || yvalue[i]=='H' || yvalue[i]=='J' || yvalue[i]=='K' || yvalue[i]=='L' || yvalue[i]=='Z' || yvalue[i]=='X' || yvalue[i]=='C' || yvalue[i]=='V' || yvalue[i]=='B' || yvalue[i]=='N' || yvalue[i]=='M' || yvalue[i]=='1' || yvalue[i]=='2' || yvalue[i]=='3' || yvalue[i]=='4' || yvalue[i]=='5' || yvalue[i]=='6' || yvalue[i]=='7' || yvalue[i]=='8' || yvalue[i]=='9' || yvalue[i]=='0' || yvalue[i]=='.' || yvalue[i]==',')) {
             break; //if current value is not a permitted value, this means that something is wrong
@@ -346,17 +346,17 @@ QString titrationCalculator::solvex(char *yvalue, QString dnum) {
                     tempyolda = dnum;
                 }
                 tempyval = tempyval
-                           + QString("Math.pow(")
+                           + QStringLiteral("Math.pow(")
                            + tempyolda + QChar(',')
                            + tempy + QChar(')');
-                tempyolda = "";
-                tempyold = "";
+                tempyolda = QLatin1String("");
+                tempyold = QLatin1String("");
                 olda = 1;
             }
             if (yvalue[i] == '^') {
                 tempyolda = tempyold;
             } else {
-                tempyold = "";
+                tempyold = QLatin1String("");
                 if (((olda != 1) && (yvalue[i + 1] != '^')) || (yvalue[i] == '+' || yvalue[i] == '-' || yvalue[i] == '^' || yvalue[i] == '*' || yvalue[i] == '/' || yvalue[i] == '(' || yvalue[i] == ')')) {
                     tempyval = tempyval + QString(yvalue[i]);
                 }
@@ -365,11 +365,11 @@ QString titrationCalculator::solvex(char *yvalue, QString dnum) {
         } else {
             if (!tempyolda.isEmpty()) {
                 tempyval = tempyval
-                           + QString("Math.pow(")
+                           + QStringLiteral("Math.pow(")
                            + tempyolda + QChar(',')
                            + tempy + QChar(')');
-                tempyolda = "";
-                tempyold = "";
+                tempyolda = QLatin1String("");
+                tempyold = QLatin1String("");
                 olda = 1;
             }
             if ((tempy==uid.xaxis->text()) && (!tempyolda.isEmpty())) {
@@ -377,13 +377,13 @@ QString titrationCalculator::solvex(char *yvalue, QString dnum) {
                     tempyval = tempyval + dnum;
                 }
                 tempyold = tempy;
-                tempy = "";
+                tempy = QLatin1String("");
             }
         } // simbol end
         if (!tempyval.isEmpty()) {
             mreport = mreport + tempyval;
         }
-        tempyval = "";
+        tempyval = QLatin1String("");
     }
     //QMessageBox::information(this, "report", mreport);
     return mreport;
@@ -427,50 +427,50 @@ void titrationCalculator::on_actionRapid_Help_triggered()
 
     //table1
     QTableWidgetItem *titemo = uid.tableWidget->item(0,0);
-    titemo->setText("A");
+    titemo->setText(QStringLiteral("A"));
     titemo = uid.tableWidget->item(0,1);
-    titemo->setText("(C*D)/(B*K)");
+    titemo->setText(QStringLiteral("(C*D)/(B*K)"));
     titemo = uid.tableWidget->item(1,0);
-    titemo->setText("K");
+    titemo->setText(QStringLiteral("K"));
     titemo = uid.tableWidget->item(1,1);
-    titemo->setText("10^-3");
+    titemo->setText(QStringLiteral("10^-3"));
     titemo = uid.tableWidget->item(2,0);
-    titemo->setText("C");
+    titemo->setText(QStringLiteral("C"));
     titemo = uid.tableWidget->item(2,1);
-    titemo->setText("OH");
+    titemo->setText(QStringLiteral("OH"));
     titemo = uid.tableWidget->item(3,0);
-    titemo->setText("OH");
+    titemo->setText(QStringLiteral("OH"));
     titemo = uid.tableWidget->item(3,1);
-    titemo->setText("(10^-14)/H");
+    titemo->setText(QStringLiteral("(10^-14)/H"));
     titemo = uid.tableWidget->item(4,0);
-    titemo->setText("H");
+    titemo->setText(QStringLiteral("H"));
     titemo = uid.tableWidget->item(4,1);
-    titemo->setText("10^-4");
+    titemo->setText(QStringLiteral("10^-4"));
     titemo = uid.tableWidget->item(5,0);
-    titemo->setText("B");
+    titemo->setText(QStringLiteral("B"));
     titemo = uid.tableWidget->item(5,1);
-    titemo->setText("6*(10^-2)");
+    titemo->setText(QStringLiteral("6*(10^-2)"));
     //xaxis
-    uid.xaxis->setText("D");
+    uid.xaxis->setText(QStringLiteral("D"));
     //yaxis
-    uid.yaxis->setText("A");
+    uid.yaxis->setText(QStringLiteral("A"));
     //table2
     titemo = uid.tableWidget_2->item(0,0);
-    titemo->setText("7,19");
+    titemo->setText(QStringLiteral("7,19"));
     titemo = uid.tableWidget_2->item(0,1);
-    titemo->setText("30");
+    titemo->setText(QStringLiteral("30"));
     titemo = uid.tableWidget_2->item(1,0);
-    titemo->setText("7,64");
+    titemo->setText(QStringLiteral("7,64"));
     titemo = uid.tableWidget_2->item(1,1);
-    titemo->setText("30,5");
+    titemo->setText(QStringLiteral("30,5"));
     titemo = uid.tableWidget_2->item(2,0);
-    titemo->setText("10,02");
+    titemo->setText(QStringLiteral("10,02"));
     titemo = uid.tableWidget_2->item(2,1);
-    titemo->setText("31");
+    titemo->setText(QStringLiteral("31"));
     titemo = uid.tableWidget_2->item(3,0);
-    titemo->setText("10,45");
+    titemo->setText(QStringLiteral("10,45"));
     titemo = uid.tableWidget_2->item(3,1);
-    titemo->setText("31,5");
+    titemo->setText(QStringLiteral("31,5"));
 
     // I think it's better if I don't give so much information here.
     //  This information could be included into kalzium help, but I don't know how to do
@@ -488,23 +488,23 @@ void titrationCalculator::on_actionNew_triggered()
     //set all the table cells as empty ("")
     for (int i = 0; i < uid.tableWidget->rowCount(); ++i) {
         QTableWidgetItem *titem = new QTableWidgetItem;
-        titem->setText("");
+        titem->setText(QLatin1String(""));
         uid.tableWidget->setItem(i, 0, titem);
         QTableWidgetItem *titemo = new QTableWidgetItem;
-        titemo->setText("");
+        titemo->setText(QLatin1String(""));
         uid.tableWidget->setItem(i, 1, titemo);
     }
-    uid.xaxis->setText("");
-    uid.yaxis->setText("");
+    uid.xaxis->setText(QLatin1String(""));
+    uid.yaxis->setText(QLatin1String(""));
     for (int i = 0; i < uid.tableWidget_2->rowCount(); ++i) {
         QTableWidgetItem *titem = new QTableWidgetItem;
-        titem->setText("");
+        titem->setText(QLatin1String(""));
         uid.tableWidget_2->setItem(i, 0, titem);
         QTableWidgetItem *titemo = new QTableWidgetItem;
-        titemo->setText("");
+        titemo->setText(QLatin1String(""));
         uid.tableWidget_2->setItem(i, 1, titemo);
     }
-    uid.note->setText("");
+    uid.note->setText(QLatin1String(""));
 }
 
 void titrationCalculator::on_actionSave_triggered()
@@ -533,7 +533,7 @@ void titrationCalculator::on_actionSave_triggered()
     //   as you can see we don't save also the empty cells, this is obvious.
 
     QString tempyval;
-    tempyval = "table1|";
+    tempyval = QStringLiteral("table1|");
     for (int i = 0; i < uid.tableWidget->rowCount(); ++i) {
         QTableWidgetItem *titem = uid.tableWidget->item(i, 0);
         QTableWidgetItem *titemo = uid.tableWidget->item(i, 1);
@@ -542,14 +542,14 @@ void titrationCalculator::on_actionSave_triggered()
         } else {
             QString yvaluerq = titemo->data(Qt::DisplayRole).toString();
             QString valuerq = titem->data(Qt::DisplayRole).toString();
-            tempyval = tempyval + QChar('\n') + valuerq + QString("|\n") + yvaluerq + QChar('|');
+            tempyval = tempyval + QChar('\n') + valuerq + QStringLiteral("|\n") + yvaluerq + QChar('|');
         }
     }
-    tempyval =  tempyval + QString("\nxaxis|");
-    tempyval = tempyval + QString("\n") + uid.xaxis->text() + QChar('|');
-    tempyval =  tempyval + QString("\nyaxis|");
-    tempyval = tempyval + QString("\n") + uid.yaxis->text() + QChar('|');
-    tempyval =  tempyval + QString("\ntable2|");
+    tempyval =  tempyval + QStringLiteral("\nxaxis|");
+    tempyval = tempyval + QStringLiteral("\n") + uid.xaxis->text() + QChar('|');
+    tempyval =  tempyval + QStringLiteral("\nyaxis|");
+    tempyval = tempyval + QStringLiteral("\n") + uid.yaxis->text() + QChar('|');
+    tempyval =  tempyval + QStringLiteral("\ntable2|");
     for (int i = 0; i < uid.tableWidget_2->rowCount(); ++i) {
         QTableWidgetItem *titem = uid.tableWidget_2->item(i, 0);
         QTableWidgetItem *titemo = uid.tableWidget_2->item(i, 1);
@@ -558,12 +558,12 @@ void titrationCalculator::on_actionSave_triggered()
         } else {
             QString yvaluerq = titemo->data(Qt::DisplayRole).toString();
             QString valuerq = titem->data(Qt::DisplayRole).toString();
-            tempyval = tempyval + QChar('\n') + valuerq + QString("|\n") + yvaluerq + QChar('|');
+            tempyval = tempyval + QChar('\n') + valuerq + QStringLiteral("|\n") + yvaluerq + QChar('|');
         }
     }
-    tempyval = tempyval + QString("\nnote|\n") + uid.note->toPlainText() + QChar('|');
+    tempyval = tempyval + QStringLiteral("\nnote|\n") + uid.note->toPlainText() + QChar('|');
 
-    QString file = QFileDialog::getSaveFileName(this,i18n("Save work"),"",i18n("Icee File (*.icee)"));
+    QString file = QFileDialog::getSaveFileName(this,i18n("Save work"),QLatin1String(""),i18n("Icee File (*.icee)"));
     if (!file.isEmpty()) {
         QByteArray ba = tempyval.toLatin1();
         char *strsave = ba.data();
@@ -586,7 +586,7 @@ void titrationCalculator::on_actionSave_triggered()
 void titrationCalculator::on_actionOpen_triggered()
 {
     //loads all the cells text from a file previously saved
-    QString file = QFileDialog::getOpenFileName(this,i18n("Open work"),"",i18n("Icee File (*.icee)"));
+    QString file = QFileDialog::getOpenFileName(this,i18n("Open work"),QLatin1String(""),i18n("Icee File (*.icee)"));
     if (!file.isEmpty()) {
         QByteArray bac = file.toLatin1();
         char *filec = bac.data();
@@ -609,7 +609,7 @@ void titrationCalculator::on_actionOpen_triggered()
                 if (tmpchr != '|') {
                     tempyval = tempyval + tmpchr;
                 } else {
-                    if ((tablea == 1) && (tempyval != QString("table1")) && (tempyval != QString("table2")) && (tempyval != QString("xaxis")) && (tempyval != QString("yaxis")) && (tempyval != QString("note"))) {
+                    if ((tablea == 1) && (tempyval != QStringLiteral("table1")) && (tempyval != QStringLiteral("table2")) && (tempyval != QStringLiteral("xaxis")) && (tempyval != QStringLiteral("yaxis")) && (tempyval != QStringLiteral("note"))) {
                         if ((i % 2) != 0) {
                             QTableWidgetItem *titemo = uid.tableWidget->item((i - 1) / 2, 1);
                             if (titemo) {
@@ -624,7 +624,7 @@ void titrationCalculator::on_actionOpen_triggered()
                         ++i;
                     }
 
-                    if ((tableb == 1) && (tempyval != QString("table1")) && (tempyval != QString("table2")) && (tempyval != QString("xaxis")) && (tempyval != QString("yaxis")) && (tempyval != QString("note"))) {
+                    if ((tableb == 1) && (tempyval != QStringLiteral("table1")) && (tempyval != QStringLiteral("table2")) && (tempyval != QStringLiteral("xaxis")) && (tempyval != QStringLiteral("yaxis")) && (tempyval != QStringLiteral("note"))) {
                         if ((i % 2) != 0) {
                             QTableWidgetItem *titemo = uid.tableWidget_2->item((i - 1) / 2, 1);
                             if (titemo) {
@@ -639,17 +639,17 @@ void titrationCalculator::on_actionOpen_triggered()
                         }
                         ++i;
                     }
-                    if ((xax == 1) && (tempyval != QString("table1")) && (tempyval != QString("table2")) && (tempyval != QString("xaxis")) && (tempyval != QString("yaxis")) && (tempyval != QString("note"))) {
+                    if ((xax == 1) && (tempyval != QStringLiteral("table1")) && (tempyval != QStringLiteral("table2")) && (tempyval != QStringLiteral("xaxis")) && (tempyval != QStringLiteral("yaxis")) && (tempyval != QStringLiteral("note"))) {
                         uid.xaxis->setText(tempyval);
                     }
-                    if ((yax == 1) && (tempyval != QString("table1")) && (tempyval != QString("table2")) && (tempyval != QString("xaxis")) && (tempyval != QString("yaxis")) && (tempyval != QString("note"))) {
+                    if ((yax == 1) && (tempyval != QStringLiteral("table1")) && (tempyval != QStringLiteral("table2")) && (tempyval != QStringLiteral("xaxis")) && (tempyval != QStringLiteral("yaxis")) && (tempyval != QStringLiteral("note"))) {
                         uid.yaxis->setText(tempyval);
                     }
-                    if ((notea == 1) && (tempyval != QString("table1")) && (tempyval != QString("table2")) && (tempyval != QString("xaxis")) && (tempyval != QString("yaxis")) && (tempyval != QString("note"))) {
+                    if ((notea == 1) && (tempyval != QStringLiteral("table1")) && (tempyval != QStringLiteral("table2")) && (tempyval != QStringLiteral("xaxis")) && (tempyval != QStringLiteral("yaxis")) && (tempyval != QStringLiteral("note"))) {
                         uid.note->setText(tempyval);
                     }
 
-                    if (tempyval == QString("table1")) {
+                    if (tempyval == QStringLiteral("table1")) {
                         i = 0;
                         tablea = 1;
                         tableb = 0;
@@ -657,7 +657,7 @@ void titrationCalculator::on_actionOpen_triggered()
                         yax = 0;
                         notea = 0;
                     }
-                    if (tempyval == QString("table2")) {
+                    if (tempyval == QStringLiteral("table2")) {
                         i = 0;
                         tablea = 0;
                         tableb = 1;
@@ -665,28 +665,28 @@ void titrationCalculator::on_actionOpen_triggered()
                         yax = 0;
                         notea = 0;
                     }
-                    if (tempyval == QString("xaxis"))  {
+                    if (tempyval == QStringLiteral("xaxis"))  {
                         tablea = 0;
                         tableb = 0;
                         xax = 1;
                         yax = 0;
                         notea = 0;
                     }
-                    if (tempyval == QString("yaxis"))  {
+                    if (tempyval == QStringLiteral("yaxis"))  {
                         tablea = 0;
                         tableb = 0;
                         xax = 0;
                         yax = 1;
                         notea = 0;
                     }
-                    if (tempyval == QString("note"))  {
+                    if (tempyval == QStringLiteral("note"))  {
                         tablea = 0;
                         tableb = 0;
                         xax = 0;
                         yax = 0;
                         notea = 1;
                     }
-                    tempyval = "";
+                    tempyval = QLatin1String("");
                 }
             } while (!texto.eof());
             texto.close();
@@ -700,7 +700,7 @@ void titrationCalculator::on_actionSave_image_triggered()
     QString svgheader = "<?xml version=\"1.0\" encoding=\"iso-8859-1\" standalone=\"no\"?> <!DOCTYPE svg PUBLIC \"-//W3C//Dtd SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/Dtd/svg11.dtd\"> <svg width=\"" + QString::number((xmax * 10) + 5) + "\" height=\"" + QString::number((ymax * 10) + 5) + "\"  version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><polyline points=\"5," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number((ymax * 10) - 5) + " " + QString::number(xmax * 10) + "," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number((ymax * 10) + 5) + " " + QString::number((xmax * 10) - 5) + "," + QString::number(ymax * 10) + "\" style=\"stroke:black;fill:none\"/> <polyline points=\"5," + QString::number(ymax * 10) + " 5,5 10,5 5,0 0,5 5,5\" style=\"stroke:black;fill:none\"/> ";
     QString svgcomplete = svgheader + redplot + greenplot + blueplot + "</svg> ";
 
-    QString file = QFileDialog::getSaveFileName(this, i18n("Save plot"), "", i18n("Svg image (*.svg)"));
+    QString file = QFileDialog::getSaveFileName(this, i18n("Save plot"), QLatin1String(""), i18n("Svg image (*.svg)"));
     if (!file.isEmpty()) {
         QByteArray svgt = svgcomplete.toLatin1();
         char *strsave = svgt.data();

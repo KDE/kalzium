@@ -97,16 +97,16 @@ void KOpenBabel::setupWindow()
 
     // Create connection
     connect(ui.addFileButton,
-            SIGNAL(clicked()), SLOT(slotAddFile()));
+            &QAbstractButton::clicked, this, &KOpenBabel::slotAddFile);
 
     connect(ui.deleteFileButton,
-            SIGNAL(clicked()), SLOT(slotDeleteFile()));
+            &QAbstractButton::clicked, this, &KOpenBabel::slotDeleteFile);
 
     connect(ui.selectAllFileButton,
-            SIGNAL(clicked()), SLOT(slotSelectAll()));
+            &QAbstractButton::clicked, this, &KOpenBabel::slotSelectAll);
 
     connect(ui.FileListView,
-            SIGNAL(itemSelectionChanged()), SLOT(slotGuessInput()));
+            &QListWidget::itemSelectionChanged, this, &KOpenBabel::slotGuessInput);
 }
 
 void KOpenBabel::slotAddFile()
@@ -122,7 +122,7 @@ void KOpenBabel::slotAddFile()
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     QStringList tmpList = InputType;
-    tmpList.replaceInStrings(QRegExp("^"), "*.");
+    tmpList.replaceInStrings(QRegExp("^"), QStringLiteral("*."));
     tmpList.replaceInStrings(QRegExp("(.*) -- (.*)"), "\\2(\\1)");
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // tmpList is now something like this:                                                                                      //
@@ -133,7 +133,7 @@ void KOpenBabel::slotAddFile()
             this,
             i18n("Open Molecule File"),
             QUrl(),
-            i18n("All Files") + QLatin1String("(*);;") + tmpList.join(QLatin1String(";;")) //add all possible extensions like "*.cml *.mol"
+            i18n("All Files") + QStringLiteral("(*);;") + tmpList.join(QLatin1String(";;")) //add all possible extensions like "*.cml *.mol"
             );
 
     foreach (const QUrl &u , fl) {
@@ -209,7 +209,7 @@ void KOpenBabel::slotConvert()
         QString ifname = QUrl(item->text()).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
-        ofname = ofname + QLatin1String(".") + oformat;
+        ofname = ofname + QStringLiteral(".") + oformat;
 
         bool proceed = true;
 
@@ -230,20 +230,20 @@ void KOpenBabel::slotConvert()
         }
         if (proceed) {
             QStringList arguments;
-            arguments << QString("-i") + iformat << ifname << QString("-o") + oformat << ofname;
+            arguments << QStringLiteral("-i") + iformat << ifname << QStringLiteral("-o") + oformat << ofname;
             cmdArgList.append(arguments);
-            cmdList.append(QString("babel ") + arguments.join(" "));
+            cmdList.append(QStringLiteral("babel ") + arguments.join(QStringLiteral(" ")));
         }
     }
     if (cmdArgList.count() > 0) {
         switch (KMessageBox::questionYesNo(
-                    this, cmdList.join("\n"),
+                    this, cmdList.join(QStringLiteral("\n")),
                     i18n("Is it okay to run these commands? -- KOpenBabel")
                   )
                 ) {
         case KMessageBox::Yes:
             foreach (const QStringList &s, cmdArgList) {
-                QProcess::startDetached("babel", s);
+                QProcess::startDetached(QStringLiteral("babel"), s);
             }
             break;
         default:
@@ -254,7 +254,7 @@ void KOpenBabel::slotConvert()
 
 void KOpenBabel::slotHelpRequested()
 {
-    KHelpClient::invokeHelp("commands", "kalzium");
+    KHelpClient::invokeHelp(QStringLiteral("commands"), QStringLiteral("kalzium"));
 }
 
 void KOpenBabel::addFile(const QString &filename)

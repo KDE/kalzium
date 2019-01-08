@@ -58,7 +58,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
     foreach (auto *factory, scenePluginFactories) {
         auto *scenePlugin = factory->createInstance();
         // enable Ball-and-Sticks
-        if (scenePlugin->objectName() == "BallStick") {
+        if (scenePlugin->objectName() == QLatin1String("BallStick")) {
             scenePlugin->setEnabled(true);
         }
         sceneModel().addItem(scenePlugin);

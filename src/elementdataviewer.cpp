@@ -117,7 +117,7 @@ ElementDataViewer::~ElementDataViewer()
 
 void ElementDataViewer::slotHelp()
 {
-    KHelpClient::invokeHelp("tools.html#plot_data", "kalzium");
+    KHelpClient::invokeHelp(QStringLiteral("tools.html#plot_data"), QStringLiteral("kalzium"));
 }
 
 void ElementDataViewer::rangeChanged()
@@ -421,16 +421,16 @@ void ElementDataViewer::drawPlot()
                 belongs = (nonMetals.contains(i) || metalloids.contains(i));
                 break;
             case 3: //Plot s block elements
-                belongs = (block[i - 1]== "s");
+                belongs = (block[i - 1]== QLatin1String("s"));
                 break;
             case 4: //Plot p block elements
-                belongs = (block[i - 1]== "p");
+                belongs = (block[i - 1]== QLatin1String("p"));
                 break;
             case 5: //Plot d block elements
-                belongs = (block[i - 1]== "d");
+                belongs = (block[i - 1]== QLatin1String("d"));
                 break;
             case 6: //plot f block elements
-                belongs = (block[i - 1]== "f");
+                belongs = (block[i - 1]== QLatin1String("f"));
                 break;
             case 7: // Noble gases
                 belongs = ((elecConfig[i - 1]) . endsWith(QLatin1String("p6")));
@@ -438,28 +438,28 @@ void ElementDataViewer::drawPlot()
                 break;
             case 8: // Alkalie metals
                 belongs = ((elecConfig[i - 1]) . endsWith(QLatin1String("s1")));
-                belongs &= (block[i - 1]== "s"); //exclude chromium
+                belongs &= (block[i - 1]== QLatin1String("s")); //exclude chromium
                 belongs &= (i != 1); //exclude Hydrogen
                 break;
             case 9: // Alkaline earth metals
                 belongs = ((elecConfig[i - 1]) . endsWith(QLatin1String("s2")));
-                belongs &= (block[i - 1]== "s"); //exclude chromium
+                belongs &= (block[i - 1]== QLatin1String("s")); //exclude chromium
                 belongs &= (i != 2); //exclude Helium
                 break;
             case 10: // Lanthanides
                 // If element i is an f block element, with
                 // electronic configuration containing "f4" in it
                 // or the element is Lanthanum
-                belongs = ((block[i - 1]== "f") && \
-                            ((elecConfig[i - 1]) . contains ("4f"))) || \
+                belongs = ((block[i - 1]== QLatin1String("f")) && \
+                            ((elecConfig[i - 1]) . contains (QLatin1String("4f")))) || \
                           (i == 57); //Lanthanum 57
                 break;
             case 11: //Actinides
                 //If element i is an f block element, with
                 // electronic configuration containing "f5" in it
                 // or the element is Actinium
-                belongs = (((block[i - 1]== "f")) && \
-                            ((elecConfig[i - 1]) . contains ("5f"))) || \
+                belongs = (((block[i - 1]== QLatin1String("f"))) && \
+                            ((elecConfig[i - 1]) . contains (QLatin1String("5f")))) || \
                           (i == 89); //Actinium 89
                 break;
             case 12: //Radio active

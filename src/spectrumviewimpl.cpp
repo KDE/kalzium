@@ -43,16 +43,16 @@ SpectrumViewImpl::SpectrumViewImpl(QWidget *parent) : QWidget(parent)
             this, SLOT(updateMin(int)));
     connect(maximumValue, SIGNAL(valueChanged(int)),
             this, SLOT(updateMax(int)));
-    connect(m_spectrumWidget, SIGNAL(bordersChanged(int,int)),
-            this, SLOT(updateUI(int,int)));
-    connect(m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
-            this, SLOT(updatePeakInformation(Spectrum::peak*)));
+    connect(m_spectrumWidget, &SpectrumWidget::bordersChanged,
+            this, &SpectrumViewImpl::updateUI);
+    connect(m_spectrumWidget, &SpectrumWidget::peakSelected,
+            this, &SpectrumViewImpl::updatePeakInformation);
 
     connect(m_spectrumType, SIGNAL(currentIndexChanged(int)),
             m_spectrumWidget, SLOT(slotActivateSpectrum(int)));
 
-    connect(btn_resetZoom, SIGNAL(pressed()), m_spectrumWidget, SLOT(resetSpectrum()));
-    connect(this, SIGNAL(settingsChanged()), m_spectrumWidget, SLOT(resetSpectrum()));
+    connect(btn_resetZoom, &QAbstractButton::pressed, m_spectrumWidget, &SpectrumWidget::resetSpectrum);
+    connect(this, &SpectrumViewImpl::settingsChanged, m_spectrumWidget, &SpectrumWidget::resetSpectrum);
 
     connect(m_lengthUnit, SIGNAL(currentIndexChanged(int)),
             this, SLOT(setUnit()));

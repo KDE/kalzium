@@ -82,11 +82,11 @@ calculator::calculator(QWidget *parent) : QDialog(parent)
     ui.stack->addWidget(m_equationBalancer);
 #endif
     // Add an image to the file
-    ui.pic->setPixmap((QIcon::fromTheme("calculate")).pixmap(128,128));
+    ui.pic->setPixmap((QIcon::fromTheme(QStringLiteral("calculate"))).pixmap(128,128));
 
     // Connect the tree item selection signal to the corresponding slot
-    connect(ui.tree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this,
-            SLOT(slotItemSelection(QTreeWidgetItem*)));
+    connect(ui.tree, &QTreeWidget::itemClicked, this,
+            &calculator::slotItemSelection);
 
     ui.tree->setCurrentItem(ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent);
 
@@ -138,5 +138,5 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
 
 void calculator::slotHelp()
 {
-    KHelpClient::invokeHelp("tools.html#perf_calculation", "kalzium");
+    KHelpClient::invokeHelp(QStringLiteral("tools.html#perf_calculation"), QStringLiteral("kalzium"));
 }

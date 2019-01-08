@@ -65,8 +65,8 @@ IsotopeItem::IsotopeItem(Isotope *i, qreal x, qreal y, qreal width, qreal height
     }
     setBrush(b);
 
-    m_symbolFont = QFont("Arial", 3 ,QFont::Bold);
-    m_otherFont = QFont("Arial", 1 ,QFont::Bold);
+    m_symbolFont = QFont(QStringLiteral("Arial"), 3 ,QFont::Bold);
+    m_otherFont = QFont(QStringLiteral("Arial"), 1 ,QFont::Bold);
 
     setFlag(QGraphicsItem::ItemIsMovable, false);
     setFlag(QGraphicsItem::ItemIsSelectable, false);

@@ -111,79 +111,79 @@ ElementSaxParser::~ElementSaxParser()
 
 bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-    if (localName == "atom") {
+    if (localName == QLatin1String("atom")) {
         d->currentElement = new Element();
         d->inElement = true;
-    } else if ((d->inElement && localName == "scalar") || localName == "array") {
+    } else if ((d->inElement && localName == QLatin1String("scalar")) || localName == QLatin1String("array")) {
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) == "units") {
+            if (attrs.localName(i) == QLatin1String("units")) {
 //                 qDebug() << "value of the unit: " << attrs.value(i);
                 d->currentUnit = unit(attrs.value(i));
 //                 qDebug() << "Took " << d->currentUnit;
                 continue;
             }
 
-            if (attrs.value(i) == "bo:atomicNumber") {
+            if (attrs.value(i) == QLatin1String("bo:atomicNumber")) {
                 d->inAtomicNumber = true;
-            } else if (attrs.value(i) == "bo:mass") {
+            } else if (attrs.value(i) == QLatin1String("bo:mass")) {
                 d->inMass = true;
-            } else if (attrs.value(i) == "bo:exactMass") {
+            } else if (attrs.value(i) == QLatin1String("bo:exactMass")) {
                 d->inExactMass = true;
-            } else if (attrs.value(i) == "bo:ionization") {
+            } else if (attrs.value(i) == QLatin1String("bo:ionization")) {
                 d->inIonization = true;
-            } else if (attrs.value(i) == "bo:electronAffinity") {
+            } else if (attrs.value(i) == QLatin1String("bo:electronAffinity")) {
                 d->inElectronAffinity = true;
-            } else if (attrs.value(i) == "bo:electronegativityPauling") {
+            } else if (attrs.value(i) == QLatin1String("bo:electronegativityPauling")) {
                 d->inElectronegativityPauling = true;
-            } else if (attrs.value(i) == "bo:radiusCovalent") {
+            } else if (attrs.value(i) == QLatin1String("bo:radiusCovalent")) {
                 d->inRadiusCovalent = true;
-            } else if (attrs.value(i) == "bo:radiusVDW") {
+            } else if (attrs.value(i) == QLatin1String("bo:radiusVDW")) {
                 d->inRadiusVDW = true;
-            } else if (attrs.value(i) == "bo:meltingpoint") {
+            } else if (attrs.value(i) == QLatin1String("bo:meltingpoint")) {
                 d->inMeltingPoint = true;
-            } else if (attrs.value(i) == "bo:boilingpoint") {
+            } else if (attrs.value(i) == QLatin1String("bo:boilingpoint")) {
                 d->inBoilingPoint = true;
-            } else if (attrs.value(i) == "bo:periodTableBlock") {
+            } else if (attrs.value(i) == QLatin1String("bo:periodTableBlock")) {
                 d->inPeriodTableBlock = true;
-            } else if (attrs.value(i) == "bo:nameOrigin") {
+            } else if (attrs.value(i) == QLatin1String("bo:nameOrigin")) {
                 d->inNameOrigin = true;
-            } else if (attrs.value(i) == "bo:discoveryDate") {
+            } else if (attrs.value(i) == QLatin1String("bo:discoveryDate")) {
                 d->inDiscoveryDate = true;
-            } else if (attrs.value(i) == "bo:discoverers") {
+            } else if (attrs.value(i) == QLatin1String("bo:discoverers")) {
                 d->inDiscoverers = true;
-            } else if (attrs.value(i) == "bo:discoveryCountry") {
+            } else if (attrs.value(i) == QLatin1String("bo:discoveryCountry")) {
                 d->inCountry = true;
-            } else if (attrs.value(i) == "bo:period") {
+            } else if (attrs.value(i) == QLatin1String("bo:period")) {
                 d->inPeriod = true;
-            } else if (attrs.value(i) == "bo:crystalstructure") {
+            } else if (attrs.value(i) == QLatin1String("bo:crystalstructure")) {
                 d->inCrystalstructure = true;
-            } else if (attrs.value(i) == "bo:acidicbehaviour") {
+            } else if (attrs.value(i) == QLatin1String("bo:acidicbehaviour")) {
                 d->inAcidicbehaviour = true;
-            } else if (attrs.value(i) == "bo:family") {
+            } else if (attrs.value(i) == QLatin1String("bo:family")) {
                 d->inFamily = true;
-            } else if (attrs.value(i) == "bo:group") {
+            } else if (attrs.value(i) == QLatin1String("bo:group")) {
                 d->inGroup = true;
-            } else if (attrs.value(i) == "bo:electronicConfiguration") {
+            } else if (attrs.value(i) == QLatin1String("bo:electronicConfiguration")) {
                 d->inElectronicconfiguration = true;
-            } else if (attrs.value(i) == "bo:dangerSymbol") {
+            } else if (attrs.value(i) == QLatin1String("bo:dangerSymbol")) {
                 d->inDangerSymbol = true;
-            } else if (attrs.value(i) == "bo:RPhrase") {
+            } else if (attrs.value(i) == QLatin1String("bo:RPhrase")) {
                 d->inRPhrase = true;
-            } else if (attrs.value(i) == "bo:SPhrase") {
+            } else if (attrs.value(i) == QLatin1String("bo:SPhrase")) {
                 d->inSPhrase = true;
-            } else if (attrs.value(i) == "bo:oxidation") {
+            } else if (attrs.value(i) == QLatin1String("bo:oxidation")) {
                 d->inOxidation = true;
             }
         }
-    } else if (d->inElement && localName == "label") {
+    } else if (d->inElement && localName == QLatin1String("label")) {
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) != "dictRef") {
+            if (attrs.localName(i) != QLatin1String("dictRef")) {
                 continue;
             }
 
-            if (attrs.value(i) == "bo:symbol") {
+            if (attrs.value(i) == QLatin1String("bo:symbol")) {
                 for (int i = 0; i < attrs.length(); ++i) {
-                    if (attrs.localName(i) == "value") {
+                    if (attrs.localName(i) == QLatin1String("value")) {
                         d->currentDataObject.setData(attrs.value(i));
                         d->currentDataObject.setType(ChemicalDataObject::symbol);
 
@@ -192,9 +192,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                         }
                     }
                 }
-            } else if (attrs.value(i) == "bo:name") {
+            } else if (attrs.value(i) == QLatin1String("bo:name")) {
                 for (int i = 0; i < attrs.length(); ++i) {
-                    if (attrs.localName(i) == "value") {
+                    if (attrs.localName(i) == QLatin1String("value")) {
                         d->currentDataObject.setData(i18n(attrs.value(i).toUtf8().constData()));
                         d->currentDataObject.setType(ChemicalDataObject::name);
 
@@ -211,8 +211,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 
 bool ElementSaxParser::endElement(const QString &, const QString &localName, const QString &)
 {
-    if (localName == "atom") {
-        if (d->currentElement->dataAsString(ChemicalDataObject::symbol) != "Xx") {
+    if (localName == QLatin1String("atom")) {
+        if (d->currentElement->dataAsString(ChemicalDataObject::symbol) != QLatin1String("Xx")) {
             d->elements.append(d->currentElement);
         } else {
             delete d->currentElement;
@@ -220,7 +220,7 @@ bool ElementSaxParser::endElement(const QString &, const QString &localName, con
 
         d->currentElement = nullptr;
         d->inElement = false;
-    } else if (localName == "scalar" || localName == "label" || localName == "array") {
+    } else if (localName == QLatin1String("scalar") || localName == QLatin1String("label") || localName == QLatin1String("array")) {
         d->currentDataObject.setUnit(d->currentUnit);
     }
     return true;
@@ -325,7 +325,7 @@ bool ElementSaxParser::characters(const QString &ch)
         type = ChemicalDataObject::SPhrase;
         d->inSPhrase = false;
     } else if (d->inCountry) {
-        if (ch == "ancient") {
+        if (ch == QLatin1String("ancient")) {
             value = 0;
             type = ChemicalDataObject::date;
         } else {
@@ -354,13 +354,13 @@ bool ElementSaxParser::characters(const QString &ch)
 
 int ElementSaxParser::unit(const QString& unit) const
 {
-    if (unit == "siUnits:kelvin") {
+    if (unit == QLatin1String("siUnits:kelvin")) {
         return KUnitConversion::Kelvin;
-    } else if (unit == "units:ev") {
+    } else if (unit == QLatin1String("units:ev")) {
         return KUnitConversion::Electronvolt;
-    } else if (unit == "units:ang") {
+    } else if (unit == QLatin1String("units:ang")) {
         return KUnitConversion::Angstrom;
-    } else if (unit == "bo:noUnit") {
+    } else if (unit == QLatin1String("bo:noUnit")) {
         return KUnitConversion::NoUnit;
     } else {
         return KUnitConversion::NoUnit;

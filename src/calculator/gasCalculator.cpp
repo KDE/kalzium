@@ -65,8 +65,8 @@ gasCalculator::gasCalculator(QWidget * parent)
             this, SLOT(Vand_bChanged()));
     connect(ui.mode, SIGNAL(activated(int)),
             this, SLOT(setMode(int)));
-    connect(ui.reset, SIGNAL(clicked()),
-            this, SLOT(init()));
+    connect(ui.reset, &QAbstractButton::clicked,
+            this, &gasCalculator::init);
 }
 
 gasCalculator:: ~gasCalculator()

@@ -49,9 +49,9 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 
     ui.setupUi(this);
 
-    connect(ui.calcButton, SIGNAL(clicked()), this, SLOT(slotCalculate()));
-    connect(ui.formulaEdit, SIGNAL(returnPressed()), this, SLOT(slotCalculate()));
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotCalculate()));
+    connect(ui.calcButton, &QAbstractButton::clicked, this, &MolcalcWidget::slotCalculate);
+    connect(ui.formulaEdit, &QLineEdit::returnPressed, this, &MolcalcWidget::slotCalculate);
+    connect(m_timer, &QTimer::timeout, this, &MolcalcWidget::slotCalculate);
 
     ui.formulaEdit->setClearButtonEnabled(true);
 
@@ -65,13 +65,13 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
     }
 
     if (Prefs::addAlias()) {
-        connect(ui.alias, SIGNAL(clicked()), this, SLOT(addAlias()));
+        connect(ui.alias, &QAbstractButton::clicked, this, &MolcalcWidget::addAlias);
         QString shortForm, fullForm;        // short form (symbol) and full form (expansion)
         QList<QString> shortList, fullList; // Used to store the short and full forms
         int i = 0;                          // loop counter
 
         // Search in User defined aliases.
-        QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
+        QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols2.csv"));
         QFile file(fileName);
 
         // Check file validity
@@ -106,7 +106,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 
         // Find the system defined aliases
         // Open the file
-        fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols.csv");
+        fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols.csv"));
         QFile file2(fileName);
         shortList.clear();
         fullList.clear();
@@ -287,7 +287,7 @@ void MolcalcWidget::addAlias()
     double x;
     ElementCountMap y;
 
-    ui.aliasMessage->setText("");
+    ui.aliasMessage->setText(QLatin1String(""));
     if (shortForm.length() < 2) {
         ui.aliasMessage->setText(i18n
         ("Symbol should consist of two or more letters."));
@@ -307,7 +307,7 @@ void MolcalcWidget::addAlias()
     }
 
     // Open the file to write
-    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "libkdeedu/data/symbols2.csv");
+    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols2.csv"));
     QFile file(fileName);
 
     if (!(!file.open(QIODevice::WriteOnly| QIODevice::Append | QIODevice::Text))) {

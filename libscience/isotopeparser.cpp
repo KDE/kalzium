@@ -91,41 +91,41 @@ IsotopeParser::~IsotopeParser()
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-    if (localName == "isotopeList") {
+    if (localName == QLatin1String("isotopeList")) {
         d->inElement = true;
 
         //now save the symbol of the current element
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) == "id") {
+            if (attrs.localName(i) == QLatin1String("id")) {
                 d->currentElementSymbol = attrs.value(i);
             }
         }
-    } else if (d->inElement && localName == "isotope") {
+    } else if (d->inElement && localName == QLatin1String("isotope")) {
         d->currentIsotope = new Isotope();
         d->currentIsotope->addData(ChemicalDataObject(QVariant(d->currentElementSymbol), ChemicalDataObject::symbol));
         d->inIsotope = true;
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) == "number") {
+            if (attrs.localName(i) == QLatin1String("number")) {
                 d->currentIsotope->setNucleons(attrs.value(i).toInt());
             }
         }
-    } else if (d->inIsotope && localName == "scalar") {
+    } else if (d->inIsotope && localName == QLatin1String("scalar")) {
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) == "errorValue") {
+            if (attrs.localName(i) == QLatin1String("errorValue")) {
                 d->currentErrorValue = QVariant(attrs.value(i));
                 continue;
             }
 
-            if (attrs.value(i) == "bo:atomicNumber") {
+            if (attrs.value(i) == QLatin1String("bo:atomicNumber")) {
                 d->inAtomicNumber = true;
-            } else if (attrs.value(i) == "bo:exactMass") {
+            } else if (attrs.value(i) == QLatin1String("bo:exactMass")) {
                 d->inExactMass = true;
-            } else if (attrs.value(i) == "bo:halfLife") {
+            } else if (attrs.value(i) == QLatin1String("bo:halfLife")) {
                 for (int i = 0; i < attrs.length(); ++i) {
-                    if (attrs.localName(i) == "units") {
-                        if (attrs.value(i) == "siUnits:s") {
+                    if (attrs.localName(i) == QLatin1String("units")) {
+                        if (attrs.value(i) == QLatin1String("siUnits:s")) {
                             d->currentUnit = KUnitConversion::Second;
-                        } else if (attrs.value(i) == "units:y") {
+                        } else if (attrs.value(i) == QLatin1String("units:y")) {
                             d->currentUnit = KUnitConversion::Year;
                         } else {
                             d->currentUnit = KUnitConversion::NoUnit;
@@ -135,27 +135,27 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 
                 d->currentDataObject.setUnit(d->currentUnit);
                 d->inHalfLife = true;
-            } else if (attrs.value(i) == "bo:alphaDecay") {
+            } else if (attrs.value(i) == QLatin1String("bo:alphaDecay")) {
                 d->inAlphaDecay = true;
-            } else if (attrs.value(i) == "bo:alphaDecayLikeliness") {
+            } else if (attrs.value(i) == QLatin1String("bo:alphaDecayLikeliness")) {
                 d->inAlphaDecayLikeliness = true;
-            } else if (attrs.value(i) == "bo:ecDecay") {
+            } else if (attrs.value(i) == QLatin1String("bo:ecDecay")) {
                 d->inECDecay = true;
-            } else if (attrs.value(i) == "bo:ecDecayLikeliness") {
+            } else if (attrs.value(i) == QLatin1String("bo:ecDecayLikeliness")) {
                 d->inECDecayLikeliness = true;
-            } else if (attrs.value(i) == "bo:betaminusDecay") {
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusDecay")) {
                 d->inBetaminusDecay = true;
-            } else if (attrs.value(i) == "bo:betaminusDecayLikeliness") {
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusDecayLikeliness")) {
                 d->inBetaminusDecayLikeliness = true;
-            } else if (attrs.value(i) == "bo:betaplusDecay") {
+            } else if (attrs.value(i) == QLatin1String("bo:betaplusDecay")) {
                 d->inBetaplusDecay = true;
-            } else if (attrs.value(i) == "bo:betaplusDecayLikeliness") {
+            } else if (attrs.value(i) == QLatin1String("bo:betaplusDecayLikeliness")) {
                 d->inBetaplusDecayLikeliness = true;
-            } else if (attrs.value(i) == "bo:spin") {
+            } else if (attrs.value(i) == QLatin1String("bo:spin")) {
                 d->inSpin = true;
-            } else if (attrs.value(i) == "bo:magneticMoment") {
+            } else if (attrs.value(i) == QLatin1String("bo:magneticMoment")) {
                 d->inMagMoment = true;
-            } else if (attrs.value(i) == "bo:relativeAbundance") {
+            } else if (attrs.value(i) == QLatin1String("bo:relativeAbundance")) {
                 d->inAbundance = true;
             }
         }
@@ -165,12 +165,12 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 
 bool IsotopeParser::endElement(const QString&, const QString& localName, const QString&)
 {
-    if (localName == "isotope") {
+    if (localName == QLatin1String("isotope")) {
         d->isotopes.append(d->currentIsotope);
 
         d->currentIsotope = nullptr;
         d->inIsotope = false;
-    } else if (localName == "isotopeList") { //a new list of isotopes start...
+    } else if (localName == QLatin1String("isotopeList")) { //a new list of isotopes start...
         d->inElement = false;
     }
 

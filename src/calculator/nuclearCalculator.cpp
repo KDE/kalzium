@@ -76,12 +76,12 @@ nuclearCalculator::nuclearCalculator(QWidget * parent) : QFrame(parent)
             this, SLOT(timeChanged()));
     connect(ui.time_unit, SIGNAL(activated(int)),
             this, SLOT(timeChanged()));
-    connect(ui.slider, SIGNAL(valueChanged(int)),
-            this, SLOT(sliderMoved(int)));
+    connect(ui.slider, &QAbstractSlider::valueChanged,
+            this, &nuclearCalculator::sliderMoved);
     connect(ui.mode, SIGNAL(activated(int)),
             this, SLOT(setMode(int)));
-    connect(ui.reset, SIGNAL(clicked()),
-            this, SLOT(init()));
+    connect(ui.reset, &QAbstractButton::clicked,
+            this, &nuclearCalculator::init);
 
     /**************************************************************************/
     // Nuclear Calculator setup complete
@@ -434,7 +434,7 @@ void nuclearCalculator::error(int mode)
 {
     switch (mode) { // Depending on the mode, set the error messages.
     case RESET_NUKE_MESSAGE:
-        ui.error->setText("");
+        ui.error->setText(QLatin1String(""));
         break;
     case INIT_AMT_ZERO:
         ui.error->setText(i18n("Initial amount cannot be zero."));

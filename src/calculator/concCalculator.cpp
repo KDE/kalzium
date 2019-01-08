@@ -85,8 +85,8 @@ concCalculator::concCalculator(QWidget * parent) : QFrame(parent)
     connect(ui.mode, SIGNAL(activated(int)),
             this, SLOT(setMode(int)));
 
-    connect(ui.reset, SIGNAL(clicked()),
-            this, SLOT(init()));
+    connect(ui.reset, &QAbstractButton::clicked,
+            this, &concCalculator::init);
 
     /**************************************************************************/
     //              concentration Calculator setup complete
@@ -946,7 +946,7 @@ void concCalculator::error(int mode)
 {
     switch (mode) { // Depending on the mode, set the error messages.
     case RESET_CONC_MESSAGE:
-        ui.error->setText("");
+        ui.error->setText(QLatin1String(""));
         break;
     case PERCENTAGE:
         ui.error->setText(i18n("Percentage should be less than 100.0, please enter a valid value."));

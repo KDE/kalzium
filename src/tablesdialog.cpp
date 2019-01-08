@@ -48,7 +48,7 @@ void TablesDialog::createGreekSymbolTable()
     QWidget *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Greek alphabet"));
     item->setHeader(i18n("Greek alphabet"));
-    item->setIcon(QIcon::fromTheme("numbers"));
+    item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -151,7 +151,7 @@ void TablesDialog::createNumbersTable()
     QWidget *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Numbers"));
     item->setHeader(i18n("Numeric Prefixes and Roman Numerals"));
-    item->setIcon(QIcon::fromTheme("numbers"));
+    item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setMargin(0);
 
@@ -195,61 +195,61 @@ void TablesDialog::createNumbersTable()
     table->setItem(27, 0, new MyWidgetItem(i18n("100")));
 
     //greek names of the numbers
-    table->setItem(0,  1, new MyWidgetItem("hemi"));
-    table->setItem(1,  1, new MyWidgetItem("mono"));
-    table->setItem(2,  1, new MyWidgetItem("sesqui"));
-    table->setItem(3,  1, new MyWidgetItem("di, bi"));
-    table->setItem(4,  1, new MyWidgetItem("hemipenta"));
-    table->setItem(5,  1, new MyWidgetItem("tri"));
-    table->setItem(6,  1, new MyWidgetItem("tetra"));
-    table->setItem(7,  1, new MyWidgetItem("penta"));
-    table->setItem(8,  1, new MyWidgetItem("hexa"));
-    table->setItem(9,  1, new MyWidgetItem("hepta"));
-    table->setItem(10, 1, new MyWidgetItem("octa"));
-    table->setItem(11, 1, new MyWidgetItem("nona, ennea"));
-    table->setItem(12, 1, new MyWidgetItem("deca"));
-    table->setItem(13, 1, new MyWidgetItem("hendeca, undeca"));
-    table->setItem(14, 1, new MyWidgetItem("dodeca"));
-    table->setItem(15, 1, new MyWidgetItem("trideca"));
-    table->setItem(16, 1, new MyWidgetItem("tetradeca"));
-    table->setItem(17, 1, new MyWidgetItem("pentadeca"));
-    table->setItem(18, 1, new MyWidgetItem("hexadeca"));
-    table->setItem(19, 1, new MyWidgetItem("heptadeca"));
-    table->setItem(20, 1, new MyWidgetItem("octadeca"));
-    table->setItem(21, 1, new MyWidgetItem("nonadeca"));
-    table->setItem(22, 1, new MyWidgetItem("eicosa"));
-    table->setItem(23, 1, new MyWidgetItem("tetraconta"));
-    table->setItem(24, 1, new MyWidgetItem("pentaconta"));
-    table->setItem(25, 1, new MyWidgetItem("hexaconta"));
-    table->setItem(26, 1, new MyWidgetItem("nonaconta"));
-    table->setItem(27, 1, new MyWidgetItem("hecta"));
+    table->setItem(0,  1, new MyWidgetItem(QStringLiteral("hemi")));
+    table->setItem(1,  1, new MyWidgetItem(QStringLiteral("mono")));
+    table->setItem(2,  1, new MyWidgetItem(QStringLiteral("sesqui")));
+    table->setItem(3,  1, new MyWidgetItem(QStringLiteral("di, bi")));
+    table->setItem(4,  1, new MyWidgetItem(QStringLiteral("hemipenta")));
+    table->setItem(5,  1, new MyWidgetItem(QStringLiteral("tri")));
+    table->setItem(6,  1, new MyWidgetItem(QStringLiteral("tetra")));
+    table->setItem(7,  1, new MyWidgetItem(QStringLiteral("penta")));
+    table->setItem(8,  1, new MyWidgetItem(QStringLiteral("hexa")));
+    table->setItem(9,  1, new MyWidgetItem(QStringLiteral("hepta")));
+    table->setItem(10, 1, new MyWidgetItem(QStringLiteral("octa")));
+    table->setItem(11, 1, new MyWidgetItem(QStringLiteral("nona, ennea")));
+    table->setItem(12, 1, new MyWidgetItem(QStringLiteral("deca")));
+    table->setItem(13, 1, new MyWidgetItem(QStringLiteral("hendeca, undeca")));
+    table->setItem(14, 1, new MyWidgetItem(QStringLiteral("dodeca")));
+    table->setItem(15, 1, new MyWidgetItem(QStringLiteral("trideca")));
+    table->setItem(16, 1, new MyWidgetItem(QStringLiteral("tetradeca")));
+    table->setItem(17, 1, new MyWidgetItem(QStringLiteral("pentadeca")));
+    table->setItem(18, 1, new MyWidgetItem(QStringLiteral("hexadeca")));
+    table->setItem(19, 1, new MyWidgetItem(QStringLiteral("heptadeca")));
+    table->setItem(20, 1, new MyWidgetItem(QStringLiteral("octadeca")));
+    table->setItem(21, 1, new MyWidgetItem(QStringLiteral("nonadeca")));
+    table->setItem(22, 1, new MyWidgetItem(QStringLiteral("eicosa")));
+    table->setItem(23, 1, new MyWidgetItem(QStringLiteral("tetraconta")));
+    table->setItem(24, 1, new MyWidgetItem(QStringLiteral("pentaconta")));
+    table->setItem(25, 1, new MyWidgetItem(QStringLiteral("hexaconta")));
+    table->setItem(26, 1, new MyWidgetItem(QStringLiteral("nonaconta")));
+    table->setItem(27, 1, new MyWidgetItem(QStringLiteral("hecta")));
 
     //roman symbols
-    table->setItem(1,  2, new MyWidgetItem("I"));
-    table->setItem(3,  2, new MyWidgetItem("II"));
-    table->setItem(5,  2, new MyWidgetItem("III"));
-    table->setItem(6,  2, new MyWidgetItem("IV"));
-    table->setItem(7,  2, new MyWidgetItem("V"));
-    table->setItem(8,  2, new MyWidgetItem("VI"));
-    table->setItem(9,  2, new MyWidgetItem("VII"));
-    table->setItem(10, 2, new MyWidgetItem("VIII"));
-    table->setItem(11, 2, new MyWidgetItem("IX"));
-    table->setItem(12, 2, new MyWidgetItem("X"));
-    table->setItem(13, 2, new MyWidgetItem("XI"));
-    table->setItem(14, 2, new MyWidgetItem("XII"));
-    table->setItem(15, 2, new MyWidgetItem("XIII"));
-    table->setItem(16, 2, new MyWidgetItem("XIV"));
-    table->setItem(17, 2, new MyWidgetItem("XV"));
-    table->setItem(18, 2, new MyWidgetItem("XVI"));
-    table->setItem(19, 2, new MyWidgetItem("XVII"));
-    table->setItem(20, 2, new MyWidgetItem("XVIII"));
-    table->setItem(21, 2, new MyWidgetItem("XIV"));
-    table->setItem(22, 2, new MyWidgetItem("XX"));
-    table->setItem(23, 2, new MyWidgetItem("XL"));
-    table->setItem(24, 2, new MyWidgetItem("L"));
-    table->setItem(25, 2, new MyWidgetItem("LX"));
-    table->setItem(26, 2, new MyWidgetItem("XC"));
-    table->setItem(27, 2, new MyWidgetItem("C"));
+    table->setItem(1,  2, new MyWidgetItem(QStringLiteral("I")));
+    table->setItem(3,  2, new MyWidgetItem(QStringLiteral("II")));
+    table->setItem(5,  2, new MyWidgetItem(QStringLiteral("III")));
+    table->setItem(6,  2, new MyWidgetItem(QStringLiteral("IV")));
+    table->setItem(7,  2, new MyWidgetItem(QStringLiteral("V")));
+    table->setItem(8,  2, new MyWidgetItem(QStringLiteral("VI")));
+    table->setItem(9,  2, new MyWidgetItem(QStringLiteral("VII")));
+    table->setItem(10, 2, new MyWidgetItem(QStringLiteral("VIII")));
+    table->setItem(11, 2, new MyWidgetItem(QStringLiteral("IX")));
+    table->setItem(12, 2, new MyWidgetItem(QStringLiteral("X")));
+    table->setItem(13, 2, new MyWidgetItem(QStringLiteral("XI")));
+    table->setItem(14, 2, new MyWidgetItem(QStringLiteral("XII")));
+    table->setItem(15, 2, new MyWidgetItem(QStringLiteral("XIII")));
+    table->setItem(16, 2, new MyWidgetItem(QStringLiteral("XIV")));
+    table->setItem(17, 2, new MyWidgetItem(QStringLiteral("XV")));
+    table->setItem(18, 2, new MyWidgetItem(QStringLiteral("XVI")));
+    table->setItem(19, 2, new MyWidgetItem(QStringLiteral("XVII")));
+    table->setItem(20, 2, new MyWidgetItem(QStringLiteral("XVIII")));
+    table->setItem(21, 2, new MyWidgetItem(QStringLiteral("XIV")));
+    table->setItem(22, 2, new MyWidgetItem(QStringLiteral("XX")));
+    table->setItem(23, 2, new MyWidgetItem(QStringLiteral("XL")));
+    table->setItem(24, 2, new MyWidgetItem(QStringLiteral("L")));
+    table->setItem(25, 2, new MyWidgetItem(QStringLiteral("LX")));
+    table->setItem(26, 2, new MyWidgetItem(QStringLiteral("XC")));
+    table->setItem(27, 2, new MyWidgetItem(QStringLiteral("C")));
 
     table->resizeColumnsToContents();
     frame->setMinimumWidth(qMax(table->columnWidth(0) + table->columnWidth(1) + table->columnWidth(2),
@@ -268,7 +268,7 @@ MyTableWidget::MyTableWidget(QWidget* parent) : QTableWidget(parent)
 void MyTableWidget::contextMenuEvent(QContextMenuEvent* event)
 {
     QMenu* menu = new QMenu((QWidget*) sender());
-    menu->addAction(i18n("&Copy"), this, SLOT(copyToClipboard()), QKeySequence(Qt::Key_C | Qt::CTRL));
+    menu->addAction(i18n("&Copy"), this, &MyTableWidget::copyToClipboard, QKeySequence(Qt::Key_C | Qt::CTRL));
     menu->exec(event->globalPos());
 }
 

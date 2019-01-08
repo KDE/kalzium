@@ -148,7 +148,7 @@ void Glossary::init(const QUrl &url, const QString& path)
     setPicturePath(path);
 
     if (!url.isEmpty()) {
-        QDomDocument doc("document");
+        QDomDocument doc(QStringLiteral("document"));
 
         if (loadLayout(doc, url)) {
             setItemlist(readItems(doc));
@@ -235,7 +235,7 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
     QDomElement itemElement;
     QStringList reflist;
 
-    itemList = itemDocument.elementsByTagName("item");
+    itemList = itemDocument.elementsByTagName(QStringLiteral("item"));
 
     const uint num = itemList.count();
     for (uint i = 0; i < num; ++i) {
@@ -244,11 +244,11 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
 
         itemElement = (const QDomElement&) itemList.item(i).toElement();
 
-        QDomNode nameNode = itemElement.namedItem("name");
-        QDomNode descNode = itemElement.namedItem("desc");
+        QDomNode nameNode = itemElement.namedItem(QStringLiteral("name"));
+        QDomNode descNode = itemElement.namedItem(QStringLiteral("desc"));
 
-        QString picName = itemElement.namedItem("picture").toElement().text();
-        QDomElement refNode = (const QDomElement&) itemElement.namedItem("references").toElement();
+        QString picName = itemElement.namedItem(QStringLiteral("picture")).toElement().text();
+        QDomElement refNode = (const QDomElement&) itemElement.namedItem(QStringLiteral("references")).toElement();
 
         QString desc = i18n(descNode.toElement().text().toUtf8().constData());
         if (!picName.isEmpty()) {
@@ -257,19 +257,19 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
 
         item->setName(i18n(nameNode.toElement().text().toUtf8().constData()));
 
-        desc = desc.replace("[b]", "<b>");
-        desc = desc.replace("[/b]", "</b>");
-        desc = desc.replace("[i]", "<i>");
-        desc = desc.replace("[/i]", "</i>");
-        desc = desc.replace("[sub]", "<sub>");
-        desc = desc.replace("[/sub]", "</sub>");
-        desc = desc.replace("[sup]", "<sup>");
-        desc = desc.replace("[/sup]", "</sup>");
-        desc = desc.replace("[br]", "<br />");
-        desc = desc.replace("[brclear]", "<br clear=\"left\"/>");
+        desc = desc.replace(QLatin1String("[b]"), QLatin1String("<b>"));
+        desc = desc.replace(QLatin1String("[/b]"), QLatin1String("</b>"));
+        desc = desc.replace(QLatin1String("[i]"), QLatin1String("<i>"));
+        desc = desc.replace(QLatin1String("[/i]"), QLatin1String("</i>"));
+        desc = desc.replace(QLatin1String("[sub]"), QLatin1String("<sub>"));
+        desc = desc.replace(QLatin1String("[/sub]"), QLatin1String("</sub>"));
+        desc = desc.replace(QLatin1String("[sup]"), QLatin1String("<sup>"));
+        desc = desc.replace(QLatin1String("[/sup]"), QLatin1String("</sup>"));
+        desc = desc.replace(QLatin1String("[br]"), QLatin1String("<br />"));
+        desc = desc.replace(QLatin1String("[brclear]"), QLatin1String("<br clear=\"left\"/>"));
         item->setDesc(desc);
 
-        refNodeList = refNode.elementsByTagName("refitem");
+        refNodeList = refNode.elementsByTagName(QStringLiteral("refitem"));
         for (int it = 0; it < refNodeList.count(); ++it)
         {
             reflist << i18n(refNodeList.item(it).toElement().text().toUtf8().constData());
@@ -323,7 +323,7 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
 
     //this string will be used for all items. If a backgroundpicture should
     //be used call Glossary::setBackgroundPicture().
-    d->m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>";
+    d->m_htmlbasestring = QStringLiteral("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>");
 
     QWidget *main = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout(main);
@@ -337,7 +337,7 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
     hbox->addWidget(lbl);
 
     d->m_search = new KTreeWidgetSearchLine(main);
-    d->m_search->setObjectName("search-line");
+    d->m_search->setObjectName(QStringLiteral("search-line"));
     lbl->setBuddy(lbl);
     hbox->addWidget(d->m_search);
     vbox->addLayout(hbox);
@@ -347,8 +347,8 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
     vbox->addWidget(vs);
 
     d->m_glosstree = new QTreeWidget(vs);
-    d->m_glosstree->setObjectName("treeview");
-    d->m_glosstree->setHeaderLabel("entries");
+    d->m_glosstree->setObjectName(QStringLiteral("treeview"));
+    d->m_glosstree->setHeaderLabel(QStringLiteral("entries"));
     d->m_glosstree->header()->hide();
     d->m_glosstree->setRootIsDecorated(true);
 
@@ -507,12 +507,12 @@ QString GlossaryItem::parseReferences() const
     }
 
     QString htmlcode = "<h3>" + i18n("References") + "</h3><ul type=\"disc\">";
-    static QString basehref = QString("<li><a href=\"item:%1\" title=\"%2\">%3</a></li>");
+    static QString basehref = QStringLiteral("<li><a href=\"item:%1\" title=\"%2\">%3</a></li>");
 
     foreach (const QString& ref, m_ref) {
         htmlcode += basehref.arg(QUrl::toPercentEncoding(ref), i18n("Go to '%1'", ref), ref);
     }
-    htmlcode += "</ul>";
+    htmlcode += QLatin1String("</ul>");
 
     return htmlcode;
 }

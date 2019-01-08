@@ -51,10 +51,10 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
 
     connect(ui.gv->scene(), SIGNAL(itemSelected(IsotopeItem*)),
             this, SLOT(updateDockWidget(IsotopeItem*)));
-    connect(ui.gv, SIGNAL(zoomLevelChanged(double)),
-            this, SLOT(slotZoomLevelChanged(double)));
-    connect(ui.Slider, SIGNAL(valueChanged(int)),
-            this, SLOT(zoom(int)));
+    connect(ui.gv, &IsotopeView::zoomLevelChanged,
+            this, &IsotopeTableDialog::slotZoomLevelChanged);
+    connect(ui.Slider, &QAbstractSlider::valueChanged,
+            this, &IsotopeTableDialog::zoom);
 
     //Here comes the legend part
     QList< QPair<QString, QColor> > items;
@@ -96,7 +96,7 @@ void IsotopeTableDialog::updateDockWidget(IsotopeItem * item)
         halflife = i18n ("Halflife: Unknown");
     }
 
-    QString abundance = i18n("Abundance: %1 %", !s->abundance().isEmpty() ? s->abundance() : "0");
+    QString abundance = i18n("Abundance: %1 %", !s->abundance().isEmpty() ? s->abundance() : QStringLiteral("0"));
     QString nucleons = i18n("Number of nucleons: %1", s->nucleons());
     QString spin = i18n("Spin: %1", s->spin().isEmpty()?
                                         i18nc("Unknown spin", "Unknown"): s->spin());

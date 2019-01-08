@@ -63,26 +63,26 @@ SpectrumParser::~SpectrumParser()
 
 bool SpectrumParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-    if (localName == "spectrum") {
+    if (localName == QLatin1String("spectrum")) {
 
         d->currentSpectrum = new Spectrum();
         d->inSpectrum_ = true;
 
         //now save the element of the current spectrum
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) == "id") {
+            if (attrs.localName(i) == QLatin1String("id")) {
                 currentElementID = attrs.value(i);
             }
         }
 
-    } else if (d->inSpectrum_ && localName == "peakList") {
+    } else if (d->inSpectrum_ && localName == QLatin1String("peakList")) {
         d->inPeakList_ = true;
-    } else if (d->inSpectrum_ && d->inPeakList_ && localName == "peak") {
+    } else if (d->inSpectrum_ && d->inPeakList_ && localName == QLatin1String("peak")) {
         d->inPeak_ = true;
         for (int i = 0; i < attrs.length(); ++i) {
-            if (attrs.localName(i) == "xValue") {
+            if (attrs.localName(i) == QLatin1String("xValue")) {
                 d->intensity = attrs.value(i).toInt();
-            } else if (attrs.localName(i) == "yValue") {
+            } else if (attrs.localName(i) == QLatin1String("yValue")) {
                 d->wavelength = attrs.value(i).toDouble();
             }
         }
@@ -93,17 +93,17 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
 
 bool SpectrumParser::endElement(const QString&, const QString& localName, const QString &)
 {
-    if (localName == "spectrum") {
-        int num = currentElementID.mid(1).toInt();
+    if (localName == QLatin1String("spectrum")) {
+        int num = currentElementID.midRef(1).toInt();
         d->currentSpectrum->setParentElementNumber(num);
 
         d->spectra.append(d->currentSpectrum);
 
         d->currentSpectrum = nullptr;
         d->inSpectrum_ = false;
-    } else if (localName == "peakList") {
+    } else if (localName == QLatin1String("peakList")) {
         d->inSpectrumList_ = false;
-    } else if (localName == "peak") {
+    } else if (localName == QLatin1String("peak")) {
 //X             qDebug() << "in 'peak'" << " with this data: " << d->currentPeak->intensity << " (intensity)" ;
         d->currentSpectrum->addPeak(d->currentPeak);
         d->currentPeak = nullptr;

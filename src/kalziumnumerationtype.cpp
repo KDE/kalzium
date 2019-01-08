@@ -138,24 +138,24 @@ KalziumIUPACNumerationType::KalziumIUPACNumerationType()
         : KalziumNumerationType()
 {
     // cache them
-    m_items << QString("1");
-    m_items << QString("2");
-    m_items << QString("3");
-    m_items << QString("4");
-    m_items << QString("5");
-    m_items << QString("6");
-    m_items << QString("7");
-    m_items << QString("8");
-    m_items << QString("9");
-    m_items << QString("10");
-    m_items << QString("11");
-    m_items << QString("12");
-    m_items << QString("13");
-    m_items << QString("14");
-    m_items << QString("15");
-    m_items << QString("16");
-    m_items << QString("17");
-    m_items << QString("18");
+    m_items << QStringLiteral("1");
+    m_items << QStringLiteral("2");
+    m_items << QStringLiteral("3");
+    m_items << QStringLiteral("4");
+    m_items << QStringLiteral("5");
+    m_items << QStringLiteral("6");
+    m_items << QStringLiteral("7");
+    m_items << QStringLiteral("8");
+    m_items << QStringLiteral("9");
+    m_items << QStringLiteral("10");
+    m_items << QStringLiteral("11");
+    m_items << QStringLiteral("12");
+    m_items << QStringLiteral("13");
+    m_items << QStringLiteral("14");
+    m_items << QStringLiteral("15");
+    m_items << QStringLiteral("16");
+    m_items << QStringLiteral("17");
+    m_items << QStringLiteral("18");
 }
 
 QByteArray KalziumIUPACNumerationType::name() const
@@ -178,24 +178,24 @@ KalziumCASNumerationType::KalziumCASNumerationType()
         : KalziumNumerationType()
 {
     // cache them
-    m_items << QString("IA");
-    m_items << QString("IIA");
-    m_items << QString("IIIB");
-    m_items << QString("IVB");
-    m_items << QString("VB");
-    m_items << QString("VIB");
-    m_items << QString("VIIB");
-    m_items << QString("VIII");
-    m_items << QString("VIII");
-    m_items << QString("VIII");
-    m_items << QString("IB");
-    m_items << QString("IIB");
-    m_items << QString("IIIA");
-    m_items << QString("IVA");
-    m_items << QString("VA");
-    m_items << QString("VIA");
-    m_items << QString("VIIA");
-    m_items << QString("VIIIA");
+    m_items << QStringLiteral("IA");
+    m_items << QStringLiteral("IIA");
+    m_items << QStringLiteral("IIIB");
+    m_items << QStringLiteral("IVB");
+    m_items << QStringLiteral("VB");
+    m_items << QStringLiteral("VIB");
+    m_items << QStringLiteral("VIIB");
+    m_items << QStringLiteral("VIII");
+    m_items << QStringLiteral("VIII");
+    m_items << QStringLiteral("VIII");
+    m_items << QStringLiteral("IB");
+    m_items << QStringLiteral("IIB");
+    m_items << QStringLiteral("IIIA");
+    m_items << QStringLiteral("IVA");
+    m_items << QStringLiteral("VA");
+    m_items << QStringLiteral("VIA");
+    m_items << QStringLiteral("VIIA");
+    m_items << QStringLiteral("VIIIA");
 }
 
 QByteArray KalziumCASNumerationType::name() const
@@ -218,24 +218,24 @@ KalziumOldIUPACNumerationType::KalziumOldIUPACNumerationType()
         : KalziumNumerationType()
 {
     // cache them
-    m_items << QString("1A");
-    m_items << QString("2A");
-    m_items << QString("3A");
-    m_items << QString("4A");
-    m_items << QString("5A");
-    m_items << QString("6A");
-    m_items << QString("7A");
-    m_items << QString("8");
-    m_items << QString("8");
-    m_items << QString("8");
-    m_items << QString("1B");
-    m_items << QString("2B");
-    m_items << QString("3B");
-    m_items << QString("4B");
-    m_items << QString("5B");
-    m_items << QString("6B");
-    m_items << QString("7B");
-    m_items << QString("0");
+    m_items << QStringLiteral("1A");
+    m_items << QStringLiteral("2A");
+    m_items << QStringLiteral("3A");
+    m_items << QStringLiteral("4A");
+    m_items << QStringLiteral("5A");
+    m_items << QStringLiteral("6A");
+    m_items << QStringLiteral("7A");
+    m_items << QStringLiteral("8");
+    m_items << QStringLiteral("8");
+    m_items << QStringLiteral("8");
+    m_items << QStringLiteral("1B");
+    m_items << QStringLiteral("2B");
+    m_items << QStringLiteral("3B");
+    m_items << QStringLiteral("4B");
+    m_items << QStringLiteral("5B");
+    m_items << QStringLiteral("6B");
+    m_items << QStringLiteral("7B");
+    m_items << QStringLiteral("0");
 }
 
 QByteArray KalziumOldIUPACNumerationType::name() const

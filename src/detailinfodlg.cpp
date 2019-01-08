@@ -69,8 +69,8 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
 
     resize(820, 580);
 
-    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, "data/htmlview/", QStandardPaths::LocateDirectory);
-    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, "data/hazardsymbols/", QStandardPaths::LocateDirectory);
+    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/htmlview/"), QStandardPaths::LocateDirectory);
+    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/hazardsymbols/"), QStandardPaths::LocateDirectory);
 
 //X     m_picsdir = QStandardPaths::locate(QStandardPaths::DataLocation, "elempics/") + "elempics/";
 //X     m_picsdir = QFileInfo(m_picsdir).absolutePath();
@@ -144,7 +144,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     w->setJavaEnabled(false);
     w->setMetaRefreshEnabled(false);
     w->setPluginsEnabled(false);
-    connect(w->browserExtension(), SIGNAL(openUrlRequest(QUrl)), this, SLOT(slotLinkClicked(QUrl)));
+    connect(w->browserExtension(), &KParts::BrowserExtension::openUrlRequest, this, &DetailedInfoDlg::slotLinkClicked);
     layout->addWidget(w->view());
 
     return w;
@@ -191,7 +191,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html += KalziumUtils::prettyUnit(m_element, ChemicalDataObject::date);
         QString discoverers = m_element->dataAsString(ChemicalDataObject::discoverers);
         if (!discoverers.isEmpty()) {
-            discoverers = discoverers.replace(';', ", ");
+            discoverers = discoverers.replace(';', QLatin1String(", "));
             html += "<br />" + i18n("It was discovered by %1.", discoverers);
         }
         html.append("</td></tr>");
@@ -307,7 +307,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append ("<tr><td>");
         html.append ("<a href=\"http://");        // http://
         html.append ("education.jlab.org/itselemental/ele");
-        html.append (QString("%1").arg(m_element->dataAsString(ChemicalDataObject::atomicNumber), 3, '0'));
+        html.append (QStringLiteral("%1").arg(m_element->dataAsString(ChemicalDataObject::atomicNumber), 3, '0'));
         html.append (".html");
         html.append ("\" target=\"_blank\" > ");
         html.append ("Jefferson Lab");
@@ -336,7 +336,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     }
     }
 
-    html += "</table></div></body></html>";
+    html += QLatin1String("</table></div></body></html>");
 
     return html;
 }
@@ -347,23 +347,23 @@ QString DetailedInfoDlg::isotopeTable() const
 
     QString html;
 
-    html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
+    html = QStringLiteral("<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">");
     html += i18n("Isotope-Table");
-    html += "</tr></td><tr><td><b>";
+    html += QLatin1String("</tr></td><tr><td><b>");
     html += i18n("Mass");
-    html += "</b></td><td><b>";
+    html += QLatin1String("</b></td><td><b>");
     html += i18n("Neutrons");
-    html += "</b></td><td><b>";
+    html += QLatin1String("</b></td><td><b>");
     html += i18n("Percentage");
-    html += "</b></td><td><b>";
+    html += QLatin1String("</b></td><td><b>");
     html += i18n("Half-life period");
-    html += "</b></td><td><b>";
+    html += QLatin1String("</b></td><td><b>");
     html += i18n("Energy and Mode of Decay");
-    html += "</b></td><td><b>";
+    html += QLatin1String("</b></td><td><b>");
     html += i18n("Spin and Parity");
-    html += "</b></td><td><b>";
+    html += QLatin1String("</b></td><td><b>");
     html += i18n("Magnetic Moment");
-    html += "</b></td></tr>";
+    html += QLatin1String("</b></td></tr>");
 
     foreach (Isotope *isotope, list) {
         html.append("<tr><td align=\"right\">");
@@ -441,7 +441,7 @@ QString DetailedInfoDlg::isotopeTable() const
 
     }
 
-    html += "</table>";
+    html += QLatin1String("</table>");
 
     return html;
 }
@@ -474,40 +474,40 @@ void DetailedInfoDlg::createContent()
 //X      mainLayout->addWidget(piclabel);
 
     // html tab
-    m_htmlpages["new"] = addHTMLTab(i18n("Data Overview"), i18n("Data Overview"), "applications-science");
+    m_htmlpages[QStringLiteral("new")] = addHTMLTab(i18n("Data Overview"), i18n("Data Overview"), QStringLiteral("applications-science"));
 
     // atomic model tab
     QWidget *m_pModelTab = new QWidget(this);
     item = addPage(m_pModelTab, i18n("Atom Model"));
     item->setHeader(i18n("Atom Model"));
-    item->setIcon(QIcon::fromTheme("orbits"));
+    item->setIcon(QIcon::fromTheme(QStringLiteral("orbits")));
     QVBoxLayout *modelLayout = new QVBoxLayout(m_pModelTab);
     modelLayout->setMargin(0);
     wOrbits = new OrbitsWidget(m_pModelTab);
     modelLayout->addWidget(wOrbits);
 
     // html tabs
-    m_htmlpages["isotopes"] = addHTMLTab(i18n("Isotopes"), i18n("Isotopes"), "isotopemap");
-    m_htmlpages["misc"] = addHTMLTab(i18n("Miscellaneous"), i18n("Miscellaneous"), "misc");
+    m_htmlpages[QStringLiteral("isotopes")] = addHTMLTab(i18n("Isotopes"), i18n("Isotopes"), QStringLiteral("isotopemap"));
+    m_htmlpages[QStringLiteral("misc")] = addHTMLTab(i18n("Miscellaneous"), i18n("Miscellaneous"), QStringLiteral("misc"));
 
 
     // spectrum widget tab
     QWidget *m_pSpectrumTab = new QWidget(this);
     item = addPage(m_pSpectrumTab, i18n("Spectrum"));
     item->setHeader(i18n("Spectrum"));
-    item->setIcon(QIcon::fromTheme("spectrum"));
+    item->setIcon(QIcon::fromTheme(QStringLiteral("spectrum")));
     QVBoxLayout *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
     spectrumLayout->setMargin(0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);
     spectrumLayout->addWidget(m_spectrumStack);
     m_spectrumview = new SpectrumViewImpl(m_spectrumStack);
-    m_spectrumview->setObjectName("spectrumwidget");
+    m_spectrumview->setObjectName(QStringLiteral("spectrumwidget"));
     m_spectrumStack->addWidget(m_spectrumview);
     m_spectrumLabel = new QLabel(m_spectrumStack);
     m_spectrumStack->addWidget(m_spectrumLabel);
 
     // html extra tab
-    m_htmlpages["extra"] = addHTMLTab(i18n("Extra information"), i18n("Extra Information"), "applications-internet");
+    m_htmlpages[QStringLiteral("extra")] = addHTMLTab(i18n("Extra information"), i18n("Extra Information"), QStringLiteral("applications-internet"));
 }
 
 void DetailedInfoDlg::reloadContent()
@@ -543,10 +543,10 @@ void DetailedInfoDlg::reloadContent()
        */
 
     // updating html tabs
-    fillHTMLTab(m_htmlpages["new"], getHtml(DATA));
-    fillHTMLTab(m_htmlpages["misc"], getHtml(MISC));
-    fillHTMLTab(m_htmlpages["isotopes"], getHtml(ISOTOPES));
-    fillHTMLTab(m_htmlpages["extra"], getHtml(EXTRA));
+    fillHTMLTab(m_htmlpages[QStringLiteral("new")], getHtml(DATA));
+    fillHTMLTab(m_htmlpages[QStringLiteral("misc")], getHtml(MISC));
+    fillHTMLTab(m_htmlpages[QStringLiteral("isotopes")], getHtml(ISOTOPES));
+    fillHTMLTab(m_htmlpages[QStringLiteral("extra")], getHtml(EXTRA));
 
     Spectrum * spec =  KalziumDataObject::instance()->spectrum(m_elementNumber);
 
@@ -622,7 +622,7 @@ void DetailedInfoDlg::slotHelp()
         break;
     }
 #endif
-   KHelpClient::invokeHelp("info-dlg.html#infodialog_spectrum", QLatin1String("kalzium"));
+   KHelpClient::invokeHelp(QStringLiteral("info-dlg.html#infodialog_spectrum"), QStringLiteral("kalzium"));
 }
 
 void DetailedInfoDlg::showNextElement()

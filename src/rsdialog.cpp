@@ -49,8 +49,8 @@ RSDialog::RSDialog(QWidget* parent) : QDialog(parent)
 
     ui.setupUi(mainWidget);
 
-    connect(ui.filterButton, SIGNAL(clicked()),
-            this, SLOT(filter()));
+    connect(ui.filterButton, &QAbstractButton::clicked,
+            this, &RSDialog::filter);
     connect(buttonBox, &QDialogButtonBox::helpRequested, this, &RSDialog::slotHelp);
 
         filter();
@@ -96,7 +96,7 @@ void RSDialog::filter()
 
 void RSDialog::filterRS(const QList<int>& r, const QList<int>& s)
 {
-    QString string("<qt>");
+    QString string(QStringLiteral("<qt>"));
 
     if (r.count() > 0) {
         string.append("<h2>" + i18n("R-Phrases:") + "</h2>");
@@ -217,7 +217,7 @@ void RSDialog::createSPhrases()
 
     foreach (const QString &p, sphrases) {
         int number = 0;
-        QString phrase("");
+        QString phrase(QLatin1String(""));
 
         if (reg.indexIn(p) > -1) {
             QString part1 = reg.cap(2);
@@ -305,7 +305,7 @@ void RSDialog::createRPhrases()
 
     foreach (const QString &p, rphrases) {
         int number = 0;
-        QString phrase("");
+        QString phrase(QLatin1String(""));
 
         if (reg.indexIn(p) > -1) {
             QString part1 = reg.cap(2);
@@ -321,7 +321,7 @@ void RSDialog::createRPhrases()
 
 void RSDialog::slotHelp()
 {
-    KHelpClient::invokeHelp("tools.html#rs_phrases", QLatin1String("kalzium"));
+    KHelpClient::invokeHelp(QStringLiteral("tools.html#rs_phrases"), QStringLiteral("kalzium"));
 }
 
 void RSDialog::invalidPhaseString()

@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 //X                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
 //X                 qDebug() << "       Halflife: " << i->halflife() << i->halflifeUnit( );
 //X             }
-            if (i->parentElementSymbol() == "Ti") {
+            if (i->parentElementSymbol() == QLatin1String("Ti")) {
                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
                 qDebug() << "       Halflife: " << i->halflife() << i->halflifeUnit( );
             }

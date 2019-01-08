@@ -166,7 +166,7 @@ int pseTable::numerationAtPos(int xPos) const
 pseRegularTable::pseRegularTable()
         : pseTable()
 {
-    m_name = "Classic";
+    m_name = QStringLiteral("Classic");
 
     m_description = i18n("Classic Periodic Table");
 
@@ -215,7 +215,7 @@ pseRegularTable *pseRegularTable::init()
 pseLongTable::pseLongTable()
         : pseTable()
 {
-    m_name = "Long";
+    m_name = QStringLiteral("Long");
 
     m_description = i18n("Long Periodic Table");
 
@@ -260,7 +260,7 @@ pseLongTable *pseLongTable::init()
 pseShortTable::pseShortTable()
         : pseTable()
 {
-    m_name = "Short";
+    m_name = QStringLiteral("Short");
 
     m_description = i18n("Short Periodic Table");
 
@@ -348,7 +348,7 @@ pseDTable *pseDTable::init()
 pseDZTable::pseDZTable()
 : pseTable()
 {
-    m_name = "DZ";
+    m_name = QStringLiteral("DZ");
 
     m_description = i18n("DZ Periodic Table");
 

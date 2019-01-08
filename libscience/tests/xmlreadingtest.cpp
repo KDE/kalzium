@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
             //Test: give me all data available
             foreach (const ChemicalDataObject &o, list) {
                 QString unit = o.unitAsString();
-                if (unit == "bo:noUnit") {
-                    unit = "";
+                if (unit == QLatin1String("bo:noUnit")) {
+                    unit = QLatin1String("");
                 }
                 qDebug() << "Name: " << o.type() << " " << o.valueAsString() << " " << unit;
             }

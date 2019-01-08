@@ -71,7 +71,7 @@
 
 Kalzium::Kalzium() : KXmlGuiWindow(nullptr)
 {
-    setObjectName("KalziumMainWindow");
+    setObjectName(QStringLiteral("KalziumMainWindow"));
 
     // Init pointers with null
     m_infoDialog = nullptr;
@@ -103,19 +103,19 @@ Kalzium::Kalzium() : KXmlGuiWindow(nullptr)
     m_periodicTable = new PeriodicTableView(pseTempWidget);
 
     // Connecting the search to the periodic table
-    connect(newsearch, SIGNAL(searchChanged()),
-             KalziumElementProperty::instance(), SIGNAL(propertyChanged()));
-    connect(newsearch, SIGNAL(searchReset()),
-             KalziumElementProperty::instance(), SIGNAL(propertyChanged()));
+    connect(newsearch, &Search::searchChanged,
+             KalziumElementProperty::instance(), &KalziumElementProperty::propertyChanged);
+    connect(newsearch, &Search::searchReset,
+             KalziumElementProperty::instance(), &KalziumElementProperty::propertyChanged);
 
     layout->addWidget(searchWidget);
     layout->addWidget(m_periodicTable);
 
     setCentralWidget(pseTempWidget);
 
-    connect(m_periodicTable->pseScene(), SIGNAL(elementChanged(int)), this, SLOT(openInformationDialog(int)));
-    connect(m_periodicTable->pseScene(), SIGNAL(elementHovered(int)), this, SLOT(elementHover(int)));
-    connect(this, SIGNAL(numerationChanged(int)),  m_periodicTable, SIGNAL(numerationChange(int)));
+    connect(m_periodicTable->pseScene(), &PeriodicTableScene::elementChanged, this, &Kalzium::openInformationDialog);
+    connect(m_periodicTable->pseScene(), &PeriodicTableScene::elementHovered, this, &Kalzium::elementHover);
+    connect(this, &Kalzium::numerationChanged,  m_periodicTable, &PeriodicTableView::numerationChange);
 
     // layouting
     setupSidebars();
@@ -126,16 +126,16 @@ Kalzium::Kalzium() : KXmlGuiWindow(nullptr)
 
 void Kalzium::setupActions()
 {
-    export_action = actionCollection()->add<QAction>("file_exporter");
+    export_action = actionCollection()->add<QAction>(QStringLiteral("file_exporter"));
     export_action->setText(i18n("&Export Data..."));
-    connect(export_action, SIGNAL(triggered(bool)), this, SLOT(slotShowExportDialog()));
+    connect(export_action, &QAction::triggered, this, &Kalzium::slotShowExportDialog);
 
     // the action for switching look: color schemes and gradients
     QStringList schemes = KalziumElementProperty::instance()->schemeList();    /*KalziumSchemeTypeFactory::instance()->schemes();*/
     QStringList gradients = KalziumElementProperty::instance()->gradientList();
 
     // the action for switching look: schemes
-    look_action_schemes = actionCollection()->add<KSelectAction>("view_look_onlyschemes");
+    look_action_schemes = actionCollection()->add<KSelectAction>(QStringLiteral("view_look_onlyschemes"));
     look_action_schemes->setText(i18n("&Scheme"));
     look_action_schemes->setItems(schemes);
     look_action_schemes->setToolBarMode(KSelectAction::MenuMode);
@@ -143,7 +143,7 @@ void Kalzium::setupActions()
     connect(look_action_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
 
     // the action for switching look: gradients
-    look_action_gradients = actionCollection()->add<KSelectAction>("view_look_onlygradients");
+    look_action_gradients = actionCollection()->add<KSelectAction>(QStringLiteral("view_look_onlygradients"));
     look_action_gradients->setText(i18n("&Gradients"));
     look_action_gradients->setItems(gradients);
     look_action_gradients->setToolBarMode(KSelectAction::MenuMode);
@@ -152,95 +152,95 @@ void Kalzium::setupActions()
 
     // the action for switching tables
     QStringList table_schemes = pseTables::instance()->tables();
-    table_action =  actionCollection()->add<KSelectAction>("view_table");
+    table_action =  actionCollection()->add<KSelectAction>(QStringLiteral("view_table"));
     table_action->setText(i18n("&Tables"));
     table_action->setItems(table_schemes);
     table_action->setCurrentItem(Prefs::table());
     connect(table_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoTable(int)));
 
     // the actions for switching numeration
-    numeration_action = actionCollection()->add<KSelectAction>("view_numerationtype");
+    numeration_action = actionCollection()->add<KSelectAction>(QStringLiteral("view_numerationtype"));
     numeration_action->setText(i18n("&Numeration"));
     numeration_action->setItems(KalziumNumerationTypeFactory::instance()->numerations());
     numeration_action->setCurrentItem(Prefs::numeration());
     connect(numeration_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
     // tools actions
-    m_pPlotAction = actionCollection()->addAction("tools_plotdata");
+    m_pPlotAction = actionCollection()->addAction(QStringLiteral("tools_plotdata"));
     m_pPlotAction->setText(i18n("&Plot Data..."));
-    m_pPlotAction->setIcon(QIcon::fromTheme("plot"));
-    connect(m_pPlotAction, SIGNAL(triggered()), this, SLOT(slotPlotData()));
+    m_pPlotAction->setIcon(QIcon::fromTheme(QStringLiteral("plot")));
+    connect(m_pPlotAction, &QAction::triggered, this, &Kalzium::slotPlotData);
 
     // calculator actions
-    m_pcalculator = actionCollection()->addAction("tools_calculate");
+    m_pcalculator = actionCollection()->addAction(QStringLiteral("tools_calculate"));
     m_pcalculator->setText(i18n("Perform &Calculations..."));
-    m_pcalculator->setIcon(QIcon::fromTheme("calculate"));
+    m_pcalculator->setIcon(QIcon::fromTheme(QStringLiteral("calculate")));
     m_pcalculator->setWhatsThis(i18nc("WhatsThis Help", "This is the calculator, it performs basic chemical calculations."));
-    connect(m_pcalculator, SIGNAL(triggered()), this, SLOT(showCalculator()));
+    connect(m_pcalculator, &QAction::triggered, this, &Kalzium::showCalculator);
 
-    m_pIsotopeTableAction= actionCollection()->addAction("tools_isotopetable");
+    m_pIsotopeTableAction= actionCollection()->addAction(QStringLiteral("tools_isotopetable"));
     m_pIsotopeTableAction->setText(i18n("&Isotope Table..."));
-    m_pIsotopeTableAction->setIcon(QIcon::fromTheme("isotopemap"));
+    m_pIsotopeTableAction->setIcon(QIcon::fromTheme(QStringLiteral("isotopemap")));
     m_pIsotopeTableAction->setWhatsThis(i18nc("WhatsThis Help", "This table shows all of the known isotopes of the chemical elements."));
-    connect(m_pIsotopeTableAction, SIGNAL(triggered()), this, SLOT(slotIsotopeTable()));
+    connect(m_pIsotopeTableAction, &QAction::triggered, this, &Kalzium::slotIsotopeTable);
 
-    m_pGlossaryAction = actionCollection()->addAction("tools_glossary");
+    m_pGlossaryAction = actionCollection()->addAction(QStringLiteral("tools_glossary"));
     m_pGlossaryAction->setText(i18n("&Glossary..."));
-    m_pGlossaryAction->setIcon(QIcon::fromTheme("glossary"));
-    connect(m_pGlossaryAction, SIGNAL(triggered()), this, SLOT(slotGlossary()));
+    m_pGlossaryAction->setIcon(QIcon::fromTheme(QStringLiteral("glossary")));
+    connect(m_pGlossaryAction, &QAction::triggered, this, &Kalzium::slotGlossary);
 
-    m_pRSAction = actionCollection()->addAction("tools_rs");
+    m_pRSAction = actionCollection()->addAction(QStringLiteral("tools_rs"));
     m_pRSAction->setText(i18n("&R/S Phrases..."));
-    m_pRSAction->setIcon(QIcon::fromTheme("kalzium_rs"));
-    connect(m_pRSAction, SIGNAL(triggered()), this, SLOT(slotRS()));
+    m_pRSAction->setIcon(QIcon::fromTheme(QStringLiteral("kalzium_rs")));
+    connect(m_pRSAction, &QAction::triggered, this, &Kalzium::slotRS);
 
-    m_pOBConverterAction = actionCollection()->addAction("tools_obconverter");
+    m_pOBConverterAction = actionCollection()->addAction(QStringLiteral("tools_obconverter"));
     m_pOBConverterAction->setText(i18n("Convert chemical files..."));
-    m_pOBConverterAction->setIcon(QIcon::fromTheme("edit-copy"));
+    m_pOBConverterAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     m_pOBConverterAction->setWhatsThis(i18nc("WhatsThis Help", "With this tool, you can convert files containing chemical data between various file formats."));
-    connect(m_pOBConverterAction, SIGNAL(triggered()), this, SLOT(slotOBConverter()));
+    connect(m_pOBConverterAction, &QAction::triggered, this, &Kalzium::slotOBConverter);
 #ifndef HAVE_OPENBABEL2
     m_pOBConverterAction->setEnabled(false);
 #endif
 
-    m_pMoleculesviewer = actionCollection()->addAction("tools_moleculeviewer");
+    m_pMoleculesviewer = actionCollection()->addAction(QStringLiteral("tools_moleculeviewer"));
     m_pMoleculesviewer->setText(i18n("Molecular Editor..."));
-    m_pMoleculesviewer->setIcon(QIcon::fromTheme("kalzium_molviewer"));
+    m_pMoleculesviewer->setIcon(QIcon::fromTheme(QStringLiteral("kalzium_molviewer")));
     m_pMoleculesviewer->setWhatsThis(i18nc("WhatsThis Help", "This tool allows you to view and edit 3D molecular structures."));
-    connect(m_pMoleculesviewer, SIGNAL(triggered()), this, SLOT(slotMoleculeviewer()));
+    connect(m_pMoleculesviewer, &QAction::triggered, this, &Kalzium::slotMoleculeviewer);
 #if !defined(HAVE_OPENBABEL2) || !defined(HAVE_EIGEN) || !defined(HAVE_AVOGADRO)
     m_pMoleculesviewer->setEnabled(false);
 #endif
 
-    m_pTables = actionCollection()->addAction("tools_tables");
+    m_pTables = actionCollection()->addAction(QStringLiteral("tools_tables"));
     m_pTables->setText(i18n("&Tables..."));
-    m_pTables->setIcon(QIcon::fromTheme("kalzium_tables"));
+    m_pTables->setIcon(QIcon::fromTheme(QStringLiteral("kalzium_tables")));
     m_pTables->setWhatsThis(i18nc("WhatsThis Help", "This will open a dialog with listings of symbols and numbers related to chemistry."));
 
-    connect(m_pTables, SIGNAL(triggered()), this, SLOT(slotTables()));
+    connect(m_pTables, &QAction::triggered, this, &Kalzium::slotTables);
 
     // other period view options
     m_pLegendAction = m_legendDock->toggleViewAction();
-    actionCollection()->addAction("view_legend", m_pLegendAction);
-    m_pLegendAction->setIcon(QIcon::fromTheme("legend"));
+    actionCollection()->addAction(QStringLiteral("view_legend"), m_pLegendAction);
+    m_pLegendAction->setIcon(QIcon::fromTheme(QStringLiteral("legend")));
     m_pLegendAction->setWhatsThis(i18nc("WhatsThis Help", "This will show or hide the legend for the periodic table."));
 
     m_SidebarAction = m_dockWin->toggleViewAction();
-    actionCollection()->addAction("view_sidebar", m_SidebarAction);
-    m_SidebarAction->setIcon(QIcon::fromTheme("sidebar"));
+    actionCollection()->addAction(QStringLiteral("view_sidebar"), m_SidebarAction);
+    m_SidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("sidebar")));
     m_SidebarAction->setWhatsThis(i18nc("WhatsThis Help", "This will show or hide a sidebar with additional information and a set of tools."));
 
     m_SidebarAction = m_tableDock->toggleViewAction();
-    actionCollection()->addAction("view_tablebar", m_SidebarAction);
-    m_SidebarAction->setIcon(QIcon::fromTheme("kalzium_tables"));
+    actionCollection()->addAction(QStringLiteral("view_tablebar"), m_SidebarAction);
+    m_SidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("kalzium_tables")));
     m_SidebarAction->setWhatsThis(i18nc("WhatsThis Help", "This will show or hide a sidebar with additional information about the table."));
 
     // the standard actions
-    actionCollection()->addAction("saveAs", KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection()));
+    actionCollection()->addAction(QStringLiteral("saveAs"), KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection()));
 
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 
-    actionCollection()->addAction("quit", KStandardAction::quit(qApp, SLOT(quit()), actionCollection()));
+    actionCollection()->addAction(QStringLiteral("quit"), KStandardAction::quit(qApp, SLOT(quit()), actionCollection()));
 
     m_legendWidget->LockWidget();
 
@@ -255,7 +255,7 @@ void Kalzium::setupActions()
     m_legendWidget->updateContent();
 
     // set the shell's ui resource file
-    setXMLFile("kalziumui.rc");
+    setXMLFile(QStringLiteral("kalziumui.rc"));
     setupGUI();
 }
 
@@ -265,26 +265,26 @@ void Kalzium::setupSidebars()
 
     m_legendWidget = new LegendWidget(this);
     m_legendDock = new QDockWidget(i18n("Legend"), this);
-    m_legendDock->setObjectName(QLatin1String("kalzium-legend"));
+    m_legendDock->setObjectName(QStringLiteral("kalzium-legend"));
     m_legendDock->setFeatures(QDockWidget::AllDockWidgetFeatures);
     m_legendDock->setWidget(m_legendWidget);
 
-    connect(m_legendDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
-            m_legendWidget, SLOT(setDockArea(Qt::DockWidgetArea)));
-    connect(m_legendWidget, SIGNAL(elementMatched(int)),
-            m_periodicTable, SLOT(slotSelectAdditionalElement(int)));
-    connect(m_legendWidget, SIGNAL(resetElementMatch()),
-            m_periodicTable, SLOT(slotUnSelectElements()));
+    connect(m_legendDock, &QDockWidget::dockLocationChanged,
+            m_legendWidget, &LegendWidget::setDockArea);
+    connect(m_legendWidget, &LegendWidget::elementMatched,
+            m_periodicTable, &PeriodicTableView::slotSelectAdditionalElement);
+    connect(m_legendWidget, &LegendWidget::resetElementMatch,
+            m_periodicTable, &PeriodicTableView::slotUnSelectElements);
 
     m_TableInfoWidget = new TableInfoWidget(this);
     m_tableDock = new QDockWidget(i18n("Table Information"), this);
     m_tableDock->setWidget(m_TableInfoWidget);
-    m_tableDock->setObjectName(QLatin1String("kalzium-tableinfo"));
+    m_tableDock->setObjectName(QStringLiteral("kalzium-tableinfo"));
     m_tableDock->setFeatures(QDockWidget::AllDockWidgetFeatures);
 
 
     m_dockWin = new QDockWidget(i18n("Information"), this);
-    m_dockWin->setObjectName(QLatin1String("kalzium-sidebar"));
+    m_dockWin->setObjectName(QStringLiteral("kalzium-sidebar"));
     m_dockWin->setFeatures(QDockWidget::AllDockWidgetFeatures);
     m_dockWin->setMinimumWidth(250);
 
@@ -292,22 +292,22 @@ void Kalzium::setupSidebars()
     m_dockWin->setWidget(m_toolbox);
 
     m_detailWidget = new DetailedGraphicalOverview(m_toolbox);
-    m_detailWidget->setObjectName("DetailedGraphicalOverview");
+    m_detailWidget->setObjectName(QStringLiteral("DetailedGraphicalOverview"));
     m_detailWidget->setMinimumSize(200, m_detailWidget->minimumSize().height());
 
-    m_toolbox->addItem(m_detailWidget, QIcon::fromTheme("overview"), i18n("Overview"));
+    m_toolbox->addItem(m_detailWidget, QIcon::fromTheme(QStringLiteral("overview")), i18n("Overview"));
 
     m_gradientWidget = new GradientWidgetImpl(m_toolbox);
-    m_gradientWidget->setObjectName("viewtWidget");
+    m_gradientWidget->setObjectName(QStringLiteral("viewtWidget"));
 
-    connect(m_gradientWidget, SIGNAL(gradientValueChanged(double)),
-             KalziumElementProperty::instance(), SLOT(setSliderValue(double)));
+    connect(m_gradientWidget, &GradientWidgetImpl::gradientValueChanged,
+             KalziumElementProperty::instance(), &KalziumElementProperty::setSliderValue);
     connect(m_gradientWidget->scheme_combo, SIGNAL(currentIndexChanged(int)),
              this, SLOT(slotSwitchtoLookScheme(int)));
     connect(m_gradientWidget->gradient_combo, SIGNAL(currentIndexChanged(int)),
              this, SLOT(slotSwitchtoLookGradient(int)));
 
-    m_toolbox->addItem(m_gradientWidget, QIcon::fromTheme("statematter"), i18n("View"));
+    m_toolbox->addItem(m_gradientWidget, QIcon::fromTheme(QStringLiteral("statematter")), i18n("View"));
 
     addDockWidget(Qt::LeftDockWidgetArea, m_dockWin);
     addDockWidget(Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);
@@ -333,8 +333,8 @@ void Kalzium::slotGlossary()
     if (!m_glossarydlg) {
       // creating the glossary dialog and loading the glossaries we have
       m_glossarydlg = new GlossaryDialog(this);
-      m_glossarydlg->setObjectName(QLatin1String("glossary"));
-      QString dir = QStandardPaths::locate(QStandardPaths::DataLocation, "data/", QStandardPaths::LocateDirectory);
+      m_glossarydlg->setObjectName(QStringLiteral("glossary"));
+      QString dir = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/"), QStandardPaths::LocateDirectory);
       dir = QFileInfo(dir).absolutePath();
       QString picturepath = dir + "/bg.jpg";
       QUrl u = QUrl::fromLocalFile(dir + "/knowledge.xml");
@@ -488,39 +488,39 @@ void Kalzium::slotSwitchtoLookScheme(int which)
 
 void Kalzium::showSettingsDialog()
 {
-    if (KConfigDialog::showDialog("settings")) {
+    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
         return;
     }
 
     //KConfigDialog didn't find an instance of this dialog, so lets create it :
-    KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
+    KConfigDialog *dialog = new KConfigDialog(this,QStringLiteral("settings"), Prefs::self());
 
     // colors page
     Ui_setupColors ui_colors;
     QWidget *w_colors = new QWidget(this);
-    w_colors->setObjectName("colors_page");
+    w_colors->setObjectName(QStringLiteral("colors_page"));
     ui_colors.setupUi(w_colors);
-    dialog->addPage(w_colors, i18n("Schemes"), "preferences-desktop-color");
+    dialog->addPage(w_colors, i18n("Schemes"), QStringLiteral("preferences-desktop-color"));
 
     // gradients page
     Ui_setupGradients ui_gradients;
     QWidget *w_gradients = new QWidget(this);
-    w_gradients->setObjectName("gradients_page");
+    w_gradients->setObjectName(QStringLiteral("gradients_page"));
     ui_gradients.setupUi(w_gradients);
-    dialog->addPage(w_gradients, i18n("Gradients"), "preferences-desktop-color");
+    dialog->addPage(w_gradients, i18n("Gradients"), QStringLiteral("preferences-desktop-color"));
 
     // units page
     m_unitsDialog = new UnitSettingsDialog(this);
-    m_unitsDialog->setObjectName("units_page");
-    dialog->addPage(m_unitsDialog, i18n("Units"), "system-run");
+    m_unitsDialog->setObjectName(QStringLiteral("units_page"));
+    dialog->addPage(m_unitsDialog, i18n("Units"), QStringLiteral("system-run"));
 
     Ui_setupCalc ui_calc;
     QWidget *w_calc = new QWidget(this);
     ui_calc.setupUi(w_calc);
-    dialog->addPage(w_calc, i18n("Calculator"), "accessories-calculator");
+    dialog->addPage(w_calc, i18n("Calculator"), QStringLiteral("accessories-calculator"));
 
-    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(slotUpdateSettings()));
-    connect(dialog, SIGNAL(settingsChanged(QString)), m_gradientWidget, SLOT(slotGradientChanged()));
+    connect(dialog, &KConfigDialog::settingsChanged, this, &Kalzium::slotUpdateSettings);
+    connect(dialog, &KConfigDialog::settingsChanged, m_gradientWidget, &GradientWidgetImpl::slotGradientChanged);
 
     dialog->show();
 }
@@ -553,7 +553,7 @@ void Kalzium::setupStatusBar()
     QStatusBar *statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
 
-    m_elementInfo = new QLabel("");
+    m_elementInfo = new QLabel(QLatin1String(""));
     m_elementInfo->setAlignment(Qt::AlignRight);
     statusBar->addWidget(m_elementInfo, 1);
     statusBar->show();
@@ -575,8 +575,8 @@ void Kalzium::elementHover(int num)
 // FIXME What is that function for? Does not seem to do anything useful... yet?
 void Kalzium::extractIconicInformationAboutElement(int elementNumber)
 {
-    QString setname = "school";
-    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, "data/iconsets/", QStandardPaths::LocateDirectory);
+    QString setname = QStringLiteral("school");
+    QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/iconsets/"), QStandardPaths::LocateDirectory);
     pathname = QFileInfo(pathname).absolutePath();
     QString filename = pathname + setname + '/' + "iconinformation.txt";
 
@@ -595,7 +595,7 @@ void Kalzium::extractIconicInformationAboutElement(int elementNumber)
         }
     }
 
-    QString realText = "Moin dies ist ein test!";
+    QString realText = QStringLiteral("Moin dies ist ein test!");
 //X         QString realText = infoline.remove(QRegExp("\\d+ "));
 }
 
@@ -607,10 +607,10 @@ void Kalzium::openInformationDialog(int number)
         m_infoDialog = new DetailedInfoDlg(number, this);
 
         // Remove the selection when this dialog finishes or hides.
-        connect(m_infoDialog, SIGNAL(elementChanged(int)),
-                m_periodicTable, SLOT(slotSelectOneElement(int)));
-        connect(m_infoDialog, SIGNAL(elementChanged(int)),
-                this, SLOT(elementHover(int)));
+        connect(m_infoDialog, &DetailedInfoDlg::elementChanged,
+                m_periodicTable, &PeriodicTableView::slotSelectOneElement);
+        connect(m_infoDialog, &DetailedInfoDlg::elementChanged,
+                this, &Kalzium::elementHover);
     }
 
     m_infoDialog->setTableType(m_periodicTable->table());
