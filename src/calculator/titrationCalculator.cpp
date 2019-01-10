@@ -318,7 +318,7 @@ QString titrationCalculator::solve(char *yvalue)
 
 }
 
-QString titrationCalculator::solvex(char *yvalue, QString dnum) {
+QString titrationCalculator::solvex(char *yvalue, const QString &dnum) {
 
     QString mreport = QLatin1String("");
     lettere = 0;

@@ -74,7 +74,7 @@ private:
     double a;
     void plot();
     QString solve(char *yvalue);
-    QString solvex(char *yvalue, QString dnum);
+    QString solvex(char *yvalue, const QString &dnum);
     QImage tempi;
     double setttanh(double x);
     QString redplot;

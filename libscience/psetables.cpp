@@ -64,7 +64,7 @@ pseTable* pseTables::getTabletype(const int tableType)
     return m_tables.at(tableType);
 }
 
-pseTable* pseTables::getTabletype(const QString tableName)
+pseTable* pseTables::getTabletype(const QString &tableName)
 {
     for (int i = 0; m_tables.count(); ++i) {
         if (tableName == m_tables.at(i)->name()) {

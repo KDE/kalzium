@@ -31,7 +31,7 @@ Isotope::~Isotope()
 {
 }
 
-void Isotope::addData(ChemicalDataObject o)
+void Isotope::addData(const ChemicalDataObject &o)
 {
     if (o.type() == ChemicalDataObject::exactMass) {
         m_mass = o;

@@ -83,7 +83,7 @@ public:
     * specified.
     * It will gives 0 if none found.
     */
-    pseTable* getTabletype(const QString tableType);
+    pseTable* getTabletype(const QString &tableType);
 
     /**
      * Returns a list with the names of the table types we support.

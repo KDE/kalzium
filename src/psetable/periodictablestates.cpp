@@ -23,8 +23,8 @@
 #include <prefs.h>
 
 PeriodicTableStates::PeriodicTableStates(
-    const QList<ElementItem*> elementItemList,
-    const QList<NumerationItem*> numerationItemList)
+    const QList<ElementItem*> &elementItemList,
+    const QList<NumerationItem*> &numerationItemList)
         : m_elementItemList(elementItemList),
         m_numerationItemList(numerationItemList),
         m_width(42), m_height(42)  // Some space between the elements (px40) looks nice.

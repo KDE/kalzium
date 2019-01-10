@@ -104,7 +104,7 @@ public:
     /**
      * add the ChemicalDataObject @p o
      */
-    void addData(ChemicalDataObject o);
+    void addData(const ChemicalDataObject &o);
 
     /**
      * Set the number of nucleons of the isotope to @number
