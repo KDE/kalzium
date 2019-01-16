@@ -291,7 +291,6 @@ void concCalculator::calculateMolarMass()
     case 1:     // cannot be calculated (insufficient data)
         error(INSUFFICIENT_DATA_MOLE);
         return;
-        break;
     case 2:     // molality specified
         numMoles = massSolvent() / 1000.0 * m_concentration;
         break;
@@ -299,7 +298,6 @@ void concCalculator::calculateMolarMass()
     case 4:
         error(INSUFFICIENT_DATA_MOLE);
         return;
-        break;
     case 5:     // mole fraction specified
         numMoles = m_concentration / (100.0 - m_concentration) * molesSolvent();
         break;
@@ -331,7 +329,6 @@ void concCalculator::calculateEqtMass()
     case 0: // molarity not sufficient
         error(INSUFFICIENT_DATA_EQT);
         return;
-        break;
     case 1: // normality specified
         numEqts = volumeSolvent() * m_concentration;
         break;
@@ -341,7 +338,6 @@ void concCalculator::calculateEqtMass()
     case 5:
         error(INSUFFICIENT_DATA_EQT);
         return;
-        break;
     }
 
     if (type2 == 2) {    // Amount of solute specified in moles, cannot calculate
@@ -371,8 +367,7 @@ void concCalculator::calculateMolarMassSolvent()
     case 3:         // mass fraction specified
     case 4:         // volume fraction specified
         error(INSUFFICIENT_DATA_SOLVENT);
-        return;
-        break;      // cannot be calculated (insufficient data)
+        return;     // cannot be calculated (insufficient data)
     case 5:         // mole fraction specified
         numMoles = (100.0 - m_concentration) / m_concentration * molesSolute();
         break;
@@ -626,6 +621,7 @@ double concCalculator::volumeSolute()
         break;
     case 2:
         volume = massSolute() / densitySolute();
+        break;
     default:
         volume = 0;
         break;

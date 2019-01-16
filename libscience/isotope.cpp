@@ -94,7 +94,6 @@ QString Isotope::magmoment() const
 QString Isotope::abundance() const
 {
     return m_abundance.value().toString();
-    return QString();
 }
 
 double Isotope::halflife() const
