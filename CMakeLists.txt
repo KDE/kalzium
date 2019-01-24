@@ -42,12 +42,12 @@ configure_file(
 include_directories(${AvogadroLibs_INCLUDE_DIRS})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS
-    Widgets
-    Script
     Core
     Gui
-    OpenGL
+    Script
     Svg
+    Widgets
+    Xml
 )
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
@@ -92,6 +92,7 @@ add_definitions(-DUSING_DYNAMIC_LIBS)
 endif(MSVC)
 
 if (OPENBABEL2_FOUND AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
+  find_package(Qt5OpenGL ${QT_MIN_VERSION} REQUIRED)
   find_package(KF5NewStuff REQUIRED)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?
