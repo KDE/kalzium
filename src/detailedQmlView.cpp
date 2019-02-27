@@ -43,7 +43,7 @@ DetailedQmlView::DetailedQmlView(QWidget *parent) : QWidget(parent)
     view->setSource(QUrl::fromLocalFile(qmlPath + "detailview.qml"));
 
     layout->addWidget(view);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
 
 //     resize(200, 200);

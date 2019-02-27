@@ -137,7 +137,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     item->setHeader(icontext);
     item->setIcon(QIcon::fromTheme(iconname));
     QVBoxLayout *layout = new QVBoxLayout(frame);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     KHTMLPart *w = new KHTMLPart(frame, frame);
     w->setJScriptEnabled(false);
@@ -457,7 +457,7 @@ void DetailedInfoDlg::createContent()
 //     item->setHeader(i18n("Overview"));
 //     item->setIcon(QIcon("overview"));
 //     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
-//     overviewLayout->setMargin(0);
+//     overviewLayout->setContentsMargins(0, 0, 0, 0);
 //     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
 //     dTab->setObjectName("DetailedGraphicalOverview");
 //     overviewLayout->addWidget(dTab);
@@ -468,7 +468,7 @@ void DetailedInfoDlg::createContent()
 //X      item->setHeader(i18n("What does this element look like?"));
 //X      item->setIcon(QIcon("elempic"));
 //X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
-//X      mainLayout->setMargin(0);
+//X      mainLayout->setContentsMargins(0, 0, 0, 0);
 //X      piclabel = new QLabel(m_pPictureTab);
 //X      piclabel->setMinimumSize(400, 350);
 //X      mainLayout->addWidget(piclabel);
@@ -482,7 +482,7 @@ void DetailedInfoDlg::createContent()
     item->setHeader(i18n("Atom Model"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("orbits")));
     QVBoxLayout *modelLayout = new QVBoxLayout(m_pModelTab);
-    modelLayout->setMargin(0);
+    modelLayout->setContentsMargins(0, 0, 0, 0);
     wOrbits = new OrbitsWidget(m_pModelTab);
     modelLayout->addWidget(wOrbits);
 
@@ -497,7 +497,7 @@ void DetailedInfoDlg::createContent()
     item->setHeader(i18n("Spectrum"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("spectrum")));
     QVBoxLayout *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
-    spectrumLayout->setMargin(0);
+    spectrumLayout->setContentsMargins(0, 0, 0, 0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);
     spectrumLayout->addWidget(m_spectrumStack);
     m_spectrumview = new SpectrumViewImpl(m_spectrumStack);

@@ -93,7 +93,7 @@ Kalzium::Kalzium() : KXmlGuiWindow(nullptr)
     // Main pse-Table Tablewidget
     QWidget *pseTempWidget = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout(pseTempWidget);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(2);
 
     SearchWidget *searchWidget = new SearchWidget(pseTempWidget);

@@ -122,7 +122,7 @@ void LegendWidget::updateLegendItemLayout(const QList<legendPair>& list)
 
     QGridLayout * layout = new QGridLayout(this);
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     int x = 0;
     int y = 0;
@@ -190,7 +190,7 @@ bool LegendWidget::isElementMatch(int element, QColor &color){
 LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)
 {
     QHBoxLayout *ItemLayout = new QHBoxLayout(this);
-    ItemLayout->setMargin(0);
+    ItemLayout->setContentsMargins(0, 0, 0, 0);
 
     if (pair.second.isValid()) {
         legendItemColor = pair.second;

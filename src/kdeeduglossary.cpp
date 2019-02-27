@@ -328,7 +328,7 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
     QWidget *main = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout(main);
     setLayout(vbox);
-    vbox->setMargin(0);
+    vbox->setContentsMargins(0, 0, 0, 0);
 
     QHBoxLayout *hbox = new QHBoxLayout();
 

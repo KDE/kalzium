@@ -140,7 +140,7 @@ void KalziumPlasma::showConfigurationInterface()
         m_dialog->setWindowIcon(QIcon::fromTheme("kalzium"));
         m_dialog->setWindowTitle(i18n("KalziumPlasma Configuration"));
         ui.setupUi(m_dialog->mainWidget());
-        m_dialog->mainWidget()->layout()->setMargin(0);
+        m_dialog->mainWidget()->layout()->setContentsMargins(0, 0, 0, 0);
         QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
         QWidget *mainWidget = new QWidget(this);
         QVBoxLayout *mainLayout = new QVBoxLayout;

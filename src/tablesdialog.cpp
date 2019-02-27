@@ -50,7 +50,7 @@ void TablesDialog::createGreekSymbolTable()
     item->setHeader(i18n("Greek alphabet"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
     QVBoxLayout *layout = new QVBoxLayout(frame);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QTableWidget *table = new MyTableWidget(frame);
     table->verticalHeader()->hide();
@@ -153,7 +153,7 @@ void TablesDialog::createNumbersTable()
     item->setHeader(i18n("Numeric Prefixes and Roman Numerals"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
     QVBoxLayout *layout = new QVBoxLayout(frame);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QTableWidget *table = new MyTableWidget(frame);
     table->verticalHeader()->hide();
