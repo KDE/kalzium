@@ -37,11 +37,11 @@ public:
      */
     SpectrumParser();
     ~SpectrumParser();
-    bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
+    bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs ) override;
 
-    bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
+    bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName ) override;
 
-    bool characters(const QString &ch);
+    bool characters(const QString &ch) override;
 
     QList<Spectrum*> getSpectrums();
 

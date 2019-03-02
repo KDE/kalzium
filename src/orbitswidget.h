@@ -46,7 +46,7 @@ private:
     QList<int> numOfElectrons;
 
 protected slots:
-    virtual void paintEvent(QPaintEvent*);
+    virtual void paintEvent(QPaintEvent*) override;
 };
 
 #endif // ORBITSWIDGET_H
