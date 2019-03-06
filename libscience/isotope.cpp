@@ -51,18 +51,54 @@ void Isotope::addData(const ChemicalDataObject &o)
         m_ecdecay = o;
     } else if (o.type() == ChemicalDataObject::ecDecayLikeliness) {
         m_eclikeliness = o;
+    } else if (o.type() == ChemicalDataObject::neutronDecay) {
+        m_neutrondecay = o;
+    } else if (o.type() == ChemicalDataObject::neutronDecayLikeliness) {
+        m_neutronlikeliness = o;
+    } else if (o.type() == ChemicalDataObject::protonDecay) {
+        m_protondecay = o;
+    } else if (o.type() == ChemicalDataObject::protonDecayLikeliness) {
+        m_protonlikeliness = o;
+    } else if (o.type() == ChemicalDataObject::protonalphaDecay) {
+        m_protonalphadecay = o;
+    } else if (o.type() == ChemicalDataObject::protonalphaDecayLikeliness) {
+        m_protonalphalikeliness = o;
     } else if (o.type() == ChemicalDataObject::betaplusDecay) {
         m_betaplusdecay = o;
     } else if (o.type() == ChemicalDataObject::betaplusDecayLikeliness) {
         m_betapluslikeliness = o;
+    } else if (o.type() == ChemicalDataObject::betaplusprotonDecay) {
+        m_betaplusprotondecay = o;
+    } else if (o.type() == ChemicalDataObject::betaplusprotonDecayLikeliness) {
+        m_betaplusprotonlikeliness = o;
+    } else if (o.type() == ChemicalDataObject::betaplusalphaDecay) {
+        m_betaplusalphadecay = o;
+    } else if (o.type() == ChemicalDataObject::betaplusalphaDecayLikeliness) {
+        m_betaplusalphalikeliness = o;
     } else if (o.type() == ChemicalDataObject::betaminusDecay) {
         m_betaminusdecay = o;
     } else if (o.type() == ChemicalDataObject::betaminusDecayLikeliness) {
         m_betaminuslikeliness = o;
+    } else if (o.type() == ChemicalDataObject::betaminusneutronDecay) {
+        m_betaminusneutrondecay = o;
+    } else if (o.type() == ChemicalDataObject::betaminusneutronDecayLikeliness) {
+        m_betaminusneutronlikeliness = o;
+    } else if (o.type() == ChemicalDataObject::betaminusfissionDecay) {
+        m_betaminusfissiondecay = o;
+    } else if (o.type() == ChemicalDataObject::betaminusfissionDecayLikeliness) {
+        m_betaminusfissionlikeliness = o;
+    } else if (o.type() == ChemicalDataObject::betaminusalphaDecay) {
+        m_betaminusalphadecay = o;
+    } else if (o.type() == ChemicalDataObject::betaminusalphaDecayLikeliness) {
+        m_betaminusalphalikeliness = o;
     } else if (o.type() == ChemicalDataObject::alphaDecay) {
         m_alphadecay = o;
     } else if (o.type() == ChemicalDataObject::alphaDecayLikeliness) {
         m_alphalikeliness = o;
+    } else if (o.type() == ChemicalDataObject::alphabetaminusDecay) {
+        m_alphabetaminusdecay = o;
+    } else if (o.type() == ChemicalDataObject::alphabetaminusDecayLikeliness) {
+        m_alphabetaminuslikeliness = o;
     }
 }
 
@@ -114,6 +150,30 @@ double Isotope::eclikeliness() const
 {
     return m_eclikeliness.value().toDouble();
 }
+double Isotope::neutrondecay() const
+{
+    return m_neutrondecay.value().toDouble();
+}
+double Isotope::neutronlikeliness() const
+{
+    return m_neutronlikeliness.value().toDouble();
+}
+double Isotope::protondecay() const
+{
+    return m_protondecay.value().toDouble();
+}
+double Isotope::protonlikeliness() const
+{
+    return m_protonlikeliness.value().toDouble();
+}
+double Isotope::protonalphadecay() const
+{
+    return m_protonalphadecay.value().toDouble();
+}
+double Isotope::protonalphalikeliness() const
+{
+    return m_protonalphalikeliness.value().toDouble();
+}
 double Isotope::betaplusdecay() const
 {
     return m_betaplusdecay.value().toDouble();
@@ -122,6 +182,25 @@ double Isotope::betaplusdecay() const
 double Isotope::betapluslikeliness() const
 {
     return m_betapluslikeliness.value().toDouble();
+}
+
+double Isotope::betaplusprotondecay() const
+{
+    return m_betaplusprotondecay.value().toDouble();
+}
+
+double Isotope::betaplusprotonlikeliness() const
+{
+    return m_betaplusprotonlikeliness.value().toDouble();
+}
+double Isotope::betaplusalphadecay() const
+{
+    return m_betaplusalphadecay.value().toDouble();
+}
+
+double Isotope::betaplusalphalikeliness() const
+{
+    return m_betaplusalphalikeliness.value().toDouble();
 }
 
 double Isotope::betaminusdecay() const
@@ -134,6 +213,36 @@ double Isotope::betaminuslikeliness() const
     return m_betaminuslikeliness.value().toDouble();
 }
 
+double Isotope::betaminusneutrondecay() const
+{
+    return m_betaminusneutrondecay.value().toDouble();
+}
+
+double Isotope::betaminusneutronlikeliness() const
+{
+    return m_betaminusneutronlikeliness.value().toDouble();
+}
+double Isotope::betaminusfissiondecay() const
+{
+    return m_betaminusfissiondecay.value().toDouble();
+}
+
+double Isotope::betaminusfissionlikeliness() const
+{
+    return m_betaminusfissionlikeliness.value().toDouble();
+}
+
+double Isotope::betaminusalphadecay() const
+{
+    return m_betaminusalphadecay.value().toDouble();
+}
+
+double Isotope::betaminusalphalikeliness() const
+{
+    return m_betaminusalphalikeliness.value().toDouble();
+}
+
+
 double Isotope::alphadecay() const
 {
     return m_alphadecay.value().toDouble();
@@ -142,6 +251,16 @@ double Isotope::alphadecay() const
 double Isotope::alphalikeliness() const
 {
     return m_alphalikeliness.value().toDouble();
+}
+
+double Isotope::alphabetaminusdecay() const
+{
+    return m_alphabetaminusdecay.value().toDouble();
+}
+
+double Isotope::alphabetaminuslikeliness() const
+{
+    return m_alphabetaminuslikeliness.value().toDouble();
 }
 
 QString Isotope::parentElementSymbol() const
@@ -182,7 +301,16 @@ Isotope::Nucleons Isotope::nucleonsAfterDecay(Decay kind)
         n.protons -= 1;
         n.neutrons += 1;
         break;
+    case NEUTRON:
+	n.neutrons -=1;
+	break;
+    case PROTON:
+	n.protons -=1;
+	break;
+
+
     }
+
 
     return n;
 }

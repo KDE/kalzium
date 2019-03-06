@@ -36,7 +36,7 @@ public:
     /**
      * there are several types of decay for an isotope.
      */
-    enum IsotopeType { alpha, ec, multiple, bplus, bminus, stable };
+    enum IsotopeType { alpha, ec, multiple, bplus, bminus, unknown, stable };
 
     enum { Type = UserType + 1 };
 

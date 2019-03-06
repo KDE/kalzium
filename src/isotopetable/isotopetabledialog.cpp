@@ -64,8 +64,8 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
     items << qMakePair(i18nc("Many ways", "Multiple"), QColor(Qt::green));
     items << qMakePair(i18nc("Beta plus ray emission", "Beta +"), QColor(Qt::yellow));
     items << qMakePair(i18nc("Beta minus ray emission", "Beta -"), QColor(Qt::white));
-    items << qMakePair(i18nc("Stable isotope", "Stable"), QColor(Qt::lightGray));
-    items << qMakePair(i18nc("Default colour", "default"), QColor(Qt::darkGray));
+    items << qMakePair(i18nc("Stable isotope", "Stable"), QColor(Qt::magenta));
+    items << qMakePair(i18nc("Unknown Decay", "unknown"), QColor(Qt::darkGray));
 
     foreach (const legendPair &pair, items) {
         LegendItem *item = new LegendItem(pair);

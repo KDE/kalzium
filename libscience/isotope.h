@@ -129,11 +129,69 @@ public:
     /**
      * @return decay
      */
+    double neutrondecay() const;
+
+    /**
+     * @return decay likeliness
+     */
+    double neutronlikeliness() const;
+
+    /**
+     * @return decay
+     */
+    double protondecay() const;
+
+    /**
+     * @return decay likeliness
+     */
+    double protonlikeliness() const;
+
+
+    /**
+     * @return decay
+     */
+    double protonalphadecay() const;
+
+    /**
+     * @return decay likeliness
+     */
+    double protonalphalikeliness() const;
+
+    /**
+     * @return decay
+     */
     double betaminusdecay() const;
     /**
      * @return decay likeliness
      */
     double betaminuslikeliness() const;
+
+    /**
+     * @return decay
+     */
+    double betaminusneutrondecay() const;
+    /**
+     * @return decay likeliness
+     */
+    double betaminusneutronlikeliness() const;
+
+    /**
+     * @return decay
+     */
+    double betaminusfissiondecay() const;
+    /**
+     * @return decay likeliness
+     */
+    double betaminusfissionlikeliness() const;
+
+    /**
+     * @return decay
+     */
+    double betaminusalphadecay() const;
+    /**
+     * @return decay likeliness
+     */
+    double betaminusalphalikeliness() const;
 
     /**
      * @return decay
@@ -148,6 +206,26 @@ public:
     /**
      * @return decay
      */
+    double betaplusprotondecay() const;
+
+    /**
+     * @return decay likeliness
+     */
+    double betaplusprotonlikeliness() const;
+
+    /**
+     * @return decay
+     */
+    double betaplusalphadecay() const;
+
+    /**
+     * @return decay likeliness
+     */
+    double betaplusalphalikeliness() const;
+
+    /**
+     * @return decay
+     */
     double alphadecay() const;
 
 
@@ -156,14 +234,29 @@ public:
      */
     double alphalikeliness() const;
 
+
+    /**
+     * @return decay
+     */
+    double alphabetaminusdecay() const;
+
+
+    /**
+     * @return decay
+     */
+    double alphabetaminuslikeliness() const;
+
     /**
      * This enum stores the different kinds of decay
      */
     enum Decay {
         ALPHA/**<alpha decay*/,
+        ALPHABETAMINUS,
         BETAPLUS/**<beta plus decay*/,
         BETAMINUS/**<beta minus decay*/,
-        EC/**ec decay*/
+        EC/**ec decay*/,
+	NEUTRON/**neutron decay*/,
+	PROTON/**proton decay*/
     };
 
     /**
@@ -212,17 +305,39 @@ private:
      * stores decay energy of the isotope
      */
     ChemicalDataObject m_ecdecay;
+    ChemicalDataObject m_neutrondecay;
+    ChemicalDataObject m_protondecay;
+    ChemicalDataObject m_protonalphadecay;
     ChemicalDataObject m_betaplusdecay;
+    ChemicalDataObject m_betaplusprotondecay;
+    ChemicalDataObject m_betaplusalphadecay;
     ChemicalDataObject m_betaminusdecay;
+    ChemicalDataObject m_betaminusneutrondecay;
+    ChemicalDataObject m_betaminusfissiondecay;
+    ChemicalDataObject m_betaminusalphadecay;
     ChemicalDataObject m_alphadecay;
+    ChemicalDataObject m_alphabetaminusdecay;
+
+
 
     /**
      * stores the likeliness of a decay of the isotope
      */
     ChemicalDataObject m_eclikeliness;
+    ChemicalDataObject m_neutronlikeliness;
+    ChemicalDataObject m_protonlikeliness;
+    ChemicalDataObject m_protonalphalikeliness;
     ChemicalDataObject m_betapluslikeliness;
+    ChemicalDataObject m_betaplusprotonlikeliness;
+    ChemicalDataObject m_betaplusalphalikeliness;
     ChemicalDataObject m_betaminuslikeliness;
+    ChemicalDataObject m_betaminusneutronlikeliness;
+    ChemicalDataObject m_betaminusfissionlikeliness;
+    ChemicalDataObject m_betaminusalphalikeliness;
     ChemicalDataObject m_alphalikeliness;
+    ChemicalDataObject m_alphabetaminuslikeliness;
+
+
 
     int m_numberOfNucleons;
 };

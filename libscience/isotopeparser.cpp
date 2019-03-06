@@ -37,12 +37,30 @@ public:
     inHalfLife(false),
     inAlphaDecayLikeliness(false),
     inAlphaDecay(false),
+    inAlphaBetaminusDecayLikeliness(false),
+    inAlphaBetaminusDecay(false),
     inBetaplusDecayLikeliness(false),
     inBetaplusDecay(false),
+    inBetaplusProtonDecayLikeliness(false),
+    inBetaplusProtonDecay(false),
+    inBetaplusAlphaDecayLikeliness(false),
+    inBetaplusAlphaDecay(false),
     inBetaminusDecayLikeliness(false),
     inBetaminusDecay(false),
+    inBetaminusFissionDecayLikeliness(false),
+    inBetaminusFissionDecay(false),
+    inBetaminusAlphaDecayLikeliness(false),
+    inBetaminusAlphaDecay(false),
+    inBetaminusNeutronDecayLikeliness(false),
+    inBetaminusNeutronDecay(false),
     inECDecayLikeliness(false),
     inECDecay(false),
+    inProtonDecayLikeliness(false),
+    inProtonDecay(false),
+    inProtonAlphaDecayLikeliness(false),
+    inProtonAlphaDecay(false),
+    inNeutronDecayLikeliness(false),
+    inNeutronDecay(false),
     inAbundance(false)
     {
     }
@@ -70,12 +88,30 @@ public:
     bool inHalfLife;
     bool inAlphaDecayLikeliness;
     bool inAlphaDecay;
+    bool inAlphaBetaminusDecayLikeliness;
+    bool inAlphaBetaminusDecay;
     bool inBetaplusDecayLikeliness;
     bool inBetaplusDecay;
+    bool inBetaplusProtonDecayLikeliness;
+    bool inBetaplusProtonDecay;
+    bool inBetaplusAlphaDecayLikeliness;
+    bool inBetaplusAlphaDecay;
     bool inBetaminusDecayLikeliness;
     bool inBetaminusDecay;
+    bool inBetaminusNeutronDecayLikeliness;
+    bool inBetaminusNeutronDecay;
+    bool inBetaminusFissionDecayLikeliness;
+    bool inBetaminusFissionDecay;
+    bool inBetaminusAlphaDecayLikeliness;
+    bool inBetaminusAlphaDecay;
     bool inECDecayLikeliness;
     bool inECDecay;
+    bool inProtonDecayLikeliness;
+    bool inProtonDecay;
+    bool inProtonAlphaDecayLikeliness;
+    bool inProtonAlphaDecay;
+    bool inNeutronDecayLikeliness;
+    bool inNeutronDecay;    
     bool inAbundance;
 };
 
@@ -139,17 +175,53 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
                 d->inAlphaDecay = true;
             } else if (attrs.value(i) == QLatin1String("bo:alphaDecayLikeliness")) {
                 d->inAlphaDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:alphabetaminusDecay")) {
+                d->inAlphaBetaminusDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:alphabetaminusDecayLikeliness")) {
+                d->inAlphaBetaminusDecayLikeliness = true;
             } else if (attrs.value(i) == QLatin1String("bo:ecDecay")) {
                 d->inECDecay = true;
             } else if (attrs.value(i) == QLatin1String("bo:ecDecayLikeliness")) {
                 d->inECDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:neutronDecay")) {
+                d->inNeutronDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:neutronDecayLikeliness")) {
+                d->inNeutronDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:protonDecay")) {
+                d->inProtonDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:protonDecayLikeliness")) {
+                d->inProtonDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:protonalphaDecay")) {
+                d->inProtonAlphaDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:protonalphaDecayLikeliness")) {
+                d->inProtonAlphaDecayLikeliness = true;
             } else if (attrs.value(i) == QLatin1String("bo:betaminusDecay")) {
                 d->inBetaminusDecay = true;
             } else if (attrs.value(i) == QLatin1String("bo:betaminusDecayLikeliness")) {
                 d->inBetaminusDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusneutronDecay")) {
+                d->inBetaminusNeutronDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusneutronDecayLikeliness")) {
+                d->inBetaminusNeutronDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusfissionDecay")) {
+                d->inBetaminusFissionDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusfissionDecayLikeliness")) {
+                d->inBetaminusFissionDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusfissionDecay")) {
+                d->inBetaminusFissionDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaminusfissionDecayLikeliness")) {
+                d->inBetaminusFissionDecayLikeliness = true;
             } else if (attrs.value(i) == QLatin1String("bo:betaplusDecay")) {
                 d->inBetaplusDecay = true;
             } else if (attrs.value(i) == QLatin1String("bo:betaplusDecayLikeliness")) {
+                d->inBetaplusDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaplusprotonDecay")) {
+                d->inBetaplusDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaplusprotonDecayLikeliness")) {
+                d->inBetaplusDecayLikeliness = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaplusalphaDecay")) {
+                d->inBetaplusDecay = true;
+            } else if (attrs.value(i) == QLatin1String("bo:betaplusalphaDecayLikeliness")) {
                 d->inBetaplusDecayLikeliness = true;
             } else if (attrs.value(i) == QLatin1String("bo:spin")) {
                 d->inSpin = true;
@@ -210,6 +282,14 @@ bool IsotopeParser::characters(const QString &ch)
         value = ch.toDouble();
         type = ChemicalDataObject::alphaDecayLikeliness;
         d->inAlphaDecayLikeliness = false;
+    } else if (d->inAlphaBetaminusDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::alphabetaminusDecay;
+        d->inAlphaBetaminusDecay = false;
+    } else if (d->inAlphaBetaminusDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::alphabetaminusDecayLikeliness;
+        d->inAlphaBetaminusDecayLikeliness = false;
     } else if (d->inBetaplusDecay) {
         value = ch.toDouble();
         type = ChemicalDataObject::betaplusDecay;
@@ -218,6 +298,22 @@ bool IsotopeParser::characters(const QString &ch)
         value = ch.toDouble();
         type = ChemicalDataObject::betaplusDecayLikeliness;
         d->inBetaplusDecayLikeliness = false;
+    } else if (d->inBetaplusProtonDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaplusprotonDecay;
+        d->inBetaplusProtonDecay = false;
+    } else if (d->inBetaplusProtonDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaplusprotonDecayLikeliness;
+        d->inBetaplusProtonDecayLikeliness = false;
+    } else if (d->inBetaplusAlphaDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaplusalphaDecay;
+        d->inBetaplusAlphaDecay = false;
+    } else if (d->inBetaplusAlphaDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaplusalphaDecayLikeliness;
+        d->inBetaplusAlphaDecayLikeliness = false;
     } else if (d->inBetaminusDecay) {
         value = ch.toDouble();
         type = ChemicalDataObject::betaminusDecay;
@@ -226,6 +322,30 @@ bool IsotopeParser::characters(const QString &ch)
         value = ch.toDouble();
         type = ChemicalDataObject::betaminusDecayLikeliness;
         d->inBetaminusDecayLikeliness = false;
+    } else if (d->inBetaminusNeutronDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaminusneutronDecay;
+        d->inBetaminusNeutronDecay = false;
+    } else if (d->inBetaminusNeutronDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaminusneutronDecayLikeliness;
+        d->inBetaminusNeutronDecayLikeliness = false;
+    } else if (d->inBetaminusFissionDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaminusfissionDecay;
+        d->inBetaminusFissionDecay = false;
+    } else if (d->inBetaminusFissionDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaminusfissionDecayLikeliness;
+        d->inBetaminusFissionDecayLikeliness = false;
+    } else if (d->inBetaminusAlphaDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaminusalphaDecay;
+        d->inBetaminusAlphaDecay = false;
+    } else if (d->inBetaminusAlphaDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::betaminusalphaDecayLikeliness;
+        d->inBetaminusAlphaDecayLikeliness = false;
     } else if (d->inECDecayLikeliness) {
         value = ch.toDouble();
         type = ChemicalDataObject::ecDecayLikeliness;
@@ -234,6 +354,30 @@ bool IsotopeParser::characters(const QString &ch)
         value = ch.toDouble();
         type = ChemicalDataObject::ecDecay;
         d->inECDecay = false;
+    } else if (d->inNeutronDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::neutronDecayLikeliness;
+        d->inNeutronDecayLikeliness = false;
+    } else if (d->inNeutronDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::neutronDecay;
+        d->inNeutronDecay = false;
+    } else if (d->inProtonDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::protonDecayLikeliness;
+        d->inProtonDecayLikeliness = false;
+    } else if (d->inProtonDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::protonDecay;
+        d->inProtonDecay = false;
+    } else if (d->inProtonAlphaDecayLikeliness) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::protonalphaDecayLikeliness;
+        d->inProtonAlphaDecayLikeliness = false;
+    } else if (d->inProtonAlphaDecay) {
+        value = ch.toDouble();
+        type = ChemicalDataObject::protonalphaDecay;
+        d->inProtonAlphaDecay = false;
     } else if (d->inAbundance) {
         value = ch;
         type = ChemicalDataObject::relativeAbundance;

@@ -56,8 +56,11 @@ IsotopeItem::IsotopeItem(Isotope *i, qreal x, qreal y, qreal width, qreal height
     case bminus:
         b = QBrush(Qt::white);
         break;
+    case unknown:
+        b = QBrush(Qt::darkGray);
+        break;
     case stable:
-        b = QBrush(Qt::lightGray);
+        b = QBrush(Qt::magenta);
         break;
     default:
         b = QBrush(Qt::darkGray);
@@ -118,16 +121,19 @@ IsotopeItem::IsotopeType IsotopeItem::getType(Isotope * isotope)
     if (isotope->alphalikeliness() > 60.0) {
         return IsotopeItem::alpha;
     }
-    if (isotope->betaminuslikeliness() > 60.0) {
+    if (isotope->betaminuslikeliness() > 60.0 || isotope->betaminusneutronlikeliness() > 60.0 || isotope->betaminusfissionlikeliness() > 60.0) {
         return IsotopeItem::bminus;
     }
-    if (isotope->betapluslikeliness() > 60.0) {
-        return IsotopeItem::bminus;
+    if (isotope->betapluslikeliness() > 60.0 || isotope->betaplusalphalikeliness() > 60.0 || isotope->betaplusalphalikeliness() > 60.0) {
+        return IsotopeItem::bplus;
     }
     if (isotope->eclikeliness() > 60.0) {
         return IsotopeItem::ec;
-    } else {
+    }
+    if (!(isotope->halflife() > 0.0) && !(isotope->abundance().isEmpty())) {
         return IsotopeItem::stable;
+    } else {
+        return IsotopeItem::unknown;
     }
 }
 

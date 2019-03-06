@@ -137,7 +137,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     item->setHeader(icontext);
     item->setIcon(QIcon::fromTheme(iconname));
     QVBoxLayout *layout = new QVBoxLayout(frame);
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setMargin(0);
 
     KHTMLPart *w = new KHTMLPart(frame, frame);
     w->setJScriptEnabled(false);
@@ -393,6 +393,18 @@ QString DetailedInfoDlg::isotopeTable() const
                 html.append(i18n(", "));
             }
         }
+        if ((isotope)->alphabetaminuslikeliness() > 0.0) {
+            if ((isotope)->alphabetaminusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->alphabetaminusdecay()));
+            }
+            html.append(i18n(" %1, %2<sup>-</sup>", QChar(945), QChar(946) ));
+            if ((isotope)->alphabetaminuslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->alphabetaminuslikeliness()));
+            }
+            if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
         if ((isotope)->betaminuslikeliness() > 0.0) {
             if ((isotope)->betaminusdecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaminusdecay()));
@@ -400,6 +412,45 @@ QString DetailedInfoDlg::isotopeTable() const
             html.append(i18n(" %1<sup>-</sup>", QChar(946)));
             if ((isotope)->betaminuslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminuslikeliness()));
+            }
+
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminusneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusneutrondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, n", QChar(946)));
+            if ((isotope)->betaminusneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusneutronlikeliness()));
+            }
+
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusfissionlikeliness() > 0.0) {
+            if ((isotope)->betaminusfissiondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusfissiondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, fission", QChar(946)));
+            if ((isotope)->betaminusfissionlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusfissionlikeliness()));
+            }
+
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusalphalikeliness() > 0.0) {
+            if ((isotope)->betaminusalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusalphadecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, %2", QChar(946), QChar(945)));
+            if ((isotope)->betaminusalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusalphalikeliness()));
             }
 
             if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
@@ -422,6 +473,26 @@ QString DetailedInfoDlg::isotopeTable() const
             }
             html += ' ';
         }
+        if ((isotope)->betaplusprotonlikeliness() > 0.0) {
+            if ((isotope)->betaplusprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusprotondecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>, p", QChar(946)));
+            if ((isotope)->betaplusprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusprotonlikeliness()));
+            }
+            html += ' ';
+        }
+        if ((isotope)->betaplusalphalikeliness() > 0.0) {
+            if ((isotope)->betaplusalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusalphadecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>, %2", QChar(946),QChar(945)));
+            if ((isotope)->betaplusalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusalphalikeliness()));
+            }
+            html += ' ';
+        }
         if ((isotope)->eclikeliness() > 0.0) {
             if ((isotope)->ecdecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->ecdecay()));
@@ -431,6 +502,35 @@ QString DetailedInfoDlg::isotopeTable() const
                 html.append(i18n("(%1%)", (isotope)->eclikeliness()));
             }
         }
+        if ((isotope)->neutronlikeliness() > 0.0) {
+            if ((isotope)->neutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->neutrondecay()));
+            }
+            html.append(i18nc("Acronym of neutron emission"," n"));
+            if ((isotope)->neutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->neutronlikeliness()));
+            }
+        }
+	if ((isotope)->protonlikeliness() > 0.0) {
+            if ((isotope)->protondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->protondecay()));
+            }
+            html.append(i18nc("Acronym of proton emission"," p"));
+            if ((isotope)->protonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+            }
+        }
+	if ((isotope)->protonalphalikeliness() > 0.0) {
+            if ((isotope)->protonalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->protonalphadecay()));
+            }
+            html.append(i18n(" p, %1", QChar(945)));
+            if ((isotope)->protonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+            }
+        }
+
+
         html.append("</td><td>");
         html.append((isotope)->spin());
         html.append("</td><td>");
@@ -457,7 +557,7 @@ void DetailedInfoDlg::createContent()
 //     item->setHeader(i18n("Overview"));
 //     item->setIcon(QIcon("overview"));
 //     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
-//     overviewLayout->setContentsMargins(0, 0, 0, 0);
+//     overviewLayout->setMargin(0);
 //     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
 //     dTab->setObjectName("DetailedGraphicalOverview");
 //     overviewLayout->addWidget(dTab);
@@ -468,7 +568,7 @@ void DetailedInfoDlg::createContent()
 //X      item->setHeader(i18n("What does this element look like?"));
 //X      item->setIcon(QIcon("elempic"));
 //X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
-//X      mainLayout->setContentsMargins(0, 0, 0, 0);
+//X      mainLayout->setMargin(0);
 //X      piclabel = new QLabel(m_pPictureTab);
 //X      piclabel->setMinimumSize(400, 350);
 //X      mainLayout->addWidget(piclabel);
@@ -482,7 +582,7 @@ void DetailedInfoDlg::createContent()
     item->setHeader(i18n("Atom Model"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("orbits")));
     QVBoxLayout *modelLayout = new QVBoxLayout(m_pModelTab);
-    modelLayout->setContentsMargins(0, 0, 0, 0);
+    modelLayout->setMargin(0);
     wOrbits = new OrbitsWidget(m_pModelTab);
     modelLayout->addWidget(wOrbits);
 
@@ -497,7 +597,7 @@ void DetailedInfoDlg::createContent()
     item->setHeader(i18n("Spectrum"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("spectrum")));
     QVBoxLayout *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
-    spectrumLayout->setContentsMargins(0, 0, 0, 0);
+    spectrumLayout->setMargin(0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);
     spectrumLayout->addWidget(m_spectrumStack);
     m_spectrumview = new SpectrumViewImpl(m_spectrumStack);
