@@ -1,5 +1,5 @@
-<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kalzium" version="5">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="kalzium" version="5">
 <MenuBar>
   <Menu name="file_menu"><text>&amp;File</text>
     <Action name="saveAs"/>  
@@ -41,4 +41,4 @@
   <Action name="tools_calculate" />  
   <Action name="tools_plotdata" />
  </ToolBar>
-</kpartgui>
+</gui>
