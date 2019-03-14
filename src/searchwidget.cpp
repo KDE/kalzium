@@ -35,10 +35,9 @@ SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(nullptr)
     mainlay->setMargin(2);
     mainlay->setSpacing(5);
 
-    mainlay->addWidget(new QLabel(i18n("Search:"), this));
-
     m_searchLine = new KLineEdit(this);
     m_searchLine->setClearButtonEnabled(true);
+    m_searchLine->setPlaceholderText(i18n("Search..."));
     m_searchLine->setTrapReturnKey(true);
     connect(m_searchLine, &QLineEdit::textChanged,
              this, &SearchWidget::searchTextChanged);

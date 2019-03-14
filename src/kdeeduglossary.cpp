@@ -332,13 +332,8 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
 
     QHBoxLayout *hbox = new QHBoxLayout();
 
-    QLabel *lbl = new QLabel(main);
-    lbl->setText(i18n("&Search:"));
-    hbox->addWidget(lbl);
-
     d->m_search = new KTreeWidgetSearchLine(main);
     d->m_search->setObjectName(QStringLiteral("search-line"));
-    lbl->setBuddy(lbl);
     hbox->addWidget(d->m_search);
     vbox->addLayout(hbox);
     setFocusProxy(d->m_search);
