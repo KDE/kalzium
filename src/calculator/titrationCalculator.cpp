@@ -34,7 +34,6 @@
 #include <QMessageBox>
 #include <QScriptClass>
 #include <QScriptEngine>
-#include <QScriptEngine>
 #include <QScriptValue>
 #include <QVarLengthArray>
 
