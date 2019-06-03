@@ -28,8 +28,6 @@
 
 #include "chemicaldataobject.h"
 
-class Spectrum;
-class Isotope;
 
 /**
  * In this class all information about an element are stored. This means that

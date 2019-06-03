@@ -21,7 +21,6 @@
 #include "kalziumdataobject.h"
 #include "ui_exportdialog.h"
 
-class KDialog;
 
 class ElementListEntry : public QListWidgetItem
 {

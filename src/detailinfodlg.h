@@ -23,7 +23,6 @@
 
 class DetailedGraphicalOverview;
 class Element;
-class KalziumTableType;
 class OrbitsWidget;
 class SpectrumViewImpl;
 

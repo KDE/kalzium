@@ -26,7 +26,8 @@
 #include <QPixmap>
 
 class Search;
-
+class Isotope;
+class Spectrum;
 /**
  * @brief This class contains all Element objects
  *

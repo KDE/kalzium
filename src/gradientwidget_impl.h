@@ -25,7 +25,6 @@
 
 #include "kalziumelementproperty.h"
 
-class Element;
 class QTimer;
 
 /**

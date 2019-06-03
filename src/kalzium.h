@@ -26,7 +26,6 @@ email                : cniehaus@kde.org
 class KAction;
 class KSelectAction;
 class QToolBox;
-class QVBoxLayout;
 class QDockWidget;
 class DetailedInfoDlg;
 class PeriodicTableView;
@@ -34,7 +33,6 @@ class DetailedGraphicalOverview;
 class GradientWidgetImpl;
 class GlossaryDialog;
 class IsotopeTable;
-class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
 class ExportDialog;

@@ -27,11 +27,8 @@
 
 namespace Plasma{
     class ComboBox;
-    class TextEdit;
     class Label;
-    class Slider;
     class SpinBox;
-    class RadioButton;
     class PushButton;
 }
 
