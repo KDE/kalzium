@@ -32,7 +32,7 @@
 SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(nullptr)
 {
     QHBoxLayout *mainlay = new QHBoxLayout(this);
-    mainlay->setMargin(2);
+    mainlay->setContentsMargins(2, 2, 2, 2);
     mainlay->setSpacing(5);
 
     m_searchLine = new KLineEdit(this);
