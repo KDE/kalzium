@@ -27,10 +27,7 @@
 #include <KLocalizedString>
 
 #include "kalzium.h"
-
-#define APP_VERSION "2.5.0"
-
-static const char version[] = APP_VERSION;
+#include "kalzium_version.h"
 
 #ifdef HAVE_FACILE
 extern "C" {
@@ -49,7 +46,7 @@ int main(int argc, char **argv)
 
     KAboutData about(QStringLiteral("kalzium"),
                       i18n("Kalzium"),
-                      version,
+                      QStringLiteral(KALZIUM_VERSION_STRING),
                       i18n("A periodic table of the elements"),
                       KAboutLicense::GPL,
                       i18n("(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"),
@@ -129,7 +126,7 @@ int main(int argc, char **argv)
 
 
     QApplication::setApplicationName(QStringLiteral("kalzium"));
-    QApplication::setApplicationVersion(version);
+    QApplication::setApplicationVersion(KALZIUM_VERSION_STRING);
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
     KAboutData::setApplicationData(about);
