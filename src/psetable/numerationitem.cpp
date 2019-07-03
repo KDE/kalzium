@@ -69,7 +69,7 @@ void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     grad.setColorAt(0, m_color);
     grad.setColorAt(1, m_color.darker());
     painter->setBrush(grad);
-    pen.setColor(m_color.dark(1000));
+    pen.setColor(m_color.darker(1000));
     painter->setPen(pen);
 
     QRectF rect(0, 0, m_width, m_height);
