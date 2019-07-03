@@ -93,7 +93,7 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
 //     }
 
     ui.styleCombo->addItems({"Ball and Stick", "Licorice", "Van der Waals","Van der Waals (AO)", "Wireframe"});
-    connect(ui.styleCombo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged),
+    connect(ui.styleCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &MoleculeDialog::slotUpdateScenePlugin);
     slotUpdateScenePlugin();
 
