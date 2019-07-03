@@ -53,7 +53,7 @@ void DetailedGraphicalOverview::setElement(int el)
 void DetailedGraphicalOverview::setBackgroundColor(QColor bgColor)
 {
     if (bgColor == Qt::transparent) {
-       bgColor = palette().background().color();
+       bgColor = palette().window().color();
     }
 
     // add a gradient
@@ -80,10 +80,10 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
 
     if (!m_element)
     {
-        pm.fill(palette().background().color());
+        pm.fill(palette().window().color());
         p.drawText(0, 0, width(), height(), Qt::AlignCenter | Qt::TextWordWrap, i18n("No element selected"));
     } else if (Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
-        pm.fill(palette().background().color());
+        pm.fill(palette().window().color());
 
         QString pathname = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/iconsets/"), QStandardPaths::LocateDirectory);
 

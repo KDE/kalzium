@@ -162,7 +162,7 @@ void DetailedInfoDlg::fillHTMLTab(KHTMLPart* htmlpart, const QString& htmlcode)
     // set the background color of the document to match that of the dialog
     DOM::HTMLElement element = htmlpart->htmlDocument().body();
     if (element.tagName() == "body") {
-        const QColor backgroundColor = palette().background().color();
+        const QColor backgroundColor = palette().window().color();
         ((DOM::HTMLBodyElement)element).setBgColor(backgroundColor.name());
     }
 
