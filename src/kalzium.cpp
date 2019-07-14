@@ -323,7 +323,7 @@ void Kalzium::slotExportTable()
     if (fileName.endsWith(QLatin1String(".svg"))) {
         m_periodicTable->generateSvg(fileName);
     } else {
-        QPixmap pix = QPixmap::grabWidget(m_periodicTable);
+        QPixmap pix = m_periodicTable->grab();
         pix.save(fileName);
     }
 }

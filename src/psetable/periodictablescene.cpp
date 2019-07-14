@@ -95,7 +95,7 @@ void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         item->paint(&painter, new QStyleOptionGraphicsItem());
 
         drag->setPixmap(pix);
-        drag->start(Qt::CopyAction | Qt::MoveAction);
+        drag->exec(Qt::CopyAction | Qt::MoveAction);
 
         m_eventPos = QPoint();
     } else {

@@ -127,7 +127,7 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
         int yA = height() / 2;
 
         //coordinates for the atomic number: offset from element symbol to the upper left
-        int xB = xA - fmB.width(m_element->dataAsString(ChemicalDataObject::atomicNumber));
+        int xB = xA - fmB.boundingRect(m_element->dataAsString(ChemicalDataObject::atomicNumber)).width();
         int yB = yA + fmB.height()/2;
 
         //Element Symbol
