@@ -104,6 +104,8 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
             this, &ElementDataViewer::slotHelp);
     connect(ui.full, &QPushButton::clicked,
             this, &ElementDataViewer::fullRange);
+    connect(ui.swapXYAxis, &QPushButton::clicked,
+            this, &ElementDataViewer::swapXYAxis);
     drawPlot();
 
     resize(650, 500);
@@ -136,6 +138,16 @@ void ElementDataViewer::fullRange()
     ui.to   ->setValue(116);
 }
 
+void ElementDataViewer::swapXYAxis()
+{
+    int x = ui.KCB_x->currentIndex();
+    int y = ui.KCB_y->currentIndex();
+    
+    ui.KCB_x->setCurrentIndex(y);
+    ui.KCB_y->setCurrentIndex(x);
+    
+    rangeChanged();
+}
 
 void ElementDataViewer::setLimits()
 {
