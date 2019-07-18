@@ -134,6 +134,7 @@ protected slots:
 private slots:
     void rangeChanged();
     void fullRange();
+    void swapXYAxis();
 
 public slots:
     void slotZoomIn();
