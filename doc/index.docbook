@@ -40,8 +40,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2016-10-31</date>
-		 <releaseinfo>2.5.0 (Applications 16.12)</releaseinfo>
+		 <date>2019-07-19</date>
+		 <releaseinfo>Applications 19.08</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -117,7 +117,7 @@
 			 </mediaobject>
 		 </screenshot>
 
-		 <para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Plot Data...</guimenuitem> </menuchoice> menu item. You choose what you want to plot on the y-axis and a range of elements to plot that for on the x-axis. The screenshot below shows the atomic mass of the elements 1 to 10. </para>
+		 <para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Plot Data...</guimenuitem> </menuchoice> menu item. You choose what you want to plot on the y-axis and a range of elements to plot that for on the x-axis. The screenshot below shows the atomic mass of the elements 1 to 10. Click the swap button between the axis panes to swap X and Y axes.</para>
 
 		 <screenshot>
 			 <screeninfo>The Plot Data dialog</screeninfo>
@@ -543,7 +543,7 @@
 			 <sect2 id="plot_data">
 				 <title>Plot Data</title>
 				 <para>
-					 The <guimenuitem>Plot Data...</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the <guilabel>First Element</guilabel> and <guilabel>Last Element</guilabel> fields on the dialog.
+					 The <guimenuitem>Plot Data...</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the <guilabel>First Element</guilabel> and <guilabel>Last Element</guilabel> fields on the dialog. Click the swap button between the axis panes to swap X and Y axes.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
