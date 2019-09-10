@@ -61,7 +61,6 @@
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KLocalizedString>
-#include <KParts/Part>
 #include <KPluginLoader>
 #include <KSelectAction>
 #include <KServiceTypeTrader>

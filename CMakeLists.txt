@@ -62,7 +62,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     DocTools
     I18n
-    KHtml
     Parts
     Plotting
     Solid
@@ -74,7 +73,7 @@ ecm_setup_version("5.0.0"
     VARIABLE_PREFIX KALZIUMLIB
 )
 
-# search packages used by KDE 
+# search packages used by KDE
 if(WIN32)
   find_package(KDEWIN32 REQUIRED)
   # detect oxygen icon dir at configure time based on KDEDIRS - there may be different package installation locations

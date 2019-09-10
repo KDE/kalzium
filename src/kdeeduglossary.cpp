@@ -22,8 +22,6 @@
 
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KHTMLPart>
-#include <KHTMLView>
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLine>
 
@@ -40,6 +38,7 @@
 #include <QRegExp>
 #include <QSplitter>
 #include <QStringList>
+#include <QTextBrowser>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
@@ -108,15 +107,12 @@ class GlossaryDialog::Private
 
         // slots
         void itemActivated(QTreeWidgetItem * item, int column);
-        // The user clicked on a href. Find and display the right item
-        void displayItem(const QUrl &url, const KParts::OpenUrlArguments& arguments,
-                         const KParts::BrowserArguments &browserArguments);
 
         GlossaryDialog *q;
 
         QList< GlossaryInfo > m_glossaries;
 
-        KHTMLPart *m_htmlpart;
+        QTextBrowser *m_htmlpart;
         QTreeWidget *m_glosstree;
         KTreeWidgetSearchLine *m_search;
         QString m_htmlbasestring;
@@ -242,17 +238,17 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
         reflist.clear();
         GlossaryItem *item = new GlossaryItem();
 
-        itemElement = (const QDomElement&) itemList.item(i).toElement();
+        itemElement = itemList.item(i).toElement();
 
         QDomNode nameNode = itemElement.namedItem(QStringLiteral("name"));
         QDomNode descNode = itemElement.namedItem(QStringLiteral("desc"));
 
         QString picName = itemElement.namedItem(QStringLiteral("picture")).toElement().text();
-        QDomElement refNode = (const QDomElement&) itemElement.namedItem(QStringLiteral("references")).toElement();
+        QDomElement refNode = itemElement.namedItem(QStringLiteral("references")).toElement();
 
         QString desc = i18n(descNode.toElement().text().toUtf8().constData());
         if (!picName.isEmpty()) {
-            desc.prepend("[img]" + picName + "[/img][brclear][br]");
+            desc.prepend("[br][img]" + picName + "[/img][brclear][br]");
         }
 
         item->setName(i18n(nameNode.toElement().text().toUtf8().constData()));
@@ -349,12 +345,27 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
 
     d->m_search->addTreeWidget(d->m_glosstree);
 
-    d->m_htmlpart = new KHTMLPart(vs);
+    d->m_htmlpart = new QTextBrowser(vs);
+    d->m_htmlpart->setOpenLinks(false);
 
-    connect(d->m_htmlpart->browserExtension(), SIGNAL(openUrlRequestDelayed(QUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)),
-            this, SLOT(displayItem(QUrl,KParts::OpenUrlArguments,KParts::BrowserArguments)));
     connect(d->m_glosstree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
             this, SLOT(itemActivated(QTreeWidgetItem*,int)));
+    connect(d->m_htmlpart, &QTextBrowser::anchorClicked, this, [=](const QUrl &link){
+        // using the "path" part of a qurl as reference
+        QString myurl = link.path().toLower();
+        QTreeWidgetItemIterator it(this->d->m_glosstree);
+        while (*it) {
+            if ((*it)->type() == GlossaryTreeItemType && (*it)->text(0).toLower() == myurl) {
+                 // force the item to be selected
+                 this->d->m_glosstree->setCurrentItem(*it);
+                 // display its content
+                 emit this->d->itemActivated((*it), 0);
+                 break;
+            } else {
+                ++it;
+            }
+         }
+    });
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &GlossaryDialog::reject);
@@ -375,25 +386,6 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
         e->ignore();
     }
     QDialog::keyPressEvent(e);
-}
-
-void GlossaryDialog::Private::displayItem(const QUrl &url, const KParts::OpenUrlArguments &, const KParts::BrowserArguments &)
-{
-    // using the "path" part of a qurl as reference
-    QString myurl = url.path().toLower();
-
-    QTreeWidgetItemIterator it(m_glosstree);
-    while (*it) {
-        if ((*it)->type() == GlossaryTreeItemType && (*it)->text(0).toLower() == myurl) {
-             // force the item to be selected
-             m_glosstree->setCurrentItem(*it);
-             // display its content
-             itemActivated((*it), 0);
-             break;
-        } else {
-            ++it;
-        }
-     }
 }
 
 void GlossaryDialog::Private::rebuildTree()
@@ -475,11 +467,9 @@ void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)
     }
 
     html = m_htmlbasestring.arg(html);
-    html += glossitem->toHtml() + "</body></html>";
+    html += "<div style=\"margin-left: 10px\">" + glossitem->toHtml() + "</div></body></html>";
 
-    m_htmlpart->begin();
-    m_htmlpart->write(html);
-    m_htmlpart->end();
+    m_htmlpart->setHtml(html);
 }
 
 void GlossaryItem::setRef(const QStringList& s)
@@ -490,7 +480,7 @@ void GlossaryItem::setRef(const QStringList& s)
 
 QString GlossaryItem::toHtml() const
 {
-    QString code = "<h1>" + m_name + "</h1>" + m_desc + parseReferences();
+    QString code = "<h1>" + m_name + "</h1>" + "<p>" + m_desc + "</p>" + parseReferences();
 
     return code;
 }

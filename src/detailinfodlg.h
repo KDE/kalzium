@@ -26,9 +26,10 @@ class Element;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
+class KActionCollection;
 class QLabel;
 class QStackedWidget;
-class KActionCollection;
+class QTextBrowser;
 class KHTMLPart;
 
 /**
@@ -77,7 +78,7 @@ private:
     DetailedGraphicalOverview *dTab;
 //X         QLabel *piclabel;
     OrbitsWidget *wOrbits;
-    QMap<QString, KHTMLPart*> m_htmlpages;
+    QMap<QString, QTextBrowser*> m_htmlpages;
 
     int m_tableTyp;
 
@@ -104,14 +105,14 @@ private:
      * @returns the pointer to the resulting KHTMLPart, needed for
      * writing HTML code on it
      */
-    KHTMLPart* addHTMLTab(const QString& title, const QString& icontext, const QString& iconname);
+    QTextBrowser* addHTMLTab(const QString& title, const QString& icontext, const QString& iconname);
     /**
      * Change the HTML code in an HTML page.
      *
-     * @param htmlpart the KHTMLPart to edit
+     * @param browser the QTextBrowser to edit
      * @param htmlcode the HTML code to display
      */
-    void fillHTMLTab(KHTMLPart* htmlpart, const QString& htmlcode);
+    void fillHTMLTab(QTextBrowser *browser, const QString& htmlcode);
 
     /**
      * Creates a localized link to Wikipedia.

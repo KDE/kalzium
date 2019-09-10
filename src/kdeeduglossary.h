@@ -234,8 +234,6 @@ private:
     Private * const d;
 
     Q_PRIVATE_SLOT(d, void itemActivated(QTreeWidgetItem *, int))
-    Q_PRIVATE_SLOT(d, void displayItem(const QUrl &, const KParts::OpenUrlArguments &,
-                                       const KParts::BrowserArguments &))
 };
 
 #endif // KDEEDUGLOSSARY_H

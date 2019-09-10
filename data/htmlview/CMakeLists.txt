@@ -1,9 +1,8 @@
 FILE(GLOB HTMLVIEW_ICONS "*.png")
 
-install( FILES 
+install( FILES
    ${HTMLVIEW_ICONS}
-   icons.svg 
-   style.css 
+   icons.svg
    DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/htmlview )
 
 

@@ -35,14 +35,11 @@
 #include <QLocale>
 #include <QStackedWidget>
 #include <QStandardPaths>
+#include <QTextBrowser>
 #include <QUrl>
 
-#include <dom/html_base.h>
-#include <dom/html_document.h>
 #include <KActionCollection>
 #include <KConfig>
-#include <KHTMLPart>
-#include <KHTMLView>
 #include <KHelpClient>
 #include <KPageDialog>
 #include <KPageWidgetModel>
@@ -130,7 +127,7 @@ void DetailedInfoDlg::setTableType(int tableTyp)
     m_tableTyp = tableTyp;
 }
 
-KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icontext, const QString& iconname)
+QTextBrowser* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icontext, const QString& iconname)
 {
     QWidget* frame = new QWidget(this);
     KPageWidgetItem *item = addPage(frame, title);
@@ -138,50 +135,23 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icon
     item->setIcon(QIcon::fromTheme(iconname));
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
-
-    KHTMLPart *w = new KHTMLPart(frame, frame);
-    w->setJScriptEnabled(false);
-    w->setJavaEnabled(false);
-    w->setMetaRefreshEnabled(false);
-    w->setPluginsEnabled(false);
-    connect(w->browserExtension(), &KParts::BrowserExtension::openUrlRequest, this, &DetailedInfoDlg::slotLinkClicked);
-    layout->addWidget(w->view());
-
-    return w;
+    QTextBrowser *browser = new QTextBrowser(frame);
+    browser->setOpenExternalLinks(true);
+    layout->addWidget(browser);
+    return browser;
 }
 
-void DetailedInfoDlg::fillHTMLTab(KHTMLPart* htmlpart, const QString& htmlcode)
+void DetailedInfoDlg::fillHTMLTab(QTextBrowser *browser, const QString& htmlcode)
 {
-    if (!htmlpart) {
+    if (!browser) {
         return;
     }
-
-    htmlpart->begin();
-    htmlpart->write(htmlcode);
-
-    // set the background color of the document to match that of the dialog
-    DOM::HTMLElement element = htmlpart->htmlDocument().body();
-    if (element.tagName() == "body") {
-        const QColor backgroundColor = palette().window().color();
-        ((DOM::HTMLBodyElement)element).setBgColor(backgroundColor.name());
-    }
-
-    htmlpart->end();
+    browser->setHtml(htmlcode);
 }
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-    QString html =
-        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
-        "<html><head><title>Chemical data</title>"
-        "<link rel=\"stylesheet\" type=\"text/css\" href=\"file://" + m_baseHtml + "style.css\" />"
-        "<base href=\"" + m_baseHtml + "\"/></head><body>"
-        "<div class=\"chemdata\"><div><table summary=\"header\" class=\"header\">"
-        "<tr><td>" + m_element->dataAsString(ChemicalDataObject::symbol) + "</td><td>"
-        + createWikiLink(m_element->dataAsString(ChemicalDataObject::name)) + "</td><td>"
-        + i18n("Block: %1", m_element->dataAsString(ChemicalDataObject::periodTableBlock)) +
-        "</td></tr></table></div>"
-        "<table summary=\"characteristics\" class=\"characterstics\">";
+    QString html = "<table width=\"100%\" summary=\"characteristics\">";
 
     switch (type) {
     case MISC:
@@ -305,7 +275,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
         //http://education.jlab.org/itselemental/ele001.html
         html.append ("<tr><td>");
-        html.append ("<a href=\"http://");        // http://
+        html.append ("<a href=\"https://");        // https://
         html.append ("education.jlab.org/itselemental/ele");
         html.append (QStringLiteral("%1").arg(m_element->dataAsString(ChemicalDataObject::atomicNumber), 3, '0'));
         html.append (".html");
@@ -316,7 +286,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
         // FIXME only works with english locals
         html.append ("<tr><td>");
-        html.append ("<a href=\"http://");        // http://
+        html.append ("<a href=\"https://");        // https://
         html.append ("www.webelements.com/");
         if (QLocale().uiLanguages().first().startsWith(QLatin1String("en"))) {
             html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
@@ -346,24 +316,21 @@ QString DetailedInfoDlg::isotopeTable() const
     QList<Isotope*> list = KalziumDataObject::instance()->isotopes(m_elementNumber);
 
     QString html;
-
-    html = QStringLiteral("<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">");
-    html += i18n("Isotope-Table");
-    html += QLatin1String("</tr></td><tr><td><b>");
+    html = QStringLiteral("<table cellspacing=\"0\" border=\"1\" cellpadding=\"3\" style=\"border-style: solid;\"><tr><th>");
     html += i18n("Mass");
-    html += QLatin1String("</b></td><td><b>");
+    html += QLatin1String("</th><th>");
     html += i18n("Neutrons");
-    html += QLatin1String("</b></td><td><b>");
+    html += QLatin1String("</th><th>");
     html += i18n("Percentage");
-    html += QLatin1String("</b></td><td><b>");
+    html += QLatin1String("</th><th>");
     html += i18n("Half-life period");
-    html += QLatin1String("</b></td><td><b>");
+    html += QLatin1String("</th><th>");
     html += i18n("Energy and Mode of Decay");
-    html += QLatin1String("</b></td><td><b>");
+    html += QLatin1String("</th><th>");
     html += i18n("Spin and Parity");
-    html += QLatin1String("</b></td><td><b>");
+    html += QLatin1String("</th><th>");
     html += i18n("Magnetic Moment");
-    html += QLatin1String("</b></td></tr>");
+    html += QLatin1String("</th></tr>");
 
     foreach (Isotope *isotope, list) {
         html.append("<tr><td align=\"right\">");
@@ -378,7 +345,8 @@ QString DetailedInfoDlg::isotopeTable() const
         }
         html.append("</td><td>");
         if ((isotope)->halflife() > 0.0) {
-            html.append(i18nc("The first argument is the value, the second is the unit. For example '17 s' for '17 seconds',.", "%1 %2", (isotope)->halflife(), (isotope)->halflifeUnit()));
+            html.append(i18nc("The first argument is the value, the second is the unit. For example '17 s' for '17 seconds',.", "%1 %2",
+                              (isotope)->halflife(), (isotope)->halflifeUnit()));
         }
         html.append("</td><td>");
         if ((isotope)->alphalikeliness() > 0.0) {
@@ -490,7 +458,6 @@ void DetailedInfoDlg::createContent()
     m_htmlpages[QStringLiteral("isotopes")] = addHTMLTab(i18n("Isotopes"), i18n("Isotopes"), QStringLiteral("isotopemap"));
     m_htmlpages[QStringLiteral("misc")] = addHTMLTab(i18n("Miscellaneous"), i18n("Miscellaneous"), QStringLiteral("misc"));
 
-
     // spectrum widget tab
     QWidget *m_pSpectrumTab = new QWidget(this);
     item = addPage(m_pSpectrumTab, i18n("Spectrum"));
@@ -514,13 +481,12 @@ void DetailedInfoDlg::reloadContent()
 {
     // reading the most common data
     const QString element_name = m_element->dataAsString(ChemicalDataObject::name);
-//     const QString element_symbol = m_element->dataAsString(ChemicalDataObject::symbol);
+    const QString element_symbol = m_element->dataAsString(ChemicalDataObject::symbol);
+    const QString element_block = m_element->dataAsString(ChemicalDataObject::periodTableBlock);
 
     // updating caption
-    setWindowTitle(i18nc("For example Carbon (6)", "%1 (%2)", element_name, m_elementNumber));
-
-    // updating overview tab
-//     dTab->setElement(m_elementNumber);
+    setWindowTitle(i18nc("For example: [C] Carbon (6 - Block p)", "[%1] %2 (%3 - Block %4)",
+                         element_symbol, element_name, m_elementNumber, element_block));
 
     //X      // updating picture tab
     //X      QString picpath = m_picsdir + element_symbol + ".jpg";
@@ -573,16 +539,16 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
     QString language(QLocale().uiLanguages().first());
 
     //Wikipedia.org
-    html.append ("<a href=\"http://");         // http://
+    html.append ("<a href=\"https://");         // https://
     html.append (language.split('-').at(0));   // en.
     html.append (".wikipedia.org/wiki/");      // wikipedia.org
     html.append (link);                        // /hydrogen
     html.append ("\" target=\"_blank\" > ");
     html.append (displayString);
     html.append ("</a>");
-    // Example from the comment "http://en.wikipedia.org/wiki/hydrogen"
+    // Example from the comment "https://en.wikipedia.org/wiki/hydrogen"
 
-     return html;
+    return html;
 }
 
 void DetailedInfoDlg::slotLinkClicked(const QUrl &url)

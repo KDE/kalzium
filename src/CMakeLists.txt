@@ -138,10 +138,15 @@ kconfig_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 add_executable(kalzium ${kalzium_SRCS})
 
 target_link_libraries(kalzium
-    KF5::Plotting
-    KF5::KHtml
-    KF5::UnitConversion
+    KF5::Completion
+    KF5::ConfigWidgets
     KF5::ItemViews
+    KF5::KIOWidgets
+    KF5::Plotting
+    KF5::Service
+    KF5::TextWidgets
+    KF5::UnitConversion
+    KF5::XmlGui
     Qt5::Script
     Qt5::Svg
     science

@@ -33,7 +33,7 @@ public:
      * Constructor
      */
     IsotopeParser();
-    ~IsotopeParser();
+    ~IsotopeParser() override;
     bool startElement(const QString &, const QString &localName, const QString &,
                       const QXmlAttributes &attrs) override;
 
