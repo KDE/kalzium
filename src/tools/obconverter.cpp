@@ -29,7 +29,7 @@
 #include <QLinkedList>
 #include <QProcess>
 #include <QPushButton>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QUrl>
 #include <QVBoxLayout>
 
@@ -122,8 +122,8 @@ void KOpenBabel::slotAddFile()
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     QStringList tmpList = InputType;
-    tmpList.replaceInStrings(QRegExp("^"), QStringLiteral("*."));
-    tmpList.replaceInStrings(QRegExp("(.*) -- (.*)"), "\\2(\\1)");
+    tmpList.replaceInStrings(QRegularExpression("^"), QStringLiteral("*."));
+    tmpList.replaceInStrings(QRegularExpression("(.*) -- (.*)"), "\\2(\\1)");
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // tmpList is now something like this:                                                                                      //
     // "ACR format [Read-only] (*.acr)", "Alchemy format (*.alc)"                                                                   //
@@ -165,9 +165,9 @@ void KOpenBabel::slotGuessInput()
         foreach (QListWidgetItem * item, p) {
             if (first) {
                 first = false;
-                suffix = item->text().remove(QRegExp("^.*\\."));
+                suffix = item->text().remove(QRegularExpression("^.*\\."));
             } else {
-                if (item->text().remove(QRegExp("^.*\\.")) == suffix) {
+                if (item->text().remove(QRegularExpression("^.*\\.")) == suffix) {
                     continue;
                 } else {
                     // All the file types are not same, set type to default
@@ -178,7 +178,7 @@ void KOpenBabel::slotGuessInput()
         }
     }
     for (int i = 0; i < ui.InputTypeComboBox->count(); ++i) {
-        if (ui.InputTypeComboBox->itemText(i).indexOf(QRegExp('^' + suffix + " --")) >= 0) {
+        if (ui.InputTypeComboBox->itemText(i).indexOf(QRegularExpression('^' + suffix + " --")) >= 0) {
             ui.InputTypeComboBox->setCurrentIndex(i);
             return;
         }
@@ -191,8 +191,8 @@ void KOpenBabel::slotConvert()
 {
     QString iformat = ui.InputTypeComboBox->currentText();
     QString oformat = ui.OutputTypeComboBox->currentText();
-    iformat = iformat.remove(QRegExp(" --.*"));
-    oformat = oformat.remove(QRegExp(" --.*"));
+    iformat = iformat.remove(QRegularExpression(" --.*"));
+    oformat = oformat.remove(QRegularExpression(" --.*"));
 
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     if (p.count() == 0) {
@@ -208,7 +208,7 @@ void KOpenBabel::slotConvert()
     foreach (QListWidgetItem * item, p) {
         QString ifname = QUrl(item->text()).toLocalFile();
         QString ofname = ifname;
-        ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
+        ofname = ofname.remove(QRegularExpression("\\.([^\\.]*$)"));
         ofname = ofname + QStringLiteral(".") + oformat;
 
         bool proceed = true;

@@ -22,7 +22,7 @@
 
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QVBoxLayout>
 
 #include "kalziumdataobject.h"
@@ -213,15 +213,16 @@ void RSDialog::createSPhrases()
     sphrases << i18nc("Please take the official translations! You find them here: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML", "S63: In case of accident by inhalation: remove casualty to fresh air and keep at rest");
     sphrases << i18nc("Please take the official translations! You find them here: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML", "S64: If swallowed, rinse mouth with water ( only if the person is conscious )");
 
-    QRegExp reg("(R|S)(\\d+): (.*)");
+    QRegularExpression reg("(R|S)(\\d+): (.*)");
 
     foreach (const QString &p, sphrases) {
         int number = 0;
         QString phrase(QLatin1String(""));
+        QRegularExpressionMatch match = reg.match(p);
 
-        if (reg.indexIn(p) > -1) {
-            QString part1 = reg.cap(2);
-            QString part2 = reg.cap(3);
+        if (match.hasMatch()) {
+            QString part1 = match.captured(2);
+            QString part2 = match.captured(3);
 
             phrase = part2;
             number = part1.toInt();
@@ -301,15 +302,16 @@ void RSDialog::createRPhrases()
     rphrases << i18nc("Please take the official translations! You find them here: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML", "R67: Vapours may cause drowsiness and dizziness");
     rphrases << i18nc("Please take the official translations! You find them here: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML", "R68: Possible risk of irreversible effects");
 
-    QRegExp reg("(R|S)(\\d+): (.*)");
+    QRegularExpression reg("(R|S)(\\d+): (.*)");
 
     foreach (const QString &p, rphrases) {
         int number = 0;
         QString phrase(QLatin1String(""));
+        QRegularExpressionMatch match = reg.match(p);
 
-        if (reg.indexIn(p) > -1) {
-            QString part1 = reg.cap(2);
-            QString part2 = reg.cap(3);
+        if (match.hasMatch()) {
+            QString part1 = match.captured(2);
+            QString part2 = match.captured(3);
 
             phrase = part2;
             number = part1.toInt();

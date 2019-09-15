@@ -35,7 +35,7 @@
 #include <QLayout>
 #include <QList>
 #include <QPushButton>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QSplitter>
 #include <QStringList>
 #include <QTextBrowser>
@@ -211,11 +211,11 @@ void Glossary::setBackgroundPicture(const QString& filename)
 void Glossary::fixImagePath()
 {
     QString imgtag = "<img src=\"file://" + m_picturepath + '/' + "\\1\" />";
-    QRegExp exp("\\[img\\]([^[]+)\\[/img\\]");
+    QRegularExpression exp("\\[img\\]([^[]+)\\[/img\\]");
 
   foreach (GlossaryItem * item, m_itemlist) {
       QString tmp = item->desc();
-      while (exp.indexIn(tmp) > -1) {
+      while (exp.match(tmp).hasMatch()) {
           tmp = tmp.replace(exp, imgtag);
       }
       item->setDesc(tmp);

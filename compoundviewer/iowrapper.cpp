@@ -24,7 +24,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QMessageBox>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include <KLocalizedString>
 
@@ -69,6 +69,6 @@ QString IoWrapper::getFormula(Avogadro::QtGui::Molecule *molecule)
 QString IoWrapper::getPrettyFormula(Avogadro::QtGui::Molecule *molecule)
 {
     QString formula = QString::fromStdString(molecule->formula());
-    formula.replace(QRegExp("(\\d+)"), "<sub>\\1</sub>");
+    formula.replace(QRegularExpression("(\\d+)"), "<sub>\\1</sub>");
     return formula;
 }
