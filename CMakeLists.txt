@@ -72,6 +72,9 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 ecm_setup_version("5.0.0"
     VARIABLE_PREFIX KALZIUMLIB
 )
+if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+endif()
 
 # search packages used by KDE
 if(WIN32)
