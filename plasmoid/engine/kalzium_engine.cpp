@@ -37,7 +37,7 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     setMinimumPollingInterval(1000);
 
     // init random sequence
-    m_random = new KRandomSequence(QDateTime::currentDateTime().toTime_t());
+    m_random = new KRandomSequence(QDateTime::currentDateTime().toSecsSinceEpoch());
 
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();

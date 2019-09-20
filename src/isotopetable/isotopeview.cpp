@@ -56,11 +56,11 @@ void IsotopeView::wheelEvent(QWheelEvent *event)
     double oldZoomLevel = m_zoomLevel;
     double factor;
 
-    if (event->delta() > 0) {
-        factor = event->delta() / 100.0;
+    if (event->angleDelta().y() > 0) {
+        factor = event->angleDelta().y() / 100.0;
         m_zoomLevel *= factor;
     } else {
-        factor = 1.0 / (-event->delta() / 100.0);
+        factor = 1.0 / (-event->angleDelta().y() / 100.0);
         m_zoomLevel *= factor;
     }
 

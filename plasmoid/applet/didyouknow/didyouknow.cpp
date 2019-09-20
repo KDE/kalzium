@@ -22,7 +22,7 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
 {
     m_theme.setImagePath("widgets/chalkboard");
     // init random sequence
-    m_random = new KRandomSequence(QDateTime::currentDateTime().toTime_t());
+    m_random = new KRandomSequence(QDateTime::currentDateTime().toSecsSinceEpoch());
 
     m_engine = dataEngine("kalzium");
     m_label1 = 0;

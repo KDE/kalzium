@@ -35,7 +35,7 @@ email                : cniehaus@kde.org
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
         : QWidget(parent), m_element(nullptr)
 {
-    setAttribute(Qt::WA_NoBackground, true);
+    setAttribute(Qt::WA_OpaquePaintEvent, true);
 
     setMinimumSize(300, 200);
 
