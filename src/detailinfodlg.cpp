@@ -349,13 +349,978 @@ QString DetailedInfoDlg::isotopeTable() const
                               (isotope)->halflife(), (isotope)->halflifeUnit()));
         }
         html.append("</td><td>");
+        if ((isotope)->spontfissionlikeliness() > 0.0) {
+            if ((isotope)->spontfissiondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->spontfissiondecay()));
+            }
+            html.append(i18nc("Spontaneous fission"," SF"));
+            if ((isotope)->spontfissionlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->spontfissionlikeliness()));
+            }
+            if ((isotope)->alphalikeliness() > 0.0 ||
+                (isotope)->protonlikeliness()  > 0.0 || 
+                (isotope)->twoprotonlikeliness()  > 0.0 || 
+                (isotope)->neutronlikeliness()  > 0.0 || 
+                (isotope)->twoneutronlikeliness()  > 0.0 || 
+                (isotope)->eclikeliness()  > 0.0 || 
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
         if ((isotope)->alphalikeliness() > 0.0) {
+            if ((isotope)->alphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->alphadecay()));
+            }
+            html.append(i18nc("Alpha decay"," %1", QChar(945)));
+            if ((isotope)->alphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->alphalikeliness()));
+            }
+            if (
+                (isotope)->protonlikeliness()  > 0.0 || 
+                (isotope)->twoprotonlikeliness()  > 0.0 || 
+                (isotope)->neutronlikeliness()  > 0.0 || 
+                (isotope)->twoneutronlikeliness()  > 0.0 || 
+                (isotope)->eclikeliness()  > 0.0 || 
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->protonlikeliness() > 0.0) {
+            if ((isotope)->protondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->protondecay()));
+            }
+            html.append(i18nc("Proton decay", " p"));
+            if ((isotope)->protonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+            }
+            if (
+                (isotope)->twoprotonlikeliness()  > 0.0 || 
+                (isotope)->neutronlikeliness()  > 0.0 || 
+                (isotope)->twoneutronlikeliness()  > 0.0 || 
+                (isotope)->eclikeliness()  > 0.0 || 
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->twoprotonlikeliness() > 0.0) {
+            if ((isotope)->twoprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->twoprotondecay()));
+            }
+            html.append(i18n(" 2p"));
+            if ((isotope)->twoprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->twoprotonlikeliness()));
+            }
+            if (
+                (isotope)->neutronlikeliness()  > 0.0 || 
+                (isotope)->twoneutronlikeliness()  > 0.0 || 
+                (isotope)->eclikeliness()  > 0.0 || 
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->neutronlikeliness() > 0.0) {
+            if ((isotope)->neutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->neutrondecay()));
+            }
+            html.append(i18nc("Neutron decay"," n"));
+            if ((isotope)->neutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->neutronlikeliness()));
+            }
+            if (
+                (isotope)->twoneutronlikeliness()  > 0.0 || 
+                (isotope)->eclikeliness()  > 0.0 || 
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->twoneutronlikeliness() > 0.0) {
+            if ((isotope)->twoneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->twoneutrondecay()));
+            }
+            html.append(i18n(" 2n"));
+            if ((isotope)->twoneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->twoneutronlikeliness()));
+            }
+            if (
+                (isotope)->eclikeliness()  > 0.0 || 
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->eclikeliness() > 0.0) {
+            if ((isotope)->ecdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->ecdecay()));
+            }
+            html.append(i18nc("Electron capture", " EC"));
+            if ((isotope)->eclikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->eclikeliness()));
+            }
+            if (
+                (isotope)->twoeclikeliness()  > 0.0 || 
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->twoeclikeliness() > 0.0) {
+            if ((isotope)->twoecdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->twoecdecay()));
+            }
+            html.append(i18n(" 2EC"));
+            if ((isotope)->twoeclikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->twoeclikeliness()));
+            }
+            if (
+                (isotope)->betaminuslikeliness()  > 0.0 || 
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminuslikeliness() > 0.0) {
+            if ((isotope)->betaminusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusdecay()));
+            }
+            html.append(i18nc("Electron emmision", " %1<sup>-</sup>", QChar(946)));
+            if ((isotope)->betaminuslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminuslikeliness()));
+            }
+            if (
+                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusfissionlikeliness() > 0.0) {
+            if ((isotope)->betaminusfissiondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusfissiondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, fission", QChar(946)));
+            if ((isotope)->betaminusfissionlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusfissionlikeliness()));
+            }
+            if (
+                (isotope)->twobetaminuslikeliness()  > 0.0 || 
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->twobetaminuslikeliness() > 0.0) {
+            if ((isotope)->twobetaminusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->twobetaminusdecay()));
+            }
+            html.append(i18n(" 2%1<sup>-</sup>", QChar(946)));
+            if ((isotope)->twobetaminuslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->twobetaminuslikeliness()));
+            }
+            if (
+                (isotope)->betapluslikeliness()  > 0.0 || 
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betapluslikeliness() > 0.0) {
+            if ((isotope)->betaplusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusdecay()));
+            }
+            html.append(i18nc("Positron emission", " %1<sup>+</sup>", QChar(946)));
+            if ((isotope)->betapluslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betapluslikeliness()));
+            }
+            if (
+                (isotope)->twobetapluslikeliness()  > 0.0 || 
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->twobetapluslikeliness() > 0.0) {
+            if ((isotope)->twobetaplusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->twobetaplusdecay()));
+            }
+            html.append(i18n(" 2%1<sup>+</sup>", QChar(946)));
+            if ((isotope)->twobetapluslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->twobetapluslikeliness()));
+            }
+            if (
+                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminusneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusneutrondecay()));
+            }
+            html.append(i18n(" %1 <sup>-</sup>n", QChar(946)));
+            if ((isotope)->betaminusneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusneutronlikeliness()));
+            }
+            if (
+                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminustwoneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminustwoneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminustwoneutrondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>2n", QChar(946)));
+            if ((isotope)->betaminustwoneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminustwoneutronlikeliness()));
+            }
+            if (
+                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusthreeneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminusthreeneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusthreeneutrondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>3n", QChar(946)));
+            if ((isotope)->betaminusthreeneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusthreeneutronlikeliness()));
+            }
+            if (
+                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusfourneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminusfourneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusfourneutrondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>4n", QChar(946)));
+            if ((isotope)->betaminusfourneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusfourneutronlikeliness()));
+            }
+            if (
+                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusalphaneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminusalphaneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusalphaneutrondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>%2 n", QChar(946),QChar(945)));
+            if ((isotope)->betaminusalphaneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusalphaneutronlikeliness()));
+            }
+            if (
+                (isotope)->betaminusalphalikeliness()  > 0.0 || 
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusalphalikeliness() > 0.0) {
+            if ((isotope)->betaminusalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusalphadecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>%2", QChar(946),QChar(945)));
+            if ((isotope)->betaminusalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusalphalikeliness()));
+            }
+            if (
+                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminustwoalphalikeliness() > 0.0) {
+            if ((isotope)->betaminustwoalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminustwoalphadecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>2%2", QChar(946),QChar(945)));
+            if ((isotope)->betaminustwoalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminustwoalphalikeliness()));
+            }
+            if (
+                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusthreealphalikeliness() > 0.0) {
+            if ((isotope)->betaminusthreealphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusthreealphadecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>3%2", QChar(946),QChar(945)));
+            if ((isotope)->betaminusthreealphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusthreealphalikeliness()));
+            }
+            if (
+                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaplusprotonlikeliness() > 0.0) {
+            if ((isotope)->betaplusprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusprotondecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>p", QChar(946)));
+            if ((isotope)->betaplusprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusprotonlikeliness()));
+            }
+            if (
+                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaplustwoprotonlikeliness() > 0.0) {
+            if ((isotope)->betaplustwoprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplustwoprotondecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>2p", QChar(946)));
+            if ((isotope)->betaplustwoprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplustwoprotonlikeliness()));
+            }
+            if (
+                (isotope)->betaplusalphalikeliness()  > 0.0 || 
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaplusalphalikeliness() > 0.0) {
+            if ((isotope)->betaplusalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusalphadecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>%2", QChar(946),QChar(945)));
+            if ((isotope)->betaplusalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusalphalikeliness()));
+            }
+            if (
+                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaplustwoalphalikeliness() > 0.0) {
+            if ((isotope)->betaplustwoalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplustwoalphadecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>2%2", QChar(946),QChar(945)));
+            if ((isotope)->betaplustwoalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplustwoalphalikeliness()));
+            }
+            if (
+                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaplusthreealphalikeliness() > 0.0) {
+            if ((isotope)->betaplusthreealphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusthreealphadecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>3%2", QChar(946),QChar(945)));
+            if ((isotope)->betaplusthreealphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusthreealphalikeliness()));
+            }
+            if (
+                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->alphabetaminuslikeliness() > 0.0) {
+            if ((isotope)->alphabetaminusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->alphabetaminusdecay()));
+            }
+            html.append(i18n(" %1 %2<sup>-</sup>", QChar(945),QChar(946)));
+            if ((isotope)->alphabetaminuslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->alphabetaminuslikeliness()));
+            }
+            if (
+                (isotope)->protonalphalikeliness()  > 0.0 || 
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->protonalphalikeliness() > 0.0) {
+            if ((isotope)->protonalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->protonalphadecay()));
+            }
+            html.append(i18n(" p%1", QChar(945)));
+            if ((isotope)->protonalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->protonalphalikeliness()));
+            }
+            if (
+                (isotope)->ecprotonlikeliness()  > 0.0 || 
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->ecprotonlikeliness() > 0.0) {
+            if ((isotope)->ecprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->ecprotondecay()));
+            }
+            html.append(i18n(" ECp"));
+            if ((isotope)->ecprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->ecprotonlikeliness()));
+            }
+            if (
+                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->ectwoprotonlikeliness() > 0.0) {
+            if ((isotope)->ectwoprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->ectwoprotondecay()));
+            }
+            html.append(i18n(" EC2p"));
+            if ((isotope)->ectwoprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->ectwoprotonlikeliness()));
+            }
+            if (
+                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->ecthreeprotonlikeliness() > 0.0) {
+            if ((isotope)->ecthreeprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->ecthreeprotondecay()));
+            }
+            html.append(i18n(" EC3p"));
+            if ((isotope)->ecthreeprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->ecthreeprotonlikeliness()));
+            }
+            if (
+                (isotope)->ecalphalikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->ecalphalikeliness() > 0.0) {
+            if ((isotope)->ecalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->ecalphadecay()));
+            }
+            html.append(i18n(" EC%1", QChar(945)));
+            if ((isotope)->ecalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->ecalphalikeliness()));
+            }
+            if (
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
+                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->ecalphaprotonlikeliness() > 0.0) {
+            if ((isotope)->ecalphaprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->ecalphaprotondecay()));
+            }
+            html.append(i18n(" EC%1 p", QChar(945)));
+            if ((isotope)->ecalphaprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->ecalphaprotonlikeliness()));
+            }
+        }
+
+/*        if ((isotope)->alphalikeliness() > 0.0) {
             if ((isotope)->alphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->alphadecay()));
             }
             html.append(i18n(" %1", QChar(945)));
             if ((isotope)->alphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->alphalikeliness()));
+            }
+            if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->alphabetaminuslikeliness() > 0.0) {
+            if ((isotope)->alphabetaminusdecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->alphabetaminusdecay()));
+            }
+            html.append(i18n(" %1, %2<sup>-</sup>", QChar(945), QChar(946) ));
+            if ((isotope)->alphabetaminuslikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->alphabetaminuslikeliness()));
             }
             if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
                 html.append(i18n(", "));
@@ -368,6 +1333,45 @@ QString DetailedInfoDlg::isotopeTable() const
             html.append(i18n(" %1<sup>-</sup>", QChar(946)));
             if ((isotope)->betaminuslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminuslikeliness()));
+            }
+
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusneutronlikeliness() > 0.0) {
+            if ((isotope)->betaminusneutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusneutrondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, n", QChar(946)));
+            if ((isotope)->betaminusneutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusneutronlikeliness()));
+            }
+
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusfissionlikeliness() > 0.0) {
+            if ((isotope)->betaminusfissiondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusfissiondecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, fission", QChar(946)));
+            if ((isotope)->betaminusfissionlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusfissionlikeliness()));
+            }
+
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                html.append(i18n(", "));
+            }
+        }
+        if ((isotope)->betaminusalphalikeliness() > 0.0) {
+            if ((isotope)->betaminusalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaminusalphadecay()));
+            }
+            html.append(i18n(" %1<sup>-</sup>, %2", QChar(946), QChar(945)));
+            if ((isotope)->betaminusalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaminusalphalikeliness()));
             }
 
             if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
@@ -390,6 +1394,26 @@ QString DetailedInfoDlg::isotopeTable() const
             }
             html += ' ';
         }
+        if ((isotope)->betaplusprotonlikeliness() > 0.0) {
+            if ((isotope)->betaplusprotondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusprotondecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>, p", QChar(946)));
+            if ((isotope)->betaplusprotonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusprotonlikeliness()));
+            }
+            html += ' ';
+        }
+        if ((isotope)->betaplusalphalikeliness() > 0.0) {
+            if ((isotope)->betaplusalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->betaplusalphadecay()));
+            }
+            html.append(i18n(" %1<sup>+</sup>, %2", QChar(946),QChar(945)));
+            if ((isotope)->betaplusalphalikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->betaplusalphalikeliness()));
+            }
+            html += ' ';
+        }
         if ((isotope)->eclikeliness() > 0.0) {
             if ((isotope)->ecdecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->ecdecay()));
@@ -399,6 +1423,35 @@ QString DetailedInfoDlg::isotopeTable() const
                 html.append(i18n("(%1%)", (isotope)->eclikeliness()));
             }
         }
+        if ((isotope)->neutronlikeliness() > 0.0) {
+            if ((isotope)->neutrondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->neutrondecay()));
+            }
+            html.append(i18nc("Acronym of neutron emission"," n"));
+            if ((isotope)->neutronlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->neutronlikeliness()));
+            }
+        }
+	if ((isotope)->protonlikeliness() > 0.0) {
+            if ((isotope)->protondecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->protondecay()));
+            }
+            html.append(i18nc("Acronym of proton emission"," p"));
+            if ((isotope)->protonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+            }
+        }
+	if ((isotope)->protonalphalikeliness() > 0.0) {
+            if ((isotope)->protonalphadecay() > 0.0) {
+                html.append(i18n("%1 MeV", (isotope)->protonalphadecay()));
+            }
+            html.append(i18n(" p, %1", QChar(945)));
+            if ((isotope)->protonlikeliness() < 100.0) {
+                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+            }
+        }
+
+*/
         html.append("</td><td>");
         html.append((isotope)->spin());
         html.append("</td><td>");
@@ -425,7 +1478,7 @@ void DetailedInfoDlg::createContent()
 //     item->setHeader(i18n("Overview"));
 //     item->setIcon(QIcon("overview"));
 //     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
-//     overviewLayout->setContentsMargins(0, 0, 0, 0);
+//     overviewLayout->setMargin(0);
 //     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
 //     dTab->setObjectName("DetailedGraphicalOverview");
 //     overviewLayout->addWidget(dTab);
@@ -436,7 +1489,7 @@ void DetailedInfoDlg::createContent()
 //X      item->setHeader(i18n("What does this element look like?"));
 //X      item->setIcon(QIcon("elempic"));
 //X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
-//X      mainLayout->setContentsMargins(0, 0, 0, 0);
+//X      mainLayout->setMargin(0);
 //X      piclabel = new QLabel(m_pPictureTab);
 //X      piclabel->setMinimumSize(400, 350);
 //X      mainLayout->addWidget(piclabel);
