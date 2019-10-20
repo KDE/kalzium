@@ -101,7 +101,7 @@ private:
  * defines a Periodic Table.
  * Holds the position (x,y) and all the displayed elements
  */
-class pseTable
+class SCIENCE_EXPORT pseTable
 
 {
 public:
