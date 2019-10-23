@@ -151,7 +151,7 @@ int main(int argc, char **argv)
     Kalzium *mainWin = nullptr;
 
     if (app.isSessionRestored()) {
-        RESTORE(Kalzium);
+        kRestoreMainWindows<Kalzium>();
     } else {
         // no session.. just start up normally
 
