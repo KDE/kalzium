@@ -127,10 +127,9 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
     }
     case ChemicalDataObject::date: // a date
     {
-        //val = el->dataAsVariant(kind).toInt();
         int v_int = el->dataAsVariant(kind).toInt();
-        if (val > 1600) {
-            result = i18n("This element was discovered in the year <numid>%1</numid>.", val);
+        if (v_int > 1600) {
+            result = i18n("This element was discovered in the year <numid>%1</numid>.", v_int);
         } else if (v_int == -1) {
             result = i18n("The element has not yet been officially recognized by the IUPAC.");
         } else { // this should now really be 0. If not there is a bug in the database
