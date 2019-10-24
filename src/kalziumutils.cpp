@@ -129,7 +129,7 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
     {
         int v_int = el->dataAsVariant(kind).toInt();
         if (v_int > 1600) {
-            result = i18n("This element was discovered in the year <numid>%1</numid>.",
+            result = i18n("This element was discovered in the year %1.",
                 QString::number(v_int));
         } else if (v_int == -1) {
             result = i18n("The element has not yet been officially recognized by the IUPAC.");
