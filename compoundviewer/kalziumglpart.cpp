@@ -25,7 +25,7 @@ KAboutData kalziumGLPartAboutData()
         ki18n("A cool thing"),
         KAboutLicense::GPL, ki18n("(c) 2006, Carsten Niehaus"),
         KLocalizedString(),
-        "http://edu.kde.org/kalzium/index.php"
+        "https://edu.kde.org/kalzium/"
     );
     aboutData.addAuthor(ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org");
     aboutData.addAuthor(ki18n("Marcus D. Hanwell"), KLocalizedString(), "marcus@cryos.org");

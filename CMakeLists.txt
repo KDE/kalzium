@@ -96,7 +96,7 @@ add_definitions(
 #include_directories (${QDBUS_INCLUDE_DIRS}  ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} libscience)
 if(MSVC)
 # for correctly linking openbabel:
-# see http://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
+# see https://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
 add_definitions(-DUSING_DYNAMIC_LIBS)
 endif(MSVC)
 

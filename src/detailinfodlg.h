@@ -116,7 +116,7 @@ private:
 
     /**
      * Creates a localized link to Wikipedia.
-     * http://en.wikipedia.org/wiki/link"
+     * https://en.wikipedia.org/wiki/link"
      * @param link the link inside wikipedia
      * @param displayString the displayed string to click on.
      */

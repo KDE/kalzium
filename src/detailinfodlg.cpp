@@ -273,7 +273,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", QLocale().nativeLanguageName())));
         html.append ("</td></tr>");
 
-        //http://education.jlab.org/itselemental/ele001.html
+        //https://education.jlab.org/itselemental/ele001.html
         html.append ("<tr><td>");
         html.append ("<a href=\"https://");        // https://
         html.append ("education.jlab.org/itselemental/ele");

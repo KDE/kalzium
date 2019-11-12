@@ -323,7 +323,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_extra">
 				 <title>Extra Information</title>
-				 <para>The <guilabel>Extra information</guilabel> page gives you the links to the element pages on Wikipedia, <ulink url="http://education.jlab.org/">Jefferson Lab</ulink>, and <ulink url="http://www.webelements.com/">WebElements</ulink>.</para>
+				 <para>The <guilabel>Extra information</guilabel> page gives you the links to the element pages on Wikipedia, <ulink url="https://education.jlab.org/">Jefferson Lab</ulink>, and <ulink url="https://www.webelements.com/">WebElements</ulink>.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -464,25 +464,25 @@
 			   <itemizedlist>
 			     <listitem><para>None: Do not use gradients.
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/State_of_matter">State of matter</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/State_of_matter">State of matter</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Covalent_Radius">Covalent Radius</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Covalent_Radius">Covalent Radius</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Van_der_Waals_radius">van der Waals</ulink>: gradient by van der Waals radius
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Van_der_Waals_radius">van der Waals</ulink>: gradient by van der Waals radius
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Atomic_Mass">Atomic Mass</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Atomic_Mass">Atomic Mass</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Boiling_Point">Boiling Point</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Boiling_Point">Boiling Point</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Melting_Point">Melting Point</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Melting_Point">Melting Point</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Electronegativity">Electronegativity (Pauling)</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Electronegativity">Electronegativity (Pauling)</ulink>&nbsp;
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Electron_affinity">Electronaffinity</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Electron_affinity">Electronaffinity</ulink>&nbsp;
 			     </para></listitem>
 			     <listitem><para>Discovery date
 			     </para></listitem>
-			     <listitem><para><ulink url="http://en.wikipedia.org/wiki/Ionization_energy">First Ionization</ulink>&nbsp;
+			     <listitem><para><ulink url="https://en.wikipedia.org/wiki/Ionization_energy">First Ionization</ulink>&nbsp;
 			     </para></listitem>
 			   </itemizedlist>
 		 </sect1>
@@ -985,7 +985,7 @@
 								 <guimenu>File</guimenu>
 								 <guimenuitem>Convert chemical files...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Open</action> a dialog to import and export a wide range of chemical file formats and data types with the <ulink url="http://openbabel.org/wiki/Main_Page">Open Babel library</ulink>.</para></listitem>
+						 <listitem><para><action>Open</action> a dialog to import and export a wide range of chemical file formats and data types with the <ulink url="https://openbabel.org/wiki/Main_Page">Open Babel library</ulink>.</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
@@ -1321,7 +1321,7 @@ of the &kde; Fundamentals.
 				 <answer>
 					 <para>No, never. But the author always welcomes a nice mail or a
 						 DVD as a <quote>Thank You</quote>. &kalzium; is licensed
-						 under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
+						 under the <ulink url="https://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
 				 </answer>
 			 </qandaentry>
 
