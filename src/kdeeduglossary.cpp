@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLine>
 
+#include <QKeyEvent>
 #include <QDebug>
 #include <QDialogButtonBox>
 #include <QDomDocument>
