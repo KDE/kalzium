@@ -20,15 +20,18 @@
 
 #include <avogadro/core/molecule.h>
 #include <avogadro/io/cmlformat.h>
+#include <avogadro/io/pdbformat.h>
+#include <avogadro/io/xyzformat.h>
 
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 #include <QMessageBox>
 #include <QRegularExpression>
 
 #include <KLocalizedString>
 
-Avogadro::Core::Molecule * IoWrapper::readMolecule(const QString &filename)
+std::unique_ptr<Avogadro::Core::Molecule> IoWrapper::readMolecule(const QString &filename)
 {
     std::ifstream inFileStream(QFile::encodeName(filename).constData());
     if (!inFileStream) {
@@ -37,12 +40,20 @@ Avogadro::Core::Molecule * IoWrapper::readMolecule(const QString &filename)
         return nullptr;
     }
 
-    auto mol = new Avogadro::Core::Molecule;
-    Avogadro::Io::CmlFormat cmlFormat;
-    if (!cmlFormat.read(inFileStream, *mol)) {
-        qCritical() << "Could not read file:" << filename;
+    auto mol = std::make_unique<Avogadro::Core::Molecule>();
+    auto format = getFileReader(QFileInfo(filename).suffix());
+
+    if (!format){
+        qCritical() << "Could not initialize file reader for file " << filename;
         return nullptr;
     }
+
+    if (!format->read(inFileStream, *mol)) {
+        qCritical() << "Could not read file " << filename << "; Error message: "
+            << QString().fromStdString(format->error());
+        return nullptr;
+    }
+
     return mol;
 }
 
@@ -71,4 +82,17 @@ QString IoWrapper::getPrettyFormula(Avogadro::QtGui::Molecule *molecule)
     QString formula = QString::fromStdString(molecule->formula());
     formula.replace(QRegularExpression("(\\d+)"), "<sub>\\1</sub>");
     return formula;
+}
+
+std::unique_ptr<Avogadro::Io::FileFormat> IoWrapper::getFileReader(const QString &format)
+{
+    if (format == QStringLiteral("cml")) {
+        return std::make_unique<Avogadro::Io::CmlFormat>();
+    } else if (format == QStringLiteral("pdb")) {
+        return std::make_unique<Avogadro::Io::PdbFormat>();
+    } else if (format == QStringLiteral("xyz")) {
+        return std::make_unique<Avogadro::Io::XyzFormat>();
+    } else {
+        return nullptr;
+    }
 }

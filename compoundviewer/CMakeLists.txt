@@ -31,6 +31,8 @@ target_link_libraries(compoundviewer
 set_target_properties(compoundviewer PROPERTIES
     VERSION ${KALZIUMLIB_VERSION}
     SOVERSION ${KALZIUMLIB_SOVERSION}
+    CXX_STANDARD 14
+    CXX_STANDARD_REQUIRED ON
 )
 
 install(TARGETS compoundviewer ${INSTALL_TARGETS_DEFAULT_ARGS})

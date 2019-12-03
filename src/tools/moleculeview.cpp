@@ -187,7 +187,14 @@ void MoleculeDialog::loadMolecule(const QString &filename)
     // 2. another workaround for broken copy-constructor that does not
     //    initialize the m_undoMolecule private member variable;
     //    this molecule should be created on the heap instead of the stack
-    m_molecule = *IoWrapper::readMolecule(filename);
+    auto molecule_ptr = IoWrapper::readMolecule(filename);
+    if (!molecule_ptr)
+    {
+        KMessageBox::error(this, i18n("Could not load molecule"), i18n("Loading the molecule failed."));
+        return;
+    }
+
+    m_molecule = *molecule_ptr;
 
     if (m_molecule.atomCount() != 0) {
         disconnect(ui.glWidget->molecule(), 0, this, 0);

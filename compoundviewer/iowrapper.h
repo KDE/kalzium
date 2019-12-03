@@ -16,9 +16,12 @@
 #ifndef IOWRAPPER_H
 #define IOWRAPPER_H
 
+#include <avogadro/io/fileformat.h>
 #include <avogadro/qtgui/molecule.h>
 
 #include <libkdeedu_compoundviewer_export.h>
+
+#include <memory>
 
 /**
  * @author Carsten Niehaus
@@ -30,13 +33,19 @@ public:
      * This class reads the molecule in the file @p filename. It returns 0 if
      * the file couldn't be read.
      */
-    static Avogadro::Core::Molecule * readMolecule(const QString &filename);
+    static std::unique_ptr<Avogadro::Core::Molecule> readMolecule(const QString &filename);
 
     static bool writeMolecule(const QString& filename, Avogadro::Core::Molecule *);
 
     static QString getFormula(Avogadro::QtGui::Molecule *molecule);
 
     static QString getPrettyFormula(Avogadro::QtGui::Molecule *molecule);
+
+private:
+    /**
+     * Get file format reader appropriate for the file format
+     */
+    static std::unique_ptr<Avogadro::Io::FileFormat> getFileReader(const QString &format);
 };
 
 #endif
