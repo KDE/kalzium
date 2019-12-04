@@ -35,8 +35,8 @@ class PeriodicGrid : public QGraphicsWidget
     Q_OBJECT
 public:
 //         Basic Create/Destroy
-    PeriodicGrid(Plasma::Applet *applet = 0);
-    PeriodicGrid(int tableTyp, Plasma::Applet *applet = 0);
+    explicit PeriodicGrid(Plasma::Applet *applet = 0);
+    explicit PeriodicGrid(int tableTyp, Plasma::Applet *applet = 0);
 
     ~PeriodicGrid();
 

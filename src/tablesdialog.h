@@ -42,7 +42,7 @@ public:
 class MyWidgetItem : public QTableWidgetItem
 {
 public:
-    MyWidgetItem(const QString& s) : QTableWidgetItem(s)
+    explicit MyWidgetItem(const QString& s) : QTableWidgetItem(s)
     {
         setFlags(Qt::ItemIsEnabled);
     }

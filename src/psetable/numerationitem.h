@@ -49,7 +49,7 @@ public:
      * constructor uses setData to set the element number using the key 0. This
      * is then used by PeriodicTable to figure out which element was clicked on.
      */
-    NumerationItem(int xPosition = 0);
+    explicit NumerationItem(int xPosition = 0);
 
     /**
      * Destructor.

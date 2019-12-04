@@ -479,7 +479,7 @@ void titrationCalculator::on_actionRapid_Help_triggered()
 /*
 void titrationCalculator::on_actionAbout_triggered()
 {
-    QMessageBox::information(this, "IceeQt About", "I\nCompute\nEquilibria\nExactly\n\nIceeQt is a program for computing chemical equilibria in a easy way. The first version of Icee was written by Gabriele Balducci(University of Trieste, Italy) using matheval, gnuplot, and tk. This version, called IceeQt, was written by Luca Tringali using Qtopia. \n IceeQt is installable on every system supported by Qt: Windows, MacOS, GNU/Linux, FreeBSD, Solaris, Symbian, etc..\n This program is released under GPL3 licence.\n\nThe website is http://www.dsch.units.it/~balducci/lca1/");
+    QMessageBox::information(this, "IceeQt About", "I\nCompute\nEquilibria\nExactly\n\nIceeQt is a program for computing chemical equilibria in a easy way. The first version of Icee was written by Gabriele Balducci(University of Trieste, Italy) using matheval, gnuplot, and tk. This version, called IceeQt, was written by Luca Tringali using Qtopia. \n IceeQt is installable on every system supported by Qt: Windows, MacOS, GNU/Linux, FreeBSD, Solaris, Symbian, etc..\n This program is released under GPL3 licence.\n\nThe website is http://web.archive.org/web/20041207065103/http://www.dsch.units.it/~balducci/lca1/");
 }
 */
 void titrationCalculator::on_actionNew_triggered()

@@ -41,7 +41,7 @@ class MoleculeDialog : public QDialog
     Q_OBJECT
 
 public:
-    MoleculeDialog(QWidget * parent);
+    explicit MoleculeDialog(QWidget * parent);
     ~MoleculeDialog();
 
     void loadMolecule(const QString &filename);

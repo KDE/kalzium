@@ -29,7 +29,7 @@ class IsotopeScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    IsotopeScene(QObject * parent = nullptr);
+    explicit IsotopeScene(QObject * parent = nullptr);
     virtual ~IsotopeScene();
 
     void updateContextHelp(IsotopeItem * item);

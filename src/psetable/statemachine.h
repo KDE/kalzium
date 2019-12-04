@@ -96,7 +96,7 @@ private:
 class StateSwitcher : public QState
 {
 public:
-    StateSwitcher(QStateMachine *machine);
+    explicit StateSwitcher(QStateMachine *machine);
 
     void addState(QState *state, QAbstractAnimation *animation, const int &id);
 

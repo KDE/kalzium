@@ -25,7 +25,7 @@
 class ElementListEntry : public QListWidgetItem
 {
 public:
-    ElementListEntry(Element *element);
+    explicit ElementListEntry(Element *element);
     ~ElementListEntry();
 
     int       m_atomicNum;
@@ -50,7 +50,7 @@ class ExportDialog : public QDialog
     Q_OBJECT
 
 public:
-    ExportDialog(QWidget *parent);
+    explicit ExportDialog(QWidget *parent);
     ~ExportDialog();
 
     void populateElementList();

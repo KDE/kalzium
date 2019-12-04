@@ -30,7 +30,7 @@ class OrbitsWidget : public QWidget
     Q_OBJECT
 
 public:
-    OrbitsWidget(QWidget *parent = nullptr);
+    explicit OrbitsWidget(QWidget *parent = nullptr);
 
     void setElementNumber(int num);
 

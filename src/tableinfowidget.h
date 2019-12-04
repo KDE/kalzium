@@ -33,7 +33,7 @@ class TableInfoWidget : public QWidget
     Q_OBJECT
 
 public:
-    TableInfoWidget(QWidget *parent);
+    explicit TableInfoWidget(QWidget *parent);
 
     ~TableInfoWidget() {}
 

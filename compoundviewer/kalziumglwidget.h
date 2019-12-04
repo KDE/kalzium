@@ -21,7 +21,7 @@ class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::QtOpenGL::GLWidget
 {
     Q_OBJECT
 public:
-    KalziumGLWidget(QWidget *parent = nullptr);
+    explicit KalziumGLWidget(QWidget *parent = nullptr);
     virtual ~KalziumGLWidget();
 
 public slots:

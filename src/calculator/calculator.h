@@ -50,7 +50,7 @@ public:
     /*
      * The class constructor and destructor, takes in a Widget as parent
      */
-    calculator(QWidget *parent = nullptr);             // constructor
+    explicit calculator(QWidget *parent = nullptr);             // constructor
     ~ calculator();                             // destructor
 
 private:

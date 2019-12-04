@@ -31,7 +31,7 @@ class DetailedQmlView : public QWidget
     Q_OBJECT
 public:
 
-    DetailedQmlView(QWidget *parent);
+    explicit DetailedQmlView(QWidget *parent);
     ~DetailedQmlView();
 
 public slots:

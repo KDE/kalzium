@@ -36,7 +36,7 @@ class RSDialog : public QDialog
     Q_OBJECT
 
 public:
-    RSDialog(QWidget * parent);
+    explicit RSDialog(QWidget * parent);
 
     Ui::RSWidget ui;
 

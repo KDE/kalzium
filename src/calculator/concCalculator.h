@@ -78,7 +78,7 @@ public:
     /*
      * The constructor and destructor for the class
      */
-    concCalculator(QWidget * parent = nullptr);
+    explicit concCalculator(QWidget * parent = nullptr);
     ~concCalculator();
 
 public slots:

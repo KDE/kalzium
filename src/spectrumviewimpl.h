@@ -29,7 +29,7 @@ public:
     /**
      * @param parent the parent widget
      */
-    SpectrumViewImpl(QWidget* parent);
+    explicit SpectrumViewImpl(QWidget* parent);
 
     /**
      * sets the spectrum to @p spec

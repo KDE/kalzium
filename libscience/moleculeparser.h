@@ -41,7 +41,7 @@ public:
     /**
      * Constructor
      */
-    ElementCount(Element *_element)
+    explicit ElementCount(Element *_element)
     {
         m_element = _element;
         m_count   = 0;
@@ -201,14 +201,14 @@ public:
      * for searching and matching with searched strings
      * Constructor
      */
-    MoleculeParser(const QList<Element*> &list);
+    explicit MoleculeParser(const QList<Element*> &list);
 
     /**
      * Constructor
      *
      * @param _str @ref Parser::start the parsing with @p _str
      */
-    MoleculeParser(const QString &_str);
+    explicit MoleculeParser(const QString &_str);
 
     /**
      * Destructor

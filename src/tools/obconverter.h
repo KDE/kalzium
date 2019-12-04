@@ -44,7 +44,7 @@ public:
      *
      * @param parent the parent widget
      */
-    KOpenBabel(QWidget *parent);
+    explicit KOpenBabel(QWidget *parent);
 
     /**
      * Destructor

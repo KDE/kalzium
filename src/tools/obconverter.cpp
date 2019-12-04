@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, 2008 by Carsten Niehaus <cniehaus@kde.org>        *
- *   Copyright (C) 2006 by Georges Khaznadar                               *
+ *   Copyright (C) 2006 by Georges Khaznadar <georgesk@debian.org>         *
  *   Copyright (C) 2006, 2007 by Jerome Pansanel <j.pansanel@pansanel.net> *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

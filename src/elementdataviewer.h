@@ -49,7 +49,7 @@ public:
         Y
     };
 
-    AxisData(AxisData::AXISTYPE);
+    explicit AxisData(AxisData::AXISTYPE);
 
     /**
      * @return the value of the selected dataset of element @p element
@@ -89,7 +89,7 @@ class ElementDataViewer : public QDialog
     Q_OBJECT
 
 public:
-    ElementDataViewer(QWidget *parent = nullptr);
+    explicit ElementDataViewer(QWidget *parent = nullptr);
 
     ~ElementDataViewer();
 
