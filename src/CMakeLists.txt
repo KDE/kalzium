@@ -10,7 +10,7 @@ include_directories(
    ${CMAKE_CURRENT_SOURCE_DIR}
    )
 
-ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KALZIUM VERSION_HEADER kalzium_version.h)
+ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KALZIUM VERSION_HEADER kalzium_version.h)
 
 ########### next target ###############
 
