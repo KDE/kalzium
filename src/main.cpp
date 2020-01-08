@@ -132,8 +132,6 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(about);
 
     QCommandLineParser parser;
-    parser.addVersionOption();
-    parser.addHelpOption();
 
     parser.addPositionalArgument(i18n("[molecule]"), i18n("Open the given molecule file"));
 
