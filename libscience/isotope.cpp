@@ -519,6 +519,10 @@ Isotope::Nucleons Isotope::nucleonsAfterDecay(Decay kind)
     case ALPHA:
         n.protons -= 2;
         break;
+    case ALPHABETAMINUS:
+        n.protons -= 1;
+        n.neutrons -= 1;
+        break;
     case BETAMINUS:
         n.protons += 1;
         n.neutrons -= 1;
