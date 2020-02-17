@@ -26,12 +26,12 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QFileDialog>
-#include <QLinkedList>
 #include <QProcess>
 #include <QPushButton>
 #include <QRegularExpression>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QVector>
 
 // KDE includes
 #include <KConfigGroup>
@@ -204,7 +204,7 @@ void KOpenBabel::slotConvert()
     }
     QListIterator<QListWidgetItem*> it(p);
     QStringList cmdList; // Full command
-    QLinkedList<QStringList> cmdArgList; // Arguments only
+    QVector<QStringList> cmdArgList; // Arguments only
     foreach (QListWidgetItem * item, p) {
         QString ifname = QUrl(item->text()).toLocalFile();
         QString ofname = ifname;
