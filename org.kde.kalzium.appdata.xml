@@ -103,7 +103,7 @@
   </description>
   <url type="homepage">https://edu.kde.org/kalzium/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kalzium</url>
-  <url type="help">https://docs.kde.org/stable/en/kdeedu/kalzium/</url>
+  <url type="help">https://docs.kde.org/?application=kalzium</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kalzium&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
@@ -130,11 +130,16 @@
       <caption xml:lang="x-test">xxPeriodic table of elements view in Kalziumxx</caption>
       <caption xml:lang="zh-CN">Kalzium 中的元素周期表视图</caption>
       <caption xml:lang="zh-TW">在 Kalzium 觀看元素週期表</caption>
-      <image>https://kde.org/images/screenshots/kalzium.png</image>
+      <image>https://cdn.kde.org/screenshots/kalzium/kalzium.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
   <provides>
     <binary>kalzium</binary>
   </provides>
+  <releases>
+    <release version="19.12.2" date="2020-02-06"/>
+    <release version="19.12.1" date="2020-01-09"/>
+    <release version="19.12.0" date="2019-12-12"/>
+  </releases>
 </component>
