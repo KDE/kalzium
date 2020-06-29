@@ -21,8 +21,6 @@
 
 #include <QGraphicsTextItem>
 
-#include <KRandomSequence>
-
 class QSizeF;
 
 class KalziumDidyouknow : public Plasma::Applet
