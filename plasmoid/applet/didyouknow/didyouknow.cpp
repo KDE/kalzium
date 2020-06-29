@@ -21,8 +21,6 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args)
 {
     m_theme.setImagePath("widgets/chalkboard");
-    // init random sequence
-    m_random = new KRandomSequence(QDateTime::currentDateTime().toSecsSinceEpoch());
 
     m_engine = dataEngine("kalzium");
     m_label1 = 0;
@@ -61,7 +59,6 @@ void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
 
 KalziumDidyouknow::~KalziumDidyouknow()
 {
-    delete m_random;
 }
 
 void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)

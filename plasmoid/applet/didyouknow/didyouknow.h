@@ -47,8 +47,6 @@ class KalziumDidyouknow : public Plasma::Applet
         QGraphicsTextItem *m_label1;
         Plasma::DataEngine* m_engine;
 
-        KRandomSequence * m_random;
-
         QSizeF m_size;
 };
 
