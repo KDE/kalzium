@@ -27,7 +27,7 @@
 
 char* solve_equation(const char *eq)
 {
-    static value *solve_equation_closure = NULL;
+    static const value *solve_equation_closure = NULL;
     if (solve_equation_closure == NULL) {
         solve_equation_closure = caml_named_value("solve_equation");
     }
