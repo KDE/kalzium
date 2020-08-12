@@ -34,7 +34,6 @@
 #include <KPlotAxis>
 #include <KPlotObject>
 #include <KStandardAction>
-#include <KToolInvocation>
 #include <KUnitConversion/Converter>
 
 AxisData::AxisData(AXISTYPE type) : currentDataType(-1)

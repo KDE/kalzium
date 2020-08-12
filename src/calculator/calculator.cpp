@@ -31,7 +31,6 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KStandardAction>
-#include <KToolInvocation>
 
 calculator::calculator(QWidget *parent) : QDialog(parent)
 {

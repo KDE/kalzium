@@ -30,7 +30,6 @@
 #include <KLocalizedString>
 #include <KPageWidgetModel>
 #include <KStandardAction>
-#include <KToolInvocation>
 
 TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
 {

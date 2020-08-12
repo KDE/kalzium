@@ -22,7 +22,6 @@
 #include <QDebug>
 
 #include <KLocalizedString>
-#include <KToolInvocation>
 #include <KUnitConversion/Converter>
 
 #include "kalziumutils.h"

@@ -143,7 +143,6 @@ target_link_libraries(kalzium
     KF5::ItemViews
     KF5::KIOWidgets
     KF5::Plotting
-    KF5::Service
     KF5::TextWidgets
     KF5::UnitConversion
     KF5::XmlGui

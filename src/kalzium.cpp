@@ -63,7 +63,6 @@
 #include <KLocalizedString>
 #include <KPluginLoader>
 #include <KSelectAction>
-#include <KServiceTypeTrader>
 #include <KStandardAction>
 
 #define IDS_ELEMENTINFO     7
