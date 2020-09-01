@@ -113,6 +113,5 @@ X-KDE-PluginInfo-Name=plasma_applet_didyouknow_kalzium
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=https://edu.kde.org/kalzium/
 X-KDE-PluginInfo-Category=Education
-X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true

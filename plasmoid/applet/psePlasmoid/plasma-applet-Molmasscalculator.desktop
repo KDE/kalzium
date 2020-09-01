@@ -97,6 +97,5 @@ X-KDE-PluginInfo-Name=MolmassCalculator
 X-KDE-PluginInfo-Version=0.4.2
 X-KDE-PluginInfo-Website=https://kde.org/plasma-desktop
 X-KDE-PluginInfo-Category=Science
-X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
