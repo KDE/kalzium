@@ -161,6 +161,7 @@ if (OPENBABEL2_FOUND)
          AvogadroQtOpenGL
          AvogadroQtPlugins
        )
+      install(FILES kalzium.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (OPENBABEL2_FOUND)
 
@@ -194,7 +195,6 @@ install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES kalziumui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kalzium)
-install(FILES kalzium.knsrc DESTINATION ${CONFIG_INSTALL_DIR})
 
 ecm_install_icons(ICONS
     16-apps-kalzium.png
