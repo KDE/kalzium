@@ -119,6 +119,9 @@ add_subdirectory(libscience)
 # add_subdirectory(qml)
 
 ki18n_install(po)
+if (KF5DocTools_FOUND)
+    kdoctools_install(po)
+endif()
 install(FILES org.kde.kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
