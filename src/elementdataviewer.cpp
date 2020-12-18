@@ -56,7 +56,7 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
         m_yData(new AxisData(AxisData::Y)),
         m_xData(new AxisData(AxisData::X))
 {
-    setWindowTitle(i18n("Plot Data"));
+    setWindowTitle(i18nc("@title:window", "Plot Data"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

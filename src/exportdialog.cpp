@@ -103,7 +103,7 @@ ExportDialog::ExportDialog(QWidget * parent)
     ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);
     qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
-    setWindowTitle(i18n("Export Chemical Data"));
+    setWindowTitle(i18nc("@title:window", "Export Chemical Data"));
     qDebug() << "ui.targetFile->setMode(KFile::File | KFile::Directory | KFile::LocalOnly);";
 
     populateElementList();

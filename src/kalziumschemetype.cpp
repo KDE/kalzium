@@ -420,7 +420,7 @@ QColor KalziumColorSchemeType::textColor(int) const
 QList<legendPair> KalziumColorSchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair(i18n("Nice colors without meaning. (From the Openbabel project)"), QColor());
+    ll << qMakePair(i18n("Nice colors without meaning. (From the Open Babel project)"), QColor());
     return ll;
 }
 #endif

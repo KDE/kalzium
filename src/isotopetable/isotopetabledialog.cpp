@@ -37,7 +37,7 @@
 
 IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
 {
-    setWindowTitle(i18n("Isotope Table"));
+    setWindowTitle(i18nc("@title:window", "Isotope Table"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

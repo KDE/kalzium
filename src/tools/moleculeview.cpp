@@ -62,7 +62,7 @@ MoleculeDialog::MoleculeDialog(QWidget * parent)
     defFormat.setSampleBuffers(true);
     QGLFormat::setDefaultFormat(defFormat);
 
-    setWindowTitle(i18n("Molecular Editor"));
+    setWindowTitle(i18nc("@title:window", "Molecular Editor"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

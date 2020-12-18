@@ -231,7 +231,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
         // van der Waals radius
         html.append("<tr><td><img src=\"file://" + m_baseHtml + "radius.png\" alt=\"icon\"/></td><td>");
-        html.append(createWikiLink(i18n("van der Waals Radius")));
+        html.append(createWikiLink(i18n("Van der Waals Radius")));
         html.append("</td><td>");
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::radiusVDW));
         html.append("</td></tr>");
@@ -1538,7 +1538,7 @@ void DetailedInfoDlg::reloadContent()
     const QString element_block = m_element->dataAsString(ChemicalDataObject::periodTableBlock);
 
     // updating caption
-    setWindowTitle(i18nc("For example: [C] Carbon (6 - Block p)", "[%1] %2 (%3 - Block %4)",
+    setWindowTitle(i18nc("@title:window, for example: [C] Carbon (6 - Block p)", "[%1] %2 (%3 - Block %4)",
                          element_symbol, element_name, m_elementNumber, element_block));
 
     //X      // updating picture tab

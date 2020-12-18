@@ -45,7 +45,7 @@ using namespace OpenBabel;
 KOpenBabel::KOpenBabel(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18n("OpenBabel Frontend"));
+    setWindowTitle(i18nc("@title:window", "OpenBabel Frontend"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

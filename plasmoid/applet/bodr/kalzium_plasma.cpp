@@ -138,7 +138,7 @@ void KalziumPlasma::showConfigurationInterface()
     if (m_dialog == 0) {
         m_dialog = new QDialog;
         m_dialog->setWindowIcon(QIcon::fromTheme("kalzium"));
-        m_dialog->setWindowTitle(i18n("KalziumPlasma Configuration"));
+        m_dialog->setWindowTitle(i18nc("@title:window", "KalziumPlasma Configuration"));
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setContentsMargins(0, 0, 0, 0);
         QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);

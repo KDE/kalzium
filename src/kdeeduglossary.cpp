@@ -316,7 +316,7 @@ QString Glossary::backgroundPicture()const
 
 GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private(this))
 {
-    setWindowTitle(i18n("Glossary"));
+    setWindowTitle(i18nc("@title:window", "Glossary"));
 
     //this string will be used for all items. If a backgroundpicture should
     //be used call Glossary::setBackgroundPicture().

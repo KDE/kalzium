@@ -230,7 +230,7 @@ QByteArray KalziumVanDerWaalsRadiusGradientType::name() const
 
 QString KalziumVanDerWaalsRadiusGradientType::description() const
 {
-    return i18n("van Der Waals");
+    return i18n("Van Der Waals");
 }
 
 double KalziumVanDerWaalsRadiusGradientType::value(int el) const
