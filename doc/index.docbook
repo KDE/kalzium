@@ -992,11 +992,11 @@
           <variablelist>
           <varlistentry>
             <term><menuchoice><guimenu>View</guimenu><guisubmenu>Tables</guisubmenu></menuchoice></term>
-            <listitem><para><action>Display a submenu</action> with diferent periodic tables. The available options are:
+            <listitem><para><action>Display a submenu</action> with different periodic tables. The available options are:
             <variablelist>
             <varlistentry>
               <term><guimenuitem>Classic Periodic Table</guimenuitem></term>
-              <listitem><para><action><action>Display</action> the classic periodic table with all elements.</action></para></listitem>
+              <listitem><para><action>Display the classic periodic table with all elements.</action></para></listitem>
             </varlistentry>
             <varlistentry>
               <term><guimenuitem>Short Periodic Table</guimenuitem></term>
@@ -1020,7 +1020,7 @@
 
           <varlistentry>
             <term><menuchoice><guimenu>View</guimenu><guisubmenu>Numeration</guisubmenu></menuchoice></term>
-            <listitem><para><action>Display a submenu</action> with diferent numeration modes. The available options are:
+            <listitem><para><action>Display a submenu</action> with different numeration modes. The available options are:
             <variablelist>
             <varlistentry>
               <term><guimenuitem>No Numeration</guimenuitem></term>
@@ -1043,7 +1043,7 @@
 
           <varlistentry>
             <term><menuchoice><guimenu>View</guimenu><guisubmenu>Scheme</guisubmenu></menuchoice></term>
-            <listitem><para><action>Display a submenu</action> with diferent schemes. The available options are:
+            <listitem><para><action>Display a submenu</action> with different schemes. The available options are:
             <variablelist>
             <varlistentry>
               <term><guimenuitem>Monochrome</guimenuitem></term>
@@ -1074,7 +1074,7 @@
 
           <varlistentry>
             <term><menuchoice><guimenu>View</guimenu><guisubmenu>Gradients</guisubmenu></menuchoice></term>
-            <listitem><para><action>Display a submenu</action> with diferent gradients. The available options are:
+            <listitem><para><action>Display a submenu</action> with different gradients. The available options are:
             <variablelist>
             <varlistentry>
               <term><guimenuitem>None</guimenuitem></term>
