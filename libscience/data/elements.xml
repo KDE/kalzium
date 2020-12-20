@@ -2196,7 +2196,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">231.035884</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.89</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'protos' for 'ancester'. Protactinium is named in this way because Actinium is a product of decay radiation of Protactinium.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.63 1.00</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">4300</scalar>
