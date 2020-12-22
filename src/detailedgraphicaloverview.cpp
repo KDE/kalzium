@@ -69,9 +69,13 @@ void DetailedGraphicalOverview::setBackgroundColor(QColor bgColor)
 
 void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
 {
-    QRect rect(0, 0, width(), height());
+    qreal dpr = devicePixelRatioF();
+    qreal dprWidth = dpr*width();
+    qreal dprHeight = dpr*height();
+    QRect rect(0, 0, dprWidth, dprHeight);
 
-    QPixmap pm(width(), height());
+    QPixmap pm(dprWidth, dprHeight);
+    pm.setDevicePixelRatio(dpr);
 
     QPainter p;
     p.begin(&pm);
