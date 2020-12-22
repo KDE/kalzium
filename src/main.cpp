@@ -41,6 +41,8 @@ int main(int argc, char **argv)
    caml_startup(argv);
 #endif
 
+    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kalzium");
 
