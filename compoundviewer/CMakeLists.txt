@@ -1,7 +1,7 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/..
     ${EIGEN3_INCLUDE_DIR}
-    ${OPENBABEL2_INCLUDE_DIR}
+    ${OPENBABEL_INCLUDE_DIR}
     ${AvogadroLibs_INCLUDE_DIRS}
     ${PROJECT_SOURCE_DIR}/compoundviewer
 )
@@ -22,7 +22,7 @@ target_link_libraries(compoundviewer
     Qt5::OpenGL
     Qt5::Gui
     Qt5::Widgets
-    ${OPENBABEL2_LIBRARIES}
+    ${OPENBABEL_LIBRARIES}
     AvogadroQtGui
     AvogadroQtOpenGL
     AvogadroQtPlugins

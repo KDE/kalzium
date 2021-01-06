@@ -230,7 +230,7 @@ private:
     KalziumGroupsSchemeType();
 };
 
-#ifdef HAVE_OPENBABEL2
+#ifdef HAVE_OPENBABEL
 /**
  * The scheme for color
  *

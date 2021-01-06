@@ -37,7 +37,7 @@
 #include "eqchemview.h"
 #endif
 
-#ifdef HAVE_OPENBABEL2
+#ifdef HAVE_OPENBABEL
 #if defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 #include "tools/moleculeview.h"
 #include <QGLFormat>
@@ -197,7 +197,7 @@ void Kalzium::setupActions()
     m_pOBConverterAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     m_pOBConverterAction->setWhatsThis(i18nc("WhatsThis Help", "With this tool, you can convert files containing chemical data between various file formats."));
     connect(m_pOBConverterAction, &QAction::triggered, this, &Kalzium::slotOBConverter);
-#ifndef HAVE_OPENBABEL2
+#ifndef HAVE_OPENBABEL
     m_pOBConverterAction->setEnabled(false);
 #endif
 
@@ -206,7 +206,7 @@ void Kalzium::setupActions()
     m_pMoleculesviewer->setIcon(QIcon::fromTheme(QStringLiteral("kalzium_molviewer")));
     m_pMoleculesviewer->setWhatsThis(i18nc("WhatsThis Help", "This tool allows you to view and edit 3D molecular structures."));
     connect(m_pMoleculesviewer, &QAction::triggered, this, &Kalzium::slotMoleculeviewer);
-#if !defined(HAVE_OPENBABEL2) || !defined(HAVE_EIGEN) || !defined(HAVE_AVOGADRO)
+#if !defined(HAVE_OPENBABEL) || !defined(HAVE_EIGEN) || !defined(HAVE_AVOGADRO)
     m_pMoleculesviewer->setEnabled(false);
 #endif
 
@@ -360,7 +360,7 @@ void Kalzium::slotRS()
 
 void Kalzium::slotOBConverter()
 {
-#ifdef HAVE_OPENBABEL2
+#ifdef HAVE_OPENBABEL
     KOpenBabel * d = new KOpenBabel(this);
     d->setAttribute(Qt::WA_DeleteOnClose);
     d->show();
@@ -369,7 +369,7 @@ void Kalzium::slotOBConverter()
 
 MoleculeDialog *Kalzium::slotMoleculeviewer()
 {
-#if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
+#if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 
     if (!QGLFormat::hasOpenGL()) {
         QMessageBox::critical(Q_NULLPTR, i18n("Kalzium Error"), i18n("This system does not support OpenGL."));
@@ -631,7 +631,7 @@ Kalzium::~Kalzium()
 
 void Kalzium::loadMolecule(const QString &moleculeFile)
 {
-#if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
+#if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
     MoleculeDialog *d = slotMoleculeviewer();
     if (d) {
         d->loadMolecule(moleculeFile);

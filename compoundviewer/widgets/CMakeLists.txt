@@ -11,6 +11,6 @@ add_widget_files(kalziumui_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kalziumui.widge
 
 add_library(kalziumuiwidgets MODULE ${kalziumui_PART_SRCS})
 
-target_link_libraries(kalziumuiwidgets ${OPENBABEL2_LIBRARIES} Qt5::Designer KF5::Core)
+target_link_libraries(kalziumuiwidgets ${OPENBABEL_LIBRARIES} Qt5::Designer KF5::Core)
 
 install(TARGETS kalziumuiwidgets DESTINATION ${PLUGIN_INSTALL_DIR}/plugins/designer)

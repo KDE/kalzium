@@ -25,6 +25,9 @@
 #ifdef HAVE_OPENBABEL2
 #include <openbabel/mol.h>
 #endif
+#ifdef HAVE_OPENBABEL3
+#include <openbabel/elements.h>
+#endif
 
 #include <QBrush>
 #include <QDebug>
@@ -39,7 +42,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
     m_schemes << KalziumIconicSchemeType::instance();
     m_schemes << KalziumFamilySchemeType::instance();
     m_schemes << KalziumGroupsSchemeType::instance();
-    #ifdef HAVE_OPENBABEL2
+    #ifdef HAVE_OPENBABEL
     m_schemes << KalziumColorSchemeType::instance();
     #endif
 }
@@ -379,7 +382,7 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
     return ll;
 }
 
-#ifdef HAVE_OPENBABEL2
+#ifdef HAVE_OPENBABEL
 ///OpenBabel Color///
 KalziumColorSchemeType::KalziumColorSchemeType()
         : KalziumSchemeType()
@@ -406,8 +409,15 @@ QBrush KalziumColorSchemeType::elementBrush(int el) const
 {
     QColor c;
 
+#ifdef HAVE_OPENBABEL2
     std::vector<double> color = OpenBabel::etab.GetRGB(el);
     c.setRgbF(color[0], color[1], color[2]);
+#endif
+#ifdef HAVE_OPENBABEL3
+    double red, green, blue;
+    OpenBabel::OBElements::GetRGB(el, &red, &green, &blue);
+    c.setRgbF(red, green, blue);
+#endif
 
     return QBrush(c);
 }

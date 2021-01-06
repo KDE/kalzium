@@ -14,10 +14,10 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KALZIUM VERSION_HEA
 
 ########### next target ###############
 
-# The tools can only be built when OpenBabel2 is found.
-# The moleculeviewer needs not only OpenBabel2 but also Eigen2 and Avogadro,
+# The tools can only be built when OpenBabel is found.
+# The moleculeviewer needs not only OpenBabel but also Eigen and Avogadro,
 # so there is a nested if-check.
-if (OPENBABEL2_FOUND)
+if (HAVE_OPENBABEL)
    set(kalziumtools_SRCS
       tools/obconverter.cpp
       )
@@ -25,7 +25,7 @@ if (OPENBABEL2_FOUND)
    ki18n_wrap_ui(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
-   include_directories(SYSTEM ${OPENBABEL2_INCLUDE_DIR})
+   include_directories(SYSTEM ${OPENBABEL_INCLUDE_DIR})
 
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 
@@ -41,7 +41,7 @@ if (OPENBABEL2_FOUND)
          )
       include_directories(${EIGEN3_INCLUDE_DIR})
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
-endif (OPENBABEL2_FOUND)
+endif (HAVE_OPENBABEL)
 
 ## Kalzium calculator files
 set(kalziumtools_SRCS
@@ -150,8 +150,8 @@ target_link_libraries(kalzium
     Qt5::Svg
     science
 )
-if (OPENBABEL2_FOUND)
-   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
+if (HAVE_OPENBABEL)
+   target_link_libraries(kalzium ${OPENBABEL_LIBRARIES})
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
       target_link_libraries(kalzium
          KF5::NewStuff
@@ -163,7 +163,7 @@ if (OPENBABEL2_FOUND)
        )
       install(FILES kalzium.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
-endif (OPENBABEL2_FOUND)
+endif (HAVE_OPENBABEL)
 
 if (LIBFACILE_FOUND)
    link_directories(${OCAMLC_DIR})

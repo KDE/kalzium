@@ -144,7 +144,7 @@ int main(int argc, char **argv)
     parser.process(app);
     about.processCommandLine(&parser);
 
-    #if defined(HAVE_OPENBABEL2) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
+    #if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("m") << QStringLiteral("molecule"), i18n("Open the given molecule file"), QStringLiteral("file")));
     #endif
 
