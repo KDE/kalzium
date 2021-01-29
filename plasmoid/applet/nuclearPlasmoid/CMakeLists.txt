@@ -13,6 +13,6 @@ target_link_libraries(nuclearCalculator
                       science KF5::UnitConversion
                       )
 
-install(TARGETS nuclearCalculator DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS nuclearCalculator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 install(FILES nuclearCalculator.desktop DESTINATION ${SERVICES_INSTALL_DIR})

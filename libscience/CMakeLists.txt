@@ -18,7 +18,7 @@ add_library(science SHARED ${science_LIB_SRCS})
 
 target_link_libraries(science Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
 set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )
-install(TARGETS science  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS science  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
    chemicaldataobject.h

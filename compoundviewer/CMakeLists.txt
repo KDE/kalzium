@@ -35,4 +35,4 @@ set_target_properties(compoundviewer PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
 
-install(TARGETS compoundviewer ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS compoundviewer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

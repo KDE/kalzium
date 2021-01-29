@@ -17,7 +17,7 @@ target_link_libraries(plasma_applet_kalzium
 
 install(
     TARGETS plasma_applet_kalzium
-    DESTINATION ${PLUGIN_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_PLUGINDIR}
     )
 
 install(

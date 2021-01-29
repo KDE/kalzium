@@ -13,4 +13,4 @@ add_library(kalziumuiwidgets MODULE ${kalziumui_PART_SRCS})
 
 target_link_libraries(kalziumuiwidgets ${OPENBABEL_LIBRARIES} Qt5::Designer KF5::Core)
 
-install(TARGETS kalziumuiwidgets DESTINATION ${PLUGIN_INSTALL_DIR}/plugins/designer)
+install(TARGETS kalziumuiwidgets DESTINATION ${KDE_INSTALL_PLUGINDIR}/plugins/designer)

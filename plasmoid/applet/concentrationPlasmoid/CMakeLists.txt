@@ -8,6 +8,6 @@ target_link_libraries(concentrationCalculator
                       KF5::UnitConversion
                       )
 
-install(TARGETS concentrationCalculator DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS concentrationCalculator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 install(FILES concentrationCalculator.desktop DESTINATION ${SERVICES_INSTALL_DIR})

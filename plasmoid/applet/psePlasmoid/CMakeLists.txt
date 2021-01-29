@@ -17,7 +17,7 @@ target_link_libraries(plasma_applet_molmassCalculator
                       KF5::Plasma KF5::WidgetAddons science)
 
 install(TARGETS plasma_applet_molmassCalculator
-        DESTINATION ${PLUGIN_INSTALL_DIR})
+        DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 install(FILES plasma-applet-Molmasscalculator.desktop
         DESTINATION ${SERVICES_INSTALL_DIR})

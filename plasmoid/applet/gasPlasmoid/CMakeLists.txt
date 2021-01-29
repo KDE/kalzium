@@ -8,6 +8,6 @@ target_link_libraries(gasCalculator
                       KF5::UnitConversion
                       )
 
-install(TARGETS gasCalculator DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS gasCalculator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 install(FILES gasCalculator.desktop DESTINATION ${SERVICES_INSTALL_DIR})

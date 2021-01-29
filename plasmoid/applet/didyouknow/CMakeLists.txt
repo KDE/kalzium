@@ -11,7 +11,7 @@ target_link_libraries(plasma_applet_didyouknow
     science
     )
 
-install(TARGETS plasma_applet_didyouknow DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS plasma_applet_didyouknow DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 install(FILES plasma_didyouknow.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 

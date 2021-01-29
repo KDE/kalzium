@@ -13,5 +13,5 @@ target_link_libraries(plasma_engine_kalzium
    science
 )
 
-install(TARGETS plasma_engine_kalzium DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS plasma_engine_kalzium DESTINATION ${KDE_INSTALL_PLUGINDIR})
 install(FILES plasma-dataengine-kalzium.desktop DESTINATION ${SERVICES_INSTALL_DIR})

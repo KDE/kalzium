@@ -188,7 +188,7 @@ if (LIBFACILE_FOUND)
    target_link_libraries(kalzium ${kalzium_EXTRA_LIBS} m ${CMAKE_DL_LIBS})
 endif (LIBFACILE_FOUND)
 
-install(TARGETS kalzium ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kalzium ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
