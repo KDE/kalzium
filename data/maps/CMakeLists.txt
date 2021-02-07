@@ -12,5 +12,5 @@ install( FILES
   ukfr.png
   ukse.png
   ruus.png
-	DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/maps
+	DESTINATION  ${KDE_INSTALL_DATADIR}/kalzium/data/maps
 )

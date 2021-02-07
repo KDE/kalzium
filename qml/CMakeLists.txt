@@ -1,4 +1,4 @@
 install( FILES
     detailview.qml
-    DESTINATION  ${DATA_INSTALL_DIR}/kalzium/qml
+    DESTINATION  ${KDE_INSTALL_DATADIR}/kalzium/qml
 )

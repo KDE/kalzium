@@ -106,5 +106,5 @@ ecm_install_icons(ICONS
     sc-actions-statematter.svgz
     sc-actions-timeline.svgz
     sc-actions-tooltip.svgz
-    DESTINATION ${DATA_INSTALL_DIR}/kalzium/icons THEME hicolor)
+    DESTINATION ${KDE_INSTALL_DATADIR}/kalzium/icons THEME hicolor)
 

@@ -10,4 +10,4 @@ target_link_libraries(concentrationCalculator
 
 install(TARGETS concentrationCalculator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES concentrationCalculator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES concentrationCalculator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

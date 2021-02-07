@@ -32,5 +32,5 @@ install(FILES
    spectrum.h
    spectrumparser.h
    psetables.h
-   DESTINATION ${INCLUDE_INSTALL_DIR}/libkdeedu  COMPONENT Devel
+   DESTINATION ${KDE_INSTALL_INCLUDEDIR}/libkdeedu  COMPONENT Devel
 )

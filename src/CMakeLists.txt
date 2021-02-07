@@ -192,9 +192,9 @@ install(TARGETS kalzium ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES kalzium.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES kalziumui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kalzium)
+install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES kalzium.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
+install(FILES kalziumui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kalzium)
 
 ecm_install_icons(ICONS
     16-apps-kalzium.png

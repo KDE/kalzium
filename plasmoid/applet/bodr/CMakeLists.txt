@@ -22,10 +22,10 @@ install(
 
 install(
     FILES plasma_kalzium.desktop
-    DESTINATION ${SERVICES_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_KSERVICES5DIR}
     )
 
 install(
     FILES testtube.svg
-    DESTINATION ${DATA_INSTALL_DIR}/desktoptheme/default/widgets/
+    DESTINATION ${KDE_INSTALL_DATADIR}/desktoptheme/default/widgets/
     )

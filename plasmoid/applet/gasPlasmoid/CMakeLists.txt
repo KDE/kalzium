@@ -10,4 +10,4 @@ target_link_libraries(gasCalculator
 
 install(TARGETS gasCalculator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES gasCalculator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES gasCalculator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

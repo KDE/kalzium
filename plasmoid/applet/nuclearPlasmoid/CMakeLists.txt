@@ -15,4 +15,4 @@ target_link_libraries(nuclearCalculator
 
 install(TARGETS nuclearCalculator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES nuclearCalculator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES nuclearCalculator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

@@ -11,5 +11,5 @@ add_subdirectory(molecules)
 
 ########### install files ###############
 
-install( FILES bg.jpg knowledge.xml tools.xml  DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data )
+install( FILES bg.jpg knowledge.xml tools.xml  DESTINATION  ${KDE_INSTALL_DATADIR}/kalzium/data )
 

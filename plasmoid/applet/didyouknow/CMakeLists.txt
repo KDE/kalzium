@@ -13,9 +13,9 @@ target_link_libraries(plasma_applet_didyouknow
 
 install(TARGETS plasma_applet_didyouknow DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES plasma_didyouknow.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES plasma_didyouknow.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 install(
     FILES chalkboard.svg
-    DESTINATION ${DATA_INSTALL_DIR}/desktoptheme/default/widgets/
+    DESTINATION ${KDE_INSTALL_DATADIR}/desktoptheme/default/widgets/
     )
