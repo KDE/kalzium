@@ -28,7 +28,6 @@
 // OpenBabel includes
 #include <openbabel/obconversion.h>
 
-class QDialog;
 
 /**
  * @author Carsten Niehaus
