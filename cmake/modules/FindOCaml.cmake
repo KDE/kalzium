@@ -7,8 +7,8 @@
 #  OCAML_OCAMLOPT_EXECUTABLE - Compiler switches required for using Libfacile
 #  OCAMLC_DIR
 #
-# Copyright (c) 2006, Carsten Niehaus, <cniehaus@gmx.de>
-# Copyright (c) 2006, Montel Laurent, <montel@kde.org>
+# SPDX-FileCopyrightText: 2006 Carsten Niehaus <cniehaus@gmx.de>
+# SPDX-FileCopyrightText: 2006 Montel Laurent <montel@kde.org>
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 

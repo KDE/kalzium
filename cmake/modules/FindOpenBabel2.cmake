@@ -4,9 +4,9 @@
 #  OPENBABEL2_FOUND - system has OpenBabel2
 #  OPENBABEL2_INCLUDE_DIR - the OpenBabel2 include directory
 #  OPENBABEL2_LIBRARIES - Link these to use OpenBabel2
-# Copyright (C) 2006, 2009 Pino Toscano, <pino@kde.org>
-# Copyright (c) 2006, 2007 Carsten Niehaus, <cniehaus@gmx.de>
-# Copyright (C) 2008 Marcus D. Hanwell <marcus@cryos.org>
+# SPDX-FileCopyrightText: 2006, 2009 Pino Toscano <pino@kde.org>
+# SPDX-FileCopyrightText: 2006, 2007 Carsten Niehaus <cniehaus@gmx.de>
+# SPDX-FileCopyrightText: 2008 Marcus D. Hanwell <marcus@cryos.org>
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 

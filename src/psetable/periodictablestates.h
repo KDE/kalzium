@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2011  Rebetez Etienne <etienne.rebetez@oberwallis.ch>
+    SPDX-FileCopyrightText: 2011 Rebetez Etienne <etienne.rebetez@oberwallis.ch>
 
     Kalzium is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -1,15 +1,12 @@
-/***************************************************************************
+/*
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2003, 2004, 2005, 2006 by Carsten Niehaus
+    SPDX-FileCopyrightText: 2003, 2004, 2005, 2006 Carsten Niehaus
     email                : cniehaus@kde.org
- ***************************************************************************/
+*/
 
 /***************************************************************************
  *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
+ *   SPDX-License-Identifier: GPL-2.0-or-later
  *                                                                         *
  ***************************************************************************/
 
