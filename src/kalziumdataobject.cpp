@@ -1,6 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2005, 2006, 2007 Carsten Niehaus
-    cniehaus@kde.org
+    SPDX-FileCopyrightText: 2005, 2006, 2007 Carsten Niehaus <cniehaus@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */

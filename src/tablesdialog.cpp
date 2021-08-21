@@ -1,13 +1,8 @@
 /*
     SPDX-FileCopyrightText: 2006 Carsten Niehaus <cniehaus@kde.org>
     SPDX-FileCopyrightText: 2007 Ian Monroe <ian@monroe.nu>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #include "tablesdialog.h"
 

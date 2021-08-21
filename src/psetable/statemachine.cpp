@@ -1,6 +1,4 @@
 /*
-    Statemachine
-
     SPDX-FileCopyrightText: 2010 Etienne Rebetez etienne.rebetez@oberwallis.ch
 
     This is free software; you can redistribute it and/or modify

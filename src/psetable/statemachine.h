@@ -1,12 +1,9 @@
 /*
 
-    SPDX-FileCopyrightText: 2010 Nokia Corporation and /or its subsidiary(-ies).
-    All rights reserved.
-    Contact: Nokia Corporation (qt-info@nokia.com)
+    SPDX-FileCopyrightText: 2010 Nokia Corporation and /or its subsidiary(-ies) <qt-info@nokia.com>
 
     This file is part of the QtCore module of the Qt Toolkit.
 
-    $QT_BEGIN_LICENSE:BSD$
     SPDX-License-Identifier: BSD-3-Clause
 
 */

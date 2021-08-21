@@ -1,12 +1,7 @@
 /*
-    SPDX-FileCopyrightText: 2009 Kashyap R Puranik
-    email                : kashthealien@gmail.com
+    SPDX-FileCopyrightText: 2009 Kashyap R Puranik <kashthealien@gmail.com>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #ifndef GASCALCULATOR_H
 #define GASCALCULATOR_H

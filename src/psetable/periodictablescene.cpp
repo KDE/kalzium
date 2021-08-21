@@ -6,10 +6,7 @@
     SPDX-FileCopyrightText: 2007-2009 Marcus D. Hanwell marcus@cryos.org
     SPDX-FileCopyrightText: 2010 Etienne Rebetez etienne.rebetez@oberwallis.ch
 
-    This file is part of the Kalzium molecular editor project.
-
     SPDX-License-Identifier: LGPL-2.1-or-later
-
 */
 
 #include "periodictablescene.h"

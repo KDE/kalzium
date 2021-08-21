@@ -1,16 +1,7 @@
 /*
-    orbitswidget.h  -  description
-    -------------------
-    begin                : June 2003
-    SPDX-FileCopyrightText: 2003, 2004, 2005, 2006, 2007 Carsten Niehaus
-    email                : cniehaus@kde.org
+    SPDX-FileCopyrightText: 2003, 2004, 2005, 2006, 2007 Carsten Niehaus <cniehaus@kde.org>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #ifndef ORBITSWIDGET_H
 #define ORBITSWIDGET_H

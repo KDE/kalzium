@@ -1,13 +1,8 @@
 /*
     SPDX-FileCopyrightText: 2006 Carsten Niehaus <cniehaus@kde.org>
     SPDX-FileCopyrightText: 2007-2008 Marcus D. Hanwell <marcus@cryos.org>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #ifndef KALZIUMGLWIDGET_H
 #define KALZIUMGLWIDGET_H

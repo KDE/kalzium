@@ -1,12 +1,7 @@
 /*
-    SPDX-FileCopyrightText: 2005 Inge Wallin
-    email                : inge@lysator.liu.se
+    SPDX-FileCopyrightText: 2005 Inge Wallin <inge@lysator.liu.se>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #ifndef PARSER_H
 #define PARSER_H

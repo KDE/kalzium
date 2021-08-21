@@ -1,13 +1,8 @@
 /*
-    SPDX-FileCopyrightText: 2008, 2009 Carsten Niehaus
-    email                : cniehaus@kde.org
+    SPDX-FileCopyrightText: 2008, 2009 Carsten Niehaus <cniehaus@kde.org>
     SPDX-FileCopyrightText: 2008 Frederik Gladhorn <frederik.gladhorn@kdemail.net>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #include "kalzium_engine.h"
 

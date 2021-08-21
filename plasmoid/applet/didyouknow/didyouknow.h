@@ -1,12 +1,7 @@
 /*
-    SPDX-FileCopyrightText: 2008 Carsten Niehaus
-    email                : cniehaus@kde.org
+    SPDX-FileCopyrightText: 2008 Carsten Niehaus <cniehaus@kde.org>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
-/***************************************************************************
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- *                                                                         *
- ***************************************************************************/
 
 #ifndef DIDYOUKNOW_H
 #define DIDYOUKNOW_H
