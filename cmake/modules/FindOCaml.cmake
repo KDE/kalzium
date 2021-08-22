@@ -9,8 +9,7 @@
 #
 # SPDX-FileCopyrightText: 2006 Carsten Niehaus <cniehaus@gmx.de>
 # SPDX-FileCopyrightText: 2006 Montel Laurent <montel@kde.org>
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+# SPDX-License-Identifier: BSD-3-Clause
 
 if ( OCAML_OCAMLC_EXECUTABLE AND OCAML_OCAMLDEP_EXECUTABLE AND OCAML_OCAMLOPT_EXECUTABLE)
 

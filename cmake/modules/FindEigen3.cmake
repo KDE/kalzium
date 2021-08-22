@@ -13,7 +13,7 @@
 # SPDX-FileCopyrightText: 2006, 2007 Montel Laurent <montel@kde.org>
 # SPDX-FileCopyrightText: 2008, 2009 Gael Guennebaud <g.gael@free.fr>
 # SPDX-FileCopyrightText: 2009 Benoit Jacob <jacob.benoit.1@gmail.com>
-# Redistribution and use is allowed according to the terms of the 2-clause BSD license.
+# SPDX-License-Identifier: BSD-2-Clause
 
 if(NOT Eigen3_FIND_VERSION)
   if(NOT Eigen3_FIND_VERSION_MAJOR)

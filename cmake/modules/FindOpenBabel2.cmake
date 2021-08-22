@@ -7,8 +7,7 @@
 # SPDX-FileCopyrightText: 2006, 2009 Pino Toscano <pino@kde.org>
 # SPDX-FileCopyrightText: 2006, 2007 Carsten Niehaus <cniehaus@gmx.de>
 # SPDX-FileCopyrightText: 2008 Marcus D. Hanwell <marcus@cryos.org>
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+# SPDX-License-Identifier: BSD-3-Clause
 
 if (OPENBABEL2_INCLUDE_DIR AND OPENBABEL2_LIBRARIES AND OPENBABEL2_VERSION_MET)
   # in cache already
