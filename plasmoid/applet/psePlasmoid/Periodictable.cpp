@@ -1,6 +1,6 @@
 /*
     Mass calculator: Plasmoid to calculate mass of a Molecule.
-    SPDX-FileCopyrightText: 2009, 2010 Etienne Rebetez etienne.rebetez@oberwallis.ch
+    SPDX-FileCopyrightText: 2009, 2010 Etienne Rebetez <etienne.rebetez@oberwallis.ch>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 

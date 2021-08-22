@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2011 Etienne Rebetez etienne.rebetez @oberwallis.ch
+    SPDX-FileCopyrightText: 2011 Etienne Rebetez <etienne.rebetez@oberwallis.ch>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */

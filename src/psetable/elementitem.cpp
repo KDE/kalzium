@@ -2,9 +2,9 @@
     ElementItem - Element Item, part of the Periodic Table Graphics View for
     Avogadro
 
-    SPDX-FileCopyrightText: 2007-2009 Marcus D. Hanwell marcus @cryos.org
+    SPDX-FileCopyrightText: 2007-2009 Marcus D. Hanwell <marcus@cryos.org>
     Some portions SPDX-FileCopyrightText: 2010 Konstantin Tokarev
-    SPDX-FileCopyrightText: 2010 Etienne Rebetez etienne.rebetez @oberwallis.ch
+    SPDX-FileCopyrightText: 2010 Etienne Rebetez <etienne.rebetez@oberwallis.ch>
 
     This file is part of the Avogadro molecular editor project.
     For more information, see <https://avogadro.cc/>

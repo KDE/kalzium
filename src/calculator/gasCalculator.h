@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2009 Kashyap R Puranik kashthealien@gmail.com
+    SPDX-FileCopyrightText: 2009 Kashyap R Puranik <kashthealien@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */

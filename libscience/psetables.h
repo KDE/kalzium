@@ -1,7 +1,7 @@
 /*
-    SPDX-FileCopyrightText: 2005, 2006 Pino Toscano toscano.pino@tiscali.it
-    SPDX-FileCopyrightText: 2007 Carste Niehaus cniehaus@kde.org
-    SPDX-FileCopyrightText: 2010 Etienne Rebetez etienne.rebetez@oberwallis.ch
+    SPDX-FileCopyrightText: 2005, 2006 Pino Toscano <toscano.pino@tiscali.it>
+    SPDX-FileCopyrightText: 2007 Carste Niehaus <cniehaus@kde.org>
+    SPDX-FileCopyrightText: 2010 Etienne Rebetez <etienne.rebetez@oberwallis.ch>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */

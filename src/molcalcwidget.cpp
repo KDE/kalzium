@@ -1,7 +1,7 @@
 /*
-    SPDX-FileCopyrightText: 2003-2005, 2006 Carsten Niehaus cniehaus@kde.org
-    SPDX-FileCopyrightText: 2005 Inge Wallin inge@lysator.liu.se
-    SPDX-FileCopyrightText: 2009 Kashyap. R. Puranik kashthealien@gmail.com
+    SPDX-FileCopyrightText: 2003-2005, 2006 Carsten Niehaus <cniehaus@kde.org>
+    SPDX-FileCopyrightText: 2005 Inge Wallin <inge@lysator.liu.se>
+    SPDX-FileCopyrightText: 2009 Kashyap. R. Puranik <kashthealien@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */

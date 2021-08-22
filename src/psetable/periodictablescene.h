@@ -1,10 +1,10 @@
 /*
     PeriodicTableScene - Periodic Table Graphics Scene for Kalzium
 
-    SPDX-FileCopyrightText: 2005-2006 Pino Toscano toscano.pino@tiscali.it
-    SPDX-FileCopyrightText: 2003-2006 Carsten Niehaus cniehaus@kde.org
-    SPDX-FileCopyrightText: 2007-2009 Marcus D. Hanwell marcus@cryos.org
-    SPDX-FileCopyrightText: 2010 Etienne Rebetez etienne.rebetez@oberwallis.ch
+    SPDX-FileCopyrightText: 2005-2006 Pino Toscano <toscano.pino@tiscali.it>
+    SPDX-FileCopyrightText: 2003-2006 Carsten Niehaus <cniehaus@kde.org>
+    SPDX-FileCopyrightText: 2007-2009 Marcus D. Hanwell <marcus@cryos.org>
+    SPDX-FileCopyrightText: 2010 Etienne Rebetez <etienne.rebetez@oberwallis.ch>
 
     SPDX-License-Identifier: LGPL-2.1-or-later
 */

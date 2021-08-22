@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2010 Luca Tringali TRINGALINVENT@libero.it
+    SPDX-FileCopyrightText: 2010 Luca Tringali <TRINGALINVENT@libero.it>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
