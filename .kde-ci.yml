@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+Dependencies:
+- 'on': ['@all']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/karchive': '@stable'
+    'frameworks/kconfig': '@stable'
+    'frameworks/kcoreaddons': '@stable'
+    'frameworks/kdoctools': '@stable'
+    'frameworks/ki18n': '@stable'
+    'frameworks/kparts': '@stable'
+    'frameworks/kplotting': '@stable'
+    'frameworks/ksolid': '@stable'
+    'frameworks/kunitconversion': '@stable'
+    'frameworks/kwidgetsaddons': '@stable'
