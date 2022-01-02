@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kalzium</name>
+  <name xml:lang="ar">كالسيوم</name>
   <name xml:lang="bg">Kalzium</name>
   <name xml:lang="bs">Kalzium</name>
   <name xml:lang="ca">Kalzium</name>
@@ -41,6 +42,7 @@
   <name xml:lang="zh-CN">Kalzium</name>
   <name xml:lang="zh-TW">化學_Kalzium</name>
   <summary>Periodic Table of Elements</summary>
+  <summary xml:lang="ar">الجدول الدوري للعناصر</summary>
   <summary xml:lang="bg">Периодична таблица на химичните елементи</summary>
   <summary xml:lang="bs">Periodni sistem elemenata</summary>
   <summary xml:lang="ca">Taula periòdica dels elements</summary>
@@ -78,6 +80,7 @@
   <summary xml:lang="zh-TW">元素週期表</summary>
   <description>
     <p>Kalzium is a program that shows you the Periodic Table of Elements. You can use Kalzium to search for information about the elements or to learn facts about the periodic table. It provides an overview of the important data (like melting points, electron affinity, electron negativity, electron configuration, radii, mass, ionisation energy), an isotope table, and different colored views of the periodic table (separation of the different blocks, year simulator, temperature simulator). It contains tools to visualize the spectral lines of each element, a molecular weight calculator, a 3D molecule editor, and an equation solver for stoichiometric problems.</p>
+    <p xml:lang="ar">كالسيوم هو برنامج يعرض لك الجدول الدوري للعناصر. يمكنك استخدام كالسيوم للبحث عن معلومات حول العناصر أو لمعرفة حقائق حول الجدول الدوري. ويوفر نظرة عامة على البيانات المهمة (مثل نقاط الانصهار ، وتقارب الإلكترون ، وسلبية الإلكترون ، وتكوين الإلكترون ، ونصف القطر ، والكتلة ، وطاقة التأين) ، وجدول النظائر ، ومناظر ملونة مختلفة للجدول الدوري (فصل الكتل المختلفة ،  محاكي السنة، محاكي درجة الحرارة). ويحتوي على أدوات لتصور الخطوط الطيفية لكل عنصر ، وحاسبة للوزن الجزيئي ، ومحرر جزيء ثلاثي الأبعاد ، ومحلل معادلات لمشاكل القياس المتكافئ.</p>
     <p xml:lang="bs">Kalzium je program koji prikazuje periodni sistem elemenata. Možete koristiti Kalzium za traženje informacija o elementima ili da naučite činjenice o periodnom sistemu. On daje pregled važnih podataka (kao što su tačke topljenja, elektronski afinitet, elektro-negativnosti, elektronsku konfiguraciju, poluprečnika, masu, jonizacijsku energiju), tabelu izotopa,  raznobojni pogledom na periodni sistem (razdvajanje različitih blokova, simulato godina , simulator temperature). On sadrži alate za vizualizaciju spektralne linije svakog elementa, kalkulator molekularne težine , uređivač 3D molekula i rješava probleme stehiometrijskih jednačina.</p>
     <p xml:lang="ca">El Kalzium és un programa que mostra la taula periòdica dels elements. Es pot utilitzar el Kalzium per a cercar informació quant als elements o per a aprendre fets quant a la taula periòdica. Proporciona un resum de les dades importants (com els punts de fusió, l'afinitat electrònica, l'electronegativitat, la configuració electrònica, radis, massa, energia d'ionització), una taula isòtops, i diferents vistes de colors de la taula periòdica (separació dels blocs diferents, simulador d'anys, simulador de temperatura). Conté eines per a visualitzar les línies espectrals de cada element, un calculador de pesos moleculars, un editor en 3D de molècules, i un solucionador de problemes estequiomètrics.</p>
     <p xml:lang="ca-valencia">El Kalzium és un programa que mostra la taula periòdica dels elements. Es pot utilitzar el Kalzium per a cercar informació quant als elements o per a aprendre fets quant a la taula periòdica. Proporciona un resum de les dades importants (com els punts de fusió, l'afinitat electrònica, l'electronegativitat, la configuració electrònica, radis, massa, energia d'ionització), una taula isòtops, i diferents vistes de colors de la taula periòdica (separació dels blocs diferents, simulador d'anys, simulador de temperatura). Conté eines per a visualitzar les línies espectrals de cada element, un calculador de pesos moleculars, un editor en 3D de molècules, i un solucionador de problemes estequiomètrics.</p>
@@ -114,6 +117,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Periodic table of elements view in Kalzium</caption>
+      <caption xml:lang="ar">عرض الجدول الدوري للعناصر في كالسيوم</caption>
       <caption xml:lang="ca">Vista de la taula periòdica dels elements al Kalzium</caption>
       <caption xml:lang="ca-valencia">Vista de la taula periòdica dels elements al Kalzium</caption>
       <caption xml:lang="cs">Pohled na periodickou tabulku v Kalzium</caption>
