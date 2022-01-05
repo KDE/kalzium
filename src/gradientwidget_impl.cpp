@@ -110,7 +110,7 @@ void GradientWidgetImpl::doubleToSlider(double doubleVar)
 
     gradient_slider->blockSignals(false);
 
-    emit gradientValueChanged(doubleVar);
+    Q_EMIT gradientValueChanged(doubleVar);
 
     setNewValue(doubleVar);
 }
@@ -127,7 +127,7 @@ void GradientWidgetImpl::intToSpinbox(int var)
 
     gradient_spinbox->blockSignals(false);
 
-    emit gradientValueChanged(doublevar);
+    Q_EMIT gradientValueChanged(doublevar);
 
     setNewValue(doublevar);
 }

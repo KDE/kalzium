@@ -175,8 +175,8 @@ void OrbitsWidget::setElementNumber(int num)
         o = hulllist[Elemno - 1];
     }
 
-    foreach (const QString& str, o.split(' ', QString::SkipEmptyParts))
-    numOfElectrons.append(str.toInt());
+    foreach (const QString& str, o.split(' ', Qt::SkipEmptyParts))
+        numOfElectrons.append(str.toInt());
 
     m_electronConf->setMinimumWidth(width());
     // setting the electronic configuration in the label.

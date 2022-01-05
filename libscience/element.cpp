@@ -16,7 +16,7 @@ Element::Element()
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type) const
 {
-    foreach (const ChemicalDataObject &o, dataList) {
+    for (const ChemicalDataObject &o : std::as_const(dataList)) {
         if (o.type() == type) {
             return o.value();
         }

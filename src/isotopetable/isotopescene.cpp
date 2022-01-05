@@ -31,7 +31,7 @@ IsotopeScene::~IsotopeScene()
 
 void IsotopeScene::updateContextHelp(IsotopeItem * item)
 {
-    emit itemSelected(item);
+    Q_EMIT itemSelected(item);
 }
 
 void IsotopeScene::drawIsotopes()

@@ -136,7 +136,7 @@ void LegendWidget::updateLegendItemLayout(const QList<legendPair>& list)
 
 void LegendWidget::legendItemAction(QColor color)
 {
-    emit resetElementMatch();
+    Q_EMIT resetElementMatch();
 
     if (color.operator==(QColor())) {
         return;
@@ -144,7 +144,7 @@ void LegendWidget::legendItemAction(QColor color)
 
     for (int element = 1; element <= 118; ++element) {
         if (isElementMatch(element, color)) {
-            emit elementMatched(element);
+            Q_EMIT elementMatched(element);
         }
     }
 }
@@ -203,13 +203,13 @@ LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)
 
 void LegendItem::enterEvent(QEvent* event)
 {
-    emit legenItemHoovered(legendItemColor);
+    Q_EMIT legenItemHoovered(legendItemColor);
     QWidget::enterEvent(event);
 }
 
 void LegendItem::leaveEvent(QEvent* event)
 {
-    emit legenItemHoovered(QColor());
+    Q_EMIT legenItemHoovered(QColor());
     QWidget::leaveEvent(event);
 }
 

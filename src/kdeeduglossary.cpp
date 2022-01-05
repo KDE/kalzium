@@ -347,7 +347,7 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
                  // force the item to be selected
                  this->d->m_glosstree->setCurrentItem(*it);
                  // display its content
-                 emit this->d->itemActivated((*it), 0);
+                 Q_EMIT this->d->itemActivated((*it), 0);
                  break;
             } else {
                 ++it;

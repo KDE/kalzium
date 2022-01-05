@@ -66,7 +66,7 @@ void Search::doSearch(const QString& text, SearchKind kind)
     }
     if (newresults != m_foundElements) {
         m_foundElements = newresults;
-        emit searchChanged();
+        Q_EMIT searchChanged();
     }
 }
 
@@ -78,6 +78,6 @@ void Search::resetSearch()
 
     m_foundElements.clear();
     m_isActive = false;
-    emit searchReset();
+    Q_EMIT searchReset();
 }
 

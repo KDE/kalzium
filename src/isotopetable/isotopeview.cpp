@@ -33,7 +33,7 @@ void IsotopeView::resizeEvent(QResizeEvent *event)
 void IsotopeView::mouseMoveEvent(QMouseEvent *event)
 {
     QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
-    emit visibleSceneRectChanged(visibleSceneRect);
+    Q_EMIT visibleSceneRectChanged(visibleSceneRect);
 
     QGraphicsView::mouseMoveEvent(event);
 }
@@ -60,10 +60,10 @@ void IsotopeView::wheelEvent(QWheelEvent *event)
     if (oldZoomLevel != m_zoomLevel) {
         factor = m_zoomLevel / oldZoomLevel;
         scale(factor, factor);
-        emit zoomLevelChanged(m_zoomLevel);
+        Q_EMIT zoomLevelChanged(m_zoomLevel);
     }
     QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
-    emit visibleSceneRectChanged(visibleSceneRect);
+    Q_EMIT visibleSceneRectChanged(visibleSceneRect);
 
     event->accept();
 }
@@ -83,8 +83,8 @@ void IsotopeView::setZoom(double zoom)
 
     factor = m_zoomLevel / oldZoomLevel;
     scale(factor,factor);
-    emit zoomLevelChanged(m_zoomLevel);
+    Q_EMIT zoomLevelChanged(m_zoomLevel);
     QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
-    emit visibleSceneRectChanged(visibleSceneRect);
+    Q_EMIT visibleSceneRectChanged(visibleSceneRect);
 }
 

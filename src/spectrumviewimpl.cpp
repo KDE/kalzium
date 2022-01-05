@@ -105,7 +105,7 @@ void SpectrumViewImpl::setUnit()
     Prefs::self()->save();
     qDebug() << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
 
-    emit settingsChanged();
+    Q_EMIT settingsChanged();
     fillPeakList();
 }
 

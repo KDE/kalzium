@@ -266,7 +266,7 @@ void SpectrumWidget::setBorders(double left, double right)
     m_endValue = right;
 
     //round the startValue down and the endValue up
-    emit bordersChanged(int(m_startValue + 0.5), int(m_endValue + 0.5));
+    Q_EMIT bordersChanged(int(m_startValue + 0.5), int(m_endValue + 0.5));
 
     update();
 }
@@ -336,7 +336,7 @@ void SpectrumWidget::findPeakFromMouseposition(double wavelength)
     }
 
     if (foundWavelength) {
-        emit peakSelected(peak);
+        Q_EMIT peakSelected(peak);
     }
 }
 

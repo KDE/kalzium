@@ -434,7 +434,7 @@ void Kalzium::slotSwitchtoTable(int index)
 
 void Kalzium::slotSwitchtoNumeration(int index)
 {
-    emit numerationChanged(index);
+    Q_EMIT numerationChanged(index);
     Prefs::setNumeration(index);
     Prefs::self()->save();
 }

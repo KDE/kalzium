@@ -51,7 +51,7 @@ void PeriodicTableScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
         m_eventPos = event->scenePos();
     } else {
-        emit freeSpaceClick();
+        Q_EMIT freeSpaceClick();
     }
 
     QGraphicsScene::mousePressEvent(event);
@@ -102,7 +102,7 @@ void PeriodicTableScene::slotMouseover()
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
         int num = item->data(0).toInt();
         if ((num > 0) && (num != m_prevHoverElement)) {
-            emit elementHovered(num);
+            Q_EMIT elementHovered(num);
         }
         m_prevHoverElement = num;
     }
@@ -117,7 +117,7 @@ void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
     QGraphicsItem *item = QGraphicsScene::itemAt(event->scenePos(), QTransform());
     if (item->data(0).toInt() > 0 && item->data(0).toInt() < 119) {
-        emit(elementChanged(item->data(0).toInt()));
+        Q_EMIT(elementChanged(item->data(0).toInt()));
     }
     QGraphicsScene::mouseReleaseEvent(event);
 }
