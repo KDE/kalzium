@@ -117,18 +117,18 @@ private:
 
     void setLimits();
 
-protected slots:
+protected Q_SLOTS:
     /**
      * invoke the help of the correct chapter
      */
     virtual void slotHelp();
 
-private slots:
+private Q_SLOTS:
     void rangeChanged();
     void fullRange();
     void swapXYAxis();
 
-public slots:
+public Q_SLOTS:
     void slotZoomIn();
     void slotZoomOut();
 

@@ -29,7 +29,7 @@ public:
 private:
     Ui::isotopeWidget ui;
 
-private slots:
+private Q_SLOTS:
     void updateDockWidget(IsotopeItem *);
     void zoom(int);
     void slotZoomLevelChanged(double);

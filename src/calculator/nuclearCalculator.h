@@ -51,7 +51,7 @@ public:
     explicit nuclearCalculator(QWidget * parent = nullptr);
     ~nuclearCalculator();
 
-public slots:
+public Q_SLOTS:
     /// Calculates the initial amount and updates the UI
     void calculateInitAmount();
 

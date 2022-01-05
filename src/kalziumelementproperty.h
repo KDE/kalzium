@@ -118,7 +118,7 @@ Q_SIGNALS:
      */
     void propertyChanged();
 
-public slots:
+public Q_SLOTS:
     /**
      * gets the value from the gradientwidget. The value which is used to
      * determine if an element is active or not.

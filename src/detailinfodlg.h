@@ -115,7 +115,7 @@ private:
     /// overloaded function to add link as the displayed String
     QString createWikiLink(QString link);
 
-private slots:
+private Q_SLOTS:
     void slotLinkClicked(const QUrl &url);
 
     void showNextElement();

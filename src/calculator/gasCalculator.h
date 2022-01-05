@@ -61,7 +61,7 @@ public:
     explicit gasCalculator(QWidget * parent = nullptr);
     ~gasCalculator();
 
-public slots:
+public Q_SLOTS:
     /// Calculates the Pressure and updates the UI
     void calculatePressure();
 

@@ -39,7 +39,7 @@ public:
 Q_SIGNALS:
     void settingsChanged();
 
-private slots:
+private Q_SLOTS:
     /**
      * set the correct ranges and min/max values of the
      * GUI elements

@@ -35,13 +35,13 @@ public:
     void hideExtra();
     ~MolcalcWidget() override;
 
-protected slots:
+protected Q_SLOTS:
     void slotCalculate();
 
 protected:
     void keyPressEvent(QKeyEvent *e) override;
 
-private slots:
+private Q_SLOTS:
     void clear();
     void addAlias();
 

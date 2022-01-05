@@ -33,7 +33,7 @@ private:
 
     QList<int> numOfElectrons;
 
-protected slots:
+protected Q_SLOTS:
     virtual void paintEvent(QPaintEvent*) override;
 };
 

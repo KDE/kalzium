@@ -68,7 +68,7 @@ public:
     explicit concCalculator(QWidget * parent = nullptr);
     ~concCalculator();
 
-public slots:
+public Q_SLOTS:
     // Sub-routines involved in calculations of the unit
 
     /// Calculates the amount of solute

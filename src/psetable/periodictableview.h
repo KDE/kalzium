@@ -67,7 +67,7 @@ Q_SIGNALS:
      */
     void numerationChange(int num);
 
-public slots:
+public Q_SLOTS:
     /**
      * Change the pse table to the given id.
      * @param newtable id of the pse table.

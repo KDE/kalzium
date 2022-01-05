@@ -30,7 +30,7 @@ public:
      */
     explicit DetailedGraphicalOverview(QWidget *parent);
 
-public slots:
+public Q_SLOTS:
     /**
      * Set @p el as the element to be drawn
      */

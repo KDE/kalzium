@@ -35,7 +35,7 @@ Q_SIGNALS:
     void elementMatched(int element);
     void resetElementMatch();
 
-public slots:
+public Q_SLOTS:
     void updateContent();
 
     void setDockArea(Qt::DockWidgetArea newDockArea);

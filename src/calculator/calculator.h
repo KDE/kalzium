@@ -54,16 +54,16 @@ private:
 #ifdef HAVE_FACILE
     EQChemDialog *      m_equationBalancer;     // The equation balancer
 #endif
-protected slots:
+protected Q_SLOTS:
     /**
      * invoke the help of the correct chapter
      */
     virtual void slotHelp();
-private slots:
+private Q_SLOTS:
 
     // occurs when an tree item is selected, opens the corresponding calculator
     void slotItemSelection(QTreeWidgetItem *item);
-public slots:
+public Q_SLOTS:
 };
 
 #endif // CALCULATOR_H

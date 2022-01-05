@@ -134,7 +134,7 @@ private:
 Q_SIGNALS:
     void numerationChanged(int);
 
-private slots:
+private Q_SLOTS:
     /**
      * opens the information dialog for the element @p number
      */

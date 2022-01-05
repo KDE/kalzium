@@ -37,7 +37,7 @@ private:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
 
-private slots:
+private Q_SLOTS:
     void setZoomLevel(double zoomLevel);
     void setVisibleSceneRect(const QPolygonF &sceneRect);
 };

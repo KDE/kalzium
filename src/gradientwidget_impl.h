@@ -41,14 +41,14 @@ Q_SIGNALS:
      */
     void gradientValueChanged(double);
 
-public slots:
+public Q_SLOTS:
     /**
      * Sets the comboboxes to the current values.
      * the current values come form the elementProperty class.
      */
     void slotGradientChanged();
 
-private slots:
+private Q_SLOTS:
     void play(void);
     void stop(void);
     void tick(void);

@@ -36,10 +36,10 @@ public:
 
     QString sphrase(int number);
 
-public slots:
+public Q_SLOTS:
     void filter();
 
-private slots:
+private Q_SLOTS:
     void slotHelp();
 
 private:

@@ -69,7 +69,7 @@ public:
      */
     bool matches(int el) const;
 
-public slots:
+public Q_SLOTS:
     /**
      * Search the @p text by looking at the element using the
      * specified @p kind

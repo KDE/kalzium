@@ -27,7 +27,7 @@ public:
 private:
     QLabel *m_tableType;
 
-public slots:
+public Q_SLOTS:
     void setTableType(int type);
 };
 

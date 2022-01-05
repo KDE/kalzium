@@ -54,7 +54,7 @@ private:
     Ui::exportDialogForm ui;
     QTextStream *m_outputStream;
 
-public slots:
+public Q_SLOTS:
     void slotOkClicked();
     /**
      * Open help page

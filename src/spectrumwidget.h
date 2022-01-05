@@ -173,7 +173,7 @@ private:
 
     QPoint m_LMBPointCurrent;
 
-public slots:
+public Q_SLOTS:
     ///(re)create startconditions
     void resetSpectrum();
 
@@ -200,7 +200,7 @@ signals:
      */
     void peakSelected(Spectrum::peak * peak);
 
-private slots:
+private Q_SLOTS:
     void slotZoomIn();
     void slotZoomOut();
 

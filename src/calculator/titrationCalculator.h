@@ -35,7 +35,7 @@ public:
     explicit titrationCalculator(QWidget * parent = nullptr);
     ~titrationCalculator();
 
-public slots:
+public Q_SLOTS:
     void on_pushButton_clicked();
     void on_xmin_valueChanged(double val);
     void on_xmax_valueChanged(double val);

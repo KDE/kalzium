@@ -53,7 +53,7 @@ public:
     explicit MyTableWidget(QWidget* parent);
 protected:
     void contextMenuEvent(QContextMenuEvent* event) override;
-private slots:
+private Q_SLOTS:
     void copyToClipboard();
 };
 
