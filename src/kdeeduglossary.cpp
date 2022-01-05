@@ -13,7 +13,7 @@
 #include <KTreeWidgetSearchLine>
 
 #include <QKeyEvent>
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QDialogButtonBox>
 #include <QDomDocument>
 #include <QEvent>
@@ -148,7 +148,7 @@ bool Glossary::loadLayout(QDomDocument &Document, const QUrl &url)
     QFile layoutFile(url.path());
 
     if (!layoutFile.exists()) {
-        qDebug() << "no such file: " << layoutFile.fileName();
+        qCDebug(KALZIUM_LOG) << "no such file: " << layoutFile.fileName();
         return false;
     }
 
@@ -158,7 +158,7 @@ bool Glossary::loadLayout(QDomDocument &Document, const QUrl &url)
 
     // check if document is well-formed
     if (!Document.setContent(&layoutFile)) {
-        qDebug() << "wrong xml of " << layoutFile.fileName();
+        qCDebug(KALZIUM_LOG) << "wrong xml of " << layoutFile.fileName();
         layoutFile.close();
         return false;
     }

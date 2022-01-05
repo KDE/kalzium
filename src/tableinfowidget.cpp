@@ -6,7 +6,7 @@
 
 #include "tableinfowidget.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QHBoxLayout>
 
 #include <KLocalizedString>

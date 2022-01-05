@@ -16,7 +16,7 @@
 
 #include <prefs.h>
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QFont>
 #include <QFontMetrics>
 #include <QPainter>

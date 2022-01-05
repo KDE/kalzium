@@ -7,7 +7,7 @@
 #ifndef NUCLEARCALCULATOR_H
 #define NUCLEARCALCULATOR_H
 
-#include <QDebug>
+#include "kalzium_debug.h"
 
 #include <KUnitConversion/UnitCategory>
 #include <KUnitConversion/Converter>

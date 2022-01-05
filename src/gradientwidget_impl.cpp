@@ -7,7 +7,7 @@
 
 #include <KLocalizedString>
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QIcon>
 #include <QTimer>
 

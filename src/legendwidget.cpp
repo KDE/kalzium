@@ -8,7 +8,7 @@
 
 #include "prefs.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QGridLayout>
 #include <QHBoxLayout>
 
@@ -27,7 +27,7 @@ LegendWidget::~LegendWidget()
 
 void LegendWidget::setDockArea(Qt::DockWidgetArea newDockArea)
 {
-    qDebug() << "dock Area changed" << newDockArea;
+    qCDebug(KALZIUM_LOG) << "dock Area changed" << newDockArea;
 
     m_dockArea = newDockArea;
     updateContent();

@@ -6,7 +6,7 @@
 
 #include "calculator.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QIcon>
@@ -91,7 +91,7 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
     }
 
     //DEBUG
-    qDebug() << "Item clicked: " << item->text(0);
+    qCDebug(KALZIUM_LOG) << "Item clicked: " << item->text(0);
 
     QString s = item->text(0);
 

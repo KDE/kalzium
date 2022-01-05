@@ -10,7 +10,7 @@
 #include "prefs.h"
 
 //Qt-Includes
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QDialogButtonBox>
 #include <QKeyEvent>
 #include <QPen>
@@ -141,14 +141,14 @@ void ElementDataViewer::swapXYAxis()
 
 void ElementDataViewer::setLimits()
 {
-    qDebug() << "ElementDataViewer::setLimits()";
+    qCDebug(KALZIUM_LOG) << "ElementDataViewer::setLimits()";
 
     double x1 = 0.0, x2 = 0.0, y1 = 0.0, y2 = 0.0;
 
     getMinMax(x1, x2, m_xData);
     getMinMax(y1, y2, m_yData);
 
-    qDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2;
+    qCDebug(KALZIUM_LOG) << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2;
 
     //JH: add some padding to show all points
     double dx = 0.05*(x2-x1);
@@ -178,7 +178,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
     double minValue = data->value(firstElement);
     double maxValue = data->value(firstElement);
 
-    qDebug() << "Taking elements from " << firstElement << " to " << lastElement;
+    qCDebug(KALZIUM_LOG) << "Taking elements from " << firstElement << " to " << lastElement;
 
     for (int _currentVal = firstElement; _currentVal <= lastElement; ++_currentVal) { //go over all selected elements
         double v = data->value(_currentVal);
@@ -191,7 +191,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
         }
     }
 
-    qDebug() << "The value are ]"<< minValue << " , " << maxValue << "[.";
+    qCDebug(KALZIUM_LOG) << "The value are ]"<< minValue << " , " << maxValue << "[.";
 
     min = minValue;
     max = maxValue;

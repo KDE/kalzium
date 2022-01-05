@@ -10,7 +10,7 @@
 
 #include <KLocalizedString>
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QFile>
 #include <QFileInfo>
 #include <QFontDatabase>

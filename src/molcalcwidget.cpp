@@ -16,7 +16,7 @@
 #include "search.h"
 #include "prefs.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QFile>
 #include <QKeyEvent>
 #include <QLineEdit>
@@ -62,7 +62,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 
         // Check file validity
         if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text))) {
-            qDebug() << fileName << " opened";
+            qCDebug(KALZIUM_LOG) << fileName << " opened";
             QTextStream in(&file);
             // Get all shortForms and fullForms in the file.
             // eg the short form and full form extracted from ("Me","CH3")
@@ -87,7 +87,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
                     (i18n("%1",shortForm + " : " + fullForm)));
             }
         } else {
-            qDebug() << fileName << " could not be opened!";
+            qCDebug(KALZIUM_LOG) << fileName << " could not be opened!";
         }
 
         // Find the system defined aliases
@@ -99,7 +99,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 
         // Check file validity
         if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text))) {
-            qDebug() << fileName << " opened";
+            qCDebug(KALZIUM_LOG) << fileName << " opened";
             QTextStream in(&file2);
 
             // Get all shortForms and fullForms in the file.
@@ -123,7 +123,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
                     (i18n("%1",shortForm + " : " + fullForm)));
             }
         } else {
-            qDebug() << fileName << " could not be opened!";
+            qCDebug(KALZIUM_LOG) << fileName << " could not be opened!";
         }
     }
 }
@@ -157,10 +157,10 @@ void MolcalcWidget::clear()
 
 void MolcalcWidget::updateUI()
 {
-    qDebug() << "MolcalcWidget::updateUI()";
+    qCDebug(KALZIUM_LOG) << "MolcalcWidget::updateUI()";
 
     if (m_validInput) {
-        qDebug() << "m_validInput == true";
+        qCDebug(KALZIUM_LOG) << "m_validInput == true";
 
         // The complexString stores the whole molecule like this:
         // 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
@@ -216,7 +216,7 @@ void MolcalcWidget::updateUI()
         KalziumDataObject::instance()->findElements(list);
 #endif
     } else { //the input was invalid, so tell this the user
-        qDebug() << "m_validInput == false";
+        qCDebug(KALZIUM_LOG) << "m_validInput == false";
         ui.resultComposition->setText(i18n("Invalid input"));
         ui.resultLabel->setText(QString());
         ui.resultMass->setText(QString());
@@ -245,7 +245,7 @@ QString MolcalcWidget::compositionString(ElementCountMap &_map)
 
 void MolcalcWidget::slotCalculate()
 {
-    qDebug() << "MolcalcWidget::slotCalcButtonClicked()";
+    qCDebug(KALZIUM_LOG) << "MolcalcWidget::slotCalcButtonClicked()";
     QString  molecule = ui.formulaEdit->text();
 
     // Parse the molecule, and at the same time calculate the total
@@ -254,7 +254,7 @@ void MolcalcWidget::slotCalculate()
             m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
             m_aliasList = m_parser->aliasList();
     }
-    qDebug() << "done calculating.";
+    qCDebug(KALZIUM_LOG) << "done calculating.";
 
     updateUI();
 }
@@ -299,8 +299,8 @@ void MolcalcWidget::addAlias()
     if (!(!file.open(QIODevice::WriteOnly| QIODevice::Append | QIODevice::Text))) {
         QTextStream out(&file);
         out << "\"" + shortForm + "\",\"" + fullForm + "\"\n";
-        qDebug() << fileName << "is the file.";
-        qDebug() << "\"" + shortForm + "\",\"" + fullForm + "\"\n";
+        qCDebug(KALZIUM_LOG) << fileName << "is the file.";
+        qCDebug(KALZIUM_LOG) << "\"" + shortForm + "\",\"" + fullForm + "\"\n";
         ui.aliasMessage->setText(i18n("done!"));
         return;
     } else {

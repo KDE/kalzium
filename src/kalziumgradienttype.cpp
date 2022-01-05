@@ -10,7 +10,7 @@
 #include "prefs.h"
 #include "kalziumdataobject.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QVariant>
 
 #include <KLocalizedString>

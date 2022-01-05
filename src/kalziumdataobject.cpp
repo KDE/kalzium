@@ -12,7 +12,7 @@
 #include <spectrumparser.h>
 
 #include <QCoreApplication>
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QFile>
 #include <QFileInfo>
 #include <QGlobalStatic>

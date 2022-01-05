@@ -5,7 +5,7 @@
 
 #include "spectrumviewimpl.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QTableWidget>
 #include <QTreeWidget>
 
@@ -103,7 +103,7 @@ void SpectrumViewImpl::setUnit()
 {
     Prefs::setSpectrumWavelengthUnit(m_lengthUnit->getCurrentUnitId());
     Prefs::self()->save();
-    qDebug() << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
+    qCDebug(KALZIUM_LOG) << "Unit changed: " << m_lengthUnit->getCurrentUnitId();
 
     Q_EMIT settingsChanged();
     fillPeakList();

@@ -43,6 +43,8 @@ if (HAVE_OPENBABEL)
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (HAVE_OPENBABEL)
 
+
+
 ## Kalzium calculator files
 set(kalziumtools_SRCS
    ${kalziumtools_SRCS}
@@ -68,6 +70,7 @@ ki18n_wrap_ui(kalziumtools_SRCS
 #   calculator/massCalculator.ui
    )
 
+ecm_qt_declare_logging_category(kalziumtools_SRCS HEADER kalzium_debug.h IDENTIFIER KALZIUM_LOG CATEGORY_NAME org.kde.kalzium DESCRIPTION "Kalzium" EXPORT KALZIUML)
 set(kalzium_SRCS
    ${kalziumtools_SRCS}
    detailedgraphicaloverview.cpp

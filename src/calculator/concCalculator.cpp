@@ -6,7 +6,7 @@
 
 #include "concCalculator.h"
 
-#include <QDebug>
+#include "kalzium_debug.h"
 
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>

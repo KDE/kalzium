@@ -7,7 +7,7 @@
 #ifndef CONCCALCULATOR_H
 #define CONCCALCULATOR_H
 
-#include <QDebug>
+#include "kalzium_debug.h"
 
 #include <KUnitConversion/UnitCategory>
 

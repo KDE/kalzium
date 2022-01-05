@@ -7,7 +7,7 @@
 #ifndef GASCALCULATOR_H
 #define GASCALCULATOR_H
 
-#include <QDebug>
+#include "kalzium_debug.h"
 
 #include <KUnitConversion/Converter>
 #include <KUnitConversion/UnitCategory>

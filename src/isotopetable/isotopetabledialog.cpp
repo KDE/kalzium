@@ -13,7 +13,7 @@
 
 #include <isotope.h>
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>

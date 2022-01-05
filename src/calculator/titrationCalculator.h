@@ -7,7 +7,7 @@
 #ifndef TITRATIONCALCULATOR_H
 #define TITRATIONCALCULATOR_H
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QString>
 #include <QStringList>
 

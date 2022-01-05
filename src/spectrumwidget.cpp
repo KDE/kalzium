@@ -14,7 +14,7 @@
 #include <element.h>
 #include <math.h>
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QGlobalStatic>
 #include <QKeyEvent>
 #include <QPainter>
@@ -237,7 +237,7 @@ void SpectrumWidget::keyPressEvent(QKeyEvent *e)
 
 void SpectrumWidget::slotZoomOut()
 {
-    qDebug() << "SpectrumWidget::slotZoomOut() " << m_startValue << ":: " << m_endValue;
+    qCDebug(KALZIUM_LOG) << "SpectrumWidget::slotZoomOut() " << m_startValue << ":: " << m_endValue;
 
     double diff = m_endValue - m_startValue;
 
@@ -260,7 +260,7 @@ void SpectrumWidget::slotZoomOut()
 
 void SpectrumWidget::setBorders(double left, double right)
 {
-    qDebug() << "setBorders    " << left << ".." << right;
+    qCDebug(KALZIUM_LOG) << "setBorders    " << left << ".." << right;
 
     m_startValue = left;
     m_endValue = right;
@@ -273,7 +273,7 @@ void SpectrumWidget::setBorders(double left, double right)
 
 void SpectrumWidget::slotZoomIn()
 {
-    qDebug() << "SpectrumWidget::slotZoomIn() " << m_startValue << ":: " << m_endValue;
+    qCDebug(KALZIUM_LOG) << "SpectrumWidget::slotZoomIn() " << m_startValue << ":: " << m_endValue;
 
     double diff = m_endValue - m_startValue;
 
@@ -305,7 +305,7 @@ void SpectrumWidget::mousePressEvent(QMouseEvent *e)
 
 void SpectrumWidget::findPeakFromMouseposition(double wavelength)
 {
-    qDebug() << "SpectrumWidget::findPeakFromMouseposition()";
+    qCDebug(KALZIUM_LOG) << "SpectrumWidget::findPeakFromMouseposition()";
     Spectrum::peak *peak = nullptr;
 
     //find the difference in percent (1.0 is 100%, 0.1 is 10%)

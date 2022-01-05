@@ -25,6 +25,7 @@ include(ECMInstallIcons)
 include(ECMMarkNonGuiExecutable)
 include(CheckIncludeFiles)
 include(ECMSetupVersion)
+include(ECMQtDeclareLoggingCategory)
 
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)
@@ -142,5 +143,11 @@ if (KF5DocTools_FOUND)
     kdoctools_install(po)
 endif()
 install(FILES org.kde.kalzium.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+
+ecm_qt_install_logging_categories(
+        EXPORT KALZIUM
+        FILE kalzium.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

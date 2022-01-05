@@ -441,7 +441,7 @@ void Kalzium::slotSwitchtoNumeration(int index)
 
 void Kalzium::slotSwitchtoLookGradient(int which)
 {
-    qDebug() << "slotSwitchtoLookGradient Kalzium";
+    qCDebug(KALZIUM_LOG) << "slotSwitchtoLookGradient Kalzium";
 
     KalziumElementProperty::instance()->setGradient(which);
 
@@ -461,7 +461,7 @@ void Kalzium::slotSwitchtoLookGradient(int which)
 
 void Kalzium::slotSwitchtoLookScheme(int which)
 {
-    qDebug() << "slotSwitchtoLookScheme Kalzium";
+    qCDebug(KALZIUM_LOG) << "slotSwitchtoLookScheme Kalzium";
 
     KalziumElementProperty::instance()->setScheme(which);
 
@@ -558,7 +558,7 @@ void Kalzium::elementHover(int num)
                                  e->dataAsString(ChemicalDataObject::name),
                                  e->dataAsString(ChemicalDataObject::atomicNumber),
                                  e->dataAsString(ChemicalDataObject::mass)));
-    qDebug() << "change item in status bar";
+    qCDebug(KALZIUM_LOG) << "change item in status bar";
 
     m_detailWidget->setElement(num);
 }

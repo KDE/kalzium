@@ -7,7 +7,7 @@
 
 #include <config-kalzium.h>
 
-#include <QDebug>
+#include "kalzium_debug.h"
 #include <QFont>
 #include <QPainter>
 #include <QRect>
