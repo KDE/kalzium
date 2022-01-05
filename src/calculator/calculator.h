@@ -63,7 +63,6 @@ private Q_SLOTS:
 
     // occurs when an tree item is selected, opens the corresponding calculator
     void slotItemSelection(QTreeWidgetItem *item);
-public Q_SLOTS:
 };
 
 #endif // CALCULATOR_H
