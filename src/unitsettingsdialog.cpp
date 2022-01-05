@@ -49,17 +49,17 @@ UnitSettingsDialog::UnitSettingsDialog(QWidget* parent) : QWidget(parent)
     setLayout(layout);
 }
 
-int UnitSettingsDialog::getEnergyUnitId()
+int UnitSettingsDialog::getEnergyUnitId() const
 {
     return m_comboBoxLEnergiesUnit->getCurrentUnitId();
 }
 
-int UnitSettingsDialog::getLenghtUnitId()
+int UnitSettingsDialog::getLenghtUnitId() const
 {
     return m_comboBoxLengthUnit->getCurrentUnitId();
 }
 
-int UnitSettingsDialog::getTemperatureUnitId()
+int UnitSettingsDialog::getTemperatureUnitId() const
 {
     return m_comboBoxLTemperatureUnit->getCurrentUnitId();
 }

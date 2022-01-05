@@ -16,11 +16,11 @@ public:
     explicit UnitSettingsDialog(QWidget* parent = nullptr);
     virtual ~UnitSettingsDialog();
 
-    int getLenghtUnitId();
+    int getLenghtUnitId() const;
 
-    int getEnergyUnitId();
+    int getEnergyUnitId() const;
 
-    int getTemperatureUnitId();
+    int getTemperatureUnitId() const;
 
 private:
     KalziumUnitCombobox *m_comboBoxLengthUnit;
