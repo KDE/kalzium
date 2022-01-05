@@ -37,7 +37,6 @@ KalziumDataObject* KalziumDataObject::instance()
 }
 
 KalziumDataObject::KalziumDataObject()
-        : m_search(nullptr)
 {
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();

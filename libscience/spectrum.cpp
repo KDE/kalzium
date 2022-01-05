@@ -17,7 +17,7 @@ double Spectrum::minPeak()
 {
     double value = m_peaklist.first()->wavelength;
 
-    foreach (peak *p, m_peaklist) {
+    for (peak *p : std::as_const(m_peaklist)) {
         if (value > p->wavelength) {
             value = p->wavelength;
         }
@@ -35,7 +35,7 @@ double Spectrum::maxPeak()
 {
     double value = m_peaklist.first()->wavelength;
 
-    foreach (peak * p, m_peaklist) {
+    for (peak *p : std::as_const(m_peaklist)) {
         if (value < p->wavelength) {
             value = p->wavelength;
         }
@@ -54,7 +54,7 @@ Spectrum* Spectrum::adjustToWavelength(double min, double max)
 {
     Spectrum *spec = new Spectrum();
 
-    foreach (peak * p , m_peaklist) {
+    for (peak *p : std::as_const(m_peaklist)) {
         if (p->wavelength >= min || p->wavelength <= max) {
             spec->addPeak(p);
         }
@@ -67,7 +67,7 @@ void Spectrum::adjustIntensities()
 {
     int maxInt = 0;
     //find the highest intensity
-    foreach (Spectrum::peak * p, m_peaklist) {
+    for (peak *p : std::as_const(m_peaklist)) {
         if (p->intensity > maxInt) {
             maxInt = p->intensity;
         }
@@ -79,7 +79,7 @@ void Spectrum::adjustIntensities()
     }
 
     //now adjust the intensities.
-    foreach (Spectrum::peak *p, m_peaklist) {
+    for (peak *p : std::as_const(m_peaklist)) {
         double newInt = p->intensity * 1000 / maxInt;
 
         p->intensity = (int)qRound(newInt);
@@ -90,7 +90,7 @@ QList<double> Spectrum::wavelengths(double min, double max)
 {
     QList<double> list;
 
-    foreach (peak * p , m_peaklist) {
+    for (peak *p : std::as_const(m_peaklist)) {
         if (p->wavelength >= min || p->wavelength <= max) {
             list.append(p->wavelength);
         }

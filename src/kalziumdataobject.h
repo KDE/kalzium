@@ -115,7 +115,7 @@ private:
      */
     int m_numOfElements;
 
-    Search *m_search;
+    Search *m_search = nullptr;
 
     friend struct StaticKalziumDataObject;
 };

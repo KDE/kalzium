@@ -29,8 +29,8 @@ public:
         delete currentPeak;
     }
 
-    Spectrum * currentSpectrum;
-    Spectrum::peak * currentPeak;
+    Spectrum * currentSpectrum = nullptr;
+    Spectrum::peak * currentPeak = nullptr;
 
     bool inMetadata_;
     bool inSpectrum_;

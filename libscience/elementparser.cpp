@@ -57,7 +57,7 @@ public:
 
     ChemicalDataObject currentDataObject;
     int currentUnit; // KUnitConversion::UnitId
-    Element *currentElement;
+    Element *currentElement = nullptr;
 
     QList<Element*> elements;
 
