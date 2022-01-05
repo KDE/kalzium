@@ -22,7 +22,7 @@
 calculator::calculator(QWidget *parent) : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Chemical Calculator"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close, this);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);

@@ -47,10 +47,15 @@ endif (HAVE_OPENBABEL)
 set(kalziumtools_SRCS
    ${kalziumtools_SRCS}
    calculator/calculator.cpp
-   calculator/nuclearCalculator.cpp
-   calculator/gasCalculator.cpp
+   calculator/calculator.h
    calculator/concCalculator.cpp
+   calculator/concCalculator.h
+   calculator/gasCalculator.cpp
+   calculator/gasCalculator.h
+   calculator/nuclearCalculator.cpp
+   calculator/nuclearCalculator.h
    calculator/titrationCalculator.cpp
+   calculator/titrationCalculator.h
 #   calculator/massCalculator.cpp
    )
 ki18n_wrap_ui(kalziumtools_SRCS
