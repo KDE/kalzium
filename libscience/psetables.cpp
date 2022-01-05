@@ -8,7 +8,7 @@
 
 #include "psetables.h"
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 
 #include <KLocalizedString>
 

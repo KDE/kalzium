@@ -7,7 +7,7 @@
 
 #include "spectrum.h"
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 #include <QFile>
 #include <QList>
 
@@ -97,7 +97,7 @@ bool SpectrumParser::endElement(const QString&, const QString& localName, const 
     } else if (localName == QLatin1String("peakList")) {
         d->inSpectrumList_ = false;
     } else if (localName == QLatin1String("peak")) {
-//X             qDebug() << "in 'peak'" << " with this data: " << d->currentPeak->intensity << " (intensity)" ;
+//X             qCDebug(KALZIUM_LIBSCIENCE_LOG) << "in 'peak'" << " with this data: " << d->currentPeak->intensity << " (intensity)" ;
         d->currentSpectrum->addPeak(d->currentPeak);
         d->currentPeak = nullptr;
         d->inPeak_ = false;

@@ -8,7 +8,7 @@
 #include "chemicaldataobject.h"
 #include "element.h"
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>
@@ -109,9 +109,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     } else if ((d->inElement && localName == QLatin1String("scalar")) || localName == QLatin1String("array")) {
         for (int i = 0; i < attrs.length(); ++i) {
             if (attrs.localName(i) == QLatin1String("units")) {
-//                 qDebug() << "value of the unit: " << attrs.value(i);
+//                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "value of the unit: " << attrs.value(i);
                 d->currentUnit = unit(attrs.value(i));
-//                 qDebug() << "Took " << d->currentUnit;
+//                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Took " << d->currentUnit;
                 continue;
             }
 

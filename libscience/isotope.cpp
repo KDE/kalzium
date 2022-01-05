@@ -8,7 +8,7 @@
 
 #include "chemicaldataobject.h"
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 
 Isotope::Isotope()
 {

@@ -70,7 +70,7 @@ ki18n_wrap_ui(kalziumtools_SRCS
 #   calculator/massCalculator.ui
    )
 
-ecm_qt_declare_logging_category(kalziumtools_SRCS HEADER kalzium_debug.h IDENTIFIER KALZIUM_LOG CATEGORY_NAME org.kde.kalzium DESCRIPTION "Kalzium" EXPORT KALZIUML)
+ecm_qt_declare_logging_category(kalziumtools_SRCS HEADER kalzium_debug.h IDENTIFIER KALZIUM_LOG CATEGORY_NAME org.kde.kalzium DESCRIPTION "Kalzium" EXPORT KALZIUM)
 set(kalzium_SRCS
    ${kalziumtools_SRCS}
    detailedgraphicaloverview.cpp

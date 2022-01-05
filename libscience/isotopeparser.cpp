@@ -8,7 +8,7 @@
 #include "chemicaldataobject.h"
 #include "isotope.h"
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 
 #include <KUnitConversion/Converter>
 

@@ -6,7 +6,7 @@
 
 #include "element.h"
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 
 #include <KUnitConversion/Converter>
 

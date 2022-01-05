@@ -1,7 +1,10 @@
 add_subdirectory(data)
 add_subdirectory(tests)
 
-set(science_LIB_SRCS
+
+add_library(science SHARED)
+ecm_qt_declare_logging_category(science HEADER kalzium_libscience_debug.h IDENTIFIER KALZIUM_LIBSCIENCE_LOG CATEGORY_NAME org.kde.kalzium.libscience DESCRIPTION "Kalzium (libscience)" EXPORT KALZIUM)
+target_sources(science PRIVATE
    element.cpp
    spectrum.cpp
    isotope.cpp
@@ -14,7 +17,7 @@ set(science_LIB_SRCS
    psetables.cpp
 )
 
-add_library(science SHARED ${science_LIB_SRCS})
+
 
 target_link_libraries(science Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
 set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )

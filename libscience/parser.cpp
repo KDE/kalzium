@@ -7,7 +7,7 @@
 
 #include <ctype.h>
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 
 
 Parser::Parser()
@@ -125,8 +125,8 @@ bool Parser::parseSimpleFloat(double *_result)
 
 int Parser::getNextChar()
 {
-//    qDebug() << "Parser::getNextChar(): char = " << m_nextChar;
-//    qDebug() << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index;
+//    qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parser::getNextChar(): char = " << m_nextChar;
+//    qCDebug(KALZIUM_LIBSCIENCE_LOG) << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index;
 
     ++m_index;
 

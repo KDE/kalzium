@@ -7,7 +7,7 @@
 
 #include <ctype.h>
 
-#include <QDebug>
+#include "kalzium_libscience_debug.h"
 #include <QFile>
 #include <QStandardPaths>
 
@@ -118,9 +118,9 @@ bool MoleculeParser::weight(const QString   &_shortMoleculeString,
 
     // Expand the molecule string
     // Example : MeOH -> (CH3)OH
-    qDebug() << _shortMoleculeString << "is going to be expanded";
+    qCDebug(KALZIUM_LIBSCIENCE_LOG) << _shortMoleculeString << "is going to be expanded";
     _moleculeString = expandFormula(_shortMoleculeString);
-    qDebug() << _moleculeString << "is the expanded string";
+    qCDebug(KALZIUM_LIBSCIENCE_LOG) << _moleculeString << "is the expanded string";
 
     // Now set the expanded string
     // Initialize the parsing process, and parse te molecule.
@@ -158,7 +158,7 @@ bool MoleculeParser::parseSubmolecule(double          *_resultMass,
     *_resultMass = 0.0;
     _resultMap->clear();
     while (parseTerm(&subMass, &subMap)) {
-        //qDebug() << "Parsed a term, weight = " << subresult;
+        //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a term, weight = " << subresult;
 
         // Add the mass and composition of the submolecule to the total.
         *_resultMass += subMass;
@@ -186,7 +186,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
     _resultMap->clear();
 
     if (nextToken() == ELEMENT_TOKEN) {
-        //qDebug() << "Parsed an element: " << m_elementVal->symbol();
+        //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed an element: " << m_elementVal->symbol();
         *_resultMass = m_elementVal->dataAsVariant( ChemicalDataObject::mass ).toDouble();
         _resultMap->add(m_elementVal, 1);
 
@@ -199,7 +199,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
 
         // Must end in a ")".
         if (nextToken() == ')') {
-            //qDebug() << "Parsed a submolecule. weight = " << *_result;
+            //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a submolecule. weight = " << *_result;
             getNextToken();
         } else {
             return false;
@@ -211,7 +211,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
 
     // Optional number.
     if (nextToken() == INT_TOKEN) {
-        //qDebug() << "Parsed a number: " << intVal();
+        //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a number: " << intVal();
 
         *_resultMass *= intVal();
         _resultMap->multiply(intVal());
@@ -219,7 +219,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
         getNextToken();
     }
 
-    qDebug() << "Weight of term = " << *_resultMass;
+    qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Weight of term = " << *_resultMass;
     return true;
 }
 
@@ -233,7 +233,7 @@ int MoleculeParser::getNextToken()
     QString name;
 
 #if 0
-    qDebug() << "getNextToken(): Next character = "
+    qCDebug(KALZIUM_LIBSCIENCE_LOG) << "getNextToken(): Next character = "
           << nextChar() << endl;
 #endif
 
@@ -266,11 +266,11 @@ int MoleculeParser::getNextToken()
 
 Element *MoleculeParser::lookupElement(const QString& _name)
 {
-    qDebug() << "looking up " << _name;
+    qCDebug(KALZIUM_LIBSCIENCE_LOG) << "looking up " << _name;
 
     foreach (Element* e, m_elementList) {
         if (e->dataAsVariant(ChemicalDataObject::symbol) == _name) {
-            qDebug() << "Found element " << _name;
+            qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Found element " << _name;
             return e;
         }
     }
@@ -278,7 +278,7 @@ Element *MoleculeParser::lookupElement(const QString& _name)
     //if there is an error make m_error true.
     m_error = true;
 
-    qDebug() << "no such element!: " << _name;
+    qCDebug(KALZIUM_LIBSCIENCE_LOG) << "no such element!: " << _name;
 
     return nullptr;
 }
@@ -310,7 +310,7 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
                 _fullString += temp;
             } else if (!((expandedTerm = expandTerm(temp)).isEmpty())) {
                 // If an expansion was made, return the expansion
-                qDebug() << "expanded" << temp << "to" << expandedTerm;
+                qCDebug(KALZIUM_LIBSCIENCE_LOG) << "expanded" << temp << "to" << expandedTerm;
                 _fullString += '('+expandedTerm+')';
             } else { // invalid term, append it. (Validation is done later anyway.)
                 _fullString += temp;
@@ -347,7 +347,7 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
         } else { // invalid character, return it, validation is done again later
             _fullString += *i;
             ++i;
-            qDebug() << *i << "invalid character!";
+            qCDebug(KALZIUM_LIBSCIENCE_LOG) << *i << "invalid character!";
         }
     }
 
@@ -368,7 +368,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
 
     // Check file validity
     if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text))) {
-        qDebug() << fileName << " opened";
+        qCDebug(KALZIUM_LIBSCIENCE_LOG) << fileName << " opened";
         QTextStream in(&file);
 
         // Get all shortForms and fullForms in the file.
@@ -386,7 +386,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
             }
         }
     } else {
-        qDebug() << fileName << " could not be opened!";
+        qCDebug(KALZIUM_LIBSCIENCE_LOG) << fileName << " could not be opened!";
     }
 
     // Find the system defined aliases    
@@ -396,7 +396,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
 
     // Check file validity
     if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text))) {
-        qDebug() << fileName << " opened";
+        qCDebug(KALZIUM_LIBSCIENCE_LOG) << fileName << " opened";
         QTextStream in(&file2);
 
         // Get all shortForms and fullForms in the file.
@@ -413,7 +413,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
             }
         }
     } else {
-        qDebug() << fileName << " could not be opened!";
+        qCDebug(KALZIUM_LIBSCIENCE_LOG) << fileName << " could not be opened!";
     }
 
     // Sample expansions, work even when file is not found, testing purposes
