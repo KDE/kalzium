@@ -93,7 +93,7 @@ void SpectrumViewImpl::updatePeakInformation(Spectrum::peak *peak)
     }
 
     foreach (QTreeWidgetItem * item, peakListTable->selectedItems())
-    item->setSelected(false);
+        item->setSelected(false);
 
     foundItems.first()->setSelected(true);
     peakListTable->scrollToItem(foundItems.first());
