@@ -68,7 +68,6 @@ private:
     QString greenplot;
     QString blueplot;
 
-    Ui::titrationCalculator *ui;               // The user interface pointer
     Ui::titrationCalculator uid;               // The user interface
 };
 
