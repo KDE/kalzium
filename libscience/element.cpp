@@ -26,7 +26,7 @@ QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type) const
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) const
 {
-    foreach (const ChemicalDataObject &o, dataList) {
+    for (const ChemicalDataObject &o : dataList) {
         if (o.type() == type) {
             if (unit == KUnitConversion::NoUnit) {
                 return o.value();

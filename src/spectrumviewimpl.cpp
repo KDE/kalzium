@@ -85,7 +85,7 @@ void SpectrumViewImpl::updatePeakInformation(Spectrum::peak *peak)
 {
     double peakWavelength = peak->wavelengthToUnit(Prefs::spectrumWavelengthUnit());
 
-    QList<QTreeWidgetItem *> foundItems = peakListTable->findItems(QString::number(peakWavelength),
+    const QList<QTreeWidgetItem *> foundItems = peakListTable->findItems(QString::number(peakWavelength),
                                           Qt::MatchExactly);
 
     if (foundItems.isEmpty()) {

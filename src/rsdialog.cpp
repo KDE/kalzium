@@ -63,7 +63,7 @@ void RSDialog::filter()
     if (!ui.r_le->text().isEmpty())
     {
         const QStringList rSplit = ui.r_le->text().split('-');
-        foreach (const QString &st, rSplit) {
+        for (const QString &st : rSplit) {
             r << st.toInt();
         }
     }
@@ -72,7 +72,7 @@ void RSDialog::filter()
     if (!ui.s_le->text().isEmpty())
     {
         const QStringList sSplit = ui.s_le->text().split('-');
-        foreach (const QString &st, sSplit) {
+        for (const QString &st : sSplit) {
             s << st.toInt();
         }
     }
@@ -84,15 +84,15 @@ void RSDialog::filterRS(const QList<int>& r, const QList<int>& s)
 {
     QString string(QStringLiteral("<qt>"));
 
-    if (r.count() > 0) {
+    if (!r.isEmpty()) {
         string.append("<h2>" + i18n("R-Phrases:") + "</h2>");
-        foreach (int i, r) {
+        for (int i : r) {
             QString phrase("<b>" + QString::number(i) + " - ");
             phrase.append(rphrase(i) + "</b>");
             string.append(phrase + "<br>");
         }
     }
-    if (s.count() > 0) {
+    if (!s.isEmpty()) {
         string.append("<h2>" + i18n("S-Phrases:") + "</h2>");
         foreach (int i, s) {
             QString phrase("<b>" + QString::number(i) + " -  ");
@@ -100,7 +100,7 @@ void RSDialog::filterRS(const QList<int>& r, const QList<int>& s)
             string.append(phrase + "<br>");
         }
     }
-    if (s.count() == 0 && r.count() == 0)
+    if (s.isEmpty() && r.isEmpty())
         string.append("<h2>" + i18n("You asked for no R/S-Phrases.") + "</h2>");
 
     string.append("</qt>");

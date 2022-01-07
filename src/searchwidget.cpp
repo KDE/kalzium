@@ -73,8 +73,8 @@ void SearchWidget::doSearch()
         return;
     }
 
-    QString txt = m_searchLine->text();
-    if (txt.length() > 0) {
+    const QString txt = m_searchLine->text();
+    if (!txt.isEmpty()) {
         s->doSearch(txt, Search::SearchAll);
     } else {
         s->resetSearch();

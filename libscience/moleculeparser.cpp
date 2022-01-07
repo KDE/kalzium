@@ -25,7 +25,7 @@ ElementCountMap::~ElementCountMap()
 
 ElementCount *ElementCountMap::search(Element *_element)
 {
-    foreach (ElementCount *c, m_map) {
+    for (ElementCount *c : std::as_const(m_map)) {
         if (c->element() == _element) {
             return c;
         }
@@ -36,7 +36,7 @@ ElementCount *ElementCountMap::search(Element *_element)
 
 void ElementCountMap::add(ElementCountMap &_map)
 {
-    foreach (ElementCount *c, _map.m_map) {
+    for (ElementCount *c : std::as_const(_map.m_map)) {
         add(c->m_element, c->m_count);
     }
 }
@@ -45,7 +45,7 @@ QList<Element*> ElementCountMap::elements()
 {
     QList<Element*> list;
 
-    foreach (ElementCount* c, m_map) {
+    for (ElementCount* c : std::as_const(m_map)) {
         Element* e = c->m_element;
         if (!list.contains(e)) {
             list << e;

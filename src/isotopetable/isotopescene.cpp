@@ -36,7 +36,7 @@ void IsotopeScene::updateContextHelp(IsotopeItem * item)
 
 void IsotopeScene::drawIsotopes()
 {
-    QList<Element*> elist = KalziumDataObject::instance()->ElementList;
+    const QList<Element*> elist = KalziumDataObject::instance()->ElementList;
     int mode = 0;
 
     foreach (Element *e, elist) {

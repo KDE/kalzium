@@ -111,7 +111,7 @@ bool SpectrumParser::characters(const QString &ch)
     return true;
 }
 
-QList<Spectrum*> SpectrumParser::getSpectrums()
+QList<Spectrum*> SpectrumParser::getSpectrums() const
 {
     return d->spectra;
 }

@@ -35,7 +35,7 @@ public:
 
     bool characters(const QString &ch) override;
 
-    QList<Spectrum*> getSpectrums();
+    QList<Spectrum*> getSpectrums() const;
 
 private:
     QString currentElementID;

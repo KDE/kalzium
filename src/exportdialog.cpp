@@ -77,7 +77,7 @@ ExportDialog::ExportDialog(QWidget * parent)
         : QDialog(parent),m_outputStream(nullptr)
 {
     qCDebug(KALZIUM_LOG) << "ExportDialog::ExportDialog";
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help, this);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
