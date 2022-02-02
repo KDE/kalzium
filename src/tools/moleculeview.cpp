@@ -140,7 +140,7 @@ void MoleculeDialog::slotLoadMolecule()
         KMessageBox::information(this, error);
     }
 
-    m_path = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/molecules/"), QStandardPaths::LocateDirectory);
+    m_path = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/molecules/"), QStandardPaths::LocateDirectory);
 
     QString commonMoleculeFormats = i18n("Common molecule formats");
     QString allFiles = i18n("All files");

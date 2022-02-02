@@ -56,10 +56,10 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
 
     resize(820, 580);
 
-    m_baseHtml = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/htmlview/"), QStandardPaths::LocateDirectory);
-    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("data/hazardsymbols/"), QStandardPaths::LocateDirectory);
+    m_baseHtml = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/htmlview/"), QStandardPaths::LocateDirectory);
+    m_baseHtml2 = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/hazardsymbols/"), QStandardPaths::LocateDirectory);
 
-//X     m_picsdir = QStandardPaths::locate(QStandardPaths::DataLocation, "elempics/") + "elempics/";
+//X     m_picsdir = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "elempics/") + "elempics/";
 //X     m_picsdir = QFileInfo(m_picsdir).absolutePath();
 
     // creating the tabs but not the contents, as that will be done when setting the element

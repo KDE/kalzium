@@ -23,7 +23,7 @@ DetailedQmlView::DetailedQmlView(QWidget *parent) : QWidget(parent)
 
     QDeclarativeView *view = new QDeclarativeView(this);
 
-    QString qmlPath = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/", QStandardPaths::LocateDirectory);
+    QString qmlPath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "qml/", QStandardPaths::LocateDirectory);
 
     m_context = view->rootContext();
 

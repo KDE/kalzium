@@ -183,7 +183,7 @@ void KalziumDataObject::loadIconSet()
     //a settings-dialog where we can select the different iconsets...
     const QString setname = QStringLiteral("school");
     QString pathname = QStandardPaths::locate(
-        QStandardPaths::DataLocation, "data/iconsets/" + setname + '/',
+        QStandardPaths::AppLocalDataLocation, "data/iconsets/" + setname + '/',
         QStandardPaths::LocateDirectory);
     QSvgRenderer renderer;
 
