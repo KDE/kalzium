@@ -70,7 +70,7 @@ public:
 
     void addState(QState *state, QAbstractAnimation *animation, const int &id);
 
-    void switchToState(const int &n);
+    void switchToState(int n);
 };
 
 #endif // STATEMACHINE_H

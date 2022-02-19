@@ -71,8 +71,8 @@ void IsotopeTableDialog::updateDockWidget(IsotopeItem * item)
 {
     Isotope *s = item->isotope();
 
-    QString header = i18n("<h1>%1 (%2)</h1>", s->parentElementSymbol(), s->parentElementNumber());
-    QString mag = i18n("Magnetic moment: %1",
+    const QString header = i18n("<h1>%1 (%2)</h1>", s->parentElementSymbol(), s->parentElementNumber());
+    const QString mag = i18n("Magnetic moment: %1",
                        s->magmoment().isEmpty()?
                            i18nc("Unknown magnetic moment", "Unknown"):s->magmoment());
 
@@ -83,13 +83,13 @@ void IsotopeTableDialog::updateDockWidget(IsotopeItem * item)
         halflife = i18n ("Halflife: Unknown");
     }
 
-    QString abundance = i18n("Abundance: %1 %", !s->abundance().isEmpty() ? s->abundance() : QStringLiteral("0"));
-    QString nucleons = i18n("Number of nucleons: %1", s->nucleons());
-    QString spin = i18n("Spin: %1", s->spin().isEmpty()?
+    const QString abundance = i18n("Abundance: %1 %", !s->abundance().isEmpty() ? s->abundance() : QStringLiteral("0"));
+    const QString nucleons = i18n("Number of nucleons: %1", s->nucleons());
+    const QString spin = i18n("Spin: %1", s->spin().isEmpty()?
                                         i18nc("Unknown spin", "Unknown"): s->spin());
-    QString exactMass = i18n("Exact mass: %1 u", s->mass());
+    const QString exactMass = i18n("Exact mass: %1 u", s->mass());
 
-    QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />"
+    const QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />"
                    + spin +"<br />" + abundance + "<br />" + halflife;
 
     ui.label->setText(html);

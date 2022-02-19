@@ -82,14 +82,14 @@ void IsotopeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 
     if (lod >= 1.0) {
         // FIXME: Get rid of magic numbers and rather dynamically calculate them
-        QRectF r1(m_rect.translated(0.0, 2.5));
+        const QRectF r1(m_rect.translated(0.0, 2.5));
 
         painter->setFont(m_symbolFont);
         painter->drawText(r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol());//, s->parentElementNumber()
 
         if (lod >= 4.0) {
-            QRectF r2(m_rect.topLeft() + QPointF(1.0, 0.5), m_rect.size() / 2.0);
-            QRectF r3(m_rect.topLeft() + QPointF(6.0, 0.5) , m_rect.size() / 2.0);
+            const QRectF r2(m_rect.topLeft() + QPointF(1.0, 0.5), m_rect.size() / 2.0);
+            const QRectF r3(m_rect.topLeft() + QPointF(6.0, 0.5) , m_rect.size() / 2.0);
 
             painter->setFont(m_otherFont);
             painter->drawText(r2,

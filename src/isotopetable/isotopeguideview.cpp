@@ -72,8 +72,8 @@ void IsotopeGuideView::mouseReleaseEvent(QMouseEvent *event)
 void IsotopeGuideView::mouseMoveEvent(QMouseEvent *event)
 {
     if (m_dragEvent && event->buttons() & Qt::LeftButton) {
-        QPoint p1(m_guidedView->mapFromScene(mapToScene(m_lastMousePos)));
-        QPoint p2(m_guidedView->mapFromScene(mapToScene(event->pos())));
+        const QPoint p1(m_guidedView->mapFromScene(mapToScene(m_lastMousePos)));
+        const QPoint p2(m_guidedView->mapFromScene(mapToScene(event->pos())));
         m_guidedView->horizontalScrollBar()->setValue(m_guidedView->horizontalScrollBar()->value()
                                                       + p2.x() - p1.x());
         m_guidedView->verticalScrollBar()->setValue(m_guidedView->verticalScrollBar()->value()

@@ -42,7 +42,7 @@ void IsotopeScene::drawIsotopes()
     foreach (Element *e, elist) {
         int elementNumber = e->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
 
-        QList<Isotope*> ilist = KalziumDataObject::instance()->isotopes(elementNumber);
+        const QList<Isotope*> ilist = KalziumDataObject::instance()->isotopes(elementNumber);
         foreach (Isotope *i, ilist) {
             int x = elementNumber * m_itemSize;
             int y = (300 - i->nucleons()) * m_itemSize;

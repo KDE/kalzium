@@ -15,12 +15,7 @@ class SpectrumParser::Private
 {
 public:
     Private()
-            : currentSpectrum(nullptr),
-            inMetadata_(false),
-            inSpectrum_(false),
-            inSpectrumList_(false),
-            inPeakList_(false),
-            inPeak_(false)
+            : currentSpectrum(nullptr)
     {}
 
     ~Private()
@@ -32,11 +27,11 @@ public:
     Spectrum * currentSpectrum = nullptr;
     Spectrum::peak * currentPeak = nullptr;
 
-    bool inMetadata_;
-    bool inSpectrum_;
-    bool inSpectrumList_;
-    bool inPeakList_;
-    bool inPeak_;
+    bool inMetadata_ = false;
+    bool inSpectrum_ = false;
+    bool inSpectrumList_ = false;
+    bool inPeakList_ = false;
+    bool inPeak_ = false;
 
     double wavelength;
     int intensity;

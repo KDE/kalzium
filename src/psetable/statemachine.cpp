@@ -20,7 +20,7 @@ void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, const
 }
 
 
-void StateSwitcher::switchToState(const int &n)
+void StateSwitcher::switchToState(int n)
 {
     machine()->postEvent(new StateSwitchEvent(n));
 }
