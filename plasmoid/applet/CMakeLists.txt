@@ -1,7 +1,0 @@
-MESSAGE(STATUS "Kalzium Plasma widget 'bodr' disabled, needs porting")
-#add_subdirectory(bodr)
-add_subdirectory(didyouknow)
-add_subdirectory(nuclearPlasmoid)
-add_subdirectory(concentrationPlasmoid)
-add_subdirectory(gasPlasmoid)
-add_subdirectory(psePlasmoid)
