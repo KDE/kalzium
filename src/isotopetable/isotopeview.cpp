@@ -14,7 +14,12 @@ IsotopeView::IsotopeView(QWidget *parent) : QGraphicsView(parent)
     m_zoomLevel = 1.0;
     setScene(m_scene);
     setSceneRect(m_scene->itemsBoundingRect());
-    ensureVisible(m_scene->sceneRect());
+    // Center the bottom left at the beginning
+    // centerOn(0, sceneRect().height());
+    // Zoom in a bit 
+    // setZoom(3);
+    // Makes sure that you always zoom to the mouse if you use the scroll wheel
+    setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
 }
 
 IsotopeView::~IsotopeView()
@@ -41,18 +46,11 @@ void IsotopeView::mouseMoveEvent(QMouseEvent *event)
 void IsotopeView::wheelEvent(QWheelEvent *event)
 {
     double oldZoomLevel = m_zoomLevel;
-    double factor;
+    double factor = event->angleDelta().y() / 1000.0;
+    m_zoomLevel = oldZoomLevel + oldZoomLevel * factor;
 
-    if (event->angleDelta().y() > 0) {
-        factor = event->angleDelta().y() / 100.0;
-        m_zoomLevel *= factor;
-    } else {
-        factor = 1.0 / (-event->angleDelta().y() / 100.0);
-        m_zoomLevel *= factor;
-    }
-
-    if (m_zoomLevel < 0.5) {
-        m_zoomLevel = 0.5;
+    if (m_zoomLevel < 0.3) {
+        m_zoomLevel = 0.3;
     } else if (m_zoomLevel > 10.0) {
         m_zoomLevel = 10.0;
     }
@@ -75,8 +73,8 @@ void IsotopeView::setZoom(double zoom)
 
     m_zoomLevel = zoom;
 
-    if (m_zoomLevel < 0.5) {
-        m_zoomLevel = 0.5;
+    if (m_zoomLevel < 0.3) {
+        m_zoomLevel = 0.3;
     } else if (m_zoomLevel > 10.0) {
         m_zoomLevel = 10.0;
     }
@@ -87,4 +85,3 @@ void IsotopeView::setZoom(double zoom)
     QPolygonF visibleSceneRect = mapToScene(viewport()->rect());
     Q_EMIT visibleSceneRectChanged(visibleSceneRect);
 }
-

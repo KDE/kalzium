@@ -17,6 +17,7 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QtMath>
 
 #include <KConfigGroup>
 
@@ -63,7 +64,7 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
 
 void IsotopeTableDialog::zoom (int level)
 {
-    double zoom = level / 2.0;
+    double zoom = qPow(M_E, level / 10.0);
     (ui.gv)->setZoom(zoom);
 }
 
@@ -98,7 +99,7 @@ void IsotopeTableDialog::updateDockWidget(IsotopeItem * item)
 void IsotopeTableDialog::slotZoomLevelChanged(double value)
 {
     const bool b = ui.Slider->blockSignals(true);
-    ui.Slider->setValue(qreal(value * 2));
+    ui.Slider->setValue(qLn(value) * 10.0);
     ui.Slider->blockSignals(b);
 }
 

@@ -40,8 +40,10 @@ void IsotopeGuideView::setVisibleSceneRect(const QPolygonF& sceneRect)
 void IsotopeGuideView::drawForeground(QPainter *painter, const QRectF &rect)
 {
     if (m_guidedView && m_visibleSceneRect.boundingRect().intersects(rect)) {
-        painter->setPen(QPen(Qt::red));
-        painter->drawRect(m_visibleSceneRect.boundingRect().adjusted(0, 0, -1, -1));
+        QRectF drawRect = m_visibleSceneRect.boundingRect().adjusted(0, 0, -1, -1);
+        painter->setPen(QPen(Qt::yellow, 10.0));
+        painter->fillRect(drawRect, QBrush(QColor(0, 0 , 0 , 100)));
+        painter->drawRect(drawRect);
     }
 }
 

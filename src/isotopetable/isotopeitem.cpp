@@ -134,3 +134,14 @@ void IsotopeItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
     IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp(this);
 }
+
+void IsotopeItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    if (event->button() != Qt::LeftButton) {
+        event->ignore();
+        return;
+    }
+
+    IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
+    scene2->updateContextHelp(this);
+}

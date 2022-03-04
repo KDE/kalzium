@@ -50,13 +50,13 @@
         </sizepolicy>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>-12</number>
        </property>
        <property name="maximum">
-        <number>20</number>
+        <number>23</number>
        </property>
        <property name="value">
-        <number>1</number>
+        <number>10</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
