@@ -174,14 +174,16 @@ bool LegendWidget::isElementMatch(int element, QColor &color){
 }
 
 
-LegendItem::LegendItem(const QPair<QString, QColor>& pair, QWidget * parent)
+LegendItem::LegendItem(const QPair<QString, QColor>& pair, LegendWidget * parent)
 {
     QHBoxLayout *ItemLayout = new QHBoxLayout(this);
     ItemLayout->setContentsMargins(0, 0, 0, 0);
 
     if (pair.second.isValid()) {
         legendItemColor = pair.second;
-        connect(this, SIGNAL(legenItemHoovered(QColor)), parent, SLOT(legendItemAction(QColor)));
+        if (parent) {
+            connect(this, &LegendItem::legenItemHoovered, parent, &LegendWidget::legendItemAction);
+        }
 
         QPixmap LegendPixmap(20, height());
         LegendPixmap.fill(pair.second);
