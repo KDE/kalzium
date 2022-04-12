@@ -16,22 +16,35 @@ class IsotopeScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    explicit IsotopeScene(QObject * parent = nullptr);
+    explicit IsotopeScene(QObject * parent, int mode);
     virtual ~IsotopeScene();
 
     void updateContextHelp(IsotopeItem * item);
+
+private:
+    void initialize();
 
 private:
     void drawIsotopes(void);
 
     //the size of each item
     int m_itemSize;
+    int m_mode;
 
     ///this group stores all IsotopeItems
     QGraphicsItemGroup *m_isotopeGroup;
 
-signals:
+public:
+    int mode() const {
+        return m_mode;
+    }
+
+Q_SIGNALS:
     void itemSelected(IsotopeItem *item);
+
+public:
+    void setMode(int mode);
+
 };
 
 #endif // ISOTOPESCENE_H

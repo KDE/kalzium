@@ -29,6 +29,10 @@ public:
 private:
     Ui::isotopeWidget ui;
 
+public Q_SLOTS:
+    void setMode(int mode);
+    void updateMode();
+
 private Q_SLOTS:
     void updateDockWidget(IsotopeItem *);
     void zoom(int);

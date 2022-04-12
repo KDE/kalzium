@@ -8,7 +8,7 @@
 
 #include <kxmlguiwindow.h>
 #include "periodictableview.h"
-#include "unitsettingsdialog.h"
+#include "settings/kalziumconfigdialog.h"
 #include "isotopetabledialog.h"
 #include "elementdataviewer.h"
 #include "tablesdialog.h"
@@ -127,7 +127,7 @@ private:
 
     ExportDialog *m_exportDialog;
 
-    UnitSettingsDialog *m_unitsDialog;
+    KalziumConfigDialog *m_configDialog;
 
     QLabel *m_elementInfo;
 

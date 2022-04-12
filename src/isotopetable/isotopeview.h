@@ -19,11 +19,16 @@ class IsotopeView : public QGraphicsView
 
 public:
     explicit IsotopeView(QWidget *parent = nullptr);
+    explicit IsotopeView(QWidget *parent, int mode);
     ~IsotopeView() override;
+
+private:
+    void initialize();
 
 private:
     IsotopeScene *m_scene;
     double m_zoomLevel;
+    int m_mode;
 
 public:
     double zoomLevel() {
@@ -33,12 +38,16 @@ public:
         return mapToScene(viewport()->rect());
     }
 
-signals:
+Q_SIGNALS:
     void zoomLevelChanged(double zoomLevel);
     void visibleSceneRectChanged(const QPolygonF &sceneRect);
 
-public:
+public Q_SLOTS:
     void setZoom(double zoom);
+    void setMode(int mode);
+
+public:
+    int mode() const;
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

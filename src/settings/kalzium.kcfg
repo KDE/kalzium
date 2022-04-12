@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-	http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-	<kcfgfile name="kalziumrc"/>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+	<kcfgfile name="kalziumrc" />
+	<signal name="isotopeTableModeChanged" />
 	<group name="Periodic Table">
 		<entry name="schemaPSE" type="Int">
 			<label>Selects the PSE</label>
@@ -289,38 +287,51 @@
 			<default>0</default>
 		</entry>
 	</group>
-    <group name="Calculator">
-        <entry name = "mass" type="Bool">
-        	<label>This setting tells the nuclear calculator whether the amounts are always in terms of mass</label>
-        	<whatsthis>True if the user wants to specify amount only in terms of mass</whatsthis>
-        </entry>
-        <entry name = "ideal" type="Bool">
-            <label>This setting says whether the user wants the gas to be ideal by default</label>
-            <whatsthis>True if gases are assumed to be ideal, the Van der Waals co-efficients will not be shown in the calculator</whatsthis>
-            <default>1</default>
-        </entry>
-        <entry name = "soluteMass" type="Bool">
-        	<label>This setting tells the concentration calculator that amount of solute is always in mass</label>
-        	<whatsthis>True if the amount of solute is specified only in terms of mass</whatsthis>
-        </entry>
-        <entry name = "solventVolume" type="Bool">
-        	<label>This setting tells the concentration calculator that amount of solvent is always in volume</label>
-        	<whatsthis>True if the amount of solvent is specified only in terms of volume</whatsthis>
-        </entry>
-        <entry name = "alias" type="Bool">
-        	<label>This setting tells the molecular mass calculator whether extra details such as aliases should be shown</label>
-        	<whatsthis>True if the aliases and other details should be shown</whatsthis>
-        </entry>
-        <entry name = "addAlias" type="Bool">
-        	<label>This setting tells the molecular calculator whether the add Alias tab should be shown</label>
-        	<whatsthis>True if the user wants to add aliases</whatsthis>
-        </entry>
-    </group>
+	<group name="Calculator">
+		<entry name="mass" type="Bool">
+			<label>This setting tells the nuclear calculator whether the amounts are always in terms of mass</label>
+			<whatsthis>True if the user wants to specify amount only in terms of mass</whatsthis>
+		</entry>
+		<entry name="ideal" type="Bool">
+			<label>This setting says whether the user wants the gas to be ideal by default</label>
+			<whatsthis>True if gases are assumed to be ideal, the Van der Waals co-efficients will not be shown in the calculator</whatsthis>
+			<default>1</default>
+		</entry>
+		<entry name="soluteMass" type="Bool">
+			<label>This setting tells the concentration calculator that amount of solute is always in mass</label>
+			<whatsthis>True if the amount of solute is specified only in terms of mass</whatsthis>
+		</entry>
+		<entry name="solventVolume" type="Bool">
+			<label>This setting tells the concentration calculator that amount of solvent is always in volume</label>
+			<whatsthis>True if the amount of solvent is specified only in terms of volume</whatsthis>
+		</entry>
+		<entry name="alias" type="Bool">
+			<label>This setting tells the molecular mass calculator whether extra details such as aliases should be shown</label>
+			<whatsthis>True if the aliases and other details should be shown</whatsthis>
+		</entry>
+		<entry name="addAlias" type="Bool">
+			<label>This setting tells the molecular calculator whether the add Alias tab should be shown</label>
+			<whatsthis>True if the user wants to add aliases</whatsthis>
+		</entry>
+	</group>
 	<group name="Sidebar">
 		<entry name="showsidebar" type="Bool">
 			<label>Show or hide the sidebar</label>
 			<whatsthis>Show or hide the sidebar</whatsthis>
 			<default>true</default>
+		</entry>
+	</group>
+	<group name="Isotope Table">
+		<entry name="isotopeTableMode" type="Enum">
+			<choices>
+				<choice name="isotopeTableMode_0" />
+				<choice name="isotopeTableMode_1" />
+				<choice name="isotopeTableMode_2" />
+				<choice name="isotopeTableMode_3" />
+			</choices>
+			<label>Display-Mode of the Isotope Table</label>
+			<default>isotopeTableMode_0</default>
+			<emit signal="isotopeTableModeChanged" />
 		</entry>
 	</group>
 

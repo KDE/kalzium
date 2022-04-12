@@ -146,8 +146,14 @@ set(kalzium_SRCS
    tableinfowidget.h
    tablesdialog.cpp
    tablesdialog.h
-   unitsettingsdialog.cpp
-   unitsettingsdialog.h
+   settings/kalziumconfigdialog.cpp
+   settings/kalziumconfigdialog.h
+   settings/unitsettingsdialog.cpp
+   settings/unitsettingsdialog.h
+   settings/isotopetablesettingsdialog.cpp
+   settings/isotopetablesettingsdialog.h
+   settings/isotopetablesettingscard.cpp
+   settings/isotopetablesettingscard.h
    )
 
 if (LIBFACILE_FOUND)
@@ -166,17 +172,17 @@ endif (LIBFACILE_FOUND)
 
 ki18n_wrap_ui(kalzium_SRCS
    isotopetable/isotopedialog.ui
-   settings_colors.ui
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    spectrumview.ui
-   settings_gradients.ui
    rswidget.ui
    gradientwidget.ui
    exportdialog.ui
+   settings/settings_colors.ui
+   settings/settings_gradients.ui
    )
 
-kconfig_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
+kconfig_add_kcfg_files(kalzium_SRCS GENERATE_MOC prefs.kcfgc )
 
 #kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
 
@@ -238,7 +244,7 @@ install(TARGETS kalzium ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES kalzium.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
+install(FILES settings/kalzium.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 install(FILES kalziumui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kalzium)
 
 ecm_install_icons(ICONS

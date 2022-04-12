@@ -103,3 +103,11 @@ void IsotopeTableDialog::slotZoomLevelChanged(double value)
     ui.Slider->blockSignals(b);
 }
 
+void IsotopeTableDialog::setMode(int mode) {
+    ui.gv->setMode(mode);
+    ui.guide->updateScene();
+}
+
+void IsotopeTableDialog::updateMode() {
+    setMode(Prefs::isotopeTableMode());
+}

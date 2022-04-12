@@ -24,11 +24,8 @@ void IsotopeGuideView::setGuidedView(IsotopeView *guidedView)
             this, &IsotopeGuideView::setZoomLevel);
     connect(m_guidedView, &IsotopeView::visibleSceneRectChanged,
             this, &IsotopeGuideView::setVisibleSceneRect);
-    m_zoomLevel = m_guidedView->zoomLevel();
-
-    setScene(m_guidedView->scene());
-    setSceneRect(scene()->itemsBoundingRect());
-    ensureVisible(scene()->sceneRect());
+    
+    updateScene();
 }
 
 void IsotopeGuideView::setVisibleSceneRect(const QPolygonF& sceneRect)
@@ -41,7 +38,7 @@ void IsotopeGuideView::drawForeground(QPainter *painter, const QRectF &rect)
 {
     if (m_guidedView && m_visibleSceneRect.boundingRect().intersects(rect)) {
         QRectF drawRect = m_visibleSceneRect.boundingRect().adjusted(0, 0, -1, -1);
-        painter->setPen(QPen(Qt::yellow, 10.0));
+        painter->setPen(QPen(Qt::yellow, 1.0 / m_scale));
         painter->fillRect(drawRect, QBrush(QColor(0, 0 , 0 , 100)));
         painter->drawRect(drawRect);
     }
@@ -50,8 +47,8 @@ void IsotopeGuideView::drawForeground(QPainter *painter, const QRectF &rect)
 void IsotopeGuideView::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
-    m_scale = qMin(qreal(viewport()->width()) / scene()->width(),
-                   qreal(viewport()->height()) / scene()->height());
+    m_scale = qMin(qreal(viewport()->width()) / sceneRect().width(),
+                   qreal(viewport()->height()) / sceneRect().height());
     setTransform(QTransform::fromScale(m_scale, m_scale));
 }
 
@@ -90,5 +87,14 @@ void IsotopeGuideView::mouseMoveEvent(QMouseEvent *event)
 void IsotopeGuideView::setZoomLevel(double zoomLevel)
 {
     m_zoomLevel = zoomLevel;
+}
+
+void IsotopeGuideView::updateScene()
+{
+    m_zoomLevel = m_guidedView->zoomLevel();
+    setScene(m_guidedView->scene());
+    setSceneRect(scene()->itemsBoundingRect());
+    ensureVisible(scene()->sceneRect());
+    resizeEvent(nullptr);
 }
 

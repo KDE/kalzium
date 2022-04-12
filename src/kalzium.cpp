@@ -8,9 +8,6 @@
 #include <element.h>
 #include <kdeeduglossary.h>
 #include "prefs.h"
-#include "ui_settings_colors.h"
-#include "ui_settings_gradients.h"
-#include "ui_settings_calc.h"
 #include "detailinfodlg.h"
 #include "detailedgraphicaloverview.h"
 #include "gradientwidget_impl.h"
@@ -52,7 +49,6 @@
 #include <QUrl>
 
 #include <KActionCollection>
-#include <KConfigDialog>
 #include <KLocalizedString>
 #include <KPluginLoader>
 #include <KSelectAction>
@@ -398,10 +394,11 @@ void Kalzium::slotTables()
 
 void Kalzium::slotIsotopeTable()
 {
-   if (!m_isotopeDialog) {
-     m_isotopeDialog = new IsotopeTableDialog(this);
-   }
-   m_isotopeDialog->show();
+    if (!m_isotopeDialog) {
+        m_isotopeDialog = new IsotopeTableDialog(this);
+        connect(Prefs::self(), &Prefs::isotopeTableModeChanged, m_isotopeDialog, &IsotopeTableDialog::updateMode);
+    }
+    m_isotopeDialog->show();
 }
 
 void Kalzium::slotPlotData()
@@ -479,53 +476,21 @@ void Kalzium::slotSwitchtoLookScheme(int which)
 
 void Kalzium::showSettingsDialog()
 {
-    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
+    if (KalziumConfigDialog::showDialog(QStringLiteral("settings"))) {
         return;
     }
 
-    //KConfigDialog didn't find an instance of this dialog, so lets create it :
-    KConfigDialog *dialog = new KConfigDialog(this,QStringLiteral("settings"), Prefs::self());
+    //KalziumConfigDialog didn't find an instance of this dialog, so lets create it :
+    m_configDialog = new KalziumConfigDialog(this,QStringLiteral("settings"), Prefs::self());
 
-    // colors page
-    Ui_setupColors ui_colors;
-    QWidget *w_colors = new QWidget(this);
-    w_colors->setObjectName(QStringLiteral("colors_page"));
-    ui_colors.setupUi(w_colors);
-    dialog->addPage(w_colors, i18n("Schemes"), QStringLiteral("preferences-desktop-color"));
+    connect(m_configDialog, &KalziumConfigDialog::settingsChanged, this, &Kalzium::slotUpdateSettings);
+    connect(m_configDialog, &KalziumConfigDialog::settingsChanged, m_gradientWidget, &GradientWidgetImpl::slotGradientChanged);
 
-    // gradients page
-    Ui_setupGradients ui_gradients;
-    QWidget *w_gradients = new QWidget(this);
-    w_gradients->setObjectName(QStringLiteral("gradients_page"));
-    ui_gradients.setupUi(w_gradients);
-    dialog->addPage(w_gradients, i18n("Gradients"), QStringLiteral("preferences-desktop-color"));
-
-    // units page
-    m_unitsDialog = new UnitSettingsDialog(this);
-    m_unitsDialog->setObjectName(QStringLiteral("units_page"));
-    dialog->addPage(m_unitsDialog, i18n("Units"), QStringLiteral("system-run"));
-
-    Ui_setupCalc ui_calc;
-    QWidget *w_calc = new QWidget(this);
-    ui_calc.setupUi(w_calc);
-    dialog->addPage(w_calc, i18n("Calculator"), QStringLiteral("accessories-calculator"));
-
-    connect(dialog, &KConfigDialog::settingsChanged, this, &Kalzium::slotUpdateSettings);
-    connect(dialog, &KConfigDialog::settingsChanged, m_gradientWidget, &GradientWidgetImpl::slotGradientChanged);
-
-    dialog->show();
+    m_configDialog->show();
 }
 
 void Kalzium::slotUpdateSettings()
 {
-    Prefs::setLengthUnit(m_unitsDialog->getLenghtUnitId());
-
-    Prefs::setEnergiesUnit(m_unitsDialog->getEnergyUnitId());
-
-    Prefs::setTemperatureUnit(m_unitsDialog->getTemperatureUnitId());
-
-    Prefs::self()->save();
-
     /*This slot function calls change the color of pse elements immediately after prefs change*/
     slotSwitchtoLookGradient(Prefs::colorgradientbox());
     slotSwitchtoLookScheme(Prefs::colorschemebox());
