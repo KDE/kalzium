@@ -39,7 +39,6 @@ if (HAVE_OPENBABEL)
       ki18n_wrap_ui(kalziumtools_SRCS
          tools/moleculeviewerwidget.ui
          )
-      include_directories(${EIGEN3_INCLUDE_DIR})
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 endif (HAVE_OPENBABEL)
 
@@ -211,6 +210,7 @@ if (HAVE_OPENBABEL)
          AvogadroQtGui
          AvogadroQtOpenGL
          AvogadroQtPlugins
+         Eigen3::Eigen
        )
       install(FILES kalzium.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
    endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
