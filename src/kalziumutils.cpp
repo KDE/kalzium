@@ -19,7 +19,7 @@
 
 #include "prefs.h"
 
-#include <math.h>
+#include <cmath>
 #if defined(HAVE_IEEEFP_H)
 #include <ieeefp.h>
 #endif
@@ -61,7 +61,7 @@ int KalziumUtils::StringWidth(const QString& string, const QFont& font, QPainter
 
 double KalziumUtils::strippedValue(double num)
 {
-    if (!finite(num)) {
+    if (!std::isfinite(num)) {
         return num;
     }
 
