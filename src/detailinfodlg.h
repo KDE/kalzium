@@ -116,8 +116,6 @@ private:
     QString createWikiLink(QString link);
 
 private Q_SLOTS:
-    void slotLinkClicked(const QUrl &url);
-
     void showNextElement();
     void showPreviousElement();
     /**

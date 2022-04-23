@@ -33,7 +33,6 @@
 #include <KHelpClient>
 #include <KPageDialog>
 #include <KPageWidgetModel>
-#include <KRun>
 
 DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent), m_tableTyp(0)
 {
@@ -1592,14 +1591,6 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
     // Example from the comment "https://en.wikipedia.org/wiki/hydrogen"
 
     return html;
-}
-
-void DetailedInfoDlg::slotLinkClicked(const QUrl &url)
-{
-    if (url.isEmpty() || !url.isValid()) {
-        return;
-    }
-    KRun::runUrl(url, QStringLiteral("text/html"), this, KRun::RunFlags(), QString(), QByteArray());
 }
 
 void DetailedInfoDlg::slotHelp()
