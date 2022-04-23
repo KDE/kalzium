@@ -11,8 +11,8 @@
 
 #include <KUnitConversion/UnitCategory>
 
-#include <prefs.h>
 #include <kalziumdataobject.h>
+#include <prefs.h>
 
 #include "ui_concCalculator.h"
 
@@ -42,14 +42,7 @@ enum ERROR_TYPE_CONC {
 };
 
 // enumeration for the mode of calculation in the setMode(int) function
-enum MODE_CALCULATION_CONC {
-    AMT_SOLUTE = 0,
-    MOLAR_MASS,
-    EQT_MASS,
-    AMT_SOLVENT,
-    MOLAR_MASS_SOLVENT,
-    CONCENTRATION
-};
+enum MODE_CALCULATION_CONC { AMT_SOLUTE = 0, MOLAR_MASS, EQT_MASS, AMT_SOLVENT, MOLAR_MASS_SOLVENT, CONCENTRATION };
 
 /*
  * This class implements the concentration calculator. This widget performs basic
@@ -65,7 +58,7 @@ public:
     /*
      * The constructor and destructor for the class
      */
-    explicit concCalculator(QWidget * parent = nullptr);
+    explicit concCalculator(QWidget *parent = nullptr);
     ~concCalculator();
 
 public Q_SLOTS:
@@ -176,21 +169,20 @@ public Q_SLOTS:
     void setMode(int);
 
 private:
-    Ui::concCalculator ui;                      // The user interface
+    Ui::concCalculator ui; // The user interface
 
-    Value m_amtSolute;                          // amount of solute
-    Value m_amtSolvent;                         // amount of solvent
-    double m_molesSolute;                       // amount of solute in moles
-    double m_molesSolvent;                      // amount of solvent in moles
-    double m_molarMass;                         // molar mass of solute
-    double m_eqtMass;                           // equivalent mass of solute
-    double m_molarMassSolvent;                  // molar mass of solvent
-    Value m_densitySolute;                      // density of solute
-    Value m_densitySolvent;                     // density of the solvent
-    double m_concentration;                     // concentration of the solution
+    Value m_amtSolute; // amount of solute
+    Value m_amtSolvent; // amount of solvent
+    double m_molesSolute; // amount of solute in moles
+    double m_molesSolvent; // amount of solvent in moles
+    double m_molarMass; // molar mass of solute
+    double m_eqtMass; // equivalent mass of solute
+    double m_molarMassSolvent; // molar mass of solvent
+    Value m_densitySolute; // density of solute
+    Value m_densitySolvent; // density of the solvent
+    double m_concentration; // concentration of the solution
 
-    int m_mode;                                 // specifies the mode of calculation
-
+    int m_mode; // specifies the mode of calculation
 };
 
 #endif // CONCCALCULATOR_H

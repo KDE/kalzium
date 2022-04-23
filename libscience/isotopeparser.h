@@ -25,18 +25,16 @@ public:
      */
     IsotopeParser();
     ~IsotopeParser() override;
-    bool startElement(const QString &, const QString &localName, const QString &,
-                      const QXmlAttributes &attrs) override;
+    bool startElement(const QString &, const QString &localName, const QString &, const QXmlAttributes &attrs) override;
 
     bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName) override;
 
     bool characters(const QString &ch) override;
 
-    QList<Isotope*> getIsotopes();
+    QList<Isotope *> getIsotopes();
 
 private:
     class Private;
     Private *const d;
 };
 #endif // ISOTOPEPARSER_H
-

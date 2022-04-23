@@ -34,11 +34,11 @@ public:
 class MyWidgetItem : public QTableWidgetItem
 {
 public:
-    explicit MyWidgetItem(const QString& s) : QTableWidgetItem(s)
+    explicit MyWidgetItem(const QString &s)
+        : QTableWidgetItem(s)
     {
         setFlags(Qt::ItemIsEnabled);
     }
-
 };
 
 /**
@@ -50,9 +50,10 @@ class MyTableWidget : public QTableWidget
     Q_OBJECT
 
 public:
-    explicit MyTableWidget(QWidget* parent);
+    explicit MyTableWidget(QWidget *parent);
+
 protected:
-    void contextMenuEvent(QContextMenuEvent* event) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
 private Q_SLOTS:
     void copyToClipboard();
 };

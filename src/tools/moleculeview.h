@@ -33,16 +33,16 @@ class MoleculeDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit MoleculeDialog(QWidget * parent);
+    explicit MoleculeDialog(QWidget *parent);
     ~MoleculeDialog();
 
     void loadMolecule(const QString &filename);
 
 private:
-    QString m_path;///to store the path were the molecules are located
+    QString m_path; /// to store the path were the molecules are located
     QList<int> m_elementsIndex; // Index storing the element combo index
     Avogadro::QtGui::PeriodicTableView *m_periodicTable;
-    OpenBabel::OBForceField* m_forceField;
+    OpenBabel::OBForceField *m_forceField;
     QSettings *m_drawSettings;
 
     Ui::moleculeViewerForm ui;
@@ -64,23 +64,23 @@ private slots:
     void slotDownloadNewStuff();
 
     /**
-    * Save a molecule
-    */
+     * Save a molecule
+     */
     void slotSaveMolecule();
 
     /**
-    * Set view/edit mode
-    */
+     * Set view/edit mode
+     */
     void setViewEdit(int mode);
 
     /**
-    * Update the statistical information about the current molecule
-    */
+     * Update the statistical information about the current molecule
+     */
     void slotUpdateStatistics();
 
     /**
-    * Geometry optimization
-    */
+     * Geometry optimization
+     */
     void slotGeometryOptimize();
 
     /// Clears the view

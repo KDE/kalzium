@@ -8,19 +8,22 @@
 
 #include <iostream>
 
-IsotopeTableSettingsCard::IsotopeTableSettingsCard(QWidget* parent, int mode): QFrame(parent)
+IsotopeTableSettingsCard::IsotopeTableSettingsCard(QWidget *parent, int mode)
+    : QFrame(parent)
 {
     m_isotopeView = new IsotopeView(this, mode);
     initialize();
 }
 
-IsotopeTableSettingsCard::IsotopeTableSettingsCard(QWidget* parent): QFrame(parent)
+IsotopeTableSettingsCard::IsotopeTableSettingsCard(QWidget *parent)
+    : QFrame(parent)
 {
     m_isotopeView = new IsotopeView(this);
     initialize();
 }
 
-void IsotopeTableSettingsCard::initialize() {
+void IsotopeTableSettingsCard::initialize()
+{
     QVBoxLayout *vLayout = new QVBoxLayout();
 
     m_isotopeView->setInteractive(false);
@@ -30,7 +33,7 @@ void IsotopeTableSettingsCard::initialize() {
 
     m_radioButton = new QRadioButton();
     m_radioButton->setText("Next to each other");
-    connect(m_radioButton, &QRadioButton::toggled, this, [=](){
+    connect(m_radioButton, &QRadioButton::toggled, this, [=]() {
         if (m_radioButton->isChecked())
             emit checked(m_isotopeView->mode());
     });
@@ -46,7 +49,8 @@ void IsotopeTableSettingsCard::initialize() {
     setFocusProxy(m_radioButton);
 }
 
-bool IsotopeTableSettingsCard::eventFilter(QObject *object, QEvent *event) {
+bool IsotopeTableSettingsCard::eventFilter(QObject *object, QEvent *event)
+{
     Q_UNUSED(object);
     if (event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick) {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);

@@ -17,49 +17,50 @@ class ElementSaxParser::Private
 {
 public:
     Private()
-            : currentUnit(KUnitConversion::NoUnit),
-            currentElement(nullptr),
-            inElement(false),
-            inName(false),
-            inMass(false),
-            inExactMass(false),
-            inAtomicNumber(false),
-            inSymbol(false),
-            inIonization(false),
-            inElectronAffinity(false),
-            inElectronegativityPauling(false),
-            inRadiusCovalent(false),
-            inRadiusVDW(false),
-            inBoilingPoint(false),
-            inMeltingPoint(false),
-            inPeriodTableBlock(false),
-            inNameOrigin(false),
-            inDiscoveryDate(false),
-            inDiscoverers(false),
-            inPeriod(false),
-            inCrystalstructure(false),
-            inAcidicbehaviour(false),
-            inFamily(false),
-            inGroup(false),
-            inElectronicconfiguration(false),
-            inDangerSymbol(false),
-            inRPhrase(false),
-            inSPhrase(false),
-            inCountry(false),
-            inOxidation(false)
-    {}
+        : currentUnit(KUnitConversion::NoUnit)
+        , currentElement(nullptr)
+        , inElement(false)
+        , inName(false)
+        , inMass(false)
+        , inExactMass(false)
+        , inAtomicNumber(false)
+        , inSymbol(false)
+        , inIonization(false)
+        , inElectronAffinity(false)
+        , inElectronegativityPauling(false)
+        , inRadiusCovalent(false)
+        , inRadiusVDW(false)
+        , inBoilingPoint(false)
+        , inMeltingPoint(false)
+        , inPeriodTableBlock(false)
+        , inNameOrigin(false)
+        , inDiscoveryDate(false)
+        , inDiscoverers(false)
+        , inPeriod(false)
+        , inCrystalstructure(false)
+        , inAcidicbehaviour(false)
+        , inFamily(false)
+        , inGroup(false)
+        , inElectronicconfiguration(false)
+        , inDangerSymbol(false)
+        , inRPhrase(false)
+        , inSPhrase(false)
+        , inCountry(false)
+        , inOxidation(false)
+    {
+    }
 
     ~Private()
     {
         delete currentElement;
-        //qDeleteAll(elements);
+        // qDeleteAll(elements);
     }
 
     ChemicalDataObject currentDataObject;
     int currentUnit; // KUnitConversion::UnitId
     Element *currentElement = nullptr;
 
-    QList<Element*> elements;
+    QList<Element *> elements;
 
     bool inElement;
     bool inName;
@@ -92,7 +93,8 @@ public:
 };
 
 ElementSaxParser::ElementSaxParser()
-        : QXmlDefaultHandler(), d(new Private)
+    : QXmlDefaultHandler()
+    , d(new Private)
 {
 }
 
@@ -101,7 +103,7 @@ ElementSaxParser::~ElementSaxParser()
     delete d;
 }
 
-bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
+bool ElementSaxParser::startElement(const QString &, const QString &localName, const QString &, const QXmlAttributes &attrs)
 {
     if (localName == QLatin1String("atom")) {
         d->currentElement = new Element();
@@ -109,9 +111,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     } else if ((d->inElement && localName == QLatin1String("scalar")) || localName == QLatin1String("array")) {
         for (int i = 0; i < attrs.length(); ++i) {
             if (attrs.localName(i) == QLatin1String("units")) {
-//                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "value of the unit: " << attrs.value(i);
+                //                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "value of the unit: " << attrs.value(i);
                 d->currentUnit = unit(attrs.value(i));
-//                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Took " << d->currentUnit;
+                //                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Took " << d->currentUnit;
                 continue;
             }
 
@@ -237,7 +239,8 @@ bool ElementSaxParser::characters(const QString &ch)
         type = ChemicalDataObject::atomicNumber;
         d->inAtomicNumber = false;
     } else if (d->inIonization) {
-        value = ch.toDouble();;
+        value = ch.toDouble();
+        ;
         type = ChemicalDataObject::ionization;
         d->inIonization = false;
     } else if (d->inElectronAffinity) {
@@ -329,7 +332,7 @@ bool ElementSaxParser::characters(const QString &ch)
         value = ch;
         type = ChemicalDataObject::oxidation;
         d->inOxidation = false;
-    } else { //it is a non known value. Do not create a wrong object but return
+    } else { // it is a non known value. Do not create a wrong object but return
         return true;
     }
 
@@ -344,7 +347,7 @@ bool ElementSaxParser::characters(const QString &ch)
     return true;
 }
 
-int ElementSaxParser::unit(const QString& unit) const
+int ElementSaxParser::unit(const QString &unit) const
 {
     if (unit == QLatin1String("siUnits:kelvin")) {
         return KUnitConversion::Kelvin;
@@ -359,7 +362,7 @@ int ElementSaxParser::unit(const QString& unit) const
     }
 }
 
-QList<Element*> ElementSaxParser::getElements()
+QList<Element *> ElementSaxParser::getElements()
 {
     return d->elements;
 }

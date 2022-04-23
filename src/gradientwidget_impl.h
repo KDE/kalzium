@@ -8,8 +8,8 @@
 #ifndef GRADIENTWIDGET_IMPL_H
 #define GRADIENTWIDGET_IMPL_H
 
-#include <QWidget>
 #include "ui_gradientwidget.h"
+#include <QWidget>
 
 #include "kalziumelementproperty.h"
 
@@ -60,7 +60,7 @@ private Q_SLOTS:
     void setNewValue(double newValue);
 
 private:
-    bool m_play;        //Indicates whether mode is play or stop
+    bool m_play; // Indicates whether mode is play or stop
     QTimer *m_timer;
 };
 #endif // GRADIENTWIDGET_IMPL_H

@@ -9,8 +9,8 @@
 
 #include <QBrush>
 
-#include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
+#include "kalziumschemetype.h"
 
 /**
  * The logic of the scheme and the gradients is merged in this class. It provides
@@ -19,18 +19,17 @@
  * Here is also the place where the gradientslider is evaluated. (see gradientwidget)
  * @short This class holds the logic of the appearance from the periodic table
  * @author Etienne Rebetez
-*/
+ */
 
 class KalziumElementProperty : public QObject
 {
     Q_OBJECT
 
 public:
-
     /**
-    * Get the instance of this factory.
-    */
-    static KalziumElementProperty* instance();
+     * Get the instance of this factory.
+     */
+    static KalziumElementProperty *instance();
 
     enum ELEMENTTEXTINFORMATIONMODE {
         NORMAL = 0, // Only Symbol Number
@@ -41,7 +40,7 @@ public:
     enum SPECIALGRADIENTYPDEF {
         NOGRADIENT = 0,
         SOMGradientType = 1,
-        DISCOVERYDATE = 9
+        DISCOVERYDATE = 9,
     };
 
     /**

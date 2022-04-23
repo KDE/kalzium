@@ -10,15 +10,14 @@
 
 #include <prefs.h>
 
-PeriodicTableStates::PeriodicTableStates(
-    const QList<ElementItem*> &elementItemList,
-    const QList<NumerationItem*> &numerationItemList)
-        : m_elementItemList(elementItemList),
-        m_numerationItemList(numerationItemList),
-        m_width(42), m_height(42)  // Some space between the elements (px40) looks nice.
+PeriodicTableStates::PeriodicTableStates(const QList<ElementItem *> &elementItemList, const QList<NumerationItem *> &numerationItemList)
+    : m_elementItemList(elementItemList)
+    , m_numerationItemList(numerationItemList)
+    , m_width(42)
+    , m_height(42) // Some space between the elements (px40) looks nice.
 {
     m_stateSwitcher = new StateSwitcher(&m_states);
-    m_group= new QParallelAnimationGroup;
+    m_group = new QParallelAnimationGroup;
 
     // For every Tabletyp the Position of the Elements are set up.
     for (int tableIndex = 0; tableIndex < pseTables::instance()->tables().count(); ++tableIndex) {
@@ -44,8 +43,7 @@ void PeriodicTableStates::setNumerationItemPositions(const int &tableIndex)
         int numerationId = pseTables::instance()->getTabletype(tableIndex)->numerationAtPos(x);
 
         if (numerationId >= 0) {
-            m_tableStatesList.at(tableIndex)->assignProperty(m_numerationItemList.at(numerationId), "pos",
-                    QPointF(x * m_width, - m_height * 3 / 4));
+            m_tableStatesList.at(tableIndex)->assignProperty(m_numerationItemList.at(numerationId), "pos", QPointF(x * m_width, -m_height * 3 / 4));
             addElementAnimation(m_numerationItemList.at(numerationId), x);
         }
     }
@@ -67,8 +65,7 @@ int PeriodicTableStates::maxNumerationItemXCoordinate(const int &tableIndex)
 {
     const int maxTableLenght = pseTables::instance()->getTabletype(tableIndex)->tableSize().x();
 
-    return maxTableLenght > m_numerationItemList.count() ?
-           maxTableLenght : m_numerationItemList.count();
+    return maxTableLenght > m_numerationItemList.count() ? maxTableLenght : m_numerationItemList.count();
 }
 
 void PeriodicTableStates::addElementAnimation(QGraphicsObject *object, int duration)
@@ -90,8 +87,7 @@ void PeriodicTableStates::setElementItemPositions(const int &tableIndex)
             itemPosition = hiddenPoint();
         }
 
-        m_tableStatesList.at(tableIndex)->assignProperty(m_elementItemList.at(i), "pos",
-                QPointF((itemPosition.x()) * m_width, (itemPosition.y()) * m_height));
+        m_tableStatesList.at(tableIndex)->assignProperty(m_elementItemList.at(i), "pos", QPointF((itemPosition.x()) * m_width, (itemPosition.y()) * m_height));
 
         addElementAnimation(m_elementItemList.at(i), i);
     }

@@ -12,12 +12,12 @@
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>
 
-UnitSettingsDialog::UnitSettingsDialog(QWidget* parent) : QWidget(parent)
+UnitSettingsDialog::UnitSettingsDialog(QWidget *parent)
+    : QWidget(parent)
 {
     QLabel *labelEnergy = new QLabel(i18n("Energy:"), this);
     QList<int> energy;
-    energy << KUnitConversion::Electronvolt << KUnitConversion::KiloJoulePerMole <<
-           KUnitConversion::JoulePerMole << KUnitConversion::Joule;
+    energy << KUnitConversion::Electronvolt << KUnitConversion::KiloJoulePerMole << KUnitConversion::JoulePerMole << KUnitConversion::Joule;
     m_comboBoxLEnergiesUnit = new KalziumUnitCombobox(energy, this);
     m_comboBoxLEnergiesUnit->setObjectName(QStringLiteral("kcfg_combobox_energies"));
 
@@ -29,8 +29,7 @@ UnitSettingsDialog::UnitSettingsDialog(QWidget* parent) : QWidget(parent)
 
     QLabel *labelTemperature = new QLabel(i18n("Temperature:"), this);
     QList<int> temperature;
-    temperature << KUnitConversion::Kelvin << KUnitConversion::Celsius << KUnitConversion::Fahrenheit <<
-                KUnitConversion::Reaumur;
+    temperature << KUnitConversion::Kelvin << KUnitConversion::Celsius << KUnitConversion::Fahrenheit << KUnitConversion::Reaumur;
     m_comboBoxLTemperatureUnit = new KalziumUnitCombobox(temperature, this);
     m_comboBoxLTemperatureUnit->setObjectName(QStringLiteral("kcfg_combobox_temperature"));
 

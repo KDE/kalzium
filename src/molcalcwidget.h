@@ -7,8 +7,8 @@
 #ifndef MOLCALCWIDGET_H
 #define MOLCALCWIDGET_H
 
-#include <QWidget>
 #include "ui_molcalcwidgetbase.h"
+#include <QWidget>
 
 #include "moleculeparser.h"
 
@@ -60,14 +60,14 @@ private:
 
     Ui_MolcalcWidgetBase ui;
 
-    QTimer * m_timer;
+    QTimer *m_timer;
 
 private:
-    MoleculeParser   *m_parser;
-    QSet<QString>    m_aliasList;
-    double           m_mass;
-    bool             m_validInput;
-    ElementCountMap  m_elementMap;
+    MoleculeParser *m_parser;
+    QSet<QString> m_aliasList;
+    double m_mass;
+    bool m_validInput;
+    ElementCountMap m_elementMap;
 };
 
 #endif // MOLCALCWIDGET_H

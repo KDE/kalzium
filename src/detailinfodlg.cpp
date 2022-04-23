@@ -34,7 +34,9 @@
 #include <KPageDialog>
 #include <KPageWidgetModel>
 
-DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent), m_tableTyp(0)
+DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent)
+    : KPageDialog(parent)
+    , m_tableTyp(0)
 {
     setFaceType(List);
 
@@ -58,8 +60,8 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     m_baseHtml = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/htmlview/"), QStandardPaths::LocateDirectory);
     m_baseHtml2 = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/hazardsymbols/"), QStandardPaths::LocateDirectory);
 
-//X     m_picsdir = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "elempics/") + "elempics/";
-//X     m_picsdir = QFileInfo(m_picsdir).absolutePath();
+    // X     m_picsdir = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "elempics/") + "elempics/";
+    // X     m_picsdir = QFileInfo(m_picsdir).absolutePath();
 
     // creating the tabs but not the contents, as that will be done when setting the element
     createContent();
@@ -67,12 +69,9 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     m_actionCollection = new KActionCollection(this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
-    connect(prevButton, &QPushButton::clicked,
-            this, &DetailedInfoDlg::showPreviousElement);
-    connect(nextButton, &QPushButton::clicked,
-            this, &DetailedInfoDlg::showNextElement);
-    connect(buttonBox(), &QDialogButtonBox::helpRequested,
-            this, &DetailedInfoDlg::slotHelp);
+    connect(prevButton, &QPushButton::clicked, this, &DetailedInfoDlg::showPreviousElement);
+    connect(nextButton, &QPushButton::clicked, this, &DetailedInfoDlg::showNextElement);
+    connect(buttonBox(), &QDialogButtonBox::helpRequested, this, &DetailedInfoDlg::slotHelp);
 
     // setting the element and updating the whole dialog
     setElement(el);
@@ -97,13 +96,13 @@ void DetailedInfoDlg::setElement(int el)
 
     reloadContent();
 
-  /* enableButton(User1, true);
-   user2Button->setEnabled(true);
-    if (m_elementNumber == 1) {
-        user2Button->setEnabled(false);
-    } else if (m_elementNumber == KalziumDataObject::instance()->numberOfElements()) {
-        user1Button->setEnabled(false);
-    }*/
+    /* enableButton(User1, true);
+     user2Button->setEnabled(true);
+      if (m_elementNumber == 1) {
+          user2Button->setEnabled(false);
+      } else if (m_elementNumber == KalziumDataObject::instance()->numberOfElements()) {
+          user1Button->setEnabled(false);
+      }*/
 }
 
 // void DetailedInfoDlg::setOverviewBackgroundColor(const QColor &bgColor)
@@ -116,9 +115,9 @@ void DetailedInfoDlg::setTableType(int tableTyp)
     m_tableTyp = tableTyp;
 }
 
-QTextBrowser* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& icontext, const QString& iconname)
+QTextBrowser *DetailedInfoDlg::addHTMLTab(const QString &title, const QString &icontext, const QString &iconname)
 {
-    QWidget* frame = new QWidget(this);
+    QWidget *frame = new QWidget(this);
     KPageWidgetItem *item = addPage(frame, title);
     item->setHeader(icontext);
     item->setIcon(QIcon::fromTheme(iconname));
@@ -130,7 +129,7 @@ QTextBrowser* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& i
     return browser;
 }
 
-void DetailedInfoDlg::fillHTMLTab(QTextBrowser *browser, const QString& htmlcode)
+void DetailedInfoDlg::fillHTMLTab(QTextBrowser *browser, const QString &htmlcode)
 {
     if (!browser) {
         return;
@@ -143,8 +142,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
     QString html = "<table width=\"100%\" summary=\"characteristics\">";
 
     switch (type) {
-    case MISC:
-    {
+    case MISC: {
         // discovery date and discoverers
         html.append("<tr><td><img src=\"file://" + m_baseHtml + "discovery.png\" alt=\"icon\"/></td><td>");
         html += KalziumUtils::prettyUnit(m_element, ChemicalDataObject::date);
@@ -161,28 +159,26 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
             html.append(i18n("Origin of the name:<br/>%1", nameorigin));
             html.append("</td></tr>");
         }
-        //X             if (m_element->artificial() || m_element->radioactive()) {
-        //X                 html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
-        //X                 if (!m_element->radioactive()) {
-        //X                     html.append(i18n("This element is artificial"));
-        //X                 } else if (!m_element->artificial()) {
-        //X                     html.append(i18n("This element is radioactive"));
-        //X                 } else {
-        //X                     html.append(i18n("This element is radioactive and artificial"));
-        //X                 }
-        //X                 html.append("</td></tr>");
-        //X             }
+        // X             if (m_element->artificial() || m_element->radioactive()) {
+        // X                 html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
+        // X                 if (!m_element->radioactive()) {
+        // X                     html.append(i18n("This element is artificial"));
+        // X                 } else if (!m_element->artificial()) {
+        // X                     html.append(i18n("This element is radioactive"));
+        // X                 } else {
+        // X                     html.append(i18n("This element is radioactive and artificial"));
+        // X                 }
+        // X                 html.append("</td></tr>");
+        // X             }
         break;
     }
-    case ISOTOPES:
-    {
+    case ISOTOPES: {
         html.append("<tr><td>");
         html.append(isotopeTable());
         html.append("</td></tr>");
         break;
     }
-    case DATA:
-    {
+    case DATA: {
         // melting point
         html.append("<tr><td><img src=\"file://" + m_baseHtml + "meltingpoint.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Melting Point")));
@@ -204,7 +200,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronAffinity));
         html.append("</td></tr>");
 
-        //Electronic configuration
+        // Electronic configuration
         html.append("<tr><td><img src=\"file://" + m_baseHtml + "structure.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Electronic configuration")));
         html.append("</td><td>");
@@ -246,7 +242,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append(KalziumUtils::prettyUnit(m_element, ChemicalDataObject::electronegativityPauling));
         html.append("</td></tr>");
 
-         // Oxidation numbers
+        // Oxidation numbers
         html.append("<tr><td><img src=\"file://" + m_baseHtml + "ionization.png\" alt=\"icon\"/></td><td>");
         html.append(createWikiLink(i18n("Oxidation states")));
         html.append("</td><td>");
@@ -254,44 +250,44 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
         html.append("</td></tr>");
         break;
     }
-    case EXTRA:
-    {
-        //Wikipedia.org
-//         html.append ("<tr><td><img src=\"file://" + m_baseHtml + "wiki.png\" alt=\"icon\"/></td><td>");
-        html.append ("<tr><td>");
-        html.append (createWikiLink(m_element->dataAsString(ChemicalDataObject::name), i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", QLocale().nativeLanguageName())));
-        html.append ("</td></tr>");
+    case EXTRA: {
+        // Wikipedia.org
+        //         html.append ("<tr><td><img src=\"file://" + m_baseHtml + "wiki.png\" alt=\"icon\"/></td><td>");
+        html.append("<tr><td>");
+        html.append(createWikiLink(m_element->dataAsString(ChemicalDataObject::name),
+                                   i18nc("Link to element's Wikipedia page, %1 is localized language name", "Wikipedia (%1)", QLocale().nativeLanguageName())));
+        html.append("</td></tr>");
 
-        //https://education.jlab.org/itselemental/ele001.html
-        html.append ("<tr><td>");
-        html.append ("<a href=\"https://");        // https://
-        html.append ("education.jlab.org/itselemental/ele");
-        html.append (QStringLiteral("%1").arg(m_element->dataAsString(ChemicalDataObject::atomicNumber), 3, '0'));
-        html.append (".html");
-        html.append ("\" target=\"_blank\" > ");
-        html.append ("Jefferson Lab");
-        html.append ("</a>");
-        html.append ("</td></tr>");
+        // https://education.jlab.org/itselemental/ele001.html
+        html.append("<tr><td>");
+        html.append("<a href=\"https://"); // https://
+        html.append("education.jlab.org/itselemental/ele");
+        html.append(QStringLiteral("%1").arg(m_element->dataAsString(ChemicalDataObject::atomicNumber), 3, '0'));
+        html.append(".html");
+        html.append("\" target=\"_blank\" > ");
+        html.append("Jefferson Lab");
+        html.append("</a>");
+        html.append("</td></tr>");
 
         // FIXME only works with english locals
-        html.append ("<tr><td>");
-        html.append ("<a href=\"https://");        // https://
-        html.append ("www.webelements.com/");
+        html.append("<tr><td>");
+        html.append("<a href=\"https://"); // https://
+        html.append("www.webelements.com/");
         if (QLocale().uiLanguages().first().startsWith(QLatin1String("en"))) {
-            html.append (m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
+            html.append(m_element->dataAsString(ChemicalDataObject::name).toLower()); // hydrogen
         }
-        html.append ("\" target=\"_blank\" >");
-        html.append ("Webelements");
-        html.append ("</a></td></tr>");
+        html.append("\" target=\"_blank\" >");
+        html.append("Webelements");
+        html.append("</a></td></tr>");
 
-        //chemipedia.org
-        //html.append("<tr><td><img src=\"file://" + m_baseHtml + "chemi.png\" alt=\"icon\"/></td><td>");
+        // chemipedia.org
+        // html.append("<tr><td><img src=\"file://" + m_baseHtml + "chemi.png\" alt=\"icon\"/></td><td>");
 
-        //html.append("</td></tr>");
-        //physics.nist.gov
-        //html.append("<tr><td><img src=\"file://" + m_baseHtml + "nist.png\" alt=\"icon\"/></td><td>");
+        // html.append("</td></tr>");
+        // physics.nist.gov
+        // html.append("<tr><td><img src=\"file://" + m_baseHtml + "nist.png\" alt=\"icon\"/></td><td>");
 
-        //html.append("</td></tr>");
+        // html.append("</td></tr>");
     }
     }
 
@@ -302,7 +298,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable() const
 {
-    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(m_elementNumber);
+    QList<Isotope *> list = KalziumDataObject::instance()->isotopes(m_elementNumber);
 
     QString html;
     html = QStringLiteral("<table cellspacing=\"0\" border=\"1\" cellpadding=\"3\" style=\"border-style: solid;\"><tr><th>");
@@ -334,51 +330,33 @@ QString DetailedInfoDlg::isotopeTable() const
         }
         html.append("</td><td>");
         if ((isotope)->halflife() > 0.0) {
-            html.append(i18nc("The first argument is the value, the second is the unit. For example '17 s' for '17 seconds',.", "%1 %2",
-                              (isotope)->halflife(), (isotope)->halflifeUnit()));
+            html.append(i18nc("The first argument is the value, the second is the unit. For example '17 s' for '17 seconds',.",
+                              "%1 %2",
+                              (isotope)->halflife(),
+                              (isotope)->halflifeUnit()));
         }
         html.append("</td><td>");
         if ((isotope)->spontfissionlikeliness() > 0.0) {
             if ((isotope)->spontfissiondecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->spontfissiondecay()));
             }
-            html.append(i18nc("Spontaneous fission"," SF"));
+            html.append(i18nc("Spontaneous fission", " SF"));
             if ((isotope)->spontfissionlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->spontfissionlikeliness()));
             }
-            if ((isotope)->alphalikeliness() > 0.0 ||
-                (isotope)->protonlikeliness()  > 0.0 || 
-                (isotope)->twoprotonlikeliness()  > 0.0 || 
-                (isotope)->neutronlikeliness()  > 0.0 || 
-                (isotope)->twoneutronlikeliness()  > 0.0 || 
-                (isotope)->eclikeliness()  > 0.0 || 
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->alphalikeliness() > 0.0 || (isotope)->protonlikeliness() > 0.0 || (isotope)->twoprotonlikeliness() > 0.0
+                || (isotope)->neutronlikeliness() > 0.0 || (isotope)->twoneutronlikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0
+                || (isotope)->twoeclikeliness() > 0.0 || (isotope)->betaminuslikeliness() > 0.0 || (isotope)->betaminusfissionlikeliness() > 0.0
+                || (isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0
+                || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -386,43 +364,22 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->alphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->alphadecay()));
             }
-            html.append(i18nc("Alpha decay"," %1", QChar(945)));
+            html.append(i18nc("Alpha decay", " %1", QChar(945)));
             if ((isotope)->alphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->alphalikeliness()));
             }
-            if (
-                (isotope)->protonlikeliness()  > 0.0 || 
-                (isotope)->twoprotonlikeliness()  > 0.0 || 
-                (isotope)->neutronlikeliness()  > 0.0 || 
-                (isotope)->twoneutronlikeliness()  > 0.0 || 
-                (isotope)->eclikeliness()  > 0.0 || 
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->protonlikeliness() > 0.0 || (isotope)->twoprotonlikeliness() > 0.0 || (isotope)->neutronlikeliness() > 0.0
+                || (isotope)->twoneutronlikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0 || (isotope)->twoeclikeliness() > 0.0
+                || (isotope)->betaminuslikeliness() > 0.0 || (isotope)->betaminusfissionlikeliness() > 0.0 || (isotope)->twobetaminuslikeliness() > 0.0
+                || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0
+                || (isotope)->betaminustwoneutronlikeliness() > 0.0 || (isotope)->betaminusthreeneutronlikeliness() > 0.0
+                || (isotope)->betaminusfourneutronlikeliness() > 0.0 || (isotope)->betaminusalphaneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -434,38 +391,18 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->protonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
             }
-            if (
-                (isotope)->twoprotonlikeliness()  > 0.0 || 
-                (isotope)->neutronlikeliness()  > 0.0 || 
-                (isotope)->twoneutronlikeliness()  > 0.0 || 
-                (isotope)->eclikeliness()  > 0.0 || 
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->twoprotonlikeliness() > 0.0 || (isotope)->neutronlikeliness() > 0.0 || (isotope)->twoneutronlikeliness() > 0.0
+                || (isotope)->eclikeliness() > 0.0 || (isotope)->twoeclikeliness() > 0.0 || (isotope)->betaminuslikeliness() > 0.0
+                || (isotope)->betaminusfissionlikeliness() > 0.0 || (isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0
+                || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -477,37 +414,18 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->twoprotonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->twoprotonlikeliness()));
             }
-            if (
-                (isotope)->neutronlikeliness()  > 0.0 || 
-                (isotope)->twoneutronlikeliness()  > 0.0 || 
-                (isotope)->eclikeliness()  > 0.0 || 
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->neutronlikeliness() > 0.0 || (isotope)->twoneutronlikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0
+                || (isotope)->twoeclikeliness() > 0.0 || (isotope)->betaminuslikeliness() > 0.0 || (isotope)->betaminusfissionlikeliness() > 0.0
+                || (isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0
+                || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -515,40 +433,21 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->neutrondecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->neutrondecay()));
             }
-            html.append(i18nc("Neutron decay"," n"));
+            html.append(i18nc("Neutron decay", " n"));
             if ((isotope)->neutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->neutronlikeliness()));
             }
-            if (
-                (isotope)->twoneutronlikeliness()  > 0.0 || 
-                (isotope)->eclikeliness()  > 0.0 || 
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->twoneutronlikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0 || (isotope)->twoeclikeliness() > 0.0
+                || (isotope)->betaminuslikeliness() > 0.0 || (isotope)->betaminusfissionlikeliness() > 0.0 || (isotope)->twobetaminuslikeliness() > 0.0
+                || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0
+                || (isotope)->betaminustwoneutronlikeliness() > 0.0 || (isotope)->betaminusthreeneutronlikeliness() > 0.0
+                || (isotope)->betaminusfourneutronlikeliness() > 0.0 || (isotope)->betaminusalphaneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -560,35 +459,17 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->twoneutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->twoneutronlikeliness()));
             }
-            if (
-                (isotope)->eclikeliness()  > 0.0 || 
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->eclikeliness() > 0.0 || (isotope)->twoeclikeliness() > 0.0 || (isotope)->betaminuslikeliness() > 0.0
+                || (isotope)->betaminusfissionlikeliness() > 0.0 || (isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0
+                || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -600,34 +481,17 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->eclikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->eclikeliness()));
             }
-            if (
-                (isotope)->twoeclikeliness()  > 0.0 || 
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->twoeclikeliness() > 0.0 || (isotope)->betaminuslikeliness() > 0.0 || (isotope)->betaminusfissionlikeliness() > 0.0
+                || (isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0
+                || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -639,33 +503,16 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->twoeclikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->twoeclikeliness()));
             }
-            if (
-                (isotope)->betaminuslikeliness()  > 0.0 || 
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betaminusfissionlikeliness() > 0.0 || (isotope)->twobetaminuslikeliness() > 0.0
+                || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0
+                || (isotope)->betaminustwoneutronlikeliness() > 0.0 || (isotope)->betaminusthreeneutronlikeliness() > 0.0
+                || (isotope)->betaminusfourneutronlikeliness() > 0.0 || (isotope)->betaminusalphaneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -677,32 +524,16 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminuslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminuslikeliness()));
             }
-            if (
-                (isotope)->betaminusfissionlikeliness()  > 0.0 || 
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusfissionlikeliness() > 0.0 || (isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0
+                || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -714,31 +545,16 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusfissionlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusfissionlikeliness()));
             }
-            if (
-                (isotope)->twobetaminuslikeliness()  > 0.0 || 
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->twobetaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0
+                || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -750,30 +566,15 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->twobetaminuslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->twobetaminuslikeliness()));
             }
-            if (
-                (isotope)->betapluslikeliness()  > 0.0 || 
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0
+                || (isotope)->betaminustwoneutronlikeliness() > 0.0 || (isotope)->betaminusthreeneutronlikeliness() > 0.0
+                || (isotope)->betaminusfourneutronlikeliness() > 0.0 || (isotope)->betaminusalphaneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -785,29 +586,15 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betapluslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betapluslikeliness()));
             }
-            if (
-                (isotope)->twobetapluslikeliness()  > 0.0 || 
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->twobetapluslikeliness() > 0.0 || (isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -819,28 +606,15 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->twobetapluslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->twobetapluslikeliness()));
             }
-            if (
-                (isotope)->betaminusneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusneutronlikeliness() > 0.0 || (isotope)->betaminustwoneutronlikeliness() > 0.0
+                || (isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -852,27 +626,14 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusneutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusneutronlikeliness()));
             }
-            if (
-                (isotope)->betaminustwoneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminustwoneutronlikeliness() > 0.0 || (isotope)->betaminusthreeneutronlikeliness() > 0.0
+                || (isotope)->betaminusfourneutronlikeliness() > 0.0 || (isotope)->betaminusalphaneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -884,26 +645,14 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminustwoneutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminustwoneutronlikeliness()));
             }
-            if (
-                (isotope)->betaminusthreeneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusthreeneutronlikeliness() > 0.0 || (isotope)->betaminusfourneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -915,25 +664,13 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusthreeneutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusthreeneutronlikeliness()));
             }
-            if (
-                (isotope)->betaminusfourneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusfourneutronlikeliness() > 0.0 || (isotope)->betaminusalphaneutronlikeliness() > 0.0
+                || (isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -945,24 +682,13 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusfourneutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusfourneutronlikeliness()));
             }
-            if (
-                (isotope)->betaminusalphaneutronlikeliness()  > 0.0 || 
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusalphaneutronlikeliness() > 0.0 || (isotope)->betaminusalphalikeliness() > 0.0
+                || (isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -970,27 +696,16 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusalphaneutrondecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaminusalphaneutrondecay()));
             }
-            html.append(i18n(" %1<sup>-</sup>%2 n", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>-</sup>%2 n", QChar(946), QChar(945)));
             if ((isotope)->betaminusalphaneutronlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusalphaneutronlikeliness()));
             }
-            if (
-                (isotope)->betaminusalphalikeliness()  > 0.0 || 
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusalphalikeliness() > 0.0 || (isotope)->betaminustwoalphalikeliness() > 0.0
+                || (isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -998,26 +713,16 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusalphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaminusalphadecay()));
             }
-            html.append(i18n(" %1<sup>-</sup>%2", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>-</sup>%2", QChar(946), QChar(945)));
             if ((isotope)->betaminusalphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusalphalikeliness()));
             }
-            if (
-                (isotope)->betaminustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminustwoalphalikeliness() > 0.0 || (isotope)->betaminusthreealphalikeliness() > 0.0
+                || (isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1025,25 +730,15 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminustwoalphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaminustwoalphadecay()));
             }
-            html.append(i18n(" %1<sup>-</sup>2%2", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>-</sup>2%2", QChar(946), QChar(945)));
             if ((isotope)->betaminustwoalphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminustwoalphalikeliness()));
             }
-            if (
-                (isotope)->betaminusthreealphalikeliness()  > 0.0 || 
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaminusthreealphalikeliness() > 0.0 || (isotope)->betaplusprotonlikeliness() > 0.0
+                || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1051,24 +746,15 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaminusthreealphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaminusthreealphadecay()));
             }
-            html.append(i18n(" %1<sup>-</sup>3%2", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>-</sup>3%2", QChar(946), QChar(945)));
             if ((isotope)->betaminusthreealphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaminusthreealphalikeliness()));
             }
-            if (
-                (isotope)->betaplusprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaplusprotonlikeliness() > 0.0 || (isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0
+                || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1080,19 +766,10 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaplusprotonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaplusprotonlikeliness()));
             }
-            if (
-                (isotope)->betaplustwoprotonlikeliness()  > 0.0 || 
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaplustwoprotonlikeliness() > 0.0 || (isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0
+                || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1104,18 +781,10 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaplustwoprotonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaplustwoprotonlikeliness()));
             }
-            if (
-                (isotope)->betaplusalphalikeliness()  > 0.0 || 
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaplusalphalikeliness() > 0.0 || (isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0
+                || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1123,21 +792,14 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaplusalphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaplusalphadecay()));
             }
-            html.append(i18n(" %1<sup>+</sup>%2", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>+</sup>%2", QChar(946), QChar(945)));
             if ((isotope)->betaplusalphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaplusalphalikeliness()));
             }
-            if (
-                (isotope)->betaplustwoalphalikeliness()  > 0.0 || 
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaplustwoalphalikeliness() > 0.0 || (isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0
+                || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0
+                || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1145,20 +807,13 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaplustwoalphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaplustwoalphadecay()));
             }
-            html.append(i18n(" %1<sup>+</sup>2%2", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>+</sup>2%2", QChar(946), QChar(945)));
             if ((isotope)->betaplustwoalphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaplustwoalphalikeliness()));
             }
-            if (
-                (isotope)->betaplusthreealphalikeliness()  > 0.0 || 
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->betaplusthreealphalikeliness() > 0.0 || (isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0
+                || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1166,19 +821,13 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->betaplusthreealphadecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->betaplusthreealphadecay()));
             }
-            html.append(i18n(" %1<sup>+</sup>3%2", QChar(946),QChar(945)));
+            html.append(i18n(" %1<sup>+</sup>3%2", QChar(946), QChar(945)));
             if ((isotope)->betaplusthreealphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->betaplusthreealphalikeliness()));
             }
-            if (
-                (isotope)->alphabetaminuslikeliness()  > 0.0 || 
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->alphabetaminuslikeliness() > 0.0 || (isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0
+                || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1186,18 +835,13 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->alphabetaminusdecay() > 0.0) {
                 html.append(i18n("%1 MeV", (isotope)->alphabetaminusdecay()));
             }
-            html.append(i18n(" %1 %2<sup>-</sup>", QChar(945),QChar(946)));
+            html.append(i18n(" %1 %2<sup>-</sup>", QChar(945), QChar(946)));
             if ((isotope)->alphabetaminuslikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->alphabetaminuslikeliness()));
             }
-            if (
-                (isotope)->protonalphalikeliness()  > 0.0 || 
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->protonalphalikeliness() > 0.0 || (isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0
+                || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1209,13 +853,8 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->protonalphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->protonalphalikeliness()));
             }
-            if (
-                (isotope)->ecprotonlikeliness()  > 0.0 || 
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->ecprotonlikeliness() > 0.0 || (isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0
+                || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1227,12 +866,8 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->ecprotonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->ecprotonlikeliness()));
             }
-            if (
-                (isotope)->ectwoprotonlikeliness()  > 0.0 || 
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->ectwoprotonlikeliness() > 0.0 || (isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1244,11 +879,8 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->ectwoprotonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->ectwoprotonlikeliness()));
             }
-            if (
-                (isotope)->ecthreeprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->ecthreeprotonlikeliness() > 0.0 || (isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0
+                || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1260,10 +892,7 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->ecthreeprotonlikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->ecthreeprotonlikeliness()));
             }
-            if (
-                (isotope)->ecalphalikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->ecalphalikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1275,9 +904,7 @@ QString DetailedInfoDlg::isotopeTable() const
             if ((isotope)->ecalphalikeliness() < 100.0) {
                 html.append(i18n("(%1%)", (isotope)->ecalphalikeliness()));
             }
-            if (
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 || 
-                (isotope)->ecalphaprotonlikeliness()  > 0.0 ) {
+            if ((isotope)->ecalphaprotonlikeliness() > 0.0 || (isotope)->ecalphaprotonlikeliness() > 0.0) {
                 html.append(i18n(", "));
             }
         }
@@ -1291,156 +918,156 @@ QString DetailedInfoDlg::isotopeTable() const
             }
         }
 
-/*        if ((isotope)->alphalikeliness() > 0.0) {
-            if ((isotope)->alphadecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->alphadecay()));
-            }
-            html.append(i18n(" %1", QChar(945)));
-            if ((isotope)->alphalikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->alphalikeliness()));
-            }
-            if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
-                html.append(i18n(", "));
-            }
-        }
-        if ((isotope)->alphabetaminuslikeliness() > 0.0) {
-            if ((isotope)->alphabetaminusdecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->alphabetaminusdecay()));
-            }
-            html.append(i18n(" %1, %2<sup>-</sup>", QChar(945), QChar(946) ));
-            if ((isotope)->alphabetaminuslikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->alphabetaminuslikeliness()));
-            }
-            if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
-                html.append(i18n(", "));
-            }
-        }
-        if ((isotope)->betaminuslikeliness() > 0.0) {
-            if ((isotope)->betaminusdecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaminusdecay()));
-            }
-            html.append(i18n(" %1<sup>-</sup>", QChar(946)));
-            if ((isotope)->betaminuslikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betaminuslikeliness()));
-            }
-
-            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
-                html.append(i18n(", "));
-            }
-        }
-        if ((isotope)->betaminusneutronlikeliness() > 0.0) {
-            if ((isotope)->betaminusneutrondecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaminusneutrondecay()));
-            }
-            html.append(i18n(" %1<sup>-</sup>, n", QChar(946)));
-            if ((isotope)->betaminusneutronlikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betaminusneutronlikeliness()));
-            }
-
-            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
-                html.append(i18n(", "));
-            }
-        }
-        if ((isotope)->betaminusfissionlikeliness() > 0.0) {
-            if ((isotope)->betaminusfissiondecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaminusfissiondecay()));
-            }
-            html.append(i18n(" %1<sup>-</sup>, fission", QChar(946)));
-            if ((isotope)->betaminusfissionlikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betaminusfissionlikeliness()));
-            }
-
-            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
-                html.append(i18n(", "));
-            }
-        }
-        if ((isotope)->betaminusalphalikeliness() > 0.0) {
-            if ((isotope)->betaminusalphadecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaminusalphadecay()));
-            }
-            html.append(i18n(" %1<sup>-</sup>, %2", QChar(946), QChar(945)));
-            if ((isotope)->betaminusalphalikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betaminusalphalikeliness()));
-            }
-
-            if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
-                html.append(i18n(", "));
-            }
-        }
-        if ((isotope)->betapluslikeliness() > 0.0) {
-            if ((isotope)->betaplusdecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaplusdecay()));
-            }
-            html.append(i18n(" %1<sup>+</sup>", QChar(946)));
-            if ((isotope)->betapluslikeliness() == (isotope)->eclikeliness()) {
-                if ((isotope)->ecdecay() > 0.0) {
-                    html.append(i18n("%1 MeV", (isotope)->ecdecay()));
+        /*        if ((isotope)->alphalikeliness() > 0.0) {
+                    if ((isotope)->alphadecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->alphadecay()));
+                    }
+                    html.append(i18n(" %1", QChar(945)));
+                    if ((isotope)->alphalikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->alphalikeliness()));
+                    }
+                    if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                        html.append(i18n(", "));
+                    }
                 }
-                html.append(i18nc("Acronym of Electron Capture"," EC"));
-            }
-            if ((isotope)->betapluslikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betapluslikeliness()));
-            }
-            html += ' ';
-        }
-        if ((isotope)->betaplusprotonlikeliness() > 0.0) {
-            if ((isotope)->betaplusprotondecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaplusprotondecay()));
-            }
-            html.append(i18n(" %1<sup>+</sup>, p", QChar(946)));
-            if ((isotope)->betaplusprotonlikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betaplusprotonlikeliness()));
-            }
-            html += ' ';
-        }
-        if ((isotope)->betaplusalphalikeliness() > 0.0) {
-            if ((isotope)->betaplusalphadecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->betaplusalphadecay()));
-            }
-            html.append(i18n(" %1<sup>+</sup>, %2", QChar(946),QChar(945)));
-            if ((isotope)->betaplusalphalikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->betaplusalphalikeliness()));
-            }
-            html += ' ';
-        }
-        if ((isotope)->eclikeliness() > 0.0) {
-            if ((isotope)->ecdecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->ecdecay()));
-            }
-            html.append(i18nc("Acronym of Electron Capture"," EC"));
-            if ((isotope)->eclikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->eclikeliness()));
-            }
-        }
-        if ((isotope)->neutronlikeliness() > 0.0) {
-            if ((isotope)->neutrondecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->neutrondecay()));
-            }
-            html.append(i18nc("Acronym of neutron emission"," n"));
-            if ((isotope)->neutronlikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->neutronlikeliness()));
-            }
-        }
-	if ((isotope)->protonlikeliness() > 0.0) {
-            if ((isotope)->protondecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->protondecay()));
-            }
-            html.append(i18nc("Acronym of proton emission"," p"));
-            if ((isotope)->protonlikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
-            }
-        }
-	if ((isotope)->protonalphalikeliness() > 0.0) {
-            if ((isotope)->protonalphadecay() > 0.0) {
-                html.append(i18n("%1 MeV", (isotope)->protonalphadecay()));
-            }
-            html.append(i18n(" p, %1", QChar(945)));
-            if ((isotope)->protonlikeliness() < 100.0) {
-                html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
-            }
-        }
+                if ((isotope)->alphabetaminuslikeliness() > 0.0) {
+                    if ((isotope)->alphabetaminusdecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->alphabetaminusdecay()));
+                    }
+                    html.append(i18n(" %1, %2<sup>-</sup>", QChar(945), QChar(946) ));
+                    if ((isotope)->alphabetaminuslikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->alphabetaminuslikeliness()));
+                    }
+                    if ((isotope)->betaminuslikeliness() > 0.0 || (isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                        html.append(i18n(", "));
+                    }
+                }
+                if ((isotope)->betaminuslikeliness() > 0.0) {
+                    if ((isotope)->betaminusdecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaminusdecay()));
+                    }
+                    html.append(i18n(" %1<sup>-</sup>", QChar(946)));
+                    if ((isotope)->betaminuslikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betaminuslikeliness()));
+                    }
 
-*/
+                    if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                        html.append(i18n(", "));
+                    }
+                }
+                if ((isotope)->betaminusneutronlikeliness() > 0.0) {
+                    if ((isotope)->betaminusneutrondecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaminusneutrondecay()));
+                    }
+                    html.append(i18n(" %1<sup>-</sup>, n", QChar(946)));
+                    if ((isotope)->betaminusneutronlikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betaminusneutronlikeliness()));
+                    }
+
+                    if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                        html.append(i18n(", "));
+                    }
+                }
+                if ((isotope)->betaminusfissionlikeliness() > 0.0) {
+                    if ((isotope)->betaminusfissiondecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaminusfissiondecay()));
+                    }
+                    html.append(i18n(" %1<sup>-</sup>, fission", QChar(946)));
+                    if ((isotope)->betaminusfissionlikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betaminusfissionlikeliness()));
+                    }
+
+                    if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                        html.append(i18n(", "));
+                    }
+                }
+                if ((isotope)->betaminusalphalikeliness() > 0.0) {
+                    if ((isotope)->betaminusalphadecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaminusalphadecay()));
+                    }
+                    html.append(i18n(" %1<sup>-</sup>, %2", QChar(946), QChar(945)));
+                    if ((isotope)->betaminusalphalikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betaminusalphalikeliness()));
+                    }
+
+                    if ((isotope)->betapluslikeliness() > 0.0 || (isotope)->eclikeliness() > 0.0) {
+                        html.append(i18n(", "));
+                    }
+                }
+                if ((isotope)->betapluslikeliness() > 0.0) {
+                    if ((isotope)->betaplusdecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaplusdecay()));
+                    }
+                    html.append(i18n(" %1<sup>+</sup>", QChar(946)));
+                    if ((isotope)->betapluslikeliness() == (isotope)->eclikeliness()) {
+                        if ((isotope)->ecdecay() > 0.0) {
+                            html.append(i18n("%1 MeV", (isotope)->ecdecay()));
+                        }
+                        html.append(i18nc("Acronym of Electron Capture"," EC"));
+                    }
+                    if ((isotope)->betapluslikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betapluslikeliness()));
+                    }
+                    html += ' ';
+                }
+                if ((isotope)->betaplusprotonlikeliness() > 0.0) {
+                    if ((isotope)->betaplusprotondecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaplusprotondecay()));
+                    }
+                    html.append(i18n(" %1<sup>+</sup>, p", QChar(946)));
+                    if ((isotope)->betaplusprotonlikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betaplusprotonlikeliness()));
+                    }
+                    html += ' ';
+                }
+                if ((isotope)->betaplusalphalikeliness() > 0.0) {
+                    if ((isotope)->betaplusalphadecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->betaplusalphadecay()));
+                    }
+                    html.append(i18n(" %1<sup>+</sup>, %2", QChar(946),QChar(945)));
+                    if ((isotope)->betaplusalphalikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->betaplusalphalikeliness()));
+                    }
+                    html += ' ';
+                }
+                if ((isotope)->eclikeliness() > 0.0) {
+                    if ((isotope)->ecdecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->ecdecay()));
+                    }
+                    html.append(i18nc("Acronym of Electron Capture"," EC"));
+                    if ((isotope)->eclikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->eclikeliness()));
+                    }
+                }
+                if ((isotope)->neutronlikeliness() > 0.0) {
+                    if ((isotope)->neutrondecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->neutrondecay()));
+                    }
+                    html.append(i18nc("Acronym of neutron emission"," n"));
+                    if ((isotope)->neutronlikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->neutronlikeliness()));
+                    }
+                }
+            if ((isotope)->protonlikeliness() > 0.0) {
+                    if ((isotope)->protondecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->protondecay()));
+                    }
+                    html.append(i18nc("Acronym of proton emission"," p"));
+                    if ((isotope)->protonlikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+                    }
+                }
+            if ((isotope)->protonalphalikeliness() > 0.0) {
+                    if ((isotope)->protonalphadecay() > 0.0) {
+                        html.append(i18n("%1 MeV", (isotope)->protonalphadecay()));
+                    }
+                    html.append(i18n(" p, %1", QChar(945)));
+                    if ((isotope)->protonlikeliness() < 100.0) {
+                        html.append(i18n("(%1%)", (isotope)->protonlikeliness()));
+                    }
+                }
+
+        */
         html.append("</td><td>");
         html.append((isotope)->spin());
         html.append("</td><td>");
@@ -1448,7 +1075,6 @@ QString DetailedInfoDlg::isotopeTable() const
             html.append(i18n("%1 %2<sub>n</sub>", (isotope)->magmoment(), QChar(956)));
         }
         html.append("</td></tr>");
-
     }
 
     html += QLatin1String("</table>");
@@ -1460,28 +1086,28 @@ void DetailedInfoDlg::createContent()
 {
     KPageWidgetItem *item = nullptr;
 
-   // Removed the overview Tab, because its an Dockwidget and doesn't show much information.
+    // Removed the overview Tab, because its an Dockwidget and doesn't show much information.
     // overview tab
-//     QWidget *m_pOverviewTab = new QWidget();
-//     item = addPage(m_pOverviewTab, i18n("Overview"));
-//     item->setHeader(i18n("Overview"));
-//     item->setIcon(QIcon("overview"));
-//     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
-//     overviewLayout->setMargin(0);
-//     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
-//     dTab->setObjectName("DetailedGraphicalOverview");
-//     overviewLayout->addWidget(dTab);
+    //     QWidget *m_pOverviewTab = new QWidget();
+    //     item = addPage(m_pOverviewTab, i18n("Overview"));
+    //     item->setHeader(i18n("Overview"));
+    //     item->setIcon(QIcon("overview"));
+    //     QVBoxLayout *overviewLayout = new QVBoxLayout(m_pOverviewTab);
+    //     overviewLayout->setMargin(0);
+    //     dTab = new DetailedGraphicalOverview(m_pOverviewTab);
+    //     dTab->setObjectName("DetailedGraphicalOverview");
+    //     overviewLayout->addWidget(dTab);
 
-//X      // picture tab
-//X      QWidget *m_pPictureTab = new QWidget();
-//X      item = addPage(m_pPictureTab, i18n("Picture"));
-//X      item->setHeader(i18n("What does this element look like?"));
-//X      item->setIcon(QIcon("elempic"));
-//X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
-//X      mainLayout->setMargin(0);
-//X      piclabel = new QLabel(m_pPictureTab);
-//X      piclabel->setMinimumSize(400, 350);
-//X      mainLayout->addWidget(piclabel);
+    // X      // picture tab
+    // X      QWidget *m_pPictureTab = new QWidget();
+    // X      item = addPage(m_pPictureTab, i18n("Picture"));
+    // X      item->setHeader(i18n("What does this element look like?"));
+    // X      item->setIcon(QIcon("elempic"));
+    // X      QVBoxLayout *mainLayout = new QVBoxLayout(m_pPictureTab);
+    // X      mainLayout->setMargin(0);
+    // X      piclabel = new QLabel(m_pPictureTab);
+    // X      piclabel->setMinimumSize(400, 350);
+    // X      mainLayout->addWidget(piclabel);
 
     // html tab
     m_htmlpages[QStringLiteral("new")] = addHTMLTab(i18n("Data Overview"), i18n("Data Overview"), QStringLiteral("applications-science"));
@@ -1527,18 +1153,18 @@ void DetailedInfoDlg::reloadContent()
     const QString element_block = m_element->dataAsString(ChemicalDataObject::periodTableBlock);
 
     // updating caption
-    setWindowTitle(i18nc("@title:window, for example: [C] Carbon (6 - Block p)", "[%1] %2 (%3 - Block %4)",
-                         element_symbol, element_name, m_elementNumber, element_block));
+    setWindowTitle(
+        i18nc("@title:window, for example: [C] Carbon (6 - Block p)", "[%1] %2 (%3 - Block %4)", element_symbol, element_name, m_elementNumber, element_block));
 
-    //X      // updating picture tab
-    //X      QString picpath = m_picsdir + element_symbol + ".jpg";
-    //X      if (QFile::exists(picpath)) {
-    //X           QImage img(picpath, "JPEG");
-    //X           img = img.scaled(400, 400, Qt::KeepAspectRatio);
-    //X           piclabel->setPixmap(QPixmap::fromImage(img));
-    //X      } else {
-    //X           piclabel->setText(i18n("No picture of %1 found.", element_name));
-    //X      }
+    // X      // updating picture tab
+    // X      QString picpath = m_picsdir + element_symbol + ".jpg";
+    // X      if (QFile::exists(picpath)) {
+    // X           QImage img(picpath, "JPEG");
+    // X           img = img.scaled(400, 400, Qt::KeepAspectRatio);
+    // X           piclabel->setPixmap(QPixmap::fromImage(img));
+    // X      } else {
+    // X           piclabel->setText(i18n("No picture of %1 found.", element_name));
+    // X      }
 
     // updating atomic model tab
     wOrbits->setElementNumber(m_elementNumber);
@@ -1556,7 +1182,7 @@ void DetailedInfoDlg::reloadContent()
     fillHTMLTab(m_htmlpages[QStringLiteral("isotopes")], getHtml(ISOTOPES));
     fillHTMLTab(m_htmlpages[QStringLiteral("extra")], getHtml(EXTRA));
 
-    Spectrum * spec =  KalziumDataObject::instance()->spectrum(m_elementNumber);
+    Spectrum *spec = KalziumDataObject::instance()->spectrum(m_elementNumber);
 
     // updating spectrum widget
     if (spec) {
@@ -1566,28 +1192,26 @@ void DetailedInfoDlg::reloadContent()
         m_spectrumLabel->setText(i18n("No spectrum of %1 found.", element_name));
         m_spectrumStack->setCurrentWidget(m_spectrumLabel);
     }
-
 }
 
 QString DetailedInfoDlg::createWikiLink(QString link)
 {
-        return createWikiLink(link, link);
+    return createWikiLink(link, link);
 }
-
 
 QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 {
     QString html;
     QString language(QLocale().uiLanguages().first());
 
-    //Wikipedia.org
-    html.append ("<a href=\"https://");         // https://
-    html.append (language.split('-').at(0));   // en.
-    html.append (".wikipedia.org/wiki/");      // wikipedia.org
-    html.append (link);                        // /hydrogen
-    html.append ("\" target=\"_blank\" > ");
-    html.append (displayString);
-    html.append ("</a>");
+    // Wikipedia.org
+    html.append("<a href=\"https://"); // https://
+    html.append(language.split('-').at(0)); // en.
+    html.append(".wikipedia.org/wiki/"); // wikipedia.org
+    html.append(link); // /hydrogen
+    html.append("\" target=\"_blank\" > ");
+    html.append(displayString);
+    html.append("</a>");
     // Example from the comment "https://en.wikipedia.org/wiki/hydrogen"
 
     return html;
@@ -1595,7 +1219,7 @@ QString DetailedInfoDlg::createWikiLink(QString link, QString displayString)
 
 void DetailedInfoDlg::slotHelp()
 {
-    //TODO fix this stuff...
+    // TODO fix this stuff...
 #if 0
     QString chapter = "infodialog_overview";
     switch (activePageIndex()) {
@@ -1622,7 +1246,7 @@ void DetailedInfoDlg::slotHelp()
         break;
     }
 #endif
-   KHelpClient::invokeHelp(QStringLiteral("info-dlg.html#infodialog_spectrum"), QStringLiteral("kalzium"));
+    KHelpClient::invokeHelp(QStringLiteral("info-dlg.html#infodialog_spectrum"), QStringLiteral("kalzium"));
 }
 
 void DetailedInfoDlg::showNextElement()
@@ -1634,4 +1258,3 @@ void DetailedInfoDlg::showPreviousElement()
 {
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->previousOf(m_elementNumber));
 }
-

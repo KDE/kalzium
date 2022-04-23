@@ -11,7 +11,7 @@
 #include <QObject>
 
 #include "element.h"
-//class Element;
+// class Element;
 
 /**
  * Represent a search.
@@ -29,7 +29,7 @@ public:
     enum SearchKind {
         SearchByName = 0x01,
         SearchBySymbol = 0x02,
-        SearchAll = 0xFF
+        SearchAll = 0xFF,
     };
 
     /**
@@ -56,12 +56,12 @@ public:
     /**
      * @return the found elements
      */
-    const QList<Element*>& foundElements() const;
+    const QList<Element *> &foundElements() const;
 
     /**
      * @return whether the element @p el matches the search
      */
-    bool matches(Element* el) const;
+    bool matches(Element *el) const;
 
     /**
      * @return whether the element @p el matches the search
@@ -74,7 +74,7 @@ public Q_SLOTS:
      * Search the @p text by looking at the element using the
      * specified @p kind
      */
-    void doSearch(const QString& text, SearchKind kind);
+    void doSearch(const QString &text, SearchKind kind);
     /**
      * Reset the current search (and put it not active).
      */
@@ -97,7 +97,7 @@ private:
     QString m_searchText;
     SearchKind m_searchKind;
 
-    QList<Element*> m_foundElements;
+    QList<Element *> m_foundElements;
 };
 
 #endif // KALZIUMSEARCH_H

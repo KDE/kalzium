@@ -12,13 +12,13 @@
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLine>
 
-#include <QKeyEvent>
 #include "kalzium_debug.h"
 #include <QDialogButtonBox>
 #include <QDomDocument>
 #include <QEvent>
 #include <QFile>
 #include <QHeaderView>
+#include <QKeyEvent>
 #include <QLabel>
 #include <QLayout>
 #include <QList>
@@ -36,33 +36,34 @@ static const int GlossaryTreeItemType = QTreeWidgetItem::UserType + 1;
 
 class GlossaryTreeItem : public QTreeWidgetItem
 {
-    public:
-        GlossaryTreeItem(Glossary * g, GlossaryItem * gi)
-            : QTreeWidgetItem(GlossaryTreeItemType), m_g(g), m_gi(gi)
-        {
-            setText(0, m_gi->name());
-        }
+public:
+    GlossaryTreeItem(Glossary *g, GlossaryItem *gi)
+        : QTreeWidgetItem(GlossaryTreeItemType)
+        , m_g(g)
+        , m_gi(gi)
+    {
+        setText(0, m_gi->name());
+    }
 
-        Glossary *glossary() const
-        {
-            return m_g;
-        }
+    Glossary *glossary() const
+    {
+        return m_g;
+    }
 
-        GlossaryItem *glossaryItem() const
-        {
-            return m_gi;
-        }
+    GlossaryItem *glossaryItem() const
+    {
+        return m_gi;
+    }
 
-    private:
-        Glossary *m_g;
-        GlossaryItem *m_gi;
+private:
+    Glossary *m_g;
+    GlossaryItem *m_gi;
 };
 
-
-struct GlossaryInfo
-{
-    GlossaryInfo(Glossary* g)
-        : glossary(g), folded(true)
+struct GlossaryInfo {
+    GlossaryInfo(Glossary *g)
+        : glossary(g)
+        , folded(true)
     {
     }
 
@@ -70,46 +71,45 @@ struct GlossaryInfo
     bool folded;
 };
 
-
 class GlossaryDialog::Private
 {
-    public:
-        Private(GlossaryDialog *qq) : q(qq)
-        {
+public:
+    Private(GlossaryDialog *qq)
+        : q(qq)
+    {
+    }
+
+    ~Private()
+    {
+        QList<GlossaryInfo>::ConstIterator it = m_glossaries.constBegin();
+        QList<GlossaryInfo>::ConstIterator itEnd = m_glossaries.constEnd();
+        for (; it != itEnd; ++it) {
+            delete (*it).glossary;
         }
 
-        ~Private()
-        {
-            QList<GlossaryInfo>::ConstIterator it = m_glossaries.constBegin();
-            QList<GlossaryInfo>::ConstIterator itEnd = m_glossaries.constEnd();
-            for (; it != itEnd; ++it) {
-                delete (*it).glossary;
-            }
+        delete m_htmlpart;
+    }
 
-            delete m_htmlpart;
-        }
+    void rebuildTree();
+    QTreeWidgetItem *createItem(const GlossaryInfo &gi) const;
+    QTreeWidgetItem *findTreeWithLetter(const QChar &l, QTreeWidgetItem *item) const;
 
-        void rebuildTree();
-        QTreeWidgetItem* createItem(const GlossaryInfo& gi) const;
-        QTreeWidgetItem* findTreeWithLetter(const QChar& l, QTreeWidgetItem* item) const;
+    // slots
+    void itemActivated(QTreeWidgetItem *item, int column);
 
-        // slots
-        void itemActivated(QTreeWidgetItem * item, int column);
+    GlossaryDialog *q;
 
-        GlossaryDialog *q;
+    QList<GlossaryInfo> m_glossaries;
 
-        QList< GlossaryInfo > m_glossaries;
+    QTextBrowser *m_htmlpart;
+    QTreeWidget *m_glosstree;
+    KTreeWidgetSearchLine *m_search;
+    QString m_htmlbasestring;
 
-        QTextBrowser *m_htmlpart;
-        QTreeWidget *m_glosstree;
-        KTreeWidgetSearchLine *m_search;
-        QString m_htmlbasestring;
-
-        KActionCollection* m_actionCollection;
+    KActionCollection *m_actionCollection;
 };
 
-
-Glossary::Glossary(const QUrl &url, const QString& path)
+Glossary::Glossary(const QUrl &url, const QString &path)
 {
     init(url, path);
 }
@@ -124,7 +124,7 @@ Glossary::~Glossary()
     qDeleteAll(m_itemlist);
 }
 
-void Glossary::init(const QUrl &url, const QString& path)
+void Glossary::init(const QUrl &url, const QString &path)
 {
     // setting a generic name for a new glossary
     m_name = i18n("Glossary");
@@ -172,7 +172,7 @@ bool Glossary::isEmpty() const
     return m_itemlist.count() == 0;
 }
 
-void Glossary::setName(const QString& name)
+void Glossary::setName(const QString &name)
 {
     if (name.isEmpty()) {
         return;
@@ -180,7 +180,7 @@ void Glossary::setName(const QString& name)
     m_name = name;
 }
 
-void Glossary::setPicturePath(const QString& path)
+void Glossary::setPicturePath(const QString &path)
 {
     if (path.isEmpty()) {
         return;
@@ -188,7 +188,7 @@ void Glossary::setPicturePath(const QString& path)
     m_picturepath = path;
 }
 
-void Glossary::setBackgroundPicture(const QString& filename)
+void Glossary::setBackgroundPicture(const QString &filename)
 {
     if (filename.isEmpty()) {
         return;
@@ -201,18 +201,18 @@ void Glossary::fixImagePath()
     QString imgtag = "<img src=\"file://" + m_picturepath + '/' + "\\1\" />";
     QRegularExpression exp("\\[img\\]([^[]+)\\[/img\\]");
 
-  foreach (GlossaryItem * item, m_itemlist) {
-      QString tmp = item->desc();
-      while (exp.match(tmp).hasMatch()) {
-          tmp = tmp.replace(exp, imgtag);
-      }
-      item->setDesc(tmp);
-  }
+    foreach (GlossaryItem *item, m_itemlist) {
+        QString tmp = item->desc();
+        while (exp.match(tmp).hasMatch()) {
+            tmp = tmp.replace(exp, imgtag);
+        }
+        item->setDesc(tmp);
+    }
 }
 
-QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
+QList<GlossaryItem *> Glossary::readItems(QDomDocument &itemDocument)
 {
-    QList<GlossaryItem*> list;
+    QList<GlossaryItem *> list;
 
     QDomNodeList itemList;
     QDomNodeList refNodeList;
@@ -254,8 +254,7 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
         item->setDesc(desc);
 
         refNodeList = refNode.elementsByTagName(QStringLiteral("refitem"));
-        for (int it = 0; it < refNodeList.count(); ++it)
-        {
+        for (int it = 0; it < refNodeList.count(); ++it) {
             reflist << i18n(refNodeList.item(it).toElement().text().toUtf8().constData());
         }
         item->setRef(reflist);
@@ -266,12 +265,12 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
     return list;
 }
 
-void Glossary::addItem(GlossaryItem* item)
+void Glossary::addItem(GlossaryItem *item)
 {
     m_itemlist.append(item);
 }
 
-QList<GlossaryItem*> Glossary::itemlist()const
+QList<GlossaryItem *> Glossary::itemlist() const
 {
     return m_itemlist;
 }
@@ -281,33 +280,36 @@ void Glossary::clear()
     m_itemlist.clear();
 }
 
-QString Glossary::name()const
+QString Glossary::name() const
 {
     return m_name;
 }
 
-void Glossary::setItemlist(QList<GlossaryItem*> list)
+void Glossary::setItemlist(QList<GlossaryItem *> list)
 {
     m_itemlist = list;
 }
 
-QString Glossary::picturePath()const
+QString Glossary::picturePath() const
 {
     return m_picturepath;
 }
 
-QString Glossary::backgroundPicture()const
+QString Glossary::backgroundPicture() const
 {
     return m_backgroundpicture;
 }
 
-GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private(this))
+GlossaryDialog::GlossaryDialog(QWidget *parent)
+    : QDialog(parent)
+    , d(new Private(this))
 {
     setWindowTitle(i18nc("@title:window", "Glossary"));
 
-    //this string will be used for all items. If a backgroundpicture should
-    //be used call Glossary::setBackgroundPicture().
-    d->m_htmlbasestring = QStringLiteral("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>");
+    // this string will be used for all items. If a backgroundpicture should
+    // be used call Glossary::setBackgroundPicture().
+    d->m_htmlbasestring =
+        QStringLiteral("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>");
 
     QWidget *main = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout(main);
@@ -336,23 +338,22 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
     d->m_htmlpart = new QTextBrowser(vs);
     d->m_htmlpart->setOpenLinks(false);
 
-    connect(d->m_glosstree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
-            this, SLOT(itemActivated(QTreeWidgetItem*,int)));
-    connect(d->m_htmlpart, &QTextBrowser::anchorClicked, this, [=](const QUrl &link){
+    connect(d->m_glosstree, SIGNAL(itemActivated(QTreeWidgetItem *, int)), this, SLOT(itemActivated(QTreeWidgetItem *, int)));
+    connect(d->m_htmlpart, &QTextBrowser::anchorClicked, this, [=](const QUrl &link) {
         // using the "path" part of a qurl as reference
         QString myurl = link.path().toLower();
         QTreeWidgetItemIterator it(this->d->m_glosstree);
         while (*it) {
             if ((*it)->type() == GlossaryTreeItemType && (*it)->text(0).toLower() == myurl) {
-                 // force the item to be selected
-                 this->d->m_glosstree->setCurrentItem(*it);
-                 // display its content
-                 Q_EMIT this->d->itemActivated((*it), 0);
-                 break;
+                // force the item to be selected
+                this->d->m_glosstree->setCurrentItem(*it);
+                // display its content
+                Q_EMIT this->d->itemActivated((*it), 0);
+                break;
             } else {
                 ++it;
             }
-         }
+        }
     });
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -368,7 +369,7 @@ GlossaryDialog::~GlossaryDialog()
     delete d;
 }
 
-void GlossaryDialog::keyPressEvent(QKeyEvent* e)
+void GlossaryDialog::keyPressEvent(QKeyEvent *e)
 {
     if (e->key() == Qt::Key_Return) {
         e->ignore();
@@ -380,14 +381,14 @@ void GlossaryDialog::Private::rebuildTree()
 {
     m_glosstree->clear();
 
-    QList< GlossaryInfo >::ConstIterator it = m_glossaries.constBegin();
-    QList< GlossaryInfo >::ConstIterator itEnd = m_glossaries.constEnd();
+    QList<GlossaryInfo>::ConstIterator it = m_glossaries.constBegin();
+    QList<GlossaryInfo>::ConstIterator itEnd = m_glossaries.constEnd();
     for (; it != itEnd; ++it) {
         m_glosstree->addTopLevelItem(createItem(*it));
     }
 }
 
-QTreeWidgetItem* GlossaryDialog::Private::createItem(const GlossaryInfo& gi) const
+QTreeWidgetItem *GlossaryDialog::Private::createItem(const GlossaryInfo &gi) const
 {
     Glossary *glossary = gi.glossary;
     bool folded = gi.folded;
@@ -408,12 +409,11 @@ QTreeWidgetItem* GlossaryDialog::Private::createItem(const GlossaryInfo& gi) con
         } else {
             main->addChild(new GlossaryTreeItem(glossary, item));
         }
-
     }
     return main;
 }
 
-void GlossaryDialog::addGlossary(Glossary* newgloss, bool folded)
+void GlossaryDialog::addGlossary(Glossary *newgloss, bool folded)
 {
     if (!newgloss || newgloss->isEmpty()) {
         return;
@@ -427,7 +427,7 @@ void GlossaryDialog::addGlossary(Glossary* newgloss, bool folded)
     d->m_glosstree->sortItems(0, Qt::AscendingOrder);
 }
 
-QTreeWidgetItem* GlossaryDialog::Private::findTreeWithLetter(const QChar& l, QTreeWidgetItem* item) const
+QTreeWidgetItem *GlossaryDialog::Private::findTreeWithLetter(const QChar &l, QTreeWidgetItem *item) const
 {
     int count = item->childCount();
     for (int i = 0; i < count; ++i) {
@@ -439,7 +439,7 @@ QTreeWidgetItem* GlossaryDialog::Private::findTreeWithLetter(const QChar& l, QTr
     return nullptr;
 }
 
-void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)
+void GlossaryDialog::Private::itemActivated(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column)
     if (!item || item->type() != GlossaryTreeItemType) {
@@ -460,7 +460,7 @@ void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)
     m_htmlpart->setHtml(html);
 }
 
-void GlossaryItem::setRef(const QStringList& s)
+void GlossaryItem::setRef(const QStringList &s)
 {
     m_ref = s;
     m_ref.sort();
@@ -482,7 +482,7 @@ QString GlossaryItem::parseReferences() const
     QString htmlcode = "<h3>" + i18n("References") + "</h3><ul type=\"disc\">";
     static QString basehref = QStringLiteral("<li><a href=\"item:%1\" title=\"%2\">%3</a></li>");
 
-    foreach (const QString& ref, m_ref) {
+    foreach (const QString &ref, m_ref) {
         htmlcode += basehref.arg(QUrl::toPercentEncoding(ref), i18n("Go to '%1'", ref), ref);
     }
     htmlcode += QLatin1String("</ul>");
@@ -490,17 +490,17 @@ QString GlossaryItem::parseReferences() const
     return htmlcode;
 }
 
-void GlossaryItem::setName(const QString& s)
+void GlossaryItem::setName(const QString &s)
 {
     m_name = s;
 }
 
-void GlossaryItem::setDesc(const QString& s)
+void GlossaryItem::setDesc(const QString &s)
 {
     m_desc = s;
 }
 
-void GlossaryItem::setPictures(const QString& s)
+void GlossaryItem::setPictures(const QString &s)
 {
     m_pic = QStringList(s);
 }

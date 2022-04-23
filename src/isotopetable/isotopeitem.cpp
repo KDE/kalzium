@@ -55,16 +55,14 @@ IsotopeItem::IsotopeItem(Isotope *i, qreal x, qreal y, qreal width, qreal height
     }
     setBrush(b);
 
-    m_symbolFont = QFont(QStringLiteral("Arial"), 3 ,QFont::Bold);
-    m_otherFont = QFont(QStringLiteral("Arial"), 1 ,QFont::Bold);
+    m_symbolFont = QFont(QStringLiteral("Arial"), 3, QFont::Bold);
+    m_otherFont = QFont(QStringLiteral("Arial"), 1, QFont::Bold);
 
     setFlag(QGraphicsItem::ItemIsMovable, false);
     setFlag(QGraphicsItem::ItemIsSelectable, false);
     setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 
-    setToolTip(i18n("Isotope of Element %1 (%2)",
-                    m_isotope->parentElementNumber(),
-                    m_isotope->parentElementSymbol()));
+    setToolTip(i18n("Isotope of Element %1 (%2)", m_isotope->parentElementNumber(), m_isotope->parentElementSymbol()));
 }
 
 void IsotopeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -85,26 +83,22 @@ void IsotopeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
         const QRectF r1(m_rect.translated(0.0, 2.5));
 
         painter->setFont(m_symbolFont);
-        painter->drawText(r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol());//, s->parentElementNumber()
+        painter->drawText(r1, Qt::AlignHCenter | Qt::TextDontClip, m_isotope->parentElementSymbol()); //, s->parentElementNumber()
 
         if (lod >= 4.0) {
             const QRectF r2(m_rect.topLeft() + QPointF(1.0, 0.5), m_rect.size() / 2.0);
-            const QRectF r3(m_rect.topLeft() + QPointF(6.0, 0.5) , m_rect.size() / 2.0);
+            const QRectF r3(m_rect.topLeft() + QPointF(6.0, 0.5), m_rect.size() / 2.0);
 
             painter->setFont(m_otherFont);
-            painter->drawText(r2,
-                              Qt::AlignHCenter | Qt::TextDontClip,
-                              QString::number(m_isotope->parentElementNumber()));
-            painter->drawText(r3,
-                              Qt::AlignHCenter | Qt::TextDontClip,
-                              QString::number(m_isotope->nucleons()));
+            painter->drawText(r2, Qt::AlignHCenter | Qt::TextDontClip, QString::number(m_isotope->parentElementNumber()));
+            painter->drawText(r3, Qt::AlignHCenter | Qt::TextDontClip, QString::number(m_isotope->nucleons()));
         }
     }
 }
 
-IsotopeItem::IsotopeType IsotopeItem::getType(Isotope * isotope)
+IsotopeItem::IsotopeType IsotopeItem::getType(Isotope *isotope)
 {
-    //TODO Here I need a clever way to find out *what* to return.
+    // TODO Here I need a clever way to find out *what* to return.
     if (isotope->alphalikeliness() > 60.0) {
         return IsotopeItem::alpha;
     }
@@ -131,7 +125,7 @@ void IsotopeItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
+    IsotopeScene *scene2 = static_cast<IsotopeScene *>(scene());
     scene2->updateContextHelp(this);
 }
 
@@ -142,6 +136,6 @@ void IsotopeItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
+    IsotopeScene *scene2 = static_cast<IsotopeScene *>(scene());
     scene2->updateContextHelp(this);
 }

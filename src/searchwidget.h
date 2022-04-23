@@ -32,7 +32,7 @@ public:
     void giveFocus();
 
 private Q_SLOTS:
-    void searchTextChanged(const QString& text);
+    void searchTextChanged(const QString &text);
     void slotReturnPressed();
     void doSearch();
 

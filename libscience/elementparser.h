@@ -25,33 +25,32 @@ public:
      */
     ElementSaxParser();
     ~ElementSaxParser();
-    bool startElement(const QString&, const QString &localName, const QString&,
-                      const QXmlAttributes &attrs) override;
+    bool startElement(const QString &, const QString &localName, const QString &, const QXmlAttributes &attrs) override;
 
-    bool endElement(const QString& namespaceURI, const QString &localName, const QString& qName) override;
+    bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName) override;
 
     bool characters(const QString &ch) override;
 
-    QList<Element*> getElements();
+    QList<Element *> getElements();
 
 private:
     /**
-    * Looks up a name @p unitname. The valid names are
-    * hard-coded in the C++ code, currently
-    *   - bo:kelvin
-    *   - bo:ev
-    *   - bo:nm
-    *   - bo:pm
-    *   - bo:y
-    *   - bo:s
-    *   - bo:noUnit
-    *
-    * @return the BlueObeliskUnit of a ChemicalDataObject
-    *   corresponding to @p unitname, or noUnit if the name
-    *   doesn't match any of the known values.
-    * @param unitname the attribute-text of the XML parsed
-    */
-    int unit(const QString& unitname) const;
+     * Looks up a name @p unitname. The valid names are
+     * hard-coded in the C++ code, currently
+     *   - bo:kelvin
+     *   - bo:ev
+     *   - bo:nm
+     *   - bo:pm
+     *   - bo:y
+     *   - bo:s
+     *   - bo:noUnit
+     *
+     * @return the BlueObeliskUnit of a ChemicalDataObject
+     *   corresponding to @p unitname, or noUnit if the name
+     *   doesn't match any of the known values.
+     * @param unitname the attribute-text of the XML parsed
+     */
+    int unit(const QString &unitname) const;
 
     class Private;
     Private *const d;

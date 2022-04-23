@@ -16,8 +16,8 @@
 #include <openbabel/elements.h>
 #endif
 
-#include <QBrush>
 #include "kalzium_debug.h"
+#include <QBrush>
 #include <QStandardPaths>
 
 #include <KLocalizedString>
@@ -29,18 +29,18 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
     m_schemes << KalziumIconicSchemeType::instance();
     m_schemes << KalziumFamilySchemeType::instance();
     m_schemes << KalziumGroupsSchemeType::instance();
-    #ifdef HAVE_OPENBABEL
+#ifdef HAVE_OPENBABEL
     m_schemes << KalziumColorSchemeType::instance();
-    #endif
+#endif
 }
 
-KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
+KalziumSchemeTypeFactory *KalziumSchemeTypeFactory::instance()
 {
     static KalziumSchemeTypeFactory kstf;
     return &kstf;
 }
 
-KalziumSchemeType* KalziumSchemeTypeFactory::build(int id) const
+KalziumSchemeType *KalziumSchemeTypeFactory::build(int id) const
 {
     if ((id < 0) || (id >= m_schemes.count())) {
         return nullptr;
@@ -49,7 +49,7 @@ KalziumSchemeType* KalziumSchemeTypeFactory::build(int id) const
     return m_schemes.at(id);
 }
 
-KalziumSchemeType* KalziumSchemeTypeFactory::build(const QByteArray& id) const
+KalziumSchemeType *KalziumSchemeTypeFactory::build(const QByteArray &id) const
 {
     for (int i = 0; i < m_schemes.count(); ++i) {
         if (m_schemes.at(i)->name() == id) {
@@ -69,15 +69,13 @@ QStringList KalziumSchemeTypeFactory::schemes() const
     return l;
 }
 
-
-KalziumSchemeType* KalziumSchemeType::instance()
+KalziumSchemeType *KalziumSchemeType::instance()
 {
     return nullptr;
 }
 
 KalziumSchemeType::KalziumSchemeType()
 {
-
 }
 
 KalziumSchemeType::~KalziumSchemeType()
@@ -85,11 +83,11 @@ KalziumSchemeType::~KalziumSchemeType()
 }
 
 KalziumMonoColorSchemeType::KalziumMonoColorSchemeType()
-        : KalziumSchemeType()
+    : KalziumSchemeType()
 {
 }
 
-KalziumMonoColorSchemeType* KalziumMonoColorSchemeType::instance()
+KalziumMonoColorSchemeType *KalziumMonoColorSchemeType::instance()
 {
     static KalziumMonoColorSchemeType kmcst;
     return &kmcst;
@@ -124,13 +122,12 @@ QList<legendPair> KalziumMonoColorSchemeType::legendItems() const
     return ll;
 }
 
-
 KalziumBlocksSchemeType::KalziumBlocksSchemeType()
-        : KalziumSchemeType()
+    : KalziumSchemeType()
 {
 }
 
-KalziumBlocksSchemeType* KalziumBlocksSchemeType::instance()
+KalziumBlocksSchemeType *KalziumBlocksSchemeType::instance()
 {
     static KalziumBlocksSchemeType kbst;
     return &kbst;
@@ -182,14 +179,14 @@ QList<legendPair> KalziumBlocksSchemeType::legendItems() const
     return ll;
 }
 
-///ICONIC SCHEME///
+/// ICONIC SCHEME///
 
 KalziumIconicSchemeType::KalziumIconicSchemeType()
-        : KalziumSchemeType()
+    : KalziumSchemeType()
 {
 }
 
-KalziumIconicSchemeType* KalziumIconicSchemeType::instance()
+KalziumIconicSchemeType *KalziumIconicSchemeType::instance()
 {
     static KalziumIconicSchemeType kist;
     return &kist;
@@ -223,14 +220,13 @@ QList<legendPair> KalziumIconicSchemeType::legendItems() const
     return ll;
 }
 
-
-///Family///
+/// Family///
 KalziumFamilySchemeType::KalziumFamilySchemeType()
-        : KalziumSchemeType()
+    : KalziumSchemeType()
 {
 }
 
-KalziumFamilySchemeType* KalziumFamilySchemeType::instance()
+KalziumFamilySchemeType *KalziumFamilySchemeType::instance()
 {
     static KalziumFamilySchemeType kbst;
     return &kbst;
@@ -285,26 +281,26 @@ QColor KalziumFamilySchemeType::textColor(int) const
 QList<legendPair> KalziumFamilySchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair(i18n("Alkaline"),QColor(Prefs::alkalie()));
-    ll << qMakePair(i18n("Rare Earth"),QColor(Prefs::rare()));
-    ll << qMakePair(i18n("Non-Metals"),QColor(Prefs::nonmetal()));
-    ll << qMakePair(i18n("Alkalie Metal"),QColor(Prefs::alkaline()));
-    ll << qMakePair(i18n("Other Metal"),QColor(Prefs::other_metal()));
-    ll << qMakePair(i18n("Halogen"),QColor(Prefs::halogene()));
-    ll << qMakePair(i18n("Transition Metal"),QColor(Prefs::transition()));
-    ll << qMakePair(i18n("Noble Gas"),QColor(Prefs::noble_gas()));
-    ll << qMakePair(i18n("Metalloid"),QColor(Prefs::metalloid()));
+    ll << qMakePair(i18n("Alkaline"), QColor(Prefs::alkalie()));
+    ll << qMakePair(i18n("Rare Earth"), QColor(Prefs::rare()));
+    ll << qMakePair(i18n("Non-Metals"), QColor(Prefs::nonmetal()));
+    ll << qMakePair(i18n("Alkalie Metal"), QColor(Prefs::alkaline()));
+    ll << qMakePair(i18n("Other Metal"), QColor(Prefs::other_metal()));
+    ll << qMakePair(i18n("Halogen"), QColor(Prefs::halogene()));
+    ll << qMakePair(i18n("Transition Metal"), QColor(Prefs::transition()));
+    ll << qMakePair(i18n("Noble Gas"), QColor(Prefs::noble_gas()));
+    ll << qMakePair(i18n("Metalloid"), QColor(Prefs::metalloid()));
 
     return ll;
 }
 
-///GROUPS///
+/// GROUPS///
 KalziumGroupsSchemeType::KalziumGroupsSchemeType()
-        : KalziumSchemeType()
+    : KalziumSchemeType()
 {
 }
 
-KalziumGroupsSchemeType* KalziumGroupsSchemeType::instance()
+KalziumGroupsSchemeType *KalziumGroupsSchemeType::instance()
 {
     static KalziumGroupsSchemeType kbst;
     return &kbst;
@@ -370,13 +366,13 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 }
 
 #ifdef HAVE_OPENBABEL
-///OpenBabel Color///
+/// OpenBabel Color///
 KalziumColorSchemeType::KalziumColorSchemeType()
-        : KalziumSchemeType()
+    : KalziumSchemeType()
 {
 }
 
-KalziumColorSchemeType* KalziumColorSchemeType::instance()
+KalziumColorSchemeType *KalziumColorSchemeType::instance()
 {
     static KalziumColorSchemeType kbst;
     return &kbst;
@@ -422,201 +418,200 @@ QList<legendPair> KalziumColorSchemeType::legendItems() const
 }
 #endif
 
-
-///CRYSTAL///
-//X KalziumCrystalSchemeType::KalziumCrystalSchemeType()
-//X   : KalziumSchemeType()
-//X {
-//X }
-//X
-//X KalziumCrystalSchemeType* KalziumCrystalSchemeType::instance()
-//X {
-//X     static KalziumCrystalSchemeType kbst;
-//X     return &kbst;
-//X }
-//X
-//X QByteArray KalziumCrystalSchemeType::name() const
-//X {
-//X     return "Crystal";
-//X }
-//X
-//X QString KalziumCrystalSchemeType::description() const
-//X {
-//X     return i18n("Crystal Structures");
-//X }
-//X
-//X QBrush KalziumCrystalSchemeType::elementBrush(int el, const QRect& elrect) const
-//X {
-//X     QString crystal = KalziumDataObject::instance()->element(el)->dataAsString(ChemicalDataObject::crystalstructure);
-//X
-//X     qCDebug(KALZIUM_LOG) << "crystal is " << crystal;
-//X
-//X     static QString resourcepath;
-//X     if (resourcepath.isEmpty()) {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/latticeicons/");
-//X     }
-//X
-//X     QString filename;
-//X     if (crystal == "bcc") {
-//X         filename = "ci.png";
-//X     } else if (crystal == "ccp") {
-//X         filename = "cp.png";
-//X     } else if (crystal ==  "fcc") {
-//X         filename = "cf.png";
-//X     } else if (crystal ==  "hcp") {
-//X         filename = "hp.png";
-//X     } else if (crystal ==  "rh") {
-//X         filename = "hr.png";//Rhombohedral primitive
-//X     } else if (crystal ==  "or") {
-//X         filename = "op.png";//Orthorhombic primitive
-//X     } else if (crystal ==  "mono") {
-//X         filename = "ms.png";//Monoclinic primitive
-//X     } else if (crystal ==  "tri") {
-//X         filename = "ap.png";//Triclinic
-//X     } else if (crystal ==  "tp") {
-//X         filename = "tp.png";//Tetragonal primitive
-//X     }
-//X
-//X         filename.prepend(resourcepath);
-//X
-//X     QBrush ret;
-//X     if (!filename.isEmpty()) {
-//X         qCDebug(KALZIUM_LOG) << el << ": FILENAME is not EMPTY... " << filename;
-//X         QPixmap pixmap(resourcepath + filename);
-//X         ret = QBrush(pixmap.scaled(elrect.size(), Qt::KeepAspectRatio));
-//X     } else {
-//X             qCDebug(KALZIUM_LOG) << el << ": FILENAME EMPTY... " << filename;
-//X         ret.setColor(Qt::gray);
-//X     }
-//X
-//X     return ret;
-//X }
-//X
-//X QColor KalziumCrystalSchemeType::textColor(int) const
-//X {
-//X     return Qt::black;
-//X }
-//X
-//X QList<legendPair> KalziumCrystalSchemeType::legendItems() const
-//X {
-//X     static QString resourcepath;
-//X     if (resourcepath.isEmpty())
-//X     {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/latticeicons/");
-//X     }
-//X
-//X     QList<legendPair> ll;
-//X     ll << qMakePair(i18n("bcc, body centered cubic"), QColor(QPixmap(resourcepath + "ci.png")));
-//X     ll << qMakePair(i18n("ccp, cubic close packed"), QColor(QPixmap(resourcepath + "cp.png")));
-//X     ll << qMakePair(i18n("fcc, face centered cubic"), QColor(QPixmap(resourcepath + "cf.png")));
-//X     ll << qMakePair(i18n("hcp, hexagonal close packed"), QColor(QPixmap(resourcepath + "hp.png")));
-//X     ll << qMakePair(i18n("rh, rhombohedral"), QColor(QPixmap(resourcepath + "hr.png")));
-//X     ll << qMakePair(i18n("or, orthorhombic primitive"), QColor(QPixmap(resourcepath + "op.png")));
-//X     ll << qMakePair(i18n("ms, monoclinic"), QColor(QPixmap(resourcepath + "ms.png")));
-//X     ll << qMakePair(i18n("ap, triclinic"), QColor(QPixmap(resourcepath + "ap.png")));
-//X     ll << qMakePair(i18n("tp, tetragonal primitive"), QColor(QPixmap(resourcepath + "tp.png")));
-//X
-//X     return ll;
-//X }
+/// CRYSTAL///
+// X KalziumCrystalSchemeType::KalziumCrystalSchemeType()
+// X   : KalziumSchemeType()
+// X {
+// X }
+// X
+// X KalziumCrystalSchemeType* KalziumCrystalSchemeType::instance()
+// X {
+// X     static KalziumCrystalSchemeType kbst;
+// X     return &kbst;
+// X }
+// X
+// X QByteArray KalziumCrystalSchemeType::name() const
+// X {
+// X     return "Crystal";
+// X }
+// X
+// X QString KalziumCrystalSchemeType::description() const
+// X {
+// X     return i18n("Crystal Structures");
+// X }
+// X
+// X QBrush KalziumCrystalSchemeType::elementBrush(int el, const QRect& elrect) const
+// X {
+// X     QString crystal = KalziumDataObject::instance()->element(el)->dataAsString(ChemicalDataObject::crystalstructure);
+// X
+// X     qCDebug(KALZIUM_LOG) << "crystal is " << crystal;
+// X
+// X     static QString resourcepath;
+// X     if (resourcepath.isEmpty()) {
+// X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/latticeicons/");
+// X     }
+// X
+// X     QString filename;
+// X     if (crystal == "bcc") {
+// X         filename = "ci.png";
+// X     } else if (crystal == "ccp") {
+// X         filename = "cp.png";
+// X     } else if (crystal ==  "fcc") {
+// X         filename = "cf.png";
+// X     } else if (crystal ==  "hcp") {
+// X         filename = "hp.png";
+// X     } else if (crystal ==  "rh") {
+// X         filename = "hr.png";//Rhombohedral primitive
+// X     } else if (crystal ==  "or") {
+// X         filename = "op.png";//Orthorhombic primitive
+// X     } else if (crystal ==  "mono") {
+// X         filename = "ms.png";//Monoclinic primitive
+// X     } else if (crystal ==  "tri") {
+// X         filename = "ap.png";//Triclinic
+// X     } else if (crystal ==  "tp") {
+// X         filename = "tp.png";//Tetragonal primitive
+// X     }
+// X
+// X         filename.prepend(resourcepath);
+// X
+// X     QBrush ret;
+// X     if (!filename.isEmpty()) {
+// X         qCDebug(KALZIUM_LOG) << el << ": FILENAME is not EMPTY... " << filename;
+// X         QPixmap pixmap(resourcepath + filename);
+// X         ret = QBrush(pixmap.scaled(elrect.size(), Qt::KeepAspectRatio));
+// X     } else {
+// X             qCDebug(KALZIUM_LOG) << el << ": FILENAME EMPTY... " << filename;
+// X         ret.setColor(Qt::gray);
+// X     }
+// X
+// X     return ret;
+// X }
+// X
+// X QColor KalziumCrystalSchemeType::textColor(int) const
+// X {
+// X     return Qt::black;
+// X }
+// X
+// X QList<legendPair> KalziumCrystalSchemeType::legendItems() const
+// X {
+// X     static QString resourcepath;
+// X     if (resourcepath.isEmpty())
+// X     {
+// X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/latticeicons/");
+// X     }
+// X
+// X     QList<legendPair> ll;
+// X     ll << qMakePair(i18n("bcc, body centered cubic"), QColor(QPixmap(resourcepath + "ci.png")));
+// X     ll << qMakePair(i18n("ccp, cubic close packed"), QColor(QPixmap(resourcepath + "cp.png")));
+// X     ll << qMakePair(i18n("fcc, face centered cubic"), QColor(QPixmap(resourcepath + "cf.png")));
+// X     ll << qMakePair(i18n("hcp, hexagonal close packed"), QColor(QPixmap(resourcepath + "hp.png")));
+// X     ll << qMakePair(i18n("rh, rhombohedral"), QColor(QPixmap(resourcepath + "hr.png")));
+// X     ll << qMakePair(i18n("or, orthorhombic primitive"), QColor(QPixmap(resourcepath + "op.png")));
+// X     ll << qMakePair(i18n("ms, monoclinic"), QColor(QPixmap(resourcepath + "ms.png")));
+// X     ll << qMakePair(i18n("ap, triclinic"), QColor(QPixmap(resourcepath + "ap.png")));
+// X     ll << qMakePair(i18n("tp, tetragonal primitive"), QColor(QPixmap(resourcepath + "tp.png")));
+// X
+// X     return ll;
+// X }
 
 ////
-//X KalziumDiscoverymapSchemeType::KalziumDiscoverymapSchemeType()
-//X   : KalziumSchemeType()
-//X {
-//X }
-//X
-//X KalziumDiscoverymapSchemeType* KalziumDiscoverymapSchemeType::instance()
-//X {
-//X     static KalziumDiscoverymapSchemeType kbst;
-//X     return &kbst;
-//X }
-//X
-//X QByteArray KalziumDiscoverymapSchemeType::name() const
-//X {
-//X     return "Crystal";
-//X }
-//X
-//X QString KalziumDiscoverymapSchemeType::description() const
-//X {
-//X     return i18n("Discovery Country");
-//X }
-//X
-//X QBrush KalziumDiscoverymapSchemeType::elementBrush(int el, const QRect& elrect) const
-//X {
-//X     QString map = KalziumDataObject::instance()->element(el)->dataAsString(ChemicalDataObject::discoveryCountry);
-//X
-//X     static QString resourcepath;
-//X     if (resourcepath.isEmpty()) {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/maps/");
-//X     }
-//X
-//X     QString filename;
-//X     if (map == "se") {
-//X         filename = "se.png";
-//X     } else if (map == "uk") {
-//X         filename = "uk.png";
-//X     } else if (map == "us") {
-//X         filename = "us.png";
-//X     } else if (map == "ru") {
-//X         filename = "ru.png";
-//X     } else if (map == "it") {
-//X         filename = "it.png";
-//X     } else if (map == "de") {
-//X         filename = "de.png";
-//X     } else if (map == "dk") {
-//X         filename = "dk.png";
-//X     } else if (map == "fr") {
-//X         filename = "fr.png";
-//X     } else if (map == "fi") {
-//X         filename = "fi.png";
-//X     } else if (map == "es") {
-//X         filename = "es.png";
-//X     } else if (map == "ancient") {
-//X         return QBrush(Qt::lightGray);
-//X     } else if (map == "uk,fr") {
-//X         filename = "ukfr.png";
-//X     } else if (map == "se,uk") {
-//X         filename = "ukse.png";
-//X     } else if (map == "ru,us") {
-//X         filename = "ruus.png";
-//X     } else {
-//X       return QBrush(Qt::blue);
-//X     }
-//X
-//X     QBrush ret;
-//X     if (!filename.isEmpty()) {
-//X         QPixmap pixmap(resourcepath + filename);
-//X         ret = QBrush(pixmap.scaled(elrect.size(), Qt::KeepAspectRatio));
-//X     } else {
-//X         ret.setColor(Qt::gray);
-//X     }
-//X
-//X     return ret;
-//X }
-//X
-//X QColor KalziumDiscoverymapSchemeType::textColor(int) const
-//X {
-//X     return Qt::black;
-//X }
-//X
-//X QList<legendPair> KalziumDiscoverymapSchemeType::legendItems() const
-//X {
-//X     static QString resourcepath;
-//X     if (resourcepath.isEmpty()) {
-//X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/maps/");
-//X     }
-//X
-//X     QList<legendPair> ll;
-//X     ll << qMakePair(i18n("Germany"), QColor(QPixmap(resourcepath + "de.png")));
-//X     ll << qMakePair(i18n("United Kindom"), QColor(QPixmap(resourcepath + "uk.png")));
-//X     ll << qMakePair(i18n("Sweden"), QColor(QPixmap(resourcepath + "se.png")));
-//X     ll << qMakePair(i18n("USA"), QColor(QPixmap(resourcepath + "us.png")));
-//X     ll << qMakePair(i18n("Russia"), QColor(QPixmap(resourcepath + "ru.png")));
-//X     ll << qMakePair(i18n("Italy"), QColor(QPixmap(resourcepath + "it.png")));
-//X     ll << qMakePair(i18n("Denmark"), QColor(QPixmap(resourcepath + "dk.png")));
-//X     ll << qMakePair(i18n("France"), QColor(QPixmap(resourcepath + "fr.png")));
-//X     ll << qMakePair(i18n("Finland"), QColor(QPixmap(resourcepath + "fi.png")));
-//X     ll << qMakePair(i18n("Spain"), QColor(QPixmap(resourcepath + "es.png")));
-//X
-//X     return ll;
-//X }
+// X KalziumDiscoverymapSchemeType::KalziumDiscoverymapSchemeType()
+// X   : KalziumSchemeType()
+// X {
+// X }
+// X
+// X KalziumDiscoverymapSchemeType* KalziumDiscoverymapSchemeType::instance()
+// X {
+// X     static KalziumDiscoverymapSchemeType kbst;
+// X     return &kbst;
+// X }
+// X
+// X QByteArray KalziumDiscoverymapSchemeType::name() const
+// X {
+// X     return "Crystal";
+// X }
+// X
+// X QString KalziumDiscoverymapSchemeType::description() const
+// X {
+// X     return i18n("Discovery Country");
+// X }
+// X
+// X QBrush KalziumDiscoverymapSchemeType::elementBrush(int el, const QRect& elrect) const
+// X {
+// X     QString map = KalziumDataObject::instance()->element(el)->dataAsString(ChemicalDataObject::discoveryCountry);
+// X
+// X     static QString resourcepath;
+// X     if (resourcepath.isEmpty()) {
+// X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/maps/");
+// X     }
+// X
+// X     QString filename;
+// X     if (map == "se") {
+// X         filename = "se.png";
+// X     } else if (map == "uk") {
+// X         filename = "uk.png";
+// X     } else if (map == "us") {
+// X         filename = "us.png";
+// X     } else if (map == "ru") {
+// X         filename = "ru.png";
+// X     } else if (map == "it") {
+// X         filename = "it.png";
+// X     } else if (map == "de") {
+// X         filename = "de.png";
+// X     } else if (map == "dk") {
+// X         filename = "dk.png";
+// X     } else if (map == "fr") {
+// X         filename = "fr.png";
+// X     } else if (map == "fi") {
+// X         filename = "fi.png";
+// X     } else if (map == "es") {
+// X         filename = "es.png";
+// X     } else if (map == "ancient") {
+// X         return QBrush(Qt::lightGray);
+// X     } else if (map == "uk,fr") {
+// X         filename = "ukfr.png";
+// X     } else if (map == "se,uk") {
+// X         filename = "ukse.png";
+// X     } else if (map == "ru,us") {
+// X         filename = "ruus.png";
+// X     } else {
+// X       return QBrush(Qt::blue);
+// X     }
+// X
+// X     QBrush ret;
+// X     if (!filename.isEmpty()) {
+// X         QPixmap pixmap(resourcepath + filename);
+// X         ret = QBrush(pixmap.scaled(elrect.size(), Qt::KeepAspectRatio));
+// X     } else {
+// X         ret.setColor(Qt::gray);
+// X     }
+// X
+// X     return ret;
+// X }
+// X
+// X QColor KalziumDiscoverymapSchemeType::textColor(int) const
+// X {
+// X     return Qt::black;
+// X }
+// X
+// X QList<legendPair> KalziumDiscoverymapSchemeType::legendItems() const
+// X {
+// X     static QString resourcepath;
+// X     if (resourcepath.isEmpty()) {
+// X         resourcepath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, "data/maps/");
+// X     }
+// X
+// X     QList<legendPair> ll;
+// X     ll << qMakePair(i18n("Germany"), QColor(QPixmap(resourcepath + "de.png")));
+// X     ll << qMakePair(i18n("United Kindom"), QColor(QPixmap(resourcepath + "uk.png")));
+// X     ll << qMakePair(i18n("Sweden"), QColor(QPixmap(resourcepath + "se.png")));
+// X     ll << qMakePair(i18n("USA"), QColor(QPixmap(resourcepath + "us.png")));
+// X     ll << qMakePair(i18n("Russia"), QColor(QPixmap(resourcepath + "ru.png")));
+// X     ll << qMakePair(i18n("Italy"), QColor(QPixmap(resourcepath + "it.png")));
+// X     ll << qMakePair(i18n("Denmark"), QColor(QPixmap(resourcepath + "dk.png")));
+// X     ll << qMakePair(i18n("France"), QColor(QPixmap(resourcepath + "fr.png")));
+// X     ll << qMakePair(i18n("Finland"), QColor(QPixmap(resourcepath + "fi.png")));
+// X     ll << qMakePair(i18n("Spain"), QColor(QPixmap(resourcepath + "es.png")));
+// X
+// X     return ll;
+// X }

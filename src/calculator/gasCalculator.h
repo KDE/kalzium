@@ -22,19 +22,10 @@ const double R = 0.08206;
 using namespace KUnitConversion;
 
 /// This is the enumeration for the error type required in the error(int mode) function
-enum ERROR_TYPE_GAS {
-    RESET_GAS_MESSAGE = 0,
-    VOL_ZERO,
-    GAS_MOLAR_MASS_ZERO
-};
+enum ERROR_TYPE_GAS { RESET_GAS_MESSAGE = 0, VOL_ZERO, GAS_MOLAR_MASS_ZERO };
 
 /// This is the enumeration for the mode of calculation for the gas calculator
-enum MODE_CALCULATION_GAS {
-    MOLES = 0,
-    PRESSURE,
-    TEMPERATURE,
-    VOLUME
-};
+enum MODE_CALCULATION_GAS { MOLES = 0, PRESSURE, TEMPERATURE, VOLUME };
 
 /**
  * This class implements the gas calculator. It performs basic calculations like
@@ -52,13 +43,13 @@ enum MODE_CALCULATION_GAS {
  *        a,b - Van der Val's constants
  *
  * @author Kashyap R Puranik
-**/
+ **/
 class gasCalculator : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit gasCalculator(QWidget * parent = nullptr);
+    explicit gasCalculator(QWidget *parent = nullptr);
     ~gasCalculator();
 
 public Q_SLOTS:
@@ -115,10 +106,10 @@ public Q_SLOTS:
     void calculate();
 
     /**
-    * This function is called when an error occurs
-    * @param mode indicates the mode of error
-    * Refer ERROR_MODE_GAS for various modes
-    **/
+     * This function is called when an error occurs
+     * @param mode indicates the mode of error
+     * Refer ERROR_MODE_GAS for various modes
+     **/
     void error(int);
 
     /**

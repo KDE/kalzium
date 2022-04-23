@@ -25,8 +25,11 @@
 
 #include <KLocalizedString>
 
-ElementItem::ElementItem(KalziumElementProperty *elProperty, int elementNumber) : m_width(40),
-    m_height(40), m_element(elementNumber), m_property(elProperty)
+ElementItem::ElementItem(KalziumElementProperty *elProperty, int elementNumber)
+    : m_width(40)
+    , m_height(40)
+    , m_element(elementNumber)
+    , m_property(elProperty)
 {
     // Want these items to be selectable
     setFlags(QGraphicsItem::ItemIsSelectable);
@@ -78,7 +81,6 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     QFont symbolFont;
 
     switch (m_property->getMode()) {
-
     case KalziumElementProperty::NORMAL:
         symbolFont.setPointSize(12);
         symbolFont.setBold(true);
@@ -87,19 +89,16 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
         symbolFont.setPointSize(7);
         symbolFont.setBold(false);
         painter->setFont(symbolFont);
-        painter->drawText(QRectF(m_width / 14, m_height / 20, m_width, m_height / 2),
-                          Qt::AlignLeft, QString::number(m_element));
+        painter->drawText(QRectF(m_width / 14, m_height / 20, m_width, m_height / 2), Qt::AlignLeft, QString::number(m_element));
         break;
 
     case KalziumElementProperty::GRADIENTVALUE:
-        painter->drawText(QRectF(0, m_height / 20, m_width, m_height / 2),
-                          Qt::AlignCenter, m_symbol);
+        painter->drawText(QRectF(0, m_height / 20, m_width, m_height / 2), Qt::AlignCenter, m_symbol);
 
         symbolFont.setPointSize(7);
         painter->setFont(symbolFont);
 
-        painter->drawText(QRectF(0, m_height / 2 - m_height / 20, m_width, m_height / 2),
-                          Qt::AlignCenter, m_textValue);
+        painter->drawText(QRectF(0, m_height / 2 - m_height / 20, m_width, m_height / 2), Qt::AlignCenter, m_textValue);
         break;
     }
 }
@@ -124,7 +123,7 @@ QString ElementItem::getCurrentElementValue()
     return QString::number(value);
 }
 
-void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event)
+void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     setZValue(200);
     moveBy(-m_width / 4, -m_height / 4);
@@ -132,7 +131,7 @@ void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event)
     QGraphicsItem::hoverEnterEvent(event);
 }
 
-void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event)
+void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     resetTransform();
     moveBy(m_width / 4, m_height / 4);
@@ -140,4 +139,3 @@ void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event)
     setScale(1);
     QGraphicsItem::hoverLeaveEvent(event);
 }
-

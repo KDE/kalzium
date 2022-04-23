@@ -5,22 +5,23 @@
 #ifndef ISOTOPETABLESETTINGSDIALOG_H
 #define ISOTOPETABLESETTINGSDIALOG_H
 
-#include <QWidget>
-#include "kalziumunitcombobox.h"
 #include "isotopetablesettingscard.h"
 #include "isotopeview.h"
+#include "kalziumunitcombobox.h"
 #include "prefs.h"
+#include <QWidget>
 
-class IsotopeTableSettingsDialog: public QWidget
+class IsotopeTableSettingsDialog : public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-    explicit IsotopeTableSettingsDialog(QWidget* parent);
+    explicit IsotopeTableSettingsDialog(QWidget *parent);
     virtual ~IsotopeTableSettingsDialog();
     bool hasChanged() const;
     bool isDefault() const;
-    int getMode() const {
+    int getMode() const
+    {
         return m_mode;
     }
 
@@ -33,7 +34,6 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void modeChanged(int mode);
-
 };
 
 #endif // ISOTOPETABLESETTINGSDIALOG_H

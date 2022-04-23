@@ -10,14 +10,14 @@
 
 #include "periodictableview.h"
 
-#include <QTimer>
 #include <QSvgGenerator>
+#include <QTimer>
 
 #include "psetables.h"
 #include <prefs.h>
 
 PeriodicTableView::PeriodicTableView(QWidget *parent)
-        : QGraphicsView(parent)
+    : QGraphicsView(parent)
 {
     setRenderHint(QPainter::Antialiasing);
     setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
@@ -31,19 +31,17 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
     setScene(m_tableScene);
     connect(m_tableScene, &PeriodicTableScene::freeSpaceClick, this, &PeriodicTableView::fitPseInView);
 
-    m_tableStates = new PeriodicTableStates(
-        createElementItems(),
-        createNumerationItems());
+    m_tableStates = new PeriodicTableStates(createElementItems(), createNumerationItems());
 
     fitPseInView();
 }
 
-QList<NumerationItem*> PeriodicTableView::createNumerationItems() const
+QList<NumerationItem *> PeriodicTableView::createNumerationItems() const
 {
     // Creating Nummerationitems here, we use the classic periodic table as reference (18 elements in a row)
     const int xMax = 18;
 
-    QList<NumerationItem*> numerationItemList;
+    QList<NumerationItem *> numerationItemList;
 
     for (int i = 0; i < xMax; ++i) {
         numerationItemList << new NumerationItem(i);
@@ -54,9 +52,9 @@ QList<NumerationItem*> PeriodicTableView::createNumerationItems() const
     return numerationItemList;
 }
 
-QList<ElementItem*> PeriodicTableView::createElementItems() const
+QList<ElementItem *> PeriodicTableView::createElementItems() const
 {
-    QList<ElementItem*> elementItemList;
+    QList<ElementItem *> elementItemList;
     KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
     foreach (int intElement, pseTables::instance()->getTabletype(0)->elements()) {
@@ -70,9 +68,9 @@ QList<ElementItem*> PeriodicTableView::createElementItems() const
     return elementItemList;
 }
 
-PeriodicTableScene* PeriodicTableView::pseScene() const
+PeriodicTableScene *PeriodicTableView::pseScene() const
 {
-    return  m_tableScene;
+    return m_tableScene;
 }
 
 int PeriodicTableView::table() const
@@ -127,7 +125,7 @@ void PeriodicTableView::setBiggerSceneRect()
     setSceneRect(newRect);
 }
 
-void PeriodicTableView::resizeEvent (QResizeEvent * event)
+void PeriodicTableView::resizeEvent(QResizeEvent *event)
 {
     fitPseInView();
     QGraphicsView::resizeEvent(event);
@@ -147,7 +145,7 @@ bool PeriodicTableView::event(QEvent *e)
     return QGraphicsView::event(e);
 }
 
-void PeriodicTableView::generateSvg(const QString& filename)
+void PeriodicTableView::generateSvg(const QString &filename)
 {
     QSvgGenerator *svgGen = new QSvgGenerator();
     svgGen->setFileName(filename);
@@ -166,4 +164,3 @@ PeriodicTableView::~PeriodicTableView()
     delete scene();
     delete m_tableStates;
 }
-

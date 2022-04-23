@@ -9,8 +9,8 @@
 
 #include <QWidget>
 
-#include "spectrum.h"
 #include "prefs.h"
+#include "spectrum.h"
 
 /**
  * @author Carsten Niehaus
@@ -22,11 +22,13 @@ class SpectrumWidget : public QWidget
 public:
     explicit SpectrumWidget(QWidget *parent);
 
-    ~SpectrumWidget() override {}
+    ~SpectrumWidget() override
+    {
+    }
 
-    void setSpectrum(Spectrum* spec);
+    void setSpectrum(Spectrum *spec);
 
-    Spectrum* spectrum()const
+    Spectrum *spectrum() const
     {
         return m_spectrum;
     }
@@ -46,7 +48,7 @@ public:
      */
     enum SpectrumType {
         EmissionSpectrum = 0,
-        AbsorptionSpectrum
+        AbsorptionSpectrum,
     };
 
     /**
@@ -100,7 +102,7 @@ public:
      */
     inline double Wavelength(double xpos)
     {
-        return m_startValue + ((m_endValue - m_startValue) *  xpos);
+        return m_startValue + ((m_endValue - m_startValue) * xpos);
     }
 
     /**
@@ -148,8 +150,8 @@ private:
 
     QPixmap m_pixmap;
 
-    void paintBands(QPainter* p);
-    void drawZoomLine(QPainter* p);
+    void paintBands(QPainter *p);
+    void drawZoomLine(QPainter *p);
 
     /**
      * Draw the scale
@@ -198,7 +200,7 @@ signals:
     /**
      * the user selected a peak
      */
-    void peakSelected(Spectrum::peak * peak);
+    void peakSelected(Spectrum::peak *peak);
 
 private Q_SLOTS:
     void slotZoomIn();

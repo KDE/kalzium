@@ -65,12 +65,12 @@ Element::~Element()
 {
 }
 
-void Element::addData(const ChemicalDataObject& o)
+void Element::addData(const ChemicalDataObject &o)
 {
     dataList.append(o);
 }
 
-void Element::addData(const QVariant& value, ChemicalDataObject::BlueObelisk type)
+void Element::addData(const QVariant &value, ChemicalDataObject::BlueObelisk type)
 {
     ChemicalDataObject tmp(value, type);
     dataList.append(tmp);

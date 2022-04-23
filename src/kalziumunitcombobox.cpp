@@ -8,17 +8,18 @@
 
 #include "kalziumutils.h"
 
-KalziumUnitCombobox::KalziumUnitCombobox(QWidget* parent): QComboBox(parent)
+KalziumUnitCombobox::KalziumUnitCombobox(QWidget *parent)
+    : QComboBox(parent)
 {
 }
 
-KalziumUnitCombobox::KalziumUnitCombobox(const QList< int > &unitList, QWidget* parent)
+KalziumUnitCombobox::KalziumUnitCombobox(const QList<int> &unitList, QWidget *parent)
     : QComboBox(parent)
 {
     setUnitList(unitList);
 }
 
-void KalziumUnitCombobox::setUnitList(const QList< int >& unitList)
+void KalziumUnitCombobox::setUnitList(const QList<int> &unitList)
 {
     KalziumUtils::populateUnitCombobox(this, unitList);
 }

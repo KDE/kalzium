@@ -12,13 +12,15 @@
 
 KAboutData kalziumGLPartAboutData()
 {
-    KAboutData aboutData(
-        "kalzium", QByteArray(), ki18n("Kalzium OpenGL Part"), "1.1.1",
-        ki18n("A cool thing"),
-        KAboutLicense::GPL, ki18n("(c) 2006, Carsten Niehaus"),
-        KLocalizedString(),
-        "https://edu.kde.org/kalzium/"
-    );
+    KAboutData aboutData("kalzium",
+                         QByteArray(),
+                         ki18n("Kalzium OpenGL Part"),
+                         "1.1.1",
+                         ki18n("A cool thing"),
+                         KAboutLicense::GPL,
+                         ki18n("(c) 2006, Carsten Niehaus"),
+                         KLocalizedString(),
+                         "https://edu.kde.org/kalzium/");
     aboutData.addAuthor(ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org");
     aboutData.addAuthor(ki18n("Marcus D. Hanwell"), KLocalizedString(), "marcus@cryos.org");
 
@@ -28,7 +30,7 @@ KAboutData kalziumGLPartAboutData()
 K_PLUGIN_FACTORY(KalziumGLPartFactory, registerPlugin<KalziumGLPart>();)
 K_EXPORT_PLUGIN(KalziumGLPartFactory(kalziumGLPartAboutData()))
 
-KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QVariantList& args)
+KalziumGLPart::KalziumGLPart(QWidget *parentWidget, QObject *parent, const QVariantList &args)
 {
     Q_UNUSED(parent);
     Q_UNUSED(parentWidget);

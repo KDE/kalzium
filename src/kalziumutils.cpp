@@ -24,7 +24,7 @@
 #include <ieeefp.h>
 #endif
 
-int KalziumUtils::maxSize(const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize)
+int KalziumUtils::maxSize(const QString &string, const QRect &rect, QFont font, QPainter *p, int minFontSize, int maxFontSize)
 {
     bool goodSizeFound = false;
     int size = maxFontSize;
@@ -41,19 +41,18 @@ int KalziumUtils::maxSize(const QString& string, const QRect& rect, QFont font, 
         } else {
             --size;
         }
-    }
-    while (!goodSizeFound && (size > minFontSize));
+    } while (!goodSizeFound && (size > minFontSize));
 
     return size;
 }
 
-int KalziumUtils::StringHeight(const QString& string, const QFont& font, QPainter* p)
+int KalziumUtils::StringHeight(const QString &string, const QFont &font, QPainter *p)
 {
     Q_UNUSED(font);
     return p->boundingRect(QRect(), Qt::AlignTop | Qt::AlignLeft, string).height();
 }
 
-int KalziumUtils::StringWidth(const QString& string, const QFont& font, QPainter* p)
+int KalziumUtils::StringWidth(const QString &string, const QFont &font, QPainter *p)
 {
     Q_UNUSED(font);
     return p->boundingRect(QRect(), Qt::AlignTop | Qt::AlignLeft, string).width();
@@ -77,14 +76,14 @@ double KalziumUtils::strippedValue(double num)
     return num * power / 10000;
 }
 
-QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObelisk kind)
+QString KalziumUtils::prettyUnit(const Element *el, ChemicalDataObject::BlueObelisk kind)
 {
     if (!el) {
         return i18n("Error");
     }
 
     QString result;
-    double val = 0.0; //the value to convert
+    double val = 0.0; // the value to convert
 
     switch (kind) {
     case ChemicalDataObject::meltingpoint: // a temperature
@@ -121,8 +120,7 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
     {
         int v_int = el->dataAsVariant(kind).toInt();
         if (v_int > 1600) {
-            result = i18n("This element was discovered in the year %1.",
-                QString::number(v_int));
+            result = i18n("This element was discovered in the year %1.", QString::number(v_int));
         } else if (v_int == -1) {
             result = i18n("The element has not yet been officially recognized by the IUPAC.");
         } else { // this should now really be 0. If not there is a bug in the database
@@ -131,13 +129,11 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
         break;
     }
     case ChemicalDataObject::radiusCovalent:
-    case ChemicalDataObject::radiusVDW:
-    {
+    case ChemicalDataObject::radiusVDW: {
         result = el->dataAsStringWithUnit(kind, Prefs::lengthUnit());
         break;
     }
-    case ChemicalDataObject::electronicConfiguration:
-    {
+    case ChemicalDataObject::electronicConfiguration: {
         QString newOrbit = el->dataAsString(kind);
 
         QRegularExpression reg("(.*)([spdf])(\\d+)(.*)");
@@ -148,8 +144,7 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
         result = newOrbit;
         break;
     }
-    case ChemicalDataObject::oxidation:
-    {
+    case ChemicalDataObject::oxidation: {
         QStringList oxidationList = el->dataAsString(kind).split(',');
         result = oxidationList.join(QStringLiteral(", "));
         break;
@@ -163,7 +158,6 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
     }
     return result;
 }
-
 
 void KalziumUtils::populateUnitCombobox(QComboBox *comboBox, const QList<int> &unitList)
 {

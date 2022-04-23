@@ -21,8 +21,8 @@
 #include <QStyleOptionGraphicsItem>
 
 PeriodicTableScene::PeriodicTableScene(QObject *parent)
-        : QGraphicsScene(parent),
-          m_prevHoverElement(-1)
+    : QGraphicsScene(parent)
+    , m_prevHoverElement(-1)
 {
     QPalette widgetPalette = palette();
     setBackgroundBrush(QBrush(widgetPalette.window()));
@@ -34,7 +34,8 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
 }
 
 PeriodicTableScene::~PeriodicTableScene()
-{}
+{
+}
 
 bool PeriodicTableScene::event(QEvent *e)
 {
@@ -61,10 +62,9 @@ void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos, QTransform());
 
-    if ((QApplication::mouseButtons() & Qt::LeftButton) &&
-            (event->pos() - m_eventPos).manhattanLength() > QApplication::startDragDistance() &&
-            item->data(0).toInt() > 0) {
-        Element* pointedElement = KalziumDataObject::instance()->element(item->data(0).toInt());
+    if ((QApplication::mouseButtons() & Qt::LeftButton) && (event->pos() - m_eventPos).manhattanLength() > QApplication::startDragDistance()
+        && item->data(0).toInt() > 0) {
+        Element *pointedElement = KalziumDataObject::instance()->element(item->data(0).toInt());
 
         QDrag *drag = new QDrag(event->widget());
         QMimeData *mimeData = new QMimeData;
@@ -94,7 +94,6 @@ void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsScene::mouseMoveEvent(event);
 }
 
-
 void PeriodicTableScene::slotMouseover()
 {
     QGraphicsItem *item = QGraphicsScene::itemAt(m_eventPos, QTransform());
@@ -108,7 +107,6 @@ void PeriodicTableScene::slotMouseover()
     }
 }
 
-
 void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if (event->button() != Qt::LeftButton) {
@@ -121,5 +119,3 @@ void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     }
     QGraphicsScene::mouseReleaseEvent(event);
 }
-
-

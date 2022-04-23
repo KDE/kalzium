@@ -9,7 +9,9 @@
 #include "element.h"
 #include "kalziumdataobject.h"
 
-Search::Search() : m_isActive(false), m_searchKind(Search::SearchAll)
+Search::Search()
+    : m_isActive(false)
+    , m_searchKind(Search::SearchAll)
 {
 }
 
@@ -28,36 +30,34 @@ bool Search::isActive() const
     return m_isActive;
 }
 
-const QList<Element*>& Search::foundElements() const
+const QList<Element *> &Search::foundElements() const
 {
     return m_foundElements;
 }
 
-bool Search::matches(Element* e) const
+bool Search::matches(Element *e) const
 {
     return m_foundElements.contains(e);
 }
 
 bool Search::matches(int el) const
 {
-    Element *element =  KalziumDataObject::instance()->element(el);
+    Element *element = KalziumDataObject::instance()->element(el);
     return matches(element);
 }
 
-void Search::doSearch(const QString& text, SearchKind kind)
+void Search::doSearch(const QString &text, SearchKind kind)
 {
     m_isActive = true;
     m_searchText = text;
     m_searchKind = kind;
-    QList<Element*> newresults;
+    QList<Element *> newresults;
     foreach (Element *e, KalziumDataObject::instance()->ElementList) {
         bool found = false;
-        if (!found
-            && e->dataAsString(ChemicalDataObject::name).contains(text, Qt::CaseInsensitive)) {
+        if (!found && e->dataAsString(ChemicalDataObject::name).contains(text, Qt::CaseInsensitive)) {
             found = true;
         }
-        if (!found
-            && e->dataAsString(ChemicalDataObject::symbol).contains(text, Qt::CaseInsensitive)) {
+        if (!found && e->dataAsString(ChemicalDataObject::symbol).contains(text, Qt::CaseInsensitive)) {
             found = true;
         }
         if (found) {
@@ -80,4 +80,3 @@ void Search::resetSearch()
     m_isActive = false;
     Q_EMIT searchReset();
 }
-

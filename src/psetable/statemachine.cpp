@@ -7,7 +7,7 @@
 #include "statemachine.h"
 
 StateSwitcher::StateSwitcher(QStateMachine *machine)
-        : QState(machine)
+    : QState(machine)
 {
 }
 
@@ -18,7 +18,6 @@ void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, const
     addTransition(trans);
     trans->addAnimation(animation);
 }
-
 
 void StateSwitcher::switchToState(int n)
 {

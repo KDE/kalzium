@@ -33,74 +33,76 @@ public:
      */
     enum BlueObelisk {
         atomicNumber = 0 /**< The atomic number of the element */,
-        symbol/**< the symbol of the element */,
-        name/**< The IUPAC name of the element */,
-        mass/**< # IUPAC Official Masses */,
-        exactMass/**< exact masses of the most common isotopes for each element */,
-        ionization/**< First inizationenergy */,
-        electronAffinity/**< the electron affinity of the element */,
-        electronegativityPauling/**< the electronegativity in the definition of Pauling*/,
-        radiusCovalent/**< the covalent radius */,
-        radiusVDW/**< the van der Waals radius */,
-        meltingpoint/**< the meltingpoint */,
-        boilingpoint/**< the boilingpoint */,
-        periodTableBlock/**< the block of the element */,
-        family/**< "Noblegas" "Non-Metal" "Rare_Earth" "Alkaline_Earth" "Alkali_Earth" "Transition" "Other_Metal" "Metalloids" "Halogene" */,
-        acidicbehaviour/**< 0 means acidic, 1 means basic, 2 means neutral, 3 means amphoteric*/,
-        crystalstructure/**< own, bcc, hdp, ccp, hcp, fcc, d, sc, tet, rh, or, mono*/,
-        electronicConfiguration/**< the electronic configuration, for example 1s2 for He*/,
-        group/**< This is a value between 1 and 8*/,
-        nameOrigin/**< the origin of the name */,
-        orbit/**< the quantumorbit of the element */,
-        period/**< the period of the element */,
-        date/**< date of discovery of the element. When 0, the element has been known in ancient times. When the value is -1 the element has not yet been officially recognized by the IUPAC */,
-        discoverers/** The name of the discoverers, separated by semicolomns */,
-        relativeAbundance/** The abundance, relative to 100 */,
-        spin/**< The spin */,
-        magneticMoment/**< The magnetic dipole moment */,
-        halfLife/**< The halflife */,
-        alphaDecayLikeliness/**< The percentage of alphadecay */,
-        alphaDecay/**< The decayenergy of alphadecay in MeV */,
-        alphabetaminusDecayLikeliness/**< The percentage of alphadecay */,
-        alphabetaminusDecay/**< The decayenergy of alphadecay in MeV */,
-        betaplusDecayLikeliness/**< The percentage of betaplusdecay */,
-        betaplusDecay/**< The decayenergy of betaplusdecay in MeV */,
+        symbol /**< the symbol of the element */,
+        name /**< The IUPAC name of the element */,
+        mass /**< # IUPAC Official Masses */,
+        exactMass /**< exact masses of the most common isotopes for each element */,
+        ionization /**< First inizationenergy */,
+        electronAffinity /**< the electron affinity of the element */,
+        electronegativityPauling /**< the electronegativity in the definition of Pauling*/,
+        radiusCovalent /**< the covalent radius */,
+        radiusVDW /**< the van der Waals radius */,
+        meltingpoint /**< the meltingpoint */,
+        boilingpoint /**< the boilingpoint */,
+        periodTableBlock /**< the block of the element */,
+        family /**< "Noblegas" "Non-Metal" "Rare_Earth" "Alkaline_Earth" "Alkali_Earth" "Transition" "Other_Metal" "Metalloids" "Halogene" */,
+        acidicbehaviour /**< 0 means acidic, 1 means basic, 2 means neutral, 3 means amphoteric*/,
+        crystalstructure /**< own, bcc, hdp, ccp, hcp, fcc, d, sc, tet, rh, or, mono*/,
+        electronicConfiguration /**< the electronic configuration, for example 1s2 for He*/,
+        group /**< This is a value between 1 and 8*/,
+        nameOrigin /**< the origin of the name */,
+        orbit /**< the quantumorbit of the element */,
+        period /**< the period of the element */,
+        date /**< date of discovery of the element. When 0, the element has been known in ancient times. When the value is -1 the element has not yet been
+                officially recognized by the IUPAC */
+        ,
+        discoverers /** The name of the discoverers, separated by semicolomns */,
+        relativeAbundance /** The abundance, relative to 100 */,
+        spin /**< The spin */,
+        magneticMoment /**< The magnetic dipole moment */,
+        halfLife /**< The halflife */,
+        alphaDecayLikeliness /**< The percentage of alphadecay */,
+        alphaDecay /**< The decayenergy of alphadecay in MeV */,
+        alphabetaminusDecayLikeliness /**< The percentage of alphadecay */,
+        alphabetaminusDecay /**< The decayenergy of alphadecay in MeV */,
+        betaplusDecayLikeliness /**< The percentage of betaplusdecay */,
+        betaplusDecay /**< The decayenergy of betaplusdecay in MeV */,
         twobetaplusDecayLikeliness,
         twobetaplusDecay,
-        betaplusprotonDecayLikeliness/**< The percentage of betaplusdecay */,
-        betaplusprotonDecay/**< The decayenergy of betaplusdecay in MeV */,
+        betaplusprotonDecayLikeliness /**< The percentage of betaplusdecay */,
+        betaplusprotonDecay /**< The decayenergy of betaplusdecay in MeV */,
         betaplustwoprotonDecayLikeliness,
         betaplustwoprotonDecay,
-        betaplusalphaDecayLikeliness/**< The percentage of betaplusdecay */,
-        betaplusalphaDecay/**< The decayenergy of betaplusdecay in MeV */,
+        betaplusalphaDecayLikeliness /**< The percentage of betaplusdecay */,
+        betaplusalphaDecay /**< The decayenergy of betaplusdecay in MeV */,
         betaplustwoalphaDecayLikeliness,
         betaplustwoalphaDecay,
         betaplusthreealphaDecayLikeliness,
         betaplusthreealphaDecay,
-        betaminusDecayLikeliness/**< The percentage of betaminusdecay */,
-        betaminusDecay/**< The decayenergy of betaminusdecay in MeV */,
+        betaminusDecayLikeliness /**< The percentage of betaminusdecay */,
+        betaminusDecay /**< The decayenergy of betaminusdecay in MeV */,
         twobetaminusDecayLikeliness,
         twobetaminusDecay,
-        betaminusneutronDecayLikeliness/**< The percentage of betaminusdecay */,
-        betaminusneutronDecay/**< The decayenergy of betaminusdecay in MeV */,
+        betaminusneutronDecayLikeliness /**< The percentage of betaminusdecay */,
+        betaminusneutronDecay /**< The decayenergy of betaminusdecay in MeV */,
         betaminustwoneutronDecayLikeliness,
         betaminustwoneutronDecay,
         betaminusthreeneutronDecayLikeliness,
         betaminusthreeneutronDecay,
         betaminusfourneutronDecayLikeliness,
         betaminusfourneutronDecay,
-        betaminusfissionDecayLikeliness/**< The percentage of betaminusdecay */,
-        betaminusfissionDecay/**< The decayenergy of betaminusdecay in MeV */,
-        betaminusalphaDecayLikeliness/**< The percentage of betaminusdecay */,
-        betaminusalphaDecay/**< The decayenergy of betaminusdecay in MeV */,
+        betaminusfissionDecayLikeliness /**< The percentage of betaminusdecay */,
+        betaminusfissionDecay /**< The decayenergy of betaminusdecay in MeV */,
+        betaminusalphaDecayLikeliness /**< The percentage of betaminusdecay */,
+        betaminusalphaDecay /**< The decayenergy of betaminusdecay in MeV */,
         betaminustwoalphaDecayLikeliness,
         betaminustwoalphaDecay,
         betaminusthreealphaDecayLikeliness,
         betaminusthreealphaDecay,
         betaminusalphaneutronDecay,
         betaminusalphaneutronDecayLikeliness,
-        ecDecayLikeliness/**< The percentage of ecdecay */,
-        ecDecay/**< The decayenergy of ecminusdecay in MeV */,
+        ecDecayLikeliness /**< The percentage of ecdecay */,
+        ecDecay /**< The decayenergy of ecminusdecay in MeV */,
         twoecDecayLikeliness,
         twoecDecay,
         ecalphaDecayLikeliness,
@@ -113,23 +115,23 @@ public:
         ectwoprotonDecay,
         ecthreeprotonDecayLikeliness,
         ecthreeprotonDecay,
-        protonDecayLikeliness/**< The percentage of protondecay */,
-        protonDecay/**< The decayenergy of protonminusdecay in MeV */,
+        protonDecayLikeliness /**< The percentage of protondecay */,
+        protonDecay /**< The decayenergy of protonminusdecay in MeV */,
         twoprotonDecayLikeliness,
         twoprotonDecay,
-        protonalphaDecayLikeliness/**< The percentage of protondecay */,
-        protonalphaDecay/**< The decayenergy of protonminusdecay in MeV */,
-        neutronDecayLikeliness/**< The percentage of neutrondecay */,
-        neutronDecay/**< The decayenergy of neutronminusdecay in MeV */,
+        protonalphaDecayLikeliness /**< The percentage of protondecay */,
+        protonalphaDecay /**< The decayenergy of protonminusdecay in MeV */,
+        neutronDecayLikeliness /**< The percentage of neutrondecay */,
+        neutronDecay /**< The decayenergy of neutronminusdecay in MeV */,
         twoneutronDecayLikeliness,
         twoneutronDecay,
         spontfissionDecayLikeliness,
         spontfissionDecay,
-        dangerSymbol/**< the danger symbols are the dangers associated with an element, for example Xn,T+ */,
-        RPhrase/**< */,
-        SPhrase/**< */,
+        dangerSymbol /**< the danger symbols are the dangers associated with an element, for example Xn,T+ */,
+        RPhrase /**< */,
+        SPhrase /**< */,
         discoveryCountry,
-        oxidation/**< Oxidation states*/
+        oxidation /**< Oxidation states*/
     };
 
     /**
@@ -145,9 +147,7 @@ public:
      *
      * @see errorValue()
      */
-    ChemicalDataObject(const QVariant& v,
-                       BlueObelisk type,
-                       const QVariant& errorValue = QVariant(0));
+    ChemicalDataObject(const QVariant &v, BlueObelisk type, const QVariant &errorValue = QVariant(0));
 
     /**
      * Copy constructor.
@@ -163,14 +163,14 @@ public:
      * Set the data of this object to @p v
      * @param v the value of the object
      */
-    void setData(const QVariant& v);
+    void setData(const QVariant &v);
 
     /**
      * Set the error value of this object to @p v.
      * The error has to have the same unit as the value.
      * @param v the value of the object
      */
-    void setErrorValue(const QVariant& v);
+    void setErrorValue(const QVariant &v);
 
     /**
      * Every ChemicalDataObject contains one data. For example a
@@ -217,22 +217,22 @@ public:
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== (const int v) const;
+    bool operator==(const int v) const;
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== (const double v) const;
+    bool operator==(const double v) const;
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== (const bool v) const;
+    bool operator==(const bool v) const;
 
     /**
      * Compare the value @p v with the data of this object
      */
-    bool operator== (const QString& v) const;
+    bool operator==(const QString &v) const;
 
     /**
      * @return the unit of the object as a QString. For example kelvin
@@ -251,7 +251,7 @@ public:
      */
     void setUnit(int unit);
 
-    ChemicalDataObject& operator=(const ChemicalDataObject &other);
+    ChemicalDataObject &operator=(const ChemicalDataObject &other);
 
     bool operator==(const ChemicalDataObject &other) const;
 

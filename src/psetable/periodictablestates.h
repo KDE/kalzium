@@ -34,8 +34,7 @@ public:
      * @param elementItemList List of the Element items in the table.
      * @param numerationItemList List of the Numeration items in the table.
      */
-    PeriodicTableStates(const QList<ElementItem *> &elementItemList,
-                        const QList<NumerationItem *> &numerationItemList);
+    PeriodicTableStates(const QList<ElementItem *> &elementItemList, const QList<NumerationItem *> &numerationItemList);
 
     virtual ~PeriodicTableStates();
 
@@ -50,7 +49,7 @@ public:
      * Set the table index
      * @param tableIndex Index of the table @see pseTables..
      */
-    void setTableState(const int &tableIndex) ;
+    void setTableState(const int &tableIndex);
 
 private:
     void setNumerationItemPositions(const int &tableIndex);

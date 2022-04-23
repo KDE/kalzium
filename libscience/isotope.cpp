@@ -166,14 +166,12 @@ void Isotope::addData(const ChemicalDataObject &o)
         m_spontfissiondecay = o;
     } else if (o.type() == ChemicalDataObject::spontfissionDecayLikeliness) {
         m_spontfissionlikeliness = o;
-
-
     }
 }
 
 double Isotope::mass() const
 {
-    return  m_mass.value().toDouble();
+    return m_mass.value().toDouble();
 }
 
 QString Isotope::errorMargin() const
@@ -183,7 +181,7 @@ QString Isotope::errorMargin() const
 
 int Isotope::parentElementNumber() const
 {
-    return  m_identifier.value().toInt();
+    return m_identifier.value().toInt();
 }
 
 QString Isotope::spin() const
@@ -478,7 +476,6 @@ double Isotope::spontfissionlikeliness() const
     return m_spontfissionlikeliness.value().toDouble();
 }
 
-
 QString Isotope::parentElementSymbol() const
 {
     return m_parentElementSymbol.value().toString();
@@ -522,15 +519,12 @@ Isotope::Nucleons Isotope::nucleonsAfterDecay(Decay kind)
         n.neutrons += 1;
         break;
     case NEUTRON:
-	n.neutrons -=1;
-	break;
+        n.neutrons -= 1;
+        break;
     case PROTON:
-	n.protons -=1;
-	break;
-
-
+        n.protons -= 1;
+        break;
     }
-
 
     return n;
 }

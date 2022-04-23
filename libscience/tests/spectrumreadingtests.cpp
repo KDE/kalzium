@@ -4,8 +4,8 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "spectrumparser.h"
 #include "spectrum.h"
+#include "spectrumparser.h"
 #include <QDebug>
 #include <iostream>
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     foreach (Spectrum *s, v) {
         if (s) {
             qDebug() << "Element:  " << s->parentElementNumber();
-            foreach (Spectrum::peak * p , s->peaklist()) {
+            foreach (Spectrum::peak *p, s->peaklist()) {
                 qDebug() << "         Peak: " << p->wavelength;
             }
         }

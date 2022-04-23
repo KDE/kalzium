@@ -23,19 +23,19 @@ public:
     /**
      * Get the instance of this factory.
      */
-    static KalziumNumerationTypeFactory* instance();
+    static KalziumNumerationTypeFactory *instance();
 
     /**
      * Returns the KalziumNumerationType with the @p id specified.
      * It will gives 0 if none found.
      */
-    KalziumNumerationType* build(int id) const;
+    KalziumNumerationType *build(int id) const;
     /**
      * Returns the KalziumNumerationType whose name is the @p id
      * specified.
      * It will gives 0 if none found.
      */
-    KalziumNumerationType* build(const QByteArray& id) const;
+    KalziumNumerationType *build(const QByteArray &id) const;
 
     /**
      * Returns a list with the names of the numeration types we
@@ -46,7 +46,7 @@ public:
 private:
     KalziumNumerationTypeFactory();
 
-    QList<KalziumNumerationType*> m_numerations;
+    QList<KalziumNumerationType *> m_numerations;
 };
 
 /**
@@ -61,7 +61,7 @@ public:
     /**
      * Get its instance.
      */
-    static KalziumNumerationType* instance();
+    static KalziumNumerationType *instance();
 
     virtual ~KalziumNumerationType();
 
@@ -101,7 +101,7 @@ protected:
 class KalziumNoneNumerationType : public KalziumNumerationType
 {
 public:
-    static KalziumNoneNumerationType* instance();
+    static KalziumNoneNumerationType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -121,7 +121,7 @@ private:
 class KalziumIUPACNumerationType : public KalziumNumerationType
 {
 public:
-    static KalziumIUPACNumerationType* instance();
+    static KalziumIUPACNumerationType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -138,7 +138,7 @@ private:
 class KalziumCASNumerationType : public KalziumNumerationType
 {
 public:
-    static KalziumCASNumerationType* instance();
+    static KalziumCASNumerationType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -155,7 +155,7 @@ private:
 class KalziumOldIUPACNumerationType : public KalziumNumerationType
 {
 public:
-    static KalziumOldIUPACNumerationType* instance();
+    static KalziumOldIUPACNumerationType *instance();
 
     QByteArray name() const override;
     QString description() const override;

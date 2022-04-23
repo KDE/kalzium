@@ -50,11 +50,11 @@ private:
 
     QPixmap m_pixmap;
 
-    QList<LegendItem*> m_legendItemList;
+    QList<LegendItem *> m_legendItemList;
 
     Qt::DockWidgetArea m_dockArea;
 
-    void updateLegendItemLayout(const QList<legendPair>& list);
+    void updateLegendItemLayout(const QList<legendPair> &list);
 };
 
 /**
@@ -68,8 +68,10 @@ class LegendItem : public QLabel
     Q_OBJECT
 
 public:
-    LegendItem(const QPair<QString, QColor>& pair, LegendWidget * parent = nullptr);
-    ~LegendItem() {}
+    LegendItem(const QPair<QString, QColor> &pair, LegendWidget *parent = nullptr);
+    ~LegendItem()
+    {
+    }
 
 Q_SIGNALS:
     void legenItemHoovered(QColor color);
@@ -78,9 +80,8 @@ private:
     QColor legendItemColor;
 
 protected:
-    void enterEvent(QEvent * event) override;
-    void leaveEvent(QEvent * event) override;
-
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
 };
 
 #endif // LEGENDWIDGET_H

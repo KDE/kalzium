@@ -10,7 +10,6 @@
 
 #include <QString>
 
-
 /**
  * @class Parser
  * This is a general purpose parser originally written by Inge Wallin.
@@ -32,7 +31,7 @@ public:
      *
      * @param _str @ref start the parsing with @p _str
      */
-    explicit Parser(const QString& _str);
+    explicit Parser(const QString &_str);
 
     /**
      * Destructor
@@ -42,12 +41,12 @@ public:
     /**
      * Start a new parse.
      */
-    void start(const QString& _str);
+    void start(const QString &_str);
 
     /**
      * Peek at the next character;
      */
-    int nextChar()  const
+    int nextChar() const
     {
         return m_nextChar;
     }
@@ -63,17 +62,16 @@ public:
     /**
      * Get the value stored for different types of tokens.
      */
-    int intVal()    const
+    int intVal() const
     {
         return m_intVal;
     }
-    float floatVal()  const
+    float floatVal() const
     {
         return m_floatVal;
     }
 
 private:
-
     // Try to parse some special datatypes.
     bool parseInt(int *_result);
     bool parseSimpleFloat(double *_result);
@@ -83,7 +81,7 @@ protected:
      * All characters are their own token value per default.
      * Extend this list in your subclass to make a more advanced parser.
      */
-    static const int INT_TOKEN   = 257;
+    static const int INT_TOKEN = 257;
 
     /**
      * All characters are their own token value per default.
@@ -107,12 +105,11 @@ protected:
     virtual int getNextToken();
 
 private:
-    QString  m_str;
-    int      m_index;
-    int      m_nextChar;
+    QString m_str;
+    int m_index;
+    int m_nextChar;
 
 protected:
-
     // Lexical analysis and token handling.  These members need to be
     // protected instead of private since we want to be able to
     // reimplement getNextToken().
@@ -120,7 +117,7 @@ protected:
     /**
      * The next token to be used in the parser.
      */
-    int      m_nextToken;
+    int m_nextToken;
 
     // Values for the respective token.  These could be made into a
     // union, but I don't think it is necessary to bother, since they
@@ -130,12 +127,12 @@ protected:
     /**
      * Valid if m_nextToken == INT_TOKEN
      */
-    int      m_intVal;   // Valid if m_nextToken == INT_TOKEN
+    int m_intVal; // Valid if m_nextToken == INT_TOKEN
 
     /**
      * Valid if m_nextToken == FLOAT_TOKEN
      */
-    double   m_floatVal; // Valid if m_nextToken == FLOAT_TOKEN
+    double m_floatVal; // Valid if m_nextToken == FLOAT_TOKEN
 };
 
 #endif // PARSER_H

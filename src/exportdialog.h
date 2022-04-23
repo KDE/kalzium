@@ -9,10 +9,9 @@
 #include <QDialog>
 #include <QListWidget>
 
-#include <element.h>
 #include "kalziumdataobject.h"
 #include "ui_exportdialog.h"
-
+#include <element.h>
 
 class ElementListEntry : public QListWidgetItem
 {
@@ -20,23 +19,23 @@ public:
     explicit ElementListEntry(Element *element);
     ~ElementListEntry();
 
-    int       m_atomicNum;
-    QString   m_name;
-    Element  *m_element;
+    int m_atomicNum;
+    QString m_name;
+    Element *m_element;
 };
 
 class PropertyListEntry : public QListWidgetItem
 {
 public:
-    PropertyListEntry(const QString & name, ChemicalDataObject::BlueObelisk type);
+    PropertyListEntry(const QString &name, ChemicalDataObject::BlueObelisk type);
     ~PropertyListEntry();
 
     ChemicalDataObject::BlueObelisk m_type;
 };
 
 /**
-* @author: Johannes Simon
-*/
+ * @author: Johannes Simon
+ */
 class ExportDialog : public QDialog
 {
     Q_OBJECT
@@ -60,7 +59,6 @@ public Q_SLOTS:
      * Open help page
      */
     void slotHelpRequested();
-
 };
 
 #endif // EXPORTDIALOG_H

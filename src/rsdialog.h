@@ -23,14 +23,14 @@ class RSDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit RSDialog(QWidget * parent);
+    explicit RSDialog(QWidget *parent);
 
     Ui::RSWidget ui;
 
     /**
      * Filter the R- and S-Phrases.
      */
-    void filterRS(const QList<int>& r, const QList<int>& s);
+    void filterRS(const QList<int> &r, const QList<int> &s);
 
     QString rphrase(int number);
 

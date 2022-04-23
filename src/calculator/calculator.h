@@ -11,12 +11,12 @@
 
 #include <KActionCollection>
 
-#include "ui_calculator.h"
-#include "nuclearCalculator.h"
-#include "gasCalculator.h"
 #include "concCalculator.h"
-#include "titrationCalculator.h"
+#include "gasCalculator.h"
 #include "molcalcwidget.h"
+#include "nuclearCalculator.h"
+#include "titrationCalculator.h"
+#include "ui_calculator.h"
 
 #include <config-kalzium.h>
 #ifdef HAVE_FACILE
@@ -37,22 +37,22 @@ public:
     /*
      * The class constructor and destructor, takes in a Widget as parent
      */
-    explicit calculator(QWidget *parent = nullptr);             // constructor
-    ~ calculator();                             // destructor
+    explicit calculator(QWidget *parent = nullptr); // constructor
+    ~calculator(); // destructor
 
 private:
-    Ui::calculator ui;                          // The user interface
-    KActionCollection * m_actionCollection;
+    Ui::calculator ui; // The user interface
+    KActionCollection *m_actionCollection;
 
     // These are the various calculator widgets that will be added to this calculator
 
-    nuclearCalculator * m_nuclearCalculator;    // The nuclear calculator
-    gasCalculator *     m_gasCalculator;        // The gas calculator
-    concCalculator *    m_concCalculator;       // The concentration calculator
-    titrationCalculator *    m_titraCalculator;       // The concentration calculator
-    MolcalcWidget *     m_moleCalculator;       // The molecular mass calculator
+    nuclearCalculator *m_nuclearCalculator; // The nuclear calculator
+    gasCalculator *m_gasCalculator; // The gas calculator
+    concCalculator *m_concCalculator; // The concentration calculator
+    titrationCalculator *m_titraCalculator; // The concentration calculator
+    MolcalcWidget *m_moleCalculator; // The molecular mass calculator
 #ifdef HAVE_FACILE
-    EQChemDialog *      m_equationBalancer;     // The equation balancer
+    EQChemDialog *m_equationBalancer; // The equation balancer
 #endif
 protected Q_SLOTS:
     /**

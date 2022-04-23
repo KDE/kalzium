@@ -26,7 +26,8 @@ public:
     /**
      * @return the Type of the item
      */
-    int type() const override {
+    int type() const override
+    {
         return Type;
     }
 

@@ -19,11 +19,12 @@
 #include <QStandardPaths>
 #include <QSvgRenderer>
 
-#include <element.h>
 #include "prefs.h"
+#include <element.h>
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
-        : QWidget(parent), m_element(nullptr)
+    : QWidget(parent)
+    , m_element(nullptr)
 {
     setAttribute(Qt::WA_OpaquePaintEvent, true);
 
@@ -43,25 +44,25 @@ void DetailedGraphicalOverview::setElement(int el)
 void DetailedGraphicalOverview::setBackgroundColor(QColor bgColor)
 {
     if (bgColor == Qt::transparent) {
-       bgColor = palette().window().color();
+        bgColor = palette().window().color();
     }
 
     // add a gradient
     QLinearGradient grad(QPointF(0, 0), QPointF(0, height()));
-    grad.setColorAt(0,bgColor);
+    grad.setColorAt(0, bgColor);
     qreal h, s, v, a;
     bgColor.getHsvF(&h, &s, &v, &a);
-    bgColor.setHsvF(h, s, v*0.6, a);
-    grad.setColorAt(1,bgColor);
+    bgColor.setHsvF(h, s, v * 0.6, a);
+    grad.setColorAt(1, bgColor);
 
     m_backgroundBrush = QBrush(grad);
 }
 
-void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
+void DetailedGraphicalOverview::paintEvent(QPaintEvent *)
 {
     qreal dpr = devicePixelRatioF();
-    qreal dprWidth = dpr*width();
-    qreal dprHeight = dpr*height();
+    qreal dprWidth = dpr * width();
+    qreal dprHeight = dpr * height();
     QRect rect(0, 0, dprWidth, dprHeight);
 
     QPixmap pm(dprWidth, dprHeight);
@@ -72,18 +73,17 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
 
     p.setBrush(Qt::SolidPattern);
 
-    if (!m_element)
-    {
+    if (!m_element) {
         pm.fill(palette().window().color());
         p.drawText(0, 0, width(), height(), Qt::AlignCenter | Qt::TextWordWrap, i18n("No element selected"));
-    } else if (Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
+    } else if (Prefs::colorschemebox() == 2) { // The iconic view is the 3rd view (0,1,2,...)
         pm.fill(palette().window().color());
 
         QString pathname = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/iconsets/"), QStandardPaths::LocateDirectory);
 
         int enumii = m_element->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
 
-        QString filename = pathname + "school" + '/' + QString::number(enumii)  + ".svg";
+        QString filename = pathname + "school" + '/' + QString::number(enumii) + ".svg";
 
         QSvgRenderer svgrenderer;
         if (QFile::exists(filename) && svgrenderer.load(filename)) {
@@ -91,13 +91,13 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
             size.scale(width(), height(), Qt::KeepAspectRatio);
 
             QRect bounds(QPoint(0, 0), size);
-            bounds.moveCenter(QPoint(width()/2, height()/2));
+            bounds.moveCenter(QPoint(width() / 2, height() / 2));
             svgrenderer.render(&p, bounds);
         } else {
             p.drawText(rect, Qt::AlignCenter | Qt::TextWordWrap, i18n("No graphic found"));
         }
     } else {
-        const int h_t = 20; //height of the texts
+        const int h_t = 20; // height of the texts
 
         p.setBrush(m_backgroundBrush);
         p.drawRect(rect);
@@ -108,52 +108,46 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
         QFont fB = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
         QFont fC = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
 
-        fA.setPointSize(fA.pointSize() + 20); //Huge font
+        fA.setPointSize(fA.pointSize() + 20); // Huge font
         fA.setBold(true);
-        fB.setPointSize(fB.pointSize() + 6); //Big font
-        fC.setPointSize(fC.pointSize() + 4); //Big font
+        fB.setPointSize(fB.pointSize() + 6); // Big font
+        fC.setPointSize(fC.pointSize() + 4); // Big font
         fC.setBold(true);
         QFontMetrics fmA = QFontMetrics(fA);
         QFontMetrics fmB = QFontMetrics(fB);
 
-        //coordinates for element symbol: near the center
+        // coordinates for element symbol: near the center
         int xA = 4 * width() / 10;
         int yA = height() / 2;
 
-        //coordinates for the atomic number: offset from element symbol to the upper left
+        // coordinates for the atomic number: offset from element symbol to the upper left
         int xB = xA - fmB.boundingRect(m_element->dataAsString(ChemicalDataObject::atomicNumber)).width();
-        int yB = yA + fmB.height()/2;
+        int yB = yA + fmB.height() / 2;
 
-        //Element Symbol
+        // Element Symbol
         p.setFont(fA);
         p.drawText(xA, yA, m_element->dataAsString(ChemicalDataObject::symbol));
 
-        //Atomic number
+        // Atomic number
         p.setFont(fB);
         p.drawText(xB, yB, m_element->dataAsString(ChemicalDataObject::atomicNumber));
 
-        //Name and other data
+        // Name and other data
         fC.setPointSize(h_t);
         p.setFont(fC);
 
-        //Name
+        // Name
         p.drawText(1, 0, width(), height(), Qt::AlignLeft, m_element->dataAsString(ChemicalDataObject::name));
 
-        //TODO Oxidationstates -> not there yet
+        // TODO Oxidationstates -> not there yet
 
-        //Mass
+        // Mass
         QString massString = i18nc("For example '1.0079u', the mass of an element in units", "%1 u", m_element->dataAsString(ChemicalDataObject::mass));
         int size3 = KalziumUtils::maxSize(massString, rect, fC, &p);
         fC.setPointSize(size3);
         p.setFont(fC);
         int offset = KalziumUtils::StringHeight(massString, fC, &p);
-        p.drawText(0,
-                    height() - offset,
-                    width(),
-                    offset,
-                    Qt::AlignRight,
-                    massString
-                  );
+        p.drawText(0, height() - offset, width(), offset, Qt::AlignRight, massString);
     }
 
     p.end();
@@ -162,4 +156,3 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent*)
     p.drawPixmap(0, 0, pm);
     p.end();
 }
-

@@ -7,9 +7,9 @@
 #ifndef KALZIUMDATAOBJECT_H
 #define KALZIUMDATAOBJECT_H
 
-#include <element.h>
 #include <QHash>
 #include <QPixmap>
+#include <element.h>
 
 class Search;
 class Isotope;
@@ -38,12 +38,12 @@ public:
     /**
      * @return the instance of this class
      */
-    static KalziumDataObject* instance();
+    static KalziumDataObject *instance();
 
     /**
      * The list of elements
      */
-    QList<Element*> ElementList;
+    QList<Element *> ElementList;
 
     /**
      * Set the main Search to @p srch
@@ -53,13 +53,13 @@ public:
     /**
      * @return the main Search
      */
-    Search* search() const;
+    Search *search() const;
 
     /**
      * @return the Element with the number @p number
      * @param number the number of the Element which will be returned
      */
-    Element* element(int number);
+    Element *element(int number);
 
     /**
      * retunrs the unit symbol from the given KUnitConversion UnitId.
@@ -71,17 +71,17 @@ public:
     /**
      * @return the isotopes of the Element with the number @p number
      */
-    QList<Isotope*> isotopes(int number);
+    QList<Isotope *> isotopes(int number);
 
     /**
      * @return the isotopes of the Element @p Element
      */
-    QList<Isotope*> isotopes(Element * element);
+    QList<Isotope *> isotopes(Element *element);
 
     /**
-    * @return the Spectrum of the Element with the number @p number
+     * @return the Spectrum of the Element with the number @p number
      */
-    Spectrum * spectrum(int number);
+    Spectrum *spectrum(int number);
 
     QPixmap pixmap(int number);
 
@@ -107,8 +107,8 @@ private:
 
     QList<QPixmap> PixmapList;
 
-    QHash<int, QList<Isotope*> > m_isotopes;
-    QList<Spectrum*> m_spectra;
+    QHash<int, QList<Isotope *>> m_isotopes;
+    QList<Spectrum *> m_spectra;
 
     /**
      * Caching the number of elements

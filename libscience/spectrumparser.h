@@ -9,8 +9,8 @@
 #include "science_export.h"
 
 #include <QFile>
-#include <QXmlDefaultHandler>
 #include <QXmlAttributes>
+#include <QXmlDefaultHandler>
 
 #include "spectrum.h"
 
@@ -29,13 +29,13 @@ public:
      */
     SpectrumParser();
     ~SpectrumParser();
-    bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs ) override;
+    bool startElement(const QString &, const QString &localName, const QString &, const QXmlAttributes &attrs) override;
 
-    bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName ) override;
+    bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName) override;
 
     bool characters(const QString &ch) override;
 
-    QList<Spectrum*> getSpectrums() const;
+    QList<Spectrum *> getSpectrums() const;
 
 private:
     QString currentElementID;

@@ -27,7 +27,7 @@ public:
      */
     static std::unique_ptr<Avogadro::Core::Molecule> readMolecule(const QString &filename);
 
-    static bool writeMolecule(const QString& filename, Avogadro::Core::Molecule *);
+    static bool writeMolecule(const QString &filename, Avogadro::Core::Molecule *);
 
     static QString getFormula(Avogadro::QtGui::Molecule *molecule);
 

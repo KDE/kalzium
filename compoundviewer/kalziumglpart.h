@@ -15,13 +15,13 @@ class KalziumGLPart : public KParts::ReadOnlyPart
 {
     Q_OBJECT
 public:
-    KalziumGLPart(QWidget*, QObject*, const QVariantList&);
+    KalziumGLPart(QWidget *, QObject *, const QVariantList &);
     virtual ~KalziumGLPart();
 
 protected:
     bool openFile();
 
-    KalziumGLWidget* m_widget;
+    KalziumGLWidget *m_widget;
 };
 
 #endif // KALZIUMGLPART_H

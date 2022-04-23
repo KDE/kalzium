@@ -41,12 +41,12 @@ void ElementCountMap::add(ElementCountMap &_map)
     }
 }
 
-QList<Element*> ElementCountMap::elements()
+QList<Element *> ElementCountMap::elements()
 {
-    QList<Element*> list;
+    QList<Element *> list;
 
-    for (ElementCount* c : std::as_const(m_map)) {
-        Element* e = c->m_element;
+    for (ElementCount *c : std::as_const(m_map)) {
+        Element *e = c->m_element;
         if (!list.contains(e)) {
             list << e;
         }
@@ -69,21 +69,23 @@ void ElementCountMap::add(Element *_element, int _count)
 
 void ElementCountMap::multiply(int _factor)
 {
-  foreach (ElementCount * count, m_map) {
-      count->multiply(_factor);
-  }
+    foreach (ElementCount *count, m_map) {
+        count->multiply(_factor);
+    }
 }
 
 // ================================================================
 //                    class MoleculeParser
 
-MoleculeParser::MoleculeParser( const QList<Element*> &list) : Parser()
+MoleculeParser::MoleculeParser(const QList<Element *> &list)
+    : Parser()
 {
     m_elementList = list;
     m_aliasList = new QSet<QString>;
 }
 
-MoleculeParser::MoleculeParser(const QString &_str) : Parser(_str)
+MoleculeParser::MoleculeParser(const QString &_str)
+    : Parser(_str)
 {
     m_aliasList = new QSet<QString>;
 }
@@ -100,16 +102,14 @@ MoleculeParser::~MoleculeParser()
 //
 // This method also acts as the main loop.
 
-bool MoleculeParser::weight(const QString   &_shortMoleculeString,
-                            double          *_resultMass,
-                            ElementCountMap *_resultMap)
+bool MoleculeParser::weight(const QString &_shortMoleculeString, double *_resultMass, ElementCountMap *_resultMap)
 {
     if (_shortMoleculeString.isEmpty()) {
         return false;
     }
     // Clear the list of aliases and start filling it again.
 
-    m_aliasList -> clear();
+    m_aliasList->clear();
     QString _moleculeString;
     // Clear the result variables and set m_error to false
     _resultMap->clear();
@@ -131,7 +131,7 @@ bool MoleculeParser::weight(const QString   &_shortMoleculeString,
         return false;
     }
 
-    if (m_error) {//there was an error in the input...
+    if (m_error) { // there was an error in the input...
         return false;
     }
 
@@ -145,20 +145,18 @@ QSet<QString> MoleculeParser::aliasList()
 // ----------------------------------------------------------------
 //            helper methods for the public methods
 
-
 // Parse a submolecule.  This is a list of terms.
 //
 
-bool MoleculeParser::parseSubmolecule(double          *_resultMass,
-                                      ElementCountMap *_resultMap)
+bool MoleculeParser::parseSubmolecule(double *_resultMass, ElementCountMap *_resultMap)
 {
-    double          subMass = 0.0;
+    double subMass = 0.0;
     ElementCountMap subMap;
 
     *_resultMass = 0.0;
     _resultMap->clear();
     while (parseTerm(&subMass, &subMap)) {
-        //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a term, weight = " << subresult;
+        // qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a term, weight = " << subresult;
 
         // Add the mass and composition of the submolecule to the total.
         *_resultMass += subMass;
@@ -168,26 +166,24 @@ bool MoleculeParser::parseSubmolecule(double          *_resultMass,
     return true;
 }
 
-
 // Parse a term within the molecule, i.e. a single atom or a
 // submolecule within parenthesis followed by an optional number.
 // Examples: Bk, Mn2, (COOH)2
 //
-// Return true if correct, otherwise return false.  
+// Return true if correct, otherwise return false.
 
 // If correct, the mass of the term is returned in *_resultMass, and
 // the flattened composition of the molecule in *_resultMap.
 //
 
-bool MoleculeParser::parseTerm(double          *_resultMass,
-                               ElementCountMap *_resultMap)
+bool MoleculeParser::parseTerm(double *_resultMass, ElementCountMap *_resultMap)
 {
     *_resultMass = 0.0;
     _resultMap->clear();
 
     if (nextToken() == ELEMENT_TOKEN) {
-        //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed an element: " << m_elementVal->symbol();
-        *_resultMass = m_elementVal->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+        // qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed an element: " << m_elementVal->symbol();
+        *_resultMass = m_elementVal->dataAsVariant(ChemicalDataObject::mass).toDouble();
         _resultMap->add(m_elementVal, 1);
 
         getNextToken();
@@ -199,7 +195,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
 
         // Must end in a ")".
         if (nextToken() == ')') {
-            //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a submolecule. weight = " << *_result;
+            // qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a submolecule. weight = " << *_result;
             getNextToken();
         } else {
             return false;
@@ -211,7 +207,7 @@ bool MoleculeParser::parseTerm(double          *_resultMass,
 
     // Optional number.
     if (nextToken() == INT_TOKEN) {
-        //qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a number: " << intVal();
+        // qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Parsed a number: " << intVal();
 
         *_resultMass *= intVal();
         _resultMap->multiply(intVal());
@@ -243,8 +239,8 @@ int MoleculeParser::getNextToken()
         getNextChar();
 
         if ('a' <= nextChar() && nextChar() <= 'z') {
-                name.append(char(nextChar()));
-                getNextChar();
+            name.append(char(nextChar()));
+            getNextChar();
         }
 
         // Look up the element from the name..
@@ -264,18 +260,18 @@ int MoleculeParser::getNextToken()
 // ----------------------------------------------------------------
 //                          private methods
 
-Element *MoleculeParser::lookupElement(const QString& _name)
+Element *MoleculeParser::lookupElement(const QString &_name)
 {
     qCDebug(KALZIUM_LIBSCIENCE_LOG) << "looking up " << _name;
 
-    foreach (Element* e, m_elementList) {
+    foreach (Element *e, m_elementList) {
         if (e->dataAsVariant(ChemicalDataObject::symbol) == _name) {
             qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Found element " << _name;
             return e;
         }
     }
 
-    //if there is an error make m_error true.
+    // if there is an error make m_error true.
     m_error = true;
 
     qCDebug(KALZIUM_LIBSCIENCE_LOG) << "no such element!: " << _name;
@@ -283,15 +279,15 @@ Element *MoleculeParser::lookupElement(const QString& _name)
     return nullptr;
 }
 
-QString MoleculeParser::expandFormula( const QString& _shortString)
+QString MoleculeParser::expandFormula(const QString &_shortString)
 {
-    QString _fullString;       // the expanded string that will be returned
+    QString _fullString; // the expanded string that will be returned
     QString::const_iterator i; // iterator
-    QString temp;              // a temporary string that will contain a single element/group
-    QString expandedTerm;      // expansion of a particular term
+    QString temp; // a temporary string that will contain a single element/group
+    QString expandedTerm; // expansion of a particular term
 
     // Go through all letters in the string.
-    for (i = _shortString.constBegin(); i != _shortString.constEnd(); ) {
+    for (i = _shortString.constBegin(); i != _shortString.constEnd();) {
         temp = QLatin1String("");
 
         // If a capital letter was found
@@ -311,7 +307,7 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
             } else if (!((expandedTerm = expandTerm(temp)).isEmpty())) {
                 // If an expansion was made, return the expansion
                 qCDebug(KALZIUM_LIBSCIENCE_LOG) << "expanded" << temp << "to" << expandedTerm;
-                _fullString += '('+expandedTerm+')';
+                _fullString += '(' + expandedTerm + ')';
             } else { // invalid term, append it. (Validation is done later anyway.)
                 _fullString += temp;
             }
@@ -322,9 +318,9 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
             _fullString += ')';
             ++i;
         } else if (*i == '#') { // If # is found, we have a short-form eg #EDTA#
-            ++i;        // go to the next character
+            ++i; // go to the next character
             // Get the term between # and #
-            while (*i != '#' && i != _shortString.constEnd() ) {
+            while (*i != '#' && i != _shortString.constEnd()) {
                 temp += *i;
                 ++i;
             }
@@ -356,11 +352,10 @@ QString MoleculeParser::expandFormula( const QString& _shortString)
     return _fullString;
 }
 
-QString MoleculeParser::expandTerm (const QString& _group)
+QString MoleculeParser::expandTerm(const QString &_group)
 {
-
-    QString shortForm, fullForm;    // short form (symbol) and full form (expansion)
-    QString temp;                    // A temporary QString used in Regular expressions
+    QString shortForm, fullForm; // short form (symbol) and full form (expansion)
+    QString temp; // A temporary QString used in Regular expressions
 
     // Search in User defined aliases.
     QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols2.csv"));
@@ -376,7 +371,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
             QString line = in.readLine();
             shortForm = line.section(',', 0, 0);
             shortForm.remove(QChar('\"'));
-            fullForm  = line.section(',', 1, 1);
+            fullForm = line.section(',', 1, 1);
             fullForm.remove(QChar('\"'));
 
             // If short term is found, return fullForm
@@ -389,7 +384,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
         qCDebug(KALZIUM_LIBSCIENCE_LOG) << fileName << " could not be opened!";
     }
 
-    // Find the system defined aliases    
+    // Find the system defined aliases
     // Open the file
     fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols.csv"));
     QFile file2(fileName);
@@ -404,7 +399,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
             QString line = in.readLine();
             shortForm = line.section(',', 0, 0);
             shortForm.remove(QChar('\"'));
-            fullForm  = line.section(',', 1, 1);
+            fullForm = line.section(',', 1, 1);
             fullForm.remove(QChar('\"'));
 
             if (shortForm == _group) {

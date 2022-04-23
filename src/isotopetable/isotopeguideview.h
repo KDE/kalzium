@@ -8,8 +8,8 @@
 #define ISOTOPEGUIDEVIEW_H
 
 #include <QGraphicsView>
-#include <QResizeEvent>
 #include <QMouseEvent>
+#include <QResizeEvent>
 
 #include "isotopeview.h"
 

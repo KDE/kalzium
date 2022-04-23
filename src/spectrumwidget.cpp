@@ -6,8 +6,8 @@
 
 #include "spectrumwidget.h"
 
-#include "spectrum.h"
 #include "kalziumutils.h"
+#include "spectrum.h"
 
 #include <config-kalzium.h>
 
@@ -27,7 +27,8 @@
 #include <ieeefp.h>
 #endif
 
-SpectrumWidget::SpectrumWidget(QWidget *parent) : QWidget(parent)
+SpectrumWidget::SpectrumWidget(QWidget *parent)
+    : QWidget(parent)
 {
     m_startValue = 0;
     m_endValue = 0;
@@ -75,17 +76,15 @@ void SpectrumWidget::paintEvent(QPaintEvent * /*e*/)
     p2.drawPixmap(0, 0, m_pixmap);
 }
 
-void SpectrumWidget::drawZoomLine(QPainter* p)
+void SpectrumWidget::drawZoomLine(QPainter *p)
 {
     p->setPen(Qt::white);
     p->drawLine(m_LMBPointPress.x(), m_LMBPointPress.y(), m_LMBPointCurrent.x(), m_LMBPointPress.y());
-    p->drawLine(m_LMBPointCurrent.x(), m_LMBPointPress.y() + 10, m_LMBPointCurrent.x(),
-                m_LMBPointPress.y() - 10);
-    p->drawLine(m_LMBPointPress.x(), m_LMBPointPress.y() + 10, m_LMBPointPress.x(),
-                m_LMBPointPress.y() - 10);
+    p->drawLine(m_LMBPointCurrent.x(), m_LMBPointPress.y() + 10, m_LMBPointCurrent.x(), m_LMBPointPress.y() - 10);
+    p->drawLine(m_LMBPointPress.x(), m_LMBPointPress.y() + 10, m_LMBPointPress.x(), m_LMBPointPress.y() - 10);
 }
 
-void SpectrumWidget::paintBands(QPainter* p)
+void SpectrumWidget::paintBands(QPainter *p)
 {
     if (m_type == AbsorptionSpectrum) {
         for (double va = m_startValue; va <= m_endValue; va += 0.1) {
@@ -134,8 +133,7 @@ QColor SpectrumWidget::wavelengthToRGB(double wavelength)
     double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
     // wavelengthTo RGB function works with nanometers.
-    wavelength = KUnitConversion::Value(wavelength,KUnitConversion::UnitId(Prefs::spectrumWavelengthUnit()))
-                 .convertTo(KUnitConversion::Nanometer).number();
+    wavelength = KUnitConversion::Value(wavelength, KUnitConversion::UnitId(Prefs::spectrumWavelengthUnit())).convertTo(KUnitConversion::Nanometer).number();
 
     int wavelength_ = (int)floor(wavelength);
 
@@ -177,9 +175,7 @@ QColor SpectrumWidget::wavelengthToRGB(double wavelength)
         factor = 0.0;
     }
 
-    return QColor(Adjust(red, factor),
-                  Adjust(green, factor),
-                  Adjust(blue, factor));
+    return QColor(Adjust(red, factor), Adjust(green, factor), Adjust(blue, factor));
 }
 
 int SpectrumWidget::Adjust(double color, double /*factor*/)
@@ -187,37 +183,34 @@ int SpectrumWidget::Adjust(double color, double /*factor*/)
     if (color == 0.0) {
         return 0;
     } else {
-//         return qRound(m_intensityMax * pow(color*factor, m_gamma)); FIXME
+        //         return qRound(m_intensityMax * pow(color*factor, m_gamma)); FIXME
         return m_intensityMax * color;
     }
 }
 
-void SpectrumWidget::drawTickmarks(QPainter* p)
+void SpectrumWidget::drawTickmarks(QPainter *p)
 {
-    //the size of the text on the tickmarks
+    // the size of the text on the tickmarks
     const int space = 20;
 
-    //the distance between the tickmarks in pixel
+    // the distance between the tickmarks in pixel
     const int d = 10;
 
-    //the total number of tickmarks to draw (small and long)
+    // the total number of tickmarks to draw (small and long)
     const int numberOfTickmarks = (int)floor((double)(width() / d));
 
     double pos = 0.0;
 
     for (int i = 0; i < numberOfTickmarks; ++i) {
         if (i % 5 == 0) {
-            //long tickmarks plus text
+            // long tickmarks plus text
             p->drawLine(i * d, m_realHeight, i * d, m_realHeight + 10);
-            if (i % 10 == 0 &&
-                i * d > space &&
-                i * d < width() - space) {
+            if (i % 10 == 0 && i * d > space && i * d < width() - space) {
                 pos = (double)(i * d) / width();
                 p->fillRect(i * d - space, m_realHeight + 12, 2 * space, 15, Qt::white);
-                p->drawText(i * d - space, m_realHeight + 12, 2 * space, 15, Qt::AlignCenter,
-                            QString::number(KalziumUtils::strippedValue(Wavelength(pos))));
+                p->drawText(i * d - space, m_realHeight + 12, 2 * space, 15, Qt::AlignCenter, QString::number(KalziumUtils::strippedValue(Wavelength(pos))));
             }
-        } else { //small tickmarks
+        } else { // small tickmarks
             p->drawLine(i * d, m_realHeight, i * d, m_realHeight + 5);
         }
     }
@@ -246,12 +239,12 @@ void SpectrumWidget::slotZoomOut()
     m_endValue = m_endValue + offset;
     m_startValue = m_startValue - offset;
 
-    //check for invalid values
+    // check for invalid values
     if (m_startValue < 0.0) {
         m_startValue = 0.0;
     }
 
-    if (m_endValue > 10000.0) {   // FIXME: Magic numbers...
+    if (m_endValue > 10000.0) { // FIXME: Magic numbers...
         m_endValue = 40000.0;
     }
 
@@ -265,7 +258,7 @@ void SpectrumWidget::setBorders(double left, double right)
     m_startValue = left;
     m_endValue = right;
 
-    //round the startValue down and the endValue up
+    // round the startValue down and the endValue up
     Q_EMIT bordersChanged(int(m_startValue + 0.5), int(m_endValue + 0.5));
 
     update();
@@ -308,12 +301,12 @@ void SpectrumWidget::findPeakFromMouseposition(double wavelength)
     qCDebug(KALZIUM_LOG) << "SpectrumWidget::findPeakFromMouseposition()";
     Spectrum::peak *peak = nullptr;
 
-    //find the difference in percent (1.0 is 100%, 0.1 is 10%)
+    // find the difference in percent (1.0 is 100%, 0.1 is 10%)
     double dif = 0.0;
 
     bool foundWavelength = false;
 
-    //find the highest intensity
+    // find the highest intensity
     foreach (Spectrum::peak *currentPeak, m_spectrum->peaklist()) {
         double currentWavelength = currentPeak->wavelengthToUnit(Prefs::spectrumWavelengthUnit());
 
@@ -323,7 +316,7 @@ void SpectrumWidget::findPeakFromMouseposition(double wavelength)
             continue;
         }
 
-        if (thisdif > 1.0) {  //convert for example 1.3 to 0.7
+        if (thisdif > 1.0) { // convert for example 1.3 to 0.7
             thisdif = thisdif - 1;
             thisdif = 1 - thisdif;
         }
@@ -361,7 +354,7 @@ void SpectrumWidget::mouseReleaseEvent(QMouseEvent *e)
     m_LMBPointCurrent.setX(-1);
 }
 
-void SpectrumWidget::setSpectrum(Spectrum* spec)
+void SpectrumWidget::setSpectrum(Spectrum *spec)
 {
     m_spectrum = spec;
     resetSpectrum();
@@ -369,12 +362,10 @@ void SpectrumWidget::setSpectrum(Spectrum* spec)
 
 void SpectrumWidget::resetSpectrum()
 {
-    //set the minimum and maximum peak to the min/max wavelength
-    //plus/minus ten. This makes then always visible
+    // set the minimum and maximum peak to the min/max wavelength
+    // plus/minus ten. This makes then always visible
     double minimumPeak = m_spectrum->minPeak(Prefs::spectrumWavelengthUnit()) - 20.0;
     double maximumPeak = m_spectrum->maxPeak(Prefs::spectrumWavelengthUnit()) + 20.0;
 
     setBorders(minimumPeak, maximumPeak);
 }
-
-

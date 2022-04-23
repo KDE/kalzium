@@ -87,7 +87,6 @@ private:
      * The color of the element.
      */
     QColor m_color;
-
 };
 
 #endif // NUMERATIONITEM_H

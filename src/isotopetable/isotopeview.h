@@ -31,10 +31,12 @@ private:
     int m_mode;
 
 public:
-    double zoomLevel() {
+    double zoomLevel()
+    {
         return m_zoomLevel;
     }
-    QPolygonF visibleSceneRect() const {
+    QPolygonF visibleSceneRect() const
+    {
         return mapToScene(viewport()->rect());
     }
 

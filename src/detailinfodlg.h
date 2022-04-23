@@ -36,7 +36,7 @@ public:
 
     void setElement(int el);
 
-//     void setOverviewBackgroundColor(const QColor &bgColor);
+    //     void setOverviewBackgroundColor(const QColor &bgColor);
 
     void setTableType(int ktt);
 
@@ -44,31 +44,31 @@ public:
      * add <sup></sup> to the numbers
      @return the beatified string
      */
-    QString beautifyOrbitalString(const QString& orbits);
+    QString beautifyOrbitalString(const QString &orbits);
 
 private:
     enum DATATYPE {
         MISC = 0,
         ISOTOPES,
         DATA, /** <the overview about atomic and compound data */
-        EXTRA/** Links to wikipedia and other sites where useful information can be found*/
+        EXTRA /** Links to wikipedia and other sites where useful information can be found*/
     };
 
     Element *m_element;
     int m_elementNumber;
 
-    KActionCollection* m_actionCollection;
+    KActionCollection *m_actionCollection;
 
     SpectrumViewImpl *m_spectrumview;
-    QStackedWidget* m_spectrumStack;
-    QLabel* m_spectrumLabel;
+    QStackedWidget *m_spectrumStack;
+    QLabel *m_spectrumLabel;
 
     QString isotopeTable() const;
 
     DetailedGraphicalOverview *dTab;
-//X         QLabel *piclabel;
+    // X         QLabel *piclabel;
     OrbitsWidget *wOrbits;
-    QMap<QString, QTextBrowser*> m_htmlpages;
+    QMap<QString, QTextBrowser *> m_htmlpages;
 
     int m_tableTyp;
 
@@ -83,7 +83,7 @@ private:
 
     QString m_baseHtml;
     QString m_baseHtml2;
-//X         QString m_picsdir;
+    // X         QString m_picsdir;
 
     /**
      * Add a new HTML page to the dialog.
@@ -95,14 +95,14 @@ private:
      * @returns the pointer to the resulting KHTMLPart, needed for
      * writing HTML code on it
      */
-    QTextBrowser* addHTMLTab(const QString& title, const QString& icontext, const QString& iconname);
+    QTextBrowser *addHTMLTab(const QString &title, const QString &icontext, const QString &iconname);
     /**
      * Change the HTML code in an HTML page.
      *
      * @param browser the QTextBrowser to edit
      * @param htmlcode the HTML code to display
      */
-    void fillHTMLTab(QTextBrowser *browser, const QString& htmlcode);
+    void fillHTMLTab(QTextBrowser *browser, const QString &htmlcode);
 
     /**
      * Creates a localized link to Wikipedia.

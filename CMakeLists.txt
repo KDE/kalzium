@@ -28,6 +28,8 @@ include(CheckIncludeFiles)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 include(GenerateExportHeader)
+include(KDEClangFormat)
+include(KDEGitCommitHooks)
 
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)
@@ -148,5 +150,10 @@ ecm_qt_install_logging_categories(
         FILE kalzium.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
+
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

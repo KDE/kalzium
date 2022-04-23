@@ -21,13 +21,13 @@ public:
     /**
      * @param parent the parent widget
      */
-    explicit SpectrumViewImpl(QWidget* parent);
+    explicit SpectrumViewImpl(QWidget *parent);
 
     /**
      * sets the spectrum to @p spec
      * @param spec the spectrum to display
      */
-    void setSpectrum(Spectrum* spec)
+    void setSpectrum(Spectrum *spec)
     {
         m_spectrumWidget->setSpectrum(spec);
 
@@ -48,7 +48,7 @@ private Q_SLOTS:
      */
     void updateUI(int left, int right);
 
-    void updatePeakInformation(Spectrum::peak * peak);
+    void updatePeakInformation(Spectrum::peak *peak);
 
     void setUnit();
 

@@ -6,10 +6,10 @@
 #ifndef ELEMENTDATAVIEWER_H
 #define ELEMENTDATAVIEWER_H
 
-#include <QDialog>
-#include "ui_plotsetupwidget.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
+#include "ui_plotsetupwidget.h"
+#include <QDialog>
 
 class QTimer;
 class KActionCollection;
@@ -26,20 +26,9 @@ public:
     /**
      * This represents the possible datasets.
      */
-    enum PAXISDATA {
-        NUMBER = 0,
-        MASS,
-        EN,
-        MELTINGPOINT,
-        BOILINGPOINT,
-        ATOMICRADIUS,
-        COVALENTRADIUS
-    };
+    enum PAXISDATA { NUMBER = 0, MASS, EN, MELTINGPOINT, BOILINGPOINT, ATOMICRADIUS, COVALENTRADIUS };
 
-    enum AXISTYPE {
-        X = 0,
-        Y
-    };
+    enum AXISTYPE { X = 0, Y };
 
     explicit AxisData(AxisData::AXISTYPE);
 
@@ -70,7 +59,6 @@ private:
     AXISTYPE m_type;
 };
 
-
 /**
  * @short This widget shows the plot and the widget
  * where you can setup the plot
@@ -95,25 +83,24 @@ public:
      */
     AxisData *m_xData;
 
-
 protected:
     void keyPressEvent(QKeyEvent *e) override;
 
 private:
     Ui::PlotSetupWidget ui;
 
-    void getMinMax(double& min, double& max, AxisData * data);
+    void getMinMax(double &min, double &max, AxisData *data);
 
-    QStringList         names;
-    QStringList         symbols;
-    QStringList         elecConfig; //Electronic configuration of elements
-    QStringList         block;  //Indicates the periodic table block s,p,d,f...
+    QStringList names;
+    QStringList symbols;
+    QStringList elecConfig; // Electronic configuration of elements
+    QStringList block; // Indicates the periodic table block s,p,d,f...
     QTimer *m_timer;
 
-    KActionCollection* m_actionCollection;
+    KActionCollection *m_actionCollection;
 
     void initData();
-    void setupAxisData(AxisData * data);
+    void setupAxisData(AxisData *data);
 
     void setLimits();
 
