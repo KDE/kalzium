@@ -7,7 +7,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 #include <QList>
 #include <QVariant>

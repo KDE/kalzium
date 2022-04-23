@@ -11,7 +11,7 @@
 #include <QSharedDataPointer>
 #include <QVariant>
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 class ChemicalDataObjectPrivate;
 /**

@@ -9,8 +9,9 @@
 
 #include <avogadro/qtopengl/glwidget.h>
 
-class Q_DECL_EXPORT KalziumGLWidget : public Avogadro::QtOpenGL::GLWidget
-{
+#include "compoundviewer_export.h"
+
+class COMPOUNDVIEWER_EXPORT KalziumGLWidget : public Avogadro::QtOpenGL::GLWidget {
     Q_OBJECT
 public:
     explicit KalziumGLWidget(QWidget *parent = nullptr);

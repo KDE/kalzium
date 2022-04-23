@@ -6,7 +6,7 @@
 #ifndef MOLECULEPARSER_H
 #define MOLECULEPARSER_H
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 #include "element.h"
 #include "parser.h"

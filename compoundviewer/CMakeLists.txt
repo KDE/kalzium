@@ -35,4 +35,6 @@ set_target_properties(compoundviewer PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
 
+generate_export_header(compoundviewer)
+
 install(TARGETS compoundviewer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

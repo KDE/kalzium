@@ -17,7 +17,7 @@ target_sources(science PRIVATE
    psetables.cpp
 )
 
-
+generate_export_header(science)
 
 target_link_libraries(science Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
 set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )
@@ -29,7 +29,7 @@ install(FILES
    elementparser.h
    isotope.h
    isotopeparser.h
-   libkdeedu_science_export.h
+   ${CMAKE_CURRENT_BINARY_DIR}/science_export.h
    moleculeparser.h
    parser.h
    spectrum.h

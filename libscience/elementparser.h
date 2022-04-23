@@ -10,7 +10,7 @@
 #include <QXmlAttributes>
 #include <QXmlDefaultHandler>
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 class Element;
 

@@ -9,7 +9,7 @@
 #ifndef PSETABLES_H
 #define PSETABLES_H
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 #include <QList>
 #include <QPoint>

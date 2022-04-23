@@ -6,7 +6,7 @@
 #ifndef SPECTRUMPARSER_H
 #define SPECTRUMPARSER_H
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 #include <QFile>
 #include <QXmlDefaultHandler>

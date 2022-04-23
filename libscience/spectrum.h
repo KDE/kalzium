@@ -7,7 +7,7 @@
 #ifndef SPECTRUM_H
 #define SPECTRUM_H
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 #include <QList>
 

@@ -27,6 +27,7 @@ include(ECMMarkNonGuiExecutable)
 include(CheckIncludeFiles)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
+include(GenerateExportHeader)
 
 find_package(Gettext REQUIRED)
 find_package(PythonInterp REQUIRED)

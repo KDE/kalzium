@@ -11,7 +11,7 @@
 #include <avogadro/io/fileformat.h>
 #include <avogadro/qtgui/molecule.h>
 
-#include <libkdeedu_compoundviewer_export.h>
+#include "compoundviewer_export.h"
 
 #include <memory>
 

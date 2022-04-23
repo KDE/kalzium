@@ -9,7 +9,7 @@
 
 #include "chemicaldataobject.h"
 
-#include "libkdeedu_science_export.h"
+#include "science_export.h"
 
 /**
  * @author Carsten Niehaus
