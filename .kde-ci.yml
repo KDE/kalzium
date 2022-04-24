@@ -12,6 +12,5 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kparts': '@stable'
     'frameworks/kplotting': '@stable'
-    'frameworks/ksolid': '@stable'
     'frameworks/kunitconversion': '@stable'
     'frameworks/kwidgetsaddons': '@stable'
