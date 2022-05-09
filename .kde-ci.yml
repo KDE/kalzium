@@ -10,6 +10,7 @@ Dependencies:
     'frameworks/kcoreaddons': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/ki18n': '@stable'
+    'frameworks/knewstuff': '@stable'
     'frameworks/kparts': '@stable'
     'frameworks/kplotting': '@stable'
     'frameworks/kunitconversion': '@stable'
