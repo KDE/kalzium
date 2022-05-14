@@ -24,8 +24,7 @@ pseTables::pseTables()
 }
 
 pseTables::~pseTables()
-{
-}
+= default;
 
 pseTables *pseTables::instance()
 {
@@ -62,12 +61,10 @@ pseTable* pseTables::getTabletype(const QString &tableName)
 }
 
 pseTable::pseTable()
-{
-}
+= default;
 
 pseTable::~pseTable()
-{
-}
+= default;
 
 pseTable *pseTable::init()
 {
@@ -122,7 +119,7 @@ QPoint pseTable::elementCoords(const int element) const
         x = m_posX.at(elementIndex) - 1;
         y = m_posY.at(elementIndex) - 1;
     }
-    return QPoint(x, y);
+    return {x, y};
 }
 
 QPoint pseTable::tableSize() const
@@ -138,7 +135,7 @@ QPoint pseTable::tableSize() const
             y = m_posY.at(i);
         }
     }
-    return QPoint(x, y);
+    return {x, y};
 }
 
 int pseTable::numerationAtPos(int xPos) const

@@ -5,7 +5,7 @@
 
 #include "parser.h"
 
-#include <ctype.h>
+#include <cctype>
 
 #include "kalzium_libscience_debug.h"
 
@@ -23,8 +23,7 @@ Parser::Parser(const QString& _str)
 
 
 Parser::~Parser()
-{
-}
+= default;
 
 
 void Parser::start(const QString& _str)

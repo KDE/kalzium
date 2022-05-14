@@ -49,9 +49,9 @@ public Q_SLOTS:
     void slotGradientChanged();
 
 private Q_SLOTS:
-    void play(void);
-    void stop(void);
-    void tick(void);
+    void play();
+    void stop();
+    void tick();
     void doubleToSlider(double var);
     void intToSpinbox(int var);
     /**

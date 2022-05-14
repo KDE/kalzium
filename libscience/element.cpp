@@ -11,8 +11,7 @@
 #include <KUnitConversion/Converter>
 
 Element::Element()
-{
-}
+= default;
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type) const
 {
@@ -21,7 +20,7 @@ QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type) const
             return o.value();
         }
     }
-    return QVariant();
+    return {};
 }
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) const
@@ -32,10 +31,10 @@ QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type, int unit) 
                 return o.value();
             }
             KUnitConversion::Value data(o.value().toDouble(), KUnitConversion::UnitId(o.unit()));
-            return QVariant(data.convertTo(KUnitConversion::UnitId(unit)).number());
+            return {data.convertTo(KUnitConversion::UnitId(unit)).number()};
         }
     }
-    return QVariant();
+    return {};
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
@@ -53,7 +52,7 @@ QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int 
     QString valueAndUnit(QString::number(dataAsVariant(type, unit).toDouble(), 'g', 4));
 
     if (valueAndUnit.isEmpty()) {
-        return QString();
+        return {};
     }
 
     valueAndUnit.append(" ");
@@ -62,8 +61,7 @@ QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int 
 }
 
 Element::~Element()
-{
-}
+= default;
 
 void Element::addData(const ChemicalDataObject& o)
 {

@@ -143,7 +143,7 @@ QString KalziumUtils::prettyUnit(const Element* el, ChemicalDataObject::BlueObel
         QRegularExpression reg("(.*)([spdf])(\\d+)(.*)");
 
         while (newOrbit.contains(reg)) {
-            newOrbit = newOrbit.replace(reg, "\\1\\2<sup>\\3</sup>\\4");
+            newOrbit = newOrbit.replace(reg, R"(\1\2<sup>\3</sup>\4)");
         }
         result = newOrbit;
         break;

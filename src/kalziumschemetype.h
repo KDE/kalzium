@@ -19,7 +19,7 @@ class KalziumSchemeType;
 #include <QPair>
 #include <QRect>
 
-typedef QPair<QString, QColor> legendPair;
+using legendPair = QPair<QString, QColor>;
 
 /**
  * Factory for KalziumSchemeType classes.

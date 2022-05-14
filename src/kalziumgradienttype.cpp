@@ -16,7 +16,7 @@
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>
 
-#include <math.h>
+#include <cmath>
 
 KalziumGradientTypeFactory::KalziumGradientTypeFactory()
 {
@@ -68,12 +68,10 @@ QStringList KalziumGradientTypeFactory::gradients() const
 
 
 KalziumGradientType::KalziumGradientType()
-{
-}
+= default;
 
 KalziumGradientType::~KalziumGradientType()
-{
-}
+= default;
 
 KalziumGradientType* KalziumGradientType::instance()
 {
@@ -139,7 +137,7 @@ QColor KalziumGradientType::calculateColor(const double coeff) const
     int green = static_cast<int>((color2.green() - color1.green()) * coeff + color1.green());
     int blue = static_cast<int>((color2.blue() - color1.blue()) * coeff + color1.blue());
 
-    return QColor(red, green, blue);
+    return {red, green, blue};
 }
 
 KalziumCovalentRadiusGradientType* KalziumCovalentRadiusGradientType::instance()
@@ -507,7 +505,7 @@ double KalziumElectronegativityGradientType::value(int el) const
 
 QString KalziumElectronegativityGradientType::unit() const
 {
-    return QString();
+    return {};
 }
 
 int KalziumElectronaffinityGradientType::decimals() const
@@ -562,7 +560,7 @@ double KalziumDiscoverydateGradientType::value(int el) const
 
 QString KalziumDiscoverydateGradientType::unit() const
 {
-    return QString();
+    return {};
 }
 
 int KalziumDiscoverydateGradientType::decimals() const

@@ -30,8 +30,7 @@ ChemicalDataObjectPrivate::ChemicalDataObjectPrivate()
 }
 
 ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
-{
-}
+= default;
 //##############
 
 ChemicalDataObject::ChemicalDataObject(const QVariant& v, BlueObelisk type, const QVariant& errorValue)
@@ -51,19 +50,14 @@ ChemicalDataObject::ChemicalDataObject()
 }
 
 ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other)
-        : d(other.d)
-{
-}
+         
+= default;
 
 ChemicalDataObject::~ChemicalDataObject()
-{
-}
+= default;
 
 ChemicalDataObject& ChemicalDataObject::operator=(const ChemicalDataObject &other)
-{
-    d = other.d;
-    return *this;
-}
+= default;
 
 bool ChemicalDataObject::operator==(const int v) const
 {

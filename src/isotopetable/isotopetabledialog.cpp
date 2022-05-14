@@ -26,9 +26,9 @@
 IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Isotope Table"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &IsotopeTableDialog::reject);
@@ -56,7 +56,7 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
     items << qMakePair(i18nc("Unknown Decay", "unknown"), QColor(Qt::darkGray));
 
     foreach (const legendPair &pair, items) {
-        LegendItem *item = new LegendItem(pair);
+        auto *item = new LegendItem(pair);
         ui.infoWidget->layout()->addWidget(item);
     }
     ui.infoWidget->setMinimumWidth(150);

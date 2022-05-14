@@ -61,17 +61,15 @@ KalziumNumerationType* KalziumNumerationType::instance()
 }
 
 KalziumNumerationType::KalziumNumerationType()
-{
-}
+= default;
 
 KalziumNumerationType::~KalziumNumerationType()
-{
-}
+= default;
 
 QString KalziumNumerationType::item(const int num) const
 {
     if ((num < 0) || (num >= m_items.count())) {
-        return QString();
+        return {};
     }
 
     return m_items.at(num);
@@ -107,12 +105,12 @@ QString KalziumNoneNumerationType::description() const
 QString KalziumNoneNumerationType::item(const int num) const
 {
     Q_UNUSED(num);
-    return QString();
+    return {};
 }
 
 QStringList KalziumNoneNumerationType::items() const
 {
-    return QStringList();
+    return {};
 }
 
 KalziumIUPACNumerationType* KalziumIUPACNumerationType::instance()

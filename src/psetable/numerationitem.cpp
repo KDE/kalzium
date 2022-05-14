@@ -33,12 +33,11 @@ NumerationItem::NumerationItem(int xPosition) : m_width(40), m_height(20),
 }
 
 NumerationItem::~NumerationItem()
-{
-}
+= default;
 
 QRectF NumerationItem::boundingRect() const
 {
-    return QRectF(0, 0, m_width, m_height);
+    return {0, 0, m_width, m_height};
 }
 
 QPainterPath NumerationItem::shape() const

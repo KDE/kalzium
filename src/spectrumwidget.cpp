@@ -11,8 +11,8 @@
 
 #include <config-kalzium.h>
 
+#include <cmath>
 #include <element.h>
-#include <math.h>
 
 #include "kalzium_debug.h"
 #include <QGlobalStatic>
@@ -140,7 +140,7 @@ QColor SpectrumWidget::wavelengthToRGB(double wavelength)
     int wavelength_ = (int)floor(wavelength);
 
     if (wavelength_ < 380 || wavelength_ > 780) {
-        return QColor(Qt::white);
+        return {Qt::white};
     } else if (wavelength_ >= 380 && wavelength_ < 440) {
         red = -(wavelength - 440) / (440 - 380);
         green = 0.0;
@@ -177,9 +177,9 @@ QColor SpectrumWidget::wavelengthToRGB(double wavelength)
         factor = 0.0;
     }
 
-    return QColor(Adjust(red, factor),
+    return {Adjust(red, factor),
                   Adjust(green, factor),
-                  Adjust(blue, factor));
+                  Adjust(blue, factor)};
 }
 
 int SpectrumWidget::Adjust(double color, double /*factor*/)

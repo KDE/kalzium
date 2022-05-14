@@ -14,7 +14,7 @@
 class QTimer;
 class KActionCollection;
 
-typedef QList<double> DoubleList;
+using DoubleList = QList<double>;
 
 /**
  * @short the values of an axis

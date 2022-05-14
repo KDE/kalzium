@@ -11,12 +11,10 @@
 #include "kalzium_libscience_debug.h"
 
 Isotope::Isotope()
-{
-}
+= default;
 
 Isotope::~Isotope()
-{
-}
+= default;
 
 void Isotope::addData(const ChemicalDataObject &o)
 {

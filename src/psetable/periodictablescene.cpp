@@ -34,7 +34,7 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
 }
 
 PeriodicTableScene::~PeriodicTableScene()
-{}
+= default;
 
 bool PeriodicTableScene::event(QEvent *e)
 {
@@ -66,8 +66,8 @@ void PeriodicTableScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             item->data(0).toInt() > 0) {
         Element* pointedElement = KalziumDataObject::instance()->element(item->data(0).toInt());
 
-        QDrag *drag = new QDrag(event->widget());
-        QMimeData *mimeData = new QMimeData;
+        auto *drag = new QDrag(event->widget());
+        auto *mimeData = new QMimeData;
 
         mimeData->setText(pointedElement->dataAsString(ChemicalDataObject::name));
         drag->setMimeData(mimeData);

@@ -36,11 +36,11 @@ TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
 
 void TablesDialog::createGreekSymbolTable()
 {
-    QWidget *frame = new QWidget();
+    auto *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Greek alphabet"));
     item->setHeader(i18n("Greek alphabet"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
-    QVBoxLayout *layout = new QVBoxLayout(frame);
+    auto *layout = new QVBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
 
     QTableWidget *table = new MyTableWidget(frame);
@@ -139,11 +139,11 @@ void TablesDialog::createGreekSymbolTable()
 
 void TablesDialog::createNumbersTable()
 {
-    QWidget *frame = new QWidget();
+    auto *frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Numbers"));
     item->setHeader(i18n("Numeric Prefixes and Roman Numerals"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
-    QVBoxLayout *layout = new QVBoxLayout(frame);
+    auto *layout = new QVBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
 
     QTableWidget *table = new MyTableWidget(frame);
@@ -249,8 +249,7 @@ void TablesDialog::createNumbersTable()
 }
 
 TablesDialog::~TablesDialog()
-{
-}
+= default;
 
 MyTableWidget::MyTableWidget(QWidget* parent) : QTableWidget(parent)
 {
@@ -258,7 +257,7 @@ MyTableWidget::MyTableWidget(QWidget* parent) : QTableWidget(parent)
 
 void MyTableWidget::contextMenuEvent(QContextMenuEvent* event)
 {
-    QMenu* menu = new QMenu((QWidget*) sender());
+    auto* menu = new QMenu((QWidget*) sender());
     menu->addAction(i18n("&Copy"), this, &MyTableWidget::copyToClipboard, QKeySequence(Qt::Key_C | Qt::CTRL));
     menu->exec(event->globalPos());
 }

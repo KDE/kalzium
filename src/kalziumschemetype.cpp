@@ -76,13 +76,10 @@ KalziumSchemeType* KalziumSchemeType::instance()
 }
 
 KalziumSchemeType::KalziumSchemeType()
-{
-
-}
+= default;
 
 KalziumSchemeType::~KalziumSchemeType()
-{
-}
+= default;
 
 KalziumMonoColorSchemeType::KalziumMonoColorSchemeType()
         : KalziumSchemeType()

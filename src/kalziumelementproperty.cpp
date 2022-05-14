@@ -34,8 +34,7 @@ KalziumElementProperty::KalziumElementProperty()
 }
 
 KalziumElementProperty::~KalziumElementProperty()
-{
-}
+= default;
 
 bool KalziumElementProperty::isGradient()
 {
@@ -131,7 +130,7 @@ QBrush KalziumElementProperty::getElementBrush(int el)
 
     // Hide filtered elements from search
     if (!KalziumDataObject::instance()->search()->matches(el) && KalziumDataObject::instance()->search()->isActive()) {
-        return QBrush(Qt::darkGray, Qt::Dense7Pattern);
+        return {Qt::darkGray, Qt::Dense7Pattern};
     }
 
     //The iconic view is the 3rd view (0,1,2,...). Pixmaps don't make nice gradients.
@@ -167,7 +166,7 @@ QColor KalziumElementProperty::getBorderColor(int el) const
 
     // Transparent Borders don't make sens.
     if (getTextColor(el) == QColor(Qt::transparent)) {
-        return QColor(Qt::black);
+        return {Qt::black};
     }
 
     return getTextColor(el);

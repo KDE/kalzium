@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    SpectrumParser *parser = new SpectrumParser();
+    auto *parser = new SpectrumParser();
     QFile xmlFile(argv[1]);
 
     QXmlInputSource source(&xmlFile);

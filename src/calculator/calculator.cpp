@@ -22,9 +22,9 @@
 calculator::calculator(QWidget *parent) : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Chemical Calculator"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close, this);
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close, this);
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &calculator::accept);
@@ -81,8 +81,7 @@ calculator::calculator(QWidget *parent) : QDialog(parent)
 }
 
 calculator :: ~calculator()
-{
-}
+= default;
 
 void calculator::slotItemSelection(QTreeWidgetItem *item)
 {

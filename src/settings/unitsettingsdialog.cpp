@@ -14,27 +14,27 @@
 
 UnitSettingsDialog::UnitSettingsDialog(QWidget* parent) : QWidget(parent)
 {
-    QLabel *labelEnergy = new QLabel(i18n("Energy:"), this);
+    auto *labelEnergy = new QLabel(i18n("Energy:"), this);
     QList<int> energy;
     energy << KUnitConversion::Electronvolt << KUnitConversion::KiloJoulePerMole <<
            KUnitConversion::JoulePerMole << KUnitConversion::Joule;
     m_comboBoxLEnergiesUnit = new KalziumUnitCombobox(energy, this);
     m_comboBoxLEnergiesUnit->setObjectName(QStringLiteral("kcfg_combobox_energies"));
 
-    QLabel *labelLenght = new QLabel(i18n("Length:"), this);
+    auto *labelLenght = new QLabel(i18n("Length:"), this);
     QList<int> length;
     length << KUnitConversion::Picometer << KUnitConversion::Nanometer << KUnitConversion::Angstrom;
     m_comboBoxLengthUnit = new KalziumUnitCombobox(length, this);
     m_comboBoxLengthUnit->setObjectName(QStringLiteral("kcfg_combobox_length"));
 
-    QLabel *labelTemperature = new QLabel(i18n("Temperature:"), this);
+    auto *labelTemperature = new QLabel(i18n("Temperature:"), this);
     QList<int> temperature;
     temperature << KUnitConversion::Kelvin << KUnitConversion::Celsius << KUnitConversion::Fahrenheit <<
                 KUnitConversion::Reaumur;
     m_comboBoxLTemperatureUnit = new KalziumUnitCombobox(temperature, this);
     m_comboBoxLTemperatureUnit->setObjectName(QStringLiteral("kcfg_combobox_temperature"));
 
-    QGridLayout *layout = new QGridLayout(this);
+    auto *layout = new QGridLayout(this);
     layout->addWidget(labelEnergy, 0, 0);
     layout->addWidget(m_comboBoxLEnergiesUnit, 0, 1);
 

@@ -11,8 +11,8 @@
 #include <QIcon>
 #include <QTimer>
 
+#include <cmath>
 #include <element.h>
-#include <math.h>
 
 #include "kalziumdataobject.h"
 #include "prefs.h"
@@ -190,7 +190,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
     text->setText(/*m_htmlBegin +*/ htmlcode /*+ m_htmlEnd*/);
 }
 
-void GradientWidgetImpl::play(void)
+void GradientWidgetImpl::play()
 {
     if (m_play) {   //Currently playing
         //The Mode is 'Play' so stop
@@ -210,7 +210,7 @@ void GradientWidgetImpl::play(void)
     Play->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
 }
 
-void GradientWidgetImpl::stop(void)
+void GradientWidgetImpl::stop()
 {
     //Currently playing, stop the timer.
     m_timer -> stop();
@@ -218,7 +218,7 @@ void GradientWidgetImpl::stop(void)
     m_play = false;         //Stop
 }
 
-void GradientWidgetImpl::tick(void)
+void GradientWidgetImpl::tick()
 {
     int increment = Speed->value();
     int temp = gradient_slider->value();

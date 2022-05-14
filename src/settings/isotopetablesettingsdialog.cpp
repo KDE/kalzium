@@ -15,22 +15,22 @@ IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent) : QWidge
 {
     m_mode = Prefs::isotopeTableMode();
 
-    IsotopeTableSettingsCard *card0 = new IsotopeTableSettingsCard(this, 0);
+    auto *card0 = new IsotopeTableSettingsCard(this, 0);
     card0->setZoom(0.07);
     card0->setText("One part to the side of the other");
     card0->setRadioButtonObjectName("isotopeTableMode_0");
     m_cards.append(card0);
-    IsotopeTableSettingsCard *card1 = new IsotopeTableSettingsCard(this, 1);
+    auto *card1 = new IsotopeTableSettingsCard(this, 1);
     card1->setZoom(0.04);
     card1->setText("Both parts continuous");
     card0->setRadioButtonObjectName("isotopeTableMode_1");
     m_cards.append(card1);
-    IsotopeTableSettingsCard *card2 = new IsotopeTableSettingsCard(this, 2);
+    auto *card2 = new IsotopeTableSettingsCard(this, 2);
     card2->setZoom(0.04);
     card2->setText("Horizontally");
     card0->setRadioButtonObjectName("isotopeTableMode_2");
     m_cards.append(card2);
-    IsotopeTableSettingsCard *card3 = new IsotopeTableSettingsCard(this, 3);
+    auto *card3 = new IsotopeTableSettingsCard(this, 3);
     card3->setZoom(0.05);
     card3->setText("Horizontally (shifted)");
     card0->setRadioButtonObjectName("isotopeTableMode_3");
@@ -43,7 +43,7 @@ IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent) : QWidge
     connect(card2, &IsotopeTableSettingsCard::checked, this, &IsotopeTableSettingsDialog::setMode);
     connect(card3, &IsotopeTableSettingsCard::checked, this, &IsotopeTableSettingsDialog::setMode);
 
-    QGridLayout *layout = new QGridLayout(this);
+    auto *layout = new QGridLayout(this);
     layout->addWidget(card0, 0, 0);
     layout->addWidget(card1, 0, 1);
     layout->addWidget(card2, 1, 0);
@@ -53,8 +53,7 @@ IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent) : QWidge
 }
 
 IsotopeTableSettingsDialog::~IsotopeTableSettingsDialog()
-{
-}
+= default;
 
 bool IsotopeTableSettingsDialog::hasChanged() const
 {

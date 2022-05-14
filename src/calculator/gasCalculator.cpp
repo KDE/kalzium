@@ -57,8 +57,7 @@ gasCalculator::gasCalculator(QWidget * parent)
 }
 
 gasCalculator:: ~gasCalculator()
-{
-}
+= default;
 
 void gasCalculator::init()
 {

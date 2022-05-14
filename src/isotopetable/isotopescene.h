@@ -25,7 +25,7 @@ private:
     void initialize();
 
 private:
-    void drawIsotopes(void);
+    void drawIsotopes();
 
     //the size of each item
     int m_itemSize;

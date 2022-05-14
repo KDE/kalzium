@@ -48,9 +48,9 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
         m_xData(new AxisData(AxisData::X))
 {
     setWindowTitle(i18nc("@title:window", "Plot Data"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ElementDataViewer::accept);
@@ -406,15 +406,15 @@ void ElementDataViewer::drawPlot()
         double value_y = m_yData->value(i);
         double value_x = m_xData->value(i);
 
-        bool known = ((value_y) > 0.0) ? 1 : 0;
+        bool known = ((value_y) > 0.0) ? true : false;
         //The element is know if its value is not zero
-        bool belongs = 1;
+        bool belongs = true;
         //The value of belongs is one if it belongs to the particular group
 
         //See if the particular element belongs to the selected set or not.
         //If a particular group of elements is selected,
         if (whichType > 0) {
-            belongs = 0;
+            belongs = false;
             switch (whichType) {
             case 1: //Plot only metals
                 belongs = metals . contains(i);
@@ -470,7 +470,7 @@ void ElementDataViewer::drawPlot()
                 break;
             default:
                 whichType = 0;
-                belongs = 1;
+                belongs = true;
             }
         }
         if (belongs) {

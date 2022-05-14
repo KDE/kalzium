@@ -22,7 +22,7 @@ class SpectrumWidget : public QWidget
 public:
     explicit SpectrumWidget(QWidget *parent);
 
-    ~SpectrumWidget() override {}
+    ~SpectrumWidget() override = default;
 
     void setSpectrum(Spectrum* spec);
 

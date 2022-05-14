@@ -152,8 +152,8 @@ private:
 class GlossaryItem
 {
 public:
-    GlossaryItem() {}
-    ~GlossaryItem() {}
+    GlossaryItem() = default;
+    ~GlossaryItem() = default;
 
     void setName(const QString& s);
 

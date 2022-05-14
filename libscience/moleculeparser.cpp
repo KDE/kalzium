@@ -5,7 +5,7 @@
 
 #include "moleculeparser.h"
 
-#include <ctype.h>
+#include <cctype>
 
 #include "kalzium_libscience_debug.h"
 #include <QFile>
@@ -20,8 +20,7 @@ ElementCountMap::ElementCountMap()
 }
 
 ElementCountMap::~ElementCountMap()
-{
-}
+= default;
 
 ElementCount *ElementCountMap::search(Element *_element)
 {

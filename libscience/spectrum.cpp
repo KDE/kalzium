@@ -11,7 +11,7 @@
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>
 
-#include <math.h>
+#include <cmath>
 
 double Spectrum::minPeak()
 {
@@ -52,7 +52,7 @@ double Spectrum::maxPeak(const int unit)
 
 Spectrum* Spectrum::adjustToWavelength(double min, double max)
 {
-    Spectrum *spec = new Spectrum();
+    auto *spec = new Spectrum();
 
     for (peak *p : std::as_const(m_peaklist)) {
         if (p->wavelength >= min || p->wavelength <= max) {

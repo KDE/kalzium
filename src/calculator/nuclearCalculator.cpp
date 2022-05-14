@@ -6,7 +6,7 @@
 
 #include "nuclearCalculator.h"
 
-#include <math.h>
+#include <cmath>
 
 #include <KLocalizedString>
 
@@ -81,8 +81,7 @@ nuclearCalculator::nuclearCalculator(QWidget * parent) : QFrame(parent)
 }
 
 nuclearCalculator:: ~nuclearCalculator()
-{
-}
+= default;
 
 // The function that initialises data
 void nuclearCalculator::init()

@@ -86,8 +86,7 @@ concCalculator::concCalculator(QWidget * parent) : QFrame(parent)
 }
 
 concCalculator:: ~concCalculator()
-{
-}
+= default;
 
 // Initialises values and GUI.
 void concCalculator::init()

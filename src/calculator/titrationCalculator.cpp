@@ -7,15 +7,13 @@
 #include "titrationCalculator.h"
 
 #include <cctype>
+#include <cfloat>
 #include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <float.h>
 #include <fstream>
 #include <iostream>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -59,8 +57,7 @@ titrationCalculator::titrationCalculator(QWidget * parent) : QWidget(parent)
 }
 
 titrationCalculator:: ~titrationCalculator()
-{
-}
+= default;
 
 void titrationCalculator::plot()
 {
@@ -69,9 +66,9 @@ void titrationCalculator::plot()
     uid.kplotwidget->removeAllPlotObjects();
     uid.kplotwidget->setLimits(xmin, xmax, ymin, ymax); //now I need to set the limits of the plot
 
-    KPlotObject *kpor = new KPlotObject(Qt::red,KPlotObject::Lines);
-    KPlotObject *kpog = new KPlotObject(Qt::green, KPlotObject::Lines);
-    KPlotObject *kpob = new KPlotObject(Qt::blue, KPlotObject::Lines);
+    auto *kpor = new KPlotObject(Qt::red,KPlotObject::Lines);
+    auto *kpog = new KPlotObject(Qt::green, KPlotObject::Lines);
+    auto *kpob = new KPlotObject(Qt::blue, KPlotObject::Lines);
     redplot = QStringLiteral("<polyline points=\"");
     greenplot = QStringLiteral("<polyline points=\"");
     blueplot = QStringLiteral("<polyline points=\"");
@@ -230,9 +227,9 @@ void titrationCalculator::plot()
     uid.kplotwidget->addPlotObject(kpog);
     uid.kplotwidget->addPlotObject(kpob);
 
-    redplot = redplot + "\" style=\"stroke:red;fill:none\"/> ";
-    blueplot = blueplot + "\" style=\"stroke:blue;fill:none\"/> ";
-    greenplot = greenplot + "\" style=\"stroke:green;fill:none\"/> ";
+    redplot = redplot + R"(" style="stroke:red;fill:none"/> )";
+    blueplot = blueplot + R"(" style="stroke:blue;fill:none"/> )";
+    greenplot = greenplot + R"(" style="stroke:green;fill:none"/> )";
 
 }
 
@@ -473,20 +470,20 @@ void titrationCalculator::on_actionNew_triggered()
 {
     //set all the table cells as empty ("")
     for (int i = 0; i < uid.tableWidget->rowCount(); ++i) {
-        QTableWidgetItem *titem = new QTableWidgetItem;
+        auto *titem = new QTableWidgetItem;
         titem->setText(QLatin1String(""));
         uid.tableWidget->setItem(i, 0, titem);
-        QTableWidgetItem *titemo = new QTableWidgetItem;
+        auto *titemo = new QTableWidgetItem;
         titemo->setText(QLatin1String(""));
         uid.tableWidget->setItem(i, 1, titemo);
     }
     uid.xaxis->setText(QLatin1String(""));
     uid.yaxis->setText(QLatin1String(""));
     for (int i = 0; i < uid.tableWidget_2->rowCount(); ++i) {
-        QTableWidgetItem *titem = new QTableWidgetItem;
+        auto *titem = new QTableWidgetItem;
         titem->setText(QLatin1String(""));
         uid.tableWidget_2->setItem(i, 0, titem);
-        QTableWidgetItem *titemo = new QTableWidgetItem;
+        auto *titemo = new QTableWidgetItem;
         titemo->setText(QLatin1String(""));
         uid.tableWidget_2->setItem(i, 1, titemo);
     }
@@ -683,7 +680,7 @@ void titrationCalculator::on_actionOpen_triggered()
 void titrationCalculator::on_actionSave_image_triggered()
 {
     //This function saves the plot into a SVG file
-    QString svgheader = "<?xml version=\"1.0\" encoding=\"iso-8859-1\" standalone=\"no\"?> <!DOCTYPE svg PUBLIC \"-//W3C//Dtd SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/Dtd/svg11.dtd\"> <svg width=\"" + QString::number((xmax * 10) + 5) + "\" height=\"" + QString::number((ymax * 10) + 5) + "\"  version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><polyline points=\"5," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number((ymax * 10) - 5) + " " + QString::number(xmax * 10) + "," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number((ymax * 10) + 5) + " " + QString::number((xmax * 10) - 5) + "," + QString::number(ymax * 10) + "\" style=\"stroke:black;fill:none\"/> <polyline points=\"5," + QString::number(ymax * 10) + " 5,5 10,5 5,0 0,5 5,5\" style=\"stroke:black;fill:none\"/> ";
+    QString svgheader = R"(<?xml version="1.0" encoding="iso-8859-1" standalone="no"?> <!DOCTYPE svg PUBLIC "-//W3C//Dtd SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/Dtd/svg11.dtd"> <svg width=")" + QString::number((xmax * 10) + 5) + "\" height=\"" + QString::number((ymax * 10) + 5) + R"("  version="1.1" xmlns="http://www.w3.org/2000/svg"><polyline points="5,)" + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number((ymax * 10) - 5) + " " + QString::number(xmax * 10) + "," + QString::number(ymax * 10) + " " + QString::number((xmax * 10) - 5) + "," + QString::number((ymax * 10) + 5) + " " + QString::number((xmax * 10) - 5) + "," + QString::number(ymax * 10) + R"(" style="stroke:black;fill:none"/> <polyline points="5,)" + QString::number(ymax * 10) + R"( 5,5 10,5 5,0 0,5 5,5" style="stroke:black;fill:none"/> )";
     QString svgcomplete = svgheader + redplot + greenplot + blueplot + "</svg> ";
 
     QString file = QFileDialog::getSaveFileName(this, i18n("Save plot"), QLatin1String(""), i18n("Svg image (*.svg)"));
