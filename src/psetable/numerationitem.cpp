@@ -37,7 +37,7 @@ NumerationItem::~NumerationItem()
 
 QRectF NumerationItem::boundingRect() const
 {
-    return {0, 0, m_width, m_height};
+    return QRectF(0, 0, m_width, m_height);
 }
 
 QPainterPath NumerationItem::shape() const
