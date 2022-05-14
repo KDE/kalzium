@@ -196,8 +196,8 @@ target_link_libraries(kalzium
     KF5::TextWidgets
     KF5::UnitConversion
     KF5::XmlGui
-    Qt5::Script
-    Qt5::Svg
+    Qt::Script
+    Qt::Svg
     science
 )
 if (HAVE_OPENBABEL)
@@ -205,7 +205,7 @@ if (HAVE_OPENBABEL)
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
       target_link_libraries(kalzium
          KF5::NewStuff
-         Qt5::OpenGL
+         Qt::OpenGL
          compoundviewer
          AvogadroQtGui
          AvogadroQtOpenGL
@@ -245,7 +245,7 @@ install(TARGETS kalzium ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES settings/kalzium.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
-install(FILES kalziumui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kalzium)
+install(FILES kalziumui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/kalzium)
 
 ecm_install_icons(ICONS
     16-apps-kalzium.png

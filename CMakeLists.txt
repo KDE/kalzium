@@ -69,7 +69,7 @@ configure_file(
 
 include_directories(${AvogadroLibs_INCLUDE_DIRS})
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Core
     Gui
     Script
