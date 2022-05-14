@@ -68,7 +68,7 @@ void ElementCountMap::add(Element *_element, int _count)
 
 void ElementCountMap::multiply(int _factor)
 {
-  foreach (ElementCount * count, m_map) {
+  for (ElementCount * count : std::as_const(m_map)) {
       count->multiply(_factor);
   }
 }

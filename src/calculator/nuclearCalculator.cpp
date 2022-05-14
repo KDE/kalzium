@@ -88,11 +88,11 @@ void nuclearCalculator::init()
 {
     const int ISOTOPE_NUM = 22;
     // Add all isotope names of Uranium (by default)to the isotope comboBox
-    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(92);
+    const QList<Isotope*> list = KalziumDataObject::instance()->isotopes(92);
     QString isotope;
 
     ui.isotope->clear();
-    foreach (Isotope *i, list) {
+    for (Isotope *i : list) {
         isotope.setNum(i->mass());
         ui.isotope->addItem(isotope);
     }
@@ -177,12 +177,12 @@ void nuclearCalculator::elementChanged(int index)
     m_element = * KalziumDataObject::instance()->element(index + 1);
 
     // Add all isotope names of Uranium (by default) to the isotope comboBox
-    QList<Isotope*> list = KalziumDataObject::instance()->isotopes(index + 1);
+    const QList<Isotope*> list = KalziumDataObject::instance()->isotopes(index + 1);
     QString isotope;                        // A temporary string
     ui.isotope->clear();               // Clear the contents of the combo box
 
     // update the combobox with isotopes of the new element
-    foreach (Isotope *i, list) {
+    for (Isotope *i : list) {
         isotope.setNum(i->mass());
         ui.isotope->addItem(isotope);
     }

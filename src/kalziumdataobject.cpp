@@ -78,12 +78,12 @@ KalziumDataObject::KalziumDataObject()
     isoreader.setContentHandler(isoparser);
     isoreader.parse(isosource);
 
-    QList<Isotope*> isotopes = isoparser->getIsotopes();
+    const QList<Isotope*> isotopes = isoparser->getIsotopes();
 
     //we don't need isoparser anymore, let's free its memory
     delete isoparser;
 
-    foreach (Isotope *iso, isotopes)
+    for (Isotope *iso : isotopes)
     {
         int num = iso->parentElementNumber();
         if (m_isotopes.contains(num)) {

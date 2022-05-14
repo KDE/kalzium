@@ -93,7 +93,7 @@ void RSDialog::filterRS(const QList<int>& r, const QList<int>& s)
     }
     if (!s.isEmpty()) {
         string.append("<h2>" + i18n("S-Phrases:") + "</h2>");
-        foreach (int i, s) {
+        for (int i : s) {
             QString phrase("<b>" + QString::number(i) + " -  ");
             phrase.append(sphrase(i) + "</b>");
             string.append(phrase + "<br>");
