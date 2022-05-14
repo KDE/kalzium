@@ -45,7 +45,7 @@ private:
     /**
      * the element whose data will be used
      */
-    Element *m_element;
+    Element *m_element = nullptr;
 
     /**
      * The background color.

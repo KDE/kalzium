@@ -23,7 +23,7 @@
 #include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
-        : QWidget(parent), m_element(nullptr)
+        : QWidget(parent)
 {
     setAttribute(Qt::WA_OpaquePaintEvent, true);
 
