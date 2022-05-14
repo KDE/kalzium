@@ -32,7 +32,7 @@ public:
 
     bool characters(const QString &ch) override;
 
-    QList<Isotope*> getIsotopes();
+    QList<Isotope*> getIsotopes() const;
 
 private:
     class Private;

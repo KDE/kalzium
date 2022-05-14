@@ -359,7 +359,7 @@ int ElementSaxParser::unit(const QString& unit) const
     }
 }
 
-QList<Element*> ElementSaxParser::getElements()
+QList<Element*> ElementSaxParser::getElements() const
 {
     return d->elements;
 }

@@ -32,7 +32,7 @@ public:
 
     bool characters(const QString &ch) override;
 
-    QList<Element*> getElements();
+    QList<Element*> getElements() const;
 
 private:
     /**

@@ -712,7 +712,7 @@ bool IsotopeParser::characters(const QString &ch)
     return true;
 }
 
-QList<Isotope*> IsotopeParser::getIsotopes()
+QList<Isotope*> IsotopeParser::getIsotopes() const
 {
     return d->isotopes;
 }
