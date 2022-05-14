@@ -61,7 +61,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
         QFile file(fileName);
 
         // Check file validity
-        if (!(!file.open(QIODevice::ReadOnly | QIODevice::Text))) {
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qCDebug(KALZIUM_LOG) << fileName << " opened";
             QTextStream in(&file);
             // Get all shortForms and fullForms in the file.
