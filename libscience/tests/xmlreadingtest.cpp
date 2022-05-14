@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    auto * parser = new ElementSaxParser();
+    auto  parser = new ElementSaxParser();
     QFile xmlFile(argv[1]);
 
     QXmlInputSource source(&xmlFile);

@@ -70,7 +70,7 @@ void IsotopeScene::drawIsotopes()
                 x = (i->nucleons() - elementNumber) * m_itemSize;
             }
 
-            auto *item = new IsotopeItem(i, x, y, m_itemSize,m_itemSize);
+            auto item = new IsotopeItem(i, x, y, m_itemSize,m_itemSize);
             m_isotopeGroup->addToGroup(item);
         }
     }

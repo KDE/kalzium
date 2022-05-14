@@ -107,7 +107,7 @@ void LegendWidget::updateLegendItemLayout(const QList<legendPair>& list)
 
     m_legendItemList.clear();
 
-    auto * layout = new QGridLayout(this);
+    auto  layout = new QGridLayout(this);
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
 
@@ -115,7 +115,7 @@ void LegendWidget::updateLegendItemLayout(const QList<legendPair>& list)
     int y = 0;
 
     foreach (const legendPair &pair, list) {
-        auto *item = new LegendItem(pair, this);
+        auto item = new LegendItem(pair, this);
         m_legendItemList.append(item);
 
         if ((m_dockArea == Qt::BottomDockWidgetArea || m_dockArea == Qt::TopDockWidgetArea)) {
@@ -176,7 +176,7 @@ bool LegendWidget::isElementMatch(int element, QColor &color){
 
 LegendItem::LegendItem(const QPair<QString, QColor>& pair, LegendWidget * parent)
 {
-    auto *ItemLayout = new QHBoxLayout(this);
+    auto ItemLayout = new QHBoxLayout(this);
     ItemLayout->setContentsMargins(0, 0, 0, 0);
 
     if (pair.second.isValid()) {
@@ -188,14 +188,14 @@ LegendItem::LegendItem(const QPair<QString, QColor>& pair, LegendWidget * parent
         QPixmap LegendPixmap(20, height());
         LegendPixmap.fill(pair.second);
 
-        auto * LabelPixmap = new QLabel(this);
+        auto  LabelPixmap = new QLabel(this);
         LabelPixmap->setPixmap(LegendPixmap);
         ItemLayout->addWidget(LabelPixmap);
 
         setFrameShape(QFrame::StyledPanel);
         setFrameShadow(QFrame::Sunken);
     }
-    auto * LegendLabel = new QLabel(this);
+    auto  LegendLabel = new QLabel(this);
     LegendLabel->setText(pair.first);
     ItemLayout->addWidget(LegendLabel);
 

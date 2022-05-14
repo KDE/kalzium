@@ -18,7 +18,7 @@
 
 SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(nullptr)
 {
-    auto *mainlay = new QHBoxLayout(this);
+    auto mainlay = new QHBoxLayout(this);
     mainlay->setContentsMargins(2, 2, 2, 2);
     mainlay->setSpacing(5);
 

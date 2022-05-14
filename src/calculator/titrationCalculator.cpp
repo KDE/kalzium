@@ -66,9 +66,9 @@ void titrationCalculator::plot()
     uid.kplotwidget->removeAllPlotObjects();
     uid.kplotwidget->setLimits(xmin, xmax, ymin, ymax); //now I need to set the limits of the plot
 
-    auto *kpor = new KPlotObject(Qt::red,KPlotObject::Lines);
-    auto *kpog = new KPlotObject(Qt::green, KPlotObject::Lines);
-    auto *kpob = new KPlotObject(Qt::blue, KPlotObject::Lines);
+    auto kpor = new KPlotObject(Qt::red,KPlotObject::Lines);
+    auto kpog = new KPlotObject(Qt::green, KPlotObject::Lines);
+    auto kpob = new KPlotObject(Qt::blue, KPlotObject::Lines);
     redplot = QStringLiteral("<polyline points=\"");
     greenplot = QStringLiteral("<polyline points=\"");
     blueplot = QStringLiteral("<polyline points=\"");
@@ -470,20 +470,20 @@ void titrationCalculator::on_actionNew_triggered()
 {
     //set all the table cells as empty ("")
     for (int i = 0; i < uid.tableWidget->rowCount(); ++i) {
-        auto *titem = new QTableWidgetItem;
+        auto titem = new QTableWidgetItem;
         titem->setText(QLatin1String(""));
         uid.tableWidget->setItem(i, 0, titem);
-        auto *titemo = new QTableWidgetItem;
+        auto titemo = new QTableWidgetItem;
         titemo->setText(QLatin1String(""));
         uid.tableWidget->setItem(i, 1, titemo);
     }
     uid.xaxis->setText(QLatin1String(""));
     uid.yaxis->setText(QLatin1String(""));
     for (int i = 0; i < uid.tableWidget_2->rowCount(); ++i) {
-        auto *titem = new QTableWidgetItem;
+        auto titem = new QTableWidgetItem;
         titem->setText(QLatin1String(""));
         uid.tableWidget_2->setItem(i, 0, titem);
-        auto *titemo = new QTableWidgetItem;
+        auto titemo = new QTableWidgetItem;
         titemo->setText(QLatin1String(""));
         uid.tableWidget_2->setItem(i, 1, titemo);
     }

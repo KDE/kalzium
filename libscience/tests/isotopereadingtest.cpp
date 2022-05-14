@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    auto * parser = new IsotopeParser();
+    auto  parser = new IsotopeParser();
     QFile xmlFile(argv[1]);
 
     QXmlInputSource source(&xmlFile);

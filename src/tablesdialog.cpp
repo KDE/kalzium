@@ -36,11 +36,11 @@ TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
 
 void TablesDialog::createGreekSymbolTable()
 {
-    auto *frame = new QWidget();
+    auto frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Greek alphabet"));
     item->setHeader(i18n("Greek alphabet"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
-    auto *layout = new QVBoxLayout(frame);
+    auto layout = new QVBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
 
     QTableWidget *table = new MyTableWidget(frame);
@@ -139,11 +139,11 @@ void TablesDialog::createGreekSymbolTable()
 
 void TablesDialog::createNumbersTable()
 {
-    auto *frame = new QWidget();
+    auto frame = new QWidget();
     KPageWidgetItem *item = addPage(frame, i18n("Numbers"));
     item->setHeader(i18n("Numeric Prefixes and Roman Numerals"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("numbers")));
-    auto *layout = new QVBoxLayout(frame);
+    auto layout = new QVBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
 
     QTableWidget *table = new MyTableWidget(frame);

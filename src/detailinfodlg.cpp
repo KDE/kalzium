@@ -43,11 +43,11 @@ DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent) : KPageDialog(parent),
     buttonBox()->addButton(QDialogButtonBox::Help);
 
     const QString nextButtonIconSource = (layoutDirection() == Qt::LeftToRight) ? "arrow-right" : "arrow-left";
-    auto *nextButton = new QPushButton(QIcon::fromTheme(nextButtonIconSource), i18nc("Next element", "Next"), this);
+    auto nextButton = new QPushButton(QIcon::fromTheme(nextButtonIconSource), i18nc("Next element", "Next"), this);
     nextButton->setToolTip(i18n("Goes to the next element"));
 
     const QString prevButtonIconSource = (layoutDirection() == Qt::LeftToRight) ? "arrow-left" : "arrow-right";
-    auto *prevButton = new QPushButton(QIcon::fromTheme(prevButtonIconSource), i18nc("Previous element", "Previous"), this);
+    auto prevButton = new QPushButton(QIcon::fromTheme(prevButtonIconSource), i18nc("Previous element", "Previous"), this);
     prevButton->setToolTip(i18n("Goes to the previous element"));
 
     buttonBox()->addButton(prevButton, QDialogButtonBox::ActionRole);
@@ -122,9 +122,9 @@ QTextBrowser* DetailedInfoDlg::addHTMLTab(const QString& title, const QString& i
     KPageWidgetItem *item = addPage(frame, title);
     item->setHeader(icontext);
     item->setIcon(QIcon::fromTheme(iconname));
-    auto *layout = new QVBoxLayout(frame);
+    auto layout = new QVBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
-    auto *browser = new QTextBrowser(frame);
+    auto browser = new QTextBrowser(frame);
     browser->setOpenExternalLinks(true);
     layout->addWidget(browser);
     return browser;
@@ -1487,11 +1487,11 @@ void DetailedInfoDlg::createContent()
     m_htmlpages[QStringLiteral("new")] = addHTMLTab(i18n("Data Overview"), i18n("Data Overview"), QStringLiteral("applications-science"));
 
     // atomic model tab
-    auto *m_pModelTab = new QWidget(this);
+    auto m_pModelTab = new QWidget(this);
     item = addPage(m_pModelTab, i18n("Atom Model"));
     item->setHeader(i18n("Atom Model"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("orbits")));
-    auto *modelLayout = new QVBoxLayout(m_pModelTab);
+    auto modelLayout = new QVBoxLayout(m_pModelTab);
     modelLayout->setContentsMargins(0, 0, 0, 0);
     wOrbits = new OrbitsWidget(m_pModelTab);
     modelLayout->addWidget(wOrbits);
@@ -1501,11 +1501,11 @@ void DetailedInfoDlg::createContent()
     m_htmlpages[QStringLiteral("misc")] = addHTMLTab(i18n("Miscellaneous"), i18n("Miscellaneous"), QStringLiteral("misc"));
 
     // spectrum widget tab
-    auto *m_pSpectrumTab = new QWidget(this);
+    auto m_pSpectrumTab = new QWidget(this);
     item = addPage(m_pSpectrumTab, i18n("Spectrum"));
     item->setHeader(i18n("Spectrum"));
     item->setIcon(QIcon::fromTheme(QStringLiteral("spectrum")));
-    auto *spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
+    auto spectrumLayout = new QVBoxLayout(m_pSpectrumTab);
     spectrumLayout->setContentsMargins(0, 0, 0, 0);
     m_spectrumStack = new QStackedWidget(m_pSpectrumTab);
     spectrumLayout->addWidget(m_spectrumStack);

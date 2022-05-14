@@ -21,7 +21,7 @@ IsotopeTableSettingsCard::IsotopeTableSettingsCard(QWidget* parent): QFrame(pare
 }
 
 void IsotopeTableSettingsCard::initialize() {
-    auto *vLayout = new QVBoxLayout();
+    auto vLayout = new QVBoxLayout();
 
     m_isotopeView->setInteractive(false);
     m_isotopeView->setZoom(0.06);
@@ -49,7 +49,7 @@ void IsotopeTableSettingsCard::initialize() {
 bool IsotopeTableSettingsCard::eventFilter(QObject *object, QEvent *event) {
     Q_UNUSED(object);
     if (event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick) {
-        auto *mouseEvent = static_cast<QMouseEvent *>(event);
+        auto mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent->button() == Qt::MouseButton::LeftButton) {
             m_radioButton->setChecked(true);
             return true;

@@ -52,7 +52,7 @@ double Spectrum::maxPeak(const int unit)
 
 Spectrum* Spectrum::adjustToWavelength(double min, double max)
 {
-    auto *spec = new Spectrum();
+    auto spec = new Spectrum();
 
     for (peak *p : std::as_const(m_peaklist)) {
         if (p->wavelength >= min || p->wavelength <= max) {

@@ -131,7 +131,7 @@ void IsotopeItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    auto *scene2 = static_cast<IsotopeScene*>(scene());
+    auto scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp(this);
 }
 
@@ -142,6 +142,6 @@ void IsotopeItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    auto *scene2 = static_cast<IsotopeScene*>(scene());
+    auto scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp(this);
 }

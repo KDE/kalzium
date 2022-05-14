@@ -60,7 +60,7 @@ QList<ElementItem*> PeriodicTableView::createElementItems() const
     KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
     foreach (int intElement, pseTables::instance()->getTabletype(0)->elements()) {
-        auto *item = new ElementItem(elProperty, intElement);
+        auto item = new ElementItem(elProperty, intElement);
 
         connect(elProperty, &KalziumElementProperty::propertyChanged, item, &ElementItem::redraw);
         m_tableScene->addItem(item);
@@ -149,7 +149,7 @@ bool PeriodicTableView::event(QEvent *e)
 
 void PeriodicTableView::generateSvg(const QString& filename)
 {
-    auto *svgGen = new QSvgGenerator();
+    auto svgGen = new QSvgGenerator();
     svgGen->setFileName(filename);
 
     QPainter painter;

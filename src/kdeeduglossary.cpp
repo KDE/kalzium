@@ -224,7 +224,7 @@ QList<GlossaryItem*> Glossary::readItems(QDomDocument &itemDocument)
     const uint num = itemList.count();
     for (uint i = 0; i < num; ++i) {
         reflist.clear();
-        auto *item = new GlossaryItem();
+        auto item = new GlossaryItem();
 
         itemElement = itemList.item(i).toElement();
 
@@ -309,12 +309,12 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
     //be used call Glossary::setBackgroundPicture().
     d->m_htmlbasestring = QStringLiteral("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>");
 
-    auto *main = new QWidget(this);
-    auto *vbox = new QVBoxLayout(main);
+    auto main = new QWidget(this);
+    auto vbox = new QVBoxLayout(main);
     setLayout(vbox);
     vbox->setContentsMargins(0, 0, 0, 0);
 
-    auto *hbox = new QHBoxLayout();
+    auto hbox = new QHBoxLayout();
 
     d->m_search = new KTreeWidgetSearchLine(main);
     d->m_search->setObjectName(QStringLiteral("search-line"));
@@ -322,7 +322,7 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
     vbox->addLayout(hbox);
     setFocusProxy(d->m_search);
 
-    auto *vs = new QSplitter(main);
+    auto vs = new QSplitter(main);
     vbox->addWidget(vs);
 
     d->m_glosstree = new QTreeWidget(vs);
@@ -355,7 +355,7 @@ GlossaryDialog::GlossaryDialog(QWidget *parent) : QDialog(parent), d(new Private
          }
     });
 
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &GlossaryDialog::reject);
     buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
     vbox->addWidget(buttonBox);
@@ -391,7 +391,7 @@ QTreeWidgetItem* GlossaryDialog::Private::createItem(const GlossaryInfo& gi) con
 {
     Glossary *glossary = gi.glossary;
     bool folded = gi.folded;
-    auto *main = new QTreeWidgetItem();
+    auto main = new QTreeWidgetItem();
     main->setText(0, glossary->name());
     main->setFlags(Qt::ItemIsEnabled);
     foreach (GlossaryItem *item, glossary->itemlist()) {
@@ -446,7 +446,7 @@ void GlossaryDialog::Private::itemActivated(QTreeWidgetItem * item, int column)
         return;
     }
 
-    auto *glosstreeitem = static_cast<GlossaryTreeItem *>(item);
+    auto glosstreeitem = static_cast<GlossaryTreeItem *>(item);
     GlossaryItem *glossitem = glosstreeitem->glossaryItem();
     QString html;
     QString bg_picture = glosstreeitem->glossary()->backgroundPicture();

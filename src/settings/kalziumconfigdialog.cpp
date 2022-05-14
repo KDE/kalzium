@@ -8,14 +8,14 @@ KalziumConfigDialog::KalziumConfigDialog(QWidget *parent, const QString &name, K
 {
     // colors page
     Ui_setupColors ui_colors;
-    auto *w_colors = new QWidget(this);
+    auto w_colors = new QWidget(this);
     w_colors->setObjectName(QStringLiteral("colors_page"));
     ui_colors.setupUi(w_colors);
     addPage(w_colors, i18n("Schemes"), QStringLiteral("preferences-desktop-color"));
 
     // gradients page
     Ui_setupGradients ui_gradients;
-    auto *w_gradients = new QWidget(this);
+    auto w_gradients = new QWidget(this);
     w_gradients->setObjectName(QStringLiteral("gradients_page"));
     ui_gradients.setupUi(w_gradients);
     addPage(w_gradients, i18n("Gradients"), QStringLiteral("preferences-desktop-color"));
@@ -32,7 +32,7 @@ KalziumConfigDialog::KalziumConfigDialog(QWidget *parent, const QString &name, K
     addPage(m_isotopeTableSettingsDialog, i18n("Isotope Table"), QStringLiteral("isotopemap"));
 
     Ui_setupCalc ui_calc;
-    auto *w_calc = new QWidget(this);
+    auto w_calc = new QWidget(this);
     ui_calc.setupUi(w_calc);
     addPage(w_calc, i18n("Calculator"), QStringLiteral("accessories-calculator"));
 }

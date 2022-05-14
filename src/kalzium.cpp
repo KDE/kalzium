@@ -74,16 +74,16 @@ Kalzium::Kalzium() : KXmlGuiWindow(nullptr)
     // reading the elements from file
     KalziumDataObject::instance();
 
-    auto *newsearch = new Search();
+    auto newsearch = new Search();
     KalziumDataObject::instance()->setSearch(newsearch);
 
     // Main pse-Table Tablewidget
-    auto *pseTempWidget = new QWidget(this);
-    auto *layout = new QVBoxLayout(pseTempWidget);
+    auto pseTempWidget = new QWidget(this);
+    auto layout = new QVBoxLayout(pseTempWidget);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(2);
 
-    auto *searchWidget = new SearchWidget(pseTempWidget);
+    auto searchWidget = new SearchWidget(pseTempWidget);
     searchWidget->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum));
 
     // Creating the periodic table
@@ -325,7 +325,7 @@ void Kalzium::slotGlossary()
       dir = QFileInfo(dir).absolutePath();
       QString picturepath = dir + "/bg.jpg";
       QUrl u = QUrl::fromLocalFile(dir + "/knowledge.xml");
-      auto *g = new Glossary(u);
+      auto g = new Glossary(u);
       g->setName(i18n("Knowledge"));
       g->setBackgroundPicture(picturepath);
       m_glossarydlg->addGlossary(g, true);
@@ -506,7 +506,7 @@ void Kalzium::slotShowExportDialog()
 
 void Kalzium::setupStatusBar()
 {
-    auto *statusBar = new QStatusBar(this);
+    auto statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
 
     m_elementInfo = new QLabel(QLatin1String(""));

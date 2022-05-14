@@ -75,12 +75,12 @@ ExportDialog::ExportDialog(QWidget * parent)
         : QDialog(parent),m_outputStream(nullptr)
 {
     qCDebug(KALZIUM_LOG) << "ExportDialog::ExportDialog";
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help, this);
-    auto *mainWidget = new QWidget(this);
-    auto *mainLayout = new QVBoxLayout;
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help, this);
+    auto mainWidget = new QWidget(this);
+    auto mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
-    auto *user1Button = new QPushButton;
+    auto user1Button = new QPushButton;
     buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ExportDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ExportDialog::reject);
@@ -118,8 +118,8 @@ ExportDialog::~ExportDialog()
 void ExportDialog::populateElementList()
 {
     // Add descriptive headers
-    auto *header1 = new QListWidgetItem(i18n("Elements"));
-    auto *header2 = new QListWidgetItem(i18n("Properties"));
+    auto header1 = new QListWidgetItem(i18n("Elements"));
+    auto header2 = new QListWidgetItem(i18n("Properties"));
     header1->setFlags(Qt::ItemIsEnabled);
     header2->setFlags(Qt::ItemIsEnabled);
     QFont font;
@@ -131,7 +131,7 @@ void ExportDialog::populateElementList()
 
     // Add elements
     foreach (Element *element, KalziumDataObject::instance()->ElementList) {
-        auto *entry = new ElementListEntry(element);
+        auto entry = new ElementListEntry(element);
         ui.elementListWidget->addItem(entry);
     }
 

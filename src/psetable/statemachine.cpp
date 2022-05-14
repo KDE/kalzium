@@ -13,7 +13,7 @@ StateSwitcher::StateSwitcher(QStateMachine *machine)
 
 void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, const int &id)
 {
-    auto *trans = new StateSwitchTransition(id);
+    auto trans = new StateSwitchTransition(id);
     trans->setTargetState(state);
     addTransition(trans);
     trans->addAnimation(animation);

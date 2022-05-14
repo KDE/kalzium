@@ -39,7 +39,7 @@ KalziumDataObject* KalziumDataObject::instance()
 KalziumDataObject::KalziumDataObject()
 {
     // reading elements
-    auto * parser = new ElementSaxParser();
+    auto  parser = new ElementSaxParser();
 
     QFile xmlFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/elements.xml")));
     QXmlInputSource source(&xmlFile);
@@ -54,7 +54,7 @@ KalziumDataObject::KalziumDataObject()
     delete parser;
 
     //read the spectra
-    auto * spectrumparser = new SpectrumParser();
+    auto  spectrumparser = new SpectrumParser();
 
     QFile xmlSpFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/spectra.xml")));
     QXmlInputSource spsource(&xmlSpFile);
@@ -69,7 +69,7 @@ KalziumDataObject::KalziumDataObject()
     delete spectrumparser;
 
     // reading isotopes
-    auto * isoparser = new IsotopeParser();
+    auto  isoparser = new IsotopeParser();
 
     QFile xmlIsoFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/isotopes.xml")));
     QXmlInputSource isosource(&xmlIsoFile);
