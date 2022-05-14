@@ -32,7 +32,7 @@ void IsotopeTableSettingsCard::initialize() {
     m_radioButton->setText("Next to each other");
     connect(m_radioButton, &QRadioButton::toggled, this, [=](){
         if (m_radioButton->isChecked())
-            emit checked(m_isotopeView->mode());
+            Q_EMIT checked(m_isotopeView->mode());
     });
 
     vLayout->addWidget(m_isotopeView);

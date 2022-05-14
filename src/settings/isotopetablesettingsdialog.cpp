@@ -76,5 +76,5 @@ void IsotopeTableSettingsDialog::setMode(int mode)
         i++;
     }
     m_cards[m_mode]->setChecked(true);
-    emit modeChanged(m_mode);
+    Q_EMIT modeChanged(m_mode);
 }

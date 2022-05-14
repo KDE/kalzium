@@ -188,7 +188,7 @@ public Q_SLOTS:
         update();
     }
 
-signals:
+Q_SIGNALS:
     /**
      * the minimum and maximum displayed wavelength have
      * changed so emit the new minimum and maximum

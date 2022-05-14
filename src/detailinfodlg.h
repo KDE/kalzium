@@ -123,7 +123,7 @@ private Q_SLOTS:
      */
     virtual void slotHelp();
 
-signals:
+Q_SIGNALS:
     void elementChanged(int);
 };
 

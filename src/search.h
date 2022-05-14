@@ -80,7 +80,7 @@ public Q_SLOTS:
      */
     void resetSearch();
 
-signals:
+Q_SIGNALS:
     /**
      * The current search has changed (ie the found elements have
      * changed)
