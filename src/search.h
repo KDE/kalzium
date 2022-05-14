@@ -92,7 +92,7 @@ signals:
     void searchReset();
 
 private:
-    bool m_isActive;
+    bool m_isActive = false;
 
     QString m_searchText;
     SearchKind m_searchKind;

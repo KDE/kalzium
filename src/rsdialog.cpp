@@ -200,14 +200,14 @@ void RSDialog::createSPhrases()
 
     QRegularExpression reg("(R|S)(\\d+): (.*)");
 
-    foreach (const QString &p, sphrases) {
+    for (const QString &p : std::as_const(sphrases)) {
         int number = 0;
         QString phrase(QLatin1String(""));
         QRegularExpressionMatch match = reg.match(p);
 
         if (match.hasMatch()) {
-            QString part1 = match.captured(2);
-            QString part2 = match.captured(3);
+            const QString part1 = match.captured(2);
+            const QString part2 = match.captured(3);
 
             phrase = part2;
             number = part1.toInt();
@@ -289,14 +289,14 @@ void RSDialog::createRPhrases()
 
     QRegularExpression reg("(R|S)(\\d+): (.*)");
 
-    foreach (const QString &p, rphrases) {
+    for (const QString &p : std::as_const(rphrases)) {
         int number = 0;
         QString phrase(QLatin1String(""));
         QRegularExpressionMatch match = reg.match(p);
 
         if (match.hasMatch()) {
-            QString part1 = match.captured(2);
-            QString part2 = match.captured(3);
+            const QString part1 = match.captured(2);
+            const QString part2 = match.captured(3);
 
             phrase = part2;
             number = part1.toInt();

@@ -266,8 +266,8 @@ void MolcalcWidget::keyPressEvent(QKeyEvent * /* e */)
 
 void MolcalcWidget::addAlias()
 {
-    QString shortForm = ui.shortForm->text();
-    QString fullForm  = ui.fullForm ->text();
+    const QString shortForm = ui.shortForm->text();
+    const QString fullForm  = ui.fullForm ->text();
 
     // Validate the alias
     double x;
