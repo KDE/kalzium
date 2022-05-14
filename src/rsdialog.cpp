@@ -24,8 +24,7 @@ RSDialog::RSDialog(QWidget* parent) : QDialog(parent)
     setWindowTitle(i18nc("@title:window", "Risks/Security Phrases"));
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close, this);
     auto mainWidget = new QWidget(this);
-    auto mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &RSDialog::reject);
     mainLayout->addWidget(buttonBox);

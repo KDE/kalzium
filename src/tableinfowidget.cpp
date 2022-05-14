@@ -21,7 +21,6 @@ TableInfoWidget::TableInfoWidget(QWidget *parent) : QWidget(parent)
 
     auto  la = new QHBoxLayout(this);
     la->addWidget(m_tableType);
-    setLayout(la);
 }
 
 void TableInfoWidget::setTableType(int type)

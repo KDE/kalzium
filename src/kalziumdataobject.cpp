@@ -182,13 +182,13 @@ void KalziumDataObject::loadIconSet()
     //FIXME in case we ever get more than one theme we need
     //a settings-dialog where we can select the different iconsets...
     const QString setname = QStringLiteral("school");
-    QString pathname = QStandardPaths::locate(
+    const QString pathname = QStandardPaths::locate(
         QStandardPaths::AppLocalDataLocation, "data/iconsets/" + setname + '/',
         QStandardPaths::LocateDirectory);
     QSvgRenderer renderer;
 
     for (int i = 0; i < m_numOfElements; ++i) {
-        QString filename = pathname + QString::number(i + 1) + ".svg";
+        const QString filename = pathname + QString::number(i + 1) + ".svg";
 
         renderer.load(filename);
         QPixmap pix(40, 40);
@@ -197,7 +197,7 @@ void KalziumDataObject::loadIconSet()
         renderer.render(&p);
 
         Element *e = ElementList.at(i);
-        QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
+        const QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
         p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol);
         p.end();
 

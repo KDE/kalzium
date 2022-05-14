@@ -28,8 +28,7 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
     setWindowTitle(i18nc("@title:window", "Isotope Table"));
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     auto mainWidget = new QWidget(this);
-    auto mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &IsotopeTableDialog::reject);
     mainLayout->addWidget(buttonBox);

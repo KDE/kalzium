@@ -63,7 +63,7 @@ void SpectrumViewImpl::fillPeakList()
 
         double peakWavelength = peak->wavelengthToUnit(Prefs::spectrumWavelengthUnit());
 
-        QStringList row = QStringList() << QString::number(peakWavelength)
+        const QStringList row = QStringList() << QString::number(peakWavelength)
                           << QString::number(peak->intensity);
 
         items.append(new QTreeWidgetItem((QTreeWidget*)nullptr, row));

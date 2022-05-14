@@ -77,8 +77,7 @@ ExportDialog::ExportDialog(QWidget * parent)
     qCDebug(KALZIUM_LOG) << "ExportDialog::ExportDialog";
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help, this);
     auto mainWidget = new QWidget(this);
-    auto mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
     auto user1Button = new QPushButton;
     buttonBox->addButton(user1Button, QDialogButtonBox::ActionRole);
