@@ -59,7 +59,7 @@ class gasCalculator : public QWidget
 
 public:
     explicit gasCalculator(QWidget * parent = nullptr);
-    ~gasCalculator();
+    ~gasCalculator() override;
 
 public Q_SLOTS:
     /// Calculates the Pressure and updates the UI

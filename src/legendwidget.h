@@ -26,7 +26,7 @@ class LegendWidget : public QWidget
 public:
     explicit LegendWidget(QWidget *parent);
 
-    ~LegendWidget();
+    ~LegendWidget() override;
 
     void LockWidget();
     void UnLockWidget();

@@ -33,7 +33,7 @@ public:
     void setIsotope(IsotopeItem *item);
 
 private:
-    QGraphicsTextItem *m_textitem;
+    QGraphicsTextItem *m_textitem = nullptr;
 };
 
 #endif // INFORMATIONITEM_H

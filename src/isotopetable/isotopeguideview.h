@@ -25,7 +25,7 @@ protected:
     void drawForeground(QPainter *painter, const QRectF &rect) override;
 
 private:
-    IsotopeView *m_guidedView;
+    IsotopeView *m_guidedView = nullptr;
     double m_zoomLevel;
     double m_scale;
     QPolygonF m_visibleSceneRect;

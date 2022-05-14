@@ -44,7 +44,7 @@ public:
     /**
      * Destructor.
      */
-    ~ElementItem();
+    ~ElementItem() override;
 
     /**
      * @return the bounding rectangle of the element item.

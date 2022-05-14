@@ -49,7 +49,7 @@ class nuclearCalculator : public QFrame
 
 public:
     explicit nuclearCalculator(QWidget * parent = nullptr);
-    ~nuclearCalculator();
+    ~nuclearCalculator() override;
 
 public Q_SLOTS:
     /// Calculates the initial amount and updates the UI

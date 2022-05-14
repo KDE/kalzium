@@ -33,7 +33,7 @@ public:
      * @param parent The parent of this widget
      */
     explicit GradientWidgetImpl(QWidget *parent = nullptr);
-    virtual ~GradientWidgetImpl();
+    ~GradientWidgetImpl() override;
 
 Q_SIGNALS:
     /**

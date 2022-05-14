@@ -21,7 +21,7 @@ class TablesDialog : public KPageDialog
 
 public:
     explicit TablesDialog(QWidget *parent = nullptr);
-    virtual ~TablesDialog();
+    ~TablesDialog() override;
 
     void createNumbersTable();
     void createGreekSymbolTable();

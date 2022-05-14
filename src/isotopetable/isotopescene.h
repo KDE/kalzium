@@ -17,7 +17,7 @@ class IsotopeScene : public QGraphicsScene
 
 public:
     explicit IsotopeScene(QObject * parent, int mode);
-    virtual ~IsotopeScene();
+    ~IsotopeScene() override;
 
     void updateContextHelp(IsotopeItem * item);
 

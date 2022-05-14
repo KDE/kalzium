@@ -25,14 +25,14 @@ int main(int argc, char *argv[])
     reader.setContentHandler(parser);
     reader.parse(source);
 
-    QList<Spectrum *> v = parser->getSpectrums();
+    const QList<Spectrum *> v = parser->getSpectrums();
 
     qDebug() << "Found " << v.count() << " isotopes.";
 
-    foreach (Spectrum *s, v) {
+    for (Spectrum *s : v) {
         if (s) {
             qDebug() << "Element:  " << s->parentElementNumber();
-            foreach (Spectrum::peak * p , s->peaklist()) {
+            for (Spectrum::peak * p : s->peaklist()) {
                 qDebug() << "         Peak: " << p->wavelength;
             }
         }

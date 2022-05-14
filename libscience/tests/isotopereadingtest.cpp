@@ -25,13 +25,13 @@ int main(int argc, char *argv[])
     reader.setContentHandler(parser);
     reader.parse(source);
 
-    QList<Isotope*> v = parser->getIsotopes();
+    const QList<Isotope*> v = parser->getIsotopes();
 
     qDebug() << "Found " << v.count() << " isotopes.";;
 
     qDebug() << "As a test I am now issuing all isotopes with 50 nuclueons: ";
 
-    foreach (Isotope* i, v) {
+    for (Isotope* i: v) {
         if (i) {
 //X             if (i->nucleons() == 50 ) {
 //X                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();

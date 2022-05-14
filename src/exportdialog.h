@@ -18,7 +18,7 @@ class ElementListEntry : public QListWidgetItem
 {
 public:
     explicit ElementListEntry(Element *element);
-    ~ElementListEntry();
+    ~ElementListEntry() override;
 
     int       m_atomicNum;
     QString   m_name;
@@ -29,7 +29,7 @@ class PropertyListEntry : public QListWidgetItem
 {
 public:
     PropertyListEntry(const QString & name, ChemicalDataObject::BlueObelisk type);
-    ~PropertyListEntry();
+    ~PropertyListEntry() override;
 
     ChemicalDataObject::BlueObelisk m_type;
 };
@@ -43,7 +43,7 @@ class ExportDialog : public QDialog
 
 public:
     explicit ExportDialog(QWidget *parent);
-    ~ExportDialog();
+    ~ExportDialog() override;
 
     void populateElementList();
     void exportToHtml();

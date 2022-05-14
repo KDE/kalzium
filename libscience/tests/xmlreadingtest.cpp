@@ -26,16 +26,16 @@ int main(int argc, char *argv[])
     reader.setContentHandler(parser);
     reader.parse(source);
 
-    QList<Element*> v = parser->getElements();
+    const QList<Element*> v = parser->getElements();
 
     std::cout << "Found " << v.count() << " elements." << std::endl;
 
-    foreach (Element *e, v) {
+    for (Element *e : v) {
         if (e) {
-            QList<ChemicalDataObject> list = e->data();
+            const QList<ChemicalDataObject> list = e->data();
 
             //Test: give me all data available
-            foreach (const ChemicalDataObject &o, list) {
+            for (const ChemicalDataObject &o : list) {
                 QString unit = o.unitAsString();
                 if (unit == QLatin1String("bo:noUnit")) {
                     unit = QLatin1String("");

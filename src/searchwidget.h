@@ -27,7 +27,7 @@ public:
      */
     explicit SearchWidget(QWidget *parent = nullptr);
 
-    ~SearchWidget();
+    ~SearchWidget() override;
 
     void giveFocus();
 

@@ -66,7 +66,7 @@ public:
      * The constructor and destructor for the class
      */
     explicit concCalculator(QWidget * parent = nullptr);
-    ~concCalculator();
+    ~concCalculator() override;
 
 public Q_SLOTS:
     // Sub-routines involved in calculations of the unit

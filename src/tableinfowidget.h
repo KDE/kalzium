@@ -22,7 +22,7 @@ class TableInfoWidget : public QWidget
 public:
     explicit TableInfoWidget(QWidget *parent);
 
-    ~TableInfoWidget() {}
+    ~TableInfoWidget() override {}
 
 private:
     QLabel *m_tableType;

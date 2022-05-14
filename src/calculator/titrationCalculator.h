@@ -33,7 +33,7 @@ class titrationCalculator : public QWidget
 
 public:
     explicit titrationCalculator(QWidget * parent = nullptr);
-    ~titrationCalculator();
+    ~titrationCalculator() override;
 
 public Q_SLOTS:
     void on_pushButton_clicked();

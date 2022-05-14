@@ -32,7 +32,7 @@ class DetailedInfoDlg : public KPageDialog
 
 public:
     explicit DetailedInfoDlg(int el, QWidget *parent = nullptr);
-    ~DetailedInfoDlg();
+    ~DetailedInfoDlg() override;
 
     void setElement(int el);
 

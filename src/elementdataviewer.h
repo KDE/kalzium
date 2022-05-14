@@ -83,7 +83,7 @@ class ElementDataViewer : public QDialog
 public:
     explicit ElementDataViewer(QWidget *parent = nullptr);
 
-    ~ElementDataViewer();
+    ~ElementDataViewer() override;
 
     /**
      * the AxixData for the y-Axis

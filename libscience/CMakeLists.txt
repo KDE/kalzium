@@ -15,6 +15,17 @@ target_sources(science PRIVATE
    moleculeparser.cpp
    parser.cpp
    psetables.cpp
+   element.h
+   spectrum.h
+   isotope.h
+   spectrumparser.h
+   elementparser.h
+   isotopeparser.h
+   chemicaldataobject.h
+   moleculeparser.h
+   parser.h
+   psetables.h
+
 )
 
 generate_export_header(science)

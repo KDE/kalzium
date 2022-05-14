@@ -41,7 +41,7 @@ public:
     /**
      * Destructor.
      */
-    ~NumerationItem();
+    ~NumerationItem() override;
 
     /**
      * @return the bounding rectangle of the element item.

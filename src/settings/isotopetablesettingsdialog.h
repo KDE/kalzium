@@ -17,7 +17,7 @@ Q_OBJECT
 
 public:
     explicit IsotopeTableSettingsDialog(QWidget* parent);
-    virtual ~IsotopeTableSettingsDialog();
+    ~IsotopeTableSettingsDialog() override;
     bool hasChanged() const;
     bool isDefault() const;
     int getMode() const {

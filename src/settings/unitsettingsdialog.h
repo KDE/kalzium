@@ -14,7 +14,7 @@ class UnitSettingsDialog: public QWidget
 {
 public:
     explicit UnitSettingsDialog(QWidget* parent = nullptr);
-    virtual ~UnitSettingsDialog();
+    ~UnitSettingsDialog() override;
 
     int getLenghtUnitId() const;
 
@@ -23,9 +23,9 @@ public:
     int getTemperatureUnitId() const;
 
 private:
-    KalziumUnitCombobox *m_comboBoxLengthUnit;
-    KalziumUnitCombobox *m_comboBoxLEnergiesUnit;
-    KalziumUnitCombobox *m_comboBoxLTemperatureUnit;
+    KalziumUnitCombobox *m_comboBoxLengthUnit = nullptr;
+    KalziumUnitCombobox *m_comboBoxLEnergiesUnit = nullptr;
+    KalziumUnitCombobox *m_comboBoxLTemperatureUnit = nullptr;
 
 };
 

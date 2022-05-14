@@ -13,7 +13,7 @@ Q_OBJECT
 public:
     KalziumConfigDialog(QWidget *parent, const QString &name, KCoreConfigSkeleton *config);
 
-    UnitSettingsDialog *m_unitsDialog;
+    UnitSettingsDialog *m_unitsDialog = nullptr;
     IsotopeTableSettingsDialog *m_isotopeTableSettingsDialog = nullptr;
 
 private:

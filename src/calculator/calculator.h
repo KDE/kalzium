@@ -38,7 +38,7 @@ public:
      * The class constructor and destructor, takes in a Widget as parent
      */
     explicit calculator(QWidget *parent = nullptr);             // constructor
-    ~ calculator();                             // destructor
+    ~ calculator() override;                             // destructor
 
 private:
     Ui::calculator ui;                          // The user interface
