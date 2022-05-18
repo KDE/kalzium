@@ -33,7 +33,7 @@ KOpenBabel::KOpenBabel(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "OpenBabel Frontend"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -70,37 +70,33 @@ void KOpenBabel::setupWindow()
     // Creating the main layout
     QStringList InputType;
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
-    for (vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
+    for (vector<string>::iterator it = InputFormat.begin(); it != InputFormat.end(); ++it) {
         InputType << QString((*it).c_str());
     }
     ui.InputTypeComboBox->addItems(InputType);
 
     QStringList OutputType;
     vector<string> OutputFormat = OBConvObject->GetSupportedOutputFormat();
-    for (vector<string>::iterator it = OutputFormat.begin(); it!=OutputFormat.end(); ++it) {
+    for (vector<string>::iterator it = OutputFormat.begin(); it != OutputFormat.end(); ++it) {
         OutputType << QString((*it).c_str());
     }
     ui.OutputTypeComboBox->addItems(OutputType);
 
     // Create connection
-    connect(ui.addFileButton,
-            &QAbstractButton::clicked, this, &KOpenBabel::slotAddFile);
+    connect(ui.addFileButton, &QAbstractButton::clicked, this, &KOpenBabel::slotAddFile);
 
-    connect(ui.deleteFileButton,
-            &QAbstractButton::clicked, this, &KOpenBabel::slotDeleteFile);
+    connect(ui.deleteFileButton, &QAbstractButton::clicked, this, &KOpenBabel::slotDeleteFile);
 
-    connect(ui.selectAllFileButton,
-            &QAbstractButton::clicked, this, &KOpenBabel::slotSelectAll);
+    connect(ui.selectAllFileButton, &QAbstractButton::clicked, this, &KOpenBabel::slotSelectAll);
 
-    connect(ui.FileListView,
-            &QListWidget::itemSelectionChanged, this, &KOpenBabel::slotGuessInput);
+    connect(ui.FileListView, &QListWidget::itemSelectionChanged, this, &KOpenBabel::slotGuessInput);
 }
 
 void KOpenBabel::slotAddFile()
 {
     QStringList InputType;
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
-    for (vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
+    for (vector<string>::iterator it = InputFormat.begin(); it != InputFormat.end(); ++it) {
         InputType << QString((*it).c_str());
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,27 +113,25 @@ void KOpenBabel::slotAddFile()
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     QList<QUrl> fl = QFileDialog::getOpenFileUrls(
-            this,
-            i18n("Open Molecule File"),
-            QUrl(),
-            i18n("All Files") + QStringLiteral("(*);;") + tmpList.join(QLatin1String(";;")) //add all possible extensions like "*.cml *.mol"
-            );
+        this,
+        i18n("Open Molecule File"),
+        QUrl(),
+        i18n("All Files") + QStringLiteral("(*);;") + tmpList.join(QLatin1String(";;")) // add all possible extensions like "*.cml *.mol"
+    );
 
-    foreach (const QUrl &u , fl) {
+    foreach (const QUrl &u, fl) {
         new QListWidgetItem(u.toDisplayString(), ui.FileListView);
     }
 }
-
 
 void KOpenBabel::slotSelectAll()
 {
     ui.FileListView->selectAll();
 }
 
-
 void KOpenBabel::slotDeleteFile()
 {
-    QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
+    QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
     foreach (QListWidgetItem *item, p) {
         delete item;
     }
@@ -145,11 +139,11 @@ void KOpenBabel::slotDeleteFile()
 
 void KOpenBabel::slotGuessInput()
 {
-    QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
+    QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
     bool first = true;
     QString suffix;
     if (p.count()) {
-        foreach (QListWidgetItem * item, p) {
+        foreach (QListWidgetItem *item, p) {
             if (first) {
                 first = false;
                 suffix = item->text().remove(QRegularExpression("^.*\\."));
@@ -181,18 +175,15 @@ void KOpenBabel::slotConvert()
     iformat = iformat.remove(QRegularExpression(" --.*"));
     oformat = oformat.remove(QRegularExpression(" --.*"));
 
-    QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
+    QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
     if (p.count() == 0) {
-        KMessageBox::error(this,
-                i18n("You must select some files first."),
-                i18n("No files selected")
-                );
+        KMessageBox::error(this, i18n("You must select some files first."), i18n("No files selected"));
         return;
     }
-    QListIterator<QListWidgetItem*> it(p);
+    QListIterator<QListWidgetItem *> it(p);
     QStringList cmdList; // Full command
     QVector<QStringList> cmdArgList; // Arguments only
-    foreach (QListWidgetItem * item, p) {
+    foreach (QListWidgetItem *item, p) {
         QString ifname = QUrl(item->text()).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(QRegularExpression("\\.([^\\.]*$)"));
@@ -201,13 +192,10 @@ void KOpenBabel::slotConvert()
         bool proceed = true;
 
         if (QFile::exists(ofname)) {
-            //something named ofname already exists
-            switch (KMessageBox::warningContinueCancel(
-                        this,
-                        i18n("The file %1 already exists. Do you want to overwrite if possible?", ofname),
-                        i18n("The File %1 Already Exists -- KOpenBabel", ofname)
-                      )
-                    ) {
+            // something named ofname already exists
+            switch (KMessageBox::warningContinueCancel(this,
+                                                       i18n("The file %1 already exists. Do you want to overwrite if possible?", ofname),
+                                                       i18n("The File %1 Already Exists -- KOpenBabel", ofname))) {
             case KMessageBox::No:
                 proceed = false;
                 break;
@@ -223,11 +211,7 @@ void KOpenBabel::slotConvert()
         }
     }
     if (cmdArgList.count() > 0) {
-        switch (KMessageBox::questionYesNo(
-                    this, cmdList.join(QStringLiteral("\n")),
-                    i18n("Is it okay to run these commands? -- KOpenBabel")
-                  )
-                ) {
+        switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel"))) {
         case KMessageBox::Yes:
             foreach (const QStringList &s, cmdArgList) {
                 QProcess::startDetached(QStringLiteral("babel"), s);

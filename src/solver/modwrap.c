@@ -7,11 +7,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <caml/mlvalues.h>
-#include <caml/callback.h>
 #include <caml/alloc.h>
+#include <caml/callback.h>
+#include <caml/mlvalues.h>
 
-char* solve_equation(const char *eq)
+char *solve_equation(const char *eq)
 {
     static value *solve_equation_closure = NULL;
     if (solve_equation_closure == NULL) {

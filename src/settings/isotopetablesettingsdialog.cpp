@@ -5,13 +5,14 @@
 #include "isotopetablesettingsdialog.h"
 
 #include <QGridLayout>
-#include <QRadioButton>
 #include <QLabel>
+#include <QRadioButton>
 
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>
 
-IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent) : QWidget(parent)
+IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent)
+    : QWidget(parent)
 {
     m_mode = Prefs::isotopeTableMode();
 
@@ -52,8 +53,7 @@ IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent) : QWidge
     setLayout(layout);
 }
 
-IsotopeTableSettingsDialog::~IsotopeTableSettingsDialog()
-= default;
+IsotopeTableSettingsDialog::~IsotopeTableSettingsDialog() = default;
 
 bool IsotopeTableSettingsDialog::hasChanged() const
 {
@@ -69,8 +69,7 @@ void IsotopeTableSettingsDialog::setMode(int mode)
 {
     m_mode = mode;
     unsigned short i = 0;
-    for (auto card : m_cards)
-    {
+    for (auto card : m_cards) {
         if (i != m_mode)
             card->setChecked(false);
         i++;

@@ -11,15 +11,13 @@
 
 class KalziumUnitCombobox : public QComboBox
 {
-
 public:
     explicit KalziumUnitCombobox(QWidget *parent = nullptr);
-    explicit KalziumUnitCombobox(const QList< int > &unitList, QWidget *parent = nullptr);
+    explicit KalziumUnitCombobox(const QList<int> &unitList, QWidget *parent = nullptr);
 
-    void setUnitList(const QList< int > &unitList);
+    void setUnitList(const QList<int> &unitList);
     int getCurrentUnitId() const;
     void setIndexWithUnitId(int unit);
-
 };
 
 #endif // KALZIUMUNITCOMBOBOX_H

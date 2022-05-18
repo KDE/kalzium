@@ -16,100 +16,100 @@ class IsotopeParser::Private
 {
 public:
     Private()
-    :    currentUnit(KUnitConversion::NoUnit),
-    currentErrorValue(QVariant()),
-    currentElementSymbol(QString()),
-    currentIsotope(nullptr),
-    inIsotope(false),
-    inElement(false),
-    inAtomicNumber(false),
-    inExactMass(false),
-    inSpin(false),
-    inMagMoment(false),
-    inHalfLife(false),
-    inAlphaDecay(false),
-    inAlphaDecayLikeliness(false),
-    inProtonDecay(false),
-    inProtonDecayLikeliness(false),
-    inTwoProtonDecay(false),
-    inTwoProtonDecayLikeliness(false),
-    inNeutronDecay(false),
-    inNeutronDecayLikeliness(false),
-    inTwoNeutronDecay(false),
-    inTwoNeutronDecayLikeliness(false),
-    inECDecay(false),
-    inECDecayLikeliness(false),
-    inTwoECDecay(false),
-    inTwoECDecayLikeliness(false),
-    inBetaminusDecay(false),
-    inBetaminusDecayLikeliness(false),
-    inBetaminusFissionDecay(false),
-    inBetaminusFissionDecayLikeliness(false),
-    inTwoBetaminusDecay(false),
-    inTwoBetaminusDecayLikeliness(false),
-    inBetaplusDecay(false),
-    inBetaplusDecayLikeliness(false),
-    inTwoBetaplusDecay(false),
-    inTwoBetaplusDecayLikeliness(false),
-    inBetaminusNeutronDecay(false),
-    inBetaminusNeutronDecayLikeliness(false),
-    inBetaminusTwoNeutronDecay(false),
-    inBetaminusTwoNeutronDecayLikeliness(false),
-    inBetaminusThreeNeutronDecay(false),
-    inBetaminusThreeNeutronDecayLikeliness(false),
-    inBetaminusFourNeutronDecay(false),
-    inBetaminusFourNeutronDecayLikeliness(false),
-    inBetaminusAlphaNeutronDecay(false),
-    inBetaminusAlphaNeutronDecayLikeliness(false),
-    inBetaminusAlphaDecay(false),
-    inBetaminusAlphaDecayLikeliness(false),
-    inBetaminusTwoAlphaDecay(false),
-    inBetaminusTwoAlphaDecayLikeliness(false),
-    inBetaminusThreeAlphaDecay(false),
-    inBetaminusThreeAlphaDecayLikeliness(false),
-    inBetaplusProtonDecay(false),
-    inBetaplusProtonDecayLikeliness(false),
-    inBetaplusTwoProtonDecay(false),
-    inBetaplusTwoProtonDecayLikeliness(false),
-    inBetaplusAlphaDecay(false),
-    inBetaplusAlphaDecayLikeliness(false),
-    inBetaplusTwoAlphaDecay(false),
-    inBetaplusTwoAlphaDecayLikeliness(false),
-    inBetaplusThreeAlphaDecay(false),
-    inBetaplusThreeAlphaDecayLikeliness(false),
-    inAlphaBetaminusDecay(false),
-    inAlphaBetaminusDecayLikeliness(false),
-    inProtonAlphaDecay(false),
-    inProtonAlphaDecayLikeliness(false),
-    inECProtonDecay(false),
-    inECProtonDecayLikeliness(false),
-    inECTwoProtonDecay(false),
-    inECTwoProtonDecayLikeliness(false),
-    inECThreeProtonDecay(false),
-    inECThreeProtonDecayLikeliness(false),
-    inECAlphaDecay(false),
-    inECAlphaDecayLikeliness(false),
-    inECAlphaProtonDecay(false),
-    inECAlphaProtonDecayLikeliness(false),
-    inSpontFissionDecay(false),
-    inSpontFissionDecayLikeliness(false),
-    inAbundance(false)
+        : currentUnit(KUnitConversion::NoUnit)
+        , currentErrorValue(QVariant())
+        , currentElementSymbol(QString())
+        , currentIsotope(nullptr)
+        , inIsotope(false)
+        , inElement(false)
+        , inAtomicNumber(false)
+        , inExactMass(false)
+        , inSpin(false)
+        , inMagMoment(false)
+        , inHalfLife(false)
+        , inAlphaDecay(false)
+        , inAlphaDecayLikeliness(false)
+        , inProtonDecay(false)
+        , inProtonDecayLikeliness(false)
+        , inTwoProtonDecay(false)
+        , inTwoProtonDecayLikeliness(false)
+        , inNeutronDecay(false)
+        , inNeutronDecayLikeliness(false)
+        , inTwoNeutronDecay(false)
+        , inTwoNeutronDecayLikeliness(false)
+        , inECDecay(false)
+        , inECDecayLikeliness(false)
+        , inTwoECDecay(false)
+        , inTwoECDecayLikeliness(false)
+        , inBetaminusDecay(false)
+        , inBetaminusDecayLikeliness(false)
+        , inBetaminusFissionDecay(false)
+        , inBetaminusFissionDecayLikeliness(false)
+        , inTwoBetaminusDecay(false)
+        , inTwoBetaminusDecayLikeliness(false)
+        , inBetaplusDecay(false)
+        , inBetaplusDecayLikeliness(false)
+        , inTwoBetaplusDecay(false)
+        , inTwoBetaplusDecayLikeliness(false)
+        , inBetaminusNeutronDecay(false)
+        , inBetaminusNeutronDecayLikeliness(false)
+        , inBetaminusTwoNeutronDecay(false)
+        , inBetaminusTwoNeutronDecayLikeliness(false)
+        , inBetaminusThreeNeutronDecay(false)
+        , inBetaminusThreeNeutronDecayLikeliness(false)
+        , inBetaminusFourNeutronDecay(false)
+        , inBetaminusFourNeutronDecayLikeliness(false)
+        , inBetaminusAlphaNeutronDecay(false)
+        , inBetaminusAlphaNeutronDecayLikeliness(false)
+        , inBetaminusAlphaDecay(false)
+        , inBetaminusAlphaDecayLikeliness(false)
+        , inBetaminusTwoAlphaDecay(false)
+        , inBetaminusTwoAlphaDecayLikeliness(false)
+        , inBetaminusThreeAlphaDecay(false)
+        , inBetaminusThreeAlphaDecayLikeliness(false)
+        , inBetaplusProtonDecay(false)
+        , inBetaplusProtonDecayLikeliness(false)
+        , inBetaplusTwoProtonDecay(false)
+        , inBetaplusTwoProtonDecayLikeliness(false)
+        , inBetaplusAlphaDecay(false)
+        , inBetaplusAlphaDecayLikeliness(false)
+        , inBetaplusTwoAlphaDecay(false)
+        , inBetaplusTwoAlphaDecayLikeliness(false)
+        , inBetaplusThreeAlphaDecay(false)
+        , inBetaplusThreeAlphaDecayLikeliness(false)
+        , inAlphaBetaminusDecay(false)
+        , inAlphaBetaminusDecayLikeliness(false)
+        , inProtonAlphaDecay(false)
+        , inProtonAlphaDecayLikeliness(false)
+        , inECProtonDecay(false)
+        , inECProtonDecayLikeliness(false)
+        , inECTwoProtonDecay(false)
+        , inECTwoProtonDecayLikeliness(false)
+        , inECThreeProtonDecay(false)
+        , inECThreeProtonDecayLikeliness(false)
+        , inECAlphaDecay(false)
+        , inECAlphaDecayLikeliness(false)
+        , inECAlphaProtonDecay(false)
+        , inECAlphaProtonDecayLikeliness(false)
+        , inSpontFissionDecay(false)
+        , inSpontFissionDecayLikeliness(false)
+        , inAbundance(false)
     {
     }
 
-  ~Private()
-  {
-    delete currentIsotope;
-    //qDeleteAll(isotopes);
-  }
+    ~Private()
+    {
+        delete currentIsotope;
+        // qDeleteAll(isotopes);
+    }
 
     ChemicalDataObject currentDataObject;
     int currentUnit;
     QVariant currentErrorValue;
     QString currentElementSymbol;
-    Isotope* currentIsotope;
+    Isotope *currentIsotope;
 
-    QList<Isotope*> isotopes;
+    QList<Isotope *> isotopes;
 
     bool inIsotope;
     bool inElement;
@@ -188,7 +188,8 @@ public:
 };
 
 IsotopeParser::IsotopeParser()
-    : QXmlDefaultHandler(), d(new Private)
+    : QXmlDefaultHandler()
+    , d(new Private)
 {
 }
 
@@ -197,12 +198,12 @@ IsotopeParser::~IsotopeParser()
     delete d;
 }
 
-bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
+bool IsotopeParser::startElement(const QString &, const QString &localName, const QString &, const QXmlAttributes &attrs)
 {
     if (localName == QLatin1String("isotopeList")) {
         d->inElement = true;
 
-        //now save the symbol of the current element
+        // now save the symbol of the current element
         for (int i = 0; i < attrs.length(); ++i) {
             if (attrs.localName(i) == QLatin1String("id")) {
                 d->currentElementSymbol = attrs.value(i);
@@ -387,14 +388,14 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
     return true;
 }
 
-bool IsotopeParser::endElement(const QString&, const QString& localName, const QString&)
+bool IsotopeParser::endElement(const QString &, const QString &localName, const QString &)
 {
     if (localName == QLatin1String("isotope")) {
         d->isotopes.append(d->currentIsotope);
 
         d->currentIsotope = nullptr;
         d->inIsotope = false;
-    } else if (localName == QLatin1String("isotopeList")) { //a new list of isotopes start...
+    } else if (localName == QLatin1String("isotopeList")) { // a new list of isotopes start...
         d->inElement = false;
     }
 
@@ -694,7 +695,7 @@ bool IsotopeParser::characters(const QString &ch)
         value = ch;
         type = ChemicalDataObject::relativeAbundance;
         d->inAbundance = false;
-    } else { //it is a non known value. Do not create a wrong object but return
+    } else { // it is a non known value. Do not create a wrong object but return
         return true;
     }
 
@@ -712,7 +713,7 @@ bool IsotopeParser::characters(const QString &ch)
     return true;
 }
 
-QList<Isotope*> IsotopeParser::getIsotopes() const
+QList<Isotope *> IsotopeParser::getIsotopes() const
 {
     return d->isotopes;
 }

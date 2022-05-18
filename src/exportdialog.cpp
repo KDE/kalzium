@@ -20,7 +20,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-
 static const char HTML_HEADER[] =
     "<html>"
     "\n<head>"
@@ -45,37 +44,35 @@ static const char HTML_FOOTER[] =
     "\n</body>"
     "\n</html>";
 
-static const char XML_HEADER[] =
-    "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
+static const char XML_HEADER[] = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 
-ElementListEntry::ElementListEntry(Element * element)
-        : QListWidgetItem()
+ElementListEntry::ElementListEntry(Element *element)
+    : QListWidgetItem()
 {
     m_atomicNum = element->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
-    m_name      = element->dataAsString(ChemicalDataObject::name);
-    m_element   = element;
+    m_name = element->dataAsString(ChemicalDataObject::name);
+    m_element = element;
 
     setText(m_name);
 }
 
-ElementListEntry::~ElementListEntry()
-= default;
+ElementListEntry::~ElementListEntry() = default;
 
-PropertyListEntry::PropertyListEntry(const QString & name, ChemicalDataObject::BlueObelisk type)
-        : QListWidgetItem()
+PropertyListEntry::PropertyListEntry(const QString &name, ChemicalDataObject::BlueObelisk type)
+    : QListWidgetItem()
 {
     setText(name);
     m_type = type;
 }
 
-PropertyListEntry::~PropertyListEntry()
-= default;
+PropertyListEntry::~PropertyListEntry() = default;
 
-ExportDialog::ExportDialog(QWidget * parent)
-        : QDialog(parent),m_outputStream(nullptr)
+ExportDialog::ExportDialog(QWidget *parent)
+    : QDialog(parent)
+    , m_outputStream(nullptr)
 {
     qCDebug(KALZIUM_LOG) << "ExportDialog::ExportDialog";
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel|QDialogButtonBox::Help, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel | QDialogButtonBox::Help, this);
     auto mainWidget = new QWidget(this);
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
@@ -136,7 +133,7 @@ void ExportDialog::populateElementList()
 
     ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Atomic Number"), ChemicalDataObject::atomicNumber));
     ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Symbol"), ChemicalDataObject::symbol));
-    //ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Name"), ChemicalDataObject::name));
+    // ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Name"), ChemicalDataObject::name));
     ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Mass"), ChemicalDataObject::mass));
     ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Exact Mass"), ChemicalDataObject::exactMass));
     ui.propertyListWidget->addItem(new PropertyListEntry(i18n("Ionization"), ChemicalDataObject::ionization));
@@ -190,17 +187,10 @@ void ExportDialog::exportToHtml()
 {
     *m_outputStream << HTML_HEADER << "<table>\n";
     foreach (QListWidgetItem *element, ui.elementListWidget->selectedItems()) {
-        *m_outputStream << "<tr>\n<th colspan=\"2\">"
-        << ((ElementListEntry*)element)->m_element->dataAsString(ChemicalDataObject::name)
-        << "</th>\n</tr>\n";
+        *m_outputStream << "<tr>\n<th colspan=\"2\">" << ((ElementListEntry *)element)->m_element->dataAsString(ChemicalDataObject::name) << "</th>\n</tr>\n";
         foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
-            *m_outputStream << "<tr>\n<td class=\"property\">"
-            << ((PropertyListEntry*) property)->text()
-            << "</td>\n<td class=\"value\">"
-            << KalziumUtils::prettyUnit(
-                ((ElementListEntry*) element)->m_element,
-                ((PropertyListEntry*) property)->m_type)
-            << "</td>\n</tr>\n";
+            *m_outputStream << "<tr>\n<td class=\"property\">" << ((PropertyListEntry *)property)->text() << "</td>\n<td class=\"value\">"
+                            << KalziumUtils::prettyUnit(((ElementListEntry *)element)->m_element, ((PropertyListEntry *)property)->m_type) << "</td>\n</tr>\n";
         }
     }
     *m_outputStream << "</table>\n" << HTML_FOOTER;
@@ -210,17 +200,10 @@ void ExportDialog::exportToXml()
 {
     *m_outputStream << XML_HEADER << "<elements>\n";
     foreach (QListWidgetItem *element, ui.elementListWidget->selectedItems()) {
-        *m_outputStream << "  <element name=\""
-        << ((ElementListEntry*) element)->m_element->dataAsString(ChemicalDataObject::name)
-        << "\">\n";
+        *m_outputStream << "  <element name=\"" << ((ElementListEntry *)element)->m_element->dataAsString(ChemicalDataObject::name) << "\">\n";
         foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
-            *m_outputStream << "    <property name=\""
-            << ((PropertyListEntry*) property)->text()
-            << "\">"
-            << KalziumUtils::prettyUnit(
-                ((ElementListEntry*) element)->m_element,
-                ((PropertyListEntry*) property)->m_type)
-            << "</property>\n";
+            *m_outputStream << "    <property name=\"" << ((PropertyListEntry *)property)->text() << "\">"
+                            << KalziumUtils::prettyUnit(((ElementListEntry *)element)->m_element, ((PropertyListEntry *)property)->m_type) << "</property>\n";
         }
         *m_outputStream << "  </element>\n";
     }
@@ -231,21 +214,13 @@ void ExportDialog::exportToCsv()
 {
     *m_outputStream << "Name";
     foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
-        *m_outputStream << ", \""
-        << ((PropertyListEntry*) property)->text()
-        << "\"";
+        *m_outputStream << ", \"" << ((PropertyListEntry *)property)->text() << "\"";
     }
     *m_outputStream << "\n";
     foreach (QListWidgetItem *element, ui.elementListWidget->selectedItems()) {
-        *m_outputStream << "\""
-        << ((ElementListEntry*) element)->m_element->dataAsString(ChemicalDataObject::name)
-        << "\"";
+        *m_outputStream << "\"" << ((ElementListEntry *)element)->m_element->dataAsString(ChemicalDataObject::name) << "\"";
         foreach (QListWidgetItem *property, ui.propertyListWidget->selectedItems()) {
-            *m_outputStream << ", \""
-            << KalziumUtils::prettyUnit(
-                ((ElementListEntry*) element)->m_element,
-                ((PropertyListEntry*) property)->m_type)
-            << "\"";
+            *m_outputStream << ", \"" << KalziumUtils::prettyUnit(((ElementListEntry *)element)->m_element, ((PropertyListEntry *)property)->m_type) << "\"";
         }
         *m_outputStream << "\n";
     }

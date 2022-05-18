@@ -14,14 +14,13 @@
 
 #include "chemicaldataobject.h"
 
-
 /**
  * In this class all information about an element are stored. This means that
  * both the chemical date and the data about the position are stored
  * in this class.
  * @short This class is the representation of a chemical element
  * @author Carsten Niehaus
-*/
+ */
 class SCIENCE_EXPORT Element
 {
 public:
@@ -33,7 +32,7 @@ public:
      * Add the ChemicalDataObject @p o to this Element
      * @param o the ChemicalDataObject to be added
      */
-    void addData(const ChemicalDataObject& o);
+    void addData(const ChemicalDataObject &o);
 
     /**
      * Add a ChemicalDataObject with @p value of @p type to this
@@ -41,7 +40,7 @@ public:
      * @param value the QVariant to be added
      * @param type the BlueObelisk type to be added
      */
-    void addData(const QVariant& value, ChemicalDataObject::BlueObelisk type);
+    void addData(const QVariant &value, ChemicalDataObject::BlueObelisk type);
 
     /**
      * @return the requested data of the type @p type as a QVariant
@@ -71,7 +70,7 @@ public:
     /**
      * @return the data of the Element
      */
-    QList<ChemicalDataObject> data()const
+    QList<ChemicalDataObject> data() const
     {
         return dataList;
     }

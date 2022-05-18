@@ -27,7 +27,7 @@ public:
     ElementCount(Element *_element, int _count)
     {
         m_element = _element;
-        m_count   = _count;
+        m_count = _count;
     }
 
     /**
@@ -36,7 +36,7 @@ public:
     explicit ElementCount(Element *_element)
     {
         m_element = _element;
-        m_count   = 0;
+        m_count = 0;
     }
     /**
      * Destructor
@@ -54,7 +54,7 @@ public:
     /**
      * @return the number of occurrences of the Element
      */
-    int count()  const
+    int count() const
     {
         return m_count;
     }
@@ -82,7 +82,6 @@ public:
     int m_count;
 };
 
-
 /**
  * This class is used to count the elements in the molecule
  * which is being calculated
@@ -106,7 +105,7 @@ public:
     /**
      * Clear the map of ElementCount pointers
      */
-    void  clear()
+    void clear()
     {
         m_map.clear();
     }
@@ -127,7 +126,7 @@ public:
      * is CO2, a list with C and O will be returned.
      * @return the elements in the molecule
      */
-    QList<Element*> elements() const;
+    QList<Element *> elements() const;
 
     /**
      * @param _element
@@ -140,16 +139,14 @@ public:
      */
     void multiply(int _factor);
 
-    QList<ElementCount*>  map()
+    QList<ElementCount *> map()
     {
         return m_map;
     }
 
 private:
-    QList<ElementCount*>  m_map;
+    QList<ElementCount *> m_map;
 };
-
-
 
 /**
  * @class MoleculeParser
@@ -186,14 +183,13 @@ private:
  */
 class SCIENCE_EXPORT MoleculeParser : public Parser
 {
-
 public:
     /**
      * @param list This list of chemical elements will be used internally
      * for searching and matching with searched strings
      * Constructor
      */
-    explicit MoleculeParser(const QList<Element*> &list);
+    explicit MoleculeParser(const QList<Element *> &list);
 
     /**
      * Constructor
@@ -217,11 +213,10 @@ public:
      *
      * @return whether the parsing was successful or not
      */
-    bool  weight(const QString&         _moleculeString,
-                 double          *_resultMass,
-                 ElementCountMap *_resultMap);
+    bool weight(const QString &_moleculeString, double *_resultMass, ElementCountMap *_resultMap);
 
     QSet<QString> aliasList();
+
 private:
     // Helper functions
     bool parseSubmolecule(double *_resultMass, ElementCountMap *_resultMap);
@@ -233,28 +228,27 @@ private:
     // eg expandTerm(Et) returns (C2H5)
     QString expandTerm(const QString &_group);
 
-    QList<Element*> m_elementList;
+    QList<Element *> m_elementList;
 
-    static const int  ELEMENT_TOKEN = 300;
+    static const int ELEMENT_TOKEN = 300;
 
-    Element  *lookupElement(const QString& _name);
+    Element *lookupElement(const QString &_name);
 
-    QMap<Element*, int> m_elementMap;
+    QMap<Element *, int> m_elementMap;
 
     // Contains the list of aliases eg, { "Et - C2H5", "Me - CH3"}
     QSet<QString> *m_aliasList;
-    //if this booloean is "true" the parser found an error
+    // if this booloean is "true" the parser found an error
     bool m_error;
 
 protected:
-
     /**
      * Extends the standard tokenizer in Parser::getNextToken().
      */
-    int  getNextToken() override;
+    int getNextToken() override;
 
 private:
-    Element  *m_elementVal;    // Valid if m_nextToken == ELEMENT_TOKEN
+    Element *m_elementVal; // Valid if m_nextToken == ELEMENT_TOKEN
 };
 
 #endif // MOLECULEPARSER_H

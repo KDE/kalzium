@@ -15,7 +15,6 @@
 // OpenBabel includes
 #include <openbabel/obconversion.h>
 
-
 /**
  * @author Carsten Niehaus
  * @author Jerome Pansanel
@@ -36,7 +35,6 @@ public:
      * Destructor
      */
     virtual ~KOpenBabel();
-
 
     /**
      * Add file to the list
@@ -85,7 +83,6 @@ private slots:
      * Open help page
      */
     void slotHelpRequested();
-
 };
 
 #endif // OBCONVERTER_H

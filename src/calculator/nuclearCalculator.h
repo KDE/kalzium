@@ -9,33 +9,23 @@
 
 #include "kalzium_debug.h"
 
-#include <KUnitConversion/UnitCategory>
 #include <KUnitConversion/Converter>
+#include <KUnitConversion/UnitCategory>
 
+#include "ui_nuclearCalculator.h"
 #include <element.h>
 #include <isotope.h>
-#include <prefs.h>
 #include <kalziumdataobject.h>
-#include "ui_nuclearCalculator.h"
+#include <prefs.h>
 
 // This is required for the unit conversion
 using namespace KUnitConversion;
 
 // This is the enumeration for the error type required in the error(int mode) function
-enum ERROR_MODE_NUKE {
-    RESET_NUKE_MESSAGE = 0,
-    INIT_AMT_ZERO,
-    FINAL_AMT_ZERO,
-    HALFLIFE_ZERO,
-    FINAL_AMT_GREATER
-};
+enum ERROR_MODE_NUKE { RESET_NUKE_MESSAGE = 0, INIT_AMT_ZERO, FINAL_AMT_ZERO, HALFLIFE_ZERO, FINAL_AMT_GREATER };
 
 // This is the enumeration for the mode of calculation in the nuclear calculator
-enum MODE_CALCULATION_NUKE {
-    INIT_AMT =0,
-    FINAL_AMT,
-    TIME
-};
+enum MODE_CALCULATION_NUKE { INIT_AMT = 0, FINAL_AMT, TIME };
 
 /*
  * This class implements the nuclear calculator which calculates the amount of substance,
@@ -48,7 +38,7 @@ class nuclearCalculator : public QFrame
     Q_OBJECT
 
 public:
-    explicit nuclearCalculator(QWidget * parent = nullptr);
+    explicit nuclearCalculator(QWidget *parent = nullptr);
     ~nuclearCalculator() override;
 
 public Q_SLOTS:
@@ -116,18 +106,18 @@ public Q_SLOTS:
     void error(int mode);
 
 private:
-    Ui::nuclearCalculator ui;               // The user interface
+    Ui::nuclearCalculator ui; // The user interface
 
-    Element m_element;                      // Current element
-    Isotope m_isotope;                      // current isotope
+    Element m_element; // Current element
+    Isotope m_isotope; // current isotope
 
-    Value m_halfLife;                       // The halfLife
-    Value m_initAmount;                     // initial amount present
-    Value m_finalAmount;                    // amount after time
-    Value m_time;                           // the time involved in calculation
-    double m_mass;                          // the atomic mass of the isotope
+    Value m_halfLife; // The halfLife
+    Value m_initAmount; // initial amount present
+    Value m_finalAmount; // amount after time
+    Value m_time; // the time involved in calculation
+    double m_mass; // the atomic mass of the isotope
 
-    int m_mode;                             // the mode of calculation
+    int m_mode; // the mode of calculation
 };
 
 #endif // NUCLEARCALCULATOR_H

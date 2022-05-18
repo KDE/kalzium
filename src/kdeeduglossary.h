@@ -32,7 +32,7 @@ public:
      * @param url the path of the file to load
      * @param path the path of the pictures
      */
-    explicit Glossary(const QUrl& url, const QString& path = QString());
+    explicit Glossary(const QUrl &url, const QString &path = QString());
 
     /**
      * Creates a new empty glossary
@@ -44,9 +44,9 @@ public:
     /**
      * add the item @p item to the glossary
      */
-    void addItem(GlossaryItem* item);
+    void addItem(GlossaryItem *item);
 
-    QList<GlossaryItem*> itemlist()const;
+    QList<GlossaryItem *> itemlist() const;
 
     /**
      * clear the Glossary
@@ -62,42 +62,42 @@ public:
      * Every glossary can have a name. It will be
      * set to @p name
      */
-    void setName(const QString& name);
+    void setName(const QString &name);
 
     /**
      * @returns the name of the glossary
      */
-    QString name()const;
+    QString name() const;
 
     /**
      * sets the internal list of items to @p list
      */
-    void setItemlist(QList<GlossaryItem*> list);
+    void setItemlist(QList<GlossaryItem *> list);
 
     /**
      * Every glossaryitem can show pictures. [img src="foo.png]
      * will look for the file foo.png in the path defined by
      * @p path
      */
-    void setPicturePath(const QString& path);
+    void setPicturePath(const QString &path);
 
-    QString picturePath()const;
+    QString picturePath() const;
 
     /**
      * defines which picture to use as the background
      * of the htmlview. The dialog
      * will use the file specific by the @p filename
      */
-    void setBackgroundPicture(const QString& filename);
+    void setBackgroundPicture(const QString &filename);
 
     /**
      * @return the picture used as the background in
      * this background
      */
-    QString backgroundPicture()const;
+    QString backgroundPicture() const;
 
 protected:
-    void init(const QUrl& url, const QString& path);
+    void init(const QUrl &url, const QString &path);
 
 private:
     /**
@@ -105,7 +105,7 @@ private:
      * the information of the items and return them as a
      * QList<GlossaryItem*>
      */
-    virtual QList<GlossaryItem*> readItems(QDomDocument &itemDocument);
+    virtual QList<GlossaryItem *> readItems(QDomDocument &itemDocument);
 
     QString m_backgroundpicture;
 
@@ -130,9 +130,9 @@ private:
      * @return a bool indicating whether the loading of the XML was
      *         successful or not
      */
-    bool loadLayout(QDomDocument& doc, const QUrl& url);
+    bool loadLayout(QDomDocument &doc, const QUrl &url);
 
-    QList<GlossaryItem*> m_itemlist;
+    QList<GlossaryItem *> m_itemlist;
 
     /**
      * the name of the glossary
@@ -155,9 +155,9 @@ public:
     GlossaryItem() = default;
     ~GlossaryItem() = default;
 
-    void setName(const QString& s);
+    void setName(const QString &s);
 
-    void setDesc(const QString& s);
+    void setDesc(const QString &s);
 
     /**
      * Set the references for the current GlossaryItem to
@@ -165,9 +165,9 @@ public:
      * There's no need to sort the list before, as they
      * will be sorted automatically
      */
-    void setRef(const QStringList& s);
+    void setRef(const QStringList &s);
 
-    void setPictures(const QString& s);
+    void setPictures(const QString &s);
 
     QString name() const;
 
@@ -221,14 +221,14 @@ public:
      * @param folded whether to fold the various items in subtrees depending on the
      * first letter of every item
      */
-    void addGlossary(Glossary* newgloss, bool folded = true);
+    void addGlossary(Glossary *newgloss, bool folded = true);
 
 protected:
-    void keyPressEvent(QKeyEvent*) override;
+    void keyPressEvent(QKeyEvent *) override;
 
 private:
     class Private;
-    Private * const d;
+    Private *const d;
 
     Q_PRIVATE_SLOT(d, void itemActivated(QTreeWidgetItem *, int))
 };

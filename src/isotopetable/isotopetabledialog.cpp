@@ -8,8 +8,8 @@
 
 #include "isotopeitem.h"
 #include "isotopescene.h"
-#include "legendwidget.h"
 #include "kalziumschemetype.h"
+#include "legendwidget.h"
 
 #include <isotope.h>
 
@@ -23,7 +23,8 @@
 
 #include <prefs.h>
 
-IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
+IsotopeTableDialog::IsotopeTableDialog(QWidget *parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Isotope Table"));
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
@@ -36,15 +37,12 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
     ui.setupUi(mainWidget);
     ui.guide->setGuidedView(ui.gv);
 
-    connect(ui.gv->scene(), SIGNAL(itemSelected(IsotopeItem*)),
-            this, SLOT(updateDockWidget(IsotopeItem*)));
-    connect(ui.gv, &IsotopeView::zoomLevelChanged,
-            this, &IsotopeTableDialog::slotZoomLevelChanged);
-    connect(ui.Slider, &QAbstractSlider::valueChanged,
-            this, &IsotopeTableDialog::zoom);
+    connect(ui.gv->scene(), SIGNAL(itemSelected(IsotopeItem *)), this, SLOT(updateDockWidget(IsotopeItem *)));
+    connect(ui.gv, &IsotopeView::zoomLevelChanged, this, &IsotopeTableDialog::slotZoomLevelChanged);
+    connect(ui.Slider, &QAbstractSlider::valueChanged, this, &IsotopeTableDialog::zoom);
 
-    //Here comes the legend part
-    QList< QPair<QString, QColor> > items;
+    // Here comes the legend part
+    QList<QPair<QString, QColor>> items;
 
     items << qMakePair(i18nc("alpha ray emission", "alpha"), QColor(Qt::red));
     items << qMakePair(i18nc("Electron capture method", "EC"), QColor(Qt::blue));
@@ -61,36 +59,32 @@ IsotopeTableDialog::IsotopeTableDialog(QWidget* parent) : QDialog(parent)
     ui.infoWidget->setMinimumWidth(150);
 }
 
-void IsotopeTableDialog::zoom (int level)
+void IsotopeTableDialog::zoom(int level)
 {
     double zoom = qPow(M_E, level / 10.0);
     (ui.gv)->setZoom(zoom);
 }
 
-void IsotopeTableDialog::updateDockWidget(IsotopeItem * item)
+void IsotopeTableDialog::updateDockWidget(IsotopeItem *item)
 {
     Isotope *s = item->isotope();
 
     const QString header = i18n("<h1>%1 (%2)</h1>", s->parentElementSymbol(), s->parentElementNumber());
-    const QString mag = i18n("Magnetic moment: %1",
-                       s->magmoment().isEmpty()?
-                           i18nc("Unknown magnetic moment", "Unknown"):s->magmoment());
+    const QString mag = i18n("Magnetic moment: %1", s->magmoment().isEmpty() ? i18nc("Unknown magnetic moment", "Unknown") : s->magmoment());
 
     QString halflife;
-    if (s -> halflife() > 0.0) {
-        halflife = i18n ("Halflife: %1 %2", s->halflife(), s->halflifeUnit());
+    if (s->halflife() > 0.0) {
+        halflife = i18n("Halflife: %1 %2", s->halflife(), s->halflifeUnit());
     } else {
-        halflife = i18n ("Halflife: Unknown");
+        halflife = i18n("Halflife: Unknown");
     }
 
     const QString abundance = i18n("Abundance: %1 %", !s->abundance().isEmpty() ? s->abundance() : QStringLiteral("0"));
     const QString nucleons = i18n("Number of nucleons: %1", s->nucleons());
-    const QString spin = i18n("Spin: %1", s->spin().isEmpty()?
-                                        i18nc("Unknown spin", "Unknown"): s->spin());
+    const QString spin = i18n("Spin: %1", s->spin().isEmpty() ? i18nc("Unknown spin", "Unknown") : s->spin());
     const QString exactMass = i18n("Exact mass: %1 u", s->mass());
 
-    const QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />"
-                   + spin +"<br />" + abundance + "<br />" + halflife;
+    const QString html = header + "<br />" + nucleons + "<br />" + mag + "<br />" + exactMass + "<br />" + spin + "<br />" + abundance + "<br />" + halflife;
 
     ui.label->setText(html);
 }
@@ -102,11 +96,13 @@ void IsotopeTableDialog::slotZoomLevelChanged(double value)
     ui.Slider->blockSignals(b);
 }
 
-void IsotopeTableDialog::setMode(int mode) {
+void IsotopeTableDialog::setMode(int mode)
+{
     ui.gv->setMode(mode);
     ui.guide->updateScene();
 }
 
-void IsotopeTableDialog::updateMode() {
+void IsotopeTableDialog::updateMode()
+{
     setMode(Prefs::isotopeTableMode());
 }

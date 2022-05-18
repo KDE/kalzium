@@ -20,7 +20,9 @@
 // used to convert the double variables to int's. (slider <-> spinbox)
 #define MULTIPLIKATOR 1000
 
-GradientWidgetImpl::GradientWidgetImpl(QWidget *parent) : QWidget(parent), m_play(false)
+GradientWidgetImpl::GradientWidgetImpl(QWidget *parent)
+    : QWidget(parent)
+    , m_play(false)
 {
     setupUi(this);
 
@@ -94,12 +96,11 @@ void GradientWidgetImpl::slotGradientChanged()
     }
 }
 
-
 void GradientWidgetImpl::doubleToSlider(double doubleVar)
 {
-    //the signals need to be blocked as both will return to this slot. But no
-    //matter which UI elements (slider oder spinbox) was changed, the other
-    //has to be set to the same value
+    // the signals need to be blocked as both will return to this slot. But no
+    // matter which UI elements (slider oder spinbox) was changed, the other
+    // has to be set to the same value
 
     gradient_slider->blockSignals(true);
 
@@ -132,7 +133,6 @@ void GradientWidgetImpl::intToSpinbox(int var)
     setNewValue(doublevar);
 }
 
-
 void GradientWidgetImpl::setNewValue(double newValue)
 {
     // Info text currently only for State of mater typ available.
@@ -150,7 +150,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
     QStringList listBoilingPointValue;
     QStringList listMeltingPointValue;
 
-    foreach (Element * element, KalziumDataObject::instance()->ElementList) {
+    foreach (Element *element, KalziumDataObject::instance()->ElementList) {
         double melting = element->dataAsVariant(ChemicalDataObject::meltingpoint, Prefs::temperatureUnit()).toDouble();
         if ((melting > 0.0) && fabs(melting - newValue) <= threshold) {
             listMeltingPoint << element->dataAsString(ChemicalDataObject::name);
@@ -167,8 +167,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
     if (listMeltingPoint.count() > 0) {
         htmlcode += i18n("Elements with melting point around this temperature:") + '\n';
         for (int i = 0; i < listMeltingPoint.count(); ++i) {
-            htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)",
-                                       listMeltingPoint.at(i), listMeltingPointValue.at(i), unitSymbol) + '\n';
+            htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)", listMeltingPoint.at(i), listMeltingPointValue.at(i), unitSymbol) + '\n';
         }
         htmlcode += '\n';
     } else {
@@ -178,8 +177,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
     if (listBoilingPoint.count() > 0) {
         htmlcode += i18n("Elements with boiling point around this temperature:") + '\n';
         for (int i = 0; i < listBoilingPoint.count(); ++i) {
-            htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)",
-                                       listBoilingPoint.at(i), listBoilingPointValue.at(i), unitSymbol)  + '\n';
+            htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)", listBoilingPoint.at(i), listBoilingPointValue.at(i), unitSymbol) + '\n';
         }
         htmlcode += '\n';
     } else {
@@ -192,30 +190,30 @@ void GradientWidgetImpl::setNewValue(double newValue)
 
 void GradientWidgetImpl::play()
 {
-    if (m_play) {   //Currently playing
-        //The Mode is 'Play' so stop
+    if (m_play) { // Currently playing
+        // The Mode is 'Play' so stop
         stop();
         return;
     }
 
-    //The mode is not 'play'
-    //If the slider is at the maximum position bring it to the minimum
+    // The mode is not 'play'
+    // If the slider is at the maximum position bring it to the minimum
     if ((gradient_slider)->value() >= gradient_slider->maximum()) {
-        gradient_slider->setValue (gradient_slider->minimum ());
+        gradient_slider->setValue(gradient_slider->minimum());
     }
-    //start the timer at 200 millisecond time interval with single shot disabled
+    // start the timer at 200 millisecond time interval with single shot disabled
     m_timer->start(200);
 
-    m_play = true;          //start playing
+    m_play = true; // start playing
     Play->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
 }
 
 void GradientWidgetImpl::stop()
 {
-    //Currently playing, stop the timer.
-    m_timer -> stop();
+    // Currently playing, stop the timer.
+    m_timer->stop();
     Play->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
-    m_play = false;         //Stop
+    m_play = false; // Stop
 }
 
 void GradientWidgetImpl::tick()
@@ -226,5 +224,5 @@ void GradientWidgetImpl::tick()
     if (temp + increment > max) {
         stop();
     }
-    gradient_slider -> setValue (temp + increment);
+    gradient_slider->setValue(temp + increment);
 }

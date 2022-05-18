@@ -37,17 +37,19 @@ public:
     class SCIENCE_EXPORT peak
     {
     public:
-        peak() {
+        peak()
+        {
             wavelength = -1.0;
             intensity = -1;
         }
 
-        peak(double wl, int in) {
+        peak(double wl, int in)
+        {
             wavelength = wl;
             intensity = in;
         }
 
-        ///relative. The highest is per definition 1000
+        /// relative. The highest is per definition 1000
         int intensity;
         double wavelength;
 
@@ -58,7 +60,8 @@ public:
      * adds the peak @p b to the internal
      * lists of peaks
      */
-    void addPeak(Spectrum::peak* b) {
+    void addPeak(Spectrum::peak *b)
+    {
         if (b) {
             m_peaklist.append(b);
         }
@@ -73,7 +76,7 @@ public:
      * so that the biggest intensity is again 1000 and the
      * others are adopted.
      */
-    Spectrum* adjustToWavelength(double min, double max);
+    Spectrum *adjustToWavelength(double min, double max);
 
     /**
      * sets the highest intensity to 1000 and adjusts the
@@ -92,14 +95,15 @@ public:
     /**
      * @return the list of peaks of the spectrum
      */
-    QList<Spectrum::peak*> peaklist() {
+    QList<Spectrum::peak *> peaklist()
+    {
         return m_peaklist;
     }
 
     /**
-    * If the spectrum belongs to Iron, this method will return "26"
-    * @return the number of the element the spectrum belongs to
-    */
+     * If the spectrum belongs to Iron, this method will return "26"
+     * @return the number of the element the spectrum belongs to
+     */
     int parentElementNumber() const;
 
     /**
@@ -123,7 +127,7 @@ private:
     /**
      * the internal dataset
      */
-    QList<peak*> m_peaklist;
+    QList<peak *> m_peaklist;
 
     int m_parentElementNumber;
 };

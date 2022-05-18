@@ -13,14 +13,14 @@
 
 #include <prefs.h>
 
-KalziumElementProperty* KalziumElementProperty::instance()
+KalziumElementProperty *KalziumElementProperty::instance()
 {
     static KalziumElementProperty elementProperty;
     return &elementProperty;
 }
 
 KalziumElementProperty::KalziumElementProperty()
-        : m_mode(0)
+    : m_mode(0)
 {
     m_currentScheme = Prefs::colorschemebox();
 
@@ -33,8 +33,7 @@ KalziumElementProperty::KalziumElementProperty()
         m_mode = GRADIENTVALUE;
 }
 
-KalziumElementProperty::~KalziumElementProperty()
-= default;
+KalziumElementProperty::~KalziumElementProperty() = default;
 
 bool KalziumElementProperty::isGradient()
 {
@@ -77,12 +76,12 @@ QStringList KalziumElementProperty::gradientList() const
     return customList;
 }
 
-KalziumSchemeType* KalziumElementProperty::scheme() const
+KalziumSchemeType *KalziumElementProperty::scheme() const
 {
     return KalziumSchemeTypeFactory::instance()->build(m_currentScheme);
 }
 
-KalziumGradientType* KalziumElementProperty::gradient() const
+KalziumGradientType *KalziumElementProperty::gradient() const
 {
     if (m_currentGradient == NOGRADIENT) {
         return KalziumGradientTypeFactory::instance()->build(NOGRADIENT);
@@ -133,18 +132,18 @@ QBrush KalziumElementProperty::getElementBrush(int el)
         return {Qt::darkGray, Qt::Dense7Pattern};
     }
 
-    //The iconic view is the 3rd view (0,1,2,...). Pixmaps don't make nice gradients.
-    if (m_currentScheme ==  2) {
-        elementBrush =  scheme()->elementBrush(el);
+    // The iconic view is the 3rd view (0,1,2,...). Pixmaps don't make nice gradients.
+    if (m_currentScheme == 2) {
+        elementBrush = scheme()->elementBrush(el);
     } else {
         // add a nice gradient
         QColor color = getElementColor(el);
         QLinearGradient grad(QPointF(0, 0), QPointF(0, 40));
-        grad.setColorAt(0,color);
+        grad.setColorAt(0, color);
         qreal h, s, v, a;
         color.getHsvF(&h, &s, &v, &a);
-        color.setHsvF(h, s, v*0.7, a);
-        grad.setColorAt(1,color);
+        color.setHsvF(h, s, v * 0.7, a);
+        grad.setColorAt(1, color);
 
         elementBrush = QBrush(grad);
     }
@@ -170,7 +169,6 @@ QColor KalziumElementProperty::getBorderColor(int el) const
     }
 
     return getTextColor(el);
-
 }
 
 int KalziumElementProperty::getMode() const
@@ -187,16 +185,15 @@ QColor KalziumElementProperty::gradientBrushLogic(int el) const
     const double boiling = KalziumDataObject::instance()->element(el)->dataAsVariant(ChemicalDataObject::boilingpoint).toDouble();
 
     switch (m_currentGradient) {
-
     case SOMGradientType:
         if (m_slider < melting) {
-            //the element is solid
+            // the element is solid
             gradientColor = Prefs::color_solid();
         } else if ((m_slider > melting) && (m_slider < boiling)) {
-            //the element is liquid
+            // the element is liquid
             gradientColor = Prefs::color_liquid();
         } else if ((m_slider >= boiling) && (boiling > 0.0)) {
-            //the element is vaporous
+            // the element is vaporous
             gradientColor = Prefs::color_vapor();
         } else {
             gradientColor = Qt::lightGray;
@@ -216,7 +213,7 @@ QColor KalziumElementProperty::gradientBrushLogic(int el) const
         break;
     }
 
-    if (!isActiv && gradientValue != -1) { //FIXME No magic number... Defined in KalziumGradientFactory
+    if (!isActiv && gradientValue != -1) { // FIXME No magic number... Defined in KalziumGradientFactory
         gradientColor = Qt::transparent;
     } else {
         const double coeff = gradient()->elementCoeff(el);
@@ -224,4 +221,3 @@ QColor KalziumElementProperty::gradientBrushLogic(int el) const
     }
     return gradientColor;
 }
-

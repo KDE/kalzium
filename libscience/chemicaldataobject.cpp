@@ -25,16 +25,15 @@ public:
 
 //########################
 ChemicalDataObjectPrivate::ChemicalDataObjectPrivate()
-        : QSharedData()
+    : QSharedData()
 {
 }
 
-ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
-= default;
+ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate() = default;
 //##############
 
-ChemicalDataObject::ChemicalDataObject(const QVariant& v, BlueObelisk type, const QVariant& errorValue)
-        : d(new ChemicalDataObjectPrivate)
+ChemicalDataObject::ChemicalDataObject(const QVariant &v, BlueObelisk type, const QVariant &errorValue)
+    : d(new ChemicalDataObjectPrivate)
 {
     d->m_value = v;
     d->m_errorValue = errorValue;
@@ -43,21 +42,19 @@ ChemicalDataObject::ChemicalDataObject(const QVariant& v, BlueObelisk type, cons
 }
 
 ChemicalDataObject::ChemicalDataObject()
-        : d(new ChemicalDataObjectPrivate)
+    : d(new ChemicalDataObjectPrivate)
 {
     d->m_errorValue = QVariant();
     d->m_unit = KUnitConversion::NoUnit;
 }
 
 ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other)
-         
-= default;
 
-ChemicalDataObject::~ChemicalDataObject()
-= default;
+    = default;
 
-ChemicalDataObject& ChemicalDataObject::operator=(const ChemicalDataObject &other)
-= default;
+ChemicalDataObject::~ChemicalDataObject() = default;
+
+ChemicalDataObject &ChemicalDataObject::operator=(const ChemicalDataObject &other) = default;
 
 bool ChemicalDataObject::operator==(const int v) const
 {
@@ -86,7 +83,7 @@ bool ChemicalDataObject::operator==(const double v) const
     return d->m_value.toDouble() == v;
 }
 
-bool ChemicalDataObject::operator==(const QString& v) const
+bool ChemicalDataObject::operator==(const QString &v) const
 {
     if (d->m_value.type() != QVariant::String) {
         return false;
@@ -135,12 +132,12 @@ int ChemicalDataObject::unit() const
     return d->m_unit;
 }
 
-void ChemicalDataObject::setData(const QVariant& v)
+void ChemicalDataObject::setData(const QVariant &v)
 {
     d->m_value = v;
 }
 
-void ChemicalDataObject::setErrorValue(const QVariant& v)
+void ChemicalDataObject::setErrorValue(const QVariant &v)
 {
     d->m_errorValue = v;
 }
@@ -152,7 +149,7 @@ void ChemicalDataObject::setType(BlueObelisk type)
 
 void ChemicalDataObject::setType(int type)
 {
-    d->m_type = (ChemicalDataObject::BlueObelisk) type;
+    d->m_type = (ChemicalDataObject::BlueObelisk)type;
 }
 
 QString ChemicalDataObject::unitAsString() const

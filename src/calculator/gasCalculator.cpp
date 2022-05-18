@@ -10,13 +10,13 @@
 #include <KLocalizedString>
 
 #include "kalziumunitcombobox.h"
-#include "prefs.h"
 #include "kalziumutils.h"
+#include "prefs.h"
 
 using namespace KUnitConversion;
 
-gasCalculator::gasCalculator(QWidget * parent)
-        : QWidget(parent)
+gasCalculator::gasCalculator(QWidget *parent)
+    : QWidget(parent)
 {
     ui.setupUi(this);
 
@@ -24,53 +24,37 @@ gasCalculator::gasCalculator(QWidget * parent)
 
     init();
 
-    connect(ui.temp, SIGNAL(valueChanged(double)),
-            this, SLOT(tempChanged()));
-    connect(ui.temp_unit, SIGNAL(activated(int)),
-            this, SLOT(tempChanged()));
-    connect(ui.volume, SIGNAL(valueChanged(double)),
-            this, SLOT(volChanged()));
-    connect(ui.volume_unit, SIGNAL(activated(int)),
-            this, SLOT(volChanged()));
-    connect(ui.pressure, SIGNAL(valueChanged(double)),
-            this, SLOT(pressureChanged()));
-    connect(ui.pressure_unit, SIGNAL(activated(int)),
-            this, SLOT(pressureChanged()));
-    connect(ui.mass,  SIGNAL(valueChanged(double)),
-            this, SLOT(massChanged()));
-    connect(ui.mass_unit, SIGNAL(activated(int)),
-            this, SLOT(massChanged()));
-    connect(ui.moles, SIGNAL(valueChanged(double)),
-            this, SLOT(molesChanged(double)));
-    connect(ui.molarMass, SIGNAL(valueChanged(double)),
-            this, SLOT(molarMassChanged(double)));
-    connect(ui.a, SIGNAL(valueChanged(double)),
-            this, SLOT(Vand_aChanged()));
-    connect(ui.b,  SIGNAL(valueChanged(double)),
-            this, SLOT(Vand_bChanged()));
-    connect(ui.b_unit, SIGNAL(activated(int)),
-            this, SLOT(Vand_bChanged()));
-    connect(ui.mode, SIGNAL(activated(int)),
-            this, SLOT(setMode(int)));
-    connect(ui.reset, &QAbstractButton::clicked,
-            this, &gasCalculator::init);
+    connect(ui.temp, SIGNAL(valueChanged(double)), this, SLOT(tempChanged()));
+    connect(ui.temp_unit, SIGNAL(activated(int)), this, SLOT(tempChanged()));
+    connect(ui.volume, SIGNAL(valueChanged(double)), this, SLOT(volChanged()));
+    connect(ui.volume_unit, SIGNAL(activated(int)), this, SLOT(volChanged()));
+    connect(ui.pressure, SIGNAL(valueChanged(double)), this, SLOT(pressureChanged()));
+    connect(ui.pressure_unit, SIGNAL(activated(int)), this, SLOT(pressureChanged()));
+    connect(ui.mass, SIGNAL(valueChanged(double)), this, SLOT(massChanged()));
+    connect(ui.mass_unit, SIGNAL(activated(int)), this, SLOT(massChanged()));
+    connect(ui.moles, SIGNAL(valueChanged(double)), this, SLOT(molesChanged(double)));
+    connect(ui.molarMass, SIGNAL(valueChanged(double)), this, SLOT(molarMassChanged(double)));
+    connect(ui.a, SIGNAL(valueChanged(double)), this, SLOT(Vand_aChanged()));
+    connect(ui.b, SIGNAL(valueChanged(double)), this, SLOT(Vand_bChanged()));
+    connect(ui.b_unit, SIGNAL(activated(int)), this, SLOT(Vand_bChanged()));
+    connect(ui.mode, SIGNAL(activated(int)), this, SLOT(setMode(int)));
+    connect(ui.reset, &QAbstractButton::clicked, this, &gasCalculator::init);
 }
 
-gasCalculator:: ~gasCalculator()
-= default;
+gasCalculator::~gasCalculator() = default;
 
 void gasCalculator::init()
 {
     error(RESET_GAS_MESSAGE);
 
-    ui.molarMass ->setValue(2.008);
-    ui.temp      ->setValue(273.0);
-    ui.volume    ->setValue(22.400);
-    ui.pressure  ->setValue(1.0);
-    ui.a         ->setValue(0.0);
-    ui.b         ->setValue(0.0);
-    ui.mass      ->setValue(2.016);
-    ui.moles     ->setValue(1.0);
+    ui.molarMass->setValue(2.008);
+    ui.temp->setValue(273.0);
+    ui.volume->setValue(22.400);
+    ui.pressure->setValue(1.0);
+    ui.a->setValue(0.0);
+    ui.b->setValue(0.0);
+    ui.mass->setValue(2.016);
+    ui.moles->setValue(1.0);
 
     ui.mass_unit->setCurrentIndex(0);
     ui.pressure_unit->setCurrentIndex(0);
@@ -117,8 +101,7 @@ void gasCalculator::setupUnitComboboxes()
     KalziumUtils::populateUnitCombobox(ui.b_unit, units);
 }
 
-
-int gasCalculator::getCurrentUnitId(QComboBox* comboBox)
+int gasCalculator::getCurrentUnitId(QComboBox *comboBox)
 {
     return comboBox->itemData(comboBox->currentIndex()).toInt();
 }
@@ -144,8 +127,7 @@ void gasCalculator::calculateMolarMass()
     double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
     double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
-    m_molarMass = mass * R * temp / (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
-                  / (volume - m_moles * b);
+    m_molarMass = mass * R * temp / (pressure + m_moles * m_moles * m_Vand_a / volume / volume) / (volume - m_moles * b);
     ui.molarMass->setValue(m_molarMass);
 }
 
@@ -167,8 +149,7 @@ void gasCalculator::calculateTemp()
     double pressure = m_pressure.convertTo(KUnitConversion::Atmosphere).number();
     double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
-    double temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume))\
-                  * (volume - m_moles * b) / m_moles / R;
+    double temp = (pressure + (m_moles * m_moles * m_Vand_a / volume / volume)) * (volume - m_moles * b) / m_moles / R;
     m_temp = Value(temp, KUnitConversion::Kelvin);
     m_temp = m_temp.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.temp_unit)));
     ui.temp->setValue(m_temp.number());
@@ -181,8 +162,7 @@ void gasCalculator::calculateMoles()
     double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
     double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
-    m_moles = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
-              * (volume - m_moles * b) / R / temp;
+    m_moles = (pressure + m_moles * m_moles * m_Vand_a / volume / volume) * (volume - m_moles * b) / R / temp;
     ui.moles->setValue(m_moles);
 }
 
@@ -193,13 +173,11 @@ void gasCalculator::calculateMass()
     double temp = m_temp.convertTo(KUnitConversion::Kelvin).number();
     double b = m_Vand_b.convertTo(KUnitConversion::Liter).number();
 
-    double mass = (pressure + m_moles * m_moles * m_Vand_a / volume / volume)\
-                  * (volume - m_moles * b) * m_molarMass / R / temp;
+    double mass = (pressure + m_moles * m_moles * m_Vand_a / volume / volume) * (volume - m_moles * b) * m_molarMass / R / temp;
     m_mass = Value(mass, KUnitConversion::Gram);
     m_mass = m_mass.convertTo(KUnitConversion::UnitId(getCurrentUnitId(ui.mass_unit)));
     ui.mass->setValue(m_mass.number());
 }
-
 
 void gasCalculator::volChanged()
 {
@@ -316,7 +294,7 @@ void gasCalculator::error(int mode)
     case RESET_GAS_MESSAGE:
         ui.error->setText(QString());
         break;
-    case VOL_ZERO :
+    case VOL_ZERO:
         ui.error->setText(i18n("Volume cannot be zero, please enter a valid value."));
         break;
     case GAS_MOLAR_MASS_ZERO:

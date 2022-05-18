@@ -45,8 +45,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
     manager->load();
 
     // load render engines
-    QList<Avogadro::QtGui::ScenePluginFactory*> scenePluginFactories =
-        manager->pluginFactories<Avogadro::QtGui::ScenePluginFactory>();
+    QList<Avogadro::QtGui::ScenePluginFactory *> scenePluginFactories = manager->pluginFactories<Avogadro::QtGui::ScenePluginFactory>();
     foreach (auto *factory, scenePluginFactories) {
         auto *scenePlugin = factory->createInstance();
         // enable Ball-and-Sticks
@@ -61,8 +60,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
         qCritical() << "Updating non-empty toolset, erasing first.";
         qDeleteAll(tools());
     }
-    auto toolPluginFactories =
-        manager->pluginFactories<Avogadro::QtGui::ToolPluginFactory>();
+    auto toolPluginFactories = manager->pluginFactories<Avogadro::QtGui::ToolPluginFactory>();
     foreach (auto *factory, toolPluginFactories) {
         auto *tool = factory->createInstance();
         if (tool) {
@@ -80,7 +78,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
 
 KalziumGLWidget::~KalziumGLWidget()
 {
-    //restore the LC_NUMERIC locale.
+    // restore the LC_NUMERIC locale.
     setlocale(LC_NUMERIC, m_lc_numeric.constData());
 }
 
@@ -94,7 +92,7 @@ bool KalziumGLWidget::openFile(const QString &file)
     if (!mol) {
         return false;
     }
-    Avogadro::QtGui::Molecule* oldmol = molecule();
+    Avogadro::QtGui::Molecule *oldmol = molecule();
     if (oldmol) {
         oldmol->deleteLater();
     }

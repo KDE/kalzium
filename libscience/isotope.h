@@ -123,7 +123,6 @@ public:
      */
     double twoeclikeliness() const;
 
-
     /**
      * @return decay
      */
@@ -276,7 +275,7 @@ public:
     /**
      * @return decay likeliness
      */
-    double betaminusfourneutronlikeliness() const; 
+    double betaminusfourneutronlikeliness() const;
     /**
      * @return decay
      */
@@ -295,7 +294,7 @@ public:
      */
     double betaminusalphalikeliness() const;
 
-     /**
+    /**
      * @return decay
      */
     double betaminusalphaneutrondecay() const;
@@ -303,7 +302,6 @@ public:
      * @return decay likeliness
      */
     double betaminusalphaneutronlikeliness() const;
-
 
     /**
      * @return decay
@@ -322,8 +320,6 @@ public:
      * @return decay likeliness
      */
     double betaminusthreealphalikeliness() const;
-
-
 
     /**
      * @return decay
@@ -365,8 +361,6 @@ public:
      */
     double betaplustwoprotonlikeliness() const;
 
-
-
     /**
      * @return decay
      */
@@ -377,7 +371,7 @@ public:
      */
     double betaplusalphalikeliness() const;
 
-       /**
+    /**
      * @return decay
      */
     double betaplustwoalphadecay() const;
@@ -387,7 +381,7 @@ public:
      */
     double betaplustwoalphalikeliness() const;
 
-       /**
+    /**
      * @return decay
      */
     double betaplusthreealphadecay() const;
@@ -402,18 +396,15 @@ public:
      */
     double alphadecay() const;
 
-
     /**
      * @return decay
      */
     double alphalikeliness() const;
 
-
     /**
      * @return decay
      */
     double alphabetaminusdecay() const;
-
 
     /**
      * @return decay
@@ -425,7 +416,6 @@ public:
      */
     double spontfissiondecay() const;
 
-
     /**
      * @return decay
      */
@@ -435,20 +425,19 @@ public:
      * This enum stores the different kinds of decay
      */
     enum Decay {
-        ALPHA/**<alpha decay*/,
+        ALPHA /**<alpha decay*/,
         ALPHABETAMINUS,
-        BETAPLUS/**<beta plus decay*/,
-        BETAMINUS/**<beta minus decay*/,
-        EC/**ec decay*/,
-	NEUTRON/**neutron decay*/,
-	PROTON/**proton decay*/
+        BETAPLUS /**<beta plus decay*/,
+        BETAMINUS /**<beta minus decay*/,
+        EC /**ec decay*/,
+        NEUTRON /**neutron decay*/,
+        PROTON /**proton decay*/
     };
 
     /**
      * @return the nucleons of neutrons of the Isotope after the decay
      */
     Isotope::Nucleons nucleonsAfterDecay(Decay kind);
-
 
 private:
     /**
@@ -523,8 +512,6 @@ private:
     ChemicalDataObject m_ecalphaprotondecay;
     ChemicalDataObject m_spontfissiondecay;
 
-
-
     /**
      * stores the likeliness of a decay of the isotope
      */
@@ -561,7 +548,6 @@ private:
     ChemicalDataObject m_ecalphalikeliness;
     ChemicalDataObject m_ecalphaprotonlikeliness;
     ChemicalDataObject m_spontfissionlikeliness;
-
 
     int m_numberOfNucleons;
 };

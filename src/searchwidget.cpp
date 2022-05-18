@@ -16,7 +16,9 @@
 #include "kalziumdataobject.h"
 #include "search.h"
 
-SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(nullptr)
+SearchWidget::SearchWidget(QWidget *parent)
+    : QWidget(parent)
+    , m_timer(nullptr)
 {
     auto mainlay = new QHBoxLayout(this);
     mainlay->setContentsMargins(2, 2, 2, 2);
@@ -26,17 +28,15 @@ SearchWidget::SearchWidget(QWidget *parent) : QWidget(parent), m_timer(nullptr)
     m_searchLine->setClearButtonEnabled(true);
     m_searchLine->setPlaceholderText(i18n("Search..."));
     m_searchLine->setTrapReturnKey(true);
-    connect(m_searchLine, &QLineEdit::textChanged,
-             this, &SearchWidget::searchTextChanged);
-    connect(m_searchLine, SIGNAL(returnPressed()),
-             this, SLOT(slotReturnPressed()));
+    connect(m_searchLine, &QLineEdit::textChanged, this, &SearchWidget::searchTextChanged);
+    connect(m_searchLine, SIGNAL(returnPressed()), this, SLOT(slotReturnPressed()));
     mainlay->addWidget(m_searchLine);
 }
 
 SearchWidget::~SearchWidget()
 {
-  delete m_searchLine;
-  delete m_timer;
+    delete m_searchLine;
+    delete m_timer;
 }
 
 void SearchWidget::giveFocus()
@@ -45,7 +45,7 @@ void SearchWidget::giveFocus()
     m_searchLine->setCursorPosition(m_searchLine->text().length());
 }
 
-void SearchWidget::searchTextChanged(const QString&)
+void SearchWidget::searchTextChanged(const QString &)
 {
     if (m_timer) {
         m_timer->stop();

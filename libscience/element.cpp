@@ -10,8 +10,7 @@
 
 #include <KUnitConversion/Converter>
 
-Element::Element()
-= default;
+Element::Element() = default;
 
 QVariant Element::dataAsVariant(ChemicalDataObject::BlueObelisk type) const
 {
@@ -60,15 +59,14 @@ QString Element::dataAsStringWithUnit(ChemicalDataObject::BlueObelisk type, int 
     return valueAndUnit;
 }
 
-Element::~Element()
-= default;
+Element::~Element() = default;
 
-void Element::addData(const ChemicalDataObject& o)
+void Element::addData(const ChemicalDataObject &o)
 {
     dataList.append(o);
 }
 
-void Element::addData(const QVariant& value, ChemicalDataObject::BlueObelisk type)
+void Element::addData(const QVariant &value, ChemicalDataObject::BlueObelisk type)
 {
     ChemicalDataObject tmp(value, type);
     dataList.append(tmp);

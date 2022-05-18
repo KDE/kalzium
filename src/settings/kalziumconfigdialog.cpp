@@ -1,10 +1,11 @@
 #include "kalziumconfigdialog.h"
 
+#include "ui_settings_calc.h"
 #include "ui_settings_colors.h"
 #include "ui_settings_gradients.h"
-#include "ui_settings_calc.h"
 
-KalziumConfigDialog::KalziumConfigDialog(QWidget *parent, const QString &name, KCoreConfigSkeleton *config) : KConfigDialog(parent, name, config)
+KalziumConfigDialog::KalziumConfigDialog(QWidget *parent, const QString &name, KCoreConfigSkeleton *config)
+    : KConfigDialog(parent, name, config)
 {
     // colors page
     Ui_setupColors ui_colors;

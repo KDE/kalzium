@@ -5,24 +5,27 @@
 #ifndef ISOTOPETABLESETTINGSCARD_H
 #define ISOTOPETABLESETTINGSCARD_H
 
+#include "isotopeview.h"
 #include <QFrame>
 #include <QRadioButton>
-#include "isotopeview.h"
 
 class IsotopeTableSettingsCard : public QFrame
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit IsotopeTableSettingsCard(QWidget *parent = nullptr);
     IsotopeTableSettingsCard(QWidget *parent, int mode);
-    QString text() const {
+    QString text() const
+    {
         return m_radioButton->text();
     }
-    int mode() const {
+    int mode() const
+    {
         return m_isotopeView->mode();
     }
-    bool isChecked() const {
+    bool isChecked() const
+    {
         return m_radioButton->isChecked();
     }
 
@@ -34,19 +37,24 @@ private:
     QRadioButton *m_radioButton;
 
 public Q_SLOTS:
-    void setText(QString text) {
+    void setText(QString text)
+    {
         m_radioButton->setText(text);
     }
-    void setMode(int mode) {
+    void setMode(int mode)
+    {
         m_isotopeView->setMode(mode);
     }
-    void setZoom(qreal zoom) {
+    void setZoom(qreal zoom)
+    {
         m_isotopeView->setZoom(zoom);
     }
-    void setChecked(bool checked) {
+    void setChecked(bool checked)
+    {
         m_radioButton->setChecked(checked);
     }
-    void setRadioButtonObjectName(QString name) {
+    void setRadioButtonObjectName(QString name)
+    {
         m_radioButton->setObjectName(name);
     }
 
@@ -55,7 +63,6 @@ Q_SIGNALS:
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
-
 };
 
 #endif // ISOTOPETABLESETTINGSCARD_H

@@ -32,7 +32,7 @@ class titrationCalculator : public QWidget
     Q_OBJECT
 
 public:
-    explicit titrationCalculator(QWidget * parent = nullptr);
+    explicit titrationCalculator(QWidget *parent = nullptr);
     ~titrationCalculator() override;
 
 public Q_SLOTS:
@@ -68,7 +68,7 @@ private:
     QString greenplot;
     QString blueplot;
 
-    Ui::titrationCalculator uid;               // The user interface
+    Ui::titrationCalculator uid; // The user interface
 };
 
 #endif // TITRATIONCALCULATOR_H

@@ -12,7 +12,8 @@
 #include <element.h>
 #include <isotope.h>
 
-IsotopeScene::IsotopeScene(QObject *parent, int mode) : QGraphicsScene(parent)
+IsotopeScene::IsotopeScene(QObject *parent, int mode)
+    : QGraphicsScene(parent)
 {
     m_mode = mode;
     m_isotopeGroup = new QGraphicsItemGroup();
@@ -28,8 +29,7 @@ IsotopeScene::~IsotopeScene()
     delete m_isotopeGroup;
 }
 
-
-void IsotopeScene::updateContextHelp(IsotopeItem * item)
+void IsotopeScene::updateContextHelp(IsotopeItem *item)
 {
     Q_EMIT itemSelected(item);
 }
@@ -41,12 +41,12 @@ void IsotopeScene::drawIsotopes()
         delete item;
     }
 
-    const QList<Element*> elist = KalziumDataObject::instance()->ElementList;
+    const QList<Element *> elist = KalziumDataObject::instance()->ElementList;
 
     for (Element *e : elist) {
         int elementNumber = e->dataAsVariant(ChemicalDataObject::atomicNumber).toInt();
 
-        const QList<Isotope*> ilist = KalziumDataObject::instance()->isotopes(elementNumber);
+        const QList<Isotope *> ilist = KalziumDataObject::instance()->isotopes(elementNumber);
         for (Isotope *i : ilist) {
             int x = elementNumber * m_itemSize;
             int y = (300 - i->nucleons()) * m_itemSize;
@@ -70,14 +70,14 @@ void IsotopeScene::drawIsotopes()
                 x = (i->nucleons() - elementNumber) * m_itemSize;
             }
 
-            auto item = new IsotopeItem(i, x, y, m_itemSize,m_itemSize);
+            auto item = new IsotopeItem(i, x, y, m_itemSize, m_itemSize);
             m_isotopeGroup->addToGroup(item);
         }
     }
 }
 
-void IsotopeScene::setMode(int mode) {
+void IsotopeScene::setMode(int mode)
+{
     m_mode = mode;
     drawIsotopes();
 }
-

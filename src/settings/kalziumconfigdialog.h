@@ -3,12 +3,12 @@
 
 #include <KConfigDialog>
 
-#include "unitsettingsdialog.h"
 #include "isotopetablesettingsdialog.h"
+#include "unitsettingsdialog.h"
 
 class KalziumConfigDialog : public KConfigDialog
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     KalziumConfigDialog(QWidget *parent, const QString &name, KCoreConfigSkeleton *config);
@@ -20,8 +20,8 @@ private:
     bool hasChanged() override;
     bool isDefault() override;
 
-private Q_SLOT:
-    void updateWidgetsDefault() override;
+private
+    Q_SLOT : void updateWidgetsDefault() override;
     void updateSettings() override;
 };
 

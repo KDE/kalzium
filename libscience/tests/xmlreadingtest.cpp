@@ -4,9 +4,9 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "elementparser.h"
-#include "element.h"
 #include "chemicaldataobject.h"
+#include "element.h"
+#include "elementparser.h"
 #include <QDebug>
 #include <iostream>
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    auto  parser = new ElementSaxParser();
+    auto parser = new ElementSaxParser();
     QFile xmlFile(argv[1]);
 
     QXmlInputSource source(&xmlFile);
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     reader.setContentHandler(parser);
     reader.parse(source);
 
-    const QList<Element*> v = parser->getElements();
+    const QList<Element *> v = parser->getElements();
 
     std::cout << "Found " << v.count() << " elements." << std::endl;
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         if (e) {
             const QList<ChemicalDataObject> list = e->data();
 
-            //Test: give me all data available
+            // Test: give me all data available
             for (const ChemicalDataObject &o : list) {
                 QString unit = o.unitAsString();
                 if (unit == QLatin1String("bo:noUnit")) {

@@ -24,7 +24,7 @@ class IsotopeTableDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit IsotopeTableDialog(QWidget* parent = nullptr);
+    explicit IsotopeTableDialog(QWidget *parent = nullptr);
 
 private:
     Ui::isotopeWidget ui;
@@ -37,7 +37,6 @@ private Q_SLOTS:
     void updateDockWidget(IsotopeItem *);
     void zoom(int);
     void slotZoomLevelChanged(double);
-
 };
 
 #endif // ISOTOPETABLEDIALOG_H

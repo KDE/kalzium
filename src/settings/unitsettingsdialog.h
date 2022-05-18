@@ -7,13 +7,13 @@
 #ifndef UNITSETTINGSDIALOG_H
 #define UNITSETTINGSDIALOG_H
 
-#include <QWidget>
 #include "kalziumunitcombobox.h"
+#include <QWidget>
 
-class UnitSettingsDialog: public QWidget
+class UnitSettingsDialog : public QWidget
 {
 public:
-    explicit UnitSettingsDialog(QWidget* parent = nullptr);
+    explicit UnitSettingsDialog(QWidget *parent = nullptr);
     ~UnitSettingsDialog() override;
 
     int getLenghtUnitId() const;
@@ -26,7 +26,6 @@ private:
     KalziumUnitCombobox *m_comboBoxLengthUnit = nullptr;
     KalziumUnitCombobox *m_comboBoxLEnergiesUnit = nullptr;
     KalziumUnitCombobox *m_comboBoxLTemperatureUnit = nullptr;
-
 };
 
 #endif // UNITSETTINGSDIALOG_H

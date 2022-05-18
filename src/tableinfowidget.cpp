@@ -11,15 +11,16 @@
 
 #include <KLocalizedString>
 
-#include "prefs.h"
 #include "kalziumschemetype.h"
+#include "prefs.h"
 #include "psetables.h"
 
-TableInfoWidget::TableInfoWidget(QWidget *parent) : QWidget(parent)
+TableInfoWidget::TableInfoWidget(QWidget *parent)
+    : QWidget(parent)
 {
     m_tableType = new QLabel(QStringLiteral("test"), this);
 
-    auto  la = new QHBoxLayout(this);
+    auto la = new QHBoxLayout(this);
     la->addWidget(m_tableType);
 }
 
@@ -27,5 +28,3 @@ void TableInfoWidget::setTableType(int type)
 {
     m_tableType->setText(pseTables::instance()->getTabletype(type)->description());
 }
-
-

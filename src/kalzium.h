@@ -6,14 +6,14 @@
 #ifndef KALZIUM_H
 #define KALZIUM_H
 
-#include <kxmlguiwindow.h>
-#include "periodictableview.h"
-#include "settings/kalziumconfigdialog.h"
-#include "isotopetabledialog.h"
-#include "elementdataviewer.h"
-#include "tablesdialog.h"
-#include "rsdialog.h"
 #include "calculator/calculator.h"
+#include "elementdataviewer.h"
+#include "isotopetabledialog.h"
+#include "periodictableview.h"
+#include "rsdialog.h"
+#include "settings/kalziumconfigdialog.h"
+#include "tablesdialog.h"
+#include <kxmlguiwindow.h>
 
 class KAction;
 class KSelectAction;

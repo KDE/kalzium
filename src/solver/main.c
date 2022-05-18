@@ -7,12 +7,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
     caml_startup(argv);
 
     char *eq = " a CH3(CH2)3COOH + b O2 -> c H2O + d CO2";
-    char *eq2= " a CH3(CH2)3COOH + b O2 -> c H2O + d CO";
+    char *eq2 = " a CH3(CH2)3COOH + b O2 -> c H2O + d CO";
     char *result = solve_equation(eq);
     char *result2 = solve_equation(eq2);
 

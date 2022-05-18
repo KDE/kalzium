@@ -19,10 +19,11 @@
 #include <KLocalizedString>
 #include <KStandardAction>
 
-calculator::calculator(QWidget *parent) : QDialog(parent)
+calculator::calculator(QWidget *parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Chemical Calculator"));
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Close, this);
     auto mainWidget = new QWidget(this);
     auto mainLayout = new QVBoxLayout(this);
     setLayout(mainLayout);
@@ -68,11 +69,10 @@ calculator::calculator(QWidget *parent) : QDialog(parent)
     ui.stack->addWidget(m_equationBalancer);
 #endif
     // Add an image to the file
-    ui.pic->setPixmap((QIcon::fromTheme(QStringLiteral("calculate"))).pixmap(128,128));
+    ui.pic->setPixmap((QIcon::fromTheme(QStringLiteral("calculate"))).pixmap(128, 128));
 
     // Connect the tree item selection signal to the corresponding slot
-    connect(ui.tree, &QTreeWidget::itemClicked, this,
-            &calculator::slotItemSelection);
+    connect(ui.tree, &QTreeWidget::itemClicked, this, &calculator::slotItemSelection);
 
     ui.tree->setCurrentItem(ui.tree->topLevelItem(0), 0, QItemSelectionModel::ToggleCurrent);
 
@@ -80,8 +80,7 @@ calculator::calculator(QWidget *parent) : QDialog(parent)
     connect(buttonBox->button(QDialogButtonBox::Help), &QPushButton::clicked, this, &calculator::slotHelp);
 }
 
-calculator :: ~calculator()
-= default;
+calculator ::~calculator() = default;
 
 void calculator::slotItemSelection(QTreeWidgetItem *item)
 {
@@ -89,7 +88,7 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
         return;
     }
 
-    //DEBUG
+    // DEBUG
     qCDebug(KALZIUM_LOG) << "Item clicked: " << item->text(0);
 
     QString s = item->text(0);
@@ -106,10 +105,10 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
         // if the concentration calculator is selected, show the widget in the UI
         ui.stack->setCurrentWidget(m_concCalculator);
 
-    // The equation balancer needs FACILE library, if it's present HAVE_FACILE = 1
+        // The equation balancer needs FACILE library, if it's present HAVE_FACILE = 1
 #ifdef HAVE_FACILE
     } else if (!(s.compare(i18n("Equation Balancer")))) {
-    // If the equation balancer was selected, open it in the UI.
+        // If the equation balancer was selected, open it in the UI.
         ui.stack->setCurrentWidget(m_equationBalancer);
 #endif
 
@@ -119,7 +118,6 @@ void calculator::slotItemSelection(QTreeWidgetItem *item)
         ui.stack->setCurrentWidget(m_titraCalculator);
     }
 }
-
 
 void calculator::slotHelp()
 {

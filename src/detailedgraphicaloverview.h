@@ -6,8 +6,8 @@
 #ifndef DETAILEDGRAPHICALOVERVIEW_H
 #define DETAILEDGRAPHICALOVERVIEW_H
 
-#include <QWidget>
 #include "kalziumelementproperty.h"
+#include <QWidget>
 
 class Element;
 
@@ -53,7 +53,7 @@ private:
     QBrush m_backgroundBrush;
 
 protected:
-    void paintEvent(QPaintEvent*) override;
+    void paintEvent(QPaintEvent *) override;
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H

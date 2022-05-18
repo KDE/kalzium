@@ -30,7 +30,6 @@ double Spectrum::minPeak(const int unit)
     return KUnitConversion::Value(minPeak(), KUnitConversion::Angstrom).convertTo(KUnitConversion::UnitId(unit)).number();
 }
 
-
 double Spectrum::maxPeak()
 {
     double value = m_peaklist.first()->wavelength;
@@ -49,8 +48,7 @@ double Spectrum::maxPeak(const int unit)
     return KUnitConversion::Value(maxPeak(), KUnitConversion::Angstrom).convertTo(KUnitConversion::UnitId(unit)).number();
 }
 
-
-Spectrum* Spectrum::adjustToWavelength(double min, double max)
+Spectrum *Spectrum::adjustToWavelength(double min, double max)
 {
     auto spec = new Spectrum();
 
@@ -66,19 +64,19 @@ Spectrum* Spectrum::adjustToWavelength(double min, double max)
 void Spectrum::adjustIntensities()
 {
     int maxInt = 0;
-    //find the highest intensity
+    // find the highest intensity
     for (peak *p : std::as_const(m_peaklist)) {
         if (p->intensity > maxInt) {
             maxInt = p->intensity;
         }
     }
 
-    //check if an adjustment is needed or not
+    // check if an adjustment is needed or not
     if (maxInt == 1000) {
         return;
     }
 
-    //now adjust the intensities.
+    // now adjust the intensities.
     for (peak *p : std::as_const(m_peaklist)) {
         double newInt = p->intensity * 1000 / maxInt;
 
@@ -101,7 +99,7 @@ QList<double> Spectrum::wavelengths(double min, double max)
 
 int Spectrum::parentElementNumber() const
 {
-    return  m_parentElementNumber;
+    return m_parentElementNumber;
 }
 
 Spectrum::~Spectrum()
@@ -111,7 +109,7 @@ Spectrum::~Spectrum()
 
 Spectrum::Spectrum()
 {
-    //FIXME this shouldn't be hardcoded
+    // FIXME this shouldn't be hardcoded
     m_parentElementNumber = 16;
 }
 

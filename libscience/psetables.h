@@ -60,17 +60,17 @@ public:
     ~pseTables();
 
     /**
-    * Returns the KalziumTableType with the @p id specified.
-    * It will gives 0 if none found.
-    */
-    pseTable* getTabletype(const int tableType);
+     * Returns the KalziumTableType with the @p id specified.
+     * It will gives 0 if none found.
+     */
+    pseTable *getTabletype(const int tableType);
 
     /**
-    * Returns the KalziumTableType whose name is the @p id
-    * specified.
-    * It will gives 0 if none found.
-    */
-    pseTable* getTabletype(const QString &tableType);
+     * Returns the KalziumTableType whose name is the @p id
+     * specified.
+     * It will gives 0 if none found.
+     */
+    pseTable *getTabletype(const QString &tableType);
 
     /**
      * Returns a list with the names of the table types we support.
@@ -79,10 +79,9 @@ public:
 
 private:
     pseTables();
-    QList<pseTable*> m_tables;
-    //int m_currentTable;
+    QList<pseTable *> m_tables;
+    // int m_currentTable;
 };
-
 
 /**
  * defines a Periodic Table.
@@ -152,11 +151,11 @@ public:
      */
     virtual QPoint tableSize() const;
 
-     /**
+    /**
      * Returns the Numeration for the current Table according to the position in the Table.
      * Coordinates beginning with 0. Returns -1 if none is found.
      */
-     virtual int numerationAtPos(int xPos) const;
+    virtual int numerationAtPos(int xPos) const;
 
 protected:
     pseTable();
@@ -169,8 +168,6 @@ protected:
     QList<int> m_xCoordsNumeration;
     QList<int> m_elementList;
 };
-
-
 
 class pseRegularTable : public pseTable
 {

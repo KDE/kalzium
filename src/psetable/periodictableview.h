@@ -30,7 +30,7 @@
  * @author Marcus D. Hanwell
  * @author Etienne Rebetez
  *
-*/
+ */
 
 class PeriodicTableView : public QGraphicsView
 {
@@ -54,8 +54,7 @@ public:
      * Generates and saves the pse as svg in the given filename.
      * @param filename filename of the destination.
      */
-    void generateSvg(const QString& filename);
-
+    void generateSvg(const QString &filename);
 
 Q_SIGNALS:
     /**
@@ -94,8 +93,8 @@ public Q_SLOTS:
     void slotUnSelectElements();
 
 private:
-    QList<ElementItem *>  createElementItems() const;
-    QList<NumerationItem *>  createNumerationItems() const;
+    QList<ElementItem *> createElementItems() const;
+    QList<NumerationItem *> createNumerationItems() const;
 
     void setBiggerSceneRect();
 
@@ -116,7 +115,7 @@ protected:
     /**
      * is called every time the view is resized.
      */
-    void resizeEvent(QResizeEvent * event) override;
+    void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // PERIODICTABLEVIEW_H

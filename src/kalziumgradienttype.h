@@ -20,7 +20,6 @@ class KalziumGradientType;
 class KalziumGradientTypeFactory
 {
 public:
-
     enum KalziumGradientTypes {
         SOMGradientType = 0,
         CovalentRadiusGradientType,
@@ -36,32 +35,31 @@ public:
     /**
      * Get the instance of this factory.
      */
-    static KalziumGradientTypeFactory* instance();
+    static KalziumGradientTypeFactory *instance();
 
     /**
      * Returns the KalziumGradientType with the @p id specified.
      * It will gives 0 if none found.
      */
-    KalziumGradientType* build(int id) const;
+    KalziumGradientType *build(int id) const;
     /**
      * Returns the KalziumGradientType whose name is the @p id
      * specified.
      * It will gives 0 if none found.
      */
-    KalziumGradientType* build(const QByteArray& id) const;
+    KalziumGradientType *build(const QByteArray &id) const;
 
     /**
      * Returns a list with the names of the gradients we support.
      */
     QStringList gradients() const;
 
-
     void setCurrentGradient(int newGradient);
 
 private:
     KalziumGradientTypeFactory();
 
-    QList<KalziumGradientType*> m_gradients;
+    QList<KalziumGradientType *> m_gradients;
 };
 
 /**
@@ -76,7 +74,7 @@ public:
     /**
      * Get its instance.
      */
-    static KalziumGradientType* instance();
+    static KalziumGradientType *instance();
 
     virtual ~KalziumGradientType();
 
@@ -161,7 +159,7 @@ protected:
 class KalziumCovalentRadiusGradientType : public KalziumGradientType
 {
 public:
-    static KalziumCovalentRadiusGradientType* instance();
+    static KalziumCovalentRadiusGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -187,7 +185,7 @@ private:
 class KalziumVanDerWaalsRadiusGradientType : public KalziumGradientType
 {
 public:
-    static KalziumVanDerWaalsRadiusGradientType* instance();
+    static KalziumVanDerWaalsRadiusGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -213,7 +211,7 @@ private:
 class KalziumMassGradientType : public KalziumGradientType
 {
 public:
-    static KalziumMassGradientType* instance();
+    static KalziumMassGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -239,7 +237,7 @@ private:
 class KalziumBoilingPointGradientType : public KalziumGradientType
 {
 public:
-    static KalziumBoilingPointGradientType* instance();
+    static KalziumBoilingPointGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -265,7 +263,7 @@ private:
 class KalziumMeltingPointGradientType : public KalziumGradientType
 {
 public:
-    static KalziumMeltingPointGradientType* instance();
+    static KalziumMeltingPointGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -283,7 +281,6 @@ private:
     KalziumMeltingPointGradientType();
 };
 
-
 /**
  * The gradient for SOM Widget
  *
@@ -292,7 +289,7 @@ private:
 class KalziumSOMGradientType : public KalziumGradientType
 {
 public:
-    static KalziumSOMGradientType* instance();
+    static KalziumSOMGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -318,7 +315,7 @@ private:
 class KalziumElectronegativityGradientType : public KalziumGradientType
 {
 public:
-    static KalziumElectronegativityGradientType* instance();
+    static KalziumElectronegativityGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -344,7 +341,7 @@ private:
 class KalziumDiscoverydateGradientType : public KalziumGradientType
 {
 public:
-    static KalziumDiscoverydateGradientType* instance();
+    static KalziumDiscoverydateGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -370,7 +367,7 @@ private:
 class KalziumElectronaffinityGradientType : public KalziumGradientType
 {
 public:
-    static KalziumElectronaffinityGradientType* instance();
+    static KalziumElectronaffinityGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -396,7 +393,7 @@ private:
 class KalziumIonizationGradientType : public KalziumGradientType
 {
 public:
-    static KalziumIonizationGradientType* instance();
+    static KalziumIonizationGradientType *instance();
 
     QByteArray name() const override;
     QString description() const override;

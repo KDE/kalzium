@@ -33,20 +33,23 @@ public:
     IsotopeItem(Isotope *isotope, qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr);
 
     /**
-      * @return the Isotope the item represents
-      */
-    Isotope* isotope() const{
+     * @return the Isotope the item represents
+     */
+    Isotope *isotope() const
+    {
         return m_isotope;
     }
 
-    QRectF boundingRect() const override {
+    QRectF boundingRect() const override
+    {
         return m_rect;
     }
 
     /**
      * @return the Type of the item
      */
-    int type() const override {
+    int type() const override
+    {
         return Type;
     }
 
@@ -54,7 +57,7 @@ public:
 
 private:
     IsotopeType m_type;
-    Isotope* m_isotope;
+    Isotope *m_isotope;
     QRectF m_rect;
     QFont m_symbolFont;
     QFont m_otherFont;

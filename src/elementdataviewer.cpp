@@ -9,7 +9,7 @@
 
 #include "prefs.h"
 
-//Qt-Includes
+// Qt-Includes
 #include "kalzium_debug.h"
 #include <QDialogButtonBox>
 #include <QKeyEvent>
@@ -27,7 +27,8 @@
 #include <KStandardAction>
 #include <KUnitConversion/Converter>
 
-AxisData::AxisData(AXISTYPE type) : currentDataType(-1)
+AxisData::AxisData(AXISTYPE type)
+    : currentDataType(-1)
 {
     m_type = type;
 }
@@ -41,14 +42,13 @@ double AxisData::value(int element) const
     return dataList[element - 1];
 }
 
-
 ElementDataViewer::ElementDataViewer(QWidget *parent)
-        : QDialog(parent),
-        m_yData(new AxisData(AxisData::Y)),
-        m_xData(new AxisData(AxisData::X))
+    : QDialog(parent)
+    , m_yData(new AxisData(AxisData::Y))
+    , m_xData(new AxisData(AxisData::X))
 {
     setWindowTitle(i18nc("@title:window", "Plot Data"));
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Help|QDialogButtonBox::Close);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Close);
     auto mainWidget = new QWidget(this);
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
@@ -57,7 +57,7 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
     mainLayout->addWidget(buttonBox);
     buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
-    KalziumDataObject *kdo  = KalziumDataObject::instance();
+    KalziumDataObject *kdo = KalziumDataObject::instance();
 
     ui.setupUi(mainWidget);
 
@@ -68,33 +68,23 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
     foreach (Element *e, kdo->ElementList) {
         names << e->dataAsString(ChemicalDataObject::name);
         symbols << e->dataAsString(ChemicalDataObject::symbol);
-        elecConfig<< e->dataAsString(ChemicalDataObject::electronicConfiguration);
+        elecConfig << e->dataAsString(ChemicalDataObject::electronicConfiguration);
         block << e->dataAsString(ChemicalDataObject::periodTableBlock);
     }
 
-    m_actionCollection = new KActionCollection (this);
+    m_actionCollection = new KActionCollection(this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
-    connect(m_timer, &QTimer::timeout,
-            this, &ElementDataViewer::drawPlot);
-    connect(ui.KCB_y, QOverload<int>::of(&KComboBox::activated),
-            this, &ElementDataViewer::rangeChanged);
-    connect(ui.KCB_x, QOverload<int>::of(&KComboBox::activated),
-            this, &ElementDataViewer::rangeChanged);
-    connect(ui.comboElementLabels, QOverload<int>::of(&KComboBox::activated),
-            this, &ElementDataViewer::rangeChanged);
-    connect(ui.comboElementType, QOverload<int>::of(&KComboBox::activated),
-            this, &ElementDataViewer::rangeChanged);
-    connect(ui.from, QOverload<int>::of(&QSpinBox::valueChanged),
-            this, &ElementDataViewer::rangeChanged);
-    connect(ui.to, QOverload<int>::of(&QSpinBox::valueChanged),
-            this, &ElementDataViewer::rangeChanged);
-    connect(buttonBox->button(QDialogButtonBox::Help), &QPushButton::clicked,
-            this, &ElementDataViewer::slotHelp);
-    connect(ui.full, &QPushButton::clicked,
-            this, &ElementDataViewer::fullRange);
-    connect(ui.swapXYAxis, &QPushButton::clicked,
-            this, &ElementDataViewer::swapXYAxis);
+    connect(m_timer, &QTimer::timeout, this, &ElementDataViewer::drawPlot);
+    connect(ui.KCB_y, QOverload<int>::of(&KComboBox::activated), this, &ElementDataViewer::rangeChanged);
+    connect(ui.KCB_x, QOverload<int>::of(&KComboBox::activated), this, &ElementDataViewer::rangeChanged);
+    connect(ui.comboElementLabels, QOverload<int>::of(&KComboBox::activated), this, &ElementDataViewer::rangeChanged);
+    connect(ui.comboElementType, QOverload<int>::of(&KComboBox::activated), this, &ElementDataViewer::rangeChanged);
+    connect(ui.from, QOverload<int>::of(&QSpinBox::valueChanged), this, &ElementDataViewer::rangeChanged);
+    connect(ui.to, QOverload<int>::of(&QSpinBox::valueChanged), this, &ElementDataViewer::rangeChanged);
+    connect(buttonBox->button(QDialogButtonBox::Help), &QPushButton::clicked, this, &ElementDataViewer::slotHelp);
+    connect(ui.full, &QPushButton::clicked, this, &ElementDataViewer::fullRange);
+    connect(ui.swapXYAxis, &QPushButton::clicked, this, &ElementDataViewer::swapXYAxis);
     drawPlot();
 
     resize(650, 500);
@@ -123,18 +113,18 @@ void ElementDataViewer::rangeChanged()
 
 void ElementDataViewer::fullRange()
 {
-    ui.from ->setValue(1);
-    ui.to   ->setValue(116);
+    ui.from->setValue(1);
+    ui.to->setValue(116);
 }
 
 void ElementDataViewer::swapXYAxis()
 {
     int x = ui.KCB_x->currentIndex();
     int y = ui.KCB_y->currentIndex();
-    
+
     ui.KCB_x->setCurrentIndex(y);
     ui.KCB_y->setCurrentIndex(x);
-    
+
     rangeChanged();
 }
 
@@ -147,39 +137,39 @@ void ElementDataViewer::setLimits()
     getMinMax(x1, x2, m_xData);
     getMinMax(y1, y2, m_yData);
 
-    qCDebug(KALZIUM_LOG) << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2;
+    qCDebug(KALZIUM_LOG) << x1 << " :: " << x2 << " ----- " << y1 << " :: " << y2;
 
-    //JH: add some padding to show all points
-    double dx = 0.05*(x2-x1);
-    double dy = 0.05*(y2-y1);
+    // JH: add some padding to show all points
+    double dx = 0.05 * (x2 - x1);
+    double dy = 0.05 * (y2 - y1);
     x1 -= dx;
     x2 += dx;
     y1 -= dy;
     y2 += dy;
 
-//X     // try to put a small padding to make the points on the axis visible
-//X     double dx = (to - from + 1) / 25 + 1.0;
-//X     double dy = (maxY - minY) / 10.0;
-//X     // in case that dy is quite small (for example, when plotting a single
-//X     // point)
-//X     if (dy < 1e-7)
-//X         dy = maxY / 10.0;
-//X     ui.plotwidget->setLimits(from - dx, to + dx, minY - dy, maxY + dy);
+    // X     // try to put a small padding to make the points on the axis visible
+    // X     double dx = (to - from + 1) / 25 + 1.0;
+    // X     double dy = (maxY - minY) / 10.0;
+    // X     // in case that dy is quite small (for example, when plotting a single
+    // X     // point)
+    // X     if (dy < 1e-7)
+    // X         dy = maxY / 10.0;
+    // X     ui.plotwidget->setLimits(from - dx, to + dx, minY - dy, maxY + dy);
 
     ui.plotwidget->setLimits(x1, x2, y1, y2);
 }
 
-void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
+void ElementDataViewer::getMinMax(double &min, double &max, AxisData *data)
 {
     int firstElement = ui.from->value();
-    int lastElement  = ui.to->value();
+    int lastElement = ui.to->value();
 
     double minValue = data->value(firstElement);
     double maxValue = data->value(firstElement);
 
     qCDebug(KALZIUM_LOG) << "Taking elements from " << firstElement << " to " << lastElement;
 
-    for (int _currentVal = firstElement; _currentVal <= lastElement; ++_currentVal) { //go over all selected elements
+    for (int _currentVal = firstElement; _currentVal <= lastElement; ++_currentVal) { // go over all selected elements
         double v = data->value(_currentVal);
 
         if (minValue > v) {
@@ -190,7 +180,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
         }
     }
 
-    qCDebug(KALZIUM_LOG) << "The value are ]"<< minValue << " , " << maxValue << "[.";
+    qCDebug(KALZIUM_LOG) << "The value are ]" << minValue << " , " << maxValue << "[.";
 
     min = minValue;
     max = maxValue;
@@ -213,8 +203,12 @@ void ElementDataViewer::keyPressEvent(QKeyEvent *e)
     }
 }
 
-void ElementDataViewer::slotZoomIn() {}
-void ElementDataViewer::slotZoomOut() {}
+void ElementDataViewer::slotZoomIn()
+{
+}
+void ElementDataViewer::slotZoomOut()
+{
+}
 
 void ElementDataViewer::setupAxisData(AxisData *data)
 {
@@ -233,47 +227,40 @@ void ElementDataViewer::setupAxisData(AxisData *data)
     int unit = KUnitConversion::NoUnit;
 
     switch (selectedData) {
-    case AxisData::NUMBER:
-    {
+    case AxisData::NUMBER: {
         kind = ChemicalDataObject::atomicNumber;
         caption = i18n("Atomic Number");
         break;
     }
-    case AxisData::MASS:
-    {
+    case AxisData::MASS: {
         kind = ChemicalDataObject::mass;
         caption = i18n("Atomic Mass");
         break;
     }
-    case AxisData::EN:
-    {
+    case AxisData::EN: {
         kind = ChemicalDataObject::electronegativityPauling;
         caption = i18n("Electronegativity");
         break;
     }
-    case AxisData::MELTINGPOINT:
-    {
+    case AxisData::MELTINGPOINT: {
         kind = ChemicalDataObject::meltingpoint;
         caption = i18n("Melting Point");
         unit = Prefs::temperatureUnit();
         break;
     }
-    case AxisData::BOILINGPOINT:
-    {
+    case AxisData::BOILINGPOINT: {
         kind = ChemicalDataObject::boilingpoint;
         caption = i18n("Boiling Point");
         unit = Prefs::temperatureUnit();
         break;
     }
-    case AxisData::ATOMICRADIUS:
-    {
+    case AxisData::ATOMICRADIUS: {
         kind = ChemicalDataObject::radiusVDW;
         caption = i18n("Atomic Radius");
         unit = Prefs::lengthUnit();
         break;
     }
-    case AxisData::COVALENTRADIUS:
-    {
+    case AxisData::COVALENTRADIUS: {
         kind = ChemicalDataObject::radiusCovalent;
         caption = i18n("Covalent Radius");
         unit = Prefs::lengthUnit();
@@ -283,7 +270,7 @@ void ElementDataViewer::setupAxisData(AxisData *data)
     KalziumDataObject *kdo = KalziumDataObject::instance();
 
     DoubleList dblDataList;
-    foreach (Element * element, kdo->ElementList) {
+    foreach (Element *element, kdo->ElementList) {
         dblDataList << element->dataAsVariant(kind, unit).toDouble();
     }
 
@@ -292,7 +279,7 @@ void ElementDataViewer::setupAxisData(AxisData *data)
     data->kind = kind;
 
     if (unit != KUnitConversion::NoUnit) {
-        QString stringUnit =  KalziumDataObject::instance()->unitAsString(unit);
+        QString stringUnit = KalziumDataObject::instance()->unitAsString(unit);
         data->unit = QString(' ' + stringUnit);
 
         caption.append(" [");
@@ -344,13 +331,13 @@ void ElementDataViewer::drawPlot()
     QSet<int> metals, metalloids, nonMetals;
 
     metals << 3 << 4 << 11 << 12 << 13;
-    for (int i = 19; i <= 31;  ++i) {
+    for (int i = 19; i <= 31; ++i) {
         metals << i;
     }
-    for (int i = 37; i <= 50;  ++i) {
+    for (int i = 37; i <= 50; ++i) {
         metals << i;
     }
-    for (int i = 55; i <= 83;  ++i) {
+    for (int i = 55; i <= 83; ++i) {
         metals << i;
     }
     for (int i = 87; i <= 116; ++i) {
@@ -373,8 +360,8 @@ void ElementDataViewer::drawPlot()
      */
     int whichType = ui.comboElementType->currentIndex();
 
-    KPlotObject* dataPointGreen = nullptr;
-    KPlotObject* dataPointRed = nullptr;
+    KPlotObject *dataPointGreen = nullptr;
+    KPlotObject *dataPointRed = nullptr;
 
     double av_x = 0.0;
     double max_x = m_xData->value(from);
@@ -387,18 +374,11 @@ void ElementDataViewer::drawPlot()
      * iterate for example from element 20 to 30 and construct
      * the KPlotObjects
      */
-    dataPointGreen = new KPlotObject(
-        Qt::green,
-        KPlotObject::Points,
-        4,
-        KPlotObject::Star);
+    dataPointGreen = new KPlotObject(Qt::green, KPlotObject::Points, 4, KPlotObject::Star);
     dataPointGreen->setLabelPen(QPen(Qt::blue));
 
-    dataPointRed = new KPlotObject(
-        Qt::red,
-        KPlotObject::Points,
-        4,
-        KPlotObject::Star); //Star can be replaced with a cross
+    dataPointRed = new KPlotObject(Qt::red, KPlotObject::Points, 4,
+                                   KPlotObject::Star); // Star can be replaced with a cross
     dataPointRed->setLabelPen(QPen(Qt::blue));
 
     for (int i = from; i < to + 1; ++i) {
@@ -406,64 +386,60 @@ void ElementDataViewer::drawPlot()
         double value_x = m_xData->value(i);
 
         bool known = ((value_y) > 0.0) ? true : false;
-        //The element is know if its value is not zero
+        // The element is know if its value is not zero
         bool belongs = true;
-        //The value of belongs is one if it belongs to the particular group
+        // The value of belongs is one if it belongs to the particular group
 
-        //See if the particular element belongs to the selected set or not.
-        //If a particular group of elements is selected,
+        // See if the particular element belongs to the selected set or not.
+        // If a particular group of elements is selected,
         if (whichType > 0) {
             belongs = false;
             switch (whichType) {
-            case 1: //Plot only metals
-                belongs = metals . contains(i);
+            case 1: // Plot only metals
+                belongs = metals.contains(i);
                 break;
-            case 2: //plot only nonmetals and metalloids
+            case 2: // plot only nonmetals and metalloids
                 belongs = (nonMetals.contains(i) || metalloids.contains(i));
                 break;
-            case 3: //Plot s block elements
-                belongs = (block[i - 1]== QLatin1String("s"));
+            case 3: // Plot s block elements
+                belongs = (block[i - 1] == QLatin1String("s"));
                 break;
-            case 4: //Plot p block elements
-                belongs = (block[i - 1]== QLatin1String("p"));
+            case 4: // Plot p block elements
+                belongs = (block[i - 1] == QLatin1String("p"));
                 break;
-            case 5: //Plot d block elements
-                belongs = (block[i - 1]== QLatin1String("d"));
+            case 5: // Plot d block elements
+                belongs = (block[i - 1] == QLatin1String("d"));
                 break;
-            case 6: //plot f block elements
-                belongs = (block[i - 1]== QLatin1String("f"));
+            case 6: // plot f block elements
+                belongs = (block[i - 1] == QLatin1String("f"));
                 break;
             case 7: // Noble gases
-                belongs = ((elecConfig[i - 1]) . endsWith(QLatin1String("p6")));
-                belongs |= (i == 2); //Include Helium
+                belongs = ((elecConfig[i - 1]).endsWith(QLatin1String("p6")));
+                belongs |= (i == 2); // Include Helium
                 break;
             case 8: // Alkalie metals
-                belongs = ((elecConfig[i - 1]) . endsWith(QLatin1String("s1")));
-                belongs &= (block[i - 1]== QLatin1String("s")); //exclude chromium
-                belongs &= (i != 1); //exclude Hydrogen
+                belongs = ((elecConfig[i - 1]).endsWith(QLatin1String("s1")));
+                belongs &= (block[i - 1] == QLatin1String("s")); // exclude chromium
+                belongs &= (i != 1); // exclude Hydrogen
                 break;
             case 9: // Alkaline earth metals
-                belongs = ((elecConfig[i - 1]) . endsWith(QLatin1String("s2")));
-                belongs &= (block[i - 1]== QLatin1String("s")); //exclude chromium
-                belongs &= (i != 2); //exclude Helium
+                belongs = ((elecConfig[i - 1]).endsWith(QLatin1String("s2")));
+                belongs &= (block[i - 1] == QLatin1String("s")); // exclude chromium
+                belongs &= (i != 2); // exclude Helium
                 break;
             case 10: // Lanthanides
                 // If element i is an f block element, with
                 // electronic configuration containing "f4" in it
                 // or the element is Lanthanum
-                belongs = ((block[i - 1]== QLatin1String("f")) && \
-                            ((elecConfig[i - 1]) . contains (QLatin1String("4f")))) || \
-                          (i == 57); //Lanthanum 57
+                belongs = ((block[i - 1] == QLatin1String("f")) && ((elecConfig[i - 1]).contains(QLatin1String("4f")))) || (i == 57); // Lanthanum 57
                 break;
-            case 11: //Actinides
-                //If element i is an f block element, with
-                // electronic configuration containing "f5" in it
-                // or the element is Actinium
-                belongs = (((block[i - 1]== QLatin1String("f"))) && \
-                            ((elecConfig[i - 1]) . contains (QLatin1String("5f")))) || \
-                          (i == 89); //Actinium 89
+            case 11: // Actinides
+                // If element i is an f block element, with
+                //  electronic configuration containing "f5" in it
+                //  or the element is Actinium
+                belongs = (((block[i - 1] == QLatin1String("f"))) && ((elecConfig[i - 1]).contains(QLatin1String("5f")))) || (i == 89); // Actinium 89
                 break;
-            case 12: //Radio active
+            case 12: // Radio active
                 belongs = ((i == 43) || (i == 61) || (i > 84));
                 // Technitium prothomium and then polonium onwards.
                 break;
@@ -491,27 +467,27 @@ void ElementDataViewer::drawPlot()
                 }
 
                 QString lbl;
-                if (whatShow > 0) { //The users wants to see the labels
-                    lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+                if (whatShow > 0) { // The users wants to see the labels
+                    lbl = whatShow == 1 ? names[i - 1] : symbols[i - 1];
                 }
 
                 dataPointGreen->addPoint(value_x, value_y, lbl);
-            } else { //unknown value
-                //num is required while finding the average, if an element is not
-                //known it should not contribute to the average.
+            } else { // unknown value
+                // num is required while finding the average, if an element is not
+                // known it should not contribute to the average.
                 --num;
 
                 QString lbl;
-                if (whatShow > 0) { //The user wants to see the labels
+                if (whatShow > 0) { // The user wants to see the labels
                     lbl = whatShow == 1 ? names[i - 1] : symbols[i - 1];
                 }
 
                 dataPointRed->addPoint(value_x, value_y, lbl);
-                //For an Unknown value, use a red point to mark the data-point.
+                // For an Unknown value, use a red point to mark the data-point.
             }
-        } else { //The element does not belong to the set
-            //num is required while finding average, if an element is
-            //not in the selected set, it should not contribute to the avg.
+        } else { // The element does not belong to the set
+            // num is required while finding average, if an element is
+            // not in the selected set, it should not contribute to the avg.
             --num;
         }
     }
@@ -520,7 +496,7 @@ void ElementDataViewer::drawPlot()
     ui.plotwidget->addPlotObject(dataPointRed);
 
     if (num > 0) {
-        //now set the values for the min, max and average value
+        // now set the values for the min, max and average value
         ui.av_x->setText(QString::number(av_x / num).append(m_xData->unit));
         ui.minimum_x->setText(QString::number(min_x).append(m_xData->unit));
         ui.maximum_x->setText(QString::number(max_x).append(m_xData->unit));
@@ -543,4 +519,3 @@ void ElementDataViewer::initData()
     setupAxisData(m_xData);
     setupAxisData(m_yData);
 }
-

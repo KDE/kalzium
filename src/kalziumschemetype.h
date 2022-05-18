@@ -32,19 +32,19 @@ public:
     /**
      * Get the instance of this factory.
      */
-    static KalziumSchemeTypeFactory* instance();
+    static KalziumSchemeTypeFactory *instance();
 
     /**
      * Returns the KalziumSchemeType with the @p id specified.
      * It will gives 0 if none found.
      */
-    KalziumSchemeType* build(int id) const;
+    KalziumSchemeType *build(int id) const;
     /**
      * Returns the KalziumSchemeType whose name is the @p id
      * specified.
      * It will gives 0 if none found.
      */
-    KalziumSchemeType* build(const QByteArray& id) const;
+    KalziumSchemeType *build(const QByteArray &id) const;
 
     /**
      * Returns a list with the names of the schemes we support.
@@ -53,7 +53,7 @@ public:
 
 private:
     KalziumSchemeTypeFactory();
-    QList<KalziumSchemeType*> m_schemes;
+    QList<KalziumSchemeType *> m_schemes;
 };
 
 /**
@@ -67,7 +67,7 @@ public:
     /**
      * Get its instance.
      */
-    static KalziumSchemeType* instance();
+    static KalziumSchemeType *instance();
 
     virtual ~KalziumSchemeType();
 
@@ -115,7 +115,7 @@ protected:
 class KalziumMonoColorSchemeType : public KalziumSchemeType
 {
 public:
-    static KalziumMonoColorSchemeType* instance();
+    static KalziumMonoColorSchemeType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -137,7 +137,7 @@ private:
 class KalziumBlocksSchemeType : public KalziumSchemeType
 {
 public:
-    static KalziumBlocksSchemeType* instance();
+    static KalziumBlocksSchemeType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -159,7 +159,7 @@ private:
 class KalziumIconicSchemeType : public KalziumSchemeType
 {
 public:
-    static KalziumIconicSchemeType* instance();
+    static KalziumIconicSchemeType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -181,7 +181,7 @@ private:
 class KalziumFamilySchemeType : public KalziumSchemeType
 {
 public:
-    static KalziumFamilySchemeType* instance();
+    static KalziumFamilySchemeType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -203,7 +203,7 @@ private:
 class KalziumGroupsSchemeType : public KalziumSchemeType
 {
 public:
-    static KalziumGroupsSchemeType* instance();
+    static KalziumGroupsSchemeType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -226,7 +226,7 @@ private:
 class KalziumColorSchemeType : public KalziumSchemeType
 {
 public:
-    static KalziumColorSchemeType* instance();
+    static KalziumColorSchemeType *instance();
 
     QByteArray name() const override;
     QString description() const override;
@@ -241,46 +241,46 @@ private:
 };
 #endif
 
-//X /**
-//X  * The scheme for the crystal structures.
-//X  *
-//X  * @author Carsten Niehaus
-//X  */
-//X class KalziumCrystalSchemeType : public KalziumSchemeType
-//X {
-//X     public:
-//X         static KalziumCrystalSchemeType* instance();
-//X
-//X         QByteArray name() const;
-//X         QString description() const;
-//X
-//X         QBrush elementBrush(int el, const QRect& elrect) const;
-//X         QColor textColor(int el) const;
-//X
-//X         QList<legendPair> legendItems() const;
-//X
-//X     private:
-//X         KalziumCrystalSchemeType();
-//X };
+// X /**
+// X  * The scheme for the crystal structures.
+// X  *
+// X  * @author Carsten Niehaus
+// X  */
+// X class KalziumCrystalSchemeType : public KalziumSchemeType
+// X {
+// X     public:
+// X         static KalziumCrystalSchemeType* instance();
+// X
+// X         QByteArray name() const;
+// X         QString description() const;
+// X
+// X         QBrush elementBrush(int el, const QRect& elrect) const;
+// X         QColor textColor(int el) const;
+// X
+// X         QList<legendPair> legendItems() const;
+// X
+// X     private:
+// X         KalziumCrystalSchemeType();
+// X };
 
-//X /**
-//X  * @author Carsten Niehaus
-//X  */
-//X class KalziumDiscoverymapSchemeType : public KalziumSchemeType
-//X {
-//X     public:
-//X         static KalziumDiscoverymapSchemeType* instance();
-//X
-//X         QByteArray name() const;
-//X         QString description() const;
-//X
-//X         QBrush elementBrush(int el, const QRect& elrect) const;
-//X         QColor textColor(int el) const;
-//X
-//X         QList<legendPair> legendItems() const;
-//X
-//X     private:
-//X         KalziumDiscoverymapSchemeType();
-//X };
+// X /**
+// X  * @author Carsten Niehaus
+// X  */
+// X class KalziumDiscoverymapSchemeType : public KalziumSchemeType
+// X {
+// X     public:
+// X         static KalziumDiscoverymapSchemeType* instance();
+// X
+// X         QByteArray name() const;
+// X         QString description() const;
+// X
+// X         QBrush elementBrush(int el, const QRect& elrect) const;
+// X         QColor textColor(int el) const;
+// X
+// X         QList<legendPair> legendItems() const;
+// X
+// X     private:
+// X         KalziumDiscoverymapSchemeType();
+// X };
 
 #endif // KALZIUMSCHEMETYPE_H

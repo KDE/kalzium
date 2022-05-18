@@ -23,12 +23,13 @@
 #include <KPageWidgetModel>
 #include <KStandardAction>
 
-TablesDialog::TablesDialog(QWidget *parent) : KPageDialog(parent)
+TablesDialog::TablesDialog(QWidget *parent)
+    : KPageDialog(parent)
 {
     setFaceType(List);
 
-    //setButtons(Help | Close);
-    //setDefaultButton(Close);
+    // setButtons(Help | Close);
+    // setDefaultButton(Close);
 
     createGreekSymbolTable();
     createNumbersTable();
@@ -48,22 +49,21 @@ void TablesDialog::createGreekSymbolTable()
 
     table->setColumnCount(3);
     table->setRowCount(24);
-    table->setHorizontalHeaderLabels(QStringList() << i18n("Uppercase")
-                                     << i18n("Lowercase")
-                                     << i18nc("The name of the greek letter in your language. For example 'Alpha' for the first letter. ",
-                                             "Name"));
+    table->setHorizontalHeaderLabels(
+        QStringList() << i18n("Uppercase") << i18n("Lowercase")
+                      << i18nc("The name of the greek letter in your language. For example 'Alpha' for the first letter. ", "Name"));
 
     layout->addWidget(table);
-    table->setItem(0,  0, new MyWidgetItem(QString(QChar(913))));         //capital Alpha
-    table->setItem(1,  0, new MyWidgetItem(QString(QChar(914))));
-    table->setItem(2,  0, new MyWidgetItem(QString(QChar(915))));
-    table->setItem(3,  0, new MyWidgetItem(QString(QChar(916))));
-    table->setItem(4,  0, new MyWidgetItem(QString(QChar(917))));
-    table->setItem(5,  0, new MyWidgetItem(QString(QChar(918))));
-    table->setItem(6,  0, new MyWidgetItem(QString(QChar(919))));
-    table->setItem(7,  0, new MyWidgetItem(QString(QChar(920))));
-    table->setItem(8,  0, new MyWidgetItem(QString(QChar(921))));
-    table->setItem(9,  0, new MyWidgetItem(QString(QChar(922))));
+    table->setItem(0, 0, new MyWidgetItem(QString(QChar(913)))); // capital Alpha
+    table->setItem(1, 0, new MyWidgetItem(QString(QChar(914))));
+    table->setItem(2, 0, new MyWidgetItem(QString(QChar(915))));
+    table->setItem(3, 0, new MyWidgetItem(QString(QChar(916))));
+    table->setItem(4, 0, new MyWidgetItem(QString(QChar(917))));
+    table->setItem(5, 0, new MyWidgetItem(QString(QChar(918))));
+    table->setItem(6, 0, new MyWidgetItem(QString(QChar(919))));
+    table->setItem(7, 0, new MyWidgetItem(QString(QChar(920))));
+    table->setItem(8, 0, new MyWidgetItem(QString(QChar(921))));
+    table->setItem(9, 0, new MyWidgetItem(QString(QChar(922))));
     table->setItem(10, 0, new MyWidgetItem(QString(QChar(923))));
     table->setItem(11, 0, new MyWidgetItem(QString(QChar(924))));
     table->setItem(12, 0, new MyWidgetItem(QString(QChar(925))));
@@ -79,17 +79,17 @@ void TablesDialog::createGreekSymbolTable()
     table->setItem(22, 0, new MyWidgetItem(QString(QChar(936))));
     table->setItem(23, 0, new MyWidgetItem(QString(QChar(937))));
 
-    //small letters
-    table->setItem(0,  1, new MyWidgetItem(QString(QChar(945))));         //small alpha
-    table->setItem(1,  1, new MyWidgetItem(QString(QChar(946))));
-    table->setItem(2,  1, new MyWidgetItem(QString(QChar(947))));
-    table->setItem(3,  1, new MyWidgetItem(QString(QChar(948))));
-    table->setItem(4,  1, new MyWidgetItem(QString(QChar(949))));
-    table->setItem(5,  1, new MyWidgetItem(QString(QChar(950))));
-    table->setItem(6,  1, new MyWidgetItem(QString(QChar(951))));
-    table->setItem(7,  1, new MyWidgetItem(QString(QChar(952))));
-    table->setItem(8,  1, new MyWidgetItem(QString(QChar(953))));
-    table->setItem(9,  1, new MyWidgetItem(QString(QChar(954))));
+    // small letters
+    table->setItem(0, 1, new MyWidgetItem(QString(QChar(945)))); // small alpha
+    table->setItem(1, 1, new MyWidgetItem(QString(QChar(946))));
+    table->setItem(2, 1, new MyWidgetItem(QString(QChar(947))));
+    table->setItem(3, 1, new MyWidgetItem(QString(QChar(948))));
+    table->setItem(4, 1, new MyWidgetItem(QString(QChar(949))));
+    table->setItem(5, 1, new MyWidgetItem(QString(QChar(950))));
+    table->setItem(6, 1, new MyWidgetItem(QString(QChar(951))));
+    table->setItem(7, 1, new MyWidgetItem(QString(QChar(952))));
+    table->setItem(8, 1, new MyWidgetItem(QString(QChar(953))));
+    table->setItem(9, 1, new MyWidgetItem(QString(QChar(954))));
     table->setItem(10, 1, new MyWidgetItem(QString(QChar(955))));
     table->setItem(11, 1, new MyWidgetItem(QString(QChar(956))));
     table->setItem(12, 1, new MyWidgetItem(QString(QChar(957))));
@@ -97,7 +97,7 @@ void TablesDialog::createGreekSymbolTable()
     table->setItem(14, 1, new MyWidgetItem(QString(QChar(959))));
     table->setItem(15, 1, new MyWidgetItem(QString(QChar(960))));
     table->setItem(16, 1, new MyWidgetItem(QString(QChar(961))));
-    //there are two greek letters for sigma
+    // there are two greek letters for sigma
     table->setItem(17, 1, new MyWidgetItem(QString(QChar(962)) + ", " + QString(QChar(963))));
     table->setItem(18, 1, new MyWidgetItem(QString(QChar(964))));
     table->setItem(19, 1, new MyWidgetItem(QString(QChar(965))));
@@ -106,17 +106,17 @@ void TablesDialog::createGreekSymbolTable()
     table->setItem(22, 1, new MyWidgetItem(QString(QChar(968))));
     table->setItem(23, 1, new MyWidgetItem(QString(QChar(969))));
 
-    //english names
-    table->setItem(0,  2, new MyWidgetItem(i18n("alpha")));
-    table->setItem(1,  2, new MyWidgetItem(i18n("beta")));
-    table->setItem(2,  2, new MyWidgetItem(i18n("gamma")));
-    table->setItem(3,  2, new MyWidgetItem(i18n("delta")));
-    table->setItem(4,  2, new MyWidgetItem(i18n("epsilon")));
-    table->setItem(5,  2, new MyWidgetItem(i18n("zeta")));
-    table->setItem(6,  2, new MyWidgetItem(i18n("eta")));
-    table->setItem(7,  2, new MyWidgetItem(i18n("theta")));
-    table->setItem(8,  2, new MyWidgetItem(i18n("iota")));
-    table->setItem(9,  2, new MyWidgetItem(i18n("kappa")));
+    // english names
+    table->setItem(0, 2, new MyWidgetItem(i18n("alpha")));
+    table->setItem(1, 2, new MyWidgetItem(i18n("beta")));
+    table->setItem(2, 2, new MyWidgetItem(i18n("gamma")));
+    table->setItem(3, 2, new MyWidgetItem(i18n("delta")));
+    table->setItem(4, 2, new MyWidgetItem(i18n("epsilon")));
+    table->setItem(5, 2, new MyWidgetItem(i18n("zeta")));
+    table->setItem(6, 2, new MyWidgetItem(i18n("eta")));
+    table->setItem(7, 2, new MyWidgetItem(i18n("theta")));
+    table->setItem(8, 2, new MyWidgetItem(i18n("iota")));
+    table->setItem(9, 2, new MyWidgetItem(i18n("kappa")));
     table->setItem(10, 2, new MyWidgetItem(i18n("lambda")));
     table->setItem(11, 2, new MyWidgetItem(i18n("mu")));
     table->setItem(12, 2, new MyWidgetItem(i18n("nu")));
@@ -133,8 +133,7 @@ void TablesDialog::createGreekSymbolTable()
     table->setItem(23, 2, new MyWidgetItem(i18n("omega")));
 
     table->resizeColumnsToContents();
-    frame->setMinimumWidth(qMax(table->columnWidth(0) + table->columnWidth(1) + table->columnWidth(2),
-                                table->horizontalHeader()->sizeHint().width()) + 25);
+    frame->setMinimumWidth(qMax(table->columnWidth(0) + table->columnWidth(1) + table->columnWidth(2), table->horizontalHeader()->sizeHint().width()) + 25);
 }
 
 void TablesDialog::createNumbersTable()
@@ -151,21 +150,20 @@ void TablesDialog::createNumbersTable()
 
     table->setColumnCount(3);
     table->setRowCount(28);
-    table->setHorizontalHeaderLabels(QStringList() << i18n("Number") <<
-                                     i18nc("For example 'Mono' for 1 and 'Tri' for 3", "Prefix")  << i18n("Roman Numerals"));
+    table->setHorizontalHeaderLabels(QStringList() << i18n("Number") << i18nc("For example 'Mono' for 1 and 'Tri' for 3", "Prefix") << i18n("Roman Numerals"));
 
     layout->addWidget(table);
 
-    table->setItem(0,  0, new MyWidgetItem(i18n("0.5")));
-    table->setItem(1,  0, new MyWidgetItem(i18n("1")));
-    table->setItem(2,  0, new MyWidgetItem(i18n("1.5")));
-    table->setItem(3,  0, new MyWidgetItem(i18n("2")));
-    table->setItem(4,  0, new MyWidgetItem(i18n("2.5")));
-    table->setItem(5,  0, new MyWidgetItem(i18n("3")));
-    table->setItem(6,  0, new MyWidgetItem(i18n("4")));
-    table->setItem(7,  0, new MyWidgetItem(i18n("5")));
-    table->setItem(8,  0, new MyWidgetItem(i18n("6")));
-    table->setItem(9,  0, new MyWidgetItem(i18n("7")));
+    table->setItem(0, 0, new MyWidgetItem(i18n("0.5")));
+    table->setItem(1, 0, new MyWidgetItem(i18n("1")));
+    table->setItem(2, 0, new MyWidgetItem(i18n("1.5")));
+    table->setItem(3, 0, new MyWidgetItem(i18n("2")));
+    table->setItem(4, 0, new MyWidgetItem(i18n("2.5")));
+    table->setItem(5, 0, new MyWidgetItem(i18n("3")));
+    table->setItem(6, 0, new MyWidgetItem(i18n("4")));
+    table->setItem(7, 0, new MyWidgetItem(i18n("5")));
+    table->setItem(8, 0, new MyWidgetItem(i18n("6")));
+    table->setItem(9, 0, new MyWidgetItem(i18n("7")));
     table->setItem(10, 0, new MyWidgetItem(i18n("8")));
     table->setItem(11, 0, new MyWidgetItem(i18n("9")));
     table->setItem(12, 0, new MyWidgetItem(i18n("10")));
@@ -185,17 +183,17 @@ void TablesDialog::createNumbersTable()
     table->setItem(26, 0, new MyWidgetItem(i18n("90")));
     table->setItem(27, 0, new MyWidgetItem(i18n("100")));
 
-    //greek names of the numbers
-    table->setItem(0,  1, new MyWidgetItem(QStringLiteral("hemi")));
-    table->setItem(1,  1, new MyWidgetItem(QStringLiteral("mono")));
-    table->setItem(2,  1, new MyWidgetItem(QStringLiteral("sesqui")));
-    table->setItem(3,  1, new MyWidgetItem(QStringLiteral("di, bi")));
-    table->setItem(4,  1, new MyWidgetItem(QStringLiteral("hemipenta")));
-    table->setItem(5,  1, new MyWidgetItem(QStringLiteral("tri")));
-    table->setItem(6,  1, new MyWidgetItem(QStringLiteral("tetra")));
-    table->setItem(7,  1, new MyWidgetItem(QStringLiteral("penta")));
-    table->setItem(8,  1, new MyWidgetItem(QStringLiteral("hexa")));
-    table->setItem(9,  1, new MyWidgetItem(QStringLiteral("hepta")));
+    // greek names of the numbers
+    table->setItem(0, 1, new MyWidgetItem(QStringLiteral("hemi")));
+    table->setItem(1, 1, new MyWidgetItem(QStringLiteral("mono")));
+    table->setItem(2, 1, new MyWidgetItem(QStringLiteral("sesqui")));
+    table->setItem(3, 1, new MyWidgetItem(QStringLiteral("di, bi")));
+    table->setItem(4, 1, new MyWidgetItem(QStringLiteral("hemipenta")));
+    table->setItem(5, 1, new MyWidgetItem(QStringLiteral("tri")));
+    table->setItem(6, 1, new MyWidgetItem(QStringLiteral("tetra")));
+    table->setItem(7, 1, new MyWidgetItem(QStringLiteral("penta")));
+    table->setItem(8, 1, new MyWidgetItem(QStringLiteral("hexa")));
+    table->setItem(9, 1, new MyWidgetItem(QStringLiteral("hepta")));
     table->setItem(10, 1, new MyWidgetItem(QStringLiteral("octa")));
     table->setItem(11, 1, new MyWidgetItem(QStringLiteral("nona, ennea")));
     table->setItem(12, 1, new MyWidgetItem(QStringLiteral("deca")));
@@ -215,14 +213,14 @@ void TablesDialog::createNumbersTable()
     table->setItem(26, 1, new MyWidgetItem(QStringLiteral("nonaconta")));
     table->setItem(27, 1, new MyWidgetItem(QStringLiteral("hecta")));
 
-    //roman symbols
-    table->setItem(1,  2, new MyWidgetItem(QStringLiteral("I")));
-    table->setItem(3,  2, new MyWidgetItem(QStringLiteral("II")));
-    table->setItem(5,  2, new MyWidgetItem(QStringLiteral("III")));
-    table->setItem(6,  2, new MyWidgetItem(QStringLiteral("IV")));
-    table->setItem(7,  2, new MyWidgetItem(QStringLiteral("V")));
-    table->setItem(8,  2, new MyWidgetItem(QStringLiteral("VI")));
-    table->setItem(9,  2, new MyWidgetItem(QStringLiteral("VII")));
+    // roman symbols
+    table->setItem(1, 2, new MyWidgetItem(QStringLiteral("I")));
+    table->setItem(3, 2, new MyWidgetItem(QStringLiteral("II")));
+    table->setItem(5, 2, new MyWidgetItem(QStringLiteral("III")));
+    table->setItem(6, 2, new MyWidgetItem(QStringLiteral("IV")));
+    table->setItem(7, 2, new MyWidgetItem(QStringLiteral("V")));
+    table->setItem(8, 2, new MyWidgetItem(QStringLiteral("VI")));
+    table->setItem(9, 2, new MyWidgetItem(QStringLiteral("VII")));
     table->setItem(10, 2, new MyWidgetItem(QStringLiteral("VIII")));
     table->setItem(11, 2, new MyWidgetItem(QStringLiteral("IX")));
     table->setItem(12, 2, new MyWidgetItem(QStringLiteral("X")));
@@ -243,21 +241,19 @@ void TablesDialog::createNumbersTable()
     table->setItem(27, 2, new MyWidgetItem(QStringLiteral("C")));
 
     table->resizeColumnsToContents();
-    frame->setMinimumWidth(qMax(table->columnWidth(0) + table->columnWidth(1) + table->columnWidth(2),
-                                table->horizontalHeader()->sizeHint().width()) + 25);
-
+    frame->setMinimumWidth(qMax(table->columnWidth(0) + table->columnWidth(1) + table->columnWidth(2), table->horizontalHeader()->sizeHint().width()) + 25);
 }
 
-TablesDialog::~TablesDialog()
-= default;
+TablesDialog::~TablesDialog() = default;
 
-MyTableWidget::MyTableWidget(QWidget* parent) : QTableWidget(parent)
+MyTableWidget::MyTableWidget(QWidget *parent)
+    : QTableWidget(parent)
 {
 }
 
-void MyTableWidget::contextMenuEvent(QContextMenuEvent* event)
+void MyTableWidget::contextMenuEvent(QContextMenuEvent *event)
 {
-    auto* menu = new QMenu((QWidget*) sender());
+    auto *menu = new QMenu((QWidget *)sender());
     menu->addAction(i18n("&Copy"), this, &MyTableWidget::copyToClipboard, QKeySequence(Qt::Key_C | Qt::CTRL));
     menu->exec(event->globalPos());
 }
@@ -266,4 +262,3 @@ void MyTableWidget::copyToClipboard()
 {
     QApplication::clipboard()->setText(currentItem()->data(QTableWidgetItem::Type).toString());
 }
-

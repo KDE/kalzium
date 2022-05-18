@@ -26,14 +26,15 @@
 
 #include "kalziumnumerationtype.h"
 
-NumerationItem::NumerationItem(int xPosition) : m_width(40), m_height(20),
-        m_xPosition(xPosition)
+NumerationItem::NumerationItem(int xPosition)
+    : m_width(40)
+    , m_height(20)
+    , m_xPosition(xPosition)
 {
     setNumerationType(Prefs::numeration());
 }
 
-NumerationItem::~NumerationItem()
-= default;
+NumerationItem::~NumerationItem() = default;
 
 QRectF NumerationItem::boundingRect() const
 {
@@ -64,10 +65,9 @@ void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
 void NumerationItem::setNumerationType(int type)
 {
-   type == 0 ? m_color = QColor(Qt::transparent) : m_color = QColor(Qt::white);
+    type == 0 ? m_color = QColor(Qt::transparent) : m_color = QColor(Qt::white);
 
-   m_numeration = KalziumNumerationTypeFactory::instance()->build(type)->item(m_xPosition);
+    m_numeration = KalziumNumerationTypeFactory::instance()->build(type)->item(m_xPosition);
 
-   update();
+    update();
 }
-

@@ -7,8 +7,8 @@
 
 #include "iowrapper.h"
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 #include <avogadro/core/molecule.h>
 #include <avogadro/io/cmlformat.h>
@@ -27,22 +27,20 @@ std::unique_ptr<Avogadro::Core::Molecule> IoWrapper::readMolecule(const QString 
 {
     std::ifstream inFileStream(QFile::encodeName(filename).constData());
     if (!inFileStream) {
-        QMessageBox::warning(nullptr, i18n("Problem while opening the file"),
-                           i18n("Cannot open the specified file."));
+        QMessageBox::warning(nullptr, i18n("Problem while opening the file"), i18n("Cannot open the specified file."));
         return nullptr;
     }
 
     auto mol = std::make_unique<Avogadro::Core::Molecule>();
     auto format = getFileReader(QFileInfo(filename).suffix());
 
-    if (!format){
+    if (!format) {
         qCritical() << "Could not initialize file reader for file " << filename;
         return nullptr;
     }
 
     if (!format->read(inFileStream, *mol)) {
-        qCritical() << "Could not read file " << filename << "; Error message: "
-            << QString().fromStdString(format->error());
+        qCritical() << "Could not read file " << filename << "; Error message: " << QString().fromStdString(format->error());
         return nullptr;
     }
 

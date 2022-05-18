@@ -12,8 +12,8 @@ class QFont;
 class QPainter;
 class Element;
 
-#include <chemicaldataobject.h>
 #include <QComboBox>
+#include <chemicaldataobject.h>
 
 class KalziumUtils
 {
@@ -26,8 +26,7 @@ public:
      * @param maxFontSize the maximum fontsize
      * @param minFontSize the maximum fontsize
      */
-    static int maxSize(const QString &string, const QRect &rect, QFont font, QPainter *painter,
-                       int minFontSize = 4, int maxFontSize = 20);
+    static int maxSize(const QString &string, const QRect &rect, QFont font, QPainter *painter, int minFontSize = 4, int maxFontSize = 20);
 
     /**
      * calculate the 4-digit value of the value @p w. For
@@ -50,7 +49,7 @@ public:
      * @param painter the used painter
      * @return the height of the string @p string
      */
-    static int StringHeight(const QString &string, const QFont& font, QPainter *painter);
+    static int StringHeight(const QString &string, const QFont &font, QPainter *painter);
 
     /**
      * An almost standard way to get an unit well converted for
@@ -67,7 +66,6 @@ public:
      * @param unitList Unit list with enums of KUnitConversion
      */
     static void populateUnitCombobox(QComboBox *comboBox, const QList<int> &unitList);
-
 };
 
 #endif // KALZIUMUTILS_H

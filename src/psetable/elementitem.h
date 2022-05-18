@@ -21,14 +21,14 @@
 #include <chemicaldataobject.h>
 
 /**
-* @class ElementItem
-* @author Marcus D. Hanwell, Etienne Rebetez
-* @brief An element item, intended to display a single element.
-*
-* This class implements a QGraphicsItem for displaying single elements in a
-* perdiodic table. It currently allows the setting of the proton number.
-* All other information come frome the kalziumElementProperty class.
-*/
+ * @class ElementItem
+ * @author Marcus D. Hanwell, Etienne Rebetez
+ * @brief An element item, intended to display a single element.
+ *
+ * This class implements a QGraphicsItem for displaying single elements in a
+ * perdiodic table. It currently allows the setting of the proton number.
+ * All other information come frome the kalziumElementProperty class.
+ */
 class ElementItem : public QGraphicsObject
 {
     Q_OBJECT

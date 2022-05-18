@@ -8,13 +8,13 @@
 
 #include "molcalcwidget.h"
 
-//libscience
+// libscience
 #include <element.h>
 
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
-#include "search.h"
 #include "prefs.h"
+#include "search.h"
 
 #include "kalzium_debug.h"
 #include <QFile>
@@ -26,7 +26,8 @@
 
 #include <KLocalizedString>
 
-MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
+MolcalcWidget::MolcalcWidget(QWidget *parent)
+    : QWidget(parent)
 {
     m_parser = new MoleculeParser(KalziumDataObject::instance()->ElementList);
 
@@ -52,9 +53,9 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
 
     if (Prefs::addAlias()) {
         connect(ui.alias, &QAbstractButton::clicked, this, &MolcalcWidget::addAlias);
-        QString shortForm, fullForm;        // short form (symbol) and full form (expansion)
+        QString shortForm, fullForm; // short form (symbol) and full form (expansion)
         QList<QString> shortList, fullList; // Used to store the short and full forms
-        int i = 0;                          // loop counter
+        int i = 0; // loop counter
 
         // Search in User defined aliases.
         QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols2.csv"));
@@ -71,7 +72,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
                 QString line = in.readLine();
                 shortForm = line.section(',', 0, 0);
                 shortForm.remove(QChar('\"'));
-                fullForm  = line.section(',', 1, 1);
+                fullForm = line.section(',', 1, 1);
                 fullForm.remove(QChar('\"'));
                 shortList << shortForm;
                 fullList << fullForm;
@@ -81,10 +82,9 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
             ui.user_defined->setRowCount(length);
             // Put all the aliases on to the table in the user interface
             for (i = 0; i < length; ++i) {
-                shortForm = shortList.takeFirst ();
-                fullForm = fullList.takeFirst ();
-                ui.user_defined->setItem((int)i, 0, new QTableWidgetItem
-                    (i18n("%1",shortForm + " : " + fullForm)));
+                shortForm = shortList.takeFirst();
+                fullForm = fullList.takeFirst();
+                ui.user_defined->setItem((int)i, 0, new QTableWidgetItem(i18n("%1", shortForm + " : " + fullForm)));
             }
         } else {
             qCDebug(KALZIUM_LOG) << fileName << " could not be opened!";
@@ -107,7 +107,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
                 QString line = in.readLine();
                 shortForm = line.section(',', 0, 0);
                 shortForm.remove(QChar('\"'));
-                fullForm  = line.section(',', 1, 1);
+                fullForm = line.section(',', 1, 1);
                 fullForm.remove(QChar('\"'));
                 shortList << shortForm;
                 fullList << fullForm;
@@ -119,8 +119,7 @@ MolcalcWidget::MolcalcWidget(QWidget *parent) : QWidget(parent)
             for (i = 0; i < length; ++i) {
                 shortForm = shortList.takeFirst();
                 fullForm = fullList.takeFirst();
-                ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem
-                    (i18n("%1",shortForm + " : " + fullForm)));
+                ui.pre_defined->setItem((int)i, 0, new QTableWidgetItem(i18n("%1", shortForm + " : " + fullForm)));
             }
         } else {
             qCDebug(KALZIUM_LOG) << fileName << " could not be opened!";
@@ -133,14 +132,13 @@ MolcalcWidget::~MolcalcWidget()
     delete m_parser;
 }
 
-
 void MolcalcWidget::clear()
 {
     // Clear the data.
     m_mass = 0;
     m_elementMap.clear();
 
-    //stop the selection in the periodic table
+    // stop the selection in the periodic table
     KalziumDataObject::instance()->search()->resetSearch();
 
     // Clear the widgets.
@@ -176,16 +174,11 @@ void MolcalcWidget::updateUI()
                 // Update the resultLabel
                 mass = count->element()->dataAsVariant(ChemicalDataObject::mass).toDouble();
 
-                ui.table->setItem(i, 0, new QTableWidgetItem
-                    (i18n("%1", count->element()->dataAsString(ChemicalDataObject::name))));
-                ui.table->setItem(i, 1, new QTableWidgetItem
-                    (i18n("%1", count->count())));
-                ui.table->setItem(i, 2, new QTableWidgetItem
-                    (i18n("%1", count->element()->dataAsString(ChemicalDataObject::mass))));
-                ui.table->setItem(i, 3, new QTableWidgetItem
-                    (i18n("%1", mass * count->count())));
-                ui.table->setItem(i, 4, new QTableWidgetItem
-                    (i18n("%1", mass * count->count()/ m_mass *100)));
+                ui.table->setItem(i, 0, new QTableWidgetItem(i18n("%1", count->element()->dataAsString(ChemicalDataObject::name))));
+                ui.table->setItem(i, 1, new QTableWidgetItem(i18n("%1", count->count())));
+                ui.table->setItem(i, 2, new QTableWidgetItem(i18n("%1", count->element()->dataAsString(ChemicalDataObject::mass))));
+                ui.table->setItem(i, 3, new QTableWidgetItem(i18n("%1", mass * count->count())));
+                ui.table->setItem(i, 4, new QTableWidgetItem(i18n("%1", mass * count->count() / m_mass * 100)));
 
                 ++i;
             }
@@ -215,7 +208,7 @@ void MolcalcWidget::updateUI()
         QList<Element*> list = m_elementMap.elements();
         KalziumDataObject::instance()->findElements(list);
 #endif
-    } else { //the input was invalid, so tell this the user
+    } else { // the input was invalid, so tell this the user
         qCDebug(KALZIUM_LOG) << "m_validInput == false";
         ui.resultComposition->setText(i18n("Invalid input"));
         ui.resultLabel->setText(QString());
@@ -231,10 +224,8 @@ QString MolcalcWidget::compositionString(ElementCountMap &_map)
 {
     QString str;
 
-    foreach (ElementCount * count, _map.map()) {
-        str += i18n("%1<sub>%2</sub> ",
-                    count->element()->dataAsString(ChemicalDataObject::symbol),
-                    count->count());
+    foreach (ElementCount *count, _map.map()) {
+        str += i18n("%1<sub>%2</sub> ", count->element()->dataAsString(ChemicalDataObject::symbol), count->count());
     }
 
     return str;
@@ -246,13 +237,13 @@ QString MolcalcWidget::compositionString(ElementCountMap &_map)
 void MolcalcWidget::slotCalculate()
 {
     qCDebug(KALZIUM_LOG) << "MolcalcWidget::slotCalcButtonClicked()";
-    QString  molecule = ui.formulaEdit->text();
+    QString molecule = ui.formulaEdit->text();
 
     // Parse the molecule, and at the same time calculate the total
     // mass, and the composition of it.
     if (!molecule.isEmpty()) {
-            m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
-            m_aliasList = m_parser->aliasList();
+        m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
+        m_aliasList = m_parser->aliasList();
     }
     qCDebug(KALZIUM_LOG) << "done calculating.";
 
@@ -267,7 +258,7 @@ void MolcalcWidget::keyPressEvent(QKeyEvent * /* e */)
 void MolcalcWidget::addAlias()
 {
     const QString shortForm = ui.shortForm->text();
-    const QString fullForm  = ui.fullForm ->text();
+    const QString fullForm = ui.fullForm->text();
 
     // Validate the alias
     double x;
@@ -275,20 +266,17 @@ void MolcalcWidget::addAlias()
 
     ui.aliasMessage->setText(QLatin1String(""));
     if (shortForm.length() < 2) {
-        ui.aliasMessage->setText(i18n
-        ("Symbol should consist of two or more letters."));
+        ui.aliasMessage->setText(i18n("Symbol should consist of two or more letters."));
         return;
     }
 
     if (m_parser->weight(shortForm, &x, &y)) {
-        ui.aliasMessage->setText(i18n
-        ("Symbol already being used"));
+        ui.aliasMessage->setText(i18n("Symbol already being used"));
         return;
     }
 
-    if (fullForm.isEmpty() || ! m_parser->weight(fullForm, & x, & y)) {
-        ui.aliasMessage->setText(i18n
-        ("Expansion is invalid, please specify a valid expansion"));
+    if (fullForm.isEmpty() || !m_parser->weight(fullForm, &x, &y)) {
+        ui.aliasMessage->setText(i18n("Expansion is invalid, please specify a valid expansion"));
         return;
     }
 
@@ -296,7 +284,7 @@ void MolcalcWidget::addAlias()
     QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("libkdeedu/data/symbols2.csv"));
     QFile file(fileName);
 
-    if (!(!file.open(QIODevice::WriteOnly| QIODevice::Append | QIODevice::Text))) {
+    if (!(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))) {
         QTextStream out(&file);
         out << "\"" + shortForm + "\",\"" + fullForm + "\"\n";
         qCDebug(KALZIUM_LOG) << fileName << "is the file.";
@@ -304,8 +292,7 @@ void MolcalcWidget::addAlias()
         ui.aliasMessage->setText(i18n("done!"));
         return;
     } else {
-        ui.aliasMessage->setText((i18n
-        ("Unable to find the user defined alias file."))+fileName);
+        ui.aliasMessage->setText((i18n("Unable to find the user defined alias file.")) + fileName);
         return;
     }
 }

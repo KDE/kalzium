@@ -18,14 +18,17 @@
 #include <QState>
 #include <QStateMachine>
 
-class StateSwitchEvent: public QEvent
+class StateSwitchEvent : public QEvent
 {
 public:
-    StateSwitchEvent() : QEvent(Type(StateSwitchType))
+    StateSwitchEvent()
+        : QEvent(Type(StateSwitchType))
     {
     }
 
-    StateSwitchEvent(int id) : QEvent(Type(StateSwitchType)), m_id(id)
+    StateSwitchEvent(int id)
+        : QEvent(Type(StateSwitchType))
+        , m_id(id)
     {
     }
 
@@ -40,28 +43,28 @@ private:
     int m_id;
 };
 
-
-class StateSwitchTransition: public QAbstractTransition
+class StateSwitchTransition : public QAbstractTransition
 {
 public:
-    StateSwitchTransition(int id) : QAbstractTransition(), m_id(id)
+    StateSwitchTransition(int id)
+        : QAbstractTransition()
+        , m_id(id)
     {
     }
 
 protected:
-
     bool eventTest(QEvent *event) override
     {
-        return (event->type() == QEvent::Type(StateSwitchEvent::StateSwitchType))
-               && (static_cast<StateSwitchEvent *>(event)->id() == m_id);
+        return (event->type() == QEvent::Type(StateSwitchEvent::StateSwitchType)) && (static_cast<StateSwitchEvent *>(event)->id() == m_id);
     }
 
-    void onTransition(QEvent *) override {}
+    void onTransition(QEvent *) override
+    {
+    }
 
 private:
     int m_id;
 };
-
 
 class StateSwitcher : public QState
 {
