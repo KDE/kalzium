@@ -127,7 +127,7 @@ public:
      * is CO2, a list with C and O will be returned.
      * @return the elements in the molecule
      */
-    QList<Element*> elements();
+    QList<Element*> elements() const;
 
     /**
      * @param _element

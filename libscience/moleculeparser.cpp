@@ -40,7 +40,7 @@ void ElementCountMap::add(ElementCountMap &_map)
     }
 }
 
-QList<Element*> ElementCountMap::elements()
+QList<Element*> ElementCountMap::elements() const
 {
     QList<Element*> list;
 
@@ -267,7 +267,7 @@ Element *MoleculeParser::lookupElement(const QString& _name)
 {
     qCDebug(KALZIUM_LIBSCIENCE_LOG) << "looking up " << _name;
 
-    foreach (Element* e, m_elementList) {
+    for (Element* e : std::as_const(m_elementList)) {
         if (e->dataAsVariant(ChemicalDataObject::symbol) == _name) {
             qCDebug(KALZIUM_LIBSCIENCE_LOG) << "Found element " << _name;
             return e;
@@ -394,7 +394,7 @@ QString MoleculeParser::expandTerm (const QString& _group)
     QFile file2(fileName);
 
     // Check file validity
-    if (!(!file2.open(QIODevice::ReadOnly | QIODevice::Text))) {
+    if (file2.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qCDebug(KALZIUM_LIBSCIENCE_LOG) << fileName << " opened";
         QTextStream in(&file2);
 
