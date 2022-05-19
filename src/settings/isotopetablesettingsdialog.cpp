@@ -69,7 +69,7 @@ void IsotopeTableSettingsDialog::setMode(int mode)
 {
     m_mode = mode;
     unsigned short i = 0;
-    for (auto card : m_cards) {
+    for (auto card : std::as_const(m_cards)) {
         if (i != m_mode)
             card->setChecked(false);
         i++;

@@ -314,7 +314,7 @@ void Kalzium::slotGlossary()
         m_glossarydlg->setObjectName(QStringLiteral("glossary"));
         QString dir = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/"), QStandardPaths::LocateDirectory);
         dir = QFileInfo(dir).absolutePath();
-        QString picturepath = dir + "/bg.jpg";
+        const QString picturepath = dir + QStringLiteral("/bg.jpg");
         QUrl u = QUrl::fromLocalFile(dir + "/knowledge.xml");
         auto g = new Glossary(u);
         g->setName(i18n("Knowledge"));
@@ -523,10 +523,10 @@ void Kalzium::elementHover(int num)
 // FIXME What is that function for? Does not seem to do anything useful... yet?
 void Kalzium::extractIconicInformationAboutElement(int elementNumber)
 {
-    QString setname = QStringLiteral("school");
+    const QString setname = QStringLiteral("school");
     QString pathname = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/iconsets/"), QStandardPaths::LocateDirectory);
     pathname = QFileInfo(pathname).absolutePath();
-    QString filename = pathname + setname + '/' + "iconinformation.txt";
+    const QString filename = pathname + setname + '/' + "iconinformation.txt";
 
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {

@@ -69,7 +69,6 @@ PropertyListEntry::~PropertyListEntry() = default;
 
 ExportDialog::ExportDialog(QWidget *parent)
     : QDialog(parent)
-    , m_outputStream(nullptr)
 {
     qCDebug(KALZIUM_LOG) << "ExportDialog::ExportDialog";
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel | QDialogButtonBox::Help, this);

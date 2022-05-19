@@ -60,7 +60,7 @@ private Q_SLOTS:
     void setNewValue(double newValue);
 
 private:
-    bool m_play; // Indicates whether mode is play or stop
-    QTimer *m_timer;
+    bool m_play = false; // Indicates whether mode is play or stop
+    QTimer *const m_timer;
 };
 #endif // GRADIENTWIDGET_IMPL_H

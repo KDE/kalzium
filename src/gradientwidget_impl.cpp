@@ -22,7 +22,7 @@
 
 GradientWidgetImpl::GradientWidgetImpl(QWidget *parent)
     : QWidget(parent)
-    , m_play(false)
+    , m_timer(new QTimer(this))
 {
     setupUi(this);
 
@@ -32,7 +32,6 @@ GradientWidgetImpl::GradientWidgetImpl(QWidget *parent)
     connect(gradient_spinbox, SIGNAL(valueChanged(double)), this, SLOT(doubleToSlider(double)));
     connect(gradient_slider, &QAbstractSlider::valueChanged, this, &GradientWidgetImpl::intToSpinbox);
 
-    m_timer = new QTimer(this);
     connect(Play, &QAbstractButton::clicked, this, &GradientWidgetImpl::play);
     connect(m_timer, &QTimer::timeout, this, &GradientWidgetImpl::tick);
 

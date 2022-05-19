@@ -51,7 +51,7 @@ public:
 
 private:
     Ui::exportDialogForm ui;
-    QTextStream *m_outputStream;
+    QTextStream *m_outputStream = nullptr;
 
 public Q_SLOTS:
     void slotOkClicked();
