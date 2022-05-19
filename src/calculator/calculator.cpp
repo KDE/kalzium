@@ -26,7 +26,6 @@ calculator::calculator(QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Close, this);
     auto mainWidget = new QWidget(this);
     auto mainLayout = new QVBoxLayout(this);
-    setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &calculator::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &calculator::reject);
