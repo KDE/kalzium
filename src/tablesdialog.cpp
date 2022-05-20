@@ -253,9 +253,9 @@ MyTableWidget::MyTableWidget(QWidget *parent)
 
 void MyTableWidget::contextMenuEvent(QContextMenuEvent *event)
 {
-    auto *menu = new QMenu((QWidget *)sender());
-    menu->addAction(i18n("&Copy"), this, &MyTableWidget::copyToClipboard, QKeySequence(Qt::Key_C | Qt::CTRL));
-    menu->exec(event->globalPos());
+    auto menu = QMenu((QWidget *)sender());
+    menu.addAction(i18n("&Copy"), this, &MyTableWidget::copyToClipboard, QKeySequence(Qt::Key_C | Qt::CTRL));
+    menu.exec(event->globalPos());
 }
 
 void MyTableWidget::copyToClipboard()

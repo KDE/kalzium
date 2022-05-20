@@ -48,9 +48,7 @@ ChemicalDataObject::ChemicalDataObject()
     d->m_unit = KUnitConversion::NoUnit;
 }
 
-ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other)
-
-    = default;
+ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other) = default;
 
 ChemicalDataObject::~ChemicalDataObject() = default;
 

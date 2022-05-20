@@ -117,7 +117,7 @@ void DetailedInfoDlg::setTableType(int tableTyp)
 
 QTextBrowser *DetailedInfoDlg::addHTMLTab(const QString &title, const QString &icontext, const QString &iconname)
 {
-    auto *frame = new QWidget(this);
+    auto frame = new QWidget(this);
     KPageWidgetItem *item = addPage(frame, title);
     item->setHeader(icontext);
     item->setIcon(QIcon::fromTheme(iconname));

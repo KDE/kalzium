@@ -11,7 +11,7 @@ StateSwitcher::StateSwitcher(QStateMachine *machine)
 {
 }
 
-void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, const int &id)
+void StateSwitcher::addState(QState *state, QAbstractAnimation *animation, int id)
 {
     auto trans = new StateSwitchTransition(id);
     trans->setTargetState(state);

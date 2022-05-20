@@ -43,22 +43,22 @@ public:
      * @param tableIndex Index of the table @see pseTables.
      * @return Rectangle in floating point precision.
      */
-    QRectF pseRect(const int &tableIndex) const;
+    QRectF pseRect(int tableIndex) const;
 
     /**
      * Set the table index
      * @param tableIndex Index of the table @see pseTables..
      */
-    void setTableState(const int &tableIndex);
+    void setTableState(int tableIndex);
 
 private:
-    void setNumerationItemPositions(const int &tableIndex);
-    void hideAllNumerationItems(const int &tableIndex);
-    int maxNumerationItemXCoordinate(const int &tableIndex);
+    void setNumerationItemPositions(int tableIndex);
+    void hideAllNumerationItems(int tableIndex);
+    int maxNumerationItemXCoordinate(int tableIndex);
 
     void addElementAnimation(QGraphicsObject *object, int factor = 1);
 
-    void setElementItemPositions(const int &tableIndex);
+    void setElementItemPositions(int tableIndex);
 
     QPoint hiddenPoint() const;
 
