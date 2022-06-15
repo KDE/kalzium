@@ -6,7 +6,6 @@
 
 #include "search.h"
 
-#include "element.h"
 #include "kalziumdataobject.h"
 
 Search::Search()

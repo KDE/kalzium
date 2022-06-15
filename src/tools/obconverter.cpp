@@ -10,7 +10,6 @@
 
 // Qt includes
 #include <QDebug>
-#include <QDialog>
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QProcess>

@@ -5,10 +5,8 @@
 
 #include "spectrumparser.h"
 
-#include "spectrum.h"
 
 #include "kalzium_libscience_debug.h"
-#include <QFile>
 #include <QList>
 
 class SpectrumParser::Private

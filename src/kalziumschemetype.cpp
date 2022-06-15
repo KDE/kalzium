@@ -17,7 +17,6 @@
 #endif
 
 #include "kalzium_debug.h"
-#include <QBrush>
 #include <QStandardPaths>
 
 #include <KLocalizedString>

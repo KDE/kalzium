@@ -10,7 +10,6 @@
 
 #include "periodictableview.h"
 
-#include <QSvgGenerator>
 #include <QTimer>
 
 #include "psetables.h"

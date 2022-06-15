@@ -8,7 +8,6 @@
 #include "kalziumutils.h"
 
 #include "kalzium_debug.h"
-#include <QDialog>
 #include <QDialogButtonBox>
 #include <QFont>
 #include <QPushButton>

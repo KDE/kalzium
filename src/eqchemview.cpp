@@ -12,7 +12,6 @@
 
 #include <LineEditUrlDropEventFilter>
 
-#include "ui_equationview.h"
 
 #include <stdlib.h>
 

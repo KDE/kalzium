@@ -8,7 +8,6 @@
 #include "moleculeview.h"
 
 #include <avogadro/qtgui/elementtranslator.h>
-#include <avogadro/qtgui/molecule.h>
 #include <avogadro/qtgui/periodictableview.h>
 #include <avogadro/qtgui/scenepluginmodel.h>
 #include <avogadro/qtgui/toolplugin.h>

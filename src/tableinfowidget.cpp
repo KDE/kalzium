@@ -11,7 +11,6 @@
 
 #include <KLocalizedString>
 
-#include "kalziumschemetype.h"
 #include "prefs.h"
 #include "psetables.h"
 

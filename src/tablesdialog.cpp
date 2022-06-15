@@ -14,7 +14,6 @@
 #include <QIcon>
 #include <QLayout>
 #include <QMenu>
-#include <QTableWidget>
 
 #include <KActionCollection>
 #include <KComboBox>

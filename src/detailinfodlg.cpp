@@ -26,12 +26,10 @@
 #include <QStackedWidget>
 #include <QStandardPaths>
 #include <QTextBrowser>
-#include <QUrl>
 
 #include <KActionCollection>
 #include <KConfig>
 #include <KHelpClient>
-#include <KPageDialog>
 #include <KPageWidgetModel>
 
 DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent)

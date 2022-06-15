@@ -7,7 +7,6 @@
 #include "spectrumwidget.h"
 
 #include "kalziumutils.h"
-#include "spectrum.h"
 
 #include <config-kalzium.h>
 

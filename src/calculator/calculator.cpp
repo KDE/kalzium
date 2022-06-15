@@ -7,13 +7,11 @@
 #include "calculator.h"
 
 #include "kalzium_debug.h"
-#include <QDialog>
 #include <QDialogButtonBox>
 #include <QIcon>
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include <KActionCollection>
 #include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>

@@ -6,7 +6,6 @@
 
 #include "isotope.h"
 
-#include "chemicaldataobject.h"
 
 #include "kalzium_libscience_debug.h"
 
