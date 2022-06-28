@@ -69,7 +69,7 @@ class LegendItem : public QLabel
 
 public:
     LegendItem(const QPair<QString, QColor> &pair, LegendWidget *parent = nullptr);
-    ~LegendItem() = default;
+    ~LegendItem() override = default;
 
 Q_SIGNALS:
     void legenItemHoovered(QColor color);

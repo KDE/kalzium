@@ -131,7 +131,7 @@ public Q_SLOTS:
 
 private:
     KalziumElementProperty();
-    ~KalziumElementProperty();
+    ~KalziumElementProperty() override;
 
     bool isGradient();
 

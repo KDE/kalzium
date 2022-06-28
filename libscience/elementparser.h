@@ -24,7 +24,7 @@ public:
      * Constructor
      */
     ElementSaxParser();
-    ~ElementSaxParser();
+    ~ElementSaxParser() override;
     bool startElement(const QString &, const QString &localName, const QString &, const QXmlAttributes &attrs) override;
 
     bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName) override;
