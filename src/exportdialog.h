@@ -21,7 +21,7 @@ public:
 
     int m_atomicNum;
     QString m_name;
-    Element *m_element;
+    Element *m_element = nullptr;
 };
 
 class PropertyListEntry : public QListWidgetItem

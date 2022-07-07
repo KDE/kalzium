@@ -13,7 +13,6 @@ class SpectrumParser::Private
 {
 public:
     Private()
-        : currentSpectrum(nullptr)
     {
     }
 

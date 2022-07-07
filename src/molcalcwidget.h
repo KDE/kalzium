@@ -60,10 +60,10 @@ private:
 
     Ui_MolcalcWidgetBase ui;
 
-    QTimer *m_timer;
+    QTimer *m_timer = nullptr;
 
 private:
-    MoleculeParser *m_parser;
+    MoleculeParser *m_parser = nullptr;
     QSet<QString> m_aliasList;
     double m_mass;
     bool m_validInput;

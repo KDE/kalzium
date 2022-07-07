@@ -16,8 +16,8 @@
 
 TableInfoWidget::TableInfoWidget(QWidget *parent)
     : QWidget(parent)
+    , m_tableType(new QLabel(QStringLiteral("test"), this))
 {
-    m_tableType = new QLabel(QStringLiteral("test"), this);
 
     auto la = new QHBoxLayout(this);
     la->addWidget(m_tableType);

@@ -33,8 +33,8 @@ private:
     void initialize();
 
 private:
-    IsotopeView *m_isotopeView;
-    QRadioButton *m_radioButton;
+    IsotopeView *m_isotopeView = nullptr;
+    QRadioButton *m_radioButton = nullptr;
 
 public Q_SLOTS:
     void setText(QString text)

@@ -45,8 +45,8 @@ inline static double translateToDY(double r, double angle, int num)
 
 OrbitsWidget::OrbitsWidget(QWidget *parent)
     : QWidget(parent)
+    , m_electronConf(new QLabel(this))
 {
-    m_electronConf = new QLabel(this);
     m_electronConf->setIndent(20);
     auto layout = new QVBoxLayout(m_electronConf);
     setLayout(layout);

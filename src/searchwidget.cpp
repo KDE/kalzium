@@ -18,13 +18,12 @@
 
 SearchWidget::SearchWidget(QWidget *parent)
     : QWidget(parent)
-    , m_timer(nullptr)
+    , m_searchLine(new KLineEdit(this))
 {
     auto mainlay = new QHBoxLayout(this);
     mainlay->setContentsMargins(2, 2, 2, 2);
     mainlay->setSpacing(5);
 
-    m_searchLine = new KLineEdit(this);
     m_searchLine->setClearButtonEnabled(true);
     m_searchLine->setPlaceholderText(i18n("Search..."));
     m_searchLine->setTrapReturnKey(true);

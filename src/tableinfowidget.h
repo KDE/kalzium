@@ -25,7 +25,7 @@ public:
     ~TableInfoWidget() override = default;
 
 private:
-    QLabel *m_tableType;
+    QLabel *const m_tableType;
 
 public Q_SLOTS:
     void setTableType(int type);

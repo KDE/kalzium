@@ -37,8 +37,8 @@ private Q_SLOTS:
     void doSearch();
 
 private:
-    KLineEdit *m_searchLine;
-    QTimer *m_timer;
+    KLineEdit *const m_searchLine;
+    QTimer *m_timer = nullptr;
 };
 
 #endif // KALZIUMSEARCHWIDGET_H
