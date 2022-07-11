@@ -49,7 +49,11 @@ void DetailedGraphicalOverview::setBackgroundColor(QColor bgColor)
     // add a gradient
     QLinearGradient grad(QPointF(0, 0), QPointF(0, height()));
     grad.setColorAt(0, bgColor);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qreal h, s, v, a;
+#else
+    float h, s, v, a;
+#endif
     bgColor.getHsvF(&h, &s, &v, &a);
     bgColor.setHsvF(h, s, v * 0.6, a);
     grad.setColorAt(1, bgColor);

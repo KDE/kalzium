@@ -30,7 +30,10 @@ target_sources(science PRIVATE
 
 generate_export_header(science)
 
-target_link_libraries(science Qt5::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
+target_link_libraries(science Qt::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(science Qt6::Core5Compat)
+endif()
 set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )
 install(TARGETS science  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

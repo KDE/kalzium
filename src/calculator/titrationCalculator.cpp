@@ -17,9 +17,11 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QScriptClass>
 #include <QScriptEngine>
 #include <QScriptValue>
+#endif
 #include <QVarLengthArray>
 
 #include <KLocalizedString>
@@ -118,6 +120,7 @@ void titrationCalculator::plot()
         if (!mreporto.isEmpty()) {
             uid.note->setText(i18n("Theoretical curve") + ": " + mreporto);
             for (int i = int(xmin); i < int(xmax); ++i) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
                 double id = i;
                 QScriptEngine myEngine;
                 QByteArray ban = mreporto.toLatin1();
@@ -134,6 +137,9 @@ void titrationCalculator::plot()
                 kpor->addPoint(id, tvalue);
                 redplot = redplot + ' ' + QString::number((id * 10) + 5).replace(QChar(','), QChar('.')) + ','
                     + QString::number((ymax - tvalue) * 10).replace(QChar(','), QChar('.'));
+#else
+#pragma "NEED TO PORT QTSCRIPT";
+#endif
             }
         }
         temponu = 0;

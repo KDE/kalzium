@@ -80,7 +80,11 @@ bool SpectrumParser::startElement(const QString &, const QString &localName, con
 bool SpectrumParser::endElement(const QString &, const QString &localName, const QString &)
 {
     if (localName == QLatin1String("spectrum")) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         int num = currentElementID.midRef(1).toInt();
+#else
+        int num = QStringView(currentElementID).mid(1).toInt();
+#endif
         d->currentSpectrum->setParentElementNumber(num);
 
         d->spectra.append(d->currentSpectrum);

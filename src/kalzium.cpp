@@ -126,7 +126,7 @@ void Kalzium::setupActions()
     look_action_schemes->setItems(schemes);
     look_action_schemes->setToolBarMode(KSelectAction::MenuMode);
     look_action_schemes->setToolButtonPopupMode(QToolButton::InstantPopup);
-    connect(look_action_schemes, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookScheme(int)));
+    connect(look_action_schemes, &KSelectAction::indexTriggered, this, &Kalzium::slotSwitchtoLookScheme);
 
     // the action for switching look: gradients
     look_action_gradients = actionCollection()->add<KSelectAction>(QStringLiteral("view_look_onlygradients"));
@@ -134,7 +134,7 @@ void Kalzium::setupActions()
     look_action_gradients->setItems(gradients);
     look_action_gradients->setToolBarMode(KSelectAction::MenuMode);
     look_action_gradients->setToolButtonPopupMode(QToolButton::InstantPopup);
-    connect(look_action_gradients, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoLookGradient(int)));
+    connect(look_action_gradients, &KSelectAction::indexTriggered, this, &Kalzium::slotSwitchtoLookGradient);
 
     // the action for switching tables
     QStringList table_schemes = pseTables::instance()->tables();
@@ -142,14 +142,14 @@ void Kalzium::setupActions()
     table_action->setText(i18n("&Tables"));
     table_action->setItems(table_schemes);
     table_action->setCurrentItem(Prefs::table());
-    connect(table_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoTable(int)));
+    connect(table_action, &KSelectAction::indexTriggered, this, &Kalzium::slotSwitchtoTable);
 
     // the actions for switching numeration
     numeration_action = actionCollection()->add<KSelectAction>(QStringLiteral("view_numerationtype"));
     numeration_action->setText(i18n("&Numeration"));
     numeration_action->setItems(KalziumNumerationTypeFactory::instance()->numerations());
     numeration_action->setCurrentItem(Prefs::numeration());
-    connect(numeration_action, SIGNAL(triggered(int)), this, SLOT(slotSwitchtoNumeration(int)));
+    connect(numeration_action, SIGNAL(indexTriggered(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
     // tools actions
     m_pPlotAction = actionCollection()->addAction(QStringLiteral("tools_plotdata"));
@@ -251,7 +251,7 @@ void Kalzium::setupSidebars()
     m_legendWidget = new LegendWidget(this);
     m_legendDock = new QDockWidget(i18n("Legend"), this);
     m_legendDock->setObjectName(QStringLiteral("kalzium-legend"));
-    m_legendDock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+    m_legendDock->setFeatures(QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetFloatable);
     m_legendDock->setWidget(m_legendWidget);
 
     connect(m_legendDock, &QDockWidget::dockLocationChanged, m_legendWidget, &LegendWidget::setDockArea);
@@ -262,11 +262,11 @@ void Kalzium::setupSidebars()
     m_tableDock = new QDockWidget(i18n("Table Information"), this);
     m_tableDock->setWidget(m_TableInfoWidget);
     m_tableDock->setObjectName(QStringLiteral("kalzium-tableinfo"));
-    m_tableDock->setFeatures(QDockWidget::AllDockWidgetFeatures);
+    m_tableDock->setFeatures(QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetFloatable);
 
     m_dockWin = new QDockWidget(i18n("Information"), this);
     m_dockWin->setObjectName(QStringLiteral("kalzium-sidebar"));
-    m_dockWin->setFeatures(QDockWidget::AllDockWidgetFeatures);
+    m_dockWin->setFeatures(QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetFloatable);
     m_dockWin->setMinimumWidth(250);
 
     m_toolbox = new QToolBox(m_dockWin);
@@ -296,7 +296,7 @@ void Kalzium::setupSidebars()
 
 void Kalzium::slotExportTable()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalzium's Table In"), QString(), i18n("Image files (*.png *.xpm *.jpg *.svg)"));
+    const QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalzium's Table In"), QString(), i18n("Image files (*.png *.xpm *.jpg *.svg)"));
 
     if (fileName.endsWith(QLatin1String(".svg"))) {
         m_periodicTable->generateSvg(fileName);

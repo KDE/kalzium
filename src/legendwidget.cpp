@@ -199,7 +199,11 @@ LegendItem::LegendItem(const QPair<QString, QColor> &pair, LegendWidget *parent)
     setLayout(ItemLayout);
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void LegendItem::enterEvent(QEnterEvent *event)
+#else
 void LegendItem::enterEvent(QEvent *event)
+#endif
 {
     Q_EMIT legenItemHoovered(legendItemColor);
     QWidget::enterEvent(event);

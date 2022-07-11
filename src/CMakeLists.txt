@@ -196,10 +196,14 @@ target_link_libraries(kalzium
     KF5::TextWidgets
     KF5::UnitConversion
     KF5::XmlGui
-    Qt::Script
     Qt::Svg
     science
 )
+if (QT_MAJOR_VERSION STREQUAL "5")
+    target_link_libraries(kalzium Qt::Script)
+else()
+    target_link_libraries(kalzium Qt::StateMachine)
+endif()
 if (HAVE_OPENBABEL)
    target_link_libraries(kalzium ${OPENBABEL_LIBRARIES})
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)

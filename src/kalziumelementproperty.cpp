@@ -140,7 +140,11 @@ QBrush KalziumElementProperty::getElementBrush(int el)
         QColor color = getElementColor(el);
         QLinearGradient grad(QPointF(0, 0), QPointF(0, 40));
         grad.setColorAt(0, color);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         qreal h, s, v, a;
+#else
+        float h, s, v, a;
+#endif
         color.getHsvF(&h, &s, &v, &a);
         color.setHsvF(h, s, v * 0.7, a);
         grad.setColorAt(1, color);
