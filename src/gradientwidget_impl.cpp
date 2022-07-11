@@ -163,7 +163,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
         }
     }
     QString htmlcode;
-    if (listMeltingPoint.count() > 0) {
+    if (!listMeltingPoint.isEmpty()) {
         htmlcode += i18n("Elements with melting point around this temperature:") + '\n';
         for (int i = 0; i < listMeltingPoint.count(); ++i) {
             htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)", listMeltingPoint.at(i), listMeltingPointValue.at(i), unitSymbol) + '\n';
@@ -173,7 +173,7 @@ void GradientWidgetImpl::setNewValue(double newValue)
         htmlcode += i18n("No elements with a melting point around this temperature");
         htmlcode += QLatin1String("\n\n");
     }
-    if (listBoilingPoint.count() > 0) {
+    if (!listBoilingPoint.isEmpty()) {
         htmlcode += i18n("Elements with boiling point around this temperature:") + '\n';
         for (int i = 0; i < listBoilingPoint.count(); ++i) {
             htmlcode += " - " + i18nc("For example: Carbon (300K)", "%1 (%2%3)", listBoilingPoint.at(i), listBoilingPointValue.at(i), unitSymbol) + '\n';
