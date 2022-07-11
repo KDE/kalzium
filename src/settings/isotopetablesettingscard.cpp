@@ -5,6 +5,7 @@
 #include "isotopetablesettingscard.h"
 
 #include <QVBoxLayout>
+#include <KLocalizedString>
 
 #include <iostream>
 
@@ -32,7 +33,7 @@ void IsotopeTableSettingsCard::initialize()
     // m_isotopeView->setMaximumHeight(150);
 
     m_radioButton = new QRadioButton();
-    m_radioButton->setText("Next to each other");
+    m_radioButton->setText(i18n("Next to each other"));
     connect(m_radioButton, &QRadioButton::toggled, this, [=]() {
         if (m_radioButton->isChecked())
             Q_EMIT checked(m_isotopeView->mode());

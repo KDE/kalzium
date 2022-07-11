@@ -18,22 +18,22 @@ IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent)
 
     auto card0 = new IsotopeTableSettingsCard(this, 0);
     card0->setZoom(0.07);
-    card0->setText("One part to the side of the other");
+    card0->setText(i18n("One part to the side of the other"));
     card0->setRadioButtonObjectName("isotopeTableMode_0");
     m_cards.append(card0);
     auto card1 = new IsotopeTableSettingsCard(this, 1);
     card1->setZoom(0.04);
-    card1->setText("Both parts continuous");
+    card1->setText(i18n("Both parts continuous"));
     card0->setRadioButtonObjectName("isotopeTableMode_1");
     m_cards.append(card1);
     auto card2 = new IsotopeTableSettingsCard(this, 2);
     card2->setZoom(0.04);
-    card2->setText("Horizontally");
+    card2->setText(i18n("Horizontally"));
     card0->setRadioButtonObjectName("isotopeTableMode_2");
     m_cards.append(card2);
     auto card3 = new IsotopeTableSettingsCard(this, 3);
     card3->setZoom(0.05);
-    card3->setText("Horizontally (shifted)");
+    card3->setText(i18n("Horizontally (shifted)"));
     card0->setRadioButtonObjectName("isotopeTableMode_3");
     m_cards.append(card3);
 
