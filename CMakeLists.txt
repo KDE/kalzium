@@ -42,7 +42,7 @@ if(NOT ${OpenBabel3_FOUND})
     find_package(OpenBabel2)
 endif()
 find_package(AvogadroLibs)
-find_package(Eigen3)
+find_package(Eigen3 CONFIG)
 find_package(OCaml)
 find_package(Libfacile)
 
