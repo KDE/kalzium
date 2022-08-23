@@ -72,6 +72,5 @@ Name[zh_TW]=化學_Kalzium
 Exec=kalzium -qwindowtitle %c -molecule %f
 NoDisplay=true
 Type=Application
-Terminal=false
 Icon=kalzium
 MimeType=chemical/x-cml;
