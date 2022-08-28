@@ -18,9 +18,9 @@ target_link_libraries(compoundviewer
     KF5::I18n
     KF5::WidgetsAddons
     KF5::CoreAddons
-    Qt5::OpenGL
-    Qt5::Gui
-    Qt5::Widgets
+    Qt::OpenGL
+    Qt::Gui
+    Qt::Widgets
     ${OPENBABEL_LIBRARIES}
     AvogadroQtGui
     AvogadroQtOpenGL
