@@ -7,7 +7,6 @@
 #ifndef TABLEINFOWIDGET_H
 #define TABLEINFOWIDGET_H
 
-#include <QDialog>
 #include <QLabel>
 
 #include "kalziumschemetype.h"

@@ -31,7 +31,6 @@
 #ifdef __KDE_HAVE_GCC_VISIBILITY
 #define HAVE_GCC_VISIBILITY
 #endif
-#include <KConfigGroup>
 #include <KGuiItem>
 #include <QDialogButtonBox>
 #include <QFileDialog>

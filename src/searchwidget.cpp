@@ -7,7 +7,6 @@
 #include "searchwidget.h"
 
 #include <QHBoxLayout>
-#include <QLabel>
 #include <QTimer>
 
 #include <KLineEdit>

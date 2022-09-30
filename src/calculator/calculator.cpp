@@ -12,10 +12,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
-#include <KStandardAction>
 
 calculator::calculator(QWidget *parent)
     : QDialog(parent)

@@ -7,7 +7,6 @@
 #define DETAILINFODLG_H
 
 #include <QMap>
-#include <QUrl>
 
 #include <KPageDialog>
 

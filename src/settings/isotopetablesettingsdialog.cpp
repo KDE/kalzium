@@ -5,11 +5,8 @@
 #include "isotopetablesettingsdialog.h"
 
 #include <QGridLayout>
-#include <QLabel>
-#include <QRadioButton>
 
 #include <KLocalizedString>
-#include <KUnitConversion/Converter>
 
 IsotopeTableSettingsDialog::IsotopeTableSettingsDialog(QWidget *parent)
     : QWidget(parent)

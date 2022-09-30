@@ -8,7 +8,6 @@
 
 #include "science_export.h"
 
-#include <QFile>
 #include <QXmlAttributes>
 #include <QXmlDefaultHandler>
 

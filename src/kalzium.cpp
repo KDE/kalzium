@@ -37,10 +37,7 @@
 
 #include <QDockWidget>
 #include <QFileDialog>
-#include <QGridLayout>
 #include <QIcon>
-#include <QKeyEvent>
-#include <QLocale>
 #include <QMessageBox>
 #include <QRegularExpression>
 #include <QStandardPaths>

@@ -28,9 +28,7 @@
 #include <QTextBrowser>
 
 #include <KActionCollection>
-#include <KConfig>
 #include <KHelpClient>
-#include <KPageWidgetModel>
 
 DetailedInfoDlg::DetailedInfoDlg(int el, QWidget *parent)
     : KPageDialog(parent)

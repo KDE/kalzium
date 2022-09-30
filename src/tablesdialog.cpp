@@ -9,18 +9,12 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QContextMenuEvent>
-#include <QDialog>
 #include <QHeaderView>
 #include <QIcon>
-#include <QLayout>
 #include <QMenu>
+#include <QVBoxLayout>
 
-#include <KActionCollection>
-#include <KComboBox>
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KPageWidgetModel>
-#include <KStandardAction>
 
 TablesDialog::TablesDialog(QWidget *parent)
     : KPageDialog(parent)

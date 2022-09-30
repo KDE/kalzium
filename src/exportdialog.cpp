@@ -13,7 +13,6 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include <KConfigGroup>
 #include <KGuiItem>
 #include <KHelpClient>
 #include <KLocalizedString>

@@ -9,7 +9,6 @@
 #include "obconverter.h"
 
 // Qt includes
-#include <QDebug>
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QProcess>
@@ -20,7 +19,6 @@
 #include <QVector>
 
 // KDE includes
-#include <KConfigGroup>
 #include <KGuiItem>
 #include <KHelpClient>
 #include <KLocalizedString>

@@ -10,6 +10,9 @@
 
 #include <prefs.h>
 
+#include <QEasingCurve>
+#include <QPropertyAnimation>
+
 PeriodicTableStates::PeriodicTableStates(const QList<ElementItem *> &elementItemList, const QList<NumerationItem *> &numerationItemList)
     : m_elementItemList(elementItemList)
     , m_numerationItemList(numerationItemList)

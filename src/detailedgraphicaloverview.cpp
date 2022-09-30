@@ -12,7 +12,6 @@
 
 #include "kalzium_debug.h"
 #include <QFile>
-#include <QFileInfo>
 #include <QFontDatabase>
 #include <QPainter>
 #include <QRect>

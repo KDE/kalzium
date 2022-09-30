@@ -18,7 +18,6 @@
 
 #include "kalzium_debug.h"
 #include <QFont>
-#include <QFontMetrics>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QStyleOption>

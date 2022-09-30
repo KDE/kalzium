@@ -14,7 +14,6 @@
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>

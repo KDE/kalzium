@@ -8,7 +8,6 @@
 
 
 #include <KLocalizedString>
-#include <KUnitConversion/Converter>
 
 #include "kalziumutils.h"
 #include "prefs.h"

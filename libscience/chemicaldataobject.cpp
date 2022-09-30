@@ -7,7 +7,6 @@
 #include "chemicaldataobject.h"
 
 #include "kalzium_libscience_debug.h"
-#include <QLatin1String>
 
 #include <KUnitConversion/Converter>
 

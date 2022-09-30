@@ -11,7 +11,6 @@
 #define PERIODICTABLEVIEW_H
 
 #include <QGraphicsView>
-#include <QSvgGenerator>
 
 #include "kalziumdataobject.h"
 #include "kalziumnumerationtype.h"

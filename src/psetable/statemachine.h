@@ -14,7 +14,6 @@
 #include <QAbstractAnimation>
 #include <QAbstractTransition>
 #include <QEvent>
-#include <QPropertyAnimation>
 #include <QState>
 #include <QStateMachine>
 

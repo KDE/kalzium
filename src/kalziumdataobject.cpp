@@ -14,13 +14,9 @@
 #include "kalzium_debug.h"
 #include <QCoreApplication>
 #include <QFile>
-#include <QFileInfo>
-#include <QGlobalStatic>
-#include <QLocale>
 #include <QPainter>
 #include <QStandardPaths>
 #include <QSvgRenderer>
-#include <QUrl>
 
 #include <KUnitConversion/Converter>
 

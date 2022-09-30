@@ -8,19 +8,15 @@
 #include "kdeeduglossary.h"
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLine>
 
 #include "kalzium_debug.h"
 #include <QDialogButtonBox>
 #include <QDomDocument>
-#include <QEvent>
 #include <QFile>
 #include <QHeaderView>
 #include <QKeyEvent>
-#include <QLabel>
-#include <QLayout>
 #include <QList>
 #include <QPushButton>
 #include <QRegularExpression>

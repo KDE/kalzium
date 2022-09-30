@@ -6,7 +6,6 @@
 
 #include "gasCalculator.h"
 
-#include <KComboBox>
 #include <KLocalizedString>
 
 #include "kalziumunitcombobox.h"

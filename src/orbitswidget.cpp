@@ -9,7 +9,6 @@
 #include "kalziumutils.h"
 
 // QT-Includes
-#include <QLatin1String>
 #include <QPainter>
 #include <QVBoxLayout>
 
