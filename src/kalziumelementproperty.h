@@ -7,6 +7,7 @@
 #ifndef KALZIUMELEMENTPROPERTY_H
 #define KALZIUMELEMENTPROPERTY_H
 
+#include <QObject>
 #include <QBrush>
 
 #include "kalziumgradienttype.h"
