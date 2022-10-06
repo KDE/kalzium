@@ -5155,7 +5155,7 @@ msgstr "Isòtops"
 #: src/detailinfodlg.cpp:1123
 #, kde-format
 msgid "Miscellaneous"
-msgstr "Miscelànea"
+msgstr "Miscel·lània"
 
 #: src/detailinfodlg.cpp:1127 src/detailinfodlg.cpp:1128
 #, kde-format
@@ -5919,13 +5919,13 @@ msgstr "Colors bonics sense significat (del projecte Open Babel)."
 #: src/kalziumui.rc:4
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (table_menu)
 #: src/kalziumui.rc:11
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: Menu (miscmenu)
 #: src/kalziumui.rc:21
@@ -8817,7 +8817,7 @@ msgstr "&Elimina"
 #: src/tools/obconverterwidget.ui:61
 #, kde-format
 msgid "&Add"
-msgstr "&Afig"
+msgstr "Afi&g"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, FileListView)
 #: src/tools/obconverterwidget.ui:71
