@@ -17,6 +17,7 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <kwidgetsaddons_version.h>
 
 static const char HTML_HEADER[] =
     "<html>"
@@ -152,7 +153,12 @@ void ExportDialog::slotOkClicked()
     }
     QFile outputFile(filename);
     if (outputFile.exists()) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        if (KMessageBox::questionTwoActions(this, i18n("File already exists. Do you want to overwrite it?"), i18n("Save"), KStandardGuiItem::overwrite(), KStandardGuiItem::cancel()) == KMessageBox::ButtonCode::SecondaryAction) {
+#else
         if (KMessageBox::questionYesNo(this, i18n("File already exists. Do you want to overwrite it?")) == KMessageBox::No) {
+
+#endif
             return;
         }
     }

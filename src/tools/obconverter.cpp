@@ -23,6 +23,7 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <kwidgetsaddons_version.h>
 using namespace std;
 using namespace OpenBabel;
 
@@ -193,7 +194,11 @@ void KOpenBabel::slotConvert()
             switch (KMessageBox::warningContinueCancel(this,
                                                        i18n("The file %1 already exists. Do you want to overwrite if possible?", ofname),
                                                        i18n("The File %1 Already Exists -- KOpenBabel", ofname))) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+            case KMessageBox::ButtonCode::SecondaryAction:
+#else
             case KMessageBox::No:
+#endif
                 proceed = false;
                 break;
             default:
@@ -208,8 +213,13 @@ void KOpenBabel::slotConvert()
         }
     }
     if (cmdArgList.count() > 0) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel")), {}, KStandardGuiItem::ok(), KStandardGuiItem::cancel()) {
+        case KMessageBox::ButtonCode::PrimaryAction:
+#else
         switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel"))) {
         case KMessageBox::Yes:
+#endif
             foreach (const QStringList &s, cmdArgList) {
                 QProcess::startDetached(QStringLiteral("babel"), s);
             }
