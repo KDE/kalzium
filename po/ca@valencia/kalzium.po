@@ -3603,7 +3603,7 @@ msgstr "Especifiqueu les unitats per a la densitat del dissolvent"
 #, kde-format
 msgid "<big>Specify the unit/method for specifying concentration</big>"
 msgstr ""
-"<big>Establiu la unitat/mètode que s'utilitzarà per a especificar les "
+"<big>Especifiqueu la unitat/mètode que s'utilitzarà per a especificar les "
 "concentracions</big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvt_unit)
@@ -4010,7 +4010,7 @@ msgid ""
 msgstr ""
 "<span style=\" font-size:12pt; font-weight:600;\">Escolliu allò que voleu "
 "calcular al quadro combinat proper a l'etiqueta «calcula» i canvieu els "
-"valors / unitats que s'han de calcular.</span>"
+"valors / unitats que es calcularan.</span>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
@@ -4028,7 +4028,7 @@ msgstr "<big><b>Nom de l'element:</b></big>"
 #: src/calculator/nuclearCalculator.ui:52
 #, kde-format
 msgid "<big>Specify the Element you want to consider</big>"
-msgstr "<big>Especifiqueu l'element que cal considerar</big>"
+msgstr "<big>Especifiqueu l'element que s'ha de considerar</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, element)
 #: src/calculator/nuclearCalculator.ui:55
@@ -8793,7 +8793,7 @@ msgstr "El fitxer %1 ja existix! -- KOpenBabel"
 #: src/tools/obconverter.cpp:211
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
-msgstr "Esteu d'acord amb executar estes ordres? -- KOpenBabel"
+msgstr "Esteu d'acord en executar estes ordres? -- KOpenBabel"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/obconverterwidget.ui:22
