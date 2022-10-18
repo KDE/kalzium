@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:41+0000\n"
+"POT-Creation-Date: 2022-10-18 00:40+0000\n"
 "PO-Revision-Date: 2008-08-05 22:26+0200\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (lengadocian) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -246,7 +246,7 @@ msgstr ""
 #: data/knowledge.xml:66 data/knowledge.xml:131
 #: src/calculator/nuclearCalculator.ui:334
 #: src/calculator/nuclearCalculator.ui:354 src/detailinfodlg.cpp:301
-#: src/exportdialog.cpp:134 src/settings/settings_gradients.ui:74
+#: src/exportdialog.cpp:135 src/settings/settings_gradients.ui:74
 #, kde-format
 msgid "Mass"
 msgstr ""
@@ -628,7 +628,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:208
-#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:139
+#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:106
 #: src/plotsetupwidget.ui:427 src/settings/settings_gradients.ui:60
 #, kde-format
@@ -646,7 +646,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
-#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:140
+#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:141
 #: src/settings/settings_gradients.ui:67
 #, kde-format
 msgid "Van der Waals Radius"
@@ -4274,7 +4274,7 @@ msgid "Open"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, save)
-#: src/calculator/titrationCalculator.ui:370
+#: src/calculator/titrationCalculator.ui:370 src/exportdialog.cpp:157
 #, fuzzy, kde-format
 #| msgid "Scales"
 msgid "Save"
@@ -4338,7 +4338,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:180 src/elementdataviewer.cpp:247
-#: src/exportdialog.cpp:141 src/kalziumgradienttype.cpp:381
+#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
 #: src/plotsetupwidget.ui:91 src/plotsetupwidget.ui:412
 #: src/settings/settings_gradients.ui:88
 #, kde-format
@@ -4349,14 +4349,14 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:187 src/elementdataviewer.cpp:253
-#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:325
+#: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
 #: src/plotsetupwidget.ui:96 src/plotsetupwidget.ui:417
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
 msgstr ""
 
-#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:137
+#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:138
 #, kde-format
 msgid "Electron Affinity"
 msgstr ""
@@ -4388,7 +4388,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:236 src/elementdataviewer.cpp:242
-#: src/exportdialog.cpp:138 src/plotsetupwidget.ui:86
+#: src/exportdialog.cpp:139 src/plotsetupwidget.ui:86
 #: src/plotsetupwidget.ui:407 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
@@ -4769,7 +4769,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:131
+#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
 #: src/plotsetupwidget.ui:76 src/plotsetupwidget.ui:397
 #, fuzzy, kde-format
 #| msgid "Number"
@@ -4830,57 +4830,57 @@ msgstr ""
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: src/exportdialog.cpp:84
+#: src/exportdialog.cpp:85
 #, kde-format
 msgid "OK"
 msgstr ""
 
-#: src/exportdialog.cpp:89
+#: src/exportdialog.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr ""
 
-#: src/exportdialog.cpp:114
+#: src/exportdialog.cpp:115
 #, fuzzy, kde-format
 #| msgid "Element"
 msgid "Elements"
 msgstr "Elements"
 
-#: src/exportdialog.cpp:115
+#: src/exportdialog.cpp:116
 #, kde-format
 msgid "Properties"
 msgstr "Propietats"
 
-#: src/exportdialog.cpp:132
+#: src/exportdialog.cpp:133
 #, kde-format
 msgid "Symbol"
 msgstr "Simbòl"
 
-#: src/exportdialog.cpp:135
+#: src/exportdialog.cpp:136
 #, kde-format
 msgid "Exact Mass"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
-#: src/exportdialog.cpp:136 src/settings/settings_gradients.ui:116
+#: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
 #, kde-format
 msgid "Ionization"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabFamily)
-#: src/exportdialog.cpp:143 src/kalziumschemetype.cpp:237
+#: src/exportdialog.cpp:144 src/kalziumschemetype.cpp:237
 #: src/settings/settings_colors.ui:405
 #, kde-format
 msgid "Family"
 msgstr "Familha"
 
-#: src/exportdialog.cpp:155
+#: src/exportdialog.cpp:157 src/exportdialog.cpp:159
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
 msgstr ""
 
-#: src/exportdialog.cpp:160
+#: src/exportdialog.cpp:166
 #, kde-format
 msgid "Could not open file for writing."
 msgstr ""
@@ -8263,49 +8263,49 @@ msgstr "Formula :"
 msgid "Weight:"
 msgstr ""
 
-#: src/tools/obconverter.cpp:32
+#: src/tools/obconverter.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr ""
 
-#: src/tools/obconverter.cpp:50
+#: src/tools/obconverter.cpp:51
 #, kde-format
 msgid "Convert"
 msgstr ""
 
-#: src/tools/obconverter.cpp:114
+#: src/tools/obconverter.cpp:115
 #, kde-format
 msgid "Open Molecule File"
 msgstr ""
 
-#: src/tools/obconverter.cpp:116
+#: src/tools/obconverter.cpp:117
 #, fuzzy, kde-format
 #| msgid "All files"
 msgid "All Files"
 msgstr "Totes los fichièrs"
 
-#: src/tools/obconverter.cpp:177
+#: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "You must select some files first."
 msgstr ""
 
-#: src/tools/obconverter.cpp:177
+#: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "No files selected"
 msgstr ""
 
-#: src/tools/obconverter.cpp:194
+#: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
 msgstr ""
 
-#: src/tools/obconverter.cpp:195
+#: src/tools/obconverter.cpp:196
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
 msgstr ""
 
-#: src/tools/obconverter.cpp:211
+#: src/tools/obconverter.cpp:217 src/tools/obconverter.cpp:220
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr ""
