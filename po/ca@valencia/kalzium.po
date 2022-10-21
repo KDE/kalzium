@@ -3141,7 +3141,7 @@ msgid ""
 "on each calculator, click on 'Introduction'."
 msgstr ""
 "Este és l'índex de les diverses calculadores disponibles. Per a més "
-"informació sobre cada calculadora, cliqueu a «Introducció»."
+"informació sobre cada calculadora, cliqueu en «Introducció»."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
