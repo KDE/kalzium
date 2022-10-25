@@ -6329,7 +6329,7 @@ msgid ""
 msgstr ""
 "Introduïu una fórmula\n"
 "al giny de dalt\n"
-"i cliqueu a «Calc».\n"
+"i cliqueu en «Calc».\n"
 "P. ex. #Et#OH"
 
 #: src/molcalcwidget.cpp:198
