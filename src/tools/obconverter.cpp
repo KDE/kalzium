@@ -214,7 +214,7 @@ void KOpenBabel::slotConvert()
     }
     if (cmdArgList.count() > 0) {
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-        switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel")), {}, KStandardGuiItem::ok(), KStandardGuiItem::cancel()) {
+        switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel"), {}, KStandardGuiItem::ok(), KStandardGuiItem::cancel()) {
         case KMessageBox::ButtonCode::PrimaryAction:
 #else
         switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel"))) {
