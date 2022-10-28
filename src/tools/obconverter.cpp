@@ -19,6 +19,7 @@
 #include <QVector>
 
 // KDE includes
+#include <kwidgetsaddons_version.h>
 #include <KGuiItem>
 #include <KHelpClient>
 #include <KLocalizedString>
@@ -208,8 +209,20 @@ void KOpenBabel::slotConvert()
         }
     }
     if (cmdArgList.count() > 0) {
-        switch (KMessageBox::questionYesNo(this, cmdList.join(QStringLiteral("\n")), i18n("Is it okay to run these commands? -- KOpenBabel"))) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        switch (KMessageBox::questionTwoActions(this,
+#else
+        switch (KMessageBox::questionYesNo(this,
+#endif
+            cmdList.join(QStringLiteral("\n")),
+            i18n("Is it okay to run these commands? -- KOpenBabel"),
+            KGuiItem(i18n("Convert")),
+            KStandardGuiItem::cancel())) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        case KMessageBox::PrimaryAction:
+#else
         case KMessageBox::Yes:
+#endif
             foreach (const QStringList &s, cmdArgList) {
                 QProcess::startDetached(QStringLiteral("babel"), s);
             }
