@@ -179,7 +179,7 @@ void MoleculeDialog::loadMolecule(const QString &filename)
     m_molecule = *molecule_ptr;
 
     if (m_molecule.atomCount() != 0) {
-        disconnect(ui.glWidget->molecule(), 0, this, 0);
+        disconnect(ui.glWidget->molecule(), nullptr, this, nullptr);
         ui.glWidget->setMolecule(&m_molecule);
         ui.glWidget->update();
         slotUpdateStatistics();

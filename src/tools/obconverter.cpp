@@ -57,7 +57,7 @@ KOpenBabel::KOpenBabel(QWidget *parent)
 KOpenBabel::~KOpenBabel()
 {
     delete OBConvObject;
-    OBConvObject = NULL;
+    OBConvObject = nullptr;
 }
 
 void KOpenBabel::setupWindow()
