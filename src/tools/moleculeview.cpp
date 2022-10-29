@@ -106,7 +106,9 @@ MoleculeDialog::MoleculeDialog(QWidget *parent)
     int nTools = ui.glWidget->tools().size();
     if (!nTools) {
         QString error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
-        KMessageBox::error(this, error, i18n("Kalzium"));
+        // use parent as parent for the messagebix, as this dialog is not shown yet
+        // and thus not known to the window system to position to dialog relative to it
+        KMessageBox::error(parent, error, i18n("Kalzium"));
     }
 
     // objectName is also used in Avogadro2 for identifying tools
