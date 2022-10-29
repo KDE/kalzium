@@ -122,7 +122,7 @@ endif(MSVC)
 
 if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   find_package(Qt${QT_MAJOR_VERSION}OpenGL ${QT_MIN_VERSION} REQUIRED)
-  find_package(KF5NewStuff REQUIRED)
+  find_package(KF5NewStuff ${KF5_MIN_VERSION} REQUIRED)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?
   message(STATUS "Kalzium molecular editor enabled")
