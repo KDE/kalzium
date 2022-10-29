@@ -183,7 +183,8 @@ ki18n_wrap_ui(kalzium
 
 kconfig_add_kcfg_files(kalzium GENERATE_MOC prefs.kcfgc)
 
-#kde4_add_app_icon(kalzium_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kalzium.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-kalzium.png")
+ecm_add_app_icon(kalzium ICONS ${ICONS_SRCS})
 
 target_link_libraries(kalzium
     KF5::Completion
