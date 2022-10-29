@@ -154,6 +154,8 @@ target_sources(kalzium PRIVATE
    settings/isotopetablesettingsdialog.h
    settings/isotopetablesettingscard.cpp
    settings/isotopetablesettingscard.h
+
+   kalzium.qrc
 )
 
 if (LIBFACILE_FOUND)
@@ -245,7 +247,6 @@ install(TARGETS kalzium ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kalzium.desktop org.kde.kalzium_cml.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES settings/kalzium.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
-install(FILES kalziumui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/kalzium)
 
 ecm_install_icons(ICONS
     16-apps-kalzium.png
