@@ -1,9 +1,23 @@
 add_subdirectory(data)
 add_subdirectory(tests)
 
-
 add_library(science SHARED)
-ecm_qt_declare_logging_category(science HEADER kalzium_libscience_debug.h IDENTIFIER KALZIUM_LIBSCIENCE_LOG CATEGORY_NAME org.kde.kalzium.libscience DESCRIPTION "Kalzium (libscience)" EXPORT KALZIUM)
+
+set_target_properties(science PROPERTIES
+   VERSION ${KALZIUMLIB_VERSION}
+   SOVERSION ${KALZIUMLIB_SOVERSION}
+)
+
+generate_export_header(science)
+
+ecm_qt_declare_logging_category(science
+   HEADER kalzium_libscience_debug.h
+   IDENTIFIER KALZIUM_LIBSCIENCE_LOG
+   CATEGORY_NAME org.kde.kalzium.libscience
+   DESCRIPTION "Kalzium (libscience)"
+   EXPORT KALZIUM
+)
+
 target_sources(science PRIVATE
    element.cpp
    spectrum.cpp
@@ -25,16 +39,19 @@ target_sources(science PRIVATE
    moleculeparser.h
    parser.h
    psetables.h
-
 )
 
-generate_export_header(science)
-
-target_link_libraries(science Qt::Xml KF5::UnitConversion KF5::WidgetsAddons KF5::I18n)
+target_link_libraries(science
+   PUBLIC
+      KF5::UnitConversion
+      KF5::WidgetsAddons
+      KF5::I18n
+      Qt::Xml
+)
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(science Qt6::Core5Compat)
+    target_link_libraries(science PUBLIC Qt6::Core5Compat)
 endif()
-set_target_properties(science PROPERTIES VERSION ${KALZIUMLIB_VERSION} SOVERSION ${KALZIUMLIB_SOVERSION} )
+
 install(TARGETS science  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES

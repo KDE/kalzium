@@ -1,18 +1,18 @@
-include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR}/..
-    ${OPENBABEL_INCLUDE_DIR}
-    ${AvogadroLibs_INCLUDE_DIRS}
-    ${PROJECT_SOURCE_DIR}/compoundviewer
+add_library(compoundviewer)
+
+set_target_properties(compoundviewer PROPERTIES
+    VERSION ${KALZIUMLIB_VERSION}
+    SOVERSION ${KALZIUMLIB_SOVERSION}
+    CXX_STANDARD 14
+    CXX_STANDARD_REQUIRED ON
 )
 
-set(compoundviewer_SRCS
+generate_export_header(compoundviewer)
+
+target_sources(compoundviewer PRIVATE
     iowrapper.cpp
     kalziumglwidget.cpp
 )
-
-#add_subdirectory(widgets)
-
-add_library(compoundviewer ${compoundviewer_SRCS})
 
 target_link_libraries(compoundviewer
     KF5::I18n
@@ -28,13 +28,12 @@ target_link_libraries(compoundviewer
     Eigen3::Eigen
 )
 
-set_target_properties(compoundviewer PROPERTIES
-    VERSION ${KALZIUMLIB_VERSION}
-    SOVERSION ${KALZIUMLIB_SOVERSION}
-    CXX_STANDARD 14
-    CXX_STANDARD_REQUIRED ON
+target_include_directories(compoundviewer PRIVATE
+    ${CMAKE_CURRENT_BINARY_DIR}/..
+    ${OPENBABEL_INCLUDE_DIR}
+    ${AvogadroLibs_INCLUDE_DIRS}
 )
 
-generate_export_header(compoundviewer)
-
 install(TARGETS compoundviewer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+
+#add_subdirectory(widgets)
