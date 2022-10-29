@@ -193,7 +193,7 @@ void KOpenBabel::slotConvert()
             switch (KMessageBox::warningContinueCancel(this,
                                                        i18n("The file %1 already exists. Do you want to overwrite if possible?", ofname),
                                                        i18n("The File %1 Already Exists -- KOpenBabel", ofname))) {
-            case KMessageBox::No:
+            case KMessageBox::Cancel:
                 proceed = false;
                 break;
             default:
