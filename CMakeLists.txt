@@ -42,7 +42,7 @@ if(NOT ${OpenBabel3_FOUND})
     find_package(OpenBabel2)
 endif()
 if (QT_MAJOR_VERSION STREQUAL "5")
-find_package(AvogadroLibs)
+    find_package(AvogadroLibs)
 endif()
 find_package(Eigen3 CONFIG)
 find_package(OCaml)
@@ -60,7 +60,7 @@ if(HAVE_OPENBABEL2 OR HAVE_OPENBABEL3)
 endif()
 set(HAVE_EIGEN ${EIGEN3_FOUND})
 if (QT_MAJOR_VERSION STREQUAL "6")
-    set(HAVE_AVOGADRO false)
+    set(HAVE_AVOGADRO FALSE)
 else()
     set(HAVE_AVOGADRO ${AvogadroLibs_FOUND})
 endif()
@@ -88,7 +88,6 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Xml
 )
 
-
 if (QT_MAJOR_VERSION STREQUAL "6")
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Core5Compat StateMachine)
 else()
@@ -115,10 +114,10 @@ add_definitions(
     -DQT_NO_URL_CAST_FROM_STRING
 )
 if(MSVC)
-# for correctly linking openbabel:
-# see https://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
-add_definitions(-DUSING_DYNAMIC_LIBS)
-endif(MSVC)
+    # for correctly linking openbabel:
+    # see https://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
+    add_definitions(-DUSING_DYNAMIC_LIBS)
+endif()
 
 if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   find_package(Qt${QT_MAJOR_VERSION}OpenGL ${QT_MIN_VERSION} REQUIRED)
@@ -128,11 +127,11 @@ if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   message(STATUS "Kalzium molecular editor enabled")
   if (WIN32)
     add_definitions(-DHAVE_SNPRINTF -DHAVE_STRCASECMP -DHAVE_STRNCASECMP)
-  endif (WIN32)
+  endif ()
   add_subdirectory(compoundviewer)
-else (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
+else ()
   message(STATUS "Kalzium molecular editor disabled")
-endif (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
+endif ()
 
 add_subdirectory(doc)
 add_subdirectory(src)

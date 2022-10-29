@@ -6,7 +6,7 @@ macro(OCAML_MLI_TO_CMI _cmi _mli)
                       DEPENDS ${_mli} ${ARGN}
                       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
    set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${_cmi})
-endmacro(OCAML_MLI_TO_CMI)
+endmacro()
 
 macro(OCAML_ML_TO_CMX _cmx _ml)
    add_custom_command(OUTPUT ${_cmx}
@@ -14,7 +14,7 @@ macro(OCAML_ML_TO_CMX _cmx _ml)
                    DEPENDS ${_ml} ${ARGN}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
    set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${_cmx})
-endmacro(OCAML_ML_TO_CMX)
+endmacro()
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_BINARY_DIR}/chemset.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.mli
                  ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.mli  )
@@ -84,4 +84,4 @@ if(KDE4_BUILD_TESTS)
   set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_BINARY_DIR}/solver/atestprog.opt)
 
 	   #install( PROGRAMS atestprog.opt DESTINATION  ${BIN_INSTALL_DIR} )
-endif(KDE4_BUILD_TESTS)
+endif()

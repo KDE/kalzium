@@ -1,4 +1,4 @@
-FILE(GLOB SVG_CRYSTAL "*.svgz")
+file(GLOB SVG_CRYSTAL "*.svgz")
 
 install( FILES 
 	${SVG_CRYSTAL}

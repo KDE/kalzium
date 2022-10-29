@@ -20,7 +20,7 @@ if( OCAML_FOUND )
        HINTS ${OCAMLC_DIR}
        PATH_SUFFIXES facile lib/ocaml/facile
    )
-endif(OCAML_FOUND)
+endif()
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(Libfacile DEFAULT_MSG LIBFACILE_INCLUDE_DIR

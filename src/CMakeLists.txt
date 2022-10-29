@@ -45,8 +45,8 @@ if (HAVE_OPENBABEL)
       ki18n_wrap_ui(kalzium
          tools/moleculeviewerwidget.ui
       )
-   endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
-endif (HAVE_OPENBABEL)
+   endif ()
+endif ()
 
 ## Kalzium calculator files
 target_sources(kalzium PRIVATE
@@ -167,7 +167,7 @@ if (LIBFACILE_FOUND)
    ki18n_wrap_ui(kalzium
       equationview.ui
    )
-endif (LIBFACILE_FOUND)
+endif ()
 
 ki18n_wrap_ui(kalzium
    isotopetable/isotopedialog.ui
@@ -215,8 +215,8 @@ if (HAVE_OPENBABEL)
          Eigen3::Eigen
        )
       install(FILES kalzium.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
-   endif (EIGEN3_FOUND AND AvogadroLibs_FOUND)
-endif (HAVE_OPENBABEL)
+   endif ()
+endif ()
 
 if (LIBFACILE_FOUND)
    link_directories(${OCAMLC_DIR})
@@ -225,20 +225,20 @@ if (LIBFACILE_FOUND)
    find_library(OCAML_ASMRUN_LIBRARY NAMES asmrun)
    if (OCAML_ASMRUN_LIBRARY)
       target_link_libraries(kalzium ${OCAML_ASMRUN_LIBRARY})
-   endif (OCAML_ASMRUN_LIBRARY)
+   endif ()
 
    find_library(OCAML_STR_LIBRARY NAMES str)
    if (OCAML_STR_LIBRARY)
       target_link_libraries(kalzium ${OCAML_STR_LIBRARY})
-   endif (OCAML_STR_LIBRARY)
+   endif ()
 
    find_library(OCAML_NUMS_LIBRARY NAMES nums)
    if (OCAML_NUMS_LIBRARY)
       target_link_libraries(kalzium ${OCAML_NUMS_LIBRARY})
-   endif (OCAML_NUMS_LIBRARY)
+   endif ()
 
    target_link_libraries(kalzium m ${CMAKE_DL_LIBS})
-endif (LIBFACILE_FOUND)
+endif ()
 
 install(TARGETS kalzium ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

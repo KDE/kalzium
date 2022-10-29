@@ -1,4 +1,4 @@
-FILE(GLOB HTMLVIEW_ICONS "*.png")
+file(GLOB HTMLVIEW_ICONS "*.png")
 
 install( FILES
    ${HTMLVIEW_ICONS}

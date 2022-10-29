@@ -4,6 +4,7 @@ install(FILES
    isotopes.xml
    symbols.csv
    symbols2.csv
-   spectra.xml DESTINATION ${KDE_INSTALL_DATADIR}/libkdeedu/data/
+   spectra.xml
+   DESTINATION ${KDE_INSTALL_DATADIR}/libkdeedu/data/
 )
 

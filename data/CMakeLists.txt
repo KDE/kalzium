@@ -7,8 +7,6 @@ add_subdirectory(latticeicons)
 add_subdirectory(maps)
 add_subdirectory(molecules)
 
-
-
 ########### install files ###############
 
 install( FILES bg.jpg knowledge.xml tools.xml  DESTINATION  ${KDE_INSTALL_DATADIR}/kalzium/data )

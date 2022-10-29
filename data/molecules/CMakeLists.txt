@@ -1,4 +1,4 @@
-FILE(GLOB CML_EXAMPLE_FILES "*.cml")
+file(GLOB CML_EXAMPLE_FILES "*.cml")
 
 install( FILES 
    ${CML_EXAMPLE_FILES}
