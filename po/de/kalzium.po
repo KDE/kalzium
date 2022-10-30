@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:41+0000\n"
+"POT-Creation-Date: 2022-10-30 00:42+0000\n"
 "PO-Revision-Date: 2022-07-23 22:58+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -281,7 +281,7 @@ msgstr "Homogenes Gemisch mehrerer reinen Materialien"
 #: data/knowledge.xml:66 data/knowledge.xml:131
 #: src/calculator/nuclearCalculator.ui:334
 #: src/calculator/nuclearCalculator.ui:354 src/detailinfodlg.cpp:301
-#: src/exportdialog.cpp:134 src/settings/settings_gradients.ui:74
+#: src/exportdialog.cpp:135 src/settings/settings_gradients.ui:74
 #, kde-format
 msgid "Mass"
 msgstr "Masse"
@@ -738,7 +738,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:208
-#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:139
+#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:106
 #: src/plotsetupwidget.ui:427 src/settings/settings_gradients.ui:60
 #, kde-format
@@ -756,7 +756,7 @@ msgstr "Atomradius"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
-#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:140
+#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:141
 #: src/settings/settings_gradients.ui:67
 #, kde-format
 msgid "Van der Waals Radius"
@@ -4747,7 +4747,7 @@ msgstr "Namensursprung:<br/>%1"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:180 src/elementdataviewer.cpp:247
-#: src/exportdialog.cpp:141 src/kalziumgradienttype.cpp:381
+#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
 #: src/plotsetupwidget.ui:91 src/plotsetupwidget.ui:412
 #: src/settings/settings_gradients.ui:88
 #, kde-format
@@ -4758,14 +4758,14 @@ msgstr "Schmelzpunkt"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:187 src/elementdataviewer.cpp:253
-#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:325
+#: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
 #: src/plotsetupwidget.ui:96 src/plotsetupwidget.ui:417
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
 msgstr "Siedepunkt"
 
-#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:137
+#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:138
 #, kde-format
 msgid "Electron Affinity"
 msgstr "Elektronenaffinität"
@@ -4795,7 +4795,7 @@ msgstr "Erste Ionisierungsenergie"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:236 src/elementdataviewer.cpp:242
-#: src/exportdialog.cpp:138 src/plotsetupwidget.ui:86
+#: src/exportdialog.cpp:139 src/plotsetupwidget.ui:86
 #: src/plotsetupwidget.ui:407 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
@@ -5176,7 +5176,7 @@ msgstr "Daten grafisch darstellen"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:131
+#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
 #: src/plotsetupwidget.ui:76 src/plotsetupwidget.ui:397
 #, kde-format
 msgid "Atomic Number"
@@ -5247,56 +5247,56 @@ msgstr "&Berechnen"
 msgid "Copy to Clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: src/exportdialog.cpp:84
+#: src/exportdialog.cpp:85
 #, kde-format
 msgid "OK"
 msgstr "OK"
 
-#: src/exportdialog.cpp:89
+#: src/exportdialog.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "Chemische Daten exportieren"
 
-#: src/exportdialog.cpp:114
+#: src/exportdialog.cpp:115
 #, kde-format
 msgid "Elements"
 msgstr "Elemente"
 
-#: src/exportdialog.cpp:115
+#: src/exportdialog.cpp:116
 #, kde-format
 msgid "Properties"
 msgstr "Eigenschaften"
 
-#: src/exportdialog.cpp:132
+#: src/exportdialog.cpp:133
 #, kde-format
 msgid "Symbol"
 msgstr "Symbol"
 
-#: src/exportdialog.cpp:135
+#: src/exportdialog.cpp:136
 #, kde-format
 msgid "Exact Mass"
 msgstr "Exakte Masse"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
-#: src/exportdialog.cpp:136 src/settings/settings_gradients.ui:116
+#: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
 #, kde-format
 msgid "Ionization"
 msgstr "Ionisation"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabFamily)
-#: src/exportdialog.cpp:143 src/kalziumschemetype.cpp:237
+#: src/exportdialog.cpp:144 src/kalziumschemetype.cpp:237
 #: src/settings/settings_colors.ui:405
 #, kde-format
 msgid "Family"
 msgstr "Familien"
 
-#: src/exportdialog.cpp:155
+#: src/exportdialog.cpp:161
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "Die Datei existiert bereits. Möchten Sie die Datei überschreiben?"
 
-#: src/exportdialog.cpp:160
+#: src/exportdialog.cpp:173
 #, kde-format
 msgid "Could not open file for writing."
 msgstr "Die Datei kann nicht zum Schreiben geöffnet werden."
@@ -6057,7 +6057,7 @@ msgstr "Maximum: %1"
 msgid "Scheme: %1"
 msgstr "Schema: %1"
 
-#: src/main.cpp:38 src/tools/moleculeview.cpp:109
+#: src/main.cpp:38 src/tools/moleculeview.cpp:111
 #, kde-format
 msgid "Kalzium"
 msgstr "Kalzium"
@@ -8605,7 +8605,7 @@ msgstr ""
 "Keine Werkzeuge geladen – es könnte sein, dass die Avogadro-Module nicht "
 "gefunden wurden."
 
-#: src/tools/moleculeview.cpp:128
+#: src/tools/moleculeview.cpp:130
 #, kde-format
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
@@ -8615,37 +8615,37 @@ msgstr ""
 "gefunden wurden. Es können keine Moleküle betrachtet werden, bis dieser "
 "Fehler behoben ist."
 
-#: src/tools/moleculeview.cpp:135 src/tools/moleculeview.cpp:201
+#: src/tools/moleculeview.cpp:137 src/tools/moleculeview.cpp:203
 #, kde-format
 msgid "Common molecule formats"
 msgstr "Gängige Molekül-Formate"
 
-#: src/tools/moleculeview.cpp:136 src/tools/moleculeview.cpp:202
+#: src/tools/moleculeview.cpp:138 src/tools/moleculeview.cpp:204
 #, kde-format
 msgid "All files"
 msgstr "Alle Dateien"
 
-#: src/tools/moleculeview.cpp:140
+#: src/tools/moleculeview.cpp:142
 #, kde-format
 msgid "Choose a file to open"
 msgstr "Wählen Sie eine Datei zum Öffnen aus"
 
-#: src/tools/moleculeview.cpp:175
+#: src/tools/moleculeview.cpp:177
 #, kde-format
 msgid "Could not load molecule"
 msgstr "Laden des Moleküls nicht möglich"
 
-#: src/tools/moleculeview.cpp:175
+#: src/tools/moleculeview.cpp:177
 #, kde-format
 msgid "Loading the molecule failed."
 msgstr "Das Laden des Moleküls ist fehlgeschlagen."
 
-#: src/tools/moleculeview.cpp:204
+#: src/tools/moleculeview.cpp:206
 #, kde-format
 msgid "Choose a file to save to"
 msgstr "Wählen Sie eine Datei zum Speichern aus"
 
-#: src/tools/moleculeview.cpp:245
+#: src/tools/moleculeview.cpp:247
 #, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
@@ -8653,17 +8653,17 @@ msgctxt ""
 msgid "%1 u"
 msgstr "%1 u"
 
-#: src/tools/moleculeview.cpp:283
+#: src/tools/moleculeview.cpp:285
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
 msgstr "Fehler beim Herunterladen von Molekül %1 nach %2."
 
-#: src/tools/moleculeview.cpp:291
+#: src/tools/moleculeview.cpp:293
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
 msgstr "Die heruntergeladenen Moleküle wurden unter %1 gespeichert."
 
-#: src/tools/moleculeview.cpp:293
+#: src/tools/moleculeview.cpp:295
 #, kde-format
 msgid "The molecules have been saved to %1."
 msgstr "Die Moleküle wurden in %1 gespeichert."
@@ -8748,50 +8748,50 @@ msgstr "Formel:"
 msgid "Weight:"
 msgstr "Masse:"
 
-#: src/tools/obconverter.cpp:32
+#: src/tools/obconverter.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "Grafische Oberfläche für OpenBabel"
 
-#: src/tools/obconverter.cpp:50
+#: src/tools/obconverter.cpp:51 src/tools/obconverter.cpp:219
 #, kde-format
 msgid "Convert"
 msgstr "Umwandeln"
 
-#: src/tools/obconverter.cpp:114
+#: src/tools/obconverter.cpp:115
 #, kde-format
 msgid "Open Molecule File"
 msgstr "Molekül-Datei öffnen"
 
-#: src/tools/obconverter.cpp:116
+#: src/tools/obconverter.cpp:117
 #, kde-format
 msgid "All Files"
 msgstr "Alle Dateien"
 
-#: src/tools/obconverter.cpp:177
+#: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "You must select some files first."
 msgstr "Sie müssen zuerst einige Dateien auswählen."
 
-#: src/tools/obconverter.cpp:177
+#: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "No files selected"
 msgstr "Keine Dateien ausgewählt"
 
-#: src/tools/obconverter.cpp:194
+#: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
 msgstr ""
 "Die Datei %1 existiert bereits. Möchten Sie die Datei überschreiben, falls "
 "möglich?"
 
-#: src/tools/obconverter.cpp:195
+#: src/tools/obconverter.cpp:196
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
 msgstr "Die Datei %1 existiert bereits – KOpenBabel"
 
-#: src/tools/obconverter.cpp:211
+#: src/tools/obconverter.cpp:218
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr "Sollen diese Befehle ausgeführt werden? – KOpenBabel"

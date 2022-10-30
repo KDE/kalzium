@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:41+0000\n"
+"POT-Creation-Date: 2022-10-30 00:42+0000\n"
 "PO-Revision-Date: 2021-01-23 15:50-0800\n"
 "Last-Translator: A S Alam <aalam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -247,7 +247,7 @@ msgstr ""
 #: data/knowledge.xml:66 data/knowledge.xml:131
 #: src/calculator/nuclearCalculator.ui:334
 #: src/calculator/nuclearCalculator.ui:354 src/detailinfodlg.cpp:301
-#: src/exportdialog.cpp:134 src/settings/settings_gradients.ui:74
+#: src/exportdialog.cpp:135 src/settings/settings_gradients.ui:74
 #, kde-format
 msgid "Mass"
 msgstr "ਪੁੰਜ"
@@ -622,7 +622,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:208
-#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:139
+#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:106
 #: src/plotsetupwidget.ui:427 src/settings/settings_gradients.ui:60
 #, kde-format
@@ -640,7 +640,7 @@ msgstr "ਪਰਮਾਣੂ ਰੇਡੀਅਸ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
-#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:140
+#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:141
 #: src/settings/settings_gradients.ui:67
 #, kde-format
 msgid "Van der Waals Radius"
@@ -4269,7 +4269,7 @@ msgstr "ਨਾਂ ਦਾ ਖੇਤਰ:<br/>%1"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:180 src/elementdataviewer.cpp:247
-#: src/exportdialog.cpp:141 src/kalziumgradienttype.cpp:381
+#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
 #: src/plotsetupwidget.ui:91 src/plotsetupwidget.ui:412
 #: src/settings/settings_gradients.ui:88
 #, kde-format
@@ -4280,14 +4280,14 @@ msgstr "ਪਿਘਲਾਉ ਦਰਜਾ"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:187 src/elementdataviewer.cpp:253
-#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:325
+#: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
 #: src/plotsetupwidget.ui:96 src/plotsetupwidget.ui:417
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
 msgstr "ਉਬਾਲ ਦਰਜਾ"
 
-#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:137
+#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:138
 #, kde-format
 msgid "Electron Affinity"
 msgstr "ਇਲੈਕਟਰੋਨ ਅਫ਼ਿਨਟੀ"
@@ -4317,7 +4317,7 @@ msgstr "ਪਹਿਲੀ ਆਈਨੋਜ਼ੇਸ਼ਨ ਊਰਜਾ"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:236 src/elementdataviewer.cpp:242
-#: src/exportdialog.cpp:138 src/plotsetupwidget.ui:86
+#: src/exportdialog.cpp:139 src/plotsetupwidget.ui:86
 #: src/plotsetupwidget.ui:407 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
@@ -4717,7 +4717,7 @@ msgstr "ਡਾਟਾ ਵਾਹੋ"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:131
+#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
 #: src/plotsetupwidget.ui:76 src/plotsetupwidget.ui:397
 #, kde-format
 msgid "Atomic Number"
@@ -4777,58 +4777,58 @@ msgstr "ਗਣਨਾ(&C)"
 msgid "Copy to Clipboard"
 msgstr "ਕਲਿੱਪਬੋਰਡ 'ਚ ਕਾਪੀ ਕਰੋ"
 
-#: src/exportdialog.cpp:84
+#: src/exportdialog.cpp:85
 #, fuzzy, kde-format
 #| msgid "K"
 msgid "OK"
 msgstr "K"
 
-#: src/exportdialog.cpp:89
+#: src/exportdialog.cpp:90
 #, fuzzy, kde-format
 #| msgid "Export Chemical Data"
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "ਰਸਾਇਣਿਕ ਡਾਟਾ ਐਕਸਪੋਰਟ ਕਰੋ"
 
-#: src/exportdialog.cpp:114
+#: src/exportdialog.cpp:115
 #, kde-format
 msgid "Elements"
 msgstr "ਤੱਤ"
 
-#: src/exportdialog.cpp:115
+#: src/exportdialog.cpp:116
 #, kde-format
 msgid "Properties"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾ"
 
-#: src/exportdialog.cpp:132
+#: src/exportdialog.cpp:133
 #, kde-format
 msgid "Symbol"
 msgstr "ਨਿਸ਼ਾਨ"
 
-#: src/exportdialog.cpp:135
+#: src/exportdialog.cpp:136
 #, kde-format
 msgid "Exact Mass"
 msgstr "ਠੀਕ ਭਾਰ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
-#: src/exportdialog.cpp:136 src/settings/settings_gradients.ui:116
+#: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
 #, kde-format
 msgid "Ionization"
 msgstr "ਆਈਨੋਜ਼ੇਸ਼ਨ"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabFamily)
-#: src/exportdialog.cpp:143 src/kalziumschemetype.cpp:237
+#: src/exportdialog.cpp:144 src/kalziumschemetype.cpp:237
 #: src/settings/settings_colors.ui:405
 #, kde-format
 msgid "Family"
 msgstr "ਵਰਗ"
 
-#: src/exportdialog.cpp:155
+#: src/exportdialog.cpp:161
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕੀ ਤੁਸੀਂ ਉੱਤੇ ਹੀ ਲਿਖਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/exportdialog.cpp:160
+#: src/exportdialog.cpp:173
 #, kde-format
 msgid "Could not open file for writing."
 msgstr "ਫਾਇਲ ਲਿਖਣ ਲਈ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
@@ -5579,7 +5579,7 @@ msgstr "ਵੱਧੋ-ਵੱਧ: %1"
 msgid "Scheme: %1"
 msgstr "ਸਕੀਮ: %1"
 
-#: src/main.cpp:38 src/tools/moleculeview.cpp:109
+#: src/main.cpp:38 src/tools/moleculeview.cpp:111
 #, kde-format
 msgid "Kalzium"
 msgstr "ਕੈਲਜ਼ੀਅਮ"
@@ -8505,7 +8505,7 @@ msgid ""
 "located."
 msgstr "ਕੋਈ ਟੂਲ ਲੋਡ ਨਹੀਂ ਕੀਤਾ - ਇਹ ਜਾਪਦਾ ਹੈ ਕਿ ਐਵੋਗੈਡਰੋ ਪਲੱਗਇਨ ਲੱਭੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
 
-#: src/tools/moleculeview.cpp:128
+#: src/tools/moleculeview.cpp:130
 #, kde-format
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
@@ -8514,39 +8514,39 @@ msgstr ""
 "ਕੋਈ ਟੂਲ ਲੋਡ ਨਹੀਂ ਕੀਤਾ - ਇਹ ਜਾਪਦਾ ਹੈ ਕਿ ਐਵੋਗੈਡਰੋ ਪਲੱਗਇਨ ਲੱਭੀ ਨਹੀਂ ਜਾ ਸਕੀ। ਕੋਈ ਅਣੂ ਨਹੀਂ "
 "ਵੇਖਾਇਆ ਜਾ ਸਕਦਾ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਹ ਮਸਲਾ ਹੱਲ ਨਹੀਂ ਹੁੰਦਾ।"
 
-#: src/tools/moleculeview.cpp:135 src/tools/moleculeview.cpp:201
+#: src/tools/moleculeview.cpp:137 src/tools/moleculeview.cpp:203
 #, kde-format
 msgid "Common molecule formats"
 msgstr "ਆਮ ਅਣੂ ਫਾਰਮੈਟ"
 
-#: src/tools/moleculeview.cpp:136 src/tools/moleculeview.cpp:202
+#: src/tools/moleculeview.cpp:138 src/tools/moleculeview.cpp:204
 #, kde-format
 msgid "All files"
 msgstr "ਸਭ ਫਾਇਲਾਂ"
 
-#: src/tools/moleculeview.cpp:140
+#: src/tools/moleculeview.cpp:142
 #, kde-format
 msgid "Choose a file to open"
 msgstr "ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਫਾਇਲ ਚੁਣੋ"
 
-#: src/tools/moleculeview.cpp:175
+#: src/tools/moleculeview.cpp:177
 #, fuzzy, kde-format
 #| msgid "Loading a molecule"
 msgid "Could not load molecule"
 msgstr "ਇੱਕ ਅਣੂ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/tools/moleculeview.cpp:175
+#: src/tools/moleculeview.cpp:177
 #, fuzzy, kde-format
 #| msgid "Loading a molecule"
 msgid "Loading the molecule failed."
 msgstr "ਇੱਕ ਅਣੂ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/tools/moleculeview.cpp:204
+#: src/tools/moleculeview.cpp:206
 #, kde-format
 msgid "Choose a file to save to"
 msgstr "ਸੰਭਾਲਣ ਲਈ ਇੱਕ ਫਾਇਲ ਚੁਣੋ"
 
-#: src/tools/moleculeview.cpp:245
+#: src/tools/moleculeview.cpp:247
 #, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
@@ -8554,17 +8554,17 @@ msgctxt ""
 msgid "%1 u"
 msgstr "%1 u"
 
-#: src/tools/moleculeview.cpp:283
+#: src/tools/moleculeview.cpp:285
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
 msgstr "%2 ਲਈ %1 ਅਣੂ ਡਾਊਨਲੋਡ ਕਰਨ ਲਈ ਫੇਲ੍ਹ ਹੈ।"
 
-#: src/tools/moleculeview.cpp:291
+#: src/tools/moleculeview.cpp:293
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
 msgstr "ਅਣੂ, ਜੋ ਕਿ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਚੁੱਕਾ ਹੈ, ਨੂੰ %1 ਵਿੱਚ ਸੰਭਾਲਿਆ ਗਿਆ।"
 
-#: src/tools/moleculeview.cpp:293
+#: src/tools/moleculeview.cpp:295
 #, kde-format
 msgid "The molecules have been saved to %1."
 msgstr "ਅਣੂਆਂ ਨੂੰ %1 ਵਿੱਚ ਸੰਭਾਲਿਆ ਜਾ ਚੁੱਕਾ ਹੈ।"
@@ -8645,50 +8645,50 @@ msgstr "ਫਾਰਮੂਲਾ:"
 msgid "Weight:"
 msgstr "ਭਾਰ:"
 
-#: src/tools/obconverter.cpp:32
+#: src/tools/obconverter.cpp:33
 #, fuzzy, kde-format
 #| msgid "OpenBabel Frontend"
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "ਓਪਨਬੇਬਲ ਫਰੰਟਐਂਡ"
 
-#: src/tools/obconverter.cpp:50
+#: src/tools/obconverter.cpp:51 src/tools/obconverter.cpp:219
 #, kde-format
 msgid "Convert"
 msgstr "ਬਦਲੋ"
 
-#: src/tools/obconverter.cpp:114
+#: src/tools/obconverter.cpp:115
 #, fuzzy, kde-format
 #| msgid "Open the given molecule file"
 msgid "Open Molecule File"
 msgstr "ਦਿੱਤੀ ਅਣੂ ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/tools/obconverter.cpp:116
+#: src/tools/obconverter.cpp:117
 #, kde-format
 msgid "All Files"
 msgstr "ਸਭ ਫਾਇਲਾਂ"
 
-#: src/tools/obconverter.cpp:177
+#: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "You must select some files first."
 msgstr "ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਕੁਝ ਫਾਇਲਾਂ ਦੀ ਚੋਣ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ।"
 
-#: src/tools/obconverter.cpp:177
+#: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "No files selected"
 msgstr "ਕੋਈ ਫਾਇਲ ਨਹੀਂ ਚੁਣੀ"
 
-#: src/tools/obconverter.cpp:194
+#: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
 msgstr "ਫਾਇਲ %1 ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕੀ ਤੁਸੀਂ ਉੱਤੇ ਲਿਖਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਜੇ ਸੰਭਵ ਹੋਵੇ?"
 
-#: src/tools/obconverter.cpp:195
+#: src/tools/obconverter.cpp:196
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
 msgstr "ਫਾਇਲ %1 ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ  -- ਕੇਓਪਨਬੇਬਲ"
 
-#: src/tools/obconverter.cpp:211
+#: src/tools/obconverter.cpp:218
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr "ਇਹ ਕਮਾਡਾਂ ਚਲਾਉਣ ਲਈ ਤਿਆਰ? - ਕੇ-ਓਪਨਬੇਬਲ"
