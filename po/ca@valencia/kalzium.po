@@ -1373,10 +1373,10 @@ msgstr ""
 "Una manera de separar una mescla és utilitzar la destil·lació. En este "
 "muntatge un pont de destil·lació fa de conducte entre els dos recipients. En "
 "un hi ha la mescla a separar i, per escalfament, es forma un gas que és "
-"conduït a través del pont. A l'altre extrem del pont la fase gasosa es torna "
-"a condensar i degota en un flascó. Per regla general, el pont és refredat "
-"pel reflux. També s'acostuma a incloure un termòmetre per tal de controlar "
-"la temperatura del pont de destil·lació."
+"conduït a través del pont. En l'altre extrem del pont la fase gasosa es "
+"torna a condensar i degota en un flascó. Per regla general, el pont és "
+"refredat pel reflux. També s'acostuma a incloure un termòmetre per tal de "
+"controlar la temperatura del pont de destil·lació."
 
 #: data/tools.xml:169
 #, kde-format
@@ -5413,9 +5413,9 @@ msgid ""
 msgstr ""
 "<p><b>Informació</b></p>\n"
 "<p>Feu clic dret sobre un element per a veure informació sobre ell.</p>\n"
-"<p>Feu zoom utilitzant la roda del ratolí / funció de zoom.</p>\n"
-"<p>Desplaceu-vos fent clic esquerre i arrossegant / utilitzant la funció de "
-"desplaçament.</p>"
+"<p>Feu zoom utilitzant la roda del ratolí / característica de zoom.</p>\n"
+"<p>Desplaceu-vos fent clic esquerre i arrossegant / utilitzant la "
+"característica de desplaçament.</p>"
 
 #: src/isotopetable/isotopeitem.cpp:65
 #, kde-format
