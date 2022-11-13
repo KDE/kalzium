@@ -5,7 +5,6 @@
 
 #include "detailinfodlg.h"
 
-#include "detailedgraphicaloverview.h"
 #include "element.h"
 #include "isotope.h"
 #include "kalziumdataobject.h"

@@ -5,6 +5,7 @@
 
 #include "detailedgraphicaloverview.h"
 
+#include "kalziumelementproperty.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 

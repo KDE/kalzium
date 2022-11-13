@@ -16,7 +16,6 @@
 
 #include <QGraphicsItem>
 
-#include "kalziumdataobject.h"
 #include <chemicaldataobject.h>
 
 /**

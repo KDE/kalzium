@@ -12,9 +12,6 @@
 
 #include <QGraphicsView>
 
-#include "kalziumdataobject.h"
-#include "kalziumnumerationtype.h"
-
 #include "elementitem.h"
 #include "numerationitem.h"
 #include "periodictablescene.h"

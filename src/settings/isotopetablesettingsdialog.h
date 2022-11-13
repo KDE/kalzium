@@ -6,8 +6,6 @@
 #define ISOTOPETABLESETTINGSDIALOG_H
 
 #include "isotopetablesettingscard.h"
-#include "isotopeview.h"
-#include "kalziumunitcombobox.h"
 #include "prefs.h"
 #include <QWidget>
 

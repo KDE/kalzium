@@ -4,6 +4,7 @@
 */
 
 #include "gradientwidget_impl.h"
+#include "kalziumelementproperty.h"
 
 #include <KLocalizedString>
 

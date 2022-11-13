@@ -16,7 +16,6 @@
 
 #include <prefs.h>
 
-#include "kalzium_debug.h"
 #include <QFont>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>

@@ -6,7 +6,6 @@
 #ifndef DETAILEDGRAPHICALOVERVIEW_H
 #define DETAILEDGRAPHICALOVERVIEW_H
 
-#include "kalziumelementproperty.h"
 #include <QWidget>
 
 class Element;

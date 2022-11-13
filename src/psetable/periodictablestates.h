@@ -10,7 +10,6 @@
 #include <QParallelAnimationGroup>
 #include <QStateMachine>
 
-#include "kalziumelementproperty.h"
 
 #include "elementitem.h"
 #include "numerationitem.h"

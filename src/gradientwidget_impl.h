@@ -11,7 +11,6 @@
 #include "ui_gradientwidget.h"
 #include <QWidget>
 
-#include "kalziumelementproperty.h"
 
 class QTimer;
 
