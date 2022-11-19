@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-30 00:42+0000\n"
+"POT-Creation-Date: 2022-11-14 00:41+0000\n"
 "PO-Revision-Date: 2007-09-11 22:44+0200\n"
 "Last-Translator: Northern Sami translation team <i18n-sme@lister.ping.uio."
 "no>\n"
@@ -245,7 +245,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicMassGradient)
 #: data/knowledge.xml:66 data/knowledge.xml:131
 #: src/calculator/nuclearCalculator.ui:334
-#: src/calculator/nuclearCalculator.ui:354 src/detailinfodlg.cpp:301
+#: src/calculator/nuclearCalculator.ui:354 src/detailinfodlg.cpp:300
 #: src/exportdialog.cpp:135 src/settings/settings_gradients.ui:74
 #, kde-format
 msgid "Mass"
@@ -452,7 +452,7 @@ msgid ""
 "internal masses, but is intrinsic to the particle itself."
 msgstr ""
 
-#: data/knowledge.xml:149 src/detailinfodlg.cpp:313
+#: data/knowledge.xml:149 src/detailinfodlg.cpp:312
 #, kde-format
 msgid "Magnetic Moment"
 msgstr ""
@@ -620,7 +620,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
-#: data/knowledge.xml:271 src/detailinfodlg.cpp:208
+#: data/knowledge.xml:271 src/detailinfodlg.cpp:207
 #: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:106
 #: src/plotsetupwidget.ui:427 src/settings/settings_gradients.ui:60
@@ -639,7 +639,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
-#: data/knowledge.xml:276 src/detailinfodlg.cpp:215 src/exportdialog.cpp:141
+#: data/knowledge.xml:276 src/detailinfodlg.cpp:214 src/exportdialog.cpp:141
 #: src/settings/settings_gradients.ui:67
 #, kde-format
 msgid "Van der Waals Radius"
@@ -4164,50 +4164,50 @@ msgstr ""
 msgid "Example"
 msgstr ""
 
-#: src/detailedgraphicaloverview.cpp:80
+#: src/detailedgraphicaloverview.cpp:81
 #, kde-format
 msgid "No element selected"
 msgstr ""
 
-#: src/detailedgraphicaloverview.cpp:99
+#: src/detailedgraphicaloverview.cpp:100
 #, kde-format
 msgid "No graphic found"
 msgstr ""
 
-#: src/detailedgraphicaloverview.cpp:147
+#: src/detailedgraphicaloverview.cpp:148
 #, kde-format
 msgctxt "For example '1.0079u', the mass of an element in units"
 msgid "%1 u"
 msgstr ""
 
-#: src/detailinfodlg.cpp:44
+#: src/detailinfodlg.cpp:43
 #, kde-format
 msgctxt "Next element"
 msgid "Next"
 msgstr ""
 
-#: src/detailinfodlg.cpp:45
+#: src/detailinfodlg.cpp:44
 #, kde-format
 msgid "Goes to the next element"
 msgstr ""
 
-#: src/detailinfodlg.cpp:48
+#: src/detailinfodlg.cpp:47
 #, kde-format
 msgctxt "Previous element"
 msgid "Previous"
 msgstr ""
 
-#: src/detailinfodlg.cpp:49
+#: src/detailinfodlg.cpp:48
 #, kde-format
 msgid "Goes to the previous element"
 msgstr ""
 
-#: src/detailinfodlg.cpp:148
+#: src/detailinfodlg.cpp:147
 #, kde-format
 msgid "It was discovered by %1."
 msgstr ""
 
-#: src/detailinfodlg.cpp:155
+#: src/detailinfodlg.cpp:154
 #, kde-format
 msgid "Origin of the name:<br/>%1"
 msgstr ""
@@ -4215,7 +4215,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicMeltingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:180 src/elementdataviewer.cpp:247
+#: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:247
 #: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
 #: src/plotsetupwidget.ui:91 src/plotsetupwidget.ui:412
 #: src/settings/settings_gradients.ui:88
@@ -4226,7 +4226,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicBoilingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:187 src/elementdataviewer.cpp:253
+#: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:253
 #: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
 #: src/plotsetupwidget.ui:96 src/plotsetupwidget.ui:417
 #: src/settings/settings_gradients.ui:81
@@ -4234,28 +4234,28 @@ msgstr ""
 msgid "Boiling Point"
 msgstr ""
 
-#: src/detailinfodlg.cpp:194 src/exportdialog.cpp:138
+#: src/detailinfodlg.cpp:193 src/exportdialog.cpp:138
 #, kde-format
 msgid "Electron Affinity"
 msgstr ""
 
-#: src/detailinfodlg.cpp:201
+#: src/detailinfodlg.cpp:200
 #, kde-format
 msgid "Electronic configuration"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
-#: src/detailinfodlg.cpp:222 src/molcalcwidgetbase.ui:218
+#: src/detailinfodlg.cpp:221 src/molcalcwidgetbase.ui:218
 #, kde-format
 msgid "Atomic mass"
 msgstr ""
 
-#: src/detailinfodlg.cpp:229
+#: src/detailinfodlg.cpp:228
 #, kde-format
 msgid "Ionization energy"
 msgstr ""
 
-#: src/detailinfodlg.cpp:229
+#: src/detailinfodlg.cpp:228
 #, kde-format
 msgid "First Ionization energy"
 msgstr ""
@@ -4263,62 +4263,62 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:236 src/elementdataviewer.cpp:242
+#: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:242
 #: src/exportdialog.cpp:139 src/plotsetupwidget.ui:86
 #: src/plotsetupwidget.ui:407 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
 msgstr ""
 
-#: src/detailinfodlg.cpp:243
+#: src/detailinfodlg.cpp:242
 #, kde-format
 msgid "Oxidation states"
 msgstr ""
 
-#: src/detailinfodlg.cpp:254
+#: src/detailinfodlg.cpp:253
 #, kde-format
 msgctxt "Link to element's Wikipedia page, %1 is localized language name"
 msgid "Wikipedia (%1)"
 msgstr ""
 
-#: src/detailinfodlg.cpp:303
+#: src/detailinfodlg.cpp:302
 #, kde-format
 msgid "Neutrons"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
-#: src/detailinfodlg.cpp:305 src/molcalcwidgetbase.ui:228
+#: src/detailinfodlg.cpp:304 src/molcalcwidgetbase.ui:228
 #, kde-format
 msgid "Percentage"
 msgstr ""
 
-#: src/detailinfodlg.cpp:307
+#: src/detailinfodlg.cpp:306
 #, kde-format
 msgid "Half-life period"
 msgstr ""
 
-#: src/detailinfodlg.cpp:309
+#: src/detailinfodlg.cpp:308
 #, kde-format
 msgid "Energy and Mode of Decay"
 msgstr ""
 
-#: src/detailinfodlg.cpp:311
+#: src/detailinfodlg.cpp:310
 #, kde-format
 msgid "Spin and Parity"
 msgstr ""
 
-#: src/detailinfodlg.cpp:319
+#: src/detailinfodlg.cpp:318
 #, kde-format
 msgid "%1 u"
 msgstr ""
 
-#: src/detailinfodlg.cpp:325
+#: src/detailinfodlg.cpp:324
 #, kde-format
 msgctxt "this can for example be '24%'"
 msgid "%1%"
 msgstr ""
 
-#: src/detailinfodlg.cpp:330
+#: src/detailinfodlg.cpp:329
 #, kde-format
 msgctxt ""
 "The first argument is the value, the second is the unit. For example '17 s' "
@@ -4326,241 +4326,241 @@ msgctxt ""
 msgid "%1 %2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:337 src/detailinfodlg.cpp:361
-#: src/detailinfodlg.cpp:384 src/detailinfodlg.cpp:407
-#: src/detailinfodlg.cpp:430 src/detailinfodlg.cpp:452
-#: src/detailinfodlg.cpp:474 src/detailinfodlg.cpp:496
-#: src/detailinfodlg.cpp:517 src/detailinfodlg.cpp:538
-#: src/detailinfodlg.cpp:559 src/detailinfodlg.cpp:579
-#: src/detailinfodlg.cpp:599 src/detailinfodlg.cpp:619
-#: src/detailinfodlg.cpp:638 src/detailinfodlg.cpp:657
-#: src/detailinfodlg.cpp:675 src/detailinfodlg.cpp:693
-#: src/detailinfodlg.cpp:710 src/detailinfodlg.cpp:727
-#: src/detailinfodlg.cpp:743 src/detailinfodlg.cpp:759
-#: src/detailinfodlg.cpp:774 src/detailinfodlg.cpp:789
-#: src/detailinfodlg.cpp:804 src/detailinfodlg.cpp:818
-#: src/detailinfodlg.cpp:832 src/detailinfodlg.cpp:846
-#: src/detailinfodlg.cpp:859 src/detailinfodlg.cpp:872
-#: src/detailinfodlg.cpp:885 src/detailinfodlg.cpp:897
-#: src/detailinfodlg.cpp:909
+#: src/detailinfodlg.cpp:336 src/detailinfodlg.cpp:360
+#: src/detailinfodlg.cpp:383 src/detailinfodlg.cpp:406
+#: src/detailinfodlg.cpp:429 src/detailinfodlg.cpp:451
+#: src/detailinfodlg.cpp:473 src/detailinfodlg.cpp:495
+#: src/detailinfodlg.cpp:516 src/detailinfodlg.cpp:537
+#: src/detailinfodlg.cpp:558 src/detailinfodlg.cpp:578
+#: src/detailinfodlg.cpp:598 src/detailinfodlg.cpp:618
+#: src/detailinfodlg.cpp:637 src/detailinfodlg.cpp:656
+#: src/detailinfodlg.cpp:674 src/detailinfodlg.cpp:692
+#: src/detailinfodlg.cpp:709 src/detailinfodlg.cpp:726
+#: src/detailinfodlg.cpp:742 src/detailinfodlg.cpp:758
+#: src/detailinfodlg.cpp:773 src/detailinfodlg.cpp:788
+#: src/detailinfodlg.cpp:803 src/detailinfodlg.cpp:817
+#: src/detailinfodlg.cpp:831 src/detailinfodlg.cpp:845
+#: src/detailinfodlg.cpp:858 src/detailinfodlg.cpp:871
+#: src/detailinfodlg.cpp:884 src/detailinfodlg.cpp:896
+#: src/detailinfodlg.cpp:908
 #, kde-format
 msgid "%1 MeV"
 msgstr ""
 
-#: src/detailinfodlg.cpp:339
+#: src/detailinfodlg.cpp:338
 #, kde-format
 msgctxt "Spontaneous fission"
 msgid " SF"
 msgstr ""
 
-#: src/detailinfodlg.cpp:341 src/detailinfodlg.cpp:365
-#: src/detailinfodlg.cpp:388 src/detailinfodlg.cpp:411
-#: src/detailinfodlg.cpp:434 src/detailinfodlg.cpp:456
-#: src/detailinfodlg.cpp:478 src/detailinfodlg.cpp:500
-#: src/detailinfodlg.cpp:521 src/detailinfodlg.cpp:542
-#: src/detailinfodlg.cpp:563 src/detailinfodlg.cpp:583
-#: src/detailinfodlg.cpp:603 src/detailinfodlg.cpp:623
-#: src/detailinfodlg.cpp:642 src/detailinfodlg.cpp:661
-#: src/detailinfodlg.cpp:679 src/detailinfodlg.cpp:697
-#: src/detailinfodlg.cpp:714 src/detailinfodlg.cpp:731
-#: src/detailinfodlg.cpp:747 src/detailinfodlg.cpp:763
-#: src/detailinfodlg.cpp:778 src/detailinfodlg.cpp:793
-#: src/detailinfodlg.cpp:808 src/detailinfodlg.cpp:822
-#: src/detailinfodlg.cpp:836 src/detailinfodlg.cpp:850
-#: src/detailinfodlg.cpp:863 src/detailinfodlg.cpp:876
-#: src/detailinfodlg.cpp:889 src/detailinfodlg.cpp:901
-#: src/detailinfodlg.cpp:913
+#: src/detailinfodlg.cpp:340 src/detailinfodlg.cpp:364
+#: src/detailinfodlg.cpp:387 src/detailinfodlg.cpp:410
+#: src/detailinfodlg.cpp:433 src/detailinfodlg.cpp:455
+#: src/detailinfodlg.cpp:477 src/detailinfodlg.cpp:499
+#: src/detailinfodlg.cpp:520 src/detailinfodlg.cpp:541
+#: src/detailinfodlg.cpp:562 src/detailinfodlg.cpp:582
+#: src/detailinfodlg.cpp:602 src/detailinfodlg.cpp:622
+#: src/detailinfodlg.cpp:641 src/detailinfodlg.cpp:660
+#: src/detailinfodlg.cpp:678 src/detailinfodlg.cpp:696
+#: src/detailinfodlg.cpp:713 src/detailinfodlg.cpp:730
+#: src/detailinfodlg.cpp:746 src/detailinfodlg.cpp:762
+#: src/detailinfodlg.cpp:777 src/detailinfodlg.cpp:792
+#: src/detailinfodlg.cpp:807 src/detailinfodlg.cpp:821
+#: src/detailinfodlg.cpp:835 src/detailinfodlg.cpp:849
+#: src/detailinfodlg.cpp:862 src/detailinfodlg.cpp:875
+#: src/detailinfodlg.cpp:888 src/detailinfodlg.cpp:900
+#: src/detailinfodlg.cpp:912
 #, kde-format
 msgid "(%1%)"
 msgstr ""
 
-#: src/detailinfodlg.cpp:356 src/detailinfodlg.cpp:379
-#: src/detailinfodlg.cpp:402 src/detailinfodlg.cpp:425
-#: src/detailinfodlg.cpp:447 src/detailinfodlg.cpp:469
-#: src/detailinfodlg.cpp:491 src/detailinfodlg.cpp:512
-#: src/detailinfodlg.cpp:533 src/detailinfodlg.cpp:554
-#: src/detailinfodlg.cpp:574 src/detailinfodlg.cpp:594
-#: src/detailinfodlg.cpp:614 src/detailinfodlg.cpp:633
-#: src/detailinfodlg.cpp:652 src/detailinfodlg.cpp:670
-#: src/detailinfodlg.cpp:688 src/detailinfodlg.cpp:705
-#: src/detailinfodlg.cpp:722 src/detailinfodlg.cpp:738
-#: src/detailinfodlg.cpp:754 src/detailinfodlg.cpp:769
-#: src/detailinfodlg.cpp:784 src/detailinfodlg.cpp:799
-#: src/detailinfodlg.cpp:813 src/detailinfodlg.cpp:827
-#: src/detailinfodlg.cpp:841 src/detailinfodlg.cpp:854
-#: src/detailinfodlg.cpp:867 src/detailinfodlg.cpp:880
-#: src/detailinfodlg.cpp:892 src/detailinfodlg.cpp:904
+#: src/detailinfodlg.cpp:355 src/detailinfodlg.cpp:378
+#: src/detailinfodlg.cpp:401 src/detailinfodlg.cpp:424
+#: src/detailinfodlg.cpp:446 src/detailinfodlg.cpp:468
+#: src/detailinfodlg.cpp:490 src/detailinfodlg.cpp:511
+#: src/detailinfodlg.cpp:532 src/detailinfodlg.cpp:553
+#: src/detailinfodlg.cpp:573 src/detailinfodlg.cpp:593
+#: src/detailinfodlg.cpp:613 src/detailinfodlg.cpp:632
+#: src/detailinfodlg.cpp:651 src/detailinfodlg.cpp:669
+#: src/detailinfodlg.cpp:687 src/detailinfodlg.cpp:704
+#: src/detailinfodlg.cpp:721 src/detailinfodlg.cpp:737
+#: src/detailinfodlg.cpp:753 src/detailinfodlg.cpp:768
+#: src/detailinfodlg.cpp:783 src/detailinfodlg.cpp:798
+#: src/detailinfodlg.cpp:812 src/detailinfodlg.cpp:826
+#: src/detailinfodlg.cpp:840 src/detailinfodlg.cpp:853
+#: src/detailinfodlg.cpp:866 src/detailinfodlg.cpp:879
+#: src/detailinfodlg.cpp:891 src/detailinfodlg.cpp:903
 #, kde-format
 msgid ", "
 msgstr ""
 
-#: src/detailinfodlg.cpp:363
+#: src/detailinfodlg.cpp:362
 #, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
 msgstr ""
 
-#: src/detailinfodlg.cpp:386
+#: src/detailinfodlg.cpp:385
 #, kde-format
 msgctxt "Proton decay"
 msgid " p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:409
+#: src/detailinfodlg.cpp:408
 #, kde-format
 msgid " 2p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:432
+#: src/detailinfodlg.cpp:431
 #, kde-format
 msgctxt "Neutron decay"
 msgid " n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:454
+#: src/detailinfodlg.cpp:453
 #, kde-format
 msgid " 2n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:476
+#: src/detailinfodlg.cpp:475
 #, kde-format
 msgctxt "Electron capture"
 msgid " EC"
 msgstr ""
 
-#: src/detailinfodlg.cpp:498
+#: src/detailinfodlg.cpp:497
 #, kde-format
 msgid " 2EC"
 msgstr ""
 
-#: src/detailinfodlg.cpp:519
+#: src/detailinfodlg.cpp:518
 #, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
 msgstr ""
 
-#: src/detailinfodlg.cpp:540
+#: src/detailinfodlg.cpp:539
 #, kde-format
 msgid " %1<sup>-</sup>, fission"
 msgstr ""
 
-#: src/detailinfodlg.cpp:561
+#: src/detailinfodlg.cpp:560
 #, kde-format
 msgid " 2%1<sup>-</sup>"
 msgstr ""
 
-#: src/detailinfodlg.cpp:581
+#: src/detailinfodlg.cpp:580
 #, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
 msgstr ""
 
-#: src/detailinfodlg.cpp:601
+#: src/detailinfodlg.cpp:600
 #, kde-format
 msgid " 2%1<sup>+</sup>"
 msgstr ""
 
-#: src/detailinfodlg.cpp:621
+#: src/detailinfodlg.cpp:620
 #, kde-format
 msgid " %1 <sup>-</sup>n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:640
+#: src/detailinfodlg.cpp:639
 #, kde-format
 msgid " %1<sup>-</sup>2n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:659
+#: src/detailinfodlg.cpp:658
 #, kde-format
 msgid " %1<sup>-</sup>3n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:677
+#: src/detailinfodlg.cpp:676
 #, kde-format
 msgid " %1<sup>-</sup>4n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:695
+#: src/detailinfodlg.cpp:694
 #, kde-format
 msgid " %1<sup>-</sup>%2 n"
 msgstr ""
 
-#: src/detailinfodlg.cpp:712
+#: src/detailinfodlg.cpp:711
 #, kde-format
 msgid " %1<sup>-</sup>%2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:729
+#: src/detailinfodlg.cpp:728
 #, kde-format
 msgid " %1<sup>-</sup>2%2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:745
+#: src/detailinfodlg.cpp:744
 #, kde-format
 msgid " %1<sup>-</sup>3%2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:761
+#: src/detailinfodlg.cpp:760
 #, kde-format
 msgid " %1<sup>+</sup>p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:776
+#: src/detailinfodlg.cpp:775
 #, kde-format
 msgid " %1<sup>+</sup>2p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:791
+#: src/detailinfodlg.cpp:790
 #, kde-format
 msgid " %1<sup>+</sup>%2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:806
+#: src/detailinfodlg.cpp:805
 #, kde-format
 msgid " %1<sup>+</sup>2%2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:820
+#: src/detailinfodlg.cpp:819
 #, kde-format
 msgid " %1<sup>+</sup>3%2"
 msgstr ""
 
-#: src/detailinfodlg.cpp:834
+#: src/detailinfodlg.cpp:833
 #, kde-format
 msgid " %1 %2<sup>-</sup>"
 msgstr ""
 
-#: src/detailinfodlg.cpp:848
+#: src/detailinfodlg.cpp:847
 #, kde-format
 msgid " p%1"
 msgstr ""
 
-#: src/detailinfodlg.cpp:861
+#: src/detailinfodlg.cpp:860
 #, kde-format
 msgid " ECp"
 msgstr ""
 
-#: src/detailinfodlg.cpp:874
+#: src/detailinfodlg.cpp:873
 #, kde-format
 msgid " EC2p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:887
+#: src/detailinfodlg.cpp:886
 #, kde-format
 msgid " EC3p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:899
+#: src/detailinfodlg.cpp:898
 #, kde-format
 msgid " EC%1"
 msgstr ""
 
-#: src/detailinfodlg.cpp:911
+#: src/detailinfodlg.cpp:910
 #, kde-format
 msgid " EC%1 p"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1071
+#: src/detailinfodlg.cpp:1070
 #, kde-format
 msgid "%1 %2<sub>n</sub>"
 msgstr ""
@@ -4584,48 +4584,48 @@ msgstr ""
 #. X      piclabel->setMinimumSize(400, 350);
 #. X      mainLayout->addWidget(piclabel);
 #. html tab
-#: src/detailinfodlg.cpp:1109
+#: src/detailinfodlg.cpp:1108
 #, kde-format
 msgid "Data Overview"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1113 src/detailinfodlg.cpp:1114
+#: src/detailinfodlg.cpp:1112 src/detailinfodlg.cpp:1113
 #, kde-format
 msgid "Atom Model"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1122
+#: src/detailinfodlg.cpp:1121
 #, kde-format
 msgid "Isotopes"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1123
+#: src/detailinfodlg.cpp:1122
 #, kde-format
 msgid "Miscellaneous"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1127 src/detailinfodlg.cpp:1128
+#: src/detailinfodlg.cpp:1126 src/detailinfodlg.cpp:1127
 #, kde-format
 msgid "Spectrum"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1141
+#: src/detailinfodlg.cpp:1140
 #, kde-format
 msgid "Extra information"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1141
+#: src/detailinfodlg.cpp:1140
 #, kde-format
 msgid "Extra Information"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1153
+#: src/detailinfodlg.cpp:1152
 #, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
 msgstr ""
 
-#: src/detailinfodlg.cpp:1188
+#: src/detailinfodlg.cpp:1187
 #, kde-format
 msgid "No spectrum of %1 found."
 msgstr ""
@@ -4806,28 +4806,28 @@ msgstr ""
 msgid "Slide to change the speed of increase in temperature."
 msgstr ""
 
-#: src/gradientwidget_impl.cpp:167
+#: src/gradientwidget_impl.cpp:168
 #, kde-format
 msgid "Elements with melting point around this temperature:"
 msgstr ""
 
-#: src/gradientwidget_impl.cpp:169 src/gradientwidget_impl.cpp:179
+#: src/gradientwidget_impl.cpp:170 src/gradientwidget_impl.cpp:180
 #, kde-format
 msgctxt "For example: Carbon (300K)"
 msgid "%1 (%2%3)"
 msgstr ""
 
-#: src/gradientwidget_impl.cpp:173
+#: src/gradientwidget_impl.cpp:174
 #, kde-format
 msgid "No elements with a melting point around this temperature"
 msgstr ""
 
-#: src/gradientwidget_impl.cpp:177
+#: src/gradientwidget_impl.cpp:178
 #, kde-format
 msgid "Elements with boiling point around this temperature:"
 msgstr ""
 
-#: src/gradientwidget_impl.cpp:183
+#: src/gradientwidget_impl.cpp:184
 #, kde-format
 msgid "No elements with a boiling point around this temperature"
 msgstr ""
@@ -6161,7 +6161,7 @@ msgstr ""
 msgid "Y-Axis"
 msgstr ""
 
-#: src/psetable/elementitem.cpp:119
+#: src/psetable/elementitem.cpp:118
 #, kde-format
 msgid "n/a"
 msgstr ""
