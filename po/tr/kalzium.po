@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-14 00:41+0000\n"
-"PO-Revision-Date: 2022-12-04 14:37+0300\n"
+"PO-Revision-Date: 2022-12-11 20:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -486,7 +486,7 @@ msgid ""
 "at the same place on the periodic table."
 msgstr ""
 "İzotoplar, çekirdekleri aynı atom sayısı olan Z'ye, fakat farklı atom "
-"kütleleri olan A'ya eşit olan kimyasal element biçimleridir. İzotop kelimesi "
+"kütleleri olan A'ya eşit olan kimyasal element biçimleridir. İzotop sözcüğü, "
 "aynı yerde bulunan anlamına gelmekte olup, bir elementin bütün izotoplarının "
 "periyodik tabloda aynı yerde bulunmasından ileri gelir."
 
@@ -2221,7 +2221,7 @@ msgstr "Gadolinyum"
 #: element_tiny.xml:130
 #, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr ""
+msgstr "Fin kimyager Johan Gadolin'in adıyla adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2236,6 +2236,9 @@ msgid ""
 "Terbium was first refined. Yttrium, Erbium and Ytterbium are also named "
 "after this town."
 msgstr ""
+"Adını İsveç'in Ytterby kasabasından ve Terbium'un ilk rafine edildiği "
+"mineral ytterbite'den almıştır. Yttrium, Erbium ve Ytterbium da bu kasabanın "
+"adını almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:133
@@ -2272,6 +2275,9 @@ msgid ""
 "which Erbium was first refined) was first mined. Yttrium, Terbium and "
 "Ytterbium are also named after this town."
 msgstr ""
+"Adını, mineral gadolinitin (Erbium'un ilk kez rafine edildiği) ilk "
+"çıkarıldığı İsveç kasabası Ytterby'den almıştır. Yttrium, Terbium ve "
+"Ytterbium da bu kasabanın adını almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:139
@@ -2296,6 +2302,8 @@ msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
 msgstr ""
+"Yttrium, Terbium ve Erbium gibi, bu da adını İsveç'in Ytterby kasabasından "
+"almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:143
@@ -2346,6 +2354,10 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
+"Adı, 'ağır taş' anlamına gelen İsveççe 'tung sten'den geliyor. Sembol, "
+"tungstenin kalay ile \"bir kurdun koyunu (koç) yemesi gibi\" nasıl "
+"etkileşime girdiğini açıklayan \"wolfram\" elementinin eski Almanca adından "
+"gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2789,6 +2801,10 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
+"Adını Japoncada 'Japonya'nın romanlaştırılmış yazımı olan 'Nihon'dan "
+"almıştır. Element, Japonya'da RIKEN Nishina Hızlandırıcı Tabanlı Bilim "
+"Merkezi'nde keşfedilen ilk elementti. Tarihsel olarak eka-talyum olarak "
+"bilinir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
@@ -8754,11 +8770,10 @@ msgid "Weight:"
 msgstr "Ağırlık:"
 
 #: src/tools/obconverter.cpp:33
-#, fuzzy, kde-format
-#| msgid "OpenBabel Frontend"
+#, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
-msgstr "OpenBabel Önyüzü"
+msgstr "OpenBabel Ön Ucu"
 
 #: src/tools/obconverter.cpp:51 src/tools/obconverter.cpp:219
 #, kde-format
