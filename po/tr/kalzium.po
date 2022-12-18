@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-14 00:41+0000\n"
-"PO-Revision-Date: 2022-12-11 20:33+0300\n"
+"PO-Revision-Date: 2022-12-17 18:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5040,11 +5040,10 @@ msgid "OK"
 msgstr ""
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Export Chemical Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
-msgstr "Kimyasal Veriyi Dışarıya Aktar"
+msgstr "Kimyasal Veriyi Dışa Aktar"
 
 #: src/exportdialog.cpp:115
 #, kde-format
@@ -5296,7 +5295,7 @@ msgstr "Asıl kütle: %1 u"
 #: src/kalzium.cpp:113
 #, kde-format
 msgid "&Export Data..."
-msgstr "&Verileri Dışarıya Aktar..."
+msgstr "&Veriyi Dışa Aktar..."
 
 #: src/kalzium.cpp:122
 #, kde-format
