@@ -5041,7 +5041,6 @@ msgstr ""
 
 #: src/exportdialog.cpp:90
 #, kde-format
-#| msgid "Export Chemical Data"
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "Kimyasal Veriyi Dışa Aktar"
