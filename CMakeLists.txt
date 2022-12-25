@@ -9,7 +9,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(kalzium VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.90.0")
+set(KF5_MIN_VERSION "5.91.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 set(CMAKE_CXX_STANDARD 17)
@@ -31,6 +31,7 @@ include(ECMQtDeclareLoggingCategory)
 include(GenerateExportHeader)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
+include(ECMDeprecationSettings)
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
@@ -133,6 +134,8 @@ if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
 else ()
   message(STATUS "Kalzium molecular editor disabled")
 endif ()
+
+ecm_set_disabled_deprecation_versions(KF 5.101.0)
 
 add_subdirectory(doc)
 add_subdirectory(src)
