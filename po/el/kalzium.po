@@ -11,26 +11,26 @@
 # Toussis Manolis <manolis@koppermind.homelinux.org>, 2006, 2007, 2008, 2009.
 # Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
 # Dimitris Kardarakos <dimkard@gmail.com>, 2012, 2013.
-# Stelios <sstavra@gmail.com>, 2020, 2021.
+# Stelios <sstavra@gmail.com>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-30 00:42+0000\n"
-"PO-Revision-Date: 2021-06-23 09:19+0300\n"
+"PO-Revision-Date: 2023-01-05 10:11+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης"
+msgstr "Σπύρος Γεωργαράς, Τούsης Μανώλης"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -595,7 +595,7 @@ msgstr "Ισοβαρή"
 #: data/knowledge.xml:181
 #, kde-format
 msgid "Two nuclides are isotones if they have the same number N of neutrons."
-msgstr "Δύο νουκλεϊδια είναι ισότονα αν έχουν τον ίδιο αριθμό Ν νετρονίων."
+msgstr "Δύο νουκλεΐδια είναι ισότονα αν έχουν τον ίδιο αριθμό Ν νετρονίων."
 
 #: data/knowledge.xml:190
 #, kde-format
@@ -603,7 +603,7 @@ msgid ""
 "Isobars are nuclides having the same mass number, i.e. sum of protons plus "
 "neutrons."
 msgstr ""
-"Ισοβαρή είναι τα νουκλεϊδια που έχουν τον ίδιο μαζικό αριθμό, δηλαδή ίδιο "
+"Ισοβαρή είναι τα νουκλεΐδια που έχουν τον ίδιο μαζικό αριθμό, δηλαδή ίδιο "
 "άθροισμα πρωτονίων και νετρονίων."
 
 #: data/knowledge.xml:199
@@ -775,8 +775,8 @@ msgid ""
 "The atomic radius is the distance from the atomic nucleus to the outmost "
 "stable electron orbital in a atom that is at equilibrium."
 msgstr ""
-"Ατομική ακτίνα είναι η απόσταση από τον πυρήνα έως το εξώτατο σταθερό "
-"ηλεκτρονιακό τροχιακό σε ένα άτομο που βρίσκεται σε ισορροπία."
+"Ατομική ακτίνα είναι η απόσταση από τον πυρήνα έως την εξώτατο σταθερό "
+"ηλεκτρόνιο τροχιάς σε ένα άτομο που βρίσκεται σε ισορροπία."
 
 #: data/knowledge.xml:272
 #, kde-format
@@ -809,7 +809,7 @@ msgstr ""
 "Περιφερειακά είναι λυγισμένες προς τα πάνω ώστε να συγκρατούν μικρές "
 "ποσότητες υγρών που αφήνονται να εξατμιστούν. Η εξάτμιση μπορεί να "
 "επιταχυνθεί με θέρμανση της υάλου από ένα λύχνο Bunsen. Οι ύαλοι ρολογιού "
-"μπορούν επίσης να χρησιμοποιηθούν για την επικάλυψη δισκίων petri ή beaker. "
+"μπορούν επίσης να χρησιμοποιηθούν για την επικάλυψη δισκίων Petri ή beaker. "
 "Επιπλέον οι ύαλοι ρολογιού είναι κατάλληλες για τη ζύγιση μικρών ποσοτήτων "
 "ουσιών ή εναλλακτικά για την ξήρανση τους στον απαγωγό. Ο όρος ύαλος "
 "ρολογιού προήλθε από το προστατευτικό γυαλί των παλιών ρολογιών τσέπης που "
@@ -919,7 +919,7 @@ msgid ""
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
-"To γουδί χρησιμοποιείται για το άλεσμα στερεών στοιχείων. Χρησιμοποιείται "
+"Το γουδί χρησιμοποιείται για το άλεσμα στερεών στοιχείων. Χρησιμοποιείται "
 "επίσης για την ομογενοποίηση ενός μείγματος κονιαμάτων. Ένα εργαλείο σε "
 "σχήμα ροπάλου που ονομάζεται γουδοχέρι, χρησιμοποιείται με το γουδί για το "
 "άλεσμα."
@@ -1072,7 +1072,7 @@ msgstr ""
 #: data/tools.xml:77
 #, kde-format
 msgid "Reflux Condenser"
-msgstr "Συμπιεστής επαναυγροποίησης ατμών"
+msgstr "Συμπιεστής επαναϋγροποίησης ατμών"
 
 #: data/tools.xml:78
 #, kde-format
@@ -1082,7 +1082,7 @@ msgid ""
 "condenses and runs back into the original fluid. Usually it is put on a "
 "round-bottomed flask or several neck flasks."
 msgstr ""
-"Ο συμπιεστής επαναυγροποίησης ατμών υποβάλλει το υγρό σε μια διεργασία κατά "
+"Ο συμπιεστής επαναϋγροποίησης ατμών υποβάλλει το υγρό σε μια διεργασία κατά "
 "την οποία παράγεται ένα αέριο με θέρμανση και συλλέγεται στον συμπιεστή. Το "
 "αέριο ψύχεται μέχρι να συμπιεστεί και να επιστρέψει σε μορφή υγρού στο "
 "αρχικό υγρό. Συνήθως τοποθετείται σε ένα φιαλίδιο με στρογγυλό πάτο ή "
@@ -1102,7 +1102,7 @@ msgid ""
 msgstr ""
 "Η φούσκα πιπέτας χρησιμοποιείται για το γέμισμα μιας πιπέτας. Σφίγγοντας και "
 "στη συνέχεια απελευθερώνοντας τη φούσκα, παράγεται μια αρνητική πίεση που "
-"έχει ως αποτέλεσμα το υγρό να ρέει μέσα στην πιπέτα˙σφίγγοντας την πιπέτα "
+"έχει ως αποτέλεσμα το υγρό να ρέει μέσα στην πιπέτα σφίγγοντας την πιπέτα "
 "έχουμε ως αποτέλεσμα το υγρό να κυλήσει εκτός της πιπέτας."
 
 #: data/tools.xml:87
@@ -7042,8 +7042,8 @@ msgid ""
 "S26: In case of contact with eyes, rinse immediately with plenty of water "
 "and seek medical advice"
 msgstr ""
-"S26: Σε περίπτωση επαφής με τα μάτια πλύνετέ τα αμέσως με άφθονο νερό και "
-"ζητήστε ιατρική συμβουλή"
+"S26: Σε περίπτωση επαφής με τα μάτια, να τα πλύνετε αμέσως με άφθονο νερό "
+"και ζητήστε ιατρική συμβουλή"
 
 #: src/rsdialog.cpp:208
 #, kde-format
@@ -7975,27 +7975,27 @@ msgstr "Αναζήτηση..."
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "Το ένα δίπλα στο άλλο"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "Το ένα μέρος δίπλα στο άλλο"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Και τα δύο μέρη συνεχόμενα"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "Οριζόντια"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
 msgid "Horizontally (shifted)"
-msgstr ""
+msgstr "Οριζόντια (σε παράθεση)"
 
 #: src/settings/kalziumconfigdialog.cpp:15
 #, kde-format
@@ -8013,9 +8013,7 @@ msgid "Units"
 msgstr "Μονάδες"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
 msgstr "Πίνακας Ισοτόπων"
 
