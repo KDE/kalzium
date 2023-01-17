@@ -5271,7 +5271,7 @@ msgstr "D'acord"
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
-msgstr "Exportació de les dades químiques"
+msgstr "Exporteu les dades químiques"
 
 #: src/exportdialog.cpp:115
 #, kde-format
@@ -8220,7 +8220,7 @@ msgstr "Establix la llargària d'ona més a la dreta de l'espectre."
 #: src/spectrumview.ui:145
 #, kde-format
 msgid "Spectrum Settings"
-msgstr "Configuració de l'espectre"
+msgstr "Configureu l'espectre"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_spectrumType)
 #: src/spectrumview.ui:155
