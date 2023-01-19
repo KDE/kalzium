@@ -12,13 +12,13 @@
 # Renan Cakirerk, 2010.
 # obsoleteman <tulliana@gmail.com>, 2007-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-14 00:41+0000\n"
-"PO-Revision-Date: 2022-12-17 18:52+0300\n"
+"PO-Revision-Date: 2023-01-18 22:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1109,7 +1109,7 @@ msgid ""
 "Unlike a regular pipette, a full pipette only has one marking for a specific "
 "volume."
 msgstr ""
-"Normal bir pipetten farklı olarak, tam pipette sadece özel bir hacim için "
+"Normal bir pipetten farklı olarak, tam pipette yalnızca özel bir hacim için "
 "bir işaret bulunur."
 
 #: data/tools.xml:107
@@ -3110,7 +3110,8 @@ msgid ""
 "You can calculate the molar mass of solvent only if the mole fraction is "
 "specified."
 msgstr ""
-"Sadece mol kesri belirtilmiş ise çözücünün mol kütlesini hesaplayabilirsiniz."
+"Yalnızca mol kesri belirtilmiş ise çözücünün mol kütlesini "
+"hesaplayabilirsiniz."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
@@ -3314,7 +3315,7 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
-"Bu kutucuk, çözeltinin yoğunluğunu belirtmek için kullanılır ve sadece "
+"Bu kutucuk, çözeltinin yoğunluğunu belirtmek için kullanılır ve yalnızca "
 "çözelti miktarı kütle olarak belirtilmek isteniyorsa gereklidir."
 
 #. i18n: ectx: property (text), widget (QLabel, label_41)
@@ -7870,7 +7871,7 @@ msgid ""
 "Enter the R-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"Okumak istediğiniz R-parçalarını giriniz. Ayıraç olarak sadece \"-\" "
+"Okumak istediğiniz R-parçalarını giriniz. Ayıraç olarak yalnızca \"-\" "
 "karakterine izin verilir. \"/\" işaretiyle yapılan bileşimler henüz "
 "desteklenmemektedir."
 
@@ -7894,7 +7895,7 @@ msgid ""
 "Enter the S-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"Okumak istediğiniz S-parçalarını giriniz. Ayıraç olarak sadece \"-\" "
+"Okumak istediğiniz S-parçalarını giriniz. Ayıraç olarak yalnızca \"-\" "
 "karakterine izin verilir. \"/\" işaretiyle yapılan bileşimler henüz "
 "desteklenmemektedir."
 
