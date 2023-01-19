@@ -9,7 +9,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(kalzium VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.90.0")
+set(KF5_MIN_VERSION "5.92.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 set(CMAKE_CXX_STANDARD 17)
@@ -31,6 +31,7 @@ include(ECMQtDeclareLoggingCategory)
 include(GenerateExportHeader)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
+include(ECMDeprecationSettings)
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
@@ -127,6 +128,11 @@ if(MSVC)
     # see https://www.mail-archive.com/openbabel-devel@lists.sourceforge.net/msg01975.html
     add_definitions(-DUSING_DYNAMIC_LIBS)
 endif()
+
+ecm_set_disabled_deprecation_versions(QT 5.14.0
+    KF 5.101
+)
+
 
 if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   find_package(Qt${QT_MAJOR_VERSION}OpenGL ${QT_MIN_VERSION} REQUIRED)
