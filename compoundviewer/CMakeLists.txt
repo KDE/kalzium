@@ -15,9 +15,9 @@ target_sources(compoundviewer PRIVATE
 )
 
 target_link_libraries(compoundviewer
-    KF5::I18n
-    KF5::WidgetsAddons
-    KF5::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::CoreAddons
     Qt::OpenGL
     Qt::Gui
     Qt::Widgets

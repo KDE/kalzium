@@ -43,9 +43,9 @@ target_sources(science PRIVATE
 
 target_link_libraries(science
    PUBLIC
-      KF5::UnitConversion
-      KF5::WidgetsAddons
-      KF5::I18n
+      KF${KF_MAJOR_VERSION}::UnitConversion
+      KF${KF_MAJOR_VERSION}::WidgetsAddons
+      KF${KF_MAJOR_VERSION}::I18n
       Qt::Xml
 )
 if (QT_MAJOR_VERSION STREQUAL "6")

@@ -81,6 +81,14 @@ configure_file(
 
 include_directories(${AvogadroLibs_INCLUDE_DIRS})
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
+
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Core
     Gui
@@ -95,7 +103,7 @@ else()
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Script)
 endif()
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Config
     CoreAddons
@@ -122,7 +130,7 @@ endif()
 
 if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
   find_package(Qt${QT_MAJOR_VERSION}OpenGL ${QT_MIN_VERSION} REQUIRED)
-  find_package(KF5NewStuff ${KF5_MIN_VERSION} REQUIRED)
+  find_package(KF${KF_MAJOR_VERSION}NewStuff ${KF5_MIN_VERSION} REQUIRED)
   # avoid compilerwarnings about redefinitions
   # todo: use check_function_exits() ?
   message(STATUS "Kalzium molecular editor enabled")

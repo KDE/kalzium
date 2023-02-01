@@ -47,7 +47,6 @@
 
 #include <KActionCollection>
 #include <KLocalizedString>
-#include <KPluginLoader>
 #include <KSelectAction>
 #include <KStandardAction>
 
