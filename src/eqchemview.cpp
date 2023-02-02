@@ -10,7 +10,11 @@
 #include <QClipboard>
 #include <QDebug>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <LineEditUrlDropEventFilter>
+#else
+#include <KLineEditUrlDropEventFilter>
+#endif
 
 
 #include <stdlib.h>
@@ -51,10 +55,13 @@ EQChemDialog::EQChemDialog(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     LineEditUrlDropEventFilter *dropUrlEventFilter = new LineEditUrlDropEventFilter(parent);
     dropUrlEventFilter->installEventFilter(ui.lineEdit);
-
+#else
+    KLineEditUrlDropEventFilter *dropUrlEventFilter = new KLineEditUrlDropEventFilter(parent);
+    dropUrlEventFilter->installEventFilter(ui.lineEdit);
+#endif
     ui.lblHelp->setText(getHelpText());
 
     connect(ui.calculateButton, &QAbstractButton::clicked, this, &EQChemDialog::compute);
