@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:41+0000\n"
+"POT-Creation-Date: 2023-02-02 00:53+0000\n"
 "PO-Revision-Date: 2022-07-14 14:19+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -5184,74 +5184,74 @@ msgstr "Spin: %1"
 msgid "Exact mass: %1 u"
 msgstr "Přesná hmotnost: %1 u"
 
-#: src/kalzium.cpp:113
+#: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
 msgstr "&Exportovat data..."
 
-#: src/kalzium.cpp:122
+#: src/kalzium.cpp:121
 #, kde-format
 msgid "&Scheme"
 msgstr "&Schéma"
 
-#: src/kalzium.cpp:130
+#: src/kalzium.cpp:129
 #, kde-format
 msgid "&Gradients"
 msgstr "&Přechody"
 
-#: src/kalzium.cpp:139
+#: src/kalzium.cpp:138
 #, kde-format
 msgid "&Tables"
 msgstr "&Tabulky"
 
-#: src/kalzium.cpp:146
+#: src/kalzium.cpp:145
 #, kde-format
 msgid "&Numeration"
 msgstr "Číslová&ní skupin"
 
-#: src/kalzium.cpp:153
+#: src/kalzium.cpp:152
 #, kde-format
 msgid "&Plot Data..."
 msgstr "Zobrazit &graf..."
 
-#: src/kalzium.cpp:159
+#: src/kalzium.cpp:158
 #, kde-format
 msgid "Perform &Calculations..."
 msgstr "Molekulární &kalkulačka"
 
-#: src/kalzium.cpp:161
+#: src/kalzium.cpp:160
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
 msgstr "Toto je kalkulačka, provádí základní chemické výpočty."
 
-#: src/kalzium.cpp:165
+#: src/kalzium.cpp:164
 #, kde-format
 msgid "&Isotope Table..."
 msgstr "Tabulka &izotopů..."
 
-#: src/kalzium.cpp:167
+#: src/kalzium.cpp:166
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
 msgstr "Tato tabulka zobrazuje všechny známé izotopy chemických prvků."
 
-#: src/kalzium.cpp:171
+#: src/kalzium.cpp:170
 #, kde-format
 msgid "&Glossary..."
 msgstr "&Slovníček..."
 
-#: src/kalzium.cpp:176
+#: src/kalzium.cpp:175
 #, kde-format
 msgid "&R/S Phrases..."
 msgstr "&R/S-věty..."
 
-#: src/kalzium.cpp:181
+#: src/kalzium.cpp:180
 #, kde-format
 msgid "Convert chemical files..."
 msgstr "Převést chemické soubory..."
 
-#: src/kalzium.cpp:183
+#: src/kalzium.cpp:182
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5261,23 +5261,23 @@ msgstr ""
 "Pomocí tohoto nástroje lze převádět soubory obsahující chemická data mezi "
 "různými formáty."
 
-#: src/kalzium.cpp:190
+#: src/kalzium.cpp:189
 #, kde-format
 msgid "Molecular Editor..."
 msgstr "Editor molekul..."
 
-#: src/kalzium.cpp:192
+#: src/kalzium.cpp:191
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
 msgstr "tento nástroj umožňuje zobrazovat a upravovat 3D modely molekul."
 
-#: src/kalzium.cpp:199
+#: src/kalzium.cpp:198
 #, kde-format
 msgid "&Tables..."
 msgstr "&Tabulky..."
 
-#: src/kalzium.cpp:201
+#: src/kalzium.cpp:200
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5285,13 +5285,13 @@ msgid ""
 "chemistry."
 msgstr "Otevře dialogové okno se seznamy značek a čísel vztažených k chemii."
 
-#: src/kalzium.cpp:209
+#: src/kalzium.cpp:208
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
 msgstr "Zobrazí nebo skryje vysvětlivky periodické tabulky."
 
-#: src/kalzium.cpp:214
+#: src/kalzium.cpp:213
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5301,7 +5301,7 @@ msgstr ""
 "Zobrazí nebo skryje postranní panel s přídavnými informacemi a sadou "
 "nástrojů."
 
-#: src/kalzium.cpp:219
+#: src/kalzium.cpp:218
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5309,62 +5309,62 @@ msgid ""
 msgstr ""
 "Zobrazí nebo skryje postranní panel s přídavnými informacemi o tabulce."
 
-#: src/kalzium.cpp:249
+#: src/kalzium.cpp:248
 #, kde-format
 msgid "Legend"
 msgstr "Vysvětlivky"
 
-#: src/kalzium.cpp:259
+#: src/kalzium.cpp:258
 #, kde-format
 msgid "Table Information"
 msgstr "Informace o tabulce"
 
-#: src/kalzium.cpp:264
+#: src/kalzium.cpp:263
 #, kde-format
 msgid "Information"
 msgstr "Informace"
 
-#: src/kalzium.cpp:276
+#: src/kalzium.cpp:275
 #, kde-format
 msgid "Overview"
 msgstr "Přehled"
 
-#: src/kalzium.cpp:285
+#: src/kalzium.cpp:284
 #, kde-format
 msgid "View"
 msgstr "Pohled"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "Uložit tabulku Kalzia v"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "Obrázky (*.png *.xpm *.jpg *.svg)"
 
-#: src/kalzium.cpp:317
+#: src/kalzium.cpp:316
 #, kde-format
 msgid "Knowledge"
 msgstr "Vědomosti"
 
-#: src/kalzium.cpp:322
+#: src/kalzium.cpp:321
 #, kde-format
 msgid "Tools"
 msgstr "Nástroje"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "Kalzium Error"
 msgstr "Chyba v programu Kalzium"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "This system does not support OpenGL."
 msgstr "Tento systém nepodporuje OpenGL."
 
-#: src/kalzium.cpp:511
+#: src/kalzium.cpp:510
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"

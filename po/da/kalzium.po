@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:41+0000\n"
+"POT-Creation-Date: 2023-02-02 00:53+0000\n"
 "PO-Revision-Date: 2014-07-02 21:00+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -5529,74 +5529,74 @@ msgstr "Spin: %1"
 msgid "Exact mass: %1 u"
 msgstr "Nøjagtig masse: %1 u"
 
-#: src/kalzium.cpp:113
+#: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
 msgstr "&Eksportér data..."
 
-#: src/kalzium.cpp:122
+#: src/kalzium.cpp:121
 #, kde-format
 msgid "&Scheme"
 msgstr "&Skema"
 
-#: src/kalzium.cpp:130
+#: src/kalzium.cpp:129
 #, kde-format
 msgid "&Gradients"
 msgstr "&Farveovergange"
 
-#: src/kalzium.cpp:139
+#: src/kalzium.cpp:138
 #, kde-format
 msgid "&Tables"
 msgstr "&Tabeller"
 
-#: src/kalzium.cpp:146
+#: src/kalzium.cpp:145
 #, kde-format
 msgid "&Numeration"
 msgstr "&Nummerering"
 
-#: src/kalzium.cpp:153
+#: src/kalzium.cpp:152
 #, kde-format
 msgid "&Plot Data..."
 msgstr "&Plot data..."
 
-#: src/kalzium.cpp:159
+#: src/kalzium.cpp:158
 #, kde-format
 msgid "Perform &Calculations..."
 msgstr "Udfør &beregninger..."
 
-#: src/kalzium.cpp:161
+#: src/kalzium.cpp:160
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
 msgstr "Dette er regnemaskinen. Den udfører grundlæggende kemiske beregninger."
 
-#: src/kalzium.cpp:165
+#: src/kalzium.cpp:164
 #, kde-format
 msgid "&Isotope Table..."
 msgstr "&Isotoptabel..."
 
-#: src/kalzium.cpp:167
+#: src/kalzium.cpp:166
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
 msgstr "Denne tabel viser alle de kendte isotoper af de kemiske grundstoffer."
 
-#: src/kalzium.cpp:171
+#: src/kalzium.cpp:170
 #, kde-format
 msgid "&Glossary..."
 msgstr "&Ordliste..."
 
-#: src/kalzium.cpp:176
+#: src/kalzium.cpp:175
 #, kde-format
 msgid "&R/S Phrases..."
 msgstr "&R-/S-sætninger..."
 
-#: src/kalzium.cpp:181
+#: src/kalzium.cpp:180
 #, kde-format
 msgid "Convert chemical files..."
 msgstr "Konvertér kemiske filer..."
 
-#: src/kalzium.cpp:183
+#: src/kalzium.cpp:182
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5606,23 +5606,23 @@ msgstr ""
 "Med dette værktøj kan du konvertere filer som indeholder kemisk data mellem "
 "diverse filformater."
 
-#: src/kalzium.cpp:190
+#: src/kalzium.cpp:189
 #, kde-format
 msgid "Molecular Editor..."
 msgstr "Molekyleditor..."
 
-#: src/kalzium.cpp:192
+#: src/kalzium.cpp:191
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
 msgstr "Med dette værktøj kan du se og redigere molekylære strukturer i 3D."
 
-#: src/kalzium.cpp:199
+#: src/kalzium.cpp:198
 #, kde-format
 msgid "&Tables..."
 msgstr "&Tabeller..."
 
-#: src/kalzium.cpp:201
+#: src/kalzium.cpp:200
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5631,13 +5631,13 @@ msgid ""
 msgstr ""
 "Dette vil åbne en dialog med lister af symboler og tal relateret til kemi."
 
-#: src/kalzium.cpp:209
+#: src/kalzium.cpp:208
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
 msgstr "Dette vil vise eller skjule forklaringen til det periodiske system."
 
-#: src/kalzium.cpp:214
+#: src/kalzium.cpp:213
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5647,7 +5647,7 @@ msgstr ""
 "Det vil vise eller skjule et sidepanel med yderligere information og et sæt "
 "af værktøjer."
 
-#: src/kalzium.cpp:219
+#: src/kalzium.cpp:218
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5656,63 +5656,63 @@ msgstr ""
 "Det vil vise eller skjule et sidepanel med yderligere information om "
 "tabellen."
 
-#: src/kalzium.cpp:249
+#: src/kalzium.cpp:248
 #, kde-format
 msgid "Legend"
 msgstr "Forklaring"
 
-#: src/kalzium.cpp:259
+#: src/kalzium.cpp:258
 #, kde-format
 msgid "Table Information"
 msgstr "Tabelinformation"
 
-#: src/kalzium.cpp:264
+#: src/kalzium.cpp:263
 #, kde-format
 msgid "Information"
 msgstr "Information"
 
-#: src/kalzium.cpp:276
+#: src/kalzium.cpp:275
 #, kde-format
 msgid "Overview"
 msgstr "Overblik"
 
-#: src/kalzium.cpp:285
+#: src/kalzium.cpp:284
 #, kde-format
 msgid "View"
 msgstr "Vis"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "Gem Kalziums tabel i"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, fuzzy, kde-format
 #| msgid "*.png *.xpm *.jpg *.svg"
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "*.png *.xpm *.jpg *.svg"
 
-#: src/kalzium.cpp:317
+#: src/kalzium.cpp:316
 #, kde-format
 msgid "Knowledge"
 msgstr "Viden"
 
-#: src/kalzium.cpp:322
+#: src/kalzium.cpp:321
 #, kde-format
 msgid "Tools"
 msgstr "Værktøjer"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "Kalzium Error"
 msgstr "Kalzium-fejl"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "This system does not support OpenGL."
 msgstr "Dette system understøtter ikke OpenGL."
 
-#: src/kalzium.cpp:511
+#: src/kalzium.cpp:510
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"

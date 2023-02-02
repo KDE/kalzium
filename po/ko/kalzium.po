@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:41+0000\n"
+"POT-Creation-Date: 2023-02-02 00:53+0000\n"
 "PO-Revision-Date: 2022-04-16 22:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -5546,74 +5546,74 @@ msgstr "스핀 : %1"
 msgid "Exact mass: %1 u"
 msgstr "정확한 질량: %1 u"
 
-#: src/kalzium.cpp:113
+#: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
 msgstr "데이터 내보내기(&E)..."
 
-#: src/kalzium.cpp:122
+#: src/kalzium.cpp:121
 #, kde-format
 msgid "&Scheme"
 msgstr "색 구성(&S)"
 
-#: src/kalzium.cpp:130
+#: src/kalzium.cpp:129
 #, kde-format
 msgid "&Gradients"
 msgstr "그라디언트(&G)"
 
-#: src/kalzium.cpp:139
+#: src/kalzium.cpp:138
 #, kde-format
 msgid "&Tables"
 msgstr "표 모양(&T)"
 
-#: src/kalzium.cpp:146
+#: src/kalzium.cpp:145
 #, kde-format
 msgid "&Numeration"
 msgstr "기수 방법(&N)"
 
-#: src/kalzium.cpp:153
+#: src/kalzium.cpp:152
 #, kde-format
 msgid "&Plot Data..."
 msgstr "데이터 플롯(&P)..."
 
-#: src/kalzium.cpp:159
+#: src/kalzium.cpp:158
 #, kde-format
 msgid "Perform &Calculations..."
 msgstr "계산 수행(&C)..."
 
-#: src/kalzium.cpp:161
+#: src/kalzium.cpp:160
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
 msgstr "기본적인 화학 계산을 수행하는 계산기입니다."
 
-#: src/kalzium.cpp:165
+#: src/kalzium.cpp:164
 #, kde-format
 msgid "&Isotope Table..."
 msgstr "동위원소표(&I)..."
 
-#: src/kalzium.cpp:167
+#: src/kalzium.cpp:166
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
 msgstr "이 표는 화학 원소의 동위원소를 모두 보여줍니다."
 
-#: src/kalzium.cpp:171
+#: src/kalzium.cpp:170
 #, kde-format
 msgid "&Glossary..."
 msgstr "용어(&G)..."
 
-#: src/kalzium.cpp:176
+#: src/kalzium.cpp:175
 #, kde-format
 msgid "&R/S Phrases..."
 msgstr "R/S 규정(&R)..."
 
-#: src/kalzium.cpp:181
+#: src/kalzium.cpp:180
 #, kde-format
 msgid "Convert chemical files..."
 msgstr "화학 파일 변환..."
 
-#: src/kalzium.cpp:183
+#: src/kalzium.cpp:182
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5623,23 +5623,23 @@ msgstr ""
 "이 도구를 이용해 화학 데이터를 포함한 서로 다른 확장자의 파일을 변환할 수 있"
 "습니다."
 
-#: src/kalzium.cpp:190
+#: src/kalzium.cpp:189
 #, kde-format
 msgid "Molecular Editor..."
 msgstr "분자 편집기..."
 
-#: src/kalzium.cpp:192
+#: src/kalzium.cpp:191
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
 msgstr "이 도구는 3D 분자 구조를 보고 수정할 수 있게 합니다."
 
-#: src/kalzium.cpp:199
+#: src/kalzium.cpp:198
 #, kde-format
 msgid "&Tables..."
 msgstr "표(&T)..."
 
-#: src/kalzium.cpp:201
+#: src/kalzium.cpp:200
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5647,13 +5647,13 @@ msgid ""
 "chemistry."
 msgstr "화학과 관련된 기호와 숫자 목록을 볼 수 있는 대화 상자를 엽니다."
 
-#: src/kalzium.cpp:209
+#: src/kalzium.cpp:208
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
 msgstr "주기율표의 범례를 보이거나 숨깁니다."
 
-#: src/kalzium.cpp:214
+#: src/kalzium.cpp:213
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5661,70 +5661,70 @@ msgid ""
 "tools."
 msgstr "추가 정보와 도구 상자가 있는 사이드바를 보이거나 숨깁니다."
 
-#: src/kalzium.cpp:219
+#: src/kalzium.cpp:218
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
 "This will show or hide a sidebar with additional information about the table."
 msgstr "표에 대한 추가적인 정보가 있는 사이드파를 보이거나 숨깁니다."
 
-#: src/kalzium.cpp:249
+#: src/kalzium.cpp:248
 #, kde-format
 msgid "Legend"
 msgstr "범례"
 
-#: src/kalzium.cpp:259
+#: src/kalzium.cpp:258
 #, kde-format
 msgid "Table Information"
 msgstr "테이블 정보"
 
-#: src/kalzium.cpp:264
+#: src/kalzium.cpp:263
 #, kde-format
 msgid "Information"
 msgstr "정보"
 
-#: src/kalzium.cpp:276
+#: src/kalzium.cpp:275
 #, kde-format
 msgid "Overview"
 msgstr "개요"
 
-#: src/kalzium.cpp:285
+#: src/kalzium.cpp:284
 #, kde-format
 msgid "View"
 msgstr "보기"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "Kalzium의 테이블 정보 저장"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, fuzzy, kde-format
 #| msgid "*.png *.xpm *.jpg *.svg"
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "*.png *.xpm *.jpg *.svg"
 
-#: src/kalzium.cpp:317
+#: src/kalzium.cpp:316
 #, kde-format
 msgid "Knowledge"
 msgstr "지식"
 
-#: src/kalzium.cpp:322
+#: src/kalzium.cpp:321
 #, kde-format
 msgid "Tools"
 msgstr "도구"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "Kalzium Error"
 msgstr "Kalzium 오류"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "This system does not support OpenGL."
 msgstr "현재 시스템에서 OpenGL을 지원하지 않습니다."
 
-#: src/kalzium.cpp:511
+#: src/kalzium.cpp:510
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"

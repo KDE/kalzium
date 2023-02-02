@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:41+0000\n"
+"POT-Creation-Date: 2023-02-02 00:53+0000\n"
 "PO-Revision-Date: 2023-01-27 18:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -5293,75 +5293,75 @@ msgstr "Dönü: %1"
 msgid "Exact mass: %1 u"
 msgstr "Asıl kütle: %1 u"
 
-#: src/kalzium.cpp:113
+#: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
 msgstr "&Veriyi Dışa Aktar..."
 
-#: src/kalzium.cpp:122
+#: src/kalzium.cpp:121
 #, kde-format
 msgid "&Scheme"
 msgstr "&Şema"
 
-#: src/kalzium.cpp:130
+#: src/kalzium.cpp:129
 #, kde-format
 msgid "&Gradients"
 msgstr "&Gradyanlar"
 
-#: src/kalzium.cpp:139
+#: src/kalzium.cpp:138
 #, kde-format
 msgid "&Tables"
 msgstr "&Tablolar"
 
-#: src/kalzium.cpp:146
+#: src/kalzium.cpp:145
 #, kde-format
 msgid "&Numeration"
 msgstr "&Numaralandırma"
 
-#: src/kalzium.cpp:153
+#: src/kalzium.cpp:152
 #, kde-format
 msgid "&Plot Data..."
 msgstr "Veriyi Ç&iz..."
 
-#: src/kalzium.cpp:159
+#: src/kalzium.cpp:158
 #, kde-format
 msgid "Perform &Calculations..."
 msgstr "Hesaplama &Gerçekleştir..."
 
-#: src/kalzium.cpp:161
+#: src/kalzium.cpp:160
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
 msgstr ""
 "Bu bir hesap makinesi olup basit kimyasal hesaplamaları gerçekleştirir."
 
-#: src/kalzium.cpp:165
+#: src/kalzium.cpp:164
 #, kde-format
 msgid "&Isotope Table..."
 msgstr "İ&zotop-Tablosu..."
 
-#: src/kalzium.cpp:167
+#: src/kalzium.cpp:166
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
 msgstr "Bu tablo kimyasal elementlerin bilinen tüm izotoplarını gösterir."
 
-#: src/kalzium.cpp:171
+#: src/kalzium.cpp:170
 #, kde-format
 msgid "&Glossary..."
 msgstr "Terimler &Sözlüğü..."
 
-#: src/kalzium.cpp:176
+#: src/kalzium.cpp:175
 #, kde-format
 msgid "&R/S Phrases..."
 msgstr "&R/S Parçaları..."
 
-#: src/kalzium.cpp:181
+#: src/kalzium.cpp:180
 #, kde-format
 msgid "Convert chemical files..."
 msgstr "Kimyasal dosyaları dönüştür..."
 
-#: src/kalzium.cpp:183
+#: src/kalzium.cpp:182
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5371,12 +5371,12 @@ msgstr ""
 "Bu araç yardımıyla kimyasal bilgileri içeren dosyaları değişik biçimlere "
 "dönüştürebilirsiniz."
 
-#: src/kalzium.cpp:190
+#: src/kalzium.cpp:189
 #, kde-format
 msgid "Molecular Editor..."
 msgstr "Molekül Düzenleyici..."
 
-#: src/kalzium.cpp:192
+#: src/kalzium.cpp:191
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
@@ -5384,12 +5384,12 @@ msgstr ""
 "Bu araç sayesinde 3B molekül yapılarını görüntüleyebilir ve "
 "düzenleyebilirsiniz."
 
-#: src/kalzium.cpp:199
+#: src/kalzium.cpp:198
 #, kde-format
 msgid "&Tables..."
 msgstr "&Tablolar..."
 
-#: src/kalzium.cpp:201
+#: src/kalzium.cpp:200
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5399,13 +5399,13 @@ msgstr ""
 "Bu pencere, kimya ile ilgili sembollerin ve sayıların listesini gösteren bir "
 "iletişim kutusu açar."
 
-#: src/kalzium.cpp:209
+#: src/kalzium.cpp:208
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
 msgstr "Periyodik tablonun göstergesini gösterir ya da gizler."
 
-#: src/kalzium.cpp:214
+#: src/kalzium.cpp:213
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5415,70 +5415,70 @@ msgstr ""
 "Ek bilgiler ve bir araçlar kümesi buluduran bir kenar çubuğunu gösterir ya "
 "da gizler."
 
-#: src/kalzium.cpp:219
+#: src/kalzium.cpp:218
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
 "This will show or hide a sidebar with additional information about the table."
 msgstr ""
 
-#: src/kalzium.cpp:249
+#: src/kalzium.cpp:248
 #, kde-format
 msgid "Legend"
 msgstr "Gösterge"
 
-#: src/kalzium.cpp:259
+#: src/kalzium.cpp:258
 #, kde-format
 msgid "Table Information"
 msgstr "Tablo Bilgileri"
 
-#: src/kalzium.cpp:264
+#: src/kalzium.cpp:263
 #, kde-format
 msgid "Information"
 msgstr "Bilgi"
 
-#: src/kalzium.cpp:276
+#: src/kalzium.cpp:275
 #, kde-format
 msgid "Overview"
 msgstr "Genel Bakış"
 
-#: src/kalzium.cpp:285
+#: src/kalzium.cpp:284
 #, kde-format
 msgid "View"
 msgstr "Göster"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "Kalzium Tablosunu Buraya Kaydet"
 
-#: src/kalzium.cpp:296
+#: src/kalzium.cpp:295
 #, fuzzy, kde-format
 #| msgid "*.png *.xpm *.jpg *.svg"
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "*.png *.xpm *.jpg *.svg"
 
-#: src/kalzium.cpp:317
+#: src/kalzium.cpp:316
 #, kde-format
 msgid "Knowledge"
 msgstr "Bilgi"
 
-#: src/kalzium.cpp:322
+#: src/kalzium.cpp:321
 #, kde-format
 msgid "Tools"
 msgstr "Araçlar"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "Kalzium Error"
 msgstr "Kalzium Hatası"
 
-#: src/kalzium.cpp:352
+#: src/kalzium.cpp:351
 #, kde-format
 msgid "This system does not support OpenGL."
 msgstr "Bu sistem OpenGL'i desteklemiyor."
 
-#: src/kalzium.cpp:511
+#: src/kalzium.cpp:510
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
