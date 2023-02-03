@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:53+0000\n"
+"POT-Creation-Date: 2023-02-03 00:54+0000\n"
 "PO-Revision-Date: 2010-04-09 22:25+0530\n"
 "Last-Translator: \n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -4722,7 +4722,7 @@ msgstr "දත්ත"
 msgid "Atomic Number"
 msgstr "ස්වයං අංකය"
 
-#: src/eqchemview.cpp:74
+#: src/eqchemview.cpp:81
 #, kde-format
 msgctxt "Help text for the chemical equation solver"
 msgid ""

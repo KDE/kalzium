@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:53+0000\n"
+"POT-Creation-Date: 2023-02-03 00:54+0000\n"
 "PO-Revision-Date: 2013-01-04 16:50+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -5121,7 +5121,7 @@ msgstr "ទិន្នន័យ​គ្រោង"
 msgid "Atomic Number"
 msgstr "លេខ​អាតូម"
 
-#: src/eqchemview.cpp:74
+#: src/eqchemview.cpp:81
 #, kde-format
 msgctxt "Help text for the chemical equation solver"
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:53+0000\n"
+"POT-Creation-Date: 2023-02-03 00:54+0000\n"
 "PO-Revision-Date: 2022-08-03 09:47+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -5090,7 +5090,7 @@ msgstr "Rita upp data"
 msgid "Atomic Number"
 msgstr "Atomnummer"
 
-#: src/eqchemview.cpp:74
+#: src/eqchemview.cpp:81
 #, kde-format
 msgctxt "Help text for the chemical equation solver"
 msgid ""

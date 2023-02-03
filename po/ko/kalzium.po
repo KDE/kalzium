@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:53+0000\n"
+"POT-Creation-Date: 2023-02-03 00:54+0000\n"
 "PO-Revision-Date: 2022-04-16 22:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -5223,7 +5223,7 @@ msgstr "플롯 데이터"
 msgid "Atomic Number"
 msgstr "원자 번호"
 
-#: src/eqchemview.cpp:74
+#: src/eqchemview.cpp:81
 #, kde-format
 msgctxt "Help text for the chemical equation solver"
 msgid ""
