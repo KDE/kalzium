@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-30 00:42+0000\n"
-"PO-Revision-Date: 2023-02-07 11:05\n"
+"PO-Revision-Date: 2023-02-15 11:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -4956,7 +4956,7 @@ msgstr "文件已存在。您是否想要覆盖它？"
 #: src/exportdialog.cpp:173
 #, kde-format
 msgid "Could not open file for writing."
-msgstr "未能打开文件。"
+msgstr "无法打开文件进行写入。"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/exportdialog.ui:51
