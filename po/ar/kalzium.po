@@ -672,7 +672,7 @@ msgstr "نصف القطر الذرّي"
 #: src/settings/settings_gradients.ui:67
 #, kde-format
 msgid "Van der Waals Radius"
-msgstr "نصف قطر ڤان دير فالس"
+msgstr "نصف قطر فان دير فالس"
 
 #: data/knowledge.xml:254
 #, fuzzy, kde-format
@@ -3522,7 +3522,7 @@ msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد وحدات درجة الحرارة، مثلًا كِلڤن، سيليزي، إلخ."
+"يمكن أن يُستخدم هذا المربع لتحديد وحدات درجة الحرارة، مثلًا كِلفن، سيليزي، إلخ."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
@@ -3564,19 +3564,19 @@ msgstr "بينات الغازات غير المثالية"
 #: src/calculator/gasCalculator.ui:294
 #, kde-format
 msgid "<big><b>Van der Waals constant 'b':</b></big>"
-msgstr "<big><b>ثابت ڤان دير فالس 'ب':</b></big>"
+msgstr "<big><b>ثابت فان دير فالس 'ب':</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: src/calculator/gasCalculator.ui:304
 #, kde-format
 msgid "<big><b>Van der Waals constant 'a':</b></big>"
-msgstr "<big><b>ثابت ڤان دير فالس 'أ':</b></big>"
+msgstr "<big><b>ثابت فان دير فالس 'أ':</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:314
 #, kde-format
 msgid "Specify the units of the van der Waals constant 'b'"
-msgstr "حدّد وحدات ثابت ڤان دير فالس 'ب'"
+msgstr "حدّد وحدات ثابت فان دير فالس 'ب'"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:317
@@ -3586,14 +3586,14 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد ثابت ڤان دير فالس 'ب' للغاز. هذا مطلوب فقط "
+"يمكن أن يُستخدم هذا المربع لتحديد ثابت فان دير فالس 'ب' للغاز. هذا مطلوب فقط "
 "للغاز الحقيقي. يمكن أن يُعلّم بـ 0.0 للغاز المثالي."
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
 #, kde-format
 msgid "Specify the units of the van der Waals constant 'a'"
-msgstr "حدّد وحدات ثابت ڤان دير فالس 'أ'"
+msgstr "حدّد وحدات ثابت فان دير فالس 'أ'"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:333
@@ -3603,21 +3603,21 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد ثابت ڤان دير فالس 'أ' للغاز. هذا مطلوب فقط "
+"يمكن أن يُستخدم هذا المربع لتحديد ثابت فان دير فالس 'أ' للغاز. هذا مطلوب فقط "
 "للغاز الحقيقي. يمكن أن يُعلّم بـ 0.0 للغاز المثالي."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
 #, kde-format
 msgid "The units of the van der Waals constant 'b'"
-msgstr "وحدات ثابت ڤان دير فالس 'ب'"
+msgstr "وحدات ثابت فان دير فالس 'ب'"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:351
 #, kde-format
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
-msgstr "يمكن أن يُستخدم هذا لتحديد وحدات ثابت ڤان دير فالس 'ب'."
+msgstr "يمكن أن يُستخدم هذا لتحديد وحدات ثابت فان دير فالس 'ب'."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
@@ -4104,7 +4104,7 @@ msgstr "الكمية مُحدّدة دائمًا من حيث الكتلة"
 #: src/calculator/settings_calc.ui:59
 #, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
-msgstr "افترض بأن الغاز مثالي (مثلًا لا تُظهر مُعامِلات ڤان دير فالس)"
+msgstr "افترض بأن الغاز مثالي (مثلًا لا تُظهر مُعامِلات فان دير فالس)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:85
@@ -4531,7 +4531,7 @@ msgstr "%1 %2"
 #: src/detailinfodlg.cpp:908
 #, kde-format
 msgid "%1 MeV"
-msgstr "%1 م‌إ‌ڤ"
+msgstr "%1 م‌إ‌ف"
 
 #: src/detailinfodlg.cpp:338
 #, fuzzy, kde-format
@@ -4985,7 +4985,7 @@ msgstr "التدرّج:"
 #: src/gradientwidget.ui:99
 #, kde-format
 msgid "K"
-msgstr "كلڤن"
+msgstr "كلفن"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, gradient_slider)
 #: src/gradientwidget.ui:108
@@ -5357,7 +5357,7 @@ msgstr "بدون"
 #: src/kalziumgradienttype.cpp:215
 #, kde-format
 msgid "Van Der Waals"
-msgstr "ڤان دير فالس"
+msgstr "فان دير فالس"
 
 #: src/kalziumgradienttype.cpp:284
 #, fuzzy, kde-format
@@ -8520,7 +8520,7 @@ msgstr "حوّل إلى:"
 #~ "Whether to use a logarithmic gradient for the Kalzium van der Waals "
 #~ "Radius Gradient feature"
 #~ msgstr ""
-#~ "فيما إذا سيُستخدَم التدرّج اللوغاريتمي لميزة تدرّج نصف قطر ڤان دير فالس "
+#~ "فيما إذا سيُستخدَم التدرّج اللوغاريتمي لميزة تدرّج نصف قطر فان دير فالس "
 #~ "لِكالسيوم"
 
 #~ msgid ""
@@ -8528,7 +8528,7 @@ msgstr "حوّل إلى:"
 #~ "the Kalzium van der Waals Radius Gradient feature"
 #~ msgstr ""
 #~ "يحدّد فيما إذا سيُستخدَم التدرّج اللوغاريتمي بدلًا من التدرّج الخطّي لميزة تدرّج "
-#~ "نصف قطر ڤان دير فالس لِكالسيوم"
+#~ "نصف قطر فان دير فالس لِكالسيوم"
 
 #~ msgid ""
 #~ "Whether to use a logarithmic gradient for the Kalzium Mass Gradient "
@@ -8719,7 +8719,7 @@ msgstr "حوّل إلى:"
 #~ msgstr "هذا قيمة أو مُستخدَم Kalzium"
 
 #~ msgid "Use eV or kJ/mol"
-#~ msgstr "استخدم إڤ أو ك.جول/مول"
+#~ msgstr "استخدم إف أو ك.جول/مول"
 
 #~ msgid ""
 #~ "This value defines which temperature scale should be used within Kalzium"
@@ -8768,7 +8768,7 @@ msgstr "حوّل إلى:"
 #~ msgstr "أظهر أو أخفِ الشريط الجانبي"
 
 #~ msgid "van der Waals Radius"
-#~ msgstr "نصف قطر ڤان دير فالس"
+#~ msgstr "نصف قطر فان دير فالس"
 
 #~ msgctxt "Default colour"
 #~ msgid "default"
@@ -8874,7 +8874,7 @@ msgstr "حوّل إلى:"
 #~ msgstr "العصا"
 
 #~ msgid "Van der Waals"
-#~ msgstr "ڤان دير فالس"
+#~ msgstr "فان دير فالس"
 
 #~ msgid "2nd Style:"
 #~ msgstr "النمط الثاني:"
