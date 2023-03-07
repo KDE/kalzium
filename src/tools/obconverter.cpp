@@ -110,14 +110,14 @@ void KOpenBabel::slotAddFile()
     // "ACR format [Read-only] (*.acr)", "Alchemy format (*.alc)"                                                                   //
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    QList<QUrl> fl = QFileDialog::getOpenFileUrls(
+    const QList<QUrl> fl = QFileDialog::getOpenFileUrls(
         this,
         i18n("Open Molecule File"),
         QUrl(),
         i18n("All Files") + QStringLiteral("(*);;") + tmpList.join(QLatin1String(";;")) // add all possible extensions like "*.cml *.mol"
     );
 
-    foreach (const QUrl &u, fl) {
+    for (const QUrl &u : fl) {
         new QListWidgetItem(u.toDisplayString(), ui.FileListView);
     }
 }
@@ -129,19 +129,19 @@ void KOpenBabel::slotSelectAll()
 
 void KOpenBabel::slotDeleteFile()
 {
-    QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
-    foreach (QListWidgetItem *item, p) {
+    const QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
+    for (QListWidgetItem *item : p) {
         delete item;
     }
 }
 
 void KOpenBabel::slotGuessInput()
 {
-    QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
+    const QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
     bool first = true;
     QString suffix;
     if (p.count()) {
-        foreach (QListWidgetItem *item, p) {
+        for (QListWidgetItem *item : p) {
             if (first) {
                 first = false;
                 suffix = item->text().remove(QRegularExpression("^.*\\."));
@@ -173,8 +173,8 @@ void KOpenBabel::slotConvert()
     iformat = iformat.remove(QRegularExpression(" --.*"));
     oformat = oformat.remove(QRegularExpression(" --.*"));
 
-    QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
-    if (p.count() == 0) {
+    const QList<QListWidgetItem *> p = ui.FileListView->selectedItems();
+    if (p.isEmpty()) {
         KMessageBox::error(this, i18n("You must select some files first."), i18n("No files selected"));
         return;
     }
