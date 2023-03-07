@@ -21,7 +21,7 @@
 #include <KJob>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KNS3/DownloadDialog>
+#include <KNS3/QtQuickDialogWrapper>
 
 #include "iowrapper.h"
 
@@ -253,50 +253,57 @@ void MoleculeDialog::slotDownloadNewStuff()
 {
     qDebug() << "Kalzium new stuff";
 
-    KNS3::DownloadDialog dialog(this);
-    dialog.exec();
-    // list of changed entries
-    QString destinationDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QDir dir(destinationDir);
-    if (!dir.exists()) {
-        destinationDir = QDir::homePath();
-    }
-    bool anyError = false;
-    bool anySuccess = false;
-    bool moreOneInstalledFile = false;
-    QString exactlyOneFile;
-    foreach (const KNS3::Entry &entry, dialog.changedEntries()) {
-        // care only about installed ones
-        if (entry.status() == KNS3::Entry::Installed) {
-            qDebug() << "Changed Entry: " << entry.installedFiles();
-            foreach (const QString &origFile, entry.installedFiles()) {
-                const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
-                KJob *job = KIO::file_move(QUrl::fromLocalFile(origFile), QUrl::fromLocalFile(destFile));
-                const bool success = job->exec();
-                if (success) {
-                    if (exactlyOneFile.isEmpty()) {
-                        exactlyOneFile = destFile;
+    KNS3::QtQuickDialogWrapper *dialog = new KNS3::QtQuickDialogWrapper(QStringLiteral("kalzium.knsrc"), this);
+    dialog->open();
+    connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
+        // list of changed entries
+        QString destinationDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+        QDir dir(destinationDir);
+        if (!dir.exists()) {
+            destinationDir = QDir::homePath();
+        }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        const QList<KNSCore::EntryInternal> entries = dialog->changedEntries();
+#else
+        const QList<KNSCore::Entry> entries = dialog->changedEntries();
+#endif
+        bool anyError = false;
+        bool anySuccess = false;
+        bool moreOneInstalledFile = false;
+        QString exactlyOneFile;
+        foreach (const auto &entry, entries) {
+            // care only about installed ones
+            if (entry.status() == KNS3::Entry::Installed) {
+                qDebug() << "Changed Entry: " << entry.installedFiles();
+                foreach (const QString &origFile, entry.installedFiles()) {
+                    const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
+                    KJob *job = KIO::file_move(QUrl::fromLocalFile(origFile), QUrl::fromLocalFile(destFile));
+                    const bool success = job->exec();
+                    if (success) {
+                        if (exactlyOneFile.isEmpty()) {
+                            exactlyOneFile = destFile;
+                        } else {
+                            moreOneInstalledFile = true;
+                        }
+                        anySuccess = true;
                     } else {
-                        moreOneInstalledFile = true;
+                        KMessageBox::error(this, i18n("Failed to download molecule %1 to %2.", entry.name(), destFile));
+                        anyError = true;
                     }
-                    anySuccess = true;
-                } else {
-                    KMessageBox::error(this, i18n("Failed to download molecule %1 to %2.", entry.name(), destFile));
-                    anyError = true;
                 }
             }
         }
-    }
-    if (anySuccess) {
-        if (anyError) {
-            KMessageBox::information(this, i18n("The molecules that could be downloaded have been saved to %1.", destinationDir));
-        } else {
-            KMessageBox::information(this, i18n("The molecules have been saved to %1.", destinationDir));
+        if (anySuccess) {
+            if (anyError) {
+                KMessageBox::information(this, i18n("The molecules that could be downloaded have been saved to %1.", destinationDir));
+            } else {
+                KMessageBox::information(this, i18n("The molecules have been saved to %1.", destinationDir));
+            }
+            if (!moreOneInstalledFile) {
+                loadMolecule(exactlyOneFile);
+            }
         }
-        if (!moreOneInstalledFile) {
-            loadMolecule(exactlyOneFile);
-        }
-    }
+    });
 }
 
 // TODO there is currently no API to perform the necessary OpenBabel-Avogadro
