@@ -97,19 +97,13 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
 
-    parser.addPositionalArgument(i18n("[molecule]"), i18n("Open the given molecule file"));
-
-    QCommandLineOption moleculeOption(i18n("molecule"), i18n("Open the given molecule file"));
-    parser.addOption(moleculeOption);
-
-    about.setupCommandLine(&parser);
-    parser.process(app);
-    about.processCommandLine(&parser);
-
 #if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
     parser.addOption(
         QCommandLineOption(QStringList() << QStringLiteral("m") << QStringLiteral("molecule"), i18n("Open the given molecule file"), QStringLiteral("file")));
 #endif
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
 
     Kalzium *mainWin = nullptr;
 
