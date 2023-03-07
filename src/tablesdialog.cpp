@@ -20,6 +20,7 @@ TablesDialog::TablesDialog(QWidget *parent)
     : KPageDialog(parent)
 {
     setFaceType(List);
+    setStandardButtons(QDialogButtonBox::Close);
 
     // setButtons(Help | Close);
     // setDefaultButton(Close);
