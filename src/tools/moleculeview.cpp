@@ -272,7 +272,6 @@ void MoleculeDialog::slotDownloadNewStuff()
             foreach (const QString &origFile, entry.installedFiles()) {
                 const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
                 KJob *job = KIO::file_move(QUrl::fromLocalFile(origFile), QUrl::fromLocalFile(destFile));
-                ;
                 const bool success = job->exec();
                 if (success) {
                     if (exactlyOneFile.isEmpty()) {
