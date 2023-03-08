@@ -1534,10 +1534,10 @@ msgid ""
 "is calibrated."
 msgstr ""
 "Les buretes s'utilitzen per a titular líquids. Una bureta s'òmpliga d'un "
-"volum especificat d'un líquid i al dessota s'hi col·loca un recipient com "
-"ara un matràs Erlenmeyer. En obrir la vàlvula el líquid del recipient es "
-"titularà. Les buretes d'alta qualitat tenen un mecanisme que permet reomplir-"
-"les amb el volum exacte al qual estan calibrades."
+"volum especificat d'un líquid i davall s'hi col·loca un recipient com ara un "
+"matràs Erlenmeyer. En obrir la vàlvula el líquid del recipient es titularà. "
+"Les buretes d'alta qualitat tenen un mecanisme que permet reomplir-les amb "
+"el volum exacte al qual estan calibrades."
 
 #: data/tools.xml:214
 #, kde-format
