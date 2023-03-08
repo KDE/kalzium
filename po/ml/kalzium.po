@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:54+0000\n"
+"POT-Creation-Date: 2023-03-08 00:42+0000\n"
 "PO-Revision-Date: 2019-12-12 21:36+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
@@ -5732,22 +5732,12 @@ msgstr ""
 msgid "Adding new sizable Periodic System"
 msgstr ""
 
-#: src/main.cpp:100
-#, fuzzy, kde-format
-msgid "[molecule]"
-msgstr "തന്മാത്ര"
-
-#: src/main.cpp:100 src/main.cpp:102 src/main.cpp:111
+#: src/main.cpp:102
 #, kde-format
 msgid "Open the given molecule file"
 msgstr ""
 
-#: src/main.cpp:102
-#, fuzzy, kde-format
-msgid "molecule"
-msgstr "തന്മാത്ര"
-
-#: src/main.cpp:131
+#: src/main.cpp:125
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr ""
@@ -7633,22 +7623,22 @@ msgstr "തരംഗദൈര്‍ഘ്യം:"
 msgid "Intensity"
 msgstr ""
 
-#: src/tablesdialog.cpp:34 src/tablesdialog.cpp:35
+#: src/tablesdialog.cpp:35 src/tablesdialog.cpp:36
 #, kde-format
 msgid "Greek alphabet"
 msgstr "ഗ്രീക്ക് അക്ഷരം"
 
-#: src/tablesdialog.cpp:46
+#: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Uppercase"
 msgstr ""
 
-#: src/tablesdialog.cpp:46
+#: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Lowercase"
 msgstr ""
 
-#: src/tablesdialog.cpp:47
+#: src/tablesdialog.cpp:48
 #, kde-format
 msgctxt ""
 "The name of the greek letter in your language. For example 'Alpha' for the "
@@ -7656,293 +7646,293 @@ msgctxt ""
 msgid "Name"
 msgstr "നാമം"
 
-#: src/tablesdialog.cpp:103
+#: src/tablesdialog.cpp:104
 #, kde-format
 msgid "alpha"
 msgstr "ആല്‍ഫ"
 
-#: src/tablesdialog.cpp:104
+#: src/tablesdialog.cpp:105
 #, kde-format
 msgid "beta"
 msgstr "ബീറ്റ"
 
-#: src/tablesdialog.cpp:105
+#: src/tablesdialog.cpp:106
 #, kde-format
 msgid "gamma"
 msgstr "ഗാമ്മാ"
 
-#: src/tablesdialog.cpp:106
+#: src/tablesdialog.cpp:107
 #, kde-format
 msgid "delta"
 msgstr "ഡെല്‍റ്റ"
 
-#: src/tablesdialog.cpp:107
+#: src/tablesdialog.cpp:108
 #, kde-format
 msgid "epsilon"
 msgstr "എപ്സിലോണ്‍"
 
-#: src/tablesdialog.cpp:108
+#: src/tablesdialog.cpp:109
 #, kde-format
 msgid "zeta"
 msgstr "സീറ്റ"
 
-#: src/tablesdialog.cpp:109
+#: src/tablesdialog.cpp:110
 #, kde-format
 msgid "eta"
 msgstr "ഈറ്റ"
 
-#: src/tablesdialog.cpp:110
+#: src/tablesdialog.cpp:111
 #, kde-format
 msgid "theta"
 msgstr "തീറ്റ"
 
-#: src/tablesdialog.cpp:111
+#: src/tablesdialog.cpp:112
 #, kde-format
 msgid "iota"
 msgstr "അയോട്ട"
 
-#: src/tablesdialog.cpp:112
+#: src/tablesdialog.cpp:113
 #, kde-format
 msgid "kappa"
 msgstr "കാപ്പ"
 
-#: src/tablesdialog.cpp:113
+#: src/tablesdialog.cpp:114
 #, kde-format
 msgid "lambda"
 msgstr "ലാംഡ"
 
-#: src/tablesdialog.cpp:114
+#: src/tablesdialog.cpp:115
 #, kde-format
 msgid "mu"
 msgstr "മ്യു"
 
-#: src/tablesdialog.cpp:115
+#: src/tablesdialog.cpp:116
 #, kde-format
 msgid "nu"
 msgstr "ന്യു"
 
-#: src/tablesdialog.cpp:116
+#: src/tablesdialog.cpp:117
 #, kde-format
 msgid "xi"
 msgstr "ഖൈ"
 
-#: src/tablesdialog.cpp:117
+#: src/tablesdialog.cpp:118
 #, kde-format
 msgid "omicron"
 msgstr "ഒമൈക്രോണ്‍"
 
-#: src/tablesdialog.cpp:118
+#: src/tablesdialog.cpp:119
 #, kde-format
 msgid "pi"
 msgstr "പൈ"
 
-#: src/tablesdialog.cpp:119
+#: src/tablesdialog.cpp:120
 #, kde-format
 msgid "rho"
 msgstr "റോ"
 
-#: src/tablesdialog.cpp:120
+#: src/tablesdialog.cpp:121
 #, kde-format
 msgid "sigma"
 msgstr "സിഗ്മ"
 
-#: src/tablesdialog.cpp:121
+#: src/tablesdialog.cpp:122
 #, kde-format
 msgid "tau"
 msgstr "ടോ"
 
-#: src/tablesdialog.cpp:122
+#: src/tablesdialog.cpp:123
 #, kde-format
 msgid "upsilon"
 msgstr "അപ്സിലോണ്‍"
 
-#: src/tablesdialog.cpp:123
+#: src/tablesdialog.cpp:124
 #, kde-format
 msgid "phi"
 msgstr "ഫൈ"
 
-#: src/tablesdialog.cpp:124
+#: src/tablesdialog.cpp:125
 #, kde-format
 msgid "chi"
 msgstr "ചൈ"
 
-#: src/tablesdialog.cpp:125
+#: src/tablesdialog.cpp:126
 #, kde-format
 msgid "psi"
 msgstr "പ്സൈ"
 
-#: src/tablesdialog.cpp:126
+#: src/tablesdialog.cpp:127
 #, kde-format
 msgid "omega"
 msgstr "ഒമേഗ"
 
-#: src/tablesdialog.cpp:135
+#: src/tablesdialog.cpp:136
 #, kde-format
 msgid "Numbers"
 msgstr "സംഖ്യകള്‍"
 
-#: src/tablesdialog.cpp:136
+#: src/tablesdialog.cpp:137
 #, kde-format
 msgid "Numeric Prefixes and Roman Numerals"
 msgstr ""
 
-#: src/tablesdialog.cpp:146
+#: src/tablesdialog.cpp:147
 #, kde-format
 msgid "Number"
 msgstr "സംഖ്യ"
 
-#: src/tablesdialog.cpp:146
+#: src/tablesdialog.cpp:147
 #, kde-format
 msgctxt "For example 'Mono' for 1 and 'Tri' for 3"
 msgid "Prefix"
 msgstr ""
 
-#: src/tablesdialog.cpp:146
+#: src/tablesdialog.cpp:147
 #, kde-format
 msgid "Roman Numerals"
 msgstr ""
 
-#: src/tablesdialog.cpp:150
+#: src/tablesdialog.cpp:151
 #, kde-format
 msgid "0.5"
 msgstr "0.5"
 
-#: src/tablesdialog.cpp:151
+#: src/tablesdialog.cpp:152
 #, kde-format
 msgid "1"
 msgstr "1"
 
-#: src/tablesdialog.cpp:152
+#: src/tablesdialog.cpp:153
 #, kde-format
 msgid "1.5"
 msgstr "1.5"
 
-#: src/tablesdialog.cpp:153
+#: src/tablesdialog.cpp:154
 #, kde-format
 msgid "2"
 msgstr "2"
 
-#: src/tablesdialog.cpp:154
+#: src/tablesdialog.cpp:155
 #, kde-format
 msgid "2.5"
 msgstr "2.5"
 
-#: src/tablesdialog.cpp:155
+#: src/tablesdialog.cpp:156
 #, kde-format
 msgid "3"
 msgstr "3"
 
-#: src/tablesdialog.cpp:156
+#: src/tablesdialog.cpp:157
 #, kde-format
 msgid "4"
 msgstr "4"
 
-#: src/tablesdialog.cpp:157
+#: src/tablesdialog.cpp:158
 #, kde-format
 msgid "5"
 msgstr "5"
 
-#: src/tablesdialog.cpp:158
+#: src/tablesdialog.cpp:159
 #, kde-format
 msgid "6"
 msgstr "6"
 
-#: src/tablesdialog.cpp:159
+#: src/tablesdialog.cpp:160
 #, kde-format
 msgid "7"
 msgstr "7"
 
-#: src/tablesdialog.cpp:160
+#: src/tablesdialog.cpp:161
 #, kde-format
 msgid "8"
 msgstr "8"
 
-#: src/tablesdialog.cpp:161
+#: src/tablesdialog.cpp:162
 #, kde-format
 msgid "9"
 msgstr "9"
 
-#: src/tablesdialog.cpp:162
+#: src/tablesdialog.cpp:163
 #, kde-format
 msgid "10"
 msgstr "10"
 
-#: src/tablesdialog.cpp:163
+#: src/tablesdialog.cpp:164
 #, kde-format
 msgid "11"
 msgstr "11"
 
-#: src/tablesdialog.cpp:164
+#: src/tablesdialog.cpp:165
 #, kde-format
 msgid "12"
 msgstr "12"
 
-#: src/tablesdialog.cpp:165
+#: src/tablesdialog.cpp:166
 #, kde-format
 msgid "13"
 msgstr "13"
 
-#: src/tablesdialog.cpp:166
+#: src/tablesdialog.cpp:167
 #, kde-format
 msgid "14"
 msgstr "14"
 
-#: src/tablesdialog.cpp:167
+#: src/tablesdialog.cpp:168
 #, kde-format
 msgid "15"
 msgstr "15"
 
-#: src/tablesdialog.cpp:168
+#: src/tablesdialog.cpp:169
 #, kde-format
 msgid "16"
 msgstr "16"
 
-#: src/tablesdialog.cpp:169
+#: src/tablesdialog.cpp:170
 #, kde-format
 msgid "17"
 msgstr "17"
 
-#: src/tablesdialog.cpp:170
+#: src/tablesdialog.cpp:171
 #, kde-format
 msgid "18"
 msgstr "18"
 
-#: src/tablesdialog.cpp:171
+#: src/tablesdialog.cpp:172
 #, kde-format
 msgid "19"
 msgstr "19"
 
-#: src/tablesdialog.cpp:172
+#: src/tablesdialog.cpp:173
 #, kde-format
 msgid "20"
 msgstr "20"
 
-#: src/tablesdialog.cpp:173
+#: src/tablesdialog.cpp:174
 #, kde-format
 msgid "40"
 msgstr "40"
 
-#: src/tablesdialog.cpp:174
+#: src/tablesdialog.cpp:175
 #, kde-format
 msgid "50"
 msgstr "50"
 
-#: src/tablesdialog.cpp:175
+#: src/tablesdialog.cpp:176
 #, kde-format
 msgid "60"
 msgstr "60"
 
-#: src/tablesdialog.cpp:176
+#: src/tablesdialog.cpp:177
 #, kde-format
 msgid "90"
 msgstr "90"
 
-#: src/tablesdialog.cpp:177
+#: src/tablesdialog.cpp:178
 #, kde-format
 msgid "100"
 msgstr "100"
 
-#: src/tablesdialog.cpp:250
+#: src/tablesdialog.cpp:251
 #, kde-format
 msgid "&Copy"
 msgstr ""
@@ -8020,17 +8010,17 @@ msgctxt ""
 msgid "%1 u"
 msgstr ""
 
-#: src/tools/moleculeview.cpp:285
+#: src/tools/moleculeview.cpp:290
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
 msgstr ""
 
-#: src/tools/moleculeview.cpp:293
+#: src/tools/moleculeview.cpp:298
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
 msgstr ""
 
-#: src/tools/moleculeview.cpp:295
+#: src/tools/moleculeview.cpp:300
 #, kde-format
 msgid "The molecules have been saved to %1."
 msgstr ""
@@ -8158,31 +8148,31 @@ msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/tools/obconverterwidget.ui:22
+#: src/tools/obconverterwidget.ui:32
 #, kde-format
 msgid "Files to convert"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, selectAllFileButton)
-#: src/tools/obconverterwidget.ui:34
+#: src/tools/obconverterwidget.ui:53
 #, kde-format
 msgid "&Select all"
 msgstr "&എല്ലാം തിരഞ്ഞെടുക്കുക"
 
 #. i18n: ectx: property (text), widget (QPushButton, deleteFileButton)
-#: src/tools/obconverterwidget.ui:54
+#: src/tools/obconverterwidget.ui:73
 #, kde-format
 msgid "&Remove"
 msgstr "&നീക്കം ചെയ്യുക"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFileButton)
-#: src/tools/obconverterwidget.ui:61
+#: src/tools/obconverterwidget.ui:80
 #, kde-format
 msgid "&Add"
 msgstr "&കൂട്ടി ചേര്‍ക്കുക"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, FileListView)
-#: src/tools/obconverterwidget.ui:71
+#: src/tools/obconverterwidget.ui:90
 #, kde-format
 msgid ""
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
@@ -8197,16 +8187,24 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/tools/obconverterwidget.ui:92
+#: src/tools/obconverterwidget.ui:120
 #, kde-format
 msgid "Convert from:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/tools/obconverterwidget.ui:124
+#: src/tools/obconverterwidget.ui:159
 #, kde-format
 msgid "Convert to:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "[molecule]"
+#~ msgstr "തന്മാത്ര"
+
+#, fuzzy
+#~ msgid "molecule"
+#~ msgstr "തന്മാത്ര"
 
 #, fuzzy
 #~ msgid "Whether the atomic mass will be displayed in the PSE-Table"

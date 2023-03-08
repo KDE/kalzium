@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:54+0000\n"
+"POT-Creation-Date: 2023-03-08 00:42+0000\n"
 "PO-Revision-Date: 2019-12-05 15:59+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -6245,22 +6245,12 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "Uue muudetava suurusega perioodilisustabeli lisamine"
 
-#: src/main.cpp:100
-#, kde-format
-msgid "[molecule]"
-msgstr "[molekul]"
-
-#: src/main.cpp:100 src/main.cpp:102 src/main.cpp:111
+#: src/main.cpp:102
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "Määratud molekulifaili avamine"
 
-#: src/main.cpp:102
-#, kde-format
-msgid "molecule"
-msgstr "molekul"
-
-#: src/main.cpp:131
+#: src/main.cpp:125
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "Korraga saab avada ainult ühe molekuli"
@@ -8195,22 +8185,22 @@ msgstr "Lainepikkus"
 msgid "Intensity"
 msgstr "Intensiivsus"
 
-#: src/tablesdialog.cpp:34 src/tablesdialog.cpp:35
+#: src/tablesdialog.cpp:35 src/tablesdialog.cpp:36
 #, kde-format
 msgid "Greek alphabet"
 msgstr "Kreeka tähestik"
 
-#: src/tablesdialog.cpp:46
+#: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Uppercase"
 msgstr "Suurtähed"
 
-#: src/tablesdialog.cpp:46
+#: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Lowercase"
 msgstr "Väiketähed"
 
-#: src/tablesdialog.cpp:47
+#: src/tablesdialog.cpp:48
 #, kde-format
 msgctxt ""
 "The name of the greek letter in your language. For example 'Alpha' for the "
@@ -8218,293 +8208,293 @@ msgctxt ""
 msgid "Name"
 msgstr "Nimi"
 
-#: src/tablesdialog.cpp:103
+#: src/tablesdialog.cpp:104
 #, kde-format
 msgid "alpha"
 msgstr "alfa"
 
-#: src/tablesdialog.cpp:104
+#: src/tablesdialog.cpp:105
 #, kde-format
 msgid "beta"
 msgstr "beeta"
 
-#: src/tablesdialog.cpp:105
+#: src/tablesdialog.cpp:106
 #, kde-format
 msgid "gamma"
 msgstr "gamma"
 
-#: src/tablesdialog.cpp:106
+#: src/tablesdialog.cpp:107
 #, kde-format
 msgid "delta"
 msgstr "delta"
 
-#: src/tablesdialog.cpp:107
+#: src/tablesdialog.cpp:108
 #, kde-format
 msgid "epsilon"
 msgstr "epsilon"
 
-#: src/tablesdialog.cpp:108
+#: src/tablesdialog.cpp:109
 #, kde-format
 msgid "zeta"
 msgstr "dzeeta"
 
-#: src/tablesdialog.cpp:109
+#: src/tablesdialog.cpp:110
 #, kde-format
 msgid "eta"
 msgstr "eeta"
 
-#: src/tablesdialog.cpp:110
+#: src/tablesdialog.cpp:111
 #, kde-format
 msgid "theta"
 msgstr "teeta"
 
-#: src/tablesdialog.cpp:111
+#: src/tablesdialog.cpp:112
 #, kde-format
 msgid "iota"
 msgstr "ioota"
 
-#: src/tablesdialog.cpp:112
+#: src/tablesdialog.cpp:113
 #, kde-format
 msgid "kappa"
 msgstr "kapa"
 
-#: src/tablesdialog.cpp:113
+#: src/tablesdialog.cpp:114
 #, kde-format
 msgid "lambda"
 msgstr "lambda"
 
-#: src/tablesdialog.cpp:114
+#: src/tablesdialog.cpp:115
 #, kde-format
 msgid "mu"
 msgstr "müü"
 
-#: src/tablesdialog.cpp:115
+#: src/tablesdialog.cpp:116
 #, kde-format
 msgid "nu"
 msgstr "nüü"
 
-#: src/tablesdialog.cpp:116
+#: src/tablesdialog.cpp:117
 #, kde-format
 msgid "xi"
 msgstr "ksii"
 
-#: src/tablesdialog.cpp:117
+#: src/tablesdialog.cpp:118
 #, kde-format
 msgid "omicron"
 msgstr "onikron"
 
-#: src/tablesdialog.cpp:118
+#: src/tablesdialog.cpp:119
 #, kde-format
 msgid "pi"
 msgstr "pii"
 
-#: src/tablesdialog.cpp:119
+#: src/tablesdialog.cpp:120
 #, kde-format
 msgid "rho"
 msgstr "roo"
 
-#: src/tablesdialog.cpp:120
+#: src/tablesdialog.cpp:121
 #, kde-format
 msgid "sigma"
 msgstr "sigma"
 
-#: src/tablesdialog.cpp:121
+#: src/tablesdialog.cpp:122
 #, kde-format
 msgid "tau"
 msgstr "tau"
 
-#: src/tablesdialog.cpp:122
+#: src/tablesdialog.cpp:123
 #, kde-format
 msgid "upsilon"
 msgstr "üpsilon"
 
-#: src/tablesdialog.cpp:123
+#: src/tablesdialog.cpp:124
 #, kde-format
 msgid "phi"
 msgstr "fii"
 
-#: src/tablesdialog.cpp:124
+#: src/tablesdialog.cpp:125
 #, kde-format
 msgid "chi"
 msgstr "hii"
 
-#: src/tablesdialog.cpp:125
+#: src/tablesdialog.cpp:126
 #, kde-format
 msgid "psi"
 msgstr "psii"
 
-#: src/tablesdialog.cpp:126
+#: src/tablesdialog.cpp:127
 #, kde-format
 msgid "omega"
 msgstr "oomega"
 
-#: src/tablesdialog.cpp:135
+#: src/tablesdialog.cpp:136
 #, kde-format
 msgid "Numbers"
 msgstr "Arvud"
 
-#: src/tablesdialog.cpp:136
+#: src/tablesdialog.cpp:137
 #, kde-format
 msgid "Numeric Prefixes and Roman Numerals"
 msgstr "Arvude eesliited ja rooma numbrid"
 
-#: src/tablesdialog.cpp:146
+#: src/tablesdialog.cpp:147
 #, kde-format
 msgid "Number"
 msgstr "Arv"
 
-#: src/tablesdialog.cpp:146
+#: src/tablesdialog.cpp:147
 #, kde-format
 msgctxt "For example 'Mono' for 1 and 'Tri' for 3"
 msgid "Prefix"
 msgstr "Eesliide"
 
-#: src/tablesdialog.cpp:146
+#: src/tablesdialog.cpp:147
 #, kde-format
 msgid "Roman Numerals"
 msgstr "Rooma numbrid"
 
-#: src/tablesdialog.cpp:150
+#: src/tablesdialog.cpp:151
 #, kde-format
 msgid "0.5"
 msgstr "0,5"
 
-#: src/tablesdialog.cpp:151
+#: src/tablesdialog.cpp:152
 #, kde-format
 msgid "1"
 msgstr "1"
 
-#: src/tablesdialog.cpp:152
+#: src/tablesdialog.cpp:153
 #, kde-format
 msgid "1.5"
 msgstr "1,5"
 
-#: src/tablesdialog.cpp:153
+#: src/tablesdialog.cpp:154
 #, kde-format
 msgid "2"
 msgstr "2"
 
-#: src/tablesdialog.cpp:154
+#: src/tablesdialog.cpp:155
 #, kde-format
 msgid "2.5"
 msgstr "2,5"
 
-#: src/tablesdialog.cpp:155
+#: src/tablesdialog.cpp:156
 #, kde-format
 msgid "3"
 msgstr "3"
 
-#: src/tablesdialog.cpp:156
+#: src/tablesdialog.cpp:157
 #, kde-format
 msgid "4"
 msgstr "4"
 
-#: src/tablesdialog.cpp:157
+#: src/tablesdialog.cpp:158
 #, kde-format
 msgid "5"
 msgstr "5"
 
-#: src/tablesdialog.cpp:158
+#: src/tablesdialog.cpp:159
 #, kde-format
 msgid "6"
 msgstr "6"
 
-#: src/tablesdialog.cpp:159
+#: src/tablesdialog.cpp:160
 #, kde-format
 msgid "7"
 msgstr "7"
 
-#: src/tablesdialog.cpp:160
+#: src/tablesdialog.cpp:161
 #, kde-format
 msgid "8"
 msgstr "8"
 
-#: src/tablesdialog.cpp:161
+#: src/tablesdialog.cpp:162
 #, kde-format
 msgid "9"
 msgstr "9"
 
-#: src/tablesdialog.cpp:162
+#: src/tablesdialog.cpp:163
 #, kde-format
 msgid "10"
 msgstr "10"
 
-#: src/tablesdialog.cpp:163
+#: src/tablesdialog.cpp:164
 #, kde-format
 msgid "11"
 msgstr "11"
 
-#: src/tablesdialog.cpp:164
+#: src/tablesdialog.cpp:165
 #, kde-format
 msgid "12"
 msgstr "12"
 
-#: src/tablesdialog.cpp:165
+#: src/tablesdialog.cpp:166
 #, kde-format
 msgid "13"
 msgstr "13"
 
-#: src/tablesdialog.cpp:166
+#: src/tablesdialog.cpp:167
 #, kde-format
 msgid "14"
 msgstr "14"
 
-#: src/tablesdialog.cpp:167
+#: src/tablesdialog.cpp:168
 #, kde-format
 msgid "15"
 msgstr "15"
 
-#: src/tablesdialog.cpp:168
+#: src/tablesdialog.cpp:169
 #, kde-format
 msgid "16"
 msgstr "16"
 
-#: src/tablesdialog.cpp:169
+#: src/tablesdialog.cpp:170
 #, kde-format
 msgid "17"
 msgstr "17"
 
-#: src/tablesdialog.cpp:170
+#: src/tablesdialog.cpp:171
 #, kde-format
 msgid "18"
 msgstr "18"
 
-#: src/tablesdialog.cpp:171
+#: src/tablesdialog.cpp:172
 #, kde-format
 msgid "19"
 msgstr "19"
 
-#: src/tablesdialog.cpp:172
+#: src/tablesdialog.cpp:173
 #, kde-format
 msgid "20"
 msgstr "20"
 
-#: src/tablesdialog.cpp:173
+#: src/tablesdialog.cpp:174
 #, kde-format
 msgid "40"
 msgstr "40"
 
-#: src/tablesdialog.cpp:174
+#: src/tablesdialog.cpp:175
 #, kde-format
 msgid "50"
 msgstr "50"
 
-#: src/tablesdialog.cpp:175
+#: src/tablesdialog.cpp:176
 #, kde-format
 msgid "60"
 msgstr "60"
 
-#: src/tablesdialog.cpp:176
+#: src/tablesdialog.cpp:177
 #, kde-format
 msgid "90"
 msgstr "90"
 
-#: src/tablesdialog.cpp:177
+#: src/tablesdialog.cpp:178
 #, kde-format
 msgid "100"
 msgstr "100"
 
-#: src/tablesdialog.cpp:250
+#: src/tablesdialog.cpp:251
 #, kde-format
 msgid "&Copy"
 msgstr "&Kopeeri"
@@ -8586,17 +8576,17 @@ msgctxt ""
 msgid "%1 u"
 msgstr "%1 u"
 
-#: src/tools/moleculeview.cpp:285
+#: src/tools/moleculeview.cpp:290
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
 msgstr "Molekuli %1 allalaadimine asukohta %2 nurjus."
 
-#: src/tools/moleculeview.cpp:293
+#: src/tools/moleculeview.cpp:298
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
 msgstr "Molekulid, mida sai alla laadida, salvestati asukohta %1."
 
-#: src/tools/moleculeview.cpp:295
+#: src/tools/moleculeview.cpp:300
 #, kde-format
 msgid "The molecules have been saved to %1."
 msgstr "Molekulid salvestati asukohta %1."
@@ -8729,31 +8719,31 @@ msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr "Kas käivitada need käsud? -- KOpenBabel"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/tools/obconverterwidget.ui:22
+#: src/tools/obconverterwidget.ui:32
 #, kde-format
 msgid "Files to convert"
 msgstr "Teisendatavad failid"
 
 #. i18n: ectx: property (text), widget (QPushButton, selectAllFileButton)
-#: src/tools/obconverterwidget.ui:34
+#: src/tools/obconverterwidget.ui:53
 #, kde-format
 msgid "&Select all"
 msgstr "&Vali kõik"
 
 #. i18n: ectx: property (text), widget (QPushButton, deleteFileButton)
-#: src/tools/obconverterwidget.ui:54
+#: src/tools/obconverterwidget.ui:73
 #, kde-format
 msgid "&Remove"
 msgstr "&Eemalda"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFileButton)
-#: src/tools/obconverterwidget.ui:61
+#: src/tools/obconverterwidget.ui:80
 #, kde-format
 msgid "&Add"
 msgstr "Lis&a"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, FileListView)
-#: src/tools/obconverterwidget.ui:71
+#: src/tools/obconverterwidget.ui:90
 #, kde-format
 msgid ""
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
@@ -8777,16 +8767,22 @@ msgstr ""
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/tools/obconverterwidget.ui:92
+#: src/tools/obconverterwidget.ui:120
 #, kde-format
 msgid "Convert from:"
 msgstr "Algvorming:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/tools/obconverterwidget.ui:124
+#: src/tools/obconverterwidget.ui:159
 #, kde-format
 msgid "Convert to:"
 msgstr "Lõppvorming:"
+
+#~ msgid "[molecule]"
+#~ msgstr "[molekul]"
+
+#~ msgid "molecule"
+#~ msgstr "molekul"
 
 #~ msgid "Selects the PSE"
 #~ msgstr "Valib tabeli"
