@@ -12,6 +12,8 @@ generate_export_header(compoundviewer)
 target_sources(compoundviewer PRIVATE
     iowrapper.cpp
     kalziumglwidget.cpp
+    iowrapper.h
+    kalziumglwidget.h
 )
 
 target_link_libraries(compoundviewer
