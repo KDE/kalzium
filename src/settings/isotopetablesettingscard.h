@@ -37,7 +37,7 @@ private:
     QRadioButton *m_radioButton = nullptr;
 
 public Q_SLOTS:
-    void setText(QString text)
+    void setText(const QString &text)
     {
         m_radioButton->setText(text);
     }
