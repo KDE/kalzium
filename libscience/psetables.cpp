@@ -32,7 +32,9 @@ pseTables *pseTables::instance()
 QStringList pseTables::tables() const
 {
     QStringList l;
-    for (int i = 0; i < m_tables.count(); ++i) {
+    const int nbTable{m_tables.count()};
+    l.reserve(nbTable);
+    for (int i = 0; i < nbTable; ++i) {
         l << m_tables.at(i)->description();
     }
     return l;
