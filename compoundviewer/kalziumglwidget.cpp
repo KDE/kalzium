@@ -34,7 +34,7 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent)
     // avoiding overwriting an already set envvar
     static bool s_pluginDirSet = false;
     if (!s_pluginDirSet) {
-        if (qgetenv("AVOGADRO_PLUGINS").isEmpty()) {
+        if (qEnvironmentVariableIsEmpty("AVOGADRO_PLUGINS")) {
             qputenv("AVOGADRO_PLUGINS", AVOGADRO_PLUGIN_DIR);
         }
         s_pluginDirSet = true;
