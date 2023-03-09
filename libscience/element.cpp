@@ -6,7 +6,6 @@
 
 #include "element.h"
 
-#include "kalzium_libscience_debug.h"
 
 #include <KUnitConversion/Converter>
 

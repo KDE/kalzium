@@ -8,7 +8,6 @@
 #include "chemicaldataobject.h"
 #include "element.h"
 
-#include "kalzium_libscience_debug.h"
 
 #include <KLocalizedString>
 #include <KUnitConversion/Converter>
