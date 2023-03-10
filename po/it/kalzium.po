@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-08 00:42+0000\n"
+"POT-Creation-Date: 2023-03-10 00:41+0000\n"
 "PO-Revision-Date: 2022-07-13 22:29+0200\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3022,27 +3022,27 @@ msgstr ""
 "elementi trans-attinidi. Storicamente conosciuto come eka-radon, eka-"
 "emanazione prima del 1960."
 
-#: libscience/psetables.cpp:150
+#: libscience/psetables.cpp:152
 #, kde-format
 msgid "Classic Periodic Table"
 msgstr "Tavola periodica classica"
 
-#: libscience/psetables.cpp:188
+#: libscience/psetables.cpp:190
 #, kde-format
 msgid "Long Periodic Table"
 msgstr "Tavola periodica lunga"
 
-#: libscience/psetables.cpp:224
+#: libscience/psetables.cpp:226
 #, kde-format
 msgid "Short Periodic Table"
 msgstr "Tavola periodica breve"
 
-#: libscience/psetables.cpp:268
+#: libscience/psetables.cpp:270
 #, kde-format
 msgid "Transition Elements"
 msgstr "Elementi di transizione"
 
-#: libscience/psetables.cpp:294
+#: libscience/psetables.cpp:296
 #, kde-format
 msgid "DZ Periodic Table"
 msgstr "Tavola periodica DZ"
@@ -5277,13 +5277,13 @@ msgid "Could not open file for writing."
 msgstr "Impossibile aprire il file in scrittura."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/exportdialog.ui:51
+#: src/exportdialog.ui:67
 #, kde-format
 msgid "File:"
 msgstr "File:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/exportdialog.ui:68
+#: src/exportdialog.ui:84
 #, kde-format
 msgid "Format:"
 msgstr "Formato:"
