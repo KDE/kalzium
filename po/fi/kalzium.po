@@ -8,7 +8,7 @@
 # Tuomas Nurmi <iltunu@utu.fi>, 2006.
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2006.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014.
-# Tommi Nieminen <translator@legisign.org>, 2011.
+# Tommi Nieminen <translator@legisign.org>, 2011, 2023.
 #
 # KDE Finnish translation sprint participants:
 # Author: Lliehu
@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2014-12-05 02:14+0200\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"PO-Revision-Date: 2023-02-26 21:41+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:22:55+0000\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,7 +53,7 @@ msgstr "Annettua tiedostoa ei voi avata"
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "Pahoittelut"
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
@@ -1582,10 +1582,9 @@ msgid "Hydrogen"
 msgstr "Vety"
 
 #: element_tiny.xml:4
-#, fuzzy, kde-format
-#| msgid "Greek 'hydro' and 'gennao' for 'forms water'"
+#, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
-msgstr "Johdannainen sanasta 'vesi'"
+msgstr "’Muodostaa vettä’ kreikan sanoista ”hydro” ja ”gennao”."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
@@ -1594,10 +1593,9 @@ msgid "Helium"
 msgstr "Helium"
 
 #: element_tiny.xml:6
-#, fuzzy, kde-format
-#| msgid "The Greek word for the sun was 'helios'"
+#, kde-format
 msgid "The Greek word for the sun was 'helios'."
-msgstr "Kreikaksi aurinko oli 'helios'"
+msgstr "Kreikaksi ’aurinko’ oli ”helios”."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:7
@@ -1606,10 +1604,9 @@ msgid "Lithium"
 msgstr "Litium"
 
 #: element_tiny.xml:8
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "Kreikan 'lithos' tarkoittaa 'kiveä'"
+msgstr "Kreikan ”lithos” ’kivi’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1618,10 +1615,9 @@ msgid "Beryllium"
 msgstr "Beryllium"
 
 #: element_tiny.xml:10
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "Kreikan 'beryllos' merkitsee 'vaaleanvihreää kiveä'"
+msgstr "Kreikan ”beryllos” ’vaaleanvihreä kivi’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1630,17 +1626,13 @@ msgid "Boron"
 msgstr "Boori"
 
 #: element_tiny.xml:12
-#, fuzzy, kde-format
-#| msgid ""
-#| "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
-#| "like carbon"
+#, kde-format
 msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
-"Englanninkielinen nimi 'Boron' on yhdistelmä sen löytöpaikasta 'Bor(ax)' ja "
-"hiiltä tarkoittavasta sanasta '(carb)on'. Jälkiosa juontaa juurensa aineiden "
-"samankaltaisesta käyttäytymisestä"
+"Boorin englanninkielinen nimi ”boron” tulee sanoista ”borax” ’booraksi’ ja "
+"”(carb)on” ’hiili’. Sitä esiintyy booraksissa ja se käyttäytyy kuten hiili."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:13
@@ -1649,10 +1641,9 @@ msgid "Carbon"
 msgstr "Hiili"
 
 #: element_tiny.xml:14
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'carboneum' for carbon."
-msgstr "Latinan 'carboneum' tarkoittaa hiiltä"
+msgstr "Latinan ”carboneum” ’hiili’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:15
@@ -1661,10 +1652,11 @@ msgid "Nitrogen"
 msgstr "Typpi"
 
 #: element_tiny.xml:16
-#, fuzzy, kde-format
-#| msgid "Latin 'nitrogenium' ('forms saltpeter')"
+#, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
-msgstr "Symboli tulee latinan sanasta nitrogenium ('muodostaa salpietaria')"
+msgstr ""
+"Latinan ”nitrogenium” ’salpietaria muodostava’. Suomenkielinen nimi tulee "
+"verbistä ”typehtyä” ’sammua’, koska typpi tukahduttaa palamisen."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1673,10 +1665,11 @@ msgid "Oxygen"
 msgstr "Happi"
 
 #: element_tiny.xml:18
-#, fuzzy, kde-format
-#| msgid "Latin 'oxygenium' (forms acids)"
+#, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "Latinan 'oxygenium' tarkoittaa happoja muodostavaa"
+msgstr ""
+"Latinan ”oxygenium” ’happoja muodostava’. Suomenkielinen nimi tulee (hieman "
+"aiemmin keksitystä) sanasta ”happo”."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1685,10 +1678,9 @@ msgid "Fluorine"
 msgstr "Fluori"
 
 #: element_tiny.xml:20
-#, fuzzy, kde-format
-#| msgid "Latin 'fluere' ('floats')"
+#, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr "Latinan sanasta 'fluere' (kelluu)"
+msgstr "Latinan sanasta ”fluere” ’kelluu’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1697,10 +1689,9 @@ msgid "Neon"
 msgstr "Neon"
 
 #: element_tiny.xml:22
-#, fuzzy, kde-format
-#| msgid "Greek 'neo'. meaning 'new'"
+#, kde-format
 msgid "Greek 'neo'. meaning 'new'."
-msgstr "Kreikan 'neo' eli 'uusi'"
+msgstr "Kreikan sanasta ”neo” ’uusi’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:23
@@ -1713,7 +1704,7 @@ msgstr "Natrium"
 msgid ""
 "The name comes from Latin 'sodanum' which means 'headache remedy'. The "
 "symbol comes from Latin 'natrium' for Arabic 'natrun' or English 'soda'."
-msgstr ""
+msgstr "Latinan ”natrium” tulee arabian sanasta ”natrun” ’sooda’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:25
@@ -1722,10 +1713,9 @@ msgid "Magnesium"
 msgstr "Magnesium"
 
 #: element_tiny.xml:26
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the city of Magnesia."
-msgstr "Nimetty Magnesian kaupungin mukaan"
+msgstr "Nimetty Magnesian kaupungin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
@@ -1734,10 +1724,9 @@ msgid "Aluminium"
 msgstr "Alumiini"
 
 #: element_tiny.xml:28
-#, fuzzy, kde-format
-#| msgid "Latin 'alumen'"
+#, kde-format
 msgid "Latin 'alumen'."
-msgstr "Latinan 'alumen', karvas"
+msgstr "Latinan sanasta ”alumen” ’karvas’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
@@ -1746,10 +1735,9 @@ msgid "Silicon"
 msgstr "Pii"
 
 #: element_tiny.xml:30
-#, fuzzy, kde-format
-#| msgid "Latin 'silex'"
+#, kde-format
 msgid "Latin 'silex'."
-msgstr "Latinan 'silex' merkitsee piikiveä"
+msgstr "Latinan ”silex” ’piikivi’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
@@ -1758,10 +1746,9 @@ msgid "Phosphorus"
 msgstr "Fosfori"
 
 #: element_tiny.xml:32
-#, fuzzy, kde-format
-#| msgid "Greek 'phosphoros' for 'carries light'"
+#, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
-msgstr "Kreikan 'phosporos' eli 'kantaa valoa'"
+msgstr "Kreikan ”phosporos” ’kantaa valoa’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1770,10 +1757,9 @@ msgid "Sulfur"
 msgstr "Rikki"
 
 #: element_tiny.xml:34
-#, fuzzy, kde-format
-#| msgid "In sanskrit 'sweb' means 'to sleep'"
+#, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr "Sanskritin ’sweb’ merkitsee ’nukkua’"
+msgstr "Sanskriitin ”sweb” ’nukkua’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1782,10 +1768,9 @@ msgid "Chlorine"
 msgstr "Kloori"
 
 #: element_tiny.xml:36
-#, fuzzy, kde-format
-#| msgid "Greek 'chloros' for 'yellow-green'"
+#, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "Kreikan 'chloros' eli 'kellanvihreä'"
+msgstr "Kreikan ”khloros” ’kellanvihreä’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1794,10 +1779,9 @@ msgid "Argon"
 msgstr "Argon"
 
 #: element_tiny.xml:38
-#, fuzzy, kde-format
-#| msgid "Greek 'aergon' for 'inactive'"
+#, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "Kreikan 'aergos' eli 'toimimaton'"
+msgstr "Kreikan ”argón” ’laiska’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1811,7 +1795,7 @@ msgid ""
 "The name comes from the English 'potash' ('pot ashes') because it is found "
 "in caustic potashes. The symbol comes from the Latin 'kalium' for the "
 "original Arabic 'al qaliy' which means alkali."
-msgstr ""
+msgstr "Latinan ”kalium” arabian sanasta ”al qaliy”."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:41
@@ -1820,10 +1804,9 @@ msgid "Calcium"
 msgstr "Kalsium"
 
 #: element_tiny.xml:42
-#, fuzzy, kde-format
-#| msgid "Latin 'calx' for 'lime'"
+#, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr "Latinan 'calx' eli 'kalkki'"
+msgstr "Latinan ”calx” ’kalkki’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -1832,10 +1815,9 @@ msgid "Scandium"
 msgstr "Skandium"
 
 #: element_tiny.xml:44
-#, fuzzy, kde-format
-#| msgid "Named because it was found in Scandinavia"
+#, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr "Nimetty löytöpaikkansa, Skandinavian, mukaan"
+msgstr "Nimetty löytöpaikkansa, Skandinavian, mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -1844,10 +1826,9 @@ msgid "Titanium"
 msgstr "Titaani"
 
 #: element_tiny.xml:46
-#, fuzzy, kde-format
-#| msgid "The Titans were giants in Greek mythology"
+#, kde-format
 msgid "The Titans were giants in Greek mythology."
-msgstr "Titaanit olivat kreikkalaisen mytologian jättiläisiä"
+msgstr "Titaanit olivat kreikkalaisen mytologian jättiläisiä."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:47
@@ -1856,10 +1837,9 @@ msgid "Vanadium"
 msgstr "Vanadiini"
 
 #: element_tiny.xml:48
-#, fuzzy, kde-format
-#| msgid "'Vanadis' is another name for the Nordic goddess Freyja"
+#, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr "'Vanadis' on toinen nimi skandinaaviselle Freija-jumalattarelle"
+msgstr "”Vanadis” on toinen nimi skandinaaviselle Freija-jumalattarelle."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -1868,10 +1848,9 @@ msgid "Chromium"
 msgstr "Kromi"
 
 #: element_tiny.xml:50
-#, fuzzy, kde-format
-#| msgid "Greek 'chroma' means 'color'"
+#, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "Kreikan 'chroma' merkitsee 'väri'"
+msgstr "Kreikan ”khroma” merkitsee ’väriä’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
@@ -1895,10 +1874,9 @@ msgid "Iron"
 msgstr "Rauta"
 
 #: element_tiny.xml:54
-#, fuzzy, kde-format
-#| msgid "Latin 'ferrum'"
+#, kde-format
 msgid "Latin 'ferrum'."
-msgstr "Latin 'ferrum'"
+msgstr "Latinan ”ferrum” ’rauta’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -1907,10 +1885,9 @@ msgid "Cobalt"
 msgstr "Koboltti"
 
 #: element_tiny.xml:56
-#, fuzzy, kde-format
-#| msgid "Named after the German word 'Kobold' for 'goblin'"
+#, kde-format
 msgid "Named after the German word 'Kobold' for 'goblin'."
-msgstr "Saksan sanasta 'Kobold' 'peikko, maahinen'"
+msgstr "Saksan sanasta ”Kobold” ’peikko, maahinen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:57
@@ -1919,10 +1896,9 @@ msgid "Nickel"
 msgstr "Nikkeli"
 
 #: element_tiny.xml:58
-#, fuzzy, kde-format
-#| msgid "'Nickel' was the name of a mountain goblin"
+#, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr "Saksassa 'Nickel' oli vuorenpeikon tai vuorella asuvan paholaisen nimi"
+msgstr "Saksan ”Nickel” oli vuorenpeikon tai vuorella asuvan paholaisen nimi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -1931,10 +1907,9 @@ msgid "Copper"
 msgstr "Kupari"
 
 #: element_tiny.xml:60
-#, fuzzy, kde-format
-#| msgid "Greek 'cuprum' for Cypres"
+#, kde-format
 msgid "Greek 'cuprum' for Cypres."
-msgstr "Kreikan sanasta 'cuprum', Kypros"
+msgstr "Latinalaistus ”cuprum” kreikan sanasta ”kypros”, Kypros."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
@@ -1943,10 +1918,9 @@ msgid "Zinc"
 msgstr "Sinkki"
 
 #: element_tiny.xml:62
-#, fuzzy, kde-format
-#| msgid "German 'zinking' for 'rough', because zinc ore is very rough"
+#, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
-msgstr "Saksan 'zinking', karkea, koska sinkkimalmi on hyvin karkeaa"
+msgstr "Saksan ”zinking” ’karkea’, koska sinkkimalmi on hyvin karkeaa."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:63
@@ -1955,10 +1929,9 @@ msgid "Gallium"
 msgstr "Gallium"
 
 #: element_tiny.xml:64
-#, fuzzy, kde-format
-#| msgid "'Gallia' is an old name for France"
+#, kde-format
 msgid "'Gallia' is an old name for France."
-msgstr "'Gallia' on Ranskan vanha nimi"
+msgstr "”Gallia” on suunnilleen Ranskan maantieteellisen alueen vanha nimi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
@@ -1967,10 +1940,10 @@ msgid "Germanium"
 msgstr "Germanium"
 
 #: element_tiny.xml:66
-#, fuzzy, kde-format
-#| msgid "Latin 'germania' is an old name for Germany"
+#, kde-format
 msgid "Latin 'germania' is an old name for Germany."
-msgstr "Latinan 'germania' on Saksan vanha nimi"
+msgstr ""
+"Latinan ”Germania” on suunnilleen Saksan maantieteellisen alueen vanha nimi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
@@ -1979,10 +1952,9 @@ msgid "Arsenic"
 msgstr "Arseeni"
 
 #: element_tiny.xml:68
-#, fuzzy, kde-format
-#| msgid "Greek 'arsenikos' for 'male' or 'bold'"
+#, kde-format
 msgid "Greek 'arsenikos' for 'male' or 'bold'."
-msgstr "Kreikan 'arsenikos' merkitsee 'miespuolista' tai 'rohkeaa'"
+msgstr "Kreikan ”arsenikos” ’miespuolinen, rohkea’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:69
@@ -1991,10 +1963,9 @@ msgid "Selenium"
 msgstr "Seleeni"
 
 #: element_tiny.xml:70
-#, fuzzy, kde-format
-#| msgid "Greek 'selena' for 'moon'"
+#, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr "Kreikan 'selena' merkitsee kuuta"
+msgstr "Kreikan ”selena” ’kuu’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -2003,10 +1974,9 @@ msgid "Bromine"
 msgstr "Bromi"
 
 #: element_tiny.xml:72
-#, fuzzy, kde-format
-#| msgid "Greek 'bromos' for 'smells badly'"
+#, kde-format
 msgid "Greek 'bromos' for 'smells badly'."
-msgstr "Kreikan 'bromos' merkitsee 'haisee pahalta'"
+msgstr "Kreikan ”bromos” ’pahanhajuinen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:73
@@ -2015,10 +1985,9 @@ msgid "Krypton"
 msgstr "Krypton"
 
 #: element_tiny.xml:74
-#, fuzzy, kde-format
-#| msgid "Greek 'kryptos' for 'hidden'"
+#, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "Kreikan 'kryptos' merkitsee 'piilotettu'"
+msgstr "Kreikan ”kryptos” ’piilotettu’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -2027,10 +1996,9 @@ msgid "Rubidium"
 msgstr "Rubidium"
 
 #: element_tiny.xml:76
-#, fuzzy, kde-format
-#| msgid "Latin 'rubidus' for 'dark red'"
+#, kde-format
 msgid "Latin 'rubidus' for 'dark red'."
-msgstr "Latinan 'rubidus' merkitsee 'tummanpunaista'"
+msgstr "Latinan ”rubidus” ’tummanpunainen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:77
@@ -2039,10 +2007,9 @@ msgid "Strontium"
 msgstr "Strontium"
 
 #: element_tiny.xml:78
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Strontianit"
+#, kde-format
 msgid "Named after the mineral Strontianit."
-msgstr "Nimetty Stratiniitti (Strontiumkarbonaatti) -mineraalin mukaan"
+msgstr "Nimetty stratiniitti- eli strontiumkarbonaatti-mineraalin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:79
@@ -2051,16 +2018,13 @@ msgid "Yttrium"
 msgstr "Yttrium"
 
 #: element_tiny.xml:80
-#, fuzzy, kde-format
-#| msgid ""
-#| "Named after the small town of Ytterby near Stockholm in Sweden. Terbium. "
-#| "Ytterbium and Gadolinium are also named after this town."
+#, kde-format
 msgid ""
 "Named after the small town of Ytterby near Stockholm in Sweden. Terbium, "
 "Ytterbium and Erbium are also named after this town."
 msgstr ""
-"Nimetty Tukholman ulkopuolella olevan Ytterbyn kaupungin mukaan. Myös "
-"Ytterbium ja Gadolinium on nimetty tämän kaupungin mukaan."
+"Nimetty Tukholman lähellä olevan Ytterbyn kaupungin mukaan. Myös terbium, "
+"ytterbium ja erbium on nimetty saman kaupungin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:81
@@ -2069,10 +2033,9 @@ msgid "Zirconium"
 msgstr "Zirkonium"
 
 #: element_tiny.xml:82
-#, fuzzy, kde-format
-#| msgid "Named after the mineral zircon"
+#, kde-format
 msgid "Named after the mineral zircon."
-msgstr "Nimetty zirkoni-mineraalin mukaan"
+msgstr "Nimetty zirkoni-mineraalin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:83
@@ -2107,10 +2070,9 @@ msgid "Technetium"
 msgstr "Teknetium"
 
 #: element_tiny.xml:88
-#, fuzzy, kde-format
-#| msgid "Greek 'technetos' for artificial"
+#, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr "Kreikan keinotekoista merkitsevästä sanasta 'technetos'"
+msgstr "Kreikan ”tekhnetos” ’keinotekoinen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -2119,10 +2081,11 @@ msgid "Ruthenium"
 msgstr "Rutenium"
 
 #: element_tiny.xml:90
-#, fuzzy, kde-format
-#| msgid "Ruthenia is the old name of Russia"
+#, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr "Rutenia on Venäjän vanha nimi"
+msgstr ""
+"Rutenia on yksi vanha nimitys suunnilleen Venäjän maantieteelliselle "
+"alueelle."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -2131,10 +2094,9 @@ msgid "Rhodium"
 msgstr "Rodium"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'rhodeos' means 'red like a rose'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "Kreikan 'rhodeos' merkitsee 'ruusunpunaista'"
+msgstr "Kreikan ”rhodeos” ’ruusunpunainen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -2143,10 +2105,9 @@ msgid "Palladium"
 msgstr "Palladium"
 
 #: element_tiny.xml:94
-#, fuzzy, kde-format
-#| msgid "Named after the asteroid Pallas"
+#, kde-format
 msgid "Named after the asteroid Pallas."
-msgstr "Nimetty asteroidi Pallaksen mukaan"
+msgstr "Nimetty Pallas-asteroidin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
@@ -2155,10 +2116,9 @@ msgid "Silver"
 msgstr "Hopea"
 
 #: element_tiny.xml:96
-#, fuzzy, kde-format
-#| msgid "Latin 'argentum' for silver"
+#, kde-format
 msgid "Latin 'argentum' for silver."
-msgstr "Latinan 'argentum' hopealle"
+msgstr "Latinan ”argentum” ’hopea’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -2167,10 +2127,9 @@ msgid "Cadmium"
 msgstr "Kadmium"
 
 #: element_tiny.xml:98
-#, fuzzy, kde-format
-#| msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)"
+#, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
-msgstr "Kreikan 'kadmia' ('Galmei' = sinkkikarbonaatti)"
+msgstr "Kreikan ”kadmia” (”Galmei” = sinkkikarbonaatti)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -2179,10 +2138,9 @@ msgid "Indium"
 msgstr "Indium"
 
 #: element_tiny.xml:100
-#, fuzzy, kde-format
-#| msgid "Named after 'Indigo' because of its blue spectrum"
+#, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr "Nimetty 'indigon' mukaan, koska sen spektri on sininen"
+msgstr "Nimetty ”indigon” mukaan sen sinisen spektrin vuoksi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -2191,10 +2149,9 @@ msgid "Tin"
 msgstr "Tina"
 
 #: element_tiny.xml:102
-#, fuzzy, kde-format
-#| msgid "Latin 'stannum' for tin"
+#, kde-format
 msgid "Latin 'stannum' for tin."
-msgstr "Symboli tulee latinan tinaa merkitsevästä sanasta 'stannum'"
+msgstr "Latinan ”stannum” ’tina’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -2203,10 +2160,9 @@ msgid "Antimony"
 msgstr "Antimoni"
 
 #: element_tiny.xml:104
-#, fuzzy, kde-format
-#| msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'"
+#, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
-msgstr "Arabian 'anthos ammonos'  merkitsee ' '(jumala) Ammonin kukka'"
+msgstr "Kreikkalaistetun arabian ”anthos ammonos” ’Ammon-jumalan kukka’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:105
@@ -2215,10 +2171,9 @@ msgid "Tellurium"
 msgstr "Telluuri"
 
 #: element_tiny.xml:106
-#, fuzzy, kde-format
-#| msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'"
+#, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
-msgstr "Latinan 'tellus' tai 'telluris' merkitsee 'planeetta maa'"
+msgstr "Latinan ”tellus”, ”telluris” ’Maa-planeetta’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -2238,10 +2193,9 @@ msgid "Xenon"
 msgstr "Ksenon"
 
 #: element_tiny.xml:110
-#, fuzzy, kde-format
-#| msgid "Greek 'xenos' for 'foreigner'"
+#, kde-format
 msgid "Greek 'xenos' for 'foreigner'."
-msgstr "Kreikan 'xenos' merkitsee 'vieras'"
+msgstr "Kreikan ”ksenos” ’vieras’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:111
@@ -2261,10 +2215,9 @@ msgid "Barium"
 msgstr "Barium"
 
 #: element_tiny.xml:114
-#, fuzzy, kde-format
-#| msgid "Greek 'barys' for 'heavy'"
+#, kde-format
 msgid "Greek 'barys' for 'heavy'."
-msgstr "Kreikan 'barys' merkitsee 'raskas'"
+msgstr "Kreikan ”barys” ’raskas’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
@@ -2288,10 +2241,9 @@ msgid "Cerium"
 msgstr "Cerium"
 
 #: element_tiny.xml:118
-#, fuzzy, kde-format
-#| msgid "Named after the planetoid Ceres"
+#, kde-format
 msgid "Named after the planetoid Ceres."
-msgstr "Nimetty asteroidi Cereksen mukaan"
+msgstr "Nimetty Ceres-asteroidin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:119
@@ -2300,10 +2252,9 @@ msgid "Praseodymium"
 msgstr "Praseodyymi"
 
 #: element_tiny.xml:120
-#, fuzzy, kde-format
-#| msgid "Greek 'prasinos didymos' for 'green twin'"
+#, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
-msgstr "Kreikan 'prasinos didymos' merkitsee 'vihreä kaksonen'"
+msgstr "Kreikan ”prasinos didymos” ’vihreä kaksonen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -2312,10 +2263,9 @@ msgid "Neodymium"
 msgstr "Neodyymi"
 
 #: element_tiny.xml:122
-#, fuzzy, kde-format
-#| msgid "Greek 'neos didymos' for 'new twin'"
+#, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr "Kreikan 'neos didymos' merkitsee 'uusi kaksonen'"
+msgstr "Kreikan ”neos didymos” ’uusi kaksonen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
@@ -2339,10 +2289,9 @@ msgid "Samarium"
 msgstr "Samarium"
 
 #: element_tiny.xml:126
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Samarskit"
+#, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr "Nimetty samarskit-mineraalin mukaan"
+msgstr "Nimetty samarskiitti-mineraalin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2351,10 +2300,9 @@ msgid "Europium"
 msgstr "Europium"
 
 #: element_tiny.xml:128
-#, fuzzy, kde-format
-#| msgid "Named after Europe"
+#, kde-format
 msgid "Named after Europe."
-msgstr "Nimetty Euroopan mukaan"
+msgstr "Nimetty Euroopan mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -2363,10 +2311,9 @@ msgid "Gadolinium"
 msgstr "Gadolinium"
 
 #: element_tiny.xml:130
-#, fuzzy, kde-format
-#| msgid "Named after the Finnish chemist Johan Gadolin"
+#, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "Nimetty suomalaisen kemistin Johan Gadolinin mukaan"
+msgstr "Nimetty suomalaisen kemistin Johan Gadolinin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2375,16 +2322,14 @@ msgid "Terbium"
 msgstr "Terbium"
 
 #: element_tiny.xml:132
-#, fuzzy, kde-format
-#| msgid ""
-#| "Named after the Swedish town of Ytterby. Terbium and Ytterbium are also "
-#| "named after this town."
+#, kde-format
 msgid ""
 "Named after the Swedish town of Ytterby and the mineral ytterbite from which "
 "Terbium was first refined. Yttrium, Erbium and Ytterbium are also named "
 "after this town."
 msgstr ""
-"Nimetty ruotsalaisen Ytterbyn kaupungin mukaan. Myös Terbium ja Ytterbium on "
+"Nimetty ruotsalaisen Ytterbyn kaupungin ja ytterbiitti-mineraalin (josta "
+"terbiumia ensin jalostettiin) mukaan. Myös yttrium, erbium ja ytterbium on "
 "nimetty sen mukaan."
 
 #. i18n: tag label attribute value
@@ -2394,10 +2339,9 @@ msgid "Dysprosium"
 msgstr "Dysprosium"
 
 #: element_tiny.xml:134
-#, fuzzy, kde-format
-#| msgid "Greek 'dysprositor' for 'difficult to reach'"
+#, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr "kreikan 'dysprositor' merkitsee 'vaikeasti tavoitettava'"
+msgstr "Kreikan ”dysprositor” ’vaikeasti tavoitettava’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
@@ -2406,10 +2350,9 @@ msgid "Holmium"
 msgstr "Holmium"
 
 #: element_tiny.xml:136
-#, fuzzy, kde-format
-#| msgid "Latin 'holmia' for the old name of Stockholm"
+#, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
-msgstr "Latinan 'holmia' on tukholman vanha nimi"
+msgstr "Latinan ”holmia” on Tukholman vanha nimi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2418,17 +2361,15 @@ msgid "Erbium"
 msgstr "Erbium"
 
 #: element_tiny.xml:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "Named after the Swedish town of Ytterby. Terbium and Ytterbium are also "
-#| "named after this town."
+#, kde-format
 msgid ""
 "Named after the Swedish town of Ytterby where the mineral gadolinite (from "
 "which Erbium was first refined) was first mined. Yttrium, Terbium and "
 "Ytterbium are also named after this town."
 msgstr ""
-"Nimetty ruotsalaisen Ytterbyn kaupungin mukaan. Myös Terbium ja Ytterbium on "
-"nimetty sen mukaan."
+"Nimetty ruotsalaisen Ytterbyn kaupungin mukaan, mistä gadoliniittia (josta "
+"erbiumia ensiksi jalostettiin) ensi louhittiin. Myös yttrium, terbium ja "
+"ytterbium on nimetty sen mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:139
@@ -2448,16 +2389,13 @@ msgid "Ytterbium"
 msgstr "Ytterbium"
 
 #: element_tiny.xml:142
-#, fuzzy, kde-format
-#| msgid ""
-#| "Like Terbium and Gadolinium, this is named after the Swedish town of "
-#| "Ytterby."
+#, kde-format
 msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
 msgstr ""
-"Kuten Terbium ja Gadolinium, tämäkin on nimetty ruotsalaisen Ytterbyn "
-"kaupungin mukaan"
+"Kuten yttrium, terbium ja erbium, tämäkin on nimetty ruotsalaisen Ytterbyn "
+"kaupungin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:143
@@ -2466,10 +2404,9 @@ msgid "Lutetium"
 msgstr "Lutetium"
 
 #: element_tiny.xml:144
-#, fuzzy, kde-format
-#| msgid "Named after the Roman name 'Lutetia' for Paris"
+#, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
-msgstr "'Lutetia' on pariisin roomalainen nimi"
+msgstr "”Lutetia” on Pariisin roomalainen nimi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2484,6 +2421,9 @@ msgid ""
 "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
 "name of Copenhagen, Denmark)."
 msgstr ""
+"Niels Bohr ennusti tämän alkuaineen ominaisuudet jo ennen sen löytämistä, "
+"joten se nimettiin hänen kotikaupunkinsa Kööpenhaminan mukaan (latinaksi "
+"Hafnia)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2492,10 +2432,9 @@ msgid "Tantalum"
 msgstr "Tantaali"
 
 #: element_tiny.xml:148
-#, fuzzy, kde-format
-#| msgid "Named after the Greek myth of Tantalos"
+#, kde-format
 msgid "Named after the Greek myth of Tantalos."
-msgstr "Nimetty kreikkalaisen Tantalos-myytin mukaan"
+msgstr "Nimetty kreikkalaisen Tantalos-myytin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:149
@@ -2510,6 +2449,8 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
+"Saksan ”wolfram” kuvastaa sitä, kuinka wolfram reagoi tinaan kuten ’susi syö "
+"lampaan’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2542,10 +2483,9 @@ msgid "Iridium"
 msgstr "Iridium"
 
 #: element_tiny.xml:156
-#, fuzzy, kde-format
-#| msgid "Greek 'iris' for 'rainbow'"
+#, kde-format
 msgid "Greek 'iris' for 'rainbow'."
-msgstr "Kreikan 'iris' merkitsee 'sateenkaari'"
+msgstr "Kreikan ”iris” ’sateenkaari’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:157
@@ -2554,10 +2494,9 @@ msgid "Platinum"
 msgstr "Platina"
 
 #: element_tiny.xml:158
-#, fuzzy, kde-format
-#| msgid "Spanish 'platina' means 'small silver'"
+#, kde-format
 msgid "Spanish 'platina' means 'small silver'."
-msgstr "Espanjan 'platina' merkitsee 'pikkuhopea'"
+msgstr "Espanjan ”platina” ’pikkuhopea’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:159
@@ -2566,11 +2505,9 @@ msgid "Gold"
 msgstr "Kulta"
 
 #: element_tiny.xml:160
-#, fuzzy, kde-format
-#| msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise"
+#, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
-msgstr ""
-"Kulta on latinaksi 'aurum'. Auroran, auringonnousun jumalattaren mukaan"
+msgstr "Latinan ”aurum”, nimetty auringonnousun jumalattaren Auroran mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
@@ -2579,10 +2516,9 @@ msgid "Mercury"
 msgstr "Elohopea"
 
 #: element_tiny.xml:162
-#, fuzzy, kde-format
-#| msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'"
+#, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
-msgstr "Kreikkalais-latinalainen 'hydrargyrum' merkitsee 'nestemäistä hopeaa'"
+msgstr "Kreikan ja latinan ”hydrargyrum” ’nestemäinen hopea’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2591,10 +2527,9 @@ msgid "Thallium"
 msgstr "Tallium"
 
 #: element_tiny.xml:164
-#, fuzzy, kde-format
-#| msgid "Greek 'tallos' for 'young twig'"
+#, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "Kreikan 'tallos' merkitsee 'nuori oksa'"
+msgstr "Kreikan ”tallos” ’nuori oksa’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2603,10 +2538,9 @@ msgid "Lead"
 msgstr "Lyijy"
 
 #: element_tiny.xml:166
-#, fuzzy, kde-format
-#| msgid "Latin 'plumbum' for Lead"
+#, kde-format
 msgid "Latin 'plumbum' for Lead."
-msgstr "Latinan 'plumbum' merkitsee lyijyä"
+msgstr "Latinan ”plumbum” ’lyijy’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2627,10 +2561,9 @@ msgid "Polonium"
 msgstr "Polonium"
 
 #: element_tiny.xml:170
-#, fuzzy, kde-format
-#| msgid "Named after Poland to honor Marie Curie"
+#, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "Nimetty Marie Curien kunniaksi Puolan mukaan"
+msgstr "Nimetty Puolan mukaan Marie Curien kunniaksi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2639,10 +2572,9 @@ msgid "Astatine"
 msgstr "Astatiini"
 
 #: element_tiny.xml:172
-#, fuzzy, kde-format
-#| msgid "Greek 'astator' for 'changing'"
+#, kde-format
 msgid "Greek 'astator' for 'changing'."
-msgstr "Kreikan 'astator' merkitsee 'muuttuvaa'"
+msgstr "Kreikan ”astator” ’muuttuva’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:173
@@ -2665,10 +2597,9 @@ msgid "Francium"
 msgstr "Frankium"
 
 #: element_tiny.xml:176
-#, fuzzy, kde-format
-#| msgid "Named after France to honor Marguerite Perey"
+#, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr "Marguerite Pereyn kunniaksi nimetty Ranskan mukaan"
+msgstr "Nimetty Ranskan mukaan Marguerite Pereyn kunniaksi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2677,10 +2608,9 @@ msgid "Radium"
 msgstr "Radium"
 
 #: element_tiny.xml:178
-#, fuzzy, kde-format
-#| msgid "Latin 'radius' for 'beam', as it is radioactive"
+#, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
-msgstr "Latinan sanan 'radius' ('säde'), mukaan koska se on radioaktiivinen"
+msgstr "Latinan ”radius” ’säde’, koska on radioaktiivinen."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2689,10 +2619,9 @@ msgid "Actinium"
 msgstr "Aktinium"
 
 #: element_tiny.xml:180
-#, fuzzy, kde-format
-#| msgid "Greek 'aktis' for 'beam' - actinium is radioactive"
+#, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
-msgstr "Kreikan 'aktis' merkitsee 'sädettä' - aktinium on radioaktiivinen"
+msgstr "Kreikan ”aktis” ’säde’, koska on radioaktiivinen."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2701,10 +2630,9 @@ msgid "Thorium"
 msgstr "Torium"
 
 #: element_tiny.xml:182
-#, fuzzy, kde-format
-#| msgid "Named after the German god of thunder: Thor"
+#, kde-format
 msgid "Named after the Norse god of thunder: Thor"
-msgstr "Nimetty Thorin, germaanisen ukkosenjumalan, mukaan"
+msgstr "Nimetty Thorin, germaanisen ukkosenjumalan, mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:183
@@ -2713,15 +2641,12 @@ msgid "Protactinium"
 msgstr "Protaktinium"
 
 #: element_tiny.xml:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "Greek 'protos' for 'ancester'. Protactinium is before Actinium in the "
-#| "periodic table."
+#, kde-format
 msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
-"Kreikan 'protos' viittaa esi-isään. Protaktinium hajoaa alfa-hajoamisella "
+"Kreikan ”protos” ’esivanhempi’. Protaktinium hajoaa alfahajoamisella "
 "aktiniumiksi."
 
 #. i18n: tag label attribute value
@@ -2864,10 +2789,9 @@ msgid "Rutherfordium"
 msgstr "Rutherfordium"
 
 #: element_tiny.xml:210
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Ernest Rutherford"
+#, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr "Nimetty tiedemies Ernest Rutherfordin mukaan"
+msgstr "Nimetty tutkija Ernest Rutherfordin mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
@@ -2876,10 +2800,9 @@ msgid "Dubnium"
 msgstr "Dubnium"
 
 #: element_tiny.xml:212
-#, fuzzy, kde-format
-#| msgid "Named after the science-town Dubna in Russia"
+#, kde-format
 msgid "Named after the science-town Dubna in Russia."
-msgstr "Nimetty Dubnan, venäläisen tiedekaupungin, mukaan"
+msgstr "Nimetty venäläisen tiedekaupungin Dubnan mukaan."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
@@ -2972,10 +2895,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
-#, fuzzy, kde-format
-#| msgid "Zirconium"
+#, kde-format
 msgid "Nihonium"
-msgstr "Zirkonium"
+msgstr "Nihonium"
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2984,6 +2906,9 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
+"Nimetty Nihonin, Japanin latinalaistetun japaninkielisen nimen mukaan. "
+"Alkuaine oli ensimmäinen Japanissa löydetty (RIKEN Nishina Centerissä). "
+"Tunnettiin historiallisesti ekathalliumina."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
@@ -3083,8 +3008,7 @@ msgid "DZ Periodic Table"
 msgstr "DZ:n jaksollinen järjestelmä"
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
-#| msgid "Chemical Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
 msgstr "Kemiallinen laskin"
@@ -4908,8 +4832,7 @@ msgid ", "
 msgstr ", "
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
-#| msgid " %1"
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
 msgstr " %1"
@@ -4950,120 +4873,101 @@ msgid " 2EC"
 msgstr ""
 
 #: src/detailinfodlg.cpp:518
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>, fission"
 
 #: src/detailinfodlg.cpp:560
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr "%1<sup>-</sup>"
+msgstr " 2%1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:580
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
-msgstr "%1<sup>+</sup>"
+msgstr " %1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:600
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " 2%1<sup>+</sup>"
-msgstr "%1<sup>+</sup>"
+msgstr " 2%1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr "%1<sup>-</sup>"
+msgstr " %1 <sup>-</sup>n"
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>2n"
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>3n"
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>4n"
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>%2 n"
 
 #: src/detailinfodlg.cpp:711
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>%2"
 
 #: src/detailinfodlg.cpp:728
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>2%2"
 
 #: src/detailinfodlg.cpp:744
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr "%1<sup>-</sup>"
+msgstr " %1<sup>-</sup>3%2"
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr "%1<sup>+</sup>"
+msgstr " %1<sup>+</sup>p"
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr "%1<sup>+</sup>"
+msgstr " %1<sup>+</sup>2p"
 
 #: src/detailinfodlg.cpp:790
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>%2"
-msgstr "%1<sup>+</sup>"
+msgstr " %1<sup>+</sup>%2"
 
 #: src/detailinfodlg.cpp:805
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2%2"
-msgstr "%1<sup>+</sup>"
+msgstr " %1<sup>+</sup>2%2"
 
 #: src/detailinfodlg.cpp:819
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>3%2"
-msgstr "%1<sup>+</sup>"
+msgstr " %1<sup>+</sup>3%2"
 
 #: src/detailinfodlg.cpp:833
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr "%1<sup>-</sup>"
+msgstr " %1 %2<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
@@ -5168,8 +5072,7 @@ msgid "No spectrum of %1 found."
 msgstr "Aineen %1 spektriä ei löytynyt."
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Plot Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
 msgstr "Piirrä kaavio"
@@ -5251,8 +5154,7 @@ msgid "OK"
 msgstr "OK"
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Export Chemical Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "Vie kemialliset tiedot"
@@ -5407,8 +5309,7 @@ msgid "Isotope of Element %1 (%2)"
 msgstr "Alkuaineen %1 (%2) isotooppi"
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
 msgstr "Isotooppitaulukko"
@@ -5450,12 +5351,10 @@ msgid "Stable"
 msgstr "Pysyvä"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "Unknown magnetic moment"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr "Tuntematon"
+msgstr "tuntematon"
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, kde-format
@@ -5670,10 +5569,9 @@ msgid "Save Kalzium's Table In"
 msgstr "Tallenna Kalziumin jaksollinen järjestelmä kohteeseen"
 
 #: src/kalzium.cpp:295
-#, fuzzy, kde-format
-#| msgid "*.png *.xpm *.jpg *.svg"
+#, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
-msgstr "*.png *.xpm *.jpg *.svg"
+msgstr "Kuvatiedostot (*.png *.xpm *.jpg *.svg)"
 
 #: src/kalzium.cpp:316
 #, kde-format
@@ -5708,10 +5606,9 @@ msgid "None"
 msgstr "Ei liukuväriä"
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
-#| msgid "van Der Waals"
+#, kde-format
 msgid "Van Der Waals"
-msgstr "van Der Waals"
+msgstr "Van Der Waals"
 
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
@@ -5902,10 +5799,9 @@ msgid "Colors"
 msgstr "Värit"
 
 #: src/kalziumschemetype.cpp:411
-#, fuzzy, kde-format
-#| msgid "Nice colors without meaning. (From the Openbabel project)"
+#, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr "Kivat värit vailla merkitystä. (Openbabel-projektilta)"
+msgstr "Merkityksettömät kivat värit (Open Babel -projektista)."
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -5954,10 +5850,9 @@ msgid "%1 u"
 msgstr "%1 u"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
-#| msgid "This element was discovered in the year <numid>%1</numid>."
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "Tämä alkuaine löydettiin vuonna <numid>%1</numid>."
+msgstr "Tämä alkuaine löydettiin vuonna %1."
 
 #: src/kalziumutils.cpp:125
 #, kde-format
@@ -5980,8 +5875,7 @@ msgid "Glossary"
 msgstr "Sanasto"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
-#| msgid "Glossary"
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
 msgstr "Sanasto"
@@ -6071,10 +5965,9 @@ msgid "A periodic table of the elements"
 msgstr "Alkuaineiden jaksollinen järjestelmä"
 
 #: src/main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2014 Carsten Niehaus"
+#, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "© 2002–2014 Carsten Niehaus"
+msgstr "© 2002–2016 Carsten Niehaus & KDE-kehittäjät"
 
 #: src/main.cpp:48
 #, kde-format
@@ -6576,13 +6469,13 @@ msgstr "Tuntematon elektronijakauma"
 #: src/plotsetupwidget.ui:23
 #, kde-format
 msgid "Swap"
-msgstr ""
+msgstr "Käännä"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:29
 #, kde-format
 msgid "Swap X and Y axis"
-msgstr ""
+msgstr "Käännä X- ja Y-akselit"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/plotsetupwidget.ui:39
@@ -8410,15 +8303,14 @@ msgid "&Filter"
 msgstr "Suo&data"
 
 #: src/searchwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Search:"
+#, kde-format
 msgid "Search..."
-msgstr "Etsi:"
+msgstr "Etsi…"
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "Vierekkäin"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
@@ -8428,12 +8320,12 @@ msgstr ""
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Kumpikin osa jatkuva"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "Vaakasuuntaan"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
@@ -9086,8 +8978,7 @@ msgid "&Copy"
 msgstr "&Kopioi"
 
 #: src/tools/moleculeview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Molecular Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
 msgstr "Molekyylimuokkain"
@@ -9143,17 +9034,15 @@ msgstr "Valitse avattava tiedosto"
 
 # @info:tooltip
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Could not load molecule"
-msgstr "Lataa molekyyli"
+msgstr "Molekyylia ei voi ladata"
 
 # @info:tooltip
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Loading the molecule failed."
-msgstr "Lataa molekyyli"
+msgstr "Molekyylin lataaminen epäonnistui."
 
 #: src/tools/moleculeview.cpp:206
 #, kde-format
@@ -9202,6 +9091,7 @@ msgid ""
 "Load a molecule and use the mouse pointer and scroll wheel to change the "
 "view point."
 msgstr ""
+"Lataa molekyyli ja muuta näkökulmaa hiiriosoittimella ja hiiren rullalla."
 
 #. i18n: ectx: attribute (title), widget (QWidget, edit)
 #: src/tools/moleculeviewerwidget.ui:136
@@ -9262,8 +9152,7 @@ msgid "Weight:"
 msgstr "Paino:"
 
 #: src/tools/obconverter.cpp:33
-#, fuzzy, kde-format
-#| msgid "OpenBabel Frontend"
+#, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "OpenBabel-käyttöliittymä"
@@ -9274,10 +9163,9 @@ msgid "Convert"
 msgstr "Muunna"
 
 #: src/tools/obconverter.cpp:115
-#, fuzzy, kde-format
-#| msgid "Open the given molecule file"
+#, kde-format
 msgid "Open Molecule File"
-msgstr "Avaa annettu molekyylitiedosto"
+msgstr "Avaa molekyyli ensin"
 
 #: src/tools/obconverter.cpp:117
 #, kde-format
