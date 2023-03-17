@@ -5551,7 +5551,7 @@ msgstr "الألوان"
 #, fuzzy, kde-format
 #| msgid "Nice colors without meaning. (From the Openbabel project)"
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr "ألوان جميلة دون معنى. (من مشروع أوپن‌بابل)"
+msgstr "ألوان جميلة دون معنى. (من مشروع أوبن‌بابل)"
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -7956,7 +7956,7 @@ msgstr "أوميكرون"
 #: src/tablesdialog.cpp:119
 #, kde-format
 msgid "pi"
-msgstr "پي"
+msgstr "بي"
 
 #: src/tablesdialog.cpp:120
 #, kde-format
@@ -7991,7 +7991,7 @@ msgstr "كشي"
 #: src/tablesdialog.cpp:126
 #, kde-format
 msgid "psi"
-msgstr "پسي"
+msgstr "بسي"
 
 #: src/tablesdialog.cpp:127
 #, kde-format
@@ -8343,7 +8343,7 @@ msgstr "الوزن:"
 #, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
-msgstr "واجهة أوپن‌بابل"
+msgstr "واجهة أوبن‌بابل"
 
 #: src/tools/obconverter.cpp:51 src/tools/obconverter.cpp:219
 #, kde-format
@@ -8379,12 +8379,12 @@ msgstr "الملف %1 موجود بالفعل. هل تريد الكتابة فو
 #: src/tools/obconverter.cpp:196
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
-msgstr "الملف %1 موجود بالفعل -- أوپن‌بابل.ك"
+msgstr "الملف %1 موجود بالفعل -- أوبن‌بابل.ك"
 
 #: src/tools/obconverter.cpp:218
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
-msgstr "هل من الجيّد تنفيذ هذه الأوامر؟ -- أوپن‌بابل.ك"
+msgstr "هل من الجيّد تنفيذ هذه الأوامر؟ -- أوبن‌بابل.ك"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/obconverterwidget.ui:32
@@ -8795,7 +8795,7 @@ msgstr "حوّل إلى:"
 #~ msgstr "حوّل الملفات المحدّدة"
 
 #~ msgid "Cannot read the file format. Check your OpenBabel installation."
-#~ msgstr "تعذّرت قراءة هيئة الملف. تحقّق من تثبيت أوپن‌بابل."
+#~ msgstr "تعذّرت قراءة هيئة الملف. تحقّق من تثبيت أوبن‌بابل."
 
 #~ msgid "Problem reading file format"
 #~ msgstr "مشكلة في قراءة هيئة الملف"
