@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2015-03-24 05:24-0400\n"
-"Last-Translator: Eliovir <eliovir@gmail.com>\n"
+"PO-Revision-Date: 2023-03-20 22:31+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -52,9 +52,9 @@ msgid "Cannot save to the specified file."
 msgstr "Ne eblas konservi la difinitan dosieron."
 
 #: compoundviewer/kalziumglpart.cpp:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Kalzium OpenGL Part"
-msgstr "Kalziumo"
+msgstr ""
 
 #: compoundviewer/kalziumglpart.cpp:19
 #, kde-format
@@ -485,9 +485,9 @@ msgid ""
 msgstr ""
 
 #: data/knowledge.xml:163
-#, fuzzy, kde-format
+#, kde-format
 msgid "Decay Energy"
-msgstr "Disiĝa modo"
+msgstr ""
 
 #: data/knowledge.xml:164
 #, kde-format
@@ -604,9 +604,9 @@ msgstr ""
 
 #: data/knowledge.xml:244 data/knowledge.xml:258 data/knowledge.xml:267
 #: data/knowledge.xml:275
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ionic Radius"
-msgstr "Atoma radiuso"
+msgstr ""
 
 #: data/knowledge.xml:245
 #, kde-format
@@ -753,9 +753,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:32
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mortar"
-msgstr "joto"
+msgstr ""
 
 #: data/tools.xml:33
 #, kde-format
@@ -766,9 +766,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Heating Coil"
-msgstr "Fandpunkto"
+msgstr ""
 
 #: data/tools.xml:38
 #, kde-format
@@ -1009,9 +1009,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:127
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic Stir Bar"
-msgstr "Magneta momanto"
+msgstr ""
 
 #: data/tools.xml:128
 #, kde-format
@@ -1103,9 +1103,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:163
-#, fuzzy, kde-format
+#, kde-format
 msgid "Distillation bridge"
-msgstr "Distilado"
+msgstr ""
 
 #: data/tools.xml:164
 #, kde-format
@@ -1162,9 +1162,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:184
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extractor Hood"
-msgstr "Ekstraktado"
+msgstr ""
 
 #: data/tools.xml:185
 #, kde-format
@@ -1229,9 +1229,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Buret"
-msgstr "Flamingo"
+msgstr ""
 
 #: data/tools.xml:210
 #, kde-format
@@ -1292,9 +1292,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:3
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hydrogen"
-msgstr "Hidrogeno"
+msgstr ""
 
 #: element_tiny.xml:4
 #, kde-format
@@ -1303,9 +1303,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
-#, fuzzy, kde-format
+#, kde-format
 msgid "Helium"
-msgstr "Nobelio"
+msgstr ""
 
 #: element_tiny.xml:6
 #, kde-format
@@ -1336,9 +1336,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
-#, fuzzy, kde-format
+#, kde-format
 msgid "Boron"
-msgstr "omikrono"
+msgstr ""
 
 #: element_tiny.xml:12
 #, kde-format
@@ -1371,9 +1371,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Oxygen"
-msgstr "Oksigeno"
+msgstr ""
 
 #: element_tiny.xml:18
 #, kde-format
@@ -1393,9 +1393,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Neon"
-msgstr "Neono"
+msgstr ""
 
 #: element_tiny.xml:22
 #, kde-format
@@ -1428,9 +1428,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Aluminium"
-msgstr "Aluminio"
+msgstr ""
 
 #: element_tiny.xml:28
 #, kde-format
@@ -1439,9 +1439,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Silicon"
-msgstr "Solvaĵo"
+msgstr ""
 
 #: element_tiny.xml:30
 #, kde-format
@@ -1450,9 +1450,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Phosphorus"
-msgstr "Fosforo"
+msgstr ""
 
 #: element_tiny.xml:32
 #, kde-format
@@ -1563,9 +1563,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Manganese"
-msgstr "Mangano"
+msgstr ""
 
 #: element_tiny.xml:52
 #, kde-format
@@ -1576,9 +1576,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "Iron"
-msgstr "omikrono"
+msgstr ""
 
 #: element_tiny.xml:54
 #, kde-format
@@ -1587,9 +1587,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cobalt"
-msgstr "Kalk"
+msgstr ""
 
 #: element_tiny.xml:56
 #, kde-format
@@ -1609,9 +1609,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copper"
-msgstr "Konvertu"
+msgstr ""
 
 #: element_tiny.xml:60
 #, kde-format
@@ -1620,9 +1620,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Zinc"
-msgstr "Stano"
+msgstr ""
 
 #: element_tiny.xml:62
 #, kde-format
@@ -1642,9 +1642,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
-#, fuzzy, kde-format
+#, kde-format
 msgid "Germanium"
-msgstr "Germanio"
+msgstr ""
 
 #: element_tiny.xml:66
 #, kde-format
@@ -1653,9 +1653,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "Arsenic"
-msgstr "Arseno"
+msgstr ""
 
 #: element_tiny.xml:68
 #, kde-format
@@ -1675,9 +1675,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bromine"
-msgstr "omikrono"
+msgstr ""
 
 #: element_tiny.xml:72
 #, kde-format
@@ -1811,9 +1811,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
-#, fuzzy, kde-format
+#, kde-format
 msgid "Silver"
-msgstr "Arĝento"
+msgstr ""
 
 #: element_tiny.xml:96
 #, kde-format
@@ -1844,9 +1844,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tin"
-msgstr "Stano"
+msgstr ""
 
 #: element_tiny.xml:102
 #, kde-format
@@ -1921,9 +1921,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lanthanum"
-msgstr "Tantalo"
+msgstr ""
 
 #: element_tiny.xml:116
 #, kde-format
@@ -1967,9 +1967,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
-#, fuzzy, kde-format
+#, kde-format
 msgid "Promethium"
-msgstr "Kromo"
+msgstr ""
 
 #: element_tiny.xml:124
 #, kde-format
@@ -2038,9 +2038,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
-#, fuzzy, kde-format
+#, kde-format
 msgid "Holmium"
-msgstr "Aluminio"
+msgstr ""
 
 #: element_tiny.xml:136
 #, kde-format
@@ -2271,9 +2271,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Francium"
-msgstr "Uranio"
+msgstr ""
 
 #: element_tiny.xml:176
 #, kde-format
@@ -2293,9 +2293,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "Actinium"
-msgstr "Aktinio"
+msgstr ""
 
 #: element_tiny.xml:180
 #, kde-format
@@ -2427,9 +2427,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:203
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mendelevium"
-msgstr "Mendelevio"
+msgstr ""
 
 #: element_tiny.xml:204
 #, kde-format
@@ -2438,9 +2438,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:205
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nobelium"
-msgstr "Nobelio"
+msgstr ""
 
 #: element_tiny.xml:206
 #, kde-format
@@ -2552,9 +2552,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:225
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copernicium"
-msgstr "Cerio"
+msgstr ""
 
 #: element_tiny.xml:226
 #, kde-format
@@ -2565,10 +2565,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
-#, fuzzy, kde-format
-#| msgid "Zirconium"
+#, kde-format
 msgid "Nihonium"
-msgstr "Zirkonio"
+msgstr ""
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2580,9 +2579,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
-#, fuzzy, kde-format
+#, kde-format
 msgid "Flerovium"
-msgstr "Mendelevio"
+msgstr ""
 
 #: element_tiny.xml:230
 #, kde-format
@@ -2651,9 +2650,9 @@ msgid "Classic Periodic Table"
 msgstr "Klasika perioda tabelo"
 
 #: libscience/psetables.cpp:190
-#, fuzzy, kde-format
+#, kde-format
 msgid "Long Periodic Table"
-msgstr "Mallonga perioda tabelo"
+msgstr ""
 
 #: libscience/psetables.cpp:226
 #, kde-format
@@ -2666,42 +2665,42 @@ msgid "Transition Elements"
 msgstr "Transiraj elementoj"
 
 #: libscience/psetables.cpp:296
-#, fuzzy, kde-format
+#, kde-format
 msgid "DZ Periodic Table"
-msgstr "Mallonga perioda tabelo"
+msgstr ""
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
-msgstr "Kalkulu"
+msgstr ""
 
 #: src/calculator/calculator.cpp:61 src/calculator/calculator.cpp:105
-#, fuzzy, kde-format
+#, kde-format
 msgid "Equation Balancer"
-msgstr "&Ekvacia solvilo..."
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:91 src/calculator/calculator.ui:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "Introduction"
-msgstr "Ekstraktado"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, nuclear)
 #: src/calculator/calculator.cpp:93 src/calculator/calculator.ui:71
 #: src/calculator/settings_calc.ui:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nuclear Calculator"
-msgstr "Nuklea izomero"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, gas)
 #: src/calculator/calculator.cpp:96 src/calculator/calculator.ui:76
 #: src/calculator/settings_calc.ui:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gas Calculator"
-msgstr "Kalkulu"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
@@ -2713,15 +2712,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:110 src/calculator/calculator.ui:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Molecular mass Calculator"
-msgstr "Molekula maso: %1 u"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:112 src/calculator/calculator.ui:81
-#, fuzzy, kde-format
+#, kde-format
 msgid "Titration Calculator"
-msgstr "Kalkulu"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:38
@@ -2739,9 +2738,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Calculators"
-msgstr "Kalkulu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/calculator.ui:130
@@ -2945,15 +2944,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_39)
 #: src/calculator/concCalculator.ui:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big><b>Molar mass of solute:</b></big>"
-msgstr "Molekula maso: %1 u"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/concCalculator.ui:89
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the molar mass of the solute</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/concCalculator.ui:92
@@ -3042,15 +3041,15 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:204
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the molar mass of the solvent</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:207
-#, fuzzy, kde-format
+#, kde-format
 msgid "This box is used to specify the molar mass of the solvent."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: src/calculator/concCalculator.ui:220
@@ -3134,11 +3133,11 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:325
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the units for the amount of solvent in the "
 "solution."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_19)
 #: src/calculator/concCalculator.ui:332
@@ -3149,15 +3148,15 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
 #: src/calculator/concCalculator.ui:335 src/calculator/concCalculator.ui:381
-#, fuzzy, kde-format
+#, kde-format
 msgid "(g/mole)"
-msgstr "Iloj"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlt_unit)
 #: src/calculator/concCalculator.ui:345
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units of density</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, densSlt_unit)
 #: src/calculator/concCalculator.ui:348
@@ -3169,17 +3168,17 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:355
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units for the amount of solute</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:358
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the units for the amount of solute in the "
 "solution."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_17)
 #: src/calculator/concCalculator.ui:365
@@ -3209,9 +3208,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:445 src/calculator/gasCalculator.ui:437
 #: src/calculator/nuclearCalculator.ui:610
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reset"
-msgstr "eto"
+msgstr ""
 
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
@@ -3235,17 +3234,17 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the molar mass of the gas</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:55
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
 #: src/calculator/gasCalculator.ui:68
@@ -3261,11 +3260,11 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:82
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the number of moles of the gas.\n"
 "Moles = mass / molar mass"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: src/calculator/gasCalculator.ui:95
@@ -3325,11 +3324,11 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:174
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: src/calculator/gasCalculator.ui:181
@@ -3357,11 +3356,11 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:210
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
@@ -3389,9 +3388,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:252
-#, fuzzy, kde-format
+#, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
@@ -3413,9 +3412,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:314
-#, fuzzy, kde-format
+#, kde-format
 msgid "Specify the units of the van der Waals constant 'b'"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:317
@@ -3428,9 +3427,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
-#, fuzzy, kde-format
+#, kde-format
 msgid "Specify the units of the van der Waals constant 'a'"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:333
@@ -3443,16 +3442,16 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
-#, fuzzy, kde-format
+#, kde-format
 msgid "The units of the van der Waals constant 'b'"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:351
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
@@ -3503,9 +3502,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elemental data"
-msgstr "Elementaj nomoj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: src/calculator/nuclearCalculator.ui:42
@@ -3573,18 +3572,18 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:111
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:115
 #: src/calculator/nuclearCalculator.ui:467
-#, fuzzy, kde-format
+#, kde-format
 msgid "years"
-msgstr "Jaro:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -3666,9 +3665,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/calculator/nuclearCalculator.ui:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Other data"
-msgstr "Alia metalo"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:221
@@ -3704,16 +3703,16 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:256
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the initial amount of the substance</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:259
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the initial amount of the radioactive substance."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: src/calculator/nuclearCalculator.ui:272
@@ -3723,16 +3722,16 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:282
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the final amount of the substance</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:285
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the final amount of the radioactive substance."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: src/calculator/nuclearCalculator.ui:298
@@ -3792,17 +3791,17 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the unit of initial amount of the substance</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:383
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3854,17 +3853,17 @@ msgstr "trojaj uncoj"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:420
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units of the final amount</big>"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:423
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:460
@@ -3874,10 +3873,10 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:463
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: src/calculator/nuclearCalculator.ui:511
@@ -3907,9 +3906,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, error)
 #: src/calculator/nuclearCalculator.ui:569
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information/Error message"
-msgstr "Jonigo"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
 #: src/calculator/settings_calc.ui:17
@@ -3925,15 +3924,15 @@ msgstr "Kvanto ĉiam estu specifita kiel maso"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ideal)
 #: src/calculator/settings_calc.ui:59
-#, fuzzy, kde-format
+#, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mass Calculator"
-msgstr "Kalkulu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_alias)
 #: src/calculator/settings_calc.ui:91
@@ -3960,9 +3959,9 @@ msgid "Amount of solvent is always specified in terms of volume"
 msgstr "Kvanto de solvilo ĉiam estu specifita laŭ volumeno"
 
 #: src/calculator/titrationCalculator.cpp:43
-#, fuzzy, kde-format
+#, kde-format
 msgid "Experimental values"
-msgstr "Elementaj nomoj"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:44
 #, kde-format
@@ -3998,14 +3997,14 @@ msgid "Approximated curve"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Equivalence point"
-msgstr "Meznombra maso"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:578
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save work"
-msgstr "Skaloj"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:578
 #: src/calculator/titrationCalculator.cpp:601
@@ -4020,9 +4019,9 @@ msgid "Unable to create %1"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:601
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open work"
-msgstr "Oksigeno"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:607
 #, kde-format
@@ -4032,9 +4031,9 @@ msgstr "Ne eblis malfermi %1"
 #. i18n: ectx: property (text), widget (QPushButton, saveimage)
 #: src/calculator/titrationCalculator.cpp:727
 #: src/calculator/titrationCalculator.ui:377
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save plot"
-msgstr "Skaloj"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:727
 #, kde-format
@@ -4067,9 +4066,9 @@ msgstr "pH(Y)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:111
-#, fuzzy, kde-format
+#, kde-format
 msgid "Volume(X)"
-msgstr "Holmio"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/titrationCalculator.ui:120
@@ -4099,51 +4098,51 @@ msgstr "Valuo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/calculator/titrationCalculator.ui:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "X axis:"
-msgstr "X-akso"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/calculator/titrationCalculator.ui:231
-#, fuzzy, kde-format
+#, kde-format
 msgid "Y axis:"
-msgstr "X-akso"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
 #: src/calculator/titrationCalculator.ui:247
-#, fuzzy, kde-format
+#, kde-format
 msgid "Draw Plot"
-msgstr "Atomo"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/calculator/titrationCalculator.ui:254
-#, fuzzy, kde-format
+#, kde-format
 msgid "Notes:"
-msgstr "Neono"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/calculator/titrationCalculator.ui:270
-#, fuzzy, kde-format
+#, kde-format
 msgid "X min:"
-msgstr "Stano"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/titrationCalculator.ui:280
-#, fuzzy, kde-format
+#, kde-format
 msgid "X max:"
-msgstr "X-akso"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/titrationCalculator.ui:294
-#, fuzzy, kde-format
+#, kde-format
 msgid "Y min:"
-msgstr "Stano"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/calculator/titrationCalculator.ui:304
-#, fuzzy, kde-format
+#, kde-format
 msgid "Y max:"
-msgstr "X-akso"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, newfile)
 #: src/calculator/titrationCalculator.ui:356
@@ -4153,15 +4152,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, open)
 #: src/calculator/titrationCalculator.ui:363
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open"
-msgstr "Oksigeno"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, save)
 #: src/calculator/titrationCalculator.ui:370
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save"
-msgstr "Skaloj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, rapidhelp)
 #: src/calculator/titrationCalculator.ui:384
@@ -4240,30 +4239,30 @@ msgid "Boiling Point"
 msgstr "Bolpunkto"
 
 #: src/detailinfodlg.cpp:193 src/exportdialog.cpp:138
-#, fuzzy, kde-format
+#, kde-format
 msgid "Electron Affinity"
-msgstr "Elektrona akordemo"
+msgstr ""
 
 #: src/detailinfodlg.cpp:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Electronic configuration"
-msgstr "Elektrona aranĝo: %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/detailinfodlg.cpp:221 src/molcalcwidgetbase.ui:218
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atomic mass"
-msgstr "Atommaso"
+msgstr ""
 
 #: src/detailinfodlg.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ionization energy"
-msgstr "Unua jonigenergio"
+msgstr ""
 
 #: src/detailinfodlg.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "First Ionization energy"
-msgstr "Unua jonigenergio"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -4276,15 +4275,15 @@ msgid "Electronegativity"
 msgstr "Elektronegativo"
 
 #: src/detailinfodlg.cpp:242
-#, fuzzy, kde-format
+#, kde-format
 msgid "Oxidation states"
-msgstr "Atoma nukleo"
+msgstr ""
 
 #: src/detailinfodlg.cpp:253
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Link to element's Wikipedia page, %1 is localized language name"
 msgid "Wikipedia (%1)"
-msgstr "Vikipedio"
+msgstr ""
 
 #: src/detailinfodlg.cpp:302
 #, kde-format
@@ -4400,8 +4399,7 @@ msgid ", "
 msgstr ", "
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
-#| msgid " %1"
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
 msgstr " %1"
@@ -4440,120 +4438,101 @@ msgid " 2EC"
 msgstr ""
 
 #: src/detailinfodlg.cpp:518
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
 msgstr " %1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:560
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:580
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
 msgstr " %1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:600
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " 2%1<sup>+</sup>"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:711
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:728
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:744
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:790
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>%2"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:805
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2%2"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:819
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>3%2"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:833
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
@@ -4635,14 +4614,14 @@ msgid "Spectrum"
 msgstr ""
 
 #: src/detailinfodlg.cpp:1140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extra information"
-msgstr "Jonigo"
+msgstr ""
 
 #: src/detailinfodlg.cpp:1140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extra Information"
-msgstr "Jonigo"
+msgstr ""
 
 #: src/detailinfodlg.cpp:1152
 #, kde-format
@@ -4656,8 +4635,7 @@ msgid "No spectrum of %1 found."
 msgstr ""
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Plot Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
 msgstr "Desegna datumo"
@@ -4666,9 +4644,9 @@ msgstr "Desegna datumo"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
 #: src/plotsetupwidget.ui:76 src/plotsetupwidget.ui:397
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atomic Number"
-msgstr "Atoma nukleo"
+msgstr ""
 
 #: src/eqchemview.cpp:81
 #, kde-format
@@ -4730,15 +4708,15 @@ msgid "OK"
 msgstr "Bone"
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
-msgstr "&Desegnu datumon..."
+msgstr ""
 
 #: src/exportdialog.cpp:115
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elements"
-msgstr "Elemento"
+msgstr ""
 
 #: src/exportdialog.cpp:116
 #, kde-format
@@ -4751,9 +4729,9 @@ msgid "Symbol"
 msgstr "Simbolo"
 
 #: src/exportdialog.cpp:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Exact Mass"
-msgstr "Meznombra maso"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
 #: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
@@ -4792,15 +4770,15 @@ msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gradientwidget.ui:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheme:"
-msgstr "&Skemo"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gradientwidget.ui:50
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gradient:"
-msgstr "Gradiento: %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lblUnit)
 #: src/gradientwidget.ui:99
@@ -4880,17 +4858,16 @@ msgid "Isotope of Element %1 (%2)"
 msgstr "Izotopo de elemento %1 (%2)"
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
 msgstr "Izotopa tabelo"
 
 #: src/isotopetable/isotopetabledialog.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "alpha ray emission"
 msgid "alpha"
-msgstr "alfo"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:48
 #, kde-format
@@ -4923,10 +4900,10 @@ msgid "Stable"
 msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr "Nekonata"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, kde-format
@@ -4934,25 +4911,25 @@ msgid "<h1>%1 (%2)</h1>"
 msgstr "<h1>%1 (%2)</h1>"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Unknown magnetic moment"
 msgid "Unknown"
-msgstr "Nekonata"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:73
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic moment: %1"
-msgstr "Magneta momanto"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:77
-#, fuzzy, kde-format
+#, kde-format
 msgid "Halflife: %1 %2"
-msgstr "Tabelo: %1"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "Halflife: Unknown"
-msgstr "Tabelo: %1"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:82
 #, kde-format
@@ -4965,25 +4942,25 @@ msgid "Number of nucleons: %1"
 msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:84
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Unknown spin"
 msgid "Unknown"
-msgstr "Nekonata"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:84
-#, fuzzy, kde-format
+#, kde-format
 msgid "Spin: %1"
-msgstr "Spino"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "Exact mass: %1 u"
-msgstr "Meznombra maso: %1 u"
+msgstr ""
 
 #: src/kalzium.cpp:112
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Export Data..."
-msgstr "&Desegnu datumon..."
+msgstr ""
 
 #: src/kalzium.cpp:121
 #, kde-format
@@ -4991,9 +4968,9 @@ msgid "&Scheme"
 msgstr "&Skemo"
 
 #: src/kalzium.cpp:129
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Gradients"
-msgstr "Gradienttipoj"
+msgstr ""
 
 #: src/kalzium.cpp:138
 #, kde-format
@@ -5101,19 +5078,19 @@ msgid ""
 msgstr ""
 
 #: src/kalzium.cpp:248
-#, fuzzy, kde-format
+#, kde-format
 msgid "Legend"
-msgstr "Montru la &apudskribon"
+msgstr ""
 
 #: src/kalzium.cpp:258
-#, fuzzy, kde-format
+#, kde-format
 msgid "Table Information"
-msgstr "Jonigo"
+msgstr ""
 
 #: src/kalzium.cpp:263
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information"
-msgstr "Jonigo"
+msgstr ""
 
 #: src/kalzium.cpp:275
 #, kde-format
@@ -5121,9 +5098,9 @@ msgid "Overview"
 msgstr "Superrigardo"
 
 #: src/kalzium.cpp:284
-#, fuzzy, kde-format
+#, kde-format
 msgid "View"
-msgstr "&Rigardi"
+msgstr ""
 
 #: src/kalzium.cpp:295
 #, kde-format
@@ -5131,10 +5108,9 @@ msgid "Save Kalzium's Table In"
 msgstr ""
 
 #: src/kalzium.cpp:295
-#, fuzzy, kde-format
-#| msgid "*.png *.xpm *.jpg *.svg"
+#, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
-msgstr "*.png *.xpm *.jpg *.svg"
+msgstr ""
 
 #: src/kalzium.cpp:316
 #, kde-format
@@ -5169,15 +5145,14 @@ msgid "None"
 msgstr "Neniu"
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
-#| msgid "van Der Waals"
+#, kde-format
 msgid "Van Der Waals"
-msgstr "van der Waals"
+msgstr ""
 
 #: src/kalziumgradienttype.cpp:284
-#, fuzzy, kde-format
+#, kde-format
 msgid "u"
-msgstr "muo"
+msgstr ""
 
 #: src/kalziumgradienttype.cpp:493
 #, kde-format
@@ -5414,9 +5389,9 @@ msgid "%1 u"
 msgstr "%1 u"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "Ĉi tiu elemento eltrovitis je %1."
+msgstr ""
 
 #: src/kalziumutils.cpp:125
 #, kde-format
@@ -5429,25 +5404,25 @@ msgid "This element was known to ancient cultures."
 msgstr "Ĉi tiu elemento estis konata de la antikvaj kulturoj."
 
 #: src/kalziumutils.cpp:157
-#, fuzzy, kde-format
+#, kde-format
 msgid "No Data"
-msgstr "Desegna datumo"
+msgstr ""
 
 #: src/kdeeduglossary.cpp:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Glossary"
-msgstr "&Glosaro..."
+msgstr ""
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
-msgstr "&Glosaro..."
+msgstr ""
 
 #: src/kdeeduglossary.cpp:478
-#, fuzzy, kde-format
+#, kde-format
 msgid "References"
-msgstr "Uranio"
+msgstr ""
 
 #: src/kdeeduglossary.cpp:482
 #, kde-format
@@ -5527,9 +5502,9 @@ msgid "A periodic table of the elements"
 msgstr "Perioda tabelo de la elementoj"
 
 #: src/main.cpp:42
-#, fuzzy, kde-format
+#, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "Carsten Niehaus"
+msgstr ""
 
 #: src/main.cpp:48
 #, kde-format
@@ -5577,9 +5552,9 @@ msgid "Thomas Nagy"
 msgstr "Thomas Nagy"
 
 #: src/main.cpp:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "EqChem, the equation solver"
-msgstr "&Ekvacia solvilo..."
+msgstr ""
 
 #: src/main.cpp:58
 #, kde-format
@@ -5641,9 +5616,9 @@ msgid "Danny Allen"
 msgstr "Danny Allen"
 
 #: src/main.cpp:68
-#, fuzzy, kde-format
+#, kde-format
 msgid "Several icons"
-msgstr "Silicio"
+msgstr ""
 
 #: src/main.cpp:70
 #, kde-format
@@ -5671,9 +5646,9 @@ msgid "Marco Martin"
 msgstr "Marco Martin"
 
 #: src/main.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "Some icons and inspiration for others"
-msgstr "Dankon pro kelkaj piktogramoj kaj sugestado pri la aliaj"
+msgstr ""
 
 #: src/main.cpp:76
 #, kde-format
@@ -5691,9 +5666,9 @@ msgid "Brian Beck"
 msgstr "Brian Beck"
 
 #: src/main.cpp:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "The orbits icon"
-msgstr "La orbitaj piktogramoj"
+msgstr ""
 
 #: src/main.cpp:80
 #, kde-format
@@ -5754,22 +5729,18 @@ msgid "%1"
 msgstr "%1"
 
 #: src/molcalcwidget.cpp:149
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Enter a formula in the\n"
 "widget above and\n"
 "click on 'Calc'.\n"
 "E.g. #Et#OH"
 msgstr ""
-"Por komenci, enmetu\n"
-"formulon en la\n"
-"fenestraĵo supre kaj\n"
-"klaku sur 'Kalk'."
 
 #: src/molcalcwidget.cpp:198
-#, fuzzy, kde-format
+#, kde-format
 msgid "Molecular mass: "
-msgstr "Molekula maso: %1 u"
+msgstr ""
 
 #: src/molcalcwidget.cpp:213 src/molcalcwidget.cpp:217
 #: src/molcalcwidget.cpp:218 src/molcalcwidget.cpp:219
@@ -5798,9 +5769,9 @@ msgid "Expansion is invalid, please specify a valid expansion"
 msgstr ""
 
 #: src/molcalcwidget.cpp:292
-#, fuzzy, kde-format
+#, kde-format
 msgid "done!"
-msgstr "Neono"
+msgstr ""
 
 #: src/molcalcwidget.cpp:295
 #, kde-format
@@ -5856,9 +5827,9 @@ msgstr "Kunmetaĵo"
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:188
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elemental composition"
-msgstr "Elementaj nomoj"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:191
@@ -5870,9 +5841,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atoms"
-msgstr "Atomo"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:223
@@ -5920,9 +5891,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/molcalcwidgetbase.ui:303
-#, fuzzy, kde-format
+#, kde-format
 msgid "Short-form"
-msgstr "Atomo"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, shortForm)
 #: src/molcalcwidgetbase.ui:310
@@ -6007,9 +5978,9 @@ msgid "This is the list of aliases that you or some other user has added."
 msgstr ""
 
 #: src/orbitswidget.cpp:198
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unknown Electron Distribution"
-msgstr "Nekonata valoro"
+msgstr ""
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:23
@@ -6065,9 +6036,9 @@ msgstr "Montri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/plotsetupwidget.ui:171
-#, fuzzy, kde-format
+#, kde-format
 msgid "Element Type:"
-msgstr "Elementaj nomoj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: src/plotsetupwidget.ui:197
@@ -6084,81 +6055,81 @@ msgstr "Lasta elemento:"
 #. i18n: ectx: property (text), widget (QPushButton, full)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:233 src/plotsetupwidget.ui:241
-#, fuzzy, kde-format
+#, kde-format
 msgid "All elements"
-msgstr "Ĉiuj elementoj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:246
-#, fuzzy, kde-format
+#, kde-format
 msgid "Metals"
-msgstr "Nemetalo"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:251
-#, fuzzy, kde-format
+#, kde-format
 msgid "Non-Metals / Metalloids"
-msgstr "Nemetalo"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:256
-#, fuzzy, kde-format
+#, kde-format
 msgid "s block elements"
-msgstr "Ĉiuj elementoj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:261
-#, fuzzy, kde-format
+#, kde-format
 msgid "p block elements"
-msgstr "Ĉiuj elementoj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:266
-#, fuzzy, kde-format
+#, kde-format
 msgid "d block elements"
-msgstr "Ĉiuj elementoj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:271
-#, fuzzy, kde-format
+#, kde-format
 msgid "f block elements"
-msgstr "Ĉiuj elementoj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:276
-#, fuzzy, kde-format
+#, kde-format
 msgid "Noble gases"
-msgstr "Noblaj gasoj:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:281
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkalie metals"
-msgstr "Alkalaj metaloj:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:286
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkaline earth metals"
-msgstr "Teralkalaj metaloj:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:291
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lanthanides"
-msgstr "Lantano"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:296
-#, fuzzy, kde-format
+#, kde-format
 msgid "Actinides"
-msgstr "Aktinio"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:301
-#, fuzzy, kde-format
+#, kde-format
 msgid "Radio-active elements"
-msgstr "Transiraj elementoj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:316
@@ -7270,10 +7241,9 @@ msgid "&Filter"
 msgstr "&Filtrilo"
 
 #: src/searchwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Search:"
+#, kde-format
 msgid "Search..."
-msgstr "Serĉo:"
+msgstr "Serĉi..."
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
@@ -7301,14 +7271,14 @@ msgid "Horizontally (shifted)"
 msgstr ""
 
 #: src/settings/kalziumconfigdialog.cpp:15
-#, fuzzy, kde-format
+#, kde-format
 msgid "Schemes"
-msgstr "&Skemo"
+msgstr ""
 
 #: src/settings/kalziumconfigdialog.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gradients"
-msgstr "Gradienttipoj"
+msgstr ""
 
 #: src/settings/kalziumconfigdialog.cpp:27
 #, kde-format
@@ -7316,8 +7286,7 @@ msgid "Units"
 msgstr "Unuoj"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
 msgstr "Izotopa tabelo"
 
@@ -7473,9 +7442,9 @@ msgstr "Metaloidoj:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabNoColor)
 #: src/settings/settings_colors.ui:611
-#, fuzzy, kde-format
+#, kde-format
 msgid "No Color Scheme"
-msgstr "&Neniu kolora aranĝo"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8_2_2)
 #: src/settings/settings_colors.ui:631
@@ -7508,25 +7477,25 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/settings/settings_gradients.ui:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Maximal Value Color:"
-msgstr "Maksimuma valoro:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/settings/settings_gradients.ui:152
-#, fuzzy, kde-format
+#, kde-format
 msgid "Minimal Value Color:"
-msgstr "Minimuma valoro:"
+msgstr ""
 
 #: src/settings/unitsettingsdialog.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Energy:"
-msgstr "Energioj:"
+msgstr ""
 
 #: src/settings/unitsettingsdialog.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Length:"
-msgstr "Ondlongo"
+msgstr ""
 
 #: src/settings/unitsettingsdialog.cpp:30
 #, kde-format
@@ -7550,9 +7519,9 @@ msgstr ""
 #. i18n: ectx: property (toolTip), widget (SpectrumWidget, m_spectrumWidget)
 #. i18n: ectx: property (whatsThis), widget (SpectrumWidget, m_spectrumWidget)
 #: src/spectrumview.ui:41 src/spectrumview.ui:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "This is the spectrum of the element."
-msgstr "Nur montru la numeron de la elemento"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label1)
 #: src/spectrumview.ui:53
@@ -7582,9 +7551,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/spectrumview.ui:145
-#, fuzzy, kde-format
+#, kde-format
 msgid "Spectrum Settings"
-msgstr "Agordo"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_spectrumType)
 #: src/spectrumview.ui:155
@@ -7612,14 +7581,14 @@ msgstr "Tipo:"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_resetZoom)
 #: src/spectrumview.ui:185
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reset zoom"
-msgstr "eto"
+msgstr ""
 
 #: src/spectrumviewimpl.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Wavelength"
-msgstr "Ondlongo:"
+msgstr ""
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
@@ -7941,10 +7910,10 @@ msgid "&Copy"
 msgstr "&Kopiu"
 
 #: src/tools/moleculeview.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
-msgstr "Molekula maso: %1 u"
+msgstr ""
 
 #: src/tools/moleculeview.cpp:71
 #, kde-format
@@ -8131,9 +8100,9 @@ msgid "You must select some files first."
 msgstr ""
 
 #: src/tools/obconverter.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgid "No files selected"
-msgstr "Neniu elemento elekta"
+msgstr ""
 
 #: src/tools/obconverter.cpp:195
 #, kde-format
@@ -8191,172 +8160,12 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/tools/obconverterwidget.ui:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Convert from:"
-msgstr "Konvertu"
+msgstr "Konverti de:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/tools/obconverterwidget.ui:159
-#, fuzzy, kde-format
+#, kde-format
 msgid "Convert to:"
-msgstr "Konvertu"
-
-#, fuzzy
-#~| msgid "moles"
-#~ msgid "molecule"
-#~ msgstr "moloj"
-
-#~ msgid "Selects the color of the elements in block s"
-#~ msgstr "Elektu la koloron de la s-blokaj elementoj"
-
-#~ msgid "Selects the color of the elements in block p"
-#~ msgstr "Elektu la koloron de la p-blokaj elementoj"
-
-#~ msgid "Selects the color of the elements in block d"
-#~ msgstr "Elektu la koloron de la d-blokaj elementoj"
-
-#~ msgid "Selects the color of the elements in block f"
-#~ msgstr "Elektu la koloron de la f-blokaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 1"
-#~ msgstr "Elektu la koloron de la 1-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 2"
-#~ msgstr "Elektu la koloron de la 2-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 3"
-#~ msgstr "Elektu la koloron de la 3-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 4"
-#~ msgstr "Elektu la koloron de la 4-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 5"
-#~ msgstr "Elektu la koloron de la 5-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 6"
-#~ msgstr "Elektu la koloron de la 6-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 7"
-#~ msgstr "Elektu la koloron de la 7-grupaj elementoj"
-
-#~ msgid "Selects the color of the elements in group 8"
-#~ msgstr "Elektu la koloron de la 8-grupaj elementoj"
-
-#, fuzzy
-#~ msgid "Selects the color of the maximal value from the gradient"
-#~ msgstr "Elektu la koloron de la s-blokaj elementoj"
-
-#, fuzzy
-#~ msgid "Selects the color of the minimal value from the gradient"
-#~ msgstr "Elektu la koloron de la d-blokaj elementoj"
-
-#~ msgid "Use eV or kJ/mol"
-#~ msgstr "Uzu eV aŭ kJ/mol"
-
-#, fuzzy
-#~ msgid "Select the scale for the length"
-#~ msgstr "Elektu la koloron de la s-blokaj elementoj"
-
-#, fuzzy
-#~ msgid "Unit of the Wavelength"
-#~ msgstr "Ondlongo:"
-
-#, fuzzy
-#~ msgid "van der Waals Radius"
-#~ msgstr "Radiuso de Van der Waals: %1"
-
-#, fuzzy
-#~ msgctxt "Default colour"
-#~ msgid "default"
-#~ msgstr "delto"
-
-#~ msgid "Block: %1"
-#~ msgstr "Bloko: %1"
-
-#~ msgid "Isotope-Table"
-#~ msgstr "Izotopa tabelo"
-
-#~ msgctxt "For example Carbon (6)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
-
-#, fuzzy
-#~ msgid "&Search:"
-#~ msgstr "Serĉo:"
-
-#~ msgid "Problem reading file format"
-#~ msgstr "Problemo okazis legante dosierformon"
-
-#, fuzzy
-#~ msgid "Single"
-#~ msgstr "Arĝento"
-
-#, fuzzy
-#~ msgid "Add hydrogens"
-#~ msgstr "Hidrogeno"
-
-#~ msgid "Quality:"
-#~ msgstr "Kvalito:"
-
-#~ msgid "Low"
-#~ msgstr "Malalta"
-
-#, fuzzy
-#~ msgid "Medium"
-#~ msgstr "Mendelevio"
-
-#~ msgid "High"
-#~ msgstr "Alta"
-
-#, fuzzy
-#~ msgid "Van der Waals"
-#~ msgstr "van der Waals"
-
-#~ msgid "Wireframe"
-#~ msgstr "Dratkadro"
-
-#, fuzzy
-#~ msgctxt "No 2nd Style"
-#~ msgid "None"
-#~ msgstr "Neono"
-
-#, fuzzy
-#~ msgctxt "No element labels"
-#~ msgid "None"
-#~ msgstr "Neono"
-
-#, fuzzy
-#~ msgid "Element symbols"
-#~ msgstr "Elementaj simboloj"
-
-#, fuzzy
-#~ msgid "Element names"
-#~ msgstr "Elementaj nomoj"
-
-#, fuzzy
-#~ msgid "Element:"
-#~ msgstr "Elemento"
-
-#, fuzzy
-#~ msgid "Adjust Hydrogens Automatically"
-#~ msgstr "Hidrogeno"
-
-#, fuzzy
-#~ msgid "Add Hydrogens"
-#~ msgstr "Hidrogeno"
-
-#, fuzzy
-#~ msgid "Ununtrium"
-#~ msgstr "Kuriumo"
-
-#, fuzzy
-#~ msgid "Ununpentium"
-#~ msgstr "Lutecio"
-
-#, fuzzy
-#~ msgid "Ununseptium"
-#~ msgstr "Lutecio"
-
-#, fuzzy
-#~ msgid "Ununoctium"
-#~ msgstr "Kuriumo"
+msgstr "Konverti al:"
