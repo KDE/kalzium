@@ -8150,7 +8150,7 @@ msgstr "Energia:"
 #: src/settings/unitsettingsdialog.cpp:24
 #, kde-format
 msgid "Length:"
-msgstr "Llargària:"
+msgstr "Longitud:"
 
 #: src/settings/unitsettingsdialog.cpp:30
 #, kde-format
@@ -8191,7 +8191,7 @@ msgstr "Valor &mínim:"
 #: src/spectrumview.ui:66 src/spectrumview.ui:69
 #, kde-format
 msgid "This sets the leftmost wavelength of the spectrum."
-msgstr "Establix la llargària d'ona més a l'esquerra de l'espectre."
+msgstr "Establix la longitud d'ona més a l'esquerra de l'espectre."
 
 #. i18n: ectx: property (text), widget (QLabel, label2)
 #: src/spectrumview.ui:110
@@ -8204,7 +8204,7 @@ msgstr "&Valor màxim:"
 #: src/spectrumview.ui:123 src/spectrumview.ui:126
 #, kde-format
 msgid "This sets the rightmost wavelength of the spectrum."
-msgstr "Establix la llargària d'ona més a la dreta de l'espectre."
+msgstr "Establix la longitud d'ona més a la dreta de l'espectre."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/spectrumview.ui:145
@@ -8245,7 +8245,7 @@ msgstr "Restablix el zoom"
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
 msgid "Wavelength"
-msgstr "Llargària d'ona"
+msgstr "Longitud d'ona"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
@@ -8844,9 +8844,3 @@ msgstr "Convertix de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Convertix a:"
-
-#~ msgid "[molecule]"
-#~ msgstr "[molècula]"
-
-#~ msgid "molecule"
-#~ msgstr "molècula"
