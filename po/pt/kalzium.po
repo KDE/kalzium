@@ -8264,7 +8264,7 @@ msgstr "Repor a ampliação"
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
 msgid "Wavelength"
-msgstr "Comprimento de onda"
+msgstr "Comprimento de Onda"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
