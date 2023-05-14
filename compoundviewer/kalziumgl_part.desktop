@@ -1,6 +1,7 @@
 [Desktop Entry]
 Icon=kalzium
 Name=KalziumGLPart
+Name[ar]=جزء كالسيوم جي ال
 Name[bg]=KalziumGLPart
 Name[bs]=KalziumGLPart
 Name[ca]=KalziumGLPart
@@ -56,6 +57,7 @@ Name[x-test]=xxKalziumGLPartxx
 Name[zh_CN]=KalziumGL 组件
 Name[zh_TW]=KalziumGLPart
 Comment=An OpenGL-based 3D-renderer for molecules
+Comment[ar]=مُصيّر جزيئات ثلاثي الأبعاد بالاعتماد على أوبن جي ال
 Comment[bg]=Триизмерни графики с OpenGL за молекули
 Comment[bs]=OpenGL 3Dcrtač molekula
 Comment[ca]=Un representador en 3D de molècules basat en OpenGL
