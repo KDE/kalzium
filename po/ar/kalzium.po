@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Safa Alfulaij <safaalfulaij@hotmail.com>, 2013.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2022-09-10 19:38+0400\n"
+"PO-Revision-Date: 2023-05-13 17:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5105,9 +5105,7 @@ msgid "Stable"
 msgstr "مستقرّ"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "Unknown magnetic moment"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
 msgstr "مجهول"
@@ -5360,9 +5358,9 @@ msgid "Van Der Waals"
 msgstr "فان دير فالس"
 
 #: src/kalziumgradienttype.cpp:284
-#, fuzzy, kde-format
+#, kde-format
 msgid "u"
-msgstr "أوبان 1"
+msgstr "وحدة"
 
 #: src/kalziumgradienttype.cpp:493
 #, kde-format
@@ -5594,10 +5592,10 @@ msgid "Unknown Value"
 msgstr "قيمة مجهولة"
 
 #: src/kalziumutils.cpp:115
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "x u (units). The atomic mass."
 msgid "%1 u"
-msgstr "أوبان 1"
+msgstr "%1 وحدة"
 
 #: src/kalziumutils.cpp:123
 #, fuzzy, kde-format
@@ -5670,7 +5668,7 @@ msgid "Unknown"
 msgstr "مجهول"
 
 #: src/legendwidget.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "one of the two types of gradients available"
 msgid "logarithmic"
 msgstr "لوغارتميّ"
@@ -5843,9 +5841,9 @@ msgid "Several icons in the information dialog"
 msgstr "أيقونات متعدّدة في حواري المعلومات"
 
 #: src/main.cpp:72
-#, fuzzy, kde-format
+#, kde-format
 msgid "Jörg Buchwald"
-msgstr "بتشوالد"
+msgstr "يورغ بوتشوالد"
 
 #: src/main.cpp:72
 #, kde-format
@@ -5873,9 +5871,9 @@ msgid "The design of the information dialog"
 msgstr "تصميم حواري المعلومات"
 
 #: src/main.cpp:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Brian Beck"
-msgstr "برايان الجدول"
+msgstr "بريان بيك"
 
 #: src/main.cpp:78
 #, kde-format
@@ -5883,9 +5881,9 @@ msgid "The orbits icon"
 msgstr "أيقونة المدارات"
 
 #: src/main.cpp:80
-#, fuzzy, kde-format
+#, kde-format
 msgid "Paulo Cattai"
-msgstr "خطّط البيانات"
+msgstr "باولو كاتاي"
 
 #: src/main.cpp:80 src/main.cpp:82 src/main.cpp:84 src/main.cpp:86
 #: src/main.cpp:88
@@ -5894,9 +5892,9 @@ msgid "New interface design and usability improvements"
 msgstr "واجهة مستخدِم جديدة وتحسينات لسهولة الاستخدام"
 
 #: src/main.cpp:82
-#, fuzzy, kde-format
+#, kde-format
 msgid "Danilo Balzaque"
-msgstr "دانيال هاس"
+msgstr "دانيلو بالزاكي"
 
 #: src/main.cpp:84
 #, kde-format
@@ -6047,9 +6045,9 @@ msgstr "التّراكب"
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:188
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elemental composition"
-msgstr "العنصر الأسماء"
+msgstr "التراكب العنصري"
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:191
@@ -6212,13 +6210,13 @@ msgstr "التوزيع الإلكتروني مجهول"
 #: src/plotsetupwidget.ui:23
 #, kde-format
 msgid "Swap"
-msgstr "التبادل"
+msgstr "بدّل"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:29
 #, kde-format
 msgid "Swap X and Y axis"
-msgstr ""
+msgstr "بدل بين محوري س و ص"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/plotsetupwidget.ui:39
@@ -7522,7 +7520,7 @@ msgstr "أفقيًّا"
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
 msgid "Horizontally (shifted)"
-msgstr ""
+msgstr "أفقيًّا (مُزاح)"
 
 #: src/settings/kalziumconfigdialog.cpp:15
 #, kde-format
@@ -7540,10 +7538,9 @@ msgid "Units"
 msgstr "الوحدات"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
-msgstr "ج&دول النظائر..."
+msgstr "جدول النظائر"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel13)
 #: src/settings/settings_colors.ui:47
@@ -8222,16 +8219,14 @@ msgid "Choose a file to open"
 msgstr "اختر ملفًّا لفتحه"
 
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Could not load molecule"
-msgstr "يحمّل جزيء"
+msgstr "تعذر تحميل الجزيء"
 
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Loading the molecule failed."
-msgstr "يحمّل جزيء"
+msgstr "فشل تحميل الجزيء"
 
 #: src/tools/moleculeview.cpp:206
 #, kde-format
@@ -8239,12 +8234,12 @@ msgid "Choose a file to save to"
 msgstr "اختر ملفًّا للحفظ إليه"
 
 #: src/tools/moleculeview.cpp:247
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
 "not need to be translated at all!"
 msgid "%1 u"
-msgstr "أوبان 1"
+msgstr "%1 وحدة"
 
 #: src/tools/moleculeview.cpp:290
 #, kde-format
@@ -8351,10 +8346,9 @@ msgid "Convert"
 msgstr "حوّل"
 
 #: src/tools/obconverter.cpp:115
-#, fuzzy, kde-format
-#| msgid "Open the given molecule file"
+#, kde-format
 msgid "Open Molecule File"
-msgstr "افتح ملف الجزيء المعطى"
+msgstr "افتح ملف الجزيء"
 
 #: src/tools/obconverter.cpp:117
 #, kde-format
