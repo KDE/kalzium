@@ -18,6 +18,6 @@ char *solve_equation(const char *eq)
         solve_equation_closure = caml_named_value("solve_equation");
     }
 
-    value v = copy_string(eq);
-    return strdup(String_val(callback(*solve_equation_closure, v)));
+    value v = caml_copy_string(eq);
+    return strdup(String_val(caml_callback(*solve_equation_closure, v)));
 }
