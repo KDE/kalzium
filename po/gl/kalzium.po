@@ -793,14 +793,14 @@ msgid ""
 "watches' protection glass which was often domed."
 msgstr ""
 "Os vidros de reloxo son superficies de vidro redondas de arredor de 5 ou 10 "
-"cm de diámetro que se empregan en diversas técnicas experimentais. O bordo "
-"está dobrado para cima, para permitirlles conter pequenas cantidades de "
-"líquidos e deixar que estes se evaporen. Pódese acelerar a evaporación "
-"quecendo o vidro cun acendedor de Bunsen. Os vidros de reloxo tamén se poden "
-"empregar para cubrir placas de Petri ou vasos, ademais de seren axeitados "
-"para pesar pequenas cantidades de materia ou para secala nun taboleiro. O "
-"termo «vidro de reloxo» provén do vidro de protección dos reloxos de peto "
-"antigos, que eran con frecuencia cóncavos."
+"cm de diámetro que se usan en diversas técnicas experimentais. O bordo está "
+"dobrado para cima, para permitirlles conter pequenas cantidades de líquidos "
+"e deixar que estes se evaporen. Pódese acelerar a evaporación quecendo o "
+"vidro cun acendedor de Bunsen. Os vidros de reloxo tamén se poden usar para "
+"cubrir placas de Petri ou vasos, ademais de seren axeitados para pesar "
+"pequenas cantidades de materia ou para secala nun taboleiro. O termo «vidro "
+"de reloxo» provén do vidro de protección dos reloxos de peto antigos, que "
+"eran con frecuencia cóncavos."
 
 #: data/tools.xml:10
 #, kde-format
@@ -904,9 +904,9 @@ msgid ""
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
-"O almirez emprégase para moer sólidos manualmente. Tamén se pode utilizar "
-"para homoxeneizar unha mestura de pos moéndoa. O almirez precisa dun útil "
-"chamado machuco que se emprega para machucar."
+"O almirez úsase para moer sólidos manualmente. Tamén se pode utilizar para "
+"homoxeneizar unha mestura de pos moéndoa. O almirez precisa dun útil chamado "
+"machuco que se usa para machucar."
 
 #: data/tools.xml:37
 #, kde-format
@@ -1009,7 +1009,7 @@ msgstr ""
 "plataforma. A plataforma axítase en rotación ata 3000 RPM, ata se activar un "
 "sensor de contacto. Desta forma, volumes extremamente pequenos de fluídos "
 "poden tornarse homoxéneos rapidamente. É o oposto dun centrifugador, que se "
-"emprega para separar fluídos."
+"usa para separar fluídos."
 
 #: data/tools.xml:67
 #, kde-format
@@ -1079,9 +1079,9 @@ msgid ""
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb then causes the fluid to flow out of the pipette."
 msgstr ""
-"Unha pera de pipeta emprégase para encher pipetas. Ao apertar e soltar a "
-"pera prodúcese unha presión negativa que fai que o fluído suba para a "
-"pipeta; ao apertar a pera de novo o fluído sae da pipeta."
+"Unha pera de pipeta úsase para encher pipetas. Ao apertar e soltar a pera "
+"prodúcese unha presión negativa que fai que o fluído suba para a pipeta; ao "
+"apertar a pera de novo o fluído sae da pipeta."
 
 #: data/tools.xml:87
 #, kde-format
@@ -1129,7 +1129,7 @@ msgid ""
 "other items, as the frosting on the neck shows. With cork rings they can be "
 "placed on a table."
 msgstr ""
-"Os frascos en balón ou de fondo arredondado empréganse en moitas reaccións. "
+"Os frascos en balón ou de fondo arredondado úsanse en moitas reaccións. "
 "Algúns poden estar conectados a outros elementos, para o que teñen bocas "
 "esmeriladas. Grazas aos soportes para balón, poden colocarse nunha mesa."
 
@@ -1160,8 +1160,8 @@ msgid ""
 "water from the atmosphere."
 msgstr ""
 "Algunhas reaccións necesitan estaren libres de auga: para facer isto posíbel "
-"pódese empregar un tubo de secado. Os tubos de secado conteñen unha "
-"substancia higroscópica para absorber a auga da atmosfera."
+"pódese usar un tubo de secado. Os tubos de secado conteñen unha substancia "
+"higroscópica para absorber a auga da atmosfera."
 
 #: data/tools.xml:112
 #, kde-format
@@ -1210,9 +1210,9 @@ msgid ""
 "laboratory, special thermometers are used which can also be used within "
 "acids or bases."
 msgstr ""
-"Pódese empregar un termómetro para determinar a temperatura dunha mostra. "
-"Nun laboratorio empréganse termómetros especiais, que tamén se poden "
-"utilizar dentro de ácidos ou bases."
+"Pódese usar un termómetro para determinar a temperatura dunha mostra. Nun "
+"laboratorio úsanse termómetros especiais, que tamén se poden utilizar dentro "
+"de ácidos ou bases."
 
 #: data/tools.xml:127
 #, kde-format
@@ -1242,7 +1242,7 @@ msgid ""
 "from containers. The retriever is a bar with a magnet at the end which "
 "attracts the stir bars."
 msgstr ""
-"Pódese empregar un extractor de barras magnéticas de mestura para sacar as "
+"Pódese usar un extractor de barras magnéticas de mestura para sacar as "
 "barras de mestura dun contedor. O extractor é unha barra cun imán na punta "
 "que atrae as barras de mestura."
 
@@ -1260,12 +1260,12 @@ msgid ""
 "a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
-"As pipetas empréganse para introducir pequenas cantidades de líquidos. Unha "
-"pipeta ten unha escala de volume e, xeralmente, as peras das pipetas "
-"emprégase para botar gotas de líquidos. Todos os tipos de pipetas están "
-"calibrados para líquidos a unha temperatura de 20°C e para o tempo do fluxo "
-"de saída (que se representa con «Ex.»). Se for necesario, os tempos de fluxo "
-"de saída están indicados na pipeta."
+"As pipetas úsanse para introducir pequenas cantidades de líquidos. Unha "
+"pipeta ten unha escala de volume e, xeralmente, as peras das pipetas úsase "
+"para botar gotas de líquidos. Todos os tipos de pipetas están calibrados "
+"para líquidos a unha temperatura de 20°C e para o tempo do fluxo de saída "
+"(que se representa con «Ex.»). Se for necesario, os tempos de fluxo de saída "
+"están indicados na pipeta."
 
 #: data/tools.xml:142
 #, kde-format
@@ -1365,7 +1365,7 @@ msgstr ""
 "recipientes colócase a mestura que se desexa separar e quécese ata que forme "
 "gas. O gas atravesa cara o outro recipiente pola canle que os comunica. No "
 "extremo da canle faise que o gas se condense e precipite no segundo "
-"recipiente. É habitual que se induza a condensación empregando na canle por "
+"recipiente. É habitual que se induza a condensación usando na canle por "
 "fluxo de retorno. Os destiladores adoitan ter termómetros para controlar a "
 "temperatura na canle que comunica os recipientes."
 
@@ -1506,8 +1506,8 @@ msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
 msgstr ""
-"Pódese empregar un funil para encher un vaso de pescozo estreito cun líquido "
-"ou po fino."
+"Pódese usar un funil para encher un vaso de pescozo estreito cun líquido ou "
+"po fino."
 
 #: data/tools.xml:209
 #, kde-format
@@ -1524,7 +1524,7 @@ msgid ""
 "they can be very easily refilled with the exact volume for which the buret "
 "is calibrated."
 msgstr ""
-"As buretas empréganse para titrar líquidos. A bureta énchese cun determinado "
+"As buretas úsanse para titrar líquidos. A bureta énchese cun determinado "
 "volume de líquido. En baixo encóntrase un contedor, como un matraz de "
 "Erlenmeyer. Ao abrir a válvula, o líquido do contedor títrase. As buretas de "
 "alta calidade teñen un mecanismo de succión co que se poden encher de novo "
@@ -1542,7 +1542,7 @@ msgid ""
 "chemicals and to perform chemical reactions. They are often also used for "
 "titrations."
 msgstr ""
-"Os vasos de precipitados empréganse para diversas tarefas. Son usados para "
+"Os vasos de precipitados úsanse para diversas tarefas. Son usados para "
 "gardar químicos e para efectuar reaccións químicas. Son tamén usados para "
 "titracións (análises volumétricas)."
 
@@ -3164,7 +3164,7 @@ msgstr "Calculadora de análise volumétrica"
 #: src/calculator/calculator.ui:38
 #, kde-format
 msgid "<big>Select the calculator that you want to use</big>"
-msgstr "<big>Escolle a calculadora que queiras empregar</big>"
+msgstr "<big>Escolle a calculadora que queiras usar</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:41
@@ -3248,9 +3248,9 @@ msgstr ""
 "<li>Concentración da substancia</li></ul>\n"
 "<p>Hai unha grande cantidade de unidades de entre as qu escoller e distintos "
 "métodos para indicar as cantidades.</p>\n"
-"<li><b>Calculadora nuclear<br /></b>Esta calculadora emprega os datos "
-"nucleares dispoñíbeis en Kalzium para predicir as masas esperadas de "
-"material co tempo.</li>\n"
+"<li><b>Calculadora nuclear<br /></b>Esta calculadora usa os datos nucleares "
+"dispoñíbeis en Kalzium para predicir as masas esperadas de material co tempo."
+"</li>\n"
 "<li><b>Calculadora de gases<br /></b>Esta calculadora pode calcular os "
 "valores de temperatura, presión, volume, cantidade de gas, etc. de varios "
 "gases ideais, así como de gases non ideais.</li>\n"
@@ -4489,8 +4489,7 @@ msgstr "A cantidade especifícase sempre en termos de masa"
 #, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
 msgstr ""
-"Asumir que o gas é ideal (é dicir, non mostrar as constantes de van der "
-"Waals)"
+"Asumir que o gas é ideal (é dicir, non amosar as constantes de van der Waals)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:85
@@ -4502,13 +4501,13 @@ msgstr "Calculadora de masa"
 #: src/calculator/settings_calc.ui:91
 #, kde-format
 msgid "Show details such as aliases"
-msgstr "Mostrar detalles como nomes abreviados"
+msgstr "Amosar detalles como nomes abreviados"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox)
 #: src/calculator/settings_calc.ui:98
 #, kde-format
 msgid "Show the add alias tab"
-msgstr "Mostrar o separador para engadir nomes abreviados"
+msgstr "Amosar o separador para engadir nomes abreviados"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_soluteMass)
 #: src/calculator/settings_calc.ui:125
@@ -5238,9 +5237,9 @@ msgstr ""
 "exemplo:<br> <i>aH + bO -> 5H2O</i> (Resultado: <b>10</b> H + <b>5</b> O -"
 "&gt; <b>5</b> H<sub>2</sub>O)<br> Resolvendo esta expresión obtés a "
 "cantidade de hidróxeno e de osíxeno requiridos.<br> <br> <b>Definición de "
-"cargas eléctricas</b><br> Emprega corchetes para indicar a carga eléctrica "
-"dun elemento, como se mostra neste exemplo:<br> <i>4H[+] + 2O -> cH2O[2+]</"
-"i> (Resultado: <b>4</b> H<b><sup>+</sup></b> + <b>2</b>O -&gt; <b>2</b> "
+"cargas eléctricas</b><br> Usa corchetes para indicar a carga eléctrica dun "
+"elemento, como se mostra neste exemplo:<br> <i>4H[+] + 2O -> cH2O[2+]</i> "
+"(Resultado: <b>4</b> H<b><sup>+</sup></b> + <b>2</b>O -&gt; <b>2</b> "
 "H<b><sub>2</sub></b>O<b><sup>2+</sub></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -5434,8 +5433,8 @@ msgid ""
 msgstr ""
 "<p><b>Información</b></p>\n"
 "<p>Fai clic dereito nun elemento para ver información sobre el.</p>\n"
-"<p>Achégate ou afástate empregando a roda do rato ou a función de ampliación."
-"</p>\n"
+"<p>Achégate ou afástate usando a roda do rato ou a función de ampliación.</"
+"p>\n"
 "<p>Desprázate facendo clic esquerdo e arrastrando ou coa función de "
 "desprazamento.</p>"
 
@@ -6373,7 +6372,7 @@ msgstr "O símbolo ten que consistir nunha ou máis letras."
 #: src/molcalcwidget.cpp:274
 #, kde-format
 msgid "Symbol already being used"
-msgstr "Xa se está a empregar este símbolo"
+msgstr "Xa se está a usar este símbolo"
 
 #: src/molcalcwidget.cpp:279
 #, kde-format
@@ -8658,7 +8657,7 @@ msgstr "Todos os elementos:"
 #: src/settings/settings_colors.ui:638 src/settings/settings_colors.ui:641
 #, kde-format
 msgid "This color will be used if no other scheme is selected"
-msgstr "Esta cor emprégase no caso de que non se escolla outro esquema"
+msgstr "Esta cor úsase no caso de que non se escolla outro esquema"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/settings/settings_gradients.ui:42
@@ -8669,11 +8668,10 @@ msgid ""
 "\n"
 "Check the properties you want to have displayed with a logarithmic gradient."
 msgstr ""
-"No canto de empregar unha gradación lineal para mostrar a propiedade dada "
-"dun elemento na táboa periódica, Kalzium pode empregar unha gradación "
-"logarítmica.\n"
+"No canto de usar unha gradación lineal para amosar a propiedade dada dun "
+"elemento na táboa periódica, Kalzium pode usar unha gradación logarítmica.\n"
 "\n"
-"Revisa as propiedades que queiras mostrar cunha gradación logarítmica."
+"Revisa as propiedades que queiras amosar cunha gradación logarítmica."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicDiscoverydateGradient)
 #: src/settings/settings_gradients.ui:102
@@ -9385,8 +9383,8 @@ msgstr ""
 "weight:400; font-style:normal; text-decoration:none;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Aquí podes ver os "
-"ficheiros que se converterán. Emprega os botóns para engadir e retirar "
-"ficheiros da lista.</p></body></html>"
+"ficheiros que se converterán. Usa os botóns para engadir e retirar ficheiros "
+"da lista.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/tools/obconverterwidget.ui:120
