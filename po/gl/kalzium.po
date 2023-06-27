@@ -1112,10 +1112,10 @@ msgid ""
 "type of plastic that affords protection from both mechanical impacts, and "
 "acid and base chemicals."
 msgstr ""
-"A maioría dos laboratorios insisten en que se empreguen lentes de "
-"protección. Sen elas, é demasiado arriscado traballar coa maioría dos "
-"produtos químicos. Normalmente, as lentes son dun tipo especial de plástico "
-"que permite protexer dos impactos mecánicos e dos ácidos e bases."
+"A maioría dos laboratorios insisten en que se usen lentes de protección. Sen "
+"elas, é demasiado arriscado traballar coa maioría dos produtos químicos. "
+"Normalmente, as lentes son dun tipo especial de plástico que permite "
+"protexer dos impactos mecánicos e dos ácidos e bases."
 
 #: data/tools.xml:97
 #, kde-format
