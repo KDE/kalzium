@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2023-03-31 21:28+0300\n"
+"PO-Revision-Date: 2023-07-03 00:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,7 +55,7 @@ msgstr "Belirtilen dosya açılamadı."
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Sorry"
-msgstr "Üzgünüm"
+msgstr "Üzgünüz"
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
@@ -99,7 +99,7 @@ msgid ""
 "definite volume: solid, liquid or gaseous."
 msgstr ""
 "Bir maddenin biçim kararlılığına ve belirli bir hacim kaplayıp kaplamadığına "
-"bağlı biçimi: katı, sıvı ya da gaz."
+"bağlı biçimi: Katı, sıvı ya da gaz."
 
 #: data/knowledge.xml:8
 #, kde-format
@@ -131,8 +131,8 @@ msgid ""
 "Matter separation in a moving medium (mobile phase) through differentiated "
 "absorption on a static medium (stationary phase)."
 msgstr ""
-"Hareketli bir ortamdaki maddenin, durağan bir ortam üzerinde ayrımsal "
-"adsorpsiyon yoluyla ayrılmasıdır."
+"Statik bir ortam (sabit faz) üzerinde farklılaştırılmış soğurma yoluyla "
+"hareketli bir ortamda (hareketli faz) madde ayrımı."
 
 #: data/knowledge.xml:19
 #, kde-format
@@ -146,9 +146,9 @@ msgid ""
 "through evaporation and condensation. In a fractionary distillation the "
 "process is repeated several times in a column."
 msgstr ""
-"Sıvı bir çözeltinin (homojen karışım), buharlaştırma ve yoğunlaştırma "
-"yoluyla bileşenlerine ayrılmasıdır. Kısımlı bir damıtmada bu işlem bir "
-"kolonda birçok kez tekrarlanır."
+"Sıvı bir çözeltinin (homojen karışım) buharlaşma ve yoğuşma yoluyla "
+"bileşenlerine ayrılması. Kısmi damıtmada, işlem bir kolonda birkaç kez "
+"yinelenir."
 
 #: data/knowledge.xml:24
 #, kde-format
@@ -157,10 +157,9 @@ msgid ""
 "cornerstones of Materials. Elements consist of atoms that consist of a "
 "nucleus of positive protons, neutral neutrons, and a shell of electrons."
 msgstr ""
-"Daha basit maddelere parçalanamayan maddedir. Kimyasal elementler maddelerin "
-"temel yapı taşlarıdır. Elementler, atomlardan oluşur. Atomların çekirdeği "
-"pozitif yüklü protonlar ve nötr (yüksüz) nötronlardan; kabuk kısmı, "
-"elektronlardan meydana gelir."
+"Daha basit maddelere ayrılamayan madde. Kimyasal elementler, Malzemelerin "
+"temel taşlarıdır. Elementler, pozitif protonlardan oluşan bir çekirdek, nötr "
+"nötronlar ve bir elektron kabuğundan oluşan atomlardan oluşur."
 
 #: data/knowledge.xml:27
 #, kde-format
@@ -175,7 +174,7 @@ msgstr "İki sıvının heterojen karışımı."
 #: data/knowledge.xml:31
 #, kde-format
 msgid "Extraction"
-msgstr "Ekstraksiyon"
+msgstr "Özütleme"
 
 #: data/knowledge.xml:32
 #, kde-format
@@ -199,8 +198,8 @@ msgid ""
 "Separation of a solid matter from a liquid matter or gaseous matter with a "
 "filter (porous separation wall)."
 msgstr ""
-"Katı bir maddenin sıvı bir maddeden ya da bir gazdan, bir filtre (süzgeç) "
-"(gözenekli ayırma duvarı) yardımıyla ayrılmasıdır."
+"Katı bir maddenin sıvı veya gaz halindeki bir maddeden süzgeç (gözenekli "
+"ayırma duvarı) ile ayrılması."
 
 #: data/knowledge.xml:43
 #, kde-format
@@ -209,9 +208,9 @@ msgid ""
 "[i]Homogeneous mixes[/i] have a coherent look, [i]heterogeneous mixes[/i] "
 "consist of multiple phases."
 msgstr ""
-"Rasgele oranlarda karışmış ayrı maddelerden meydana gelen maddedir. [i] "
-"Homojen karışımlar[/i] tek görünümlü, [i]heterojen karışımlar[/i] çok "
-"fazlıdırlar."
+"Belirsiz oranlarda bir araya getirilmiş, farklılaştırılmış maddeden oluşan "
+"madde. [i]Homojen karışımlar[/i] tutarlı bir görünüme sahiptir, [i]heterojen "
+"karışımlar[/i] birden çok fazdan oluşur."
 
 #: data/knowledge.xml:46
 #, kde-format
@@ -221,7 +220,7 @@ msgstr "Doğruluk"
 #: data/knowledge.xml:47
 #, kde-format
 msgid "Consisting of accidental and systematic errors."
-msgstr "Tesadüfi ve sistematik hatalardan oluşan."
+msgstr "Tesadüfi ve sistematik hatalardan oluşur."
 
 #: data/knowledge.xml:50
 #, kde-format
@@ -235,9 +234,9 @@ msgid ""
 "the material going into the reaction equals the sum of the mass of the "
 "products of the reaction."
 msgstr ""
-"Kimyasal bir tepkime sırasında kütle ne azalır ne artar. Tepkimeye giren "
-"maddelerin kütleleri toplamı, tepkime ürünlerinin kütleleri toplamına "
-"eşittir."
+"Bir kimyasal tepkime sırasında kütle ne kaybedilir ne de kazanılır. "
+"Tepkimeye giren maddelerin toplam kütlesi, tepkime ürünlerinin kütlelerinin "
+"toplamına eşittir."
 
 #: data/knowledge.xml:54
 #, kde-format
@@ -250,13 +249,13 @@ msgid ""
 "An alloy always contains the same elements in the same mass ratio. Should "
 "two or more elements bind together then the mass ratio is constant."
 msgstr ""
-"Bir alaşım daima aynı elementleri aynı oranda bulundurur. İki ya da daha "
-"fazla elementin bağlanması gerekiyorsa kütle oranı sabit kalacaktır."
+"Bir alaşım her zaman aynı elementleri aynı kütle oranında içerir. İki veya "
+"daha fazla eleman birbirine bağlanırsa kütle oranı sabittir."
 
 #: data/knowledge.xml:58
 #, kde-format
 msgid "Crystallization"
-msgstr "Kristallendirme"
+msgstr "Kristalleşme"
 
 #: data/knowledge.xml:59
 #, kde-format
@@ -264,8 +263,7 @@ msgid ""
 "Separation of solid, crystalline matter from a solution, or the liquid or "
 "gaseous phases."
 msgstr ""
-"Katı, kristal halindeki maddenin bir çözeltiden, sıvıdan ya da gaz fazından "
-"ayrılması."
+"Katı, kristal maddenin bir çözeltiden veya sıvı veya gaz fazlardan ayrılması."
 
 #: data/knowledge.xml:62
 #, kde-format
@@ -275,7 +273,7 @@ msgstr "Çözelti"
 #: data/knowledge.xml:63
 #, kde-format
 msgid "Homogeneous mix of multiple pure materials"
-msgstr "Birden çok saf metalin homojen karışımı"
+msgstr "Birden çok saf malzemenin homojen karışımı"
 
 #. i18n("Name"), ChemicalDataObject::name));
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
@@ -307,7 +305,7 @@ msgstr "Uzayda hacim kaplayan ve kütlesi olan her şey."
 #: data/knowledge.xml:74
 #, kde-format
 msgid "Phase"
-msgstr "Hal"
+msgstr "Faz"
 
 #: data/knowledge.xml:75
 #, kde-format
@@ -316,8 +314,8 @@ msgid ""
 "matter that separated from its environment in its expansion through a "
 "surface."
 msgstr ""
-"Kimyasal bileşim ve fiziksel özellikler yoluyla, bir yüzey boyunca "
-"genleşmesi ile çevresinden ayrılan homojen madde kısmı."
+"Kimyasal bileşim ve fiziksel özellikler yoluyla, maddenin bir yüzey yoluyla "
+"genişlemesi sırasında çevresinden ayrılan homojen kısmı."
 
 #: data/knowledge.xml:78
 #, kde-format
@@ -329,8 +327,7 @@ msgstr "Doğruluk ve kesinlik"
 msgid ""
 "Expressed through standard deviation: Values given over accidental errors."
 msgstr ""
-"Standart sapma yoluyla ifade edilir: Tesadüfi hatalar sonucu verilen "
-"değerler."
+"Standart sapma ile ifade edilen: Tesadüfi hatalar üzerinden verilen değerler."
 
 #: data/knowledge.xml:82
 #, kde-format
@@ -345,22 +342,22 @@ msgstr "Tesadüfi hatalar sonucu verilen değerler."
 #: data/knowledge.xml:86
 #, kde-format
 msgid "SI-Unit"
-msgstr "SI-Birimi"
+msgstr "SI Birimi"
 
 #: data/knowledge.xml:87
 #, kde-format
 msgid "Measurement unit using International Symbols."
-msgstr "Uluslararası Semboller kullanılarak yazılan ölçü birimi"
+msgstr "Uluslararası Semboller kullanan ölçüm birimi."
 
 #: data/knowledge.xml:90
 #, kde-format
 msgid "Significant figures"
-msgstr "Anlamlı sayılar"
+msgstr "Önemli rakamlar"
 
 #: data/knowledge.xml:91
 #, kde-format
 msgid "The number of digits which are meaningful in a number."
-msgstr "Bir sayıdaki anlamlı rakamların sayısı."
+msgstr "Bir sayıda anlamlı olan basamak sayısı."
 
 #: data/knowledge.xml:94
 #, kde-format
@@ -370,7 +367,7 @@ msgstr "Standart sapma"
 #: data/knowledge.xml:95
 #, kde-format
 msgid "An amount with which the precision of a measurement can be estimated."
-msgstr "Bir ölçümün duyarlığının tahmin edilebileceği bir miktar."
+msgstr "Bir ölçümün kesinliğinin tahmin edilebileceği bir miktar."
 
 #: data/knowledge.xml:98
 #, kde-format
@@ -390,7 +387,7 @@ msgstr "Alaşımlar"
 #: data/knowledge.xml:103
 #, kde-format
 msgid "Pure matter consisting of multiple elements in a set ratio."
-msgstr "Belirli oranlarda birden çok element içeren saf madde."
+msgstr "Belirli bir oranda birden çok elementten oluşan saf madde."
 
 #: data/knowledge.xml:106
 #, kde-format
@@ -403,8 +400,8 @@ msgid ""
 "Rays consisting of alpha particles, consisting of two protons and two "
 "neutrons that are emitted from the Atoms of certain radioactive elements."
 msgstr ""
-"Belirli radyoaktif elementlerden saçılan, iki proton ve iki nötron içeren "
-"alfa parçacıklarından oluşan ışınlar."
+"Belirli radyoaktif elementlerin Atomlarından yayılan, iki proton ve iki "
+"nötrondan oluşan alfa parçacıklarından oluşan ışınlar."
 
 #: data/knowledge.xml:110 data/knowledge.xml:123 data/knowledge.xml:130
 #: data/knowledge.xml:138 data/knowledge.xml:215 data/knowledge.xml:222
@@ -419,8 +416,8 @@ msgid ""
 "Atoms are chemically inseparable and building blocks of matter. Atoms of one "
 "kind are called an Element."
 msgstr ""
-"Maddenin daha küçük parçalara ayrılamaz yapıtaşı. Tek tür atomlar birleşerek "
-"elementleri oluşturur."
+"Atomlar kimyasal olarak ayrılmaz ve maddenin yapı taşlarıdır. Aynı türden "
+"atomlara Element denir."
 
 #: data/knowledge.xml:114 data/knowledge.xml:211 data/knowledge.xml:223
 #: data/knowledge.xml:232 data/knowledge.xml:240
@@ -449,7 +446,7 @@ msgid ""
 "The small, positively-charged center of an Atom, in which Protons and "
 "Neutrons are found."
 msgstr ""
-"Atomun, protonlar ve nötronlardan oluşan, küçük ve pozitif yüklü merkezi."
+"Protonların ve Nötronların bulunduğu, bir Atomun pozitif yüklü küçük merkezi."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -467,8 +464,9 @@ msgid ""
 "elements that consist of different isotopes the mid-range mass of the "
 "isotope mix is given."
 msgstr ""
-"Bir karbon atomunun 12u olduğu bir skalaya göre bir atomun kütlesi. Farklı "
-"izotoplar içeren elementlerde, izotop karışımının ortalama kütlesi verilir."
+"Bir karbon atomunun kütlesinin 12u olduğu bir ölçekte alınan bir atomun "
+"kütlesi. Farklı izotoplardan oluşan elementlerde, izotop karışımının orta "
+"aralıktaki kütlesi verilir."
 
 #: data/knowledge.xml:135 data/knowledge.xml:145 data/knowledge.xml:152
 #: data/knowledge.xml:159 data/knowledge.xml:166 data/knowledge.xml:173
@@ -485,15 +483,15 @@ msgid ""
 "same place, comes from the fact that all isotopes of an element are located "
 "at the same place on the periodic table."
 msgstr ""
-"İzotoplar, çekirdekleri aynı atom sayısı olan Z'ye, fakat farklı atom "
-"kütleleri olan A'ya eşit olan kimyasal element biçimleridir. İzotop sözcüğü, "
-"aynı yerde bulunan anlamına gelmekte olup, bir elementin bütün izotoplarının "
-"periyodik tabloda aynı yerde bulunmasından ileri gelir."
+"İzotoplar, çekirdekleri aynı atom numarasına (Z) ancak farklı atom "
+"kütlelerine (A) sahip kimyasal bir elementin formlarıdır. Aynı yer anlamına "
+"gelen izotop kelimesi, bir elementin tüm izotoplarının periyodik tablo "
+"üzerinde aynı yerde bulunması gerçeğinden gelir."
 
 #: data/knowledge.xml:142
 #, kde-format
 msgid "Spin"
-msgstr "Spin (Dönü)"
+msgstr "Dönü"
 
 #: data/knowledge.xml:143
 #, kde-format
@@ -504,11 +502,11 @@ msgid ""
 "rotation of an extended object, spin is not associated with any rotating "
 "internal masses, but is intrinsic to the particle itself."
 msgstr ""
-"Spin, mikroskopik parçacıklarla ilişkilendirilen bir iç açısal momentumdur. "
-"Klasik mekanikle herhangi bir benzeşim kurulmaksızın, tamamen kuantum "
-"mekanik karakterli bir fenomendir. Klasik açısal momentum uzamış bir "
-"nesnenin dönmesinden ortaya çıkıyor ise de, spin hiçbir dönen iç kütle ile "
-"değil, parçacığın kendisine ait bir iç özellikle ilişkilendirilmektedir. "
+"Dönü, mikroskobik parçacıklarla ilişkili içsel bir açısal momentumdur. "
+"Klasik mekanikte herhangi bir analojisi olmayan tamamen kuantum mekaniksel "
+"bir olgudur. Klasik açısal momentum, uzamış bir nesnenin dönüşünden "
+"kaynaklanırken, dönüş, dönen herhangi bir iç kütle ile ilişkili değildir, "
+"parçacığın kendisine içkindir."
 
 #: data/knowledge.xml:149 src/detailinfodlg.cpp:312
 #, kde-format
@@ -548,7 +546,8 @@ msgstr "Bozunma Enerjisi"
 #: data/knowledge.xml:164
 #, kde-format
 msgid "The decay energy is the energy released by a nuclear decay."
-msgstr "Bozunma enerjisi, çekirdeksel bozunma sırasında açığa çıkan enerjidir."
+msgstr ""
+"Bozunma enerjisi, bir çekirdeksel bozunma tarafından salınan enerjidir."
 
 #: data/knowledge.xml:170
 #, kde-format
@@ -581,7 +580,7 @@ msgstr "İzobarlar"
 #: data/knowledge.xml:181
 #, kde-format
 msgid "Two nuclides are isotones if they have the same number N of neutrons."
-msgstr "Aynı N sayısında nötrona sahip iki atom birbirinin izotonudur."
+msgstr "Aynı N nötron sayısına sahip iki nüklid izotondur."
 
 #: data/knowledge.xml:190
 #, kde-format
@@ -589,8 +588,8 @@ msgid ""
 "Isobars are nuclides having the same mass number, i.e. sum of protons plus "
 "neutrons."
 msgstr ""
-"İzobarlar, aynı kütle numarasına (proton ve nötronların toplamı) sahip "
-"atomlardır."
+"İzobarlar, aynı kütle numarasına, yani proton artı nötronların toplamına "
+"sahip nüklidlerdir."
 
 #: data/knowledge.xml:199
 #, kde-format
@@ -621,7 +620,7 @@ msgid ""
 "Rays consisting of electrons that are emitted from Atoms of radioactive "
 "elements."
 msgstr ""
-"Radyoaktif elemenlerin atomlarından yayılan elektronlardan oluşan ışınlar."
+"Radyoaktif elementlerin atomlarından yayılan elektronlardan oluşan ışınlar."
 
 #: data/knowledge.xml:213
 #, kde-format
@@ -660,10 +659,10 @@ msgid ""
 "cathode (negative electrode) and an anode (positive electrode) in a "
 "configuration known as a diode."
 msgstr ""
-"Katot ışınları, vakum tüplerinde (en az iki elektrot içeren havası "
-"boşaltılmış cam tüpler) oluşturulan elektron akımlarıdır. Söz konusu "
-"elektrotlar katot (negatif elektrot) ve anot (pozitif elektrot) olarak "
-"bilinir; oluşan yapıya diyot denir."
+"Katot ışınları, vakum tüplerinde, yani diyot olarak bilinen bir "
+"konfigürasyonda en az iki elektrot, bir katot (negatif elektrot) ve bir anot "
+"(pozitif elektrot) ile donatılmış boşaltılmış cam tüplerde gözlemlenen "
+"elektron akışlarıdır."
 
 #: data/knowledge.xml:244 data/knowledge.xml:258 data/knowledge.xml:267
 #: data/knowledge.xml:275
@@ -680,12 +679,12 @@ msgid ""
 "electrons in its shell than the atom, a negative ion has more electrons. "
 "Therefore, a positive ion has a smaller radius than its atom and vice versa."
 msgstr ""
-"İyon Yarıçapı, iyon olarak bilinen yüklü atomun yarıçapıdır. İyon pozitif "
-"veya negatif yüke sahip olabilir. Yarıçapı gösterilen iyonun yükü Kalzium'da "
-"sürekli gösterilir. Pozitif bir iyonun, ilgili atoma göre kabukta daha az "
-"elektronu bulunur, elektronlar negatif iyonda daha fazladır. Dolayısıyla, "
-"pozitif bir iyonun, atomuna göre daha küçük bir çapı vardır. Negatif "
-"iyonlarda durum tam tersidir."
+"İyonik Yarıçap, iyon olarak bilinen yüklü bir atomun yarıçapıdır. İyon "
+"pozitif veya negatif yüke sahip olabilir. Gösterilen yarıçapa sahip iyonun "
+"yükü de Kalzium'da görüntülenir. Pozitif bir iyonun kabuğunda atomdan daha "
+"az elektron vardır, negatif bir iyonun daha fazla elektronu vardır. Bu "
+"nedenle, pozitif bir iyon atomundan daha küçük bir yarıçapa sahiptir ve "
+"bunun tersi de geçerlidir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicCovalentRadiusGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
