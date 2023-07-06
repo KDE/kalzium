@@ -62,3 +62,5 @@ bool IsotopeTableSettingsCard::eventFilter(QObject *object, QEvent *event)
     }
     return false;
 }
+
+#include "moc_isotopetablesettingscard.cpp"

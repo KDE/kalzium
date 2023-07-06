@@ -242,3 +242,5 @@ void KOpenBabel::addFile(const QString &filename)
 {
     ui.FileListView->addItem(filename);
 }
+
+#include "moc_obconverter.cpp"

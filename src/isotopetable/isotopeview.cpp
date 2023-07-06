@@ -117,3 +117,5 @@ void IsotopeView::setMode(int mode)
     m_scene->setMode(mode);
     initialize();
 }
+
+#include "moc_isotopeview.cpp"

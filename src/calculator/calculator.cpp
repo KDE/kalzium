@@ -118,3 +118,5 @@ void calculator::slotHelp()
 {
     KHelpClient::invokeHelp(QStringLiteral("tools.html#perf_calculation"), QStringLiteral("kalzium"));
 }
+
+#include "moc_calculator.cpp"

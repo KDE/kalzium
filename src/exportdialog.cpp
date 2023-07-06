@@ -235,3 +235,5 @@ void ExportDialog::exportToCsv()
         *m_outputStream << "\n";
     }
 }
+
+#include "moc_exportdialog.cpp"

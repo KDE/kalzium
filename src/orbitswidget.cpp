@@ -244,3 +244,5 @@ void OrbitsWidget::paintEvent(QPaintEvent *)
         d -= 2 * ddx;
     }
 }
+
+#include "moc_orbitswidget.cpp"

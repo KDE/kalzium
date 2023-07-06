@@ -98,3 +98,5 @@ bool KalziumGLWidget::openFile(const QString &file)
     update();
     return true;
 }
+
+#include "moc_kalziumglwidget.cpp"

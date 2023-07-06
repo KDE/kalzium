@@ -117,3 +117,5 @@ void PeriodicTableScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     }
     QGraphicsScene::mouseReleaseEvent(event);
 }
+
+#include "moc_periodictablescene.cpp"

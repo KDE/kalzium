@@ -63,3 +63,5 @@ void KalziumConfigDialog::updateSettings()
 
     Prefs::self()->save();
 }
+
+#include "moc_kalziumconfigdialog.cpp"

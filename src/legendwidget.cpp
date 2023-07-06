@@ -214,3 +214,5 @@ void LegendItem::leaveEvent(QEvent *event)
     Q_EMIT legenItemHoovered(QColor());
     QWidget::leaveEvent(event);
 }
+
+#include "moc_legendwidget.cpp"

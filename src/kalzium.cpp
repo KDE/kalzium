@@ -586,3 +586,5 @@ QSize Kalzium::sizeHint() const
 {
     return {700, 500};
 }
+
+#include "moc_kalzium.cpp"

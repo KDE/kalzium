@@ -97,3 +97,5 @@ QSize EQChemDialog::sizeHint() const
     size.setWidth(200);
     return size;
 }
+
+#include "moc_eqchemview.cpp"

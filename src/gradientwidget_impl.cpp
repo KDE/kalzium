@@ -226,3 +226,5 @@ void GradientWidgetImpl::tick()
     }
     gradient_slider->setValue(temp + increment);
 }
+
+#include "moc_gradientwidget_impl.cpp"

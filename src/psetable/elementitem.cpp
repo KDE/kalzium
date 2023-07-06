@@ -137,3 +137,5 @@ void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     setScale(1);
     QGraphicsItem::hoverLeaveEvent(event);
 }
+
+#include "moc_elementitem.cpp"

@@ -743,5 +743,4 @@ void titrationCalculator::on_actionSave_image_triggered()
     }
 }
 
-//#include "titrationCalculator.moc"
-//#include "moc_titrationCalculator.cpp"
+#include "moc_titrationCalculator.cpp"

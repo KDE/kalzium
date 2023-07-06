@@ -164,3 +164,5 @@ PeriodicTableView::~PeriodicTableView()
     delete scene();
     delete m_tableStates;
 }
+
+#include "moc_periodictableview.cpp"

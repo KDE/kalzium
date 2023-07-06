@@ -69,3 +69,5 @@ void NumerationItem::setNumerationType(int type)
 
     update();
 }
+
+#include "moc_numerationitem.cpp"

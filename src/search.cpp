@@ -79,3 +79,5 @@ void Search::resetSearch()
     m_isActive = false;
     Q_EMIT searchReset();
 }
+
+#include "moc_search.cpp"

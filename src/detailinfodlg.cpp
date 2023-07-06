@@ -1253,3 +1253,5 @@ void DetailedInfoDlg::showPreviousElement()
 {
     setElement(pseTables::instance()->getTabletype(m_tableTyp)->previousOf(m_elementNumber));
 }
+
+#include "moc_detailinfodlg.cpp"

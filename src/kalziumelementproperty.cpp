@@ -225,3 +225,5 @@ QColor KalziumElementProperty::gradientBrushLogic(int el) const
     }
     return gradientColor;
 }
+
+#include "moc_kalziumelementproperty.cpp"
