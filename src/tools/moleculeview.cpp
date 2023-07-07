@@ -335,3 +335,5 @@ void MoleculeDialog::slotGeometryOptimize()
     //         molecule->update();
     //     }
 }
+
+#include "moc_moleculeview.cpp"

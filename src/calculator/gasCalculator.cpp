@@ -302,3 +302,5 @@ void gasCalculator::error(int mode)
         break;
     }
 }
+
+#include "moc_gasCalculator.cpp"

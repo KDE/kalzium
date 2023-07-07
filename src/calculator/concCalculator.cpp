@@ -943,3 +943,5 @@ void concCalculator::error(int mode)
         break;
     }
 }
+
+#include "moc_concCalculator.cpp"

@@ -106,3 +106,5 @@ void IsotopeTableDialog::updateMode()
 {
     setMode(Prefs::isotopeTableMode());
 }
+
+#include "moc_isotopetabledialog.cpp"

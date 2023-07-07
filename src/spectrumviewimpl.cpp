@@ -111,3 +111,5 @@ void SpectrumViewImpl::updateMax(int right)
     m_spectrumWidget->setLeftBorder(minimumValue->value());
     m_spectrumWidget->setRightBorder(right);
 }
+
+#include "moc_spectrumviewimpl.cpp"

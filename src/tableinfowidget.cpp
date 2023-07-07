@@ -27,3 +27,5 @@ void TableInfoWidget::setTableType(int type)
 {
     m_tableType->setText(pseTables::instance()->getTabletype(type)->description());
 }
+
+#include "moc_tableinfowidget.cpp"

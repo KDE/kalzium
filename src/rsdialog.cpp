@@ -547,3 +547,5 @@ void RSDialog::invalidPhaseString()
 {
     KMessageBox::error(nullptr, i18n("At least one of the specified phrases is invalid."));
 }
+
+#include "moc_rsdialog.cpp"

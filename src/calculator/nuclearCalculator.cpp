@@ -399,3 +399,5 @@ void nuclearCalculator::error(int mode)
         break;
     }
 }
+
+#include "moc_nuclearCalculator.cpp"

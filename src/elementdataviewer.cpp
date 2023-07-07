@@ -519,3 +519,5 @@ void ElementDataViewer::initData()
     setupAxisData(m_xData);
     setupAxisData(m_yData);
 }
+
+#include "moc_elementdataviewer.cpp"

@@ -302,3 +302,5 @@ void MolcalcWidget::hideExtra()
     ui.details->hide();
     ui.tabWidget->removeTab(1);
 }
+
+#include "moc_molcalcwidget.cpp"

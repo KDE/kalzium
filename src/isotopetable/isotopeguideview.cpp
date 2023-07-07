@@ -93,3 +93,5 @@ void IsotopeGuideView::updateScene()
     ensureVisible(scene()->sceneRect());
     resizeEvent(nullptr);
 }
+
+#include "moc_isotopeguideview.cpp"

@@ -78,3 +78,5 @@ void SearchWidget::doSearch()
         s->resetSearch();
     }
 }
+
+#include "moc_searchwidget.cpp"

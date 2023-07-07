@@ -74,3 +74,5 @@ void IsotopeTableSettingsDialog::setMode(int mode)
     m_cards[m_mode]->setChecked(true);
     Q_EMIT modeChanged(m_mode);
 }
+
+#include "moc_isotopetablesettingsdialog.cpp"

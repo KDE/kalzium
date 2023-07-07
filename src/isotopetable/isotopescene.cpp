@@ -81,3 +81,5 @@ void IsotopeScene::setMode(int mode)
     m_mode = mode;
     drawIsotopes();
 }
+
+#include "moc_isotopescene.cpp"

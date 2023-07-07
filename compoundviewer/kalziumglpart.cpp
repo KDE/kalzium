@@ -53,3 +53,5 @@ bool KalziumGLPart::openFile()
 }
 
 #include "kalziumglpart.moc"
+
+#include "moc_kalziumglpart.cpp"

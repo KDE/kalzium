@@ -159,3 +159,5 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent *)
     p.drawPixmap(0, 0, pm);
     p.end();
 }
+
+#include "moc_detailedgraphicaloverview.cpp"
