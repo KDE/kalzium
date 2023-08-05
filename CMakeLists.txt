@@ -114,6 +114,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Plotting
     UnitConversion
     WidgetsAddons
+    TextWidgets
 )
 
 ecm_setup_version("5.0.0"
