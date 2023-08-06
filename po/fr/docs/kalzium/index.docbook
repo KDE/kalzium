@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY kappname "&kalzium;"
-><!-- replace kapp here -->
- <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % French "INCLUDE"
 ><!-- change language only here -->
@@ -12,7 +9,7 @@
 
 	 <bookinfo>
 		 <title
->Manuel de &kalzium;</title>
+>Manuel utilisateur de &kalzium;</title>
 
 		 <authorgroup>
 			 <author
@@ -26,7 +23,7 @@
 				 </affiliation>
 			 </author>
 
-			 &traducteurLudovicGrossard;&traducteurGerardDelafond;&traducteurAnneMarieMahfouf;&traducteurYohannHamon; &traducteurOlivierDelaune; 
+			 &traducteurLudovicGrossard;&traducteurGerardDelafond;&traducteurAnneMarieMahfouf;&traducteurYohannHamon; &traducteurOlivierDelaune;&traducteurXavierBesnard; 
 
 		 </authorgroup>
 
@@ -60,9 +57,9 @@
 >&FDLNotice;</legalnotice>
 
 		 <date
->28/05/2013</date>
+>19/12/2020</date>
 		 <releaseinfo
->2.4.00 (&kde; 4.11)</releaseinfo>
+>Applications 20.12</releaseinfo>
 
 		 <abstract>
 			 <para
@@ -103,23 +100,23 @@
 >Guide de démarrage rapide de &kalzium;</title>
 
 		 <para
->Voici &kalzium; tel qu'il apparaît la première fois que vous le démarrez soit en sélectionnant <menuchoice
+>Voilà comme est l'application &kalzium; la première fois que vous la lancez, soit en sélectionnant<menuchoice
 ><guimenu
 >Applications</guimenu
 > <guisubmenu
->Éducation</guisubmenu
-><guisubmenu
+>Education</guisubmenu
+> <guisubmenu
 >Science</guisubmenu
-> <guimenuitem
+><guimenuitem
 >&kalzium;</guimenuitem
 ></menuchoice
-> dans le &menuk; ou avec <keycombo action="simul"
+> à partir du lanceur d'applications ou avec <keycombo action="simul"
 >&Alt;<keycap
 >F2</keycap
-> </keycombo
+></keycombo
 > et en saisissant <command
 >kalzium</command
-> dans le champ de texte. </para>
+> dans la zone de saisie.</para>
 		 <screenshot>
 			 <screeninfo
 >Fenêtre principale de &kalzium;</screeninfo>
@@ -134,13 +131,13 @@
 		 </screenshot>
 
 		 <para
->&kalzium; est divisé en un panneau de navigation sur la gauche (en rouge), l'affichage du tableau (en bleu) qui affiche les éléments du tableau périodique et un panneau de légende en bas (en vert). La barre de menu standard vous permet de choisir ce que vous voulez afficher et la barre d'état affiche les données. Vous pouvez cacher le tableau etles panneaux en utilisant le menu <guimenu
+>&kalzium; est divisé en un panneau de navigation sur la gauche (en rouge), l'affichage du tableau (en bleu) affichant les éléments du tableau périodique et un panneau de légende en bas (en vert). La barre de menu standard vous permet de choisir ce que vous voulez afficher et la barre d'état affiche les données. Vous pouvez cacher le tableau et les panneaux en utilisant le menu <guimenu
 > Affichage</guimenu
->. Par exemple, vous pouvez cacher le panneau d'information avec <menuchoice
+>. Par exemple, vous pouvez cacher le panneau d'informations avec <menuchoice
 ><guimenu
 >Affichage</guimenu
 > <guimenuitem
->Information</guimenuitem
+>Informations</guimenuitem
 > </menuchoice
 >. </para>
 
@@ -176,7 +173,13 @@
 > <guimenuitem
 >Tracer les données...</guimenuitem
 ></menuchoice
->. Vous choisissez ce que vous voulez tracer sur l'axe des y et une sélection d'éléments à tracer sur l'axe des x. La copie d'écran ci-dessous montre la masse atomique des éléments 1 à 10. </para>
+>. Vous choisissez ce que vous voulez tracer sur l'axe des « y » et une sélection d'éléments à tracer sur l'axe des « x ». Cliquer sur le bouton &nbsp;<inlinemediaobject
+> <imageobject
+> <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guibutton
+>d'échange</guibutton
+> entre les panneaux d'axes pour intervertir les axes « x » et « y ».</para>
 
 		 <screenshot>
 			 <screeninfo
@@ -304,74 +307,77 @@
 				 <para
 >La page <guilabel
 >Isotopes</guilabel
-> vous donne des informations sur les isotopes d'un élément. <variablelist>
+> vous donne des informations sur les isotopes d'un élément.</para>
 
-						 <varlistentry>
-							 <term
+          <variablelist>
+          <varlistentry>
+            <term
+></term>
+            <listitem
+><para>
+            <variablelist>
+            <varlistentry>
+              <term
 >Masse</term>
-							 <listitem
+              <listitem
 ><para
->La masse de cet isotope. </para
+>La masse de cet isotope.</para
 ></listitem>
-						 </varlistentry>
-
-						 <varlistentry>
-							 <term
+            </varlistentry>
+            <varlistentry>
+              <term
 >Neutrons</term>
-							 <listitem
+              <listitem
 ><para
->Le nombre de neutrons que cet isotope possède. </para
+>Le nombre de neutrons que cet isotope possède.</para
 ></listitem>
-						 </varlistentry>
-
-						 <varlistentry>
-							 <term
+            </varlistentry>
+            <varlistentry>
+              <term
 >Pourcentage</term>
-							 <listitem
+              <listitem
 ><para
->Le pourcentage d'atomes étant de ce type d'isotope. Aussi appelé abondance. </para
+>Le pourcentage d'atomes étant de ce type d'isotope. Aussi appelé abondance.</para
 ></listitem>
-						 </varlistentry>
-
-						 <varlistentry>
-							 <term
+            </varlistentry>
+            <varlistentry>
+              <term
 >Temps de demi-vie</term>
-							 <listitem
+              <listitem
 ><para
->Seuls les isotopes instables ont un temps de demi-vie. Il est défini comme le temps au cours duquel la moitié des isotopes s'est désintégrée. </para
+>Seuls les isotopes instables ont un temps de demi-vie. Il est défini comme le temps au cours duquel la moitié des isotopes s'est désintégrée.</para
 ></listitem>
-						 </varlistentry>
-
-						 <varlistentry>
-							 <term
+            </varlistentry>
+            <varlistentry>
+              <term
 >Énergie et mode de désintégration</term>
-							 <listitem
+              <listitem
 ><para
->Quelques isotopes sont connus pour émettre des particules radiatives durant le processus de désintégration radioactive. Chaque désintégration dégage une quantité donnée d'énergie, laquelle est notée avec le mode de désintégration. </para
+>Quelques isotopes sont connus pour émettre des particules radiatives durant le processus de désintégration radioactive. Chaque désintégration dégage une quantité donnée d'énergie, laquelle est notée avec le mode de désintégration.</para
 ></listitem>
-						 </varlistentry>
-
-						 <varlistentry>
-							 <term
+            </varlistentry>
+            <varlistentry>
+              <term
 >Spin et parité</term>
-							 <listitem
+              <listitem
 ><para
->Le spin du noyau et sa parité. </para
+>Le spin du noyau et sa parité.</para
 ></listitem>
-						 </varlistentry>
-
-						 <varlistentry>
-							 <term
+            </varlistentry>
+            <varlistentry>
+              <term
 >Moment magnétique</term>
-							 <listitem
+              <listitem
 ><para
->Le moment magnétique dipolaire du noyau. Mesuré en unités de magnéton nucléaire. </para
+>Le moment magnétique dipolaire du noyau. Mesuré en unités de magnéton nucléaire.</para
 ></listitem>
-						 </varlistentry>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+          </variablelist>
 
-					 </variablelist>
-
-				 </para>
 				 <screenshot>
 					 <screeninfo
 >La boîte de dialogue d'information de &kalzium;</screeninfo>
@@ -446,9 +452,9 @@
 				 <para
 >La page <guilabel
 >Informations supplémentaires</guilabel
-> vous donne des liens vers les articles de Wikipédia, du <ulink url="http://education.jlab.org/"
->Jefferson Lab</ulink
->, et de <ulink url="http://www.webelements.com/"
+> vous donne des liens vers les articles de Wikipédia, du <ulink url="https://education.jlab.org/"
+>Laboratoire « Jefferson »</ulink
+> et de <ulink url="https://www.webelements.com/"
 >WebElements</ulink
 >.</para>
 				 <screenshot>
@@ -480,14 +486,16 @@
 > ou de la liste déroulante de la barre d'outils.</para>
 
 			 <para
->Les options suivantes dans le menu <guimenu
+>Les options suivantes dans le menu <menuchoice
+><guimenu
 >Affichage</guimenu
-> <guimenuitem
->Tables</guimenuitem
+> <guisubmenu
+>Tables</guisubmenu
+></menuchoice
 > peuvent être utilisées pour changer le tableau affiché :  <variablelist>
 			   <varlistentry>
 			     <term
->Tableau périodique des éléments classique</term>
+>Tableau périodique classique</term>
 			     <listitem>
 			       <para
 ><action
@@ -497,7 +505,7 @@
 			   </varlistentry>
 			   <varlistentry>
 			     <term
->Tableau périodique des éléments court</term>
+>Tableau périodique court</term>
 			     <listitem>
 			       <para
 ><action
@@ -507,7 +515,7 @@
 			   </varlistentry>
 			   <varlistentry>
 			     <term
->Tableau périodique des éléments étendu</term>
+>Tableau périodique long</term>
 			     <listitem>
 			       <para
 ><action
@@ -532,7 +540,7 @@
 			       <para
 >Cet objet représente la table que la DZ <foreignphrase lang="de"
 >Deutscher Zentralausschuss</foreignphrase
-> « German Central Comitee » propose. </para>
+> « German Central Committee » propose. </para>
 			     </listitem>
 			   </varlistentry>
 			 </variablelist>
@@ -670,6 +678,14 @@
 >Groupes</guimenuitem
 > : affiche une couleur pour chaque groupe. Un groupe est une colonne verticale dans le tableau périodique des éléments. Il y a 18 groupes dans le tableau périodique standard. Les éléments d'un même groupe ont des configurations similaires dans leurs couches de valence électroniques, ce qui leur donne des propriétés similaires. </para
 ></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Couleurs</guimenuitem
+>: de jolies couleurs sans signification. (A partir du projet <ulink url="https://openbabel.org/wiki/Main_Page"
+>Open Babel</ulink
+>). </para
+></listitem>
 			 </itemizedlist>
 		</sect1>
 		<sect1 id="gradients">
@@ -701,68 +717,90 @@
 			   </mediaobject>
 			   </screenshot>
 			   <para
->Les gradients suivants sont pris en charge</para>
+>Les gradients suivants sont implémentés (vous pouvez cliquer sur certains éléments listés) :</para>
 			   <itemizedlist>
-			     <listitem
+            <listitem
 ><para
->Aucun : n'utilise aucun gradient. </para
+><guimenuitem
+>Aucun</guimenuitem
+> : ne pas utiliser les dégradés. </para
 ></listitem>
-			     <listitem
+            <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/%C3%89tat_de_la_mati%C3%A8re"
->État de la matière</ulink
+><guimenuitem
+>État de la matière</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+            <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/Rayon_de_covalence"
->Rayon de covalence</ulink
+><guimenuitem
+>Rayon de covalence</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/Rayon_de_van_der_Waals"
->van der Waals</ulink
+><guimenuitem
+>Van der Waals</guimenuitem
+></ulink
 > : gradient par rayon de van der Waals. </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/Masse_atomique"
->Masse atomique</ulink
+><guimenuitem
+>Masse atomique</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/Point_d%27%C3%A9bullition"
->Point d'ébullition</ulink
+><guimenuitem
+>Point d'ébullition</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/Point_de_fusion"
->Point de fusion</ulink
+><guimenuitem
+>Point de fusion</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/%C3%89lectron%C3%A9gativit%C3%A9"
->Électronégativité (Pauling)</ulink
+><guimenuitem
+>Électronégativité (Pauling)</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/Affinit%C3%A9_%C3%A9lectronique"
->Affinité électronique</ulink
+><guimenuitem
+>Affinité électronique</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
->Date de découverte </para
+><guimenuitem
+>Date de découverte</guimenuitem>
+            </para
 ></listitem>
-			     <listitem
+              <listitem
 ><para
 ><ulink url="https://fr.wikipedia.org/wiki/%C3%89nergie_d%27ionisation"
->Énergie d'ionisation</ulink
+><guimenuitem
+>Énergie d'ionisation</guimenuitem
+></ulink
 >&nbsp; </para
 ></listitem>
 			   </itemizedlist>
@@ -778,19 +816,35 @@
 >Avogadro</ulink
 >. </para>
 				 <para
->En utilisant le panneau de contrôle sur la gauche, vous pouvez modifier les paramètres d'affichage, modifier la molécule ou mesurer les molécules. Il y a trois onglets dans ce panneau : <guilabel
+>En utilisant le tableau de bord sur la gauche, vous pouvez modifier les paramètres d'affichage, modifier une molécule ou mesurer des molécules. Il y a trois onglets dans ce tableau de bord : <guilabel
 >Affichage</guilabel
 >, <guilabel
 >Modifier</guilabel
 >, et <guilabel
 >Mesure</guilabel
->. Les boutons en bas de la fenêtre peuvent être utilisés pour <guibutton
+>. En haut de la fenêtre, il y a un bouton permettant de choisir l'afficheur de <guilabel
+>Style :</guilabel
+> (peut être <guimenuitem
+>Boules et bâtons</guimenuitem
+>, <guimenuitem
+>Licorice</guimenuitem
+>, <guimenuitem
+>Van der Waals</guimenuitem
+>, <guimenuitem
+>Van der Waals (AO)</guimenuitem
+> (<abbrev
+>AO</abbrev
+> signifie <quote
+>Association ambiante</quote
+>) ou <guimenuitem
+>Fil de fer</guimenuitem
+>). Les boutons le long le bas de la fenêtre peuvent être utilisés pour<guibutton
+>Charger une Molécule</guibutton
+>, <guibutton
+>Télécharger de Nouvelles Molécules</guibutton
+>, <guibutton
 >Enregistrer une molécule</guibutton
->, <guibutton
->Télécharger de nouvelles molécules</guibutton
->, <guibutton
->Charger une molécule</guibutton
->, et <guibutton
+> et <guibutton
 >Fermer</guibutton
 > la fenêtre. Les fichiers téléchargés seront enregistrés dans votre dossier <filename class="directory"
 >Documents</filename
@@ -800,63 +854,17 @@
 >Statistiques</guilabel
 > affiche le nom (si disponible), la formule, et la masse de la molécule. </para>
 				 <para
->L'onglet <guilabel
->Affichage</guilabel
-> peut être utilisé pour modifier la<guilabel
->Qualité</guilabel
-> de l'image (<guimenuitem
->Basse</guimenuitem
->, <guimenuitem
->Moyenne</guimenuitem
->, ou <guimenuitem
->Haute</guimenuitem
->, peut être utilisé sur les systèmes peu puissants), le <guilabel
->Style</guilabel
-> (choisir parmi<guimenuitem
->Boules et bâtons</guimenuitem
->, <guimenuitem
->Bâtons</guimenuitem
->, <guimenuitem
->Van der Waals</guimenuitem
->, ou <guimenuitem
->Fil de fer</guimenuitem
->), <guilabel
->2ème style</guilabel
-> (choisir parmi <guimenuitem
->Aucun</guimenuitem
->, <guimenuitem
->Ruban</guimenuitem
->, <guimenuitem
->Anneau</guimenuitem
->, ou <guimenuitem
->Orbitale moléculaire</guimenuitem
->), et <guilabel
->Libellés</guilabel
-> (choisir parmi <guimenuitem
->Aucun</guimenuitem
->, <guimenuitem
->Numéro des atomes</guimenuitem
->, <guimenuitem
->Noms des éléments</guimenuitem
->, ou <guimenuitem
->Symbole des éléments</guimenuitem
->). </para>
+>L'onglet « Affichage » peut être utiliser pour afficher une molécule chargée. En cliquant dans la vue avec le pointeur de souris, vous pouvez modifier l'angle d'affichage. Utilisez le &BGS; pour tourner la molécule, le &BDS; pour la bouger, et le &BCS; pour zoomer. </para>
 				 <para
 >L'onglet <guilabel
 >Modifier</guilabel
 > permet de modifier une molécule. Vous pouvez ajouter des éléments en les choisissant dans la liste déroulante <guilabel
 >Éléments</guilabel
-> et en cliquant avec le &BGS; dans le panneau d'affichage. La molécule peut être optimisée en cliquant sur le bouton <guibutton
->Optimiser</guibutton
->. </para>
+> et en cliquant avec le &BGS; dans le panneau d'affichage sur la droite. </para>
 				 <para
 >L'onglet <guilabel
 >Mesure</guilabel
 > peut être utilisé pour mesurer des distances et des angles dans une molécule. Pour réaliser la mesure, utilisez les instructions données dans cet onglet. </para>
-				 <para
->La molécule sera affichée sur la droite de la fenêtre de <guilabel
->l'éditeur moléculaire</guilabel
->. Utilisez le &BGS; pour tourner la molécule, le &BDS; pour la bouger, et le &BCS; pour zoomer. </para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -875,9 +883,9 @@
 				 <title
 >Table des isotopes</title>
 				 <para
-><guimenuitem
->Table des isotopes...</guimenuitem
-> vous montre les isotopes des éléments. </para>
+>La <guimenuitem
+>Table des isotopes</guimenuitem
+> vous présente les isotopes des éléments. </para>
 				 <para
 >Il existe plusieurs sortes d'isotopes, certains sont stables, d'autres ne le sont pas. Les isotopes instables peuvent décroître par rayonnement alpha ou par un des deux rayonnement bêta qui existent. Ces différences sont schématisées par différentes couleurs. </para>
 				 <screenshot>
@@ -902,17 +910,23 @@
 				 <title
 >Tracer les données</title>
 				 <para
->La boîte de dialogue <guimenuitem
->Tracer les données...</guimenuitem
+>La boîte de dialogue <guilabel
+>Tracer les données</guilabel
 > vous permet de tracer certaines informations sur des éléments. L'axe des abscisses représente une plage d'éléments (d'un nombre donné jusqu'à un nombre plus élevé). Vous fixez cette plage en utilisant les champs <guilabel
->Premier élément</guilabel
+>Premier élément :</guilabel
 > et <guilabel
 >Dernier élément</guilabel
-> dans la boîte de dialogue. </para>
+> dans la boîte de dialogue. Cliquez sur le bouton &nbsp;<inlinemediaobject
+> <imageobject
+> <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guibutton
+>d'échange</guibutton
+> entre les panneaux des axes pour intervertir les axes « X » et « Y ». </para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
-							 <imagedata fileref="screenshot5.png" format="PNG"/>
+							 <imagedata fileref="quick-3.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
@@ -931,11 +945,11 @@
 				 <title
 >Réaliser les calculs</title>
 				 <para
-><guilabel
->Réaliser les calculs</guilabel
+><guimenuitem
+>Réaliser les calculs</guimenuitem
 > correspond au calculateur de &kalzium;. Ce calculateur contient une variété de calculateurs pour différentes tâches réalisant différents calculs. </para>
 				 <para
->Vous pouvez trouver les calculateurs suivants dans &kalzium; </para>
+>Vous pouvez trouver les calculateurs suivants dans &kalzium; : </para>
 				 <variablelist>
 				   <varlistentry>
 				     <term
@@ -969,19 +983,19 @@
 >Calculateur de concentrations</term>
 				     <listitem>
 				       <para
->Vous pouvez calculer des quantités telles que </para>
+>Vous pouvez calculer des quantités qui incluent : </para>
 				       <itemizedlist>
 					 <listitem>
 					   <para
->la quantité de matière </para>
+>Quantité de soluté </para>
 					 </listitem>
 					 <listitem>
 					   <para
->le volume de solvant </para>
+>Densité du solvant </para>
 					 </listitem>
 					 <listitem>
 					   <para
->la concentration de matière </para>
+>Densité du soluté </para>
 					 </listitem>
 				       </itemizedlist>
 				       <para
@@ -1035,7 +1049,7 @@
 >Calculateur de gaz</term>
 				     <listitem>
 				       <para
->Ce calculateur permet de calculer les valeurs de température, pression, volume, quantité de gaz, etc. pour différents gaz, parfaits ou non. </para>
+>Ce calculateur permet de calculer les valeurs de température, pression, volume, quantité de gaz, &etc; pour différents gaz, parfaits ou non. </para>
 				       <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -1060,7 +1074,7 @@
 >Calculateur de titrage</term>
 				     <listitem>
 				       <para
->Ce calculateur essaie de trouver le meilleur point d'équivalence d'un titrage suivi par pH-mètre en utilisant une tangente hyperbolique. Vous pouvez aussi le laisser résoudre un système d'équations à l'équilibre and voir comment la concentration d'une espèce évolue en fonction d'une autre. </para>
+>Ce calculateur essaie de trouver le meilleur point d'équivalence d'un titrage suivi par pH-mètre en utilisant une tangente hyperbolique. Vous pouvez aussi le laisser résoudre un système d'équations à l'équilibre et voir comment la concentration d'une espèce évolue en fonction d'une autre. </para>
 				       <para
 >Il y a deux onglets dans la page du calculateur, à savoir : </para>
 				       <variablelist>
@@ -1071,7 +1085,9 @@
 ></term>
 					   <listitem>
 					     <para
->Vous pouvez utiliser ce calculateur pour tracer les données expérimentales que vous avez obtenues durant le titrage et trouver le volume d'équivalence. Il est fortement recommandé d'insérer un nombre pair de points, du fait de l'algorithme de meilleur ajustement, triés par volume (la valeur de l'axe X). </para>
+>Vous pouvez utiliser ce calculateur pour tracer les données expérimentales que vous avez obtenues durant le titrage et trouver le volume d'équivalence. Il est fortement recommandé d'insérer un nombre pair de points, du fait de l'algorithme de meilleur ajustement, triés par volume (la valeur de l'<guilabel
+>axe X</guilabel
+>). </para>
 					   </listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -1128,11 +1144,11 @@
 >Alors vous devez écrire <userinput
 >D</userinput
 > pour <guilabel
->l'axe X</guilabel
+>l'axe X :</guilabel
 > et <userinput
 >A</userinput
 > pour <guilabel
->l'axe Y</guilabel
+>l'axe Y :</guilabel
 > : ainsi, vous trouverez comment la concentration de A évolue en fonction de la concentration de D. </para>
 					     <note>
 					       <para
@@ -1148,7 +1164,7 @@
 				       <para
 >Les résultats peuvent être affichés en appuyant sur le bouton <guibutton
 >Tracer</guibutton
->. Le graphique affiche en rouge la courbe prévue par la théorie, en bleu les points expérimentaux, et en vert la courbe approximative des points expérimentaux. Vous pouvez enregistrer le graphique au format SVG. </para>
+>. Le graphique affiche en rouge la courbe prévue par la théorie, en bleu les points expérimentaux, et en vert la courbe approximative des points expérimentaux. Vous pouvez enregistrer le graphique au format &SVG;. </para>
 					 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -1175,7 +1191,7 @@
 				       <para
 >Le <guimenuitem
 >Solveur d'équations</guimenuitem
-> permet à l'utilisateur de résoudre des équations chimiques. Voici un exemple : </para>
+> permet à l'utilisateur de résoudre des équations chimiques. En voici un exemple : </para>
 				       <blockquote
 ><para
 >aH2O + bCO2 -> cH2CO3</para
@@ -1207,7 +1223,9 @@
 				 <title
 >Phrases de risque / sécurité</title>
 				 <para
->Les phrases R / S, aussi appelées phrases de risques / sécurité, ou encore conseil de prudence pour les phrases S, est un système de codes et de phrases de danger utilisé pour l'étiquetage des composés et produits chimiques dangereux. La phrase R / S d'un composé est constituée d'une partie liée au risque (R) et d'une autre liée à la sécurité (S), suivis chacune par une combinaison de chiffres. Chaque numéro correspond à une phrase. La phrase correspondant à une combinaison de lettre /numéro a la même signification dans les différentes langues.  </para>
+>Les <guilabel
+>phrases R / S</guilabel
+>, aussi appelées phrases de risques / sécurité, ou encore conseil de prudence pour les phrases S, est un système de codes et de phrases de danger utilisé pour l'étiquetage des composés et produits chimiques dangereux. La phrase R / S d'un composé est constituée d'une partie liée au risque (R) et d'une autre liée à la sécurité (S), suivis chacune par une combinaison de chiffres. Chaque numéro correspond à une phrase. La phrase correspondant à une combinaison de lettre /numéro a la même signification dans les différentes langues.  </para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -1230,7 +1248,9 @@
 				 <title
 >Glossaire</title>
 				 <para
->Le glossaire vous donne des descriptions des instruments les plus utilisés en chimie ainsi que des connaissances générales. Sur le côté gauche de la fenêtre, vous pouvez voir l'arborescence des points traités. En haut, il y a les termes chimiques, et sous cela il y a une seconde arborescence pour les instruments de laboratoire. </para>
+>Le <guilabel
+>glossaire</guilabel
+> vous donne des descriptions des instruments les plus utilisés en chimie ainsi que des connaissances générales. Sur le côté gauche de la fenêtre, vous pouvez voir l'arborescence des points traités. En haut, il y a les termes chimiques, et sous cela il y a une seconde arborescence pour les instruments de laboratoire.</para>
 				 <para
 >En haut de la fenêtre, vous pouvez voir une barre de recherche. Si vous saisissez quelque chose, l'arborescence sera modifiée en conséquence immédiatement. Le petit bouton à l'extrémité droite de la barre de recherche la réinitialisera. </para>
 				 <screenshot>
@@ -1251,7 +1271,9 @@
 				 <title
 >Tableaux</title>
 				 <para
->Les tableaux vous montrent les tableaux pour l'alphabet grec qui est utilisé pour nommé certaines quantités chimiques et physiques, et pour les préfixes latin et les nombres romains qui correspondent au nombres arabes standards. </para>
+>Les <guilabel
+>tableaux</guilabel
+> vous montrent les tableaux pour l'alphabet grec qui est utilisé pour nommé certaines quantités chimiques et physiques, et pour les préfixes latin et les nombres romains qui correspondent au nombres arabes standards.</para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -1323,7 +1345,7 @@
 > peut être utilisé pour filtrer le tableau périodique des éléments. Par exemple, cette fonctionnalité vous permet d'explorer l'élément sur une période de temps. C'est très bien pour avoir une idée de comment le tableau périodique a évolué avec le temps, au fur et à mesure que les éléments ont été découverts. Choisissez <guimenuitem
 >Date de découverte</guimenuitem
 > dans la liste <guilabel
->Gradient</guilabel
+>Gradient :</guilabel
 >. Si vous déplacez le curseur, vous noterez que certains éléments disparaissent si vous la déplacez vers la gauche et réapparaissent si vous la déplacez vers la droite. De plus, le nombre changera en permanence. </para>
 
 					 <para
@@ -1403,7 +1425,7 @@
 >, vous pouvez vérifier les propriétés que vous souhaitez afficher avec un gradient logarithmique.</para>
 		 <para
 >Vous pouvez choisir la <guilabel
->couleur de la valeur maximale</guilabel
+>couleur de la valeur maximale :</guilabel
 > et la <guilabel
 >couleur de la valeur minimale</guilabel
 > pour le gradient.</para>
@@ -1423,7 +1445,7 @@
 		 <para
 >Dans l'onglet <guilabel
 >Unités</guilabel
->, vous pouvez choisir les unités de température, de longueur et d'énergie. Vous pouvez choisir si vous préférez électronvolt (eV), kilojoule par mole (kJ/mol) ou joule par mole (J/mol) par défaut. Pour les longueurs, choisissez picomètres (pm), nanomètres (nm) ou Ångström (Å) par défaut. La température est en kelvin par défaut mais vous pouvez la changer pour des degrés Celsius (°C), des degrés Fahrenheit (°F) et des degrés Réaumur (°Ré). </para>
+>, vous pouvez choisir les unités d'énergie, de longueur et de température. Vous pouvez choisir si vous préférez électronvolt (eV), kilojoule par mole (kJ/mol), joule par mole (J/mol) ou joules (J) par défaut. Pour les longueurs, choisissez picomètres (pm), nanomètres (nm) ou &Aring;ngstr&ouml;m (Å) par défaut. La température est en kelvin par défaut mais vous pouvez la changer pour des degrés Celsius (°C), des degrés Fahrenheit (°F) et des degrés Réaumur (°Ré). </para>
 		 <screenshot>
 			 <screeninfo
 >Boîte de dialogue de configuration de &kalzium;</screeninfo>
@@ -1459,7 +1481,13 @@
 					 <varlistentry>
 						 <term
 ><menuchoice
-><guimenu
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; &Maj;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
 >Fichier</guimenu
 > <guimenuitem
 >Enregistrer sous...</guimenuitem
@@ -1504,8 +1532,8 @@
 						 <listitem
 ><para
 ><action
->Ouvre</action
-> une boîte de dialogue pour importer et exporter un large éventail de formats de fichiers chimiques et de types de données avec la <ulink url="http://openbabel.org/wiki/Main_Page"
+>Ouvrir</action
+> une boîte de dialogue pour importer et exporter un large éventail de formats de fichiers de chimie et de types de données avec la <ulink url="https://openbabel.org/wiki/Main_Page"
 >bibliothèque Open Babel</ulink
 >.</para
 ></listitem>
@@ -1539,462 +1567,396 @@
 			 <sect2>
 				 <title
 >Le menu Affichage</title>
-				 <variablelist>
-					 <varlistentry>
-						 <term
+          <variablelist>
+          <varlistentry>
+            <term
 ><menuchoice
 ><guimenu
 >Affichage</guimenu
 > <guisubmenu
->Tables</guisubmenu
-> <guimenuitem
->Tableau périodique des éléments classique</guimenuitem
-> </menuchoice
+>Tableaux</guisubmenu
+></menuchoice
 ></term>
-						 <listitem
+            <listitem
 ><para
 ><action
->Affiche</action
-> un tableau périodique classique avec tous les éléments.</para
-></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Tables</guisubmenu
-> <guimenuitem
->Tableau périodique des éléments court</guimenuitem
-> </menuchoice
+>Affiche un sous-menu</action
+> avec différentes tables périodiques. Les options suivantes sont disponibles : <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Tableau périodique classique des éléments</guimenuitem
 ></term>
-						 <listitem
+              <listitem
+><para
+><action
+>Affiche un tableau périodique classique avec tous les éléments.</action
+></para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Tableau périodique court des éléments</guimenuitem
+></term>
+              <listitem
 ><para
 ><action
 >Affiche</action
 > un tableau périodique sans les éléments de transition.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Tables</guisubmenu
-> <guimenuitem
->Tableau périodique des éléments étendu</guimenuitem
-> </menuchoice
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Tableau périodique long des éléments</guimenuitem
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > un tableau périodique avec les éléments de transition (bloc f) inclus.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Tables</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Éléments de transition</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > un tableau périodique composé uniquement des éléments de transition.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Tables</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Tableau périodique des éléments DZ</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 >Cet objet représente la table que la DZ <foreignphrase lang="de"
 >Deutscher Zentralausschuss</foreignphrase
-> « German Central Comitee » propose.</para
+> <quote
+>German Central Comitee</quote
+> propose.</para
 ></listitem>
-					 </varlistentry>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
 
-					 <varlistentry>
-						 <term
+          <varlistentry>
+            <term
 ><menuchoice
 ><guimenu
 >Affichage</guimenu
 > <guisubmenu
 >Numérotation</guisubmenu
-> <guimenuitem
->Pas de numérotation</guimenuitem
-> </menuchoice
+></menuchoice
 ></term>
-						 <listitem
+            <listitem
+><para
+><action
+>Affiche un sous-menu</action
+> avec différents modes de numérotation. Les options suivantes sont disponibles : <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Aucune numérotation</guimenuitem
+></term>
+              <listitem
 ><para
 ><action
 >N'affiche</action
 > aucun schéma de numérotation.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Numérotation</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >IUPAC</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > la numérotation IUPAC.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Numérotation</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >CAS</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > la numérotation CAS.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Numérotation</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Ancien IUPAC</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > la numérotation de l'ancien IUPAC.</para
 ></listitem>
-					 </varlistentry>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
 
-					 <!-- second entry -->
-					 <varlistentry>
-						 <term
+          <varlistentry>
+            <term
 ><menuchoice
 ><guimenu
 >Affichage</guimenu
 > <guisubmenu
->Modèle de couleurs</guisubmenu
-> <guimenuitem
->Monochrome</guimenuitem
-> </menuchoice
+>Thème</guisubmenu
+></menuchoice
 ></term>
-						 <listitem
+            <listitem
+><para
+><action
+>Affiche un sous-menu</action
+> avec différents thèmes. Les options disponibles sont : <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Monochrome</guimenuitem
+></term>
+              <listitem
 ><para
 ><action
 >Affiche</action
 > tous les éléments avec une seule couleur de fond.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Modèle de couleur</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Blocs</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > les quatre blocs d'éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Modèle de couleur</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Iconique</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > une icône pour chaque élément.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Modèle de couleur</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Famille</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > les familles d'éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Modèle de couleur</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Groupes</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > les groupes d'éléments.</para
 ></listitem>
-					 </varlistentry>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Couleurs</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Affiche</action
+> les couleurs des éléments.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
 
-					 <varlistentry>
-						 <term
+          <varlistentry>
+            <term
 ><menuchoice
 ><guimenu
 >Affichage</guimenu
 > <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
->Aucun</guimenuitem
-> </menuchoice
+>Dégradés</guisubmenu
+></menuchoice
 ></term>
-						 <listitem
+            <listitem
+><para
+><action
+>Affiche un sous-menu</action
+> avec différents dégradés. Les options suivantes sont disponibles : <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Aucun</guimenuitem
+></term>
+              <listitem
 ><para
 ><action
 >N'affiche</action
 > aucun gradient dans le tableau.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >État de la matière</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > l'état de la matière des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Rayon de covalence</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > le rayon de covalence des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
->van Der Waals</guimenuitem
-> </menuchoice
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Van Der Waals</guimenuitem
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > le rayon de van der Waals des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Masse atomique</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > la masse atomique des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Point d'ébullition</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > le point d'ébullition des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Température de fusion</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > la température de fusion des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Électronégativité (Pauling)</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > l'électronégativité des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Affinité électronique</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > l'affinité électronique des éléments.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Date de découverte</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > la date de découverte de chaque élément avec une couleur de fond différente pour chaque siècle.</para
 ></listitem>
-					 </varlistentry>
-					 <varlistentry>
-						 <term
-><menuchoice
-><guimenu
->Affichage</guimenu
-> <guisubmenu
->Gradients</guisubmenu
-> <guimenuitem
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
 >Première ionisation</guimenuitem
-> </menuchoice
 ></term>
-						 <listitem
+              <listitem
 ><para
 ><action
 >Affiche</action
 > l'énergie de première ionisation des éléments.</para
 ></listitem>
-					 </varlistentry>
-
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
 
 					 <varlistentry>
 						 <term
@@ -2067,7 +2029,9 @@
 ><para
 ><action
 >Ouvre</action
-> la boîte de dialogue de l'éditeur moléculaire.</para
+> la boîte de dialogue de l'<guilabel
+>Éditeur moléculaire</guilabel
+>.</para
 ></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -2083,7 +2047,9 @@
 ><para
 ><action
 >Ouvre</action
-> la fenêtre avec la table des isotopes.</para
+> la fenêtre de la <guilabel
+>table des isotopes</guilabel
+>.</para
 ></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -2099,7 +2065,9 @@
 ><para
 ><action
 >Ouvre</action
-> la boîte de dialogue pour tracer les données.</para
+> la boîte de dialogue des <guilabel
+>Tracer les données</guilabel
+>.</para
 ></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -2116,7 +2084,9 @@
 ><action
 >Ouvre</action
 > la <link linkend="perf_calculation"
->boîte de dialogue pour réaliser les calculs</link
+>boîte de dialogue pour la <guilabel
+>réalisation de calculs</guilabel
+></link
 >.</para
 ></listitem>
 					 </varlistentry>
@@ -2151,7 +2121,9 @@
 ><para
 ><action
 >Ouvre</action
-> le glossaire.</para
+> le <guilabel
+>glossaire</guilabel
+>.</para
 ></listitem>
 					 </varlistentry>
 					 <varlistentry>
@@ -2180,18 +2152,17 @@
 
 <sect2>
 <title
->Les menus Configuration et Aide</title
-> 
+>Les menus Configuration et Aide</title>
 <para
->&kalzium; dispose des éléments de menu <guimenu
+>&kalzium; dispose des éléments standards de menu <guimenu
 >Configuration</guimenu
 > et <guimenu
 >Aide</guimenu
-> communs ) &kde;, pour plus d'informations, lisez les sections sur le <ulink url="help:/fundamentals/ui.html#menus-settings"
+> communs ) &kde;. Pour plus d'informations, veuillez consulter les sections sur le <ulink url="help:/fundamentals/menus.html#menus-settings"
 >menu Configuration</ulink
-> et le <ulink url="help:/fundamentals/ui.html#menus-help"
+> et le <ulink url="help:/fundamentals/menus.html#menus-help"
 >menu Aide</ulink
-> dans les Fondamentaux de &kde;. </para>
+> dans les pages « Fondamentaux » de &kde;. </para>
 </sect2>
 		 </sect1>
 	 </chapter>
@@ -2208,11 +2179,11 @@
 				 </question>
 				 <answer>
 					 <para
->Non, jamais. Mais l'auteur reçoit toujours volontiers un courrier électronique sympathique ou un DVD comme <quote
->Remerciement</quote
->. &kalzium; est sous licence <ulink url="http://www.gnu.org/licenses/licenses.html#GPL"
+>Non, jamais. Mais l'auteur reçoit toujours volontiers un courrier électronique sympathique ou un &DVD; comme <quote
+>Remerciements</quote
+>. L'application &kalzium; est sous licence <ulink url="https://www.gnu.org/licenses/licenses.html#GPL"
 >GPL</ulink
->, et ainsi, vous n'aurez jamais à payer pour ce programme.</para>
+>. Ainsi, vous n'aurez jamais à payer pour ce programme.</para>
 				 </answer>
 			 </qandaentry>
 
@@ -2240,7 +2211,7 @@
 			 <qandaentry>
 				 <question>
 					 <para
->Trouvez des bogues ou donnez moi quelques suggestions</para>
+>Trouvez des bogues ou fournissez nous quelques suggestions.</para>
 				 </question>
 				 <answer>
 					 <para
@@ -2273,36 +2244,8 @@
 		 </itemizedlist>
 
 		 <para
->Traduction française par &LudovicGrossard;, &GerardDelafond;, &AnneMarieMahfouf;, &YohannHamon; et &OlivierDelaune;.</para
-> 
-&underFDL; &underGPL; </chapter>
-
-	 <appendix id="installation">
-		 <title
->Installation</title>
-
-		 <sect1 id="getting-kalzium">
-			 <title
->Comment obtenir &kalzium;</title>
-&install.intro.documentation; </sect1>
-
-		 <sect1 id="web_presence">
-			 <title
->Présence sur le Web</title>
-
-			 <para
->&kalzium; lui-même peut être trouvé sur <ulink url="http://edu.kde.org/kalzium"
->la page web de &kalzium;</ulink
-> et fait partie du projet &kde; édu.</para>
-
-		 </sect1>
-
-		 <sect1 id="compilation">
-			 <title
->Compilation et installation</title>
-&install.compile.documentation; </sect1>
-
-	 </appendix>
+>Traduction française par &LudovicGrossard;, &GerardDelafond;, &AnneMarieMahfouf;, &YohannHamon;, &OlivierDelaune; et &XavierBesnard;.</para
+> &underFDL; &underGPL; </chapter>
 
 	 &documentation.index;
  </book>
