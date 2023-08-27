@@ -37,7 +37,6 @@ kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 
 find_package(Gettext REQUIRED)
-find_package(PythonInterp REQUIRED)
 find_package(PkgConfig)
 find_package(OpenBabel3 3.1)
 if(NOT ${OpenBabel3_FOUND})
