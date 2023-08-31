@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2023-08-08 16:54+0200\n"
+"PO-Revision-Date: 2023-08-29 15:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3828,7 +3828,7 @@ msgid ""
 "bars, etc."
 msgstr ""
 "Este quadro es pot utilitzar per a especificar les unitats de pressió, p. "
-"ex. atmosferes, bars, etc."
+"ex., atmosferes, bars, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: src/calculator/gasCalculator.ui:181
@@ -3862,7 +3862,7 @@ msgid ""
 "Celsius, etc."
 msgstr ""
 "Este quadro es pot utilitzar per a especificar les unitats de temperatura, "
-"p. ex. Kelvin, Celsius, etc."
+"p. ex., Kelvin, Celsius, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
@@ -3893,7 +3893,7 @@ msgstr "<big>Especifiqueu les unitats del volum de gas</big>"
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
 msgstr ""
-"Este quadro es pot utilitzar per a canviar les unitats de volum, p. ex. "
+"Este quadro es pot utilitzar per a canviar les unitats de volum, p. ex., "
 "litres."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
@@ -4095,7 +4095,7 @@ msgstr "<big>La unitat de vida mitjana</big>"
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
 msgstr ""
-"Este quadro s'utilitza per a especificar la unitat de vida mitjana, p. ex. "
+"Este quadro s'utilitza per a especificar la unitat de vida mitjana, p. ex., "
 "anys, segons, etc."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
@@ -4296,7 +4296,7 @@ msgid ""
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
 "Este quadro pot utilitzar-se per a canviar el mode en què voleu especificar "
-"la quantitat inicial de la substància, p. ex. massa o mols."
+"la quantitat inicial de la substància, p. ex., massa o mols."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmtType)
@@ -4321,7 +4321,7 @@ msgid ""
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
 "Este quadro pot utilitzar-se per a canviar el mode en què voleu especificar "
-"la quantitat final de la substància, p. ex. massa o mols."
+"la quantitat final de la substància, p. ex., massa o mols."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
@@ -4338,7 +4338,7 @@ msgid ""
 "substance. e.g. grams, pounds, etc."
 msgstr ""
 "Este quadro es pot utilitzar per a especificar les unitats de la quantitat "
-"inicial de substància. p. ex. grams, lliures, etc."
+"inicial de substància. p. ex., grams, lliures, etc."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -4402,7 +4402,7 @@ msgid ""
 "substance. e.g. grams, pounds, etc."
 msgstr ""
 "Este quadro es pot utilitzar per a especificar les unitats de la quantitat "
-"final de substància. p. ex. grams, lliures, etc."
+"final de substància. p. ex., grams, lliures, etc."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:460
@@ -4416,7 +4416,7 @@ msgstr "<big>Especifiqueu les unitats per al temps transcorregut</big>"
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
 msgstr ""
-"Este quadro s'utilitza per a especificar les unitats de temps. p. ex. anys, "
+"Este quadro s'utilitza per a especificar les unitats de temps. p. ex., anys, "
 "segons, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
@@ -6386,9 +6386,9 @@ msgid ""
 "e.g. 3.> #EDTA#\n"
 msgstr ""
 "Este quadro es pot utilitzar per a introduir la fórmula de la molècula.\n"
-"p. ex. 1.> CaCO3\n"
-"p. ex. 2.> MeOH\n"
-"p. ex. 3.> #EDTA#\n"
+"p. ex., 1.> CaCO3\n"
+"p. ex., 2.> MeOH\n"
+"p. ex., 3.> #EDTA#\n"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calcButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, calcButton)
@@ -8304,7 +8304,7 @@ msgstr "èpsilon"
 #: src/tablesdialog.cpp:109
 #, kde-format
 msgid "zeta"
-msgstr "dseta"
+msgstr "zeta"
 
 #: src/tablesdialog.cpp:110
 #, kde-format
@@ -8344,7 +8344,7 @@ msgstr "ni"
 #: src/tablesdialog.cpp:117
 #, kde-format
 msgid "xi"
-msgstr "xi"
+msgstr "ksi"
 
 #: src/tablesdialog.cpp:118
 #, kde-format
@@ -8379,7 +8379,7 @@ msgstr "ípsilon"
 #: src/tablesdialog.cpp:124
 #, kde-format
 msgid "phi"
-msgstr "phi"
+msgstr "fi"
 
 #: src/tablesdialog.cpp:125
 #, kde-format
