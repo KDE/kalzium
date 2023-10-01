@@ -41,7 +41,7 @@ msgstr "Houbo un problema ao abrir o ficheiro"
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
 msgid "Cannot open the specified file."
-msgstr "Non se pode abrir o ficheiro que indicaches."
+msgstr "Non é posíbel abrir o ficheiro que indicaches."
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
@@ -51,7 +51,7 @@ msgstr "Desculpe"
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Cannot save to the specified file."
-msgstr "Non se pode gardar no ficheiro que especificaches."
+msgstr "Non é posíbel gardar no ficheiro que especificaches."
 
 #: compoundviewer/kalziumglpart.cpp:17
 #, kde-format
@@ -341,7 +341,7 @@ msgstr "Unidades do SIU"
 #: data/knowledge.xml:87
 #, kde-format
 msgid "Measurement unit using International Symbols."
-msgstr "Unidade de medida utilizando os Símbolos Internacionais."
+msgstr "Unidade de medida usando os Símbolos Internacionais."
 
 #: data/knowledge.xml:90
 #, kde-format
@@ -904,7 +904,7 @@ msgid ""
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
-"O almirez úsase para moer sólidos manualmente. Tamén se pode utilizar para "
+"O almirez úsase para moer sólidos manualmente. Tamén se pode usar para "
 "homoxeneizar unha mestura de pos moéndoa. O almirez precisa dun útil chamado "
 "machuco que se usa para machucar."
 
@@ -1211,8 +1211,8 @@ msgid ""
 "acids or bases."
 msgstr ""
 "Pódese usar un termómetro para determinar a temperatura dunha mostra. Nun "
-"laboratorio úsanse termómetros especiais, que tamén se poden utilizar dentro "
-"de ácidos ou bases."
+"laboratorio úsanse termómetros especiais, que tamén se poden usar dentro de "
+"ácidos ou bases."
 
 #: data/tools.xml:127
 #, kde-format
@@ -3413,7 +3413,7 @@ msgstr "<big>Indica a cantidade de soluto</big>"
 #, kde-format
 msgid "This is the box used to specify the amount of solute in the solution."
 msgstr ""
-"Esta é a opción utilizada para indicar a cantidade de soluto da disolución."
+"Esta é a opción usada para indicar a cantidade de soluto da disolución."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSltType)
 #: src/calculator/concCalculator.ui:69
@@ -3428,7 +3428,7 @@ msgid ""
 "This box is used to change the mode in which the amount of solute is "
 "specified, i.e. mass, moles or volume."
 msgstr ""
-"Esta opción utilízase para cambiar o modo no que se indica a cantidade de "
+"Esta opción úsase para cambiar o modo no que se indica a cantidade de "
 "soluto, é dicir, masa, moles ou volume."
 
 #. i18n: ectx: property (text), widget (QLabel, label_39)
@@ -3447,7 +3447,7 @@ msgstr "<big>Indicar a masa molar do soluto</big>"
 #: src/calculator/concCalculator.ui:92
 #, kde-format
 msgid "This box is used to specify the molar mass of the substance."
-msgstr "Esta opción utilízase para indicar a masa molar da substancia."
+msgstr "Esta opción úsase para indicar a masa molar da substancia."
 
 #. i18n: ectx: property (text), widget (QLabel, label_40)
 #: src/calculator/concCalculator.ui:105
@@ -3469,7 +3469,7 @@ msgid ""
 "required only if concentration in terms of normality is involved.\n"
 "Normality = Number of Equivalents / liter of solution"
 msgstr ""
-"Esta opción utilízase para indicar a masa equivalente do soluto. Isto só é "
+"Esta opción úsase para indicar a masa equivalente do soluto. Isto só é "
 "necesario se se incluír a concentración en termos de normalidade.\n"
 "Normalidade = Número de equivalentes / litro de disolución"
 
@@ -3492,7 +3492,7 @@ msgid ""
 "This box is used to specify the value of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
-"Esta opción utilízase para indicar o valor da densidade do soluto. Isto só é "
+"Esta opción úsase para indicar o valor da densidade do soluto. Isto só é "
 "necesario se se indica a cantidade de soluto en termos de volume."
 
 #. i18n: ectx: property (text), widget (QLabel, label_31)
@@ -3512,7 +3512,7 @@ msgstr "<big>Indica as unidades da densidade do disolvente</big>"
 #, kde-format
 msgid "This box is used to specify the amount of solvent in the solution."
 msgstr ""
-"Esta opción utilízase para indicar a cantidade de disolvente da disolución."
+"Esta opción úsase para indicar a cantidade de disolvente da disolución."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvtType)
 #: src/calculator/concCalculator.ui:184
@@ -3527,8 +3527,8 @@ msgid ""
 "This box is used to change the mode in which amount of solvent is specified, "
 "i.e. mass, moles or volume."
 msgstr ""
-"Esta opción utilízase para cambiar o modo no que se especifica a cantidade "
-"de disolvente, é dicir, masa, moles ou volume."
+"Esta opción úsase para cambiar o modo no que se especifica a cantidade de "
+"disolvente, é dicir, masa, moles ou volume."
 
 #. i18n: ectx: property (text), widget (QLabel, label_42)
 #: src/calculator/concCalculator.ui:194
@@ -3546,7 +3546,7 @@ msgstr "<big>Indica a masa molar do disolvente</big>"
 #: src/calculator/concCalculator.ui:207
 #, kde-format
 msgid "This box is used to specify the molar mass of the solvent."
-msgstr "Esta opción utilízase para indicar a masa molar do disolvente."
+msgstr "Esta opción úsase para indicar a masa molar do disolvente."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: src/calculator/concCalculator.ui:220
@@ -3567,7 +3567,7 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
-"Esta opción utilízase para especificar a densidade da disolución e só é "
+"Esta opción úsase para especificar a densidade da disolución e só é "
 "necesaria de se indicar/necesitar a cantidade de disolución en termos de "
 "masa."
 
@@ -3590,8 +3590,8 @@ msgid ""
 "This box is used to specify the concentration of the solution in respective "
 "units to the right."
 msgstr ""
-"Esta opción utilízase para indicar a concentración da disolución nas "
-"unidades respectivas da dereita."
+"Esta opción úsase para indicar a concentración da disolución nas unidades "
+"respectivas da dereita."
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -3642,8 +3642,8 @@ msgid ""
 "This box is used to specify the units for the amount of solvent in the "
 "solution."
 msgstr ""
-"Esta opción utilízase para especificar as unidades da cantidade de "
-"disolvente da disolución."
+"Esta opción úsase para especificar as unidades da cantidade de disolvente da "
+"disolución."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_19)
 #: src/calculator/concCalculator.ui:332
@@ -3671,8 +3671,8 @@ msgid ""
 "This box is used to specify the units of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
-"Esta opción utilízase para indicar as unidades da densidade do soluto. Isto "
-"só é necesario se se indica a cantidade de soluto en termos de volume."
+"Esta opción úsase para indicar as unidades da densidade do soluto. Isto só é "
+"necesario se se indica a cantidade de soluto en termos de volume."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:355
@@ -3687,7 +3687,7 @@ msgid ""
 "This box is used to specify the units for the amount of solute in the "
 "solution."
 msgstr ""
-"Esta opción utilízase para indicar as unidades da cantidade de soluto da "
+"Esta opción úsase para indicar as unidades da cantidade de soluto da "
 "solución."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_17)
@@ -3758,7 +3758,7 @@ msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
 msgstr ""
-"Esta opción pódese utilizar para indicar a masa molar do gas, p.ex. 2 para o "
+"Esta opción pódese usar para indicar a masa molar do gas, p.ex. 2 para o "
 "hidróxeno."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
@@ -3780,7 +3780,7 @@ msgid ""
 "This box can be used to specify the number of moles of the gas.\n"
 "Moles = mass / molar mass"
 msgstr ""
-"Esta opción pódese utilizar para indicar o número de moles do gas.\n"
+"Esta opción pódese usar para indicar o número de moles do gas.\n"
 "Moles = masa / masa molar"
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
@@ -3802,7 +3802,7 @@ msgid ""
 "This box can be used to specify the mass of the gas.\n"
 "Mass = moles * molar mass"
 msgstr ""
-"Esta opción pódese utilizar para indicar a masa do gas.\n"
+"Esta opción pódese usar para indicar a masa do gas.\n"
 "Masa = moles * masa molar"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, mass_unit)
@@ -3815,7 +3815,7 @@ msgstr "<big>Indica a unidade de masa do gas</big>"
 #: src/calculator/gasCalculator.ui:125
 #, kde-format
 msgid "This box is used to change the units of mass."
-msgstr "Esta opción pódese utilizar para cambiar as unidades de masa."
+msgstr "Esta opción pódese usar para cambiar as unidades de masa."
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: src/calculator/gasCalculator.ui:145
@@ -3833,7 +3833,7 @@ msgstr "<big>Indica a presión do gas</big>"
 #: src/calculator/gasCalculator.ui:158
 #, kde-format
 msgid "This box can be used to change the pressure of the gas."
-msgstr "Esta opción pódese utilizar para cambiar a presión do gas."
+msgstr "Esta opción pódese usar para cambiar a presión do gas."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:171
@@ -3848,7 +3848,7 @@ msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
 msgstr ""
-"Esta opción pódese utilizar para especificar as unidades de presión, p.ex. "
+"Esta opción pódese usar para especificar as unidades de presión, p.ex. "
 "atmosferas, bares, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
@@ -3867,7 +3867,7 @@ msgstr "<!----><big>Indica a temperatura do gas</big>"
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr "Esta opción pódese utilizar para indicar a temperatura do gas."
+msgstr "Esta opción pódese usar para indicar a temperatura do gas."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
@@ -3882,8 +3882,8 @@ msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
 msgstr ""
-"Esta opción pódese utilizar para especificar as unidades de temperatura, p."
-"ex. Kelvin, Celsius, etc."
+"Esta opción pódese usar para especificar as unidades de temperatura, p.ex. "
+"Kelvin, Celsius, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
@@ -3901,7 +3901,7 @@ msgstr "<big>Indica o volume do gas</big>"
 #: src/calculator/gasCalculator.ui:230
 #, kde-format
 msgid "This box can be used to specify the volume of the gas."
-msgstr "Esta opción pódese utilizar para indicar o volume do gas."
+msgstr "Esta opción pódese usar para indicar o volume do gas."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:249
@@ -3914,7 +3914,7 @@ msgstr "<big>Indica as unidades de volume do gas</big>"
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
 msgstr ""
-"Esta opción pódese utilizar para cambiar as unidades de volume, p.ex. litros."
+"Esta opción pódese usar para cambiar as unidades de volume, p.ex. litros."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
@@ -3948,9 +3948,9 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Esta opción pódese utilizar para especificar o coeficiente «b» de van der "
-"Waals do gas. Isto só é necesario para os gases reais. Pódese marcar como "
-"0,0 para os gases ideais."
+"Esta opción pódese usar para especificar o coeficiente «b» de van der Waals "
+"do gas. Isto só é necesario para os gases reais. Pódese marcar como 0,0 para "
+"os gases ideais."
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
@@ -3966,9 +3966,9 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Esta opción pódese utilizar para especificar a constante «a» de van der "
-"Waals do gas. Isto só é necesario para os gases reais. Pódese marcar como "
-"0,0 para os gases ideais."
+"Esta opción pódese usar para especificar a constante «a» de van der Waals do "
+"gas. Isto só é necesario para os gases reais. Pódese marcar como 0,0 para os "
+"gases ideais."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
@@ -3982,8 +3982,8 @@ msgstr "As unidades da constante «b» de van der Waals"
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
 msgstr ""
-"Isto pódese utilizar para especificar as unidades da constante «b» de van "
-"der Waals."
+"Isto pódese usar para especificar as unidades da constante «b» de van der "
+"Waals."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
@@ -4060,7 +4060,7 @@ msgid ""
 "This box is used to specify the element on which calculation is to be "
 "performed."
 msgstr ""
-"Esta opción utilízase para especificar o elemento sobre o que se realiza o "
+"Esta opción úsase para especificar o elemento sobre o que se realiza o "
 "cálculo."
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
@@ -4082,8 +4082,8 @@ msgid ""
 "This box is used to specify the isotope of the above element on which "
 "calculation is performed."
 msgstr ""
-"Esta opción utilízase para especificar o isótopo do elemento que aparece "
-"arriba sobre o que se realiza o cálculo."
+"Esta opción úsase para especificar o isótopo do elemento que aparece arriba "
+"sobre o que se realiza o cálculo."
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: src/calculator/nuclearCalculator.ui:82
@@ -4101,8 +4101,7 @@ msgstr "<big>Indica a vida media do isótopo</big>"
 #: src/calculator/nuclearCalculator.ui:95
 #, kde-format
 msgid "This box is used to specify the half-life of the above isotope."
-msgstr ""
-"Esta opción utilízase para especificar a vida media do isótopo de arriba."
+msgstr "Esta opción úsase para especificar a vida media do isótopo de arriba."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:108
@@ -4116,7 +4115,7 @@ msgstr "<big>A unidade da vida media</big>"
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
 msgstr ""
-"Esta opción utilízase para especificar a unidade da vida media, p.ex. anos, "
+"Esta opción úsase para especificar a unidade da vida media, p.ex. anos, "
 "segundos, etc."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
@@ -4218,7 +4217,7 @@ msgid ""
 "This box is used to decide what you want to calculate, choose among 'Time', "
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
-"Esta opción utilízase para decidir o que se quere calcular; escolle «Tempo», "
+"Esta opción úsase para decidir o que se quere calcular; escolle «Tempo», "
 "«Cantidade inicial da substancia» ou «Cantidade final da substancia»."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
@@ -4257,8 +4256,7 @@ msgstr "<big>Indica a cantidade inicial da substancia</big>"
 msgid ""
 "This box is used to specify the initial amount of the radioactive substance."
 msgstr ""
-"Esta opción utilízase para indicar a cantidade inicial da substancia "
-"radioactiva."
+"Esta opción úsase para indicar a cantidade inicial da substancia radioactiva."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: src/calculator/nuclearCalculator.ui:272
@@ -4278,8 +4276,7 @@ msgstr "<big>Indica a cantidade final da substancia</big>"
 msgid ""
 "This box is used to specify the final amount of the radioactive substance."
 msgstr ""
-"Esta opción utilízase para indicar a cantidade final da substancia "
-"radioactiva."
+"Esta opción úsase para indicar a cantidade final da substancia radioactiva."
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: src/calculator/nuclearCalculator.ui:298
@@ -4300,8 +4297,8 @@ msgid ""
 "This box is used to specify the time after which the initial amount "
 "decreases to the final amount."
 msgstr ""
-"Esta opción utilízase para indicar o tempo despois do que a cantidade "
-"inicial diminúe ata a cantidade final."
+"Esta opción úsase para indicar o tempo despois do que a cantidade inicial "
+"diminúe ata a cantidade final."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:327
@@ -4316,7 +4313,7 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
-"Esta opción pódese utilizar para cambiar o modo no que se quere indicar a "
+"Esta opción pódese usar para cambiar o modo no que se quere indicar a "
 "cantidade inicial da substancia, é dicir, masa ou moles."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
@@ -4340,7 +4337,7 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
-"Esta opción pódese utilizar para cambiar o modo no que se quere indicar a "
+"Esta opción pódese usar para cambiar o modo no que se quere indicar a "
 "cantidade final da substancia, é dicir, masa ou moles."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
@@ -4356,7 +4353,7 @@ msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Esta opción pódese utilizar para indicar as unidades da cantidade inicial da "
+"Esta opción pódese usar para indicar as unidades da cantidade inicial da "
 "substancia, é dicir, gramos, libras, etc."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
@@ -4420,7 +4417,7 @@ msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Esta opción pódese utilizar para indicar as unidades da cantidade final da "
+"Esta opción pódese usar para indicar as unidades da cantidade final da "
 "substancia, é dicir, gramos, libras, etc."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
@@ -4435,8 +4432,8 @@ msgstr "<big>Indica as unidades para o tempo transcorrido</big>"
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
 msgstr ""
-"Esta opción utilízase para indicar as unidades de tempo, p.ex. anos, "
-"segundos, etc."
+"Esta opción úsase para indicar as unidades de tempo, p.ex. anos, segundos, "
+"etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: src/calculator/nuclearCalculator.ui:511
@@ -4457,8 +4454,8 @@ msgid ""
 "This slider can be used to specify the time in terms of number of half-lives "
 "between 0 half-lives to 10 half-lives."
 msgstr ""
-"O control desprazábel pódese utilizar para indicar o tempo en termos de "
-"número de vidas medias entre 0 e 10 vidas medias."
+"O control desprazábel pódese usar para indicar o tempo en termos de número "
+"de vidas medias entre 0 e 10 vidas medias."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, numHalfLives)
 #: src/calculator/nuclearCalculator.ui:537
@@ -4547,7 +4544,7 @@ msgstr "Erro"
 #: src/calculator/titrationCalculator.cpp:101
 #, kde-format
 msgid "Unable to find an equation for Y-axis variable."
-msgstr "Non se pode atopar unha ecuación para a variábel do eixo Y."
+msgstr "Non é posíbel atopar unha ecuación para a variábel do eixo Y."
 
 #: src/calculator/titrationCalculator.cpp:121
 #, kde-format
@@ -4579,7 +4576,7 @@ msgstr "Ficheiro Icee (*.icee)"
 #: src/calculator/titrationCalculator.cpp:739
 #, kde-format
 msgid "Unable to create %1"
-msgstr "Non se pode crear %1."
+msgstr "Non é posíbel crear %1."
 
 #: src/calculator/titrationCalculator.cpp:601
 #, kde-format
@@ -4589,7 +4586,7 @@ msgstr "Abrir un traballo"
 #: src/calculator/titrationCalculator.cpp:607
 #, kde-format
 msgid "Unable to open %1"
-msgstr "Non se pode abrir %1."
+msgstr "Non é posíbel abrir %1."
 
 #. i18n: ectx: property (text), widget (QPushButton, saveimage)
 #: src/calculator/titrationCalculator.cpp:727
@@ -5333,7 +5330,7 @@ msgstr "Ese ficheiro xa existe. Quérelo substituír?"
 #: src/exportdialog.cpp:173
 #, kde-format
 msgid "Could not open file for writing."
-msgstr "Non se puido abrir o ficheiro para escribir."
+msgstr "Non foi posíbel abrir o ficheiro para escribir."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/exportdialog.ui:67
@@ -6387,7 +6384,7 @@ msgstr "feito!"
 #: src/molcalcwidget.cpp:295
 #, kde-format
 msgid "Unable to find the user defined alias file."
-msgstr "Non se pode atopar o ficheiro de abreviaturas definido polo usuario."
+msgstr "Non é posíbel atopar o ficheiro de abreviaturas definido polo usuario."
 
 #. i18n: ectx: attribute (title), widget (QWidget, calcTab)
 #: src/molcalcwidgetbase.ui:24 src/settings/kalziumconfigdialog.cpp:38
@@ -6410,7 +6407,7 @@ msgid ""
 "e.g. 2.> MeOH\n"
 "e.g. 3.> #EDTA#\n"
 msgstr ""
-"Este campo pódese utilizar para inserir a fórmula da molécula.\n"
+"Este campo pódese usar para inserir a fórmula da molécula.\n"
 "ex. 1.> CaCO3\n"
 "ex. 2.> MeOH\n"
 "ex. 3.> #EDTA#\n"
@@ -9199,7 +9196,7 @@ msgstr "%1 u"
 #: src/tools/moleculeview.cpp:290
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
-msgstr "Non se puido descargar a molécula %1 en %2."
+msgstr "Non foi posíbel descargar a molécula %1 en %2."
 
 #: src/tools/moleculeview.cpp:298
 #, kde-format
