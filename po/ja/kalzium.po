@@ -9202,13 +9202,3 @@ msgstr "元のフォーマット:"
 #, kde-format
 msgid "Convert to:"
 msgstr "新しいフォーマット:"
-
-#, fuzzy
-#~| msgid "Load Molecule"
-#~ msgid "[molecule]"
-#~ msgstr "分子をロード"
-
-#, fuzzy
-#~| msgid "Load Molecule"
-#~ msgid "molecule"
-#~ msgstr "分子をロード"
