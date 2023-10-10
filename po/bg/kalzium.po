@@ -8389,11 +8389,3 @@ msgstr "Преобразуване от:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Преобразуване в:"
-
-#, fuzzy
-#~ msgid "[molecule]"
-#~ msgstr "Запис на спектъра"
-
-#, fuzzy
-#~ msgid "molecule"
-#~ msgstr "Запис на спектъра"
