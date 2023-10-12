@@ -75,7 +75,7 @@ elseif(HAVE_OPENBABEL2)
 endif()
 
 configure_file(
-   ${CMAKE_CURRENT_SOURCE_DIR}/config-kalzium.h.cmake
+   ${CMAKE_CURRENT_SOURCE_DIR}/config-kalzium.h.in
    ${CMAKE_CURRENT_BINARY_DIR}/config-kalzium.h
 )
 
