@@ -980,7 +980,7 @@ msgid ""
 msgstr ""
 "Un embut de decantació s'utilitza per a separar una mescla de fluids "
 "immiscibles de diferents densitats. Una vàlvula inferior permet extraure el "
-"fluid més dens per tal de transferir-lo a un altre recipient."
+"fluid més dens per tal de transferir-lo cap a un altre recipient."
 
 #: data/tools.xml:57
 #, kde-format
@@ -2781,7 +2781,7 @@ msgstr "Californi"
 #: element_tiny.xml:198
 #, kde-format
 msgid "Named after the US-State of California."
-msgstr "El seu nom deriva de l'estat de Califòrnia, als EUA."
+msgstr "El seu nom deriva de l'estat de Califòrnia, en els EUA."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:199
@@ -4743,7 +4743,7 @@ msgstr "Següent"
 #: src/detailinfodlg.cpp:44
 #, kde-format
 msgid "Goes to the next element"
-msgstr "Va a l'element següent"
+msgstr "Va fins a l'element següent"
 
 #: src/detailinfodlg.cpp:47
 #, kde-format
@@ -4754,7 +4754,7 @@ msgstr "Anterior"
 #: src/detailinfodlg.cpp:48
 #, kde-format
 msgid "Goes to the previous element"
-msgstr "Va a l'element anterior"
+msgstr "Va fins a l'element anterior"
 
 #: src/detailinfodlg.cpp:147
 #, kde-format
