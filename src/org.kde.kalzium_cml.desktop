@@ -66,7 +66,6 @@ Name[ug]=Kalzium
 Name[uk]=Kalzium
 Name[vi]=Kalzium
 Name[xh]=Kalzium
-Name[x-test]=xxKalziumxx
 Name[zh_CN]=Kalzium
 Name[zh_TW]=化學_Kalzium
 Exec=kalzium -qwindowtitle %c -molecule %f
