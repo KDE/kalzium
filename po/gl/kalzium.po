@@ -1,5 +1,6 @@
 # translation of kalzium.po to galician
 # Tradución de kalzium.po ó galego
+# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
 # Gonzalo H. Castilla <ttxzgl@yahoo.es>, 2004.
 # mvillarino <mvillarino@users.sourceforge.net>, 2006, 2008, 2009.
 # Xabi G. Feal <xabigf@gmx.net>, 2006.
@@ -7,13 +8,12 @@
 # Miguel Branco <mgl.branco@gmail.com>, 2009.
 # Marce Villarino <mvillarino@gmail.com>, 2009, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2013, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2020-01-11 11:24+0100\n"
+"PO-Revision-Date: 2023-11-18 06:50+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1594,10 +1594,9 @@ msgid "Hydrogen"
 msgstr "Hidróxeno"
 
 #: element_tiny.xml:4
-#, fuzzy, kde-format
-#| msgid "Greek 'hydro' and 'gennao' for 'forms water'"
+#, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
-msgstr "Do grego «hydro» e «gennao», que significan «forma auga»"
+msgstr "Do grego «hydro» e «gennao», que significan «forma auga»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
@@ -1606,10 +1605,9 @@ msgid "Helium"
 msgstr "Helio"
 
 #: element_tiny.xml:6
-#, fuzzy, kde-format
-#| msgid "The Greek word for the sun was 'helios'"
+#, kde-format
 msgid "The Greek word for the sun was 'helios'."
-msgstr "A palabra en grego para o Sol era «helios»"
+msgstr "A palabra en grego para o Sol era «helios»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:7
@@ -1618,10 +1616,9 @@ msgid "Lithium"
 msgstr "Litio"
 
 #: element_tiny.xml:8
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "«Litos» en grego significa «pedra»"
+msgstr "«Litos» en grego significa «pedra»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1630,10 +1627,9 @@ msgid "Beryllium"
 msgstr "Berilio"
 
 #: element_tiny.xml:10
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "«Beryllos» en grego significa «pedra de verde claro»"
+msgstr "«Beryllos» en grego significa «pedra de verde claro»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1642,16 +1638,13 @@ msgid "Boron"
 msgstr "Boro"
 
 #: element_tiny.xml:12
-#, fuzzy, kde-format
-#| msgid ""
-#| "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
-#| "like carbon"
+#, kde-format
 msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
 "Boro significa «Bor(ax) + (carb)ono». Atópase no bórax e compórtase bastante "
-"como o carbono"
+"como o carbono."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:13
@@ -1660,10 +1653,9 @@ msgid "Carbon"
 msgstr "Carbono"
 
 #: element_tiny.xml:14
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'carboneum' for carbon."
-msgstr "Do latín «carboneum» para o carbón"
+msgstr "Do latín «carboneum» para o carbón."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:15
@@ -1672,10 +1664,9 @@ msgid "Nitrogen"
 msgstr "Nitróxeno"
 
 #: element_tiny.xml:16
-#, fuzzy, kde-format
-#| msgid "Latin 'nitrogenium' ('forms saltpeter')"
+#, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
-msgstr "Do latín «nitrogenium» («forma pedras de sal»)"
+msgstr "Do latín «nitrogenium» («forma pedras de sal»)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1684,10 +1675,9 @@ msgid "Oxygen"
 msgstr "Osíxeno"
 
 #: element_tiny.xml:18
-#, fuzzy, kde-format
-#| msgid "Latin 'oxygenium' (forms acids)"
+#, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "Do latín «oxyxenium» (forma ácidos)"
+msgstr "Do latín «oxyxenium» (forma ácidos)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1696,10 +1686,9 @@ msgid "Fluorine"
 msgstr "Fluor"
 
 #: element_tiny.xml:20
-#, fuzzy, kde-format
-#| msgid "Latin 'fluere' ('floats')"
+#, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr "Do latín «fluere» («aboia»)"
+msgstr "Do latín «fluere» («aboia»)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1708,10 +1697,9 @@ msgid "Neon"
 msgstr "Neon"
 
 #: element_tiny.xml:22
-#, fuzzy, kde-format
-#| msgid "Greek 'neo'. meaning 'new'"
+#, kde-format
 msgid "Greek 'neo'. meaning 'new'."
-msgstr "Do grego «neo» («novo»)"
+msgstr "Do grego «neo» («novo»)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:23
@@ -1736,10 +1724,9 @@ msgid "Magnesium"
 msgstr "Magnesio"
 
 #: element_tiny.xml:26
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the city of Magnesia."
-msgstr "Nome derivado da cidade de Magnesia"
+msgstr "Nome derivado da cidade de Magnesia."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
@@ -1748,10 +1735,9 @@ msgid "Aluminium"
 msgstr "Aluminio"
 
 #: element_tiny.xml:28
-#, fuzzy, kde-format
-#| msgid "Latin 'alumen'"
+#, kde-format
 msgid "Latin 'alumen'."
-msgstr "Do latín «alumen»"
+msgstr "Do latín «alumen»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
@@ -1760,10 +1746,9 @@ msgid "Silicon"
 msgstr "Silicio"
 
 #: element_tiny.xml:30
-#, fuzzy, kde-format
-#| msgid "Latin 'silex'"
+#, kde-format
 msgid "Latin 'silex'."
-msgstr "Do latín «silex»"
+msgstr "Do latín «silex»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
@@ -1772,10 +1757,9 @@ msgid "Phosphorus"
 msgstr "Fósforo"
 
 #: element_tiny.xml:32
-#, fuzzy, kde-format
-#| msgid "Greek 'phosphoros' for 'carries light'"
+#, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
-msgstr "Do grego «phosphoros», que significa «transporta luz»"
+msgstr "Do grego «phosphoros», que significa «transporta luz»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1784,10 +1768,9 @@ msgid "Sulfur"
 msgstr "Xofre"
 
 #: element_tiny.xml:34
-#, fuzzy, kde-format
-#| msgid "In sanskrit 'sweb' means 'to sleep'"
+#, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr "En sánscrito «sweb» significa «durmir»"
+msgstr "En sánscrito «sweb» significa «durmir»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1796,10 +1779,9 @@ msgid "Chlorine"
 msgstr "Cloro"
 
 #: element_tiny.xml:36
-#, fuzzy, kde-format
-#| msgid "Greek 'chloros' for 'yellow-green'"
+#, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "Do grego «chloros», que significa «verde-amarelo»"
+msgstr "Do grego «chloros», que significa «verde-amarelo»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1808,10 +1790,9 @@ msgid "Argon"
 msgstr "Argon"
 
 #: element_tiny.xml:38
-#, fuzzy, kde-format
-#| msgid "Greek 'aergon' for 'inactive'"
+#, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "Do grego «aergon», que significa «inactivo»"
+msgstr "Do grego «aergon», que significa «inactivo»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1837,10 +1818,9 @@ msgid "Calcium"
 msgstr "Calcio"
 
 #: element_tiny.xml:42
-#, fuzzy, kde-format
-#| msgid "Latin 'calx' for 'lime'"
+#, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr "Do latín «calx» para «lima»"
+msgstr "Do latín «calx» para «lima»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -1849,10 +1829,9 @@ msgid "Scandium"
 msgstr "Escandio"
 
 #: element_tiny.xml:44
-#, fuzzy, kde-format
-#| msgid "Named because it was found in Scandinavia"
+#, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr "Con ese nome por atoparse en Escandinavia"
+msgstr "Con ese nome por atoparse en Escandinavia."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -1861,10 +1840,9 @@ msgid "Titanium"
 msgstr "Titanio"
 
 #: element_tiny.xml:46
-#, fuzzy, kde-format
-#| msgid "The Titans were giants in Greek mythology"
+#, kde-format
 msgid "The Titans were giants in Greek mythology."
-msgstr "Os titáns eran xigantes na mitoloxía grega"
+msgstr "Os titáns eran xigantes na mitoloxía grega."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:47
@@ -1873,10 +1851,9 @@ msgid "Vanadium"
 msgstr "Vanadio"
 
 #: element_tiny.xml:48
-#, fuzzy, kde-format
-#| msgid "'Vanadis' is another name for the Nordic goddess Freyja"
+#, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr "«Vanadis» é outro nome da deusa nórdica Freyja"
+msgstr "«Vanadis» é outro nome da deusa nórdica Freyja."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -1885,10 +1862,9 @@ msgid "Chromium"
 msgstr "Cromo"
 
 #: element_tiny.xml:50
-#, fuzzy, kde-format
-#| msgid "Greek 'chroma' means 'color'"
+#, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "O grego «chroma», que significa «cor»"
+msgstr "O grego «chroma», que significa «cor»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
@@ -1912,10 +1888,9 @@ msgid "Iron"
 msgstr "Ferro"
 
 #: element_tiny.xml:54
-#, fuzzy, kde-format
-#| msgid "Latin 'ferrum'"
+#, kde-format
 msgid "Latin 'ferrum'."
-msgstr "Do latín «ferrum»"
+msgstr "Do latín «ferrum»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -1924,10 +1899,9 @@ msgid "Cobalt"
 msgstr "Cobalto"
 
 #: element_tiny.xml:56
-#, fuzzy, kde-format
-#| msgid "Named after the German word 'Kobold' for 'goblin'"
+#, kde-format
 msgid "Named after the German word 'Kobold' for 'goblin'."
-msgstr "Nome derivado da palabra alemá «Kobold» para «trasno»"
+msgstr "Nome derivado da palabra alemá «Kobold» para «trasno»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:57
@@ -1936,10 +1910,9 @@ msgid "Nickel"
 msgstr "Níquel"
 
 #: element_tiny.xml:58
-#, fuzzy, kde-format
-#| msgid "'Nickel' was the name of a mountain goblin"
+#, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr "«Nickel» era o nome dun trasno da montaña"
+msgstr "«Nickel» era o nome dun trasno da montaña."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -1948,10 +1921,9 @@ msgid "Copper"
 msgstr "Cobre"
 
 #: element_tiny.xml:60
-#, fuzzy, kde-format
-#| msgid "Greek 'cuprum' for Cypres"
+#, kde-format
 msgid "Greek 'cuprum' for Cypres."
-msgstr "Do grego «cuprum» para Chipre"
+msgstr "Do grego «cuprum» para Chipre."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
@@ -1960,12 +1932,11 @@ msgid "Zinc"
 msgstr "Cinc"
 
 #: element_tiny.xml:62
-#, fuzzy, kde-format
-#| msgid "German 'zinking' for 'rough', because zinc ore is very rough"
+#, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
 msgstr ""
 "Do alemán «zinking», que significa «duro», porque o mineral de cinc é "
-"bastante duro"
+"bastante duro."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:63
@@ -1974,10 +1945,9 @@ msgid "Gallium"
 msgstr "Galio"
 
 #: element_tiny.xml:64
-#, fuzzy, kde-format
-#| msgid "'Gallia' is an old name for France"
+#, kde-format
 msgid "'Gallia' is an old name for France."
-msgstr "«Gallia» é un nome antigo da Francia"
+msgstr "«Gallia» é un nome antigo da Francia."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
@@ -1986,10 +1956,9 @@ msgid "Germanium"
 msgstr "Xermanio"
 
 #: element_tiny.xml:66
-#, fuzzy, kde-format
-#| msgid "Latin 'germania' is an old name for Germany"
+#, kde-format
 msgid "Latin 'germania' is an old name for Germany."
-msgstr "O latín «germania» é o nome antigo da Alemaña"
+msgstr "O latín «germania» é o nome antigo da Alemaña."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
@@ -1998,10 +1967,9 @@ msgid "Arsenic"
 msgstr "Arsénico"
 
 #: element_tiny.xml:68
-#, fuzzy, kde-format
-#| msgid "Greek 'arsenikos' for 'male' or 'bold'"
+#, kde-format
 msgid "Greek 'arsenikos' for 'male' or 'bold'."
-msgstr "Do grego «arsenikos» para «macho» ou «viril»"
+msgstr "Do grego «arsenikos» para «macho» ou «viril»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:69
@@ -2010,10 +1978,9 @@ msgid "Selenium"
 msgstr "Selenio"
 
 #: element_tiny.xml:70
-#, fuzzy, kde-format
-#| msgid "Greek 'selena' for 'moon'"
+#, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr "Do grego «selena», que significa «lúa»"
+msgstr "Do grego «selena», que significa «lúa»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -2022,10 +1989,9 @@ msgid "Bromine"
 msgstr "Bromo"
 
 #: element_tiny.xml:72
-#, fuzzy, kde-format
-#| msgid "Greek 'bromos' for 'smells badly'"
+#, kde-format
 msgid "Greek 'bromos' for 'smells badly'."
-msgstr "Do grego «bromos», que significa «cheira mal»"
+msgstr "Do grego «bromos», que significa «cheira mal»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:73
@@ -2034,10 +2000,9 @@ msgid "Krypton"
 msgstr "Cripton"
 
 #: element_tiny.xml:74
-#, fuzzy, kde-format
-#| msgid "Greek 'kryptos' for 'hidden'"
+#, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "Do grego «krytos», que significa «agochado»"
+msgstr "Do grego «krytos», que significa «agochado»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -2046,10 +2011,9 @@ msgid "Rubidium"
 msgstr "Rubidio"
 
 #: element_tiny.xml:76
-#, fuzzy, kde-format
-#| msgid "Latin 'rubidus' for 'dark red'"
+#, kde-format
 msgid "Latin 'rubidus' for 'dark red'."
-msgstr "Do latín «rubidus», que significa «vermello escuro»"
+msgstr "Do latín «rubidus», que significa «vermello escuro»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:77
@@ -2058,10 +2022,9 @@ msgid "Strontium"
 msgstr "Estroncio"
 
 #: element_tiny.xml:78
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Strontianit"
+#, kde-format
 msgid "Named after the mineral Strontianit."
-msgstr "Nome derivado no mineral estroncianita"
+msgstr "Nome derivado no mineral estroncianita."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:79
@@ -2085,10 +2048,9 @@ msgid "Zirconium"
 msgstr "Circonio"
 
 #: element_tiny.xml:82
-#, fuzzy, kde-format
-#| msgid "Named after the mineral zircon"
+#, kde-format
 msgid "Named after the mineral zircon."
-msgstr "Nome derivado do mineral circonio"
+msgstr "Nome derivado do mineral circonio."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:83
@@ -2123,10 +2085,9 @@ msgid "Technetium"
 msgstr "Tecnecio"
 
 #: element_tiny.xml:88
-#, fuzzy, kde-format
-#| msgid "Greek 'technetos' for artificial"
+#, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr "Do grego «technetos», que significa «artificial»"
+msgstr "Do grego «technetos», que significa «artificial»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -2135,10 +2096,9 @@ msgid "Ruthenium"
 msgstr "Rutenio"
 
 #: element_tiny.xml:90
-#, fuzzy, kde-format
-#| msgid "Ruthenia is the old name of Russia"
+#, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr "Rutenia é o nome antigo da Rusia"
+msgstr "Rutenia é o nome antigo da Rusia."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -2147,10 +2107,9 @@ msgid "Rhodium"
 msgstr "Rodio"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'rhodeos' means 'red like a rose'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "Do grego «rhodeos», que significa «vermello como unha rosa»"
+msgstr "Do grego «rhodeos», que significa «vermello como unha rosa»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -2159,10 +2118,9 @@ msgid "Palladium"
 msgstr "Paladio"
 
 #: element_tiny.xml:94
-#, fuzzy, kde-format
-#| msgid "Named after the asteroid Pallas"
+#, kde-format
 msgid "Named after the asteroid Pallas."
-msgstr "O nome procede do asteroide Pallas"
+msgstr "O nome procede do asteroide Pallas."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
@@ -2171,10 +2129,9 @@ msgid "Silver"
 msgstr "Prata"
 
 #: element_tiny.xml:96
-#, fuzzy, kde-format
-#| msgid "Latin 'argentum' for silver"
+#, kde-format
 msgid "Latin 'argentum' for silver."
-msgstr "Do latín «argentum», que significa «prata»"
+msgstr "Do latín «argentum», que significa «prata»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -2183,10 +2140,9 @@ msgid "Cadmium"
 msgstr "Cadmio"
 
 #: element_tiny.xml:98
-#, fuzzy, kde-format
-#| msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)"
+#, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
-msgstr "Do grego «kadmia» («Galmei» = Carbonato de cinc)"
+msgstr "Do grego «kadmia» («Galmei» = Carbonato de cinc)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -2195,10 +2151,9 @@ msgid "Indium"
 msgstr "Indio"
 
 #: element_tiny.xml:100
-#, fuzzy, kde-format
-#| msgid "Named after 'Indigo' because of its blue spectrum"
+#, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr "Nome derivado de «Indigo», debido ao seu espectro azul"
+msgstr "Nome derivado de «Indigo», debido ao seu espectro azul."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -2207,10 +2162,9 @@ msgid "Tin"
 msgstr "Estaño"
 
 #: element_tiny.xml:102
-#, fuzzy, kde-format
-#| msgid "Latin 'stannum' for tin"
+#, kde-format
 msgid "Latin 'stannum' for tin."
-msgstr "Do latín «stannum» para o estaño"
+msgstr "Do latín «stannum» para o estaño."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -2219,10 +2173,9 @@ msgid "Antimony"
 msgstr "Antimonio"
 
 #: element_tiny.xml:104
-#, fuzzy, kde-format
-#| msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'"
+#, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
-msgstr "Do árabe «anthos ammonos» para «flor do deus Ammon»"
+msgstr "Do árabe «anthos ammonos» para «flor do deus Ammon»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:105
@@ -2231,10 +2184,9 @@ msgid "Tellurium"
 msgstr "Telurio"
 
 #: element_tiny.xml:106
-#, fuzzy, kde-format
-#| msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'"
+#, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
-msgstr "Do latín «tellus» ou «telluris» para «Planeta Terra»"
+msgstr "Do latín «tellus» ou «telluris» para «Planeta Terra»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -2254,10 +2206,9 @@ msgid "Xenon"
 msgstr "Xenon"
 
 #: element_tiny.xml:110
-#, fuzzy, kde-format
-#| msgid "Greek 'xenos' for 'foreigner'"
+#, kde-format
 msgid "Greek 'xenos' for 'foreigner'."
-msgstr "Do grego «xenos», que significa «estranxeiro»"
+msgstr "Do grego «xenos», que significa «estranxeiro»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:111
@@ -2277,10 +2228,9 @@ msgid "Barium"
 msgstr "Bario"
 
 #: element_tiny.xml:114
-#, fuzzy, kde-format
-#| msgid "Greek 'barys' for 'heavy'"
+#, kde-format
 msgid "Greek 'barys' for 'heavy'."
-msgstr "Do grego «barys», que significa «pesado»"
+msgstr "Do grego «barys», que significa «pesado»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
@@ -2304,10 +2254,9 @@ msgid "Cerium"
 msgstr "Cerio"
 
 #: element_tiny.xml:118
-#, fuzzy, kde-format
-#| msgid "Named after the planetoid Ceres"
+#, kde-format
 msgid "Named after the planetoid Ceres."
-msgstr "Nome derivado do planetoide Ceres"
+msgstr "Nome derivado do planetoide Ceres."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:119
@@ -2316,10 +2265,9 @@ msgid "Praseodymium"
 msgstr "Praseodimio"
 
 #: element_tiny.xml:120
-#, fuzzy, kde-format
-#| msgid "Greek 'prasinos didymos' for 'green twin'"
+#, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
-msgstr "Do grego «prasinos didymos», que significa «xemelgo verde»"
+msgstr "Do grego «prasinos didymos», que significa «xemelgo verde»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -2328,10 +2276,9 @@ msgid "Neodymium"
 msgstr "Neodimio"
 
 #: element_tiny.xml:122
-#, fuzzy, kde-format
-#| msgid "Greek 'neos didymos' for 'new twin'"
+#, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr "Do grego «neos didymos» que significa «novo xemelgo»"
+msgstr "Do grego «neos didymos» que significa «novo xemelgo»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
@@ -2355,10 +2302,9 @@ msgid "Samarium"
 msgstr "Samario"
 
 #: element_tiny.xml:126
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Samarskit"
+#, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr "Nome derivado do mineral samarsquita"
+msgstr "Nome derivado do mineral samarsquita."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2367,10 +2313,9 @@ msgid "Europium"
 msgstr "Europio"
 
 #: element_tiny.xml:128
-#, fuzzy, kde-format
-#| msgid "Named after Europe"
+#, kde-format
 msgid "Named after Europe."
-msgstr "Nome derivado de Europa"
+msgstr "Nome derivado de Europa."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -2379,10 +2324,9 @@ msgid "Gadolinium"
 msgstr "Gadolinio"
 
 #: element_tiny.xml:130
-#, fuzzy, kde-format
-#| msgid "Named after the Finnish chemist Johan Gadolin"
+#, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "Nome derivado do químico finlandés Johan Gadolin"
+msgstr "Nome derivado do químico finlandés Johan Gadolin."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2408,10 +2352,9 @@ msgid "Dysprosium"
 msgstr "Disprosio"
 
 #: element_tiny.xml:134
-#, fuzzy, kde-format
-#| msgid "Greek 'dysprositor' for 'difficult to reach'"
+#, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr "Do grego «dysprositor» para «difícil de acadar»"
+msgstr "Do grego «dysprositor» para «difícil de acadar»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
@@ -2420,10 +2363,9 @@ msgid "Holmium"
 msgstr "Holmio"
 
 #: element_tiny.xml:136
-#, fuzzy, kde-format
-#| msgid "Latin 'holmia' for the old name of Stockholm"
+#, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
-msgstr "Do latín «holmia», correspondente ao nome antigo de Estocolmo"
+msgstr "Do latín «holmia», correspondente ao nome antigo de Estocolmo."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2475,10 +2417,9 @@ msgid "Lutetium"
 msgstr "Lutecio"
 
 #: element_tiny.xml:144
-#, fuzzy, kde-format
-#| msgid "Named after the Roman name 'Lutetia' for Paris"
+#, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
-msgstr "Nome derivado do nome romano «Lutetia» para París"
+msgstr "Nome derivado do nome romano «Lutetia» para París."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2487,11 +2428,7 @@ msgid "Hafnium"
 msgstr "Hafnio"
 
 #: element_tiny.xml:146
-#, fuzzy, kde-format
-#| msgid ""
-#| "Niels Bohr originally predicted the properties of this element before "
-#| "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
-#| "name of Copenhagen, Denmark)"
+#, kde-format
 msgid ""
 "Niels Bohr originally predicted the properties of this element before "
 "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
@@ -2508,10 +2445,9 @@ msgid "Tantalum"
 msgstr "Tántalo"
 
 #: element_tiny.xml:148
-#, fuzzy, kde-format
-#| msgid "Named after the Greek myth of Tantalos"
+#, kde-format
 msgid "Named after the Greek myth of Tantalos."
-msgstr "Nome derivado do mito grego de Tántalo"
+msgstr "Nome derivado do mito grego de Tántalo."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:149
@@ -2559,10 +2495,9 @@ msgid "Iridium"
 msgstr "Iridio"
 
 #: element_tiny.xml:156
-#, fuzzy, kde-format
-#| msgid "Greek 'iris' for 'rainbow'"
+#, kde-format
 msgid "Greek 'iris' for 'rainbow'."
-msgstr "Do grego «iris» para «arco-da-vella»"
+msgstr "Do grego «iris» para «arco-da-vella»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:157
@@ -2571,10 +2506,9 @@ msgid "Platinum"
 msgstr "Platinum"
 
 #: element_tiny.xml:158
-#, fuzzy, kde-format
-#| msgid "Spanish 'platina' means 'small silver'"
+#, kde-format
 msgid "Spanish 'platina' means 'small silver'."
-msgstr "En castelán «platina» significa «pequena prata»"
+msgstr "En castelán «platina» significa «pequena prata»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:159
@@ -2583,10 +2517,9 @@ msgid "Gold"
 msgstr "Ouro"
 
 #: element_tiny.xml:160
-#, fuzzy, kde-format
-#| msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise"
+#, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
-msgstr "En latín «aurum», nome derivado de Aurora, a deusa do abrente"
+msgstr "En latín «aurum», nome derivado de Aurora, a deusa do abrente."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
@@ -2595,10 +2528,9 @@ msgid "Mercury"
 msgstr "Mercurio"
 
 #: element_tiny.xml:162
-#, fuzzy, kde-format
-#| msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'"
+#, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
-msgstr "Do grecolatino «hydrargyrum» para «prata líquida»"
+msgstr "Do grecolatino «hydrargyrum» para «prata líquida»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2607,10 +2539,9 @@ msgid "Thallium"
 msgstr "Talio"
 
 #: element_tiny.xml:164
-#, fuzzy, kde-format
-#| msgid "Greek 'tallos' for 'young twig'"
+#, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "Do grego «tallos» que significa «cana nova»"
+msgstr "Do grego «tallos» que significa «cana nova»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2619,10 +2550,9 @@ msgid "Lead"
 msgstr "Chumbo"
 
 #: element_tiny.xml:166
-#, fuzzy, kde-format
-#| msgid "Latin 'plumbum' for Lead"
+#, kde-format
 msgid "Latin 'plumbum' for Lead."
-msgstr "Do latín «plumbum» para o chumbo"
+msgstr "Do latín «plumbum» para o chumbo."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2642,10 +2572,9 @@ msgid "Polonium"
 msgstr "Polonio"
 
 #: element_tiny.xml:170
-#, fuzzy, kde-format
-#| msgid "Named after Poland to honor Marie Curie"
+#, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "Nomeado por Polonia para homenaxear a Marie Curie"
+msgstr "Nomeado por Polonia para homenaxear a Marie Curie."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2654,10 +2583,9 @@ msgid "Astatine"
 msgstr "Astato"
 
 #: element_tiny.xml:172
-#, fuzzy, kde-format
-#| msgid "Greek 'astator' for 'changing'"
+#, kde-format
 msgid "Greek 'astator' for 'changing'."
-msgstr "Do grego «astator» para «cambiante»"
+msgstr "Do grego «astator» para «cambiante»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:173
@@ -2680,10 +2608,9 @@ msgid "Francium"
 msgstr "Francio"
 
 #: element_tiny.xml:176
-#, fuzzy, kde-format
-#| msgid "Named after France to honor Marguerite Perey"
+#, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr "Nomeado por Francia para homenaxear a Marguerite Perey"
+msgstr "Nomeado por Francia para homenaxear a Marguerite Perey."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2692,10 +2619,9 @@ msgid "Radium"
 msgstr "Radio"
 
 #: element_tiny.xml:178
-#, fuzzy, kde-format
-#| msgid "Latin 'radius' for 'beam', as it is radioactive"
+#, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
-msgstr "Do latín «radius» para «raio», por ser radioactivo"
+msgstr "Do latín «radius» para «raio», por ser radioactivo."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2704,10 +2630,9 @@ msgid "Actinium"
 msgstr "Actinio"
 
 #: element_tiny.xml:180
-#, fuzzy, kde-format
-#| msgid "Greek 'aktis' for 'beam' - actinium is radioactive"
+#, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
-msgstr "Do grego «aktis» para «raio»; o actinio é radioactivo"
+msgstr "Do grego «aktis» para «raio»; o actinio é radioactivo."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2727,16 +2652,13 @@ msgid "Protactinium"
 msgstr "Protactinio"
 
 #: element_tiny.xml:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "Greek 'protos' for 'ancester'. Protactinium is before Actinium in the "
-#| "periodic table."
+#, kde-format
 msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
-"Do grego «protos» para «antergo». O protactinio está antes do actinio na "
-"táboa periódica."
+"Do grego «protos», «antecesor». O protactinio ten este nome porque o actinio "
+"é produto da radioactividade do protactinio."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:185
@@ -2877,10 +2799,9 @@ msgid "Rutherfordium"
 msgstr "Rutherfordio"
 
 #: element_tiny.xml:210
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Ernest Rutherford"
+#, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr "Nome derivado do científico Ernest Rutherford"
+msgstr "Nome derivado do científico Ernest Rutherford."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
@@ -2889,10 +2810,9 @@ msgid "Dubnium"
 msgstr "Dubnio"
 
 #: element_tiny.xml:212
-#, fuzzy, kde-format
-#| msgid "Named after the science-town Dubna in Russia"
+#, kde-format
 msgid "Named after the science-town Dubna in Russia."
-msgstr "Nome derivado da cidade científica de Dubna, na Rusia"
+msgstr "Nome derivado da cidade científica de Dubna, na Rusia."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
@@ -3107,8 +3027,7 @@ msgid "DZ Periodic Table"
 msgstr "Táboa periódica DZ"
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
-#| msgid "Chemical Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
 msgstr "Calculadora química"
@@ -5186,9 +5105,7 @@ msgid "Extra Information"
 msgstr "Información adicional"
 
 #: src/detailinfodlg.cpp:1152
-#, fuzzy, kde-format
-#| msgctxt "For example: [C] Carbon (6 - Block p)"
-#| msgid "[%1] %2 (%3 - Block %4)"
+#, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
 msgstr "[%1] %2 (%3 - bloque %4)"
@@ -5199,8 +5116,7 @@ msgid "No spectrum of %1 found."
 msgstr "Non se atopou ningún espectro do %1."
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Plot Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
 msgstr "Representar os datos"
@@ -5283,8 +5199,7 @@ msgid "OK"
 msgstr "Aceptar"
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Export Chemical Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "Exportar os datos químicos"
@@ -5441,8 +5356,7 @@ msgid "Isotope of Element %1 (%2)"
 msgstr "Isótopo do elemento %1 (%2)"
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
 msgstr "Táboa de isótopos"
@@ -5737,10 +5651,9 @@ msgid "None"
 msgstr "Ningún"
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
-#| msgid "van Der Waals"
+#, kde-format
 msgid "Van Der Waals"
-msgstr "van der Waals"
+msgstr "Van der Waals"
 
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
@@ -5932,10 +5845,9 @@ msgid "Colors"
 msgstr "Cores"
 
 #: src/kalziumschemetype.cpp:411
-#, fuzzy, kde-format
-#| msgid "Nice colors without meaning. (From the Openbabel project)"
+#, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr "Cores lindas sen significado. (Do proxecto Openbabel)"
+msgstr "Cores lindas sen significado (do proxecto Open Babel)."
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -6009,8 +5921,7 @@ msgid "Glossary"
 msgstr "Glosario"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
-#| msgid "Glossary"
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
 msgstr "Glosario"
@@ -6781,11 +6692,10 @@ msgid "n/a"
 msgstr "non dispoñíbel"
 
 #: src/rsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Risks/Security Phrases"
+#, kde-format
 msgctxt "@title:window"
 msgid "Risks/Security Phrases"
-msgstr "Frases de riscos/seguranza"
+msgstr "Frases de riscos/seguridade"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/rsdialog.cpp:79 src/rswidget.ui:38
@@ -6804,11 +6714,7 @@ msgid "You asked for no R/S-Phrases."
 msgstr "Pediches non ver as frases R/S."
 
 #: src/rsdialog.cpp:139
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S1: Keep locked up"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6816,11 +6722,7 @@ msgid "S1: Keep locked up"
 msgstr "S1: Gardar baixo chave"
 
 #: src/rsdialog.cpp:142
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S2: Keep out of the reach of children"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6828,11 +6730,7 @@ msgid "S2: Keep out of the reach of children"
 msgstr "S2: Manter fóra do alcance dos nenos"
 
 #: src/rsdialog.cpp:145
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S3: Keep in a cool place"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6840,11 +6738,7 @@ msgid "S3: Keep in a cool place"
 msgstr "S3: Gardar nun lugar fresco"
 
 #: src/rsdialog.cpp:148
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S4: Keep away from living quarters"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6852,13 +6746,7 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4: Manter lonxe de lugares habitados"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6868,11 +6756,7 @@ msgid ""
 msgstr "S5: Manter en … (líquido axeitado a especificar polo produtor)"
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6880,11 +6764,7 @@ msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
 msgstr "S6: Manter en … (gas inerte a especificar polo produtor)"
 
 #: src/rsdialog.cpp:157
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S7: Keep container tightly closed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6892,11 +6772,7 @@ msgid "S7: Keep container tightly closed"
 msgstr "S7: Manter o recipiente ben pechado"
 
 #: src/rsdialog.cpp:160
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S8: Keep container dry"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6904,11 +6780,7 @@ msgid "S8: Keep container dry"
 msgstr "S8: Manter o recipiente ao abeiro da humidade"
 
 #: src/rsdialog.cpp:163
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S9: Keep container in a well-ventilated place"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6916,11 +6788,7 @@ msgid "S9: Keep container in a well-ventilated place"
 msgstr "S9: Manter o recipiente nun local ben ventilado."
 
 #: src/rsdialog.cpp:166
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S12: Do not keep the container sealed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6928,11 +6796,7 @@ msgid "S12: Do not keep the container sealed"
 msgstr "S12: Non manter o recipiente selado"
 
 #: src/rsdialog.cpp:169
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S13: Keep away from food, drink and animal feedingstuffs"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6940,13 +6804,7 @@ msgid "S13: Keep away from food, drink and animal feedingstuffs"
 msgstr "S13: Manter lonxe de alimentos e bebidas, incluíndo os dos animais"
 
 #: src/rsdialog.cpp:172
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S14: Keep away from ... ( incompatible materials to be indicated by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6957,11 +6815,7 @@ msgstr ""
 "S14: Manter afastado de … (materias incompatíbeis a indicar polo produtor)"
 
 #: src/rsdialog.cpp:175
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S15: Keep away from heat"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6969,11 +6823,7 @@ msgid "S15: Keep away from heat"
 msgstr "S15: Manter afastado do calor"
 
 #: src/rsdialog.cpp:178
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S16: Keep away from sources of ignition - No smoking"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6982,11 +6832,7 @@ msgstr ""
 "S16: Manter afastado de calquera chama ou fonte de ignición - Non fumar"
 
 #: src/rsdialog.cpp:181
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S17: Keep away from combustible material"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6994,11 +6840,7 @@ msgid "S17: Keep away from combustible material"
 msgstr "S17: Manter afastado de materiais combustíbeis"
 
 #: src/rsdialog.cpp:184
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S18: Handle and open container with care"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7006,11 +6848,7 @@ msgid "S18: Handle and open container with care"
 msgstr "S18: Manipular e abrir o recipiente con prudencia"
 
 #: src/rsdialog.cpp:187
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S20: When using do not eat or drink"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7018,11 +6856,7 @@ msgid "S20: When using do not eat or drink"
 msgstr "S20: Non comer nin beber durante a súa utilización"
 
 #: src/rsdialog.cpp:190
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S21: When using do not smoke"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7030,11 +6864,7 @@ msgid "S21: When using do not smoke"
 msgstr "S21: Non fumar durante a súa utilización"
 
 #: src/rsdialog.cpp:193
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S22: Do not breathe dust"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7042,13 +6872,7 @@ msgid "S22: Do not breathe dust"
 msgstr "S22: Non respirar o po"
 
 #: src/rsdialog.cpp:196
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S23: Do not breathe gas/fumes/vapour/spray ( appropriate wording to be "
-#| "specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7060,11 +6884,7 @@ msgstr ""
 "indicar polo produtor)"
 
 #: src/rsdialog.cpp:199
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S24: Avoid contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7072,11 +6892,7 @@ msgid "S24: Avoid contact with skin"
 msgstr "S24: Evitar o contacto coa pel"
 
 #: src/rsdialog.cpp:202
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S25: Avoid contact with eyes"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7084,13 +6900,7 @@ msgid "S25: Avoid contact with eyes"
 msgstr "S25: Evitar o contacto cos ollos"
 
 #: src/rsdialog.cpp:205
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S26: In case of contact with eyes, rinse immediately with plenty of water "
-#| "and seek medical advice"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7102,11 +6912,7 @@ msgstr ""
 "auga e consultar un médico"
 
 #: src/rsdialog.cpp:208
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S27: Take off immediately all contaminated clothing"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7114,13 +6920,7 @@ msgid "S27: Take off immediately all contaminated clothing"
 msgstr "S27: Retirar inmediatamente todo o vestiario contaminado"
 
 #: src/rsdialog.cpp:211
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S28: After contact with skin, wash immediately with plenty of ... ( to be "
-#| "specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7132,11 +6932,7 @@ msgstr ""
 "(produtos axeitados a indicar polo produtor)"
 
 #: src/rsdialog.cpp:214
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S29: Do not empty into drains"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7144,11 +6940,7 @@ msgid "S29: Do not empty into drains"
 msgstr "S29: Non baleirar nos sumidoiros"
 
 #: src/rsdialog.cpp:217
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S30: Never add water to this product"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7156,11 +6948,7 @@ msgid "S30: Never add water to this product"
 msgstr "S30: Non engadir nunca auga a este produto"
 
 #: src/rsdialog.cpp:220
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S33: Take precautionary measures against static discharges"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7168,26 +6956,17 @@ msgid "S33: Take precautionary measures against static discharges"
 msgstr "S33: Evitar a acumulación de cargas electrostáticas"
 
 #: src/rsdialog.cpp:223
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S35: This material and its container must be disposed of in a safe way"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S35: This material and its container must be disposed of in a safe way"
 msgstr ""
-"S35: Tomar as precaucións de seguranza debidas para desfacerse deste produto "
-"e do seu recipiente"
+"S35: Tomar as precaucións de seguridade debidas para desfacerse deste "
+"produto e do seu recipiente"
 
 #: src/rsdialog.cpp:226
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S36: Wear suitable protective clothing"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7195,25 +6974,15 @@ msgid "S36: Wear suitable protective clothing"
 msgstr "S36: Usar vestiario de protección axeitado"
 
 #: src/rsdialog.cpp:229
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S37: Wear suitable gloves"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S37: Wear suitable gloves"
-msgstr "S37: Empregar luvas axeitadas"
+msgstr "S37: Usar luvas axeitadas"
 
 #: src/rsdialog.cpp:232
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S38: In case of insufficient ventilation wear suitable respiratory "
-#| "equipment"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7224,25 +6993,15 @@ msgstr ""
 "axeitado"
 
 #: src/rsdialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S39: Wear eye/face protection"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S39: Wear eye/face protection"
-msgstr "S39: Empregar protección para os ollos/a cara"
+msgstr "S39: Usar protección para os ollos/a cara"
 
 #: src/rsdialog.cpp:238
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S40: To clean the floor and all objects contaminated by this material "
-#| "use ... ( to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7250,15 +7009,11 @@ msgid ""
 "S40: To clean the floor and all objects contaminated by this material "
 "use ... ( to be specified by the manufacturer )"
 msgstr ""
-"S40: Para limpar o chan e os obxectos contaminados por este produto, "
-"utilizar … (a especificar polo produtor)"
+"S40: Para limpar o chan e os obxectos contaminados por este produto, usar … "
+"(a especificar polo produtor)"
 
 #: src/rsdialog.cpp:241
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S41: In case of fire and/or explosion do not breathe fumes"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7266,13 +7021,7 @@ msgid "S41: In case of fire and/or explosion do not breathe fumes"
 msgstr "S41: En caso de incendio e/ou explosión non respirar os fumes"
 
 #: src/rsdialog.cpp:244
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S42: During fumigation/spraying wear suitable respiratory equipment "
-#| "( appropriate wording to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7284,14 +7033,7 @@ msgstr ""
 "axeitado (termo(s) axeitado(s) a indicar polo produtor)"
 
 #: src/rsdialog.cpp:247
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S43: In case of fire use ... ( indicate in the space the precise type of "
-#| "fire-fighting equipment. If water increases the risk add - Never use "
-#| "water )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7299,17 +7041,11 @@ msgid ""
 "S43: In case of fire use ... ( indicate in the space the precise type of "
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
-"S43: En caso de incendio, utilizar … (medios de extinción a especificar polo "
-"produtor. Se a auga aumenta os riscos, engadir «Non utilizar nunca auga»)"
+"S43: En caso de incendio, usar … (medios de extinción a especificar polo "
+"produtor. Se a auga aumenta os riscos, engadir «Non usar nunca auga»)"
 
 #: src/rsdialog.cpp:251
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S45: In case of accident or if you feel unwell seek medical advice "
-#| "immediately ( show the label where possible )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7321,13 +7057,7 @@ msgstr ""
 "médico (se for posíbel, mostrarlle a etiqueta)"
 
 #: src/rsdialog.cpp:254
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S46: If swallowed, seek medical advice immediately and show this "
-#| "container or label"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7339,13 +7069,7 @@ msgstr ""
 "envase ou a etiqueta"
 
 #: src/rsdialog.cpp:257
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S47: Keep at temperature not exceeding ... °C ( to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7357,13 +7081,7 @@ msgstr ""
 "produtor)"
 
 #: src/rsdialog.cpp:260
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S48: Keep wet with ... ( appropriate material to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7374,11 +7092,7 @@ msgstr ""
 "S48: Manter húmido con … (material axeitado a especificar polo produtor)"
 
 #: src/rsdialog.cpp:263
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S49: Keep only in the original container"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7386,11 +7100,7 @@ msgid "S49: Keep only in the original container"
 msgstr "S49: Conservar só no recipiente de orixe"
 
 #: src/rsdialog.cpp:266
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S50: Do not mix with ... ( to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7398,23 +7108,15 @@ msgid "S50: Do not mix with ... ( to be specified by the manufacturer )"
 msgstr "S50: Non mesturar con … (a especificar polo produtor)"
 
 #: src/rsdialog.cpp:269
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S51: Use only in well-ventilated areas"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S51: Use only in well-ventilated areas"
-msgstr "S51: Utilizar só en locais ben ventilados"
+msgstr "S51: Usar só en locais ben ventilados"
 
 #: src/rsdialog.cpp:272
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S52: Not recommended for interior use on large surface areas"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7422,11 +7124,7 @@ msgid "S52: Not recommended for interior use on large surface areas"
 msgstr "S52: Non se recomenda en interiores en áreas de superficie grandes"
 
 #: src/rsdialog.cpp:275
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S53: Avoid exposure - obtain special instructions before use"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7435,13 +7133,7 @@ msgstr ""
 "S53: Evitar a exposición - obter instrucións específicas antes da utilización"
 
 #: src/rsdialog.cpp:278
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S56: Dispose of this material and its container at hazardous or special "
-#| "waste collection point"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7453,26 +7145,16 @@ msgstr ""
 "recollida de residuos perigosos ou especiais"
 
 #: src/rsdialog.cpp:281
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S57: Use appropriate containment to avoid environmental contamination"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S57: Use appropriate containment to avoid environmental contamination"
 msgstr ""
-"S57: Utilizar un recipiente axeitado para evitar a contaminación do ambiente"
+"S57: Usar un recipiente axeitado para evitar a contaminación do ambiente"
 
 #: src/rsdialog.cpp:284
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S59: Refer to manufacturer/supplier for information on recovery/recycling"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7483,13 +7165,7 @@ msgstr ""
 "recuperación/reciclaxe"
 
 #: src/rsdialog.cpp:287
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S60: This material and its container must be disposed of as hazardous "
-#| "waste"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7499,13 +7175,7 @@ msgstr ""
 "S60: Este produto e o seu recipiente deben eliminarse como residuos perigosos"
 
 #: src/rsdialog.cpp:290
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S61: Avoid release to the environment. Refer to special instructions/"
-#| "safety data sheet"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7514,16 +7184,10 @@ msgid ""
 "data sheet"
 msgstr ""
 "S61: Evitar a liberación para o medio ambiente. Consultar as instrucións "
-"específicas/folla de seguranza"
+"específicas/folla de seguridade"
 
 #: src/rsdialog.cpp:293
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S62: If swallowed, do not induce vomiting: seek medical advice "
-#| "immediately and show this container or label"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7535,13 +7199,7 @@ msgstr ""
 "cun médico e mostrarlle o envase ou a etiqueta"
 
 #: src/rsdialog.cpp:296
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S63: In case of accident by inhalation: remove casualty to fresh air and "
-#| "keep at rest"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7553,13 +7211,7 @@ msgstr ""
 "contaminada e mantela en repouso"
 
 #: src/rsdialog.cpp:299
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S64: If swallowed, rinse mouth with water ( only if the person is "
-#| "conscious )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7570,11 +7222,7 @@ msgstr ""
 "vítima estiver consciente)"
 
 #: src/rsdialog.cpp:325
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R1: Explosive when dry"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7582,13 +7230,7 @@ msgid "R1: Explosive when dry"
 msgstr "R1: Explosivo en estado seco"
 
 #: src/rsdialog.cpp:328
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "R2: Risk of explosion by shock, friction, fire or other sources of "
-#| "ignition"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7599,13 +7241,7 @@ msgstr ""
 "ignición"
 
 #: src/rsdialog.cpp:331
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "R3: Extreme risk of explosion by shock, friction, fire or other sources "
-#| "of ignition"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7617,11 +7253,7 @@ msgstr ""
 "ignición"
 
 #: src/rsdialog.cpp:334
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R4: Forms very sensitive explosive metallic compounds"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7629,11 +7261,7 @@ msgid "R4: Forms very sensitive explosive metallic compounds"
 msgstr "R4: Forma compostos metálicos explosivos moi sensíbeis"
 
 #: src/rsdialog.cpp:337
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R5: Heating may cause an explosion"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7641,11 +7269,7 @@ msgid "R5: Heating may cause an explosion"
 msgstr "R5: Perigo de explosión en caso de quecemento"
 
 #: src/rsdialog.cpp:340
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R6: Explosive with or without contact with air"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7653,11 +7277,7 @@ msgid "R6: Explosive with or without contact with air"
 msgstr "R6: Perigo de explosión con ou sen contacto co ar"
 
 #: src/rsdialog.cpp:343
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R7: May cause fire"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7665,11 +7285,7 @@ msgid "R7: May cause fire"
 msgstr "R7: Pode provocar incendios"
 
 #: src/rsdialog.cpp:346
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R8: Contact with combustible material may cause fire"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7677,11 +7293,7 @@ msgid "R8: Contact with combustible material may cause fire"
 msgstr "R8: Favorece a inflamación de materias combustíbeis"
 
 #: src/rsdialog.cpp:349
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R9: Explosive when mixed with combustible material"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7689,11 +7301,7 @@ msgid "R9: Explosive when mixed with combustible material"
 msgstr "R9: Pode estoupar cando se mesturar con materias combustíbeis"
 
 #: src/rsdialog.cpp:352
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R10: Flammable"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7701,11 +7309,7 @@ msgid "R10: Flammable"
 msgstr "R10: Inflamábel"
 
 #: src/rsdialog.cpp:355
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R11: Highly flammable"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7713,11 +7317,7 @@ msgid "R11: Highly flammable"
 msgstr "R11: Facilmente inflamábel"
 
 #: src/rsdialog.cpp:358
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R12: Extremely flammable"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7725,11 +7325,7 @@ msgid "R12: Extremely flammable"
 msgstr "R12: Extremadamente inflamábel"
 
 #: src/rsdialog.cpp:361
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R14: Reacts violently with water"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7737,11 +7333,7 @@ msgid "R14: Reacts violently with water"
 msgstr "R14: Reacciona violentamente en contacto coa auga"
 
 #: src/rsdialog.cpp:364
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R15: Contact with water liberates extremely flammable gases"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7749,11 +7341,7 @@ msgid "R15: Contact with water liberates extremely flammable gases"
 msgstr "R15: En contacto coa auga libera gases extremadamente inflamábeis"
 
 #: src/rsdialog.cpp:367
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R16: Explosive when mixed with oxidising substances"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7761,11 +7349,7 @@ msgid "R16: Explosive when mixed with oxidising substances"
 msgstr "R16: Explosivo ao mesturalo con substancias comburentes"
 
 #: src/rsdialog.cpp:370
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R17: Spontaneously flammable in air"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7773,11 +7357,7 @@ msgid "R17: Spontaneously flammable in air"
 msgstr "R17: Inflámase espontaneamente en contacto co ar"
 
 #: src/rsdialog.cpp:373
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R18: In use, may form flammable/explosive vapour-air mixture"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7786,11 +7366,7 @@ msgstr ""
 "R18: Pode formar mestura vapor-ar explosiva/inflamábel durante a utilización"
 
 #: src/rsdialog.cpp:376
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R19: May form explosive peroxides"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7798,11 +7374,7 @@ msgid "R19: May form explosive peroxides"
 msgstr "R19: Pode formar peróxidos explosivos"
 
 #: src/rsdialog.cpp:379
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R20: Harmful by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7810,11 +7382,7 @@ msgid "R20: Harmful by inhalation"
 msgstr "R20: Nocivo por inhalación"
 
 #: src/rsdialog.cpp:382
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R21: Harmful in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7822,11 +7390,7 @@ msgid "R21: Harmful in contact with skin"
 msgstr "R21: Nocivo en contacto coa pel"
 
 #: src/rsdialog.cpp:385
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R22: Harmful if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7834,11 +7398,7 @@ msgid "R22: Harmful if swallowed"
 msgstr "R22: Nocivo por inxestión"
 
 #: src/rsdialog.cpp:388
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R23: Toxic by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7846,11 +7406,7 @@ msgid "R23: Toxic by inhalation"
 msgstr "R23: Tóxico por inhalación"
 
 #: src/rsdialog.cpp:391
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R24: Toxic in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7858,11 +7414,7 @@ msgid "R24: Toxic in contact with skin"
 msgstr "R24: Tóxico en contacto coa pel"
 
 #: src/rsdialog.cpp:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R25: Toxic if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7870,11 +7422,7 @@ msgid "R25: Toxic if swallowed"
 msgstr "R25: Tóxico por inxestión"
 
 #: src/rsdialog.cpp:397
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R26: Very toxic by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7882,11 +7430,7 @@ msgid "R26: Very toxic by inhalation"
 msgstr "R26: Moi tóxico por inhalación"
 
 #: src/rsdialog.cpp:400
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R27: Very toxic in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7894,11 +7438,7 @@ msgid "R27: Very toxic in contact with skin"
 msgstr "R27: Moi tóxico en contacto coa pel"
 
 #: src/rsdialog.cpp:403
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R28: Very toxic if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7906,11 +7446,7 @@ msgid "R28: Very toxic if swallowed"
 msgstr "R28: Moi tóxico por inxestión"
 
 #: src/rsdialog.cpp:406
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R29: Contact with water liberates toxic gas."
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7918,11 +7454,7 @@ msgid "R29: Contact with water liberates toxic gas."
 msgstr "R29: En contacto coa auga libera gases tóxicos."
 
 #: src/rsdialog.cpp:409
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R30: Can become highly flammable in use"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7930,11 +7462,7 @@ msgid "R30: Can become highly flammable in use"
 msgstr "R30: Pode tornarse facilmente inflamábel durante a utilización"
 
 #: src/rsdialog.cpp:412
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R31: Contact with acids liberates toxic gas"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7942,11 +7470,7 @@ msgid "R31: Contact with acids liberates toxic gas"
 msgstr "R31: En contacto con ácidos libera gases tóxicos"
 
 #: src/rsdialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R32: Contact with acids liberates very toxic gas"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7954,11 +7478,7 @@ msgid "R32: Contact with acids liberates very toxic gas"
 msgstr "R32: En contacto con ácidos libera gases moi tóxicos"
 
 #: src/rsdialog.cpp:418
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R33: Danger of cumulative effects"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7966,11 +7486,7 @@ msgid "R33: Danger of cumulative effects"
 msgstr "R33: Perigo de efectos acumulativos"
 
 #: src/rsdialog.cpp:421
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R34: Causes burns"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7978,11 +7494,7 @@ msgid "R34: Causes burns"
 msgstr "R34: Provoca queimaduras"
 
 #: src/rsdialog.cpp:424
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R35: Causes severe burns"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7990,11 +7502,7 @@ msgid "R35: Causes severe burns"
 msgstr "R35: Provoca queimaduras graves"
 
 #: src/rsdialog.cpp:427
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R36: Irritating to eyes"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8002,11 +7510,7 @@ msgid "R36: Irritating to eyes"
 msgstr "R36: Irritante para os ollos"
 
 #: src/rsdialog.cpp:430
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R37: Irritating to respiratory system"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8014,11 +7518,7 @@ msgid "R37: Irritating to respiratory system"
 msgstr "R37: Irritante para as vías respiratorias"
 
 #: src/rsdialog.cpp:433
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R38: Irritating to skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8026,11 +7526,7 @@ msgid "R38: Irritating to skin"
 msgstr "R38: Irritante para a pel"
 
 #: src/rsdialog.cpp:436
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R39: Danger of very serious irreversible effects"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8038,11 +7534,7 @@ msgid "R39: Danger of very serious irreversible effects"
 msgstr "R39: Perigo de efectos irreversíbeis moi graves"
 
 #: src/rsdialog.cpp:439
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R40: Limited evidence of a carcinogenic effect"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8050,11 +7542,7 @@ msgid "R40: Limited evidence of a carcinogenic effect"
 msgstr "R40: Posíbeis efectos canceríxenos"
 
 #: src/rsdialog.cpp:442
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R41: Risk of serious damage to eyes"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8062,11 +7550,7 @@ msgid "R41: Risk of serious damage to eyes"
 msgstr "R41: Risco de lesións oculares graves"
 
 #: src/rsdialog.cpp:445
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R42: May cause sensitisation by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8074,11 +7558,7 @@ msgid "R42: May cause sensitisation by inhalation"
 msgstr "R42: Pode causar sensibilización por inhalación"
 
 #: src/rsdialog.cpp:448
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R43: May cause sensitisation by skin contact"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8086,11 +7566,7 @@ msgid "R43: May cause sensitisation by skin contact"
 msgstr "R43: Pode causar sensibilización en contacto coa pel"
 
 #: src/rsdialog.cpp:451
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R44: Risk of explosion if heated under confinement"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8098,11 +7574,7 @@ msgid "R44: Risk of explosion if heated under confinement"
 msgstr "R44: Risco de explosión se for quentado en confinamento"
 
 #: src/rsdialog.cpp:454
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R45: May cause cancer"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8110,11 +7582,7 @@ msgid "R45: May cause cancer"
 msgstr "R45: Pode causar cancro"
 
 #: src/rsdialog.cpp:457
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R46: May cause heritable genetic damage"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8122,11 +7590,7 @@ msgid "R46: May cause heritable genetic damage"
 msgstr "R46: Pode causar alteracións xenéticas hereditarias"
 
 #: src/rsdialog.cpp:460
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R48: Danger of serious damage to health by prolonged exposure"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8135,11 +7599,7 @@ msgstr ""
 "R48: Risco de efectos graves para a saúde en caso de exposición prolongada"
 
 #: src/rsdialog.cpp:463
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R49: May cause cancer by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8147,11 +7607,7 @@ msgid "R49: May cause cancer by inhalation"
 msgstr "R49: Pode causar cancro por inhalación"
 
 #: src/rsdialog.cpp:466
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R50: Very toxic to aquatic organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8159,11 +7615,7 @@ msgid "R50: Very toxic to aquatic organisms"
 msgstr "R50: Moi tóxico para os organismos acuáticos"
 
 #: src/rsdialog.cpp:469
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R51: Toxic to aquatic organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8171,11 +7623,7 @@ msgid "R51: Toxic to aquatic organisms"
 msgstr "R51: Tóxico para os organismos acuáticos"
 
 #: src/rsdialog.cpp:472
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R52: Harmful to aquatic organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8183,11 +7631,7 @@ msgid "R52: Harmful to aquatic organisms"
 msgstr "R52: Nocivo para os organismos acuáticos"
 
 #: src/rsdialog.cpp:475
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R53: May cause long-term adverse effects in the aquatic environment"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8195,11 +7639,7 @@ msgid "R53: May cause long-term adverse effects in the aquatic environment"
 msgstr "R53: Pode causar efectos nefastos a longo prazo no ambiente acuático"
 
 #: src/rsdialog.cpp:478
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R54: Toxic to flora"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8207,11 +7647,7 @@ msgid "R54: Toxic to flora"
 msgstr "R54: Tóxico para a flora"
 
 #: src/rsdialog.cpp:481
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R55: Toxic to fauna"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8219,11 +7655,7 @@ msgid "R55: Toxic to fauna"
 msgstr "R55: Tóxico para a fauna"
 
 #: src/rsdialog.cpp:484
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R56: Toxic to soil organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8231,11 +7663,7 @@ msgid "R56: Toxic to soil organisms"
 msgstr "R56: Tóxico para os organismos do solo"
 
 #: src/rsdialog.cpp:487
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R57: Toxic to bees"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8243,11 +7671,7 @@ msgid "R57: Toxic to bees"
 msgstr "R57: Tóxico para as abellas"
 
 #: src/rsdialog.cpp:490
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R58: May cause long-term adverse effects in the environment"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8255,11 +7679,7 @@ msgid "R58: May cause long-term adverse effects in the environment"
 msgstr "R58: Pode causar efectos nefastos a longo prazo no ambiente"
 
 #: src/rsdialog.cpp:493
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R59: Dangerous for the ozone layer"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8267,11 +7687,7 @@ msgid "R59: Dangerous for the ozone layer"
 msgstr "R59: Perigoso para a capa de ozono"
 
 #: src/rsdialog.cpp:496
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R60: May impair fertility"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8279,11 +7695,7 @@ msgid "R60: May impair fertility"
 msgstr "R60: Pode prexudicar a fertilidade"
 
 #: src/rsdialog.cpp:499
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R61: May cause harm to the unborn child"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8291,11 +7703,7 @@ msgid "R61: May cause harm to the unborn child"
 msgstr "R61: Risco durante a preñez con efectos adversos no feto"
 
 #: src/rsdialog.cpp:502
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R62: Possible risk of impaired fertility"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8303,11 +7711,7 @@ msgid "R62: Possible risk of impaired fertility"
 msgstr "R62: Posíbeis riscos de prexudicar a fertilidade"
 
 #: src/rsdialog.cpp:505
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R63: Possible risk of harm to the unborn child"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8315,11 +7719,7 @@ msgid "R63: Possible risk of harm to the unborn child"
 msgstr "R63: Posíbeis riscos durante a preñez con efectos adversos no feto"
 
 #: src/rsdialog.cpp:508
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R64: May cause harm to breast-fed babies"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8327,11 +7727,7 @@ msgid "R64: May cause harm to breast-fed babies"
 msgstr "R64: Pode causar danos aos nenos alimentados con leite materno"
 
 #: src/rsdialog.cpp:511
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R65: Harmful: may cause lung damage if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8339,11 +7735,7 @@ msgid "R65: Harmful: may cause lung damage if swallowed"
 msgstr "R65: Nocivo: pode causar danos nos pulmóns se for inxerido"
 
 #: src/rsdialog.cpp:514
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R66: Repeated exposure may cause skin dryness or cracking"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8351,11 +7743,7 @@ msgid "R66: Repeated exposure may cause skin dryness or cracking"
 msgstr "R66: Pode provocar secura da pel ou fisuras por exposición repetida"
 
 #: src/rsdialog.cpp:517
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R67: Vapours may cause drowsiness and dizziness"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8363,11 +7751,7 @@ msgid "R67: Vapours may cause drowsiness and dizziness"
 msgstr "R67: Pode provocar somnolencia e vertixes por inhalación dos vapores"
 
 #: src/rsdialog.cpp:520
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R68: Possible risk of irreversible effects"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -8445,27 +7829,27 @@ msgstr "Buscar…"
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "Unha canda a outra"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "Unha parte canda a outra"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Ambas partes nun continuo"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "Horizontalmente"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
 msgid "Horizontally (shifted)"
-msgstr ""
+msgstr "Horizontalmente (movida)"
 
 #: src/settings/kalziumconfigdialog.cpp:15
 #, kde-format
@@ -9113,8 +8497,7 @@ msgid "&Copy"
 msgstr "&Copiar"
 
 #: src/tools/moleculeview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Molecular Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
 msgstr "Editor de moléculas"
@@ -9169,16 +8552,14 @@ msgid "Choose a file to open"
 msgstr "Escolle un ficheiro para abrilo"
 
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Could not load molecule"
-msgstr "Estase a cargar a molécula"
+msgstr "Non foi posíbel cargar a molécula"
 
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Loading the molecule failed."
-msgstr "Estase a cargar a molécula"
+msgstr "A carga da molécula fallou."
 
 #: src/tools/moleculeview.cpp:206
 #, kde-format
@@ -9289,8 +8670,7 @@ msgid "Weight:"
 msgstr "Peso:"
 
 #: src/tools/obconverter.cpp:33
-#, fuzzy, kde-format
-#| msgid "OpenBabel Frontend"
+#, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "Interface para OpenBabel"
