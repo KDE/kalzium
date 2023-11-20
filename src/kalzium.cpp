@@ -355,18 +355,6 @@ MoleculeDialog *Kalzium::slotMoleculeviewer()
     MoleculeDialog *d = new MoleculeDialog(this);
     d->show();
     return d;
-
-#if 0
-    KPluginLoader loader("libkalziumglpart");
-    KPluginFactory* factory = loader.factory();
-
-    if (factory) {
-        KParts::ReadOnlyPart *part = 0;
-        part = static_cast<KParts::ReadOnlyPart*>(factory->create(this, "KalziumGLPart"));
-
-        part->widget()->show();
-    }
-#endif
 #endif
     return nullptr;
 }
