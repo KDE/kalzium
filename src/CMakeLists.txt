@@ -189,7 +189,6 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-kalzium.png")
 ecm_add_app_icon(kalzium ICONS ${ICONS_SRCS})
 
 target_link_libraries(kalzium
-    KF${KF_MAJOR_VERSION}::Completion
     KF${KF_MAJOR_VERSION}::ConfigWidgets
     KF${KF_MAJOR_VERSION}::ItemViews
     KF${KF_MAJOR_VERSION}::KIOWidgets
