@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:23+0000\n"
+"POT-Creation-Date: 2023-11-22 00:39+0000\n"
 "PO-Revision-Date: 2022-08-03 09:47+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -48,31 +48,6 @@ msgstr "Tyvärr"
 #, kde-format
 msgid "Cannot save to the specified file."
 msgstr "Kan inte spara i angiven fil."
-
-#: compoundviewer/kalziumglpart.cpp:17
-#, kde-format
-msgid "Kalzium OpenGL Part"
-msgstr "Kalzium OpenGL-programdel"
-
-#: compoundviewer/kalziumglpart.cpp:19
-#, kde-format
-msgid "A cool thing"
-msgstr "En häftig sak"
-
-#: compoundviewer/kalziumglpart.cpp:21
-#, kde-format
-msgid "(c) 2006, Carsten Niehaus"
-msgstr "© 2006, Carsten Niehaus"
-
-#: compoundviewer/kalziumglpart.cpp:24 src/main.cpp:46
-#, kde-format
-msgid "Carsten Niehaus"
-msgstr "Carsten Niehaus"
-
-#: compoundviewer/kalziumglpart.cpp:25
-#, kde-format
-msgid "Marcus D. Hanwell"
-msgstr "Marcus D. Hanwell"
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -5597,7 +5572,7 @@ msgstr "Fel i Kalzium"
 msgid "This system does not support OpenGL."
 msgstr "Systemet stöder inte OpenGL."
 
-#: src/kalzium.cpp:510
+#: src/kalzium.cpp:498
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5970,6 +5945,11 @@ msgstr "Ett periodiskt system med grundämnen"
 #, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "© 2002-2016 Carsten Niehaus och KDE Edu-utvecklarna"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Carsten Niehaus"
+msgstr "Carsten Niehaus"
 
 #: src/main.cpp:48
 #, kde-format
@@ -8714,6 +8694,18 @@ msgstr "Konvertera från:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konvertera till:"
+
+#~ msgid "Kalzium OpenGL Part"
+#~ msgstr "Kalzium OpenGL-programdel"
+
+#~ msgid "A cool thing"
+#~ msgstr "En häftig sak"
+
+#~ msgid "(c) 2006, Carsten Niehaus"
+#~ msgstr "© 2006, Carsten Niehaus"
+
+#~ msgid "Marcus D. Hanwell"
+#~ msgstr "Marcus D. Hanwell"
 
 #~ msgid "[molecule]"
 #~ msgstr "[molekyl]"

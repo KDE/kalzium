@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:23+0000\n"
+"POT-Creation-Date: 2023-11-22 00:39+0000\n"
 "PO-Revision-Date: 2019-09-22 19:06+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -49,31 +49,6 @@ msgstr "抱歉"
 #, kde-format
 msgid "Cannot save to the specified file."
 msgstr "無法儲存指定的檔案。"
-
-#: compoundviewer/kalziumglpart.cpp:17
-#, kde-format
-msgid "Kalzium OpenGL Part"
-msgstr "Kalzium OpenGL 部件"
-
-#: compoundviewer/kalziumglpart.cpp:19
-#, kde-format
-msgid "A cool thing"
-msgstr "很酷的玩意兒"
-
-#: compoundviewer/kalziumglpart.cpp:21
-#, kde-format
-msgid "(c) 2006, Carsten Niehaus"
-msgstr "(c) 2006, Carsten Niehaus"
-
-#: compoundviewer/kalziumglpart.cpp:24 src/main.cpp:46
-#, kde-format
-msgid "Carsten Niehaus"
-msgstr "Carsten Niehaus"
-
-#: compoundviewer/kalziumglpart.cpp:25
-#, kde-format
-msgid "Marcus D. Hanwell"
-msgstr "Marcus D. Hanwell"
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -5496,7 +5471,7 @@ msgstr "Kalzium 錯誤"
 msgid "This system does not support OpenGL."
 msgstr "系統不支援 OpenGL"
 
-#: src/kalzium.cpp:510
+#: src/kalzium.cpp:498
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5873,6 +5848,11 @@ msgstr "元素週期表"
 #, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "(C) 2002-2016 Carsten Niehaus 與 KDE Edu 開發團隊"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Carsten Niehaus"
+msgstr "Carsten Niehaus"
 
 #: src/main.cpp:48
 #, kde-format
@@ -9103,6 +9083,18 @@ msgstr "轉換來源："
 #, kde-format
 msgid "Convert to:"
 msgstr "轉換為："
+
+#~ msgid "Kalzium OpenGL Part"
+#~ msgstr "Kalzium OpenGL 部件"
+
+#~ msgid "A cool thing"
+#~ msgstr "很酷的玩意兒"
+
+#~ msgid "(c) 2006, Carsten Niehaus"
+#~ msgstr "(c) 2006, Carsten Niehaus"
+
+#~ msgid "Marcus D. Hanwell"
+#~ msgstr "Marcus D. Hanwell"
 
 #~ msgid "[molecule]"
 #~ msgstr "[分子]"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:23+0000\n"
+"POT-Creation-Date: 2023-11-22 00:39+0000\n"
 "PO-Revision-Date: 2023-06-23 10:08+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -52,31 +52,6 @@ msgstr "Lituji"
 #, kde-format
 msgid "Cannot save to the specified file."
 msgstr "Nelze uložit do zvoleného souboru."
-
-#: compoundviewer/kalziumglpart.cpp:17
-#, kde-format
-msgid "Kalzium OpenGL Part"
-msgstr "Kalzium OpenGL Part"
-
-#: compoundviewer/kalziumglpart.cpp:19
-#, kde-format
-msgid "A cool thing"
-msgstr "Super věc"
-
-#: compoundviewer/kalziumglpart.cpp:21
-#, kde-format
-msgid "(c) 2006, Carsten Niehaus"
-msgstr "(c) 2006, Carsten Niehaus"
-
-#: compoundviewer/kalziumglpart.cpp:24 src/main.cpp:46
-#, kde-format
-msgid "Carsten Niehaus"
-msgstr "Carsten Niehaus"
-
-#: compoundviewer/kalziumglpart.cpp:25
-#, kde-format
-msgid "Marcus D. Hanwell"
-msgstr "Marcus D. Hanwell"
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -5364,7 +5339,7 @@ msgstr "Chyba v programu Kalzium"
 msgid "This system does not support OpenGL."
 msgstr "Tento systém nepodporuje OpenGL."
 
-#: src/kalzium.cpp:510
+#: src/kalzium.cpp:498
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5737,6 +5712,11 @@ msgstr "Periodická tabulka prvků"
 #, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "(C) 2002-2016 Carsten Niehaus & Vývojáři KDE Edu"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Carsten Niehaus"
+msgstr "Carsten Niehaus"
 
 #: src/main.cpp:48
 #, kde-format
@@ -8479,3 +8459,15 @@ msgstr "Převést z:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Převést do:"
+
+#~ msgid "Kalzium OpenGL Part"
+#~ msgstr "Kalzium OpenGL Part"
+
+#~ msgid "A cool thing"
+#~ msgstr "Super věc"
+
+#~ msgid "(c) 2006, Carsten Niehaus"
+#~ msgstr "(c) 2006, Carsten Niehaus"
+
+#~ msgid "Marcus D. Hanwell"
+#~ msgstr "Marcus D. Hanwell"

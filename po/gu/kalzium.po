@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:23+0000\n"
+"POT-Creation-Date: 2023-11-22 00:39+0000\n"
 "PO-Revision-Date: 2009-10-21 20:24+0530\n"
 "Last-Translator: pragnesh radadiya <pg.radadia@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -47,33 +47,6 @@ msgstr ""
 #, kde-format
 msgid "Cannot save to the specified file."
 msgstr "સ્પષ્ટ કરેલ ફાઇલ સંગ્રહ કરી શકાતી નથી."
-
-#: compoundviewer/kalziumglpart.cpp:17
-#, fuzzy, kde-format
-#| msgid "KalziumGLPart"
-msgid "Kalzium OpenGL Part"
-msgstr "KalziumGLPart"
-
-#: compoundviewer/kalziumglpart.cpp:19
-#, kde-format
-msgid "A cool thing"
-msgstr "એક સરસ વસ્તુ"
-
-#: compoundviewer/kalziumglpart.cpp:21
-#, kde-format
-msgid "(c) 2006, Carsten Niehaus"
-msgstr "(c) ૨૦૦૬, કાર્સ્ટેન નિહાઉસ"
-
-#: compoundviewer/kalziumglpart.cpp:24 src/main.cpp:46
-#, kde-format
-msgid "Carsten Niehaus"
-msgstr "કાર્સ્ટેન નિહાઉસ"
-
-#: compoundviewer/kalziumglpart.cpp:25
-#, fuzzy, kde-format
-#| msgid "Marcus D. Hanwell."
-msgid "Marcus D. Hanwell"
-msgstr "માર્કસ ડી. હનવેલ."
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -5269,7 +5242,7 @@ msgstr "કેલ્ઝિયમ ક્ષતિ"
 msgid "This system does not support OpenGL."
 msgstr ""
 
-#: src/kalzium.cpp:510
+#: src/kalzium.cpp:498
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5650,6 +5623,11 @@ msgstr "તત્વો માટે આવર્ત કોષ્ટક"
 #| msgid "(C) 2002-2008 Carsten Niehaus"
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "(c) ૨૦૦૨-૨૦૦૮ કાર્સ્ટેન નિહાઉસ"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Carsten Niehaus"
+msgstr "કાર્સ્ટેન નિહાઉસ"
 
 #: src/main.cpp:48
 #, kde-format
@@ -8339,6 +8317,22 @@ msgstr "આમાંથી રૂપાંતર:"
 #, kde-format
 msgid "Convert to:"
 msgstr "આમાં રૂપાંતર:"
+
+#, fuzzy
+#~| msgid "KalziumGLPart"
+#~ msgid "Kalzium OpenGL Part"
+#~ msgstr "KalziumGLPart"
+
+#~ msgid "A cool thing"
+#~ msgstr "એક સરસ વસ્તુ"
+
+#~ msgid "(c) 2006, Carsten Niehaus"
+#~ msgstr "(c) ૨૦૦૬, કાર્સ્ટેન નિહાઉસ"
+
+#, fuzzy
+#~| msgid "Marcus D. Hanwell."
+#~ msgid "Marcus D. Hanwell"
+#~ msgstr "માર્કસ ડી. હનવેલ."
 
 #, fuzzy
 #~| msgid "Load Molecule"

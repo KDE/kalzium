@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:23+0000\n"
+"POT-Creation-Date: 2023-11-22 00:39+0000\n"
 "PO-Revision-Date: 2009-02-21 22:58+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -48,33 +48,6 @@ msgstr ""
 #, kde-format
 msgid "Cannot save to the specified file."
 msgstr ""
-
-#: compoundviewer/kalziumglpart.cpp:17
-#, fuzzy, kde-format
-#| msgid "KalziumGLPart"
-msgid "Kalzium OpenGL Part"
-msgstr "के-एल्जियम-जीएलपार्ट"
-
-#: compoundviewer/kalziumglpart.cpp:19
-#, kde-format
-msgid "A cool thing"
-msgstr ""
-
-#: compoundviewer/kalziumglpart.cpp:21
-#, kde-format
-msgid "(c) 2006, Carsten Niehaus"
-msgstr "(c) 2002-2006, कार्स्टेन नेइहास"
-
-#: compoundviewer/kalziumglpart.cpp:24 src/main.cpp:46
-#, kde-format
-msgid "Carsten Niehaus"
-msgstr "कार्सटन निहाउस"
-
-#: compoundviewer/kalziumglpart.cpp:25
-#, fuzzy, kde-format
-#| msgid "Marcus D. Hanwell."
-msgid "Marcus D. Hanwell"
-msgstr "मार्कस डी. हेनवेल."
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -5273,7 +5246,7 @@ msgstr "केएल्जियम गलती"
 msgid "This system does not support OpenGL."
 msgstr "तंत्र मं ओपनजीएल के समर्थन नइ हे."
 
-#: src/kalzium.cpp:510
+#: src/kalzium.cpp:498
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5658,6 +5631,11 @@ msgstr "तत्व मन के पीरियाडिक टेबल"
 #| msgid "(C) 2002-2008 Carsten Niehaus"
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "(c) 2002-2008, कार्स्टेन नेइहास"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Carsten Niehaus"
+msgstr "कार्सटन निहाउस"
 
 #: src/main.cpp:48
 #, kde-format
@@ -8907,6 +8885,19 @@ msgstr "से बदलव:"
 #, kde-format
 msgid "Convert to:"
 msgstr "ये मां बदलव:"
+
+#, fuzzy
+#~| msgid "KalziumGLPart"
+#~ msgid "Kalzium OpenGL Part"
+#~ msgstr "के-एल्जियम-जीएलपार्ट"
+
+#~ msgid "(c) 2006, Carsten Niehaus"
+#~ msgstr "(c) 2002-2006, कार्स्टेन नेइहास"
+
+#, fuzzy
+#~| msgid "Marcus D. Hanwell."
+#~ msgid "Marcus D. Hanwell"
+#~ msgstr "मार्कस डी. हेनवेल."
 
 #, fuzzy
 #~| msgid "Molecule"

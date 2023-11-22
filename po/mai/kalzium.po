@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:23+0000\n"
+"POT-Creation-Date: 2023-11-22 00:39+0000\n"
 "PO-Revision-Date: 2009-04-22 00:01+0530\n"
 "Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -48,31 +48,6 @@ msgstr ""
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Cannot save to the specified file."
-msgstr ""
-
-#: compoundviewer/kalziumglpart.cpp:17
-#, kde-format
-msgid "Kalzium OpenGL Part"
-msgstr ""
-
-#: compoundviewer/kalziumglpart.cpp:19
-#, kde-format
-msgid "A cool thing"
-msgstr ""
-
-#: compoundviewer/kalziumglpart.cpp:21
-#, kde-format
-msgid "(c) 2006, Carsten Niehaus"
-msgstr ""
-
-#: compoundviewer/kalziumglpart.cpp:24 src/main.cpp:46
-#, kde-format
-msgid "Carsten Niehaus"
-msgstr "कार्सटन निहाउस"
-
-#: compoundviewer/kalziumglpart.cpp:25
-#, kde-format
-msgid "Marcus D. Hanwell"
 msgstr ""
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
@@ -5218,7 +5193,7 @@ msgstr ""
 msgid "This system does not support OpenGL."
 msgstr ""
 
-#: src/kalzium.cpp:510
+#: src/kalzium.cpp:498
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5597,6 +5572,11 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Carsten Niehaus"
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
+msgstr "कार्सटन निहाउस"
+
+#: src/main.cpp:46
+#, kde-format
+msgid "Carsten Niehaus"
 msgstr "कार्सटन निहाउस"
 
 #: src/main.cpp:48
