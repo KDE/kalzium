@@ -9182,15 +9182,3 @@ msgstr "元のフォーマット:"
 #, kde-format
 msgid "Convert to:"
 msgstr "新しいフォーマット:"
-
-#~ msgid "Kalzium OpenGL Part"
-#~ msgstr "Kalzium OpenGL Part"
-
-#~ msgid "A cool thing"
-#~ msgstr "素晴しいもの"
-
-#~ msgid "(c) 2006, Carsten Niehaus"
-#~ msgstr "(c) 2006, Carsten Niehaus"
-
-#~ msgid "Marcus D. Hanwell"
-#~ msgstr "Marcus D. Hanwell"
