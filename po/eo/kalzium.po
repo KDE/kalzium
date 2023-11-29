@@ -4323,7 +4323,11 @@ msgid "%1%"
 msgstr "%1%"
 
 #: src/detailinfodlg.cpp:329
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "The first argument is the value, the second is the unit. For example '17 "
+#| "s' ¦for '17 seconds',."
+#| msgid "%1 %2"
 msgctxt ""
 "The first argument is the value, the second is the unit. For example '17 s' "
 "for '17 seconds',."
@@ -7611,7 +7615,11 @@ msgid "Lowercase"
 msgstr "Minuskla"
 
 #: src/tablesdialog.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "The name of the greek letter in your language. For example 'Alpha' for "
+#| "the ¦first letter. "
+#| msgid "Name"
 msgctxt ""
 "The name of the greek letter in your language. For example 'Alpha' for the "
 "first letter. "
@@ -7975,7 +7983,8 @@ msgid "Choose a file to save to"
 msgstr ""
 
 #: src/tools/moleculeview.cpp:247
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 u"
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
 "not need to be translated at all!"
@@ -8169,3 +8178,9 @@ msgstr "Konverti de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konverti al:"
+
+#~ msgctxt ""
+#~ "This 'u' stands for the chemical unit (u for 'units'). Most likely this "
+#~ "does ¦not need to be translated at all!"
+#~ msgid "%1 u"
+#~ msgstr "%1 u"
