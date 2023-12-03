@@ -23,6 +23,8 @@ PeriodicTableView::PeriodicTableView(QWidget *parent)
     setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     setCacheMode(QGraphicsView::CacheBackground);
 
+    setProperty("_breeze_force_frame", false);
+
     setMouseTracking(true);
 
     m_currentTableInex = Prefs::table();

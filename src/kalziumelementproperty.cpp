@@ -10,8 +10,39 @@
 #include "search.h"
 
 #include <KLocalizedString>
+#include <QGuiApplication>
+#include <QPalette>
 
 #include <prefs.h>
+#include <qpalette.h>
+
+namespace
+{
+QColor contrastColor(const QColor &color)
+{
+    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
+    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
+    return QColor::fromHslF(color.hsvHueF(), 1, -0.7 * lightness + 0.9, 1);
+}
+
+QColor tintWithAlpha(const QColor &targetColor, const QColor &tintColor, double alpha)
+{
+    qreal tintAlpha = tintColor.alphaF() * alpha;
+    qreal inverseAlpha = 1.0 - tintAlpha;
+
+    if (qFuzzyCompare(tintAlpha, 1.0)) {
+        return tintColor;
+    } else if (qFuzzyIsNull(tintAlpha)) {
+        return targetColor;
+    }
+
+    return QColor::fromRgbF(tintColor.redF() * tintAlpha + targetColor.redF() * inverseAlpha,
+                            tintColor.greenF() * tintAlpha + targetColor.greenF() * inverseAlpha,
+                            tintColor.blueF() * tintAlpha + targetColor.blueF() * inverseAlpha,
+                            tintAlpha + inverseAlpha * targetColor.alphaF());
+}
+}
+
 
 KalziumElementProperty *KalziumElementProperty::instance()
 {
@@ -136,20 +167,7 @@ QBrush KalziumElementProperty::getElementBrush(int el)
     if (m_currentScheme == 2) {
         elementBrush = scheme()->elementBrush(el);
     } else {
-        // add a nice gradient
-        QColor color = getElementColor(el);
-        QLinearGradient grad(QPointF(0, 0), QPointF(0, 40));
-        grad.setColorAt(0, color);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        qreal h, s, v, a;
-#else
-        float h, s, v, a;
-#endif
-        color.getHsvF(&h, &s, &v, &a);
-        color.setHsvF(h, s, v * 0.7, a);
-        grad.setColorAt(1, color);
-
-        elementBrush = QBrush(grad);
+        return tintWithAlpha(qGuiApp->palette().color(QPalette::Normal, QPalette::Window), getElementColor(el), 0.2);
     }
 
     return elementBrush;
@@ -157,19 +175,19 @@ QBrush KalziumElementProperty::getElementBrush(int el)
 
 QColor KalziumElementProperty::getTextColor(int el) const
 {
-    return scheme()->textColor(el);
+    return contrastColor(scheme()->elementBrush(el).color());
 }
 
 QColor KalziumElementProperty::getBorderColor(int el) const
 {
     // Show scheme color as border when gradients are selected.
     if (m_currentGradient != NOGRADIENT) {
-        return scheme()->elementBrush(el).color();
+        return contrastColor(scheme()->elementBrush(el).color());
     }
 
     // Transparent Borders don't make sens.
     if (getTextColor(el) == QColor(Qt::transparent)) {
-        return {Qt::black};
+        return contrastColor({Qt::black});
     }
 
     return getTextColor(el);

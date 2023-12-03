@@ -48,16 +48,13 @@ QPainterPath NumerationItem::shape() const
 
 void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
+    painter->setBrush(m_color);
     QPen pen;
-    QLinearGradient grad(QPointF(0, 0), QPointF(0, m_height));
-    grad.setColorAt(0, m_color);
-    grad.setColorAt(1, m_color.darker());
-    painter->setBrush(grad);
     pen.setColor(m_color.darker(1000));
     painter->setPen(pen);
 
     QRectF rect(0, 0, m_width, m_height);
-    painter->drawRoundedRect(rect, m_width / 10, m_width / 10);
+    painter->drawRoundedRect(rect, 3, 3);
     painter->drawText(rect, Qt::AlignCenter, m_numeration);
 }
 

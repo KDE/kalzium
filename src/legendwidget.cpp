@@ -112,7 +112,7 @@ void LegendWidget::updateLegendItemLayout(const QList<legendPair> &list)
     int x = 0;
     int y = 0;
 
-    foreach (const legendPair &pair, list) {
+    for (const legendPair &pair : list) {
         auto item = new LegendItem(pair, this);
         m_legendItemList.append(item);
 
@@ -171,6 +171,7 @@ bool LegendWidget::isElementMatch(int element, QColor &color)
 }
 
 LegendItem::LegendItem(const QPair<QString, QColor> &pair, LegendWidget *parent)
+    : QLabel(parent)
 {
     auto ItemLayout = new QHBoxLayout(this);
     ItemLayout->setContentsMargins(0, 0, 0, 0);
@@ -188,8 +189,7 @@ LegendItem::LegendItem(const QPair<QString, QColor> &pair, LegendWidget *parent)
         LabelPixmap->setPixmap(LegendPixmap);
         ItemLayout->addWidget(LabelPixmap);
 
-        setFrameShape(QFrame::StyledPanel);
-        setFrameShadow(QFrame::Sunken);
+        setFrameShape(QFrame::NoFrame);
     }
     auto LegendLabel = new QLabel(this);
     LegendLabel->setText(pair.first);
