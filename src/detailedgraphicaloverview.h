@@ -50,6 +50,7 @@ private:
      * The background color.
      */
     QBrush m_backgroundBrush;
+    QColor m_textColor;
 
 protected:
     void paintEvent(QPaintEvent *) override;

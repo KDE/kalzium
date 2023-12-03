@@ -8,18 +8,20 @@
 #include "kalziumelementproperty.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
+#include "kalzium_debug.h"
 
 #include <KLocalizedString>
 
-#include "kalzium_debug.h"
 #include <QFile>
 #include <QFontDatabase>
 #include <QPainter>
 #include <QRect>
 #include <QStandardPaths>
 #include <QSvgRenderer>
+#include <QGuiApplication>
 
 #include "prefs.h"
+#include "colorutils.h"
 #include <element.h>
 
 DetailedGraphicalOverview::DetailedGraphicalOverview(QWidget *parent)
@@ -40,47 +42,32 @@ void DetailedGraphicalOverview::setElement(int el)
     update();
 }
 
+
 void DetailedGraphicalOverview::setBackgroundColor(QColor bgColor)
 {
     if (bgColor == Qt::transparent) {
         bgColor = palette().window().color();
     }
 
-    // add a gradient
-    QLinearGradient grad(QPointF(0, 0), QPointF(0, height()));
-    grad.setColorAt(0, bgColor);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qreal h, s, v, a;
-#else
-    float h, s, v, a;
-#endif
-    bgColor.getHsvF(&h, &s, &v, &a);
-    bgColor.setHsvF(h, s, v * 0.6, a);
-    grad.setColorAt(1, bgColor);
-
-    m_backgroundBrush = QBrush(grad);
+    m_textColor = ColorUtils::contrastColor(bgColor);
+    m_backgroundBrush = QBrush(ColorUtils::tintWithAlpha(qGuiApp->palette().color(QPalette::Normal, QPalette::Window), bgColor, 0.2));
 }
 
 void DetailedGraphicalOverview::paintEvent(QPaintEvent *)
 {
-    qreal dpr = devicePixelRatioF();
-    qreal dprWidth = dpr * width();
-    qreal dprHeight = dpr * height();
-    QRect rect(0, 0, dprWidth, dprHeight);
-
-    QPixmap pm(dprWidth, dprHeight);
-    pm.setDevicePixelRatio(dpr);
-
+    const int margins = 4;
     QPainter p;
-    p.begin(&pm);
+    p.begin(this);
 
     p.setBrush(Qt::SolidPattern);
 
     if (!m_element) {
-        pm.fill(palette().window().color());
+        p.setBrush(palette().window().color());
+        p.drawRect(rect());
         p.drawText(0, 0, width(), height(), Qt::AlignCenter | Qt::TextWordWrap, i18n("No element selected"));
     } else if (Prefs::colorschemebox() == 2) { // The iconic view is the 3rd view (0,1,2,...)
-        pm.fill(palette().window().color());
+        p.setBrush(palette().window().color());
+        p.drawRect(rect());
 
         QString pathname = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("data/iconsets/"), QStandardPaths::LocateDirectory);
 
@@ -97,15 +84,18 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent *)
             bounds.moveCenter(QPoint(width() / 2, height() / 2));
             svgrenderer.render(&p, bounds);
         } else {
-            p.drawText(rect, Qt::AlignCenter | Qt::TextWordWrap, i18n("No graphic found"));
+            p.drawText(rect(), Qt::AlignCenter | Qt::TextWordWrap, i18n("No graphic found"));
         }
     } else {
         const int h_t = 20; // height of the texts
 
+        p.setPen(Qt::NoPen);
         p.setBrush(m_backgroundBrush);
-        p.drawRect(rect);
+        p.drawRect(rect());
         p.setBrush(Qt::black);
         p.setBrush(Qt::NoBrush);
+
+        p.setPen(m_textColor);
 
         QFont fA = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
         QFont fB = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
@@ -140,23 +130,19 @@ void DetailedGraphicalOverview::paintEvent(QPaintEvent *)
         p.setFont(fC);
 
         // Name
-        p.drawText(1, 0, width(), height(), Qt::AlignLeft, m_element->dataAsString(ChemicalDataObject::name));
+        p.drawText(margins, 0, width(), height(), Qt::AlignLeft, m_element->dataAsString(ChemicalDataObject::name));
 
         // TODO Oxidationstates -> not there yet
 
         // Mass
         QString massString = i18nc("For example '1.0079u', the mass of an element in units", "%1 u", m_element->dataAsString(ChemicalDataObject::mass));
-        int size3 = KalziumUtils::maxSize(massString, rect, fC, &p);
+        int size3 = KalziumUtils::maxSize(massString, rect(), fC, &p);
         fC.setPointSize(size3);
         p.setFont(fC);
         int offset = KalziumUtils::StringHeight(massString, fC, &p);
-        p.drawText(0, height() - offset, width(), offset, Qt::AlignRight, massString);
+        p.drawText(-margins, height() - offset, width(), offset, Qt::AlignRight, massString);
     }
 
-    p.end();
-
-    p.begin(this);
-    p.drawPixmap(0, 0, pm);
     p.end();
 }
 
