@@ -73,6 +73,8 @@ ki18n_wrap_ui(kalzium
 )
 
 target_sources(kalzium PRIVATE
+   colorutils.cpp
+   colorutils.h
    detailedgraphicaloverview.cpp
    detailedgraphicaloverview.h
    detailinfodlg.cpp
