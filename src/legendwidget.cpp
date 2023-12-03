@@ -7,10 +7,11 @@
 #include "legendwidget.h"
 
 #include "prefs.h"
-
 #include "kalzium_debug.h"
+
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QStyle>
 
 #include <KLocalizedString>
 
@@ -19,6 +20,12 @@ LegendWidget::LegendWidget(QWidget *parent)
 {
     m_update = true;
     m_dockArea = Qt::BottomDockWidgetArea;
+    setContentsMargins(
+        style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+        style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+        style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+        style()->pixelMetric(QStyle::PM_LayoutBottomMargin)
+    );
 }
 
 LegendWidget::~LegendWidget()
@@ -107,6 +114,7 @@ void LegendWidget::updateLegendItemLayout(const QList<legendPair> &list)
 
     auto layout = new QGridLayout(this);
     layout->setSpacing(0);
+    layout->setVerticalSpacing(style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
     layout->setContentsMargins(0, 0, 0, 0);
 
     int x = 0;
