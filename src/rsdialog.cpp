@@ -76,20 +76,20 @@ void RSDialog::filterRS(const QList<int> &r, const QList<int> &s)
     QString string(QStringLiteral("<qt>"));
 
     if (!r.isEmpty()) {
-        string.append("<h2>" + i18n("R-Phrases:") + "</h2>");
+        string += QStringLiteral("<h2>") + i18n("R-Phrases:") + QStringLiteral("</h2>");
+        string += QStringLiteral("<ol>");
         for (int i : r) {
-            QString phrase("<b>" + QString::number(i) + " - ");
-            phrase.append(rphrase(i) + "</b>");
-            string.append(phrase + "<br>");
+            string += "<li>" + rphrase(i) + "</li>";
         }
+        string += QStringLiteral("</ol>");
     }
     if (!s.isEmpty()) {
-        string.append("<h2>" + i18n("S-Phrases:") + "</h2>");
+        string += QStringLiteral("<h2>") + i18n("S-Phrases:") + QStringLiteral("</h2>");
+        string += QStringLiteral("<ol>");
         for (int i : s) {
-            QString phrase("<b>" + QString::number(i) + " -  ");
-            phrase.append(sphrase(i) + "</b>");
-            string.append(phrase + "<br>");
+            string += "<li>" + sphrase(i) + "</li>";
         }
+        string += QStringLiteral("</ol>");
     }
     if (s.isEmpty() && r.isEmpty())
         string.append("<h2>" + i18n("You asked for no R/S-Phrases.") + "</h2>");
@@ -148,10 +148,10 @@ void RSDialog::createSPhrases()
         "S4: Keep away from living quarters");
     sphrases << i18nc(
         "Please take the official translations! You find them here: https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML",
-        "S5: Keep contents under ... ( appropriate liquid to be specified by the manufacturer )");
+        "S5: Keep contents under ... (appropriate liquid to be specified by the manufacturer)");
     sphrases << i18nc(
         "Please take the official translations! You find them here: https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML",
-        "S6: Keep under ... ( inert gas to be specified by the manufacturer )");
+        "S6: Keep under ... (inert gas to be specified by the manufacturer)");
     sphrases << i18nc(
         "Please take the official translations! You find them here: https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML",
         "S7: Keep container tightly closed");
