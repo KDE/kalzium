@@ -17,7 +17,6 @@
 
 class KAction;
 class KSelectAction;
-class QToolBox;
 class QDockWidget;
 class DetailedInfoDlg;
 class PeriodicTableView;
@@ -121,7 +120,7 @@ private:
     QDockWidget *m_legendDock;
     QDockWidget *m_tableDock;
 
-    QToolBox *m_toolbox;
+    QTabWidget *m_tabwidget;
 
     GlossaryDialog *m_glossarydlg;
 

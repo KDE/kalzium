@@ -42,7 +42,7 @@
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStatusBar>
-#include <QToolBox>
+#include <QTabWidget>
 #include <QUrl>
 
 #include <KActionCollection>
@@ -265,23 +265,25 @@ void Kalzium::setupSidebars()
     m_dockWin->setFeatures(QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetFloatable);
     m_dockWin->setMinimumWidth(250);
 
-    m_toolbox = new QToolBox(m_dockWin);
-    m_dockWin->setWidget(m_toolbox);
+    m_tabwidget = new QTabWidget(m_dockWin);
+    m_tabwidget->setDocumentMode(true);
+    m_tabwidget->tabBar()->setExpanding(true);
+    m_dockWin->setWidget(m_tabwidget);
 
-    m_detailWidget = new DetailedGraphicalOverview(m_toolbox);
+    m_detailWidget = new DetailedGraphicalOverview(m_tabwidget);
     m_detailWidget->setObjectName(QStringLiteral("DetailedGraphicalOverview"));
     m_detailWidget->setMinimumSize(200, m_detailWidget->minimumSize().height());
 
-    m_toolbox->addItem(m_detailWidget, QIcon::fromTheme(QStringLiteral("overview")), i18n("Overview"));
+    m_tabwidget->addTab(m_detailWidget, QIcon::fromTheme(QStringLiteral("overview")), i18n("Overview"));
 
-    m_gradientWidget = new GradientWidgetImpl(m_toolbox);
+    m_gradientWidget = new GradientWidgetImpl(m_tabwidget);
     m_gradientWidget->setObjectName(QStringLiteral("viewtWidget"));
 
     connect(m_gradientWidget, &GradientWidgetImpl::gradientValueChanged, KalziumElementProperty::instance(), &KalziumElementProperty::setSliderValue);
     connect(m_gradientWidget->scheme_combo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSwitchtoLookScheme(int)));
     connect(m_gradientWidget->gradient_combo, SIGNAL(currentIndexChanged(int)), this, SLOT(slotSwitchtoLookGradient(int)));
 
-    m_toolbox->addItem(m_gradientWidget, QIcon::fromTheme(QStringLiteral("statematter")), i18n("View"));
+    m_tabwidget->addTab(m_gradientWidget, QIcon::fromTheme(QStringLiteral("statematter")), i18n("View"));
 
     addDockWidget(Qt::LeftDockWidgetArea, m_dockWin);
     addDockWidget(Qt::BottomDockWidgetArea, m_tableDock, Qt::Horizontal);
