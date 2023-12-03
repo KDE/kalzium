@@ -57,7 +57,8 @@ QList<ElementItem *> PeriodicTableView::createElementItems() const
     QList<ElementItem *> elementItemList;
     KalziumElementProperty *elProperty = KalziumElementProperty::instance();
 
-    foreach (int intElement, pseTables::instance()->getTabletype(0)->elements()) {
+    const auto elements = pseTables::instance()->getTabletype(0)->elements();
+    for (int intElement : elements) {
         auto item = new ElementItem(elProperty, intElement);
 
         connect(elProperty, &KalziumElementProperty::propertyChanged, item, &ElementItem::redraw);
@@ -104,7 +105,8 @@ void PeriodicTableView::slotSelectAdditionalElement(int element)
 
 void PeriodicTableView::slotUnSelectElements()
 {
-    foreach (QGraphicsItem *item, m_tableScene->selectedItems()) {
+    const auto selectedItems = m_tableScene->selectedItems();
+    for (QGraphicsItem *item : selectedItems) {
         item->setSelected(false);
     }
 }
