@@ -8,6 +8,7 @@
 
 #include <QHBoxLayout>
 #include <QTimer>
+#include <QStyle>
 
 #include <KLineEdit>
 #include <KLocalizedString>
@@ -19,16 +20,32 @@ SearchWidget::SearchWidget(QWidget *parent)
     : QWidget(parent)
     , m_searchLine(new KLineEdit(this))
 {
-    auto mainlay = new QHBoxLayout(this);
-    mainlay->setContentsMargins(2, 2, 2, 2);
-    mainlay->setSpacing(5);
+    auto mainlay = new QVBoxLayout(this);
+    mainlay->setContentsMargins({});
+    mainlay->setSpacing(0);
+
+
+    auto wrapper = new QVBoxLayout;
+    wrapper->setContentsMargins(
+        style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+        style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+        style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+        style()->pixelMetric(QStyle::PM_LayoutBottomMargin)
+    );
+    wrapper->addWidget(m_searchLine);
 
     m_searchLine->setClearButtonEnabled(true);
     m_searchLine->setPlaceholderText(i18n("Search..."));
     m_searchLine->setTrapReturnKey(true);
     connect(m_searchLine, &QLineEdit::textChanged, this, &SearchWidget::searchTextChanged);
     connect(m_searchLine, SIGNAL(returnPressed()), this, SLOT(slotReturnPressed()));
-    mainlay->addWidget(m_searchLine);
+
+    auto separator = new QFrame(this);
+    separator->setFrameShape(QFrame::HLine);
+    separator->setMaximumHeight(1);
+
+    mainlay->addLayout(wrapper);
+    mainlay->addWidget(separator);
 }
 
 SearchWidget::~SearchWidget()
