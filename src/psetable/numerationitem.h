@@ -83,9 +83,9 @@ private:
     QString m_numeration;
 
     /**
-     * The color of the element.
+     * The type of the element.
      */
-    QColor m_color;
+    int m_type;
 };
 
 #endif // NUMERATIONITEM_H

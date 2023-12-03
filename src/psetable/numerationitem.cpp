@@ -19,8 +19,11 @@
 #include <QFont>
 #include <QPainter>
 #include <QStyleOption>
+#include <QGuiApplication>
+#include <QPalette>
 
 #include <KLocalizedString>
+#include <qbrush.h>
 
 #include "kalziumnumerationtype.h"
 
@@ -48,10 +51,10 @@ QPainterPath NumerationItem::shape() const
 
 void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    painter->setBrush(m_color);
+    QColor color = m_type == 0 ? QColor(Qt::transparent) : qGuiApp->palette().window().color();
+    painter->setBrush(color);
     QPen pen;
-    pen.setColor(m_color.darker(1000));
-    painter->setPen(pen);
+    painter->setPen(qGuiApp->palette().text().color());
 
     QRectF rect(0, 0, m_width, m_height);
     painter->drawRoundedRect(rect, 3, 3);
@@ -60,7 +63,7 @@ void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
 void NumerationItem::setNumerationType(int type)
 {
-    type == 0 ? m_color = QColor(Qt::transparent) : m_color = QColor(Qt::white);
+    m_type = type;
 
     m_numeration = KalziumNumerationTypeFactory::instance()->build(type)->item(m_xPosition);
 
