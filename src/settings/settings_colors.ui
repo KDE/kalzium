@@ -12,15 +12,18 @@
   </property>
   <layout class="QVBoxLayout">
    <property name="spacing">
-    <number>6</number>
+    <number>0</number>
    </property>
    <property name="margin">
-    <number>9</number>
+    <number>0</number>
    </property>
    <item>
     <widget class="QTabWidget" name="dfgdfg">
      <property name="currentIndex">
       <number>0</number>
+     </property>
+     <property name="documentMode">
+      <bool>true</bool>
      </property>
      <widget class="QWidget" name="tabBlocks">
       <attribute name="title">
