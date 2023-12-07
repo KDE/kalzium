@@ -57,23 +57,20 @@ QPainterPath ElementItem::shape() const
 
 void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    QPen pen;
-    pen.setColor(m_borderColor);
-    pen.setWidth(1);
-    painter->setPen(pen);
-
+    painter->setPen(Qt::NoPen);
     painter->setBrush(m_brush);
-
-    painter->drawRoundedRect(boundingRect(), m_width / 10, m_width / 10);
+    painter->drawRoundedRect(boundingRect(), 3, 3);
 
     if (isSelected()) {
         QColor selectedBackgroundColor = m_borderColor;
         selectedBackgroundColor.setAlpha(160);
         painter->setBrush(QBrush(QColor(selectedBackgroundColor)));
-        painter->drawRoundedRect(boundingRect(), m_width / 10, m_width / 10);
+        painter->drawRoundedRect(boundingRect(), 3, 3);
     }
 
+    QPen pen;
     pen.setColor(m_textColor);
+    pen.setWidth(1);
     painter->setPen(pen);
 
     QFont symbolFont;

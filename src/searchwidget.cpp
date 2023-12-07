@@ -24,7 +24,6 @@ SearchWidget::SearchWidget(QWidget *parent)
     mainlay->setContentsMargins({});
     mainlay->setSpacing(0);
 
-
     auto wrapper = new QVBoxLayout;
     wrapper->setContentsMargins(
         style()->pixelMetric(QStyle::PM_LayoutLeftMargin),

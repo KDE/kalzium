@@ -78,7 +78,7 @@ Kalzium::Kalzium()
     auto pseTempWidget = new QWidget(this);
     auto layout = new QVBoxLayout(pseTempWidget);
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(2);
+    layout->setSpacing(0);
 
     auto searchWidget = new SearchWidget(pseTempWidget);
     searchWidget->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum));

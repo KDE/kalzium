@@ -53,11 +53,13 @@ void NumerationItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 {
     QColor color = m_type == 0 ? QColor(Qt::transparent) : qGuiApp->palette().window().color();
     painter->setBrush(color);
-    QPen pen;
-    painter->setPen(qGuiApp->palette().text().color());
+    painter->setPen(Qt::NoPen);
 
     QRectF rect(0, 0, m_width, m_height);
     painter->drawRoundedRect(rect, 3, 3);
+
+    QPen pen;
+    painter->setPen(qGuiApp->palette().text().color());
     painter->drawText(rect, Qt::AlignCenter, m_numeration);
 }
 

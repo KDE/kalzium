@@ -25,7 +25,7 @@ PeriodicTableScene::PeriodicTableScene(QObject *parent)
     , m_prevHoverElement(-1)
 {
     QPalette widgetPalette = palette();
-    setBackgroundBrush(QBrush(widgetPalette.window()));
+    setBackgroundBrush(QBrush(widgetPalette.base()));
 
     setItemIndexMethod(QGraphicsScene::NoIndex);
 
@@ -40,7 +40,7 @@ bool PeriodicTableScene::event(QEvent *e)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (e->type() ==  QEvent::ApplicationPaletteChange) {
         QPalette widgetPalette = qApp->palette();
-        setBackgroundBrush(QBrush(widgetPalette.window()));
+        setBackgroundBrush(QBrush(widgetPalette.base()));
     }
 #endif
     return QGraphicsScene::event(e);
