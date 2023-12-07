@@ -102,6 +102,8 @@ private:
 
     KalziumElementProperty *m_property;
 
+    bool m_hovered = false;
+
 protected:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;

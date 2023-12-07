@@ -57,7 +57,14 @@ QPainterPath ElementItem::shape() const
 
 void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    painter->setPen(Qt::NoPen);
+    if (m_hovered) {
+        QPen pen;
+        pen.setColor(m_borderColor);
+        pen.setWidth(1);
+        painter->setPen(pen);
+    } else {
+        painter->setPen(Qt::NoPen);
+    }
     painter->setBrush(m_brush);
     painter->drawRoundedRect(boundingRect(), 3, 3);
 
@@ -123,6 +130,7 @@ void ElementItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
     setZValue(200);
     moveBy(-m_width / 4, -m_height / 4);
     setScale(1.5);
+    m_hovered = true;
     QGraphicsItem::hoverEnterEvent(event);
 }
 
@@ -132,6 +140,7 @@ void ElementItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     moveBy(m_width / 4, m_height / 4);
     setZValue(100);
     setScale(1);
+    m_hovered = false;
     QGraphicsItem::hoverLeaveEvent(event);
 }
 
