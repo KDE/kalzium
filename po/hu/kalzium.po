@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:39+0000\n"
+"POT-Creation-Date: 2023-12-08 00:39+0000\n"
 "PO-Revision-Date: 2020-12-27 13:54+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -408,8 +408,8 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:127 src/elementdataviewer.cpp:237
-#: src/kalziumgradienttype.cpp:271 src/plotsetupwidget.ui:81
-#: src/plotsetupwidget.ui:402
+#: src/kalziumgradienttype.cpp:271 src/plotsetupwidget.ui:93
+#: src/plotsetupwidget.ui:414
 #, kde-format
 msgid "Atomic Mass"
 msgstr "Atomsúly"
@@ -673,8 +673,8 @@ msgstr ""
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:207
 #: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
-#: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:106
-#: src/plotsetupwidget.ui:427 src/settings/settings_gradients.ui:60
+#: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:118
+#: src/plotsetupwidget.ui:439 src/settings/settings_gradients.ui:60
 #, kde-format
 msgid "Covalent Radius"
 msgstr "Kovalenciasugár"
@@ -683,7 +683,7 @@ msgstr "Kovalenciasugár"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:248 data/knowledge.xml:257 data/knowledge.xml:262
 #: data/knowledge.xml:274 src/elementdataviewer.cpp:259
-#: src/plotsetupwidget.ui:101 src/plotsetupwidget.ui:422
+#: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:434
 #, kde-format
 msgid "Atomic Radius"
 msgstr "Atomi sugár"
@@ -3030,7 +3030,7 @@ msgstr "Bevezetés"
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, nuclear)
 #: src/calculator/calculator.cpp:93 src/calculator/calculator.ui:71
-#: src/calculator/settings_calc.ui:24
+#: src/calculator/settings_calc.ui:39
 #, kde-format
 msgid "Nuclear Calculator"
 msgstr "Nukleáris kalkulátor"
@@ -3038,7 +3038,7 @@ msgstr "Nukleáris kalkulátor"
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, gas)
 #: src/calculator/calculator.cpp:96 src/calculator/calculator.ui:76
-#: src/calculator/settings_calc.ui:51
+#: src/calculator/settings_calc.ui:66
 #, kde-format
 msgid "Gas Calculator"
 msgstr "Gáz kalkulátor"
@@ -3046,7 +3046,7 @@ msgstr "Gáz kalkulátor"
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: src/calculator/calculator.cpp:99 src/calculator/calculator.ui:66
-#: src/calculator/settings_calc.ui:119
+#: src/calculator/settings_calc.ui:134
 #, kde-format
 msgid "Concentration Calculator"
 msgstr "Koncentráció kalkulátor"
@@ -4375,50 +4375,50 @@ msgid "Information/Error message"
 msgstr "Információ/Hibaüzenet"
 
 #. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
-#: src/calculator/settings_calc.ui:17
+#: src/calculator/settings_calc.ui:29
 #, kde-format
 msgid "<big>The settings of the molecular concentration calculator</big>"
 msgstr "<big>A molekula-koncentráció kalkulátor beállításai</big>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_mass)
-#: src/calculator/settings_calc.ui:30
+#: src/calculator/settings_calc.ui:45
 #, kde-format
 msgid "Amount is always specified in term of mass"
 msgstr "A mennyiség mindig tömegben van meghatározva"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ideal)
-#: src/calculator/settings_calc.ui:59
+#: src/calculator/settings_calc.ui:74
 #, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
 msgstr ""
 "Feltételezve, hogy a gáz ideális (azaz ne mutassa a Van der Waals tényezőt)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: src/calculator/settings_calc.ui:85
+#: src/calculator/settings_calc.ui:100
 #, kde-format
 msgid "Mass Calculator"
 msgstr "Tömeg kalkulátor"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_alias)
-#: src/calculator/settings_calc.ui:91
+#: src/calculator/settings_calc.ui:106
 #, kde-format
 msgid "Show details such as aliases"
 msgstr "Megmutatja a részleteket, mint például az álneveket"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox)
-#: src/calculator/settings_calc.ui:98
+#: src/calculator/settings_calc.ui:113
 #, kde-format
 msgid "Show the add alias tab"
 msgstr "Megmutatja az álnévfül hozzáadást"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_soluteMass)
-#: src/calculator/settings_calc.ui:125
+#: src/calculator/settings_calc.ui:140
 #, kde-format
 msgid "Amount of solute is always specified in terms of mass"
 msgstr "A oldott anyag mennyisége mindig tömegben van megadva"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_solventVolume)
-#: src/calculator/settings_calc.ui:132
+#: src/calculator/settings_calc.ui:147
 #, kde-format
 msgid "Amount of solvent is always specified in terms of volume"
 msgstr "Az oldószer mennyisége mindig térfogatban van megadva"
@@ -4639,17 +4639,17 @@ msgstr "Mentés"
 msgid "Example"
 msgstr "Példa"
 
-#: src/detailedgraphicaloverview.cpp:81
+#: src/detailedgraphicaloverview.cpp:67
 #, kde-format
 msgid "No element selected"
 msgstr "Nincs kijelölve elem"
 
-#: src/detailedgraphicaloverview.cpp:100
+#: src/detailedgraphicaloverview.cpp:87
 #, kde-format
 msgid "No graphic found"
 msgstr "Nem található kép"
 
-#: src/detailedgraphicaloverview.cpp:148
+#: src/detailedgraphicaloverview.cpp:138
 #, kde-format
 msgctxt "For example '1.0079u', the mass of an element in units"
 msgid "%1 u"
@@ -4692,7 +4692,7 @@ msgstr "A név eredete: <br/>%1"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:247
 #: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
-#: src/plotsetupwidget.ui:91 src/plotsetupwidget.ui:412
+#: src/plotsetupwidget.ui:103 src/plotsetupwidget.ui:424
 #: src/settings/settings_gradients.ui:88
 #, kde-format
 msgid "Melting Point"
@@ -4703,7 +4703,7 @@ msgstr "Olvadáspont"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:253
 #: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
-#: src/plotsetupwidget.ui:96 src/plotsetupwidget.ui:417
+#: src/plotsetupwidget.ui:108 src/plotsetupwidget.ui:429
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
@@ -4739,8 +4739,8 @@ msgstr "1. ionizációs energia"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:242
-#: src/exportdialog.cpp:139 src/plotsetupwidget.ui:86
-#: src/plotsetupwidget.ui:407 src/settings/settings_gradients.ui:95
+#: src/exportdialog.cpp:139 src/plotsetupwidget.ui:98
+#: src/plotsetupwidget.ui:419 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
 msgstr "Elektronegativitás"
@@ -5139,7 +5139,7 @@ msgstr "Az adatok ábrázolása"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
-#: src/plotsetupwidget.ui:76 src/plotsetupwidget.ui:397
+#: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:409
 #, kde-format
 msgid "Atomic Number"
 msgstr "Atomszám"
@@ -5247,7 +5247,7 @@ msgstr "Ionizáció"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabFamily)
 #: src/exportdialog.cpp:144 src/kalziumschemetype.cpp:237
-#: src/settings/settings_colors.ui:405
+#: src/settings/settings_colors.ui:408
 #, kde-format
 msgid "Family"
 msgstr "Család"
@@ -5614,54 +5614,54 @@ msgstr "Táblázatinformációk"
 msgid "Information"
 msgstr "Információ"
 
-#: src/kalzium.cpp:275
+#: src/kalzium.cpp:277
 #, kde-format
 msgid "Overview"
 msgstr "Áttekintés"
 
-#: src/kalzium.cpp:284
+#: src/kalzium.cpp:286
 #, kde-format
 msgid "View"
 msgstr "Nézet"
 
-#: src/kalzium.cpp:295
+#: src/kalzium.cpp:297
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "A Kalzium táblájába ment"
 
-#: src/kalzium.cpp:295
+#: src/kalzium.cpp:297
 #, fuzzy, kde-format
 #| msgid "*.png *.xpm *.jpg *.svg"
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "*.png *.xpm *.jpg *.svg"
 
-#: src/kalzium.cpp:316
+#: src/kalzium.cpp:318
 #, kde-format
 msgid "Knowledge"
 msgstr "Tudás"
 
-#: src/kalzium.cpp:321
+#: src/kalzium.cpp:323
 #, kde-format
 msgid "Tools"
 msgstr "Eszközök"
 
-#: src/kalzium.cpp:351
+#: src/kalzium.cpp:353
 #, kde-format
 msgid "Kalzium Error"
 msgstr "Kalzium hiba"
 
-#: src/kalzium.cpp:351
+#: src/kalzium.cpp:353
 #, kde-format
 msgid "This system does not support OpenGL."
 msgstr "A rendszer nem támogatja az OpenGL 3D-s grafikai megjelenítést."
 
-#: src/kalzium.cpp:498
+#: src/kalzium.cpp:500
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
 msgstr "%1 (%2), tömeg: %3 u"
 
-#: src/kalziumelementproperty.cpp:74
+#: src/kalziumelementproperty.cpp:77
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No Gradient"
@@ -5731,7 +5731,7 @@ msgid "All the Elements"
 msgstr "Minden elem"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabBlocks)
-#: src/kalziumschemetype.cpp:138 src/settings/settings_colors.ui:27
+#: src/kalziumschemetype.cpp:138 src/settings/settings_colors.ui:30
 #, kde-format
 msgid "Blocks"
 msgstr "Blokkok"
@@ -5812,7 +5812,7 @@ msgid "Metalloid"
 msgstr "Fémszerű"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
-#: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:133
+#: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
 #, kde-format
 msgid "Groups"
 msgstr "Csoportok"
@@ -5957,64 +5957,64 @@ msgstr "Hivatkozások"
 msgid "Go to '%1'"
 msgstr "Ugrás erre: „%1”"
 
-#: src/legendwidget.cpp:63
+#: src/legendwidget.cpp:70
 #, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Solid"
 msgstr "Szilárd"
 
-#: src/legendwidget.cpp:65
+#: src/legendwidget.cpp:72
 #, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Liquid"
 msgstr "Folyadék"
 
-#: src/legendwidget.cpp:67
+#: src/legendwidget.cpp:74
 #, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Vaporous"
 msgstr "Gáz"
 
-#: src/legendwidget.cpp:69
+#: src/legendwidget.cpp:76
 #, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: src/legendwidget.cpp:74
+#: src/legendwidget.cpp:81
 #, kde-format
 msgctxt "one of the two types of gradients available"
 msgid "logarithmic"
 msgstr "logaritmikus"
 
-#: src/legendwidget.cpp:76
+#: src/legendwidget.cpp:83
 #, kde-format
 msgctxt "one of the two types of gradients available"
 msgid "linear"
 msgstr "lineáris"
 
-#: src/legendwidget.cpp:78
+#: src/legendwidget.cpp:85
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/legendwidget.cpp:80
+#: src/legendwidget.cpp:87
 #, kde-format
 msgctxt "Minimum value of the gradient"
 msgid "Minimum: %1"
 msgstr "Minimum: %1"
 
-#: src/legendwidget.cpp:85
+#: src/legendwidget.cpp:92
 #, kde-format
 msgctxt "Maximum value of the gradient"
 msgid "Maximum: %1"
 msgstr "Maximum: %1"
 
-#: src/legendwidget.cpp:91
+#: src/legendwidget.cpp:98
 #, kde-format
 msgid "Scheme: %1"
 msgstr "Színséma: %1"
@@ -6537,179 +6537,179 @@ msgid "Unknown Electron Distribution"
 msgstr "Ismeretlen elektron-eloszlás"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, swapXYAxis)
-#: src/plotsetupwidget.ui:23
+#: src/plotsetupwidget.ui:35
 #, kde-format
 msgid "Swap"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
-#: src/plotsetupwidget.ui:29
+#: src/plotsetupwidget.ui:41
 #, kde-format
 msgid "Swap X and Y axis"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/plotsetupwidget.ui:39
+#: src/plotsetupwidget.ui:51
 #, kde-format
 msgid "X-Axis"
 msgstr "X tengely"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: src/plotsetupwidget.ui:51 src/plotsetupwidget.ui:355
+#: src/plotsetupwidget.ui:63 src/plotsetupwidget.ui:367
 #, kde-format
 msgid "Average value:"
 msgstr "Átlagérték:"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, KCB_x)
 #. i18n: ectx: property (whatsThis), widget (KComboBox, KCB_y)
-#: src/plotsetupwidget.ui:72 src/plotsetupwidget.ui:390
+#: src/plotsetupwidget.ui:84 src/plotsetupwidget.ui:402
 #, kde-format
 msgid "Here you can define what you want to plot"
 msgstr "Itt lehet megadni, hogy mit szeretne ábrázolni"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: src/plotsetupwidget.ui:114 src/plotsetupwidget.ui:369
+#: src/plotsetupwidget.ui:126 src/plotsetupwidget.ui:381
 #, kde-format
 msgid "Maximum value:"
 msgstr "Maximális érték:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: src/plotsetupwidget.ui:128 src/plotsetupwidget.ui:376
+#: src/plotsetupwidget.ui:140 src/plotsetupwidget.ui:388
 #, kde-format
 msgid "Minimum value:"
 msgstr "Minimális érték:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/plotsetupwidget.ui:149
+#: src/plotsetupwidget.ui:161
 #, kde-format
 msgid "Display:"
 msgstr "Megjelenítés:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/plotsetupwidget.ui:171
+#: src/plotsetupwidget.ui:183
 #, kde-format
 msgid "Element Type:"
 msgstr "Elemtípus:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: src/plotsetupwidget.ui:197
+#: src/plotsetupwidget.ui:209
 #, kde-format
 msgid "First element:"
 msgstr "Első elem:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: src/plotsetupwidget.ui:204
+#: src/plotsetupwidget.ui:216
 #, kde-format
 msgid "Last element:"
 msgstr "Utolsó elem:"
 
 #. i18n: ectx: property (text), widget (QPushButton, full)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:233 src/plotsetupwidget.ui:241
+#: src/plotsetupwidget.ui:245 src/plotsetupwidget.ui:253
 #, kde-format
 msgid "All elements"
 msgstr "Minden elem"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:246
+#: src/plotsetupwidget.ui:258
 #, kde-format
 msgid "Metals"
 msgstr "Fémek"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:251
+#: src/plotsetupwidget.ui:263
 #, kde-format
 msgid "Non-Metals / Metalloids"
 msgstr "Nem fémek / Metalloidok"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:256
+#: src/plotsetupwidget.ui:268
 #, kde-format
 msgid "s block elements"
 msgstr "s blokk elemei"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:261
+#: src/plotsetupwidget.ui:273
 #, kde-format
 msgid "p block elements"
 msgstr "p blokk elemei"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:266
+#: src/plotsetupwidget.ui:278
 #, kde-format
 msgid "d block elements"
 msgstr "d blokk elemei"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:271
+#: src/plotsetupwidget.ui:283
 #, kde-format
 msgid "f block elements"
 msgstr "f blokk elemei"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:276
+#: src/plotsetupwidget.ui:288
 #, kde-format
 msgid "Noble gases"
 msgstr "Nemesgázok"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:281
+#: src/plotsetupwidget.ui:293
 #, kde-format
 msgid "Alkalie metals"
 msgstr "Alkálifémek"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:286
+#: src/plotsetupwidget.ui:298
 #, kde-format
 msgid "Alkaline earth metals"
 msgstr "Alkáli-földfémek"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:291
+#: src/plotsetupwidget.ui:303
 #, kde-format
 msgid "Lanthanides"
 msgstr "Lantanidák"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:296
+#: src/plotsetupwidget.ui:308
 #, kde-format
 msgid "Actinides"
 msgstr "Actinoidok"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:301
+#: src/plotsetupwidget.ui:313
 #, kde-format
 msgid "Radio-active elements"
 msgstr "Radioaktív elemek"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:316
+#: src/plotsetupwidget.ui:328
 #, kde-format
 msgid "No Labels"
 msgstr "Nincs cimke"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:321
+#: src/plotsetupwidget.ui:333
 #, kde-format
 msgid "Element Names"
 msgstr "Az elemek nevei"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:326
+#: src/plotsetupwidget.ui:338
 #, kde-format
 msgid "Element Symbols"
 msgstr "Az elemek vegyjelei"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/plotsetupwidget.ui:336
+#: src/plotsetupwidget.ui:348
 #, kde-format
 msgid "Y-Axis"
 msgstr "Y tengely"
 
-#: src/psetable/elementitem.cpp:118
+#: src/psetable/elementitem.cpp:122
 #, kde-format
 msgid "n/a"
 msgstr "-"
@@ -6797,8 +6797,8 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
-"S5: Keep contents under ... ( appropriate liquid to be specified by the "
-"manufacturer )"
+"S5: Keep contents under ... (appropriate liquid to be specified by the "
+"manufacturer)"
 msgstr "S5: … alatt tartandó (a folyadékot a gyártó határozza meg)"
 
 #: src/rsdialog.cpp:154
@@ -6810,7 +6810,7 @@ msgstr "S5: … alatt tartandó (a folyadékot a gyártó határozza meg)"
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
 msgstr "S6: … alatt tartandó (az inert gázt a gyártó határozza meg)"
 
 #: src/rsdialog.cpp:157
@@ -8367,7 +8367,7 @@ msgstr "Kattintson ide, ha keresni szeretne a bal oldalon bevitt kifejezésre"
 msgid "&Filter"
 msgstr "&Szűrés"
 
-#: src/searchwidget.cpp:27
+#: src/searchwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search:"
 msgid "Search..."
@@ -8420,170 +8420,170 @@ msgid "Isotope Table"
 msgstr "Izotóptáblázat"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel13)
-#: src/settings/settings_colors.ui:47
+#: src/settings/settings_colors.ui:50
 #, kde-format
 msgid "s-Block:"
 msgstr "s-blokk:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel14)
-#: src/settings/settings_colors.ui:67
+#: src/settings/settings_colors.ui:70
 #, kde-format
 msgid "p-Block:"
 msgstr "p-blokk:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel15)
-#: src/settings/settings_colors.ui:87
+#: src/settings/settings_colors.ui:90
 #, kde-format
 msgid "d-Block:"
 msgstr "d-blokk:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel16)
-#: src/settings/settings_colors.ui:107
+#: src/settings/settings_colors.ui:110
 #, kde-format
 msgid "f-Block:"
 msgstr "f-blokk:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
-#: src/settings/settings_colors.ui:153
+#: src/settings/settings_colors.ui:156
 #, kde-format
 msgid "Group 1:"
 msgstr "1. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8)
-#: src/settings/settings_colors.ui:173
+#: src/settings/settings_colors.ui:176
 #, kde-format
 msgid "Group 2:"
 msgstr "2. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: src/settings/settings_colors.ui:193
+#: src/settings/settings_colors.ui:196
 #, kde-format
 msgid "Group 3:"
 msgstr "3. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel6)
-#: src/settings/settings_colors.ui:213
+#: src/settings/settings_colors.ui:216
 #, kde-format
 msgid "Group 4:"
 msgstr "4. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5_2)
-#: src/settings/settings_colors.ui:233
+#: src/settings/settings_colors.ui:236
 #, kde-format
 msgid "Group 5:"
 msgstr "5. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: src/settings/settings_colors.ui:253
+#: src/settings/settings_colors.ui:256
 #, kde-format
 msgid "Group 6:"
 msgstr "6. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: src/settings/settings_colors.ui:273
+#: src/settings/settings_colors.ui:276
 #, kde-format
 msgid "Group 7:"
 msgstr "7. csoport:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: src/settings/settings_colors.ui:293
+#: src/settings/settings_colors.ui:296
 #, kde-format
 msgid "Group 8:"
 msgstr "8. csoport:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabStateOfMatter)
-#: src/settings/settings_colors.ui:319
+#: src/settings/settings_colors.ui:322
 #, kde-format
 msgid "State of Matter"
 msgstr "Halmazállapot"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: src/settings/settings_colors.ui:339
+#: src/settings/settings_colors.ui:342
 #, kde-format
 msgid "Solid:"
 msgstr "Szilárd:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: src/settings/settings_colors.ui:359
+#: src/settings/settings_colors.ui:362
 #, kde-format
 msgid "Liquid:"
 msgstr "Folyadék:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: src/settings/settings_colors.ui:379
+#: src/settings/settings_colors.ui:382
 #, kde-format
 msgid "Vaporous:"
 msgstr "Gáz:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2_2)
-#: src/settings/settings_colors.ui:425
+#: src/settings/settings_colors.ui:428
 #, kde-format
 msgid "Alkali metals:"
 msgstr "Alkálifémek:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8_2)
-#: src/settings/settings_colors.ui:445
+#: src/settings/settings_colors.ui:448
 #, kde-format
 msgid "Rare earth:"
 msgstr "Ritkaföldfém:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7_2)
-#: src/settings/settings_colors.ui:465
+#: src/settings/settings_colors.ui:468
 #, kde-format
 msgid "Non-metals:"
 msgstr "Nem fémek:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel6_2)
-#: src/settings/settings_colors.ui:485
+#: src/settings/settings_colors.ui:488
 #, kde-format
 msgid "Alkaline earth metals:"
 msgstr "Alkáli-földfémek:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5_2_2)
-#: src/settings/settings_colors.ui:505
+#: src/settings/settings_colors.ui:508
 #, kde-format
 msgid "Other metals:"
 msgstr "Egyéb fémek:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2_2)
-#: src/settings/settings_colors.ui:525
+#: src/settings/settings_colors.ui:528
 #, kde-format
 msgid "Halogens:"
 msgstr "Halogének:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
-#: src/settings/settings_colors.ui:545
+#: src/settings/settings_colors.ui:548
 #, kde-format
 msgid "Transition metals:"
 msgstr "Átmeneti fémek:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
-#: src/settings/settings_colors.ui:565
+#: src/settings/settings_colors.ui:568
 #, kde-format
 msgid "Noble gases:"
 msgstr "Nemesgázok:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3_2)
-#: src/settings/settings_colors.ui:585
+#: src/settings/settings_colors.ui:588
 #, kde-format
 msgid "Metalloids:"
 msgstr "Fémszerűek:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabNoColor)
-#: src/settings/settings_colors.ui:611
+#: src/settings/settings_colors.ui:614
 #, kde-format
 msgid "No Color Scheme"
 msgstr "Nincs színséma"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8_2_2)
-#: src/settings/settings_colors.ui:631
+#: src/settings/settings_colors.ui:634
 #, kde-format
 msgid "All the elements:"
 msgstr "Minden elem:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_noscheme)
 #. i18n: ectx: property (whatsThis), widget (KColorButton, kcfg_noscheme)
-#: src/settings/settings_colors.ui:638 src/settings/settings_colors.ui:641
+#: src/settings/settings_colors.ui:641 src/settings/settings_colors.ui:644
 #, kde-format
 msgid "This color will be used if no other scheme is selected"
 msgstr "Ez a színösszeállítás lesz érvényes, ha nem választ ki másikat"
