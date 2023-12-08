@@ -116,7 +116,7 @@ int main(int argc, char **argv)
 
         mainWin = new Kalzium();
         mainWin->show();
-
+#if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
         const QStringList molecules = parser.values(QStringLiteral("molecule"));
         if (molecules.count() == 1) {
             mainWin->loadMolecule(molecules[0]);
@@ -124,6 +124,7 @@ int main(int argc, char **argv)
             QTextStream ts(stderr);
             ts << i18n("Can't open more than one molecule at a time");
         }
+#endif
     }
 
     // mainWin has WDestructiveClose flag by default, so it will delete itself.
