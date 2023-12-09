@@ -15,7 +15,7 @@
 # Rudi Van Hemert <rudivanhemert@gmail.com>, 2006.
 # Tom Albers <tomalbers@kde.nl>, 2007.
 # Kristof Bal <kristof.bal@telenet.be>, 2008.
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2008, 2009, 2010.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 # Kristof Bal <kristof.bal@gmail.com>, 2008, 2009, 2010.
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2012, 2013, 2014, 2016, 2018, 2019, 2020, 2022.
 msgid ""
@@ -23,14 +23,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2022-07-12 08:59+0200\n"
+"PO-Revision-Date: 2023-12-08 12:10+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -41,7 +41,7 @@ msgstr ""
 "Chemie - 2002,Ruurd Pels - 2005,Frank Mulder - 2005,Tijmen Baarda - 2005; "
 "2006,Daniël Huisman - 2005,Sander Koning - 2005,Bram Schoenmakers - 2005,"
 "Rudi van Hemert - 2006,Tom Albers - 2007,Kristof Bal - 2008-2010,Freek de "
-"Kruijf - 2010 t/m 2022"
+"Kruijf - 2010 t/m 2023"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -6783,27 +6783,18 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4: Verwijderd van woonruimten opbergen"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
-msgstr "S5: Onder ... houden (geschikte vloeistof aan te geven door fabrikant)"
+msgstr ""
+"S5: inhoud onder ... houden (geschikte vloeistof aan te geven door fabrikant)"
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
