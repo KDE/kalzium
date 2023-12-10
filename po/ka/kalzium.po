@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2023-02-02 08:41+0100\n"
+"PO-Revision-Date: 2023-12-09 09:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6407,13 +6407,7 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4: საცხოვრებელი ადგილებიდან შორს"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6421,20 +6415,17 @@ msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
 msgstr ""
-"S5: შემცველობა შეინახეთ სითხის ქვეშ (სითხე მითითებულია მწარმოებლის მიერ)"
+"S5: შემცველობა შეინახეთ სითხეში... (სითხე მითითებულია მწარმოებლის მიერ)"
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
 msgstr ""
-"S6: ინერტული აირის ქვეშ შენახვა (აირის სახელი მითითებულია მწარმოებლის მიერ)"
+"S6: ინერტული აირის ქვეშ შენახვა... (აირის სახელი მითითებულია მწარმოებლის "
+"მიერ)"
 
 #: src/rsdialog.cpp:157
 #, kde-format

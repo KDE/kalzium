@@ -23,15 +23,15 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2023-10-29 19:17+0100\n"
+"PO-Revision-Date: 2023-12-09 12:30+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: fr\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -6839,13 +6839,7 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4 : conserver à l'écart de tout local d'habitation"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6853,19 +6847,16 @@ msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
 msgstr ""
-"S5 : conserver sous... (liquide approprié à spécifier par le fabricant)."
+"S5 : conserver le contenu sous... (Liquide approprié à spécifier par le "
+"fabricant)."
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
-msgstr "S6 : conserver sous... (gaz inerte à spécifier par le fabricant)"
+msgstr "S6 : conserver sous... (Gaz inerte à spécifier par le fabricant)"
 
 #: src/rsdialog.cpp:157
 #, kde-format

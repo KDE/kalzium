@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2023-11-25 02:29\n"
+"PO-Revision-Date: 2023-12-09 09:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -4220,7 +4220,7 @@ msgstr "选择想要执行的操作："
 #: src/calculator/titrationCalculator.ui:36
 #, kde-format
 msgid "Tab 1"
-msgstr "标签 1"
+msgstr "标签页 1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/calculator/titrationCalculator.ui:42
@@ -4244,7 +4244,7 @@ msgstr "体积(X)"
 #: src/calculator/titrationCalculator.ui:120
 #, kde-format
 msgid "Tab 2"
-msgstr "标签 2"
+msgstr "标签页 2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/calculator/titrationCalculator.ui:126
@@ -6412,32 +6412,22 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4：远离居民处"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
-msgstr "S5：内容物保存在… (由制造商指定的特定液体) 下面"
+msgstr ""
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
-msgstr "S6：保存在… (由制造商指定的惰性气体)下面"
+msgstr ""
 
 #: src/rsdialog.cpp:157
 #, kde-format
