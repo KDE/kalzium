@@ -3,21 +3,21 @@
 # Stanislav Visnovsky <visnovsky@kde.org>, 2003, 2004.
 # Jozef Říha <jose1711@gmail.com>, 2006.
 # Jozef Káčer <quickparser@gmail.com>, 2007.
-# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2014, 2016, 2022.
+# SPDX-FileCopyrightText: 2012, 2013, 2014, 2016, 2022, 2023 Roman Paholík <wizzardsk@gmail.com>
 # Matej Mrenica <matejm98mthw@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-10 00:41+0000\n"
-"PO-Revision-Date: 2022-04-15 19:04+0200\n"
+"PO-Revision-Date: 2023-12-10 14:57+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -7782,27 +7782,27 @@ msgstr "Hľadať..."
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "Vedľa seba"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "Jedna časť vedľa druhej"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Obe časti kontinuálne"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "Horizontálne"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
 msgid "Horizontally (shifted)"
-msgstr ""
+msgstr "Horizontálne (posunuté)"
 
 #: src/settings/kalziumconfigdialog.cpp:15
 #, kde-format
