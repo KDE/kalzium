@@ -6444,32 +6444,22 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4: Uchovávejte mimo obytné objekty"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
-msgstr "S5: Uchovávejte pod … (příslušnou kapalinu určí výrobce)"
+msgstr ""
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
-msgstr "S6: Uchovávejte pod … (inertní plyn určí výrobce)"
+msgstr ""
 
 #: src/rsdialog.cpp:157
 #, kde-format
@@ -8469,15 +8459,3 @@ msgstr "Převést z:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Převést do:"
-
-#~ msgid "Kalzium OpenGL Part"
-#~ msgstr "Kalzium OpenGL Part"
-
-#~ msgid "A cool thing"
-#~ msgstr "Super věc"
-
-#~ msgid "(c) 2006, Carsten Niehaus"
-#~ msgstr "(c) 2006, Carsten Niehaus"
-
-#~ msgid "Marcus D. Hanwell"
-#~ msgstr "Marcus D. Hanwell"
