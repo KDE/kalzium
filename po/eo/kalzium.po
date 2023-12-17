@@ -4867,7 +4867,7 @@ msgstr "Izotopa tabelo"
 #, kde-format
 msgctxt "alpha ray emission"
 msgid "alpha"
-msgstr ""
+msgstr "alfo"
 
 #: src/isotopetable/isotopetabledialog.cpp:48
 #, kde-format
@@ -4914,7 +4914,7 @@ msgstr "<h1>%1 (%2)</h1>"
 #, kde-format
 msgctxt "Unknown magnetic moment"
 msgid "Unknown"
-msgstr ""
+msgstr "Nekonata"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
 #, kde-format
@@ -4945,7 +4945,7 @@ msgstr ""
 #, kde-format
 msgctxt "Unknown spin"
 msgid "Unknown"
-msgstr ""
+msgstr "Nekonata"
 
 #: src/isotopetable/isotopetabledialog.cpp:84
 #, kde-format
@@ -7975,8 +7975,7 @@ msgid "Choose a file to save to"
 msgstr ""
 
 #: src/tools/moleculeview.cpp:247
-#, fuzzy, kde-format
-#| msgid "%1 u"
+#, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
 "not need to be translated at all!"
@@ -8170,9 +8169,3 @@ msgstr "Konverti de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konverti al:"
-
-#~ msgctxt ""
-#~ "This 'u' stands for the chemical unit (u for 'units'). Most likely this "
-#~ "does ¦not need to be translated at all!"
-#~ msgid "%1 u"
-#~ msgstr "%1 u"
