@@ -92,6 +92,7 @@ int main(int argc, char **argv)
     QApplication::setApplicationName(QStringLiteral("kalzium"));
     QApplication::setApplicationVersion(KALZIUM_VERSION_STRING);
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kalzium")));
 
     KAboutData::setApplicationData(about);
 
