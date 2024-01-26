@@ -104,7 +104,7 @@
 ><guimenu
 >Applications</guimenu
 > <guisubmenu
->Education</guisubmenu
+>Éducation</guisubmenu
 > <guisubmenu
 >Science</guisubmenu
 ><guimenuitem
@@ -612,7 +612,7 @@
 >VIIB </quote
 > et la colonne 18 était numérotée <quote
 >VIII</quote
->. À cause de la confusion entre les systèmes de l'ancien IUPAC et du CAS, l'IUPAC adopta son nouveau système. </para
+>. À cause de la confusion entre les systèmes de l'ancien IUPAC et du CAS, l'organisation IUPAC adopta son nouveau système. </para
 ></listitem>
 				 </itemizedlist>
 			 </para>
@@ -1445,7 +1445,7 @@
 		 <para
 >Dans l'onglet <guilabel
 >Unités</guilabel
->, vous pouvez choisir les unités d'énergie, de longueur et de température. Vous pouvez choisir si vous préférez électronvolt (eV), kilojoule par mole (kJ/mol), joule par mole (J/mol) ou joules (J) par défaut. Pour les longueurs, choisissez picomètres (pm), nanomètres (nm) ou &Aring;ngstr&ouml;m (Å) par défaut. La température est en kelvin par défaut mais vous pouvez la changer pour des degrés Celsius (°C), des degrés Fahrenheit (°F) et des degrés Réaumur (°Ré). </para>
+>, vous pouvez choisir les unités d'énergie, de longueur et de température. Vous pouvez choisir si vous préférez électronvolt (eV), kilojoule par mole (kJ / mol), joule par mole (J / mol) ou joules (J) par défaut. Pour les longueurs, choisissez picomètres (pm), nanomètres (nm) ou Angström (Å) par défaut. La température est en Kelvin par défaut mais vous pouvez la changer pour des degrés Celsius (°C), des degrés Fahrenheit (°F) et des degrés Réaumur (°Ré). </para>
 		 <screenshot>
 			 <screeninfo
 >Boîte de dialogue de configuration de &kalzium;</screeninfo>
@@ -1640,7 +1640,7 @@
 >Cet objet représente la table que la DZ <foreignphrase lang="de"
 >Deutscher Zentralausschuss</foreignphrase
 > <quote
->German Central Comitee</quote
+>German Central Committee</quote
 > propose.</para
 ></listitem>
             </varlistentry>
