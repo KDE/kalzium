@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2024-01-27 15:47+0300\n"
+"PO-Revision-Date: 2024-01-28 20:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2072,7 +2072,7 @@ msgstr "Teknesyum"
 #: element_tiny.xml:88
 #, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr ""
+msgstr "Yunanca 'yapay' anlamına gelen 'technetos' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -2083,7 +2083,7 @@ msgstr "Rutenyum"
 #: element_tiny.xml:90
 #, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr ""
+msgstr "Rutenya, Rusya'nın eski adıdır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -2092,10 +2092,9 @@ msgid "Rhodium"
 msgstr "Rodyum"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "Yunanca 'lithos' 'taş' anlamına gelir"
+msgstr "Yunanca 'gül gibi kırmızı' anlamına gelen 'rhodeos' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -2106,7 +2105,7 @@ msgstr "Palladyum"
 #: element_tiny.xml:94
 #, kde-format
 msgid "Named after the asteroid Pallas."
-msgstr ""
+msgstr "Adı, Pallas asteroidinden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
@@ -2118,6 +2117,9 @@ msgstr "Gümüş"
 #, kde-format
 msgid "Latin 'argentum' for silver."
 msgstr ""
+"Latince 'gümüş' anlamına gelen 'argentum' sözcüğünden gelir. Türkçe Gümüş "
+"ise Eski Türkçe \"kümiş, beyaz metal\" sözcüğünden gelmektedir. Eski Türkçe "
+"\"künük\" ile eş kökenlidir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -2129,6 +2131,7 @@ msgstr "Kadmiyum"
 #, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
 msgstr ""
+"Yunanca 'çinko karbonat' anlamına gelen 'galmei, kadmia' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -2139,7 +2142,7 @@ msgstr "İndiyum"
 #: element_tiny.xml:100
 #, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr ""
+msgstr "Adı, mavi tayfından dolayı 'İndigo' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -2151,6 +2154,8 @@ msgstr "Kalay"
 #, kde-format
 msgid "Latin 'stannum' for tin."
 msgstr ""
+"Latince 'teneke' anlamına gelen 'stannum' sözcüğünden gelir. Türkçedeki "
+"kalay sözcüğünün Arapça \"kalai\" sözcüğünden geldiği düşünülmektedir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -2162,6 +2167,8 @@ msgstr "Antimon"
 #, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
 msgstr ""
+"Arapça 'Ammon tanrısının ortaya çıkması' anlamına gelen 'anthos ammonos' "
+"sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:105
@@ -2173,29 +2180,29 @@ msgstr "Telluryum"
 #, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
 msgstr ""
+"Latince 'Dünya Gezegeni' anlamına gelen 'tellus, telluris' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
 #, kde-format
 msgid "Iodine"
-msgstr "İyod"
+msgstr "İyot"
 
 #: element_tiny.xml:108
 #, kde-format
 msgid "Greek 'ioeides' for 'violet'."
-msgstr ""
+msgstr "Yunanca 'menekşe' anlamına gelen 'ioeides' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:109
 #, kde-format
 msgid "Xenon"
-msgstr "Ksenon"
+msgstr "Zenon"
 
 #: element_tiny.xml:110
-#, fuzzy, kde-format
-#| msgid "Greek 'hydro' and 'gennao' for 'forms water'"
+#, kde-format
 msgid "Greek 'xenos' for 'foreigner'."
-msgstr "Yunanca 'hydro' ve 'gennao' 'suyu oluşturur' anlamında"
+msgstr "Yunanca 'yabancı' anlamına gelen 'xenos' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:111
@@ -2206,7 +2213,7 @@ msgstr "Sezyum"
 #: element_tiny.xml:112
 #, kde-format
 msgid "Latin 'caesius' for 'heaven blue'."
-msgstr ""
+msgstr "Latince 'gök mavisi' anlamına gelen 'caesius' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:113
@@ -2217,7 +2224,7 @@ msgstr "Baryum"
 #: element_tiny.xml:114
 #, kde-format
 msgid "Greek 'barys' for 'heavy'."
-msgstr ""
+msgstr "Yunanca 'ağır' anlamına gelen 'barys' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
@@ -2231,6 +2238,8 @@ msgid ""
 "Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare "
 "earth' elements."
 msgstr ""
+"Yunanca 'saklı' anlamına gelen 'lanthanein' sözcüğünden gelir. Lantangiller "
+"aynı zamanda 'az bulunan elementler' olarak adlandırılırlar."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:117
@@ -2241,7 +2250,7 @@ msgstr "Seryum"
 #: element_tiny.xml:118
 #, kde-format
 msgid "Named after the planetoid Ceres."
-msgstr ""
+msgstr "Adı, Seres gezegenciğinden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:119
@@ -2253,6 +2262,7 @@ msgstr "Praseodim"
 #, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
 msgstr ""
+"Yunanca 'yeşil ikiz' anlamına gelen 'prasinos didymos' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -2263,7 +2273,7 @@ msgstr "Neodim"
 #: element_tiny.xml:122
 #, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr ""
+msgstr "Yunanca 'yeni ikiz' anlamına gelen 'neos didymos' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
@@ -2277,6 +2287,8 @@ msgid ""
 "Named after the Greek Prometheus. Prometheus stole the fire from the gods "
 "and gave it to mankind."
 msgstr ""
+"Adı, Yunan Prometheus'tan gelir. Prometheus, ateşi tanrılardan çalıp "
+"kişioğluna vermiştir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:125
@@ -2287,7 +2299,7 @@ msgstr "Samaryum"
 #: element_tiny.xml:126
 #, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr ""
+msgstr "Adı, Samarskit mineralinden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2298,7 +2310,7 @@ msgstr "Europyum"
 #: element_tiny.xml:128
 #, kde-format
 msgid "Named after Europe."
-msgstr ""
+msgstr "Adı, Avrupa'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -2309,7 +2321,7 @@ msgstr "Gadolinyum"
 #: element_tiny.xml:130
 #, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "Fin kimyager Johan Gadolin'in adıyla adlandırılmıştır."
+msgstr "Adı, Fin kimyager Johan Gadolin'den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2336,7 +2348,7 @@ msgstr "Disprosyum"
 #: element_tiny.xml:134
 #, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr ""
+msgstr "Yunanca 'erişmesi zor' anlamına gelen 'dysprositor' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
@@ -2347,7 +2359,7 @@ msgstr "Holmiyum"
 #: element_tiny.xml:136
 #, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
-msgstr ""
+msgstr "Latince Stockholm'ün eski adı olan 'holmia' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2375,7 +2387,7 @@ msgstr "Tulyum"
 #: element_tiny.xml:140
 #, kde-format
 msgid "Named after the old name of Scandinavia, 'Thule'."
-msgstr ""
+msgstr "Adı, İskandinavya'nın eski adı olan 'Thule'den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:141
@@ -2402,6 +2414,7 @@ msgstr "Lutesyum"
 #, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
 msgstr ""
+"Adı, Paris'in eski Roma İmparatorluğu dönemi adı olan 'Lutetia'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2416,6 +2429,8 @@ msgid ""
 "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
 "name of Copenhagen, Denmark)."
 msgstr ""
+"Niels Bohr, bu elementin özelliklerini keşfinden önce tahmin ettiğinden adı, "
+"doğum yeri olan 'Hafnia'dan gelir (Kopenhag'ın eski Latince adı)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2426,13 +2441,13 @@ msgstr "Tantal"
 #: element_tiny.xml:148
 #, kde-format
 msgid "Named after the Greek myth of Tantalos."
-msgstr ""
+msgstr "Adı, bir Yunan miti olan Tantalos'tan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:149
 #, kde-format
 msgid "Tungsten"
-msgstr "Volfram"
+msgstr "Tungsten"
 
 #: element_tiny.xml:150
 #, kde-format
@@ -2441,10 +2456,10 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
-"Adı, 'ağır taş' anlamına gelen İsveççe 'tung sten'den geliyor. Sembol, "
+"Adı, İsveççe 'ağır taş' anlamına gelen 'tung sten'den gelir. Sembolü ise "
 "tungstenin kalay ile \"bir kurdun koyunu (koç) yemesi gibi\" nasıl "
 "etkileşime girdiğini açıklayan \"wolfram\" elementinin eski Almanca adından "
-"gelir."
+"gelmektedir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2455,7 +2470,7 @@ msgstr "Renyum"
 #: element_tiny.xml:152
 #, kde-format
 msgid "Named after the German river Rhine (latin 'Rhenium')."
-msgstr ""
+msgstr "Adı, Almanya'nın Rhine nehrinden gelir (Latince 'Rhenium')."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:153
@@ -2466,18 +2481,18 @@ msgstr "Osmiyum"
 #: element_tiny.xml:154
 #, kde-format
 msgid "Greek for 'smell'. Its oxides smell strongly like radishes."
-msgstr ""
+msgstr "Yunanca 'koku' anlamına gelir. Oksitleri, turp gibi güçlü kokar."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:155
 #, kde-format
 msgid "Iridium"
-msgstr "İdiryum"
+msgstr "İridyum"
 
 #: element_tiny.xml:156
 #, kde-format
 msgid "Greek 'iris' for 'rainbow'."
-msgstr ""
+msgstr "Yunanca 'gökkuşağı' anlamına gelen 'iris' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:157
@@ -2488,7 +2503,7 @@ msgstr "Platin"
 #: element_tiny.xml:158
 #, kde-format
 msgid "Spanish 'platina' means 'small silver'."
-msgstr ""
+msgstr "İspanyolca 'küçük gümüş' anlamına gelen 'platina' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:159
@@ -2500,6 +2515,7 @@ msgstr "Altın"
 #, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
 msgstr ""
+"Latince 'aurum'. Adı, güneş doğumu tanrısı anlamına gelen Aurora'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
@@ -2511,6 +2527,7 @@ msgstr "Civa"
 #, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
 msgstr ""
+"Grekolatince 'sıvı gümüş' anlamına gelen 'hydrargyrum' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2521,7 +2538,7 @@ msgstr "Talyum"
 #: element_tiny.xml:164
 #, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr ""
+msgstr "Yunanca 'ince dal' anlamına gelen 'tallos' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2533,6 +2550,8 @@ msgstr "Kurşun"
 #, kde-format
 msgid "Latin 'plumbum' for Lead."
 msgstr ""
+"Adı, Latince 'plumbum' sözcüğünden gelir. Türkçesi ise Eski Türkçe/Moğolca "
+"\"korugçın\" sözcüğünden evrilmiştir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2543,7 +2562,7 @@ msgstr "Bizmut"
 #: element_tiny.xml:168
 #, kde-format
 msgid "The old name of Bismuth is 'Wismut', which stood for 'white mass'."
-msgstr ""
+msgstr "Bizmut'un eski adı, 'beyaz kütle' anlamına gelen 'Wismut'tur."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:169
@@ -2554,7 +2573,7 @@ msgstr "Polonyum"
 #: element_tiny.xml:170
 #, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr ""
+msgstr "Adı, Marie Curie'yi onurlandırmak için Polonya'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2565,7 +2584,7 @@ msgstr "Astatin"
 #: element_tiny.xml:172
 #, kde-format
 msgid "Greek 'astator' for 'changing'."
-msgstr ""
+msgstr "Yunanca 'değişen' anlamına gelen 'astator' sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:173
@@ -2579,6 +2598,8 @@ msgid ""
 "Named after Radium. It ends with 'on' to make it clear that it is a noble "
 "gas."
 msgstr ""
+"Adı, Radyum'dan gelir. Bir asal gaz olduğunu belirtmek için sonu -on ile "
+"biter."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:175
@@ -2589,7 +2610,7 @@ msgstr "Fransiyum"
 #: element_tiny.xml:176
 #, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr ""
+msgstr "Adı, Marguerite Perey'i onurlandırmak için Fransa'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2601,6 +2622,8 @@ msgstr "Radyum"
 #, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
 msgstr ""
+"Radyoaktif olduğundan, Latince 'ışın' anlamına gelen 'radius' sözcüğünden "
+"gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2612,6 +2635,8 @@ msgstr "Aktinyum"
 #, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
 msgstr ""
+"Radyoaktif olduğundan, Yunanca 'ışın' anlamına gelen 'aktis' sözcüğünden "
+"gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2622,7 +2647,7 @@ msgstr "Toryum"
 #: element_tiny.xml:182
 #, kde-format
 msgid "Named after the Norse god of thunder: Thor"
-msgstr ""
+msgstr "Adı, Nordik şimşek tanrısı Thor'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:183
@@ -2636,6 +2661,9 @@ msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
+"Yunanca 'ata' anlamına gelen 'protos' sözcüğünden gelir. Protaktinyum bu "
+"şekilde adlandırılmıştır; çünkü Aktinyum, Protaktinyumun bozunma "
+"radyasyonunun bir ürünüdür."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:185
@@ -2647,28 +2675,30 @@ msgstr "Uranyum"
 #, kde-format
 msgid "Greek 'ouranos' for 'heaven'. Named after the planet Uranus."
 msgstr ""
+"Yunanca 'gök' anlamına gelen 'ouranos' sözcüğünden gelir. Uranüs gezegenine "
+"istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:187
 #, kde-format
 msgid "Neptunium"
-msgstr "Neptunyum"
+msgstr "Neptünyum"
 
 #: element_tiny.xml:188
 #, kde-format
 msgid "Named after the planet Neptune."
-msgstr ""
+msgstr "Adı, Neptün gezegeninden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:189
 #, kde-format
 msgid "Plutonium"
-msgstr "Plutonyum"
+msgstr "Plütonyum"
 
 #: element_tiny.xml:190
 #, kde-format
 msgid "Named after the planet Pluto."
-msgstr ""
+msgstr "Adı, Plüto gezegeninden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:191
@@ -2679,18 +2709,18 @@ msgstr "Amerikyum"
 #: element_tiny.xml:192
 #, kde-format
 msgid "Named after America."
-msgstr ""
+msgstr "Adı, Amerika'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:193
 #, kde-format
 msgid "Curium"
-msgstr "Curiyum"
+msgstr "Küryum"
 
 #: element_tiny.xml:194
 #, kde-format
 msgid "Named after Marie Curie."
-msgstr ""
+msgstr "Marie Curie'ye istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:195
@@ -2701,7 +2731,7 @@ msgstr "Berkelyum"
 #: element_tiny.xml:196
 #, kde-format
 msgid "Named after the town Berkeley where it was discovered."
-msgstr ""
+msgstr "Adı, keşfedildiği Berkeley kasabasından gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:197
@@ -2712,18 +2742,18 @@ msgstr "Kaliforniyum"
 #: element_tiny.xml:198
 #, kde-format
 msgid "Named after the US-State of California."
-msgstr ""
+msgstr "Adı, ABD eyaleti Kaliforniya'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:199
 #, kde-format
 msgid "Einsteinium"
-msgstr "Einsteinyum"
+msgstr "Aynştayniyum"
 
 #: element_tiny.xml:200
 #, kde-format
 msgid "Named after the scientist Albert Einstein."
-msgstr ""
+msgstr "Bilimci Albert Einstein'a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:201
@@ -2734,7 +2764,7 @@ msgstr "Fermiyum"
 #: element_tiny.xml:202
 #, kde-format
 msgid "Named after the scientist Enrico Fermi."
-msgstr ""
+msgstr "Bilimci Enrico Fermi'ye istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:203
@@ -2745,7 +2775,7 @@ msgstr "Mendelevyum"
 #: element_tiny.xml:204
 #, kde-format
 msgid "Named after the scientist D.I. Mendeleev."
-msgstr ""
+msgstr "Bilimci D.I. Mendeleev'e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:205
@@ -2756,7 +2786,7 @@ msgstr "Nobelyum"
 #: element_tiny.xml:206
 #, kde-format
 msgid "Named after the scientist Alfred Nobel."
-msgstr ""
+msgstr "Bilimci Alfred Nobel'e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:207
@@ -2767,7 +2797,7 @@ msgstr "Lawrenciyum"
 #: element_tiny.xml:208
 #, kde-format
 msgid "Named after the scientist Ernest Orlando Lawrence."
-msgstr ""
+msgstr "Bilimci Ernest Orlando Lawrence'e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:209
@@ -2778,46 +2808,46 @@ msgstr "Rutherfordiyum"
 #: element_tiny.xml:210
 #, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr ""
+msgstr "Bilimci Ernest Rutherford'a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
 #, kde-format
 msgid "Dubnium"
-msgstr "Dubnium"
+msgstr "Dubniyum"
 
 #: element_tiny.xml:212
 #, kde-format
 msgid "Named after the science-town Dubna in Russia."
-msgstr ""
+msgstr "Rusya'daki Dubna bilim kentine istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
 #, kde-format
 msgid "Seaborgium"
-msgstr "Seaborgium"
+msgstr "Seaborgiyum"
 
 #: element_tiny.xml:214
 #, kde-format
 msgid "Named after the scientist G. Theodore Seaborg."
-msgstr ""
+msgstr "Bilimci G. Theodore Seaborg'a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:215
 #, kde-format
 msgid "Bohrium"
-msgstr "Bohrium"
+msgstr "Bohriyum"
 
 #: element_tiny.xml:216
 #, kde-format
 msgid "Named after the scientist Niels Bohr."
-msgstr ""
+msgstr "Bilimci Niels Bohr'a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:217
 #, kde-format
 msgid "Hassium"
-msgstr "Hassium"
+msgstr "Hassiyum"
 
 #: element_tiny.xml:218
 #, kde-format
@@ -2825,23 +2855,25 @@ msgid ""
 "Latin 'hassia' for the German county Hessen. In Hessen a lot elements have "
 "been discovered."
 msgstr ""
+"Alman ilçesi Hessen'in Latince karşılığıdır ('hassia'). Hessen'de pek çok "
+"element keşfedilmiştir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:219
 #, kde-format
 msgid "Meitnerium"
-msgstr "Meitnerium"
+msgstr "Meitneriyum"
 
 #: element_tiny.xml:220
 #, kde-format
 msgid "Named after the scientist Lise Meitner."
-msgstr ""
+msgstr "Bilimci Lise Meitner'e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:221
 #, kde-format
 msgid "Darmstadtium"
-msgstr "Darmstadtium"
+msgstr "Darmstadtiyum"
 
 #: element_tiny.xml:222
 #, kde-format
@@ -2849,23 +2881,25 @@ msgid ""
 "Named after the German city Darmstadt where many elements have been "
 "discovered."
 msgstr ""
+"Pek çok elementin keşfedildiği Alman Darmstadt kentine istinaden "
+"adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:223
 #, kde-format
 msgid "Roentgenium"
-msgstr "Roentgenium"
+msgstr "Röntgeniyum"
 
 #: element_tiny.xml:224
 #, kde-format
 msgid "Named after Wilhelm Conrad Röntgen."
-msgstr ""
+msgstr "Adı, Wilhelm Conrad Röntgen'den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:225
 #, kde-format
 msgid "Copernicium"
-msgstr "Kopernisum"
+msgstr "Kopernikyum"
 
 #: element_tiny.xml:226
 #, kde-format
@@ -2873,13 +2907,14 @@ msgid ""
 "Historically known as eka-mercury. Named after the astronomer Nicolaus "
 "Copernicus."
 msgstr ""
+"Tarihsel olarak eka-cıva olarak bilinir. Adı, gökbilimci Nicolaus "
+"Copernicus'dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
-#, fuzzy, kde-format
-#| msgid "Zirconium"
+#, kde-format
 msgid "Nihonium"
-msgstr "Zirkonyum"
+msgstr "Nihonyum"
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2888,16 +2923,15 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
-"Adını Japoncada 'Japonya'nın romanlaştırılmış yazımı olan 'Nihon'dan "
-"almıştır. Element, Japonya'da RIKEN Nishina Hızlandırıcı Tabanlı Bilim "
-"Merkezi'nde keşfedilen ilk elementti. Tarihsel olarak eka-talyum olarak "
-"bilinir."
+"Adını Japonca'da 'Japonya'nın romanlaştırılmış yazılışı 'Nihon'dan alır. "
+"Element, Japonya'da RİKEN Nişina İvmelendirici Tabanlı Bilim Merkezi'nde "
+"keşfedilen ilk elementti. Tarihsel olarak eka-talyum olarak bilinir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
 #, kde-format
 msgid "Flerovium"
-msgstr ""
+msgstr "Flerovyum"
 
 #: element_tiny.xml:230
 #, kde-format
@@ -2905,12 +2939,15 @@ msgid ""
 "Historically known as eka-lead. Named after Flerov Laboratory of Nuclear "
 "Reactions (Dubna, Russia) where superheavy elements are synthesized."
 msgstr ""
+"Tarihsel olarak eka-kurşun olarak bilinir. Adını süper ağır elementlerin "
+"sentezlendiği Flerov Nükleer Reaksiyon Laboratuvarı'ndan (Dubna, Rusya) "
+"almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:231
 #, kde-format
 msgid "Moscovium"
-msgstr ""
+msgstr "Moskovyum"
 
 #: element_tiny.xml:232
 #, kde-format
@@ -2919,12 +2956,15 @@ msgid ""
 "for Nuclear Research that was a co-discoverer of this element. Historically "
 "known as eka-bismuth."
 msgstr ""
+"Adını bu elementin kaşiflerinden biri olan Ortak Nükleer Araştırma "
+"Enstitüsü'nün bulunduğu Rusya'nın Moskova bölgesinden alıyor. Tarihsel "
+"olarak eka-bizmut olarak bilinir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:233
 #, kde-format
 msgid "Livermorium"
-msgstr ""
+msgstr "Livermoryum"
 
 #: element_tiny.xml:234
 #, kde-format
@@ -2932,12 +2972,14 @@ msgid ""
 "Historically known as eka-polonium. Named after Livermore National "
 "Laboratory (USA)."
 msgstr ""
+"Tarihsel olarak eka-polonyum olarak bilinir. Adını Livermore Ulusal "
+"Laboratuvarı'ndan (ABD) almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:235
 #, kde-format
 msgid "Tennessine"
-msgstr ""
+msgstr "Tenesin"
 
 #: element_tiny.xml:236
 #, kde-format
@@ -2946,12 +2988,15 @@ msgid ""
 "National Laboratory and Vanderbilt University whom were co-discoverers of "
 "this element. Historically known as eka-astatine."
 msgstr ""
+"Adını, bu elementin ortak kaşifleri olan Oak Ridge Ulusal Laboratuvarı ve "
+"Vanderbilt Üniversitesi'ne ev sahipliği yapan Amerika'nın Tennessee "
+"eyaletinden almaktadır. Tarihsel olarak eka-astatin olarak bilinir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:237
 #, kde-format
 msgid "Oganesson"
-msgstr ""
+msgstr "Oganeson"
 
 #: element_tiny.xml:238
 #, kde-format
@@ -2959,6 +3004,9 @@ msgid ""
 "Named in honor of Professor Yuri Oganessian's trans-actinide element "
 "research. Historically known as eka-radon, eka-emanation before 1960."
 msgstr ""
+"Profesör Yuri Oganessian'ın trans-aktinit element araştırmasının onuruna "
+"verilmiştir. Tarihsel olarak 1960'tan önce eka-radon, eka-emanasyon olarak "
+"biliniyordu."
 
 #: libscience/psetables.cpp:152
 #, kde-format
