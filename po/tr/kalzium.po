@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2024-01-28 20:17+0300\n"
+"PO-Revision-Date: 2024-01-29 17:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2239,7 +2239,7 @@ msgid ""
 "earth' elements."
 msgstr ""
 "Yunanca 'saklı' anlamına gelen 'lanthanein' sözcüğünden gelir. Lantangiller "
-"aynı zamanda 'az bulunan elementler' olarak adlandırılırlar."
+"aynı zamanda 'nadir elementler' olarak adlandırılırlar."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:117
@@ -2598,7 +2598,7 @@ msgid ""
 "Named after Radium. It ends with 'on' to make it clear that it is a noble "
 "gas."
 msgstr ""
-"Adı, Radyum'dan gelir. Bir asal gaz olduğunu belirtmek için sonu -on ile "
+"Adı, Radyum'dan gelir. Bir soy gaz olduğunu belirtmek için sonu -on ile "
 "biter."
 
 #. i18n: tag label attribute value
@@ -3034,16 +3034,15 @@ msgid "DZ Periodic Table"
 msgstr "DZ Periyodik Tablo"
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
-#| msgid "Gas Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
-msgstr "Gaz Hesap Makinesi"
+msgstr "Kimyasal Hesap Makinesi"
 
 #: src/calculator/calculator.cpp:61 src/calculator/calculator.cpp:105
 #, kde-format
 msgid "Equation Balancer"
-msgstr "Eşitlik Denkleştirici"
+msgstr "Eşitlik Denkleştiricisi"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:91 src/calculator/calculator.ui:56
@@ -3079,19 +3078,19 @@ msgstr "Derişim Hesap Makinesi"
 #: src/calculator/calculator.cpp:110 src/calculator/calculator.ui:61
 #, kde-format
 msgid "Molecular mass Calculator"
-msgstr "Molekül kütlesi hesap makinesi"
+msgstr "Moleküler Hesap Makinesi"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:112 src/calculator/calculator.ui:81
 #, kde-format
 msgid "Titration Calculator"
-msgstr ""
+msgstr "Titrasyon Hesap Makinesi"
 
 #. i18n: ectx: property (toolTip), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:38
 #, kde-format
 msgid "<big>Select the calculator that you want to use</big>"
-msgstr ""
+msgstr "<big>Kullanmak istediğiniz hesap makinesini seçin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:41
@@ -3100,30 +3099,32 @@ msgid ""
 "This is the index of the various calculators available. For more information "
 "on each calculator, click on 'Introduction'."
 msgstr ""
+"Bu, kullanılabilir çeşitli hesap makinelerinin indeksidir. Her hesap "
+"makinesi hakkında daha fazla bilgi için 'Giriş'e tıklayın."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
 #, kde-format
 msgid "Calculators"
-msgstr "Hesap makineleri"
+msgstr "Hesap Makineleri"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/calculator.ui:130
 #, kde-format
 msgid "<h1>The Kalzium Calculators</h1>"
-msgstr ""
+msgstr "<h1>Kalzium Hesap Makineleri</h1>"
 
 #. i18n: ectx: property (toolTip), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:168
 #, kde-format
 msgid "<big>Information about the various calculators</big>"
-msgstr ""
+msgstr "<big>Çeşitli hesap makineleri hakkında bilgi</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:171
 #, kde-format
 msgid "This is the description of the function of each calculator in Kalzium"
-msgstr "Bu, Kalzium'daki her bir hesap makinesinin işlevine ait açıklamadır"
+msgstr "Bu, Kalzium'daki her hesap makinesinin işlevinin açıklamasıdır"
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:189
@@ -3157,21 +3158,50 @@ msgid ""
 "equations and see how the concentration of a species changes in function of "
 "another one.</li></ul>"
 msgstr ""
+"<big>Kalzium hesap makinelerine hoş geldiniz!<br /></big>\n"
+"<p>Bu hesap makinesi, farklı hesaplamalar gerçekleştiren farklı görevler "
+"için çeşitli hesap makineleri içerir.</p>\n"
+"<p>Kalzium'da aşağıdaki hesap makinelerini bulabilirsiniz:</p>\n"
+"<ul><li><b>Moleküler kütle hesap makineleri<br /></b>Bu hesap makinesi, "
+"farklı moleküllerin moleküler kütlelerini hesaplamanıza yardımcı olur.<br /"
+">Molekül adlarının kısa biçimini belirtebilir ve buna benzer armalar "
+"ekleyebilirsiniz.</li>\n"
+"<li><b>Derişim Hesap Makinesi<br /></b>Aşağıdakileri içeren miktarları "
+"hesaplayabilirsiniz:</li>\n"
+"<ul type=\"circle\"><li>Maddenin miktarı</li>\n"
+"<li>Çözücü Hacmi</li>\n"
+"<li>Maddenin Derişimi</li></ul>\n"
+"<p>Aralarından seçim yapabileceğiniz çok çeşitli birimler ve miktarları "
+"belirlemek için farklı yöntemler vardır.</p>\n"
+"<li><b>Çekirdek hesap makinesi<br /></b>Bu hesaplayıcı, bir malzemenin "
+"zamanla beklenen kütlelerini tahmin etmek için Kalzium'da bulunan nükleer "
+"verileri kullanır.</li>\n"
+"<li><b>Gaz Hesap Makinesi<br /></b>Bu hesaplayıcı, çeşitli ideal ve ideal "
+"olmayan gazlar için sıcaklık, basınç, hacim, gaz miktarı vb. değerlerini "
+"hesaplayabilir.</li>\n"
+"<li><b>Eşitlik Dengeleyicisi<br /></b>Bu hesap makinesi kimyasal denklemleri "
+"dengeleyebilir.</li>\n"
+"<li><b>Titrasyon Hesap Makinesi<br /></b>Bu hesaplayıcı, hiperbolik tanjanta "
+"en uygun pH metre takip titrasyonunun eşdeğerlik noktasını bulmaya çalışır. "
+"Ayrıca bir denge denklem sistemini çözmesine izin verebilir ve bir türün "
+"derişiminin bir başka türe bağlı olarak nasıl değiştiğini görebilirsiniz.</"
+"li></ul>"
 
 #: src/calculator/concCalculator.cpp:892
 #, kde-format
 msgid "Percentage should be less than 100.0, please enter a valid value."
-msgstr "Yüzde değeri 100,0'dan düşük olmalıdır, lütfen geçerli bir veri girin."
+msgstr ""
+"Yüzde değeri 100,0'dan düşük olmalıdır, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:895
 #, kde-format
 msgid "Density cannot be zero, please enter a valid value."
-msgstr "Yoğunluk sıfır olamaz. Lütfen geçerli bir değer girin."
+msgstr "Yoğunluk sıfır olamaz, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:898
 #, kde-format
 msgid "Mass cannot be zero, please enter a valid value."
-msgstr "Mol kütlesi sıfır olamaz. Lütfen sıfır olmayan bir değer girin."
+msgstr "Kütle sıfır olamaz. Lütfen sıfır olmayan bir değer girin."
 
 #: src/calculator/concCalculator.cpp:901 src/calculator/gasCalculator.cpp:297
 #, kde-format
@@ -3181,24 +3211,22 @@ msgstr "Hacim sıfır olamaz, lütfen sıfır olmayan bir değer girin."
 #: src/calculator/concCalculator.cpp:904
 #, kde-format
 msgid "Number of moles cannot be zero, please enter a valid value."
-msgstr ""
-"Mol sayısı sıfır olamaz. Lütfen hatayı düzeltmek için geçerli bir değer "
-"girin."
+msgstr "Mol sayısı sıfır olamaz, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:907
 #, kde-format
 msgid "Molar mass of solvent is zero, please enter a valid value."
-msgstr "Çözücünün mol kütlesi sıfır! Lütfen düzeltin."
+msgstr "Çözücünün mol kütlesi sıfır, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:910
 #, kde-format
 msgid "Number of equivalents is zero. Cannot calculate equivalent mass."
-msgstr "Eşdeğer sayısı sıfırdır. Eşdeğer kütle hesaplanamaz."
+msgstr "Eşdeğerlerin sayısı sıfır. Eşdeğer kütle hesaplanamıyor."
 
 #: src/calculator/concCalculator.cpp:913
 #, kde-format
 msgid "Concentration is zero, please enter a valid value."
-msgstr "Derişim sıfır. Lütfen geçerli bir değer girin."
+msgstr "Derişim sıfır, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:916
 #, kde-format
@@ -3220,15 +3248,15 @@ msgstr "Çözücünün kütlesi sıfır olamaz."
 msgid ""
 "Insufficient data to calculate the required value, please specify normality."
 msgstr ""
-"Yetersiz veri. Gerekli hesabın yapılabilmesi için normaliteyi belirtin."
+"Gerekli değeri hesaplamak için yeterli veri yok, lütfen normalliği belirtin."
 
 #: src/calculator/concCalculator.cpp:928
 #, kde-format
 msgid ""
 "Insufficient data, specify molarity / mole fraction / molality to calculate."
 msgstr ""
-"Yetersiz veri girdiniz, hesaplama için molarite / mol kesri / molalite "
-"bilgisini belirtin."
+"Yetersiz veri, hesaplamak için molariteyi / mol fraksiyonunu / molaliteyi "
+"belirtin."
 
 #: src/calculator/concCalculator.cpp:931
 #, kde-format
@@ -3236,8 +3264,8 @@ msgid ""
 "The amount is specified in moles, cannot calculate molar/equivalent masses. "
 "Please specify mass/volume."
 msgstr ""
-"Miktar mol cinsinden belirtilmiş, molar/eşdeğer kütleleri hesaplanamıyor. "
-"Lütfen Kütle/hacim belirtin."
+"Tutar mol türünden belirtilir; molar/eşdeğer kütleler hesaplanamaz. Lütfen "
+"kütle/hacim belirtin."
 
 #: src/calculator/concCalculator.cpp:934
 #, kde-format
@@ -3245,18 +3273,18 @@ msgid ""
 "You can calculate the molar mass of solvent only if the mole fraction is "
 "specified."
 msgstr ""
-"Yalnızca mol kesri belirtilmiş ise çözücünün mol kütlesini "
+"Çözücünün molar kütlesini yalnızca mol kesri belirtilirse "
 "hesaplayabilirsiniz."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
 msgid "Molar mass cannot be zero, please enter a valid value."
-msgstr "Mol kütlesi sıfır olamaz, lütfen düzeltin."
+msgstr "Molar kütle sıfır olamaz, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:940
 #, kde-format
 msgid "Equivalent mass cannot be zero, please enter a valid value."
-msgstr "Eşdeğer kütle sıfır olamaz, lütfen düzeltin."
+msgstr "Eşdeğer kütle sıfır olamaz, lütfen geçerli bir değer girin."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/concCalculator.ui:30
@@ -3275,37 +3303,50 @@ msgid ""
 "For instance, if you specify the amount of solute in moles, you do not have "
 "to specify the molar mass of the solute.</span></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Liberation Sans'; font-size:10pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:12pt; font-weight:600;\">Aşağıdaki verilerden bazıları gerekli "
+"değildir. Örneğin, çözünen maddenin miktarını mol türünden belirtirseniz "
+"çözünen maddenin molar kütlesini belirtmeniz gerekmez.</span></p></body></"
+"html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/concCalculator.ui:37 src/calculator/gasCalculator.ui:36
 #, kde-format
 msgid "Data"
-msgstr "Veriler"
+msgstr "Veri"
 
 #. i18n: ectx: property (text), widget (QLabel, label_36)
 #: src/calculator/concCalculator.ui:43
 #, kde-format
 msgid "<big><b>Amount of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözünen madde miktarı:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, amtSolute)
 #: src/calculator/concCalculator.ui:53
 #, kde-format
 msgid "<big>Specify the amount of solute</big>"
-msgstr ""
+msgstr "<big>Çözünen madde miktarını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, amtSolute)
 #: src/calculator/concCalculator.ui:56
 #, kde-format
 msgid "This is the box used to specify the amount of solute in the solution."
 msgstr ""
-"Bu, çözeltideki çözünmüş maddenin miktarını belirlemek için kullanılabilir."
+"Bu, çözeltideki çözünen madde miktarını belirtmek için kullanılan kutudur."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSltType)
 #: src/calculator/concCalculator.ui:69
 #, kde-format
 msgid "The method by which you want to specify the amount of solute"
-msgstr "Çözünen maddenin miktarını belirlemek istediğiniz yöntem"
+msgstr "Çözünen madde miktarını belirtmek istediğiniz yöntem"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSltType)
 #: src/calculator/concCalculator.ui:72
@@ -3314,38 +3355,38 @@ msgid ""
 "This box is used to change the mode in which the amount of solute is "
 "specified, i.e. mass, moles or volume."
 msgstr ""
-"Bu kutucuk, çözünenin miktarının kütle, mol, hacim, vs. şeklinde "
-"belirtildiği kipi değiştirmek için kullanılır."
+"Bu kutu, çözünen madde miktarının belirtildiği kipi (kütle, mol veya hacim) "
+"değiştirmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_39)
 #: src/calculator/concCalculator.ui:79
 #, kde-format
 msgid "<big><b>Molar mass of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözünen maddenin molar kütlesi:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/concCalculator.ui:89
 #, kde-format
 msgid "<big>Specify the molar mass of the solute</big>"
-msgstr ""
+msgstr "<big>Çözünen maddenin molar kütlesini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/concCalculator.ui:92
 #, kde-format
 msgid "This box is used to specify the molar mass of the substance."
-msgstr "Bu kutucuk, maddenin mol kütlesini belirtmek için kullanılır."
+msgstr "Bu kutu, maddenin molar kütlesini belirtmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_40)
 #: src/calculator/concCalculator.ui:105
 #, kde-format
 msgid "<big><b>Equivalent mass of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözünen maddenin eşdeğer kütlesi:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, eqtMass)
 #: src/calculator/concCalculator.ui:115
 #, kde-format
 msgid "<big>Specify the equivalent mass of the solute</big>"
-msgstr ""
+msgstr "<big>Çözünen maddenin eşdeğer kütlesini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, eqtMass)
 #: src/calculator/concCalculator.ui:119
@@ -3355,18 +3396,21 @@ msgid ""
 "required only if concentration in terms of normality is involved.\n"
 "Normality = Number of Equivalents / liter of solution"
 msgstr ""
+"Bu kutu çözünen maddenin eşdeğer kütlesini belirtmek için kullanılır. Bu "
+"yalnızca normallik açısından derişim söz konusu olduğunda gereklidir.\n"
+"Normallik = Eşdeğer Sayısı / Litre Çözelti"
 
 #. i18n: ectx: property (text), widget (QLabel, label_52)
 #: src/calculator/concCalculator.ui:132
 #, kde-format
 msgid "<big><b>Density of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözünen maddenin yoğunluğu:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, densitySolute)
 #: src/calculator/concCalculator.ui:142
 #, kde-format
 msgid "<big>Specify the density of the solute</big>"
-msgstr ""
+msgstr "<big>Çözünen maddenin yoğunluğunu belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, densitySolute)
 #: src/calculator/concCalculator.ui:145
@@ -3375,7 +3419,7 @@ msgid ""
 "This box is used to specify the value of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
-"Bu kutucuk, çözünenin yoğunluk değerini belirtmek için kullanılır. Bu, "
+"Bu kutu çözünen maddenin yoğunluğunun değerini belirtmek için kullanılır. Bu "
 "yalnızca çözünen maddenin miktarını hacim cinsinden belirtiyorsanız "
 "gereklidir."
 
@@ -3383,25 +3427,25 @@ msgstr ""
 #: src/calculator/concCalculator.ui:158
 #, kde-format
 msgid "<big><b>Amount of Solvent:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözücü miktarı:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, amtSolvent)
 #: src/calculator/concCalculator.ui:168
 #, kde-format
 msgid "<big>Specify the amount of solvent</big>"
-msgstr ""
+msgstr "<big>Çözücü miktarını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, amtSolvent)
 #: src/calculator/concCalculator.ui:171
 #, kde-format
 msgid "This box is used to specify the amount of solvent in the solution."
-msgstr "Bu kutucuk, çözeltideki çözücü miktarını belirtmek için kullanılır."
+msgstr "Bu kutu, çözeltideki çözücü miktarını belirtmek için kullanılır."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvtType)
 #: src/calculator/concCalculator.ui:184
 #, kde-format
 msgid "<big>The method by which you want to specify volume</big>"
-msgstr ""
+msgstr "<big>Hacmi belirtmek istediğiniz yöntem</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlvtType)
 #: src/calculator/concCalculator.ui:187
@@ -3410,38 +3454,38 @@ msgid ""
 "This box is used to change the mode in which amount of solvent is specified, "
 "i.e. mass, moles or volume."
 msgstr ""
-"Bu kutucuk, çözücü miktarının kütle, mol, hacim, vs. gibi ifade şeklini "
-"ayarlamak için kullanılır."
+"Bu kutu, çözücü miktarının belirtildiği kipi (kütle, mol veya hacim) "
+"değiştirmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_42)
 #: src/calculator/concCalculator.ui:194
 #, kde-format
 msgid "<big><b>Molar mass of solvent:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözücünün molar kütlesi:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:204
 #, kde-format
 msgid "<big>Specify the molar mass of the solvent</big>"
-msgstr ""
+msgstr "<big>Çözücünün molar kütlesini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:207
 #, kde-format
 msgid "This box is used to specify the molar mass of the solvent."
-msgstr "Bu kutucuk, çözücünün mol kütlesini belirtmek için kullanılır."
+msgstr "Bu kutu, çözücünün molar kütlesini belirtmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: src/calculator/concCalculator.ui:220
 #, kde-format
 msgid "<big><b>Density of Solvent:</b></big>"
-msgstr ""
+msgstr "<big><b>Çözücü yoğunluğu:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, densitySolvent)
 #: src/calculator/concCalculator.ui:230
 #, kde-format
 msgid "<big>Specify the density of the solvent</big>"
-msgstr ""
+msgstr "<big>Çözücünün yoğunluğunu belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, densitySolvent)
 #: src/calculator/concCalculator.ui:233
@@ -3450,20 +3494,20 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
-"Bu kutucuk, çözeltinin yoğunluğunu belirtmek için kullanılır ve yalnızca "
-"çözelti miktarı kütle olarak belirtilmek isteniyorsa gereklidir."
+"Bu kutu çözeltinin yoğunluğunu belirtmek için kullanılır ve yalnızca çözelti "
+"miktarının kütle türünden belirtilmesi/gerekli olması durumunda gereklidir."
 
 #. i18n: ectx: property (text), widget (QLabel, label_41)
 #: src/calculator/concCalculator.ui:246
 #, kde-format
 msgid "<big><b>Concentration:</b></big>"
-msgstr ""
+msgstr "<big><b>Derişim:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, concentration)
 #: src/calculator/concCalculator.ui:256
 #, kde-format
 msgid "<big>Specify the concentration of the solution</big>"
-msgstr ""
+msgstr "<big>Çözeltinin derişimini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, concentration)
 #: src/calculator/concCalculator.ui:259
@@ -3472,8 +3516,8 @@ msgid ""
 "This box is used to specify the concentration of the solution in respective "
 "units to the right."
 msgstr ""
-"Bu kutucuk, sağdaki ilgili birimler cinsinden, çözeltinin derişimini "
-"belirlemek için kullanılır."
+"Bu kutu, sağdaki ilgili birimlerdeki çözeltinin derişimini belirtmek için "
+"kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -3481,13 +3525,13 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:208
 #, kde-format
 msgid "<big><b>Calculate:</b></big>"
-msgstr ""
+msgstr "<big><b>Hesapla:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, mode)
 #: src/calculator/concCalculator.ui:282 src/calculator/nuclearCalculator.ui:218
 #, kde-format
 msgid "<big>Specify what you want to calculate</big>"
-msgstr ""
+msgstr "<big>Neyi hesaplamak istediğinizi belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/concCalculator.ui:285
@@ -3496,26 +3540,26 @@ msgid ""
 "This is the list of quantities that you can calculate. Choose one of the "
 "quantities and specify the other required values to calculate it."
 msgstr ""
-"Bu, hesaplayabileceğiniz nicelik listesidir. Niceliklerden bir tanesini "
-"seçin ve hesaplamak için gereksinim duyulan diğer değerleri belirtiniz."
+"Bu, hesaplayabileceğiniz miktarların listesidir. Miktarlardan birini seçin "
+"ve hesaplamak için gerekli diğer değerleri belirtin."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlvt_unit)
 #: src/calculator/concCalculator.ui:308
 #, kde-format
 msgid "Specify the units for density of solvent"
-msgstr "Çözücünün yoğunluğuna ait birimi belirtin"
+msgstr "Çözücü yoğunluğu için birimleri belirtin"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, conc_unit)
 #: src/calculator/concCalculator.ui:315
 #, kde-format
 msgid "<big>Specify the unit/method for specifying concentration</big>"
-msgstr ""
+msgstr "<big>Derişimi belirlemek için birimi/yöntemi belirtin</big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:322
 #, kde-format
 msgid "<big>The units for amount of solvent</big>"
-msgstr ""
+msgstr "<big>Çözücü miktarı birimleri</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:325
@@ -3524,14 +3568,13 @@ msgid ""
 "This box is used to specify the units for the amount of solvent in the "
 "solution."
 msgstr ""
-"Bu kutucuk, çözeltideki çözücünün miktarına ait birimi belirtmek için "
-"kullanılır."
+"Bu kutu çözeltideki çözücü miktarının birimlerini belirtmek için kullanılır."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_19)
 #: src/calculator/concCalculator.ui:332
 #, kde-format
 msgid "<big>The units for molar mass of solvent</big>"
-msgstr ""
+msgstr "<big>Çözücünün molar kütlesi için birimler</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
@@ -3544,7 +3587,7 @@ msgstr "(g/mol)"
 #: src/calculator/concCalculator.ui:345
 #, kde-format
 msgid "<big>Specify the units of density</big>"
-msgstr ""
+msgstr "<big>Yoğunluk birimlerini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, densSlt_unit)
 #: src/calculator/concCalculator.ui:348
@@ -3553,15 +3596,15 @@ msgid ""
 "This box is used to specify the units of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
-"Bu kutucuk, çözünenin yoğunluğuna ait birimi belirlemek için kullanılır. Bu, "
-"yalnızca çözünenin miktarını hacim cinsinden vermek istediğiniz zaman "
-"gereklidir."
+"Bu kutu, çözünen maddenin yoğunluğunun birimlerini belirtmek için "
+"kullanılır. Bu yalnızca çözünen maddenin miktarını hacim türünden "
+"belirtiyorsanız gereklidir."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:355
 #, kde-format
 msgid "<big>Specify the units for the amount of solute</big>"
-msgstr ""
+msgstr "<big>Çözünen madde miktarına ilişkin birimleri belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:358
@@ -3570,14 +3613,14 @@ msgid ""
 "This box is used to specify the units for the amount of solute in the "
 "solution."
 msgstr ""
-"Bu kutucuk, çözeltideki çözünen miktarının birimini belirtmek için "
+"Bu kutu, çözeltideki çözünen madde miktarının birimlerini belirtmek için "
 "kullanılır."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_17)
 #: src/calculator/concCalculator.ui:365
 #, kde-format
 msgid "<big>Units for molar mass of solute</big>"
-msgstr ""
+msgstr "<big>Çözünen maddenin molar kütlesi için birimler</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -3590,20 +3633,20 @@ msgstr "(g/mol)"
 #: src/calculator/concCalculator.ui:378
 #, kde-format
 msgid "<big>Units for equivalent mass of solute</big>"
-msgstr ""
+msgstr "<big>Eşdeğer çözünen madde kütlesi için birimler</big>"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:442 src/calculator/nuclearCalculator.ui:607
 #, kde-format
 msgid "<big>Reset all values to initial values</big>"
-msgstr ""
+msgstr "<big>Tüm değerleri başlangıç değerlerine sıfırla</big>"
 
 #. i18n: ectx: property (text), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:445 src/calculator/gasCalculator.ui:437
 #: src/calculator/nuclearCalculator.ui:610
 #, kde-format
 msgid "Reset"
-msgstr "Geri al"
+msgstr "Sıfırla"
 
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
@@ -3618,18 +3661,21 @@ msgid ""
 "dynamically.<br />Mass and moles are directly dependent for a given gas.</"
 "b></big>"
 msgstr ""
+"<big><b>Miktarları değiştirin ve diğer miktarların devingen olarak "
+"değiştiğini gözlemleyin.<br />Belirli bir gaz için kütle ve moller doğrudan "
+"bağlıdır.</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/gasCalculator.ui:42
 #, kde-format
 msgid "<big><b>Molar mass of the gas:</b></big>"
-msgstr ""
+msgstr "<big><b>Gazın molar kütlesi:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:52
 #, kde-format
 msgid "<big>Specify the molar mass of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın molar kütlesini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:55
@@ -3638,20 +3684,20 @@ msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
 msgstr ""
-"Bu kutucuk, gazın mol kütlesini belirtmek için kullanılabilir, örneğin, "
-"hidrojen gazı için 2'dir."
+"Bu kutu gazın molar kütlesini belirtmek için kullanılabilir; örneğin, "
+"Hidrojen gazı için 2."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
 #: src/calculator/gasCalculator.ui:68
 #, kde-format
 msgid "<big><b>Moles:</b></big>"
-msgstr ""
+msgstr "<big><b>Mollar:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:78
 #, kde-format
 msgid "<big>Specify the number of moles of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın mol sayısını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:82
@@ -3660,18 +3706,20 @@ msgid ""
 "This box can be used to specify the number of moles of the gas.\n"
 "Moles = mass / molar mass"
 msgstr ""
+"Bu kutu, gazın mol sayısını belirtmek için kullanılabilir.\n"
+"Mol = Kütle / Molar Kütle"
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: src/calculator/gasCalculator.ui:95
 #, kde-format
 msgid "<big><b>Mass:</b></big>"
-msgstr ""
+msgstr "<big><b>Kütle:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, mass)
 #: src/calculator/gasCalculator.ui:105
 #, kde-format
 msgid "<big>Specify the Mass of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın kütlesini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, mass)
 #: src/calculator/gasCalculator.ui:109
@@ -3680,44 +3728,44 @@ msgid ""
 "This box can be used to specify the mass of the gas.\n"
 "Mass = moles * molar mass"
 msgstr ""
-"Bu kutucuk, gazın kütlesini belirtmek için kullanılabilir.\n"
-"Kütle = mol * mol kütlesi"
+"Bu kutu, gazın kütlesini belirtmek için kullanılabilir.\n"
+"Kütle = Mol * Molar Kütle"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, mass_unit)
 #: src/calculator/gasCalculator.ui:122
 #, kde-format
 msgid "<big>Specify the unit of mass of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın kütle birimini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mass_unit)
 #: src/calculator/gasCalculator.ui:125
 #, kde-format
 msgid "This box is used to change the units of mass."
-msgstr "Bu kutucuk, kütle birimini değiştirmek için kullanılır."
+msgstr "Bu kutu, kütle birimlerini değiştirmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: src/calculator/gasCalculator.ui:145
 #, kde-format
 msgid "<big><b>Pressure:</b></big>"
-msgstr ""
+msgstr "<big><b>Basınç:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, pressure)
 #: src/calculator/gasCalculator.ui:155
 #, kde-format
 msgid "<big>Specify the Pressure of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın basıncını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, pressure)
 #: src/calculator/gasCalculator.ui:158
 #, kde-format
 msgid "This box can be used to change the pressure of the gas."
-msgstr "Bu kutucuk, gazın basıncını değiştirmek için kullanılabilir."
+msgstr "Bu kutu, gazın basıncını değiştirmek için kullanılabilir."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:171
 #, kde-format
 msgid "<big>Specify the units for pressure of the gas</big>"
-msgstr ""
+msgstr "<big>Gaz basıncı birimlerini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:174
@@ -3726,32 +3774,32 @@ msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
 msgstr ""
-"Bu kutucuk, basınç birimlerini belirtmek için kullanılabilir, örnek: "
-"atmosfer, bar, vs."
+"Bu kutu, basınç birimlerini belirtmek için kullanılabilir; örneğin, "
+"atmosferler, barlar vb."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: src/calculator/gasCalculator.ui:181
 #, kde-format
 msgid "<big><b>Temperature:</b></big>"
-msgstr ""
+msgstr "<big><b>Sıcaklık:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, temp)
 #: src/calculator/gasCalculator.ui:191
 #, kde-format
 msgid "<!----><big>Specify the temperature of the gas</big>"
-msgstr ""
+msgstr "<!----><big>Gazın sıcaklığını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, temp)
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr "Bu kutucuk, gazın sıcaklığını belirtmek için kullanılabilir."
+msgstr "Bu kutu, gazın sıcaklığını belirtmek için kullanılabilir."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
 #, kde-format
 msgid "<big>Specify the units for the temperature of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın sıcaklığına ilişkin birimleri belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:210
@@ -3760,63 +3808,63 @@ msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
 msgstr ""
-"Bu kutucuk, sıcaklık birimlerini belirtmek için kullanılabilir, örnek: "
-"Kelvin, Santigrat, vs."
+"Bu kutu, sıcaklık birimlerini belirtmek için kullanılabilir; örneğin, "
+"Kelvin, Santigrat vb."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
 #, kde-format
 msgid "<big><b>Volume:</b></big>"
-msgstr ""
+msgstr "<big><b>Hacim:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, volume)
 #: src/calculator/gasCalculator.ui:227
 #, kde-format
 msgid "<big>Specify the volume of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın hacmini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, volume)
 #: src/calculator/gasCalculator.ui:230
 #, kde-format
 msgid "This box can be used to specify the volume of the gas."
-msgstr "Bu kutucuk, gazın hacmini belirtmeniz için kullanılabilir."
+msgstr "Bu kutu, gazın hacmini belirtmek için kullanılabilir."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:249
 #, kde-format
 msgid "<big>Specify the units for volume of the gas</big>"
-msgstr ""
+msgstr "<big>Gazın hacmi için birimleri belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:252
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
 msgstr ""
-"Bu kutucuk, hacim birimlerini değiştirmek için kullanılabilir, örnek: litre."
+"Bu kutu, hacim birimlerini değiştirmek için kullanılabilir; örneğin, litre."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
 #, kde-format
 msgid "Data for non-ideal gases"
-msgstr ""
+msgstr "İdeal olmayan gazlara ilişkin veriler"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: src/calculator/gasCalculator.ui:294
 #, kde-format
 msgid "<big><b>Van der Waals constant 'b':</b></big>"
-msgstr ""
+msgstr "<big><b>Van der Waals sabiti 'b':</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: src/calculator/gasCalculator.ui:304
 #, kde-format
 msgid "<big><b>Van der Waals constant 'a':</b></big>"
-msgstr ""
+msgstr "<big><b>Van der Waals sabiti 'a':</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:314
 #, kde-format
 msgid "Specify the units of the van der Waals constant 'b'"
-msgstr "Van der Waals sabiti b'nin birimini belirtin"
+msgstr "Van der Waals sabiti 'b'nin birimlerini belirtin"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:317
@@ -3826,15 +3874,15 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Bu kutucuk, gaz için Van der Waals katsayısı olan b'nin belirtilmesi için "
-"kullanılabilir. Bu yalnızca bir gerçek gaz için gereklidir. Bir ideal gaz "
-"için 0.0 olarak işaretlenebilir."
+"Bu kutu, gaz için van der Waals sabiti 'b'yi belirtmek için kullanılabilir. "
+"Bu yalnızca gerçek gaz için gereklidir. İdeal bir gaz için 0,0 olarak "
+"işaretlenebilir."
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
 #, kde-format
 msgid "Specify the units of the van der Waals constant 'a'"
-msgstr "Van der Waals sabiti a'nın birimini belirtin"
+msgstr "Van der Waals sabiti 'a'nın birimlerini belirtin"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:333
@@ -3844,15 +3892,15 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Bu kutucuk, gaz için Van der Waals katsayısı olan a'nın belirtilmesi için "
-"kullanılabilir. Bu yalnızca bir gerçek gaz için gereklidir. Bir ideal gaz "
-"için 0.0 olarak işaretlenebilir."
+"Bu kutu, gaz için van der Waals sabiti 'a'yı belirtmek için kullanılabilir. "
+"Bu yalnızca gerçek gaz için gereklidir. İdeal bir gaz için 0,0 olarak "
+"imlenebilir."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
 #, kde-format
 msgid "The units of the van der Waals constant 'b'"
-msgstr "Van der Waals sabiti b'nin birimi"
+msgstr "Van der Waals sabitinin birimleri 'b'"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:351
@@ -3860,13 +3908,13 @@ msgstr "Van der Waals sabiti b'nin birimi"
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
 msgstr ""
-"Van derWaals katsayısı olan b'nin birimini belirtmek için kullanılabilir."
+"Bu, van der Waals sabiti 'b'nin birimlerini belirtmek için kullanılabilir."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
 #, kde-format
 msgid "per mole"
-msgstr "bir molde"
+msgstr "mol başına"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/calculator/gasCalculator.ui:380
@@ -3878,12 +3926,12 @@ msgstr "litre^2 atmosfer/mol^2"
 #: src/calculator/gasCalculator.ui:434
 #, kde-format
 msgid "Click to reset all values to initial values"
-msgstr "Bütün değerleri ilk değerlere geri döndürmek için tıklatın"
+msgstr "Tüm değerleri başlangıç değerlerine sıfırlamak için tıklayın"
 
 #: src/calculator/nuclearCalculator.cpp:389
 #, kde-format
 msgid "Initial amount cannot be zero."
-msgstr "İlk miktar sıfır olamaz."
+msgstr "Başlangıç miktarı sıfır olamaz."
 
 #: src/calculator/nuclearCalculator.cpp:392
 #, kde-format
@@ -3893,12 +3941,12 @@ msgstr "Son miktar sıfır olamaz."
 #: src/calculator/nuclearCalculator.cpp:395
 #, kde-format
 msgid "Time is zero, please enter a valid value."
-msgstr "Süre sıfır, lütfen düzeltin."
+msgstr "Zaman sıfır, lütfen geçerli bir değer girin."
 
 #: src/calculator/nuclearCalculator.cpp:398
 #, kde-format
 msgid "The final amount is greater than the initial amount."
-msgstr "Son miktar ilk miktardan daha büyük."
+msgstr "Son miktar, başlangıç miktarından daha fazladır."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/nuclearCalculator.ui:29
@@ -3908,6 +3956,9 @@ msgid ""
 "calculate from the combo box next to the \"calculate\" label and change the "
 "values / units to calculate.</span>"
 msgstr ""
+"<span style=\" font-size:12pt; font-weight:600;\">\"Hesapla\" etiketinin "
+"yanındaki açılır kutudan hesaplamak istediğiniz şeyi seçin ve hesaplanacak "
+"değerleri/birimleri değiştirin.</span>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
@@ -3919,13 +3970,13 @@ msgstr "Element verisi"
 #: src/calculator/nuclearCalculator.ui:42
 #, kde-format
 msgid "<big><b>Element Name:</b></big>"
-msgstr ""
+msgstr "<big><b>Element adı:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, element)
 #: src/calculator/nuclearCalculator.ui:52
 #, kde-format
 msgid "<big>Specify the Element you want to consider</big>"
-msgstr ""
+msgstr "<big>Değerlendirmek istediğiniz elementi belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, element)
 #: src/calculator/nuclearCalculator.ui:55
@@ -3933,20 +3984,19 @@ msgstr ""
 msgid ""
 "This box is used to specify the element on which calculation is to be "
 "performed."
-msgstr ""
-"Bu kutucuk, hesaplamanın yapılacağı elementi belirtmek için kullanılır."
+msgstr "Bu kutu, hesaplamanın yapılacağı elementi belirtmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: src/calculator/nuclearCalculator.ui:62
 #, kde-format
 msgid "<big><b>Isotope mass:</b></big>"
-msgstr ""
+msgstr "<big><b>İzotop kütlesi:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, isotope)
 #: src/calculator/nuclearCalculator.ui:72
 #, kde-format
 msgid "<big>Specify an isotope of the current element</big>"
-msgstr ""
+msgstr "<big>Geçerli öğenin izotopunu belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, isotope)
 #: src/calculator/nuclearCalculator.ui:75
@@ -3955,33 +4005,33 @@ msgid ""
 "This box is used to specify the isotope of the above element on which "
 "calculation is performed."
 msgstr ""
-"Bu kutucuk, hesaplamanın yapılacağı yukarıdaki element için izotopu "
-"belirlemek için kullanılır."
+"Bu kutu, hesaplamanın yapıldığı yukarıdaki elementin izotopunu belirtmek "
+"için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: src/calculator/nuclearCalculator.ui:82
 #, kde-format
 msgid "<big><b>Half-life:</b></big>"
-msgstr ""
+msgstr "<big><b>Yarılanma ömrü:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, halfLife)
 #: src/calculator/nuclearCalculator.ui:92
 #, kde-format
 msgid "<big>Specify the half-life of the radioactive isotope</big>"
-msgstr ""
+msgstr "<big>Radyoaktif izotopun yarılanma ömrünü belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, halfLife)
 #: src/calculator/nuclearCalculator.ui:95
 #, kde-format
 msgid "This box is used to specify the half-life of the above isotope."
 msgstr ""
-"Bu kutucuk, yukarıdaki izotopun yarı ömrünü belirlemek için kullanılır."
+"Bu kutu, yukarıdaki izotopun yarılanma ömrünü belirtmek için kullanılır."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:108
 #, kde-format
 msgid "<big>The unit of Half-life</big>"
-msgstr ""
+msgstr "<big>Yarılanma ömrü birimi</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:111
@@ -3989,8 +4039,7 @@ msgstr ""
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
 msgstr ""
-"Bu kutucuk, yıl, saniye, vs biçiminde yarılanma ömrünün birimini ayarlamak "
-"için kullanılır."
+"Bu kutu, yarılanma ömrü birimini belirtmek için kullanılır; yıl, saniye vb."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -4044,19 +4093,19 @@ msgstr "hafta"
 #: src/calculator/nuclearCalculator.ui:161
 #, kde-format
 msgid "<big><b>Atomic mass:</b></big>"
-msgstr ""
+msgstr "<big><b>Atom kütlesi:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:171
 #, kde-format
 msgid "<big>Atomic mass of the isotope selected</big>"
-msgstr ""
+msgstr "<big>Seçili izotopun atom kütlesi</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:174
 #, kde-format
 msgid "This label displays the atomic mass of the isotope in grams per mole."
-msgstr "Bu etiket, mol başına gram olarak izotopun atom kütlesini gösterir."
+msgstr "Bu etiket, izotopun atom kütlesini mol başına gram türünden gösterir."
 
 #. i18n: ectx: property (text), widget (QLabel, mass)
 #. i18n: ectx: property (text), widget (QLabel, numHalfLives)
@@ -4070,7 +4119,7 @@ msgstr "0"
 #: src/calculator/nuclearCalculator.ui:187
 #, kde-format
 msgid "<big>The unit of atomic mass</big>"
-msgstr ""
+msgstr "<big>Atom kütlesi birimi</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/nuclearCalculator.ui:190
@@ -4082,7 +4131,7 @@ msgstr "gram / mol"
 #: src/calculator/nuclearCalculator.ui:200
 #, kde-format
 msgid "Other data"
-msgstr "Diğer veriler"
+msgstr "Diğer veri"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:221
@@ -4091,14 +4140,15 @@ msgid ""
 "This box is used to decide what you want to calculate, choose among 'Time', "
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
-"Bu kutucuk, 'Zaman', 'maddenin ilk miktarı' ve 'maddenin son miktarı' "
-"arasında seçim yapmanıza ve ne hesaplamak istediğinizi belirlemenize yarar."
+"Bu kutu, neyi hesaplamak istediğinize karar vermek için kullanılır; 'Zaman', "
+"'Başlangıçtaki madde miktarı' ve 'Maddenin son miktarı' arasından seçim "
+"yapın."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:228
 #, kde-format
 msgid "Initial Amount"
-msgstr "İlk Miktar"
+msgstr "Başlangıç Miktarı"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:233
@@ -4116,13 +4166,13 @@ msgstr "Zaman"
 #: src/calculator/nuclearCalculator.ui:246
 #, kde-format
 msgid "<big><b>Initial amount:</b></big>"
-msgstr ""
+msgstr "<big><b>Başlangıç miktarı:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:256
 #, kde-format
 msgid "<big>Specify the initial amount of the substance</big>"
-msgstr ""
+msgstr "<big>Maddenin başlangıç miktarını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:259
@@ -4130,39 +4180,38 @@ msgstr ""
 msgid ""
 "This box is used to specify the initial amount of the radioactive substance."
 msgstr ""
-"Bu kutucuk, radyoaktif maddenin ilk miktarını belirtmek için kullanılır."
+"Bu kutu, radyoaktif maddenin başlangıç miktarını belirtmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: src/calculator/nuclearCalculator.ui:272
 #, kde-format
 msgid "<big><b>Final amount:</b></big>"
-msgstr ""
+msgstr "<big><b>Son miktar:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:282
 #, kde-format
 msgid "<big>Specify the final amount of the substance</big>"
-msgstr ""
+msgstr "<big>Maddenin son miktarını belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:285
 #, kde-format
 msgid ""
 "This box is used to specify the final amount of the radioactive substance."
-msgstr ""
-"Bu kutucuk, radyoaktif maddenin son miktarını belirtmek için kullanılır."
+msgstr "Bu kutu, radyoaktif maddenin son miktarını belirtmek için kullanılır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: src/calculator/nuclearCalculator.ui:298
 #, kde-format
 msgid "<big><b>Time:</b></big>"
-msgstr ""
+msgstr "<big><b>Zaman:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, time)
 #: src/calculator/nuclearCalculator.ui:308
 #, kde-format
 msgid "<big>Specify the time elapsed here</big>"
-msgstr ""
+msgstr "<big>Burada geçen süreyi belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, time)
 #: src/calculator/nuclearCalculator.ui:311
@@ -4171,14 +4220,14 @@ msgid ""
 "This box is used to specify the time after which the initial amount "
 "decreases to the final amount."
 msgstr ""
-"Bu kutucuk, ilk miktarın son miktara düştüğü zamanı belirlemek için "
-"kullanılır."
+"Bu kutu, başlangıç tutarının ne kadar süre sonra son tutara ineceğini "
+"belirtmek için kullanılır."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:327
 #, kde-format
 msgid "<big>The method by which you want to specify mass</big>"
-msgstr ""
+msgstr "<big>Kütleyi belirtmek istediğiniz yöntem</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:330
@@ -4187,8 +4236,8 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
-"Bu kutucuk, maddenin ilk miktarını, örneğin, kütle veya mol gibi, belirleme "
-"kipini değiştirmek için kullanılabilir."
+"Bu kutu, maddenin başlangıç miktarını (kütle veya mol) belirtmek istediğiniz "
+"kipi değiştirmek için kullanılabilir."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmtType)
@@ -4202,7 +4251,7 @@ msgstr "mol"
 #: src/calculator/nuclearCalculator.ui:347
 #, kde-format
 msgid "<big>Method by which you want to specify the final amount</big>"
-msgstr ""
+msgstr "<big>Son miktarı belirtmek istediğiniz yöntem</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:350
@@ -4211,14 +4260,14 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
-"Bu kutucuk, maddenin kütle veya mol gibi son miktarını belirlemek "
-"istediğiniz kipi değiştirmek için kullanılabilir."
+"Bu kutu, maddenin son miktarını (kütle veya mol) belirtmek istediğiniz kipi "
+"değiştirmek için kullanılabilir."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
 #, kde-format
 msgid "<big>Specify the unit of initial amount of the substance</big>"
-msgstr ""
+msgstr "<big>Maddenin başlangıç miktarının birimini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:383
@@ -4227,8 +4276,8 @@ msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Bu kutucuk, gram, libre gibi; maddenin ilk miktarına ait birimi değiştirmek "
-"için kullanılabilir."
+"Bu kutu, maddenin başlangıç miktarının birimini belirtmek için "
+"kullanılabilir. Örneğin; gram, pound vb."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -4282,7 +4331,7 @@ msgstr "altın onsu"
 #: src/calculator/nuclearCalculator.ui:420
 #, kde-format
 msgid "<big>Specify the units of the final amount</big>"
-msgstr ""
+msgstr "<big>Son miktarın birimini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:423
@@ -4291,14 +4340,14 @@ msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Bu kutucuk, maddenin son miktarına (gram, libre, vb.) ait birimi belirlemek "
-"için kullanılabilir."
+"Bu kutu, maddenin son miktarının birimini belirtmek için kullanılabilir. "
+"Örneğin; gram, pound vb."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:460
 #, kde-format
 msgid "<big>Specify the units for the time elapsed</big>"
-msgstr ""
+msgstr "<big>Geçen sürenin birimlerini belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:463
@@ -4306,20 +4355,20 @@ msgstr ""
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
 msgstr ""
-"Bu kutucuk, yıl, saniye gibi zaman birimlerini belirlemek için "
-"kullanılabilir."
+"Bu kutu, zaman birimlerini belirtmek için kullanılır. Örneğin; yıl, saniye "
+"vb."
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: src/calculator/nuclearCalculator.ui:511
 #, kde-format
 msgid "<big><b>Time in half-lives</b></big>"
-msgstr ""
+msgstr "<big><b>Yarılanma ömrü süresi</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, slider)
 #: src/calculator/nuclearCalculator.ui:521
 #, kde-format
 msgid "<big>Specify the time elapsed by moving the slider</big>"
-msgstr ""
+msgstr "<big>Sürgüyü hareket ettirerek geçen süreyi belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QSlider, slider)
 #: src/calculator/nuclearCalculator.ui:524
@@ -4328,14 +4377,14 @@ msgid ""
 "This slider can be used to specify the time in terms of number of half-lives "
 "between 0 half-lives to 10 half-lives."
 msgstr ""
-"Bu kaydırıcı, 0 yarı ömür ile 10 yarı ömür arasında, yarı ömür sayısı "
-"şeklinde süre belirtmek için kullanılabilir."
+"Bu sürgü, 0 yarılanma ömrü ile 10 yarılanma ömrü arasındaki yarılanma ömrü "
+"sayısı türünden süreyi belirtmek için kullanılabilir."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, numHalfLives)
 #: src/calculator/nuclearCalculator.ui:537
 #, kde-format
 msgid "<big>The number of half-lives elapsed</big>"
-msgstr ""
+msgstr "<big>Geçen yarılanma ömrü sayısı</big>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, error)
 #: src/calculator/nuclearCalculator.ui:569
@@ -4347,19 +4396,21 @@ msgstr "Bilgi/Hata iletisi"
 #: src/calculator/settings_calc.ui:29
 #, kde-format
 msgid "<big>The settings of the molecular concentration calculator</big>"
-msgstr ""
+msgstr "<big>Moleküler derişim hesaplayıcısının ayarları</big>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_mass)
 #: src/calculator/settings_calc.ui:45
 #, kde-format
 msgid "Amount is always specified in term of mass"
-msgstr ""
+msgstr "Tutar her zaman kütle türünden belirtilir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ideal)
 #: src/calculator/settings_calc.ui:74
 #, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
 msgstr ""
+"Gazın ideal olduğunu varsayalım (yani Van der Waals katsayılarını "
+"göstermeyin)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:100
@@ -4371,41 +4422,40 @@ msgstr "Kütle Hesap Makinesi"
 #: src/calculator/settings_calc.ui:106
 #, kde-format
 msgid "Show details such as aliases"
-msgstr "Takma isimler gibi ayrıntıları göster"
+msgstr "Armalar gibi ayrıntıları göster"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox)
 #: src/calculator/settings_calc.ui:113
 #, kde-format
 msgid "Show the add alias tab"
-msgstr "Takma isim ekle sekmesini göster"
+msgstr "Arma ekle sekmesini göster"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_soluteMass)
 #: src/calculator/settings_calc.ui:140
 #, kde-format
 msgid "Amount of solute is always specified in terms of mass"
-msgstr ""
+msgstr "Çözünen madde miktarı her zaman kütle türünden belirtilir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_solventVolume)
 #: src/calculator/settings_calc.ui:147
 #, kde-format
 msgid "Amount of solvent is always specified in terms of volume"
-msgstr ""
+msgstr "Çözücü miktarı her zaman hacim türünden belirtilir"
 
 #: src/calculator/titrationCalculator.cpp:43
 #, kde-format
 msgid "Experimental values"
-msgstr ""
+msgstr "Deneysel değerler"
 
 #: src/calculator/titrationCalculator.cpp:44
 #, kde-format
 msgid "Theoretical equations"
-msgstr ""
+msgstr "Kuramsal denklemler"
 
 #: src/calculator/titrationCalculator.cpp:98
-#, fuzzy, kde-format
-#| msgid "A cool thing"
+#, kde-format
 msgid "nothing"
-msgstr "Güzel bir şey"
+msgstr "hiçbir şey"
 
 #: src/calculator/titrationCalculator.cpp:101
 #: src/calculator/titrationCalculator.cpp:590
@@ -4416,100 +4466,99 @@ msgid "Error"
 msgstr "Hata"
 
 #: src/calculator/titrationCalculator.cpp:101
-#, fuzzy, kde-format
-#| msgid "Unable to find the user defined alias file."
+#, kde-format
 msgid "Unable to find an equation for Y-axis variable."
-msgstr "Kullanıcı tanımlı takma isim dosyasını bulamıyor."
+msgstr "Y ekseni değişkeni için bir denklem bulunamıyor."
 
 #: src/calculator/titrationCalculator.cpp:121
 #, kde-format
 msgid "Theoretical curve"
-msgstr ""
+msgstr "Kuramsal eğri"
 
 #: src/calculator/titrationCalculator.cpp:209
 #, kde-format
 msgid "Approximated curve"
-msgstr ""
+msgstr "Yaklaşık eğri"
 
 #: src/calculator/titrationCalculator.cpp:209
 #, kde-format
 msgid "Equivalence point"
-msgstr ""
+msgstr "Eşdeğerlik noktası"
 
 #: src/calculator/titrationCalculator.cpp:578
 #, kde-format
 msgid "Save work"
-msgstr ""
+msgstr "İşi Kaydet"
 
 #: src/calculator/titrationCalculator.cpp:578
 #: src/calculator/titrationCalculator.cpp:601
 #, kde-format
 msgid "Icee File (*.icee)"
-msgstr ""
+msgstr "Icee dosyası (*.icee)"
 
 #: src/calculator/titrationCalculator.cpp:590
 #: src/calculator/titrationCalculator.cpp:739
 #, kde-format
 msgid "Unable to create %1"
-msgstr ""
+msgstr "%1 oluşturulamıyor"
 
 #: src/calculator/titrationCalculator.cpp:601
 #, kde-format
 msgid "Open work"
-msgstr ""
+msgstr "İş Aç"
 
 #: src/calculator/titrationCalculator.cpp:607
 #, kde-format
 msgid "Unable to open %1"
-msgstr ""
+msgstr "%1 açılamıyor"
 
 #. i18n: ectx: property (text), widget (QPushButton, saveimage)
 #: src/calculator/titrationCalculator.cpp:727
 #: src/calculator/titrationCalculator.ui:377
 #, kde-format
 msgid "Save plot"
-msgstr ""
+msgstr "Çiziyi Kaydet"
 
 #: src/calculator/titrationCalculator.cpp:727
 #, kde-format
 msgid "Svg image (*.svg)"
-msgstr ""
+msgstr "SVG görseli (*.svg)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/calculator/titrationCalculator.ui:25
 #, kde-format
 msgid "Choose what you want to do:"
-msgstr ""
+msgstr "Ne yapmak istediğinizi seçin:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/calculator/titrationCalculator.ui:36
 #, kde-format
 msgid "Tab 1"
-msgstr ""
+msgstr "Sekme 1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/calculator/titrationCalculator.ui:42
 #, kde-format
 msgid "Find the equivalence point from experimental values:"
-msgstr ""
+msgstr "Deneysel değerlerden eşdeğerlik noktasını bulun:"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:106
 #, kde-format
 msgid "pH(Y)"
-msgstr ""
+msgstr "pH(Y)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:111
 #, kde-format
 msgid "Volume(X)"
-msgstr ""
+msgstr "Hacim(X)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/titrationCalculator.ui:120
 #, kde-format
 msgid "Tab 2"
-msgstr ""
+msgstr "Sekme 2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/calculator/titrationCalculator.ui:126
@@ -4518,95 +4567,97 @@ msgid ""
 "Solve an equilibrium system and see how the concentration of one ion (Y) "
 "changes in function of another one (X)"
 msgstr ""
+"Bir denge sistemini çözün ve bir iyonun (Y) derişiminin diğer bir iyonun (X) "
+"işlevine göre nasıl değiştiğini görün"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:199
 #, kde-format
 msgid "Parameter"
-msgstr ""
+msgstr "Parametre"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:204
 #, kde-format
 msgid "Value"
-msgstr ""
+msgstr "Değer"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/calculator/titrationCalculator.ui:214
 #, kde-format
 msgid "X axis:"
-msgstr ""
+msgstr "X ekseni:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/calculator/titrationCalculator.ui:231
 #, kde-format
 msgid "Y axis:"
-msgstr ""
+msgstr "Y ekseni:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
 #: src/calculator/titrationCalculator.ui:247
 #, kde-format
 msgid "Draw Plot"
-msgstr ""
+msgstr "Çizi Çiz"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/calculator/titrationCalculator.ui:254
 #, kde-format
 msgid "Notes:"
-msgstr ""
+msgstr "Notlar:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/calculator/titrationCalculator.ui:270
 #, kde-format
 msgid "X min:"
-msgstr ""
+msgstr "En düşük X:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/titrationCalculator.ui:280
 #, kde-format
 msgid "X max:"
-msgstr ""
+msgstr "En yüksek X:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/titrationCalculator.ui:294
 #, kde-format
 msgid "Y min:"
-msgstr ""
+msgstr "En düşük Y:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/calculator/titrationCalculator.ui:304
 #, kde-format
 msgid "Y max:"
-msgstr ""
+msgstr "En yüksek Y:"
 
 #. i18n: ectx: property (text), widget (QPushButton, newfile)
 #: src/calculator/titrationCalculator.ui:356
 #, kde-format
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #. i18n: ectx: property (text), widget (QPushButton, open)
 #: src/calculator/titrationCalculator.ui:363
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Aç"
 
 #. i18n: ectx: property (text), widget (QPushButton, save)
 #: src/calculator/titrationCalculator.ui:370
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #. i18n: ectx: property (text), widget (QPushButton, rapidhelp)
 #: src/calculator/titrationCalculator.ui:384
 #, kde-format
 msgid "Example"
-msgstr ""
+msgstr "Örnek"
 
 #: src/detailedgraphicaloverview.cpp:67
 #, kde-format
 msgid "No element selected"
-msgstr "Hiçbir element seçilmedi"
+msgstr "Seçili element yok"
 
 #: src/detailedgraphicaloverview.cpp:87
 #, kde-format
@@ -4644,12 +4695,12 @@ msgstr "Bir önceki elemente gider"
 #: src/detailinfodlg.cpp:147
 #, kde-format
 msgid "It was discovered by %1."
-msgstr "Bu element %1 tarafından keşfedildi."
+msgstr "%1 tarafından keşfedildi."
 
 #: src/detailinfodlg.cpp:154
 #, kde-format
 msgid "Origin of the name:<br/>%1"
-msgstr "İsmin kökeni: <br/>%1"
+msgstr "Adının kökeni: <br/>%1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicMeltingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -4660,7 +4711,7 @@ msgstr "İsmin kökeni: <br/>%1"
 #: src/settings/settings_gradients.ui:88
 #, kde-format
 msgid "Melting Point"
-msgstr "Erime Noktası"
+msgstr "Erime noktası"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicBoilingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -4671,12 +4722,12 @@ msgstr "Erime Noktası"
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
-msgstr "Kaynama Noktası"
+msgstr "Kaynama noktası"
 
 #: src/detailinfodlg.cpp:193 src/exportdialog.cpp:138
 #, kde-format
 msgid "Electron Affinity"
-msgstr "Elektron İlgisi"
+msgstr "Elektron ilgisi"
 
 #: src/detailinfodlg.cpp:200
 #, kde-format
@@ -4687,7 +4738,7 @@ msgstr "Elektron dizilişi"
 #: src/detailinfodlg.cpp:221 src/molcalcwidgetbase.ui:218
 #, kde-format
 msgid "Atomic mass"
-msgstr "Atom Kütlesi"
+msgstr "Atom kütlesi"
 
 #: src/detailinfodlg.cpp:228
 #, kde-format
@@ -4697,7 +4748,7 @@ msgstr "İyonlaşma enerjisi"
 #: src/detailinfodlg.cpp:228
 #, kde-format
 msgid "First Ionization energy"
-msgstr "İlk İyonlaşma enerjisi"
+msgstr "Başlangıç iyonlaşma enerjisi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -4712,13 +4763,13 @@ msgstr "Elektronegatiflik"
 #: src/detailinfodlg.cpp:242
 #, kde-format
 msgid "Oxidation states"
-msgstr ""
+msgstr "Oksidasyon durumları"
 
 #: src/detailinfodlg.cpp:253
 #, kde-format
 msgctxt "Link to element's Wikipedia page, %1 is localized language name"
 msgid "Wikipedia (%1)"
-msgstr ""
+msgstr "Vikipedi (%1)"
 
 #: src/detailinfodlg.cpp:302
 #, kde-format
@@ -4734,12 +4785,12 @@ msgstr "Yüzde"
 #: src/detailinfodlg.cpp:306
 #, kde-format
 msgid "Half-life period"
-msgstr "Yarı ömür süresi"
+msgstr "Yarılanma ömrü süresi"
 
 #: src/detailinfodlg.cpp:308
 #, kde-format
 msgid "Energy and Mode of Decay"
-msgstr "Enerji ve Bozunma Kipi"
+msgstr "Enerji ve Bozunma kipi"
 
 #: src/detailinfodlg.cpp:310
 #, kde-format
@@ -4790,7 +4841,7 @@ msgstr "%1 MeV"
 #, kde-format
 msgctxt "Spontaneous fission"
 msgid " SF"
-msgstr ""
+msgstr " SF"
 
 #: src/detailinfodlg.cpp:340 src/detailinfodlg.cpp:364
 #: src/detailinfodlg.cpp:387 src/detailinfodlg.cpp:410
@@ -4834,8 +4885,7 @@ msgid ", "
 msgstr ", "
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
-#| msgid " %1"
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
 msgstr " %1"
@@ -4844,28 +4894,26 @@ msgstr " %1"
 #, kde-format
 msgctxt "Proton decay"
 msgid " p"
-msgstr ""
+msgstr " p"
 
 #: src/detailinfodlg.cpp:408
 #, kde-format
 msgid " 2p"
-msgstr ""
+msgstr " 2p"
 
 #: src/detailinfodlg.cpp:431
 #, kde-format
 msgctxt "Neutron decay"
 msgid " n"
-msgstr ""
+msgstr " n"
 
 #: src/detailinfodlg.cpp:453
 #, kde-format
 msgid " 2n"
-msgstr ""
+msgstr " 2n"
 
 #: src/detailinfodlg.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "Acronym of Electron Capture"
-#| msgid " EC"
+#, kde-format
 msgctxt "Electron capture"
 msgid " EC"
 msgstr " EC"
@@ -4873,153 +4921,134 @@ msgstr " EC"
 #: src/detailinfodlg.cpp:497
 #, kde-format
 msgid " 2EC"
-msgstr ""
+msgstr " 2EC"
 
 #: src/detailinfodlg.cpp:518
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
 msgstr " %1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>, yarılma"
 
 #: src/detailinfodlg.cpp:560
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr " 2%1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:580
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
 msgstr " %1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:600
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " 2%1<sup>+</sup>"
-msgstr " %1<sup>+</sup>"
+msgstr " 2%1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1 <sup>-</sup>n"
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>2n"
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>3n"
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>4n"
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>%2 n"
 
 #: src/detailinfodlg.cpp:711
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>%2"
 
 #: src/detailinfodlg.cpp:728
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>2%2"
 
 #: src/detailinfodlg.cpp:744
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>3%2"
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>p"
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>2p"
 
 #: src/detailinfodlg.cpp:790
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>%2"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>%2"
 
 #: src/detailinfodlg.cpp:805
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2%2"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>2%2"
 
 #: src/detailinfodlg.cpp:819
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>3%2"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>3%2"
 
 #: src/detailinfodlg.cpp:833
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr " %1 %2<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
 msgid " p%1"
-msgstr ""
+msgstr " p%1"
 
 #: src/detailinfodlg.cpp:860
 #, kde-format
 msgid " ECp"
-msgstr ""
+msgstr " ECp"
 
 #: src/detailinfodlg.cpp:873
 #, kde-format
 msgid " EC2p"
-msgstr ""
+msgstr " EC2p"
 
 #: src/detailinfodlg.cpp:886
 #, kde-format
 msgid " EC3p"
-msgstr ""
+msgstr " EC3p"
 
 #: src/detailinfodlg.cpp:898
 #, kde-format
 msgid " EC%1"
-msgstr ""
+msgstr " EC%1"
 
 #: src/detailinfodlg.cpp:910
 #, kde-format
 msgid " EC%1 p"
-msgstr ""
+msgstr " EC%1 p"
 
 #: src/detailinfodlg.cpp:1070
 #, kde-format
@@ -5073,18 +5102,18 @@ msgstr "Tayf"
 #: src/detailinfodlg.cpp:1140
 #, kde-format
 msgid "Extra information"
-msgstr "Ek bilgiler"
+msgstr "Ek Bilgi"
 
 #: src/detailinfodlg.cpp:1140
 #, kde-format
 msgid "Extra Information"
-msgstr "Ek Bilgiler"
+msgstr "Ek Bilgi"
 
 #: src/detailinfodlg.cpp:1152
 #, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
-msgstr ""
+msgstr "[%1] %2 (%3 - Blok %4)"
 
 #: src/detailinfodlg.cpp:1187
 #, kde-format
@@ -5092,8 +5121,7 @@ msgid "No spectrum of %1 found."
 msgstr "%1 ögesinin tayfı bulunamadı."
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Plot Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
 msgstr "Veriyi Çiz"
@@ -5121,16 +5149,16 @@ msgid ""
 "H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
 msgstr ""
-"Eşitlik çözücü, bir kimyasal eşitliği denkleştirmenizi sağlar.<br> "
-"<br><b>Değişkelerin Kullanılması</b><br>Bir elementin değişken miktarlarını "
-"ifade etmek için, aşağıdaki örnekte gösterildiği gibi element simgesinin "
-"önüne tek bir karakter ilave edin:<br><i>aH + bO -> 5H2O</i> (Sonuç: <b>10</"
-"b> H + <b>5</b> O -&gt; <b>5</b> H<sub>2</sub>O)<br>Bu ifadenin çözümü, "
-"gereksinim duyulan Hidrojen ve Oksijen miktarını verecektir."
-"<br><br><b>Elektrik yüklerinin tanımlanması</b><br>Bir elementin elektrik "
-"yükünü belirtmek için köşeli parantezleri kullanın, örnek:<br><i>4H[+] + 2O -"
-"> cH2O[2+]</i> (Sonuç: <b>4</b> H<b><sup>+</sup></b> + <b>2</b> O -&gt; "
-"<b>2</b> H<b><sub>2</sub></b>O<b><sup>2+</sub></b>)"
+"Denklem çözücü, kimyasal bir denklemi dengelemenizi sağlar.<br> "
+"<br><b>Değişkenler Kullanmak</b><br>Bir elementin değişken miktarlarını "
+"ifade etmek için, bu örnekte gösterildiği gibi, element sembolünün önüne tek "
+"bir karakter koyun:<br><i>aH + bO -> 5H2O</i> (Sonuç: <b>10</b> H + <b>5</b> "
+"O -&gt; <b>5</b> H<sub>2</sub>O)<br>Bu ifadeyi çözmek size gerekli miktarda "
+"Hidrojen ve Oksijen verecektir.<br><br><b>Elektrik yüklerini tanımlama</"
+"b><br>Bu örnekte gösterildiği gibi bir öğenin elektrik yükünü belirtmek için "
+"kutu ayraçları kullanın:<br><i>4H[+] + 2O -> cH2O[2+]</i> (Sonuç: <b>4</b> "
+"H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
+"b>O<b><sup>2+</sub></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/equationview.ui:44
@@ -5143,7 +5171,7 @@ msgstr "Eşitlik:"
 #: src/equationview.ui:63 src/equationview.ui:66
 #, kde-format
 msgid "Enter the equation you want to balance in this field."
-msgstr "Denkleştirmek istediğiniz eşitliği bu alana girin."
+msgstr "Dengelemek istediğiniz denklemi bu alana girin."
 
 #. i18n: ectx: property (text), widget (QLineEdit, lineEdit)
 #: src/equationview.ui:69
@@ -5156,7 +5184,7 @@ msgstr "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
 #: src/equationview.ui:79 src/equationview.ui:82
 #, kde-format
 msgid "If you press this button the equation above will be balanced."
-msgstr ""
+msgstr "Bu düğmeye basarsanız yukarıdaki denklem dengelenecektir."
 
 #. i18n: ectx: property (text), widget (QPushButton, calculateButton)
 #: src/equationview.ui:85
@@ -5168,12 +5196,12 @@ msgstr "&Hesapla"
 #: src/equationview.ui:147
 #, kde-format
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Panoya Kopyala"
 
 #: src/exportdialog.cpp:85
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: src/exportdialog.cpp:90
 #, kde-format
@@ -5217,12 +5245,12 @@ msgstr "Aile"
 #: src/exportdialog.cpp:161
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
-msgstr "Böyle bir dosya zaten var. Üzerine yazmak ister misiniz?"
+msgstr "Böyle bir dosya halihazırda var. Üzerine yazmak istiyor musunuz?"
 
 #: src/exportdialog.cpp:173
 #, kde-format
 msgid "Could not open file for writing."
-msgstr "Dosya yazma için açılamadı."
+msgstr "Dosya yazmak için açılamadı."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/exportdialog.ui:67
@@ -5240,19 +5268,19 @@ msgstr "Biçim:"
 #: src/gradientwidget.ui:22
 #, kde-format
 msgid "Scheme:"
-msgstr "Şema"
+msgstr "Şema:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gradientwidget.ui:50
 #, kde-format
 msgid "Gradient:"
-msgstr "Gradyan"
+msgstr "Gradyan:"
 
 #. i18n: ectx: property (text), widget (QLabel, lblUnit)
 #: src/gradientwidget.ui:99
 #, kde-format
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, gradient_slider)
 #: src/gradientwidget.ui:108
@@ -5264,7 +5292,7 @@ msgstr "Sıcaklığı değiştirmek için kaydırın"
 #: src/gradientwidget.ui:132
 #, kde-format
 msgid "Click to Play / Pause the increase in temperature."
-msgstr "Sıcaklık yükselmesini Yürütmek / Duraksatmak için tıklayın"
+msgstr "Sıcaklıktaki artışı sürdürmek/duraklatmak için tıklayın."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gradientwidget.ui:142
@@ -5276,12 +5304,12 @@ msgstr "Hız"
 #: src/gradientwidget.ui:149
 #, kde-format
 msgid "Slide to change the speed of increase in temperature."
-msgstr "Sıcaklıktaki yükselme hızını değiştirmek için kaydırın."
+msgstr "Sıcaklığın artış hızını değiştirmek için kaydırın."
 
 #: src/gradientwidget_impl.cpp:168
 #, kde-format
 msgid "Elements with melting point around this temperature:"
-msgstr "Bu sıcaklık yakınlarında erime noktası olan elementler:"
+msgstr "Bu sıcaklık civarında erime noktasına sahip elementler:"
 
 #: src/gradientwidget_impl.cpp:170 src/gradientwidget_impl.cpp:180
 #, kde-format
@@ -5292,17 +5320,17 @@ msgstr "%1 (%2%3)"
 #: src/gradientwidget_impl.cpp:174
 #, kde-format
 msgid "No elements with a melting point around this temperature"
-msgstr "Bu sıcaklık yakınlarında erime noktası olan bir element yok"
+msgstr "Bu sıcaklığın civarında erime noktasına sahip element yok"
 
 #: src/gradientwidget_impl.cpp:178
 #, kde-format
 msgid "Elements with boiling point around this temperature:"
-msgstr "Bu sıcaklık yakınlarında kaynama noktası olan elementler:"
+msgstr "Kaynama noktası bu sıcaklık civarında olan elementler:"
 
 #: src/gradientwidget_impl.cpp:184
 #, kde-format
 msgid "No elements with a boiling point around this temperature"
-msgstr "Bu sıcaklık yakınlarında kaynama noktası olan bir element yok"
+msgstr "Bu sıcaklığın civarında kaynama noktasına sahip element yok"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/isotopetable/isotopedialog.ui:69
@@ -5319,6 +5347,11 @@ msgid ""
 "<p>Zoom in and out using your mouse wheel / zoom feature.</p>\n"
 "<p>Scroll using left-clicking and dragging / scroll feature.</p>"
 msgstr ""
+"<p><b>Bilgi</b></p>\n"
+"<p>Bir elementle ilgili bilgiyi görüntülemek için üzerine sağ tıklayın.</p>\n"
+"<p>Fare tekerleğinizi / yakınlaştırma özelliğini kullanarak yakınlaştırın ve "
+"uzaklaştırın.</p>\n"
+"<p>Sol tıklama ve sürükleme/kaydırma özelliğini kullanarak sarın.</p>"
 
 #: src/isotopetable/isotopeitem.cpp:65
 #, kde-format
@@ -5326,8 +5359,7 @@ msgid "Isotope of Element %1 (%2)"
 msgstr "%1 Elementinin İzotopu (%2)"
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
 msgstr "İzotop Tablosu"
@@ -5369,12 +5401,10 @@ msgid "Stable"
 msgstr "Kararlı"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "Unknown magnetic moment"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr "Bilinmeyen"
+msgstr "bilinmeyen"
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, kde-format
@@ -5395,17 +5425,17 @@ msgstr "Manyetik moment: %1"
 #: src/isotopetable/isotopetabledialog.cpp:77
 #, kde-format
 msgid "Halflife: %1 %2"
-msgstr "Yarılanma Ömrü:: %1 %2"
+msgstr "Yarılanma ömrü: %1 %2"
 
 #: src/isotopetable/isotopetabledialog.cpp:79
 #, kde-format
 msgid "Halflife: Unknown"
-msgstr "Yarılanma Ömrü: Bilinmiyor"
+msgstr "Yarılanma ömrü: Bilinmiyor"
 
 #: src/isotopetable/isotopetabledialog.cpp:82
 #, kde-format
 msgid "Abundance: %1 %"
-msgstr "Bolluk: %1 %"
+msgstr "Bolluk: %​%1"
 
 #: src/isotopetable/isotopetabledialog.cpp:83
 #, kde-format
@@ -5416,7 +5446,7 @@ msgstr "Nükleon sayısı: %1"
 #, kde-format
 msgctxt "Unknown spin"
 msgid "Unknown"
-msgstr "Bilinmeyen"
+msgstr "Bilinmiyor"
 
 #: src/isotopetable/isotopetabledialog.cpp:84
 #, kde-format
@@ -5461,40 +5491,40 @@ msgstr "Veriyi Ç&iz..."
 #: src/kalzium.cpp:158
 #, kde-format
 msgid "Perform &Calculations..."
-msgstr "Hesaplama &Gerçekleştir..."
+msgstr "Hesaplamalar &Gerçekleştir..."
 
 #: src/kalzium.cpp:160
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
-msgstr ""
-"Bu bir hesap makinesi olup basit kimyasal hesaplamaları gerçekleştirir."
+msgstr "Bu hesap makinesidir, temel kimyasal hesaplamaları yapar."
 
 #: src/kalzium.cpp:164
 #, kde-format
 msgid "&Isotope Table..."
-msgstr "İ&zotop-Tablosu..."
+msgstr "İ&zotop Tablosu..."
 
 #: src/kalzium.cpp:166
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
-msgstr "Bu tablo kimyasal elementlerin bilinen tüm izotoplarını gösterir."
+msgstr ""
+"Bu tablo kimyasal elementlerin bilinen tüm izotoplarını göstermektedir."
 
 #: src/kalzium.cpp:170
 #, kde-format
 msgid "&Glossary..."
-msgstr "Terimler &Sözlüğü..."
+msgstr "&Kavram Dizini..."
 
 #: src/kalzium.cpp:175
 #, kde-format
 msgid "&R/S Phrases..."
-msgstr "&R/S Parçaları..."
+msgstr "&R/S İbareleri..."
 
 #: src/kalzium.cpp:180
 #, kde-format
 msgid "Convert chemical files..."
-msgstr "Kimyasal dosyaları dönüştür..."
+msgstr "Kimyasal Dosyaları Dönüştür..."
 
 #: src/kalzium.cpp:182
 #, kde-format
@@ -5503,21 +5533,21 @@ msgid ""
 "With this tool, you can convert files containing chemical data between "
 "various file formats."
 msgstr ""
-"Bu araç yardımıyla kimyasal bilgileri içeren dosyaları değişik biçimlere "
+"Bu araçla kimyasal veri içeren dosyaları çeşitli dosya biçimleri arasında "
 "dönüştürebilirsiniz."
 
 #: src/kalzium.cpp:189
 #, kde-format
 msgid "Molecular Editor..."
-msgstr "Molekül Düzenleyici..."
+msgstr "Molekül Düzenleyicisi..."
 
 #: src/kalzium.cpp:191
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
 msgstr ""
-"Bu araç sayesinde 3B molekül yapılarını görüntüleyebilir ve "
-"düzenleyebilirsiniz."
+"Bu araç, 3 boyutlu moleküler yapıları görüntülemenize ve düzenlemenize "
+"olanak tanır."
 
 #: src/kalzium.cpp:198
 #, kde-format
@@ -5531,14 +5561,14 @@ msgid ""
 "This will open a dialog with listings of symbols and numbers related to "
 "chemistry."
 msgstr ""
-"Bu pencere, kimya ile ilgili sembollerin ve sayıların listesini gösteren bir "
-"iletişim kutusu açar."
+"Bu, kimyayla ilgili sembollerin ve sayıların listelendiği bir iletişim "
+"kutusu açar."
 
 #: src/kalzium.cpp:208
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
-msgstr "Periyodik tablonun göstergesini gösterir ya da gizler."
+msgstr "Bu, periyodik tablonun açıklamasını gösterecek veya gizleyecektir."
 
 #: src/kalzium.cpp:213
 #, kde-format
@@ -5547,8 +5577,8 @@ msgid ""
 "This will show or hide a sidebar with additional information and a set of "
 "tools."
 msgstr ""
-"Ek bilgiler ve bir araçlar kümesi buluduran bir kenar çubuğunu gösterir ya "
-"da gizler."
+"Bu, ek bilgiler ve bir dizi araç içeren bir kenar çubuğunu gösterecek veya "
+"gizleyecektir."
 
 #: src/kalzium.cpp:218
 #, kde-format
@@ -5556,6 +5586,8 @@ msgctxt "WhatsThis Help"
 msgid ""
 "This will show or hide a sidebar with additional information about the table."
 msgstr ""
+"Bu, tablo hakkında ek bilgiler içeren bir kenar çubuğunu gösterecek veya "
+"gizleyecektir."
 
 #: src/kalzium.cpp:248
 #, kde-format
@@ -5565,7 +5597,7 @@ msgstr "Gösterge"
 #: src/kalzium.cpp:258
 #, kde-format
 msgid "Table Information"
-msgstr "Tablo Bilgileri"
+msgstr "Tablo Bilgisi"
 
 #: src/kalzium.cpp:263
 #, kde-format
@@ -5580,18 +5612,17 @@ msgstr "Genel Bakış"
 #: src/kalzium.cpp:286
 #, kde-format
 msgid "View"
-msgstr "Göster"
+msgstr "Görünüm"
 
 #: src/kalzium.cpp:297
 #, kde-format
 msgid "Save Kalzium's Table In"
-msgstr "Kalzium Tablosunu Buraya Kaydet"
+msgstr "Kalzium Tablosunu Farklı Kaydet"
 
 #: src/kalzium.cpp:297
-#, fuzzy, kde-format
-#| msgid "*.png *.xpm *.jpg *.svg"
+#, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
-msgstr "*.png *.xpm *.jpg *.svg"
+msgstr "Görsel dosyaları (*.png *.xpm *.jpg *.svg)"
 
 #: src/kalzium.cpp:318
 #, kde-format
@@ -5611,7 +5642,7 @@ msgstr "Kalzium Hatası"
 #: src/kalzium.cpp:353
 #, kde-format
 msgid "This system does not support OpenGL."
-msgstr "Bu sistem OpenGL'i desteklemiyor."
+msgstr "Bu sistem, OpenGL'i desteklemiyor."
 
 #: src/kalzium.cpp:500
 #, kde-format
@@ -5620,15 +5651,13 @@ msgid "%1 (%2), Mass: %3 u"
 msgstr "%1 (%2), Kütle: %3 u"
 
 #: src/kalziumelementproperty.cpp:77
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No Gradient"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
-#| msgid "van Der Waals"
+#, kde-format
 msgid "Van Der Waals"
 msgstr "Van Der Waals"
 
@@ -5645,23 +5674,23 @@ msgstr "Elektronegatiflik (Pauling)"
 #: src/kalziumgradienttype.cpp:549
 #, kde-format
 msgid "Discovery date"
-msgstr "Keşfedilme Tarihi"
+msgstr "Keşfedilme tarihi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronaffinityGradient)
 #: src/kalziumgradienttype.cpp:605 src/settings/settings_gradients.ui:109
 #, kde-format
 msgid "Electronaffinity"
-msgstr "Elektron İlgisi"
+msgstr "Elektron ilgisi"
 
 #: src/kalziumgradienttype.cpp:661
 #, kde-format
 msgid "First Ionization"
-msgstr "İlk İyonlaşma"
+msgstr "İlk iyonlaşma"
 
 #: src/kalziumnumerationtype.cpp:98
 #, kde-format
 msgid "No Numeration"
-msgstr "Numaralandırma Yok"
+msgstr "Numaralandırma yok"
 
 #: src/kalziumnumerationtype.cpp:149
 #, kde-format
@@ -5681,7 +5710,7 @@ msgstr "Eski IUPAC"
 #: src/kalziumschemetype.cpp:98
 #, kde-format
 msgid "Monochrome"
-msgstr "Tek renk"
+msgstr "Tek Renk"
 
 #: src/kalziumschemetype.cpp:116
 #, kde-format
@@ -5697,22 +5726,22 @@ msgstr "Bloklar"
 #: src/kalziumschemetype.cpp:170
 #, kde-format
 msgid "s-Block"
-msgstr "s-Bloğu"
+msgstr "s Bloku"
 
 #: src/kalziumschemetype.cpp:171
 #, kde-format
 msgid "p-Block"
-msgstr "p-Bloğu"
+msgstr "p Bloku"
 
 #: src/kalziumschemetype.cpp:172
 #, kde-format
 msgid "d-Block"
-msgstr "d-Bloğu"
+msgstr "d Bloku"
 
 #: src/kalziumschemetype.cpp:173
 #, kde-format
 msgid "f-Block"
-msgstr "f-Bloğu"
+msgstr "f Bloku"
 
 #: src/kalziumschemetype.cpp:197
 #, kde-format
@@ -5722,7 +5751,7 @@ msgstr "Simgesel"
 #: src/kalziumschemetype.cpp:214
 #, kde-format
 msgid "Each element is represented by an icon which represents its use."
-msgstr "Her element, kullanımını gösteren bir simgeyle temsil edilir"
+msgstr "Her element, kullanımını temsil eden bir simgeyle temsil edilir."
 
 #: src/kalziumschemetype.cpp:279
 #, kde-format
@@ -5732,7 +5761,7 @@ msgstr "Alkali"
 #: src/kalziumschemetype.cpp:280
 #, kde-format
 msgid "Rare Earth"
-msgstr "Nadir Metal"
+msgstr "Nadir Element"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5823,7 +5852,7 @@ msgstr "Renkler"
 #: src/kalziumschemetype.cpp:411
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr ""
+msgstr "Anlamsız güzel renkler. (Açık Babel projesinden)"
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -5863,7 +5892,7 @@ msgstr "%1"
 #: src/kalziumutils.cpp:113
 #, kde-format
 msgid "Unknown Value"
-msgstr "Bilinmeyen Değer"
+msgstr "Bilinmeyen değer"
 
 #: src/kalziumutils.cpp:115
 #, kde-format
@@ -5872,47 +5901,45 @@ msgid "%1 u"
 msgstr "%1 u"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
-#| msgid "This element was discovered in the year <numid>%1</numid>."
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "Bu element <numid>%1</numid> yılında keşfedildi."
+msgstr "Bu element %1 yılında keşfedildi."
 
 #: src/kalziumutils.cpp:125
 #, kde-format
 msgid "The element has not yet been officially recognized by the IUPAC."
-msgstr "Bu element, IUPAC tarafından henüz resmen tanınmamıştır."
+msgstr "Öğe henüz IUPAC tarafından resmi olarak tanınmadı."
 
 #: src/kalziumutils.cpp:127
 #, kde-format
 msgid "This element was known to ancient cultures."
-msgstr "Bu element eski uygarlıklar tarafından bilinmekteydi."
+msgstr "Bu element eski kültürler tarafından biliniyordu."
 
 #: src/kalziumutils.cpp:157
 #, kde-format
 msgid "No Data"
-msgstr ""
+msgstr "Veri yok"
 
 #: src/kdeeduglossary.cpp:126
 #, kde-format
 msgid "Glossary"
-msgstr "Sözlük"
+msgstr "Kavram Dizini"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
-#| msgid "Glossary"
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
-msgstr "Sözlük"
+msgstr "Kavram Dizini"
 
 #: src/kdeeduglossary.cpp:478
 #, kde-format
 msgid "References"
-msgstr "Referanslar"
+msgstr "Başvurular"
 
 #: src/kdeeduglossary.cpp:482
 #, kde-format
 msgid "Go to '%1'"
-msgstr ""
+msgstr "Git: '%1'"
 
 #: src/legendwidget.cpp:70
 #, kde-format
@@ -5952,7 +5979,7 @@ msgstr "logaritmik"
 #, kde-format
 msgctxt "one of the two types of gradients available"
 msgid "linear"
-msgstr "lineer"
+msgstr "doğrusal"
 
 #: src/legendwidget.cpp:85
 #, kde-format
@@ -5963,13 +5990,13 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "Minimum value of the gradient"
 msgid "Minimum: %1"
-msgstr "En küçük değer: %1"
+msgstr "En küçük: %1"
 
 #: src/legendwidget.cpp:92
 #, kde-format
 msgctxt "Maximum value of the gradient"
 msgid "Maximum: %1"
-msgstr "En büyük değer: %1"
+msgstr "En büyük: %1"
 
 #: src/legendwidget.cpp:98
 #, kde-format
@@ -5987,10 +6014,9 @@ msgid "A periodic table of the elements"
 msgstr "Elementlerin periyodik tablosu"
 
 #: src/main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2014 Carsten Niehaus"
+#, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "(C) 2002-2014 Carsten Niehaus"
+msgstr "(C) 2002-2016 Carsten Niehaus & KDE Edu Geliştiricileri"
 
 #: src/main.cpp:46
 #, kde-format
@@ -6016,8 +6042,8 @@ msgstr "Benoit Jacob"
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
-"Moleküler görüntüleyici üzerinde temel çalışma, SoC süresince Marcus'a "
-"rehberlik etti"
+"Molekül görüntüleyicisi üzerindeki temel çalışma, SoC süresince Marcus'a "
+"kılavuzluk"
 
 #: src/main.cpp:52
 #, kde-format
@@ -6028,18 +6054,18 @@ msgstr "Marcus Hanwell"
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
 msgstr ""
-"Moleküler görüntüleyici üzerine SoC ve libavogadro'nun taşınması/"
-"bütünleştirilmesi"
+"Molekül görüntüleyicisi üzerine SoC ve libavogadro'nun taşınması/"
+"tümleştirilmesi"
 
 #: src/main.cpp:54
 #, kde-format
 msgid "Kashyap R Puranik"
-msgstr "Kashyap R Puranik"
+msgstr "Kaşyap R Puranik"
 
 #: src/main.cpp:54
 #, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
-msgstr "Hesap makinesi simgesi üzerinde SoC ve birkaç küçük geliştirme"
+msgstr "Hesap makinesi araç takımındaki SoC ve birkaç küçük iyileştirme"
 
 #: src/main.cpp:56
 #, kde-format
@@ -6049,7 +6075,7 @@ msgstr "Thomas Nagy"
 #: src/main.cpp:56
 #, kde-format
 msgid "EqChem, the equation solver"
-msgstr "EqChem, eşitlik çözücü"
+msgstr "EqChem, eşitlik çözücüsü"
 
 #: src/main.cpp:58
 #, kde-format
@@ -6062,7 +6088,7 @@ msgid ""
 "Code cleaning, parser for the molecule weight calculator, and a lot of "
 "smaller improvements"
 msgstr ""
-"Kod temizleme, molekül ağırlığı hesaplayıcısı için yorumlayıcı ve birçok "
+"Kod temizleme, molekül ağırlığı hesaplayıcısı için ayrıştırıcı ve birçok "
 "küçük iyileştirme"
 
 #: src/main.cpp:60
@@ -6073,7 +6099,7 @@ msgstr "Anne-Marie Mahfouf"
 #: src/main.cpp:60
 #, kde-format
 msgid "A lot of small things and the documentation"
-msgstr "Pek çok küçük detay ve belgelendirme"
+msgstr "Pek çok küçük ayrıntı ve belgelendirme"
 
 #: src/main.cpp:62
 #, kde-format
@@ -6086,7 +6112,8 @@ msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
 msgstr ""
-"Eşitlik çözücüye ve moleküler görüntüleyiciye kod ve belgelendirme katkıları"
+"Eşitlik çözücüsüne ve molekül görüntüleyicisine kod ve belgelendirme "
+"katkıları"
 
 #: src/main.cpp:64
 #, kde-format
@@ -6106,7 +6133,7 @@ msgstr "Noémie Scherer"
 #: src/main.cpp:66
 #, kde-format
 msgid "Many beautiful element icons, too!"
-msgstr "Birçok güzel element simgesi!"
+msgstr "Birçok güzel element simgesi"
 
 #: src/main.cpp:68
 #, kde-format
@@ -6136,7 +6163,7 @@ msgstr "Jörg Buchwald"
 #: src/main.cpp:72
 #, kde-format
 msgid "Contributed most isotope information"
-msgstr "İzotop bilgilerinin çoğunu sağladı"
+msgstr "İzotop bilgilerinin çoğu"
 
 #: src/main.cpp:74
 #, kde-format
@@ -6146,7 +6173,7 @@ msgstr "Marco Martin"
 #: src/main.cpp:74
 #, kde-format
 msgid "Some icons and inspiration for others"
-msgstr "Bazı simgeler ve diğerleri için ilham verdi"
+msgstr "Bazı simgeler ve başkaları için ilham"
 
 #: src/main.cpp:76
 #, kde-format
@@ -6202,22 +6229,22 @@ msgstr "Tiago Porangaba"
 #: src/main.cpp:90
 #, kde-format
 msgid "Etienne Rebetez"
-msgstr ""
+msgstr "Etienne Rebetez"
 
 #: src/main.cpp:90
 #, kde-format
 msgid "Adding new sizable Periodic System"
-msgstr ""
+msgstr "Yeni büyük Periyodik Sistem"
 
 #: src/main.cpp:102
 #, kde-format
 msgid "Open the given molecule file"
-msgstr ""
+msgstr "Verilen molekül dosyasını aç"
 
 #: src/main.cpp:125
 #, kde-format
 msgid "Can't open more than one molecule at a time"
-msgstr ""
+msgstr "Aynı anda birden fazla molekül açılamıyor"
 
 #: src/molcalcwidget.cpp:87 src/molcalcwidget.cpp:122 src/molcalcwidget.cpp:177
 #: src/molcalcwidget.cpp:178 src/molcalcwidget.cpp:179
@@ -6234,10 +6261,10 @@ msgid ""
 "click on 'Calc'.\n"
 "E.g. #Et#OH"
 msgstr ""
-"Başlamak için\n"
-"aşağıya bir formül\n"
-"girin ve 'Hesapla'ya tıklayın.\n"
-"Ör: #Et#OH"
+"Yukarıdaki araç takımına\n"
+"bir formül girin ve\n"
+"'Hesapla' düğmesine tıklayın.\n"
+"Örn. #Et#OH"
 
 #: src/molcalcwidget.cpp:198
 #, kde-format
@@ -6258,27 +6285,27 @@ msgstr "%1<sub>%2</sub> "
 #: src/molcalcwidget.cpp:269
 #, kde-format
 msgid "Symbol should consist of two or more letters."
-msgstr "Simge iki veya daha çok harfe sahip olmalıdır."
+msgstr "Sembol iki veya daha çok harften oluşmalıdır."
 
 #: src/molcalcwidget.cpp:274
 #, kde-format
 msgid "Symbol already being used"
-msgstr "Simge zaten kullanılmaktadır"
+msgstr "Sembol halihazırda kullanılıyor"
 
 #: src/molcalcwidget.cpp:279
 #, kde-format
 msgid "Expansion is invalid, please specify a valid expansion"
-msgstr "Genişleme geçersiz, lütfen geçerli bir genişleme belirtin"
+msgstr "Genişletme geçersiz, lütfen geçerli bir genişletme belirtin"
 
 #: src/molcalcwidget.cpp:292
 #, kde-format
 msgid "done!"
-msgstr "Tamamlandı!"
+msgstr "bitti!"
 
 #: src/molcalcwidget.cpp:295
 #, kde-format
 msgid "Unable to find the user defined alias file."
-msgstr "Kullanıcı tanımlı takma isim dosyasını bulamıyor."
+msgstr "Kullanıcı tanımlı arma dosyası bulunamıyor."
 
 #. i18n: ectx: attribute (title), widget (QWidget, calcTab)
 #: src/molcalcwidgetbase.ui:24 src/settings/kalziumconfigdialog.cpp:38
@@ -6301,7 +6328,7 @@ msgid ""
 "e.g. 2.> MeOH\n"
 "e.g. 3.> #EDTA#\n"
 msgstr ""
-"Bu kutucuk, molekül formülünü girmek için kullanılabilir.\n"
+"Bu kutu, molekül formülünü girmek için kullanılabilir.\n"
 "örnek 1 > CaCO3\n"
 "örnek 2 > MeOH\n"
 "örnek 3 > #EDTA#\n"
@@ -6311,13 +6338,13 @@ msgstr ""
 #: src/molcalcwidgetbase.ui:68 src/molcalcwidgetbase.ui:71
 #, kde-format
 msgid "Click on this button to calculate."
-msgstr "Bu düğmeye tıklatarak hesaplama yapın."
+msgstr "Hesaplamak için bu düğmeye tıklayın."
 
 #. i18n: ectx: property (text), widget (QPushButton, calcButton)
 #: src/molcalcwidgetbase.ui:74
 #, kde-format
 msgid "Calc"
-msgstr "Hesap"
+msgstr "Hesapla"
 
 #. i18n: ectx: property (title), widget (QGroupBox, details)
 #: src/molcalcwidgetbase.ui:167
@@ -6344,32 +6371,32 @@ msgid ""
 "This table previews the elemental composition of the molecule, i.e. the "
 "percentage of each element in the molecule."
 msgstr ""
-"Bu çizelge, molekülün element bileşiminin önizlemesini yapar, örneğin, "
-"moleküldeki her elementin yüzdesini gösterir."
+"Bu tablo molekülün elementel bileşimini, yani moleküldeki her bir elementin "
+"yüzdesini gösterir."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
 #, kde-format
 msgid "Atoms"
-msgstr "Atom"
+msgstr "Atomlar"
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:223
 #, kde-format
 msgid "Total mass"
-msgstr "Toplam kütle"
+msgstr "Toplam Kütle"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/molcalcwidgetbase.ui:240
 #, kde-format
 msgid "Aliases used"
-msgstr "Kullanılan takma isimler"
+msgstr "Kullanılan armalar"
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:247
 #, kde-format
 msgid "Aliases used in the formula"
-msgstr "Formülde kullanılan takma isimler"
+msgstr "Formülde kullanılan armalar"
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:251
@@ -6378,26 +6405,26 @@ msgid ""
 "This displays all the aliases used in the molecule.\n"
 "For instance, in the molecule MeOH, the alias used is Me = CH3."
 msgstr ""
-"Bu, molekülde kullanılan bütün takma isimleri gösterir.\n"
-"örneğin, MeOH molekülünde kullanılan takma isim Me = CH3'tür"
+"Bu, molekülde kullanılan tüm armaları görüntüler.\n"
+"Örneğin, MeOH molekülünde kullanılan arma Me = CH3'tür."
 
 #. i18n: ectx: property (text), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:262
 #, kde-format
 msgid "aliases"
-msgstr "takma isimler"
+msgstr "armalar"
 
 #. i18n: ectx: attribute (title), widget (QWidget, aliasTab)
 #: src/molcalcwidgetbase.ui:276
 #, kde-format
 msgid "Aliases"
-msgstr "Takma isimler"
+msgstr "Armalar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, aliasBox)
 #: src/molcalcwidgetbase.ui:282
 #, kde-format
 msgid "Define alias"
-msgstr "Takma isim tanımla"
+msgstr "Arma Tanımla"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/molcalcwidgetbase.ui:303
@@ -6409,7 +6436,7 @@ msgstr "Kısa biçim"
 #: src/molcalcwidgetbase.ui:310
 #, kde-format
 msgid "Short form of the alias"
-msgstr "Takma ismin kısa biçimi"
+msgstr "Armanın kısa biçimi"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, shortForm)
 #: src/molcalcwidgetbase.ui:314
@@ -6418,8 +6445,8 @@ msgid ""
 "You can specify the short form of the alias used here, \n"
 "for instance, Me."
 msgstr ""
-"Burada kullanılan takma ismin kısa halini belirleyebilirsiniz.\n"
-"Örnek: Me"
+"Burada kullanılan armanın kısa biçimini belirtebilirsiniz; \n"
+"örneğin, Me."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/molcalcwidgetbase.ui:321
@@ -6433,61 +6460,63 @@ msgstr "Tam biçim"
 msgid ""
 "You can enter the full form of the alias in this box, \n"
 "for instance, CH3."
-msgstr "Bu kutucuğa takma ismin tam halini girebilirsiniz. örnek: CH3"
+msgstr ""
+"Burada kullanılan armanın tam biçimini belirtebilirsiniz; \n"
+"örneğin, CH3."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, alias)
 #: src/molcalcwidgetbase.ui:336
 #, kde-format
 msgid "Click to add the alias"
-msgstr "Takma isim eklemek için tıklatın"
+msgstr "Arma Eklemek için Tıkla"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, alias)
 #: src/molcalcwidgetbase.ui:339
 #, kde-format
 msgid "Click to add the alias if it is valid."
-msgstr "Geçerli ise takma isim eklemek için tıklatın."
+msgstr "Geçerliyse arma eklemek için tıklayın."
 
 #. i18n: ectx: property (text), widget (QPushButton, alias)
 #: src/molcalcwidgetbase.ui:342
 #, kde-format
 msgid "Add Alias"
-msgstr "Takma İsim Ekle"
+msgstr "Arma Ekle"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/molcalcwidgetbase.ui:376
 #, kde-format
 msgid "Pre-defined aliases"
-msgstr "Önceden tanımlı takma isimler"
+msgstr "Önceden tanımlı armalar"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/molcalcwidgetbase.ui:383
 #, kde-format
 msgid "User-defined aliases"
-msgstr "Kullanıcı tanımlı takma isimler"
+msgstr "Kullanıcı tanımlı armalar"
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, pre_defined)
 #: src/molcalcwidgetbase.ui:390
 #, kde-format
 msgid "List of pre-defined aliases."
-msgstr "Önceden tanımlanmış takma isimlerin listesi."
+msgstr "Önceden tanımlanan armaların listesi."
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, pre_defined)
 #: src/molcalcwidgetbase.ui:393
 #, kde-format
 msgid "This table displays all the pre-defined aliases."
-msgstr "Bu çizelge, önceden tanımlanmış bütün takma isimleri gösterir."
+msgstr "Bu tablo önceden tanımlanan tüm armaları görüntüler."
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, user_defined)
 #: src/molcalcwidgetbase.ui:422
 #, kde-format
 msgid "List of user-defined aliases."
-msgstr "Kullanıcı tanımlı takma isimlerin listesi."
+msgstr "Kullanıcı tanımlı armaların listesi."
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, user_defined)
 #: src/molcalcwidgetbase.ui:425
 #, kde-format
 msgid "This is the list of aliases that you or some other user has added."
-msgstr "Bu, sizin veya bir başka kullanıcının eklediği takma isim listesidir."
+msgstr "Bu, sizin veya başka bir kullanıcının eklediği armaların listesidir."
 
 #: src/orbitswidget.cpp:198
 #, kde-format
@@ -6498,19 +6527,19 @@ msgstr "Bilinmeyen Elektron Dağılımı"
 #: src/plotsetupwidget.ui:35
 #, kde-format
 msgid "Swap"
-msgstr ""
+msgstr "Değiştir"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:41
 #, kde-format
 msgid "Swap X and Y axis"
-msgstr ""
+msgstr "X ve Y eksenini birbiriyle değiştir"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/plotsetupwidget.ui:51
 #, kde-format
 msgid "X-Axis"
-msgstr "X ekseni"
+msgstr "X Ekseni"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
@@ -6524,7 +6553,7 @@ msgstr "Ortalama değer:"
 #: src/plotsetupwidget.ui:84 src/plotsetupwidget.ui:402
 #, kde-format
 msgid "Here you can define what you want to plot"
-msgstr "Burada neyi çizmek istediğinizi belirleyebilirsiniz"
+msgstr "Ne çizmek istediğinizi burada tanımlayabilirsiniz"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
@@ -6550,7 +6579,7 @@ msgstr "Görüntüle:"
 #: src/plotsetupwidget.ui:183
 #, kde-format
 msgid "Element Type:"
-msgstr ""
+msgstr "Element türü:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: src/plotsetupwidget.ui:209
@@ -6569,7 +6598,7 @@ msgstr "Son element:"
 #: src/plotsetupwidget.ui:245 src/plotsetupwidget.ui:253
 #, kde-format
 msgid "All elements"
-msgstr "Tüm elementler"
+msgstr "Tüm Elementler"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:258
@@ -6587,25 +6616,25 @@ msgstr "Ametaller / Yarımetaller"
 #: src/plotsetupwidget.ui:268
 #, kde-format
 msgid "s block elements"
-msgstr "s bloğu elementleri"
+msgstr "s bloku elementleri"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:273
 #, kde-format
 msgid "p block elements"
-msgstr "p bloğu elementleri"
+msgstr "p bloku elementleri"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:278
 #, kde-format
 msgid "d block elements"
-msgstr "d bloğu elementleri"
+msgstr "d bloku elementleri"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:283
 #, kde-format
 msgid "f block elements"
-msgstr "f bloğu elementleri"
+msgstr "f bloku elementleri"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:288
@@ -6647,13 +6676,13 @@ msgstr "Radyoaktif elementler"
 #: src/plotsetupwidget.ui:328
 #, kde-format
 msgid "No Labels"
-msgstr "Etiket Yok"
+msgstr "Etiket yok"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:333
 #, kde-format
 msgid "Element Names"
-msgstr "Element İsimleri"
+msgstr "Element Adları"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:338
@@ -6665,35 +6694,34 @@ msgstr "Element Sembolleri"
 #: src/plotsetupwidget.ui:348
 #, kde-format
 msgid "Y-Axis"
-msgstr "Y ekseni"
+msgstr "Y Ekseni"
 
 #: src/psetable/elementitem.cpp:122
 #, kde-format
 msgid "n/a"
-msgstr ""
+msgstr "yok"
 
 #: src/rsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Risks/Security Phrases"
+#, kde-format
 msgctxt "@title:window"
 msgid "Risks/Security Phrases"
-msgstr "Riskler/Güvenlik İfadeleri"
+msgstr "Riskler/Güvenlik İbareleri"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/rsdialog.cpp:79 src/rswidget.ui:38
 #, kde-format
 msgid "R-Phrases:"
-msgstr "R-Parçaları:"
+msgstr "R ibareleri:"
 
 #: src/rsdialog.cpp:87
 #, kde-format
 msgid "S-Phrases:"
-msgstr "S-Parçaları:"
+msgstr "S ibareleri:"
 
 #: src/rsdialog.cpp:95
 #, kde-format
 msgid "You asked for no R/S-Phrases."
-msgstr "Sizden R/S Parçaları istenmiyor."
+msgstr "Bir R/S ibaresi istemediniz."
 
 #: src/rsdialog.cpp:139
 #, kde-format
@@ -6701,7 +6729,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S1: Keep locked up"
-msgstr ""
+msgstr "S1: Kilit altında tutun"
 
 #: src/rsdialog.cpp:142
 #, kde-format
@@ -6709,7 +6737,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S2: Keep out of the reach of children"
-msgstr ""
+msgstr "S2: Çocukların erişemeyeceği yerde saklayın"
 
 #: src/rsdialog.cpp:145
 #, kde-format
@@ -6717,7 +6745,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S3: Keep in a cool place"
-msgstr ""
+msgstr "S3: Serin yerde saklayın"
 
 #: src/rsdialog.cpp:148
 #, kde-format
@@ -6725,7 +6753,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S4: Keep away from living quarters"
-msgstr ""
+msgstr "S4: Yaşam alanlarından uzak tutun"
 
 #: src/rsdialog.cpp:151
 #, kde-format
@@ -6736,6 +6764,7 @@ msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
 msgstr ""
+"S5: İçeriğini ... altında tutun (üretici tarafından belirtilecek uygun sıvı)"
 
 #: src/rsdialog.cpp:154
 #, kde-format
@@ -6744,6 +6773,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
 msgstr ""
+"S6: İçeriğini ... altında tutun (üretici tarafından belirtilecek soy gaz)"
 
 #: src/rsdialog.cpp:157
 #, kde-format
@@ -6751,7 +6781,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S7: Keep container tightly closed"
-msgstr ""
+msgstr "S7: Saklama kabını sıkıcı kapalı tutun"
 
 #: src/rsdialog.cpp:160
 #, kde-format
@@ -6759,7 +6789,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S8: Keep container dry"
-msgstr ""
+msgstr "S8: Saklama kabını kuru tutun"
 
 #: src/rsdialog.cpp:163
 #, kde-format
@@ -6767,7 +6797,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S9: Keep container in a well-ventilated place"
-msgstr ""
+msgstr "S9: Saklama kabını iyi havalandırılan bir yerde tutun"
 
 #: src/rsdialog.cpp:166
 #, kde-format
@@ -6775,7 +6805,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S12: Do not keep the container sealed"
-msgstr ""
+msgstr "S12: Saklama kabını kapalı tutmayın"
 
 #: src/rsdialog.cpp:169
 #, kde-format
@@ -6783,7 +6813,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S13: Keep away from food, drink and animal feedingstuffs"
-msgstr ""
+msgstr "S13: Yiyecek, içecek ve hayvan besinlerinden uzak tutun"
 
 #: src/rsdialog.cpp:172
 #, kde-format
@@ -6794,6 +6824,8 @@ msgid ""
 "S14: Keep away from ... ( incompatible materials to be indicated by the "
 "manufacturer )"
 msgstr ""
+"S14: ... ögelerinden uzak tutun (üretici tarafından belirtilecek uyumsuz "
+"malzemeler)"
 
 #: src/rsdialog.cpp:175
 #, kde-format
@@ -6801,7 +6833,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S15: Keep away from heat"
-msgstr ""
+msgstr "S15: Isıdan uzak tutun"
 
 #: src/rsdialog.cpp:178
 #, kde-format
@@ -6809,19 +6841,15 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S16: Keep away from sources of ignition - No smoking"
-msgstr ""
+msgstr "S16: Tutuşturucu kaynaklardan uzak tutun - Yakınında sigara içilmez"
 
 #: src/rsdialog.cpp:181
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R9: Explosive when mixed with combustible material"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S17: Keep away from combustible material"
-msgstr "R9: Yanabilir malzemeyle karıştırıldığında patlayıcıdır"
+msgstr "S17: Yanıcı maddelerden uzak tutun"
 
 #: src/rsdialog.cpp:184
 #, kde-format
@@ -6829,7 +6857,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S18: Handle and open container with care"
-msgstr ""
+msgstr "S18: Saklama kabını dikkatli bir biçimde tutun ve açın"
 
 #: src/rsdialog.cpp:187
 #, kde-format
@@ -6837,7 +6865,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S20: When using do not eat or drink"
-msgstr ""
+msgstr "S20: Kullanırken yiyecek veya içecek tüketmeyin"
 
 #: src/rsdialog.cpp:190
 #, kde-format
@@ -6845,7 +6873,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S21: When using do not smoke"
-msgstr ""
+msgstr "S21: Kullanırken sigara içmeyin"
 
 #: src/rsdialog.cpp:193
 #, kde-format
@@ -6853,7 +6881,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S22: Do not breathe dust"
-msgstr ""
+msgstr "S22: Tozunu solumayın"
 
 #: src/rsdialog.cpp:196
 #, kde-format
@@ -6864,30 +6892,24 @@ msgid ""
 "S23: Do not breathe gas/fumes/vapour/spray ( appropriate wording to be "
 "specified by the manufacturer )"
 msgstr ""
+"S23: Gazını, dumanını, buharını, püskürtmesini solumayın (uygun sözcük "
+"üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:199
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R24: Toxic in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S24: Avoid contact with skin"
-msgstr "R24: Cilde temas ederse zehirleyicidir"
+msgstr "S24: Cilt ile temastan kaçının"
 
 #: src/rsdialog.cpp:202
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R24: Toxic in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S25: Avoid contact with eyes"
-msgstr "R24: Cilde temas ederse zehirleyicidir"
+msgstr "S25: Gözlerle temastan kaçının"
 
 #: src/rsdialog.cpp:205
 #, kde-format
@@ -6898,6 +6920,8 @@ msgid ""
 "S26: In case of contact with eyes, rinse immediately with plenty of water "
 "and seek medical advice"
 msgstr ""
+"S26: Gözlerle temas durumunda gözünüzü bol miktarda su ile yıkayın ve derhal "
+"tıbbi yardım alın"
 
 #: src/rsdialog.cpp:208
 #, kde-format
@@ -6905,7 +6929,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S27: Take off immediately all contaminated clothing"
-msgstr ""
+msgstr "S27: Kirlenmiş olan giysilerinizi hemen çıkarın"
 
 #: src/rsdialog.cpp:211
 #, kde-format
@@ -6916,6 +6940,8 @@ msgid ""
 "S28: After contact with skin, wash immediately with plenty of ... ( to be "
 "specified by the manufacturer )"
 msgstr ""
+"S28: Cilt ile temas sonrası hemen bol miktarda ... ile yıkayın (üretici "
+"tarafından belirtilir)"
 
 #: src/rsdialog.cpp:214
 #, kde-format
@@ -6923,7 +6949,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S29: Do not empty into drains"
-msgstr ""
+msgstr "S29: Lavaboya/Gidere boşaltmayın"
 
 #: src/rsdialog.cpp:217
 #, kde-format
@@ -6931,7 +6957,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S30: Never add water to this product"
-msgstr ""
+msgstr "S30: Bu ürüne kesinlikle su eklemeyin"
 
 #: src/rsdialog.cpp:220
 #, kde-format
@@ -6939,7 +6965,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S33: Take precautionary measures against static discharges"
-msgstr ""
+msgstr "S33: Durağan yük boşaltmalarına karşı önlemler alın"
 
 #: src/rsdialog.cpp:223
 #, kde-format
@@ -6948,6 +6974,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S35: This material and its container must be disposed of in a safe way"
 msgstr ""
+"S25: Bu malzeme ve onun saklama kabı güvenli bir biçimde bertaraf edilmelidir"
 
 #: src/rsdialog.cpp:226
 #, kde-format
@@ -6955,7 +6982,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S36: Wear suitable protective clothing"
-msgstr ""
+msgstr "S36: Uygun koruyucu giysi giyin"
 
 #: src/rsdialog.cpp:229
 #, kde-format
@@ -6963,7 +6990,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S37: Wear suitable gloves"
-msgstr ""
+msgstr "S37: Uygun koruyucu eldivenler takın"
 
 #: src/rsdialog.cpp:232
 #, kde-format
@@ -6973,6 +7000,7 @@ msgctxt ""
 msgid ""
 "S38: In case of insufficient ventilation wear suitable respiratory equipment"
 msgstr ""
+"S38: Havalandırmanın yetersiz olduğu durumda uygun solunum ekipmanı kullanın"
 
 #: src/rsdialog.cpp:235
 #, kde-format
@@ -6980,7 +7008,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S39: Wear eye/face protection"
-msgstr ""
+msgstr "S39: Göz/Yüz koruması kullanın"
 
 #: src/rsdialog.cpp:238
 #, kde-format
@@ -6991,6 +7019,8 @@ msgid ""
 "S40: To clean the floor and all objects contaminated by this material "
 "use ... ( to be specified by the manufacturer )"
 msgstr ""
+"S40: Bu malzemenin bulaştığı zemini ve tüm nesneleri temizlemek için ... "
+"kullanın (üretici tarafından belirtilecektir)"
 
 #: src/rsdialog.cpp:241
 #, kde-format
@@ -6998,7 +7028,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S41: In case of fire and/or explosion do not breathe fumes"
-msgstr ""
+msgstr "S41: Yangın veya patlama durumunda dumanı solumayın"
 
 #: src/rsdialog.cpp:244
 #, kde-format
@@ -7009,6 +7039,8 @@ msgid ""
 "S42: During fumigation/spraying wear suitable respiratory equipment "
 "( appropriate wording to be specified by the manufacturer )"
 msgstr ""
+"S42: Fümigasyon/püskürtme sırasında uygun solunum ekipmanı kullanın (uygun "
+"sözcük üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:247
 #, kde-format
@@ -7019,6 +7051,8 @@ msgid ""
 "S43: In case of fire use ... ( indicate in the space the precise type of "
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
+"S43: Yangın durumunda ... kullanın (kullanılması gereken yangın söndürme "
+"ekipmanını belirtin; su, riski artırıyorsa kesinlikle su kullanmayın)"
 
 #: src/rsdialog.cpp:251
 #, kde-format
@@ -7029,6 +7063,8 @@ msgid ""
 "S45: In case of accident or if you feel unwell seek medical advice "
 "immediately ( show the label where possible )"
 msgstr ""
+"S45: Kaza veya kendinizi iyi hissetmemeniz durumunda derhal tıbbi yardım "
+"alın (gereken yerlerde bu etiketi gösterin)"
 
 #: src/rsdialog.cpp:254
 #, kde-format
@@ -7039,6 +7075,8 @@ msgid ""
 "S46: If swallowed, seek medical advice immediately and show this container "
 "or label"
 msgstr ""
+"S46: Yutulması halinde derhal tıbbi yardım alın ve bu kabı veya etiketi "
+"gösterin."
 
 #: src/rsdialog.cpp:257
 #, kde-format
@@ -7049,6 +7087,7 @@ msgid ""
 "S47: Keep at temperature not exceeding ... °C ( to be specified by the "
 "manufacturer )"
 msgstr ""
+"S47: ... °C'yi aşmayan sıcaklıklarda tutun (üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:260
 #, kde-format
@@ -7058,7 +7097,7 @@ msgctxt ""
 msgid ""
 "S48: Keep wet with ... ( appropriate material to be specified by the "
 "manufacturer )"
-msgstr ""
+msgstr "S48: ... ile ıslak tutun (uygun malzeme üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:263
 #, kde-format
@@ -7066,7 +7105,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S49: Keep only in the original container"
-msgstr ""
+msgstr "S49: Yalnızca özgün saklama kabında tutun"
 
 #: src/rsdialog.cpp:266
 #, kde-format
@@ -7074,7 +7113,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S50: Do not mix with ... ( to be specified by the manufacturer )"
-msgstr ""
+msgstr "S50: ... ile karıştırmayın (üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:269
 #, kde-format
@@ -7082,7 +7121,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S51: Use only in well-ventilated areas"
-msgstr ""
+msgstr "S51: Yalnızca iyi havalandırılan yerlerde kullanın"
 
 #: src/rsdialog.cpp:272
 #, kde-format
@@ -7090,7 +7129,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S52: Not recommended for interior use on large surface areas"
-msgstr ""
+msgstr "S52: Geniş yüzey alanlarında iç mekan kullanımı için önerilmez"
 
 #: src/rsdialog.cpp:275
 #, kde-format
@@ -7099,6 +7138,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S53: Avoid exposure - obtain special instructions before use"
 msgstr ""
+"S53: Maruz kalmaktan kaçının - kullanmadan önce özel yönergeleri okuyun"
 
 #: src/rsdialog.cpp:278
 #, kde-format
@@ -7109,6 +7149,8 @@ msgid ""
 "S56: Dispose of this material and its container at hazardous or special "
 "waste collection point"
 msgstr ""
+"S56: Bu maddeyi ve kabını tehlikeli veya özel atık toplama noktalarında "
+"bertaraf edin"
 
 #: src/rsdialog.cpp:281
 #, kde-format
@@ -7116,7 +7158,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S57: Use appropriate containment to avoid environmental contamination"
-msgstr ""
+msgstr "S57: Çevresel kirlenmeyi önlemek için uygun muhafaza kullanın"
 
 #: src/rsdialog.cpp:284
 #, kde-format
@@ -7126,6 +7168,8 @@ msgctxt ""
 msgid ""
 "S59: Refer to manufacturer/supplier for information on recovery/recycling"
 msgstr ""
+"S59: Geri kazanım/geri dönüşüme ilişkin bilgi için üreticiye/tedarikçiye "
+"başvurun"
 
 #: src/rsdialog.cpp:287
 #, kde-format
@@ -7134,7 +7178,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S60: This material and its container must be disposed of as hazardous waste"
-msgstr ""
+msgstr "S60: Bu malzeme ve kabı tehlikeli atık olarak bertaraf edilmelidir"
 
 #: src/rsdialog.cpp:290
 #, kde-format
@@ -7145,6 +7189,8 @@ msgid ""
 "S61: Avoid release to the environment. Refer to special instructions/safety "
 "data sheet"
 msgstr ""
+"S61: Çevreye salınılmasından kaçının. Özel yönergelere/güvenlik veri "
+"sayfasına bakın"
 
 #: src/rsdialog.cpp:293
 #, kde-format
@@ -7155,6 +7201,8 @@ msgid ""
 "S62: If swallowed, do not induce vomiting: seek medical advice immediately "
 "and show this container or label"
 msgstr ""
+"S62: Yutulması durumunda kusturmayın: Derhal tıbbi yardım alın ve bu kabı "
+"veya etiketi gösterin"
 
 #: src/rsdialog.cpp:296
 #, kde-format
@@ -7165,6 +7213,8 @@ msgid ""
 "S63: In case of accident by inhalation: remove casualty to fresh air and "
 "keep at rest"
 msgstr ""
+"S63: Solunması durumunda kazazedeyi temiz havaya çıkarın ve dinlenmesini "
+"sağlayın"
 
 #: src/rsdialog.cpp:299
 #, kde-format
@@ -7174,13 +7224,11 @@ msgctxt ""
 msgid ""
 "S64: If swallowed, rinse mouth with water ( only if the person is conscious )"
 msgstr ""
+"S64: Yutulması halinde kazazedenin ağzını suyla çalkalayın (yalnızca kişinin "
+"bilinci yerindeyse)"
 
 #: src/rsdialog.cpp:325
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R1: Explosive when dry"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7188,30 +7236,17 @@ msgid "R1: Explosive when dry"
 msgstr "R1: Kuru haldeyken patlayıcıdır"
 
 #: src/rsdialog.cpp:328
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "R2: Risk of explosion by shock, friction, fire or other sources of "
-#| "ignition"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "R2: Risk of explosion by shock, friction, fire or other sources of ignition"
 msgstr ""
-"R2: Şok, sürtünme, ateş ya da diğer tutuşma kaynakları ile teması patlama "
-"riski taşır"
+"R2: Şok, sürtünme, ateş veya diğer tutuşturucu kaynaklardan patlama riski"
 
 #: src/rsdialog.cpp:331
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "R3: Extreme risk of explosion by shock, friction, fire or other sources "
-#| "of ignition"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7219,8 +7254,8 @@ msgid ""
 "R3: Extreme risk of explosion by shock, friction, fire or other sources of "
 "ignition"
 msgstr ""
-"R3: Şok, sürtünme, ateş ya da diğer tutuşma kaynakları ile teması büyük "
-"patlama riski taşır"
+"R3: Şok, sürtünme, ateş veya diğer tutuşturucu kaynaklar nedeniyle aşırı "
+"patlama riski"
 
 #: src/rsdialog.cpp:334
 #, kde-format
@@ -7231,11 +7266,7 @@ msgid "R4: Forms very sensitive explosive metallic compounds"
 msgstr "R4: Çok hassas patlayıcı metalik bileşikler oluşturur"
 
 #: src/rsdialog.cpp:337
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R5: Heating may cause an explosion"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7243,47 +7274,31 @@ msgid "R5: Heating may cause an explosion"
 msgstr "R5: Isıtılması patlamaya neden olabilir"
 
 #: src/rsdialog.cpp:340
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R6: Explosive with or without contact with air"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R6: Explosive with or without contact with air"
-msgstr "R6: Havayla temas etmesi veya etmemesi halinde patlayıcıdır"
+msgstr "R6: Havayla teması olsa da olmasa da patlayıcıdır"
 
 #: src/rsdialog.cpp:343
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R7: May cause fire"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R7: May cause fire"
-msgstr "R7: Yangına sebep olabilir"
+msgstr "R7: Yangına neden olabilir"
 
 #: src/rsdialog.cpp:346
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R8: Contact with combustible material may cause fire"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R8: Contact with combustible material may cause fire"
-msgstr "R8: Yanabilir malzemeyle teması yangına sebep olabilir"
+msgstr "R8: Yanabilir malzemeyle teması yangına neden olabilir"
 
 #: src/rsdialog.cpp:349
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R9: Explosive when mixed with combustible material"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7291,11 +7306,7 @@ msgid "R9: Explosive when mixed with combustible material"
 msgstr "R9: Yanabilir malzemeyle karıştırıldığında patlayıcıdır"
 
 #: src/rsdialog.cpp:352
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R10: Flammable"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7303,11 +7314,7 @@ msgid "R10: Flammable"
 msgstr "R10: Yanıcı"
 
 #: src/rsdialog.cpp:355
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R11: Highly flammable"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7315,11 +7322,7 @@ msgid "R11: Highly flammable"
 msgstr "R11: Çok yanıcı"
 
 #: src/rsdialog.cpp:358
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R12: Extremely flammable"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7327,11 +7330,7 @@ msgid "R12: Extremely flammable"
 msgstr "R12: Çok yüksek derecede yanıcı"
 
 #: src/rsdialog.cpp:361
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R14: Reacts violently with water"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7339,11 +7338,7 @@ msgid "R14: Reacts violently with water"
 msgstr "R14: Suyla şiddetli şekilde tepkimeye girer"
 
 #: src/rsdialog.cpp:364
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R15: Contact with water liberates extremely flammable gases"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7351,11 +7346,7 @@ msgid "R15: Contact with water liberates extremely flammable gases"
 msgstr "R15: Su ile teması, aşırı derecede yanıcı gazlar açığa çıkarır"
 
 #: src/rsdialog.cpp:367
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R16: Explosive when mixed with oxidising substances"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7363,11 +7354,7 @@ msgid "R16: Explosive when mixed with oxidising substances"
 msgstr "R16: Oksitleyici maddelerle karıştığı zaman patlayıcıdır"
 
 #: src/rsdialog.cpp:370
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R17: Spontaneously flammable in air"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7375,11 +7362,7 @@ msgid "R17: Spontaneously flammable in air"
 msgstr "R17: Havada kendiliğinden yanıcıdır"
 
 #: src/rsdialog.cpp:373
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R18: In use, may form flammable/explosive vapour-air mixture"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7388,11 +7371,7 @@ msgstr ""
 "R18: Kullanımı sırasında, yanıcı/patlayıcı buhar-hava karışımı oluşturabilir"
 
 #: src/rsdialog.cpp:376
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R19: May form explosive peroxides"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7400,59 +7379,39 @@ msgid "R19: May form explosive peroxides"
 msgstr "R19: Patlayıcı peroksitler oluşturabilir"
 
 #: src/rsdialog.cpp:379
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R20: Harmful by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R20: Harmful by inhalation"
-msgstr "R20: Solunması halinde zararlıdır"
+msgstr "R20: Solunması durumunda zararlıdır"
 
 #: src/rsdialog.cpp:382
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R21: Harmful in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R21: Harmful in contact with skin"
-msgstr "R21: Deriyle teması halinde zararlıdır"
+msgstr "R21: Cilt teması durumunda zararlıdır"
 
 #: src/rsdialog.cpp:385
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R22: Harmful if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R22: Harmful if swallowed"
-msgstr "R22: Yutulması halinde zararlıdır"
+msgstr "R22: Yutulması durumunda zararlıdır"
 
 #: src/rsdialog.cpp:388
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R23: Toxic by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R23: Toxic by inhalation"
-msgstr "R23: Solunursa zehirleyicidir"
+msgstr "R23: Solunması durumunda zehirleyicidir"
 
 #: src/rsdialog.cpp:391
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R24: Toxic in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7460,23 +7419,15 @@ msgid "R24: Toxic in contact with skin"
 msgstr "R24: Cilde temas ederse zehirleyicidir"
 
 #: src/rsdialog.cpp:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R25: Toxic if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R25: Toxic if swallowed"
-msgstr "R25: Yutulursa zehirleyicidir"
+msgstr "R25: Yutulması durumunda zehirleyicidir"
 
 #: src/rsdialog.cpp:397
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R26: Very toxic by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7484,11 +7435,7 @@ msgid "R26: Very toxic by inhalation"
 msgstr "R26: Solunursa çok zehirleyicidir"
 
 #: src/rsdialog.cpp:400
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R27: Very toxic in contact with skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7496,47 +7443,31 @@ msgid "R27: Very toxic in contact with skin"
 msgstr "R27: Cilde temas ederse çok zehirleyicidir"
 
 #: src/rsdialog.cpp:403
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R28: Very toxic if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R28: Very toxic if swallowed"
-msgstr "R28: Yutulursa çok zehirleyicidir"
+msgstr "R28: Yutulması durumunda çok zehirleyicidir"
 
 #: src/rsdialog.cpp:406
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R29: Contact with water liberates toxic gas."
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R29: Contact with water liberates toxic gas."
-msgstr "R29: Su ile teması, zehirli gaz açığa çıkarır."
+msgstr "R29: Su ile teması, zehirli gaz açığa çıkarır"
 
 #: src/rsdialog.cpp:409
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R30: Can become highly flammable in use"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R30: Can become highly flammable in use"
-msgstr "R30: Kullanım sırasında çok yanıcı olabilir"
+msgstr "R30: Kullanım sırasında çok yanıcı duruma gelebilir"
 
 #: src/rsdialog.cpp:412
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R31: Contact with acids liberates toxic gas"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7544,11 +7475,7 @@ msgid "R31: Contact with acids liberates toxic gas"
 msgstr "R31: Asitlerle teması, zehirli gaz açığa çıkarır"
 
 #: src/rsdialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R32: Contact with acids liberates very toxic gas"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7556,11 +7483,7 @@ msgid "R32: Contact with acids liberates very toxic gas"
 msgstr "R32: Asitlerle teması, çok zehirli gaz açığa çıkarır"
 
 #: src/rsdialog.cpp:418
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R33: Danger of cumulative effects"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7568,35 +7491,23 @@ msgid "R33: Danger of cumulative effects"
 msgstr "R33: Birikmeli etki tehlikesi"
 
 #: src/rsdialog.cpp:421
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R34: Causes burns"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R34: Causes burns"
-msgstr "R34: Yanıklara sebep olur"
+msgstr "R34: Yanıklara neden olur"
 
 #: src/rsdialog.cpp:424
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R35: Causes severe burns"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R35: Causes severe burns"
-msgstr "R35: Ağır yanıklara sebep olur"
+msgstr "R35: Ağır yanıklara neden olur"
 
 #: src/rsdialog.cpp:427
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R36: Irritating to eyes"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7604,11 +7515,7 @@ msgid "R36: Irritating to eyes"
 msgstr "R36: Gözü tahriş eder"
 
 #: src/rsdialog.cpp:430
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R37: Irritating to respiratory system"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7616,11 +7523,7 @@ msgid "R37: Irritating to respiratory system"
 msgstr "R37: Solunum sistemini tahriş eder"
 
 #: src/rsdialog.cpp:433
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R38: Irritating to skin"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7628,11 +7531,7 @@ msgid "R38: Irritating to skin"
 msgstr "R38: Cildi tahriş eder"
 
 #: src/rsdialog.cpp:436
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R39: Danger of very serious irreversible effects"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7640,11 +7539,7 @@ msgid "R39: Danger of very serious irreversible effects"
 msgstr "R39: Geri dönüşü olmayan çok ciddi etki tehlikesi"
 
 #: src/rsdialog.cpp:439
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R40: Limited evidence of a carcinogenic effect"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7652,11 +7547,7 @@ msgid "R40: Limited evidence of a carcinogenic effect"
 msgstr "R40: Kanserojen bir etkinin sınırlı kanıtı"
 
 #: src/rsdialog.cpp:442
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R41: Risk of serious damage to eyes"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7664,23 +7555,15 @@ msgid "R41: Risk of serious damage to eyes"
 msgstr "R41: Gözlere ciddi hasar verme riski"
 
 #: src/rsdialog.cpp:445
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R42: May cause sensitisation by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R42: May cause sensitisation by inhalation"
-msgstr "R42: Solunması halinde hassasiyete yol açabilir"
+msgstr "R42: Solunması durumunda hassasiyete yol açabilir"
 
 #: src/rsdialog.cpp:448
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R43: May cause sensitisation by skin contact"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7688,23 +7571,15 @@ msgid "R43: May cause sensitisation by skin contact"
 msgstr "R43: Deriyle teması halinde hassasiyete yol açabilir"
 
 #: src/rsdialog.cpp:451
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R44: Risk of explosion if heated under confinement"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R44: Risk of explosion if heated under confinement"
-msgstr "R44: Kapalı kapta ısıtma halinde patlama tehlikesi"
+msgstr "R44: Kapalı kapta ısıtma durumunda patlama tehlikesi"
 
 #: src/rsdialog.cpp:454
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R45: May cause cancer"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7712,11 +7587,7 @@ msgid "R45: May cause cancer"
 msgstr "R45: Kansere yol açabilir"
 
 #: src/rsdialog.cpp:457
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R46: May cause heritable genetic damage"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7724,11 +7595,7 @@ msgid "R46: May cause heritable genetic damage"
 msgstr "R46: Kalıtımsal genetik hasara yol açabilir"
 
 #: src/rsdialog.cpp:460
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R48: Danger of serious damage to health by prolonged exposure"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7736,23 +7603,15 @@ msgid "R48: Danger of serious damage to health by prolonged exposure"
 msgstr "R48: Uzun süreli maruz kalınması halinde sağlığa ciddi zarar tehlikesi"
 
 #: src/rsdialog.cpp:463
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R49: May cause cancer by inhalation"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R49: May cause cancer by inhalation"
-msgstr "R49: Solunması halinde kansere yol açabilir"
+msgstr "R49: Solunması durumunda kansere yol açabilir"
 
 #: src/rsdialog.cpp:466
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R50: Very toxic to aquatic organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7760,11 +7619,7 @@ msgid "R50: Very toxic to aquatic organisms"
 msgstr "R50: Suda yaşayan canlılar için çok zehirlidir"
 
 #: src/rsdialog.cpp:469
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R51: Toxic to aquatic organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7772,11 +7627,7 @@ msgid "R51: Toxic to aquatic organisms"
 msgstr "R51: Suda yaşayan canlılar için zehirlidir"
 
 #: src/rsdialog.cpp:472
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R52: Harmful to aquatic organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7784,11 +7635,7 @@ msgid "R52: Harmful to aquatic organisms"
 msgstr "R52: Suda yaşayan canlılara zararlıdır"
 
 #: src/rsdialog.cpp:475
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R53: May cause long-term adverse effects in the aquatic environment"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7796,11 +7643,7 @@ msgid "R53: May cause long-term adverse effects in the aquatic environment"
 msgstr "R53: Sucul ortamlarda uzun süreli olumsuz etkilere sebep olabilir"
 
 #: src/rsdialog.cpp:478
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R54: Toxic to flora"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7808,11 +7651,7 @@ msgid "R54: Toxic to flora"
 msgstr "R54: Bitkiler için zehirlidir"
 
 #: src/rsdialog.cpp:481
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R55: Toxic to fauna"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7820,11 +7659,7 @@ msgid "R55: Toxic to fauna"
 msgstr "R55: Hayvanlar için zehirlidir"
 
 #: src/rsdialog.cpp:484
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R56: Toxic to soil organisms"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7832,11 +7667,7 @@ msgid "R56: Toxic to soil organisms"
 msgstr "R56: Toprakta yaşayan canlılar için zehirlidir"
 
 #: src/rsdialog.cpp:487
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R57: Toxic to bees"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7844,23 +7675,15 @@ msgid "R57: Toxic to bees"
 msgstr "R57: Arılar için zehirlidir"
 
 #: src/rsdialog.cpp:490
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R58: May cause long-term adverse effects in the environment"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R58: May cause long-term adverse effects in the environment"
-msgstr "R58: Ortamda uzun süreli olumsuz etkilere sebep olabilir"
+msgstr "R58: Ortamda uzun süreli olumsuz etkilere neden olabilir"
 
 #: src/rsdialog.cpp:493
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R59: Dangerous for the ozone layer"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7868,11 +7691,7 @@ msgid "R59: Dangerous for the ozone layer"
 msgstr "R59: Ozon tabakası için tehlikelidir"
 
 #: src/rsdialog.cpp:496
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R60: May impair fertility"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7880,11 +7699,7 @@ msgid "R60: May impair fertility"
 msgstr "R60: Doğurganlığa zarar verebilir"
 
 #: src/rsdialog.cpp:499
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R61: May cause harm to the unborn child"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7892,11 +7707,7 @@ msgid "R61: May cause harm to the unborn child"
 msgstr "R61: Anne karnındaki çocuğa zarar verebilir"
 
 #: src/rsdialog.cpp:502
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R62: Possible risk of impaired fertility"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7904,11 +7715,7 @@ msgid "R62: Possible risk of impaired fertility"
 msgstr "R62: Olası doğurganlıkta azalma riski"
 
 #: src/rsdialog.cpp:505
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R63: Possible risk of harm to the unborn child"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7916,11 +7723,7 @@ msgid "R63: Possible risk of harm to the unborn child"
 msgstr "R63: Anne karnındaki çocuğa zarar verme riski olasıdır"
 
 #: src/rsdialog.cpp:508
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R64: May cause harm to breast-fed babies"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7928,49 +7731,32 @@ msgid "R64: May cause harm to breast-fed babies"
 msgstr "R64: Süt emen bebeklere zarar verebilir"
 
 #: src/rsdialog.cpp:511
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R65: Harmful: may cause lung damage if swallowed"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R65: Harmful: may cause lung damage if swallowed"
-msgstr "R65: Zararlı: yutulursa akciğerinize zarar verebilir"
+msgstr "R65: Zararlı: Yutulursa akciğerinize zarar verebilir"
 
 #: src/rsdialog.cpp:514
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R66: Repeated exposure may cause skin dryness or cracking"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R66: Repeated exposure may cause skin dryness or cracking"
 msgstr ""
-"R66: Tekrarlı maruz kalma, cildinizin kurumasına ve çatlamasına neden "
-"olabilir"
+"R66: Yineli maruz kalmak, cildinizin kurumasına ve çatlamasına neden olabilir"
 
 #: src/rsdialog.cpp:517
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R67: Vapours may cause drowsiness and dizziness"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R67: Vapours may cause drowsiness and dizziness"
-msgstr "R67: Buharlar uyuşukluk ve baş dönmesine sebep olabilir"
+msgstr "R67: Buharlar uyuşukluk ve baş dönmesine neden olabilir"
 
 #: src/rsdialog.cpp:520
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: http://eur-lex."
-#| "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "R68: Possible risk of irreversible effects"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7980,13 +7766,13 @@ msgstr "R68: Geri alınamaz etkiler oluşturma riski"
 #: src/rsdialog.cpp:548
 #, kde-format
 msgid "At least one of the specified phrases is invalid."
-msgstr "Belirtilen ifadelerden en az bir tanesi geçersiz."
+msgstr "Belirtilen ibarelerden en az bir tanesi geçersizdir."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/rswidget.ui:28
 #, kde-format
 msgid "S-Phrases: "
-msgstr "S-parçaları: "
+msgstr "S ibareleri: "
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, r_le)
 #: src/rswidget.ui:48
@@ -7995,15 +7781,14 @@ msgid ""
 "Enter the R-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"Okumak istediğiniz R-parçalarını giriniz. Ayıraç olarak yalnızca \"-\" "
-"karakterine izin verilir. \"/\" işaretiyle yapılan bileşimler henüz "
-"desteklenmemektedir."
+"Okumak istediğiniz R ibarelerini girin. Sınırlayıcı olarak yalnızca \"-\" "
+"işaretine izin verilir. \"/\" içeren kombinasyonlar henüz gerçeklenmemiştir."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, r_le)
 #: src/rswidget.ui:54
 #, kde-format
 msgid "Enter the R-Phrases you want to read"
-msgstr "Okumak istediğiniz R-parçalarını girin"
+msgstr "Okumak istediğiniz R ibarelerini girin"
 
 #. i18n: ectx: property (text), widget (QLineEdit, r_le)
 #. i18n: ectx: property (text), widget (QLineEdit, s_le)
@@ -8019,22 +7804,21 @@ msgid ""
 "Enter the S-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"Okumak istediğiniz S-parçalarını giriniz. Ayıraç olarak yalnızca \"-\" "
-"karakterine izin verilir. \"/\" işaretiyle yapılan bileşimler henüz "
-"desteklenmemektedir."
+"Okumak istediğiniz S ibarelerini girin. Sınırlayıcı olarak yalnızca \"-\" "
+"işaretine izin verilir. \"/\" içeren kombinasyonlar henüz gerçeklenmemiştir."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, s_le)
 #: src/rswidget.ui:67
 #, kde-format
 msgid "Enter the S-Phrases you want to read"
-msgstr "Okumak istediğiniz S-parçalarını girin"
+msgstr "Okumak istediğiniz S ibarelerini girin"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, filterButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, filterButton)
 #: src/rswidget.ui:77 src/rswidget.ui:80
 #, kde-format
 msgid "Click here to search for the phrases you entered on the left"
-msgstr "Sol tarafa yazdığınız parçalarda arama yapmak için buraya tıklayın"
+msgstr "Sol tarafa yazdığınız ibarelerde arama yapmak için buraya tıklayın"
 
 #. i18n: ectx: property (text), widget (QPushButton, filterButton)
 #: src/rswidget.ui:83
@@ -8043,40 +7827,39 @@ msgid "&Filter"
 msgstr "S&üz"
 
 #: src/searchwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search:"
+#, kde-format
 msgid "Search..."
-msgstr "Ara:"
+msgstr "Ara..."
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "Birbirinin yanında"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "Bir kısmı diğerinin yanında"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Her iki parça da sürekli"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "Yatay olarak"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
 msgid "Horizontally (shifted)"
-msgstr ""
+msgstr "Yatay olarak (kaydırılmış)"
 
 #: src/settings/kalziumconfigdialog.cpp:15
 #, kde-format
 msgid "Schemes"
-msgstr "Şema"
+msgstr "Şemalar"
 
 #: src/settings/kalziumconfigdialog.cpp:22
 #, kde-format
@@ -8089,8 +7872,7 @@ msgid "Units"
 msgstr "Birimler"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
 msgstr "İzotop Tablosu"
 
@@ -8098,73 +7880,73 @@ msgstr "İzotop Tablosu"
 #: src/settings/settings_colors.ui:50
 #, kde-format
 msgid "s-Block:"
-msgstr "s-Bloğu:"
+msgstr "s bloku:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel14)
 #: src/settings/settings_colors.ui:70
 #, kde-format
 msgid "p-Block:"
-msgstr "p-Bloğu:"
+msgstr "p bloku:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel15)
 #: src/settings/settings_colors.ui:90
 #, kde-format
 msgid "d-Block:"
-msgstr "d-Bloğu:"
+msgstr "d bloku:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel16)
 #: src/settings/settings_colors.ui:110
 #, kde-format
 msgid "f-Block:"
-msgstr "f-Bloğu:"
+msgstr "f bloku:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
 #: src/settings/settings_colors.ui:156
 #, kde-format
 msgid "Group 1:"
-msgstr "1. Grup:"
+msgstr "1. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8)
 #: src/settings/settings_colors.ui:176
 #, kde-format
 msgid "Group 2:"
-msgstr "2. Grup:"
+msgstr "2. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: src/settings/settings_colors.ui:196
 #, kde-format
 msgid "Group 3:"
-msgstr "3. Grup:"
+msgstr "3. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel6)
 #: src/settings/settings_colors.ui:216
 #, kde-format
 msgid "Group 4:"
-msgstr "4. Grup:"
+msgstr "4. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5_2)
 #: src/settings/settings_colors.ui:236
 #, kde-format
 msgid "Group 5:"
-msgstr "5. Grup:"
+msgstr "5. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: src/settings/settings_colors.ui:256
 #, kde-format
 msgid "Group 6:"
-msgstr "6. Grup:"
+msgstr "6. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #: src/settings/settings_colors.ui:276
 #, kde-format
 msgid "Group 7:"
-msgstr "7. Grup:"
+msgstr "7. grup:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: src/settings/settings_colors.ui:296
 #, kde-format
 msgid "Group 8:"
-msgstr "8. Grup:"
+msgstr "8. grup:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabStateOfMatter)
 #: src/settings/settings_colors.ui:322
@@ -8188,7 +7970,7 @@ msgstr "Sıvı:"
 #: src/settings/settings_colors.ui:382
 #, kde-format
 msgid "Vaporous:"
-msgstr "Buharlı:"
+msgstr "Gaz:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2_2)
 #: src/settings/settings_colors.ui:428
@@ -8200,7 +7982,7 @@ msgstr "Alkali metaller:"
 #: src/settings/settings_colors.ui:448
 #, kde-format
 msgid "Rare earth:"
-msgstr "Nadir toprak:"
+msgstr "Nadir element:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7_2)
 #: src/settings/settings_colors.ui:468
@@ -8261,7 +8043,7 @@ msgstr "Tüm elementler:"
 #: src/settings/settings_colors.ui:641 src/settings/settings_colors.ui:644
 #, kde-format
 msgid "This color will be used if no other scheme is selected"
-msgstr "Eğer başka bir renk şablonu seçilmezse bu renk kullanılacak"
+msgstr "Başka bir şema seçilmediği takdirde bu renk kullanılacak"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/settings/settings_gradients.ui:42
@@ -8272,11 +8054,11 @@ msgid ""
 "\n"
 "Check the properties you want to have displayed with a logarithmic gradient."
 msgstr ""
-"Kalzium, periyodik tablodaki bir elementin verilen değerini görüntülemek "
-"için doğrusal bir gradyan kullanmak yerine, logaritmik bir gradyan da "
+"Kalzium, periyodik tablodaki bir elementin verilen özelliğini görüntülemek "
+"için doğrusal bir gradyan kullanmak yerine logaritmik bir gradyan da "
 "kullanabilir.\n"
 "\n"
-"Logaritmik bir gradyanla gösterilmesini istediğiniz özellikleri işaretleyin."
+"Logaritmik gradyanla görüntülenmesini istediğiniz özellikleri denetleyin."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicDiscoverydateGradient)
 #: src/settings/settings_gradients.ui:102
@@ -8288,13 +8070,13 @@ msgstr "Keşif Tarihi"
 #: src/settings/settings_gradients.ui:136
 #, kde-format
 msgid "Maximal Value Color:"
-msgstr "En Büyük Renk Değeri:"
+msgstr "En büyük değer rengi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/settings/settings_gradients.ui:152
 #, kde-format
 msgid "Minimal Value Color:"
-msgstr "En Küçük Renk Değeri:"
+msgstr "En küçük değer rengi:"
 
 #: src/settings/unitsettingsdialog.cpp:18
 #, kde-format
@@ -8318,14 +8100,14 @@ msgid ""
 "This page gives an overview of the spectrum of this element. Using the mouse "
 "you can zoom into the spectrum."
 msgstr ""
-"Bu sayfa, bu elementin tayfı (spektrumu) hakkında genel bir bilgi verir. "
-"Fare yardımıyla tayfın görüntü derinliğini ayarlayabilirsiniz."
+"Bu sayfada bu elementin tayfına genel bir bakış sunulmaktadır. Fareyi "
+"kullanarak tayfı yakınlaştırabilirsiniz."
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, SpectrumView)
 #: src/spectrumview.ui:17
 #, kde-format
 msgid "This page gives an overview of the spectrum of this element."
-msgstr "Bu sayfa elementin tayfı hakkında genel bir bilgi verir."
+msgstr "Bu sayfada bu elementin tayfına genel bir bakış sunulmaktadır."
 
 #. i18n: ectx: property (toolTip), widget (SpectrumWidget, m_spectrumWidget)
 #. i18n: ectx: property (whatsThis), widget (SpectrumWidget, m_spectrumWidget)
@@ -8370,13 +8152,13 @@ msgstr "Tayf Ayarları"
 #: src/spectrumview.ui:155
 #, kde-format
 msgid "Emission spectrum"
-msgstr ""
+msgstr "Salınım tayfı"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_spectrumType)
 #: src/spectrumview.ui:160
 #, kde-format
 msgid "Absorption spectrum"
-msgstr ""
+msgstr "Soğurma tayfı"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/spectrumview.ui:168
@@ -8394,7 +8176,7 @@ msgstr "Tür:"
 #: src/spectrumview.ui:185
 #, kde-format
 msgid "Reset zoom"
-msgstr ""
+msgstr "Yakınlaştırmayı Sıfırla"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
@@ -8404,7 +8186,7 @@ msgstr "Dalga boyu"
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
 msgid "Intensity"
-msgstr "Şiddet"
+msgstr "Yoğunluk"
 
 #: src/tablesdialog.cpp:35 src/tablesdialog.cpp:36
 #, kde-format
@@ -8414,12 +8196,12 @@ msgstr "Yunan alfabesi"
 #: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Uppercase"
-msgstr "Büyük harf"
+msgstr "BÜYÜK harf"
 
 #: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Lowercase"
-msgstr "Küçük harf"
+msgstr "küçük harf"
 
 #: src/tablesdialog.cpp:48
 #, kde-format
@@ -8427,7 +8209,7 @@ msgctxt ""
 "The name of the greek letter in your language. For example 'Alpha' for the "
 "first letter. "
 msgid "Name"
-msgstr "İsim"
+msgstr "Ad"
 
 #: src/tablesdialog.cpp:104
 #, kde-format
@@ -8442,7 +8224,7 @@ msgstr "beta"
 #: src/tablesdialog.cpp:106
 #, kde-format
 msgid "gamma"
-msgstr "gamma"
+msgstr "gama"
 
 #: src/tablesdialog.cpp:107
 #, kde-format
@@ -8497,7 +8279,7 @@ msgstr "nü"
 #: src/tablesdialog.cpp:117
 #, kde-format
 msgid "xi"
-msgstr "ksi"
+msgstr "zi"
 
 #: src/tablesdialog.cpp:118
 #, kde-format
@@ -8721,11 +8503,10 @@ msgid "&Copy"
 msgstr "Ko&pyala"
 
 #: src/tools/moleculeview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Molecular Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
-msgstr "Molekül Düzenleyici"
+msgstr "Molekül Düzenleyicisi"
 
 #: src/tools/moleculeview.cpp:71
 #, kde-format
@@ -8735,7 +8516,7 @@ msgstr "Molekül Yükle"
 #: src/tools/moleculeview.cpp:73
 #, kde-format
 msgid "Download New Molecules"
-msgstr "Yeni Molekül İndir"
+msgstr "Yeni Moleküller İndir"
 
 #: src/tools/moleculeview.cpp:75
 #, kde-format
@@ -8747,9 +8528,7 @@ msgstr "Molekülü Kaydet"
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
 "located."
-msgstr ""
-"Hiçbir araç yüklenmedi - bu Avogadro eklentilerinin yerinin bulunamamasından "
-"kaynaklanıyor olabilir."
+msgstr "Yüklenen araç yok; büyük olasılıkla Avogadro eklentileri bulunamadı."
 
 #: src/tools/moleculeview.cpp:130
 #, kde-format
@@ -8757,8 +8536,8 @@ msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
 "located. No molecules can be viewed until this issue is resolved."
 msgstr ""
-"Hiçbir araç yüklenmedi - bu Avogadro eklentilerinin yerinin bulunamamasından "
-"kaynaklanıyor olabilir. Bu sorun çözülene kadar hiçbir molekül gösterilemez."
+"Yüklenen araç yok; büyük ihtimalle Avogadro eklentileri bulunamadı. Bu sorun "
+"çözülene kadar hiçbir molekül görüntülenemez."
 
 #: src/tools/moleculeview.cpp:137 src/tools/moleculeview.cpp:203
 #, kde-format
@@ -8773,24 +8552,22 @@ msgstr "Tüm dosyalar"
 #: src/tools/moleculeview.cpp:142
 #, kde-format
 msgid "Choose a file to open"
-msgstr "Açılacak bir dosya seçin"
+msgstr "Açılacak bir dosya seç"
 
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Could not load molecule"
-msgstr "Bir molekül yükleniyor"
+msgstr "Molekül yüklenemedi"
 
 #: src/tools/moleculeview.cpp:177
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Loading the molecule failed."
-msgstr "Bir molekül yükleniyor"
+msgstr "Molekülün yüklenmesi başarısız oldu"
 
 #: src/tools/moleculeview.cpp:206
 #, kde-format
 msgid "Choose a file to save to"
-msgstr "Kaydedilecek bir dosya seçin"
+msgstr "Kaydedilecek bir dosya seç"
 
 #: src/tools/moleculeview.cpp:247
 #, kde-format
@@ -8803,29 +8580,29 @@ msgstr "%1 u"
 #: src/tools/moleculeview.cpp:290
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
-msgstr ""
+msgstr "%1-%2 molekülleri yüklenemedi"
 
 #: src/tools/moleculeview.cpp:298
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
-msgstr ""
+msgstr "İndirilebilecek olan molekül %1 konumuna kaydedildi."
 
 #: src/tools/moleculeview.cpp:300
 #, kde-format
 msgid "The molecules have been saved to %1."
-msgstr ""
+msgstr "Moleküller %1 konumuna kaydedildi."
 
 #. i18n: ectx: property (text), widget (QLabel, labelStyle)
 #: src/tools/moleculeviewerwidget.ui:28
 #, kde-format
 msgid "Style:"
-msgstr "Biçim:"
+msgstr "Biçem:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, display)
 #: src/tools/moleculeviewerwidget.ui:97
 #, kde-format
 msgid "Display"
-msgstr "Görüntüle"
+msgstr "Görüntü"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/tools/moleculeviewerwidget.ui:112
@@ -8834,6 +8611,8 @@ msgid ""
 "Load a molecule and use the mouse pointer and scroll wheel to change the "
 "view point."
 msgstr ""
+"Bir molekül yükleyin ve bakış noktasını değiştirmek için fare işaretçisini "
+"ve sarma tekerleğini kullanın."
 
 #. i18n: ectx: attribute (title), widget (QWidget, edit)
 #: src/tools/moleculeviewerwidget.ui:136
@@ -8845,13 +8624,13 @@ msgstr "Düzen"
 #: src/tools/moleculeviewerwidget.ui:144
 #, kde-format
 msgid "Optimize"
-msgstr "En iyileştir"
+msgstr "Eniyile"
 
 #. i18n: ectx: property (text), widget (QPushButton, clearDrawingButton)
 #: src/tools/moleculeviewerwidget.ui:164
 #, kde-format
 msgid "Clear drawing"
-msgstr "Çizimi temizle"
+msgstr "Çizimi Temizle"
 
 #. i18n: ectx: attribute (title), widget (QWidget, measure)
 #: src/tools/moleculeviewerwidget.ui:174
@@ -8866,7 +8645,7 @@ msgid ""
 "Click on 2 atoms to measure a distance, on 3 atoms to measure an angle, on 4 "
 "atoms to measure a dihedral angle."
 msgstr ""
-"Bir uzaklığı ölçmek için 2 atoma, bir açıyı ölçmek için 3 atoma, düzlemsel "
+"Bir uzaklığı ölçmek için 2 atoma, bir açıyı ölçmek için 3 atoma, dihedral "
 "açıyı ölçmek için 4 atoma tıklayın."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
@@ -8879,7 +8658,7 @@ msgstr "İstatistikler"
 #: src/tools/moleculeviewerwidget.ui:223
 #, kde-format
 msgid "Name:"
-msgstr "İsim:"
+msgstr "Ad:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/tools/moleculeviewerwidget.ui:240
@@ -8905,10 +8684,9 @@ msgid "Convert"
 msgstr "Dönüştür"
 
 #: src/tools/obconverter.cpp:115
-#, fuzzy, kde-format
-#| msgid "Save Molecule"
+#, kde-format
 msgid "Open Molecule File"
-msgstr "Molekülü Kaydet"
+msgstr "Molekül Dosyası Aç"
 
 #: src/tools/obconverter.cpp:117
 #, kde-format
@@ -8918,22 +8696,23 @@ msgstr "Tüm Dosyalar"
 #: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "You must select some files first."
-msgstr "Önce bazı dosyalar seçmelisiniz."
+msgstr "Önce bazı dosyaları seçmelisiniz."
 
 #: src/tools/obconverter.cpp:178
 #, kde-format
 msgid "No files selected"
-msgstr "Hiçbir dosya seçilmedi"
+msgstr "Seçili dosya yok"
 
 #: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
-msgstr "%1 isimli bir dosya zaten var. Mümkünse üzerine yazmak ister misiniz?"
+msgstr ""
+"%1 dosyası halihazırda var. Olanaklıysa üzerine yazmak istiyor musunuz?"
 
 #: src/tools/obconverter.cpp:196
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
-msgstr "%1 isimli bir dosya zaten var ! -- KOpenBabel"
+msgstr "%1 Dosyası Var -- KOpenBabel"
 
 #: src/tools/obconverter.cpp:218
 #, kde-format
@@ -8944,7 +8723,7 @@ msgstr "Bu komutları çalıştırmak uygun mu? -- KOpenBabel"
 #: src/tools/obconverterwidget.ui:32
 #, kde-format
 msgid "Files to convert"
-msgstr "Dönüştürülecek dosya"
+msgstr "Dönüştürülecek Dosyalar"
 
 #. i18n: ectx: property (text), widget (QPushButton, selectAllFileButton)
 #: src/tools/obconverterwidget.ui:53
@@ -8985,8 +8764,8 @@ msgstr ""
 "weight:400; font-style:normal; text-decoration:none;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Burada dönüştürülecek "
-"dosyaları görüyorsunuz. Listeye dosya ekleyip çıkarmak için düğmeleri "
-"kullanın.</p></body></html>"
+"dosyaları görüyorsunuz. Listeye dosya eklemek ve listeden dosya çıkarmak "
+"için düğmeleri kullanın.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/tools/obconverterwidget.ui:120
