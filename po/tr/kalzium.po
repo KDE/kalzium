@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2024-01-29 17:17+0300\n"
+"PO-Revision-Date: 2024-01-31 17:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -432,7 +432,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:414
 #, kde-format
 msgid "Atomic Mass"
-msgstr "Atom Kütlesi"
+msgstr "Atom kütlesi"
 
 #: data/knowledge.xml:128
 #, kde-format
@@ -706,7 +706,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:439 src/settings/settings_gradients.ui:60
 #, kde-format
 msgid "Covalent Radius"
-msgstr "Kovalent Yarıçap"
+msgstr "Kovalent yarıçap"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -715,7 +715,7 @@ msgstr "Kovalent Yarıçap"
 #: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:434
 #, kde-format
 msgid "Atomic Radius"
-msgstr "Atom Yarıçapı"
+msgstr "Atom yarıçapı"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
@@ -4445,12 +4445,12 @@ msgstr "Çözücü miktarı her zaman hacim türünden belirtilir"
 #: src/calculator/titrationCalculator.cpp:43
 #, kde-format
 msgid "Experimental values"
-msgstr "Deneysel değerler"
+msgstr "Deneysel Değerler"
 
 #: src/calculator/titrationCalculator.cpp:44
 #, kde-format
 msgid "Theoretical equations"
-msgstr "Kuramsal denklemler"
+msgstr "Kuramsal Denklemler"
 
 #: src/calculator/titrationCalculator.cpp:98
 #, kde-format
@@ -4785,12 +4785,12 @@ msgstr "Yüzde"
 #: src/detailinfodlg.cpp:306
 #, kde-format
 msgid "Half-life period"
-msgstr "Yarılanma ömrü süresi"
+msgstr "Yarılanma Periyodu"
 
 #: src/detailinfodlg.cpp:308
 #, kde-format
 msgid "Energy and Mode of Decay"
-msgstr "Enerji ve Bozunma kipi"
+msgstr "Enerji ve Bozunma Kipi"
 
 #: src/detailinfodlg.cpp:310
 #, kde-format
@@ -5132,7 +5132,7 @@ msgstr "Veriyi Çiz"
 #: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:409
 #, kde-format
 msgid "Atomic Number"
-msgstr "Atom Numarası"
+msgstr "Atom numarası"
 
 #: src/eqchemview.cpp:81
 #, kde-format
@@ -6682,13 +6682,13 @@ msgstr "Etiket yok"
 #: src/plotsetupwidget.ui:333
 #, kde-format
 msgid "Element Names"
-msgstr "Element Adları"
+msgstr "Element adları"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:338
 #, kde-format
 msgid "Element Symbols"
-msgstr "Element Sembolleri"
+msgstr "Element sembolleri"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/plotsetupwidget.ui:348
@@ -8181,7 +8181,7 @@ msgstr "Yakınlaştırmayı Sıfırla"
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
 msgid "Wavelength"
-msgstr "Dalga boyu"
+msgstr "Dalga Boyu"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
