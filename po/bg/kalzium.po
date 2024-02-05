@@ -8369,7 +8369,3 @@ msgstr "Преобразуване от:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Преобразуване в:"
-
-#, fuzzy
-#~ msgid "Kalzium OpenGL Part"
-#~ msgstr "Kalzium"
