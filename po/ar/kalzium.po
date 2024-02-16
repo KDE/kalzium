@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-02-16 01:37+0000\n"
 "PO-Revision-Date: 2023-05-13 17:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -5901,12 +5901,12 @@ msgstr "تين ربتز"
 msgid "Adding new sizable Periodic System"
 msgstr "إضافة نظام دوري جديد قابل للتحجيم"
 
-#: src/main.cpp:102
+#: src/main.cpp:103
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "افتح ملف الجزيء المعطى"
 
-#: src/main.cpp:125
+#: src/main.cpp:126
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "لا يمكن فتح أكثر من جزيء واحد كلّ مرة"

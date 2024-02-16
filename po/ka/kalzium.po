@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-02-16 01:37+0000\n"
 "PO-Revision-Date: 2023-12-09 09:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -5891,12 +5891,12 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "ახალი ზომის შეცვლადი პერიოდული სისტემის დამატება"
 
-#: src/main.cpp:102
+#: src/main.cpp:103
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "მითითებული მოლეკულის ფაილის გახსნა"
 
-#: src/main.cpp:125
+#: src/main.cpp:126
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "ერთდროულად ერთზე მეტი მოლეკულის გახსნა შეუძლებელია"

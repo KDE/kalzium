@@ -582,7 +582,7 @@
 >IUPAC</guimenuitem
 > (predeterminat) vol dir <firstterm
 >International Union of Pure and Applied Chemistry (Unió Internacional de Química Pura i Aplicada)</firstterm
->. Es tracta d'una organització que defineix la majoria dels estàndards relacionats amb la Química. El nou sistema IUPAC enumera cada columna amb números aràbics de l'1 (ú) fins al 18 (divuit). </para
+>. Es tracta d'una organització que defineix la majoria dels estàndards relacionats amb la Química. El sistema IUPAC nou enumera cada columna amb números aràbics de l'1 (ú) fins al 18 (divuit). </para
 ></listitem>
 					 <listitem
 ><para
@@ -616,7 +616,7 @@
 >VIIB</quote
 >, i la divuitena com a <quote
 >VIII</quote
->. A conseqüència de la confusió que varen crear els sistemes de numeració de la IUPAC antiga i el sistema CAS, la IUPAC va adoptar el seu nou sistema. </para
+>. A conseqüència de la confusió que varen crear els sistemes de numeració de la IUPAC antiga i el sistema CAS, la IUPAC va adoptar el seu sistema nou. </para
 ></listitem>
 				 </itemizedlist>
 			 </para>
@@ -1258,7 +1258,7 @@
 >Glossari</guilabel
 > proporciona definicions de les eines més emprades en química, i també sobre alguns coneixements. Sobre la part esquerra de la finestra es pot veure l'arbre d'elements. A sobre hi ha els termes químics, i a sota trobareu un segon arbre d'eines de laboratori.</para>
 				 <para
->A la part superior del giny veureu una barra de cerca. Si hi escriviu quelcom, els arbres de dades es reajustaran immediatament. El botó petit que hi ha a la dreta de la barra de cerca serveix per a esborrar el seu contingut. </para>
+>A la part superior del giny veureu una barra de cerca. Si hi escriviu alguna cosa, els arbres de dades es reajustaran immediatament. El botó petit que hi ha a la dreta de la barra de cerca serveix per a esborrar el seu contingut. </para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -1979,7 +1979,7 @@
 ><para
 ><action
 >Mostra o oculta</action
-> la vista de la llegenda, permet mostrar una llegenda per a l'esquema en el qual està (grups, blocs, comportament àcid). La llegenda es mostra de manera predeterminada, però si l'heu ocultat, ho continuarà estant fins que escolliu mostrar-la. El &kalzium; conservarà aquesta preferència en el seu fitxer de configuració, de manera que es mantindrà la propera vegada que inicieu el programa.</para
+> la vista de la llegenda, permet mostrar una llegenda per a l'esquema en el qual està (grups, blocs, comportament àcid). La llegenda es mostra de manera predeterminada, però si l'heu ocultat, ho continuarà estant fins que escolliu mostrar-la. El &kalzium; conservarà aquesta preferència en el seu fitxer de configuració, de manera que es mantindrà la pròxima vegada que inicieu el programa.</para
 ></listitem>
 					 </varlistentry>
 					 <varlistentry>

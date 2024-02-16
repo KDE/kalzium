@@ -54,7 +54,7 @@
 > <group choice="opt"
 ><option
 >--molecule <replaceable
->nom_du_fichier</replaceable
+>nom-du-fichier</replaceable
 ></option
 ></group
 > </cmdsynopsis>
@@ -84,12 +84,12 @@
 <term
 ><option
 >--molecule <replaceable
->nom_de_fichier</replaceable
+>nom-de-fichier</replaceable
 ></option
 ></term>
 <listitem
 ><para
->Ouvrez le fichier de molécule au format cml, xyz, ent, pdb, alc, chm, cdx, cdxml, c3d1, c3d2, gpr, mdl, mol, sdf, sd, crk3d, cht, dmol, bgf, gam, inp, gamin, gamout, tmol, fract, mpd, ou mol2.</para
+>Ouvrez le fichier de molécule au format cml, xyz, ent, pdb, alc, chm, cdx, cdxml, c3d1, c3d2, gpr, mdl, mol, sdf, sd, crk3d, cht, dmol, bgf, gam, inp, gamin, gamout, tmol, fract, mpd ou mol2.</para
 ></listitem>
 </varlistentry>
 </variablelist>

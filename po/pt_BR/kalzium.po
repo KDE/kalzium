@@ -7,7 +7,7 @@
 # Lisiane Sztoltz Teixeira <lisiane@kdemail.net>, 2004.
 # Diniz Bortolotto <diniz.bortolotto@gmail.com>, 2007.
 # Eliana Megumi Habiro Boaglio <eliana.habiro@gmail.com>, 2008.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2008, 2009, 2010, 2011, 2017, 2018, 2019, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2008, 2009, 2010, 2011, 2017, 2018, 2019, 2020, 2021, 2022, 2024.
 # Mauricio Piacentini <piacentini@kde.org>, 2009.
 # Marcus Vinícius de Andrade Gama <marcus.gama@gmail.com>, 2010, 2012.
 # Aracele Torres <araceletorres@gmail.com>, 2010, 2011.
@@ -16,16 +16,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2022-07-13 14:46-0300\n"
+"POT-Creation-Date: 2024-02-16 01:37+0000\n"
+"PO-Revision-Date: 2024-01-11 20:59-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6248,12 +6248,12 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "Adição do novo Sistema Periódico dimensionável"
 
-#: src/main.cpp:102
+#: src/main.cpp:103
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "Abre o arquivo de molécula indicado"
 
-#: src/main.cpp:125
+#: src/main.cpp:126
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "Não foi possível abrir mais que uma molécula ao mesmo tempo"
@@ -6789,13 +6789,7 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4: Manter fora de qualquer zona de habitação"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6805,11 +6799,7 @@ msgid ""
 msgstr "S5: Manter sob... (líquido apropriado especificado pelo produtor)"
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
