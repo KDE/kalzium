@@ -1,6 +1,6 @@
 # translation of kalzium.po to galician
 # Tradución de kalzium.po ó galego
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 # Gonzalo H. Castilla <ttxzgl@yahoo.es>, 2004.
 # mvillarino <mvillarino@users.sourceforge.net>, 2006, 2008, 2009.
 # Xabi G. Feal <xabigf@gmx.net>, 2006.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 00:39+0000\n"
-"PO-Revision-Date: 2023-12-09 08:15+0100\n"
+"PO-Revision-Date: 2024-02-27 07:49+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -700,7 +700,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:439 src/settings/settings_gradients.ui:60
 #, kde-format
 msgid "Covalent Radius"
-msgstr "Raio de covalencia"
+msgstr "Raio covalente"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -747,7 +747,7 @@ msgid ""
 "The covalent radius in chemistry corresponds to half of the distance between "
 "two identical atomic nuclei, bound by a covalent bond."
 msgstr ""
-"O raio de covalencia en química corresponde á metade da distancia entre dous "
+"O raio covalente en química corresponde á metade da distancia entre dous "
 "núcleos atómicos idénticos, enlazados por un enlace covalente."
 
 #: data/tools.xml:5
@@ -780,7 +780,7 @@ msgstr ""
 #: data/tools.xml:10
 #, kde-format
 msgid "Dehydrator"
-msgstr "Desecador"
+msgstr "Deshidratador"
 
 #: data/tools.xml:13
 #, kde-format
@@ -797,11 +797,11 @@ msgid ""
 "environment by absorbing water vapor. The dry atmosphere then takes up water "
 "from the sample to be dried."
 msgstr ""
-"Un desecador é un aparello de laboratorio, normalmente de vidro, que serve "
-"para secar produtos químicos; é dicir, para retirar auga ou outros líquidos "
-"dunha mostra.\n"
+"Un deshidratador é un aparello de laboratorio, normalmente de vidro, que "
+"serve para secar produtos químicos; é dicir, para retirar auga ou outros "
+"líquidos dunha mostra.\n"
 "\t\t\tEn principio, é unha cunca de vidro cunha tapa chá, para que a cunca "
-"sexa hermética. A parte inferior do desecador normalmente está chea cun "
+"sexa hermética. A parte inferior do deshidratador normalmente está chea cun "
 "axente de secado, como cloruro de calcio, xel de sílice, anhídrido fosfórico "
 "ou ácido sulfúrico. A mostra a secar é colocada nun cartucho diáfano de "
 "plástico ou cerámica, en cima do axente de secado.\n"
@@ -844,7 +844,7 @@ msgid ""
 msgstr ""
 "A trompa de auga ten dous tubos de entrada e unha saída e consiste, en "
 "principio, de dous canos, un dentro do outro. Na entrada da auga, é expelido "
-"un xacto de auga a alta presión por unha agulliña para un tubo lixeiramente "
+"un xacto de auga a alta presión por unha boquilla para un tubo lixeiramente "
 "maior. Así, o xacto de auga transporta a auga ou o fluído da segunda entrada."
 "<br>Isto cáusao a presión negativa nun fluído á deriva e é, polo tanto, unha "
 "aplicación do paradoxo da hidrodinámica (os obxectos preto de correntes de "
@@ -870,7 +870,7 @@ msgstr ""
 #: data/tools.xml:32
 #, kde-format
 msgid "Mortar"
-msgstr "Almirez"
+msgstr "Morteiro"
 
 #: data/tools.xml:33
 #, kde-format
@@ -879,7 +879,7 @@ msgid ""
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
-"O almirez úsase para moer sólidos manualmente. Tamén se pode usar para "
+"O morteiro úsase para moer sólidos manualmente. Tamén se pode usar para "
 "homoxeneizar unha mestura de pos moéndoa. O almirez precisa dun útil chamado "
 "machuco que se usa para machucar."
 
@@ -982,7 +982,7 @@ msgstr ""
 "Un axitador serve para homoxeneizar os reactivos que se atopan nos "
 "laboratorios. O contedor do líquido a homoxeneizar colócase nunha "
 "plataforma. A plataforma axítase en rotación ata 3000 RPM, ata se activar un "
-"sensor de contacto. Desta forma, volumes extremamente pequenos de fluídos "
+"sensor de contacto. Desta forma, volumes extremadamente pequenos de fluídos "
 "poden tornarse homoxéneos rapidamente. É o oposto dun centrifugador, que se "
 "usa para separar fluídos."
 
@@ -1005,7 +1005,7 @@ msgstr ""
 #: data/tools.xml:72
 #, kde-format
 msgid "Rotary Evaporator"
-msgstr "Evaporador por rotación"
+msgstr "Evaporador rotativo"
 
 #: data/tools.xml:73
 #, kde-format
@@ -1202,8 +1202,8 @@ msgid ""
 "rotate and the mixture to become homogenized."
 msgstr ""
 "As barras magnéticas de mestura son pequenas barras magnéticas quimicamente "
-"inertes. A maioría dos quecedores teñen un imán incorporado que pode rotar: "
-"isto fai que a barra de mestura rote e a mestura se homoxeneize."
+"inertes. A maioría dos quentadores teñen un imán incorporado que pode rotar: "
+"isto fai que a barra de mestura rote e a mestura se volva homoxénea."
 
 #: data/tools.xml:132
 #, kde-format
@@ -1299,7 +1299,7 @@ msgstr ""
 "Para algunhas reaccións químicas é importante que o disolvente estea libre "
 "de gases. Para conseguir isto, colócase o vaso da reacción durante algún "
 "tempo nun baño de ultrasóns. Grazas ás frecuencias altas do son, o gas "
-"contido ascende e libérase. Este procedemento chámase degasificación."
+"contido ascende e libérase. Este procedemento chámase desgasificación."
 
 #: data/tools.xml:158
 #, kde-format
@@ -1347,7 +1347,7 @@ msgstr ""
 #: data/tools.xml:169
 #, kde-format
 msgid "Syringe"
-msgstr "Xeringa"
+msgstr "Xiringa"
 
 #: data/tools.xml:170
 #, kde-format
@@ -1357,8 +1357,8 @@ msgid ""
 "closed system, the plunger moves outwards. This can be used to measure the "
 "volume of a reaction."
 msgstr ""
-"Unha xeringa consiste en dúas partes: un tubo de vidro e un émbolo. Ambos "
-"son polo xeral de vidro. Un gas flúe no tubo de vidro. Dado que a xeringa é "
+"Unha xiringa consiste en dúas partes: un tubo de vidro e un émbolo. Ambos "
+"son polo xeral de vidro. Un gas flúe no tubo de vidro. Dado que a xiringa é "
 "un sistema pechado, o émbolo móvese para fóra. Isto pode usarse para medir o "
 "volume dunha reacción."
 
@@ -1467,8 +1467,8 @@ msgstr ""
 "papel indicador do pH. Estas tiras reactivas cambian de cor dependendo do pH "
 "da solución coa que se mollen. Mediante unha táboa de comparación de cor "
 "pódese facer unha lectura do pH. No caso de se requirir unha precisión "
-"maior, habería que usar eléctrodos de cristal, pHímetros, que funcionan "
-"medindo a condutividade da disolución."
+"maior, habería que usar eléctrodos de cristal, que funcionan medindo a "
+"condutividade da disolución."
 
 #: data/tools.xml:204
 #, kde-format
@@ -1499,11 +1499,11 @@ msgid ""
 "they can be very easily refilled with the exact volume for which the buret "
 "is calibrated."
 msgstr ""
-"As buretas úsanse para titrar líquidos. A bureta énchese cun determinado "
+"As buretas úsanse para titular líquidos. A bureta énchese cun determinado "
 "volume de líquido. En baixo encóntrase un contedor, como un matraz de "
-"Erlenmeyer. Ao abrir a válvula, o líquido do contedor títrase. As buretas de "
-"alta calidade teñen un mecanismo de succión co que se poden encher de novo "
-"co volume exacto co que fosen calibradas."
+"Erlenmeyer. Ao abrir a válvula, o líquido do contedor titúlase. As buretas "
+"de alta calidade teñen un mecanismo de succión co que se poden encher de "
+"novo co volume exacto co que fosen calibradas."
 
 #: data/tools.xml:214
 #, kde-format
@@ -1519,7 +1519,7 @@ msgid ""
 msgstr ""
 "Os vasos de precipitados úsanse para diversas tarefas. Son usados para "
 "gardar químicos e para efectuar reaccións químicas. Son tamén usados para "
-"titracións (análises volumétricas)."
+"titulacións (análises volumétricas)."
 
 #: data/tools.xml:219
 #, kde-format
@@ -1618,7 +1618,7 @@ msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
-"Boro significa «Bor(ax) + (carb)ono». Atópase no bórax e compórtase bastante "
+"Boro significa «Bor(ax) + (carbon)o». Atópase no bórax e compórtase bastante "
 "como o carbono."
 
 #. i18n: tag label attribute value
@@ -1652,13 +1652,13 @@ msgstr "Osíxeno"
 #: element_tiny.xml:18
 #, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "Do latín «oxyxenium» (forma ácidos)."
+msgstr "Do latín «oxygenium» (forma ácidos)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
 #, kde-format
 msgid "Fluorine"
-msgstr "Fluor"
+msgstr "Flúor"
 
 #: element_tiny.xml:20
 #, kde-format
@@ -1977,7 +1977,7 @@ msgstr "Cripton"
 #: element_tiny.xml:74
 #, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "Do grego «krytos», que significa «agochado»."
+msgstr "Do grego «kryptos», que significa «agochado»."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -2259,7 +2259,7 @@ msgstr "Do grego «neos didymos» que significa «novo xemelgo»."
 #: element_tiny.xml:123
 #, kde-format
 msgid "Promethium"
-msgstr "Prometeo"
+msgstr "Promecio"
 
 #: element_tiny.xml:124
 #, kde-format
@@ -2267,8 +2267,8 @@ msgid ""
 "Named after the Greek Prometheus. Prometheus stole the fire from the gods "
 "and gave it to mankind."
 msgstr ""
-"Bautizado en honor de Prometheo, quen segundo a mitoloxía grega roubou o "
-"lume aos deuses para llo dar á humanidade."
+"Bautizado en honor de Prometeo, quen segundo a mitoloxía grega roubou o lume "
+"aos deuses para llo dar á humanidade."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:125
@@ -2279,7 +2279,7 @@ msgstr "Samario"
 #: element_tiny.xml:126
 #, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr "Nome derivado do mineral samarsquita."
+msgstr "Nome derivado do mineral samarskita."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2555,7 +2555,7 @@ msgstr "Nomeado por Polonia para homenaxear a Marie Curie."
 #: element_tiny.xml:171
 #, kde-format
 msgid "Astatine"
-msgstr "Astato"
+msgstr "Ástato"
 
 #: element_tiny.xml:172
 #, kde-format
@@ -2716,7 +2716,7 @@ msgstr "Nome derivado do estado dos EUA de California."
 #: element_tiny.xml:199
 #, kde-format
 msgid "Einsteinium"
-msgstr "Einstenio"
+msgstr "Einsteinio"
 
 #: element_tiny.xml:200
 #, kde-format
@@ -2856,7 +2856,7 @@ msgstr ""
 #: element_tiny.xml:223
 #, kde-format
 msgid "Roentgenium"
-msgstr "Roentguenio"
+msgstr "Roentgenio"
 
 #: element_tiny.xml:224
 #, kde-format
@@ -2909,7 +2909,7 @@ msgid ""
 msgstr ""
 "Coñecido historicamente como eka-chumbo. Recibe o nome polo Laboratorio "
 "Flerov de Reaccións Nucleares (Dubna, Rusia), no que se sintetizan elementos "
-"super-pesados."
+"superpesados."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:231
@@ -2958,7 +2958,7 @@ msgid ""
 msgstr ""
 "Nomeado a partir do estado estadounidense de Tennessee, onde están o "
 "Laboratorio Nacional Oak Ridge e a Universidade de Vanderbilt que co-"
-"descubriron o elemento. Coñécese historicamente como eka-astato."
+"descubriron o elemento."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:237
@@ -3149,10 +3149,10 @@ msgstr ""
 "valores de temperatura, presión, volume, cantidade de gas, etc. de varios "
 "gases ideais, así como de gases non ideais.</li>\n"
 "<li><b>Axustador de ecuacións<br /></b>Esta calculadora intenta atopar o "
-"punto de equivalencia dun pHímetro seguindo a análise volumétrica que mellor "
-"se axuste cunha tanxente hiperbólica. Tamén podes deixar que resulta un "
-"sistema de ecuacións de equilibrio e ver como cambia a concentración dunha "
-"especie en función doutra.</li></ul>"
+"punto de equivalencia dun medidor de pH seguindo a análise volumétrica que "
+"mellor se axuste cunha tanxente hiperbólica. Tamén podes deixar que resulta "
+"un sistema de ecuacións de equilibrio e ver como cambia a concentración "
+"dunha especie en función doutra.</li></ul>"
 
 #: src/calculator/concCalculator.cpp:892
 #, kde-format
@@ -3242,7 +3242,7 @@ msgid ""
 "specified."
 msgstr ""
 "Só se pode calcular a masa molar do disolvente se se especifica a fracción "
-"molal."
+"de moles."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
@@ -4272,7 +4272,7 @@ msgstr "toneladas"
 #: src/calculator/nuclearCalculator.ui:437
 #, kde-format
 msgid "carats"
-msgstr "carates"
+msgstr "quilates"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -5119,7 +5119,7 @@ msgid ""
 "H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
 msgstr ""
-"O resolvedor de ecuacións permite axustar unha ecuación química.<br> <br> "
+"O resolvente de ecuacións permite axustar unha ecuación química.<br> <br> "
 "<b>Utilización de variábeis</b><br> Para expresar cantidades variábeis dun "
 "elemento, pon un único carácter diante do símbolo do elemento, como neste "
 "exemplo:<br> <i>aH + bO -> 5H2O</i> (Resultado: <b>10</b> H + <b>5</b> O -"
@@ -5433,7 +5433,7 @@ msgstr "Masa exacta: %1 u"
 #: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
-msgstr "&Esportar os datos…"
+msgstr "&Exportar os datos…"
 
 #: src/kalzium.cpp:121
 #, kde-format
@@ -6044,7 +6044,7 @@ msgstr "Thomas Nagy"
 #: src/main.cpp:56
 #, kde-format
 msgid "EqChem, the equation solver"
-msgstr "EqChem, o resolvedor de ecuacións"
+msgstr "EqChem, o resolvente de ecuacións"
 
 #: src/main.cpp:58
 #, kde-format
@@ -6081,7 +6081,7 @@ msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
 msgstr ""
-"Aportou código e documentación para o resolvedor de ecuacións e o visor "
+"Aportou código e documentación para o resolvente de ecuacións e o visor "
 "molecular"
 
 #: src/main.cpp:64
@@ -6480,7 +6480,7 @@ msgstr "Esta táboa mostra todas as abreviaturas predefinidas."
 #: src/molcalcwidgetbase.ui:422
 #, kde-format
 msgid "List of user-defined aliases."
-msgstr "Lista de abreviaturas definididas polo usuario."
+msgstr "Lista de abreviaturas definidas polo usuario."
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, user_defined)
 #: src/molcalcwidgetbase.ui:425
@@ -8268,7 +8268,7 @@ msgstr "pi"
 #: src/tablesdialog.cpp:120
 #, kde-format
 msgid "rho"
-msgstr "ro"
+msgstr "rho"
 
 #: src/tablesdialog.cpp:121
 #, kde-format
@@ -8283,7 +8283,7 @@ msgstr "tau"
 #: src/tablesdialog.cpp:123
 #, kde-format
 msgid "upsilon"
-msgstr "úpsilon"
+msgstr "ípsilon"
 
 #: src/tablesdialog.cpp:124
 #, kde-format
