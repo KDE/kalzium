@@ -89,9 +89,6 @@ int main(int argc, char **argv)
 
     about.addCredit(i18n("Etienne Rebetez"), i18n("Adding new sizable Periodic System"));
 
-    QApplication::setApplicationName(QStringLiteral("kalzium"));
-    QApplication::setApplicationVersion(KALZIUM_VERSION_STRING);
-    QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kalzium")));
 
     KAboutData::setApplicationData(about);
