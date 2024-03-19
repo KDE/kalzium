@@ -41,7 +41,7 @@ int main(int argc, char **argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"),
                      QString(),
-                     QStringLiteral("https://edu.kde.org/kalzium"));
+                     QStringLiteral("https://apps.kde.org/kalzium"));
 
     about.addAuthor(i18n("Carsten Niehaus"), QString(), QStringLiteral("cniehaus@kde.org"));
 

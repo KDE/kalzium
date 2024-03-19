@@ -117,7 +117,7 @@
     <p xml:lang="x-test">xxKalzium is a program that shows you the Periodic Table of Elements. You can use Kalzium to search for information about the elements or to learn facts about the periodic table. It provides an overview of the important data (like melting points, electron affinity, electron negativity, electron configuration, radii, mass, ionisation energy), an isotope table, and different colored views of the periodic table (separation of the different blocks, year simulator, temperature simulator). It contains tools to visualize the spectral lines of each element, a molecular weight calculator, a 3D molecule editor, and an equation solver for stoichiometric problems.xx</p>
     <p xml:lang="zh-TW">Kalzium 是一套元素週期表的應用程式。您可以用 Kalzium 搜尋關於元素的資訊與知識。它提供了元素重要資料的概要（如熔點、電子親合力、電負性、電子結構、凡德瓦半徑、質量、游離能等等），元素的同位素表，還有週期表上的不同表達方式（如發現時間、溫度狀態等等）。它也包含了一些視覺化的工具，莫耳質量計算器，立體分子編輯器，以及方程式計算器等功能。</p>
   </description>
-  <url type="homepage">https://edu.kde.org/kalzium/</url>
+  <url type="homepage">https://apps.kde.org/kalzium</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kalzium</url>
   <url type="help">https://docs.kde.org/?application=kalzium</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kalzium&amp;source=appdata</url>
