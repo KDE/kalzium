@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-16 01:37+0000\n"
+"POT-Creation-Date: 2024-03-20 01:38+0000\n"
 "PO-Revision-Date: 2020-12-27 13:54+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -6247,12 +6247,12 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "Hozzáadja az új méretezett Periódikus Rendszert"
 
-#: src/main.cpp:103
+#: src/main.cpp:100
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "A adott molekulafájl megnyitása"
 
-#: src/main.cpp:126
+#: src/main.cpp:123
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "Nem lehet egyszerre egynél több molekulát megnyitni"

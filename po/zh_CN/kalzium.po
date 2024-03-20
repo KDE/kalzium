@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-16 01:37+0000\n"
+"POT-Creation-Date: 2024-03-20 01:38+0000\n"
 "PO-Revision-Date: 2024-03-17 20:45\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -5894,12 +5894,12 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "添加了新的可缩放周期表系统"
 
-#: src/main.cpp:103
+#: src/main.cpp:100
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "打开指定的分子文件"
 
-#: src/main.cpp:126
+#: src/main.cpp:123
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr ""

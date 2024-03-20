@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-16 01:37+0000\n"
+"POT-Creation-Date: 2024-03-20 01:38+0000\n"
 "PO-Revision-Date: 2023-12-11 14:21+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -6239,12 +6239,12 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "Aggiunta di un nuovo considerevole sistema periodico"
 
-#: src/main.cpp:103
+#: src/main.cpp:100
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "Apri il file di molecola dato"
 
-#: src/main.cpp:126
+#: src/main.cpp:123
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "Impossibile aprire più di una molecola alla volta"
