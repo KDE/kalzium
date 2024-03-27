@@ -196,6 +196,7 @@
         <number>2</number>
        </property>
        <property name="maximum">
+        <!-- This is wrong, but we dynamically reset the value to numberOfElements when initializing the UI-->
         <number>111</number>
        </property>
        <property name="value">
@@ -229,6 +230,7 @@
         <number>1</number>
        </property>
        <property name="maximum">
+        <!-- This is wrong, but we dynamically reset the value to numberOfElements - 1 when initializing the UI-->
         <number>110</number>
        </property>
       </widget>

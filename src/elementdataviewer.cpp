@@ -72,6 +72,11 @@ ElementDataViewer::ElementDataViewer(QWidget *parent)
         block << e->dataAsString(ChemicalDataObject::periodTableBlock);
     }
 
+    const unsigned int numberOfElements = KalziumDataObject::instance()->numberOfElements();
+    // Setup the maximum values for from and to
+    ui.from->setMaximum(numberOfElements - 1);
+    ui.to->setMaximum(numberOfElements);
+
     m_actionCollection = new KActionCollection(this);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
@@ -114,7 +119,7 @@ void ElementDataViewer::rangeChanged()
 void ElementDataViewer::fullRange()
 {
     ui.from->setValue(1);
-    ui.to->setValue(116);
+    ui.to->setValue(KalziumDataObject::instance()->numberOfElements());
 }
 
 void ElementDataViewer::swapXYAxis()
