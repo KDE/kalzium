@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-03-28 03:35+0000\n"
 "PO-Revision-Date: 2023-12-08 12:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -422,9 +422,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: data/knowledge.xml:127 src/elementdataviewer.cpp:237
+#: data/knowledge.xml:127 src/elementdataviewer.cpp:242
 #: src/kalziumgradienttype.cpp:271 src/plotsetupwidget.ui:93
-#: src/plotsetupwidget.ui:414
+#: src/plotsetupwidget.ui:416
 #, kde-format
 msgid "Atomic Mass"
 msgstr "Massa atòmica"
@@ -698,9 +698,9 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:207
-#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
+#: src/elementdataviewer.cpp:270 src/exportdialog.cpp:140
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:118
-#: src/plotsetupwidget.ui:439 src/settings/settings_gradients.ui:60
+#: src/plotsetupwidget.ui:441 src/settings/settings_gradients.ui:60
 #, kde-format
 msgid "Covalent Radius"
 msgstr "Radi covalent"
@@ -708,8 +708,8 @@ msgstr "Radi covalent"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:248 data/knowledge.xml:257 data/knowledge.xml:262
-#: data/knowledge.xml:274 src/elementdataviewer.cpp:259
-#: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:434
+#: data/knowledge.xml:274 src/elementdataviewer.cpp:264
+#: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:436
 #, kde-format
 msgid "Atomic Radius"
 msgstr "Radi atòmic"
@@ -4750,9 +4750,9 @@ msgstr "Origen del nom:<br/> %1"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicMeltingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:247
+#: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:252
 #: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
-#: src/plotsetupwidget.ui:103 src/plotsetupwidget.ui:424
+#: src/plotsetupwidget.ui:103 src/plotsetupwidget.ui:426
 #: src/settings/settings_gradients.ui:88
 #, kde-format
 msgid "Melting Point"
@@ -4761,9 +4761,9 @@ msgstr "Punt de fusió"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicBoilingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:253
+#: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:258
 #: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
-#: src/plotsetupwidget.ui:108 src/plotsetupwidget.ui:429
+#: src/plotsetupwidget.ui:108 src/plotsetupwidget.ui:431
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
@@ -4798,9 +4798,9 @@ msgstr "Primera energia d'ionització"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:242
+#: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:247
 #: src/exportdialog.cpp:139 src/plotsetupwidget.ui:98
-#: src/plotsetupwidget.ui:419 src/settings/settings_gradients.ui:95
+#: src/plotsetupwidget.ui:421 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
 msgstr "Electronegativitat"
@@ -5174,8 +5174,8 @@ msgstr "Dibuixa les dades"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
-#: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:409
+#: src/elementdataviewer.cpp:237 src/exportdialog.cpp:132
+#: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:411
 #, kde-format
 msgid "Atomic Number"
 msgstr "Nombre atòmic"
@@ -6589,7 +6589,7 @@ msgstr "Eix X"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: src/plotsetupwidget.ui:63 src/plotsetupwidget.ui:367
+#: src/plotsetupwidget.ui:63 src/plotsetupwidget.ui:369
 #, kde-format
 msgid "Average value:"
 msgstr "Valor mitjà:"
@@ -6597,21 +6597,21 @@ msgstr "Valor mitjà:"
 # skip-rule: t-sc-plot
 #. i18n: ectx: property (whatsThis), widget (KComboBox, KCB_x)
 #. i18n: ectx: property (whatsThis), widget (KComboBox, KCB_y)
-#: src/plotsetupwidget.ui:84 src/plotsetupwidget.ui:402
+#: src/plotsetupwidget.ui:84 src/plotsetupwidget.ui:404
 #, kde-format
 msgid "Here you can define what you want to plot"
 msgstr "Aquí podeu definir què voleu dibuixar"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: src/plotsetupwidget.ui:126 src/plotsetupwidget.ui:381
+#: src/plotsetupwidget.ui:126 src/plotsetupwidget.ui:383
 #, kde-format
 msgid "Maximum value:"
 msgstr "Valor màxim:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: src/plotsetupwidget.ui:140 src/plotsetupwidget.ui:388
+#: src/plotsetupwidget.ui:140 src/plotsetupwidget.ui:390
 #, kde-format
 msgid "Minimum value:"
 msgstr "Valor mínim:"
@@ -6629,116 +6629,116 @@ msgid "Element Type:"
 msgstr "Tipus de l'element:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: src/plotsetupwidget.ui:209
+#: src/plotsetupwidget.ui:210
 #, kde-format
 msgid "First element:"
 msgstr "Primer element:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: src/plotsetupwidget.ui:216
+#: src/plotsetupwidget.ui:217
 #, kde-format
 msgid "Last element:"
 msgstr "Últim element:"
 
 #. i18n: ectx: property (text), widget (QPushButton, full)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:245 src/plotsetupwidget.ui:253
+#: src/plotsetupwidget.ui:247 src/plotsetupwidget.ui:255
 #, kde-format
 msgid "All elements"
 msgstr "Tots els elements"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:258
+#: src/plotsetupwidget.ui:260
 #, kde-format
 msgid "Metals"
 msgstr "Metalls"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:263
+#: src/plotsetupwidget.ui:265
 #, kde-format
 msgid "Non-Metals / Metalloids"
 msgstr "No-metalls / metal·loides"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:268
+#: src/plotsetupwidget.ui:270
 #, kde-format
 msgid "s block elements"
 msgstr "Elements del bloc s"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:273
+#: src/plotsetupwidget.ui:275
 #, kde-format
 msgid "p block elements"
 msgstr "Elements del bloc p"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:278
+#: src/plotsetupwidget.ui:280
 #, kde-format
 msgid "d block elements"
 msgstr "Elements del bloc d"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:283
+#: src/plotsetupwidget.ui:285
 #, kde-format
 msgid "f block elements"
 msgstr "Elements del bloc f"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:288
+#: src/plotsetupwidget.ui:290
 #, kde-format
 msgid "Noble gases"
 msgstr "Gasos nobles"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:293
+#: src/plotsetupwidget.ui:295
 #, kde-format
 msgid "Alkalie metals"
 msgstr "Metalls alcalins"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:298
+#: src/plotsetupwidget.ui:300
 #, kde-format
 msgid "Alkaline earth metals"
 msgstr "Metalls alcalinoterris"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:303
+#: src/plotsetupwidget.ui:305
 #, kde-format
 msgid "Lanthanides"
 msgstr "Lantànids"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:308
+#: src/plotsetupwidget.ui:310
 #, kde-format
 msgid "Actinides"
 msgstr "Actínids"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:313
+#: src/plotsetupwidget.ui:315
 #, kde-format
 msgid "Radio-active elements"
 msgstr "Elements radioactius"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:328
+#: src/plotsetupwidget.ui:330
 #, kde-format
 msgid "No Labels"
 msgstr "Sense etiquetes"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:333
+#: src/plotsetupwidget.ui:335
 #, kde-format
 msgid "Element Names"
 msgstr "Noms d'element"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:338
+#: src/plotsetupwidget.ui:340
 #, kde-format
 msgid "Element Symbols"
 msgstr "Símbols d'element"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/plotsetupwidget.ui:348
+#: src/plotsetupwidget.ui:350
 #, kde-format
 msgid "Y-Axis"
 msgstr "Eix Y"

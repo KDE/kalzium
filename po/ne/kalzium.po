@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-03-28 03:35+0000\n"
 "PO-Revision-Date: 2007-12-13 16:48+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -407,9 +407,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: data/knowledge.xml:127 src/elementdataviewer.cpp:237
+#: data/knowledge.xml:127 src/elementdataviewer.cpp:242
 #: src/kalziumgradienttype.cpp:271 src/plotsetupwidget.ui:93
-#: src/plotsetupwidget.ui:414
+#: src/plotsetupwidget.ui:416
 #, kde-format
 msgid "Atomic Mass"
 msgstr "परमाणविक पिण्ड"
@@ -668,9 +668,9 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:207
-#: src/elementdataviewer.cpp:265 src/exportdialog.cpp:140
+#: src/elementdataviewer.cpp:270 src/exportdialog.cpp:140
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:118
-#: src/plotsetupwidget.ui:439 src/settings/settings_gradients.ui:60
+#: src/plotsetupwidget.ui:441 src/settings/settings_gradients.ui:60
 #, kde-format
 msgid "Covalent Radius"
 msgstr "कोभालेन्ट अर्धव्यास"
@@ -678,8 +678,8 @@ msgstr "कोभालेन्ट अर्धव्यास"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:248 data/knowledge.xml:257 data/knowledge.xml:262
-#: data/knowledge.xml:274 src/elementdataviewer.cpp:259
-#: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:434
+#: data/knowledge.xml:274 src/elementdataviewer.cpp:264
+#: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:436
 #, kde-format
 msgid "Atomic Radius"
 msgstr "पारमाणविक अर्धव्यास"
@@ -4778,9 +4778,9 @@ msgstr "नामको उत्पति: <br/>%1"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicMeltingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:247
+#: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:252
 #: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
-#: src/plotsetupwidget.ui:103 src/plotsetupwidget.ui:424
+#: src/plotsetupwidget.ui:103 src/plotsetupwidget.ui:426
 #: src/settings/settings_gradients.ui:88
 #, kde-format
 msgid "Melting Point"
@@ -4789,9 +4789,9 @@ msgstr "द्रवण बिन्दु"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicBoilingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:253
+#: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:258
 #: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
-#: src/plotsetupwidget.ui:108 src/plotsetupwidget.ui:429
+#: src/plotsetupwidget.ui:108 src/plotsetupwidget.ui:431
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
@@ -4831,9 +4831,9 @@ msgstr "पहिलो आयोनिकरण शक्ति: %1"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:242
+#: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:247
 #: src/exportdialog.cpp:139 src/plotsetupwidget.ui:98
-#: src/plotsetupwidget.ui:419 src/settings/settings_gradients.ui:95
+#: src/plotsetupwidget.ui:421 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
 msgstr "इलेक्ट्रोनेगेटिभिटि"
@@ -5236,8 +5236,8 @@ msgstr "डेटा प्लट गर्नुहोस्"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/elementdataviewer.cpp:232 src/exportdialog.cpp:132
-#: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:409
+#: src/elementdataviewer.cpp:237 src/exportdialog.cpp:132
+#: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:411
 #, fuzzy, kde-format
 #| msgid "Atoms numbers"
 msgid "Atomic Number"
@@ -6710,28 +6710,28 @@ msgstr "X-अक्ष"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: src/plotsetupwidget.ui:63 src/plotsetupwidget.ui:367
+#: src/plotsetupwidget.ui:63 src/plotsetupwidget.ui:369
 #, kde-format
 msgid "Average value:"
 msgstr "औसत मान:"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, KCB_x)
 #. i18n: ectx: property (whatsThis), widget (KComboBox, KCB_y)
-#: src/plotsetupwidget.ui:84 src/plotsetupwidget.ui:402
+#: src/plotsetupwidget.ui:84 src/plotsetupwidget.ui:404
 #, kde-format
 msgid "Here you can define what you want to plot"
 msgstr "तपाईँले यहाँ चाहेको प्लटलाई परिभाषित गर्न सक्नुहुन्छ"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: src/plotsetupwidget.ui:126 src/plotsetupwidget.ui:381
+#: src/plotsetupwidget.ui:126 src/plotsetupwidget.ui:383
 #, kde-format
 msgid "Maximum value:"
 msgstr "अधिकतम मान:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: src/plotsetupwidget.ui:140 src/plotsetupwidget.ui:388
+#: src/plotsetupwidget.ui:140 src/plotsetupwidget.ui:390
 #, kde-format
 msgid "Minimum value:"
 msgstr "न्यूनतम मान:"
@@ -6750,127 +6750,127 @@ msgid "Element Type:"
 msgstr "तत्व नाम"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: src/plotsetupwidget.ui:209
+#: src/plotsetupwidget.ui:210
 #, kde-format
 msgid "First element:"
 msgstr "पहिलो तत्व:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: src/plotsetupwidget.ui:216
+#: src/plotsetupwidget.ui:217
 #, kde-format
 msgid "Last element:"
 msgstr "अन्तिम तत्व:"
 
 #. i18n: ectx: property (text), widget (QPushButton, full)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:245 src/plotsetupwidget.ui:253
+#: src/plotsetupwidget.ui:247 src/plotsetupwidget.ui:255
 #, fuzzy, kde-format
 #| msgid "All the Elements"
 msgid "All elements"
 msgstr "सबै तत्व"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:258
+#: src/plotsetupwidget.ui:260
 #, fuzzy, kde-format
 #| msgid "Non-Metals"
 msgid "Metals"
 msgstr "अधातु"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:263
+#: src/plotsetupwidget.ui:265
 #, fuzzy, kde-format
 #| msgid "Non-Metals"
 msgid "Non-Metals / Metalloids"
 msgstr "अधातु"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:268
+#: src/plotsetupwidget.ui:270
 #, fuzzy, kde-format
 #| msgid "All the Elements"
 msgid "s block elements"
 msgstr "सबै तत्व"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:273
+#: src/plotsetupwidget.ui:275
 #, fuzzy, kde-format
 #| msgid "All the Elements"
 msgid "p block elements"
 msgstr "सबै तत्व"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:278
+#: src/plotsetupwidget.ui:280
 #, fuzzy, kde-format
 #| msgid "All the Elements"
 msgid "d block elements"
 msgstr "सबै तत्व"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:283
+#: src/plotsetupwidget.ui:285
 #, fuzzy, kde-format
 #| msgid "All the Elements"
 msgid "f block elements"
 msgstr "सबै तत्व"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:288
+#: src/plotsetupwidget.ui:290
 #, fuzzy, kde-format
 #| msgid "Noble gases:"
 msgid "Noble gases"
 msgstr "नोबल ग्यास:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:293
+#: src/plotsetupwidget.ui:295
 #, fuzzy, kde-format
 #| msgid "Alkali metals:"
 msgid "Alkalie metals"
 msgstr "क्षारिय धातु:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:298
+#: src/plotsetupwidget.ui:300
 #, fuzzy, kde-format
 #| msgid "Alkaline earth metals:"
 msgid "Alkaline earth metals"
 msgstr "पृथ्वीका क्षारिय धातु:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:303
+#: src/plotsetupwidget.ui:305
 #, kde-format
 msgid "Lanthanides"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:308
+#: src/plotsetupwidget.ui:310
 #, kde-format
 msgid "Actinides"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
-#: src/plotsetupwidget.ui:313
+#: src/plotsetupwidget.ui:315
 #, fuzzy, kde-format
 #| msgid "Selects the color of radioactive elements"
 msgid "Radio-active elements"
 msgstr "रेडियोयाक्टिभ तत्वको रङ चयन गर्दछ"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:328
+#: src/plotsetupwidget.ui:330
 #, kde-format
 msgid "No Labels"
 msgstr "लेबल छैन"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:333
+#: src/plotsetupwidget.ui:335
 #, kde-format
 msgid "Element Names"
 msgstr "तत्व नाम"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
-#: src/plotsetupwidget.ui:338
+#: src/plotsetupwidget.ui:340
 #, kde-format
 msgid "Element Symbols"
 msgstr "तत्व प्रतीक"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/plotsetupwidget.ui:348
+#: src/plotsetupwidget.ui:350
 #, kde-format
 msgid "Y-Axis"
 msgstr "Y-अक्ष"
