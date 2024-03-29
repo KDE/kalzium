@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-28 03:35+0000\n"
-"PO-Revision-Date: 2023-03-20 22:31+0100\n"
+"PO-Revision-Date: 2024-02-17 13:21+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -44,7 +44,7 @@ msgstr "Ne eblas malfermi la difinitan dosieron."
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "Pardonu"
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
@@ -1012,7 +1012,7 @@ msgstr ""
 #: data/tools.xml:137
 #, kde-format
 msgid "Pipette"
-msgstr ""
+msgstr "Pipeto"
 
 #: data/tools.xml:138
 #, kde-format
@@ -1348,7 +1348,7 @@ msgstr ""
 #: element_tiny.xml:17
 #, kde-format
 msgid "Oxygen"
-msgstr ""
+msgstr "Oxygen"
 
 #: element_tiny.xml:18
 #, kde-format
@@ -1370,7 +1370,7 @@ msgstr ""
 #: element_tiny.xml:21
 #, kde-format
 msgid "Neon"
-msgstr ""
+msgstr "Neono"
 
 #: element_tiny.xml:22
 #, kde-format
@@ -1788,7 +1788,7 @@ msgstr ""
 #: element_tiny.xml:95
 #, kde-format
 msgid "Silver"
-msgstr ""
+msgstr "Arĝento"
 
 #: element_tiny.xml:96
 #, kde-format
@@ -2659,7 +2659,7 @@ msgstr ""
 #: src/calculator/calculator.cpp:91 src/calculator/calculator.ui:56
 #, kde-format
 msgid "Introduction"
-msgstr ""
+msgstr "Enkonduko"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, nuclear)
@@ -3185,7 +3185,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:610
 #, kde-format
 msgid "Reset"
-msgstr ""
+msgstr "Restarigi"
 
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
@@ -3558,7 +3558,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:467
 #, kde-format
 msgid "years"
-msgstr ""
+msgstr "jaroj"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -4093,7 +4093,7 @@ msgstr ""
 #: src/calculator/titrationCalculator.ui:254
 #, kde-format
 msgid "Notes:"
-msgstr ""
+msgstr "Notoj:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/calculator/titrationCalculator.ui:270
@@ -4123,25 +4123,25 @@ msgstr ""
 #: src/calculator/titrationCalculator.ui:356
 #, kde-format
 msgid "New"
-msgstr ""
+msgstr "Nova"
 
 #. i18n: ectx: property (text), widget (QPushButton, open)
 #: src/calculator/titrationCalculator.ui:363
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Malfermi"
 
 #. i18n: ectx: property (text), widget (QPushButton, save)
 #: src/calculator/titrationCalculator.ui:370
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Konservi"
 
 #. i18n: ectx: property (text), widget (QPushButton, rapidhelp)
 #: src/calculator/titrationCalculator.ui:384
 #, kde-format
 msgid "Example"
-msgstr ""
+msgstr "Ekzemplo"
 
 #: src/detailedgraphicaloverview.cpp:67
 #, kde-format
@@ -4163,7 +4163,7 @@ msgstr "%1 u"
 #, kde-format
 msgctxt "Next element"
 msgid "Next"
-msgstr ""
+msgstr "Sekva"
 
 #: src/detailinfodlg.cpp:44
 #, kde-format
@@ -4586,7 +4586,7 @@ msgstr "Diversaj"
 #: src/detailinfodlg.cpp:1126 src/detailinfodlg.cpp:1127
 #, kde-format
 msgid "Spectrum"
-msgstr ""
+msgstr "Spektro"
 
 #: src/detailinfodlg.cpp:1140
 #, kde-format
@@ -4691,7 +4691,7 @@ msgstr ""
 #: src/exportdialog.cpp:115
 #, kde-format
 msgid "Elements"
-msgstr ""
+msgstr "Elementoj"
 
 #: src/exportdialog.cpp:116
 #, kde-format
@@ -4747,19 +4747,19 @@ msgstr "Formato:"
 #: src/gradientwidget.ui:22
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Skemo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gradientwidget.ui:50
 #, kde-format
 msgid "Gradient:"
-msgstr ""
+msgstr "Gradiento:"
 
 #. i18n: ectx: property (text), widget (QLabel, lblUnit)
 #: src/gradientwidget.ui:99
 #, kde-format
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, gradient_slider)
 #: src/gradientwidget.ui:108
@@ -4842,13 +4842,13 @@ msgstr "Izotopa tabelo"
 #, kde-format
 msgctxt "alpha ray emission"
 msgid "alpha"
-msgstr ""
+msgstr "alfo"
 
 #: src/isotopetable/isotopetabledialog.cpp:48
 #, kde-format
 msgctxt "Electron capture method"
 msgid "EC"
-msgstr ""
+msgstr "EC"
 
 #: src/isotopetable/isotopetabledialog.cpp:49
 #, kde-format
@@ -4872,13 +4872,13 @@ msgstr "Beta -"
 #, kde-format
 msgctxt "Stable isotope"
 msgid "Stable"
-msgstr ""
+msgstr "Stalo"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
 #, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr ""
+msgstr "nekonata"
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, kde-format
@@ -4889,7 +4889,7 @@ msgstr "<h1>%1 (%2)</h1>"
 #, kde-format
 msgctxt "Unknown magnetic moment"
 msgid "Unknown"
-msgstr ""
+msgstr "Nekonata"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
 #, kde-format
@@ -4920,7 +4920,7 @@ msgstr ""
 #, kde-format
 msgctxt "Unknown spin"
 msgid "Unknown"
-msgstr ""
+msgstr "Nekonata"
 
 #: src/isotopetable/isotopetabledialog.cpp:84
 #, kde-format
@@ -4935,7 +4935,7 @@ msgstr ""
 #: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
-msgstr ""
+msgstr "&Eksporti Datumojn..."
 
 #: src/kalzium.cpp:121
 #, kde-format
@@ -4945,7 +4945,7 @@ msgstr "&Skemo"
 #: src/kalzium.cpp:129
 #, kde-format
 msgid "&Gradients"
-msgstr ""
+msgstr "&Kolortransiroj"
 
 #: src/kalzium.cpp:138
 #, kde-format
@@ -5055,7 +5055,7 @@ msgstr ""
 #: src/kalzium.cpp:248
 #, kde-format
 msgid "Legend"
-msgstr ""
+msgstr "Klarigeto"
 
 #: src/kalzium.cpp:258
 #, kde-format
@@ -5065,7 +5065,7 @@ msgstr ""
 #: src/kalzium.cpp:263
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informoj"
 
 #: src/kalzium.cpp:277
 #, kde-format
@@ -5075,7 +5075,7 @@ msgstr "Superrigardo"
 #: src/kalzium.cpp:286
 #, kde-format
 msgid "View"
-msgstr ""
+msgstr "Vido"
 
 #: src/kalzium.cpp:297
 #, kde-format
@@ -5127,7 +5127,7 @@ msgstr ""
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
 msgid "u"
-msgstr ""
+msgstr "u"
 
 #: src/kalziumgradienttype.cpp:493
 #, kde-format
@@ -5386,23 +5386,23 @@ msgstr ""
 #: src/kdeeduglossary.cpp:126
 #, kde-format
 msgid "Glossary"
-msgstr ""
+msgstr "Terminaro"
 
 #: src/kdeeduglossary.cpp:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
-msgstr ""
+msgstr "Terminaro"
 
 #: src/kdeeduglossary.cpp:478
 #, kde-format
 msgid "References"
-msgstr ""
+msgstr "Referencoj"
 
 #: src/kdeeduglossary.cpp:482
 #, kde-format
 msgid "Go to '%1'"
-msgstr ""
+msgstr "Iri al '%1'"
 
 #: src/legendwidget.cpp:70
 #, kde-format
@@ -5659,7 +5659,7 @@ msgstr "Paulo Cattai"
 #: src/main.cpp:88
 #, kde-format
 msgid "New interface design and usability improvements"
-msgstr ""
+msgstr "Nova interfaco-dezajno kaj uzeblo-plibonigoj"
 
 #: src/main.cpp:82
 #, kde-format
@@ -5751,7 +5751,7 @@ msgstr ""
 #: src/molcalcwidget.cpp:292
 #, kde-format
 msgid "done!"
-msgstr ""
+msgstr "farita!"
 
 #: src/molcalcwidget.cpp:295
 #, kde-format
@@ -5855,7 +5855,7 @@ msgstr ""
 #: src/molcalcwidgetbase.ui:262
 #, kde-format
 msgid "aliases"
-msgstr ""
+msgstr "kaŝnomo"
 
 #. i18n: ectx: attribute (title), widget (QWidget, aliasTab)
 #: src/molcalcwidgetbase.ui:276
@@ -5966,7 +5966,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:35
 #, kde-format
 msgid "Swap"
-msgstr ""
+msgstr "Interŝanĝi"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:41
@@ -6115,7 +6115,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:330
 #, kde-format
 msgid "No Labels"
-msgstr ""
+msgstr "Neniuj Etikedoj"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:335
@@ -6138,7 +6138,7 @@ msgstr "Y-akso"
 #: src/psetable/elementitem.cpp:122
 #, kde-format
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 #: src/rsdialog.cpp:24
 #, kde-format
@@ -7243,7 +7243,7 @@ msgstr ""
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "Horizontale"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
@@ -7258,7 +7258,7 @@ msgstr ""
 #: src/settings/kalziumconfigdialog.cpp:22
 #, kde-format
 msgid "Gradients"
-msgstr ""
+msgstr "Kolortransiroj"
 
 #: src/settings/kalziumconfigdialog.cpp:27
 #, kde-format
@@ -7470,12 +7470,12 @@ msgstr ""
 #: src/settings/unitsettingsdialog.cpp:18
 #, kde-format
 msgid "Energy:"
-msgstr ""
+msgstr "Energio:"
 
 #: src/settings/unitsettingsdialog.cpp:24
 #, kde-format
 msgid "Length:"
-msgstr ""
+msgstr "Longo:"
 
 #: src/settings/unitsettingsdialog.cpp:30
 #, kde-format
@@ -7568,7 +7568,7 @@ msgstr ""
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
 msgid "Wavelength"
-msgstr ""
+msgstr "Ondolongo:"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
@@ -8007,7 +8007,7 @@ msgstr "Redakti"
 #: src/tools/moleculeviewerwidget.ui:144
 #, kde-format
 msgid "Optimize"
-msgstr ""
+msgstr "Optimumigi"
 
 #. i18n: ectx: property (text), widget (QPushButton, clearDrawingButton)
 #: src/tools/moleculeviewerwidget.ui:164
@@ -8019,7 +8019,7 @@ msgstr ""
 #: src/tools/moleculeviewerwidget.ui:174
 #, kde-format
 msgid "Measure"
-msgstr ""
+msgstr "Mezuro"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/tools/moleculeviewerwidget.ui:186
@@ -8045,7 +8045,7 @@ msgstr "Nomo:"
 #: src/tools/moleculeviewerwidget.ui:240
 #, kde-format
 msgid "Formula:"
-msgstr ""
+msgstr "Formulo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/tools/moleculeviewerwidget.ui:257
@@ -8149,12 +8149,3 @@ msgstr "Konverti de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konverti al:"
-
-#~ msgid "A cool thing"
-#~ msgstr "Mojosaĵo"
-
-#~ msgid "(c) 2006, Carsten Niehaus"
-#~ msgstr "(c) 2006, Carsten Niehaus"
-
-#~ msgid "Marcus D. Hanwell"
-#~ msgstr "Marcus D. Hanwell."
