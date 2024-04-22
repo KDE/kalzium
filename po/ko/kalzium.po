@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 03:35+0000\n"
+"POT-Creation-Date: 2024-03-28 02:04+0000\n"
 "PO-Revision-Date: 2022-04-16 22:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -6288,13 +6288,13 @@ msgstr "Etienne Rebetez"
 msgid "Adding new sizable Periodic System"
 msgstr "크기 조절이 가능한 주기율표 시스템 추가"
 
-#: src/main.cpp:102
+#: src/main.cpp:100
 #, fuzzy, kde-format
 #| msgid "Download new molecule files"
 msgid "Open the given molecule file"
 msgstr "분자 파일을 새로 다운로드합니다."
 
-#: src/main.cpp:125
+#: src/main.cpp:123
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 03:35+0000\n"
+"POT-Creation-Date: 2024-03-28 02:04+0000\n"
 "PO-Revision-Date: 2021-01-23 15:50-0800\n"
 "Last-Translator: A S Alam <aalam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -5780,12 +5780,12 @@ msgstr "ਈਟੀਨੇ ਰੀਬੀਟੀਜ਼"
 msgid "Adding new sizable Periodic System"
 msgstr "ਨਵਾਂ ਸਾਈਜ਼ਯੋਗ ਆਵਰਤੀ ਸਿਸਟਮ ਸ਼ਾਮਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/main.cpp:102
+#: src/main.cpp:100
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "ਦਿੱਤੀ ਅਣੂ ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/main.cpp:125
+#: src/main.cpp:123
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr ""
