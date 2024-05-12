@@ -830,7 +830,7 @@ msgstr ""
 "L'espàtula és un estri de laboratori que servix per a raspar, separar i "
 "transportar substàncies químiques. N'hi ha amb diversos dissenys (p. ex.: "
 "espàtules planes o de cullera) i materials (p. ex.: de titani, ferro, "
-"platí...)."
+"platí…)."
 
 #: data/tools.xml:22
 #, kde-format
@@ -3178,7 +3178,7 @@ msgstr ""
 "<big>Us donem la benvinguda a les calculadores de Kalzium!<br /></big>\n"
 "<p>Esta calculadora conté diverses subcalculadores adaptades als càlculs "
 "necessaris en tasques específiques.</p>\n"
-"<p>A Kalzium trobareu les calculadores següents:</p>\n"
+"<p>En Kalzium trobareu les calculadores següents:</p>\n"
 "<ul><li><b>Calculadora de massa molecular<br /></b>Esta calculadora us ajuda "
 "a calcular les masses moleculars de diverses molècules.<br />Podeu "
 "especificar les formes curtes dels noms de les molècules i afegir més àlies "
@@ -5501,7 +5501,7 @@ msgstr "Massa exacta: %1 u"
 #: src/kalzium.cpp:112
 #, kde-format
 msgid "&Export Data..."
-msgstr "&Exporta les dades..."
+msgstr "&Exporta les dades…"
 
 #: src/kalzium.cpp:121
 #, kde-format
@@ -5527,12 +5527,12 @@ msgstr "&Numeració"
 #: src/kalzium.cpp:152
 #, kde-format
 msgid "&Plot Data..."
-msgstr "&Dibuixa les dades..."
+msgstr "&Dibuixa les dades…"
 
 #: src/kalzium.cpp:158
 #, kde-format
 msgid "Perform &Calculations..."
-msgstr "Fes els &càlculs..."
+msgstr "Fes els &càlculs…"
 
 #: src/kalzium.cpp:160
 #, kde-format
@@ -5543,7 +5543,7 @@ msgstr "Esta és la calculadora, que permet efectuar càlculs químics bàsics."
 #: src/kalzium.cpp:164
 #, kde-format
 msgid "&Isotope Table..."
-msgstr "Taula d'&isòtops..."
+msgstr "Taula d'&isòtops…"
 
 #: src/kalzium.cpp:166
 #, kde-format
@@ -5554,17 +5554,17 @@ msgstr "Esta taula mostra tots els isòtops coneguts dels elements químics."
 #: src/kalzium.cpp:170
 #, kde-format
 msgid "&Glossary..."
-msgstr "&Glossari..."
+msgstr "&Glossari…"
 
 #: src/kalzium.cpp:175
 #, kde-format
 msgid "&R/S Phrases..."
-msgstr "Frases &R/S..."
+msgstr "Frases &R/S…"
 
 #: src/kalzium.cpp:180
 #, kde-format
 msgid "Convert chemical files..."
-msgstr "Convertix fitxers químics..."
+msgstr "Convertix fitxers químics…"
 
 #: src/kalzium.cpp:182
 #, kde-format
@@ -5579,7 +5579,7 @@ msgstr ""
 #: src/kalzium.cpp:189
 #, kde-format
 msgid "Molecular Editor..."
-msgstr "Editor molecular..."
+msgstr "Editor molecular…"
 
 #: src/kalzium.cpp:191
 #, kde-format
@@ -5590,7 +5590,7 @@ msgstr "Esta eina permet visualitzar i editar estructures moleculars en 3D."
 #: src/kalzium.cpp:198
 #, kde-format
 msgid "&Tables..."
-msgstr "&Taules..."
+msgstr "&Taules…"
 
 #: src/kalzium.cpp:200
 #, kde-format
@@ -7874,7 +7874,7 @@ msgstr "&Filtre"
 #: src/searchwidget.cpp:37
 #, kde-format
 msgid "Search..."
-msgstr "Busca..."
+msgstr "Busca…"
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
