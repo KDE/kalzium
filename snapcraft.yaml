@@ -66,6 +66,7 @@ parts:
       - libfacile-ocaml-dev
       - libglew-dev
       - libsm-dev
+      - libpulse0
     stage-packages:
       - chemical-mime-data
       - ocaml-nox
