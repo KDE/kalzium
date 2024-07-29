@@ -176,7 +176,7 @@ void nuclearCalculator::isotopeChanged(int index)
     m_mass = list.at(index)->mass();
 
     // A string in isotope for searching the right unit
-    int halfLifeUnit = (list.at(index)->halflifeUnit().operator==("y")) ? KUnitConversion::Year : KUnitConversion::Second;
+    int halfLifeUnit = (list.at(index)->halflifeUnit() == QLatin1String("y")) ? KUnitConversion::Year : KUnitConversion::Second;
 
     QString tempStr;
     tempStr.setNum(m_mass);
