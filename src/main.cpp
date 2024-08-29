@@ -11,6 +11,7 @@
 #include <QCommandLineParser>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 
 #include "kalzium.h"
@@ -92,6 +93,8 @@ int main(int argc, char **argv)
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kalzium")));
 
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
 
     QCommandLineParser parser;
 

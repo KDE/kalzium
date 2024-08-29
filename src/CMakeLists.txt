@@ -198,6 +198,7 @@ target_link_libraries(kalzium
     KF${KF_MAJOR_VERSION}::TextWidgets
     KF${KF_MAJOR_VERSION}::UnitConversion
     KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::Crash
     Qt::Svg
     science
 )

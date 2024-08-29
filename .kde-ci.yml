@@ -19,6 +19,7 @@ Dependencies:
     'frameworks/kunitconversion': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
+    'frameworks/kcrash': '@latest-kf6'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
@@ -37,6 +38,7 @@ Dependencies:
     'frameworks/kunitconversion': '@stable'
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kxmlgui': '@stable'
+    'frameworks/kcrash': '@stable'
 
 Options:
   require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']

@@ -117,6 +117,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     WidgetsAddons
     TextWidgets
     XmlGui
+    Crash
 )
 
 ecm_setup_version("5.0.0"
