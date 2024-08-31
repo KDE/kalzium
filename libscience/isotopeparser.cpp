@@ -232,7 +232,7 @@ bool IsotopeParser::startElement(const QString &, const QString &localName, cons
             } else if (attrs.value(i) == QLatin1String("bo:halfLife")) {
                 for (int i = 0; i < attrs.length(); ++i) {
                     if (attrs.localName(i) == QLatin1String("units")) {
-                        if (attrs.value(i) == QLatin1String("siUnits:s")) {
+                        if (attrs.value(i) == QLatin1String("si:Units:s")) {
                             d->currentUnit = KUnitConversion::Second;
                         } else if (attrs.value(i) == QLatin1String("units:y")) {
                             d->currentUnit = KUnitConversion::Year;
