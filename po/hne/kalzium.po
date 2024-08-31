@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:04+0000\n"
+"POT-Creation-Date: 2024-08-31 01:45+0000\n"
 "PO-Revision-Date: 2009-02-21 22:58+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -5616,63 +5616,63 @@ msgstr "सबसे अधिक: %1"
 msgid "Scheme: %1"
 msgstr "योजना: %1"
 
-#: src/main.cpp:38 src/tools/moleculeview.cpp:111
+#: src/main.cpp:39 src/tools/moleculeview.cpp:111
 #, kde-format
 msgid "Kalzium"
 msgstr "के-एल्जियम"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "A periodic table of the elements"
 msgstr "तत्व मन के पीरियाडिक टेबल"
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2008 Carsten Niehaus"
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "(c) 2002-2008, कार्स्टेन नेइहास"
 
-#: src/main.cpp:46
+#: src/main.cpp:47
 #, kde-format
 msgid "Carsten Niehaus"
 msgstr "कार्सटन निहाउस"
 
-#: src/main.cpp:48
+#: src/main.cpp:49
 #, kde-format
 msgid "Pino Toscano"
 msgstr "पिनो टोसकिसनो"
 
-#: src/main.cpp:48
+#: src/main.cpp:49
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
 msgstr ""
 
-#: src/main.cpp:50
+#: src/main.cpp:51
 #, kde-format
 msgid "Benoit Jacob"
 msgstr "बेनाइट जेकब"
 
-#: src/main.cpp:50
+#: src/main.cpp:51
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
 
-#: src/main.cpp:52
+#: src/main.cpp:53
 #, kde-format
 msgid "Marcus Hanwell"
 msgstr "मार्कस हेनवेल"
 
-#: src/main.cpp:52
+#: src/main.cpp:53
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
 msgstr ""
 
-#: src/main.cpp:54
+#: src/main.cpp:55
 #, kde-format
 msgid "Kashyap R Puranik"
 msgstr ""
 
-#: src/main.cpp:54
+#: src/main.cpp:55
 #, fuzzy, kde-format
 #| msgid ""
 #| "Code cleaning, parser for the molecule weight calculator, and a lot of "
@@ -5680,177 +5680,177 @@ msgstr ""
 msgid "SoC on the calculator widget and a few smaller improvements"
 msgstr "कोड साफ सफाई, अनु भार गनक बर आनविक पारसर अउ बहुत से छोटे सुधार"
 
-#: src/main.cpp:56
+#: src/main.cpp:57
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "थामस नेगी"
 
-#: src/main.cpp:56
+#: src/main.cpp:57
 #, kde-format
 msgid "EqChem, the equation solver"
 msgstr "ईक्यूकेम - समीकरन सुलझाने वाला"
 
-#: src/main.cpp:58
+#: src/main.cpp:59
 #, kde-format
 msgid "Inge Wallin"
 msgstr "इंग वालिन"
 
-#: src/main.cpp:58
+#: src/main.cpp:59
 #, kde-format
 msgid ""
 "Code cleaning, parser for the molecule weight calculator, and a lot of "
 "smaller improvements"
 msgstr "कोड साफ सफाई, अनु भार गनक बर आनविक पारसर अउ बहुत से छोटे सुधार"
 
-#: src/main.cpp:60
+#: src/main.cpp:61
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "एन्ने मैरी मेहफोफ"
 
-#: src/main.cpp:60
+#: src/main.cpp:61
 #, kde-format
 msgid "A lot of small things and the documentation"
 msgstr "बहुत से छोटे छोटे चीज अउ कागद लिखना"
 
-#: src/main.cpp:62
+#: src/main.cpp:63
 #, kde-format
 msgid "Johannes Simon"
 msgstr "जोहान्स साइमन"
 
-#: src/main.cpp:62
+#: src/main.cpp:63
 #, kde-format
 msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
 msgstr ""
 
-#: src/main.cpp:64
+#: src/main.cpp:65
 #, kde-format
 msgid "Jarle Akselsen"
 msgstr "जारले एकसेलसेन"
 
-#: src/main.cpp:64
+#: src/main.cpp:65
 #, kde-format
 msgid "Many beautiful element icons"
 msgstr ""
 
-#: src/main.cpp:66
+#: src/main.cpp:67
 #, kde-format
 msgid "Noémie Scherer"
 msgstr "नियोमी शेहरर"
 
-#: src/main.cpp:66
+#: src/main.cpp:67
 #, kde-format
 msgid "Many beautiful element icons, too!"
 msgstr ""
 
-#: src/main.cpp:68
+#: src/main.cpp:69
 #, kde-format
 msgid "Danny Allen"
 msgstr "डैनी एलन"
 
-#: src/main.cpp:68
+#: src/main.cpp:69
 #, kde-format
 msgid "Several icons"
 msgstr "बहुत से चिनहा"
 
-#: src/main.cpp:70
+#: src/main.cpp:71
 #, kde-format
 msgid "Lee Olson"
 msgstr "ली ओलसन"
 
-#: src/main.cpp:70
+#: src/main.cpp:71
 #, kde-format
 msgid "Several icons in the information dialog"
 msgstr "जानकारी गोठ मं बहुत से चिनहा"
 
-#: src/main.cpp:72
+#: src/main.cpp:73
 #, kde-format
 msgid "Jörg Buchwald"
 msgstr "जार्ग बुचवाल्ड"
 
-#: src/main.cpp:72
+#: src/main.cpp:73
 #, kde-format
 msgid "Contributed most isotope information"
 msgstr "बहुत से आइसोटोप जानकारी मं सहायता प्रदत्त"
 
-#: src/main.cpp:74
+#: src/main.cpp:75
 #, kde-format
 msgid "Marco Martin"
 msgstr "मार्को मार्टिन"
 
-#: src/main.cpp:74
+#: src/main.cpp:75
 #, kde-format
 msgid "Some icons and inspiration for others"
 msgstr "कुछ चिनहा अउ दूसर मन ल प्रेरना"
 
-#: src/main.cpp:76
+#: src/main.cpp:77
 #, kde-format
 msgid "Daniel Haas"
 msgstr "डेनियल हास"
 
-#: src/main.cpp:76
+#: src/main.cpp:77
 #, kde-format
 msgid "The design of the information dialog"
 msgstr "जानकारी गोठ के डिजाइन"
 
-#: src/main.cpp:78
+#: src/main.cpp:79
 #, kde-format
 msgid "Brian Beck"
 msgstr "ब्रायन बेक"
 
-#: src/main.cpp:78
+#: src/main.cpp:79
 #, kde-format
 msgid "The orbits icon"
 msgstr "ओरबिट चिनहा"
 
-#: src/main.cpp:80
+#: src/main.cpp:81
 #, kde-format
 msgid "Paulo Cattai"
 msgstr "पाउलो काताई"
 
-#: src/main.cpp:80 src/main.cpp:82 src/main.cpp:84 src/main.cpp:86
-#: src/main.cpp:88
+#: src/main.cpp:81 src/main.cpp:83 src/main.cpp:85 src/main.cpp:87
+#: src/main.cpp:89
 #, kde-format
 msgid "New interface design and usability improvements"
 msgstr ""
 
-#: src/main.cpp:82
+#: src/main.cpp:83
 #, kde-format
 msgid "Danilo Balzaque"
 msgstr "डेनियलो बालजाक"
 
-#: src/main.cpp:84
+#: src/main.cpp:85
 #, kde-format
 msgid "Roberto Cunha"
 msgstr "राबर्टो कुन्हा"
 
-#: src/main.cpp:86
+#: src/main.cpp:87
 #, kde-format
 msgid "Tadeu Araujo"
 msgstr "तादेव अराउजो"
 
-#: src/main.cpp:88
+#: src/main.cpp:89
 #, kde-format
 msgid "Tiago Porangaba"
 msgstr "तियागो पोरान्गबा"
 
-#: src/main.cpp:90
+#: src/main.cpp:91
 #, kde-format
 msgid "Etienne Rebetez"
 msgstr ""
 
-#: src/main.cpp:90
+#: src/main.cpp:91
 #, kde-format
 msgid "Adding new sizable Periodic System"
 msgstr ""
 
-#: src/main.cpp:100
+#: src/main.cpp:103
 #, kde-format
 msgid "Open the given molecule file"
 msgstr ""
 
-#: src/main.cpp:123
+#: src/main.cpp:126
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr ""
