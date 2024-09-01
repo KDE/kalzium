@@ -23139,7 +23139,7 @@
 <isotopeList id="Cn">
     <isotope id="Cn277" number="277" elementType="Cn">
       <scalar dictRef="bo:exactMass" errorValue="140E-6">277.16394</scalar>
-      <scalar dictRef="bo:halfLife" units="siUnits:s">0.00024</scalar>
+      <scalar dictRef="bo:halfLife" units="si:Units:s">0.00024</scalar>
       <scalar dictRef="bo:atomicNumber">112</scalar>
     </isotope>
     <isotope id="Cn278" number="278" elementType="Cn">
@@ -23200,27 +23200,27 @@
 <isotopeList id="Fl">
     <isotope id="Fl285" number="285" elementType="Fl">
       <scalar dictRef="bo:exactMass" errorValue="1110E-6">285.1837</scalar>
-      <scalar dictRef="bo:halfLife" units="siUnits:s">0.00058</scalar>
+      <scalar dictRef="bo:halfLife" units="si:Units:s">0.00058</scalar>
       <scalar dictRef="bo:atomicNumber">114</scalar>
     </isotope>
     <isotope id="Fl286" number="286" elementType="Fl">
       <scalar dictRef="bo:exactMass" errorValue="830E-6">286.18386</scalar>
-      <scalar dictRef="bo:halfLife" units="siUnits:s">0.1</scalar>
+      <scalar dictRef="bo:halfLife" units="si:Units:s">0.1</scalar>
       <scalar dictRef="bo:atomicNumber">114</scalar>
     </isotope>
     <isotope id="Fl287" number="287" elementType="Fl">
       <scalar dictRef="bo:exactMass" errorValue="830E-6">287.1856</scalar>
-      <scalar dictRef="bo:halfLife" units="siUnits:s">5</scalar>
+      <scalar dictRef="bo:halfLife" units="si:Units:s">5</scalar>
       <scalar dictRef="bo:atomicNumber">114</scalar>
     </isotope>
     <isotope id="Fl288" number="288" elementType="Fl">
       <scalar dictRef="bo:exactMass" errorValue="910E-6">288.18569</scalar>
-      <scalar dictRef="bo:halfLife" units="siUnits:s">6</scalar>
+      <scalar dictRef="bo:halfLife" units="si:Units:s">6</scalar>
       <scalar dictRef="bo:atomicNumber">114</scalar>
     </isotope>
     <isotope id="Fl289" number="289" elementType="Fl">
       <scalar dictRef="bo:exactMass" errorValue="790E-6">289.18728</scalar>
-      <scalar dictRef="bo:halfLife" units="siUnits:s">21</scalar>
+      <scalar dictRef="bo:halfLife" units="si:Units:s">21</scalar>
       <scalar dictRef="bo:atomicNumber">114</scalar>
     </isotope>
     </isotopeList>
