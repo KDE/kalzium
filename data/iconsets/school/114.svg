@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="40"
    height="40"
    id="svg2193"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
    version="1.0"
-   sodipodi:docbase="/home/jra/Desktop/ikoner-sendt/radioactive"
    sodipodi:docname="114.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2195">
     <linearGradient
@@ -143,11 +143,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="18.32113"
-     inkscape:cx="19.999018"
-     inkscape:cy="18.935121"
+     inkscape:zoom="12.917661"
+     inkscape:cx="19.198521"
+     inkscape:cy="21.288683"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      inkscape:grid-bbox="false"
      inkscape:document-units="px"
      width="40px"
@@ -155,8 +155,12 @@
      gridempspacing="2"
      inkscape:window-width="1167"
      inkscape:window-height="914"
-     inkscape:window-x="43"
-     inkscape:window-y="53" />
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata2198">
     <rdf:RDF>
@@ -242,30 +246,20 @@
        sodipodi:nodetypes="csssccsssc" />
     <rect
        y="30"
-       x="-0.0019644466"
+       x="-0.0019645691"
        height="10.004759"
        width="40.001965"
-       id="rect2296"
+       id="rect2227"
        style="opacity:0.61162792;fill:#555753;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
-       id="text2298"
-       y="39.168152"
-       x="8.373332"
-       style="font-size:12px;font-style:normal;font-weight:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       id="text2229"
+       y="39.560001"
+       x="15.266"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         y="39.168152"
-         x="8.373332"
-         id="tspan2300"
-         sodipodi:role="line">Uu</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:9.94494152px;font-style:normal;font-weight:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="25.35857"
-       y="37.701492"
-       id="text2308"><tspan
          sodipodi:role="line"
-         id="tspan2310"
-         x="25.35857"
-         y="37.701492">q</tspan></text>
+         id="tspan1"
+         x="15.266"
+         y="39.560001">Fl</tspan></text>
   </g>
 </svg>
