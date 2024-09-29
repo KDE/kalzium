@@ -1,0 +1,2282 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+ ]>
+
+ <book id="kalzium" lang="&language;">
+
+	 <bookinfo>
+		 <title
+>&kalzium; Priročnik</title>
+
+		 <authorgroup>
+			 <author
+><firstname
+>Carsten</firstname
+> <surname
+>Niehaus</surname
+> <affiliation
+> <address
+>&Carsten.Niehaus.mail;</address>
+				 </affiliation>
+			 </author>
+
+			 <othercredit role="translator"
+><firstname
+>Luka</firstname
+><surname
+>Puhar</surname
+><affiliation
+><address
+><email
+>puhar.luka@gmail.com</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+
+		 </authorgroup>
+
+		 <copyright>
+			 <year
+>2001</year>
+			 <year
+>2002</year>
+			 <year
+>2004</year>
+			 <year
+>2005</year>
+			 <year
+>2006</year>
+			 <year
+>2007</year>
+			 <year
+>2008</year>
+			 <holder
+>&Carsten.Niehaus;</holder>
+		 </copyright>
+
+		 <copyright>
+			 <year
+>2005</year>
+			 <holder
+>&Anne-Marie.Mahfouf;</holder>
+		 </copyright>
+
+		 <legalnotice
+>&FDLNotice;</legalnotice>
+
+		 <date
+>19.12.2020</date>
+		 <releaseinfo
+>Aplikacije 20.12</releaseinfo>
+
+		 <abstract>
+			 <para
+>&kalzium; je program, ki prikazuje periodni sistem elementov. S programom &kalzium; lahko poiščete informacije o elementih ali spoznate dejstva o periodnem sistemu elementov.</para>
+		 </abstract>
+
+		 <keywordset>
+			 <keyword
+>KDE</keyword>
+			 <keyword
+>izobraževanje</keyword>
+			 <keyword
+>elementi</keyword>
+			 <keyword
+>kemija</keyword>
+			 <keyword
+>izobraževanje</keyword>
+			 <keyword
+>kalzium</keyword>
+		 </keywordset>
+
+	 </bookinfo>
+
+	 <chapter id="introduction">
+		 <title
+>Uvod</title>
+
+		 <para
+>&kalzium; vsebuje vse vrste informacij o periodnem sistemu elementov. Poiščete lahko veliko informacij o elementih in jih prikažete z vizualizacijami. Je brezplačen in licenciran pod &GNU; Javno licenco. </para>
+
+		 <para
+>Periodni sistem elementov lahko predstavite po skupinah, blokih in družinah. Za vrsto elementov lahko narišete podatke o lastnostih, kot sta vrelišče ali atomska masa. Lahko se vrnete v preteklost in preverite, kateri elementi so bili znani na določen datum. Izračunate lahko tudi molekulsko maso molekul. </para>
+
+	 </chapter>
+
+	 <chapter id="quick-start">
+		 <title
+>&kalzium; priročnik za hitri zagon</title>
+
+		 <para
+>To je &kalzium; prvič, ko ga zaženete tako, da izberete <menuchoice
+><guimenu
+>Aplikacije</guimenu
+> <guisubmenu
+>Izobraževanje</guisubmenu
+><guisubmenu
+>Znanost</guisubmenu
+><guimenuitem
+>&kalzium;</guimenuitem
+></menuchoice
+> iz začetnega programa ali z <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> in v vnosno polje vnesete <command
+>kalzium</command
+>.</para>
+		 <screenshot>
+			 <screeninfo
+>&kalzium; glavno okno</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-1.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>&kalzium; glavno okno</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>&kalzium; je razdeljen na informacijsko ploščo na levi strani (v rdeči barvi), pregled tabele (v modri barvi), ki prikazuje elemente periodnega sistema, in ploščo z legendo na dnu (v zeleni barvi). V standardni menijski vrstici lahko izberete, kaj želite prikazati, vrstica stanja pa poroča o dejstvih. Pogled tabele in plošče lahko skrijete z uporabo ustreznih elementov v meniju <guimenu
+>Pogled</guimenu
+>. Informacijsko ploščo lahko na primer skrijete z <menuchoice
+> <guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Podatki</guimenuitem
+> </menuchoice
+>. </para>
+
+		 <para
+>Ko se s kazalcem miške premaknete na element tabele, se v zavihku <guilabel
+>Pregled</guilabel
+> informacijske plošče prikaže pregled trenutnega elementa. </para>
+
+		 <para
+>Izberete lahko več pogledov na tabelo: klasični periodni sistem, kratek periodni sistem, dolg periodni sistem &etc; Prav tako je mogoče spremeniti shemo številčenja ali prikazati elemente po družinah, skupinah, kristalni strukturi, glede na njihovo kislo obnašanje &etc; Vse to lahko spremenite v meniju <guimenu
+>Pogled</guimenu
+>. </para>
+		 <para
+>Če želite izvedeti dejstva o določenem elementu, kliknite nanj v preglednici in prikazalo se bo pogovorno okno z informacijami. </para>
+
+		 <screenshot>
+			 <screeninfo
+>Pogovorno okno z informacijami</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="infodialog_data_overview.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Pogovorno okno z informacijami</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>Podatke lahko narišete z uporabo menijske postavke <menuchoice
+> <guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Izriši podatke...</guimenuitem
+> </menuchoice
+>. Izberete, kaj želite prikazati na osi y, in območje elementov, za katere želite to prikazati na osi x. Spodnja slika prikazuje atomsko maso elementov od 1 do 10. Kliknite &nbsp;<inlinemediaobject
+> <imageobject
+> <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guibutton
+>Zamenjaj osi X in Y</guibutton
+> gumb med okenci osi za zamenjavo osi X in Y.</para>
+
+		 <screenshot>
+			 <screeninfo
+>Pogovorno okno nariši podatke</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-3.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Pogovorno okno nariši podatke</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>Besednjak (<menuchoice
+> <guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Besednjak...</guimenuitem
+> </menuchoice
+>) pojasnjuje najpomembnejše kemijske besede in prikazuje slike najpogostejših orodij skupaj z razlago.</para>
+
+		 <screenshot>
+			 <screeninfo
+>Besednjak</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-4.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Besednjak</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+	 </chapter>
+	 <chapter id="using-kalzium">
+		 <title
+>Uporaba &kalzium;</title>
+
+		 <sect1 id="foo"
+><title
+>Pregled uporabe &kalzium;</title>
+			 <para
+>&kalzium; je zelo enostaven za uporabo. Namenjen je študentom vseh starosti za uporabo kot majhna in hitra podatkovna zbirka.</para>
+			 <para
+>Tukaj je posnetek zaslona, ki prikazuje &kalzium; v akciji:</para>
+			 <screenshot>
+				 <screeninfo
+>&kalzium; glavni zaslon, takoj po prvem zagonu</screeninfo>
+				 <mediaobject>
+					 <imageobject>
+						 <imagedata fileref="screenshot1.png" format="PNG"/>
+					 </imageobject>
+					 <textobject>
+						 <phrase
+>&kalzium; glavni zaslon</phrase>
+					 </textobject>
+				 </mediaobject>
+			 </screenshot>
+		 </sect1>
+		 <sect1 id="info-dlg">
+			 <title
+>Pogovorno okno z informacijami</title>
+			 <para
+>Do pogovornega okna z informacijami dostopate tako, da kliknete z &LMB; na kateri koli element. Na tem mestu lahko dobite informacije o elementu. Z gumbi na dnu pogovornega okna lahko spremenite prikazani element, ne da bi zaprli pogovorno okno.</para>
+			<sect2 id="infodialog_dataoverview">
+				 <title
+>Pregled podatkov</title>
+				 <para
+>Na strani <guilabel
+>Pregled podatkov</guilabel
+> so navedena različna dejstva, povezana z elementom.</para>
+				 <para
+>Odvisno od podatkov, ki so na voljo v &kalzium; boste videli različne radije elementa. Kovalentni polmer je polmer nenabitega atoma elementa v molekuli. Lahko je na primer razdalja O-H v vodi. Atomski polmer je polmer elementarnega atoma, &eg; ni vezan na nič. Van der Waalsov radij je opredeljen kot razdalja dveh atomov iste vrste v dveh enakih molekulah, na primer dveh atomov ogljika v propanu. Zadnji možni polmer je ionski polmer vključno z njegovim nabojem.</para>
+				 <para
+>Masa elementa je povprečna masa vseh izotopov glede na njihov odstotek. </para>
+				 <screenshot>
+					 <screeninfo
+>&kalzium; pogovorno okno z informacijami</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>&kalzium; pogovorno okno z informacijami</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_orbits">
+				 <title
+>Bohrove orbitale</title>
+				 <para
+>Stran <guilabel
+>Modek atoma</guilabel
+> prikazuje atomske lupine. Vsaka orbita predstavlja atomsko lupino in vsak rumen krogec predstavlja elektron.</para>
+				 <screenshot>
+					 <screeninfo
+>&kalzium; pogovorno okno z informacijami</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_bohr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>&kalzium; pogovorno okno z informacijami</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_isotopes">
+				 <title
+>Izotopi</title>
+				 <para
+>Stran <guilabel
+>Izotopi</guilabel
+> predstavlja informacije o izotopih elementa.</para>
+
+          <variablelist>
+          <varlistentry>
+            <term
+></term>
+            <listitem
+><para>
+            <variablelist>
+            <varlistentry>
+              <term
+>Masa</term>
+              <listitem
+><para
+>Masa tega izotopa.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Nevtroni</term>
+              <listitem
+><para
+>Število nevtronov, ki jih ima ta izotop.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Delež</term>
+              <listitem
+><para
+>Delež atomov te vrste izotopa. Imenuje se tudi obilje.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Razpolovni čas</term>
+              <listitem
+><para
+>Samo nestabilni izotopi imajo razpolovni čas. Opredeljen je kot čas, v katerem razpade polovica izotopov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Energija in način razpada</term>
+              <listitem
+><para
+>Znano je, da nekateri izotopi oddajajo sevanje delcev v procesu radioaktivnega razpada. Vsaka razpadna transformacija ima značilno sproščanje energije, ki je navedena skupaj z načinom razpada.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Spin in parnost</term>
+              <listitem
+><para
+>Spin jedra in njegova parnost.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Magnetni moment</term>
+              <listitem
+><para
+>Magnetni dipolni moment jedra. Merjeno v enotah jedrskega magnetona.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+          </variablelist>
+
+				 <screenshot>
+					 <screeninfo
+>&kalzium; pogovorno okno z informacijami</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_isotopes.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>&kalzium; pogovorno okno z informacijami</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_misc">
+				 <title
+>Razno</title>
+				 <para
+>Na strani <guilabel
+>Miscellaneous</guilabel
+> so na voljo druge informacije o trenutnem elementu, vključno s tem, kdaj je bil odkrit, in izvorom imena.</para>
+				 <screenshot>
+					 <screeninfo
+>&kalzium; pogovorno okno z informacijami</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>&kalzium; pogovorno okno z informacijami</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_spectrum">
+				 <title
+>Spekter</title>
+				 <para
+>Na strani <guilabel
+>Spekter</guilabel
+> je prikazan spekter elementov. Izberete lahko območje valovnih dolžin, enote in vrsto spektra. preglednica intenzivnosti je na voljo na desnem spodnjem delu strani.</para>
+				 <screenshot>
+					 <screeninfo
+>&kalzium; pogovorno okno z informacijami</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_spectrum.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>&kalzium; pogovorno okno z informacijami</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_extra">
+				 <title
+>Dodatni podatki</title>
+				 <para
+>Na strani <guilabel
+>Dodatni podatki</guilabel
+> so na voljo povezave do strani elementov v Wikipediji, <ulink url="https://education.jlab.org/"
+>Jefferson Lab</ulink
+> in <ulink url="https://www.webelements.com/"
+>WebElements</ulink
+>.</para>
+				 <screenshot>
+					 <screeninfo
+>&kalzium; pogovorno okno z informacijami</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_extra.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>&kalzium; pogovorno okno z informacijami</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+		 </sect1>
+		 <sect1 id="tables_view">
+			 <title
+>Periodni sistemi</title>
+
+			 <para
+>Periodni sistem lahko predstavimo na različne načine. Pogled tabele lahko preklopite iz menija <guimenu
+>Pogled</guimenu
+> ali spustnega seznama orodne vrstice.</para>
+
+			 <para
+>Naslednje možnosti v meniju <menuchoice
+><guimenu
+>Pogled</guimenu
+> <guisubmenu
+>Periodni sistemi</guisubmenu
+></menuchoice
+> lahko uporabite za spremembo prikazane tabele: <variablelist>
+			   <varlistentry>
+			     <term
+>Klasična periodna tabela</term>
+			     <listitem>
+			       <para
+><action
+>Prikaži</action
+> klasični periodni sistem z vsemi elementi. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Kratek periodni sistem</term>
+			     <listitem>
+			       <para
+><action
+>Prikaži</action
+> periodni sistem brez prehodnih elementov. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Dolg periodni sistem</term>
+			     <listitem>
+			       <para
+><action
+>Prikaz</action
+> periodnega sistema z vgrajenimi notranjimi prehodnimi elementi (f-elementi). </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Prehodni Elementi</term>
+			     <listitem>
+			       <para
+><action
+>Prikaži</action
+> periodni sistem samo s prehodnimi elementi. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Periodni sistem DZ</term>
+			     <listitem>
+			       <para
+>Ta postavka predstavlja tabelo, ki jo predlaga DZ <foreignphrase lang="de"
+>Deutscher Zentralausschuss</foreignphrase
+> "Nemški centralni odbor". </para>
+			     </listitem>
+			   </varlistentry>
+			 </variablelist>
+			 </para>
+
+		 </sect1>
+		 <sect1 id="numeration">
+			 <title
+>Številčenje</title>
+
+			 <para
+>Številčenje je način oštevilčenja 18 skupin periodnega sistema. Številčenje lahko spremenite v <guilabel
+>IUPAC</guilabel
+>, <guilabel
+>star IUPAC</guilabel
+> ali <guilabel
+>CAS</guilabel
+>, lahko pa ga tudi popolnoma izklopite.</para>
+
+				 <para
+>Naslednje možnosti v meniju <menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Številčenje</guimenuitem
+></menuchoice
+> lahko uporabite za spremembo prikazanega številčenja: <itemizedlist>
+					 <listitem
+><para
+><guimenuitem
+>Brz številčenja</guimenuitem
+>: če je ta možnost aktivna, ne bo veljalo nobeno številčenje.</para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>IUPAC</guimenuitem
+> (privzeto) je <firstterm
+>International Union of Pure and Applied Chemistry</firstterm
+>. To je organizacija, ki opredeljuje večino standardov za kemijske zadeve. Novi sistem IUPAC vsak stolpec številči z arabskimi številkami od 1 (ena) do 18 (osemnajst). </para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>CAS</guimenuitem
+> je <firstterm
+>Chemical Abstracts Service</firstterm
+>. V sistemu CAS sta bili črki A in B označeni za elemente glavne skupine (A) in prehodne elemente (B). Čeprav je uradno številčenje <acronym
+>IUPAC</acronym
+>, se v učilnicah in laboratorijih še vedno uporablja številčenje <acronym
+>CAS</acronym
+>.</para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>Stari IUPAC</guimenuitem
+> je označeval stolpce z rimskimi številkami, ki jim je sledila črka <quote
+>A</quote
+> ali <quote
+>B</quote
+>. Stolpci so bili oštevilčeni tako, da so bili stolpci od prvega do sedmega oštevilčeni od <quote
+>IA</quote
+> do <quote
+>VIIA</quote
+>, stolpci od 8 do 10 so bili označeni z <quote
+>VIIIA</quote
+>, stolpci od 11 do 17 so bili oštevilčeni od <quote
+>IB</quote
+> do <quote
+>VIIB</quote
+>, stolpec 18 pa je bil oštevilčen z <quote
+>VIII</quote
+>. Zaradi zmede, ki sta jo povzročala stari sistem IUPAC in sistem CAS, je IUPAC sprejel svoj novi sistem. </para
+></listitem>
+				 </itemizedlist>
+			 </para>
+
+		 </sect1>
+
+		 <sect1 id="colors">
+			 <title
+>Barvne sheme</title>
+
+			 <para
+>&kalzium; vam lahko pokaže, kateri elementi so kje glede na njihov periodni <quote
+>blok</quote
+> in <quote
+>skupino</quote
+>, njihovo obnašanje s kislino in v katerem stanju snovi (&ie; trdno/tekoče/parno) so pri določeni temperaturi.</para>
+			 <para
+>Barvne sheme lahko spremenite v meniju <menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Shema</guimenuitem
+></menuchoice
+>, spustnem seznamu orodne vrstice ali <link linkend="view_tab"
+>Pogled</link
+> zavihka stranske vrstice.</para>
+			 <itemizedlist>
+				 <listitem
+><para
+><guimenuitem
+>Enobarvno</guimenuitem
+>: vsi elementi imajo enako barvo. Privzeto barvo lahko spremenite tako, da izberete <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guimenuitem
+>Konfiguracija &kalzium;...</guimenuitem
+> </menuchoice
+> in odprete stran <guilabel
+>Sheme</guilabel
+>. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Bloki</guimenuitem
+>: prikaže barvo za vsak blok. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Ikone</guimenuitem
+>: prikaže ikone za vsak element. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Družina</guimenuitem
+>: predstavlja vsako od devetih družin z barvo. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Skupine</guimenuitem
+>: prikaže barvo za vsako skupino. Skupina je navpični stolpec v periodnem sistemu elementov. V standardnem periodnem sistemu je 18 skupin. Elementi v skupini imajo podobne konfiguracije elektronov v valenčni lupini, kar jim daje podobne lastnosti. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Barve</guimenuitem
+>: Lepe barve brez pomena. (Iz projekta <ulink url="https://openbabel.org/wiki/Main_Page"
+>Open Babel</ulink
+>). </para
+></listitem>
+			 </itemizedlist>
+		</sect1>
+		<sect1 id="gradients">
+			 <title
+>Prelivi</title>
+			 <para
+>Prelivni pogledi prikažejo elemente glede na lastnost, ki jo lahko izberete spodaj, in z gradientno barvno shemo. Elementi, za katere podatki niso na voljo, so prikazani v sivi barvi.</para>
+			 <para
+>Prelive lahko spremenite v meniju <menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Prelivi</guimenuitem
+></menuchoice
+>, spustnem seznamu orodne vrstice ali <link linkend="view_tab"
+>Pogled</link
+> zavihka stranske vrstice.</para>
+			<screenshot>
+			  <screeninfo
+>Preliv za kovalentni polmer</screeninfo>
+			  <mediaobject>
+			    <imageobject>
+			      <imagedata fileref="gradient.png" format="PNG"/>
+			      </imageobject>
+			      <textobject>
+				<phrase
+>Preliv za kovalentni polmer</phrase>
+			      </textobject>
+			   </mediaobject>
+			   </screenshot>
+			   <para
+>Izvedeni so naslednji gradienti (nekatere naštete elemente je mogoče klikniti):</para>
+			   <itemizedlist>
+            <listitem
+><para
+><guimenuitem
+>Brez</guimenuitem
+>: ne uporabi prelivov. </para
+></listitem>
+            <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/State_of_matter"
+><guimenuitem
+>Agregatno stanje</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+            <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Covalent_Radius"
+><guimenuitem
+>Kovalentni polmer</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Van_der_Waals_radius"
+><guimenuitem
+>Van der Waals</guimenuitem
+></ulink
+>: preliv glede na Van der Waals polmer. </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Atomic_Mass"
+><guimenuitem
+>Atomska masa</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Boiling_Point"
+><guimenuitem
+>Vrelišče</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Melting_Point"
+><guimenuitem
+>Tališče</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Electronegativity"
+><guimenuitem
+>Elektronegativnost (Pauling)</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Electron_affinity"
+><guimenuitem
+>Elektronska afiniteta</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><guimenuitem
+>Datum odkritja</guimenuitem>
+            </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Ionization_energy"
+><guimenuitem
+>Prva ionizacija</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+			   </itemizedlist>
+		 </sect1>
+		 <sect1 id="tools">
+			 <title
+>Orodja</title>
+			 <sect2 id="mol_editor">
+				 <title
+>Urejevalnik molekul</title>
+				 <para
+>Urejevalnik molekul omogoča pregledovanje in urejanje molekul z uporabo knjižnic <ulink url="https://avogadro.cc"
+>Avogadro 2</ulink
+>. </para>
+				 <para
+>Na nadzorni plošči na levi strani lahko spreminjate parametre pogleda, urejate molekule ali merite molekule. Na tej plošči so trije zavihki: <guilabel
+>Prikaz</guilabel
+>, <guilabel
+>Uredi</guilabel
+> in <guilabel
+>Izmeri</guilabel
+>. Na vrhu okna je kontrolnik za izbiro pregledovalnika <guilabel
+>Slog:</guilabel
+> (lahko je <guimenuitem
+>Ball and Stick</guimenuitem
+>, <guimenuitem
+>Licorice</guimenuitem
+>, <guimenuitem
+>Van der Waals</guimenuitem
+>, <guimenuitem
+>Van der Waals (AO)</guimenuitem
+> (<abbrev
+>AO</abbrev
+> pomeni <quote
+>Ambient Occlusion</quote
+>) ali <guimenuitem
+>Wireframe</guimenuitem
+>). Z gumbi na dnu okna lahko <guibutton
+>Naloži molekulo</guibutton
+>, <guibutton
+>Prejmi nove molekule</guibutton
+>, <guibutton
+>Shrani molekulo</guibutton
+> in <guibutton
+>Zapri</guibutton
+> okno. Prenesene datoteke bodo shranjene v mapo <filename class="directory"
+>Documents</filename
+>, od koder jih lahko naložite v urejevalnik. </para>
+				 <para
+><guilabel
+>Podokno Statistika</guilabel
+> prikazuje ime (če je na voljo), formulo in maso molekul. </para>
+				 <para
+>Zavihek <guilabel
+>Prikaz</guilabel
+> lahko uporabite za ogled naložene molekule. S pritiskom na kazalec miške v pogledu lahko spremenite točko pogleda. Za vrtenje molekule uporabite &LMB;, za premikanje &RMB; in za povečavo &MMB;. </para>
+				 <para
+>Zavihek <guilabel
+>Uredi</guilabel
+> omogoča urejanje molekule. Elemente lahko dodate tako, da jih izberete na spustnem seznamu <guilabel
+>Element</guilabel
+>, nato pa kliknete z &LMB; na plošči za prikaz na desni strani. </para>
+				 <para
+>Z zavihkom <guilabel
+>Izmeri</guilabel
+> lahko merite razdalje in kote v molekuli. Za merjenje uporabite navodila, ki so prikazana na zavihku. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-mol-edit.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+><quote
+>Urejevalnik molekul</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="nuclid_board">
+				 <title
+>preglednica izotopov</title>
+				 <para
+><guilabel
+>Preglednica izotopov</guilabel
+> vam prikaže izotope elementov. </para>
+				 <para
+>Obstajajo različne vrste izotopov, nekateri so stabilni, drugi ne. Nestabilni izotopi lahko razpadejo kot žarki alfa in dva različna žarka beta. Te razlike so zakodirane z uporabo različnih barv. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshotnuclidboard.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Preglednica izotopov</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; lahko prikaže izotope številnih elementov</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="plot_data">
+				 <title
+>Izriši podatke</title>
+				 <para
+>V pogovornem oknu <guilabel
+>Izriši podatke</guilabel
+> lahko narišete nekatere podatke o elementih. Os X predstavlja razpon elementov (od enega do večjega števila). Ta razpon določite z uporabo polj <guilabel
+>Prvi element:</guilabel
+> in <guilabel
+>Zadnji element:</guilabel
+> v pogovornem oknu. Kliknite &nbsp;<inlinemediaobject
+> <imageobject
+> <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guibutton
+>Zamenjaj osi X in Y</guibutton
+> gumb med okenci osi za zamenjavo osi X in Y. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="quick-3.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Izriši podatke</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; lahko izriše nekaj podatkov o vrsti elementov.</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="perf_calculation">
+				 <title
+>Izvedi izračune</title>
+				 <para
+><guimenuitem
+>Izvedi izračun...</guimenuitem
+> je &kalzium; kalkulator. Ta kalkulator vsebuje različne kalkulatorje za različna opravila, ki opravljajo različne izračune. </para>
+				 <para
+>Naslednje kalkulatorje najdete v razdelku &kalzium;: </para>
+				 <variablelist>
+				   <varlistentry>
+				     <term
+>Računalo molekulske mase</term>
+				     <listitem>
+				       <para
+>Ta kalkulator vam pomaga izračunati molekulske mase različnih molekul. </para>
+				       <para
+>Navedete lahko kratke oblike imen molekul in dodate več takšnih vzdevkov. </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-mass.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Računala molekulske mase</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; izračuna molekulsko maso fenola.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Računalo koncentracij</term>
+				     <listitem>
+				       <para
+>Izračunate lahko količine, ki vključujejo: </para>
+				       <itemizedlist>
+					 <listitem>
+					   <para
+>Količina topljenca </para>
+					 </listitem>
+					 <listitem>
+					   <para
+>Gostota topljenca </para>
+					 </listitem>
+					 <listitem>
+					   <para
+>Gostota topila </para>
+					 </listitem>
+				       </itemizedlist>
+				       <para
+>Izbirate lahko med številnimi enotami in različnimi metodami za določanje količin. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-conc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Računalo koncentracij</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; izračuna parametre topila.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Jedrsko računalo</term>
+				     <listitem>
+				       <para
+>Ta kalkulator uporablja jedrske podatke, ki so na voljo v programu &kalzium; za napovedovanje pričakovanih mas snovi po določenem času. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-nucl.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Jedrsko računalo</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; izračuna parametre razpada urana.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Računalo plinov</term>
+				     <listitem>
+				       <para
+>Ta kalkulator lahko izračuna vrednosti temperature, tlaka, prostornine, količine plina &etc; za različne idealne in neidealne pline. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-gas.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Računalo plinov</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; izračuna parametre plinov.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Računalo titracije</term>
+				     <listitem>
+				       <para
+>To računalo poskuša najti ekvivalenčno točko meritve s pH metrom tako, da podatkom prilega hiperbolično tangento. Pustite mu lahko tudi, da reši ravnotežni sistem enačb in vidite kako se koncentracija zvrsti spremeni kot funkcija druge. </para>
+				       <para
+>Na strani računala sta dva zavihka, in sicer: </para>
+				       <variablelist>
+					 <varlistentry>
+					   <term
+><guilabel
+>Eksperimentalne vrednosti</guilabel
+></term>
+					   <listitem>
+					     <para
+>S tem računalom lahko narišete graf eksperimentalnih podatkov, pridobljenih med titracijo, in ugotovite prostornino ekvivalence. Zaradi algoritma za najboljše prileganje je zelo priporočljivo vstaviti sodo število točk, razvrščenih po prostornini (vrednost na osi <guilabel
+>X:</guilabel
+>). </para>
+					   </listitem>
+					 </varlistentry>
+					 <varlistentry>
+					   <term
+><guilabel
+>Teoretične enačbe</guilabel
+></term>
+					   <listitem>
+					     <para
+>V tabelo lahko vnesete enačbe, ki ste jih prej dobili za kemijsko ravnovesje. </para>
+					     <para
+>Če imate na primer to reakcijo <emphasis
+>A + B -> C + D</emphasis
+>, potem boste imeli enačbo <emphasis
+>K=(C*D)/(A*B)</emphasis
+>, zato morate v stolpec <guilabel
+>Parameter</guilabel
+> zapisati <userinput
+>K</userinput
+> in v stolpec <guilabel
+>Vrednost</guilabel
+> <userinput
+>(C*D)/(A*B)</userinput
+>. Če želite parametru pripisati znano vrednost, lahko preprosto zapišete številčno vrednost v polje <guilabel
+>Vrednost</guilabel
+>. </para>
+					     <para
+>Uporabite lahko na primer sistem </para>
+					     <para>
+					       <userinput
+>A=(C*D)/(B*K)</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>K=10^-3</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>C=OH</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>OH=(10^-14)/H</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>H=10^-4</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>B=6*(10^-2)</userinput>
+					     </para>
+					     <para
+>Potem morate <userinput
+>D</userinput
+> zapisati kot <guilabel
+>os X:</guilabel
+> in <userinput
+>A</userinput
+> kot <guilabel
+>os Y:</guilabel
+>: tako boste ugotovili, kako se koncentracija A spreminja kot funkcija koncentracije D. </para>
+					     <note>
+					       <para
+>Prosimo, ne uporabljajte oklepajev za eksponente: <userinput
+>10^-3</userinput
+> je pravilno, <userinput
+>10^(-3)</userinput
+> pa napačno. </para>
+					     </note>
+					   </listitem>
+					 </varlistentry>
+				       </variablelist>
+				       <para
+>Rezultate lahko prikažete s pritiskom na gumb <guibutton
+>Izriši polje</guibutton
+>. Na grafu je z rdečo barvo prikazana krivulja iz teoretičnih enačb, z modro so prikazane eksperimentalne točke, z zeleno pa približana krivulja za eksperimentalne točke. Sliko lahko shranite kot &SVG; sliko. </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-titr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Računalo titracije</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>Vnaprej določen primer rezultatov titracije.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Urejevalnik enačb</term>
+				     <listitem>
+				       <para
+>S programom <guilabel
+>urejevalnik enačb</guilabel
+> lahko uporabnik urejuje kemijske enačbe. To je primer: </para>
+				       <blockquote
+><para
+>aH2O + bCO2 -> cH2CO3</para
+></blockquote>
+				       <para
+>Izračunana enačba se prikaže na vrhu okna. Kot lahko vidite v prvem primeru, lahko določite tudi vrednost enega ali več koeficientov. Drugi koeficienti bodo prilagojeni. Poleg tega je mogoče okoli elementov ali elektronskih nabojev uporabiti oklepaje, kot je prikazano v zadnjih dveh primerih. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-eq.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Urejevalnik enačb</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; izračuna ravnotežje enačbe.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				 </variablelist>
+			 </sect2>
+			 <sect2 id="rs_phrases">
+				 <title
+>Stavki R/S</title>
+				 <para
+><guilabel
+>Stavki R/S</guilabel
+>, znani tudi kot izjave o tveganju in varnosti, izjave R/S, številke R/S in vrstice R/S, so sistem kod nevarnosti in stavkov za označevanje nevarnih kemikalij in spojin. Besedna zveza R/S je sestavljena iz dela o tveganju (R - risk) in dela o varnosti (S - safety), ki jima sledi kombinacija številk. Vsaka številka ustreza stavku. Besedna zveza, ki ustreza kombinaciji črka/številka, ima v različnih jezikih enak pomen. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-rs-phrases.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Stavki R/S</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; lahko prikaže stavke o tveganju/varnosti</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="glossary">
+				 <title
+>Besednjak</title>
+				 <para
+>V <guilabel
+>Besednjaku</guilabel
+> so na voljo opredelitve najpogosteje uporabljenih orodij v kemiji in nekateri podatki o znanju. Na levi strani oken je prikazano drevo elementov. Na vrhu so kemijski izrazi, pod njimi pa je drugo drevo laboratorijskih orodij.</para>
+				 <para
+>Na vrhu gradnika je prikazana iskalna vrstica. Če vnesete vrstico, se drevesa takoj prilagodijo. Z majhnim gumbom na desnem koncu iskalne vrstice jo lahko izbrišete. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot7.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+><quote
+>Besednjak</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="tables">
+				 <title
+>Periodni sistemi</title>
+				 <para
+>V <guilabel
+>Preglednice</guilabel
+> so prikazane tabele za grško abecedo, ki se uporablja za označevanje nekaterih kemijskih in fizikalnih entitet, ter za latinske predpone in rimske številke, ki ustrezajo običajnim arabskim številkam.</para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-tables.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>pogovorno okno <quote
+>Preglednice</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="sidebar">
+				 <title
+>Stranska vrstica</title>
+				 <sect3 id="overview">
+					 <title
+>Pregled</title>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="sidebar1.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>Pregled</phrase>
+							 </textobject>
+						 </mediaobject>
+					 </screenshot>
+					 <para
+>Zavihek <guilabel
+>Pregled</guilabel
+> je prvi zavihek in prikazuje pregled elementa, nad katerim je miška.</para>
+
+				 </sect3>
+				 <sect3 id="view_tab">
+					 <title
+>Pogled</title>
+
+					 <para
+>Zavihek <guilabel
+>Pogled</guilabel
+> je drugi na navigacijski plošči.</para>
+					 <para
+>Najprej se prikažejo naslednje ikone in besedilo:</para>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot2.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>pogovorno okno <quote
+>Agregatno stanje</quote
+></phrase>
+							 </textobject>
+							 <caption
+><para
+>&kalzium; vam lahko pokaže, kateri elementi so pri določeni temperaturi trdni/tekoči/parni.</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+
+					 <para
+>Zavihek <guilabel
+>Pogled</guilabel
+> lahko uporabite za filtriranje sistema PSE. Ta funkcija vam na primer omogoča raziskovanje elementov v določenem časovnem obdobju. To je odličen pripomoček za spoznavanje razvoja sistema PSE skozi čas, ko je bilo odkritih vedno več elementov. Izberite <guimenuitem
+>Datum odkritja</guimenuitem
+> s seznama <guilabel
+>Preliv:</guilabel
+>. Če premikate drsnik, boste opazili, da barva nekaterih elementov izgine, če ga premaknete v levo, in se ponovno pojavi, če ga premaknete v desno. Poleg tega se število stalno spreminja. </para>
+
+					 <para
+>Številka predstavlja datum, ki ga gledate. Če premaknete drsnik na &eg;. 1856 boste videli le elemente, ki so bili znani v letu 1856. </para>
+
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot6.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>preliv <quote
+>Datum odkritja</quote
+></phrase>
+							 </textobject>
+							 <caption
+><para
+>PSE v preteklosti (elementi, znani leta 1856)</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+				 </sect3>
+
+			 </sect2>
+		 </sect1>
+	 </chapter>
+
+	 <chapter id="config">
+		 <title
+>Konfiguracija &kalzium;</title>
+
+		 <para
+>&kalzium; ima številne možnosti konfiguracije, do katerih lahko dostopate tako, da odprete pogovorno okno konfiguracije z izbiro <menuchoice
+> <guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Konfiguracija &kalzium;...</guimenuitem
+> </menuchoice
+> v meniju.</para>
+
+		 <screenshot>
+			 <screeninfo
+>Pogovorno okno &kalzium; Konfiguriraj</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings1.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Sheme</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>V zavihku <guilabel
+>Sheme</guilabel
+> lahko spremenite različne barve za vsako shemo. </para>
+		 <screenshot>
+			 <screeninfo
+>Pogovorno okno &kalzium; Konfiguriraj</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings2.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Prelivi</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>Namesto uporabe linearnega gradienta za prikaz dane lastnosti elementa v periodnem sistemu, lahko &kalzium; uporablja tudi logaritemski gradient.</para>
+		 <para
+>V zavihku <guilabel
+>Prelivi</guilabel
+> lahko preverite lastnosti, ki jih želite prikazati z logaritemskim prelivom.</para>
+		 <para
+>Izberete lahko tudi <guilabel
+>Barva največje vrednosti:</guilabel
+> in <guilabel
+>Barva najmanjše vrednosti:</guilabel
+> za preliv.</para>
+		 <screenshot>
+			 <screeninfo
+>Pogovorno okno &kalzium; Konfiguriraj</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings3.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Enote</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>V zavihku <guilabel
+>Enote</guilabel
+> lahko izberete enote za energijo, dolžino in temperaturo. Privzeto lahko izberete, ali želite elektronvolte (eV), kilodžule na mol (kJ/mol), džul na mol (J/mol) ali džule (J). Za dolžino privzeto nastavite pikometre (pm), nanometre (nm) ali &Aring;ngstr&ouml;m (&Aring;). Temperatura je privzeto v kelvinih, vendar jo lahko spremenite v Celzija (°C), Fahrenheita (°F) in Réaumurja (°Ré). </para>
+		 <screenshot>
+			 <screeninfo
+>Pogovorno okno &kalzium; Konfiguriraj</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings4.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Računalo</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>Na strani <guilabel
+>Računalo</guilabel
+> lahko konfigurirate &kalzium; računala. </para>
+
+	 </chapter>
+
+	 <chapter id="commands">
+		 <title
+>Referenca ukazov</title>
+
+		 <sect1 id="kalzium-mainwindow">
+			 <title
+>Meniji in bližnjične tipke</title>
+
+			 <sect2>
+				 <title
+>Meni Datoteka</title>
+				 <variablelist>
+					 <varlistentry>
+						 <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Shrani kot...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Shrani</action
+> tabelo &kalzium; kot sliko.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Izvozi podatke...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> pogovorno okno, kjer lahko izberete <guilabel
+>Elemente</guilabel
+> in njihove <guilabel
+>Lastnosti</guilabel
+>, da jih izvozite v datoteko &HTML;, &XML; ali CSV.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Pretvori kemijske datoteke...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> pogovorno okno za uvoz in izvoz širokega nabora kemičnih datotek in tipov podatkov s <ulink url="https://openbabel.org/wiki/Main_Page"
+>knjižnico Open Babel</ulink 
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Izhod</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Zapre</action
+> &kalzium;.</para
+></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
+
+			 <sect2>
+				 <title
+>Meni Pogled</title>
+          <variablelist>
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+><guisubmenu
+>Preglednice</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Prikaži podmeni</action
+> z različnimi periodnimi sistemi. Razpoložljive možnosti so: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Klasični periodni sistem</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži klasični periodni sistem z vsemi elementi.</action
+></para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Kratek periodni sistem</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> periodni sistem brez prehodnih elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Dolg periodni sistem</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaz</action
+> periodnega sistema z vgrajenimi notranjimi prehodnimi elementi (f-elementi).</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Prehodni elementi</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> periodni sistem samo s prehodnimi elementi.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Periodni sistem elementov DZ</guimenuitem
+></term>
+              <listitem
+><para
+>Ta postavka predstavlja tabelo, ki jo predlaga DZ <foreignphrase lang="de"
+>Deutscher Zentralausschuss</foreignphrase
+> <quote
+>Nemški centralni komite</quote
+>.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+><guisubmenu
+>Številčenje</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Prikaži podmeni</action
+> z različnimi načini številčenja. Razpoložljive možnosti so: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Brez številčenja</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> brez sheme oštevilčenja.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>IUPAC</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> številčenje IUPAC.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>CAS</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> CAS številčenje.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Stari IUPAC</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> staro IUPAC številčenje.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+><guisubmenu
+>Sheme</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Prikaži podmeni</action
+> z različnimi shemami. Razpoložljive možnosti so: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Enobarvno</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> vse elemente z eno barvo ozadja.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Bloki</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> štiri bloke elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Ikone</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> ikone za vsak element.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Družina</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> družine elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Skupine</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> skupine elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Barve</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> barve elementov.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+><guisubmenu
+>Prelivi</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Prikaži podmeni</action
+> z različnimi prelivi. Razpoložljive možnosti so: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Brez</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Onemogoči</action
+> vsak preliv za tabelo.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Agregatno stanje</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> agregatno stanje elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Kovalentni polmer</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> kovalentni polmer elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Van der Waals</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> van der Waalsov radij elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Atomska masa</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> atomsko maso elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Vrelišče</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> vrelišče elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Tališče</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> tališče elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Elektronegativnost (Pauling)</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> elektronegativnost elementov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Elektronska afiniteta</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> afiniteto elementov do elektronov.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Datum odkritja</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> datum odkritja vsakega elementa z različnimi barvami ozadja za vsako stoletje.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Prva ionizacija</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Prikaži</action
+> energijo elementov prve ionizacije.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Legend</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Preklop</action
+> pogleda legende. Omogoča vam prikaz legende za shemo, v kateri ste (Skupine, Družina, Bloki). Legenda je privzeto prikazana, če pa jo skrijete, bo ostala skrita, dokler je ne izberete. &kalzium; bo ohranil to nastavitev v svoji konfiguracijski datoteki, tako da bo ob naslednjem zagonu nastavitev enaka, kot ste jo pustili.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Informacije</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Preklopi</action
+> stransko vrstico.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Podatki o preglednici</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Preklopi</action
+> pogled informacij preglednice.</para
+></listitem>
+					 </varlistentry>
+
+				 </variablelist>
+
+			 </sect2>
+
+
+			 <sect2>
+				 <title
+>Meni Orodja</title>
+				 <variablelist>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Urejevalnik molekul ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> pogovorno okno <guilabel
+>Urejevalnik molekul</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Preglednica izotopov ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> okno <guilabel
+>Preglednica izotopov</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Izriši podatke ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> pogovorno okno <guilabel
+>Izriši podatke</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Izvedi izračun ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> pogovorno okno <link linkend="perf_calculation"
+><guilabel
+>Izvedi izračun</guilabel
+></link
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>stavki R/S ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> pogovorno okno <guilabel
+>Tveganje/varnostne fraze</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Besednjak ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Odpri</action
+> <guilabel
+>Besednjak</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Orodja</guimenu
+> <guimenuitem
+>Preglednice ...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Prikaži</action
+> pogovorno okno z <guilabel
+>grško abecedo</guilabel
+> in <guilabel
+>številskimi predponami in rimskimi številkami</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
+
+<sect2>
+<title
+>Meni Nastavitve in pomoč</title>
+<para
+>&kalzium; ima skupno &kde; Elementi menija <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite razdelke o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>meniju z nastavitvami </ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>meni Pomoč</ulink
+> v &kde; Osnove. </para>
+</sect2>
+		 </sect1>
+	 </chapter>
+
+	 <chapter id="faq">
+		 <title
+>Vprašanja in odgovori</title>
+
+		 <qandaset id="faqlist">
+			 <qandaentry>
+				 <question>
+					 <para
+>Bom kdaj moral plačati za &kalzium;?</para>
+				 </question>
+				 <answer>
+					 <para
+>Ne, nikoli. Avtor pa vedno pozdravi lepo pošto ali &DVD; kot <quote
+>Hvala</quote
+>. &kalzium; je licenciran pod <ulink url="https://www.gnu.org/licenses/licenses.html#GPL"
+>GPL</ulink
+>, zato vam za ta program nikoli ne bo treba plačati.</para>
+				 </answer>
+			 </qandaentry>
+
+		 </qandaset>
+	 </chapter>
+
+	 <chapter id="contribute">
+		 <title
+>Kako lahko prispevam?</title>
+
+		 <qandaset id="tasks">
+			 <qandaentry>
+
+				 <question>
+					 <para
+>Podprite me s podatki.</para>
+				 </question>
+
+				 <answer>
+					 <para
+>V svetu znanosti je napredek precej hiter. Če najdete napačno ali manjkajočo vrednost, mi pišite po e-pošti.</para>
+				 </answer>
+			 </qandaentry>
+
+			 <qandaentry>
+				 <question>
+					 <para
+>Poiščite nekaj napak ali podajte nekaj predlogov.</para>
+				 </question>
+				 <answer>
+					 <para
+>Če v programu odkrijete napake ali imate nekaj predlogov za izboljšave, mi to sporočite na &Carsten.Niehaus.mail;. </para>
+				 </answer>
+
+			 </qandaentry>
+		 </qandaset>
+	 </chapter>
+
+	 <chapter id="credits">
+
+		 <title
+>Zasluge in licenca</title>
+		 <para
+>&kalzium;</para>
+		 <para
+>Avtorske pravice Programa, 2001-2005 &Carsten.Niehaus; &Carsten.Niehaus.mail; </para>
+
+		 <para
+>Sodelujoči:</para>
+
+		 <itemizedlist>
+			 <listitem
+><para
+>Pino Toscano <email
+>toscano.pino@tiscali.it</email
+> </para
+></listitem>
+		 </itemizedlist>
+
+		 <para
+>Prevod: Luka Puhar <email
+>puhar.luka@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+	 &documentation.index;
+ </book>
+ <!--
+ Local Variables:
+ mode: sgml
+ sgml-minimize-attributes:nil
+ sgml-general-insert-case:lower
+ sgml-indent-step:0
+ sgml-indent-data:nil
+ End:
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+ // vim:ts=2:sw=2:tw=78:noet:noai
+ -->
