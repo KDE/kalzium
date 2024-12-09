@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-31 01:45+0000\n"
-"PO-Revision-Date: 2024-03-02 16:41+0100\n"
+"PO-Revision-Date: 2024-12-08 11:07+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1338,7 +1338,7 @@ msgstr ""
 "Un dos métodos que permite separar mesturas é a destilación Neste "
 "procedemento unha ponte de destilación comunica dous recipientes. Nun dos "
 "recipientes colócase a mestura que se desexa separar e quécese ata que forme "
-"gas. O gas atravesa cara o outro recipiente pola canle que os comunica. No "
+"gas. O gas atravesa cara ao outro recipiente pola canle que os comunica. No "
 "extremo da canle faise que o gas se condense e precipite no segundo "
 "recipiente. É habitual que se induza a condensación usando na canle por "
 "fluxo de retorno. Os destiladores adoitan ter termómetros para controlar a "
@@ -6081,8 +6081,8 @@ msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
 msgstr ""
-"Aportou código e documentación para o resolvente de ecuacións e o visor "
-"molecular"
+"Achegou código e documentación para o resolvente de ecuacións e o visor "
+"molecular."
 
 #: src/main.cpp:65
 #, kde-format
@@ -6132,7 +6132,7 @@ msgstr "Jörg Buchwald"
 #: src/main.cpp:73
 #, kde-format
 msgid "Contributed most isotope information"
-msgstr "Aportou a maior parte da información dos isótopos"
+msgstr "Achegou a maior parte da información dos isótopos."
 
 #: src/main.cpp:75
 #, kde-format
@@ -6341,8 +6341,8 @@ msgid ""
 "This table previews the elemental composition of the molecule, i.e. the "
 "percentage of each element in the molecule."
 msgstr ""
-"Esta táboa mostra unha vista da composición elemental da molécula, ou sexa, "
-"o porcentaxe de cada elemento da molécula."
+"Esta táboa amosa unha vista da composición elemental da molécula, ou sexa, a "
+"porcentaxe de cada elemento da molécula."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
