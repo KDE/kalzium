@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-31 01:45+0000\n"
-"PO-Revision-Date: 2024-12-08 11:07+0100\n"
+"PO-Revision-Date: 2024-12-13 22:12+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1349,6 +1349,7 @@ msgstr ""
 msgid "Syringe"
 msgstr "Xiringa"
 
+# skip-rule: trasno-sound_reverse
 #: data/tools.xml:170
 #, kde-format
 msgid ""
