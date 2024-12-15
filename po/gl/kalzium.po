@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-31 01:45+0000\n"
-"PO-Revision-Date: 2024-12-13 22:12+0100\n"
+"PO-Revision-Date: 2024-12-14 10:49+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -7122,7 +7122,7 @@ msgid ""
 "S56: Dispose of this material and its container at hazardous or special "
 "waste collection point"
 msgstr ""
-"S56: Eliminar esta substancia e o seu recipiente nun lugar autorizado para a "
+"S56: Desbotar esta substancia e o seu recipiente nun lugar autorizado para a "
 "recollida de residuos perigosos ou especiais"
 
 #: src/rsdialog.cpp:281
@@ -7153,7 +7153,7 @@ msgctxt ""
 msgid ""
 "S60: This material and its container must be disposed of as hazardous waste"
 msgstr ""
-"S60: Este produto e o seu recipiente deben eliminarse como residuos perigosos"
+"S60: Este produto e o seu recipiente deben desbotarse como residuos perigosos"
 
 #: src/rsdialog.cpp:290
 #, kde-format
