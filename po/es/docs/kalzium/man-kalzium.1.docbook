@@ -16,10 +16,10 @@
 >Página man de Kalzium.</contrib
 ></author>
 <date
->2016-10-31</date
+>2020-12-19</date
 ><!--Update only when changing/reviewing this man page-->
 <releaseinfo
->2.5.0 (Applications 16.12)</releaseinfo
+>Aplicaciones 20.12</releaseinfo
 ><!--Update only when changing/reviewing this man page-->
 <productname
 >Aplicaciones de KDE</productname>
@@ -71,8 +71,7 @@
 >&kalzium; le proporciona todo tipo de información sobre la TPE. Puede encontrar abundante información sobre los elementos y usar distintos tipos de visualizaciones para mostrarla.</para>
 
 <para
->Este paquete es parte del módulo oficial educativo de KDE. </para
-> 
+>Este paquete es parte del módulo oficial educativo de KDE.</para>
 
 </refsect1>
 
