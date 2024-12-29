@@ -2607,7 +2607,7 @@ msgstr "以科学家 Ernest Orlando Lawrence (欧内斯特·奥兰多·劳伦斯
 #: element_tiny.xml:209
 #, kde-format
 msgid "Rutherfordium"
-msgstr "钅卢"
+msgstr "𬬻"
 
 #: element_tiny.xml:210
 #, kde-format
@@ -2618,7 +2618,7 @@ msgstr "以科学家 Ernest Rutherford (欧内斯特·卢瑟福) 命名。"
 #: element_tiny.xml:211
 #, kde-format
 msgid "Dubnium"
-msgstr "钅杜"
+msgstr "𬭊"
 
 #: element_tiny.xml:212
 #, kde-format
@@ -2629,7 +2629,7 @@ msgstr "以俄罗斯的科学城 Dubna 命名。"
 #: element_tiny.xml:213
 #, kde-format
 msgid "Seaborgium"
-msgstr "钅喜"
+msgstr "𬭳"
 
 #: element_tiny.xml:214
 #, kde-format
@@ -2640,7 +2640,7 @@ msgstr "以科学家 G. Theodore Seaborg (格伦·西奥多·西博格) 命名�
 #: element_tiny.xml:215
 #, kde-format
 msgid "Bohrium"
-msgstr "钅波"
+msgstr "𬭛"
 
 #: element_tiny.xml:216
 #, kde-format
@@ -2651,7 +2651,7 @@ msgstr "以科学家 Niels Bohr (尼尔斯·玻尔) 命名。"
 #: element_tiny.xml:217
 #, kde-format
 msgid "Hassium"
-msgstr "钅黑"
+msgstr "𬭶"
 
 #: element_tiny.xml:218
 #, kde-format
@@ -2664,7 +2664,7 @@ msgstr "拉丁文“hassia”，指德国城市 Hessen，有很多元素在这�
 #: element_tiny.xml:219
 #, kde-format
 msgid "Meitnerium"
-msgstr "钅麦"
+msgstr "鿏"
 
 #: element_tiny.xml:220
 #, kde-format
@@ -2675,7 +2675,7 @@ msgstr "以科学家 Lise Meitner (莉泽·迈特纳) 命名。"
 #: element_tiny.xml:221
 #, kde-format
 msgid "Darmstadtium"
-msgstr "钅达"
+msgstr "𫟼"
 
 #: element_tiny.xml:222
 #, kde-format
@@ -2688,7 +2688,7 @@ msgstr "以德国城市 Darmstadt 命名，在很多的元素在这里被人们�
 #: element_tiny.xml:223
 #, kde-format
 msgid "Roentgenium"
-msgstr "钅仑"
+msgstr "𬬭"
 
 #: element_tiny.xml:224
 #, kde-format
@@ -2699,7 +2699,7 @@ msgstr "以 Wilhelm Conrad Röntgen 命名。"
 #: element_tiny.xml:225
 #, kde-format
 msgid "Copernicium"
-msgstr "鎶"
+msgstr "鿔"
 
 #: element_tiny.xml:226
 #, kde-format
@@ -2712,7 +2712,7 @@ msgstr "历史上是一种类汞物质。以天文学家尼古拉·哥白尼命�
 #: element_tiny.xml:227
 #, kde-format
 msgid "Nihonium"
-msgstr "鉨"
+msgstr "鿭"
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2728,7 +2728,7 @@ msgstr ""
 #: element_tiny.xml:229
 #, kde-format
 msgid "Flerovium"
-msgstr "FI"
+msgstr "𫓧"
 
 #: element_tiny.xml:230
 #, kde-format
@@ -2757,7 +2757,7 @@ msgstr ""
 #: element_tiny.xml:233
 #, kde-format
 msgid "Livermorium"
-msgstr "鉝"
+msgstr "𫟷"
 
 #: element_tiny.xml:234
 #, kde-format
