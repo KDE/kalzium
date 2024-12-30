@@ -211,7 +211,7 @@ if (HAVE_OPENBABEL)
    target_link_libraries(kalzium ${OPENBABEL_LIBRARIES})
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
       target_link_libraries(kalzium
-         KF${KF_MAJOR_VERSION}::NewStuff
+         KF${KF_MAJOR_VERSION}::NewStuffWidgets
          Qt::OpenGL
          compoundviewer
          Avogadro::QtGui
