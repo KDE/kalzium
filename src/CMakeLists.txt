@@ -214,9 +214,9 @@ if (HAVE_OPENBABEL)
          KF${KF_MAJOR_VERSION}::NewStuff
          Qt::OpenGL
          compoundviewer
-         AvogadroQtGui
-         AvogadroQtOpenGL
-         AvogadroQtPlugins
+         Avogadro::QtGui
+         Avogadro::QtOpenGL
+         Avogadro::QtPlugins
          Eigen3::Eigen
        )
       install(FILES kalzium.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
