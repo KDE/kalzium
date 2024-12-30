@@ -14,7 +14,6 @@
 
 #include <QDebug>
 #include <QFileInfo>
-#include <QGLFormat>
 #include <QUrl>
 
 #include <KIO/FileCopyJob>
@@ -48,11 +47,6 @@ MoleculeDialog::MoleculeDialog(QWidget *parent)
     , m_path(QString())
     , m_periodicTable(nullptr)
 {
-    // use multi-sample (anti-aliased) OpenGL if available
-    QGLFormat defFormat = QGLFormat::defaultFormat();
-    defFormat.setSampleBuffers(true);
-    QGLFormat::setDefaultFormat(defFormat);
-
     setWindowTitle(i18nc("@title:window", "Molecular Editor"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     QWidget *mainWidget = new QWidget(this);
