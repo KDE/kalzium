@@ -24,11 +24,11 @@ target_link_libraries(compoundviewer
     Qt::Gui
     Qt::Widgets
     ${OPENBABEL_LIBRARIES}
-    AvogadroCore
-    AvogadroIO
-    AvogadroQtGui
-    AvogadroQtOpenGL
-    AvogadroQtPlugins
+    Avogadro::Core
+    Avogadro::IO
+    Avogadro::QtGui
+    Avogadro::QtOpenGL
+    Avogadro::QtPlugins
     Eigen3::Eigen
 )
 
