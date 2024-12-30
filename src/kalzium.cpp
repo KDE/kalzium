@@ -30,7 +30,6 @@
 #ifdef HAVE_OPENBABEL
 #if defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
 #include "tools/moleculeview.h"
-#include <QGLFormat>
 #endif
 #include "tools/obconverter.h"
 #endif
@@ -348,12 +347,6 @@ void Kalzium::slotOBConverter()
 MoleculeDialog *Kalzium::slotMoleculeviewer()
 {
 #if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
-
-    if (!QGLFormat::hasOpenGL()) {
-        QMessageBox::critical(nullptr, i18n("Kalzium Error"), i18n("This system does not support OpenGL."));
-        return nullptr;
-    }
-
     MoleculeDialog *d = new MoleculeDialog(this);
     d->show();
     return d;
