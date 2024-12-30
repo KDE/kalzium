@@ -17,6 +17,7 @@
 #include <QGLFormat>
 #include <QUrl>
 
+#include <KIO/FileCopyJob>
 #include <KIO/Job>
 #include <KJob>
 #include <KLocalizedString>
