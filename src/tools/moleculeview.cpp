@@ -21,7 +21,7 @@
 #include <KJob>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KNS3/QtQuickDialogWrapper>
+#include <KNSWidgets/Dialog>
 
 #include "iowrapper.h"
 
@@ -253,9 +253,9 @@ void MoleculeDialog::slotDownloadNewStuff()
 {
     qDebug() << "Kalzium new stuff";
 
-    KNS3::QtQuickDialogWrapper *dialog = new KNS3::QtQuickDialogWrapper(QStringLiteral("kalzium.knsrc"), this);
+    KNSWidgets::Dialog *dialog = new KNSWidgets::Dialog(QStringLiteral("kalzium.knsrc"), this);
     dialog->open();
-    connect(dialog, &KNS3::QtQuickDialogWrapper::closed, this, [this, dialog] {
+    connect(dialog, &KNSWidgets::Dialog::finished, this, [this, dialog] {
         // list of changed entries
         QString destinationDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
         QDir dir(destinationDir);
@@ -273,7 +273,7 @@ void MoleculeDialog::slotDownloadNewStuff()
         QString exactlyOneFile;
         foreach (const auto &entry, entries) {
             // care only about installed ones
-            if (entry.status() == KNS3::Entry::Installed) {
+            if (entry.status() == KNSCore::Entry::Installed) {
                 qDebug() << "Changed Entry: " << entry.installedFiles();
                 foreach (const QString &origFile, entry.installedFiles()) {
                     const QString destFile = destinationDir + '/' + QFileInfo(origFile).fileName();
