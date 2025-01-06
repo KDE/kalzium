@@ -8149,12 +8149,3 @@ msgstr "Konverti de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konverti al:"
-
-#~ msgid "A cool thing"
-#~ msgstr "Mojosaĵo"
-
-#~ msgid "(c) 2006, Carsten Niehaus"
-#~ msgstr "(c) 2006, Carsten Niehaus"
-
-#~ msgid "Marcus D. Hanwell"
-#~ msgstr "Marcus D. Hanwell."
