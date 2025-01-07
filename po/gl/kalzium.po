@@ -1,6 +1,6 @@
 # translation of kalzium.po to galician
 # Tradución de kalzium.po ó galego
-# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Adrián Chaves (Gallaecio)
 # Gonzalo H. Castilla <ttxzgl@yahoo.es>, 2004.
 # mvillarino <mvillarino@users.sourceforge.net>, 2006, 2008, 2009.
 # Xabi G. Feal <xabigf@gmx.net>, 2006.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-31 01:45+0000\n"
-"PO-Revision-Date: 2024-12-14 10:49+0100\n"
+"PO-Revision-Date: 2025-01-06 12:54+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1226,6 +1226,7 @@ msgstr ""
 msgid "Pipette"
 msgstr "Pipeta"
 
+# skip-rule: trasno-logout-logoff_reverse
 #: data/tools.xml:138
 #, kde-format
 msgid ""
