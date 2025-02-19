@@ -84,22 +84,22 @@ void ElementItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
 
     switch (m_property->getMode()) {
     case KalziumElementProperty::NORMAL:
-        symbolFont.setPointSize(12);
-        symbolFont.setBold(true);
-        painter->setFont(symbolFont);
-        painter->drawText(boundingRect(), Qt::AlignCenter, m_symbol);
-        symbolFont.setPointSize(7);
-        symbolFont.setBold(false);
-        painter->setFont(symbolFont);
-        painter->drawText(QRectF(m_width / 14, m_height / 20, m_width, m_height / 2), Qt::AlignLeft, QString::number(m_element));
+        if(Prefs::colorschemebox() != 2){
+            symbolFont.setPointSize(12);
+            symbolFont.setBold(true);
+            painter->setFont(symbolFont);
+            painter->drawText(boundingRect(), Qt::AlignCenter, m_symbol);
+            symbolFont.setPointSize(7);
+            symbolFont.setBold(false);
+            painter->setFont(symbolFont);
+            painter->drawText(QRectF(m_width / 14, m_height / 20, m_width, m_height / 2), Qt::AlignLeft, QString::number(m_element));
+        }
         break;
 
     case KalziumElementProperty::GRADIENTVALUE:
         painter->drawText(QRectF(0, m_height / 20, m_width, m_height / 2), Qt::AlignCenter, m_symbol);
-
         symbolFont.setPointSize(7);
         painter->setFont(symbolFont);
-
         painter->drawText(QRectF(0, m_height / 2 - m_height / 20, m_width, m_height / 2), Qt::AlignCenter, m_textValue);
         break;
     }

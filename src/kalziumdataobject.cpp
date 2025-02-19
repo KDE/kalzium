@@ -186,10 +186,6 @@ void KalziumDataObject::loadIconSet()
         pix.fill(Qt::transparent);
         QPainter p(&pix);
         renderer.render(&p);
-
-        Element *e = ElementList.at(i);
-        const QString esymbol = e->dataAsString(ChemicalDataObject::symbol);
-        p.drawText(0, 0, 40, 40, Qt::AlignCenter | Qt::TextWordWrap, esymbol);
         p.end();
 
         PixmapList << pix;
