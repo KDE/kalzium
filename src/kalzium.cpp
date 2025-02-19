@@ -431,6 +431,10 @@ void Kalzium::slotSwitchtoLookGradient(int which)
     m_gradientWidget->slotGradientChanged();
 
     m_legendWidget->updateContent();
+
+    if(which != 0 && KalziumElementProperty::instance()->schemeId() == 2){
+        slotSwitchtoLookScheme(0);
+    }
 }
 
 void Kalzium::slotSwitchtoLookScheme(int which)
@@ -449,6 +453,10 @@ void Kalzium::slotSwitchtoLookScheme(int which)
     m_gradientWidget->scheme_combo->blockSignals(false);
 
     m_legendWidget->updateContent();
+
+    if(which == 2){
+        slotSwitchtoLookGradient(0);
+    }
 }
 
 void Kalzium::showSettingsDialog()
