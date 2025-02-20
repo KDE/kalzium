@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-31 01:45+0000\n"
+"POT-Creation-Date: 2025-02-20 01:53+0000\n"
 "PO-Revision-Date: 2023-12-09 12:30+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -5718,7 +5718,7 @@ msgstr "Erreur de Kalzium"
 msgid "This system does not support OpenGL."
 msgstr "Le système ne gère pas OpenGL."
 
-#: src/kalzium.cpp:500
+#: src/kalzium.cpp:508
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
