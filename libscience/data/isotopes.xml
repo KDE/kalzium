@@ -17,7 +17,7 @@
         <metadata name="dc:contributor" content="Geoffrey R. Hutchison" />
         <metadata name="dc:contributor" content="Carsten Niehaus" />
         <metadata name="dc:contributor" content="Egon Willighagen" />
-        <metadata name="dc:contributor" content="Jörg Buchwald" />
+        <metadata name="dc:contributor" content="JÃ¶rg Buchwald" />
         <metadata name="dc:contributor" content="Martin Pfeiffer" />
         <metadata name="dc:description" content="Database of isotopes and isotopic properties (names, symbols, exact masses, spin, abundances, magnetic dipole moment, decay energy, etc)" />
     </metadataList>
@@ -1338,7 +1338,7 @@
       <scalar dictRef="bo:betaminus2neutronDecay"/>
       <scalar dictRef="bo:betaminus2neutronDecayLikeliness" units="bo:percentage">1.17</scalar>
       <scalar dictRef="bo:betaminusalphaDecay"/>
-      <scalar dictRef="bo:betaminusalphaDecayLikeliness" units="bo:percentage">5.5·10&#8722;5</scalar>
+      <scalar dictRef="bo:betaminusalphaDecayLikeliness" units="bo:percentage">5.5Â·10&#8722;5</scalar>
     </isotope>
     <isotope id="Na31" number="31" elementType="Na">
       <scalar dictRef="bo:exactMass" errorValue="230E-6">31.01359</scalar>
@@ -2004,9 +2004,9 @@
       <scalar dictRef="bo:ecDecay"/>
       <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">99.999</scalar>
       <scalar dictRef="bo:betaplusprotonDecay"/>
-      <scalar dictRef="bo:betaplusprotonDecayLikeliness" units="bo:percentage">1.3·10&#8722;3</scalar>
+      <scalar dictRef="bo:betaplusprotonDecayLikeliness" units="bo:percentage">1.3Â·10&#8722;3</scalar>
       <scalar dictRef="bo:betaplusalphaDecay"/>
-      <scalar dictRef="bo:betaplusalphaDecayLikeliness" units="bo:percentage">8.6·10&#8722;4</scalar>
+      <scalar dictRef="bo:betaplusalphaDecayLikeliness" units="bo:percentage">8.6Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="P29" number="29" elementType="P">
       <scalar dictRef="bo:exactMass" errorValue="0.6E-6">28.9818006</scalar>
@@ -5439,7 +5439,7 @@
       <scalar dictRef="bo:betaplusprotonDecay"/>
       <scalar dictRef="bo:betaplusprotonDecayLikeliness" units="bo:percentage">1.6</scalar>
       <scalar dictRef="bo:betaplusalphaDecay"/>
-      <scalar dictRef="bo:betaplusalphaDecayLikeliness" units="bo:percentage">2.5·10&#8722;3</scalar>
+      <scalar dictRef="bo:betaplusalphaDecayLikeliness" units="bo:percentage">2.5Â·10&#8722;3</scalar>
     </isotope>
     <isotope id="Ga61" number="61" elementType="Ga">
       <scalar dictRef="bo:exactMass" errorValue="60E-6">60.94945</scalar>
@@ -6717,7 +6717,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">17.2</scalar>
       <scalar dictRef="bo:atomicNumber">36</scalar>
       <scalar dictRef="bo:ecprotonDecay"/>
-      <scalar dictRef="bo:ecprotonDecayLikeliness" units="bo:percentage">1·10&#8722;6</scalar>
+      <scalar dictRef="bo:ecprotonDecayLikeliness" units="bo:percentage">1Â·10&#8722;6</scalar>
     </isotope>
     <isotope id="Kr73" number="73" elementType="Kr">
       <scalar dictRef="bo:exactMass" errorValue="7E-6">72.939289</scalar>
@@ -10947,7 +10947,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">6.6</scalar>
       <scalar dictRef="bo:atomicNumber">53</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">3.310·10&#8722;7</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">3.310Â·10&#8722;7</scalar>
     </isotope>
     <isotope id="I114" number="114" elementType="I">
       <scalar dictRef="bo:exactMass" errorValue="320E-6">113.92185</scalar>
@@ -13143,7 +13143,7 @@
       <scalar dictRef="bo:ecDecay"/>
       <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">100</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">2.8·10&#8722;7</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">2.8Â·10&#8722;7</scalar>
     </isotope>
     <isotope id="Pm146" number="146" elementType="Pm">
       <scalar dictRef="bo:exactMass" errorValue="5E-6">145.914696</scalar>
@@ -13649,7 +13649,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">4.7088e+06</scalar>
       <scalar dictRef="bo:atomicNumber">63</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">9.4·10&#8722;7</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">9.4Â·10&#8722;7</scalar>
     </isotope>
     <isotope id="Eu149" number="149" elementType="Eu">
       <scalar dictRef="bo:exactMass" errorValue="5E-6">148.917931</scalar>
@@ -13880,7 +13880,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">801792</scalar>
       <scalar dictRef="bo:atomicNumber">64</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">4.3·10&#8722;4</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">4.3Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Gd150" number="150" elementType="Gd">
       <scalar dictRef="bo:exactMass" errorValue="7E-6">149.918659</scalar>
@@ -14110,7 +14110,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">63392.4</scalar>
       <scalar dictRef="bo:atomicNumber">65</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">9.5·10&#8722;3</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">9.5Â·10&#8722;3</scalar>
     </isotope>
     <isotope id="Tb152" number="152" elementType="Tb">
       <scalar dictRef="bo:exactMass" errorValue="40E-6">151.92407</scalar>
@@ -16319,7 +16319,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">53</scalar>
       <scalar dictRef="bo:atomicNumber">74</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">2.7·10&#8722;3</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">2.7Â·10&#8722;3</scalar>
     </isotope>
     <isotope id="W169" number="169" elementType="W">
       <scalar dictRef="bo:exactMass" errorValue="17E-6">168.951779</scalar>
@@ -17404,7 +17404,7 @@
       <scalar dictRef="bo:ecDecay"/>
       <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">100</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">2.9·10&#8722;5</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">2.9Â·10&#8722;5</scalar>
     </isotope>
     <isotope id="Pt189" number="189" elementType="Pt">
       <scalar dictRef="bo:exactMass" errorValue="12E-6">188.960834</scalar>
@@ -17624,7 +17624,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">642</scalar>
       <scalar dictRef="bo:atomicNumber">79</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">8·10&#8722;4</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">8Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Au187" number="187" elementType="Au">
       <scalar dictRef="bo:exactMass" errorValue="27E-6">186.964568</scalar>
@@ -17849,7 +17849,7 @@
       <scalar dictRef="bo:ecprotonDecay"/>
       <scalar dictRef="bo:ecprotonDecayLikeliness" units="bo:percentage">0.014</scalar>
       <scalar dictRef="bo:ecalphaDecay"/>
-      <scalar dictRef="bo:ecalphaDecayLikeliness" units="bo:percentage">9·10&#8722;6</scalar>
+      <scalar dictRef="bo:ecalphaDecayLikeliness" units="bo:percentage">9Â·10&#8722;6</scalar>
     </isotope>
     <isotope id="Hg182" number="182" elementType="Hg">
       <scalar dictRef="bo:exactMass" errorValue="10E-6">181.97469</scalar>
@@ -17905,7 +17905,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">195</scalar>
       <scalar dictRef="bo:atomicNumber">80</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">4.0·10&#8722;5</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">4.0Â·10&#8722;5</scalar>
     </isotope>
     <isotope id="Hg189" number="189" elementType="Hg">
       <scalar dictRef="bo:exactMass" errorValue="40E-6">188.96819</scalar>
@@ -18430,7 +18430,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">720</scalar>
       <scalar dictRef="bo:atomicNumber">82</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">7.3·10&#8722;6</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">7.3Â·10&#8722;6</scalar>
     </isotope>
     <isotope id="Pb195" number="195" elementType="Pb">
       <scalar dictRef="bo:exactMass" errorValue="25E-6">194.974542</scalar>
@@ -18539,7 +18539,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">7.03253e+08</scalar>
       <scalar dictRef="bo:atomicNumber">82</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.9·10&#8722;6</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.9Â·10&#8722;6</scalar>
     </isotope>
     <isotope id="Pb211" number="211" elementType="Pb">
       <scalar dictRef="bo:exactMass" errorValue="2.9E-6">210.988737</scalar>
@@ -18690,7 +18690,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">559.8</scalar>
       <scalar dictRef="bo:atomicNumber">83</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1·10&#8722;4</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Bi198" number="198" elementType="Bi">
       <scalar dictRef="bo:exactMass" errorValue="30E-6">197.97921</scalar>
@@ -18779,7 +18779,7 @@
       <scalar dictRef="bo:betaminusDecay">1.16</scalar>
       <scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">100.0</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.32·10&#8722;4</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.32Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Bi211" number="211" elementType="Bi">
       <scalar dictRef="bo:exactMass" errorValue="6E-6">210.987269</scalar>
@@ -19085,7 +19085,7 @@
       <scalar dictRef="bo:alphaDecay"/>
       <scalar dictRef="bo:alphaDecayLikeliness" units="bo:percentage">99.9998</scalar>
       <scalar dictRef="bo:betaminusDecay"/>
-      <scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">2.3·10&#8722;4</scalar>
+      <scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">2.3Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Po216" number="216" elementType="Po">
       <scalar dictRef="bo:exactMass" errorValue="2.4E-6">216.001915</scalar>
@@ -20301,7 +20301,7 @@
       <scalar dictRef="bo:ecDecay"/>
       <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">17</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">6·10&#8722;3</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">6Â·10&#8722;3</scalar>
     </isotope>
     <isotope id="Ac227" number="227" elementType="Ac">
       <scalar dictRef="bo:exactMass" errorValue="2.6E-6">227.0277521</scalar>
@@ -20456,7 +20456,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">9.7e-06</scalar>
       <scalar dictRef="bo:atomicNumber">90</scalar>
       <scalar dictRef="bo:ecDecay"/>
-      <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">2·10&#8722;7</scalar>
+      <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">2Â·10&#8722;7</scalar>
     </isotope>
     <isotope id="Th221" number="221" elementType="Th">
       <scalar dictRef="bo:exactMass" errorValue="10E-6">221.018184</scalar>
@@ -21360,7 +21360,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">5880</scalar>
       <scalar dictRef="bo:atomicNumber">95</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.0·10&#8722;4</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.0Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Am239" number="239" elementType="Am">
       <scalar dictRef="bo:exactMass" errorValue="2.6E-6">239.0530245</scalar>
@@ -21378,7 +21378,7 @@
       <scalar dictRef="bo:ecDecay"/>
       <scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">100</scalar>
       <scalar dictRef="bo:2betaplusDecay"></scalar>
-      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.9·10&#8722;4</scalar>
+      <scalar dictRef="bo:2betaplusDecayLikeliness" units="bo:percentage">1.9Â·10&#8722;4</scalar>
     </isotope>
     <isotope id="Am241" number="241" elementType="Am">
       <scalar dictRef="bo:exactMass" errorValue="2E-6">241.0568291</scalar>
@@ -21963,7 +21963,7 @@
       <scalar dictRef="bo:halfLife" units="si:Units:s">2.38205e+07</scalar>
       <scalar dictRef="bo:atomicNumber">99</scalar>
       <scalar dictRef="bo:betaminusDecay"/>
-      <scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">1.74·10&#8722;6</scalar>
+      <scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">1.74Â·10&#8722;6</scalar>
     </isotope>
     <isotope id="Es255" number="255" elementType="Es">
       <scalar dictRef="bo:exactMass" errorValue="12E-6">255.090273</scalar>
