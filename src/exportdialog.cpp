@@ -153,19 +153,11 @@ void ExportDialog::slotOkClicked()
     }
     QFile outputFile(filename);
     if (outputFile.exists()) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         if (KMessageBox::questionTwoActions(this,
-#else
-        if (KMessageBox::questionYesNo(this,
-#endif
             i18n("File already exists. Do you want to overwrite it?"), QString(),
             KStandardGuiItem::overwrite(),
             KStandardGuiItem::cancel())
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
             == KMessageBox::SecondaryAction) {
-#else
-            == KMessageBox::No) {
-#endif
             return;
         }
     }
