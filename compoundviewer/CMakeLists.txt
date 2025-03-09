@@ -3,7 +3,7 @@ add_library(compoundviewer)
 set_target_properties(compoundviewer PROPERTIES
     VERSION ${KALZIUMLIB_VERSION}
     SOVERSION ${KALZIUMLIB_SOVERSION}
-    CXX_STANDARD 14
+    CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
@@ -17,12 +17,13 @@ target_sources(compoundviewer PRIVATE
 )
 
 target_link_libraries(compoundviewer
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF6::I18n
+    KF6::WidgetsAddons
+    KF6::CoreAddons
     Qt::OpenGL
     Qt::Gui
     Qt::Widgets
+    Qt::OpenGLWidgets
     ${OPENBABEL_LIBRARIES}
     Avogadro::Core
     Avogadro::IO

@@ -191,27 +191,25 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-kalzium.png")
 ecm_add_app_icon(kalzium ICONS ${ICONS_SRCS})
 
 target_link_libraries(kalzium
-    KF${KF_MAJOR_VERSION}::ConfigWidgets
-    KF${KF_MAJOR_VERSION}::ItemViews
-    KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF${KF_MAJOR_VERSION}::Plotting
-    KF${KF_MAJOR_VERSION}::TextWidgets
-    KF${KF_MAJOR_VERSION}::UnitConversion
-    KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::Crash
+    KF6::ConfigWidgets
+    KF6::ItemViews
+    KF6::KIOWidgets
+    KF6::Plotting
+    KF6::TextWidgets
+    KF6::UnitConversion
+    KF6::XmlGui
+    KF6::Crash
     Qt::Svg
+    Qt::Qml
+    Qt::StateMachine
     science
 )
-if (QT_MAJOR_VERSION STREQUAL "5")
-    target_link_libraries(kalzium Qt::Script)
-else()
-    target_link_libraries(kalzium Qt::StateMachine)
-endif()
+
 if (HAVE_OPENBABEL)
    target_link_libraries(kalzium ${OPENBABEL_LIBRARIES})
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
       target_link_libraries(kalzium
-         KF${KF_MAJOR_VERSION}::NewStuffWidgets
+         KF6::NewStuffWidgets
          Qt::OpenGL
          compoundviewer
          Avogadro::QtGui
