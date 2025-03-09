@@ -43,14 +43,12 @@ target_sources(science PRIVATE
 
 target_link_libraries(science
    PUBLIC
-      KF${KF_MAJOR_VERSION}::UnitConversion
-      KF${KF_MAJOR_VERSION}::WidgetsAddons
-      KF${KF_MAJOR_VERSION}::I18n
+      KF6::UnitConversion
+      KF6::WidgetsAddons
+      KF6::I18n
       Qt::Xml
+      Qt::Core5Compat
 )
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(science PUBLIC Qt6::Core5Compat)
-endif()
 
 install(TARGETS science  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

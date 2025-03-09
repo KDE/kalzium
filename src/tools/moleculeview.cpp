@@ -257,11 +257,7 @@ void MoleculeDialog::slotDownloadNewStuff()
         if (!dir.exists()) {
             destinationDir = QDir::homePath();
         }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const QList<KNSCore::EntryInternal> entries = dialog->changedEntries();
-#else
         const QList<KNSCore::Entry> entries = dialog->changedEntries();
-#endif
         bool anyError = false;
         bool anySuccess = false;
         bool moreOneInstalledFile = false;

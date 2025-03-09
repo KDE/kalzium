@@ -17,11 +17,8 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QScriptClass>
-#include <QScriptEngine>
-#include <QScriptValue>
-#endif
+#include <QJSEngine>
+#include <QJSValue>
 #include <QVarLengthArray>
 
 #include <KLocalizedString>
@@ -120,26 +117,22 @@ void titrationCalculator::plot()
         if (!mreporto.isEmpty()) {
             uid.note->setText(i18n("Theoretical curve") + ": " + mreporto);
             for (int i = int(xmin); i < int(xmax); ++i) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
                 double id = i;
-                QScriptEngine myEngine;
+                QJSEngine myEngine;
                 QByteArray ban = mreporto.toLatin1();
                 char *tmreporto = ban.data();
 
                 QString istr;
                 istr.append(QStringLiteral("%1").arg((id)));
-                // now i'm using QScript language to solve the expression
+                // now i'm using QJSEngine language to solve the expression
                 // in a future we can consider to change it supporting some backends, but it's really complex
                 QString myscript = solvex(tmreporto, istr);
-                QScriptValue three = myEngine.evaluate(myscript);
+                QJSValue three = myEngine.evaluate(myscript);
 
                 double tvalue = three.toNumber();
                 kpor->addPoint(id, tvalue);
                 redplot = redplot + ' ' + QString::number((id * 10) + 5).replace(QChar(','), QChar('.')) + ','
                     + QString::number((ymax - tvalue) * 10).replace(QChar(','), QChar('.'));
-#else
-#pragma "NEED TO PORT QTSCRIPT";
-#endif
             }
         }
         temponu = 0;
