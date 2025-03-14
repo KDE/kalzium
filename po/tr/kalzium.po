@@ -12,13 +12,13 @@
 # Renan Cakirerk, 2010.
 # obsoleteman <tulliana@gmail.com>, 2007-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 01:53+0000\n"
-"PO-Revision-Date: 2024-09-23 15:31+0300\n"
+"PO-Revision-Date: 2025-03-13 15:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1300,8 +1300,8 @@ msgid ""
 "bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
 "This procedure is called out-gassing."
 msgstr ""
-"Bazı kimyasal tepkimeler için, çözücünün gaz içermemesi önemlidir. Bunu "
-"sağlamak için, tepkime kabı bir süreliğine ultrason banyosuna yerleştirilir. "
+"Bazı kimyasal tepkimeler için çözücünün gaz içermemesi önemlidir. Bunu "
+"sağlamak için tepkime kabı bir süreliğine ultrason banyosuna yerleştirilir. "
 "Yüksek ses frekansı nedeniyle, buhar sıyrılır ve yükselir. Bu prosedür gaz "
 "giderme olarak adlandırılmaktadır."
 
@@ -5151,7 +5151,7 @@ msgid ""
 msgstr ""
 "Denklem çözücü, kimyasal bir denklemi dengelemenizi sağlar.<br> "
 "<br><b>Değişkenler Kullanmak</b><br>Bir elementin değişken miktarlarını "
-"ifade etmek için, bu örnekte gösterildiği gibi, element sembolünün önüne tek "
+"ifade etmek için bu örnekte gösterildiği gibi, element sembolünün önüne tek "
 "bir karakter koyun:<br><i>aH + bO -> 5H2O</i> (Sonuç: <b>10</b> H + <b>5</b> "
 "O -&gt; <b>5</b> H<sub>2</sub>O)<br>Bu ifadeyi çözmek size gerekli miktarda "
 "Hidrojen ve Oksijen verecektir.<br><br><b>Elektrik yüklerini tanımlama</"
