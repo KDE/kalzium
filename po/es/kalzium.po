@@ -1,5 +1,6 @@
-# translation of kalzium.po to Spanish
-# Copyright (C) 2002-2025 Free Software Foundation, Inc.
+# Spanish translations for kalzium.po package.
+# Copyright (C) 2002-2025 This file is copyright:
+# This file is distributed under the same license as the kalzium package.
 #
 # SPDX-FileCopyrightText: 2002, 2003, 2004 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
 # SPDX-FileCopyrightText: 2004 Juan Manuel Garcia Molina <juanma@superiodico.net>
@@ -9,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-20 01:53+0000\n"
-"PO-Revision-Date: 2025-02-25 12:39+0100\n"
+"POT-Creation-Date: 2025-05-10 00:38+0000\n"
+"PO-Revision-Date: 2025-05-10 00:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -4462,84 +4463,84 @@ msgstr "La cantidad de soluto siempre se especifica en términos de masa"
 msgid "Amount of solvent is always specified in terms of volume"
 msgstr "La cantidad de solvente siempre se especifica en términos de volumen"
 
-#: src/calculator/titrationCalculator.cpp:43
+#: src/calculator/titrationCalculator.cpp:40
 #, kde-format
 msgid "Experimental values"
 msgstr "Valores experimentales"
 
-#: src/calculator/titrationCalculator.cpp:44
+#: src/calculator/titrationCalculator.cpp:41
 #, kde-format
 msgid "Theoretical equations"
 msgstr "Ecuaciones teóricas"
 
-#: src/calculator/titrationCalculator.cpp:98
+#: src/calculator/titrationCalculator.cpp:95
 #, kde-format
 msgid "nothing"
 msgstr "nada"
 
-#: src/calculator/titrationCalculator.cpp:101
-#: src/calculator/titrationCalculator.cpp:590
-#: src/calculator/titrationCalculator.cpp:607
-#: src/calculator/titrationCalculator.cpp:739 src/kalziumutils.cpp:82
+#: src/calculator/titrationCalculator.cpp:98
+#: src/calculator/titrationCalculator.cpp:583
+#: src/calculator/titrationCalculator.cpp:600
+#: src/calculator/titrationCalculator.cpp:732 src/kalziumutils.cpp:82
 #, kde-format
 msgid "Error"
 msgstr "Error"
 
-#: src/calculator/titrationCalculator.cpp:101
+#: src/calculator/titrationCalculator.cpp:98
 #, kde-format
 msgid "Unable to find an equation for Y-axis variable."
 msgstr "No se puede encontrar una ecuación para la variable del eje Y."
 
-#: src/calculator/titrationCalculator.cpp:121
+#: src/calculator/titrationCalculator.cpp:118
 #, kde-format
 msgid "Theoretical curve"
 msgstr "Curva teórica"
 
-#: src/calculator/titrationCalculator.cpp:209
+#: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Approximated curve"
 msgstr "Curva aproximada"
 
-#: src/calculator/titrationCalculator.cpp:209
+#: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Equivalence point"
 msgstr "Punto de equivalencia"
 
-#: src/calculator/titrationCalculator.cpp:578
+#: src/calculator/titrationCalculator.cpp:571
 #, kde-format
 msgid "Save work"
 msgstr "Guardar trabajo"
 
-#: src/calculator/titrationCalculator.cpp:578
-#: src/calculator/titrationCalculator.cpp:601
+#: src/calculator/titrationCalculator.cpp:571
+#: src/calculator/titrationCalculator.cpp:594
 #, kde-format
 msgid "Icee File (*.icee)"
 msgstr "Archivo Icee (*.icee)"
 
-#: src/calculator/titrationCalculator.cpp:590
-#: src/calculator/titrationCalculator.cpp:739
+#: src/calculator/titrationCalculator.cpp:583
+#: src/calculator/titrationCalculator.cpp:732
 #, kde-format
 msgid "Unable to create %1"
 msgstr "No se puede crear %1"
 
-#: src/calculator/titrationCalculator.cpp:601
+#: src/calculator/titrationCalculator.cpp:594
 #, kde-format
 msgid "Open work"
 msgstr "Abrir trabajo"
 
-#: src/calculator/titrationCalculator.cpp:607
+#: src/calculator/titrationCalculator.cpp:600
 #, kde-format
 msgid "Unable to open %1"
 msgstr "No se puede abrir %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, saveimage)
-#: src/calculator/titrationCalculator.cpp:727
+#: src/calculator/titrationCalculator.cpp:720
 #: src/calculator/titrationCalculator.ui:377
 #, kde-format
 msgid "Save plot"
 msgstr "Guardar gráfica"
 
-#: src/calculator/titrationCalculator.cpp:727
+#: src/calculator/titrationCalculator.cpp:720
 #, kde-format
 msgid "Svg image (*.svg)"
 msgstr "Imagen Svg (*.svg)"
@@ -5154,7 +5155,7 @@ msgstr "Gráfico de datos"
 msgid "Atomic Number"
 msgstr "Número atómico"
 
-#: src/eqchemview.cpp:81
+#: src/eqchemview.cpp:72
 #, kde-format
 msgctxt "Help text for the chemical equation solver"
 msgid ""
@@ -5262,12 +5263,12 @@ msgstr "Ionización"
 msgid "Family"
 msgstr "Familia"
 
-#: src/exportdialog.cpp:161
+#: src/exportdialog.cpp:157
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "El archivo ya existe. ¿Desea sobrescribirlo?"
 
-#: src/exportdialog.cpp:173
+#: src/exportdialog.cpp:165
 #, kde-format
 msgid "Could not open file for writing."
 msgstr "No se puede abrir el archivo para escritura."
@@ -5481,75 +5482,75 @@ msgstr "Espín: %1"
 msgid "Exact mass: %1 u"
 msgstr "Masa exacta: %1 u"
 
-#: src/kalzium.cpp:112
+#: src/kalzium.cpp:111
 #, kde-format
 msgid "&Export Data..."
 msgstr "&Exportar datos…"
 
-#: src/kalzium.cpp:121
+#: src/kalzium.cpp:120
 #, kde-format
 msgid "&Scheme"
 msgstr "E&squema"
 
-#: src/kalzium.cpp:129
+#: src/kalzium.cpp:128
 #, kde-format
 msgid "&Gradients"
 msgstr "&Gradientes"
 
-#: src/kalzium.cpp:138
+#: src/kalzium.cpp:137
 #, kde-format
 msgid "&Tables"
 msgstr "&Tablas"
 
-#: src/kalzium.cpp:145
+#: src/kalzium.cpp:144
 #, kde-format
 msgid "&Numeration"
 msgstr "&Numeración"
 
-#: src/kalzium.cpp:152
+#: src/kalzium.cpp:151
 #, kde-format
 msgid "&Plot Data..."
 msgstr "&Gráfico de datos…"
 
-#: src/kalzium.cpp:158
+#: src/kalzium.cpp:157
 #, kde-format
 msgid "Perform &Calculations..."
 msgstr "Realizar &cálculos…"
 
-#: src/kalzium.cpp:160
+#: src/kalzium.cpp:159
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
 msgstr "Esta es la calculadora, que realiza cálculos químicos básicos."
 
-#: src/kalzium.cpp:164
+#: src/kalzium.cpp:163
 #, kde-format
 msgid "&Isotope Table..."
 msgstr "Tabla de &isótopos…"
 
-#: src/kalzium.cpp:166
+#: src/kalzium.cpp:165
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
 msgstr ""
 "Esta tabla muestra todos los isótopos conocidos de los elementos químicos."
 
-#: src/kalzium.cpp:170
+#: src/kalzium.cpp:169
 #, kde-format
 msgid "&Glossary..."
 msgstr "&Glosario…"
 
-#: src/kalzium.cpp:175
+#: src/kalzium.cpp:174
 #, kde-format
 msgid "&R/S Phrases..."
 msgstr "Frases &R/S…"
 
-#: src/kalzium.cpp:180
+#: src/kalzium.cpp:179
 #, kde-format
 msgid "Convert chemical files..."
 msgstr "Convertir archivos químicos…"
 
-#: src/kalzium.cpp:182
+#: src/kalzium.cpp:181
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5559,12 +5560,12 @@ msgstr ""
 "Con esta herramienta puede convertir archivos que contengan datos químicos "
 "entre varios formatos de archivos."
 
-#: src/kalzium.cpp:189
+#: src/kalzium.cpp:188
 #, kde-format
 msgid "Molecular Editor..."
 msgstr "Editor molecular…"
 
-#: src/kalzium.cpp:191
+#: src/kalzium.cpp:190
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
@@ -5572,12 +5573,12 @@ msgstr ""
 "Esta herramienta le permite visualizar y editar estructuras moleculares en "
 "3D."
 
-#: src/kalzium.cpp:198
+#: src/kalzium.cpp:197
 #, kde-format
 msgid "&Tables..."
 msgstr "&Tablas…"
 
-#: src/kalzium.cpp:200
+#: src/kalzium.cpp:199
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5587,13 +5588,13 @@ msgstr ""
 "Esto abrirá un diálogo con un listado de símbolos y números relacionados con "
 "la Química."
 
-#: src/kalzium.cpp:208
+#: src/kalzium.cpp:207
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
 msgstr "Esto mostrará u ocultará la leyenda de la tabla periódica."
 
-#: src/kalzium.cpp:213
+#: src/kalzium.cpp:212
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5603,7 +5604,7 @@ msgstr ""
 "Esto mostrará u ocultará un panel lateral con información adicional y con un "
 "juego de herramientas."
 
-#: src/kalzium.cpp:218
+#: src/kalzium.cpp:217
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5612,62 +5613,52 @@ msgstr ""
 "Esto mostrará u ocultará un panel lateral con información adicional sobre la "
 "tabla."
 
-#: src/kalzium.cpp:248
+#: src/kalzium.cpp:247
 #, kde-format
 msgid "Legend"
 msgstr "Leyenda"
 
-#: src/kalzium.cpp:258
+#: src/kalzium.cpp:257
 #, kde-format
 msgid "Table Information"
 msgstr "Información de la tabla"
 
-#: src/kalzium.cpp:263
+#: src/kalzium.cpp:262
 #, kde-format
 msgid "Information"
 msgstr "Información"
 
-#: src/kalzium.cpp:277
+#: src/kalzium.cpp:276
 #, kde-format
 msgid "Overview"
 msgstr "Resumen"
 
-#: src/kalzium.cpp:286
+#: src/kalzium.cpp:285
 #, kde-format
 msgid "View"
 msgstr "Ver"
 
-#: src/kalzium.cpp:297
+#: src/kalzium.cpp:296
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "Guardar la tabla de Kalzium en"
 
-#: src/kalzium.cpp:297
+#: src/kalzium.cpp:296
 #, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "Archivos de imagen (*.png *.xpm *.jpg *.svg)"
 
-#: src/kalzium.cpp:318
+#: src/kalzium.cpp:317
 #, kde-format
 msgid "Knowledge"
 msgstr "Conocimientos"
 
-#: src/kalzium.cpp:323
+#: src/kalzium.cpp:322
 #, kde-format
 msgid "Tools"
 msgstr "Herramientas"
 
-#: src/kalzium.cpp:353
-#, kde-format
-msgid "Kalzium Error"
-msgstr "Error de Kalzium"
-
-#: src/kalzium.cpp:353
-#, kde-format
-msgid "This system does not support OpenGL."
-msgstr "Este sistema no dispone de OpenGL."
-
-#: src/kalzium.cpp:508
+#: src/kalzium.cpp:501
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -6026,86 +6017,86 @@ msgstr "Máximo: %1"
 msgid "Scheme: %1"
 msgstr "Esquema: %1"
 
-#: src/main.cpp:39 src/tools/moleculeview.cpp:111
+#: src/main.cpp:35 src/tools/moleculeview.cpp:106
 #, kde-format
 msgid "Kalzium"
 msgstr "Kalzium"
 
-#: src/main.cpp:41
+#: src/main.cpp:37
 #, kde-format
 msgid "A periodic table of the elements"
 msgstr "Una tabla periódica de los elementos"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "© 2002-2016 Carsten Niehaus y los desarrolladores de KDE Edu"
 
-#: src/main.cpp:47
+#: src/main.cpp:43
 #, kde-format
 msgid "Carsten Niehaus"
 msgstr "Carsten Niehaus"
 
-#: src/main.cpp:49
+#: src/main.cpp:45
 #, kde-format
 msgid "Pino Toscano"
 msgstr "Pino Toscano"
 
-#: src/main.cpp:49
+#: src/main.cpp:45
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
 msgstr ""
 "Numerosas contribuciones de código, gurú residente que ayuda al resto de "
 "desarrolladores"
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, kde-format
 msgid "Benoit Jacob"
 msgstr "Benoit Jacob"
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
 "Trabajo inicial sobre el visor de moléculas, mentor de Marcus durante su SoC"
 
-#: src/main.cpp:53
+#: src/main.cpp:49
 #, kde-format
 msgid "Marcus Hanwell"
 msgstr "Marcus Hanwell"
 
-#: src/main.cpp:53
+#: src/main.cpp:49
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
 msgstr ""
 "SoC sobre el visor molecular y la integración/adaptación de libavogadro"
 
-#: src/main.cpp:55
+#: src/main.cpp:51
 #, kde-format
 msgid "Kashyap R Puranik"
 msgstr "Kashyap R Puranik"
 
-#: src/main.cpp:55
+#: src/main.cpp:51
 #, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
 msgstr "SoC en el widget de la calculadora y algunas mejoras menores"
 
-#: src/main.cpp:57
+#: src/main.cpp:53
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "Thomas Nagy"
 
-#: src/main.cpp:57
+#: src/main.cpp:53
 #, kde-format
 msgid "EqChem, the equation solver"
 msgstr "Módulo EqChem, para resolver ecuaciones"
 
-#: src/main.cpp:59
+#: src/main.cpp:55
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: src/main.cpp:59
+#: src/main.cpp:55
 #, kde-format
 msgid ""
 "Code cleaning, parser for the molecule weight calculator, and a lot of "
@@ -6114,22 +6105,22 @@ msgstr ""
 "Limpieza del código, analizador de la calculadora de pesos moleculares y "
 "gran número de pequeñas mejoras"
 
-#: src/main.cpp:61
+#: src/main.cpp:57
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: src/main.cpp:61
+#: src/main.cpp:57
 #, kde-format
 msgid "A lot of small things and the documentation"
 msgstr "Muchos pequeños detalles y la documentación"
 
-#: src/main.cpp:63
+#: src/main.cpp:59
 #, kde-format
 msgid "Johannes Simon"
 msgstr "Johannes Simon"
 
-#: src/main.cpp:63
+#: src/main.cpp:59
 #, kde-format
 msgid ""
 "Code and documentation contributions to the equation solver and molecular "
@@ -6138,133 +6129,133 @@ msgstr ""
 "Contribuciones de código y documentación para el módulo de resolución de "
 "ecuaciones y el visor molecular"
 
-#: src/main.cpp:65
+#: src/main.cpp:61
 #, kde-format
 msgid "Jarle Akselsen"
 msgstr "Jarle Akselsen"
 
-#: src/main.cpp:65
+#: src/main.cpp:61
 #, kde-format
 msgid "Many beautiful element icons"
 msgstr "Numerosos iconos bonitos para los elementos"
 
-#: src/main.cpp:67
+#: src/main.cpp:63
 #, kde-format
 msgid "Noémie Scherer"
 msgstr "Noémie Scherer"
 
-#: src/main.cpp:67
+#: src/main.cpp:63
 #, kde-format
 msgid "Many beautiful element icons, too!"
 msgstr "También numerosos iconos bonitos para los elementos"
 
-#: src/main.cpp:69
+#: src/main.cpp:65
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: src/main.cpp:69
+#: src/main.cpp:65
 #, kde-format
 msgid "Several icons"
 msgstr "Algunos iconos"
 
-#: src/main.cpp:71
+#: src/main.cpp:67
 #, kde-format
 msgid "Lee Olson"
 msgstr "Lee Olson"
 
-#: src/main.cpp:71
+#: src/main.cpp:67
 #, kde-format
 msgid "Several icons in the information dialog"
 msgstr "Algunos iconos del diálogo de información"
 
-#: src/main.cpp:73
+#: src/main.cpp:69
 #, kde-format
 msgid "Jörg Buchwald"
 msgstr "Jörg Buchwald"
 
-#: src/main.cpp:73
+#: src/main.cpp:69
 #, kde-format
 msgid "Contributed most isotope information"
 msgstr "Casi toda la información sobre isótopos"
 
-#: src/main.cpp:75
+#: src/main.cpp:71
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: src/main.cpp:75
+#: src/main.cpp:71
 #, kde-format
 msgid "Some icons and inspiration for others"
 msgstr "Algunos iconos e inspiración para otros"
 
-#: src/main.cpp:77
+#: src/main.cpp:73
 #, kde-format
 msgid "Daniel Haas"
 msgstr "Daniel Haas"
 
-#: src/main.cpp:77
+#: src/main.cpp:73
 #, kde-format
 msgid "The design of the information dialog"
 msgstr "Diseño del diálogo de información"
 
-#: src/main.cpp:79
+#: src/main.cpp:75
 #, kde-format
 msgid "Brian Beck"
 msgstr "Brian Beck"
 
-#: src/main.cpp:79
+#: src/main.cpp:75
 #, kde-format
 msgid "The orbits icon"
 msgstr "Icono para las órbitas"
 
-#: src/main.cpp:81
+#: src/main.cpp:77
 #, kde-format
 msgid "Paulo Cattai"
 msgstr "Paulo Cattai"
 
-#: src/main.cpp:81 src/main.cpp:83 src/main.cpp:85 src/main.cpp:87
-#: src/main.cpp:89
+#: src/main.cpp:77 src/main.cpp:79 src/main.cpp:81 src/main.cpp:83
+#: src/main.cpp:85
 #, kde-format
 msgid "New interface design and usability improvements"
 msgstr "Diseño de la interfaz nueva y mejoras en la usabilidad"
 
-#: src/main.cpp:83
+#: src/main.cpp:79
 #, kde-format
 msgid "Danilo Balzaque"
 msgstr "Danilo Balzaque"
 
-#: src/main.cpp:85
+#: src/main.cpp:81
 #, kde-format
 msgid "Roberto Cunha"
 msgstr "Roberto Cunha"
 
-#: src/main.cpp:87
+#: src/main.cpp:83
 #, kde-format
 msgid "Tadeu Araujo"
 msgstr "Tadeu Araujo"
 
-#: src/main.cpp:89
+#: src/main.cpp:85
 #, kde-format
 msgid "Tiago Porangaba"
 msgstr "Tiago Porangaba"
 
-#: src/main.cpp:91
+#: src/main.cpp:87
 #, kde-format
 msgid "Etienne Rebetez"
 msgstr "Etienne Rebetez"
 
-#: src/main.cpp:91
+#: src/main.cpp:87
 #, kde-format
 msgid "Adding new sizable Periodic System"
 msgstr "Diseño del nuevo sistema periódico ajustable"
 
-#: src/main.cpp:103
+#: src/main.cpp:99
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "Abrir el archivo de molécula indicado"
 
-#: src/main.cpp:126
+#: src/main.cpp:122
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "No se puede abrir más de una molécula a la vez"
@@ -8541,28 +8532,28 @@ msgstr "100"
 msgid "&Copy"
 msgstr "&Copiar"
 
-#: src/tools/moleculeview.cpp:55
+#: src/tools/moleculeview.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
 msgstr "Editor molecular"
 
-#: src/tools/moleculeview.cpp:71
+#: src/tools/moleculeview.cpp:66
 #, kde-format
 msgid "Load Molecule"
 msgstr "Cargar molécula"
 
-#: src/tools/moleculeview.cpp:73
+#: src/tools/moleculeview.cpp:68
 #, kde-format
 msgid "Download New Molecules"
 msgstr "Descargar nuevas moléculas"
 
-#: src/tools/moleculeview.cpp:75
+#: src/tools/moleculeview.cpp:70
 #, kde-format
 msgid "Save Molecule"
 msgstr "Guardar molécula"
 
-#: src/tools/moleculeview.cpp:108
+#: src/tools/moleculeview.cpp:103
 #, kde-format
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
@@ -8571,7 +8562,7 @@ msgstr ""
 "No se han cargado herramientas. Seguramente no se han podido localizar los "
 "complementos de Avogadro."
 
-#: src/tools/moleculeview.cpp:130
+#: src/tools/moleculeview.cpp:125
 #, kde-format
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
@@ -8581,37 +8572,37 @@ msgstr ""
 "complementos de Avogadro. No será posible visualizar moléculas hasta que "
 "solucione este problema."
 
-#: src/tools/moleculeview.cpp:137 src/tools/moleculeview.cpp:203
+#: src/tools/moleculeview.cpp:132 src/tools/moleculeview.cpp:198
 #, kde-format
 msgid "Common molecule formats"
 msgstr "Formatos de moléculas comunes"
 
-#: src/tools/moleculeview.cpp:138 src/tools/moleculeview.cpp:204
+#: src/tools/moleculeview.cpp:133 src/tools/moleculeview.cpp:199
 #, kde-format
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: src/tools/moleculeview.cpp:142
+#: src/tools/moleculeview.cpp:137
 #, kde-format
 msgid "Choose a file to open"
 msgstr "Seleccione un archivo para abrir"
 
-#: src/tools/moleculeview.cpp:177
+#: src/tools/moleculeview.cpp:172
 #, kde-format
 msgid "Could not load molecule"
 msgstr "No se ha podido cargar la molécula"
 
-#: src/tools/moleculeview.cpp:177
+#: src/tools/moleculeview.cpp:172
 #, kde-format
 msgid "Loading the molecule failed."
 msgstr "La carga de la molécula ha fallado."
 
-#: src/tools/moleculeview.cpp:206
+#: src/tools/moleculeview.cpp:201
 #, kde-format
 msgid "Choose a file to save to"
 msgstr "Seleccione un archivo para guardar"
 
-#: src/tools/moleculeview.cpp:247
+#: src/tools/moleculeview.cpp:242
 #, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
@@ -8619,17 +8610,17 @@ msgctxt ""
 msgid "%1 u"
 msgstr "%1 u"
 
-#: src/tools/moleculeview.cpp:290
+#: src/tools/moleculeview.cpp:281
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
 msgstr "Ha fallado la descarga de la molécula %1 en %2."
 
-#: src/tools/moleculeview.cpp:298
+#: src/tools/moleculeview.cpp:289
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
 msgstr "Las moléculas que se han podido descargar se han guardado en %1."
 
-#: src/tools/moleculeview.cpp:300
+#: src/tools/moleculeview.cpp:291
 #, kde-format
 msgid "The molecules have been saved to %1."
 msgstr "Las moléculas se han guardado en %1."
@@ -8714,48 +8705,48 @@ msgstr "Fórmula:"
 msgid "Weight:"
 msgstr "Peso:"
 
-#: src/tools/obconverter.cpp:33
+#: src/tools/obconverter.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "Interfaz de OpenBabel"
 
-#: src/tools/obconverter.cpp:51 src/tools/obconverter.cpp:219
+#: src/tools/obconverter.cpp:50 src/tools/obconverter.cpp:214
 #, kde-format
 msgid "Convert"
 msgstr "Convertir"
 
-#: src/tools/obconverter.cpp:115
+#: src/tools/obconverter.cpp:114
 #, kde-format
 msgid "Open Molecule File"
 msgstr "Abrir archivo de molécula"
 
-#: src/tools/obconverter.cpp:117
+#: src/tools/obconverter.cpp:116
 #, kde-format
 msgid "All Files"
 msgstr "Todos los archivos"
 
-#: src/tools/obconverter.cpp:178
+#: src/tools/obconverter.cpp:177
 #, kde-format
 msgid "You must select some files first."
 msgstr "Primero debe seleccionar algunos archivos."
 
-#: src/tools/obconverter.cpp:178
+#: src/tools/obconverter.cpp:177
 #, kde-format
 msgid "No files selected"
 msgstr "No se han seleccionado archivos"
 
-#: src/tools/obconverter.cpp:195
+#: src/tools/obconverter.cpp:194
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
 msgstr "El archivo %1 ya existe. ¿Desea sobrescribirlo si es posible?"
 
-#: src/tools/obconverter.cpp:196
+#: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
 msgstr "El archivo %1 ya existe -- KOpenBabel"
 
-#: src/tools/obconverter.cpp:218
+#: src/tools/obconverter.cpp:213
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr "¿Desea ejecutar estas órdenes? -- KOpenBabel"
@@ -8819,3 +8810,9 @@ msgstr "Convertir de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Convertir a:"
+
+#~ msgid "Kalzium Error"
+#~ msgstr "Error de Kalzium"
+
+#~ msgid "This system does not support OpenGL."
+#~ msgstr "Este sistema no dispone de OpenGL."

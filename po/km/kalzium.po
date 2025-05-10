@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-20 01:53+0000\n"
+"POT-Creation-Date: 2025-05-10 00:38+0000\n"
 "PO-Revision-Date: 2013-01-04 16:50+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -4379,88 +4379,88 @@ msgstr "បរិមាណ​នៃ​ធាតុ​រលាយ​ត្រូ
 msgid "Amount of solvent is always specified in terms of volume"
 msgstr "បរិមាណ​នៃ​ធាតុ​រំលាយ​ត្រូវ​បាន​បញ្ជាក់​ជា​មាឌ​ជា​និច្ច"
 
-#: src/calculator/titrationCalculator.cpp:43
+#: src/calculator/titrationCalculator.cpp:40
 #, kde-format
 msgid "Experimental values"
 msgstr "តម្លៃ​ពិសោធន៍"
 
-#: src/calculator/titrationCalculator.cpp:44
+#: src/calculator/titrationCalculator.cpp:41
 #, kde-format
 msgid "Theoretical equations"
 msgstr "សមីការ​តាម​ទ្រឹស្ដី"
 
-#: src/calculator/titrationCalculator.cpp:98
+#: src/calculator/titrationCalculator.cpp:95
 #, fuzzy, kde-format
 #| msgid "A cool thing"
 msgid "nothing"
 msgstr "វត្ថុ​ត្រជាក់"
 
-#: src/calculator/titrationCalculator.cpp:101
-#: src/calculator/titrationCalculator.cpp:590
-#: src/calculator/titrationCalculator.cpp:607
-#: src/calculator/titrationCalculator.cpp:739 src/kalziumutils.cpp:82
+#: src/calculator/titrationCalculator.cpp:98
+#: src/calculator/titrationCalculator.cpp:583
+#: src/calculator/titrationCalculator.cpp:600
+#: src/calculator/titrationCalculator.cpp:732 src/kalziumutils.cpp:82
 #, kde-format
 msgid "Error"
 msgstr "កំហុស"
 
-#: src/calculator/titrationCalculator.cpp:101
+#: src/calculator/titrationCalculator.cpp:98
 #, fuzzy, kde-format
 #| msgid "Unable to find the user defined alias file."
 msgid "Unable to find an equation for Y-axis variable."
 msgstr "មិន​អាច​រក​ឃើញ​ឯកសារ​ឈ្មោះ​តាង​ដែល​បាន​កំណត់​ដោយ​អ្នក​ប្រើ​ទេ ។"
 
-#: src/calculator/titrationCalculator.cpp:121
+#: src/calculator/titrationCalculator.cpp:118
 #, kde-format
 msgid "Theoretical curve"
 msgstr "ខ្សែ​កោង​តាម​ទ្រឹស្ដី"
 
-#: src/calculator/titrationCalculator.cpp:209
+#: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Approximated curve"
 msgstr "ខ្សែ​កោង​ប្រហែល"
 
-#: src/calculator/titrationCalculator.cpp:209
+#: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Equivalence point"
 msgstr "ចំណុច​សមមូល"
 
-#: src/calculator/titrationCalculator.cpp:578
+#: src/calculator/titrationCalculator.cpp:571
 #, fuzzy, kde-format
 #| msgid "Save plot"
 msgid "Save work"
 msgstr "រក្សា​ទុក​គ្រោង"
 
-#: src/calculator/titrationCalculator.cpp:578
-#: src/calculator/titrationCalculator.cpp:601
+#: src/calculator/titrationCalculator.cpp:571
+#: src/calculator/titrationCalculator.cpp:594
 #, kde-format
 msgid "Icee File (*.icee)"
 msgstr ""
 
-#: src/calculator/titrationCalculator.cpp:590
-#: src/calculator/titrationCalculator.cpp:739
+#: src/calculator/titrationCalculator.cpp:583
+#: src/calculator/titrationCalculator.cpp:732
 #, kde-format
 msgid "Unable to create %1"
 msgstr ""
 
-#: src/calculator/titrationCalculator.cpp:601
+#: src/calculator/titrationCalculator.cpp:594
 #, fuzzy, kde-format
 #| msgid "Open"
 msgid "Open work"
 msgstr "បើក"
 
-#: src/calculator/titrationCalculator.cpp:607
+#: src/calculator/titrationCalculator.cpp:600
 #, kde-format
 msgid "Unable to open %1"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, saveimage)
-#: src/calculator/titrationCalculator.cpp:727
+#: src/calculator/titrationCalculator.cpp:720
 #: src/calculator/titrationCalculator.ui:377
 #, kde-format
 msgid "Save plot"
 msgstr "រក្សា​ទុក​គ្រោង"
 
-#: src/calculator/titrationCalculator.cpp:727
+#: src/calculator/titrationCalculator.cpp:720
 #, kde-format
 msgid "Svg image (*.svg)"
 msgstr "រូបភាព Svg (*.svg)"
@@ -5096,7 +5096,7 @@ msgstr "ទិន្នន័យ​គ្រោង"
 msgid "Atomic Number"
 msgstr "លេខ​អាតូម"
 
-#: src/eqchemview.cpp:81
+#: src/eqchemview.cpp:72
 #, kde-format
 msgctxt "Help text for the chemical equation solver"
 msgid ""
@@ -5203,12 +5203,12 @@ msgstr "អ៊ីយ៉ុង​កម្ម"
 msgid "Family"
 msgstr "អំបូរ"
 
-#: src/exportdialog.cpp:161
+#: src/exportdialog.cpp:157
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "ឯកសារ​មាន​រួច​ហើយ ។ តើ​អ្នក​ចង់​សរសេរ​ជាន់​លើ​វា​ឬ?"
 
-#: src/exportdialog.cpp:173
+#: src/exportdialog.cpp:165
 #, kde-format
 msgid "Could not open file for writing."
 msgstr "មិនអាច​បើក​ឯកសារ​ដើម្បី​សរសេរ​បាន​ឡើយ ។"
@@ -5417,74 +5417,74 @@ msgstr "ស្ពីន ៖ %1"
 msgid "Exact mass: %1 u"
 msgstr "ម៉ាស​ជាក់ស្ដែង ៖ %1 u"
 
-#: src/kalzium.cpp:112
+#: src/kalzium.cpp:111
 #, kde-format
 msgid "&Export Data..."
 msgstr "នាំចេញ​ទិន្នន័យ..."
 
-#: src/kalzium.cpp:121
+#: src/kalzium.cpp:120
 #, kde-format
 msgid "&Scheme"
 msgstr "គ្រោង​ការណ៍"
 
-#: src/kalzium.cpp:129
+#: src/kalzium.cpp:128
 #, kde-format
 msgid "&Gradients"
 msgstr "ជម្រាល"
 
-#: src/kalzium.cpp:138
+#: src/kalzium.cpp:137
 #, kde-format
 msgid "&Tables"
 msgstr "តារាង"
 
-#: src/kalzium.cpp:145
+#: src/kalzium.cpp:144
 #, kde-format
 msgid "&Numeration"
 msgstr "ការ​បង់​លេខ"
 
-#: src/kalzium.cpp:152
+#: src/kalzium.cpp:151
 #, kde-format
 msgid "&Plot Data..."
 msgstr "ទិន្នន័យ​គ្រោង..."
 
-#: src/kalzium.cpp:158
+#: src/kalzium.cpp:157
 #, kde-format
 msgid "Perform &Calculations..."
 msgstr "អនុវត្ត​ការ​គណនា..."
 
-#: src/kalzium.cpp:160
+#: src/kalzium.cpp:159
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
 msgstr "នេះ​ជា​ម៉ាស៊ីន​គិតលេខ ហើយ​វា​នឹង​ធ្វើ​ការ​គណនា​​គីមី​មូលដ្ឋាន​ ។"
 
-#: src/kalzium.cpp:164
+#: src/kalzium.cpp:163
 #, kde-format
 msgid "&Isotope Table..."
 msgstr "តារាង​អ៊ីសូតូប..."
 
-#: src/kalzium.cpp:166
+#: src/kalzium.cpp:165
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
 msgstr "តារាង​នេះ​បង្ហាញ​អ៊ីសូតូប​នៃ​ធាតុ​គីមី​ដែល​ស្គាល់​ទាំងអស់ ។"
 
-#: src/kalzium.cpp:170
+#: src/kalzium.cpp:169
 #, kde-format
 msgid "&Glossary..."
 msgstr "សទ្ទានុក្រម..."
 
-#: src/kalzium.cpp:175
+#: src/kalzium.cpp:174
 #, kde-format
 msgid "&R/S Phrases..."
 msgstr "ឃ្លា R/S..."
 
-#: src/kalzium.cpp:180
+#: src/kalzium.cpp:179
 #, kde-format
 msgid "Convert chemical files..."
 msgstr "បម្លែង​ឯកសារ​គីមី..."
 
-#: src/kalzium.cpp:182
+#: src/kalzium.cpp:181
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5492,23 +5492,23 @@ msgid ""
 "various file formats."
 msgstr "ជាមួយ​ឧបករណ៍​នេះ អ្នក​អាច​បម្លែង​ឯកសារ​ដែល​មាន​ទិន្នន័យគីមីដែលមានទ្រង់ទ្រាយ​ឯកសារ​ខុសៗ​គ្នា ។"
 
-#: src/kalzium.cpp:189
+#: src/kalzium.cpp:188
 #, kde-format
 msgid "Molecular Editor..."
 msgstr "កម្មវិធី​និពន្ធ​ម៉ូលេគុល..."
 
-#: src/kalzium.cpp:191
+#: src/kalzium.cpp:190
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
 msgstr "ឧបករណ៍​នេះ​អនុញ្ញាត​ឲ្យ​អ្នក​មើល និង​កែ​សម្រួល​រចនា​សម្ព័ន្ធ​ម៉ូលេគុល​ត្រីមាត្រ ។"
 
-#: src/kalzium.cpp:198
+#: src/kalzium.cpp:197
 #, kde-format
 msgid "&Tables..."
 msgstr "តារាង..."
 
-#: src/kalzium.cpp:200
+#: src/kalzium.cpp:199
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5516,13 +5516,13 @@ msgid ""
 "chemistry."
 msgstr "នេះ​នឹង​បើក​ប្រអប់​ដែល​រាយ​បញ្ជី​និមិត្ត​សញ្ញា និង​លេខ​រៀង​ដែល​ទាក់ទង​ទៅ​​និង​ធាតុ​គីមី ។"
 
-#: src/kalzium.cpp:208
+#: src/kalzium.cpp:207
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
 msgstr "នេះ​នឹង​បង្ហាញ ឬ​លាក់​ចំណង​ជើង​សម្រាប់​តារាង​ខួប ។"
 
-#: src/kalzium.cpp:213
+#: src/kalzium.cpp:212
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
@@ -5530,70 +5530,60 @@ msgid ""
 "tools."
 msgstr "នេះ​នឹង​បង្ហាញ ឬ​លាក់​របារ​ចំហៀង​ដែល​មាន​​ព័ត៌មាន​បន្ថែម និង​សំណុំ​ឧបករណ៍​ ។"
 
-#: src/kalzium.cpp:218
+#: src/kalzium.cpp:217
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid ""
 "This will show or hide a sidebar with additional information about the table."
 msgstr "នេះ​នឹង​បង្ហាញ​ ឬ​លាក់​របារ​ចំហៀង​ដែល​មាន​ព័ត៌មាន​លម្អិត​​អំពី​តារាង ។"
 
-#: src/kalzium.cpp:248
+#: src/kalzium.cpp:247
 #, kde-format
 msgid "Legend"
 msgstr "តាង"
 
-#: src/kalzium.cpp:258
+#: src/kalzium.cpp:257
 #, kde-format
 msgid "Table Information"
 msgstr "ព័ត៌មាន​តារាង"
 
-#: src/kalzium.cpp:263
+#: src/kalzium.cpp:262
 #, kde-format
 msgid "Information"
 msgstr "ព័ត៌មាន"
 
-#: src/kalzium.cpp:277
+#: src/kalzium.cpp:276
 #, kde-format
 msgid "Overview"
 msgstr "ទិដ្ឋភាព​ទូទៅ"
 
-#: src/kalzium.cpp:286
+#: src/kalzium.cpp:285
 #, kde-format
 msgid "View"
 msgstr "មើល"
 
-#: src/kalzium.cpp:297
+#: src/kalzium.cpp:296
 #, kde-format
 msgid "Save Kalzium's Table In"
 msgstr "រក្សា​ទុក​តារាង​របស់​ Kalzium ក្នុង"
 
-#: src/kalzium.cpp:297
+#: src/kalzium.cpp:296
 #, fuzzy, kde-format
 #| msgid "*.png *.xpm *.jpg *.svg"
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
 msgstr "*.png *.xpm *.jpg *.svg"
 
-#: src/kalzium.cpp:318
+#: src/kalzium.cpp:317
 #, kde-format
 msgid "Knowledge"
 msgstr "ចំណេះដឹង"
 
-#: src/kalzium.cpp:323
+#: src/kalzium.cpp:322
 #, kde-format
 msgid "Tools"
 msgstr "ឧបករណ៍"
 
-#: src/kalzium.cpp:353
-#, kde-format
-msgid "Kalzium Error"
-msgstr "កំហុស Kalzium"
-
-#: src/kalzium.cpp:353
-#, kde-format
-msgid "This system does not support OpenGL."
-msgstr "ប្រព័ន្ធ​នេះ​មិន​គាំទ្រ OpenGL ទេ ។"
-
-#: src/kalzium.cpp:508
+#: src/kalzium.cpp:501
 #, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
@@ -5957,238 +5947,238 @@ msgstr "អតិបរមា​ ៖ %1"
 msgid "Scheme: %1"
 msgstr "គ្រោងការណ៍ ៖ %1"
 
-#: src/main.cpp:39 src/tools/moleculeview.cpp:111
+#: src/main.cpp:35 src/tools/moleculeview.cpp:106
 #, kde-format
 msgid "Kalzium"
 msgstr "Kalzium"
 
-#: src/main.cpp:41
+#: src/main.cpp:37
 #, kde-format
 msgid "A periodic table of the elements"
 msgstr "តារាង​ខួប​នៃ​ធាតុ"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2011 Carsten Niehaus"
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០២-២០១១ ដោយ Carsten Niehaus"
 
-#: src/main.cpp:47
+#: src/main.cpp:43
 #, kde-format
 msgid "Carsten Niehaus"
 msgstr "Carsten Niehaus"
 
-#: src/main.cpp:49
+#: src/main.cpp:45
 #, kde-format
 msgid "Pino Toscano"
 msgstr "Pino Toscano"
 
-#: src/main.cpp:49
+#: src/main.cpp:45
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
 msgstr "ការ​ចែក​ចាយកូដ​​ធំ​ៗ ហើយគ្រូ​នោះ​កំពុង​តែ​ជួយ​អ្នក​អភិវឌ្ឍន៍​ដទៃ​ទៀត"
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, kde-format
 msgid "Benoit Jacob"
 msgstr "Benoit Jacob"
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr "ការងារ​គោល​នៅ​លើ​កម្មវិធី​មើល​ម៉ូលេគុល​ ដែល​បាន​ត្រួត​ពិនិត្យ​ដោយ​ Marcus អំឡុង​ពេល​ SoC របស់​គាត់"
 
-#: src/main.cpp:53
+#: src/main.cpp:49
 #, kde-format
 msgid "Marcus Hanwell"
 msgstr "Marcus Hanwell"
 
-#: src/main.cpp:53
+#: src/main.cpp:49
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
 msgstr "SoC ​នៅ​លើ​កម្មវិធី​មើល​ម៉ូលេគុល​ និង​ការនាំចូល​/បញ្ចូល​​ libavogadro"
 
-#: src/main.cpp:55
+#: src/main.cpp:51
 #, kde-format
 msgid "Kashyap R Puranik"
 msgstr "Kashyap R Puranik"
 
-#: src/main.cpp:55
+#: src/main.cpp:51
 #, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
 msgstr "SoC ​នៅ​លើ​ធាតុ​ក្រាហ្វិក​របស់​ម៉ាស៊ីន​គណនា និង​ការ​ធ្វើ​ឲ្យប្រសើរ​មួយ​ចំនួន​តូច"
 
-#: src/main.cpp:57
+#: src/main.cpp:53
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "Thomas Nagy"
 
-#: src/main.cpp:57
+#: src/main.cpp:53
 #, kde-format
 msgid "EqChem, the equation solver"
 msgstr "កម្មវិធី​ដោះស្រាយ​សមីការ EqChem"
 
-#: src/main.cpp:59
+#: src/main.cpp:55
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: src/main.cpp:59
+#: src/main.cpp:55
 #, kde-format
 msgid ""
 "Code cleaning, parser for the molecule weight calculator, and a lot of "
 "smaller improvements"
 msgstr "ការសម្អាត​កូដ និង​កម្មវិធីញែក​សម្រាប់​ម៉ាស៊ីន​គណនា​ធាតុ​ក្រាហ្វិក​ម៉ូលេគុល​ និង​ការ​ធ្វើ​ឲ្យ​ប្រសើរ​ជា​ច្រើន"
 
-#: src/main.cpp:61
+#: src/main.cpp:57
 #, kde-format
 msgid "Anne-Marie Mahfouf"
 msgstr "Anne-Marie Mahfouf"
 
-#: src/main.cpp:61
+#: src/main.cpp:57
 #, kde-format
 msgid "A lot of small things and the documentation"
 msgstr "ឯកសារ និង របស់​តូច​ៗ​ជាច្រើន​"
 
-#: src/main.cpp:63
+#: src/main.cpp:59
 #, kde-format
 msgid "Johannes Simon"
 msgstr "Johannes Simon"
 
-#: src/main.cpp:63
+#: src/main.cpp:59
 #, kde-format
 msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
 msgstr "ការចូលរួមកូដ និង​ឯកសារ​ចំពោះ​កម្មវិធី​ដោះស្រាយ​សមីការ និង​កម្មវិធី​មើលម៉ូលេគុល"
 
-#: src/main.cpp:65
+#: src/main.cpp:61
 #, kde-format
 msgid "Jarle Akselsen"
 msgstr "Jarle Akselsen"
 
-#: src/main.cpp:65
+#: src/main.cpp:61
 #, kde-format
 msgid "Many beautiful element icons"
 msgstr "រូប​តំណាង​ធាតុ​ស្រស់​ស្អាត​ជា​ច្រើន"
 
-#: src/main.cpp:67
+#: src/main.cpp:63
 #, kde-format
 msgid "Noémie Scherer"
 msgstr "Noémie Scherer"
 
-#: src/main.cpp:67
+#: src/main.cpp:63
 #, kde-format
 msgid "Many beautiful element icons, too!"
 msgstr "រូប​តំណាង​ធាតុ​ស្រស់​ស្អាត​ជា​ច្រើន​ផង​ដែរ!"
 
-#: src/main.cpp:69
+#: src/main.cpp:65
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: src/main.cpp:69
+#: src/main.cpp:65
 #, kde-format
 msgid "Several icons"
 msgstr "រូប​តំណាង​ជា​ច្រើន"
 
-#: src/main.cpp:71
+#: src/main.cpp:67
 #, kde-format
 msgid "Lee Olson"
 msgstr "Lee Olson"
 
-#: src/main.cpp:71
+#: src/main.cpp:67
 #, kde-format
 msgid "Several icons in the information dialog"
 msgstr "រូបតំណាង​មួយ​ចំនួន​ក្នុង​ប្រអប់​ព័ត៌មាន​"
 
-#: src/main.cpp:73
+#: src/main.cpp:69
 #, kde-format
 msgid "Jörg Buchwald"
 msgstr "Jörg Buchwald"
 
-#: src/main.cpp:73
+#: src/main.cpp:69
 #, kde-format
 msgid "Contributed most isotope information"
 msgstr "បាន​ចូលរួម​ផ្ដល់​ព័ត៌មាន​​អ៊ីសូតូប​ជាច្រើន"
 
-#: src/main.cpp:75
+#: src/main.cpp:71
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: src/main.cpp:75
+#: src/main.cpp:71
 #, kde-format
 msgid "Some icons and inspiration for others"
 msgstr "រូប​តំណាង​ខ្លះ និង​ការ​លើក​ទឹក​ចិត្ត​ដល់​អ្នក​ផ្សេង​ទៀត"
 
-#: src/main.cpp:77
+#: src/main.cpp:73
 #, kde-format
 msgid "Daniel Haas"
 msgstr "Daniel Haas"
 
-#: src/main.cpp:77
+#: src/main.cpp:73
 #, kde-format
 msgid "The design of the information dialog"
 msgstr "រចនា​នៃ​ប្រអប់​ព័ត៌មាន"
 
-#: src/main.cpp:79
+#: src/main.cpp:75
 #, kde-format
 msgid "Brian Beck"
 msgstr "Brian Beck"
 
-#: src/main.cpp:79
+#: src/main.cpp:75
 #, kde-format
 msgid "The orbits icon"
 msgstr "រូប​តំណាង​គន្លង"
 
-#: src/main.cpp:81
+#: src/main.cpp:77
 #, kde-format
 msgid "Paulo Cattai"
 msgstr "Paulo Cattai"
 
-#: src/main.cpp:81 src/main.cpp:83 src/main.cpp:85 src/main.cpp:87
-#: src/main.cpp:89
+#: src/main.cpp:77 src/main.cpp:79 src/main.cpp:81 src/main.cpp:83
+#: src/main.cpp:85
 #, kde-format
 msgid "New interface design and usability improvements"
 msgstr "ការ​រចនា​ចំណុច​ប្រទាក់​ថ្មី និង​ការ​ធ្វើ​ឲ្យ​មុខងារ​ប្រសើរ"
 
-#: src/main.cpp:83
+#: src/main.cpp:79
 #, kde-format
 msgid "Danilo Balzaque"
 msgstr "Danilo Balzaque"
 
-#: src/main.cpp:85
+#: src/main.cpp:81
 #, kde-format
 msgid "Roberto Cunha"
 msgstr "Roberto Cunha"
 
-#: src/main.cpp:87
+#: src/main.cpp:83
 #, kde-format
 msgid "Tadeu Araujo"
 msgstr "Tadeu Araujo"
 
-#: src/main.cpp:89
+#: src/main.cpp:85
 #, kde-format
 msgid "Tiago Porangaba"
 msgstr "Tiago Porangaba"
 
-#: src/main.cpp:91
+#: src/main.cpp:87
 #, kde-format
 msgid "Etienne Rebetez"
 msgstr "Etienne Rebetez"
 
-#: src/main.cpp:91
+#: src/main.cpp:87
 #, kde-format
 msgid "Adding new sizable Periodic System"
 msgstr "ការ​បន្ថែម​ប្រព័ន្ធ​ខួប​ថ្មី​ដែល​អាច​ប្ដូរ​ទំហំ​បាន"
 
-#: src/main.cpp:103
+#: src/main.cpp:99
 #, kde-format
 msgid "Open the given molecule file"
 msgstr "បើក​ឯកសារ​ម៉ូលេគុល​ដែល​បាន​ផ្ដល់"
 
-#: src/main.cpp:126
+#: src/main.cpp:122
 #, kde-format
 msgid "Can't open more than one molecule at a time"
 msgstr "មិន​អាច​បើក​ម៉ូលេគុល​ច្រើន​ជាង​មួយ​នៅ​ពេល​តែ​មួយ​បាន​​ទេ"
@@ -8947,36 +8937,36 @@ msgstr "100"
 msgid "&Copy"
 msgstr "ចម្លង"
 
-#: src/tools/moleculeview.cpp:55
+#: src/tools/moleculeview.cpp:50
 #, fuzzy, kde-format
 #| msgid "Molecular Editor"
 msgctxt "@title:window"
 msgid "Molecular Editor"
 msgstr "កម្មវិធី​កែសម្រួល​ម៉ូលេគុល"
 
-#: src/tools/moleculeview.cpp:71
+#: src/tools/moleculeview.cpp:66
 #, kde-format
 msgid "Load Molecule"
 msgstr "ផ្ទុក​ម៉ូលេគុល"
 
-#: src/tools/moleculeview.cpp:73
+#: src/tools/moleculeview.cpp:68
 #, kde-format
 msgid "Download New Molecules"
 msgstr "ទាញ​យក​ម៉ូលេគុល​ថ្មី"
 
-#: src/tools/moleculeview.cpp:75
+#: src/tools/moleculeview.cpp:70
 #, kde-format
 msgid "Save Molecule"
 msgstr "រក្សា​ទុក​ម៉ូលេគុល"
 
-#: src/tools/moleculeview.cpp:108
+#: src/tools/moleculeview.cpp:103
 #, kde-format
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
 "located."
 msgstr "មិន​បាន​ផ្ទុក​ឧបករណ៍ - វា​ហាក់​ដូច​ជា​កម្មវិធី​ Avogadro មិន​អាច​ដាក់​ទីតាំង​បាន ។"
 
-#: src/tools/moleculeview.cpp:130
+#: src/tools/moleculeview.cpp:125
 #, kde-format
 msgid ""
 "No tools loaded - it is likely that the Avogadro plugins could not be "
@@ -8985,39 +8975,39 @@ msgstr ""
 "មិន​បាន​ផ្ទុក​ឧបករណ៍ - វា​ហាក់ដូច​ជា​ថា កម្មវិធី​ជំនួយ Avogadro មិន​អាច​ដាក់​ទីតាំង​បាន ។ មិន​អាច​មើល​ម៉ូលេគុល​"
 "បាន​ទេ ទាល់តែ​បញ្ហា​នេះ​ត្រូវ​បាន​ដោះស្រាយ​សិន ។"
 
-#: src/tools/moleculeview.cpp:137 src/tools/moleculeview.cpp:203
+#: src/tools/moleculeview.cpp:132 src/tools/moleculeview.cpp:198
 #, kde-format
 msgid "Common molecule formats"
 msgstr "ទ្រង់ទ្រាយ​ម៉ូលេគុល​ទូទៅ"
 
-#: src/tools/moleculeview.cpp:138 src/tools/moleculeview.cpp:204
+#: src/tools/moleculeview.cpp:133 src/tools/moleculeview.cpp:199
 #, kde-format
 msgid "All files"
 msgstr "ឯកសារ​ទាំងអស់"
 
-#: src/tools/moleculeview.cpp:142
+#: src/tools/moleculeview.cpp:137
 #, kde-format
 msgid "Choose a file to open"
 msgstr "ជ្រើស​ឯកសារ​ត្រូវ​បើក"
 
-#: src/tools/moleculeview.cpp:177
+#: src/tools/moleculeview.cpp:172
 #, fuzzy, kde-format
 #| msgid "Loading a molecule"
 msgid "Could not load molecule"
 msgstr "ផ្ទុក​ម៉ូលេគុល"
 
-#: src/tools/moleculeview.cpp:177
+#: src/tools/moleculeview.cpp:172
 #, fuzzy, kde-format
 #| msgid "Loading a molecule"
 msgid "Loading the molecule failed."
 msgstr "ផ្ទុក​ម៉ូលេគុល"
 
-#: src/tools/moleculeview.cpp:206
+#: src/tools/moleculeview.cpp:201
 #, kde-format
 msgid "Choose a file to save to"
 msgstr "ជ្រើស​ឯកសារ​ត្រូវ​រក្សាទុក​ទៅ"
 
-#: src/tools/moleculeview.cpp:247
+#: src/tools/moleculeview.cpp:242
 #, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
@@ -9025,17 +9015,17 @@ msgctxt ""
 msgid "%1 u"
 msgstr "%1 u"
 
-#: src/tools/moleculeview.cpp:290
+#: src/tools/moleculeview.cpp:281
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ទាញ​យក​ម៉ូលេគុល %1 ទៅ​កាន់ %2 ។"
 
-#: src/tools/moleculeview.cpp:298
+#: src/tools/moleculeview.cpp:289
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
 msgstr "អាច​ទាញ​យក​ម៉ូលេគុល​ដែល​បាន​ទាញ​យក​រក្សាទុក​​ទៅ​កាន់ %1 ។"
 
-#: src/tools/moleculeview.cpp:300
+#: src/tools/moleculeview.cpp:291
 #, kde-format
 msgid "The molecules have been saved to %1."
 msgstr "ម៉ូលេគុល​អាច​ត្រូវ​បាន​រក្សាទុក​ទៅ​កាន់ %1 ។"
@@ -9116,50 +9106,50 @@ msgstr "រូបមន្ដ ៖"
 msgid "Weight:"
 msgstr "ទម្ងន់ ៖"
 
-#: src/tools/obconverter.cpp:33
+#: src/tools/obconverter.cpp:32
 #, fuzzy, kde-format
 #| msgid "OpenBabel Frontend"
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "កម្មវិធី​ខាង​មុខ​របស់​ OpenBabel"
 
-#: src/tools/obconverter.cpp:51 src/tools/obconverter.cpp:219
+#: src/tools/obconverter.cpp:50 src/tools/obconverter.cpp:214
 #, kde-format
 msgid "Convert"
 msgstr "បម្លែង"
 
-#: src/tools/obconverter.cpp:115
+#: src/tools/obconverter.cpp:114
 #, fuzzy, kde-format
 #| msgid "Open the given molecule file"
 msgid "Open Molecule File"
 msgstr "បើក​ឯកសារ​ម៉ូលេគុល​ដែល​បាន​ផ្ដល់"
 
-#: src/tools/obconverter.cpp:117
+#: src/tools/obconverter.cpp:116
 #, kde-format
 msgid "All Files"
 msgstr "ឯកសារ​ទាំងអស់"
 
-#: src/tools/obconverter.cpp:178
+#: src/tools/obconverter.cpp:177
 #, kde-format
 msgid "You must select some files first."
 msgstr "អ្នក​ត្រូវតែ​ជ្រើស​ឯកសារ​​មួយ​ចំនួន​ជាមុន ។"
 
-#: src/tools/obconverter.cpp:178
+#: src/tools/obconverter.cpp:177
 #, kde-format
 msgid "No files selected"
 msgstr "មិន​បាន​ជ្រើស​ឯកសារ"
 
-#: src/tools/obconverter.cpp:195
+#: src/tools/obconverter.cpp:194
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
 msgstr "មាន​ឯកសារ %1 រួចហើយ ។ តើ​អ្នក​ចង់​សរសេរ​ជាន់​លើ​វា ប្រសិនបើ​អាច ?"
 
-#: src/tools/obconverter.cpp:196
+#: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
 msgstr "មាន​ឯកសារ %1 រួចហើយ -- KOpenBabel"
 
-#: src/tools/obconverter.cpp:218
+#: src/tools/obconverter.cpp:213
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
 msgstr "តើ​អាច​ដំណើរការ​ពាក្យ​បញ្ជា​ទាំងនេះ​បាន​ដែរ​ឬ​ទេ ? -- KOpenBabel"
@@ -9222,6 +9212,12 @@ msgstr "បម្លែង​ពី ៖"
 #, kde-format
 msgid "Convert to:"
 msgstr "បម្លែង​​ទៅ​ជា ៖"
+
+#~ msgid "Kalzium Error"
+#~ msgstr "កំហុស Kalzium"
+
+#~ msgid "This system does not support OpenGL."
+#~ msgstr "ប្រព័ន្ធ​នេះ​មិន​គាំទ្រ OpenGL ទេ ។"
 
 #~ msgid "Kalzium OpenGL Part"
 #~ msgstr "ផ្នែក Kalzium OpenGL"
