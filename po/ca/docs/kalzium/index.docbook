@@ -540,9 +540,7 @@
 			       <para
 >Aquest element representa la taula DZ <foreignphrase lang="de"
 >Deutscher Zentralausschuss</foreignphrase
-> aconsellada pel <quote
->German Central Committee (Comitè central alemany)</quote
->. </para>
+> aconsellada pel «German Central Committee (Comitè central alemany)». </para>
 			     </listitem>
 			   </varlistentry>
 			 </variablelist>
@@ -600,23 +598,7 @@
 ><para
 >El sistema <guimenuitem
 >IUPAC antiga</guimenuitem
-> etiquetava les columnes amb números romans seguits per les lletres <quote
->A</quote
-> o <quote
->B</quote
->. Les columnes s'enumeraven de la manera següent: De la primera a la sèptima de <quote
->IA</quote
-> fins a <quote
->VIIA</quote
->, de l'octava a la dècima s'etiquetaven <quote
->VIIIA</quote
->, de l'onzena a la dissetena s'enumeraven <quote
->IB</quote
-> fins a <quote
->VIIB</quote
->, i la divuitena com a <quote
->VIII</quote
->. A conseqüència de la confusió que varen crear els sistemes de numeració de la IUPAC antiga i el sistema CAS, la IUPAC va adoptar el seu sistema nou. </para
+> etiquetava les columnes amb números romans seguits per les lletres «A» o «B». Les columnes s'enumeraven de la manera següent: De la primera a la sèptima de «IA» fins a «VIIA», de l'octava a la dècima s'etiquetaven «VIIIA», de l'onzena a la dissetena s'enumeraven «IB» fins a «VIIB», i la divuitena com a «VIII». A conseqüència de la confusió que varen crear els sistemes de numeració de la IUPAC antiga i el sistema CAS, la IUPAC va adoptar el seu sistema nou. </para
 ></listitem>
 				 </itemizedlist>
 			 </para>
@@ -628,11 +610,7 @@
 >Esquemes de color</title>
 
 			 <para
->El &kalzium; pot mostrar a on se situen els elements en relació amb el seu <quote
->bloc</quote
-> i <quote
->grup</quote
-> periòdic, el seu comportament àcid i quin estat de la matèria (&ead;, sòlid, líquid o gasós) presenten a una temperatura determinada.</para>
+>El &kalzium; pot mostrar a on se situen els elements en relació amb el seu «bloc» i «grup» periòdic, el seu comportament àcid i quin estat de la matèria (&ead;, sòlid, líquid o gasós) presenten a una temperatura determinada.</para>
 			 <para
 >Els esquemes de color es poden canviar en el menú <menuchoice
 ><guimenu
@@ -838,9 +816,7 @@
 >Van der Waals (OA)</guimenuitem
 > (<abbrev
 >OA</abbrev
-> vol dir <quote
->oclusió ambiental</quote
->) o <guimenuitem
+> vol dir «oclusió ambiental») o <guimenuitem
 >Filferro</guimenuitem
 >). Els botons a la part inferior de la finestra es poden utilitzar per a <guibutton
 >Carrega una molècula</guibutton
@@ -878,9 +854,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->L'<quote
->Editor molecular</quote
-></phrase>
+>L'«Editor molecular»</phrase>
 						 </textobject>
 					 </mediaobject>
 				 </screenshot>
@@ -901,9 +875,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La finestra <quote
->Taula d'isòtops</quote
-></phrase>
+>La finestra «Taula d'isòtops»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -936,9 +908,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Dibuixa les dades</quote
-></phrase>
+>El diàleg «Dibuixa les dades»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -972,9 +942,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Calculadora de massa molecular</quote
-></phrase>
+>El diàleg «Calculadora de massa molecular»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1013,9 +981,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Calculadora de concentracions</quote
-></phrase>
+>El diàleg «Calculadora de concentracions»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1038,9 +1004,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Calculadora nuclear</quote
-></phrase>
+>El diàleg «Calculadora nuclear»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1063,9 +1027,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Calculadora de gasos</quote
-></phrase>
+>El diàleg «Calculadora de gasos»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1178,9 +1140,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Calculadora de titulacions</quote
-></phrase>
+>El diàleg «Calculadora de titulacions»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1211,9 +1171,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El diàleg <quote
->Equilibrador d'equacions</quote
-></phrase>
+>El diàleg «Equilibrador d'equacions»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1239,9 +1197,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La finestra <quote
->Frases R/S</quote
-></phrase>
+>La finestra «Frases R/S»</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -1266,9 +1222,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->El <quote
->Glossari</quote
-></phrase>
+>El «Glossari»</phrase>
 						 </textobject>
 					 </mediaobject>
 				 </screenshot>
@@ -1287,9 +1241,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La finestra <quote
->Taules</quote
-></phrase>
+>La finestra «Taules»</phrase>
 						 </textobject>
 					 </mediaobject>
 				 </screenshot>
@@ -1334,9 +1286,7 @@
 							 </imageobject>
 							 <textobject>
 								 <phrase
->El diàleg <quote
->Estat de la matèria</quote
-></phrase>
+>El diàleg «Estat de la matèria»</phrase>
 							 </textobject>
 							 <caption
 ><para
@@ -1364,9 +1314,7 @@
 							 </imageobject>
 							 <textobject>
 								 <phrase
->El degradat <quote
->Data de descobriment</quote
-></phrase>
+>El degradat «Data de descobriment»</phrase>
 							 </textobject>
 							 <caption
 ><para
@@ -1647,9 +1595,7 @@
 ><para
 >Aquest element representa la taula DZ <foreignphrase lang="de"
 >Deutscher Zentralausschuss</foreignphrase
-> aconsellada pel <quote
->German Central Committee (Comitè central alemany)</quote
->.</para
+> aconsellada pel «German Central Committee (Comitè central alemany)».</para
 ></listitem>
             </varlistentry>
             </variablelist
@@ -2187,9 +2133,7 @@
 				 </question>
 				 <answer>
 					 <para
->No, mai. Però l'autor sempre agraeix un correu de felicitació o un &DVD; com a <quote
->agraïment</quote
->. El &kalzium; es distribueix sota la llicència <ulink url="https://www.gnu.org/licenses/licenses.html#GPL"
+>No, mai. Però l'autor sempre agraeix un correu de felicitació o un &DVD; com a «agraïment». El &kalzium; es distribueix sota la llicència <ulink url="https://www.gnu.org/licenses/licenses.html#GPL"
 >GPL</ulink
 >, de manera que mai haureu de pagar per aquest programa.</para>
 				 </answer>

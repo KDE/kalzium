@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-10 00:38+0000\n"
-"PO-Revision-Date: 2023-12-09 09:26+0100\n"
+"PO-Revision-Date: 2025-05-10 09:08+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -509,6 +509,12 @@ msgid ""
 "electron capture (EC) [br] -> proton emission [br] -> spontaneous fission "
 "[br] Typically one decay mode predominates for a particular nuclide."
 msgstr ""
+"ეს დაშლის რეჟიმი აღწერს კონკრეტულ გზას, როგორ იშლება ნაწილაკი. რადიოაქტიური "
+"დაშლისთვის (დაშლა ატომის ბირთვით) დაშლის რეჟიმებია:[br] ალფა დაშლა (ჰელიუმ-4-"
+"ის ბირთვის ამოფრქვევა).[br] -> ß[sup]-[/sup] დაშლა (ელექტრონის ამოფრქვევა)"
+"[br] -> ß[sup]+[/sup] დაშლა (პოზიტრონის ამოფრქვევა) [br] -> ელექტრონის "
+"ჩაჭერა[br] -> პროტონის ამოფრქვევა [br] -> სპონტანური დაშლა [br] ჩვეულებრივ, "
+"ერთ კონკრეტულ ატომს დაშლის ერთი ძირითადი გზა გააჩნია."
 
 #: data/knowledge.xml:163
 #, kde-format
@@ -717,6 +723,10 @@ msgid ""
 "radii are determined from measurements of atomic spacing between pairs of "
 "unbonded atoms in crystals."
 msgstr ""
+"ატომის ვან დერ ვალსის რადიუსი წარმოსახვითი მყარი სფეროს რადიუსია, რომელიც "
+"შეგიძლიათ, მოდელად გამოიყენოთ ბევრი დანიშნულებისთვის. ვან დერ ვალსის რადიუსი "
+"კრისტალებში დაუკავშირებელი ატომების წყვილებს შორის მანძილის გაზომვით "
+"განისაზღვრება."
 
 #: data/knowledge.xml:263
 #, kde-format
@@ -753,6 +763,14 @@ msgid ""
 "airing cupboard. The term watchglass is derived from the former pocket "
 "watches' protection glass which was often domed."
 msgstr ""
+"საათები არის მრგვალი მინის ტაფები, რომელთა დიამეტრი დაახლოებით 5 - 10 სმ, "
+"გამოიყენება სხვადასხვა ექსპერიმენტულ ტექნიკაში. საზღვარი მოხრილია ზემოთ, "
+"რათა საათის მინამჭავმა მცირე რაოდენობით სითხეები დაიჭიროს, რათა მათ "
+"აორთქლება. აორთქლება შეიძლება დაჩქარდეს გუშაგის გათბობით Bunsen burner- ით. "
+"Watchglasses ასევე შეიძლება გამოყენებულ იქნას პეტრის კერძების ან მძივების "
+"დასაფარად და ასევე შეეფერება მცირე რაოდენობით მატერიის წონას ან საშრობი მათ "
+"ეთერში კარადაში. ტერმინი watchglass გამომდინარეობს ყოფილი ჯიბის საათების "
+"დამცავი მინისგან, რომელიც ხშირად გუმბათოვანი იყო."
 
 #: data/tools.xml:10
 #, kde-format
@@ -774,6 +792,17 @@ msgid ""
 "environment by absorbing water vapor. The dry atmosphere then takes up water "
 "from the sample to be dried."
 msgstr ""
+"დეჰიდრატატორი არის ლაბორატორიული აპარატის ნაჭერი, რომელიც ხშირად "
+"დამზადებულია მინისგან და რომელიც ემსახურება ქიმიური ნივთიერებების "
+"გამოშრობას; ანუ, წყლის ან თხევადი ნიმუშის ამოღება.\n"
+"\t\t\tპრინციპში, ეს არის მინის თასი თავსახურით, რომელსაც აქვს პლანეტარული "
+"სახეხი, ისე, რომ თასი იყოს საჰაერო მჭიდრო. დეჰიდრატატორის ქვედა ნაწილი "
+"ჩვეულებრივ ივსება საშრობი აგენტით, როგორიცაა კალციუმის ქლორიდი, სილიციუმის "
+"გელი, ფოსფორიული ანჰიდრიდი ან გოგირდის მჟავა. გამხმარი ნიმუში მოთავსებულია "
+"პლასტმასის ან კერამიკის დიაფანურ კარტრიჯზე საშრობი აგენტის ზემოთ.\n"
+"\t\t\tსაშრობი აგენტი არის ჰიგიროსკოპიული, რაც იმას ნიშნავს, რომ იგი "
+"dehumidifies მისი გარემო შთანთქმის წყლის ორთქლი. მშრალი ატმოსფერო შემდეგ "
+"იღებს წყალს ნიმუშიდან, რომ გაშრეს."
 
 #: data/tools.xml:17
 #, kde-format
@@ -808,6 +837,13 @@ msgid ""
 "application of the hydrodynamic paradox (objects close to drifting fluids "
 "are aspirated instead of being pushed away)."
 msgstr ""
+"წყლის რეაქტიული ტუმბოს აქვს ორი შესასვლელი მილი და ერთი გასასვლელი და, "
+"პრინციპში, ორი მილისგან შედგება მეორის შიგნით. წყლის შესასვლელში წყლის ჭავლი "
+"სრული წნევის ქვეშ გადადის საქშენიდან ოდნავ უფრო დიდ მილში. წყლის ჭავლი ამით "
+"ახორციელებს ჰაერს ან სითხეს მეორე შესასვლელიდან. <br> ეს გამოწვეულია დრიფტის "
+"სითხეში უარყოფითი წნევით და, შესაბამისად, ეს არის ჰიდროდინამიკური პარადოქსის "
+"გამოყენება (დრიფტის სითხეებთან ახლოს მდებარე ობიექტები ასპირაცია ხდება იმის "
+"ნაცვლად, რომ თავი დააღწიონ)."
 
 #: data/tools.xml:27
 #, kde-format
@@ -821,6 +857,10 @@ msgid ""
 "the refractive index of a chemical is known it can be used after a synthesis "
 "to determine the sample's purity or to audit the synthesis' success."
 msgstr ""
+"რეფრაქტომეტრით განისაზღვრება ოპტიკური მედიის რეფრაქციული ინდექსი. თუ ქიმიური "
+"ნივთიერებების რეფრაქციული ინდექსი ცნობილია, ის შეიძლება გამოყენებულ იქნას "
+"სინთეზის შემდეგ, ნიმუშის სიწმინდის დასადგენად ან სინთეზის წარმატების "
+"აუდიტისთვის."
 
 #: data/tools.xml:32
 #, kde-format
@@ -834,6 +874,10 @@ msgid ""
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
+"ნაღმტყორცნები გამოიყენება ხელით სახეხი მყარი. ის ასევე შეიძლება გამოყენებულ "
+"იქნას ფხვნილების ნარევის ჰომოგენიზაციისთვის სახეხით. კლუბის ფორმის "
+"ინსტრუმენტი, რომელიც ცნობილია როგორც pestle, გამოიყენება ნაღმტყორცნებიდან "
+"დაფქვისთვის."
 
 #: data/tools.xml:37
 #, kde-format
@@ -849,6 +893,11 @@ msgid ""
 "heating coil to stir fluids with a magnetic stirrer. This will homogenize "
 "the fluid in terms of temperature and composition."
 msgstr ""
+"გათბობის coils გამოიყენება სითბოს flasks და სხვა კონტეინერების. მრავალჯერადი "
+"გათბობის coils შეიძლება დაკავშირებული თერმომეტრი ისე, რომ სითბოს არ "
+"აღემატება მითითებული ტემპერატურა. შესაძლებელია მაგნიტური ველის გამოყენება "
+"გათბობის კოჭის შიგნით, რათა აურიეთ სითხეები მაგნიტური შემრევით. ეს იქნება "
+"სითხის ჰომოგენიზაცია ტემპერატურისა და შემადგენლობის თვალსაზრისით."
 
 #: data/tools.xml:42
 #, kde-format
@@ -862,6 +911,9 @@ msgid ""
 "cork, a special soft lightweight wood with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
+"დიდი კონტეინერები, როგორიცაა მრგვალი ქვედა ფლაკონები, მოთავსებულია კორპისგან "
+"დამზადებულ რგოლებზე, სპეციალური რბილი მსუბუქი ხის კარგი საიზოლაციო "
+"თვისებებით, მყიფე ინსტრუმენტების დასაცავად."
 
 #: data/tools.xml:47
 #, kde-format
@@ -874,6 +926,8 @@ msgid ""
 "A dropping funnel can be used to drop precise amounts of fluid. The dropping "
 "speed can be controlled with a valve."
 msgstr ""
+"წვეთოვანი ძაბრი სითხის ზუსტი რაოდენობის წვეთებად დასამატებლად გამოიყენება. "
+"წვეთების სიხშირის რეგულაცია ონკანით შეგიძლიათ."
 
 #: data/tools.xml:52
 #, kde-format
@@ -887,6 +941,9 @@ msgid ""
 "densities. A valve at the bottom allows the denser fluid to be drained for "
 "transfer to another container."
 msgstr ""
+"გამყოფი ძაბრი სხვადასხვა სიმკვრივის მქონე სითხეების ნარევის გასაცალკევებლად "
+"გამოიყენება. ონკანი ქვედა მხარეს საშუალებას გაძლევთ, უფრო მეტი სიმკვრივის "
+"მქონე სითხე სხვა ჭურჭელში გადაიტანოთ."
 
 #: data/tools.xml:57
 #, kde-format
@@ -899,6 +956,8 @@ msgid ""
 "This rack is useful when many small amounts of chemicals are to be tested in "
 "a row; or alternatively, to dry test tubes."
 msgstr ""
+"ეს კარადა სასარგებლოა, როცა გჭირდებათ ბევრი მცირე რაოდენობის რეაქტივის "
+"შემოწმება ზედიზედ, ან სინჯარების გასაშრობად."
 
 #: data/tools.xml:62
 #, kde-format
@@ -915,6 +974,12 @@ msgid ""
 "homogenized quickly. It is the opposite of a centrifuge, used to separate "
 "fluids."
 msgstr ""
+"vortexer ემსახურება ლაბორატორიებში ნაპოვნი რეაგენტების ჰომოგენიზაციას. "
+"კონტეინერი, რომელიც შეიცავს თხევადი ჰომოგენიზების განთავსებას, იდება "
+"პლატფორმაზე. პლატფორმა ირყევა მბრუნავი აგიტაციით 3000RPM– მდე, რომლის დროსაც "
+"გააქტიურებულია საკონტაქტო სენსორი. ამ გზით სითხის უკიდურესად მცირე "
+"მოცულობები შეიძლება სწრაფად ჰომოგენიზებული იყოს. ეს არის ცენტრიფუგის "
+"საპირისპირო, რომელიც გამოიყენება სითხეების გამოსაყოფად."
 
 #: data/tools.xml:67
 #, kde-format
@@ -928,6 +993,10 @@ msgid ""
 "usually filled with water, salt, acid or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
+"ეს ბოთლები მრავალი დანიშნულებით გამოიყენება. ლაბორატორიების უმრავლესობაში "
+"ისინი, ჩვეულებრივ, წყლით, მარილებით, მჟავებით, ან სხვა ხშირად გამოყენებული "
+"სითხეებითაა სავსე. მათიდან სითხის გადმოღვრა ადვილია, თუ ამ სითხის ზუსტი "
+"რაოდენობა არ გჭირდებათ."
 
 #: data/tools.xml:72
 #, kde-format
@@ -944,6 +1013,12 @@ msgid ""
 "attaching a vacuum pump, the air pressure and therefore the boiling point of "
 "the fluid can be decreased."
 msgstr ""
+"მბრუნავი აორთქლება შედგება მრგვალი ფლაკონისგან ცხელი წყლის აბანოში და "
+"განკუთვნილია გამხსნელების აორთქლებისთვის. ფლაკონი ბრუნავს და გამხსნელი "
+"აგროვებს ვაკუუმის ქვეშ კონდენსატორზე და წვეთებს კონდენსატის შეგროვების "
+"ფლაკონში. ამ გზით გადაწყვეტილებები შეიძლება კონცენტრირებული ან გაწმენდილი "
+"იყოს. ვაკუუმური ტუმბოს მიმაგრებით, ჰაერის წნევა და, შესაბამისად, სითხის "
+"დუღილის წერტილი შეიძლება შემცირდეს."
 
 #: data/tools.xml:77
 #, kde-format
@@ -958,6 +1033,10 @@ msgid ""
 "condenses and runs back into the original fluid. Usually it is put on a "
 "round-bottomed flask or several neck flasks."
 msgstr ""
+"რეფლუქს კონდენსატორი ექვემდებარება სითხეს იმ პროცესზე, სადაც გათბობით "
+"წარმოებული გაზი გროვდება რეფლუქს კონდენსატორზე. სითხე გაცივდება, სანამ არ "
+"კონდენსირდება და გადადის თავდაპირველ სითხეში. როგორც წესი, იგი იდება მრგვალი "
+"ქვედა ფლაკონზე ან რამდენიმე კისრის ფლაკონზე."
 
 #: data/tools.xml:82
 #, kde-format
@@ -971,6 +1050,9 @@ msgid ""
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb then causes the fluid to flow out of the pipette."
 msgstr ""
+"პიპეტის ბურთი მათი პიპეტის შევსებისთვის გამოიყენება. ბურთზე მოჭერა და მისი "
+"გაშვება პიპეტში უარყოფით წნევას ქმნის, რაც სითხეს აიძულებს, პიპეტში შევიდეს. "
+"ბურთზე მოჭერა კი აიძულებს სითხეს, გამოდინდეს პიპეტიდან."
 
 #: data/tools.xml:87
 #, kde-format
@@ -984,6 +1066,9 @@ msgid ""
 "different types of tubes. For example some have connectors, some are etched "
 "for measurements, some are hardened for durability."
 msgstr ""
+"სინჯარებში, ჩვეულებრივ, პატარა რეაქციებს, ან ექსპერიმენტებს ატარებენ. "
+"არსებობს სინჯარების მრავალნაირი ტიპი. მაგალითად, ზოგს ააქვს მისაერთებელი, "
+"ზოგიერთს საზომები აქვს ამოტვიფრული და ზოგიერთი გამაგრებულია გამძლეობისთვის."
 
 #: data/tools.xml:92
 #, kde-format
@@ -998,6 +1083,10 @@ msgid ""
 "type of plastic that affords protection from both mechanical impacts, and "
 "acid and base chemicals."
 msgstr ""
+"ლაბორატორიების უმრავლესობა ითხოვს, რომ თანამშრომლებმა დამცავი სათვალეები "
+"ატარონ. მათ გარეშე ქიმიურ ნივთიერებების უმრავლესობასთან მუშაობა ძალიან "
+"საშიშია. ჩვეულებრივ, ლინზა სპეციალური ტიპის პლასტმასაა, რომელიც მექანიკური "
+"დარტყმებისგან, მჟავებისგან და ტუტეებისგან გიცავთ."
 
 #: data/tools.xml:97
 #, kde-format
@@ -1011,6 +1100,9 @@ msgid ""
 "other items, as the frosting on the neck shows. With cork rings they can be "
 "placed on a table."
 msgstr ""
+"მრგვალძირა კოლბა ბევრი რეაქციისთვის გამოიყენება ზოგი შეიძლება, სხვა "
+"ელემენტებს შეუერთდეს, როგორც ეს ყელზე შეგიძლიათ, შეამჩნიოთ. კორპის რგოლებით "
+"ის მაგიდაზე შეგიძლიათ, მოათავსოთ."
 
 #: data/tools.xml:102
 #, kde-format
@@ -1023,6 +1115,8 @@ msgid ""
 "Unlike a regular pipette, a full pipette only has one marking for a specific "
 "volume."
 msgstr ""
+"ჩვეულებრივი პიპეტისგან განსხვავებით სრულ პიპეტს, მხოლოდ, ერთი ნიშანი აქვს "
+"მითითებული მოცულობისთვის."
 
 #: data/tools.xml:107
 #, kde-format
@@ -1036,6 +1130,9 @@ msgid ""
 "tube can be used. Drying tubes contains a hygroscopic chemical to absorb "
 "water from the atmosphere."
 msgstr ""
+"ზოგიერთი რეაქცია წყლის გარეშე უნდა ჩატარდეს: იმისათვის, რომ ეს შესაძლებელი "
+"იყოს, გამოიყენება საშრობი მილი. საშრობი მილი შეიცავს ჰიგროსკოპიულ ქიმიურ "
+"ნივთიერებას, რომელიც წყალს ატმოსფეროდან შთანთქავს."
 
 #: data/tools.xml:112
 #, kde-format
@@ -1050,6 +1147,9 @@ msgid ""
 "is hot. Typically, test tube holders are used to hold test tubes over open "
 "flames."
 msgstr ""
+"სინჯარის დამჭერი სინჯარების დალაგებას აადვილებს. დამჭერის გამოყენებისას "
+"თქვენს ხელსა და სინჯარას შორის უსაფრთხო მანძილია, როცა ის ცხელია. "
+"ჩვეულებრივ, სინჯარები ამ დამჭერებით უჭირავთ ღია ალზე."
 
 #: data/tools.xml:117
 #, kde-format
@@ -1064,6 +1164,10 @@ msgid ""
 "following this, the particulates can be separated from the fluid by "
 "decanting."
 msgstr ""
+"საზომი ცილინდრი სითხეების რაოდენობის შედარებით ზუსტად გასაზომად გამოიყენება. "
+"უფრო მეტიც, ცილინდრი შეტივნარებული ნაწილაკების გამოლექვის საშუალებასაც "
+"იძლევა. შეტივნარებული ნაწილაკები უბრალოდ დატოვეთ საზომ ცილინდრში სითხის "
+"გადმოსხმისას."
 
 #: data/tools.xml:122
 #, kde-format
@@ -1077,6 +1181,9 @@ msgid ""
 "laboratory, special thermometers are used which can also be used within "
 "acids or bases."
 msgstr ""
+"თერმომეტრი ნიმუშის ტემპერატურის დასადგენად გამოიყენება. ლაბორატორიაში "
+"გამოიყენება სპეციალური თერმომეტრები, რომლებიც ორივე, მჟავებთან და ტუტეებთან "
+"შეიძლება, გამოიყენოთ."
 
 #: data/tools.xml:127
 #, kde-format
@@ -1090,6 +1197,9 @@ msgid ""
 "heaters have a built-in magnet which can rotate: this causes the stir bar to "
 "rotate and the mixture to become homogenized."
 msgstr ""
+"მაგნიტური ბზრიალები ქიმიურად ინერტული, პატარა მაგნიტური ნივთია. "
+"გამათბობლების უმრავლესობას აქვს მაგნიტი, რომელსაც ტრიალი შეუძლია. ეს იწვევს "
+"მაგნიტური ბზრიალას ტრიალსაც და ხსნარი ერთგვაროვანი ხდება."
 
 #: data/tools.xml:132
 #, kde-format
@@ -1103,6 +1213,8 @@ msgid ""
 "from containers. The retriever is a bar with a magnet at the end which "
 "attracts the stir bars."
 msgstr ""
+"მაგნიტური შემრევის ამომღები შეგიძლიათ, ბზრიალას კონტეინერებიდან ამოსაღებად "
+"გამოიყენოთ. ამომღები ჯოხია ბოლოში მაგნიტით, რომელიც ბზრიალას იზიდავს."
 
 #: data/tools.xml:137
 #, kde-format
@@ -1118,6 +1230,11 @@ msgid ""
 "a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
+"პიპეტები გამოიყენება ლაბორატორიებში მცირე რაოდენობით სითხეების "
+"დანერგვისთვის. პიპეტს აქვს მოცულობის მასშტაბი და, როგორც წესი, პიპეტის "
+"ბოლქვები გამოიყენება როგორც სითხეების წვეთი. ორივე სახის პიპეტები "
+"დაკალიბრებულია სითხეებისთვის 20 ° C ტემპერატურაზე და გადინების დროს (\"Ex.\" "
+"- ის მიერ). საჭიროების შემთხვევაში, მილსადენებზე მითითებულია გადინების დრო."
 
 #: data/tools.xml:142
 #, kde-format
@@ -1143,6 +1260,21 @@ msgid ""
 "on the stirring platform. A round-bottomed flask, by contrast, must be "
 "placed on a cork ring on the stirring platform.\n"
 msgstr ""
+"ერლენმეიერის კოლბა, რომელსაც სახელი ქიმიკოსი ემილ ერლენმეიერის (1825-1909) "
+"გამო ჰქვია, განსხვავდება beaker რომ მას გააჩნია ინვერსიული კონუსური ბაზა და "
+"ცილინდრული კისრის. არსებობს სხვადასხვა სახის Erlenmeyer flasks ლაბორატორიული "
+"პროგრამები: ვიწრო კისრის და ფართო კისრის ფორმები. განაცხადიდან გამომდინარე, "
+"ფლაკონს შეიძლება ჰქონდეს ზუსტი სახეხი, რათა კარგი კავშირი ჰქონდეს სხვა "
+"კონტეინერებთან.\n"
+"\t\t\t<br>\n"
+"\t\t\tვიწრო კისერი ამცირებს სითხის გაქცევის რისკს, განსაკუთრებით დუღილის "
+"დროს ან რეაქციების დროს, რომლებიც აგზნებს შემცველობას.\n"
+"\t\t\t<br>\n"
+"\t\t\tErlenmeyer flask სასარგებლოა შერევით სითხეები ან დააჩქაროს რეაქციები "
+"მიერ აღვივებს ან შერყევისკენ, მაგალითად. Erlenmeyer flask განსაკუთრებით "
+"შეეფერება მაგნიტური stirrer, რადგან ის შეიძლება განთავსდეს პირდაპირ აღმრევი "
+"პლატფორმა. მრგვალი ქვედა ფლაკონი, პირიქით, უნდა განთავსდეს კორპის რგოლზე "
+"აღმაშფოთებელ პლატფორმაზე.\n"
 
 #: data/tools.xml:153
 #, kde-format
@@ -1157,6 +1289,10 @@ msgid ""
 "bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
 "This procedure is called out-gassing."
 msgstr ""
+"ზოგიერთი ქიმიური რეაქციისთვის მნიშვნელოვანია, რომ გამხსნელი გაზისგან "
+"თავისუფალია. ამის მისაღწევად რეაქციის ჭურჭელი გარკვეული დროის განმავლობაში "
+"ულტრაბგერითი აბანოშია. მაღალი ხმის სიხშირის გამო, ორთქლი იბლოკება კანით და "
+"აღმავალი. ამ პროცედურას ეწოდება გაზი."
 
 #: data/tools.xml:158
 #, kde-format
@@ -1171,6 +1307,10 @@ msgid ""
 "As such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
+"ლაბორატორიაში, რეაგენტების ძალიან ზუსტი რაოდენობა ხშირად უნდა იწონიდეს. "
+"მაღალი სიზუსტის სასწორები შეიძლება გაზომონ მასები 1/10000 გრამამდე. როგორც "
+"ასეთი, ისინი დგანან გრანიტის ბლოკებზე, რათა თავიდან აიცილონ ვიბრაცია და "
+"დაცულია ჰაერის ნაკადის ცვლილებებისგან."
 
 #: data/tools.xml:163
 #, kde-format
@@ -1188,6 +1328,12 @@ msgid ""
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
 msgstr ""
+"ნარევის გამოყოფის ერთი საშუალებაა დისტილაციის გამოყენება. ამ გარემოში, "
+"დისტილაციის ხიდი მოქმედებს როგორც კონდუქტორი ორ ქოთნს შორის. ერთი ქოთანში "
+"შეიცავს ნარევი გამოყოფილი და გათბობის საშუალებით, გაზის ფორმები, რომელიც "
+"ხიდის მეშვეობით იღვრება. ხიდის ბოლოს გაზის ფაზა შედედებულია და მრგვალ "
+"ფლაკონში გადადის. როგორც წესი, ხიდი გაცივდა დაბრუნების ნაკადით. ასევე, "
+"ხშირად არსებობს თერმომეტრი დისტილაციის ხიდის ტემპერატურის კონტროლისთვის."
 
 #: data/tools.xml:169
 #, kde-format
@@ -1202,6 +1348,10 @@ msgid ""
 "closed system, the plunger moves outwards. This can be used to measure the "
 "volume of a reaction."
 msgstr ""
+"შპრიცი ორი ნაწილისგან, მინის მილისა და დგუშისგან შედგება. ჩვეულებრივ, ორივე "
+"მინისგანაა დამზადებული. აირები მიედინება მინის მილში და რადგანაც შპრიცი "
+"დახურული სისტემაა, დგუში გარეთკენ გაიწევს. ეს, შეიძლება, რეაქციის მოცულობის "
+"გასაზომად იქნეს გამოყენებული."
 
 #: data/tools.xml:174
 #, kde-format
@@ -1217,6 +1367,10 @@ msgid ""
 "four caps contain a specific liquid, depending on the boiling point of the "
 "liquid distilled."
 msgstr ""
+"პირველი, ოთხი პატარა ქუდი მოთავსებულია გამოყოფის მძივის ოთხ ბოლოში. შემდეგ, "
+"დისტილაციის დროს, მძივი 60 გრადუსით არის გადაქცეული გარკვეული ზომიერი "
+"მიღწევის შემდეგ. ამით, დისტილაციის ბოლოს, ოთხივე ქუდი შეიცავს სპეციფიკურ "
+"სითხეს, რაც დამოკიდებულია თხევადი გამოხდილი მდუღარე წერტილზე."
 
 #: data/tools.xml:179
 #, kde-format
@@ -1230,6 +1384,9 @@ msgid ""
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
+"არსებობს რამდენიმე ტიპის სანთურები; ამ სურათზე ნაჩვენებია Teclu-Burner. "
+"თითოეული ტიპის სანთურს აქვს სპეციფიკური გამოყენება და ისინი განსხვავდება "
+"პიკური ტემპერატურისა და საერთო გათბობის ტევადობით."
 
 #: data/tools.xml:184
 #, kde-format
@@ -1261,6 +1418,13 @@ msgid ""
 "coil is deactivated; when the temperature falls, the heating coil is "
 "reactivated."
 msgstr ""
+"საკონტაქტო თერმომეტრები განსხვავდება რეგულარული თერმომეტრებისგან, რომ ისინი "
+"დაკავშირებულია გათბობის კოჭასთან და, შესაბამისად, შეუძლიათ იგრძნონ და "
+"გააკონტროლონ მიმდინარე ტემპერატურა. ამით ისინი საშუალებას აძლევენ "
+"ექსპერიმენტებს შესრულდეს მუდმივი ტემპერატურის ქვეშ. საკონტაქტო თერმომეტრები "
+"მუშაობს უარყოფითი უკუკავშირის მარყუჟის გამოყენებით: სასურველი ტემპერატურის "
+"მიღწევის შემდეგ, გათბობის ხვია გამორთულია; როდესაც ტემპერატურა მოდის, "
+"გათბობის coil არის რეაქტივირებული."
 
 #: data/tools.xml:194
 #, kde-format
@@ -1289,6 +1453,12 @@ msgid ""
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
+"ხსნარის pH მნიშვნელობის გაზომვის მრავალი გზა არსებობს, რომელთაგან ერთი არის "
+"ინდიკატორის ქაღალდის გამოყენება. ინდიკატორის ქაღალდი იცვლის ფერს, რომელიც "
+"დამოკიდებულია მასზე გამოყენებული ხსნარის pH- ზე და დიაგრამასთან შედარებით "
+"შეიძლება მიღებულ იქნას ხსნარის pH- ის საკმაოდ ზუსტი ზომა. თუ საჭიროა უფრო "
+"ზუსტი ზომა, შეიძლება გამოყენებულ იქნას მინის ელექტროდი, რომელიც მუშაობს "
+"ხსნარის გამტარობის გაზომვით."
 
 #: data/tools.xml:204
 #, kde-format
@@ -1318,6 +1488,11 @@ msgid ""
 "they can be very easily refilled with the exact volume for which the buret "
 "is calibrated."
 msgstr ""
+"Burets გამოიყენება ტიტრაცია სითხეები. ბურეტი ივსება სითხის სპეციფიკური "
+"მოცულობით და მის ქვეშ მოთავსებულია კონტეინერი, როგორიცაა Erlenmeyer flask. "
+"ბურეტზე სარქვლის გახსნით, კონტეინერში თხევადი ტიტრირდება. მაღალი ხარისხის "
+"burets აქვს venting მექანიზმი, რომელთანაც ისინი შეიძლება ძალიან ადვილად "
+"შევსებული ზუსტი მოცულობა, რომელიც buret არის დაკალიბრებული."
 
 #: data/tools.xml:214
 #, kde-format
@@ -1364,6 +1539,11 @@ msgid ""
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
+"Dewar ხომალდი (ან Dewar flask), სახელად ფიზიკოსი სერ ჯეიმს დევარი "
+"(1842-1923), არის ორმაგი კედლის ვაკუუმი ფლაკონი, რომელიც შექმნილია კარგი "
+"თერმული იზოლაციის უზრუნველსაყოფად. როგორც ასეთი, ისინი სასარგებლოა სითხეების "
+"სიგრილის ან თბილი შენახვისთვის. Dewar გემის ერთ-ერთი ცნობილი მაგალითია "
+"თერმოს ფლაკონი."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
@@ -2872,6 +3052,8 @@ msgid ""
 "This is the index of the various calculators available. For more information "
 "on each calculator, click on 'Introduction'."
 msgstr ""
+"ეს სხვადასხვა ხელმისაწვდომი კალკულატორების სიაა. თითოეული კალკულატორის "
+"შესახებ მეტი ინფორმაციის მისაღებად დააწკაპუნეთ ღილაკზე 'შესავალი'."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
@@ -2895,7 +3077,7 @@ msgstr "<big>ინფორმაცია კალკულატორებ
 #: src/calculator/calculator.ui:171
 #, kde-format
 msgid "This is the description of the function of each calculator in Kalzium"
-msgstr ""
+msgstr "ეს ფუნქციის აღწერაა Kalzium-ის თითოეული კალკულატორისთვის"
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:189
@@ -2929,6 +3111,34 @@ msgid ""
 "equations and see how the concentration of a species changes in function of "
 "another one.</li></ul>"
 msgstr ""
+"<big>კეთილი იყოს თქვენი მობრძანება Kalzium კალკულატორები!<br /></big>\n"
+"<p>ეს კალკულატორი შეიცავს სხვადასხვა კალკულატორებს სხვადასხვა "
+"ამოცანებისთვის, რომლებიც ასრულებენ სხვადასხვა გამოთვლებს.</p>\n"
+"<p>კალზიუმში შეგიძლიათ იპოვოთ შემდეგი კალკულატორები:</p>\n"
+"<ul><li><b>მოლეკულური მასის კალკულატორი<br /></b>ეს კალკულატორი დაგეხმარებათ "
+"გამოთვალოთ სხვადასხვა მოლეკულების მოლეკულური მასები.<br />თქვენ შეგიძლიათ "
+"მიუთითოთ მოლეკულის სახელების მოკლე ფორმა დაამატეთ უფრო მეტი ასეთი მეტსახელი."
+"</li>\n"
+"<li><b>კონცენტრაციის კალკულატორი<br /></b>თქვენ შეგიძლიათ გამოთვალოთ "
+"რაოდენობები, რომლებიც მოიცავს:</li>\n"
+"<ul type=\"circle\"><li>ნივთიერების რაოდენობა</li>\n"
+"<li>გამხსნელის მოცულობა</li>\n"
+"<li>ნივთიერების კონცენტრაცია</li></ul>\n"
+"<p>არსებობს ერთეულების ფართო სპექტრი ასარჩევად და სხვადასხვა მეთოდების "
+"დასადგენად რაოდენობების დასადგენად.</p>\n"
+"<li><b>ბირთვული კალკულატორი<br /></b>ეს კალკულატორი იყენებს ბირთვულ "
+"მონაცემებს, რომლებიც ხელმისაწვდომია კალზიუმში, რათა წინასწარ განსაზღვროს "
+"მასალის მოსალოდნელი მასები დროის შემდეგ.</li>\n"
+"<li><b>გაზის კალკულატორი<br /></b>ამ კალკულატორს შეუძლია გამოთვალოს "
+"ტემპერატურის, წნევის, მოცულობის, გაზის რაოდენობის და ა.შ. სხვადასხვა "
+"იდეალური, ასევე არა იდეალური გაზებისთვის.</li>\n"
+"<li><b>განტოლების ბალანსერი<br /></b>ამ კალკულატორს შეუძლია ქიმიური "
+"განტოლებების დაბალანსება.</li>\n"
+"<li><b>ტიტრაციის კალკულატორი<br /></b>ეს კალკულატორი ცდილობს გაარკვიოს pH- "
+"მეტრის ეკვივალენტობის წერტილი, რასაც მოჰყვება ტიტრაცია, რომელიც საუკეთესოდ "
+"შეესაბამება მას ჰიპერბოლური ტანგენტით. თქვენ ასევე შეგიძლიათ დაუშვათ ის "
+"განტოლების წონასწორობის სისტემის გადასაჭრელად და ნახოთ, თუ როგორ იცვლება "
+"სახეობების კონცენტრაცია სხვის ფუნქციაში.</li></ul>"
 
 #: src/calculator/concCalculator.cpp:892
 #, kde-format
@@ -3020,6 +3230,8 @@ msgid ""
 "You can calculate the molar mass of solvent only if the mole fraction is "
 "specified."
 msgstr ""
+"გამხსნელის მოლური მასის გამოთვლა, მხოლოდ, მაშინ შეგიძლიათ, როცა მითითებულია "
+"მოლური ნაწილი."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
@@ -3048,6 +3260,18 @@ msgid ""
 "For instance, if you specify the amount of solute in moles, you do not have "
 "to specify the molar mass of the solute.</span></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Liberation Sans'; font-size:10pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:12pt; font-weight:600;\">ამ მონაცემებიდან ზოგიერთი საჭირო არაა. "
+"მაგალითად, თუ გასახსნელს მოლებში მიუთითებთ, მისი მოლური მასის მითითება "
+"საჭირო აღარაა.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/concCalculator.ui:37 src/calculator/gasCalculator.ui:36
@@ -3150,6 +3374,9 @@ msgid ""
 "This box is used to specify the value of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
+"ეს ველი გასახსნელი ნივთიერების სიმკვრივის მისათითებლად გამოიყენება. ეს, "
+"მხოლოდ, მაშინაა საჭირო, თუ გასახსნელი ნივთიერების რაოდენობას მოცულობით "
+"უთითებთ."
 
 #. i18n: ectx: property (text), widget (QLabel, label_31)
 #: src/calculator/concCalculator.ui:158
@@ -3182,6 +3409,8 @@ msgid ""
 "This box is used to change the mode in which amount of solvent is specified, "
 "i.e. mass, moles or volume."
 msgstr ""
+"ეს ველი გამოიყენება გასახსნელი ნივთიერების რაოდენობის მითითების შესაცვლელად. "
+"ანუ, მასა, მოლები, ან მოცულობა."
 
 #. i18n: ectx: property (text), widget (QLabel, label_42)
 #: src/calculator/concCalculator.ui:194
@@ -3220,6 +3449,8 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
+"ეს ველი ხსნარის სიმკვრივის მისათითებლად გამოიყენება და საჭიროა, მხოლოდ, "
+"მაშინ, თუ ხსნარის რაოდენობის მითითება მასითაა საჭირო/მითითებული."
 
 #. i18n: ectx: property (text), widget (QLabel, label_41)
 #: src/calculator/concCalculator.ui:246
@@ -3240,6 +3471,8 @@ msgid ""
 "This box is used to specify the concentration of the solution in respective "
 "units to the right."
 msgstr ""
+"ეს ველი ხსნარის კონცენტრაციის მარჯვენა მხარეს მითითებულ ერთეულებში "
+"მისათითებლად გამოიყენება."
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -3262,6 +3495,8 @@ msgid ""
 "This is the list of quantities that you can calculate. Choose one of the "
 "quantities and specify the other required values to calculate it."
 msgstr ""
+"ეს გამოსათვლელი რაოდენობების ჩამონათვალია. აირჩიეთ ერთი რაოდენობა და "
+"მიუთითეთ დანარჩენი აუცილებელი მნიშვნელობები მის გამოსათვლელად."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlvt_unit)
 #: src/calculator/concCalculator.ui:308
@@ -3315,6 +3550,8 @@ msgid ""
 "This box is used to specify the units of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
+"ეს ველი გასახსნელი ნივთიერების სიმკვრივის ერთეულის მისათითებლად გამოიყენება. "
+"ეს, მხოლოდ, მაშინაა საჭირო, თუ გასახსნელ ნივთიერებას მოცულობით უთითებთ."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:355
@@ -3376,6 +3613,8 @@ msgid ""
 "dynamically.<br />Mass and moles are directly dependent for a given gas.</"
 "b></big>"
 msgstr ""
+"<big><b>შეცვალეთ რაოდენობები და სხვა რაოდენობები დინამიკურად შეიცვლება.<br /"
+">მასა და მოლები პირდაპირაა დამოკიდებული მოცემულ აირზე.</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/gasCalculator.ui:42
@@ -3580,6 +3819,9 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
+"ეს ველში შეგიძლიათ ვან დერ ვალსის კონსტანტის 'b' მითითება აირისთვის. ეს "
+"აუცილებელია, მხოლოდ, რეალური აირებისთვის. იდეალური აირისთვის მნიშვნელობა 0-"
+"ის ტოლია."
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
@@ -3595,6 +3837,9 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
+"ეს ველში შეგიძლიათ ვან დერ ვალსის კონსტანტის 'a' მითითება აირისთვის. ეს "
+"აუცილებელია, მხოლოდ, რეალური აირებისთვის. იდეალური აირისთვის მნიშვნელობა 0-"
+"ის ტოლია."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
@@ -3656,6 +3901,9 @@ msgid ""
 "calculate from the combo box next to the \"calculate\" label and change the "
 "values / units to calculate.</span>"
 msgstr ""
+"<span style=\" font-size:12pt; font-weight:600;\">აირჩიეთ, რისი გამოთვლა "
+"გნებავთ ჩამოსაშლელიდან 'გამოთვლის' ჭდის გვერდით და შეცვალეთ გამოსათვლელი "
+"ერთეულები/მნიშვნელობები.</span>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
@@ -3839,6 +4087,8 @@ msgid ""
 "This box is used to decide what you want to calculate, choose among 'Time', "
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
+"ეს ველი გამოიყენება გადასაწყვეტად, რისი გამოთვლა გნებავთ. აირჩიეთ 'დროის', "
+"'ნივთიერების საწყის რაოდენობასა' და 'ნივთიერების საბოლოო რაოდენობას' შორის."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:228
@@ -3917,6 +4167,8 @@ msgid ""
 "This box is used to specify the time after which the initial amount "
 "decreases to the final amount."
 msgstr ""
+"ამ ველით შეგიძლიათ, მიუთითოთ დრო, რომლის შემდეგაც საწყისი რაოდენობა მცირდება "
+"საბოლოო რაოდენობამდე."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:327
@@ -3931,6 +4183,8 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
+"ამ ველით შეგიძლიათ, შეცვალოთ რეჟიმი, რომლთაც გნებავთ ნივთიერების საწყისი "
+"რაოდენობის მითითება. ანუ, მასა ან მოლი."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmtType)
@@ -3953,6 +4207,8 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
+"ამ ველით შეგიძლიათ, შეცვალოთ რეჟიმი, რომლთაც გნებავთ ნივთიერების საბოლოო "
+"რაოდენობის მითითება. ანუ, მასა ან მოლი."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
@@ -3967,6 +4223,8 @@ msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
+"ეს ველი შეგიძლიათ, ნივთიერების საწყისი რაოდენობის ერთეულის მისათითებლად "
+"გამოიყენოთ. ანუ, გრამები, ფუნტები და ა.შ."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -4029,6 +4287,8 @@ msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
+"ეს ველი შეგიძლიათ, ნივთიერების საბოლოო რაოდენობის ერთეულის მისათითებლად "
+"გამოიყენოთ. ანუ, გრამი, ფუნტი და ა.შ."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:460
@@ -4062,6 +4322,8 @@ msgid ""
 "This slider can be used to specify the time in terms of number of half-lives "
 "between 0 half-lives to 10 half-lives."
 msgstr ""
+"ეს ჩოჩია შეგიძლიათ ნახევრადდაშლის პერიოდის მისათითებლად გამოიყენოთ 0-სა და "
+"10 ნახევრადდაშლის პერიოდს შორის."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, numHalfLives)
 #: src/calculator/nuclearCalculator.ui:537
@@ -4250,6 +4512,8 @@ msgid ""
 "Solve an equilibrium system and see how the concentration of one ion (Y) "
 "changes in function of another one (X)"
 msgstr ""
+"ამოხსენით განტოლება და ნახეთ, როგორ იცვლება ერთი იონის (Y) კონცენტრაცია "
+"მეორის (X) ფუნქციაში"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:199
@@ -4408,7 +4672,7 @@ msgstr "დუღილის ტემპერატურა"
 #: src/detailinfodlg.cpp:193 src/exportdialog.cpp:138
 #, kde-format
 msgid "Electron Affinity"
-msgstr ""
+msgstr "ელექტრონისადმი სწრაფვა"
 
 #: src/detailinfodlg.cpp:200
 #, kde-format
@@ -4476,7 +4740,7 @@ msgstr "დაშლის ენერგია და რეჟიმი"
 #: src/detailinfodlg.cpp:310
 #, kde-format
 msgid "Spin and Parity"
-msgstr ""
+msgstr "სპინი და ლუწობა"
 
 #: src/detailinfodlg.cpp:318
 #, kde-format
@@ -4830,6 +5094,15 @@ msgid ""
 "H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
 msgstr ""
+"განტოლებების ამომხსნელი ქიმიური ტოლობების გასწორებაში დაგეხმარებათ.<br> "
+"<br><b>ცვლადების გამოყენება</b><br>ელემენტის რაოდენობის გამოსახატად დასვით "
+"ერთი სიმბოლო ელემენტის სიმბოლოს წინ, როგორც ნაჩვენებია ამ მაგალითში:"
+"<br><i>aH + bO -> 5H2O</i> (შედეგი: <b>10</b> H + <b>5</b> O -&gt; <b>5</b> "
+"H<sub>2</sub>O)<br>ამ განტოლების ამოხსნა საჭირო წყალბადისა და ჟანგბადის "
+"რაოდენობას მოგცემთ.<br><br><b>მუხტის განსაზღვრა</b><br>გამოიყენეთ კვადრატული "
+"ფრჩხილები მუხტის მისათითებლად, როგორც ეს ამ მაგალითშია:<br><i>4H[+] + 2O -> "
+"cH2O[2+]</i> (შედეგი: <b>4</b> H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</"
+"b> H<b><sub>2</sub></b>O<b><sup>2+</sub></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/equationview.ui:44
@@ -5018,6 +5291,10 @@ msgid ""
 "<p>Zoom in and out using your mouse wheel / zoom feature.</p>\n"
 "<p>Scroll using left-clicking and dragging / scroll feature.</p>"
 msgstr ""
+"<p><b>ინფორმაცია</b></p>\n"
+"<p>მარჯვენა წკაპი ელემენტზე მის შესახებ ინფორმაციის სანახავად.</p>\n"
+"<p>გაადიდეთ და დააპატარავეთ თქვენი თაგუნას ბორბლით / გადიდების ღილაკით.</p>\n"
+"<p>გადაახვიეთ მარცხენა წკაპით და გადათრევით / ჩოჩიით.</p>"
 
 #: src/isotopetable/isotopeitem.cpp:65
 #, kde-format
@@ -5333,7 +5610,7 @@ msgstr "აღმოჩენის წელი"
 #: src/kalziumgradienttype.cpp:605 src/settings/settings_gradients.ui:109
 #, kde-format
 msgid "Electronaffinity"
-msgstr ""
+msgstr "ელექტრონისადმისწრაფვა"
 
 #: src/kalziumgradienttype.cpp:661
 #, kde-format
@@ -5405,6 +5682,8 @@ msgstr "ხატულები"
 #, kde-format
 msgid "Each element is represented by an icon which represents its use."
 msgstr ""
+"თითოეული ელემენტი წარმოდგენილია ხატულათი, რომელიც წარმოადგენს მის "
+"გამოყენებას."
 
 #: src/kalziumschemetype.cpp:279
 #, kde-format
@@ -5684,7 +5963,7 @@ msgstr "Pino Toscano"
 #: src/main.cpp:45
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
-msgstr ""
+msgstr "დიდი წვლილი კოდში. რეზიდენტი გურუ, რომელიც სხვა პროგრამისტებს ეხმარება"
 
 #: src/main.cpp:47
 #, kde-format
@@ -5694,7 +5973,7 @@ msgstr "Benoit Jacob"
 #: src/main.cpp:47
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
-msgstr ""
+msgstr "საბაზისო სამუშაო მოლეკულურ ხედზე. ასწავლიდა მარკუსს მისი SoC-ის დროს"
 
 #: src/main.cpp:49
 #, kde-format
@@ -5704,7 +5983,7 @@ msgstr "Marcus Hanwell"
 #: src/main.cpp:49
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
-msgstr ""
+msgstr "SoC მოლეკულურ ხედზე და libavogadro-ის გადმოტანა/ინტეგრაცია"
 
 #: src/main.cpp:51
 #, kde-format
@@ -5714,7 +5993,7 @@ msgstr "Kashyap R Puranik"
 #: src/main.cpp:51
 #, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
-msgstr ""
+msgstr "SoC კალკულატორის ვიჯეტზე და რამდენიმე სხვა პატარა გაუმჯობესება"
 
 #: src/main.cpp:53
 #, kde-format
@@ -5737,6 +6016,8 @@ msgid ""
 "Code cleaning, parser for the molecule weight calculator, and a lot of "
 "smaller improvements"
 msgstr ""
+"კოდის გასუფთავება, დამმუშავებელი მოლეკულური წონის კალკულატორისთვის და ბევრი "
+"პატარა გაუმჯობესება"
 
 #: src/main.cpp:57
 #, kde-format
@@ -5759,6 +6040,7 @@ msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
 msgstr ""
+"კოდი და დოკუმენტაცია განტოლების ამომხსნელში და მოლეკულების დამთვალიერებელში"
 
 #: src/main.cpp:61
 #, kde-format
@@ -6016,6 +6298,8 @@ msgid ""
 "This table previews the elemental composition of the molecule, i.e. the "
 "percentage of each element in the molecule."
 msgstr ""
+"ეს ცხრილი მოლეკულის ელემენტარულ შემცველობას, ანუ მოლეკულაში თითოეული "
+"ელემენტის პროცენტულობას შეიცავს."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
@@ -6048,6 +6332,8 @@ msgid ""
 "This displays all the aliases used in the molecule.\n"
 "For instance, in the molecule MeOH, the alias used is Me = CH3."
 msgstr ""
+"ეს მოლეკულაში გამოყენებულ ყველა ფსევდონიმს აჩვენებს.\n"
+"მაგალითად, MeOH-ში ფსევდონიმი Me = CH3-ს."
 
 #. i18n: ectx: property (text), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:262
@@ -7696,6 +7982,10 @@ msgid ""
 "\n"
 "Check the properties you want to have displayed with a logarithmic gradient."
 msgstr ""
+"პერიოდულ ცხრილში ელემენტის მითითებული თვისების საჩვენებლად წრფივი გრადიენტის "
+"მაგიერ Kalzium-ს ლოგარითმული გრადიენტის გამოყენებაც შეუძლია.\n"
+"\n"
+"დასვით თოლია თვისებებზე, რომლებიც გნებავთ, ლოგარითმული გრადიენტით გამოჩნდეს."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicDiscoverydateGradient)
 #: src/settings/settings_gradients.ui:102
@@ -7737,6 +8027,8 @@ msgid ""
 "This page gives an overview of the spectrum of this element. Using the mouse "
 "you can zoom into the spectrum."
 msgstr ""
+"ეს გვერდი ამ ელემენტის სპექტრის მიმოხილვას შეიცავს. სპექტრი შეგიძლიათ, "
+"თაგუნათი გაადიდოთ."
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, SpectrumView)
 #: src/spectrumview.ui:17
@@ -8282,6 +8574,8 @@ msgid ""
 "Click on 2 atoms to measure a distance, on 3 atoms to measure an angle, on 4 "
 "atoms to measure a dihedral angle."
 msgstr ""
+"დააწკაპუნეთ ორ ატომზე მათ შორის მანძილის გასაზომად, ან 3 ატომზე, კუთხის "
+"გასაზომად, ან 4 ატომზე ორწახნაგა კუთხის გასაზომად."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/moleculeviewerwidget.ui:215
