@@ -563,7 +563,7 @@ Kalzium::~Kalzium()
     delete m_tableDock;
 }
 
-void Kalzium::loadMolecule(const QString &moleculeFile)
+void Kalzium::loadMolecule([[maybe_unused]] const QString &moleculeFile)
 {
 #if defined(HAVE_OPENBABEL) && defined(HAVE_EIGEN) && defined(HAVE_AVOGADRO)
     MoleculeDialog *d = slotMoleculeviewer();
