@@ -119,7 +119,7 @@ if(MSVC)
 endif()
 
 ecm_set_disabled_deprecation_versions(QT 5.14.0
-    KF 5.101
+    KF 6.13
 )
 
 
