@@ -14,7 +14,7 @@
 # Guillaume Pujol <guill.p@gmail.com>, 2008, 2010.
 # Olivier Delaune <delaune@ganil.fr>, 2009.
 # Olivier Delaune <delaune@ganil.fr>, 2010, 2011, 2012, 2013, 2014, 2015.
-# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2022, 2023, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Yoann Laissus <yoann.laissus@gmail.com>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019, 2020.
 #
@@ -23,15 +23,15 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 01:53+0000\n"
-"PO-Revision-Date: 2023-12-09 12:30+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2025-05-12 17:04+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -2067,7 +2067,7 @@ msgid ""
 "Named after the small town of Ytterby near Stockholm in Sweden. Terbium, "
 "Ytterbium and Erbium are also named after this town."
 msgstr ""
-"Nommé d'après la petite ville d'Ytterby près de Stockholm en Suède. Le "
+"Nommé d'après la petite ville de Ytterby près de Stockholm en Suède. Le "
 "terbium, l'ytterbium et l'erbium tirent également leur nom de cette ville."
 
 #. i18n: tag label attribute value
@@ -2370,7 +2370,7 @@ msgid ""
 "Terbium was first refined. Yttrium, Erbium and Ytterbium are also named "
 "after this town."
 msgstr ""
-"Nommé d'après la ville suédoise d'Ytterby et du minéral ytterbite à partir "
+"Nommé d'après la ville suédoise de Ytterby et du minéral ytterbite à partir "
 "duquel le terbium a été raffiné pour la première fois. L'yttrium, l'erbium "
 "et l'ytterbium tirent également leur nom de cette ville."
 
@@ -2409,7 +2409,7 @@ msgid ""
 "which Erbium was first refined) was first mined. Yttrium, Terbium and "
 "Ytterbium are also named after this town."
 msgstr ""
-"Nommé d'après la ville suédoise d'Ytterby dans laquelle le minéral "
+"Nommé d'après la ville suédoise de Ytterby dans laquelle le minéral "
 "gadolinite (à partir duquel l'erbium a été raffiné initialement) a été "
 "extrait pour la première fois. L'yttrium, le terbium et l'ytterbium tirent "
 "également leur nom de cette ville."
@@ -2438,7 +2438,7 @@ msgid ""
 "Ytterby."
 msgstr ""
 "Tout comme le yttrium, le terbium et l'erbium, il est nommé d'après la ville "
-"suédoise d'Ytterby."
+"suédoise de Ytterby."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:143
@@ -6123,7 +6123,7 @@ msgstr "Benoit Jacob"
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
 "Travail de base sur l'afficheur moléculaire, a encadré Marcus durant son "
-"« Google Summer of Code »"
+"« Google Summer Of Code »"
 
 #: src/main.cpp:53
 #, kde-format
@@ -6134,8 +6134,8 @@ msgstr "Marcus Hanwell"
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
 msgstr ""
-"« Google Summer of Code » sur l'afficheur de molécules et l'intégration et "
-"migration vers libavogadro"
+"GSOC (« Google Summer of Code ») sur l'afficheur de molécules et "
+"l'intégration et migration vers la bibliothèque « libavogadro »"
 
 #: src/main.cpp:55
 #, kde-format
@@ -6146,8 +6146,8 @@ msgstr "Kashyap R Puranik"
 #, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
 msgstr ""
-"« Google Summer of Code » sur le composant graphique du calculateur et "
-"quelques améliorations plus mineures"
+"GSOC (« Google Summer Of Code ») sur le composant graphique du calculateur "
+"et quelques améliorations plus mineures"
 
 #: src/main.cpp:57
 #, kde-format
