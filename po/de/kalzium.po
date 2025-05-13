@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:38+0000\n"
+"POT-Creation-Date: 2025-05-13 00:37+0000\n"
 "PO-Revision-Date: 2024-09-28 20:22+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -6734,7 +6734,7 @@ msgid "Risks/Security Phrases"
 msgstr "Risiko- und Sicherheitssätze"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/rsdialog.cpp:79 src/rswidget.ui:38
+#: src/rsdialog.cpp:79 src/rswidget.ui:50
 #, kde-format
 msgid "R-Phrases:"
 msgstr "R-Sätze:"
@@ -7798,13 +7798,13 @@ msgid "At least one of the specified phrases is invalid."
 msgstr "Mindestens eine der angegebenen Formulierungen ist ungültig."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/rswidget.ui:28
+#: src/rswidget.ui:40
 #, kde-format
 msgid "S-Phrases: "
 msgstr "S-Sätze: "
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, r_le)
-#: src/rswidget.ui:48
+#: src/rswidget.ui:60
 #, kde-format
 msgid ""
 "Enter the R-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
@@ -7815,20 +7815,20 @@ msgstr ""
 "implementiert."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, r_le)
-#: src/rswidget.ui:54
+#: src/rswidget.ui:66
 #, kde-format
 msgid "Enter the R-Phrases you want to read"
 msgstr "Geben Sie die R-Sätze ein, die Sie lesen möchten."
 
 #. i18n: ectx: property (text), widget (QLineEdit, r_le)
 #. i18n: ectx: property (text), widget (QLineEdit, s_le)
-#: src/rswidget.ui:57 src/rswidget.ui:70
+#: src/rswidget.ui:69 src/rswidget.ui:82
 #, kde-format
 msgid "1-2-3-4-5-6-7-8-9"
 msgstr "1-2-3-4-5-6-7-8-9"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, s_le)
-#: src/rswidget.ui:64
+#: src/rswidget.ui:76
 #, kde-format
 msgid ""
 "Enter the S-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
@@ -7839,14 +7839,14 @@ msgstr ""
 "implementiert."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, s_le)
-#: src/rswidget.ui:67
+#: src/rswidget.ui:79
 #, kde-format
 msgid "Enter the S-Phrases you want to read"
 msgstr "Geben Sie die R-Sätze ein, die Sie lesen möchten."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, filterButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, filterButton)
-#: src/rswidget.ui:77 src/rswidget.ui:80
+#: src/rswidget.ui:89 src/rswidget.ui:92
 #, kde-format
 msgid "Click here to search for the phrases you entered on the left"
 msgstr ""
@@ -7854,7 +7854,7 @@ msgstr ""
 "haben."
 
 #. i18n: ectx: property (text), widget (QPushButton, filterButton)
-#: src/rswidget.ui:83
+#: src/rswidget.ui:95
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtern"
