@@ -24,6 +24,7 @@
   <name xml:lang="fi">Kalzium</name>
   <name xml:lang="fr">Kalzium</name>
   <name xml:lang="gl">Kalzium</name>
+  <name xml:lang="he">Kalzium</name>
   <name xml:lang="ia">Kalzium</name>
   <name xml:lang="id">Kalzium</name>
   <name xml:lang="it">Kalzium</name>
@@ -63,6 +64,7 @@
   <summary xml:lang="fi">Alkuaineiden jaksollinen järjestelmä</summary>
   <summary xml:lang="fr">Classification périodique des éléments</summary>
   <summary xml:lang="gl">Táboa periódica dos elementos</summary>
+  <summary xml:lang="he">הטבלה המחזורית של היסודות</summary>
   <summary xml:lang="ia">Tabella Periodic de Elementos</summary>
   <summary xml:lang="id">Table Unsur Berkala</summary>
   <summary xml:lang="it">Tavola periodica degli elementi</summary>
@@ -141,6 +143,7 @@
       <caption xml:lang="fi">Alkuaineiden jaksollinen järjestelmä Kalziumissa</caption>
       <caption xml:lang="fr">Classification périodique des éléments sur Kalzium</caption>
       <caption xml:lang="gl">Vista da táboa periódica dos elementos en Kalzium</caption>
+      <caption xml:lang="he">תצוגת הטבלה המחזורית של היסודות ב־Kalzium</caption>
       <caption xml:lang="ia">Vista de tabella periodic de elelementos in Kalzium</caption>
       <caption xml:lang="id">Tampilan unsur tabel berkala di Kalzium</caption>
       <caption xml:lang="it">Vista della tavola periodica degli elementi in Kalzium</caption>
