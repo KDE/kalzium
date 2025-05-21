@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-05-11 19:24+0300\n"
+"PO-Revision-Date: 2025-05-20 08:15+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -35,22 +35,22 @@ msgstr "tahmar1900@gmail.com,leon.mintz@gmail.com,kde-l10n-he@kde.org"
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
 msgid "Problem while opening the file"
-msgstr ""
+msgstr "בעיה בפתיחת הקובץ"
 
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
 msgid "Cannot open the specified file."
-msgstr ""
+msgstr "לא ניתן לפתוח את הקובץ שצוין."
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "מחילה"
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Cannot save to the specified file."
-msgstr ""
+msgstr "לא ניתן לשמור לקובץ שצוין."
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -73,14 +73,14 @@ msgstr "סימול כימי"
 #, kde-format
 msgid ""
 "One, two, or three letter abbreviation; set through international convention."
-msgstr ""
+msgstr "ראשי תיבות באות, שתיים או שלוש, לפי מוסכמות בינלאומיות."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: data/knowledge.xml:11 data/knowledge.xml:23 data/knowledge.xml:113
 #: src/molcalcwidgetbase.ui:208
-#, fuzzy, kde-format
+#, kde-format
 msgid "Element"
-msgstr "מספר היסוד:"
+msgstr "יסוד"
 
 #: data/knowledge.xml:15
 #, kde-format
@@ -126,9 +126,9 @@ msgid "Heterogeneous mix of two liquids."
 msgstr "תערבות הטרוגנית של שני נוזלים."
 
 #: data/knowledge.xml:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extraction"
-msgstr "פרוטקטיניום"
+msgstr "חילוץ"
 
 #: data/knowledge.xml:32
 #, kde-format
@@ -141,9 +141,9 @@ msgid "Mix"
 msgstr "תערובת"
 
 #: data/knowledge.xml:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filtering"
-msgstr "כסף"
+msgstr "סינון"
 
 #: data/knowledge.xml:39
 #, kde-format
@@ -237,7 +237,7 @@ msgstr ""
 #: data/knowledge.xml:70
 #, kde-format
 msgid "Matter"
-msgstr ""
+msgstr "חומר"
 
 #: data/knowledge.xml:71
 #, kde-format
@@ -291,27 +291,27 @@ msgstr ""
 #: data/knowledge.xml:90
 #, kde-format
 msgid "Significant figures"
-msgstr ""
+msgstr "כמות ספרות משמעותית"
 
 #: data/knowledge.xml:91
 #, kde-format
 msgid "The number of digits which are meaningful in a number."
-msgstr ""
+msgstr "מספר הספרות המשמעותיות במספר."
 
 #: data/knowledge.xml:94
 #, kde-format
 msgid "Standard deviation"
-msgstr ""
+msgstr "סטיית תקן"
 
 #: data/knowledge.xml:95
 #, kde-format
 msgid "An amount with which the precision of a measurement can be estimated."
-msgstr ""
+msgstr "כמות משוערכת של דיוק מדידה."
 
 #: data/knowledge.xml:98
 #, kde-format
 msgid "Suspension"
-msgstr ""
+msgstr "השהיה"
 
 #: data/knowledge.xml:99
 #, fuzzy, kde-format
@@ -326,7 +326,7 @@ msgstr "נתכים"
 #: data/knowledge.xml:103
 #, kde-format
 msgid "Pure matter consisting of multiple elements in a set ratio."
-msgstr ""
+msgstr "חומר טהור שמורכב ממספר יסודות ביחס מוגדר."
 
 #: data/knowledge.xml:106
 #, kde-format
@@ -402,7 +402,7 @@ msgstr ""
 #: data/knowledge.xml:135 data/knowledge.xml:145 data/knowledge.xml:152
 #: data/knowledge.xml:159 data/knowledge.xml:166 data/knowledge.xml:173
 #: data/knowledge.xml:183 data/knowledge.xml:192 data/knowledge.xml:201
-#, fuzzy, kde-format
+#, kde-format
 msgid "Isotope"
 msgstr "איזוטופ"
 
@@ -567,7 +567,7 @@ msgstr ""
 #: data/knowledge.xml:237
 #, kde-format
 msgid "Cathode Rays"
-msgstr ""
+msgstr "קרניים קתודיות"
 
 #: data/knowledge.xml:238
 #, kde-format
@@ -577,6 +577,9 @@ msgid ""
 "cathode (negative electrode) and an anode (positive electrode) in a "
 "configuration known as a diode."
 msgstr ""
+"קרניים קתודיות הן זרמים של אלקטרונים שאפשר להבחין בהן בשפופרות ואקום, כלומר "
+"שפופרות זכוכית מרוקנות מתוכן ומצוידות בשתי אלקטרודות לפחות, קתודה (אלקטרודה "
+"שלילית) ואנודה (אלקטרודה חיובית) בתצורה שידועה בשם דיודה."
 
 #: data/knowledge.xml:244 data/knowledge.xml:258 data/knowledge.xml:267
 #: data/knowledge.xml:275
@@ -688,7 +691,7 @@ msgstr ""
 #: data/tools.xml:17
 #, kde-format
 msgid "Spatula"
-msgstr ""
+msgstr "מרית"
 
 #: data/tools.xml:18
 #, kde-format
@@ -697,6 +700,8 @@ msgid ""
 "chemicals. The material they are made of (e.g. iron, titanium, platinum) and "
 "their design (e.g. flat spatula or spoon spatula) varies."
 msgstr ""
+"המרית היא כלי מעבדה לגירוד מעל, שפשוף והעברת כימיקלים. החומר שהיא עשויה ממנו "
+"(כלומר: ברזל, טיטניום, פלטיניום) והעיצוב שלה (כלומר: שטוחה או כפית) משתנים."
 
 #: data/tools.xml:22
 #, kde-format
@@ -1422,9 +1427,9 @@ msgstr "ferrum בלטינית"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Silicon"
-msgstr "תמיסה"
+msgstr "צורן"
 
 #: element_tiny.xml:30
 #, fuzzy, kde-format
@@ -1433,9 +1438,9 @@ msgstr "ferrum בלטינית"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Phosphorus"
-msgstr "פוספט"
+msgstr "זרחן"
 
 #: element_tiny.xml:32
 #, fuzzy, kde-format
@@ -2004,10 +2009,9 @@ msgid "Europium"
 msgstr "אירופיום"
 
 #: element_tiny.xml:128
-#, fuzzy, kde-format
-#| msgid "Named after Europe"
+#, kde-format
 msgid "Named after Europe."
-msgstr "נקרא על שם אירופה"
+msgstr "נקרא על שם אירופה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -8112,7 +8116,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
-msgstr ""
+msgstr "ממשק OpenBabel"
 
 #: src/tools/obconverter.cpp:50 src/tools/obconverter.cpp:214
 #, fuzzy, kde-format
@@ -8132,7 +8136,7 @@ msgstr "מספר היסוד:"
 #: src/tools/obconverter.cpp:177
 #, kde-format
 msgid "You must select some files first."
-msgstr ""
+msgstr "יש לבחור קבצים כלשהם תחילה."
 
 #: src/tools/obconverter.cpp:177
 #, fuzzy, kde-format
@@ -8142,23 +8146,23 @@ msgstr "לא נבחר יסוד"
 #: src/tools/obconverter.cpp:194
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
-msgstr ""
+msgstr "הקובץ %1 כבר קיים. לשכתב אותו אם ניתן?"
 
 #: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
-msgstr ""
+msgstr "הקובץ %1 כבר קיים -- KOpenBabel"
 
 #: src/tools/obconverter.cpp:213
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
-msgstr ""
+msgstr "האם זה בסדר להריץ את הפקודות האלה? -- KOpenBabel"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/obconverterwidget.ui:32
 #, kde-format
 msgid "Files to convert"
-msgstr ""
+msgstr "קבצים להמרה"
 
 #. i18n: ectx: property (text), widget (QPushButton, selectAllFileButton)
 #: src/tools/obconverterwidget.ui:53
@@ -8170,13 +8174,13 @@ msgstr "בחירה בה&כול"
 #: src/tools/obconverterwidget.ui:73
 #, kde-format
 msgid "&Remove"
-msgstr ""
+msgstr "הס&רה"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFileButton)
 #: src/tools/obconverterwidget.ui:80
 #, kde-format
 msgid "&Add"
-msgstr ""
+msgstr "הו&ספה"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, FileListView)
 #: src/tools/obconverterwidget.ui:90

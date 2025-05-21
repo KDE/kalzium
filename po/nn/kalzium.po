@@ -8379,9 +8379,3 @@ msgstr "Gjer om frå:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Gjer om til:"
-
-#~ msgid "Kalzium Error"
-#~ msgstr "Kalzium-feil"
-
-#~ msgid "This system does not support OpenGL."
-#~ msgstr "Dette systemet støttar ikkje OpenGL."
