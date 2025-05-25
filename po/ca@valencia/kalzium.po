@@ -3107,7 +3107,7 @@ msgstr "Calculadora de titulacions"
 #: src/calculator/calculator.ui:38
 #, kde-format
 msgid "<big>Select the calculator that you want to use</big>"
-msgstr "<big>Escolliu la calculadora que voleu utilitzar</big>"
+msgstr "<big>Trieu la calculadora que voleu utilitzar</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:41
@@ -3117,7 +3117,7 @@ msgid ""
 "on each calculator, click on 'Introduction'."
 msgstr ""
 "Este és l'índex de les diverses calculadores disponibles. Per a més "
-"informació sobre cada calculadora, cliqueu en «Introducció»."
+"informació sobre cada calculadora, cliqueu damunt «Introducció»."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
@@ -3565,7 +3565,7 @@ msgid ""
 "This is the list of quantities that you can calculate. Choose one of the "
 "quantities and specify the other required values to calculate it."
 msgstr ""
-"Esta és la llista de quantitats que podeu calcular. Escolliu-ne una i "
+"Esta és la llista de quantitats que podeu calcular. Trieu-ne una i "
 "especifiqueu la resta de valors requerits per a calcular-la."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlvt_unit)
@@ -3984,7 +3984,7 @@ msgid ""
 "calculate from the combo box next to the \"calculate\" label and change the "
 "values / units to calculate.</span>"
 msgstr ""
-"<span style=\" font-size:12pt; font-weight:600;\">Escolliu allò que voleu "
+"<span style=\" font-size:12pt; font-weight:600;\">Trieu allò que voleu "
 "calcular en el quadro combinat proper a l'etiqueta «calcula» i canvieu els "
 "valors / unitats que es calcularan.</span>"
 
@@ -4566,7 +4566,7 @@ msgstr "Imatge SVG (*.svg)"
 #: src/calculator/titrationCalculator.ui:25
 #, kde-format
 msgid "Choose what you want to do:"
-msgstr "Escolliu què és el que voleu fer:"
+msgstr "Trieu què és el que voleu fer:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/calculator/titrationCalculator.ui:36
@@ -6290,7 +6290,7 @@ msgid ""
 msgstr ""
 "Introduïu una fórmula\n"
 "al giny de dalt\n"
-"i cliqueu en «Calc».\n"
+"i cliqueu damunt «Calc».\n"
 "P. ex., #Et#OH"
 
 #: src/molcalcwidget.cpp:198
@@ -8121,7 +8121,7 @@ msgstr "Energia:"
 #: src/settings/unitsettingsdialog.cpp:24
 #, kde-format
 msgid "Length:"
-msgstr "Longitud:"
+msgstr "Llargària:"
 
 #: src/settings/unitsettingsdialog.cpp:30
 #, kde-format
@@ -8590,7 +8590,7 @@ msgstr "Tots els fitxers"
 #: src/tools/moleculeview.cpp:137
 #, kde-format
 msgid "Choose a file to open"
-msgstr "Escolliu un fitxer per a obrir"
+msgstr "Trieu un fitxer per a obrir"
 
 #: src/tools/moleculeview.cpp:172
 #, kde-format
@@ -8605,7 +8605,7 @@ msgstr "Ha fallat la càrrega de la molècula."
 #: src/tools/moleculeview.cpp:201
 #, kde-format
 msgid "Choose a file to save to"
-msgstr "Escolliu un fitxer on guardar-ho"
+msgstr "Trieu un fitxer on guardar-ho"
 
 #: src/tools/moleculeview.cpp:242
 #, kde-format
@@ -8683,8 +8683,8 @@ msgid ""
 "Click on 2 atoms to measure a distance, on 3 atoms to measure an angle, on 4 "
 "atoms to measure a dihedral angle."
 msgstr ""
-"Cliqueu en 2 àtoms per a mesurar una distància, en 3 àtoms per a mesurar un "
-"angle, o en 4 àtoms per a mesurar un angle dièdric."
+"Cliqueu damunt 2 àtoms per a mesurar una distància, damunt 3 àtoms per a "
+"mesurar un angle, o damunt 4 àtoms per a mesurar un angle dièdric."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/moleculeviewerwidget.ui:215
