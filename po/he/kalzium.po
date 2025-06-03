@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-05-20 08:15+0300\n"
+"PO-Revision-Date: 2025-06-02 08:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -7608,9 +7608,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/spectrumview.ui:168
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unit:"
-msgstr "יחידות"
+msgstr "יחידה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/spectrumview.ui:175
@@ -7622,7 +7622,7 @@ msgstr ""
 #: src/spectrumview.ui:185
 #, fuzzy, kde-format
 msgid "Reset zoom"
-msgstr "ניטרלי"
+msgstr "איפוס רמת תקריב"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
@@ -7630,9 +7630,9 @@ msgid "Wavelength"
 msgstr ""
 
 #: src/spectrumviewimpl.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Intensity"
-msgstr "צפיפות: %1"
+msgstr "חוזק"
 
 #: src/tablesdialog.cpp:35 src/tablesdialog.cpp:36
 #, kde-format
@@ -7650,12 +7650,12 @@ msgid "Lowercase"
 msgstr ""
 
 #: src/tablesdialog.cpp:48
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "The name of the greek letter in your language. For example 'Alpha' for the "
 "first letter. "
 msgid "Name"
-msgstr "מספר: %1"
+msgstr "שם"
 
 #: src/tablesdialog.cpp:104
 #, kde-format
@@ -7778,9 +7778,9 @@ msgid "omega"
 msgstr ""
 
 #: src/tablesdialog.cpp:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Numbers"
-msgstr "מספר: %1"
+msgstr "מספרים"
 
 #: src/tablesdialog.cpp:137
 #, kde-format
@@ -7788,9 +7788,9 @@ msgid "Numeric Prefixes and Roman Numerals"
 msgstr ""
 
 #: src/tablesdialog.cpp:147
-#, fuzzy, kde-format
+#, kde-format
 msgid "Number"
-msgstr "מספר: %1"
+msgstr "מספר"
 
 #: src/tablesdialog.cpp:147
 #, kde-format
