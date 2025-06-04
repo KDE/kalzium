@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-06-02 08:30+0300\n"
+"PO-Revision-Date: 2025-06-03 05:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -7479,15 +7479,15 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabNoColor)
 #: src/settings/settings_colors.ui:614
-#, fuzzy, kde-format
+#, kde-format
 msgid "No Color Scheme"
-msgstr "&ללא תרשים צבעים"
+msgstr "אין ערכת צבעים"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8_2_2)
 #: src/settings/settings_colors.ui:634
-#, fuzzy, kde-format
+#, kde-format
 msgid "All the elements:"
-msgstr "מספר היסוד:"
+msgstr "כל היסודות:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_noscheme)
 #. i18n: ectx: property (whatsThis), widget (KColorButton, kcfg_noscheme)
@@ -7514,20 +7514,20 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/settings/settings_gradients.ui:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Maximal Value Color:"
-msgstr "ערך מקסימלי:"
+msgstr "צבע ערך מרבי:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/settings/settings_gradients.ui:152
-#, fuzzy, kde-format
+#, kde-format
 msgid "Minimal Value Color:"
-msgstr "ערך מינימלי:"
+msgstr "צבע ערך מזערי:"
 
 #: src/settings/unitsettingsdialog.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Energy:"
-msgstr "אנרגיות"
+msgstr "אנרגיה:"
 
 #: src/settings/unitsettingsdialog.cpp:24
 #, kde-format
@@ -7535,9 +7535,9 @@ msgid "Length:"
 msgstr ""
 
 #: src/settings/unitsettingsdialog.cpp:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Temperature:"
-msgstr "&טמפרטורה"
+msgstr "טמפרטורה:"
 
 #. i18n: ectx: property (toolTip), widget (QWidget, SpectrumView)
 #: src/spectrumview.ui:14
@@ -7590,9 +7590,9 @@ msgstr "כאן נקבע הגבול הימני של אורך הגל בספקטר�
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/spectrumview.ui:145
-#, fuzzy, kde-format
+#, kde-format
 msgid "Spectrum Settings"
-msgstr "ספקרטום"
+msgstr "הגדרות ספקטרום"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_spectrumType)
 #: src/spectrumview.ui:155
@@ -7620,7 +7620,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_resetZoom)
 #: src/spectrumview.ui:185
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reset zoom"
 msgstr "איפוס רמת תקריב"
 
@@ -7949,10 +7949,10 @@ msgid "&Copy"
 msgstr ""
 
 #: src/tools/moleculeview.cpp:50
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
-msgstr "משקל מולקולרי: %1 ימ\"א"
+msgstr "עורך מולקולרי"
 
 #: src/tools/moleculeview.cpp:66
 #, kde-format
@@ -7965,9 +7965,9 @@ msgid "Download New Molecules"
 msgstr ""
 
 #: src/tools/moleculeview.cpp:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save Molecule"
-msgstr "שמור ספקטרום"
+msgstr "שמירת מולקולה"
 
 #: src/tools/moleculeview.cpp:103
 #, kde-format
@@ -8096,9 +8096,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/tools/moleculeviewerwidget.ui:223
-#, fuzzy, kde-format
+#, kde-format
 msgid "Name:"
-msgstr "מספר: %1"
+msgstr "שם:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/tools/moleculeviewerwidget.ui:240
@@ -8119,19 +8119,19 @@ msgid "OpenBabel Frontend"
 msgstr "ממשק OpenBabel"
 
 #: src/tools/obconverter.cpp:50 src/tools/obconverter.cpp:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "Convert"
-msgstr "נחושת"
+msgstr "המרה"
 
 #: src/tools/obconverter.cpp:114
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open Molecule File"
-msgstr "שמור ספקטרום"
+msgstr "פתיחת קובץ מולקולה"
 
 #: src/tools/obconverter.cpp:116
-#, fuzzy, kde-format
+#, kde-format
 msgid "All Files"
-msgstr "מספר היסוד:"
+msgstr "כל הקבצים"
 
 #: src/tools/obconverter.cpp:177
 #, kde-format
@@ -8139,9 +8139,9 @@ msgid "You must select some files first."
 msgstr "יש לבחור קבצים כלשהם תחילה."
 
 #: src/tools/obconverter.cpp:177
-#, fuzzy, kde-format
+#, kde-format
 msgid "No files selected"
-msgstr "לא נבחר יסוד"
+msgstr "לא נבחרו קבצים"
 
 #: src/tools/obconverter.cpp:194
 #, kde-format
