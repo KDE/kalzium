@@ -199,7 +199,7 @@
 > <guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Gráfico de datos...</guimenuitem
+>Gráfico de datos…</guimenuitem
 > </menuchoice
 >. Podrá seleccionar qué dato se mostrará en el eje Y del gráfico y el intervalo de elementos para el eje X. La captura de pantalla inferior muestra las masas de los elementos del 1 al 10. Pulse el botón de &nbsp;<inlinemediaobject
 > <imageobject
@@ -227,7 +227,7 @@
 > <guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Glosario...</guimenuitem
+>Glosario…</guimenuitem
 > </menuchoice
 >) le explica los conceptos químicos más importantes y le muestra imágenes de las herramientas más usuales en el laboratorio junto a una descripción de las mismas.</para>
 
@@ -676,7 +676,7 @@
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar &kalzium;...</guimenuitem
+>Configurar &kalzium;…</guimenuitem
 > </menuchoice
 >, yendo a la página <guilabel
 >Esquemas</guilabel
@@ -1411,7 +1411,7 @@
 > <guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar &kalzium;...</guimenuitem
+>Configurar &kalzium;…</guimenuitem
 > </menuchoice
 >.</para>
 
@@ -1518,7 +1518,7 @@
 > <guimenu
 >Archivo</guimenu
 > <guimenuitem
->Guardar como...</guimenuitem
+>Guardar como…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -1534,7 +1534,7 @@
 ><guimenu
 >Archivo</guimenu
 > <guimenuitem
->Exportar datos...</guimenuitem
+>Exportar datos…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -1554,7 +1554,7 @@
 ><guimenu
 >Archivo</guimenu
 > <guimenuitem
->Convertir archivos químicos...</guimenuitem
+>Convertir archivos químicos…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2048,7 +2048,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Editor molecular...</guimenuitem
+>Editor molecular…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2066,7 +2066,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Tabla de isótopos...</guimenuitem
+>Tabla de isótopos…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2084,7 +2084,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Gráfico de datos...</guimenuitem
+>Gráfico de datos…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2102,7 +2102,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Realizar cálculos...</guimenuitem
+>Realizar cálculos…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2122,7 +2122,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Frases R/S...</guimenuitem
+>Frases R/S…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2140,7 +2140,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Glosario...</guimenuitem
+>Glosario…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
@@ -2158,7 +2158,7 @@
 ><guimenu
 >Herramientas</guimenu
 > <guimenuitem
->Tablas...</guimenuitem
+>Tablas…</guimenuitem
 > </menuchoice
 ></term>
 						 <listitem
