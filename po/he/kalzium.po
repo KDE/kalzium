@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-06-03 05:08+0300\n"
+"PO-Revision-Date: 2025-06-09 14:28+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3227,9 +3227,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:445 src/calculator/gasCalculator.ui:437
 #: src/calculator/nuclearCalculator.ui:610
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reset"
-msgstr "ניטרלי"
+msgstr "איפוס"
 
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
@@ -3600,33 +3600,33 @@ msgstr "הצג רק את המספר של היסוד"
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:115
 #: src/calculator/nuclearCalculator.ui:467
-#, fuzzy, kde-format
+#, kde-format
 msgid "years"
-msgstr "שנה:"
+msgstr "שנים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:120
 #: src/calculator/nuclearCalculator.ui:472
-#, fuzzy, kde-format
+#, kde-format
 msgid "seconds"
-msgstr "%1 שניות"
+msgstr "שניות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:125
 #: src/calculator/nuclearCalculator.ui:477
-#, fuzzy, kde-format
+#, kde-format
 msgid "minutes"
-msgstr "%1 דקות"
+msgstr "דקות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:130
 #: src/calculator/nuclearCalculator.ui:482
-#, fuzzy, kde-format
+#, kde-format
 msgid "hours"
-msgstr "%1 שעות"
+msgstr "שעות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -3684,9 +3684,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/calculator/nuclearCalculator.ui:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Other data"
-msgstr "מתכות אחרות:"
+msgstr "נתונים אחרים"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:221
@@ -3710,9 +3710,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:238
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time"
-msgstr "הראה &קו זמן"
+msgstr "זמן"
 
 #. i18n: ectx: property (text), widget (QLabel, label_69)
 #: src/calculator/nuclearCalculator.ui:246
@@ -3834,9 +3834,9 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:392
 #: src/calculator/nuclearCalculator.ui:432
-#, fuzzy, kde-format
+#, kde-format
 msgid "tons"
-msgstr "<b>ניוטרונים</b>"
+msgstr "טונות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3858,11 +3858,9 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:407
 #: src/calculator/nuclearCalculator.ui:447
-#, fuzzy, kde-format
+#, kde-format
 msgid "ounces"
-msgstr ""
-"tahmar1900\n"
-"Leon Mintz"
+msgstr "אונקיות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3927,9 +3925,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, error)
 #: src/calculator/nuclearCalculator.ui:569
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information/Error message"
-msgstr "מידע על האנרגיות"
+msgstr "הודעת מידע/שגיאה"
 
 #. i18n: ectx: property (toolTip), widget (QTabWidget, tabWidget)
 #: src/calculator/settings_calc.ui:29
@@ -3951,9 +3949,9 @@ msgstr "הצג רק את המספר של היסוד"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:100
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mass Calculator"
-msgstr "ח&שב"
+msgstr "מחשבון מסה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_alias)
 #: src/calculator/settings_calc.ui:106
@@ -4023,9 +4021,9 @@ msgid "Equivalence point"
 msgstr "משקל ממוצע: %1 u"
 
 #: src/calculator/titrationCalculator.cpp:571
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save work"
-msgstr "ספין"
+msgstr "שמירת עבודה"
 
 #: src/calculator/titrationCalculator.cpp:571
 #: src/calculator/titrationCalculator.cpp:594
@@ -4040,9 +4038,9 @@ msgid "Unable to create %1"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:594
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open work"
-msgstr "חמצן"
+msgstr "פתיחת עבודה"
 
 #: src/calculator/titrationCalculator.cpp:600
 #, kde-format
@@ -4063,9 +4061,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/calculator/titrationCalculator.ui:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose what you want to do:"
-msgstr "כאן באפשרותך להגדיר מה ברצונך לשרטט"
+msgstr "נא לבחור מה לעשות עכשיו:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/calculator/titrationCalculator.ui:36
@@ -4107,27 +4105,27 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:199
-#, fuzzy, kde-format
+#, kde-format
 msgid "Parameter"
-msgstr "מספר: %1"
+msgstr "משתנה"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:204
-#, fuzzy, kde-format
+#, kde-format
 msgid "Value"
-msgstr "הולמיום"
+msgstr "ערך"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/calculator/titrationCalculator.ui:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "X axis:"
-msgstr "צירי Y"
+msgstr "ציר X:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/calculator/titrationCalculator.ui:231
-#, fuzzy, kde-format
+#, kde-format
 msgid "Y axis:"
-msgstr "צירי Y"
+msgstr "ציר Y:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
 #: src/calculator/titrationCalculator.ui:247
@@ -4137,9 +4135,9 @@ msgstr "אטום"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/calculator/titrationCalculator.ui:254
-#, fuzzy, kde-format
+#, kde-format
 msgid "Notes:"
-msgstr "נאון"
+msgstr "הערות:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/calculator/titrationCalculator.ui:270
@@ -4173,15 +4171,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, open)
 #: src/calculator/titrationCalculator.ui:363
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open"
-msgstr "חמצן"
+msgstr "פתיחה"
 
 #. i18n: ectx: property (text), widget (QPushButton, save)
 #: src/calculator/titrationCalculator.ui:370
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save"
-msgstr "ספין"
+msgstr "שמירה"
 
 #. i18n: ectx: property (text), widget (QPushButton, rapidhelp)
 #: src/calculator/titrationCalculator.ui:384
@@ -4727,9 +4725,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, calculateButton)
 #: src/equationview.ui:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Calculate"
-msgstr "ח&שב"
+msgstr "&חישוב"
 
 #. i18n: ectx: property (text), widget (QPushButton, btnCopy)
 #: src/equationview.ui:147
@@ -4743,20 +4741,20 @@ msgid "OK"
 msgstr ""
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
-msgstr "מידע כימי"
+msgstr "ייצוא נתונים כימיים"
 
 #: src/exportdialog.cpp:115
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elements"
-msgstr "מספר היסוד:"
+msgstr "יסודות"
 
 #: src/exportdialog.cpp:116
-#, fuzzy, kde-format
+#, kde-format
 msgid "Properties"
-msgstr "פרומטיום"
+msgstr "מאפיינים"
 
 #: src/exportdialog.cpp:133
 #, kde-format
@@ -4764,9 +4762,9 @@ msgid "Symbol"
 msgstr ""
 
 #: src/exportdialog.cpp:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Exact Mass"
-msgstr "משקל ממוצע: %1 u"
+msgstr "מסה מדויקת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
 #: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
@@ -4793,9 +4791,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/exportdialog.ui:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "File:"
-msgstr "כסף"
+msgstr "קובץ:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/exportdialog.ui:84
@@ -4811,9 +4809,9 @@ msgstr "&ללא תרשים צבעים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gradientwidget.ui:50
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gradient:"
-msgstr "אורך גל: %1"
+msgstr "מדרג:"
 
 #. i18n: ectx: property (text), widget (QLabel, lblUnit)
 #: src/gradientwidget.ui:99
@@ -4851,12 +4849,10 @@ msgid "Elements with melting point around this temperature:"
 msgstr "יסודות בעלי נקודת היתוך באזור הטמפרטורות הזה:"
 
 #: src/gradientwidget_impl.cpp:170 src/gradientwidget_impl.cpp:180
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "For example: Carbon (300K)"
 msgid "%1 (%2%3)"
-msgstr ""
-"_: לדוגמא: פחמן (300K)\n"
-"%1 (%2)"
+msgstr "%1 (%2%3)"
 
 #: src/gradientwidget_impl.cpp:174
 #, kde-format
@@ -4895,10 +4891,10 @@ msgid "Isotope of Element %1 (%2)"
 msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
-msgstr "איזוטופים:"
+msgstr "טבלת איזוטופים"
 
 #: src/isotopetable/isotopetabledialog.cpp:47
 #, fuzzy, kde-format
@@ -4937,10 +4933,10 @@ msgid "Stable"
 msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr "ערך לא ידוע"
+msgstr "לא ידוע"
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, fuzzy, kde-format
@@ -4948,10 +4944,10 @@ msgid "<h1>%1 (%2)</h1>"
 msgstr "%1 (%2)"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Unknown magnetic moment"
 msgid "Unknown"
-msgstr "ערך לא ידוע"
+msgstr "לא ידוע"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
 #, fuzzy, kde-format
@@ -5005,9 +5001,9 @@ msgid "&Scheme"
 msgstr "&ללא תרשים צבעים"
 
 #: src/kalzium.cpp:128
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Gradients"
-msgstr "אורך גל: %1"
+msgstr "מ&דרגים"
 
 #: src/kalzium.cpp:137
 #, kde-format
@@ -5036,9 +5032,9 @@ msgid "This is the calculator, it performs basic chemical calculations."
 msgstr ""
 
 #: src/kalzium.cpp:163
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Isotope Table..."
-msgstr "איזוטופים:"
+msgstr "טבלת &איזוטופים…"
 
 #: src/kalzium.cpp:165
 #, kde-format
@@ -5115,19 +5111,19 @@ msgid ""
 msgstr ""
 
 #: src/kalzium.cpp:247
-#, fuzzy, kde-format
+#, kde-format
 msgid "Legend"
-msgstr "הראה &מקרא"
+msgstr "מקרא"
 
 #: src/kalzium.cpp:257
-#, fuzzy, kde-format
+#, kde-format
 msgid "Table Information"
-msgstr "מידע על האנרגיות"
+msgstr "פרטי טבלה"
 
 #: src/kalzium.cpp:262
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information"
-msgstr "מידע על האנרגיות"
+msgstr "פרטים"
 
 #: src/kalzium.cpp:276
 #, kde-format
@@ -5163,20 +5159,18 @@ msgstr "כלים"
 #, fuzzy, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
-msgstr ""
-"_: לדוגמא: \"פחמן (6), משקל: 12.0107 ימ\"א\"\n"
-"%1 (%2), משקל: %3 ימ\"א"
+msgstr "%1 (%2), מסה: %3 u"
 
 #: src/kalziumelementproperty.cpp:77
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "No Gradient"
 msgid "None"
-msgstr "נאון"
+msgstr "ללא"
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
+#, kde-format
 msgid "Van Der Waals"
-msgstr "רדיוס ואן-דר-ואלס"
+msgstr "ואן דר ואלס"
 
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
@@ -5230,9 +5224,9 @@ msgid "Monochrome"
 msgstr ""
 
 #: src/kalziumschemetype.cpp:116
-#, fuzzy, kde-format
+#, kde-format
 msgid "All the Elements"
-msgstr "מספר היסוד:"
+msgstr "כל היסודות"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabBlocks)
 #: src/kalziumschemetype.cpp:138 src/settings/settings_colors.ui:30
@@ -5317,9 +5311,9 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
 #: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Groups"
-msgstr "&קבוצות"
+msgstr "קבוצות"
 
 #: src/kalziumschemetype.cpp:351
 #, kde-format
@@ -5373,9 +5367,9 @@ msgstr ""
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
-#, fuzzy, kde-format
+#, kde-format
 msgid "&File"
-msgstr "כסף"
+msgstr "&קובץ"
 
 #. i18n: ectx: Menu (table_menu)
 #: src/kalziumui.rc:11
@@ -5385,9 +5379,9 @@ msgstr ""
 
 #. i18n: ectx: Menu (miscmenu)
 #: src/kalziumui.rc:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Tools"
-msgstr "כלים"
+msgstr "&כלים"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kalziumui.rc:35
@@ -5407,7 +5401,7 @@ msgid "%1"
 msgstr "%1 (%2)"
 
 #: src/kalziumutils.cpp:113
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unknown Value"
 msgstr "ערך לא ידוע"
 
@@ -5433,20 +5427,20 @@ msgid "This element was known to ancient cultures."
 msgstr "היסוד הזה היה ידוע לתרבויות עתיקות"
 
 #: src/kalziumutils.cpp:157
-#, fuzzy, kde-format
+#, kde-format
 msgid "No Data"
-msgstr "צבעים"
+msgstr "אין נתונים"
 
 #: src/kdeeduglossary.cpp:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Glossary"
-msgstr "מילון מונחים..."
+msgstr "מילון מונחים"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
-msgstr "מילון מונחים..."
+msgstr "מילון מונחים"
 
 #: src/kdeeduglossary.cpp:478
 #, fuzzy, kde-format
@@ -5459,21 +5453,21 @@ msgid "Go to '%1'"
 msgstr ""
 
 #: src/legendwidget.cpp:70
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Solid"
 msgstr "מוצק"
 
 #: src/legendwidget.cpp:72
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Liquid"
-msgstr "נוזלי"
+msgstr "נוזל"
 
 #: src/legendwidget.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Vaporous"
@@ -5586,9 +5580,9 @@ msgid "Thomas Nagy"
 msgstr ""
 
 #: src/main.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "EqChem, the equation solver"
-msgstr "פותר המשוואות"
+msgstr "EqChem, פותר המשוואות"
 
 #: src/main.cpp:55
 #, kde-format
@@ -5650,9 +5644,9 @@ msgid "Danny Allen"
 msgstr ""
 
 #: src/main.cpp:65
-#, fuzzy, kde-format
+#, kde-format
 msgid "Several icons"
-msgstr "צורן"
+msgstr "מגוון סמלים"
 
 #: src/main.cpp:67
 #, kde-format
@@ -5680,9 +5674,9 @@ msgid "Marco Martin"
 msgstr ""
 
 #: src/main.cpp:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Some icons and inspiration for others"
-msgstr "תודה לך על כמה סמלים, השראה ועוד"
+msgstr "מגוון סמלים והשראה לאחרים"
 
 #: src/main.cpp:73
 #, kde-format
@@ -5758,26 +5752,27 @@ msgstr ""
 #: src/molcalcwidget.cpp:87 src/molcalcwidget.cpp:122 src/molcalcwidget.cpp:177
 #: src/molcalcwidget.cpp:178 src/molcalcwidget.cpp:179
 #: src/molcalcwidget.cpp:180 src/molcalcwidget.cpp:181
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1"
-msgstr "%1 (%2)"
+msgstr "%1"
 
 #: src/molcalcwidget.cpp:149
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Enter a formula in the\n"
 "widget above and\n"
 "click on 'Calc'.\n"
 "E.g. #Et#OH"
 msgstr ""
-"כדי להתחיל, כתוב\n"
-"נוסחא בפקד שלמעלה\n"
-"ולחץ על 'חשב'."
+"נא למלא נוסחה\n"
+"בווידג׳ט שלהלן\n"
+"וללחוץ על ‚חישוב’.\n"
+"למשל: ‎#Et#OH"
 
 #: src/molcalcwidget.cpp:198
-#, fuzzy, kde-format
+#, kde-format
 msgid "Molecular mass: "
-msgstr "משקל מולקולרי: %1 ימ\"א"
+msgstr "מסה מולקולרית: "
 
 #: src/molcalcwidget.cpp:213 src/molcalcwidget.cpp:217
 #: src/molcalcwidget.cpp:218 src/molcalcwidget.cpp:219
@@ -5786,9 +5781,9 @@ msgid "Invalid input"
 msgstr ""
 
 #: src/molcalcwidget.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1<sub>%2</sub> "
-msgstr "%1<sub>%2</sub>"
+msgstr "%1<sub>%2</sub> "
 
 #: src/molcalcwidget.cpp:269
 #, kde-format
@@ -5806,9 +5801,9 @@ msgid "Expansion is invalid, please specify a valid expansion"
 msgstr ""
 
 #: src/molcalcwidget.cpp:292
-#, fuzzy, kde-format
+#, kde-format
 msgid "done!"
-msgstr "נאון"
+msgstr "בוצע!"
 
 #: src/molcalcwidget.cpp:295
 #, kde-format
@@ -5817,9 +5812,9 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, calcTab)
 #: src/molcalcwidgetbase.ui:24 src/settings/kalziumconfigdialog.cpp:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "Calculator"
-msgstr "ח&שב"
+msgstr "מחשבון"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, formulaEdit)
 #: src/molcalcwidgetbase.ui:54
@@ -5852,9 +5847,9 @@ msgstr "חישוב"
 
 #. i18n: ectx: property (title), widget (QGroupBox, details)
 #: src/molcalcwidgetbase.ui:167
-#, fuzzy, kde-format
+#, kde-format
 msgid "Details"
-msgstr "לא מתכות"
+msgstr "פרטים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/molcalcwidgetbase.ui:175
@@ -5878,9 +5873,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atoms"
-msgstr "אטום"
+msgstr "אטומים"
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:223
@@ -5928,15 +5923,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/molcalcwidgetbase.ui:303
-#, fuzzy, kde-format
+#, kde-format
 msgid "Short-form"
-msgstr "אטום"
+msgstr "צורה מקוצרת"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, shortForm)
 #: src/molcalcwidgetbase.ui:310
-#, fuzzy, kde-format
+#, kde-format
 msgid "Short form of the alias"
-msgstr "הראה או הסתר את קו הזמן"
+msgstr "צורה מקוצרת של הכינוי"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, shortForm)
 #: src/molcalcwidgetbase.ui:314
@@ -6015,9 +6010,9 @@ msgid "This is the list of aliases that you or some other user has added."
 msgstr ""
 
 #: src/orbitswidget.cpp:198
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unknown Electron Distribution"
-msgstr "ערך לא ידוע"
+msgstr "חלוקת אלקטרונים לא ידועה"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:35
@@ -6033,9 +6028,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/plotsetupwidget.ui:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "X-Axis"
-msgstr "צירי Y"
+msgstr "ציר X"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
@@ -6054,16 +6049,16 @@ msgstr "כאן אפשר להגדיר מה לשרטט"
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: src/plotsetupwidget.ui:126 src/plotsetupwidget.ui:383
-#, fuzzy, kde-format
+#, kde-format
 msgid "Maximum value:"
-msgstr "ערך מקסימלי:"
+msgstr "ערך מרבי:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #: src/plotsetupwidget.ui:140 src/plotsetupwidget.ui:390
-#, fuzzy, kde-format
+#, kde-format
 msgid "Minimum value:"
-msgstr "ערך מינימלי:"
+msgstr "ערך מזערי:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/plotsetupwidget.ui:161
@@ -6073,9 +6068,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/plotsetupwidget.ui:183
-#, fuzzy, kde-format
+#, kde-format
 msgid "Element Type:"
-msgstr "&הראה את שמות היסודות"
+msgstr "סוג היסוד:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: src/plotsetupwidget.ui:210
@@ -6092,15 +6087,15 @@ msgstr "יסוד אחרון:"
 #. i18n: ectx: property (text), widget (QPushButton, full)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:247 src/plotsetupwidget.ui:255
-#, fuzzy, kde-format
+#, kde-format
 msgid "All elements"
-msgstr "מספר היסוד:"
+msgstr "כל היסודות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:260
-#, fuzzy, kde-format
+#, kde-format
 msgid "Metals"
-msgstr "לא מתכות"
+msgstr "מתכות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:265
@@ -6134,15 +6129,15 @@ msgstr "מספר היסוד:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:290
-#, fuzzy, kde-format
+#, kde-format
 msgid "Noble gases"
-msgstr "גזים אציליים:"
+msgstr "גזים אציליים"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkalie metals"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכות אלקליות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -6152,21 +6147,21 @@ msgstr "מתכות מבסיס אלקלי:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:305
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lanthanides"
-msgstr "לנטן"
+msgstr "לנתנידים"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:310
-#, fuzzy, kde-format
+#, kde-format
 msgid "Actinides"
-msgstr "אקטיניום"
+msgstr "אקטינידים"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:315
-#, fuzzy, kde-format
+#, kde-format
 msgid "Radio-active elements"
-msgstr "בחר צבע ליסודות הרדיואקטיביים"
+msgstr "יסודות רדיואקטיביים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:330
@@ -6176,21 +6171,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:335
-#, fuzzy, kde-format
+#, kde-format
 msgid "Element Names"
-msgstr "&הראה את שמות היסודות"
+msgstr "שמות היסודות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:340
-#, fuzzy, kde-format
+#, kde-format
 msgid "Element Symbols"
-msgstr "סימול כימי"
+msgstr "סימול היסודות"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/plotsetupwidget.ui:350
-#, fuzzy, kde-format
+#, kde-format
 msgid "Y-Axis"
-msgstr "צירי Y"
+msgstr "ציר Y"
 
 #: src/psetable/elementitem.cpp:122
 #, kde-format
@@ -7273,14 +7268,14 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, filterButton)
 #: src/rswidget.ui:95
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Filter"
-msgstr "כסף"
+msgstr "&סינון"
 
 #: src/searchwidget.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Search..."
-msgstr "שנה:"
+msgstr "חיפוש…"
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
@@ -7308,14 +7303,14 @@ msgid "Horizontally (shifted)"
 msgstr ""
 
 #: src/settings/kalziumconfigdialog.cpp:15
-#, fuzzy, kde-format
+#, kde-format
 msgid "Schemes"
-msgstr "&ללא תרשים צבעים"
+msgstr "סכמות"
 
 #: src/settings/kalziumconfigdialog.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gradients"
-msgstr "אורך גל: %1"
+msgstr "מדרגים"
 
 #: src/settings/kalziumconfigdialog.cpp:27
 #, kde-format
@@ -7323,9 +7318,9 @@ msgid "Units"
 msgstr "יחידות"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "Isotope Table"
-msgstr "איזוטופים:"
+msgstr "טבלת איזוטופים"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel13)
 #: src/settings/settings_colors.ui:50
@@ -7425,9 +7420,9 @@ msgstr "נדיפים:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2_2)
 #: src/settings/settings_colors.ui:428
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkali metals:"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכות אלקליות:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8_2)
 #: src/settings/settings_colors.ui:448
@@ -7688,14 +7683,14 @@ msgid "zeta"
 msgstr ""
 
 #: src/tablesdialog.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "eta"
-msgstr "ניטרלי"
+msgstr "אטא"
 
 #: src/tablesdialog.cpp:111
-#, fuzzy, kde-format
+#, kde-format
 msgid "theta"
-msgstr "מתכות אחרות:"
+msgstr "תטא"
 
 #: src/tablesdialog.cpp:112
 #, kde-format
@@ -7728,14 +7723,14 @@ msgid "xi"
 msgstr ""
 
 #: src/tablesdialog.cpp:118
-#, fuzzy, kde-format
+#, kde-format
 msgid "omicron"
-msgstr "בור"
+msgstr "אומיקרון"
 
 #: src/tablesdialog.cpp:119
-#, fuzzy, kde-format
+#, kde-format
 msgid "pi"
-msgstr "ספין"
+msgstr "פאי"
 
 #: src/tablesdialog.cpp:120
 #, kde-format
