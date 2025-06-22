@@ -8733,9 +8733,3 @@ msgstr "Преобразуване от:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Преобразуване в:"
-
-#~ msgid "Kalzium Error"
-#~ msgstr "Грешка на Kalzium"
-
-#~ msgid "This system does not support OpenGL."
-#~ msgstr "Тази система не поддържа OpenGL."
