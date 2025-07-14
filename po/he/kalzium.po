@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-06-09 14:28+0300\n"
+"PO-Revision-Date: 2025-07-11 17:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -3978,9 +3978,9 @@ msgid "Amount of solvent is always specified in terms of volume"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Experimental values"
-msgstr "&הראה את שמות היסודות"
+msgstr "ערכים ניסיוניים"
 
 #: src/calculator/titrationCalculator.cpp:41
 #, kde-format
@@ -4129,9 +4129,9 @@ msgstr "ציר Y:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
 #: src/calculator/titrationCalculator.ui:247
-#, fuzzy, kde-format
+#, kde-format
 msgid "Draw Plot"
-msgstr "אטום"
+msgstr "ציור שרטוט"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/calculator/titrationCalculator.ui:254
@@ -4193,9 +4193,9 @@ msgid "No element selected"
 msgstr "לא נבחר יסוד"
 
 #: src/detailedgraphicaloverview.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "No graphic found"
-msgstr "לא נמצאה תמונה של %1."
+msgstr "לא נמצא ייצוג חזותי"
 
 #: src/detailedgraphicaloverview.cpp:138
 #, fuzzy, kde-format
@@ -4204,25 +4204,21 @@ msgid "%1 u"
 msgstr " u"
 
 #: src/detailinfodlg.cpp:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Next element"
 msgid "Next"
-msgstr ""
-"_: יסוד הבא\n"
-"הבא"
+msgstr "הבא"
 
 #: src/detailinfodlg.cpp:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "Goes to the next element"
-msgstr "בחר את הצבע שיראה יסודות לא מתכתיים"
+msgstr "מעבר ליסוד הבא"
 
 #: src/detailinfodlg.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Previous element"
 msgid "Previous"
-msgstr ""
-"_: יסוד קודם\n"
-"קודם"
+msgstr "הקודם"
 
 #: src/detailinfodlg.cpp:48
 #, kde-format
@@ -4230,9 +4226,9 @@ msgid "Goes to the previous element"
 msgstr "קופץ ליסוד הקודם"
 
 #: src/detailinfodlg.cpp:147
-#, fuzzy, kde-format
+#, kde-format
 msgid "It was discovered by %1."
-msgstr "היסוד הזה התגלה בשנת %1"
+msgstr "התגלה על ידי %1."
 
 #: src/detailinfodlg.cpp:154
 #, fuzzy, kde-format
@@ -4668,18 +4664,18 @@ msgid "No spectrum of %1 found."
 msgstr "לא נמצא ספקטרום של %1."
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
-msgstr "צבעים"
+msgstr "שרטוט נתונים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/elementdataviewer.cpp:237 src/exportdialog.cpp:132
 #: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:411
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atomic Number"
-msgstr "משקל אטומי [u]"
+msgstr "מספר אטומי"
 
 #: src/eqchemview.cpp:72
 #, kde-format
@@ -4768,9 +4764,9 @@ msgstr "מסה מדויקת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
 #: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ionization"
-msgstr "קריסטליזציה"
+msgstr "יינון"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabFamily)
 #: src/exportdialog.cpp:144 src/kalziumschemetype.cpp:237
@@ -5295,9 +5291,9 @@ msgid "Halogen"
 msgstr "הלוגנים"
 
 #: src/kalziumschemetype.cpp:285
-#, fuzzy, kde-format
+#, kde-format
 msgid "Transition Metal"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכת מעבר"
 
 #: src/kalziumschemetype.cpp:286
 #, kde-format
@@ -5474,11 +5470,11 @@ msgid "Vaporous"
 msgstr "נדיף"
 
 #: src/legendwidget.cpp:76
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Unknown"
-msgstr "ערך לא ידוע"
+msgstr "לא ידוע"
 
 #: src/legendwidget.cpp:81
 #, kde-format
@@ -6141,9 +6137,9 @@ msgstr "מתכות אלקליות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkaline earth metals"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכות אלקליות עפרוריות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:305
@@ -7438,13 +7434,13 @@ msgstr "לא מתכות"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel6_2)
 #: src/settings/settings_colors.ui:488
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkaline earth metals:"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכות אלקליות עפרוריות:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5_2_2)
 #: src/settings/settings_colors.ui:508
-#, fuzzy, kde-format
+#, kde-format
 msgid "Other metals:"
 msgstr "מתכות אחרות:"
 
@@ -7456,9 +7452,9 @@ msgstr "הלוגנים:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
 #: src/settings/settings_colors.ui:548
-#, fuzzy, kde-format
+#, kde-format
 msgid "Transition metals:"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכות מעבר:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
 #: src/settings/settings_colors.ui:568
