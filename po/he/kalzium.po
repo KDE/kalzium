@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-07-11 17:04+0300\n"
+"PO-Revision-Date: 2025-07-24 11:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2703,9 +2703,9 @@ msgstr "פותר המשוואות"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:91 src/calculator/calculator.ui:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "Introduction"
-msgstr "פרוטקטיניום"
+msgstr "היכרות"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, nuclear)
@@ -2719,9 +2719,9 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, gas)
 #: src/calculator/calculator.cpp:96 src/calculator/calculator.ui:76
 #: src/calculator/settings_calc.ui:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gas Calculator"
-msgstr "ח&שב"
+msgstr "מחשבון גז"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
@@ -2759,9 +2759,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Calculators"
-msgstr "ח&שב"
+msgstr "מחשבונים"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/calculator.ui:130
@@ -4403,9 +4403,9 @@ msgstr ""
 #: src/detailinfodlg.cpp:862 src/detailinfodlg.cpp:875
 #: src/detailinfodlg.cpp:888 src/detailinfodlg.cpp:900
 #: src/detailinfodlg.cpp:912
-#, fuzzy, kde-format
+#, kde-format
 msgid "(%1%)"
-msgstr "%1 (%2)"
+msgstr "(%1%)"
 
 #: src/detailinfodlg.cpp:355 src/detailinfodlg.cpp:378
 #: src/detailinfodlg.cpp:401 src/detailinfodlg.cpp:424
@@ -4428,10 +4428,10 @@ msgid ", "
 msgstr ","
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
-msgstr "%1 (%2)"
+msgstr " %1"
 
 #: src/detailinfodlg.cpp:385
 #, kde-format
@@ -4467,101 +4467,101 @@ msgid " 2EC"
 msgstr ""
 
 #: src/detailinfodlg.cpp:518
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>, ביקוע"
 
 #: src/detailinfodlg.cpp:560
-#, fuzzy, kde-format
+#, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr "%1<sub>%2</sub>"
+msgstr " 2%1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:580
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:600
-#, fuzzy, kde-format
+#, kde-format
 msgid " 2%1<sup>+</sup>"
-msgstr "%1<sub>%2</sub>"
+msgstr " 2%1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1 <sup>-</sup>n"
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>2n"
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>3n"
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>4n"
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>%2 n"
 
 #: src/detailinfodlg.cpp:711
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>%2"
 
 #: src/detailinfodlg.cpp:728
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>2%2"
 
 #: src/detailinfodlg.cpp:744
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>-</sup>3%2"
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>+</sup>p"
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>+</sup>2p"
 
 #: src/detailinfodlg.cpp:790
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>+</sup>%2"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>+</sup>%2"
 
 #: src/detailinfodlg.cpp:805
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>+</sup>2%2"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>+</sup>2%2"
 
 #: src/detailinfodlg.cpp:819
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1<sup>+</sup>3%2"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1<sup>+</sup>3%2"
 
 #: src/detailinfodlg.cpp:833
-#, fuzzy, kde-format
+#, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr "%1<sub>%2</sub>"
+msgstr " %1 %2<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
@@ -4594,9 +4594,9 @@ msgid " EC%1 p"
 msgstr ""
 
 #: src/detailinfodlg.cpp:1070
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 %2<sub>n</sub>"
-msgstr "%1<sub>%2</sub>"
+msgstr "%1 %2<sub>n</sub>"
 
 #. i18n("Overview"));
 #. item->setHeader(i18n("Overview"));
@@ -4618,9 +4618,9 @@ msgstr "%1<sub>%2</sub>"
 #. X      mainLayout->addWidget(piclabel);
 #. html tab
 #: src/detailinfodlg.cpp:1108
-#, fuzzy, kde-format
+#, kde-format
 msgid "Data Overview"
-msgstr "סקירה"
+msgstr "סקירת נתונים"
 
 #: src/detailinfodlg.cpp:1112 src/detailinfodlg.cpp:1113
 #, kde-format
@@ -4643,14 +4643,14 @@ msgid "Spectrum"
 msgstr "ספקטרום"
 
 #: src/detailinfodlg.cpp:1140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extra information"
-msgstr "מידע על האנרגיות"
+msgstr "פרטים נוספים"
 
 #: src/detailinfodlg.cpp:1140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extra Information"
-msgstr "מידע על האנרגיות"
+msgstr "פרטים נוספים"
 
 #: src/detailinfodlg.cpp:1152
 #, kde-format
@@ -4823,9 +4823,9 @@ msgstr "בחר את יחידות הטמפרטורה"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, Play)
 #: src/gradientwidget.ui:132
-#, fuzzy, kde-format
+#, kde-format
 msgid "Click to Play / Pause the increase in temperature."
-msgstr "בחר את יחידות הטמפרטורה"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gradientwidget.ui:142
@@ -4835,9 +4835,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSlider, Speed)
 #: src/gradientwidget.ui:149
-#, fuzzy, kde-format
+#, kde-format
 msgid "Slide to change the speed of increase in temperature."
-msgstr "בחר את יחידות הטמפרטורה"
+msgstr "ניתן להחליק כדי לשנות את המהירות או להגביר את הטמפרטורה."
 
 #: src/gradientwidget_impl.cpp:168
 #, kde-format
@@ -4935,9 +4935,9 @@ msgid "unknown"
 msgstr "לא ידוע"
 
 #: src/isotopetable/isotopetabledialog.cpp:72
-#, fuzzy, kde-format
+#, kde-format
 msgid "<h1>%1 (%2)</h1>"
-msgstr "%1 (%2)"
+msgstr "<h1>%1 (%2)</h1>"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
 #, kde-format
@@ -5408,9 +5408,9 @@ msgid "%1 u"
 msgstr " u"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "היסוד הזה התגלה בשנת %1"
+msgstr "היסוד הזה התגלה בשנת %1."
 
 #: src/kalziumutils.cpp:125
 #, kde-format
