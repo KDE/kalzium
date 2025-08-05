@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-03 11:11+0400\n"
+"PO-Revision-Date: 2025-08-04 13:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3331,14 +3331,14 @@ msgstr "<big>وحدات الكتلة المكافئة للمذاب</big>"
 #: src/calculator/concCalculator.ui:442 src/calculator/nuclearCalculator.ui:607
 #, kde-format
 msgid "<big>Reset all values to initial values</big>"
-msgstr "<big>أعد تعيين كل القيم إلى الابتدائية</big>"
+msgstr "<big>صفّر كل القيم إلى الابتدائية</big>"
 
 #. i18n: ectx: property (text), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:445 src/calculator/gasCalculator.ui:437
 #: src/calculator/nuclearCalculator.ui:610
 #, kde-format
 msgid "Reset"
-msgstr "أعد التعيين"
+msgstr "صفّر"
 
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
@@ -3610,7 +3610,7 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:434
 #, kde-format
 msgid "Click to reset all values to initial values"
-msgstr "انقر لإعادة تعيين كل القيم إلى القيم الابتدائية"
+msgstr "انقر لتصفير كل القيم إلى القيم الابتدائية"
 
 #: src/calculator/nuclearCalculator.cpp:389
 #, kde-format
@@ -7007,7 +7007,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R17: Spontaneously flammable in air"
-msgstr "‏R17: قابل للاشتعال تلقائيًا في الهواء"
+msgstr "‏R17: قابل للاشتعال آليًّا في الهواء"
 
 #: src/rsdialog.cpp:373
 #, kde-format
@@ -7820,7 +7820,7 @@ msgstr "النوع:"
 #: src/spectrumview.ui:185
 #, kde-format
 msgid "Reset zoom"
-msgstr "أعد تعيين التكبير"
+msgstr "صفّر التكبير"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
