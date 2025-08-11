@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-07-24 11:58+0300\n"
+"PO-Revision-Date: 2025-08-10 15:37+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1301,10 +1301,9 @@ msgid "Lithium"
 msgstr "ליתיום"
 
 #: element_tiny.xml:8
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "ביוונית, 'lithos' פירושו ,אבן'"
+msgstr "ביוונית ‚lithos’ פירושו ,אבן'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1384,10 +1383,9 @@ msgid "Neon"
 msgstr "נאון"
 
 #: element_tiny.xml:22
-#, fuzzy, kde-format
-#| msgid "Greek 'neo'. meaning 'new'"
+#, kde-format
 msgid "Greek 'neo'. meaning 'new'."
-msgstr "ביוונית, 'neo' פירושו 'חדש'"
+msgstr "ביוונית ‚neo’ פירושו ‚חדש’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:23
@@ -1409,14 +1407,13 @@ msgid "Magnesium"
 msgstr "מגנזיום"
 
 #: element_tiny.xml:26
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the city of Magnesia."
-msgstr "נקרא על שם העיר מגנזיה"
+msgstr "נקרא על שם העיר מגנזיה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Aluminium"
 msgstr "אלומיניום"
 
@@ -1443,10 +1440,9 @@ msgid "Phosphorus"
 msgstr "זרחן"
 
 #: element_tiny.xml:32
-#, fuzzy, kde-format
-#| msgid "Greek 'phosphoros' for 'carries light'"
+#, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
-msgstr "ביוונית, 'phosphoros' פירושו 'נושא אור'"
+msgstr "ביוונית ‚phosphoros’ פירושו ‚נושא אור’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1455,9 +1451,9 @@ msgid "Sulfur"
 msgstr "גופרית"
 
 #: element_tiny.xml:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr "בסנסקריט, 'sweb' פירושו 'לישון'"
+msgstr "בסנסקריט ‚sweb’ פירושו ‚לישון’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1466,10 +1462,9 @@ msgid "Chlorine"
 msgstr "כלור"
 
 #: element_tiny.xml:36
-#, fuzzy, kde-format
-#| msgid "Greek 'chloros' for 'yellow-green'"
+#, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "ביוונית, 'chloros' פירושו 'צהוב-ירוק'"
+msgstr "ביוונית ‚chloros’ פירושו ‚צהוב-ירוק’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1478,10 +1473,9 @@ msgid "Argon"
 msgstr "ארגון"
 
 #: element_tiny.xml:38
-#, fuzzy, kde-format
-#| msgid "Greek 'aergon' for 'inactive'"
+#, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "ביוונית, 'aergon' פירושו 'בלתי פעיל'"
+msgstr "ביוונית ‚aergon’ פירושו ‚בלתי פעיל’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1504,10 +1498,9 @@ msgid "Calcium"
 msgstr "סידן"
 
 #: element_tiny.xml:42
-#, fuzzy, kde-format
-#| msgid "Latin 'calx' for 'lime'"
+#, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr "בלטינית, 'calx' פירושו 'סיד'"
+msgstr "בלטינית ‚calx’ פירושו ‚סיד’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -1516,10 +1509,9 @@ msgid "Scandium"
 msgstr "סקנדיום"
 
 #: element_tiny.xml:44
-#, fuzzy, kde-format
-#| msgid "Named because it was found in Scandinavia"
+#, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr "נקרא כך כי הוא התגלה לראשונה בסקנדינביה"
+msgstr "נקרא כך כי הוא התגלה לראשונה בסקנדינביה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -1528,10 +1520,9 @@ msgid "Titanium"
 msgstr "טיטניום"
 
 #: element_tiny.xml:46
-#, fuzzy, kde-format
-#| msgid "The Titans were giants in Greek mythology"
+#, kde-format
 msgid "The Titans were giants in Greek mythology."
-msgstr "הטיטנים היו ענקים במיתולוגיה היוונית"
+msgstr "הטיטנים היו ענקים במיתולוגיה היוונית."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:47
@@ -1552,14 +1543,13 @@ msgid "Chromium"
 msgstr "כרומיום"
 
 #: element_tiny.xml:50
-#, fuzzy, kde-format
-#| msgid "Greek 'chroma' means 'color'"
+#, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "ביוונית 'chroma' פירושו 'צבע'."
+msgstr "ביוונית ‚chroma’ פירושו ‚צבע’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Manganese"
 msgstr "מנגן"
 
@@ -1757,7 +1747,7 @@ msgstr "ניאוביום"
 #: element_tiny.xml:84
 #, kde-format
 msgid "Named after Niobe, the daughter of the Greek god Tantalus."
-msgstr ""
+msgstr "נקרא על שם ניובה, בתו של האל היווני טנטלוס."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:85
@@ -1771,6 +1761,8 @@ msgid ""
 "This name has Greek roots. It means 'like Platinum' - it was difficult to "
 "distinguish Molybdenum from Platinum."
 msgstr ""
+"לשם הזה יש מקורות יווניים. המשמעות היא ‚כמו פלטינה’ - היה קשה להבדיל בין "
+"מוליבדן לפלטינה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:87
@@ -1793,7 +1785,7 @@ msgstr "רותניום"
 #: element_tiny.xml:90
 #, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr ""
+msgstr "רות׳ניה הוא השם הקודם של רוסיה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -1849,7 +1841,7 @@ msgstr "אינדיום"
 #: element_tiny.xml:100
 #, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr ""
+msgstr "נקרא על שם ‚אינדיגו’ בגלל הטווח הכחול שלו."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -1884,7 +1876,7 @@ msgstr "טלור"
 #: element_tiny.xml:106
 #, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
-msgstr ""
+msgstr "בלטינית ‚tellus’ או ‚telluris’ הם ‚כדור הארץ’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -1944,6 +1936,7 @@ msgid ""
 "Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare "
 "earth' elements."
 msgstr ""
+"ביוונית ‚lanthanein’ זה ‚נסתר’. הלנתנידים נקראים גם יסודות ‚ארץ נדירים’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:117
@@ -1990,6 +1983,8 @@ msgid ""
 "Named after the Greek Prometheus. Prometheus stole the fire from the gods "
 "and gave it to mankind."
 msgstr ""
+"נקרא על שם האל היווני פרומתאוס. מואשם בכך שגנב את האש מהאלים והעניק אותה "
+"לאנושות."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:125
@@ -2038,6 +2033,8 @@ msgid ""
 "Terbium was first refined. Yttrium, Erbium and Ytterbium are also named "
 "after this town."
 msgstr ""
+"נקרא על שם הכפר השוודי איטרבי והמינרל איטרביט ממנו זוקק טרביום לראשונה. "
+"איטריום, ארביום ואיטרביום גם נקראים על שם הכפר הזה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:133
@@ -2060,7 +2057,7 @@ msgstr "אלומיניום"
 #: element_tiny.xml:136
 #, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
-msgstr ""
+msgstr "בלטינית ‚holmia’ הוא השם הקודם של שטוקהולם."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2075,6 +2072,8 @@ msgid ""
 "which Erbium was first refined) was first mined. Yttrium, Terbium and "
 "Ytterbium are also named after this town."
 msgstr ""
+"נקרא על שם הכפר השוודי איטרבי בו נכרה לראשונה המינרל גדוליניט (ממנו זוקק "
+"לראשונה ארביום). איטריום, טרביום ואיטרביום גם נקראים על שם הכפר הזה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:139
@@ -2124,6 +2123,8 @@ msgid ""
 "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
 "name of Copenhagen, Denmark)."
 msgstr ""
+"נילס בוהר חזה במקור את מאפייני היסוד הזה לפני שהתגלה, לכן נקרא על שם עיר "
+"הולדתו ‚הַפְנִיָה’ (השם הלטיני הקדום של קופנהגן שבדנמרק)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2149,6 +2150,9 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
+"מקור השם הוא הביטוי השוודי ‚tung sten’ שפירושו ‚אבן כבדה’. הסמל מגיע מהשם "
+"הגרמני הישן ליסוד ‚וולפרם (wolfram)’, שתיאר שטונגסטן מגיב לבדיל ‚כמו שזאב "
+"(wolf) אוכל כבשה (ram)’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2159,7 +2163,7 @@ msgstr "רניום"
 #: element_tiny.xml:152
 #, kde-format
 msgid "Named after the German river Rhine (latin 'Rhenium')."
-msgstr ""
+msgstr "נקרא על שם הנהר הגרמני ריין (בלטינית ‚rhenium’ - רניום)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:153
@@ -2170,7 +2174,7 @@ msgstr "אוסמיום"
 #: element_tiny.xml:154
 #, kde-format
 msgid "Greek for 'smell'. Its oxides smell strongly like radishes."
-msgstr ""
+msgstr "ביוונית ‚ריח’. התחמוצות שלו מריחות ממש כמו צנונים."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:155
@@ -2193,7 +2197,7 @@ msgstr "פלטינה"
 #: element_tiny.xml:158
 #, kde-format
 msgid "Spanish 'platina' means 'small silver'."
-msgstr ""
+msgstr "בספרדית ‚platina’ היא ‚כסף קטן’ (היסוד, לא אמצעי התשלום)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:159
@@ -2258,10 +2262,9 @@ msgid "Polonium"
 msgstr "פולוניום"
 
 #: element_tiny.xml:170
-#, fuzzy, kde-format
-#| msgid "Named after Poland to honor Marie Curie"
+#, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "נקרא על שם פולין לכבוד מרי קיורי"
+msgstr "נקרא על שם פולין לכבודה של מארי קירי"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2286,18 +2289,18 @@ msgstr "ראדון"
 msgid ""
 "Named after Radium. It ends with 'on' to make it clear that it is a noble "
 "gas."
-msgstr ""
+msgstr "נקרא על שם רדיום. הוא מסתיים ב‚וֹן’ כדי להדגיש שהוא גז אציל."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Francium"
-msgstr "אורניום"
+msgstr "פרנציום"
 
 #: element_tiny.xml:176
-#, fuzzy, kde-format
+#, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr "נקרא על שם פולין לכבוד מרי קיורי"
+msgstr "נקרא על שם צרפת לכבודה של מרגריט פריי"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2308,7 +2311,7 @@ msgstr "רדיום"
 #: element_tiny.xml:178
 #, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
-msgstr ""
+msgstr "בלטינית ‚radius’ היא ‚קרן’, כיוון שהוא רדיואקטיבי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2319,7 +2322,7 @@ msgstr "אקטיניום"
 #: element_tiny.xml:180
 #, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
-msgstr ""
+msgstr "ביוונית ‚aktis’ היא ‚קרן’ - אקטיניום הוא רדיואקטיבי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2446,7 +2449,7 @@ msgstr "על שם המדען אנריקו פרמי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:203
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mendelevium"
 msgstr "מנדלביום"
 
@@ -2457,7 +2460,7 @@ msgstr "על שם המדען דמיטרי מנדלייב."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:205
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nobelium"
 msgstr "נובליום"
 
@@ -2491,7 +2494,7 @@ msgstr "על שם המדען ארנס רתרפורד"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
-#, fuzzy, kde-format
+#, kde-format
 msgid "Dubnium"
 msgstr "דובניום"
 
@@ -2503,7 +2506,7 @@ msgstr "על שם עיר-המדע 'דובנה' שברוסיה"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
-#, fuzzy, kde-format
+#, kde-format
 msgid "Seaborgium"
 msgstr "סיבורגיום"
 
@@ -2514,7 +2517,7 @@ msgstr "על שם המדען תאודור סיבורג."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:215
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bohrium"
 msgstr "בוהריום"
 
@@ -2525,9 +2528,9 @@ msgstr "על שם המדען נילס בוהר."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:217
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hassium"
-msgstr "הסיום"
+msgstr "האסיום"
 
 #: element_tiny.xml:218
 #, fuzzy, kde-format
@@ -2538,9 +2541,9 @@ msgstr "כאן אתה יכול לראות מתי האטום הזה התגלה"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:219
-#, fuzzy, kde-format
+#, kde-format
 msgid "Meitnerium"
-msgstr "מיטנריום"
+msgstr "מייטנריום"
 
 #: element_tiny.xml:220
 #, kde-format
@@ -2562,7 +2565,7 @@ msgstr "כאן אתה יכול לראות מתי האטום הזה התגלה"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:223
-#, fuzzy, kde-format
+#, kde-format
 msgid "Roentgenium"
 msgstr "רנטגניום"
 
@@ -2573,9 +2576,9 @@ msgstr "על שם וילהלם קונרד רנטגן."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:225
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copernicium"
-msgstr "צריום"
+msgstr "קופרניקיום"
 
 #: element_tiny.xml:226
 #, kde-format
@@ -2586,9 +2589,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nihonium"
-msgstr "צירקוניום"
+msgstr "ניהוניום"
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2597,12 +2600,15 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
+"נקרא על שם ‚ניהוֹן’, תעתיק שמה של יפן מיפנית. זה היסוד הראשון שהתגלה ביפן, "
+"במרכז נישימה של חברת רייקן למדע מבוסס האצת יונים כבדים. נודע בעבר בשם אקה-"
+"תליום."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
-#, fuzzy, kde-format
+#, kde-format
 msgid "Flerovium"
-msgstr "מנדלביום"
+msgstr "פלרוביום"
 
 #: element_tiny.xml:230
 #, kde-format
@@ -2615,7 +2621,7 @@ msgstr ""
 #: element_tiny.xml:231
 #, kde-format
 msgid "Moscovium"
-msgstr ""
+msgstr "מוסקוביום"
 
 #: element_tiny.xml:232
 #, kde-format
@@ -2624,12 +2630,14 @@ msgid ""
 "for Nuclear Research that was a co-discoverer of this element. Historically "
 "known as eka-bismuth."
 msgstr ""
+"נקראת על שם מוסקבה שברוסיה, האזור בו שוכן המכון המאוחד למחקר גרעיני שהיה "
+"שותף בגילוי היסוד הזה. בעבר היסוד הזה נקרא אקה-ביסמוט."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:233
 #, kde-format
 msgid "Livermorium"
-msgstr ""
+msgstr "ליברמוריום"
 
 #: element_tiny.xml:234
 #, kde-format
@@ -2637,12 +2645,13 @@ msgid ""
 "Historically known as eka-polonium. Named after Livermore National "
 "Laboratory (USA)."
 msgstr ""
+"נודע בעבר בשם אקה-פולוניום. נקרא על שם המעבדה הלאומית לורנס ליברמור (ארה״ב)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:235
 #, kde-format
 msgid "Tennessine"
-msgstr ""
+msgstr "טנסין"
 
 #: element_tiny.xml:236
 #, kde-format
@@ -2651,12 +2660,14 @@ msgid ""
 "National Laboratory and Vanderbilt University whom were co-discoverers of "
 "this element. Historically known as eka-astatine."
 msgstr ""
+"נקרא על שם המדינה האמריקאית טנסי בה נמצאות המעבדה הלאומית אוק רידג׳ "
+"ואוניברסיטת ואנדרבילט שהיו שותפות בגילוי היסוד הזה. בעבר נודע בשם אקה-אסטטין."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:237
 #, kde-format
 msgid "Oganesson"
-msgstr ""
+msgstr "אוגאנסון"
 
 #: element_tiny.xml:238
 #, kde-format
@@ -2668,22 +2679,22 @@ msgstr ""
 #: libscience/psetables.cpp:152
 #, kde-format
 msgid "Classic Periodic Table"
-msgstr ""
+msgstr "טבלת היסודות הקלסית"
 
 #: libscience/psetables.cpp:190
 #, kde-format
 msgid "Long Periodic Table"
-msgstr ""
+msgstr "טבלת היסודות הארוכה"
 
 #: libscience/psetables.cpp:226
 #, kde-format
 msgid "Short Periodic Table"
-msgstr ""
+msgstr "טבלת היסודות המקוצרת"
 
 #: libscience/psetables.cpp:270
-#, fuzzy, kde-format
+#, kde-format
 msgid "Transition Elements"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "יסודות מעבר"
 
 #: libscience/psetables.cpp:296
 #, kde-format
@@ -3173,9 +3184,9 @@ msgstr "כלים"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlt_unit)
 #: src/calculator/concCalculator.ui:345
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units of density</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את יחידות הצפיפות</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, densSlt_unit)
 #: src/calculator/concCalculator.ui:348
@@ -4231,9 +4242,9 @@ msgid "It was discovered by %1."
 msgstr "התגלה על ידי %1."
 
 #: src/detailinfodlg.cpp:154
-#, fuzzy, kde-format
+#, kde-format
 msgid "Origin of the name:<br/>%1"
-msgstr "מקור השם: %1"
+msgstr "מקור השם:<br/>%1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicMeltingPointGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -5303,7 +5314,7 @@ msgstr "גזים אציליים"
 #: src/kalziumschemetype.cpp:287
 #, kde-format
 msgid "Metalloid"
-msgstr ""
+msgstr "מתכת למחצה"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
 #: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
@@ -5383,7 +5394,7 @@ msgstr "&כלים"
 #: src/kalziumui.rc:35
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "סרגל כלים ראשי"
 
 #: src/kalziumutils.cpp:98
 #, kde-format
@@ -5446,7 +5457,7 @@ msgstr "אורניום"
 #: src/kdeeduglossary.cpp:482
 #, kde-format
 msgid "Go to '%1'"
-msgstr ""
+msgstr "מעבר אל ‚%1’"
 
 #: src/legendwidget.cpp:70
 #, kde-format
@@ -5480,7 +5491,7 @@ msgstr "לא ידוע"
 #, kde-format
 msgctxt "one of the two types of gradients available"
 msgid "logarithmic"
-msgstr ""
+msgstr "לוגריתמי"
 
 #: src/legendwidget.cpp:83
 #, fuzzy, kde-format
@@ -5523,17 +5534,17 @@ msgstr "הטבלה המחזורית של היסודות"
 #: src/main.cpp:39
 #, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr ""
+msgstr "(C) 2002-2016 קרסטן ניהאוס & ומפתחי KDE Edu (חינוכי)"
 
 #: src/main.cpp:43
 #, kde-format
 msgid "Carsten Niehaus"
-msgstr ""
+msgstr "קרסטן ניהאוס"
 
 #: src/main.cpp:45
 #, kde-format
 msgid "Pino Toscano"
-msgstr ""
+msgstr "פינו טוסקנו"
 
 #: src/main.cpp:45
 #, kde-format
@@ -5583,7 +5594,7 @@ msgstr "EqChem, פותר המשוואות"
 #: src/main.cpp:55
 #, kde-format
 msgid "Inge Wallin"
-msgstr ""
+msgstr "אינגה וולין"
 
 #: src/main.cpp:55
 #, kde-format
@@ -5595,7 +5606,7 @@ msgstr ""
 #: src/main.cpp:57
 #, kde-format
 msgid "Anne-Marie Mahfouf"
-msgstr ""
+msgstr "אן־מרי מחפוף"
 
 #: src/main.cpp:57
 #, kde-format
@@ -5637,7 +5648,7 @@ msgstr ""
 #: src/main.cpp:65
 #, kde-format
 msgid "Danny Allen"
-msgstr ""
+msgstr "דני אלן"
 
 #: src/main.cpp:65
 #, kde-format
@@ -5647,27 +5658,27 @@ msgstr "מגוון סמלים"
 #: src/main.cpp:67
 #, kde-format
 msgid "Lee Olson"
-msgstr ""
+msgstr "לי אולסון"
 
 #: src/main.cpp:67
 #, kde-format
 msgid "Several icons in the information dialog"
-msgstr ""
+msgstr "מגוון סמלים בחלונית המידע"
 
 #: src/main.cpp:69
 #, kde-format
 msgid "Jörg Buchwald"
-msgstr ""
+msgstr "יורג בוכוולד"
 
 #: src/main.cpp:69
 #, kde-format
 msgid "Contributed most isotope information"
-msgstr ""
+msgstr "טרם את רוב פרטי האיזוטופים"
 
 #: src/main.cpp:71
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "מרקו מרטין"
 
 #: src/main.cpp:71
 #, kde-format
@@ -5677,17 +5688,17 @@ msgstr "מגוון סמלים והשראה לאחרים"
 #: src/main.cpp:73
 #, kde-format
 msgid "Daniel Haas"
-msgstr ""
+msgstr "דניאל האס"
 
 #: src/main.cpp:73
 #, kde-format
 msgid "The design of the information dialog"
-msgstr ""
+msgstr "עיצוב חלונית המידע"
 
 #: src/main.cpp:75
 #, kde-format
 msgid "Brian Beck"
-msgstr ""
+msgstr "בריאן בק"
 
 #: src/main.cpp:75
 #, kde-format
@@ -5697,7 +5708,7 @@ msgstr ""
 #: src/main.cpp:77
 #, kde-format
 msgid "Paulo Cattai"
-msgstr ""
+msgstr "פאולו קטאי"
 
 #: src/main.cpp:77 src/main.cpp:79 src/main.cpp:81 src/main.cpp:83
 #: src/main.cpp:85
@@ -5708,42 +5719,42 @@ msgstr ""
 #: src/main.cpp:79
 #, kde-format
 msgid "Danilo Balzaque"
-msgstr ""
+msgstr "דנילו בלסק"
 
 #: src/main.cpp:81
 #, kde-format
 msgid "Roberto Cunha"
-msgstr ""
+msgstr "רוברטו קוניה"
 
 #: src/main.cpp:83
 #, kde-format
 msgid "Tadeu Araujo"
-msgstr ""
+msgstr "תדאו אראוחו"
 
 #: src/main.cpp:85
 #, kde-format
 msgid "Tiago Porangaba"
-msgstr ""
+msgstr "טיאגו פורנבאגה"
 
 #: src/main.cpp:87
 #, kde-format
 msgid "Etienne Rebetez"
-msgstr ""
+msgstr "אטיין רבטס"
 
 #: src/main.cpp:87
 #, kde-format
 msgid "Adding new sizable Periodic System"
-msgstr ""
+msgstr "הוספת טבלת יסודות חדשה וגמישה"
 
 #: src/main.cpp:99
 #, kde-format
 msgid "Open the given molecule file"
-msgstr ""
+msgstr "פתיחת קובץ המולקולה שסופק"
 
 #: src/main.cpp:122
 #, kde-format
 msgid "Can't open more than one molecule at a time"
-msgstr ""
+msgstr "לא ניתן לפתוח יותר ממולקולה אחת בו־זמנית"
 
 #: src/molcalcwidget.cpp:87 src/molcalcwidget.cpp:122 src/molcalcwidget.cpp:177
 #: src/molcalcwidget.cpp:178 src/molcalcwidget.cpp:179
@@ -5774,7 +5785,7 @@ msgstr "מסה מולקולרית: "
 #: src/molcalcwidget.cpp:218 src/molcalcwidget.cpp:219
 #, kde-format
 msgid "Invalid input"
-msgstr ""
+msgstr "קלט שגוי"
 
 #: src/molcalcwidget.cpp:228
 #, kde-format
@@ -5784,17 +5795,17 @@ msgstr "%1<sub>%2</sub> "
 #: src/molcalcwidget.cpp:269
 #, kde-format
 msgid "Symbol should consist of two or more letters."
-msgstr ""
+msgstr "הסימול לא אמור להיות ארוך משני תווים או יותר."
 
 #: src/molcalcwidget.cpp:274
 #, kde-format
 msgid "Symbol already being used"
-msgstr ""
+msgstr "הסימול כבר בשימוש"
 
 #: src/molcalcwidget.cpp:279
 #, kde-format
 msgid "Expansion is invalid, please specify a valid expansion"
-msgstr ""
+msgstr "ההרחבה שגויה, נא לציין הרחבה תקפה"
 
 #: src/molcalcwidget.cpp:292
 #, kde-format
@@ -6014,13 +6025,13 @@ msgstr "חלוקת אלקטרונים לא ידועה"
 #: src/plotsetupwidget.ui:35
 #, kde-format
 msgid "Swap"
-msgstr ""
+msgstr "החלפה"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:41
 #, kde-format
 msgid "Swap X and Y axis"
-msgstr ""
+msgstr "החלפה בין צירי X ו־Y"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/plotsetupwidget.ui:51
@@ -6060,7 +6071,7 @@ msgstr "ערך מזערי:"
 #: src/plotsetupwidget.ui:161
 #, kde-format
 msgid "Display:"
-msgstr ""
+msgstr "תצוגה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/plotsetupwidget.ui:183
@@ -6095,9 +6106,9 @@ msgstr "מתכות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:265
-#, fuzzy, kde-format
+#, kde-format
 msgid "Non-Metals / Metalloids"
-msgstr "לא מתכות"
+msgstr "אל-מתכות / מתכות למחצה"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:270
@@ -6163,7 +6174,7 @@ msgstr "יסודות רדיואקטיביים"
 #: src/plotsetupwidget.ui:330
 #, kde-format
 msgid "No Labels"
-msgstr ""
+msgstr "ללא תוויות"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, comboElementLabels)
 #: src/plotsetupwidget.ui:335
@@ -6186,13 +6197,13 @@ msgstr "ציר Y"
 #: src/psetable/elementitem.cpp:122
 #, kde-format
 msgid "n/a"
-msgstr ""
+msgstr "לא זמין"
 
 #: src/rsdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Risks/Security Phrases"
-msgstr ""
+msgstr "משפטי סיכון/בטיחות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/rsdialog.cpp:79 src/rswidget.ui:50
@@ -6208,7 +6219,7 @@ msgstr "פאזה"
 #: src/rsdialog.cpp:95
 #, kde-format
 msgid "You asked for no R/S-Phrases."
-msgstr ""
+msgstr "ביקשת ללא משפטי סיכון/בטיחות."
 
 #: src/rsdialog.cpp:139
 #, kde-format
@@ -7466,7 +7477,7 @@ msgstr "גזים אציליים:"
 #: src/settings/settings_colors.ui:588
 #, kde-format
 msgid "Metalloids:"
-msgstr ""
+msgstr "מתכות למחצה"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabNoColor)
 #: src/settings/settings_colors.ui:614
@@ -7501,7 +7512,7 @@ msgstr ""
 #: src/settings/settings_gradients.ui:102
 #, kde-format
 msgid "Discovery Date"
-msgstr ""
+msgstr "תאריך הגילוי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/settings/settings_gradients.ui:136
@@ -7523,7 +7534,7 @@ msgstr "אנרגיה:"
 #: src/settings/unitsettingsdialog.cpp:24
 #, kde-format
 msgid "Length:"
-msgstr ""
+msgstr "אורך:"
 
 #: src/settings/unitsettingsdialog.cpp:30
 #, kde-format
@@ -7607,7 +7618,7 @@ msgstr "יחידה:"
 #: src/spectrumview.ui:175
 #, kde-format
 msgid "Type:"
-msgstr ""
+msgstr "סוג:"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_resetZoom)
 #: src/spectrumview.ui:185
@@ -7618,7 +7629,7 @@ msgstr "איפוס רמת תקריב"
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
 msgid "Wavelength"
-msgstr ""
+msgstr "אורך גל"
 
 #: src/spectrumviewimpl.cpp:23
 #, kde-format
@@ -7628,17 +7639,17 @@ msgstr "חוזק"
 #: src/tablesdialog.cpp:35 src/tablesdialog.cpp:36
 #, kde-format
 msgid "Greek alphabet"
-msgstr ""
+msgstr "האלפבית היווני"
 
 #: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Uppercase"
-msgstr ""
+msgstr "אותיות רישיות"
 
 #: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Lowercase"
-msgstr ""
+msgstr "אותיות רגילות"
 
 #: src/tablesdialog.cpp:48
 #, kde-format
@@ -7651,32 +7662,32 @@ msgstr "שם"
 #: src/tablesdialog.cpp:104
 #, kde-format
 msgid "alpha"
-msgstr ""
+msgstr "אלפא"
 
 #: src/tablesdialog.cpp:105
 #, kde-format
 msgid "beta"
-msgstr ""
+msgstr "בטא"
 
 #: src/tablesdialog.cpp:106
 #, kde-format
 msgid "gamma"
-msgstr ""
+msgstr "גאמה"
 
 #: src/tablesdialog.cpp:107
 #, kde-format
 msgid "delta"
-msgstr ""
+msgstr "דלתא"
 
 #: src/tablesdialog.cpp:108
 #, kde-format
 msgid "epsilon"
-msgstr ""
+msgstr "אפסילון"
 
 #: src/tablesdialog.cpp:109
 #, kde-format
 msgid "zeta"
-msgstr ""
+msgstr "זטא"
 
 #: src/tablesdialog.cpp:110
 #, kde-format
@@ -7691,32 +7702,32 @@ msgstr "תטא"
 #: src/tablesdialog.cpp:112
 #, kde-format
 msgid "iota"
-msgstr ""
+msgstr "יוטא"
 
 #: src/tablesdialog.cpp:113
 #, kde-format
 msgid "kappa"
-msgstr ""
+msgstr "קפא"
 
 #: src/tablesdialog.cpp:114
 #, kde-format
 msgid "lambda"
-msgstr ""
+msgstr "לאמבדה"
 
 #: src/tablesdialog.cpp:115
 #, kde-format
 msgid "mu"
-msgstr ""
+msgstr "מיו"
 
 #: src/tablesdialog.cpp:116
 #, kde-format
 msgid "nu"
-msgstr ""
+msgstr "ני"
 
 #: src/tablesdialog.cpp:117
 #, kde-format
 msgid "xi"
-msgstr ""
+msgstr "קסי"
 
 #: src/tablesdialog.cpp:118
 #, kde-format
@@ -7731,42 +7742,42 @@ msgstr "פאי"
 #: src/tablesdialog.cpp:120
 #, kde-format
 msgid "rho"
-msgstr ""
+msgstr "רו"
 
 #: src/tablesdialog.cpp:121
 #, kde-format
 msgid "sigma"
-msgstr ""
+msgstr "סיגמא"
 
 #: src/tablesdialog.cpp:122
 #, kde-format
 msgid "tau"
-msgstr ""
+msgstr "טאף"
 
 #: src/tablesdialog.cpp:123
 #, kde-format
 msgid "upsilon"
-msgstr ""
+msgstr "אופסילון"
 
 #: src/tablesdialog.cpp:124
 #, kde-format
 msgid "phi"
-msgstr ""
+msgstr "פֿי"
 
 #: src/tablesdialog.cpp:125
 #, kde-format
 msgid "chi"
-msgstr ""
+msgstr "כֿי"
 
 #: src/tablesdialog.cpp:126
 #, kde-format
 msgid "psi"
-msgstr ""
+msgstr "פסי"
 
 #: src/tablesdialog.cpp:127
 #, kde-format
 msgid "omega"
-msgstr ""
+msgstr "אומגה"
 
 #: src/tablesdialog.cpp:136
 #, kde-format
@@ -7776,7 +7787,7 @@ msgstr "מספרים"
 #: src/tablesdialog.cpp:137
 #, kde-format
 msgid "Numeric Prefixes and Roman Numerals"
-msgstr ""
+msgstr "קידומות מספריות וספרות רומיות"
 
 #: src/tablesdialog.cpp:147
 #, kde-format
@@ -7787,157 +7798,157 @@ msgstr "מספר"
 #, kde-format
 msgctxt "For example 'Mono' for 1 and 'Tri' for 3"
 msgid "Prefix"
-msgstr ""
+msgstr "קידומת"
 
 #: src/tablesdialog.cpp:147
 #, kde-format
 msgid "Roman Numerals"
-msgstr ""
+msgstr "ספרות רומיות"
 
 #: src/tablesdialog.cpp:151
 #, kde-format
 msgid "0.5"
-msgstr ""
+msgstr "0.5"
 
 #: src/tablesdialog.cpp:152
 #, kde-format
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: src/tablesdialog.cpp:153
 #, kde-format
 msgid "1.5"
-msgstr ""
+msgstr "1.5"
 
 #: src/tablesdialog.cpp:154
 #, kde-format
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: src/tablesdialog.cpp:155
 #, kde-format
 msgid "2.5"
-msgstr ""
+msgstr "2.5"
 
 #: src/tablesdialog.cpp:156
 #, kde-format
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: src/tablesdialog.cpp:157
 #, kde-format
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: src/tablesdialog.cpp:158
 #, kde-format
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: src/tablesdialog.cpp:159
 #, kde-format
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: src/tablesdialog.cpp:160
 #, kde-format
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: src/tablesdialog.cpp:161
 #, kde-format
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: src/tablesdialog.cpp:162
 #, kde-format
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: src/tablesdialog.cpp:163
 #, kde-format
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: src/tablesdialog.cpp:164
 #, kde-format
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #: src/tablesdialog.cpp:165
 #, kde-format
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: src/tablesdialog.cpp:166
 #, kde-format
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #: src/tablesdialog.cpp:167
 #, kde-format
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: src/tablesdialog.cpp:168
 #, kde-format
 msgid "15"
-msgstr ""
+msgstr "15"
 
 #: src/tablesdialog.cpp:169
 #, kde-format
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #: src/tablesdialog.cpp:170
 #, kde-format
 msgid "17"
-msgstr ""
+msgstr "17"
 
 #: src/tablesdialog.cpp:171
 #, kde-format
 msgid "18"
-msgstr ""
+msgstr "18"
 
 #: src/tablesdialog.cpp:172
 #, kde-format
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #: src/tablesdialog.cpp:173
 #, kde-format
 msgid "20"
-msgstr ""
+msgstr "20"
 
 #: src/tablesdialog.cpp:174
 #, kde-format
 msgid "40"
-msgstr ""
+msgstr "40"
 
 #: src/tablesdialog.cpp:175
 #, kde-format
 msgid "50"
-msgstr ""
+msgstr "50"
 
 #: src/tablesdialog.cpp:176
 #, kde-format
 msgid "60"
-msgstr ""
+msgstr "60"
 
 #: src/tablesdialog.cpp:177
 #, kde-format
 msgid "90"
-msgstr ""
+msgstr "90"
 
 #: src/tablesdialog.cpp:178
 #, kde-format
 msgid "100"
-msgstr ""
+msgstr "100"
 
 #: src/tablesdialog.cpp:251
 #, kde-format
 msgid "&Copy"
-msgstr ""
+msgstr "ה&עתקה"
 
 #: src/tools/moleculeview.cpp:50
 #, kde-format
@@ -7948,12 +7959,12 @@ msgstr "עורך מולקולרי"
 #: src/tools/moleculeview.cpp:66
 #, kde-format
 msgid "Load Molecule"
-msgstr ""
+msgstr "טעינת מולקולה"
 
 #: src/tools/moleculeview.cpp:68
 #, kde-format
 msgid "Download New Molecules"
-msgstr ""
+msgstr "הורדת מולקולות חדשות"
 
 #: src/tools/moleculeview.cpp:70
 #, kde-format
@@ -8051,25 +8062,25 @@ msgstr ""
 #: src/tools/moleculeviewerwidget.ui:136
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "עריכה"
 
 #. i18n: ectx: property (text), widget (QPushButton, optimizeButton)
 #: src/tools/moleculeviewerwidget.ui:144
 #, kde-format
 msgid "Optimize"
-msgstr ""
+msgstr "מיטוב"
 
 #. i18n: ectx: property (text), widget (QPushButton, clearDrawingButton)
 #: src/tools/moleculeviewerwidget.ui:164
 #, kde-format
 msgid "Clear drawing"
-msgstr ""
+msgstr "מחיקת השרטוט"
 
 #. i18n: ectx: attribute (title), widget (QWidget, measure)
 #: src/tools/moleculeviewerwidget.ui:174
 #, kde-format
 msgid "Measure"
-msgstr ""
+msgstr "מדידה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/tools/moleculeviewerwidget.ui:186
@@ -8083,7 +8094,7 @@ msgstr ""
 #: src/tools/moleculeviewerwidget.ui:215
 #, kde-format
 msgid "Statistics"
-msgstr ""
+msgstr "סטטיסטיקה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/tools/moleculeviewerwidget.ui:223
@@ -8095,13 +8106,13 @@ msgstr "שם:"
 #: src/tools/moleculeviewerwidget.ui:240
 #, kde-format
 msgid "Formula:"
-msgstr ""
+msgstr "נוסחה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/tools/moleculeviewerwidget.ui:257
 #, kde-format
 msgid "Weight:"
-msgstr ""
+msgstr "משקל:"
 
 #: src/tools/obconverter.cpp:32
 #, kde-format
