@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-10 15:37+0300\n"
+"PO-Revision-Date: 2025-08-10 16:46+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -652,7 +652,7 @@ msgstr ""
 #: data/tools.xml:5
 #, kde-format
 msgid "Watchglass"
-msgstr ""
+msgstr "זכוכית שעון"
 
 #: data/tools.xml:6
 #, kde-format
@@ -843,10 +843,10 @@ msgstr ""
 #: data/tools.xml:72
 #, kde-format
 msgid "Rotary Evaporator"
-msgstr ""
+msgstr "מאייד סיבובי"
 
 #: data/tools.xml:73
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "A rotary evaporator consists of a round flask in a bath of hot water, and is "
 "designed to evaporate solvents. The flask is rotated and the solvent "
@@ -854,7 +854,7 @@ msgid ""
 "collecting flask. In this way solutions can be concentrated or purified. By "
 "attaching a vacuum pump, the air pressure and therefore the boiling point of "
 "the fluid can be decreased."
-msgstr ""
+msgstr "מאייד סיבובי מורכב מ"
 
 #: data/tools.xml:77
 #, kde-format
@@ -899,7 +899,7 @@ msgstr ""
 #: data/tools.xml:92
 #, kde-format
 msgid "Protective Goggles"
-msgstr ""
+msgstr "משקפי מגן"
 
 #: data/tools.xml:93
 #, kde-format
@@ -1072,16 +1072,16 @@ msgstr ""
 #: data/tools.xml:158
 #, kde-format
 msgid "Scales"
-msgstr ""
+msgstr "משקל"
 
 #: data/tools.xml:159
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "In a laboratory, very precise quantities of reagents often have to be "
 "weighed out. High precision scales can measure masses down to 1/10000 gram. "
 "As such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
-msgstr ""
+msgstr "במעבדה, "
 
 #: data/tools.xml:163
 #, fuzzy, kde-format
