@@ -2284,7 +2284,7 @@ msgstr "الذهب"
 #: element_tiny.xml:160
 #, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
-msgstr "اللاتينية \"أوروم\". سميت على اسم أورورا ، آلهة شروق الشمس."
+msgstr "اللاتينية \"أوروم\". سميت على اسم أورورا، آلهة شروق الشمس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
