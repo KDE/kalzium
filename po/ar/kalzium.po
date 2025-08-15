@@ -4925,7 +4925,7 @@ msgstr "العائلة"
 #: src/exportdialog.cpp:157
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
-msgstr "الملف موجود بالفعل، أتريد الكتابة عليه؟"
+msgstr "الملف موجود فعلًا، أتريد الكتابة عليه؟"
 
 #: src/exportdialog.cpp:165
 #, kde-format
@@ -5945,7 +5945,7 @@ msgstr "يجب أن يتكوّن الرمز من حرفان أو أكثر."
 #: src/molcalcwidget.cpp:274
 #, kde-format
 msgid "Symbol already being used"
-msgstr "الرمز مستخدم بالفعل"
+msgstr "الرمز مستخدم فعلًا"
 
 #: src/molcalcwidget.cpp:279
 #, kde-format
@@ -8348,12 +8348,12 @@ msgstr "لم يحدّد أي ملف"
 #: src/tools/obconverter.cpp:194
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
-msgstr "الملف %1 موجود بالفعل. هل تريد الكتابة فوقه إن كان ذلك ممكنًا؟"
+msgstr "الملف %1 موجود فعلًا. هل تريد الكتابة فوقه إن كان ذلك ممكنًا؟"
 
 #: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
-msgstr "الملف %1 موجود بالفعل -- أوبن‌بابل.ك"
+msgstr "الملف %1 موجود فعلًا -- أوبن‌بابل.ك"
 
 #: src/tools/obconverter.cpp:213
 #, kde-format
