@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-14 11:20+0300\n"
+"PO-Revision-Date: 2025-08-15 14:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3742,10 +3742,10 @@ msgstr "הצג רק את המספר של היסוד"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:285
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the final amount of the radioactive substance."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון הכמות הסופית של החומר הרדיואקטיבי."
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: src/calculator/nuclearCalculator.ui:298
