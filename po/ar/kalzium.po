@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-04 13:38+0400\n"
+"PO-Revision-Date: 2025-08-25 19:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "صفا الفليج"
+msgstr "صفا الفليج,زايد السعيدي"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "safaalfulaij@hotmail.com"
+msgstr "safaalfulaij@hotmail.com,zayed.alsaidi@gmail.com"
 
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "مشكلة أثناء فتح الملف"
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
 msgid "Cannot open the specified file."
-msgstr "تعذّر فتح الملف المطلوب."
+msgstr "تعذّر فتح الملف المحدد."
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
@@ -47,7 +47,7 @@ msgstr "نأسف"
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Cannot save to the specified file."
-msgstr "تعذّر الحفظ إلى الملف المطلوب."
+msgstr "تعذّر الحفظ إلى الملف المحدد."
 
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
@@ -55,54 +55,60 @@ msgid "State of matter"
 msgstr "حالة المادة"
 
 #: data/knowledge.xml:5
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Form of a substance; dependant on form stability and whether it takes up a "
 "definite volume: solid, liquid or gaseous."
-msgstr "استمارة من a يعمل استمارة و الإيطالية أعلى a شدة الصوت صلب أو."
+msgstr ""
+"هيئة المادة؛ تعتمد على استقرار الهيئة وامتلاكها حجماً محدّداً: صلبة، سائلة، أو "
+"غازية."
 
 #: data/knowledge.xml:8
 #, kde-format
 msgid "Chemical Symbol"
-msgstr "رمز كيميائي"
+msgstr "الرمز الكيميائي"
 
 #: data/knowledge.xml:9
 #, kde-format
 msgid ""
 "One, two, or three letter abbreviation; set through international convention."
-msgstr "اختصار من حرف، حرفين أو ثلاثة أحرف. عُيِّن باتفاقية دولية."
+msgstr "اختصار من حرف، أو حرفين، أو ثلاثة أحرف؛ يُعيّن عبر اتفاقية دولية."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: data/knowledge.xml:11 data/knowledge.xml:23 data/knowledge.xml:113
 #: src/molcalcwidgetbase.ui:208
 #, kde-format
 msgid "Element"
-msgstr "عنصر"
+msgstr "العنصر"
 
 #: data/knowledge.xml:15
 #, kde-format
 msgid "Chromatography"
-msgstr "ستشراب"
+msgstr "الاستشراب"
 
 #: data/knowledge.xml:16
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Matter separation in a moving medium (mobile phase) through differentiated "
 "absorption on a static medium (stationary phase)."
-msgstr "أمر بوصة a متوسط نقّال يعمل a ثابت متوسط."
+msgstr ""
+"يُفصل المادة في وسط متحرك (طور متحرك) عبر الامتصاص المتمايز على وسط ثابت (طور "
+"ثابت)."
 
 #: data/knowledge.xml:19
 #, kde-format
 msgid "Distillation"
-msgstr "تقطير"
+msgstr "التقطير"
 
 #: data/knowledge.xml:20
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Separation of a liquid solution (homogeneous mix) into its components "
 "through evaporation and condensation. In a fractionary distillation the "
 "process is repeated several times in a column."
-msgstr "الإفتراق من a متجانس و داخل a إجراء هو الوقت بوصة a عمود."
+msgstr ""
+"يُفصل المحلول السائل (مخلوط متجانس) إلى مكوناته عبر التبخر والتكثيف. في "
+"التقطير التجزيئي، تُكرر العملية عدة مرات في عمود."
 
 #: data/knowledge.xml:24
 #, kde-format
@@ -111,14 +117,14 @@ msgid ""
 "cornerstones of Materials. Elements consist of atoms that consist of a "
 "nucleus of positive protons, neutral neutrons, and a shell of electrons."
 msgstr ""
-"المادة التي لا يمكن كسرها إلى مواد أصغر. العناصر الكيميائية هي ركائز المواد. "
-"العناصر المتكوِّنة من ذرات تتكوّن من نواة من البروتونات الموجبة، النيوترونات "
-"المتعادلة، وغلاف تكافؤ من الإلكترونات."
+"مادة لا يمكن تحليلها إلى مواد أبسط. العناصر الكيميائية هي حجر الأساس للمواد. "
+"تتكون العناصر من ذرات، تتكون كل ذرة من نواة تحتوي بروتونات موجبة ونيوترونات "
+"متعادلة، وغلاف من الإلكترونات."
 
 #: data/knowledge.xml:27
 #, kde-format
 msgid "Emulsion"
-msgstr "مستحلب"
+msgstr "المستحلب"
 
 #: data/knowledge.xml:28
 #, kde-format
@@ -128,22 +134,22 @@ msgstr "مخلوط غير متجانس من سائلين."
 #: data/knowledge.xml:31
 #, kde-format
 msgid "Extraction"
-msgstr "استخلاص"
+msgstr "الاستخلاص"
 
 #: data/knowledge.xml:32
-#, fuzzy, kde-format
+#, kde-format
 msgid "Processing a homogeneous or heterogeneous mix to get pure matter."
-msgstr "جاري المعالجة a متجانس أو غير متجانس إلى get."
+msgstr "يُعالج مخلوط متجانس أو غير متجانس للحصول على مادة نقية."
 
 #: data/knowledge.xml:34 data/knowledge.xml:42
 #, kde-format
 msgid "Mix"
-msgstr "مخلوط"
+msgstr "المخلوط"
 
 #: data/knowledge.xml:38
 #, kde-format
 msgid "Filtering"
-msgstr "ترشيح"
+msgstr "الترشيح"
 
 #: data/knowledge.xml:39
 #, kde-format
@@ -151,25 +157,28 @@ msgid ""
 "Separation of a solid matter from a liquid matter or gaseous matter with a "
 "filter (porous separation wall)."
 msgstr ""
-"فصل المادة الصلبة عن المادة السائلة أو الغازية بالمرشح (جدار عازل مسامي)."
+"يُفصل المادة الصلبة عن المادة السائلة أو الغازية باستخدام مرشح (جدار فاصل "
+"مسامي)."
 
 #: data/knowledge.xml:43
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Matter consisting of differentiated matter, combined in non-set ratios. "
 "[i]Homogeneous mixes[/i] have a coherent look, [i]heterogeneous mixes[/i] "
 "consist of multiple phases."
-msgstr "أمر من بوصة set i متناسق i a i غير متجانس i من متعدد."
+msgstr ""
+"مادة تتكون من مواد متميزة، مجتمعة بنسب غير محددة. للمخاليط [i]المتجانسة[/i] "
+"مظهر متماسك، بينما تتكون المخاليط [i]غير المتجانسة[/i] من أطوار متعددة."
 
 #: data/knowledge.xml:46
 #, kde-format
 msgid "Accuracy"
-msgstr "دقّة"
+msgstr "الدقة"
 
 #: data/knowledge.xml:47
 #, kde-format
 msgid "Consisting of accidental and systematic errors."
-msgstr "تتكوّن من الأخطاء العرضية والمنهجية."
+msgstr "تتكون من أخطاء عشوائية ومنهجية."
 
 #: data/knowledge.xml:50
 #, kde-format
@@ -183,8 +192,8 @@ msgid ""
 "the material going into the reaction equals the sum of the mass of the "
 "products of the reaction."
 msgstr ""
-"أثناء التفاعل الكيميائي، لا تُفقد الكتلة ولا تُضاف. مجموع الكتلة الداخلة في "
-"التفاعل يساوي مجموع الكتلة الناتجة من التفاعل."
+"أثناء التفاعل الكيميائي، لا تُفقد الكتلة ولا تُكتسب. مجموع كتلة المواد الداخلة "
+"في التفاعل يساوي مجموع كتلة نواتج التفاعل."
 
 #: data/knowledge.xml:54
 #, kde-format
@@ -192,34 +201,36 @@ msgid "Law of multiple proportions"
 msgstr "قانون النسب المتضاعفة"
 
 #: data/knowledge.xml:55
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "An alloy always contains the same elements in the same mass ratio. Should "
 "two or more elements bind together then the mass ratio is constant."
 msgstr ""
-"أداة تعريف دائماً يحتوي بوصة نسبة يجب أن إثنان أو المزيد ربط نسبة هو ثابت."
+"تحتوي السبيكة دائماً على نفس العناصر بنفس نسبة الكتلة. إذا ارتبط عنصران أو "
+"أكثر معاً، فإن نسبة الكتلة تكون ثابتة."
 
 #: data/knowledge.xml:58
 #, kde-format
 msgid "Crystallization"
-msgstr "تبلور"
+msgstr "التبلور"
 
 #: data/knowledge.xml:59
 #, kde-format
 msgid ""
 "Separation of solid, crystalline matter from a solution, or the liquid or "
 "gaseous phases."
-msgstr "فصل الأطوار الصلبة - المادة البلورية من محلول - أو السائلة أو الغازية."
+msgstr ""
+"يُفصل المادة الصلبة البلورية من محلول، أو من الأطوار السائلة أو الغازية."
 
 #: data/knowledge.xml:62
 #, kde-format
 msgid "Solution"
-msgstr "محلول"
+msgstr "المحلول"
 
 #: data/knowledge.xml:63
-#, fuzzy, kde-format
+#, kde-format
 msgid "Homogeneous mix of multiple pure materials"
-msgstr "متناسق من متعدد"
+msgstr "مخلوط متجانس من عدة مواد نقية"
 
 #. i18n("Name"), ChemicalDataObject::name));
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
@@ -231,7 +242,7 @@ msgstr "متناسق من متعدد"
 #: src/exportdialog.cpp:135 src/settings/settings_gradients.ui:74
 #, kde-format
 msgid "Mass"
-msgstr "كتلة"
+msgstr "الكتلة"
 
 #: data/knowledge.xml:67
 #, kde-format
@@ -241,48 +252,48 @@ msgstr "قياس كمية المادة."
 #: data/knowledge.xml:70
 #, kde-format
 msgid "Matter"
-msgstr "مادة"
+msgstr "المادة"
 
 #: data/knowledge.xml:71
 #, kde-format
 msgid "All that takes up space and has mass."
-msgstr "كل ما يأخذ حيّزًا من الفراغ وله كتلة."
+msgstr "كل ما يشغل حيزاً وله كتلة."
 
 #: data/knowledge.xml:74
 #, kde-format
 msgid "Phase"
-msgstr "طور"
+msgstr "الطور"
 
 #: data/knowledge.xml:75
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Through chemical composition and physical attributes, homogeneous portion of "
 "matter that separated from its environment in its expansion through a "
 "surface."
 msgstr ""
-"عَبْر تركيب و فيزيائي ، حقيقي الوجود ، ملموس متجانس من من بيئة بوصة توسيع a "
-"مساحة."
+"جزء متجانس من المادة، يتميز بتركيبه الكيميائي وصفاته الفيزيائية، وينفصل عن "
+"محيطه عند تمدده عبر سطح."
 
 #: data/knowledge.xml:78
 #, kde-format
 msgid "Accuracy and precision"
-msgstr "دقّة وضبط"
+msgstr "الدقة والضبط"
 
 #: data/knowledge.xml:79
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Expressed through standard deviation: Values given over accidental errors."
-msgstr "مظهر قياسي القيم."
+msgstr "يُعبّر عنها بالانحراف المعياري: قيم تُعطى عن الأخطاء العشوائية."
 
 #: data/knowledge.xml:82
 #, kde-format
 msgid "Correctness"
-msgstr "تصحيح"
+msgstr "الصحة"
 
 #: data/knowledge.xml:83
-#, fuzzy, kde-format
+#, kde-format
 msgid "Values given over accidental errors."
-msgstr "القيم."
+msgstr "قيم تُعطى عن الأخطاء العشوائية."
 
 #: data/knowledge.xml:86
 #, kde-format
@@ -290,49 +301,49 @@ msgid "SI-Unit"
 msgstr "وحدة النظام الدولي"
 
 #: data/knowledge.xml:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "Measurement unit using International Symbols."
-msgstr "قياس وحدة عالمي رموز."
+msgstr "وحدة قياس باستخدام الرموز الدولية."
 
 #: data/knowledge.xml:90
 #, kde-format
 msgid "Significant figures"
-msgstr "أرقام معنوية"
+msgstr "الأرقام المعنوية"
 
 #: data/knowledge.xml:91
-#, fuzzy, kde-format
+#, kde-format
 msgid "The number of digits which are meaningful in a number."
-msgstr "الـ رقم من بوصة a رقم."
+msgstr "عدد الأرقام ذات المعنى في العدد."
 
 #: data/knowledge.xml:94
 #, kde-format
 msgid "Standard deviation"
-msgstr "انحراف معياري"
+msgstr "الانحراف المعياري"
 
 #: data/knowledge.xml:95
-#, fuzzy, kde-format
+#, kde-format
 msgid "An amount with which the precision of a measurement can be estimated."
-msgstr "أداة تعريف قَدْر مع دقة من a قياس."
+msgstr "قيمة يمكن من خلالها تقدير دقة القياس."
 
 #: data/knowledge.xml:98
 #, kde-format
 msgid "Suspension"
-msgstr "مستعلق"
+msgstr "المعلق"
 
 #: data/knowledge.xml:99
-#, fuzzy, kde-format
+#, kde-format
 msgid "Heterogeneous mix consisting of a liquid and solid matter."
-msgstr "متباين من a و صلب."
+msgstr "مخلوط غير متجانس يتكون من مادة سائلة وصلبة."
 
 #: data/knowledge.xml:102
 #, kde-format
 msgid "Alloys"
-msgstr "سبيكة"
+msgstr "السبائك"
 
 #: data/knowledge.xml:103
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pure matter consisting of multiple elements in a set ratio."
-msgstr "صافي من متعدد بوصة a set نسبة."
+msgstr "مادة نقية تتكون من عدة عناصر بنسبة محددة."
 
 #: data/knowledge.xml:106
 #, kde-format
@@ -340,53 +351,57 @@ msgid "Alpha rays"
 msgstr "أشعة ألفا"
 
 #: data/knowledge.xml:107
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Rays consisting of alpha particles, consisting of two protons and two "
 "neutrons that are emitted from the Atoms of certain radioactive elements."
-msgstr "الأشعة من ألفا من إثنان و إثنان من الذّرّات من."
+msgstr ""
+"أشعة تتكون من جسيمات ألفا، والتي تتكون من بروتونين ونيوترونين، تنبعث من ذرات "
+"بعض العناصر المشعة."
 
 #: data/knowledge.xml:110 data/knowledge.xml:123 data/knowledge.xml:130
 #: data/knowledge.xml:138 data/knowledge.xml:215 data/knowledge.xml:222
 #: data/knowledge.xml:231
 #, kde-format
 msgid "Atom"
-msgstr "ذرّة"
+msgstr "الذرة"
 
 #: data/knowledge.xml:111
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Atoms are chemically inseparable and building blocks of matter. Atoms of one "
 "kind are called an Element."
-msgstr "الذّرّات و صناديق من الذّرّات من العنصر."
+msgstr ""
+"الذرات غير قابلة للانفصال كيميائياً وهي لبنات بناء المادة. تسمى الذرات من نوع "
+"واحد بالعنصر."
 
 #: data/knowledge.xml:114 data/knowledge.xml:211 data/knowledge.xml:223
 #: data/knowledge.xml:232 data/knowledge.xml:240
 #, kde-format
 msgid "Electron"
-msgstr "إلكترون"
+msgstr "الإلكترون"
 
 #: data/knowledge.xml:115 data/knowledge.xml:219 data/knowledge.xml:233
 #, kde-format
 msgid "Proton"
-msgstr "بروتون"
+msgstr "البروتون"
 
 #: data/knowledge.xml:116 data/knowledge.xml:224 data/knowledge.xml:228
 #, kde-format
 msgid "Neutron"
-msgstr "نيترون"
+msgstr "النيوترون"
 
 #: data/knowledge.xml:120
 #, kde-format
 msgid "Atomic nucleus"
-msgstr "نواة الذرّة"
+msgstr "نواة الذرة"
 
 #: data/knowledge.xml:121
 #, kde-format
 msgid ""
 "The small, positively-charged center of an Atom, in which Protons and "
 "Neutrons are found."
-msgstr "مركز الذرة الصغير موجب الشحنة، حيث تجد فيه البروتونات والنيترونات."
+msgstr "المركز الصغير موجب الشحنة للذرة، حيث توجد فيه البروتونات والنيوترونات."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -395,41 +410,44 @@ msgstr "مركز الذرة الصغير موجب الشحنة، حيث تجد �
 #: src/plotsetupwidget.ui:416
 #, kde-format
 msgid "Atomic Mass"
-msgstr "كتلة ذريّة"
+msgstr "الكتلة الذرية"
 
 #: data/knowledge.xml:128
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Mass of an atom, taken on a scale where the mass of a carbon atom is 12u. In "
 "elements that consist of different isotopes the mid-range mass of the "
 "isotope mix is given."
-msgstr "كتلة من ذرة يعمل a مقياس من a ذرة هو داخل من مختلف المدى من هو."
+msgstr ""
+"كتلة الذرة، مقاسة على مقياس حيث كتلة ذرة الكربون هي 12u. في العناصر التي "
+"تتكون من نظائر مختلفة، تُعطى الكتلة المتوسطة لمزيج النظائر."
 
 #: data/knowledge.xml:135 data/knowledge.xml:145 data/knowledge.xml:152
 #: data/knowledge.xml:159 data/knowledge.xml:166 data/knowledge.xml:173
 #: data/knowledge.xml:183 data/knowledge.xml:192 data/knowledge.xml:201
 #, kde-format
 msgid "Isotope"
-msgstr "نظير"
+msgstr "النظير"
 
 #: data/knowledge.xml:136
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Isotopes are forms of a chemical element whose nuclei have the same atomic "
 "number, Z, but different atomic masses, A. The word isotope, meaning at the "
 "same place, comes from the fact that all isotopes of an element are located "
 "at the same place on the periodic table."
 msgstr ""
-"النظائر المشعة من a element مَن ذري رقم Z مختلف ذري A الـ كلمة عند من الكل من "
-"element عند يعمل جدول."
+"النظائر هي صور للعنصر الكيميائي تحتوي نواتها على نفس العدد الذري، Z، ولكن "
+"بكتل ذرية مختلفة، A. كلمة نظير، التي تعني في نفس المكان، تأتي من حقيقة أن "
+"جميع نظائر العنصر تقع في نفس المكان في الجدول الدوري."
 
 #: data/knowledge.xml:142
 #, kde-format
 msgid "Spin"
-msgstr "غزل"
+msgstr "الغزل"
 
 #: data/knowledge.xml:143
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The spin is an intrinsic angular momentum associated with microscopic "
 "particles. It is a purely quantum mechanical phenomenon without any analogy "
@@ -437,32 +455,35 @@ msgid ""
 "rotation of an extended object, spin is not associated with any rotating "
 "internal masses, but is intrinsic to the particle itself."
 msgstr ""
-"الـ تدوير هو مع itإيطالياهو هو a أي منها بوصة بينما من من موسّع كائن تدوير هو "
-"ليس مع أي منها داخلي هو إلى نفسها."
+"الغزل هو زخم زاوي جوهري مرتبط بالجسيمات المجهرية. إنها ظاهرة ميكانيكية "
+"كمومية بحتة لا يوجد لها نظير في الميكانيكا الكلاسيكية. بينما ينشأ الزخم "
+"الزاوي الكلاسيكي من دوران جسم ممتد، فإن الغزل لا يرتبط بأي كتل دوارة داخلية، "
+"بل هو جوهري للجسيم نفسه."
 
 #: data/knowledge.xml:149 src/detailinfodlg.cpp:312
 #, kde-format
 msgid "Magnetic Moment"
-msgstr "عزم مغناطيسي"
+msgstr "العزم المغناطيسي"
 
 #: data/knowledge.xml:150
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The magnetic moment of an object is a vector relating the aligning torque in "
 "a magnetic field experienced by the object to the field vector itself. It is "
 "measured in units of the nuclear magneton µ[sub]n[/sub]=(5.0507866 ± "
 "0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]"
 msgstr ""
-"الـ من كائن هو a متجه بوصة a حقل أداء كائن إلى حقل متجه نفسها itإيطالياهو s "
-"بوصة من&#956; n&#177;"
+"العزم المغناطيسي للجسم هو متجه يربط عزم الدوران المحاذي في مجال مغناطيسي "
+"يختبره الجسم بمتجه المجال نفسه. يقاس بوحدات المغناطيس النووي µ[sub]n[/"
+"sub]=(5.0507866 ± 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]"
 
 #: data/knowledge.xml:156
 #, kde-format
 msgid "Decay Mode"
-msgstr "اضمحلال النشاط الإشعاعي"
+msgstr "نمط الاضمحلال"
 
 #: data/knowledge.xml:157
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The decay mode describes a particular way a particle decays. For radioactive "
 "decay (the decay of nuclides) the decay modes are:[br] -> alpha decay "
@@ -471,8 +492,12 @@ msgid ""
 "electron capture (EC) [br] -> proton emission [br] -> spontaneous fission "
 "[br] Typically one decay mode predominates for a particular nuclide."
 msgstr ""
-"الـ تضاؤل نمط a a لـ تضاؤل تضاؤل من تضاؤل ألفا تضاؤل من a هيليوم&#946; تضاؤل "
-"من&#946; تضاؤل من a التقاط نموذجيا تضاؤل نمط لـ a."
+"يصف نمط الاضمحلال طريقة اضمحلال الجسيم. بالنسبة للاضمحلال الإشعاعي (اضمحلال "
+"النويدات) فإن أنماط الاضمحلال هي:[br] -> اضمحلال ألفا (انبعاث نواة "
+"الهيليوم-4).[br] -> اضمحلال ß[sup]-[/sup] (انبعاث إلكترون)[br] -> اضمحلال "
+"ß[sup]+[/sup] (انبعاث بوزيترون) [br] -> التقاط الإلكترون (EC) [br] -> انبعاث "
+"البروتون [br] -> الانشطار التلقائي [br] عادةً ما يهيمن نمط اضمحلال واحد لنويد "
+"معين."
 
 #: data/knowledge.xml:163
 #, kde-format
@@ -482,40 +507,42 @@ msgstr "طاقة الاضمحلال"
 #: data/knowledge.xml:164
 #, kde-format
 msgid "The decay energy is the energy released by a nuclear decay."
-msgstr "طاقة الاضمحلال هي الطاقة المنبعثة من اضمحلال نووي."
+msgstr "طاقة الاضمحلال هي الطاقة المنطلقة من الاضمحلال النووي."
 
 #: data/knowledge.xml:170
 #, kde-format
 msgid "Nuclides"
-msgstr "نويدات"
+msgstr "النويدات"
 
 #: data/knowledge.xml:171
 #, kde-format
 msgid "[i]see isotopes[/i]"
-msgstr "[i]طالع نظائر[/i]"
+msgstr "[i]انظر النظائر[/i]"
 
 #: data/knowledge.xml:174 data/knowledge.xml:180 data/knowledge.xml:193
 #: data/knowledge.xml:203
 #, kde-format
 msgid "Isotone"
-msgstr "متساوي النيترونات"
+msgstr "المتساوي النيوترونات"
 
 #: data/knowledge.xml:175 data/knowledge.xml:184 data/knowledge.xml:194
 #: data/knowledge.xml:198
 #, kde-format
 msgid "Nuclear Isomer"
-msgstr "متزامر نووي"
+msgstr "المتزامر النووي"
 
 #: data/knowledge.xml:176 data/knowledge.xml:185 data/knowledge.xml:189
 #: data/knowledge.xml:202
 #, kde-format
 msgid "Isobars"
-msgstr "خطوط تساوي الضغط"
+msgstr "المتساوي الكتلة"
 
 #: data/knowledge.xml:181
-#, fuzzy, kde-format
+#, kde-format
 msgid "Two nuclides are isotones if they have the same number N of neutrons."
-msgstr "اثنان IF رقم N من."
+msgstr ""
+"يُعتبر النويدان متساويين في النيوترونات إذا كان لهما نفس العدد N من "
+"النيوترونات."
 
 #: data/knowledge.xml:190
 #, kde-format
@@ -523,10 +550,11 @@ msgid ""
 "Isobars are nuclides having the same mass number, i.e. sum of protons plus "
 "neutrons."
 msgstr ""
-"المُتكتِّلات هي نويدات لها نفس العدد الكتلية، مثلًا مجموع البروتونات والنيترونات."
+"المتساويات في الكتلة هي نويدات لها نفس العدد الكتلي، أي مجموع البروتونات "
+"والنيوترونات."
 
 #: data/knowledge.xml:199
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A nuclear isomer is a metastable or isomeric state of an atom caused by the "
 "excitation of a proton or neutron in its nucleus so that it requires a "
@@ -542,12 +570,16 @@ msgid ""
 "of the atom (e.g., Co-58m), but is sometimes placed as a superscript before "
 "(e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co)."
 msgstr ""
-"A هو a أو حالة من ذرة أداء من a أو بوصة الإيطالية a تغيير بوصة تدوير قبل "
-"الإيطالية إصدار إضافي هم تضاؤل إلى من إثنان&#947; من a مرتفع داخلي تحويل هو "
-"مُستخدَم إلى ذرة التباين مع تعريف من a المزيد شائع استخدام من كلمة أيضًا تباين "
-"مع من بوصة اختلاف هو رقم من بوصة من a ذرة مع m أو بوصة حالة من مع المزيد و "
-"يعمل هذا هو بعد ذري رمز و رقم من ذرة e g شركاء أو كولورادو هو a قبل e g m "
-"شركاء أو كولورادو أو شركاء أو كولورادو."
+"المتزامر النووي هو حالة شبه مستقرة أو متزامرة للذرة ناتجة عن إثارة بروتون أو "
+"نيوترون في نواتها بحيث يتطلب تغييراً في الغزل قبل أن يتمكن من إطلاق طاقته "
+"الزائدة. تتحلل إلى حالات طاقة أقل للنويد عبر انتقالين متزامرين:[br] -> "
+"انبعاث γ (انبعاث فوتون عالي الطاقة)[br] -> التحويل الداخلي (تُستخدم الطاقة "
+"لتأيين الذرة)[br] قارن هذا مع تعريف المتزامر الكيميائي، الاستخدام الأكثر "
+"شيوعاً للكلمة. قارن أيضاً مع معنى النظير، حيث يكون الاختلاف في عدد النيوترونات "
+"في النواة. يُعرِّف عادةً المتزامرات شبه المستقرة لذرة معينة بـ \"m\" (أو، في "
+"حالة الذرات التي تحتوي على أكثر من متزامر، 2m، 3m، وهكذا). يوضع هذا التعريف "
+"عادة بعد رمز الذرة وعددها (على سبيل المثال، Co-58m)، ولكن يوضع أحياناً كحرف "
+"علوي قبل (على سبيل المثال، [sup]m[/sup]Co-58 أو [sup]58m[/sup]Co)."
 
 #: data/knowledge.xml:207
 #, kde-format
@@ -559,31 +591,39 @@ msgstr "أشعة بيتا"
 msgid ""
 "Rays consisting of electrons that are emitted from Atoms of radioactive "
 "elements."
-msgstr "أشعة تتألّف من إلكترونات منبعثة من ذرات عناصر مشعّة."
+msgstr "أشعة تتكون من إلكترونات تنبعث من ذرات العناصر المشعة."
 
 #: data/knowledge.xml:213
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The electron is a subatomic particle with a mass of m[sub]e[/sub]=(9.1093897 "
 "± 0.0000054)e-31 kg and a negative charge of [i]e[/i]=(1.60217733 ± "
 "0.00000049)e-19 C\n"
 "\t\t"
-msgstr "الـ هو a مع a من m e&#177; e و a من i e i&#177; e C n t t"
+msgstr ""
+"الإلكترون هو جسيم دون ذري كتلته m[sub]e[/sub]=(9.1093897 ± 0.0000054)e-31 kg "
+"وشحنة سالبة مقدارها [i]e[/i]=(1.60217733 ± 0.00000049)e-19 C\n"
+"\t\t"
 
 #: data/knowledge.xml:220
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The proton is a subatomic particle with a mass of m[sub]e[/sub]=(1.6726231 ± "
 "0.0000010) 10[sup]-27[/sup] kg and a positive charge of [i]e[/i]=(1.60217733 "
 "± 0.00000049) 10[sup]-19[/sup] C which occurs in the nucleus of an atom."
-msgstr "الـ هو a مع a من m e&#177; و a من i e i&#177; C بوصة من ذرة."
+msgstr ""
+"البروتون هو جسيم دون ذري كتلته m[sub]e[/sub]=(1.6726231 ± 0.0000010) "
+"10[sup]-27[/sup] kg وشحنة موجبة مقدارها [i]e[/i]=(1.60217733 ± 0.00000049) "
+"10[sup]-19[/sup] C يوجد في نواة الذرة."
 
 #: data/knowledge.xml:229
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The neutron is a subatomic particle with a mass of m[sub]e[/sub]=(1.6749286 "
 "± 0.0000010) 10[sup]-27[/sup] kg which occurs in the nucleus of an atom."
-msgstr "الـ هو a مع a من m e&#177; بوصة من ذرة."
+msgstr ""
+"النيوترون هو جسيم دون ذري كتلته m[sub]e[/sub]=(1.6749286 ± 0.0000010) "
+"10[sup]-27[/sup] kg يوجد في نواة الذرة."
 
 #: data/knowledge.xml:237
 #, kde-format
@@ -591,14 +631,16 @@ msgid "Cathode Rays"
 msgstr "أشعة الكاثود"
 
 #: data/knowledge.xml:238
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Cathode rays are streams of electrons observed in vacuum tubes, i.e. "
 "evacuated glass tubes that are equipped with at least two electrodes, a "
 "cathode (negative electrode) and an anode (positive electrode) in a "
 "configuration known as a diode."
 msgstr ""
-"القطب السالب من بوصة i e كأس مع عند إثنان a و بوصة a تشكيل a صمًام ثنائي."
+"أشعة الكاثود هي تيارات من الإلكترونات تُلاحظ في الأنابيب المفرغة، أي الأنابيب "
+"الزجاجية المفرغة والمجهزة بقطبين على الأقل، كاثود (قطب سالب) وأنود (قطب "
+"موجب) في ترتيب يعرف باسم الصمام الثنائي."
 
 #: data/knowledge.xml:244 data/knowledge.xml:258 data/knowledge.xml:267
 #: data/knowledge.xml:275
@@ -615,10 +657,11 @@ msgid ""
 "electrons in its shell than the atom, a negative ion has more electrons. "
 "Therefore, a positive ion has a smaller radius than its atom and vice versa."
 msgstr ""
-"نصف القطر الأيوني هو نصف قطر الذرة المشحونة، المعروفة بالأيون. يمكن للأيون "
-"أن يمتلك شحنة موجبة أو سالبة. تظهر شحنة الأيون ونصف قطره في كالسيوم. الأيون "
-"الموجب له إلكترونات أقل في غلاف تكافؤه بالنسبة للذرة، الأيون السالب له "
-"إلكترونات أكثر. لذلك، الأيون الموجب له نصف قطر أصغر من ذرّته والعكس صحيح."
+"نصف القطر الأيوني هو نصف قطر الذرة المشحونة، المعروفة باسم الأيون. يمكن أن "
+"يكون للأيون شحنة موجبة أو سالبة. تظهر شحنة الأيون مع نصف القطر المعروض أيضًا "
+"في كالسيوم. يحتوي الأيون الموجب على إلكترونات أقل في غلافه من الذرة، بينما "
+"يحتوي الأيون السالب على إلكترونات أكثر. لذلك، يكون للأيون الموجب نصف قطر "
+"أصغر من ذرته والعكس صحيح."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicCovalentRadiusGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -639,7 +682,7 @@ msgstr "نصف القطر التساهمي"
 #: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:436
 #, kde-format
 msgid "Atomic Radius"
-msgstr "نصف القطر الذرّي"
+msgstr "نصف القطر الذري"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
@@ -650,29 +693,34 @@ msgid "Van der Waals Radius"
 msgstr "نصف قطر فان دير فالس"
 
 #: data/knowledge.xml:254
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The van der Waals radius of an atom is the radius of an imaginary hard "
 "sphere which can be used to model the atom for many purposes. Van der Waals "
 "radii are determined from measurements of atomic spacing between pairs of "
 "unbonded atoms in crystals."
 msgstr ""
-"الـ عربة والس من ذرة هو من كرة مُستخدَم إلى شكل ، نموذج ذرة لـ فان والس من من "
-"ذري فصل بين من بوصة."
+"نصف قطر فان دير فالس للذرة هو نصف قطر كرة صلبة تخيلية يمكن استخدامها لنمذجة "
+"الذرة لأغراض عديدة. تُحدد أنصاف أقطار فان دير فالس من قياسات المسافات الذرية "
+"بين أزواج الذرات غير المرتبطة في البلورات."
 
 #: data/knowledge.xml:263
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The atomic radius is the distance from the atomic nucleus to the outmost "
 "stable electron orbital in a atom that is at equilibrium."
-msgstr "الـ ذري هو من ذري إلى stable بوصة a ذرة هو عند."
+msgstr ""
+"نصف القطر الذري هو المسافة من النواة الذرية إلى المدار الإلكتروني المستقر "
+"الأبعد في ذرة في حالة اتزان."
 
 #: data/knowledge.xml:272
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The covalent radius in chemistry corresponds to half of the distance between "
 "two identical atomic nuclei, bound by a covalent bond."
-msgstr "تساهمي بوصة إلى من بين إثنان متطابقة ذري أداء a."
+msgstr ""
+"يتوافق نصف القطر التساهمي في الكيمياء مع نصف المسافة بين نواتين ذريتين "
+"متماثلتين، مرتبطتين برابطة تساهمية."
 
 #: data/tools.xml:5
 #, kde-format
@@ -680,7 +728,7 @@ msgid "Watchglass"
 msgstr "زجاجة ساعة"
 
 #: data/tools.xml:6
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Watchglasses are round glass panes with a diameter of around 5 - 10cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
@@ -691,9 +739,13 @@ msgid ""
 "airing cupboard. The term watchglass is derived from the former pocket "
 "watches' protection glass which was often domed."
 msgstr ""
-"كأس مع a من سم مُستخدَم بوصة experimental الـ حد هو إلى اسمح إلى إبقاء صغير من "
-"بوصة ترتيب إلى الـ أداء مع a بنسن ناسخ أقراص مُستخدَم إلى أو علاوة على ذلك إلى "
-"صغير من أو بوصة الـ عبارة هو مشتق من حماية كأس."
+"أوانٍ زجاجية مستديرة يتراوح قطرها بين 5 و10 سم، تُستخدَم في تقنيات تجريبية "
+"متنوعة. يُثنَى حافتها إلى الأعلى لتمكينها من حمل كميات صغيرة من السوائل من أجل "
+"تبخيرها. يمكن تسريع عملية التبخير بتسخين الإناء الزجاجي بموقد بنزن. يمكن "
+"أيضًا استخدام الأواني الزجاجية لتغطية أطباق بتري أو الدوارق، وهي مناسبة أيضًا "
+"لوزن كميات صغيرة من المواد أو تجفيفها في خزانة تهوية. اشتُقَّ مصطلح الإناء "
+"الزجاجي (Watchglass) من زجاج الحماية المستخدم في ساعات الجيب القديمة والذي "
+"كان غالبًا مقببًا."
 
 #: data/tools.xml:10
 #, kde-format
@@ -701,7 +753,7 @@ msgid "Dehydrator"
 msgstr "مجفّف"
 
 #: data/tools.xml:13
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
 "which serves to dry chemical matters; that is, to remove water or liquid "
@@ -715,9 +767,14 @@ msgid ""
 "environment by absorbing water vapor. The dry atmosphere then takes up water "
 "from the sample to be dried."
 msgstr ""
-"A هو a هو من كأس و إلى هو إلى أزِل الجدي أو من a عيًنة n t t الإيطالية هو a "
-"كأس مع قمّة a هو هوأء الـ s جزء هو مع a e g أو الـ عيًنة إلى هو يعمل a من أو "
-"أعلى n t t هو الإيطالية بيئة أداء الجدي الـ أعلى الجدي من عيًنة إلى."
+"المجفّف قطعة من أجهزة المختبر، غالبًا ما تُصنَع من الزجاج، وتُستخدَم لتجفيف المواد "
+"الكيميائية؛ أي لإزالة الماء أو السائل من العينة.\n"
+"مبدئيًا، هو وعاء زجاجي بغطاء ذي طحن مستو، بحيث يكون الوعاء محكم الإغلاق. يُملأ "
+"الجزء السفلي من المجفف عادةً بعامل تجفيف مثل كلوريد الكالسيوم، أو هلام "
+"السيليكا، أو أنهيدريد الفوسفوريك، أو حمض الكبريتيك. توضَع العينة المراد "
+"تجفيفها على خرطوشة شفافة من البلاستيك أو السيراميك فوق عامل التجفيف.\n"
+"عامل التجفيف مادّة استرطابية، مما يعني أنه يزيل الرطوبة من بيئته بامتصاص بخار "
+"الماء. ثمّ يأخذ الجو الجاف الماء من العينة المراد تجفيفها."
 
 #: data/tools.xml:17
 #, kde-format
@@ -732,16 +789,16 @@ msgid ""
 "their design (e.g. flat spatula or spoon spatula) varies."
 msgstr ""
 "المِلْوَق أداة مختبرية لكشط، صقل ونقل المواد الكيميائية. تختلف المادة التي "
-"تتكوّن منها (مثلًا الحديد، التيتانيوم، البلوتونيوم) وكذلك تصميمها (مثلًا مِلْوَق "
-"مسطّح أو على شكل ملعقة)."
+"تتكوّن منها (مثلًا الحديد، التيتانيوم، البلاتين) وكذلك تصميمها (مثلًا مِلْوَق مسطّح "
+"أو على شكل ملعقة)."
 
 #: data/tools.xml:22
 #, kde-format
 msgid "Water Jet Pump"
-msgstr "مضخّة الماء"
+msgstr "مضخّة الماء النفّاثة"
 
 #: data/tools.xml:23
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
@@ -751,9 +808,12 @@ msgid ""
 "application of the hydrodynamic paradox (objects close to drifting fluids "
 "are aspirated instead of being pushed away)."
 msgstr ""
-"الـ الجدي إثنان خانة و خروج و بوصة من إثنان داخل غير ذلك عند الجدي خانة a "
-"الجدي خارج من a a أنبوب بذلك الجدي هوأء أو من ثانية خانة<br> هو أداء بوصة a "
-"هكذا الإيطالية هو تطبيق من هذا اغلق إلى من."
+"لمضخة الماء النفاثة مدخلان وأنبوب خروج واحد، وتتكون، من حيث المبدأ، من "
+"أنبوبين أحدهما داخل الآخر. عند مدخل الماء، تنطلق نفاثة مائية تحت ضغط كامل من "
+"فوهة إلى أنبوب أكبر قليلاً. وبذلك تحمل النفاثة المائية الهواء أو السائل من "
+"المدخل الثاني. <br>\n"
+"يحدث هذا بسبب الضغط السلبي في السائل الجاري، وبالتالي فهو تطبيق للمفارقة "
+"الهيدروديناميكية (يُشفط الجسم القريب من السوائل الجارية بدلاً من دفعه بعيداً)."
 
 #: data/tools.xml:27
 #, kde-format
@@ -761,15 +821,15 @@ msgid "Refractometer"
 msgstr "مقياس الانكسار"
 
 #: data/tools.xml:28
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "With a refractometer the refractive index of optical media is determined. If "
 "the refractive index of a chemical is known it can be used after a synthesis "
 "to determine the sample's purity or to audit the synthesis' success."
 msgstr ""
-"مع a فهرس من وسائط هو إذا فهرس من a هو الإيطالية مُستخدَم بعد a تكوين ، "
-"تأليف ، شمولية ، تمثيل، اصطناع ، تخليق إلى عيًنة s أو إلى تدقيق تكوين ، "
-"تأليف ، شمولية ، تمثيل، اصطناع ، تخليق ناجح."
+"يُحدَّد معامل الانكسار للأوساط البصرية باستخدام مقياس الانكسار. إذا كان معامل "
+"انكسار مادة كيميائية معروفًا، فيمكن استخدامه بعد التصنيع لتحديد نقاء العينة "
+"أو التحقق من نجاح التصنيع."
 
 #: data/tools.xml:32
 #, kde-format
@@ -777,14 +837,14 @@ msgid "Mortar"
 msgstr "هاون"
 
 #: data/tools.xml:33
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
-"A هو مُستخدَم لـ يدويّاً itإيطالياهو مُستخدَم إلى a من أداء A أداة a هو مُستخدَم مع "
-"لـ."
+"يُستخدَم الهاون لطحن المواد الصلبة يدويًا. يمكن أيضًا استخدامه لتجانس خليط من "
+"المساحيق بالطحن. تُستخدَم أداة على شكل هراوة تُعرَف باسم المدق مع الهاون للطحن."
 
 #: data/tools.xml:37
 #, kde-format
@@ -808,15 +868,17 @@ msgstr ""
 #: data/tools.xml:42
 #, kde-format
 msgid "Cork Ring"
-msgstr "خاتم فلّين"
+msgstr "حلقة فلّين"
 
 #: data/tools.xml:43
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Large containers like round-bottomed flasks are placed on rings made of "
 "cork, a special soft lightweight wood with good insulating qualities to "
 "protect fragile instruments."
-msgstr "كبير مثل يعمل من a خفيف الوزن مع إلى حماية."
+msgstr ""
+"تُوضَع الحاويات الكبيرة مثل القارورات قاعية الاستدارة على حلقات مصنوعة من "
+"الفلين، وهو خشب خفيف الوزن طري خاص بخصائص عزل جيدة لحماية الأدوات الهشة."
 
 #: data/tools.xml:47
 #, kde-format
@@ -829,8 +891,8 @@ msgid ""
 "A dropping funnel can be used to drop precise amounts of fluid. The dropping "
 "speed can be controlled with a valve."
 msgstr ""
-"يمكن أن يُستخدم قمع التنقيط لتنقيط كميات محدّدة من السوائل. يمكن التحكّم بسرعة "
-"التنقيط بقيمة."
+"يمكن أن يُستخدم قمع التنقيط لإضافة كميات محدّدة من السوائل على شكل نقاط. يمكن "
+"التحكّم بسرعة التنقيط بصمّام."
 
 #: data/tools.xml:52
 #, kde-format
@@ -844,8 +906,8 @@ msgid ""
 "densities. A valve at the bottom allows the denser fluid to be drained for "
 "transfer to another container."
 msgstr ""
-"يمكن أن يُستخدم قمع الفصل لفصل مخلوط من السوائل بكثافات مختلفة. القيمة في "
-"الأسفل تتيح لِقمع الفصل أن يُستنفذ للنقل إلى حاوٍ آخر."
+"يمكن أن يُستخدم قمع الفصل لفصل مخلوط من السوائل بكثافات مختلفة. الصمّام في "
+"الأسفل يسمح بتصريف السائل الأعلى كثافة لنقله إلى حاوية أخرى."
 
 #: data/tools.xml:57
 #, kde-format
@@ -853,19 +915,21 @@ msgid "Test Tube Rack"
 msgstr "حامل أنابيب الاختبار"
 
 #: data/tools.xml:58
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This rack is useful when many small amounts of chemicals are to be tested in "
 "a row; or alternatively, to dry test tubes."
-msgstr "هذا بوصة إلى إختبار صغير من بوصة a صف أو IF إلى إختبار."
+msgstr ""
+"هذا الحامل مفيد عندما يتعيّن اختبار العديد من الكميات الصغيرة من المواد "
+"الكيميائية على التوالي؛ أو بدلاً من ذلك، لتجفيف أنابيب الاختبار."
 
 #: data/tools.xml:62
 #, kde-format
 msgid "Vortexer"
-msgstr ""
+msgstr "راجّة"
 
 #: data/tools.xml:63
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
@@ -874,11 +938,11 @@ msgid ""
 "homogenized quickly. It is the opposite of a centrifuge, used to separate "
 "fluids."
 msgstr ""
-"A إلى موجود بوصة الـ وعاء\n"
-"مستودع\n"
-"علبة\n"
-"حاوية إلى هو put يعمل a منصة الـ منصة أداء أعلى إلى عند نقطة a مراسَل واحد "
-"مستشعر هو مُنشّط داخل صغير من itإيطالياهو هو من a مُستخدَم إلى."
+"تُستخدَم الراجّة لتجانس الكواشف الموجودة في المختبرات. توضَع الحاوية التي تحتوي "
+"على السائل المراد تجانسه على منصة. تهتز المنصة بالتحريك الدوراني حتى 3000 "
+"دورة في الدقيقة، وعند هذه النقطة يُفعَّل مستشعر الاتصال. بهذه الطريقة، يمكن "
+"تجانس أحجام صغيرة جدًا من السوائل بسرعة. إنها عكس الطاردة المركزية، التي "
+"تُستخدَم لفصل السوائل."
 
 #: data/tools.xml:67
 #, kde-format
@@ -886,22 +950,23 @@ msgid "Wash Bottle"
 msgstr "قنينة غسيل"
 
 #: data/tools.xml:68
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "These bottles are used for many purposes. In most laboratories they are "
 "usually filled with water, salt, acid or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
-"هذه مُستخدَم لـ داخل مع الجدي ملح أو غير ذلك مُستخدَم هم make الإيطالية إلى "
-"تطبيق IF ليس إلى قياس a قَدْر."
+"تُستخدَم هذه القناني لأغراض عديدة. في معظم المختبرات، تُملأ عادةً بالماء أو "
+"الملح أو الحمض أو سوائل أخرى شائعة الاستخدام. إنها تجعل تطبيق السائل سهلاً "
+"إذا لم تكن هناك حاجة إلى كمية مقاسة بدقة."
 
 #: data/tools.xml:72
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rotary Evaporator"
-msgstr "مبخر دوراني"
+msgstr "مبخّر دوّار"
 
 #: data/tools.xml:73
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A rotary evaporator consists of a round flask in a bath of hot water, and is "
 "designed to evaporate solvents. The flask is rotated and the solvent "
@@ -910,39 +975,43 @@ msgid ""
 "attaching a vacuum pump, the air pressure and therefore the boiling point of "
 "the fluid can be decreased."
 msgstr ""
-"A من a بوصة a من الجدي هو إلى الـ هو و a a و a بوصة أو بواسطة a هوأء و نقطة "
-"من."
+"يتكون المبخر الدوار من قارورة مستديرة في حمام مائي ساخن، وهو مصمم لتبخير "
+"المذيبات. تدور القارورة ويتجمع المذيب تحت تفريغ هوائي على مكثف ثم يقطر في "
+"قارورة تجميع المكثفات. بهذه الطريقة يمكن تركيز المحاليل أو تنقيتها. عن طريق "
+"توصيل مضخة تفريغ، يمكن خفض ضغط الهواء وبالتالي نقطة غليان السائل."
 
 #: data/tools.xml:77
 #, kde-format
 msgid "Reflux Condenser"
-msgstr "مكثف مرجع"
+msgstr "مكثف إرجاعي"
 
 #: data/tools.xml:78
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
 "condenses and runs back into the original fluid. Usually it is put on a "
 "round-bottomed flask or several neck flasks."
 msgstr ""
-"A إلى a إجراء a أداء هو يعمل الـ هو حتّى الإيطالية و إلى الخلف أصلي عادة "
-"الإيطالية هو put يعمل a أو."
+"يُخضِع المكثف الإرجاعي السائل لعملية حيث يُجمع الغاز الناتج عن التسخين على "
+"المكثف الإرجاعي. يُبرَّد السائل حتى يتكثف ويعود إلى السائل الأصلي. عادةً ما يُوضَع "
+"على قارورة قاعية الاستدارة أو قوارير متعددة العنق."
 
 #: data/tools.xml:82
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pipette Bulb"
-msgstr "الماصّة اللّمبة"
+msgstr "كبّاسة الماصّة"
 
 #: data/tools.xml:83
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A pipette bulb is used to fill pipettes. Squeezing then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb then causes the fluid to flow out of the pipette."
 msgstr ""
-"A مصباح هو مُستخدَم إلى ملء itإيطالياهو a اذهب إذا هوأء إلى الخلف كرة تنفيذ "
-"خارج من."
+"تُستخدَم كبّاسة الماصّة لملء الماصات. ينتج عن ضغط الكبّاسة ثم إطلاقها ضغطًا سلبيًا، "
+"مما يتسبب في تدفق السائل إلى الماصة؛ يؤدي ضغط الكبّاسة بعد ذلك إلى تدفق "
+"السائل من الماصة."
 
 #: data/tools.xml:87
 #, kde-format
@@ -950,51 +1019,62 @@ msgid "Test Tube"
 msgstr "أنبوب اختبار"
 
 #: data/tools.xml:88
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "In a test tube small reactions or experiments are performed. There are many "
 "different types of tubes. For example some have connectors, some are etched "
 "for measurements, some are hardened for durability."
-msgstr "داخل a إختبار صغير أو هناك مختلف من لـ بعض بعض لـ بعض لـ."
+msgstr ""
+"تُنفَّذ التفاعلات أو التجارب الصغيرة في أنبوب الاختبار. هناك العديد من أنواع "
+"الأنابيب المختلفة. على سبيل المثال، بعضها يحتوي على موصلات، وبعضها منقوش "
+"للقياسات، وبعضها مقسّى لتحمل الاستخدام."
 
 #: data/tools.xml:92
 #, kde-format
 msgid "Protective Goggles"
-msgstr "نظارة واقية"
+msgstr "نظارات واقية"
 
 #: data/tools.xml:93
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Most laboratories insist that protective goggles are worn. Without them, it "
 "is too risky to work with most chemicals. Usually, the lens is a special "
 "type of plastic that affords protection from both mechanical impacts, and "
 "acid and base chemicals."
-msgstr "أكثر بدون الإيطالية هو إلى مع عادة هو a نوع من من و و القاعدة."
+msgstr ""
+"تصرّ معظم المختبرات على ارتداء النظارات الواقية. بدونها، يكون العمل مع معظم "
+"المواد الكيميائية محفوفًا بالمخاطر. عادةً، تكون العدسات من نوع خاص من "
+"البلاستيك يوفر الحماية من كل من الصدمات الميكانيكية والمواد الكيميائية "
+"الحمضية والقاعدية."
 
 #: data/tools.xml:97
 #, kde-format
 msgid "Round-Bottomed Flask"
-msgstr "قارورة كروية"
+msgstr "قارورة قاعية الاستدارة"
 
 #: data/tools.xml:98
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A round-bottomed flask is used for many reactions. Some can be connected to "
 "other items, as the frosting on the neck shows. With cork rings they can be "
 "placed on a table."
-msgstr "A هو مُستخدَم لـ a من بعض إلى غير ذلك عناصر يعمل مع يعمل a جدول."
+msgstr ""
+"تُستخدَم القارورة قاعية الاستدارة للعديد من التفاعلات. يمكن توصيل بعضها بأغراض "
+"أخرى، كما يظهر من التقليم على العنق. باستخدام حلقات الفلين، يمكن وضعها على "
+"الطاولة."
 
 #: data/tools.xml:102
-#, fuzzy, kde-format
+#, kde-format
 msgid "Full Pipette"
-msgstr "كامل الماصّة"
+msgstr "ماصّة كاملة"
 
 #: data/tools.xml:103
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Unlike a regular pipette, a full pipette only has one marking for a specific "
 "volume."
-msgstr "على خلاف a عادي a لـ a شدة الصوت."
+msgstr ""
+"على عكس الماصة العادية، تحتوي الماصة الكاملة على علامة واحدة فقط لحجم معين."
 
 #: data/tools.xml:107
 #, kde-format
@@ -1002,12 +1082,15 @@ msgid "Drying Tube"
 msgstr "أنبوب تجفيف"
 
 #: data/tools.xml:108
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Some reactions need to be kept free of water: to make this possible a drying "
 "tube can be used. Drying tubes contains a hygroscopic chemical to absorb "
 "water from the atmosphere."
-msgstr "هناك إلى حرّة من الجدي إلى make a يحتوي a إلى الجدي بوصة."
+msgstr ""
+"بعض التفاعلات تحتاج إلى أن تُحفَظ خالية من الماء: لجعل هذا ممكنًا، يمكن استخدام "
+"أنبوب تجفيف. تحتوي أنابيب التجفيف على مادة كيميائية استرطابية لامتصاص الماء "
+"من الجو."
 
 #: data/tools.xml:112
 #, kde-format
@@ -1015,15 +1098,16 @@ msgid "Test Tube Holder"
 msgstr "ماسك أنبوب الاختبار"
 
 #: data/tools.xml:113
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
 "there is a safe distance between ones hand and the test tube when the tube "
 "is hot. Typically, test tube holders are used to hold test tubes over open "
 "flames."
 msgstr ""
-"مع a إختبار إبقاء إختبار إذا استخدام a هو a آمن بين و إختبار هو داخل "
-"الإيطالية هو مُستخدَم إبقاء a إختبار فتح."
+"تجعل ماسكات أنابيب الاختبار الإمساك بها أسهل. باستخدام الماسك، تكون هناك "
+"مسافة آمنة بين يد المستخدم وأنبوب الاختبار عندما يكون الأنبوب ساخنًا. عادةً، "
+"تُستخدَم ماسكات أنابيب الاختبار للإمساك بأنابيب الاختبار فوق اللهب المكشوف."
 
 #: data/tools.xml:117
 #, kde-format
@@ -1031,64 +1115,71 @@ msgid "Measuring Cylinder"
 msgstr "مخبار مدرّج"
 
 #: data/tools.xml:118
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A measuring cylinder can be used to measure amounts of liquids relatively "
 "precisely. Furthermore, the cylinder allows particulate matter to sink: "
 "following this, the particulates can be separated from the fluid by "
 "decanting."
-msgstr "داخل a إسطوانة ملء من علاوة على ذلك إسطوانة إلى المتابعة من أداء."
+msgstr ""
+"يمكن استخدام المخبار المدرج لقياس كميات السوائل بدقة نسبية. علاوة على ذلك، "
+"يسمح المخبار لمواد الجسيمات بالترسب: بعد ذلك، يمكن فصل الجسيمات عن السائل "
+"بالصبّ."
 
 #: data/tools.xml:122
 #, kde-format
 msgid "Thermometer"
-msgstr "محرار"
+msgstr "مِحْرار"
 
 #: data/tools.xml:123
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A thermometer can be used to determine the temperature of a sample. In a "
 "laboratory, special thermometers are used which can also be used within "
 "acids or bases."
-msgstr "مع a من a عيًنة داخل a مُستخدَم مُستخدَم أو."
+msgstr ""
+"يمكن استخدام المحرار لتحديد درجة حرارة العينة. في المختبر، تُستخدَم محارير "
+"خاصة يمكن استخدامها أيضًا داخل الأحماض أو القواعد."
 
 #: data/tools.xml:127
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic Stir Bar"
-msgstr "مغناطيسي شريط"
+msgstr "قضيب تحريك مغناطيسي"
 
 #: data/tools.xml:128
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Magnetic stir bars are highly chemically inert, small magnetic bars. Most "
 "heaters have a built-in magnet which can rotate: this causes the stir bar to "
 "rotate and the mixture to become homogenized."
-msgstr "مغناطيسي صغير أكثر a بوصة تدوير هذا شريط إلى تدوير و إلى."
+msgstr ""
+"قضبان التحريك المغناطيسية هي قضبان مغناطيسية صغيرة خاملة كيميائيًا للغاية. "
+"تحتوي معظم السخانات على مغناطيس مدمج يمكنه الدوران: وهذا يتسبب في دوران قضيب "
+"التحريك وتجانس المخلوط."
 
 #: data/tools.xml:132
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic Stir Bar Retriever"
-msgstr "مغناطيسي التحريك عمود المسترد"
+msgstr "مِسْتخْرِج قضيب التحريك المغناطيسي"
 
 #: data/tools.xml:133
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A magnetic stir bar retriever can be used to retrieve magnetic stir bars "
 "from containers. The retriever is a bar with a magnet at the end which "
 "attracts the stir bars."
 msgstr ""
-"مع a شريط أزِل من a وعاء\n"
-"مستودع\n"
-"علبة\n"
-"حاوية الـ هو a شريط مع a عند end."
+"يمكن استخدام مستخرج قضيب التحريك المغناطيسي لاسترداد قضبان التحريك "
+"المغناطيسية من الحاويات. المستخرج هو قضيب به مغناطيس في نهايته يجذب قضبان "
+"التحريك."
 
 #: data/tools.xml:137
 #, kde-format
 msgid "Pipette"
-msgstr "ماصة"
+msgstr "ماصّة"
 
 #: data/tools.xml:138
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
@@ -1096,16 +1187,18 @@ msgid ""
 "a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
-"الماصّات مُستخدَم إلى صغير من بوصة A a شدة الصوت مقياس و a قاعدة مُستخدَم لـ "
-"كلاهما من لـ مع a من C و لـ وقت من أداء سابق إذا الوقت من يعمل."
+"تُستخدَم الماصات لإدخال كميات صغيرة من السوائل في المختبرات. تحتوي الماصة على "
+"مقياس حجم وكقاعدة عامة، تُستخدَم كبّاسات الماصة كمقطّرات للسوائل. تُعاير كلا "
+"النوعين من الماصات للسوائل عند درجة حرارة 20 درجة مئوية ولزمن التدفق (يُشار "
+"إليه بـ \"Ex.\"). إذا لزم الأمر، يُشار إلى أوقات التدفق على الماصات."
 
 #: data/tools.xml:142
 #, kde-format
 msgid "Erlenmeyer Flask"
-msgstr "حوجلة إيرلنماير"
+msgstr "حوجلة إرلنمير"
 
 #: data/tools.xml:148
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
@@ -1123,26 +1216,36 @@ msgid ""
 "on the stirring platform. A round-bottomed flask, by contrast, must be "
 "placed on a cork ring on the stirring platform.\n"
 msgstr ""
-"هذا مسمى بعد أميل إرلينميير مع معكوس القاعدة و a هناك مختلف من إرلينميير لـ "
-"تطبيقات و استمارة الإعتماد يعمل تطبيق أيار دقة إلى اسمح اتصال إلى غير ذلك n "
-"t t t<br> n t t من أو n t t t<br> n t t إرلينميير هو لـ أو أداء أو لـ الـ "
-"إرلينميير هو لـ a منذ الإيطالية يعمل منصة A أداء تباين يعمل a يعمل منصة n"
+"حوجلة إرلنمير، التي سُمّيت باسم الكيميائي إميل إرلنمير (1825-1909)، تختلف عن "
+"الدورق في أنها تأتي بقاعدة مخروطية مقلوبة وعنق أسطواني. هناك أنواع مختلفة من "
+"حوجلات إرلنمير للتطبيقات المخبرية: شكل العنق الضيق والعنق العريض. اعتمادًا "
+"على التطبيق، قد تحتوي الحوجلة على طحن دقيق للسماح باتصال جيد بالحاويات "
+"الأخرى.\n"
+"<br>\n"
+"يقلل العنق الضيق من خطر تسرب السوائل، خاصة عند الغليان أو أثناء التفاعلات "
+"التي تخلط المحتويات.\n"
+"<br>\n"
+"حوجلة إرلنمير مفيدة لخلط السوائل أو تسريع التفاعلات عن طريق التحريك أو الرج، "
+"على سبيل المثال. حوجلة إرلنمير مناسبة بشكل خاص للمحرّض المغناطيسي، حيث يمكن "
+"وضعها مباشرة على منصة التحريك. على النقيض من ذلك، يجب وضع القارورة قاعية "
+"الاستدارة على حلقة فلين على منصة التحريك.\n"
 
 #: data/tools.xml:153
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ultrasonic Bath"
-msgstr "فوق الصّوتي الحمّام"
+msgstr "حمّام فوق صوتي"
 
 #: data/tools.xml:154
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "For some chemical reactions it is important that the solvent is gas free. To "
 "achieve this the reaction vessel is put for some time into a ultrasonic "
 "bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
 "This procedure is called out-gassing."
 msgstr ""
-"لـ بعض الإيطالية هو مهم هو حرّة إلى هو put لـ بعض وقت a عَبْر مرتفع صوت تردد و "
-"هذا procedure هو."
+"لبعض التفاعلات الكيميائية، من المهم أن يكون المذيب خاليًا من الغاز. لتحقيق "
+"ذلك، توضَع وعاء التفاعل لبعض الوقت في حمام فوق صوتي. بسبب التردد الصوتي "
+"العالي، تنسلخ أقفال البخار وتصعد. تُسمَّى هذه العملية إزالة الغازات."
 
 #: data/tools.xml:158
 #, kde-format
@@ -1150,15 +1253,16 @@ msgid "Scales"
 msgstr "ميزان"
 
 #: data/tools.xml:159
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "In a laboratory, very precise quantities of reagents often have to be "
 "weighed out. High precision scales can measure masses down to 1/10000 gram. "
 "As such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
-"داخل a إلى خارج من عالي الميزان قياس أسفل إلى لذلك يعمل صناديق إلى و محمي "
-"أداء a."
+"في المختبر، غالبًا ما يجب وزن كميات دقيقة جدًا من الكواشف. يمكن للموازين عالية "
+"الدقة قياس الكتل حتى 1/10000 من الغرام. كما أنها تقف على كتل جرانيت لتجنب "
+"الاهتزازات ومحمية من تغيرات تدفق الهواء بقبة."
 
 #: data/tools.xml:163
 #, kde-format
@@ -1166,7 +1270,7 @@ msgid "Distillation bridge"
 msgstr "جسر تقطير"
 
 #: data/tools.xml:164
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
@@ -1176,32 +1280,36 @@ msgid ""
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
 msgstr ""
-"إلى a استخدام الـ جسر هو بين إثنان داخل هو إلى عَبْر a هو جسر عند end من جسر "
-"هو و بوصة a ك a قاعدة جسر هو أداء عودة داخل هو a لـ يعمل جسر."
+"إحدى وسائل فصل المخاليط هي استخدام التقطير. في هذا الإعداد، يعمل جسر التقطير "
+"كقناة بين الوعاءين. يحتوي أحد الأوعية على المخلوط المراد فصله، ومن خلال "
+"التسخين، يتشكل غاز يُمرَّر عبر الجسر. في نهاية الجسر، يتكثف الطور الغازي ويقطر "
+"في قارورة مستديرة. عادةً، يُبرَّد الجسر بالتدفق العكسي. أيضًا، غالبًا ما يوجد "
+"مقياس حرارة للتحكم في درجة حرارة جسر التقطير."
 
 #: data/tools.xml:169
 #, kde-format
 msgid "Syringe"
-msgstr "محقنة"
+msgstr "مِحْقَنَة"
 
 #: data/tools.xml:170
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A syringe consists of two parts, a glass tube and a plunger, both normally "
 "made of glass. Gasses flow into the glass tube, and as the syringe is a "
 "closed system, the plunger moves outwards. This can be used to measure the "
 "volume of a reaction."
 msgstr ""
-"A من إثنان A كأس و a كلاهما من كأس A كأس ك هو a مغلقة نظام إلى إعطاءها هذا "
-"مُستخدَم شدة الصوت من."
+"تتكون المحقنة من جزأين، أنبوب زجاجي ومكبس، كلاهما مصنوعان عادةً من الزجاج. "
+"تتدفق الغازات إلى الأنبوب الزجاجي، ونظرًا لأن المحقنة نظام مغلق، يتحرك المكبس "
+"للخارج. يمكن استخدام هذا لقياس حجم التفاعل."
 
 #: data/tools.xml:174
-#, fuzzy, kde-format
+#, kde-format
 msgid "Separation Beaker"
-msgstr "الإفتراق الكوب"
+msgstr "دورق فصل"
 
 #: data/tools.xml:175
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
@@ -1209,8 +1317,10 @@ msgid ""
 "four caps contain a specific liquid, depending on the boiling point of the "
 "liquid distilled."
 msgstr ""
-"عند أربعة من put أربعة صغير بينما أداء درجة بعد a هذا عند end من الكل أربعة "
-"a بوصة الإيطالية يعمل نقطة من."
+"أولاً، توضَع أربعة أغطية صغيرة في الأطراف الأربعة لدورق الفصل. ثم، أثناء "
+"التقطير، يُدوَّر الدورق بمقدار 60 درجة بعد الوصول إلى درجة حرارة معينة. بفعْل "
+"ذلك، في نهاية التقطير، تحتوي جميع الأغطية الأربعة على سائل معين، اعتمادًا على "
+"نقطة غليان السائل المقطر."
 
 #: data/tools.xml:179
 #, kde-format
@@ -1218,29 +1328,33 @@ msgid "Burner"
 msgstr "موقد"
 
 #: data/tools.xml:180
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "There are several types of burners; this picture shows a Teclu-Burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
-msgstr "هناك من الـ صورة a الشّعلة كل نوع هم بوصة و قدرة."
+msgstr ""
+"هناك عدة أنواع من المواقد؛ تظهر هذه الصورة موقد تيكلو. لكل نوع من المواقد "
+"استخدامات محددة، وهي تختلف في درجة الحرارة القصوى والسعة التسخينية الإجمالية."
 
 #: data/tools.xml:184
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extractor Hood"
-msgstr "النازع هود"
+msgstr "شفاط"
 
 #: data/tools.xml:185
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Extractor hoods are used to filter out gases from chemical reactions. The "
 "air, once cleaned, is pumped outside of the building."
-msgstr "أكثر استخدام هم المرشّح من و هوأء خارج من."
+msgstr ""
+"تُستخدَم الشفاطات لترشيح الغازات الناتجة عن التفاعلات الكيميائية. يُضَخ الهواء، "
+"بعد تنظيفه، إلى خارج المبنى."
 
 #: data/tools.xml:189
-#, fuzzy, kde-format
+#, kde-format
 msgid "Contact Thermometer"
-msgstr "المراسَل ميزان الحرارة"
+msgstr "مِحْرار تَماس"
 
 #: data/tools.xml:190
 #, kde-format
@@ -1253,21 +1367,26 @@ msgid ""
 "coil is deactivated; when the temperature falls, the heating coil is "
 "reactivated."
 msgstr ""
+"تختلف محارير التماس عن المحارير العادية في أنها متصلة بملف تسخين، وبالتالي "
+"فهي قادرة على استشعار درجة الحرارة الحالية والتحكم فيها. بفعْل ذلك، تسمح "
+"بإجراء التجارب تحت درجة حرارة ثابتة. تعمل محارير التماس باستخدام حلقة تغذية "
+"راجعة سلبية: بمجرد الوصول إلى درجة الحرارة المطلوبة، يُلغى تنشيط ملف التسخين؛ "
+"عندما تنخفض درجة الحرارة، يُعاد تنشيط ملف التسخين."
 
 #: data/tools.xml:194
 #, kde-format
 msgid "Clamps"
-msgstr "ماسك"
+msgstr "مَشابِك"
 
 #: data/tools.xml:195
-#, fuzzy, kde-format
+#, kde-format
 msgid "Laboratory clamps make it easier to hold many kinds of tools."
-msgstr "مع مُستخدَم بوصة a إبقاء الكل من."
+msgstr "تُيَسِّرُ المَشابِكُ المَخْبَرِيَّةُ الإِمْسَاكَ بالعديدِ من أنواعِ الأدوات."
 
 #: data/tools.xml:199
 #, kde-format
 msgid "Indicator Paper"
-msgstr "ورق مُشعِر"
+msgstr "وَرَقُ مُشِعِّر"
 
 #: data/tools.xml:200
 #, kde-format
@@ -1279,26 +1398,31 @@ msgid ""
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
+"تُوجَدُ عِدَّةُ طُرُقٍ لِقِيَاسِ دَرَجَةِ الحَمُوضَة (pH) لِمَحْلُولٍ مَا، إِحْدَاهَا هِيَ اِسْتِخْدَامُ وَرَقِ "
+"المُشِعِّر. يَتَغَيَّرُ لَوْنُ وَرَقِ المُشِعِّرِ بِحَسَبِ دَرَجَةِ الحَمُوضَةِ لِلمَحْلُولِ المَطْبُوقِ عَلَيْهِ، "
+"وَبِمُقَارَنَتِهِ بِخَارِطَةٍ يُمْكِنُ الحُصُولُ عَلَى قِيَاسٍ دَقِيقٍ إِلَى حَدٍّ مَا لِدَرَجَةِ حَمُوضَةِ المَحْلُول. "
+"إِذَا دَعَتِ الحَاجَةُ إِلَى قِيَاسٍ أَكْثَرَ دِقَّةً، يُمْكِنُ اِسْتِخْدَامُ قُطْبٍ زُجَاجِيٍّ، وَهُوَ يَعْمَلُ عَنْ طَرِيقِ "
+"قِيَاسِ نَاقِلِيَّةِ المَحْلُول."
 
 #: data/tools.xml:204
-#, fuzzy, kde-format
+#, kde-format
 msgid "Short-Stem Funnel"
-msgstr "قصير قمع"
+msgstr "قُمْعٌ قَصِيرُ السَاق"
 
 #: data/tools.xml:205
 #, kde-format
 msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
-msgstr ""
+msgstr "يُمْكِنُ اِسْتِخْدَامُ القُمْعِ لِمَلْءِ وِعَاءٍ ذِي عُنُقٍ ضَيِّقٍ بِسَائِلٍ أَوْ مَسْحُوقٍ نَاعِم."
 
 #: data/tools.xml:209
 #, kde-format
 msgid "Buret"
-msgstr "سحّاحة"
+msgstr "سَحَّاحَة"
 
 #: data/tools.xml:210
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Burets are used to titrate liquids. A buret is filled with a specific volume "
 "of a liquid, and placed beneath it is a container such as an Erlenmeyer "
@@ -1307,45 +1431,46 @@ msgid ""
 "they can be very easily refilled with the exact volume for which the buret "
 "is calibrated."
 msgstr ""
-"A هو مُستخدَم إلى الـ هو مع a شدة الصوت من a أسفل الإيطالية a وعاء\n"
-"مستودع\n"
-"علبة\n"
-"حاوية مثل إرلينميير هو بواسطة بوصة وعاء\n"
-"مستودع\n"
-"علبة\n"
-"حاوية عالي جودة a ميكانيكية مع مع شدة الصوت لـ هو."
+"تُسْتَخْدَمُ السَّحَّاحَاتُ لِمُعَايَرَةِ السَّوَائِل. تُمْلَأُ السَّحَّاحَةُ بِحَجْمٍ مُحَدَّدٍ مِنْ سَائِلٍ مَا، وَيُوضَعُ "
+"تَحْتَهَا وِعَاءٌ مِثْلَ حُوَيْلَةِ إرلِنماير. بِفَتْحِ صِمَّامِ السَّحَّاحَةِ، سَيَتِمُّ مُعَايَرَةُ السَّائِلِ فِي "
+"الوِعَاء. تَحْتَوِي السَّحَّاحَاتُ عَالِيَةُ الجُودَةِ عَلَى آلِيَةِ تَهْوِيَةٍ تُمَكِّنُ مِنْ إِعَادَةِ مَلْئِهَا "
+"بِسُهُولَةٍ فَائِقَةٍ بِالحَجْمِ المَضْبُوطِ الَّذِي قُوِّمَتِ السَّحَّاحَةُ لَهُ."
 
 #: data/tools.xml:214
 #, kde-format
 msgid "Beaker"
-msgstr "دورق"
+msgstr "دَوْرَق"
 
 #: data/tools.xml:215
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Beakers can be used for many tasks. For instance, they are used to store "
 "chemicals and to perform chemical reactions. They are often also used for "
 "titrations."
-msgstr "الأكواب مُستخدَم بوصة لـ a من هم مُستخدَم إلى تخزين إلى هم مُستخدَم لـ."
+msgstr ""
+"يُمْكِنُ اِسْتِخْدَامُ الدَّوَارِقِ لِأَعْمَالٍ كَثِيرَة. عَلَى سَبِيلِ المِثَالِ، تُسْتَخْدَمُ لِتَخْزِينِ الكِيْمَاوِيَاتِ "
+"وَلِإِجْرَاءِ التَّفَاعُلَاتِ الكِيمْيَائِيَّة. كَمَا وَكثيرًا مَا تُسْتَخْدَمُ أَيْضًا فِي المُعَايَرَات."
 
 #: data/tools.xml:219
-#, fuzzy, kde-format
+#, kde-format
 msgid "DSC (Differential Scanning Calorimeter)"
-msgstr "جاري المسح قياس كمية السعرات الحرارية في الجسم"
+msgstr "مِقْيَاسُ الحَرَارَةِ المُسَحِّيُّ التَّفْضِيلِيّ (DSC)"
 
 #: data/tools.xml:220
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A DSC measures the heat flow volume of a compound. This value is very "
 "specific for every kind of matter, and thus a DSC can be used to identify "
 "chemicals or to describe them."
 msgstr ""
-"الـ شدة الصوت من a هذا قيمة هو لـ كل من هكذا هو مُستخدَم إلى تعرّف أو إلى."
+"يَقِيسُ مِقْيَاسُ الحَرَارَةِ المُسَحِّيُّ التَّفْضِيلِيّ (DSC) حَجْمَ سَرَيَانِ الحَرَارَةِ لِمُرَكَّبٍ مَا. تَكُونُ "
+"هَذِهِ القِيمَةُ خَاصَّةً جِدًّا بِكُلِّ نَوْعٍ مِنَ المَوَاد، وَبِالتَّالِي يُمْكِنُ اِسْتِخْدَامُ مِقْيَاسِ الحَرَارَةِ "
+"المُسَحِّيِّ التَّفْضِيلِيِّ لِتَحَدِيدِ هَوِيَّةِ المَوَادِ الكِيمْيَائِيَّةِ أَوْ لِوَصْفِهَا."
 
 #: data/tools.xml:224
-#, fuzzy, kde-format
+#, kde-format
 msgid "Dewar Vessel"
-msgstr "دوار  (ترمس مفرغ من الهواء)"
+msgstr "وِعَاءُ دِيوَار"
 
 #: data/tools.xml:225
 #, kde-format
@@ -1355,12 +1480,16 @@ msgid ""
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
+"وِعَاءُ دِيوَار (أَوْ قَارُورَةُ دِيوَار)، وَسُمِّيَ بِذَلِكَ تِكْرِيمًا لِلفِيزيَائِيِّ السِّير جَيْمِس دِيوَار "
+"(1842-1923)، هُوَ قَارُورَةٌ فَرَاغِيَّةٌ ذَاتُ جِدَارَيْن، مُصَمَّمَةٌ لِتَوفِيرِ عَزْلٍ حَرَارِيٍّ جَيِّد. وَلِهَذَا، "
+"فَهِيَ مُفِيدَةٌ لِحِفْظِ السَّوَائِلِ بَارِدَةً أَوْ دَافِئَةً. وَمِنَ الأَمْثِلَةِ المَعْرُوفَةِ عَلَى وِعَاءِ دِيوَار "
+"هُوَ تِيرْمُوس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
 #, kde-format
 msgid "Dummy"
-msgstr "دمية"
+msgstr "دُميَة"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:3
@@ -1371,7 +1500,7 @@ msgstr "الهيدروجين"
 #: element_tiny.xml:4
 #, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
-msgstr "'هيدرو' و 'جينو' باليونانية تعنيان 'يُشكِّل الماء'."
+msgstr "كَلِمَتا 'هيدرو' وَ'جيناو' بِاللُّغَةِ اليُونَانِيَّةِ تَعْنِيَانِ 'يُشَكِّلُ المَاءَ'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
@@ -1382,7 +1511,7 @@ msgstr "الهيليوم"
 #: element_tiny.xml:6
 #, kde-format
 msgid "The Greek word for the sun was 'helios'."
-msgstr ""
+msgstr "كَانَتِ الكَلِمَةُ اليُونَانِيَّةُ لِلشَّمْسِ هِيَ 'هيليوس'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:7
@@ -1393,7 +1522,7 @@ msgstr "الليثيوم"
 #: element_tiny.xml:8
 #, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "'ليثونس' باليونانية تعني 'صخرة'."
+msgstr "كَلِمَةُ 'ليثوس' بِاللُّغَةِ اليُونَانِيَّةِ تَعْنِي 'صَخْرَةً'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1404,7 +1533,7 @@ msgstr "البريليوم"
 #: element_tiny.xml:10
 #, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'."
+msgstr "كَلِمَةُ 'بيريلوس' بِاللُّغَةِ اليُونَانِيَّةِ تَعْنِي 'صَخْرَةً خَضْرَاءَ فَاتِحَةً'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1418,6 +1547,8 @@ msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
+"البورون يَعْنِي 'بور(اكس) + (كرب)ون'. يُوجَدُ فِي البُورَاكْسِ وَيَتَصَرَّفُ بِشَكْلٍ يُشْبِهُ الكَرْبُونَ "
+"إِلَى حَدٍّ كَبِير."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:13
@@ -1428,7 +1559,7 @@ msgstr "الكربون"
 #: element_tiny.xml:14
 #, kde-format
 msgid "Latin 'carboneum' for carbon."
-msgstr "'كربونيوم' باللاتينية تعني الكربون."
+msgstr "كَلِمَةُ 'كاربونيوم' بِاللُّغَةِ اللاتِينِيَّةِ تَعْنِي الكَرْبُونَ."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:15
@@ -1437,10 +1568,9 @@ msgid "Nitrogen"
 msgstr "النيتروجين"
 
 #: element_tiny.xml:16
-#, fuzzy, kde-format
-#| msgid "Latin 'oxygenium' (forms acids)"
+#, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
-msgstr "'أوكسيجينيوم' باللاتينية تعني 'يُشكِّل الأحماض'"
+msgstr "كَلِمَةُ 'نيتروجينيوم' بِاللُّغَةِ اللاتِينِيَّةِ ('يُشَكِّلُ نِتْرَاتِ البُوتَاسْيُوم')."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1451,7 +1581,7 @@ msgstr "الأوكسجين"
 #: element_tiny.xml:18
 #, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "'أوكسيجينيوم' باللاتينية تعني 'يُشكِّل الأحماض'."
+msgstr "'أوكسيجينيوم' باللاتينية (يُشكِّل الأحماض)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1462,7 +1592,7 @@ msgstr "الفلور"
 #: element_tiny.xml:20
 #, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr ""
+msgstr "'فلوييري' باللاتينية (يطفو)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1487,6 +1617,8 @@ msgid ""
 "The name comes from Latin 'sodanum' which means 'headache remedy'. The "
 "symbol comes from Latin 'natrium' for Arabic 'natrun' or English 'soda'."
 msgstr ""
+"اشتُقَّ الاسم من اللاتينية 'سودانوم' التي تعني 'دواء الصداع'. بينما اشتُقَّ الرمز "
+"من اللاتينية 'ناتريوم' عن العربية 'نطرون' أو الإنجليزية 'صودا'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:25
@@ -1495,10 +1627,9 @@ msgid "Magnesium"
 msgstr "المغنيسيوم"
 
 #: element_tiny.xml:26
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the city of Magnesia."
-msgstr "سُمِّي بعد مدينة مغنيسيا"
+msgstr "سُمِّيَ نسبة إلى مدينة ماغنيسيا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
@@ -1531,7 +1662,7 @@ msgstr "الفسفور"
 #: element_tiny.xml:32
 #, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
-msgstr ""
+msgstr "'فوسفوروس' باليونانية تعني 'يحمل الضوء'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1542,7 +1673,7 @@ msgstr "الكبريت"
 #: element_tiny.xml:34
 #, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr ""
+msgstr "'سويب' بالسنسكريتية تعني 'ينام'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1551,10 +1682,9 @@ msgid "Chlorine"
 msgstr "الكلور"
 
 #: element_tiny.xml:36
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "'كلوروس' باليونانية تعني 'أخضر مصفر'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1563,10 +1693,9 @@ msgid "Argon"
 msgstr "الآرجون"
 
 #: element_tiny.xml:38
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "'أيرغون' باليونانية تعني 'غير نشط'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1581,6 +1710,9 @@ msgid ""
 "in caustic potashes. The symbol comes from the Latin 'kalium' for the "
 "original Arabic 'al qaliy' which means alkali."
 msgstr ""
+"اشتُقَّ الاسم من الإنجليزية 'بوتاش' (رماد القدر) لأنه وُجِدَ في البوتاس الكاوي. "
+"بينما اشتُقَّ الرمز من اللاتينية 'كاليوم' عن العربية الأصلية 'القلي' التي تعني "
+"قلوي."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:41
@@ -1591,7 +1723,7 @@ msgstr "الكالسيوم"
 #: element_tiny.xml:42
 #, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr ""
+msgstr "'كالكس' باللاتينية تعني 'جير'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -1602,7 +1734,7 @@ msgstr "السكانديوم"
 #: element_tiny.xml:44
 #, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr ""
+msgstr "سُمِّيَ لأنه وُجِدَ في إسكندنافيا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -1613,7 +1745,7 @@ msgstr "التيتانيوم"
 #: element_tiny.xml:46
 #, kde-format
 msgid "The Titans were giants in Greek mythology."
-msgstr ""
+msgstr "كان التيتان عمالقة في الميثولوجيا الإغريقية."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:47
@@ -1624,7 +1756,7 @@ msgstr "الفاناديوم"
 #: element_tiny.xml:48
 #, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr ""
+msgstr "'فاناديس' هو اسم آخر للإلهة الإسكندنافية فريا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -1633,10 +1765,9 @@ msgid "Chromium"
 msgstr "الكروم"
 
 #: element_tiny.xml:50
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "'ليثونس' باليونانية تعني 'صخرة'"
+msgstr "'كرومّا' باليونانية تعني 'لون'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
@@ -1650,6 +1781,8 @@ msgid ""
 "It was discovered near a town named Magnesia in black earth. Thus, it was "
 "named 'magnesia nigra', or for short, Manganese."
 msgstr ""
+"اكتُشِفَ بالقرب من بلدة تُدعى ماغنيسيا في تربة سوداء. وهكذا، سُمِّيَ 'ماغنيسيا "
+"نيغرا'، أو اختصاراً، المنغنيز."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:53
@@ -1660,7 +1793,7 @@ msgstr "الحديد"
 #: element_tiny.xml:54
 #, kde-format
 msgid "Latin 'ferrum'."
-msgstr ""
+msgstr "'فيروم' باللاتينية."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -1669,10 +1802,9 @@ msgid "Cobalt"
 msgstr "الكوبالت"
 
 #: element_tiny.xml:56
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Alfred Nobel."
+#, kde-format
 msgid "Named after the German word 'Kobold' for 'goblin'."
-msgstr "سُمِّي بعد العالِم ألفرد نوبل."
+msgstr "سُمِّيَ نسبة للكلمة الألمانية 'كوبولد' التي تعني 'عفريت'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:57
@@ -1683,7 +1815,7 @@ msgstr "النيكل"
 #: element_tiny.xml:58
 #, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr "'نيكل' كان اسم جبل العفريت."
+msgstr "'نيكل' كان اسم عفريت جبلي."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -1694,7 +1826,7 @@ msgstr "النحاس"
 #: element_tiny.xml:60
 #, kde-format
 msgid "Greek 'cuprum' for Cypres."
-msgstr ""
+msgstr "'كوبروم' باليونانية عن قبرص."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
@@ -1705,7 +1837,7 @@ msgstr "الزنك"
 #: element_tiny.xml:62
 #, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
-msgstr ""
+msgstr "'زينكينغ' بالألمانية تعني 'خشن'، لأن خام الزنك خشن جداً."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:63
@@ -1716,7 +1848,7 @@ msgstr "الغاليوم"
 #: element_tiny.xml:64
 #, kde-format
 msgid "'Gallia' is an old name for France."
-msgstr ""
+msgstr "'غاليا' هو اسم قديم لفرنسا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
@@ -1727,7 +1859,7 @@ msgstr "الجرمانيوم"
 #: element_tiny.xml:66
 #, kde-format
 msgid "Latin 'germania' is an old name for Germany."
-msgstr ""
+msgstr "'جيرمانيا' باللاتينية هو اسم قديم لألمانيا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
@@ -1738,7 +1870,7 @@ msgstr "الزرنيخ"
 #: element_tiny.xml:68
 #, kde-format
 msgid "Greek 'arsenikos' for 'male' or 'bold'."
-msgstr ""
+msgstr "'أرسينيكوس' باليونانية تعني 'ذكر' أو 'جريء'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:69
@@ -1749,7 +1881,7 @@ msgstr "السيليزيوم"
 #: element_tiny.xml:70
 #, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr ""
+msgstr "'سيلينا' باليونانية تعني 'قمر'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -1760,7 +1892,7 @@ msgstr "البروم"
 #: element_tiny.xml:72
 #, kde-format
 msgid "Greek 'bromos' for 'smells badly'."
-msgstr ""
+msgstr "'بروموس' باليونانية تعني 'رائحة كريهة'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:73
@@ -1769,10 +1901,9 @@ msgid "Krypton"
 msgstr "الكريبتون"
 
 #: element_tiny.xml:74
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "'كريبتوس' باليونانية تعني 'مخفي'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -1781,22 +1912,20 @@ msgid "Rubidium"
 msgstr "الروبيديوم"
 
 #: element_tiny.xml:76
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'rubidus' for 'dark red'."
-msgstr "'كربونيوم' باللاتينية تعني الكربون"
+msgstr "'روبيدوس' باللاتينية تعني 'أحمر داكن'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:77
 #, kde-format
 msgid "Strontium"
-msgstr "السترونيوم"
+msgstr "السترونشيوم"
 
 #: element_tiny.xml:78
-#, fuzzy, kde-format
-#| msgid "Named after the planet Pluto."
+#, kde-format
 msgid "Named after the mineral Strontianit."
-msgstr "سُمِّي بعد كوكب بلوتو."
+msgstr "سُمِّيَ نسبة للمعدن سترونتيانيت."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:79
@@ -1810,6 +1939,8 @@ msgid ""
 "Named after the small town of Ytterby near Stockholm in Sweden. Terbium, "
 "Ytterbium and Erbium are also named after this town."
 msgstr ""
+"سُمِّيَ نسبة لبلدة إتيربي الصغيرة قرب ستوكهولم في السويد. التربيوم والإتيربيوم "
+"والإربيوم سُمُّوا أيضاً نسبة لهذه البلدة."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:81
@@ -1818,10 +1949,9 @@ msgid "Zirconium"
 msgstr "الزركونيوم"
 
 #: element_tiny.xml:82
-#, fuzzy, kde-format
-#| msgid "Named after America."
+#, kde-format
 msgid "Named after the mineral zircon."
-msgstr "سُمِّي بعد أميركا."
+msgstr "سُمِّيَ نسبة لمعدن الزركون."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:83
@@ -1832,7 +1962,7 @@ msgstr "النيوبيوم"
 #: element_tiny.xml:84
 #, kde-format
 msgid "Named after Niobe, the daughter of the Greek god Tantalus."
-msgstr ""
+msgstr "سُمِّيَ نسبة لنيوبي، ابنة الإله اليوناني تانتالوس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:85
@@ -1846,6 +1976,8 @@ msgid ""
 "This name has Greek roots. It means 'like Platinum' - it was difficult to "
 "distinguish Molybdenum from Platinum."
 msgstr ""
+"لهذا الأصل جذور يونانية. وهو يعني 'مشابه للبلاتين' - حيث كان من الصعب "
+"التمييز بين الموليبدنوم والبلاتين."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:87
@@ -1856,7 +1988,7 @@ msgstr "التكنيشيوم"
 #: element_tiny.xml:88
 #, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr ""
+msgstr "'تيكنيتوس' باليونانية تعني اصطناعي."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -1867,7 +1999,7 @@ msgstr "الروثينيوم"
 #: element_tiny.xml:90
 #, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr ""
+msgstr "روثينيا هو الاسم القديم لروسيا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -1876,10 +2008,9 @@ msgid "Rhodium"
 msgstr "الروديوم"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "'ليثونس' باليونانية تعني 'صخرة'"
+msgstr "'روديوس' باليونانية تعني 'أحمر كالوردة'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -1888,10 +2019,9 @@ msgid "Palladium"
 msgstr "البالاديوم"
 
 #: element_tiny.xml:94
-#, fuzzy, kde-format
-#| msgid "Named after the planetoid Ceres"
+#, kde-format
 msgid "Named after the asteroid Pallas."
-msgstr "سُمِّي بعد كويكب سيريس"
+msgstr "سُمِّيَ نسبة للكويكب بالاس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
@@ -1900,10 +2030,9 @@ msgid "Silver"
 msgstr "الفضة"
 
 #: element_tiny.xml:96
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'argentum' for silver."
-msgstr "'كربونيوم' باللاتينية تعني الكربون"
+msgstr "'أرجنتوم' باللاتينية تعني فضة."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -1914,7 +2043,7 @@ msgstr "الكادميوم"
 #: element_tiny.xml:98
 #, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
-msgstr ""
+msgstr "'كادميا' باليونانية ('غالمي' = كربونات الزنك)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -1925,7 +2054,7 @@ msgstr "الإنديوم"
 #: element_tiny.xml:100
 #, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr ""
+msgstr "سُمِّيَ نسبة 'للنيلة' بسبب طيفه الأزرق."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -1934,10 +2063,9 @@ msgid "Tin"
 msgstr "القصدير"
 
 #: element_tiny.xml:102
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'stannum' for tin."
-msgstr "'كربونيوم' باللاتينية تعني الكربون"
+msgstr "'ستانوم' باللاتينية تعني قصدير."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -1948,7 +2076,7 @@ msgstr "الإثمد"
 #: element_tiny.xml:104
 #, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
-msgstr ""
+msgstr "'أنثوس أمونوس' بالعربية تعني 'زهرة الإله آمون'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:105
@@ -1959,7 +2087,7 @@ msgstr "التيلوريوم"
 #: element_tiny.xml:106
 #, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
-msgstr ""
+msgstr "'تيلوس' أو 'تيلوريس' باللاتينية تعني 'الكوكب الأرض'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -1970,7 +2098,7 @@ msgstr "اليود"
 #: element_tiny.xml:108
 #, kde-format
 msgid "Greek 'ioeides' for 'violet'."
-msgstr ""
+msgstr "'آيوايديس' باليونانية تعني 'بنفسجي'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:109
@@ -1979,10 +2107,9 @@ msgid "Xenon"
 msgstr "الزينون"
 
 #: element_tiny.xml:110
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'xenos' for 'foreigner'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "'زينوس' باليونانية تعني 'أجنبي'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:111
@@ -1993,7 +2120,7 @@ msgstr "السيزيوم"
 #: element_tiny.xml:112
 #, kde-format
 msgid "Latin 'caesius' for 'heaven blue'."
-msgstr ""
+msgstr "'سيزيوس' باللاتينية تعني 'أزرق سماوي'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:113
@@ -2002,10 +2129,9 @@ msgid "Barium"
 msgstr "الباريوم"
 
 #: element_tiny.xml:114
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'barys' for 'heavy'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "'باريس' باليونانية تعني 'ثقيل'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
@@ -2019,6 +2145,8 @@ msgid ""
 "Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare "
 "earth' elements."
 msgstr ""
+"'لانثانين' باليونانية تعني 'مخفي'. وتُسَمَّى اللانثانيدات أيضاً بعناصر 'الأتربة "
+"النادرة'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:117
@@ -2027,10 +2155,9 @@ msgid "Cerium"
 msgstr "السيريوم"
 
 #: element_tiny.xml:118
-#, fuzzy, kde-format
-#| msgid "Named after the planetoid Ceres"
+#, kde-format
 msgid "Named after the planetoid Ceres."
-msgstr "سُمِّي بعد كويكب سيريس"
+msgstr "سُمِّيَ تيمُّنًا بالكوكب الصغير سيريس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:119
@@ -2039,10 +2166,10 @@ msgid "Praseodymium"
 msgstr "البراسيوديميوم"
 
 #: element_tiny.xml:120
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr ""
+"مأخوذ من الكلمة اليونانية 'prasinos didymos' التي تعني 'التوأم الأخضر'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -2051,10 +2178,9 @@ msgid "Neodymium"
 msgstr "النيوديميوم"
 
 #: element_tiny.xml:122
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "مأخوذ من الكلمة اليونانية 'neos didymos' التي تعني 'التوأم الجديد'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
@@ -2068,6 +2194,7 @@ msgid ""
 "Named after the Greek Prometheus. Prometheus stole the fire from the gods "
 "and gave it to mankind."
 msgstr ""
+"سُمِّيَ تيمُّنًا بالبطل الإغريقي بروميثيوس. الذي سَرَقَ النار من الآلهة وَوَهَبَهَا للبشرية."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:125
@@ -2076,10 +2203,9 @@ msgid "Samarium"
 msgstr "الساماريوم"
 
 #: element_tiny.xml:126
-#, fuzzy, kde-format
-#| msgid "Named after the planet Pluto."
+#, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr "سُمِّي بعد كوكب بلوتو."
+msgstr "سُمِّيَ تيمُّنًا بالمعدن سامارسكايت."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2088,10 +2214,9 @@ msgid "Europium"
 msgstr "اليوروبيوم"
 
 #: element_tiny.xml:128
-#, fuzzy, kde-format
-#| msgid "Named after Europe"
+#, kde-format
 msgid "Named after Europe."
-msgstr "سُمِّي بعد أوروبا"
+msgstr "سُمِّيَ تيمُّنًا بقارة أوروبا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -2100,10 +2225,9 @@ msgid "Gadolinium"
 msgstr "الغادولينيوم"
 
 #: element_tiny.xml:130
-#, fuzzy, kde-format
-#| msgid "Named after the Finnish chemist Johan Gadolin"
+#, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "سُمِّي بعد العالِم يوهان غادولين"
+msgstr "سُمِّيَ تيمُّنًا بالكيميائي الفنلندي يوهان غادولين."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2118,6 +2242,8 @@ msgid ""
 "Terbium was first refined. Yttrium, Erbium and Ytterbium are also named "
 "after this town."
 msgstr ""
+"سُمِّيَ تيمُّنًا بالبلدة السويدية إيتِربي والمعدن إيتِربايت الذي اُسْتُخْلِصَ التيربيوم منه "
+"لأول مرة. الإيتريوم والإربيوم والإيتيربيوم سُمُّوا أيضًا تيمُّنًا بهذه البلدة."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:133
@@ -2128,18 +2254,19 @@ msgstr "الديسبروسيوم"
 #: element_tiny.xml:134
 #, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr ""
+msgstr "مأخوذ من الكلمة اليونانية 'dysprositor' التي تعني 'صعب المنال'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
 #, kde-format
 msgid "Holmium"
-msgstr "الهومليوم"
+msgstr "الهولميوم"
 
 #: element_tiny.xml:136
 #, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
 msgstr ""
+"مأخوذ من الكلمة اللاتينية 'holmia' التي تشير إلى الاسم القديم لستوكهولم."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2154,6 +2281,9 @@ msgid ""
 "which Erbium was first refined) was first mined. Yttrium, Terbium and "
 "Ytterbium are also named after this town."
 msgstr ""
+"سُمِّيَ تيمُّنًا بالبلدة السويدية إيتِربي حيث يُعدن معدْن الغادولينايت (الذي اُسْتُخْلِصَ "
+"الإربيوم منه لأول مرة) لأول مرة. الإيتريوم والتيربيوم والإيتيربيوم سُمُّوا أيضًا "
+"تيمُّنًا بهذه البلدة."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:139
@@ -2164,7 +2294,7 @@ msgstr "الثوليوم"
 #: element_tiny.xml:140
 #, kde-format
 msgid "Named after the old name of Scandinavia, 'Thule'."
-msgstr ""
+msgstr "سُمِّيَ تيمُّنًا بالاسم القديم لإسكندنافيا، 'ثولي'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:141
@@ -2178,6 +2308,8 @@ msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
 msgstr ""
+"مثل الإيتريوم والتيربيوم والإربيوم، سُمِّيَ هذا العنصر تيمُّنًا بالبلدة السويدية "
+"إيتِربي."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:143
@@ -2186,10 +2318,9 @@ msgid "Lutetium"
 msgstr "اللوتيشيوم"
 
 #: element_tiny.xml:144
-#, fuzzy, kde-format
-#| msgid "Named after the planet Pluto."
+#, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
-msgstr "سُمِّي بعد كوكب بلوتو."
+msgstr "سُمِّيَ تيمُّنًا بالاسم الروماني لباريس 'لوتيتيا'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2204,6 +2335,8 @@ msgid ""
 "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
 "name of Copenhagen, Denmark)."
 msgstr ""
+"توقَّع نيلز بور خصائص هذا العنصر أصلاً قبل اكتشافه، لذا سُمِّيَ تيمُّنًا بمسقط رأسه "
+"'هافنيا' (الاسم اللاتيني القديم لكوبنهاغن، الدنمارك)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2212,10 +2345,9 @@ msgid "Tantalum"
 msgstr "التانتالوم"
 
 #: element_tiny.xml:148
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the Greek myth of Tantalos."
-msgstr "سُمِّي بعد مدينة مغنيسيا"
+msgstr "سُمِّيَ تيمُّنًا بالأسطورة اليونانية تانتالوس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:149
@@ -2230,6 +2362,9 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
+"يأتي الاسم من السويدية 'tung sten' التي تعني 'الحجر الثقيل'. بينما يأتي "
+"الرمز من الاسم الألماني القديم للعنصر 'وولفرام'، الذي وَصَفَ كيفية تفاعل "
+"التنجستن مع القصدير 'كأن ذئبًا يأتي على شاة'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2240,7 +2375,7 @@ msgstr "الرينيوم"
 #: element_tiny.xml:152
 #, kde-format
 msgid "Named after the German river Rhine (latin 'Rhenium')."
-msgstr ""
+msgstr "سُمِّيَ تيمُّنًا بنهر الراين الألماني (اللاتينية 'Rhenium')."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:153
@@ -2252,6 +2387,8 @@ msgstr "الأوزميوم"
 #, kde-format
 msgid "Greek for 'smell'. Its oxides smell strongly like radishes."
 msgstr ""
+"مأخوذ من الكلمة اليونانية التي تعني 'الرائحة'. فأكاسيده تُطلِقُ رائحة قوية تشبه "
+"رائحة الفجل."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:155
@@ -2262,7 +2399,7 @@ msgstr "الإريديوم"
 #: element_tiny.xml:156
 #, kde-format
 msgid "Greek 'iris' for 'rainbow'."
-msgstr "كلمة \"iris\" اليونانية تعني \"قوس قزح\"."
+msgstr "كلمة 'iris' اليونانية تعني 'قوس قزح'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:157
@@ -2273,7 +2410,7 @@ msgstr "البلاتين"
 #: element_tiny.xml:158
 #, kde-format
 msgid "Spanish 'platina' means 'small silver'."
-msgstr "تعني كلمة \"بلاتينا\" الإسبانية \"الفضة الصغيرة\"."
+msgstr "تعني كلمة 'بلاتينا' الإسبانية 'الفضة الصغيرة'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:159
@@ -2284,7 +2421,7 @@ msgstr "الذهب"
 #: element_tiny.xml:160
 #, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
-msgstr "اللاتينية \"أوروم\". سميت على اسم أورورا، آلهة شروق الشمس."
+msgstr "اللاتينية 'أوروم'. سُمِّيَ تيمُّنًا بأورورا، آلهة الفجر."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
@@ -2295,7 +2432,7 @@ msgstr "الزئبق"
 #: element_tiny.xml:162
 #, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
-msgstr "اليونانية اللاتينية \"hydrargyrum\" تعني \"الفضة السائلة\"."
+msgstr "اليونانية اللاتينية 'hydrargyrum' تعني 'الفضة السائلة'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2304,10 +2441,9 @@ msgid "Thallium"
 msgstr "الثاليوم"
 
 #: element_tiny.xml:164
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "'بيريلوز' باليونانية تعني 'صخرة خضراء فاتحة'"
+msgstr "مأخوذ من الكلمة اليونانية 'tallos' التي تعني 'الغُصَيْن الصغير'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2316,10 +2452,9 @@ msgid "Lead"
 msgstr "الرصاص"
 
 #: element_tiny.xml:166
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'plumbum' for Lead."
-msgstr "'كربونيوم' باللاتينية تعني الكربون"
+msgstr "مأخوذ من الكلمة اللاتينية 'plumbum' التي تعني الرصاص."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2330,7 +2465,7 @@ msgstr "البزموث"
 #: element_tiny.xml:168
 #, kde-format
 msgid "The old name of Bismuth is 'Wismut', which stood for 'white mass'."
-msgstr ""
+msgstr "الاسم القديم للبزموث هو 'Wismut'، الذي كان يعني 'الكتلة البيضاء'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:169
@@ -2339,10 +2474,9 @@ msgid "Polonium"
 msgstr "البولونيوم"
 
 #: element_tiny.xml:170
-#, fuzzy, kde-format
-#| msgid "Named after the planetoid Ceres"
+#, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "سُمِّي بعد كويكب سيريس"
+msgstr "سُمِّيَ تيمُّنًا ببولندا لتكريم ماري كوري."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2353,7 +2487,7 @@ msgstr "الأستاتين"
 #: element_tiny.xml:172
 #, kde-format
 msgid "Greek 'astator' for 'changing'."
-msgstr ""
+msgstr "مأخوذ من الكلمة اليونانية 'astator' التي تعني 'متغير'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:173
@@ -2366,7 +2500,7 @@ msgstr "الرادون"
 msgid ""
 "Named after Radium. It ends with 'on' to make it clear that it is a noble "
 "gas."
-msgstr ""
+msgstr "سُمِّيَ تيمُّنًا بالراديوم. واختُتِمَ بـ'ون' لِلْإِيضَاحِ أنه غاز نبيل."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:175
@@ -2377,18 +2511,18 @@ msgstr "الفرانسيوم"
 #: element_tiny.xml:176
 #, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr ""
+msgstr "سُمِّيَ تيمُّنًا بفرنسا لتكريم مارجريت بيري."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
 #, kde-format
 msgid "Radium"
-msgstr "الراديون"
+msgstr "الراديوم"
 
 #: element_tiny.xml:178
 #, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
-msgstr ""
+msgstr "مأخوذ من الكلمة اللاتينية 'radius' التي تعني 'شعاع'، لأنه مشع."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2399,7 +2533,7 @@ msgstr "الأكتينيوم"
 #: element_tiny.xml:180
 #, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
-msgstr ""
+msgstr "مأخوذ من الكلمة اليونانية 'aktis' التي تعني 'شعاع' - فالأكتينيوم مشع."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2408,10 +2542,9 @@ msgid "Thorium"
 msgstr "الثوريوم"
 
 #: element_tiny.xml:182
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Ernest Rutherford"
+#, kde-format
 msgid "Named after the Norse god of thunder: Thor"
-msgstr "سُمِّي بعد العالِم  إرنست رذرفورد"
+msgstr "سُمِّيَ تيمُّنًا بإله الرعد الإسكندنافي: ثور"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:183
@@ -2425,8 +2558,8 @@ msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
-"اليونانية \"protos\" ل \"ancester\". سمي البروتكتينيوم بهذه الطريقة لأن "
-"الأكتينيوم هو نتاج إشعاع اضمحلال البروتكتينيوم."
+"مأخوذ من الكلمة اليونانية 'protos' التي تعني 'السلف'. سُمِّيَ البروتكتينيوم بهذه "
+"الطريقة لأن الأكتينيوم ينتج عن الاضمحلال الإشعاعي للبروتكتينيوم."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:185
@@ -2437,7 +2570,9 @@ msgstr "اليورانيوم"
 #: element_tiny.xml:186
 #, kde-format
 msgid "Greek 'ouranos' for 'heaven'. Named after the planet Uranus."
-msgstr "اليونانية \"Ouranos\" تعني \"الجنة\". سميت على اسم كوكب أورانوس."
+msgstr ""
+"مأخوذ من الكلمة اليونانية 'ouranos' التي تعني 'الجنة'. سُمِّيَ تيمُّنًا بكوكب "
+"أورانوس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:187
@@ -2448,7 +2583,7 @@ msgstr "النبتونيوم"
 #: element_tiny.xml:188
 #, kde-format
 msgid "Named after the planet Neptune."
-msgstr "سُمِّي بعد كوكب نبتون."
+msgstr "سُمِّيَ تيمُّنًا بكوكب نبتون."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:189
@@ -2459,7 +2594,7 @@ msgstr "البلوتونيوم"
 #: element_tiny.xml:190
 #, kde-format
 msgid "Named after the planet Pluto."
-msgstr "سُمِّي بعد كوكب بلوتو."
+msgstr "سُمِّيَ تيمُّنًا بكوكب بلوتو."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:191
@@ -2470,7 +2605,7 @@ msgstr "الأمريكيوم"
 #: element_tiny.xml:192
 #, kde-format
 msgid "Named after America."
-msgstr "سُمِّي بعد أميركا."
+msgstr "سُمِّيَ تيمُّنًا بأمريكا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:193
@@ -2481,7 +2616,7 @@ msgstr "الكوريوم"
 #: element_tiny.xml:194
 #, kde-format
 msgid "Named after Marie Curie."
-msgstr "سميت على اسم ماري كوري."
+msgstr "سُمِّيَ تيمُّنًا بماري كوري."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:195
@@ -2492,7 +2627,7 @@ msgstr "البركليوم"
 #: element_tiny.xml:196
 #, kde-format
 msgid "Named after the town Berkeley where it was discovered."
-msgstr "سميت على اسم بلدة بيركلي حيث اكتشفت."
+msgstr "سُمِّيَ تيمُّنًا ببلدة بيركلي حيث اكتشف."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:197
@@ -2503,7 +2638,7 @@ msgstr "الكاليفورنيوم"
 #: element_tiny.xml:198
 #, kde-format
 msgid "Named after the US-State of California."
-msgstr "سُمِّي بعد ولاية كاليفورنيا في الولايات المتّحدة."
+msgstr "سُمِّيَ تيمُّنًا بولاية كاليفورنيا الأمريكية."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:199
@@ -2514,7 +2649,7 @@ msgstr "الأينشتاينيوم"
 #: element_tiny.xml:200
 #, kde-format
 msgid "Named after the scientist Albert Einstein."
-msgstr "سُمِّي بعد العالِم ألبرت أينشتاين."
+msgstr "سُمِّيَ تيمُّنًا بالعالم ألبرت أينشتاين."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:201
@@ -2525,7 +2660,7 @@ msgstr "الفرميوم"
 #: element_tiny.xml:202
 #, kde-format
 msgid "Named after the scientist Enrico Fermi."
-msgstr ""
+msgstr "سُمِّيَ تيمُّنًا بالعالم إنريكو فيرمي."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:203
@@ -2536,7 +2671,7 @@ msgstr "المندليفيوم"
 #: element_tiny.xml:204
 #, kde-format
 msgid "Named after the scientist D.I. Mendeleev."
-msgstr ""
+msgstr "سُمِّيَ تيمُّنًا بالعالم د. إ. مندلييف."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:205
@@ -2547,7 +2682,7 @@ msgstr "النوبليوم"
 #: element_tiny.xml:206
 #, kde-format
 msgid "Named after the scientist Alfred Nobel."
-msgstr "سُمِّي بعد العالِم ألفرد نوبل."
+msgstr "سُمِّيَ تيمُّنًا بالعالم ألفريد نوبل."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:207
@@ -2558,19 +2693,18 @@ msgstr "اللورنسيوم"
 #: element_tiny.xml:208
 #, kde-format
 msgid "Named after the scientist Ernest Orlando Lawrence."
-msgstr "سُمِّي بعد العالِم إرنست أورلاندو لورنس."
+msgstr "سُمِّيَ تيمُّنًا بالعالم إرنست أورلاندو لورنس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:209
 #, kde-format
 msgid "Rutherfordium"
-msgstr "الرذرفوريوم"
+msgstr "الرذرفورديوم"
 
 #: element_tiny.xml:210
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Ernest Rutherford"
+#, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr "سُمِّي بعد العالِم  إرنست رذرفورد"
+msgstr "سُمِّيَ تيمُّنًا بالعالم إرنست رذرفورد."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
@@ -2579,10 +2713,9 @@ msgid "Dubnium"
 msgstr "الدوبنيوم"
 
 #: element_tiny.xml:212
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Albert Einstein."
+#, kde-format
 msgid "Named after the science-town Dubna in Russia."
-msgstr "سُمِّي بعد العالِم ألبرت أينشتاين."
+msgstr "سُمِّيَ تيمُّنًا بمدينة دوبنا العلمية في روسيا."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
@@ -2593,18 +2726,18 @@ msgstr "السيبورغيوم"
 #: element_tiny.xml:214
 #, kde-format
 msgid "Named after the scientist G. Theodore Seaborg."
-msgstr ""
+msgstr "سُمِّيَ تимناً بالعالم ج. ثيودور سيبورغ."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:215
 #, kde-format
 msgid "Bohrium"
-msgstr "البوهمريوم"
+msgstr "البوريوم"
 
 #: element_tiny.xml:216
 #, kde-format
 msgid "Named after the scientist Niels Bohr."
-msgstr "سُمِّي بعد العالِم نيلس بور."
+msgstr "سُمِّيَ تيمُّنًا بالعالم نيلز بور."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:217
@@ -2618,6 +2751,8 @@ msgid ""
 "Latin 'hassia' for the German county Hessen. In Hessen a lot elements have "
 "been discovered."
 msgstr ""
+"اشتُقَّ الاسم من اللاتينية 'hassia' التي تشير إلى مقاطعة هيسن الألمانية. حيث تمَّ "
+"اكتشاف العديد من العناصر في هيسن."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:219
@@ -2642,6 +2777,7 @@ msgid ""
 "Named after the German city Darmstadt where many elements have been "
 "discovered."
 msgstr ""
+"سُمِّي نسبةً إلى المدينة الألمانية دارمشتات حيث تمَّ اكتشاف العديد من العناصر."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:223
@@ -2665,7 +2801,7 @@ msgstr "الكوبرنيسيوم"
 msgid ""
 "Historically known as eka-mercury. Named after the astronomer Nicolaus "
 "Copernicus."
-msgstr ""
+msgstr "عُرِف تاريخيًّا باسم إيكا-زئبق. سُمِّي نسبةً إلى الفلكي نيكولاس كوبرنيكوس."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
@@ -2680,6 +2816,9 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
+"سُمِّي نسبةً إلى 'نيهون'، اللفظ الروماني لـ'اليابان' باللغة اليابانية. كان هذا "
+"العنصر أول عنصر يُكتشَف في اليابان، في مركز ريكين نيشينا للعلوم المعتمدة على "
+"المسرعات. عُرِف تاريخيًّا باسم إيكا-ثاليوم."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
@@ -2693,6 +2832,8 @@ msgid ""
 "Historically known as eka-lead. Named after Flerov Laboratory of Nuclear "
 "Reactions (Dubna, Russia) where superheavy elements are synthesized."
 msgstr ""
+"عُرِف تاريخيًّا باسم إيكا-رصاص. سُمِّي نسبةً إلى مختبر فليروف للتفاعلات النووية "
+"(دوبنا، روسيا) حيث تُصنَّع العناصر فائقة الثقل."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:231
@@ -2707,6 +2848,8 @@ msgid ""
 "for Nuclear Research that was a co-discoverer of this element. Historically "
 "known as eka-bismuth."
 msgstr ""
+"سُمِّي نسبةً إلى منطقة موسكو في روسيا، الموطن المشترك لمعهد البحوث النووية الذي "
+"شارك في اكتشاف هذا العنصر. عُرِف تاريخيًّا باسم إيكا-بزموث."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:233
@@ -2720,6 +2863,8 @@ msgid ""
 "Historically known as eka-polonium. Named after Livermore National "
 "Laboratory (USA)."
 msgstr ""
+"عُرِف تاريخيًّا باسم إيكا-بولونيوم. سُمِّي نسبةً إلى مختبر لورانس ليفرمور الوطني "
+"(الولايات المتحدة الأمريكية)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:235
@@ -2734,6 +2879,9 @@ msgid ""
 "National Laboratory and Vanderbilt University whom were co-discoverers of "
 "this element. Historically known as eka-astatine."
 msgstr ""
+"سُمِّي نسبةً إلى ولاية تينيسي الأمريكية، الموطن المشترك لمختبر أوك ريدج الوطني "
+"وجامعة فاندربيلت اللذين شاركا في اكتشاف هذا العنصر. عُرِف تاريخيًّا باسم إيكا-"
+"أستاتين."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:237
@@ -2747,6 +2895,8 @@ msgid ""
 "Named in honor of Professor Yuri Oganessian's trans-actinide element "
 "research. Historically known as eka-radon, eka-emanation before 1960."
 msgstr ""
+"سُمِّي تكريمًا لأبحاث البروفيسور يوري أوغانيسيان في مجال عناصر ما بعد "
+"الأكتينيدات. عُرِف تاريخيًّا باسم إيكا-رادون، وإيكا-إيماناشن قبل عام 1960."
 
 #: libscience/psetables.cpp:152
 #, kde-format
@@ -2898,46 +3048,70 @@ msgid ""
 "equations and see how the concentration of a species changes in function of "
 "another one.</li></ul>"
 msgstr ""
+"<big>مرحبًا بك في حاسبات كالسيوم!<br /></big>\n"
+"<p>تحتوي هذه الحاسبة على مجموعة متنوعة من الحاسبات لمهام مختلفة تُجري حسابات "
+"متباينة.</p>\n"
+"<p>يمكنك العثور على الحاسبات التالية في كالسيوم:</p>\n"
+"<ul><li><b>حاسبة الكتلة الجزيئية<br /></b>تساعدك هذه الحاسبة على حساب الكتل "
+"الجزيئية للجزيئات المختلفة.<br />يمكنك تحديد الصيغة المختصرة لأسماء الجزيئات "
+"وإضافة المزيد من هذه الأسماء المستعارة.</li>\n"
+"<li><b>حاسبة التراكيز<br /></b>يمكنك حساب كميات تشمل:</li>\n"
+"<ul type=\"circle\"><li>كمية المادة</li>\n"
+"<li>حجم المذيب</li>\n"
+"<li>تركيز المادة</li></ul>\n"
+"<p>هناك نطاق واسع من الوحدات للاختيار من بينها وطرق مختلفة لتحديد الكميات.</"
+"p>\n"
+"<li><b>الحاسبة الذرية<br /></b>تستخدم هذه الحاسبة البيانات النووية المتاحة "
+"في كالسيوم للتنبؤ بالكتل المتوقعة لمادة ما بعد مرور وقت.</li>\n"
+"<li><b>الحاسبة الغازية<br /></b>يمكن لهذه الحاسبة حساب قيم درجة الحرارة، "
+"والضغط، والحجم، وكمية الغاز، إلخ. لمختلف الغازات المثالية وغير المثالية.</"
+"li>\n"
+"<li><b>موازن المعادلة<br /></b>يمكن لهذه الحاسبة موازنة المعادلات الكيميائية."
+"</li>\n"
+"<li><b>حاسبة المعايرة<br /></b>تحاول هذه الحاسبة تحديد نقطة التكافؤ لمعايرة "
+"تمت متابعتها بمقياس pH من خلال ملائمتها بأفضل شكل مع ظل قطعي زائدي. يمكنك "
+"أيضًا أن تجعلها تحل نظام معادلات الاتزان وترى كيف يتغير تركيز نوع ما بدالة "
+"نوع آخر.</li></ul>"
 
 #: src/calculator/concCalculator.cpp:892
 #, kde-format
 msgid "Percentage should be less than 100.0, please enter a valid value."
-msgstr "النسبة يجب أن تقلّ عن 100.0، فضلًا أدخِل قيمة صالحة."
+msgstr "يجب أن تكون النسبة المئوية أقل من 100.0، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:895
 #, kde-format
 msgid "Density cannot be zero, please enter a valid value."
-msgstr "لا يمكن أن تكون الكثافة صفرًا، فضلًا أدخِل قيمة صالحة."
+msgstr "لا يمكن أن تكون الكثافة صفرًا، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:898
 #, kde-format
 msgid "Mass cannot be zero, please enter a valid value."
-msgstr "لا يمكن أن تكون الكتلة صفرًا، فضلًا أدخِل قيمة صالحة."
+msgstr "لا يمكن أن تكون الكتلة صفرًا، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:901 src/calculator/gasCalculator.cpp:297
 #, kde-format
 msgid "Volume cannot be zero, please enter a valid value."
-msgstr "لا يمكن أن يكون الحجم صفرًا، فضلًا أدخِل قيمة صالحة."
+msgstr "لا يمكن أن يكون الحجم صفرًا، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:904
 #, kde-format
 msgid "Number of moles cannot be zero, please enter a valid value."
-msgstr "لا يمكن أن يكون عدد المولات صفرًا، فضلًا أدخِل قيمة صالحة."
+msgstr "لا يمكن أن يكون عدد المولات صفرًا، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:907
 #, kde-format
 msgid "Molar mass of solvent is zero, please enter a valid value."
-msgstr "الكتلة المولية للمذيب صفر، فضلًا أدخِل قيمة صالحة."
+msgstr "الكتلة المولية للمذيب صفر، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:910
 #, kde-format
 msgid "Number of equivalents is zero. Cannot calculate equivalent mass."
-msgstr "عدد التكافؤات صفر. لا يمكن حساب الكتلة المكافئة."
+msgstr "عدد المكافئات صفر. لا يمكن حساب الكتلة المكافئة."
 
 #: src/calculator/concCalculator.cpp:913
 #, kde-format
 msgid "Concentration is zero, please enter a valid value."
-msgstr "التركيز صفر، فضلًا أدخِل قيمة صالحة."
+msgstr "التركيز صفر، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:916
 #, kde-format
@@ -2958,13 +3132,13 @@ msgstr "لا يمكن أن تكون كتلة المذيب صفرًا."
 #, kde-format
 msgid ""
 "Insufficient data to calculate the required value, please specify normality."
-msgstr ""
+msgstr "بيانات غير كافية لحساب القيمة المطلوبة، يُرجى تحديد العيارية (الطبيعة)."
 
 #: src/calculator/concCalculator.cpp:928
 #, kde-format
 msgid ""
 "Insufficient data, specify molarity / mole fraction / molality to calculate."
-msgstr "بيانات ناقصة، حدّد المولارية/الكسر المولي/المولالية لحسابه."
+msgstr "بيانات غير كافية، حدّد المولارية/الكسر المولي/المولالية لحسابها."
 
 #: src/calculator/concCalculator.cpp:931
 #, kde-format
@@ -2972,25 +3146,25 @@ msgid ""
 "The amount is specified in moles, cannot calculate molar/equivalent masses. "
 "Please specify mass/volume."
 msgstr ""
-"الكمية محدّدة بالمولات، لا يمكن حساب الكتل المولية/المكافئة. فضلًا حدّد الكتلة/"
-"الحجم."
+"الكمية محددة بالمولات، لا يمكن حساب الكتل المولية/المكافئة. يُرجى تحديد "
+"الكتلة/الحجم."
 
 #: src/calculator/concCalculator.cpp:934
 #, kde-format
 msgid ""
 "You can calculate the molar mass of solvent only if the mole fraction is "
 "specified."
-msgstr "يمكنك حساب الكتلة المولية للمذيب فقط إن حُدِّد الكسر المولي."
+msgstr "يمكن حساب الكتلة المولية للمذيب فقط إذا حُدد الكسر المولي."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
 msgid "Molar mass cannot be zero, please enter a valid value."
-msgstr "لا يمكن أن تكون الكتلة المولية صفرًا، فضلًا أدخِل قيمة صالحة."
+msgstr "لا يمكن أن تكون الكتلة المولية صفرًا، يُرجى إدخال قيمة صالحة."
 
 #: src/calculator/concCalculator.cpp:940
 #, kde-format
 msgid "Equivalent mass cannot be zero, please enter a valid value."
-msgstr "لا يمكن أن تكون الكتلة المكافئة صفرًا، فضلًا أدخِل قيمة صالحة."
+msgstr "لا يمكن أن تكون الكتلة المكافئة صفرًا، يُرجى إدخال قيمة صالحة."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/concCalculator.ui:30
@@ -3018,9 +3192,9 @@ msgstr ""
 "font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:12pt; font-weight:600;\">بعض البيانات التالية غيرمهمة. فمثلًا، إن حدّدت "
-"كمية المذاب بالمولات، ليس عليك تحديد كتلته المولية أيضًا.</span></p></body></"
-"html>"
+"size:12pt; font-weight:600;\">بعض البيانات التالية غير ضرورية. على سبيل "
+"المثال، إذا حددت كمية المذاب بالمولات، فلا يتعين عليك تحديد الكتلة المولية "
+"للمذاب.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/concCalculator.ui:37 src/calculator/gasCalculator.ui:36
@@ -3059,7 +3233,7 @@ msgid ""
 "This box is used to change the mode in which the amount of solute is "
 "specified, i.e. mass, moles or volume."
 msgstr ""
-"يُستخدم هذا المربع لتغيير كمية حساب المذاب المُحدّدة، مثلًا الكتلة، المولات أو "
+"يُستخدم هذا المربع لتغيير طريقة تحديد كمية المذاب، أي بالكتلة، أو المولات، أو "
 "الحجم."
 
 #. i18n: ectx: property (text), widget (QLabel, label_39)
@@ -3100,6 +3274,9 @@ msgid ""
 "required only if concentration in terms of normality is involved.\n"
 "Normality = Number of Equivalents / liter of solution"
 msgstr ""
+"يُستخدم هذا المربع لتحديد الكتلة المكافئة للمذاب. هذا مطلوب فقط إذا كان "
+"التركيز مُحددًا بالعيارية (الطبيعة).\n"
+"العيارية = عدد المكافئات / لتر من المحلول"
 
 #. i18n: ectx: property (text), widget (QLabel, label_52)
 #: src/calculator/concCalculator.ui:132
@@ -3194,6 +3371,8 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
+"يُستخدم هذا المربع لتحديد كثافة المحلول، ويُطلب فقط إذا كان مقدار المحلول "
+"مُحددًا/مطلوبًا من حيث الكتلة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_41)
 #: src/calculator/concCalculator.ui:246
@@ -3213,7 +3392,7 @@ msgstr "<big>حدّد تركيز المحلول</big>"
 msgid ""
 "This box is used to specify the concentration of the solution in respective "
 "units to the right."
-msgstr ""
+msgstr "يُستخدم هذا المربع لتحديد تركيز المحلول بالوحدات المناظرة على اليمين."
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -3249,7 +3428,7 @@ msgstr "حدّد وحدات كثافة المذيب"
 #: src/calculator/concCalculator.ui:315
 #, kde-format
 msgid "<big>Specify the unit/method for specifying concentration</big>"
-msgstr ""
+msgstr "<big>حدّد وحدة/طريقة تحديد التركيز</big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:322
@@ -3353,6 +3532,8 @@ msgid ""
 "dynamically.<br />Mass and moles are directly dependent for a given gas.</"
 "b></big>"
 msgstr ""
+"<big><b>غيّر الكميات ولاحِظ تغيّر الكميات الأخرى ديناميكيًا.<br />الكتلة "
+"والمولات تعتمدان بشكل مباشر على بعضهما لغاز معيّن.</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/gasCalculator.ui:42
@@ -3373,7 +3554,7 @@ msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد الكتلة المولية للغاز، مثلًا 2 لغاز "
+"يُمكن استخدام هذا المربع لتحديد الكتلة المولية للغاز، على سبيل المثال 2 لغاز "
 "الهيدروجين."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
@@ -3454,7 +3635,7 @@ msgstr "يمكن أن يُستخدم هذا المربع لتغيير ضغط ا�
 #: src/calculator/gasCalculator.ui:171
 #, kde-format
 msgid "<big>Specify the units for pressure of the gas</big>"
-msgstr "<big>حدّد وحدات كتلة الغاز</big>"
+msgstr "<big>حدّد وحدات ضغط الغاز</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:174
@@ -3463,8 +3644,8 @@ msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد وحدات الضغط، على سبيل المثال وحدة ضغط جوية، "
-"بار، إلخ."
+"يُمكن استخدام هذا المربع لتحديد وحدات الضغط، على سبيل المثال الضغط الجوي، "
+"البار، إلخ."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: src/calculator/gasCalculator.ui:181
@@ -3482,7 +3663,7 @@ msgstr "<!----><big>حدّد درجة حرارة الغاز</big>"
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr "يمكن أن يُستخدم هذا المربع لتحديد درجة حرار الغاز."
+msgstr "يُمكن استخدام هذا المربع لتحديد درجة حرارة الغاز."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
@@ -3497,7 +3678,8 @@ msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد وحدات درجة الحرارة، مثلًا كِلفن، سيليزي، إلخ."
+"يُمكن استخدام هذا المربع لتحديد وحدات درجة الحرارة، على سبيل المثال كلفن، "
+"سيلزيوس، إلخ."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
@@ -3515,7 +3697,7 @@ msgstr "<big>حدّد حجم الغاز</big>"
 #: src/calculator/gasCalculator.ui:230
 #, kde-format
 msgid "This box can be used to specify the volume of the gas."
-msgstr "يمكن أن يُستخدم هذا المربع لتحديد حجم الغاز."
+msgstr "يُمكن استخدام هذا المربع لتحديد حجم الغاز."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:249
@@ -3527,13 +3709,13 @@ msgstr "<big>حدّد وحدات حجم الغاز</big>"
 #: src/calculator/gasCalculator.ui:252
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
-msgstr "يمكن أن يُستخدم هذا المربع لتغيير وحدات الحجم، مثلًا ليترات."
+msgstr "يُمكن استخدام هذا المربع لتغيير وحدات الحجم، على سبيل المثال اللترات."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
 #, kde-format
 msgid "Data for non-ideal gases"
-msgstr "بينات الغازات غير المثالية"
+msgstr "بيانات الغازات غير المثالية"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: src/calculator/gasCalculator.ui:294
@@ -3561,8 +3743,8 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد ثابت فان دير فالس 'ب' للغاز. هذا مطلوب فقط "
-"للغاز الحقيقي. يمكن أن يُعلّم بـ 0.0 للغاز المثالي."
+"يُمكن استخدام هذا المربع لتحديد ثابت فان دير فالس 'ب' للغاز. هذا مطلوب فقط "
+"للغاز الحقيقي. يُمكن تعيينه إلى 0.0 للغاز المثالي."
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
@@ -3578,8 +3760,8 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد ثابت فان دير فالس 'أ' للغاز. هذا مطلوب فقط "
-"للغاز الحقيقي. يمكن أن يُعلّم بـ 0.0 للغاز المثالي."
+"يُمكن استخدام هذا المربع لتحديد ثابت فан دير فالس 'أ' للغاز. هذا مطلوب فقط "
+"للغاز الحقيقي. يُمكن تعيينه إلى 0.0 للغاز المثالي."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
@@ -3592,7 +3774,7 @@ msgstr "وحدات ثابت فان دير فالس 'ب'"
 #, kde-format
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
-msgstr "يمكن أن يُستخدم هذا لتحديد وحدات ثابت فان دير فالس 'ب'."
+msgstr "يُمكن استخدام هذا لتحديد وحدات ثابت فان دير فالس 'ب'."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
@@ -3604,13 +3786,13 @@ msgstr "لكل مول"
 #: src/calculator/gasCalculator.ui:380
 #, kde-format
 msgid "liter^2 atmosphere/mol^2"
-msgstr ""
+msgstr "لتر²·ضغط جوي/مول²"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reset)
 #: src/calculator/gasCalculator.ui:434
 #, kde-format
 msgid "Click to reset all values to initial values"
-msgstr "انقر لتصفير كل القيم إلى القيم الابتدائية"
+msgstr "انقر لتصفير جميع القيم إلى قيمها الابتدائية"
 
 #: src/calculator/nuclearCalculator.cpp:389
 #, kde-format
@@ -3630,7 +3812,7 @@ msgstr "الوقت صفر، فضلًا أدخِل قيمة صالحة."
 #: src/calculator/nuclearCalculator.cpp:398
 #, kde-format
 msgid "The final amount is greater than the initial amount."
-msgstr "القيمة النهائية أكبر من القيمة الابتدائية."
+msgstr "الكمية النهائية أكبر من الكمية الابتدائية."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/nuclearCalculator.ui:29
@@ -3640,8 +3822,8 @@ msgid ""
 "calculate from the combo box next to the \"calculate\" label and change the "
 "values / units to calculate.</span>"
 msgstr ""
-"<span style=\" font-size:12pt; font-weight:600;\">اختر ما الذي تريد حسابه من "
-"combo box بجانب اللصيقة 'احسب' وغيّر القيم/الوحدات للحساب.</span>"
+"<span style=\" font-size:12pt; font-weight:600;\">اختر ما تريد حسابه من "
+"الصندوق المنسدل بجوار تسمية \"احسب\" وغيّر القيم / الوحدات للحساب.</span>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
@@ -3667,7 +3849,7 @@ msgstr "<big>حدّد العنصر الذي تريد دراسته</big>"
 msgid ""
 "This box is used to specify the element on which calculation is to be "
 "performed."
-msgstr "يُستخدم هذا المربع لتحديد العناصر الذي سيُجرى عليه الحساب."
+msgstr "يُستخدم هذا المربع لتحديد العنصر الذي سيُجرى عليه الحساب."
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: src/calculator/nuclearCalculator.ui:62
@@ -3687,7 +3869,8 @@ msgstr "<big>حدّد نظير العنصر الحالي</big>"
 msgid ""
 "This box is used to specify the isotope of the above element on which "
 "calculation is performed."
-msgstr "يُستخدم هذا المربع لتحديد نظير العنصر أعلاه حيث سيُجرى الحساب."
+msgstr ""
+"يُستخدم هذا المربع لتحديد نظير العنصر المحدد أعلاه والذي سيُجرى عليه الحساب."
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: src/calculator/nuclearCalculator.ui:82
@@ -3705,7 +3888,7 @@ msgstr "<big>حدّد عمر النصف للنظير المشعّ</big>"
 #: src/calculator/nuclearCalculator.ui:95
 #, kde-format
 msgid "This box is used to specify the half-life of the above isotope."
-msgstr "يُستخدم هذا المربع لتحديد عمر النصف للنظير أعلاه."
+msgstr "يُستخدم هذا المربع لتحديد عمر النصف للنظير المحدد أعلاه."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:108
@@ -3718,7 +3901,9 @@ msgstr "<big>وحدة عمر النصف</big>"
 #, kde-format
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
-msgstr "يُستخدم هذا المربع لتحديد وحدة عمر النصف، مثلًا السنوات، الثواني، إلخ."
+msgstr ""
+"يُستخدم هذا المربع لتحديد وحدة عمر النصف، على سبيل المثال السنوات، الثواني، "
+"إلخ."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -3772,19 +3957,19 @@ msgstr "أسبوع"
 #: src/calculator/nuclearCalculator.ui:161
 #, kde-format
 msgid "<big><b>Atomic mass:</b></big>"
-msgstr "<big><b>الكتلة الذريّة:</b></big>"
+msgstr "<big><b>الكتلة الذرية:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:171
 #, kde-format
 msgid "<big>Atomic mass of the isotope selected</big>"
-msgstr "<big>الكتلة الذريّة للنظير المحدّد</big>"
+msgstr "<big>الكتلة الذرية للنظير المحدد</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:174
 #, kde-format
 msgid "This label displays the atomic mass of the isotope in grams per mole."
-msgstr "تعرض هذه اللصيقة الكتلة الذريّة للنظير بالجرام لكل مول."
+msgstr "تعرض هذه التسمية الكتلة الذرية للنظير بالغرام لكل مول."
 
 #. i18n: ectx: property (text), widget (QLabel, mass)
 #. i18n: ectx: property (text), widget (QLabel, numHalfLives)
@@ -3798,13 +3983,13 @@ msgstr "0"
 #: src/calculator/nuclearCalculator.ui:187
 #, kde-format
 msgid "<big>The unit of atomic mass</big>"
-msgstr "<big>وحدة الكتلة الذريّة</big>"
+msgstr "<big>وحدة الكتلة الذرية</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/nuclearCalculator.ui:190
 #, kde-format
 msgid "grams / mole"
-msgstr "جرام/مول"
+msgstr "غرام / مول"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/calculator/nuclearCalculator.ui:200
@@ -3819,7 +4004,7 @@ msgid ""
 "This box is used to decide what you want to calculate, choose among 'Time', "
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
-"يُستخدم هذا المربع لتختار ما تريد حاسبه، اختر من بين 'الوقت'، 'الكمية "
+"يُستخدم هذا المربع لتحديد ما تريد حسابه، اختر من بين 'الوقت'، 'الكمية "
 "الابتدائية للمادة' و 'الكمية النهائية للمادة'."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
@@ -3857,7 +4042,7 @@ msgstr "<big>حدّد الكمية الابتدائية للمادة</big>"
 #, kde-format
 msgid ""
 "This box is used to specify the initial amount of the radioactive substance."
-msgstr "يُستخدم هذا المربع لتحديد الكمية الابتدائية للمادة المشعّة."
+msgstr "يُستخدم هذا المربع لتحديد الكمية الابتدائية للمادة المشعة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: src/calculator/nuclearCalculator.ui:272
@@ -3876,7 +4061,7 @@ msgstr "<big>حدّد الكمية النهائية للمادة</big>"
 #, kde-format
 msgid ""
 "This box is used to specify the final amount of the radioactive substance."
-msgstr "يُستخدم هذا المربع لتحديد الكمية النهائية للمادة المشعّة."
+msgstr "يُستخدم هذا المربع لتحديد الكمية النهائية للمادة المشعة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: src/calculator/nuclearCalculator.ui:298
@@ -3897,7 +4082,7 @@ msgid ""
 "This box is used to specify the time after which the initial amount "
 "decreases to the final amount."
 msgstr ""
-"يُستخدم هذا المربع لتحديد الوقت بعد تناقص الكمية الابتدائية إلى الكمية "
+"يُستخدم هذا المربع لتحديد الوقت الذي تنخفض بعده الكمية الابتدائية إلى الكمية "
 "النهائية."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmtType)
@@ -3913,6 +4098,8 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
+"يمكن استخدام هذا المربع لتغيير الوضعية التي تريد بها تحديد الكمية الأولية "
+"للمادة، أي الكتلة أو المولات."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmtType)
@@ -3920,13 +4107,13 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:359
 #, kde-format
 msgid "moles"
-msgstr "المولات"
+msgstr "مول"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:347
 #, kde-format
 msgid "<big>Method by which you want to specify the final amount</big>"
-msgstr ""
+msgstr "<big>الطريقة التي تريد بها تحديد الكمية النهائية</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:350
@@ -3935,6 +4122,8 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
+"يمكن استخدام هذا المربع لتغيير الوضعية التي تريد بها تحديد الكمية النهائية "
+"للمادة، أي الكتلة أو المولات."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
@@ -3958,7 +4147,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:427
 #, kde-format
 msgid "grams"
-msgstr "جرام"
+msgstr "غرام"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -4013,8 +4202,7 @@ msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"يمكن أن يُستخدم هذا المربع لتحديد وحدات الكمية النهائية للمادة. مثلًا جرام، "
-"رطل، إلخ."
+"يُستخدم هذا المربع لتحديد وحدات الكمية النهائية للمادة. مثلًا جرام، رطل، إلخ."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:460
@@ -4067,19 +4255,19 @@ msgstr "رسالة معلومات/خطأ"
 #: src/calculator/settings_calc.ui:29
 #, kde-format
 msgid "<big>The settings of the molecular concentration calculator</big>"
-msgstr "<big>إعدادات حاسبة التركيز الذريّة</big>"
+msgstr "<big>إعدادات حاسبة التركيز الجزيئي</big>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_mass)
 #: src/calculator/settings_calc.ui:45
 #, kde-format
 msgid "Amount is always specified in term of mass"
-msgstr "الكمية مُحدّدة دائمًا من حيث الكتلة"
+msgstr "يُحدّد مقدار الكمية دائمًا من حيث الكتلة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ideal)
 #: src/calculator/settings_calc.ui:74
 #, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
-msgstr "افترض بأن الغاز مثالي (مثلًا لا تُظهر مُعامِلات فان دير فالس)"
+msgstr "افترض أن الغاز مثالي (أي لا تُعرض معاملات فان دير فالس)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:100
@@ -4091,25 +4279,25 @@ msgstr "حاسبة الكتلة"
 #: src/calculator/settings_calc.ui:106
 #, kde-format
 msgid "Show details such as aliases"
-msgstr "أظهر التفاصيل مثل الأسماء البديلة"
+msgstr "اعرض التفاصيل مثل الأسماء المستعارة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox)
 #: src/calculator/settings_calc.ui:113
 #, kde-format
 msgid "Show the add alias tab"
-msgstr "أظهر لسان إضافة اسم بديل"
+msgstr "اعرض لسان إضافة اسم مستعار"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_soluteMass)
 #: src/calculator/settings_calc.ui:140
 #, kde-format
 msgid "Amount of solute is always specified in terms of mass"
-msgstr "كمية المذاب مُحدّدة دائمًا من حيث الكتلة"
+msgstr "يُحدّد مقدار المذاب دائمًا من حيث الكتلة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_solventVolume)
 #: src/calculator/settings_calc.ui:147
 #, kde-format
 msgid "Amount of solvent is always specified in terms of volume"
-msgstr "كمية المذيب مُحدّدة دائمًا من حيث الحجم"
+msgstr "يُحدّد مقدار المذيب دائمًا من حيث الحجم"
 
 #: src/calculator/titrationCalculator.cpp:40
 #, kde-format
@@ -4135,20 +4323,19 @@ msgid "Error"
 msgstr "خطأ"
 
 #: src/calculator/titrationCalculator.cpp:98
-#, fuzzy, kde-format
-#| msgid "Unable to find the user defined alias file."
+#, kde-format
 msgid "Unable to find an equation for Y-axis variable."
-msgstr "تعذّر العثور على ملف الأسماء البديلة المُعرَّف من المستخدم."
+msgstr "تعذّر العثور على معادلة لمتغير المحور الصادي."
 
 #: src/calculator/titrationCalculator.cpp:118
 #, kde-format
 msgid "Theoretical curve"
-msgstr ""
+msgstr "منحنى نظري"
 
 #: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Approximated curve"
-msgstr ""
+msgstr "منحنى تقريبي"
 
 #: src/calculator/titrationCalculator.cpp:202
 #, kde-format
@@ -4156,16 +4343,15 @@ msgid "Equivalence point"
 msgstr "نقطة التكافؤ"
 
 #: src/calculator/titrationCalculator.cpp:571
-#, fuzzy, kde-format
-#| msgid "Save plot"
+#, kde-format
 msgid "Save work"
-msgstr "احفظ الرسم البياني"
+msgstr "احفظ العمل"
 
 #: src/calculator/titrationCalculator.cpp:571
 #: src/calculator/titrationCalculator.cpp:594
 #, kde-format
 msgid "Icee File (*.icee)"
-msgstr ""
+msgstr "ملف Icee (*.icee)"
 
 #: src/calculator/titrationCalculator.cpp:583
 #: src/calculator/titrationCalculator.cpp:732
@@ -4174,10 +4360,9 @@ msgid "Unable to create %1"
 msgstr "تعذّر إنشاء %1"
 
 #: src/calculator/titrationCalculator.cpp:594
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open work"
-msgstr "افتح"
+msgstr "افتح العمل"
 
 #: src/calculator/titrationCalculator.cpp:600
 #, kde-format
@@ -4200,7 +4385,7 @@ msgstr "صورة Svg (*.svg)"
 #: src/calculator/titrationCalculator.ui:25
 #, kde-format
 msgid "Choose what you want to do:"
-msgstr "اختر ما الذي تريد فعله:"
+msgstr "اختر ما تريد فعله:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/calculator/titrationCalculator.ui:36
@@ -4212,13 +4397,13 @@ msgstr "اللسان 1"
 #: src/calculator/titrationCalculator.ui:42
 #, kde-format
 msgid "Find the equivalence point from experimental values:"
-msgstr "اعثر على نقطة التكافؤ من القيم التجريبية:"
+msgstr "اِبحث عن نقطة التكافؤ من القيم التجريبية:"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:106
 #, kde-format
 msgid "pH(Y)"
-msgstr "الأُسّ الهيدروجيني(ص)"
+msgstr "الأس الهيدروجيني(ص)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:111
@@ -4238,8 +4423,7 @@ msgstr "اللسان 2"
 msgid ""
 "Solve an equilibrium system and see how the concentration of one ion (Y) "
 "changes in function of another one (X)"
-msgstr ""
-"حُلّ نظام معادلات وانظر إلى طريقة تغيير تركيز أيون واحد (ص) في أيون آخر (س)"
+msgstr "احُلّ نظام اتزان وشاهد كيف يتغير تركيز أيون واحد (ص) بدلالة أيون آخر (س)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:199
@@ -4328,18 +4512,18 @@ msgstr "مثال"
 #: src/detailedgraphicaloverview.cpp:67
 #, kde-format
 msgid "No element selected"
-msgstr "لم يحدّد أي عنصر"
+msgstr "لم يُحدّد أي عنصر"
 
 #: src/detailedgraphicaloverview.cpp:87
 #, kde-format
 msgid "No graphic found"
-msgstr "لم يُعثر على رسومي"
+msgstr "لم يُعثر على رسم"
 
 #: src/detailedgraphicaloverview.cpp:138
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "For example '1.0079u', the mass of an element in units"
 msgid "%1 u"
-msgstr "أوبان 1"
+msgstr "%1 و.ك.ذ"
 
 #: src/detailinfodlg.cpp:43
 #, kde-format
@@ -4350,7 +4534,7 @@ msgstr "التالي"
 #: src/detailinfodlg.cpp:44
 #, kde-format
 msgid "Goes to the next element"
-msgstr "يذهب للعنصر التالي"
+msgstr "ينتقل إلى العنصر التالي"
 
 #: src/detailinfodlg.cpp:47
 #, kde-format
@@ -4361,12 +4545,12 @@ msgstr "السابق"
 #: src/detailinfodlg.cpp:48
 #, kde-format
 msgid "Goes to the previous element"
-msgstr "يذهب للعنصر السابق"
+msgstr "ينتقل إلى العنصر السابق"
 
 #: src/detailinfodlg.cpp:147
 #, kde-format
 msgid "It was discovered by %1."
-msgstr "%1 من اكتشفه/اكتشفته."
+msgstr "مكتشف بواسطة %1."
 
 #: src/detailinfodlg.cpp:154
 #, kde-format
@@ -4409,7 +4593,7 @@ msgstr "التوزيع الإلكتروني"
 #: src/detailinfodlg.cpp:221 src/molcalcwidgetbase.ui:218
 #, kde-format
 msgid "Atomic mass"
-msgstr "الكتلة الذريّة"
+msgstr "الكتلة الذرية"
 
 #: src/detailinfodlg.cpp:228
 #, kde-format
@@ -4429,7 +4613,7 @@ msgstr "طاقة التأيّن الأولى"
 #: src/plotsetupwidget.ui:421 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
-msgstr "الكهروسالبية"
+msgstr "السالبية الكهربائية"
 
 #: src/detailinfodlg.cpp:242
 #, kde-format
@@ -4445,23 +4629,23 @@ msgstr "ويكيبيديا (%1)"
 #: src/detailinfodlg.cpp:302
 #, kde-format
 msgid "Neutrons"
-msgstr "النيترونات"
+msgstr "النيوترونات"
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/detailinfodlg.cpp:304 src/molcalcwidgetbase.ui:228
 #, kde-format
 msgid "Percentage"
-msgstr "النسبة"
+msgstr "النسبة المئوية"
 
 #: src/detailinfodlg.cpp:306
 #, kde-format
 msgid "Half-life period"
-msgstr "فترة عمر النصف"
+msgstr "فترة نصف العمر"
 
 #: src/detailinfodlg.cpp:308
-#, fuzzy, kde-format
+#, kde-format
 msgid "Energy and Mode of Decay"
-msgstr "الطاقة و الوضع من الإنحطاط"
+msgstr "الطاقة ونمط الاضمحلال"
 
 #: src/detailinfodlg.cpp:310
 #, kde-format
@@ -4469,9 +4653,9 @@ msgid "Spin and Parity"
 msgstr "الغزل والتكافؤ"
 
 #: src/detailinfodlg.cpp:318
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 u"
-msgstr "أوبان 1"
+msgstr "%1 و.ك.ذ"
 
 #: src/detailinfodlg.cpp:324
 #, kde-format
@@ -4509,10 +4693,10 @@ msgid "%1 MeV"
 msgstr "%1 م‌إ‌ف"
 
 #: src/detailinfodlg.cpp:338
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Spontaneous fission"
 msgid " SF"
-msgstr " 1997 SF1"
+msgstr " انشطار تلقائي"
 
 #: src/detailinfodlg.cpp:340 src/detailinfodlg.cpp:364
 #: src/detailinfodlg.cpp:387 src/detailinfodlg.cpp:410
@@ -4562,39 +4746,37 @@ msgid " %1"
 msgstr " %1"
 
 #: src/detailinfodlg.cpp:385
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Proton decay"
 msgid " p"
-msgstr "P"
+msgstr " بروتون"
 
 #: src/detailinfodlg.cpp:408
-#, fuzzy, kde-format
+#, kde-format
 msgid " 2p"
-msgstr "P"
+msgstr " 2بروتون"
 
 #: src/detailinfodlg.cpp:431
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Neutron decay"
 msgid " n"
-msgstr "ش"
+msgstr " نيوترون"
 
 #: src/detailinfodlg.cpp:453
-#, fuzzy, kde-format
+#, kde-format
 msgid " 2n"
-msgstr "ش"
+msgstr " 2نيوترون"
 
 #: src/detailinfodlg.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "Acronym of Electron Capture"
-#| msgid " EC"
+#, kde-format
 msgctxt "Electron capture"
 msgid " EC"
-msgstr "الكُهَيرِب"
+msgstr " التقاط إلكترون"
 
 #: src/detailinfodlg.cpp:497
-#, fuzzy, kde-format
+#, kde-format
 msgid " 2EC"
-msgstr "الكُهَيرِب"
+msgstr " 2EC"
 
 #: src/detailinfodlg.cpp:518
 #, kde-format
@@ -4603,10 +4785,9 @@ msgid " %1<sup>-</sup>"
 msgstr " %1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr "انشطار"
+msgstr " %1<sup>-</sup>، انشطار"
 
 #: src/detailinfodlg.cpp:560
 #, kde-format
@@ -4625,34 +4806,29 @@ msgid " 2%1<sup>+</sup>"
 msgstr " 2%1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr "ش"
+msgstr " %1 <sup>-</sup>n"
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr "ش"
+msgstr " %1<sup>-</sup>2n"
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr "ش"
+msgstr " %1<sup>-</sup>3n"
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr "ش"
+msgstr " %1<sup>-</sup>4n"
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr "ش"
+msgstr " %1<sup>-</sup>%2 n"
 
 #: src/detailinfodlg.cpp:711
 #, kde-format
@@ -4670,16 +4846,14 @@ msgid " %1<sup>-</sup>3%2"
 msgstr " %1<sup>-</sup>3%2"
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr "P"
+msgstr " %1<sup>+</sup>p"
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr "P"
+msgstr " %1<sup>+</sup>2p"
 
 #: src/detailinfodlg.cpp:790
 #, kde-format
@@ -4702,39 +4876,39 @@ msgid " %1 %2<sup>-</sup>"
 msgstr " %1 %2<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:847
-#, fuzzy, kde-format
+#, kde-format
 msgid " p%1"
-msgstr "P"
+msgstr " p%1"
 
 #: src/detailinfodlg.cpp:860
-#, fuzzy, kde-format
+#, kde-format
 msgid " ECp"
-msgstr "ECP"
+msgstr " ECp"
 
 #: src/detailinfodlg.cpp:873
 #, kde-format
 msgid " EC2p"
-msgstr ""
+msgstr " EC2p"
 
 #: src/detailinfodlg.cpp:886
 #, kde-format
 msgid " EC3p"
-msgstr ""
+msgstr " EC3p"
 
 #: src/detailinfodlg.cpp:898
-#, fuzzy, kde-format
+#, kde-format
 msgid " EC%1"
-msgstr "الكُهَيرِب"
+msgstr " EC%1"
 
 #: src/detailinfodlg.cpp:910
-#, fuzzy, kde-format
+#, kde-format
 msgid " EC%1 p"
-msgstr "م"
+msgstr " EC%1 p"
 
 #: src/detailinfodlg.cpp:1070
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 %2<sub>n</sub>"
-msgstr "ش"
+msgstr "%1 %2<sub>n</sub>"
 
 #. i18n("Overview"));
 #. item->setHeader(i18n("Overview"));
@@ -4813,7 +4987,7 @@ msgstr "ارسم البيانات"
 #: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:411
 #, kde-format
 msgid "Atomic Number"
-msgstr "العدد الذرّي"
+msgstr "العدد الذري"
 
 #: src/eqchemview.cpp:72
 #, kde-format
@@ -4905,9 +5079,9 @@ msgid "Symbol"
 msgstr "الرمز"
 
 #: src/exportdialog.cpp:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Exact Mass"
-msgstr "المعدَل كتلة"
+msgstr "الكتلة الدقيقة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
 #: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
@@ -5133,9 +5307,9 @@ msgid "Spin: %1"
 msgstr "الغزل: %1"
 
 #: src/isotopetable/isotopetabledialog.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "Exact mass: %1 u"
-msgstr "المعدَل u"
+msgstr "الكتلة الدقيقة: %1 و.ك.ذ"
 
 #: src/kalzium.cpp:111
 #, kde-format
@@ -5306,10 +5480,10 @@ msgid "Tools"
 msgstr "الأدوات"
 
 #: src/kalzium.cpp:501
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
-msgstr "كتلة u"
+msgstr "%1 (%2)، الكتلة: %3 و.ك.ذ"
 
 #: src/kalziumelementproperty.cpp:77
 #, kde-format
@@ -5361,7 +5535,7 @@ msgstr "أيوباك"
 #: src/kalziumnumerationtype.cpp:189
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: src/kalziumnumerationtype.cpp:229
 #, kde-format
@@ -5442,22 +5616,22 @@ msgstr "الفلزات الأخرى"
 #: src/kalziumschemetype.cpp:284
 #, kde-format
 msgid "Halogen"
-msgstr "الهالوجينات"
+msgstr "هالوجين"
 
 #: src/kalziumschemetype.cpp:285
 #, kde-format
 msgid "Transition Metal"
-msgstr "الفلزات الانتقالية"
+msgstr "فلز انتقالي"
 
 #: src/kalziumschemetype.cpp:286
 #, kde-format
 msgid "Noble Gas"
-msgstr "الغازات النبيلة"
+msgstr "غاز نبيل"
 
 #: src/kalziumschemetype.cpp:287
 #, kde-format
 msgid "Metalloid"
-msgstr "أشباه الفلزات"
+msgstr "شبه فلز"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
 #: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
@@ -5511,10 +5685,9 @@ msgid "Colors"
 msgstr "الألوان"
 
 #: src/kalziumschemetype.cpp:411
-#, fuzzy, kde-format
-#| msgid "Nice colors without meaning. (From the Openbabel project)"
+#, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr "ألوان جميلة دون معنى. (من مشروع أوبن‌بابل)"
+msgstr "ألوان جميلة بدون معنى. (من مشروع Open Babel)"
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -5563,10 +5736,9 @@ msgid "%1 u"
 msgstr "%1 وحدة"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
-#| msgid "This element was discovered in the year <numid>%1</numid>."
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "اكتُشِف العنصر في سنة <numid>%1</numid>."
+msgstr "اكتشف هذا العنصر في سنة %1."
 
 #: src/kalziumutils.cpp:125
 #, kde-format
@@ -5630,7 +5802,7 @@ msgstr "غاز"
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Unknown"
-msgstr "مجهول"
+msgstr "غير معروف"
 
 #: src/legendwidget.cpp:81
 #, kde-format
@@ -5677,9 +5849,9 @@ msgid "A periodic table of the elements"
 msgstr "الجدول الدوري للعناصر"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "C"
+msgstr "(C) 2002-2016 كارستن نيهوس ومطوّرو KDE Edu"
 
 #: src/main.cpp:43
 #, kde-format
@@ -5694,17 +5866,18 @@ msgstr "بينو توسكانو"
 #: src/main.cpp:45
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
-msgstr ""
+msgstr "مساهمات كبيرة في الشيفرة؛ خبير مقيم يساعد المطورين الآخرين"
 
 #: src/main.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgid "Benoit Jacob"
-msgstr "يعقوب"
+msgstr "بينوا جاكوب"
 
 #: src/main.cpp:47
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
+"العمل الأساسي على عارض الجزيئات، قام بتوجيه ماركوس خلال مشروع SoC الخاص به"
 
 #: src/main.cpp:49
 #, kde-format
@@ -5714,7 +5887,7 @@ msgstr "ماركوس هانول"
 #: src/main.cpp:49
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
-msgstr ""
+msgstr "مشروع SoC على عارض الجزيئات ونقل/دمج libavogadro"
 
 #: src/main.cpp:51
 #, kde-format
@@ -5722,9 +5895,9 @@ msgid "Kashyap R Puranik"
 msgstr "كاشياب ر بورانيك"
 
 #: src/main.cpp:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
-msgstr "الرّمز جزىء و a من"
+msgstr "مشروع SoC على عنصر واجهة الحاسبة وبعض التحسينات الأصغر"
 
 #: src/main.cpp:53
 #, kde-format
@@ -5732,9 +5905,9 @@ msgid "Thomas Nagy"
 msgstr "توماس ناغي"
 
 #: src/main.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "EqChem, the equation solver"
-msgstr "مساهم"
+msgstr "EqChem، محلّل المعادلات"
 
 #: src/main.cpp:55
 #, kde-format
@@ -6026,6 +6199,8 @@ msgid ""
 "This table previews the elemental composition of the molecule, i.e. the "
 "percentage of each element in the molecule."
 msgstr ""
+"تعرض هذه الجدولة معاينة للتركيب العنصري للجزيء، أي النسبة المئوية لكل عنصر "
+"في الجزيء."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
@@ -6409,32 +6584,22 @@ msgid "S4: Keep away from living quarters"
 msgstr "‏S4: يحفظ بعيدا عن التجمعات السكنية."
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
-msgstr "‏S5: تحفظ المحتويات في..... (سائل مناسب يحدده مصنع المادة)."
+msgstr "S5: يُحفظ المحتوى تحت ... (يُحدد السائل المناسب من قبل الصانع)"
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
-msgstr "‏S6: تحفظ المحتويات ضمن.... (غاز نبيل يحدده مصنع المادة)"
+msgstr "S6: يُحفظ تحت ... (يُحدد الغاز الخامل من قبل الصانع)"
 
 #: src/rsdialog.cpp:157
 #, kde-format
@@ -7480,17 +7645,17 @@ msgstr "ابحث..."
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "بجانب بعضهما البعض"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "جزء واحد إلى جانب الآخر"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "كلا الجزأين متواصلين"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
@@ -8254,7 +8419,7 @@ msgstr "العرض"
 msgid ""
 "Load a molecule and use the mouse pointer and scroll wheel to change the "
 "view point."
-msgstr ""
+msgstr "حمّل جزيئًا واستخدم مؤشر الفأرة وعجلة التمرير لتغيير نقطة العرض."
 
 #. i18n: ectx: attribute (title), widget (QWidget, edit)
 #: src/tools/moleculeviewerwidget.ui:136
