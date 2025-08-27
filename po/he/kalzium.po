@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-15 14:04+0300\n"
+"PO-Revision-Date: 2025-08-26 11:36+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -1786,10 +1786,9 @@ msgid "Rhodium"
 msgstr "רודיום"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'rhodeos' means 'red like a rose'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "ביוונית, 'rhodeos' פירושו 'אדום כשושן'"
+msgstr "ביוונית ‚rhodeos’ פירושו ‚אדום כוורד’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -1945,9 +1944,9 @@ msgid "Praseodymium"
 msgstr "פרסודיום"
 
 #: element_tiny.xml:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
-msgstr "ביוונית, 'beryllos פירושו 'אבן ירוקה-בהירה'"
+msgstr "ביוונית ‚prasinos didymos’ משמעו ‚תאום ירוק’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -1956,15 +1955,15 @@ msgid "Neodymium"
 msgstr "נאודימיום"
 
 #: element_tiny.xml:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr "ביוונית, 'xenos' פירושו 'זר'"
+msgstr "ביוונית ‚neos didymos’ משמעו ‚תאום חדש’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
-#, fuzzy, kde-format
+#, kde-format
 msgid "Promethium"
-msgstr "כרומיום"
+msgstr "פרומתיום"
 
 #: element_tiny.xml:124
 #, kde-format
@@ -1982,9 +1981,9 @@ msgid "Samarium"
 msgstr "סמריום"
 
 #: element_tiny.xml:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr "נקרא על שם העיר מגנזיה"
+msgstr "נקרא על שם המינרל סמרסקיט."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2004,10 +2003,9 @@ msgid "Gadolinium"
 msgstr "גדוליניום"
 
 #: element_tiny.xml:130
-#, fuzzy, kde-format
-#| msgid "Named after the Finnish chemist Johan Gadolin"
+#, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "נקרא על שם הכימאי הפיני יוהן גאדולין"
+msgstr "נקרא על שם הכימאי הפיני יוהאן גדולין."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2032,10 +2030,9 @@ msgid "Dysprosium"
 msgstr "דיספרוסיום"
 
 #: element_tiny.xml:134
-#, fuzzy, kde-format
-#| msgid "Greek 'dysprositor' for 'difficult to reach'"
+#, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr "ביוונית, 'dysprositor' פירושו 'קשה להשגה'"
+msgstr "ביוונית ‚dysprositor’ משמעו ‚קשה להשגה’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
@@ -2071,9 +2068,9 @@ msgid "Thulium"
 msgstr "תוליום"
 
 #: element_tiny.xml:140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Named after the old name of Scandinavia, 'Thule'."
-msgstr "על שם מדינת קליפוריה שבארה\"ב"
+msgstr "נקרא לפי השם הקודם של סקנדינביה ‚תולה’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:141
@@ -4312,9 +4309,9 @@ msgstr "ניוטרונים"
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/detailinfodlg.cpp:304 src/molcalcwidgetbase.ui:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "Percentage"
-msgstr "<b>אחוזים</b>"
+msgstr "אחוז"
 
 #: src/detailinfodlg.cpp:306
 #, kde-format
@@ -4337,12 +4334,10 @@ msgid "%1 u"
 msgstr " u"
 
 #: src/detailinfodlg.cpp:324
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "this can for example be '24%'"
 msgid "%1%"
-msgstr ""
-"_: זה יכול להיות לדוגמא '24%'\n"
-"%1%"
+msgstr "%1%"
 
 #: src/detailinfodlg.cpp:329
 #, fuzzy, kde-format
@@ -4794,9 +4789,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gradientwidget.ui:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheme:"
-msgstr "&ללא תרשים צבעים"
+msgstr "סכמה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gradientwidget.ui:50
@@ -4987,9 +4982,9 @@ msgid "&Export Data..."
 msgstr "יי&צוא נתונים…"
 
 #: src/kalzium.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Scheme"
-msgstr "&ללא תרשים צבעים"
+msgstr "&סכמה"
 
 #: src/kalzium.cpp:128
 #, kde-format
@@ -5484,26 +5479,26 @@ msgid "linear"
 msgstr "סרגל צד"
 
 #: src/legendwidget.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/legendwidget.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Minimum value of the gradient"
 msgid "Minimum: %1"
-msgstr "ערך מינימלי:"
+msgstr "מזערי: %1"
 
 #: src/legendwidget.cpp:92
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Maximum value of the gradient"
 msgid "Maximum: %1"
-msgstr "ערך מקסימלי:"
+msgstr "מרבי: %1"
 
 #: src/legendwidget.cpp:98
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheme: %1"
-msgstr "מספר: %1"
+msgstr "סכמה: %1"
 
 #: src/main.cpp:35 src/tools/moleculeview.cpp:106
 #, kde-format
