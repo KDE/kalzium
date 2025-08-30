@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-26 11:36+0300\n"
+"PO-Revision-Date: 2025-08-29 13:33+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1563,15 +1563,14 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "Iron"
-msgstr "בור"
+msgstr "ברזל"
 
 #: element_tiny.xml:54
-#, fuzzy, kde-format
-#| msgid "Latin 'ferrum'"
+#, kde-format
 msgid "Latin 'ferrum'."
-msgstr "ferrum בלטינית"
+msgstr "‏‚ferrum’ בלטינית."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -1597,15 +1596,14 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copper"
 msgstr "נחושת"
 
 #: element_tiny.xml:60
-#, fuzzy, kde-format
-#| msgid "Greek 'cuprum' for Cypres"
+#, kde-format
 msgid "Greek 'cuprum' for Cypres."
-msgstr "ביוונית, 'cuprum' פירושו קפריסין"
+msgstr "ביוונית ‚cuprum’ משמעו קפריסין"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
@@ -2191,9 +2189,9 @@ msgid "Gold"
 msgstr "זהב"
 
 #: element_tiny.xml:160
-#, fuzzy, kde-format
+#, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
-msgstr "אאורום בלטינית, על שם אאורה, אלת הזריחה"
+msgstr "מלטינית ‚aurum’. נקרא על שם אורורה, אלת הזריחה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
@@ -2213,9 +2211,9 @@ msgid "Thallium"
 msgstr "תליום"
 
 #: element_tiny.xml:164
-#, fuzzy, kde-format
+#, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "ביוונית, 'astator' פירושו 'משתנה'"
+msgstr "ביוונית ‚tallos’ משמעו ‚זרדים צעירים’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2514,11 +2512,12 @@ msgid "Hassium"
 msgstr "האסיום"
 
 #: element_tiny.xml:218
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Latin 'hassia' for the German county Hessen. In Hessen a lot elements have "
 "been discovered."
-msgstr "כאן אתה יכול לראות מתי האטום הזה התגלה"
+msgstr ""
+"בלטינית ‚hassia’ לציון המחוז הסן שבגרמניה. בהסן התגלה מספר גדול של יסודות."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:219
@@ -2683,15 +2682,15 @@ msgid "DZ Periodic Table"
 msgstr ""
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
-msgstr "ח&שב"
+msgstr "מחשבון כימי"
 
 #: src/calculator/calculator.cpp:61 src/calculator/calculator.cpp:105
-#, fuzzy, kde-format
+#, kde-format
 msgid "Equation Balancer"
-msgstr "פותר המשוואות"
+msgstr "איזון משוואות"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:91 src/calculator/calculator.ui:56
@@ -2725,15 +2724,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:110 src/calculator/calculator.ui:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Molecular mass Calculator"
-msgstr "משקל מולקולרי: %1 ימ\"א"
+msgstr "מחשבון מסה מולקולרית"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:112 src/calculator/calculator.ui:81
-#, fuzzy, kde-format
+#, kde-format
 msgid "Titration Calculator"
-msgstr "ח&שב"
+msgstr "מחשבון טיטור"
 
 #. i18n: ectx: property (toolTip), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:38
@@ -4250,9 +4249,9 @@ msgid "Boiling Point"
 msgstr "טמפ׳ רתיחה"
 
 #: src/detailinfodlg.cpp:193 src/exportdialog.cpp:138
-#, fuzzy, kde-format
+#, kde-format
 msgid "Electron Affinity"
-msgstr "אפיניות אלקארונית"
+msgstr "זיקה אלקטרונית"
 
 #: src/detailinfodlg.cpp:200
 #, fuzzy, kde-format
@@ -4266,20 +4265,14 @@ msgid "Atomic mass"
 msgstr "מסה אטומית"
 
 #: src/detailinfodlg.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ionization energy"
-msgstr ""
-"_: המשתנה הראשון הוא מספר. התוצאה היא לדוגמא '1.' או '5.', המשתנה השני הוא "
-"ערך אנרגית היינון\n"
-"%1. אנרגית היינון: %2"
+msgstr "אנרגיית יינון"
 
 #: src/detailinfodlg.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "First Ionization energy"
-msgstr ""
-"_: המשתנה הראשון הוא מספר. התוצאה היא לדוגמא '1.' או '5.', המשתנה השני הוא "
-"ערך אנרגית היינון\n"
-"%1. אנרגית היינון: %2"
+msgstr "אנרגיית יינון ראשונה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -4340,14 +4333,12 @@ msgid "%1%"
 msgstr "%1%"
 
 #: src/detailinfodlg.cpp:329
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "The first argument is the value, the second is the unit. For example '17 s' "
 "for '17 seconds',."
 msgid "%1 %2"
-msgstr ""
-"_: %1 במעלות צלזיוז\n"
-"%1 %2C"
+msgstr "%1 %2"
 
 #: src/detailinfodlg.cpp:336 src/detailinfodlg.cpp:360
 #: src/detailinfodlg.cpp:383 src/detailinfodlg.cpp:406
@@ -4807,9 +4798,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSlider, gradient_slider)
 #: src/gradientwidget.ui:108
-#, fuzzy, kde-format
+#, kde-format
 msgid "Slide to change current temperature"
-msgstr "בחר את יחידות הטמפרטורה"
+msgstr "יש להחליק כדי לשנות את הטמפרטורה הנוכחית"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, Play)
 #: src/gradientwidget.ui:132
@@ -4994,28 +4985,28 @@ msgstr "מ&דרגים"
 #: src/kalzium.cpp:137
 #, kde-format
 msgid "&Tables"
-msgstr ""
+msgstr "&טבלאות"
 
 #: src/kalzium.cpp:144
 #, kde-format
 msgid "&Numeration"
-msgstr ""
+msgstr "&ספירה"
 
 #: src/kalzium.cpp:151
 #, kde-format
 msgid "&Plot Data..."
-msgstr ""
+msgstr "&שרטוט נתונים…"
 
 #: src/kalzium.cpp:157
 #, kde-format
 msgid "Perform &Calculations..."
-msgstr ""
+msgstr "ביצוע &חישובים…"
 
 #: src/kalzium.cpp:159
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This is the calculator, it performs basic chemical calculations."
-msgstr ""
+msgstr "זה המחשבון, הוא מבצע חישובים כימיים בסיסיים."
 
 #: src/kalzium.cpp:163
 #, kde-format
@@ -5026,7 +5017,7 @@ msgstr "טבלת &איזוטופים…"
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This table shows all of the known isotopes of the chemical elements."
-msgstr ""
+msgstr "הטבלה הזאת מציגה את כל האיזוטופים הידועים של היסודות הכימיים."
 
 #: src/kalzium.cpp:169
 #, kde-format
@@ -5041,7 +5032,7 @@ msgstr ""
 #: src/kalzium.cpp:179
 #, kde-format
 msgid "Convert chemical files..."
-msgstr ""
+msgstr "המרת קבצים כימיים…"
 
 #: src/kalzium.cpp:181
 #, kde-format
@@ -5050,22 +5041,23 @@ msgid ""
 "With this tool, you can convert files containing chemical data between "
 "various file formats."
 msgstr ""
+"עם הכלי הזה, אפשר להמיר קבצים שמכילים נתונים כימיים בין מגוון סוגי קבצים."
 
 #: src/kalzium.cpp:188
 #, kde-format
 msgid "Molecular Editor..."
-msgstr ""
+msgstr "עורך מולקולרי…"
 
 #: src/kalzium.cpp:190
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
-msgstr ""
+msgstr "הכלי הזה מאפשר לך לצפות ולערוך מבנים מולקולריים תלת־ממדיים."
 
 #: src/kalzium.cpp:197
 #, kde-format
 msgid "&Tables..."
-msgstr ""
+msgstr "&טבלאות…"
 
 #: src/kalzium.cpp:199
 #, kde-format
@@ -5073,13 +5065,13 @@ msgctxt "WhatsThis Help"
 msgid ""
 "This will open a dialog with listings of symbols and numbers related to "
 "chemistry."
-msgstr ""
+msgstr "פתיחת חלונית עם רשימות של סמלים ומספרים שקשורים בכימיה."
 
 #: src/kalzium.cpp:207
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This will show or hide the legend for the periodic table."
-msgstr ""
+msgstr "יציג או יסתיר את המקרא של הטבלה המחזורית."
 
 #: src/kalzium.cpp:212
 #, kde-format
@@ -5087,7 +5079,7 @@ msgctxt "WhatsThis Help"
 msgid ""
 "This will show or hide a sidebar with additional information and a set of "
 "tools."
-msgstr ""
+msgstr "יציג או יסתיר את סרגל הצד שמכיל פרטים נוספים ומגוון כלים."
 
 #: src/kalzium.cpp:217
 #, kde-format
@@ -5164,20 +5156,20 @@ msgid "u"
 msgstr ""
 
 #: src/kalziumgradienttype.cpp:493
-#, fuzzy, kde-format
+#, kde-format
 msgid "Electronegativity (Pauling)"
-msgstr "אלקטרו-שליליות"
+msgstr "אלקטרושליליות (פאולינג)"
 
 #: src/kalziumgradienttype.cpp:549
 #, kde-format
 msgid "Discovery date"
-msgstr ""
+msgstr "תאריך הגילוי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronaffinityGradient)
 #: src/kalziumgradienttype.cpp:605 src/settings/settings_gradients.ui:109
-#, fuzzy, kde-format
+#, kde-format
 msgid "Electronaffinity"
-msgstr "אפיניות אלקארונית"
+msgstr "זיקה אלקטרונית"
 
 #: src/kalziumgradienttype.cpp:661
 #, fuzzy, kde-format
@@ -5192,22 +5184,22 @@ msgstr ""
 #: src/kalziumnumerationtype.cpp:149
 #, kde-format
 msgid "IUPAC"
-msgstr ""
+msgstr "IUPAC"
 
 #: src/kalziumnumerationtype.cpp:189
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: src/kalziumnumerationtype.cpp:229
 #, kde-format
 msgid "Old IUPAC"
-msgstr ""
+msgstr "IUPAC ישן"
 
 #: src/kalziumschemetype.cpp:98
 #, kde-format
 msgid "Monochrome"
-msgstr ""
+msgstr "צבע אחיד"
 
 #: src/kalziumschemetype.cpp:116
 #, kde-format
@@ -5216,9 +5208,9 @@ msgstr "כל היסודות"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabBlocks)
 #: src/kalziumschemetype.cpp:138 src/settings/settings_colors.ui:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Blocks"
-msgstr "&בלוק"
+msgstr "בלוקים"
 
 #: src/kalziumschemetype.cpp:170
 #, kde-format
@@ -5248,7 +5240,7 @@ msgstr "ברזל"
 #: src/kalziumschemetype.cpp:214
 #, kde-format
 msgid "Each element is represented by an icon which represents its use."
-msgstr ""
+msgstr "כל יסוד מיוצג על ידי סמל שמייצר את השימוש בו."
 
 #: src/kalziumschemetype.cpp:279
 #, fuzzy, kde-format
@@ -5349,7 +5341,7 @@ msgstr "צבעים"
 #: src/kalziumschemetype.cpp:411
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr ""
+msgstr "צבעים נאים בלי משמעות. (ממיזם Open Babel)"
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -5361,7 +5353,7 @@ msgstr "&קובץ"
 #: src/kalziumui.rc:11
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "ת&צוגה"
 
 #. i18n: ectx: Menu (miscmenu)
 #: src/kalziumui.rc:21
@@ -5381,10 +5373,10 @@ msgid "Value not defined"
 msgstr "ערך לא מוגדר"
 
 #: src/kalziumutils.cpp:100
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Just a number"
 msgid "%1"
-msgstr "%1 (%2)"
+msgstr "%1"
 
 #: src/kalziumutils.cpp:113
 #, kde-format
@@ -5405,12 +5397,12 @@ msgstr "היסוד הזה התגלה בשנת %1."
 #: src/kalziumutils.cpp:125
 #, kde-format
 msgid "The element has not yet been officially recognized by the IUPAC."
-msgstr ""
+msgstr "היסוד עדיין לא הוכר רשמית על ידי IUPAC."
 
 #: src/kalziumutils.cpp:127
-#, fuzzy, kde-format
+#, kde-format
 msgid "This element was known to ancient cultures."
-msgstr "היסוד הזה היה ידוע לתרבויות עתיקות"
+msgstr "היסוד הזה היה מוכר לתרבויות עתיקות."
 
 #: src/kalziumutils.cpp:157
 #, kde-format
@@ -5429,9 +5421,9 @@ msgid "Glossary"
 msgstr "מילון מונחים"
 
 #: src/kdeeduglossary.cpp:478
-#, fuzzy, kde-format
+#, kde-format
 msgid "References"
-msgstr "אורניום"
+msgstr "סימוכין"
 
 #: src/kdeeduglossary.cpp:482
 #, kde-format
@@ -5473,10 +5465,10 @@ msgid "logarithmic"
 msgstr "לוגריתמי"
 
 #: src/legendwidget.cpp:83
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "one of the two types of gradients available"
 msgid "linear"
-msgstr "סרגל צד"
+msgstr "קווי"
 
 #: src/legendwidget.cpp:85
 #, kde-format
@@ -5528,17 +5520,18 @@ msgstr "פינו טוסקנו"
 #: src/main.cpp:45
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
-msgstr ""
+msgstr "תרומות קוד משמעותיות, גורו שמתמיד לעזור למפתחים אחרים"
 
 #: src/main.cpp:47
 #, kde-format
 msgid "Benoit Jacob"
-msgstr ""
+msgstr "בנואה ז׳קוב"
 
 #: src/main.cpp:47
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
+"עבודה בסיסית על המציג המולקולרי, בהנחיית מרקוס במהלך הקיץ של קוד (SoC) שלו"
 
 #: src/main.cpp:49
 #, kde-format
@@ -5595,14 +5588,14 @@ msgstr "הרבה דברים קטנים ותיעוד"
 #: src/main.cpp:59
 #, kde-format
 msgid "Johannes Simon"
-msgstr ""
+msgstr "יוהאן סימון"
 
 #: src/main.cpp:59
 #, kde-format
 msgid ""
 "Code and documentation contributions to the equation solver and molecular "
 "viewer"
-msgstr ""
+msgstr "תרומות קוד ותיעוד לפותר המשוואות והמציג המולקולרי"
 
 #: src/main.cpp:61
 #, kde-format
@@ -5612,17 +5605,17 @@ msgstr ""
 #: src/main.cpp:61
 #, kde-format
 msgid "Many beautiful element icons"
-msgstr ""
+msgstr "מגוון סמלי יסודות יפהפיים"
 
 #: src/main.cpp:63
 #, kde-format
 msgid "Noémie Scherer"
-msgstr ""
+msgstr "נעמי שרר"
 
 #: src/main.cpp:63
 #, kde-format
 msgid "Many beautiful element icons, too!"
-msgstr ""
+msgstr "מגוון סמלי יסודות יפהפיים, בנוסף!"
 
 #: src/main.cpp:65
 #, kde-format
@@ -5693,7 +5686,7 @@ msgstr "פאולו קטאי"
 #: src/main.cpp:85
 #, kde-format
 msgid "New interface design and usability improvements"
-msgstr ""
+msgstr "עיצוב ממשק חדש ושיפור שימושיות"
 
 #: src/main.cpp:79
 #, kde-format
@@ -5794,7 +5787,7 @@ msgstr "בוצע!"
 #: src/molcalcwidget.cpp:295
 #, kde-format
 msgid "Unable to find the user defined alias file."
-msgstr ""
+msgstr "לא ניתן למצוא את קובץ הכינוי שהוגדר על ידי המשתמש."
 
 #. i18n: ectx: attribute (title), widget (QWidget, calcTab)
 #: src/molcalcwidgetbase.ui:24 src/settings/kalziumconfigdialog.cpp:38
@@ -5806,7 +5799,7 @@ msgstr "מחשבון"
 #: src/molcalcwidgetbase.ui:54
 #, kde-format
 msgid "Enter molecular formula here"
-msgstr ""
+msgstr "נא למלא כאן את הנוסחה המולקולרית"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, formulaEdit)
 #: src/molcalcwidgetbase.ui:61
@@ -5817,13 +5810,17 @@ msgid ""
 "e.g. 2.> MeOH\n"
 "e.g. 3.> #EDTA#\n"
 msgstr ""
+"אפשר להשתמש בתיבה הזאת כדי למלא את הנוסחה למולקולה.\n"
+"למשל: ‎1.> CaCO3\n"
+"למשל: ‎2.> MeOH\n"
+"למשל: ‎3.> #EDTA#\n"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calcButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, calcButton)
 #: src/molcalcwidgetbase.ui:68 src/molcalcwidgetbase.ui:71
 #, kde-format
 msgid "Click on this button to calculate."
-msgstr ""
+msgstr "יש ללחוץ על הכפתור הזה כדי לחשב."
 
 #. i18n: ectx: property (text), widget (QPushButton, calcButton)
 #: src/molcalcwidgetbase.ui:74
@@ -5841,7 +5838,7 @@ msgstr "פרטים"
 #: src/molcalcwidgetbase.ui:175
 #, kde-format
 msgid "Composition"
-msgstr ""
+msgstr "תרכובת"
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:188
@@ -5867,7 +5864,7 @@ msgstr "אטומים"
 #: src/molcalcwidgetbase.ui:223
 #, kde-format
 msgid "Total mass"
-msgstr ""
+msgstr "מסה כוללת"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/molcalcwidgetbase.ui:240
@@ -5997,7 +5994,7 @@ msgstr "רשימת כינויים בהגדרת המשתמש."
 #: src/molcalcwidgetbase.ui:425
 #, kde-format
 msgid "This is the list of aliases that you or some other user has added."
-msgstr ""
+msgstr "זאת רשימת הכינויים שהוספת בעצמך או שמשתמשים אחרים הוסיפו."
 
 #: src/orbitswidget.cpp:198
 #, kde-format
@@ -6095,27 +6092,27 @@ msgstr "אל-מתכות / מתכות למחצה"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:270
-#, fuzzy, kde-format
+#, kde-format
 msgid "s block elements"
-msgstr "מספר היסוד:"
+msgstr "יסודות בלוק s"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:275
-#, fuzzy, kde-format
+#, kde-format
 msgid "p block elements"
-msgstr "מספר היסוד:"
+msgstr "יסודות בלוק p"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:280
-#, fuzzy, kde-format
+#, kde-format
 msgid "d block elements"
-msgstr "מספר היסוד:"
+msgstr "יסודות בלוק d"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:285
-#, fuzzy, kde-format
+#, kde-format
 msgid "f block elements"
-msgstr "מספר היסוד:"
+msgstr "יסודות בלוק f"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:290
