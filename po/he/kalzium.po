@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-29 13:33+0300\n"
+"PO-Revision-Date: 2025-08-31 15:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1377,7 +1377,7 @@ msgstr "בלטינית, 'fluere' פירושו 'צף'"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Neon"
 msgstr "נאון"
 
@@ -1417,9 +1417,9 @@ msgid "Aluminium"
 msgstr "אלומיניום"
 
 #: element_tiny.xml:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "Latin 'alumen'."
-msgstr "ferrum בלטינית"
+msgstr "בלטינית ‚alumen’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
@@ -1428,9 +1428,9 @@ msgid "Silicon"
 msgstr "צורן"
 
 #: element_tiny.xml:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Latin 'silex'."
-msgstr "ferrum בלטינית"
+msgstr "בלטינית ‚silex’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
@@ -3334,11 +3334,12 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:174
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
-msgstr "הצג רק את המספר של היסוד"
+msgstr ""
+"אפשר להשתמש בתיבה הזאת לציון יחידות הלחץ, למשל: אטמוספרות, ברים וכן הלאה."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: src/calculator/gasCalculator.ui:181
@@ -3360,17 +3361,18 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units for the temperature of the gas</big>"
-msgstr "בחר את יחידות הטמפרטורה"
+msgstr "<big>נא לציין את יחידות טמפרטורת הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:210
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
-msgstr "הצג רק את המספר של היסוד"
+msgstr ""
+"התיבה הזאת יכולה לשמש לציון יחידות הטמפרטורה, למשל: קלווין, צלזיוס וכו׳."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: src/calculator/gasCalculator.ui:217
@@ -3398,9 +3400,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:252
-#, fuzzy, kde-format
+#, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "אפשר להשתמש בתיבה הזאת לציון יחידות הנפח, למשל: ליטרים."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
@@ -3422,9 +3424,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:314
-#, fuzzy, kde-format
+#, kde-format
 msgid "Specify the units of the van der Waals constant 'b'"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "ציון יחידות קבוע ואן דר ואלס ‚b’"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:317
@@ -3437,9 +3439,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
-#, fuzzy, kde-format
+#, kde-format
 msgid "Specify the units of the van der Waals constant 'a'"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "ציון יחידות קבוע ואן דר ואלס ‚a’"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:333
@@ -3452,16 +3454,16 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
-#, fuzzy, kde-format
+#, kde-format
 msgid "The units of the van der Waals constant 'b'"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "יחידות קבוע ואן דר ואלס ‚b’"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:351
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "אפשר להשתמש בזה לציון יחידות קבוע ואן דר ואלס ‚b’."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
@@ -3582,10 +3584,10 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:111
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון יחידת משך מחצית חיים. למשל: שנים, שניות וכו׳."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -3691,13 +3693,13 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:228
 #, kde-format
 msgid "Initial Amount"
-msgstr ""
+msgstr "כמות התחלתית"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:233
 #, kde-format
 msgid "Final Amount"
-msgstr ""
+msgstr "כמות סופית"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:238
@@ -3709,32 +3711,32 @@ msgstr "זמן"
 #: src/calculator/nuclearCalculator.ui:246
 #, kde-format
 msgid "<big><b>Initial amount:</b></big>"
-msgstr ""
+msgstr "<big><b>כמות התחלתית:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:256
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the initial amount of the substance</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את הכמות הראשונית של החומר</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:259
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the initial amount of the radioactive substance."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון הכמות ההתחלתית של החומר הרדיואקטיבי."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: src/calculator/nuclearCalculator.ui:272
 #, kde-format
 msgid "<big><b>Final amount:</b></big>"
-msgstr ""
+msgstr "<big><b>כמות סופית:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:282
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the final amount of the substance</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את הכמות הסופית של החומר</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:285
@@ -3747,13 +3749,13 @@ msgstr "התיבה הזאת משמשת לציון הכמות הסופית של �
 #: src/calculator/nuclearCalculator.ui:298
 #, kde-format
 msgid "<big><b>Time:</b></big>"
-msgstr ""
+msgstr "<big><b>זמן:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, time)
 #: src/calculator/nuclearCalculator.ui:308
 #, kde-format
 msgid "<big>Specify the time elapsed here</big>"
-msgstr ""
+msgstr "<big>נא לציין כאן את הזמן שעבר</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, time)
 #: src/calculator/nuclearCalculator.ui:311
@@ -3761,7 +3763,7 @@ msgstr ""
 msgid ""
 "This box is used to specify the time after which the initial amount "
 "decreases to the final amount."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציון הזמן בין הכמות ההתחלתית לסופית."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:327
@@ -3789,7 +3791,7 @@ msgstr "כלים"
 #: src/calculator/nuclearCalculator.ui:347
 #, kde-format
 msgid "<big>Method by which you want to specify the final amount</big>"
-msgstr ""
+msgstr "<big>שיטה לציון הכמות הסופית</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:350
@@ -3801,17 +3803,19 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the unit of initial amount of the substance</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את יחידת הכמות הראשונית של החומר</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:383
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
-msgstr "הצג רק את המספר של היסוד"
+msgstr ""
+"התיבה הזאת יכול לשמש לציון יחידות הכמות ההתחלתית של החומר. למשל: גרמים, "
+"פאונדים וכו׳."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3819,7 +3823,7 @@ msgstr "הצג רק את המספר של היסוד"
 #: src/calculator/nuclearCalculator.ui:427
 #, kde-format
 msgid "grams"
-msgstr ""
+msgstr "גרמים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3835,7 +3839,7 @@ msgstr "טונות"
 #: src/calculator/nuclearCalculator.ui:437
 #, kde-format
 msgid "carats"
-msgstr ""
+msgstr "קרט"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3843,7 +3847,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:442
 #, kde-format
 msgid "pounds"
-msgstr ""
+msgstr "פאונדים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmt_unit)
@@ -3863,30 +3867,32 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:420
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units of the final amount</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את יחידות הכמות הסופית</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:423
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
-msgstr "הצג רק את המספר של היסוד"
+msgstr ""
+"התיבה הזאת יכול לשמש לציון יחידות הכמות הסופית של החומר. למשל: גרמים, "
+"פאונדים וכו׳."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:460
 #, kde-format
 msgid "<big>Specify the units for the time elapsed</big>"
-msgstr ""
+msgstr "<big>נא לציין את יחידות הזמן שעבר</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, time_unit)
 #: src/calculator/nuclearCalculator.ui:463
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון יחידות הזמן. למשל: שנים, שניות וכו׳."
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: src/calculator/nuclearCalculator.ui:511
@@ -3976,7 +3982,7 @@ msgstr "ערכים ניסיוניים"
 #: src/calculator/titrationCalculator.cpp:41
 #, kde-format
 msgid "Theoretical equations"
-msgstr ""
+msgstr "משוואות תאורטיות"
 
 #: src/calculator/titrationCalculator.cpp:95
 #, kde-format
@@ -3989,7 +3995,7 @@ msgstr ""
 #: src/calculator/titrationCalculator.cpp:732 src/kalziumutils.cpp:82
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: src/calculator/titrationCalculator.cpp:98
 #, kde-format
@@ -4020,13 +4026,13 @@ msgstr "שמירת עבודה"
 #: src/calculator/titrationCalculator.cpp:594
 #, kde-format
 msgid "Icee File (*.icee)"
-msgstr ""
+msgstr "קובץ Icee‏ (‎*.icee)"
 
 #: src/calculator/titrationCalculator.cpp:583
 #: src/calculator/titrationCalculator.cpp:732
 #, kde-format
 msgid "Unable to create %1"
-msgstr ""
+msgstr "לא ניתן ליצור את %1"
 
 #: src/calculator/titrationCalculator.cpp:594
 #, kde-format
@@ -4036,19 +4042,19 @@ msgstr "פתיחת עבודה"
 #: src/calculator/titrationCalculator.cpp:600
 #, kde-format
 msgid "Unable to open %1"
-msgstr ""
+msgstr "לא ניתן לפתוח את %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, saveimage)
 #: src/calculator/titrationCalculator.cpp:720
 #: src/calculator/titrationCalculator.ui:377
 #, kde-format
 msgid "Save plot"
-msgstr ""
+msgstr "שמירת שרטוט"
 
 #: src/calculator/titrationCalculator.cpp:720
 #, kde-format
 msgid "Svg image (*.svg)"
-msgstr ""
+msgstr "תמונת Svg‏ (‎*.svg)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/calculator/titrationCalculator.ui:25
@@ -4158,7 +4164,7 @@ msgstr "Y מרבי:"
 #: src/calculator/titrationCalculator.ui:356
 #, kde-format
 msgid "New"
-msgstr ""
+msgstr "חדש"
 
 #. i18n: ectx: property (text), widget (QPushButton, open)
 #: src/calculator/titrationCalculator.ui:363
@@ -4176,7 +4182,7 @@ msgstr "שמירה"
 #: src/calculator/titrationCalculator.ui:384
 #, kde-format
 msgid "Example"
-msgstr ""
+msgstr "דוגמה"
 
 #: src/detailedgraphicaloverview.cpp:67
 #, kde-format
@@ -4293,7 +4299,7 @@ msgstr "מצבי חמצון"
 #, kde-format
 msgctxt "Link to element's Wikipedia page, %1 is localized language name"
 msgid "Wikipedia (%1)"
-msgstr ""
+msgstr "ויקיפדיה (%1)"
 
 #: src/detailinfodlg.cpp:302
 #, kde-format
@@ -4616,7 +4622,7 @@ msgstr "איזוטופים"
 #: src/detailinfodlg.cpp:1122
 #, kde-format
 msgid "Miscellaneous"
-msgstr ""
+msgstr "שונות"
 
 #: src/detailinfodlg.cpp:1126 src/detailinfodlg.cpp:1127
 #, kde-format
@@ -4678,14 +4684,14 @@ msgstr ""
 #: src/equationview.ui:44
 #, kde-format
 msgid "Equation:"
-msgstr ""
+msgstr "משוואה:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, lineEdit)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, lineEdit)
 #: src/equationview.ui:63 src/equationview.ui:66
 #, kde-format
 msgid "Enter the equation you want to balance in this field."
-msgstr ""
+msgstr "נא למלא את הנוסחה לאיזון בשדה הזה."
 
 #. i18n: ectx: property (text), widget (QLineEdit, lineEdit)
 #: src/equationview.ui:69
@@ -4710,12 +4716,12 @@ msgstr "&חישוב"
 #: src/equationview.ui:147
 #, kde-format
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "העתקה ללוח הגזירים"
 
 #: src/exportdialog.cpp:85
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "אישור"
 
 #: src/exportdialog.cpp:90
 #, kde-format
@@ -4736,7 +4742,7 @@ msgstr "מאפיינים"
 #: src/exportdialog.cpp:133
 #, kde-format
 msgid "Symbol"
-msgstr ""
+msgstr "סימול"
 
 #: src/exportdialog.cpp:136
 #, kde-format
@@ -4759,12 +4765,12 @@ msgstr "משפחה"
 #: src/exportdialog.cpp:157
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "הקובץ כבר קיים. לדרוס אותו?"
 
 #: src/exportdialog.cpp:165
 #, kde-format
 msgid "Could not open file for writing."
-msgstr ""
+msgstr "לא ניתן לפתוח את הקובץ לכתיבה."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/exportdialog.ui:67
@@ -4812,7 +4818,7 @@ msgstr ""
 #: src/gradientwidget.ui:142
 #, kde-format
 msgid "Speed"
-msgstr ""
+msgstr "מהירות"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, Speed)
 #: src/gradientwidget.ui:149
@@ -4850,7 +4856,7 @@ msgstr "אין יסודות בעלי נקודת רתיחה באזור הטמפר
 #: src/isotopetable/isotopedialog.ui:69
 #, kde-format
 msgid "Zoom IN / OUT"
-msgstr ""
+msgstr "התקרבות / התרחקות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/isotopetable/isotopedialog.ui:134
@@ -5121,7 +5127,7 @@ msgstr ""
 #: src/kalzium.cpp:296
 #, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
-msgstr ""
+msgstr "קובצי תמונה (‎*.png‏ ‎*.xpm‏ ‎*.jpg‏ ‎*.svg)"
 
 #: src/kalzium.cpp:317
 #, kde-format
@@ -6207,7 +6213,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S1: Keep locked up"
-msgstr ""
+msgstr "S1: להשאיר נעול"
 
 #: src/rsdialog.cpp:142
 #, kde-format
@@ -6215,7 +6221,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S2: Keep out of the reach of children"
-msgstr ""
+msgstr "S2: להרחיק מהישג יד של ילדים"
 
 #: src/rsdialog.cpp:145
 #, kde-format
@@ -6223,7 +6229,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S3: Keep in a cool place"
-msgstr ""
+msgstr "S3: לשמור במקום קריר"
 
 #: src/rsdialog.cpp:148
 #, kde-format
@@ -6675,7 +6681,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R1: Explosive when dry"
-msgstr ""
+msgstr "R1: נפיץ כשיבש"
 
 #: src/rsdialog.cpp:328
 #, kde-format
@@ -6710,7 +6716,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R5: Heating may cause an explosion"
-msgstr ""
+msgstr "R5: חימום עלול לגרום להתפוצצות"
 
 #: src/rsdialog.cpp:340
 #, kde-format
@@ -6718,7 +6724,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R6: Explosive with or without contact with air"
-msgstr ""
+msgstr "R6: נפיץ עם או בלי מגע עם אוויר"
 
 #: src/rsdialog.cpp:343
 #, kde-format
@@ -6726,7 +6732,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R7: May cause fire"
-msgstr ""
+msgstr "R7: עלול להצית אש"
 
 #: src/rsdialog.cpp:346
 #, kde-format
@@ -6734,7 +6740,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R8: Contact with combustible material may cause fire"
-msgstr ""
+msgstr "R8: מגע עם חומר בערה עשוי להצית אש"
 
 #: src/rsdialog.cpp:349
 #, kde-format
@@ -6742,7 +6748,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R9: Explosive when mixed with combustible material"
-msgstr ""
+msgstr "R9: נפיץ בערבוב עם חומר בערה"
 
 #: src/rsdialog.cpp:352
 #, kde-format
@@ -6750,7 +6756,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R10: Flammable"
-msgstr ""
+msgstr "R10: דליק"
 
 #: src/rsdialog.cpp:355
 #, kde-format
@@ -6758,7 +6764,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R11: Highly flammable"
-msgstr ""
+msgstr "R11: דליק מאוד"
 
 #: src/rsdialog.cpp:358
 #, kde-format
@@ -6766,7 +6772,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R12: Extremely flammable"
-msgstr ""
+msgstr "R12: דליק במיוחד"
 
 #: src/rsdialog.cpp:361
 #, kde-format
@@ -6774,7 +6780,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R14: Reacts violently with water"
-msgstr ""
+msgstr "R14: מגיב באלימות למים"
 
 #: src/rsdialog.cpp:364
 #, kde-format
@@ -7267,12 +7273,12 @@ msgstr "חיפוש…"
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "זה לצד זה"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "חלק אחד ליד השני"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
