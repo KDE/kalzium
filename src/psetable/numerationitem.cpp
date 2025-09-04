@@ -23,7 +23,7 @@
 #include <QPalette>
 
 #include <KLocalizedString>
-#include <qbrush.h>
+#include <QBrush>
 
 #include "kalziumnumerationtype.h"
 
