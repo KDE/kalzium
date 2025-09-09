@@ -45,7 +45,6 @@
   <name xml:lang="sv">Kalzium</name>
   <name xml:lang="tr">Kalzium</name>
   <name xml:lang="uk">Kalzium</name>
-  <name xml:lang="x-test">xxKalziumxx</name>
   <name xml:lang="zh-CN">Kalzium</name>
   <name xml:lang="zh-TW">化學_Kalzium</name>
   <summary>Periodic Table of Elements</summary>
@@ -86,7 +85,6 @@
   <summary xml:lang="sv">Periodiska systemet</summary>
   <summary xml:lang="tr">Elementlerin Periyodik Tablosu</summary>
   <summary xml:lang="uk">Періодична таблиця елементів</summary>
-  <summary xml:lang="x-test">xxPeriodic Table of Elementsxx</summary>
   <summary xml:lang="zh-CN">元素周期表</summary>
   <summary xml:lang="zh-TW">元素週期表</summary>
   <description>
@@ -122,7 +120,6 @@
     <p xml:lang="sv">Kalzium är ett program som visar det periodiska systemet med grundämnen. Du kan använda Kalzium för att leta efter information om grundämnen, eller för att lära dig fakta om det periodiska systemet. Det tillhandahåller en översikt av viktig information (som smältpunkt, elektronaffinitet, elektronegativitet, elektronkonfiguration, radie, massa, jonisationsenergi), en isotoptabell och olika färglagda vyer av det periodiska systemet (separation av de olika blocken, årsimulering, temperatursimulering). Det innehåller verktyg för att åskådliggöra varje grundämnes spektrallinjer, en molekylviktsräknare, en tredimensionell molekyleditor och en ekvationslösare av stökiometriska problem.</p>
     <p xml:lang="tr">Kalzium size Elementlerin Periyodik Tablosunu gösteren bir programdır. Kalzium'u elementler hakkında bilgi aramak için veya periyodik tablo hakkında gerçekleri öğrenmek için kullanabilirsiniz. Önemli bilgiler (erime noktaları, elektron yükü, elektron yapılandırması, yarıçapı, kütlesi ve iyonizasyon enerjisi gibi) hakkında bir genel bakış, bir izotop tablosu ve periyodik tablonun farklı renklendirilmiş görünümlerini (farklı blokların ayrılması, yıl benzetimi, sıcaklık benzetimi) içerir. Her elementin spektral çizgilerini görselleştirmek için araçlar, moleküler ağırlık hesaplayıcı, bir 3 boyutlu molekül düzenleyici ve stokiyometrik problemleri için bir denklem çözücü içerir.</p>
     <p xml:lang="uk">Kalzium — програма, за допомогою якої ви зможете працювати з періодичною таблицею елементів. Kalzium можна скористатися для пошуку даних щодо елементів та вивчення фактів, пов’язаних із періодичною таблицею. Програма надає у ваше розпорядження важливі дані щодо елементів (температури плавлення фізичних тіл з елементів, спорідненість атомів до електрона, електронегативності, конфігурації електронної хмари, радіуса атома, маси атома, енергії іонізації), таблицю ізотопів та різні режими розфарбовування періодичної таблиці (поділ на блоки, показ таблиці за роками відкриття елементів, температурою плавлення). Передбачено інструменти для показу спектральних ліній кожного з елементів, калькулятор молекулярної ваги, редактор просторового вигляду молекул та засіб розв’язування рівнянь для стехіометричних задач.</p>
-    <p xml:lang="x-test">xxKalzium is a program that shows you the Periodic Table of Elements. You can use Kalzium to search for information about the elements or to learn facts about the periodic table. It provides an overview of the important data (like melting points, electron affinity, electron negativity, electron configuration, radii, mass, ionisation energy), an isotope table, and different colored views of the periodic table (separation of the different blocks, year simulator, temperature simulator). It contains tools to visualize the spectral lines of each element, a molecular weight calculator, a 3D molecule editor, and an equation solver for stoichiometric problems.xx</p>
     <p xml:lang="zh-TW">Kalzium 是一套元素週期表的應用程式。您可以用 Kalzium 搜尋關於元素的資訊與知識。它提供了元素重要資料的概要（如熔點、電子親合力、電負性、電子結構、凡德瓦半徑、質量、游離能等等），元素的同位素表，還有週期表上的不同表達方式（如發現時間、溫度狀態等等）。它也包含了一些視覺化的工具，莫耳質量計算器，立體分子編輯器，以及方程式計算器等功能。</p>
   </description>
   <url type="homepage">https://apps.kde.org/kalzium</url>
@@ -165,7 +162,6 @@
       <caption xml:lang="sv">Periodiska systemet visat i Kalzium</caption>
       <caption xml:lang="tr">Kalzium'da periyodik tablo görünümü</caption>
       <caption xml:lang="uk">Перегляд періодичної таблиці елементів у Kalzium</caption>
-      <caption xml:lang="x-test">xxPeriodic table of elements view in Kalziumxx</caption>
       <caption xml:lang="zh-CN">Kalzium 中的元素周期表视图</caption>
       <caption xml:lang="zh-TW">在 Kalzium 觀看元素週期表</caption>
       <image>https://cdn.kde.org/screenshots/kalzium/kalzium.png</image>
