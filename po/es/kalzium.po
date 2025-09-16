@@ -4827,7 +4827,7 @@ msgstr "%1 u"
 #, kde-format
 msgctxt "this can for example be '24%'"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: src/detailinfodlg.cpp:329
 #, kde-format
@@ -4883,7 +4883,7 @@ msgstr " FS"
 #: src/detailinfodlg.cpp:912
 #, kde-format
 msgid "(%1%)"
-msgstr "(%1%)"
+msgstr "(%1 %)"
 
 #: src/detailinfodlg.cpp:355 src/detailinfodlg.cpp:378
 #: src/detailinfodlg.cpp:401 src/detailinfodlg.cpp:424
@@ -8810,9 +8810,3 @@ msgstr "Convertir de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Convertir a:"
-
-#~ msgid "Kalzium Error"
-#~ msgstr "Error de Kalzium"
-
-#~ msgid "This system does not support OpenGL."
-#~ msgstr "Este sistema no dispone de OpenGL."
