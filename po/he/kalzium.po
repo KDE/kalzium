@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-08-31 15:00+0300\n"
+"PO-Revision-Date: 2025-09-28 14:42+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -196,9 +196,9 @@ msgid ""
 msgstr ""
 
 #: data/knowledge.xml:58
-#, fuzzy, kde-format
+#, kde-format
 msgid "Crystallization"
-msgstr "זיקוק"
+msgstr "התגבשות"
 
 #: data/knowledge.xml:59
 #, kde-format
@@ -314,9 +314,9 @@ msgid "Suspension"
 msgstr "השהיה"
 
 #: data/knowledge.xml:99
-#, fuzzy, kde-format
+#, kde-format
 msgid "Heterogeneous mix consisting of a liquid and solid matter."
-msgstr "תערבות הטרוגנית של שני נוזלים."
+msgstr "תערבות הטרוגנית שמורכבת מנוזל ומחומר מוצק."
 
 #: data/knowledge.xml:102
 #, kde-format
@@ -371,9 +371,9 @@ msgid "Neutron"
 msgstr "ניוטרון"
 
 #: data/knowledge.xml:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atomic nucleus"
-msgstr "משקל אטומי [u]"
+msgstr "גרעין האטום"
 
 #: data/knowledge.xml:121
 #, kde-format
@@ -445,9 +445,9 @@ msgid ""
 msgstr ""
 
 #: data/knowledge.xml:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "Decay Mode"
-msgstr "אנרגית דעיכה"
+msgstr "מצב דעיכה"
 
 #: data/knowledge.xml:157
 #, kde-format
@@ -482,9 +482,9 @@ msgstr ""
 
 #: data/knowledge.xml:174 data/knowledge.xml:180 data/knowledge.xml:193
 #: data/knowledge.xml:203
-#, fuzzy, kde-format
+#, kde-format
 msgid "Isotone"
-msgstr "איזוטופ"
+msgstr "איזוטון"
 
 #: data/knowledge.xml:175 data/knowledge.xml:184 data/knowledge.xml:194
 #: data/knowledge.xml:198
@@ -534,11 +534,11 @@ msgid "Beta rays"
 msgstr "קרני בטא"
 
 #: data/knowledge.xml:208
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Rays consisting of electrons that are emitted from Atoms of radioactive "
 "elements."
-msgstr "בחר צבע ליסודות הרדיואקטיביים"
+msgstr "קרניים שמורכבות מאלקטרונים שנפלטות מאטומים של רכיבים רדיואקטיביים."
 
 #: data/knowledge.xml:213
 #, kde-format
@@ -747,9 +747,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Heating Coil"
-msgstr "טמפ' התכה"
+msgstr "סליל חימום"
 
 #: data/tools.xml:38
 #, kde-format
@@ -800,9 +800,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:57
-#, fuzzy, kde-format
+#, kde-format
 msgid "Test Tube Rack"
-msgstr "הטבלה"
+msgstr "מעמד למבחנות בדיקה"
 
 #: data/tools.xml:58
 #, kde-format
@@ -884,9 +884,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "Test Tube"
-msgstr "הטבלה"
+msgstr "מבחנת בדיקה"
 
 #: data/tools.xml:88
 #, kde-format
@@ -949,9 +949,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:112
-#, fuzzy, kde-format
+#, kde-format
 msgid "Test Tube Holder"
-msgstr "הטבלה"
+msgstr "מלקחיים למבחנת בדיקה"
 
 #: data/tools.xml:113
 #, kde-format
@@ -990,9 +990,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:127
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic Stir Bar"
-msgstr "סטירר מגנטי"
+msgstr "מערבל מגנטי"
 
 #: data/tools.xml:128
 #, kde-format
@@ -1084,9 +1084,9 @@ msgid ""
 msgstr "במעבדה, "
 
 #: data/tools.xml:163
-#, fuzzy, kde-format
+#, kde-format
 msgid "Distillation bridge"
-msgstr "זיקוק"
+msgstr "זיקוקגשר זיקוק"
 
 #: data/tools.xml:164
 #, kde-format
@@ -1210,9 +1210,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Buret"
-msgstr "ברום"
+msgstr "ביורטה"
 
 #: data/tools.xml:210
 #, kde-format
@@ -1319,9 +1319,9 @@ msgstr "ביוונית, 'beryllos פירושו 'אבן ירוקה-בהירה'"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
-#, fuzzy, kde-format
+#, kde-format
 msgid "Boron"
-msgstr "בור"
+msgstr "בורון"
 
 #: element_tiny.xml:12
 #, kde-format
@@ -1348,9 +1348,9 @@ msgid "Nitrogen"
 msgstr "חנקן"
 
 #: element_tiny.xml:16
-#, fuzzy, kde-format
+#, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
-msgstr "ביוונית, 'agrentum' פירושו 'כסף'"
+msgstr "מלטינית ‚nitrogenium’ (‚יוצר מלחת’)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1359,9 +1359,9 @@ msgid "Oxygen"
 msgstr "חמצן"
 
 #: element_tiny.xml:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "ביוונית, 'agrentum' פירושו 'כסף'"
+msgstr "מלטינית ‚oxygenium’ (מייצר חומצות)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1656,10 +1656,9 @@ msgid "Selenium"
 msgstr "סלניום"
 
 #: element_tiny.xml:70
-#, fuzzy, kde-format
-#| msgid "Greek 'selena' for 'moon'"
+#, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr "ביוונית, 'selena' פירושו 'ירח'"
+msgstr "ביוונית, ‚selena’ פירושו ‚ירח’"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -1895,9 +1894,9 @@ msgid "Caesium"
 msgstr "צסיום"
 
 #: element_tiny.xml:112
-#, fuzzy, kde-format
+#, kde-format
 msgid "Latin 'caesius' for 'heaven blue'."
-msgstr "בלטינית, 'calx' פירושו 'סיד'"
+msgstr "בלטינית, ‚caesius’ פירושו ‚כחול שמיים’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:113
@@ -1931,9 +1930,9 @@ msgid "Cerium"
 msgstr "צריום"
 
 #: element_tiny.xml:118
-#, fuzzy, kde-format
+#, kde-format
 msgid "Named after the planetoid Ceres."
-msgstr "נקרא על שם כוכב הלכת נפטון."
+msgstr "קרוי על שם כוכב הלכת הננסי קרס."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:119
@@ -2200,9 +2199,9 @@ msgid "Mercury"
 msgstr "כספית"
 
 #: element_tiny.xml:162
-#, fuzzy, kde-format
+#, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
-msgstr "ביוונית, 'agrentum' פירושו 'כסף'"
+msgstr "ביוונית-לטינית, ‚hydrargyrum’ פירושו ‚כסף נוזלי’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2537,11 +2536,11 @@ msgid "Darmstadtium"
 msgstr "דרמשטטיום"
 
 #: element_tiny.xml:222
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Named after the German city Darmstadt where many elements have been "
 "discovered."
-msgstr "כאן אתה יכול לראות מתי האטום הזה התגלה"
+msgstr "קרוי על שם העיר הגרמנית דרמשטאדט בה התגלו מגוון רחב של יסודות."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:223
@@ -3627,7 +3626,7 @@ msgstr "שעות"
 #: src/calculator/nuclearCalculator.ui:487
 #, kde-format
 msgid "days"
-msgstr ""
+msgstr "ימים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
 #. i18n: ectx: property (text), item, widget (KComboBox, time_unit)
@@ -3635,19 +3634,19 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:492
 #, kde-format
 msgid "weeks"
-msgstr ""
+msgstr "שבועות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/nuclearCalculator.ui:161
 #, kde-format
 msgid "<big><b>Atomic mass:</b></big>"
-msgstr ""
+msgstr "<big><b>מסה אטומית:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:171
 #, kde-format
 msgid "<big>Atomic mass of the isotope selected</big>"
-msgstr ""
+msgstr "<big>מסה אטומית של האיזוטופ הנבחר</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:174
@@ -3667,7 +3666,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:187
 #, kde-format
 msgid "<big>The unit of atomic mass</big>"
-msgstr ""
+msgstr "<big>יחידת המסה האטומית</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/nuclearCalculator.ui:190
@@ -4938,9 +4937,9 @@ msgid "Magnetic moment: %1"
 msgstr "מומנט מגנטי"
 
 #: src/isotopetable/isotopetabledialog.cpp:77
-#, fuzzy, kde-format
+#, kde-format
 msgid "Halflife: %1 %2"
-msgstr "זמן מחצית-חיים"
+msgstr "מחצית חיים: %1 %2"
 
 #: src/isotopetable/isotopetabledialog.cpp:79
 #, fuzzy, kde-format
@@ -5092,7 +5091,7 @@ msgstr "יציג או יסתיר את סרגל הצד שמכיל פרטים נו
 msgctxt "WhatsThis Help"
 msgid ""
 "This will show or hide a sidebar with additional information about the table."
-msgstr ""
+msgstr "הפעולה הזאת תציג או תסתיר סרגל צד עם פרטים נוספים על הטבלה."
 
 #: src/kalzium.cpp:247
 #, kde-format
@@ -5117,12 +5116,12 @@ msgstr "סקירה"
 #: src/kalzium.cpp:285
 #, kde-format
 msgid "View"
-msgstr ""
+msgstr "הצגה"
 
 #: src/kalzium.cpp:296
 #, kde-format
 msgid "Save Kalzium's Table In"
-msgstr ""
+msgstr "שמירת הטבלה של Kalzium ב־"
 
 #: src/kalzium.cpp:296
 #, kde-format
@@ -5140,7 +5139,7 @@ msgid "Tools"
 msgstr "כלים"
 
 #: src/kalzium.cpp:501
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "For example: \"Carbon (6), Mass: 12.0107 u\""
 msgid "%1 (%2), Mass: %3 u"
 msgstr "%1 (%2), מסה: %3 u"
