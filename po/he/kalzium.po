@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-09-28 14:42+0300\n"
+"PO-Revision-Date: 2025-09-29 12:54+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3344,19 +3344,19 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:181
 #, kde-format
 msgid "<big><b>Temperature:</b></big>"
-msgstr ""
+msgstr "<big><b>טמפרטורה:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, temp)
 #: src/calculator/gasCalculator.ui:191
 #, kde-format
 msgid "<!----><big>Specify the temperature of the gas</big>"
-msgstr ""
+msgstr "<!----><big>לציין את טמפרטורת הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, temp)
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr ""
+msgstr "אםשר להשתמש בתיבה הזאת כדי לציין את טמפרטורת הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
@@ -3395,7 +3395,7 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:249
 #, kde-format
 msgid "<big>Specify the units for volume of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין יחידות לנפח הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:252
@@ -3480,22 +3480,22 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:434
 #, kde-format
 msgid "Click to reset all values to initial values"
-msgstr ""
+msgstr "נא ללחוץ כדי לאפס את כל הערכים לערכים הראשוניים"
 
 #: src/calculator/nuclearCalculator.cpp:389
 #, kde-format
 msgid "Initial amount cannot be zero."
-msgstr ""
+msgstr "הכמות ההתחלתית לא יכולה להיות אפס."
 
 #: src/calculator/nuclearCalculator.cpp:392
 #, kde-format
 msgid "Final amount cannot be zero."
-msgstr ""
+msgstr "הכמות הסופית לא יכולה להיות אפס."
 
 #: src/calculator/nuclearCalculator.cpp:395
 #, kde-format
 msgid "Time is zero, please enter a valid value."
-msgstr ""
+msgstr "הזמן הוא אפס, נא לציין ערך תקין."
 
 #: src/calculator/nuclearCalculator.cpp:398
 #, kde-format
@@ -3521,7 +3521,7 @@ msgstr "&הראה את שמות היסודות"
 #: src/calculator/nuclearCalculator.ui:42
 #, kde-format
 msgid "<big><b>Element Name:</b></big>"
-msgstr ""
+msgstr "<big><b>שם היסוד:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, element)
 #: src/calculator/nuclearCalculator.ui:52
@@ -3541,13 +3541,13 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:62
 #, kde-format
 msgid "<big><b>Isotope mass:</b></big>"
-msgstr ""
+msgstr "<big><b>מסת איזוטופ:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, isotope)
 #: src/calculator/nuclearCalculator.ui:72
 #, kde-format
 msgid "<big>Specify an isotope of the current element</big>"
-msgstr ""
+msgstr "<big>נא לציין איזוטופ של היסוד הנוכחי</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, isotope)
 #: src/calculator/nuclearCalculator.ui:75
@@ -3561,25 +3561,25 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:82
 #, kde-format
 msgid "<big><b>Half-life:</b></big>"
-msgstr ""
+msgstr "<big><b>מחצית חיים:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, halfLife)
 #: src/calculator/nuclearCalculator.ui:92
 #, kde-format
 msgid "<big>Specify the half-life of the radioactive isotope</big>"
-msgstr ""
+msgstr "<big>נא לציין את מחצית החיים של האיזוטופ הרדיואקטיבי</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, halfLife)
 #: src/calculator/nuclearCalculator.ui:95
 #, kde-format
 msgid "This box is used to specify the half-life of the above isotope."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציון מחצית החיים של האיזוטופ שלעיל."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:108
 #, kde-format
 msgid "<big>The unit of Half-life</big>"
-msgstr ""
+msgstr "<big>יחידת מחצית חיים</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:111
