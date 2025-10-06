@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-09-29 12:54+0300\n"
+"PO-Revision-Date: 2025-10-05 12:14+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1303,7 +1303,7 @@ msgstr "ליתיום"
 #: element_tiny.xml:8
 #, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "ביוונית ‚lithos’ פירושו ,אבן'."
+msgstr "ביוונית ‚lithos’ פירושו ‚אבן'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1553,13 +1553,13 @@ msgid "Manganese"
 msgstr "מנגן"
 
 #: element_tiny.xml:52
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "It was discovered near a town named Magnesia in black earth. Thus, it was "
 "named 'magnesia nigra', or for short, Manganese."
 msgstr ""
-"הוא התגלה ליד עיר בשם מאגנזיה בתוך אדמה שחורה. לכן, הוא נקרא 'magnesia "
-"nigra' (מגנזיה שחור) או בקיצור: Manganese"
+"הוא התגלה ליד עיר בשם מגנסיה בתוך אדמה שחורה. לכן, הוא נקרא ‚magnesia "
+"nigra’ (מגנסיה שחור) או בקיצור: Manganese"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:53
@@ -1612,9 +1612,9 @@ msgid "Zinc"
 msgstr "אבץ"
 
 #: element_tiny.xml:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
-msgstr "בגרמנית, 'zinking' פירושו 'מחוספס'. מכיוון שעפרת האבץ מאוד מחוספסת"
+msgstr "בגרמנית, ‚zinking’ פירושו ‚מחוספס’. כיוון שעפרת האבץ מאוד מחוספסת."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:63
@@ -3356,7 +3356,7 @@ msgstr "<!----><big>לציין את טמפרטורת הגז</big>"
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr "אםשר להשתמש בתיבה הזאת כדי לציין את טמפרטורת הגז."
+msgstr "אפשר להשתמש בתיבה הזאת כדי לציין את טמפרטורת הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
@@ -6680,7 +6680,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R1: Explosive when dry"
-msgstr "R1: נפיץ כשיבש"
+msgstr "R1: רגיש לפיצוץ במצב יבש"
 
 #: src/rsdialog.cpp:328
 #, kde-format
@@ -6689,7 +6689,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "R2: Risk of explosion by shock, friction, fire or other sources of ignition"
-msgstr ""
+msgstr "R2: סכנת פיצוץ עקב הלם, חיכוך, אש או מקורות הצתה אחרים"
 
 #: src/rsdialog.cpp:331
 #, kde-format
@@ -6699,7 +6699,7 @@ msgctxt ""
 msgid ""
 "R3: Extreme risk of explosion by shock, friction, fire or other sources of "
 "ignition"
-msgstr ""
+msgstr "R3: סכנת פיצוץ קיצונית עקב הלם, חיכוך, אש או מקורות הצתה אחרים"
 
 #: src/rsdialog.cpp:334
 #, kde-format
@@ -6707,7 +6707,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R4: Forms very sensitive explosive metallic compounds"
-msgstr ""
+msgstr "R4: יוצר תרכובות מתכתיות רגישות מאוד לפיצוץ"
 
 #: src/rsdialog.cpp:337
 #, kde-format
@@ -6715,7 +6715,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R5: Heating may cause an explosion"
-msgstr "R5: חימום עלול לגרום להתפוצצות"
+msgstr "R5: חימום עלול לגרום לפיצוץ"
 
 #: src/rsdialog.cpp:340
 #, kde-format
@@ -6723,7 +6723,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R6: Explosive with or without contact with air"
-msgstr "R6: נפיץ עם או בלי מגע עם אוויר"
+msgstr "R6: רגיש לפיצוץ במגע או ללא מגע עם אוויר"
 
 #: src/rsdialog.cpp:343
 #, kde-format
@@ -6787,7 +6787,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R15: Contact with water liberates extremely flammable gases"
-msgstr ""
+msgstr "R15: במגע עם מים משחרר גזים דליקים ביותר"
 
 #: src/rsdialog.cpp:367
 #, kde-format
@@ -6795,7 +6795,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R16: Explosive when mixed with oxidising substances"
-msgstr ""
+msgstr "R16: רגיש לפיצוץ בעת ערבוב עם חומרים מחמצנים"
 
 #: src/rsdialog.cpp:370
 #, kde-format
@@ -6803,7 +6803,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R17: Spontaneously flammable in air"
-msgstr ""
+msgstr "R17: מתלקח באופן ספונטני באוויר"
 
 #: src/rsdialog.cpp:373
 #, kde-format
@@ -6811,7 +6811,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R18: In use, may form flammable/explosive vapour-air mixture"
-msgstr ""
+msgstr "R18: בשימוש עלול ליצור תערובת אדים-אוויר דליקה/נפיצה"
 
 #: src/rsdialog.cpp:376
 #, kde-format
@@ -6819,7 +6819,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R19: May form explosive peroxides"
-msgstr ""
+msgstr "R19: עלול ליצור פרוקסידים נפיצים"
 
 #: src/rsdialog.cpp:379
 #, kde-format
@@ -6827,7 +6827,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R20: Harmful by inhalation"
-msgstr ""
+msgstr "R20: מזיק בשאיפה"
 
 #: src/rsdialog.cpp:382
 #, kde-format
@@ -6835,7 +6835,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R21: Harmful in contact with skin"
-msgstr ""
+msgstr "R21: מזיק במגע עם העור"
 
 #: src/rsdialog.cpp:385
 #, kde-format
@@ -6843,7 +6843,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R22: Harmful if swallowed"
-msgstr ""
+msgstr "R22: מזיק בבליעה"
 
 #: src/rsdialog.cpp:388
 #, kde-format
@@ -6851,7 +6851,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R23: Toxic by inhalation"
-msgstr ""
+msgstr "R23: רעיל בשאיפה"
 
 #: src/rsdialog.cpp:391
 #, kde-format
@@ -6859,7 +6859,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R24: Toxic in contact with skin"
-msgstr ""
+msgstr "R24: רעיל במגע עם העור"
 
 #: src/rsdialog.cpp:394
 #, kde-format
@@ -6867,7 +6867,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R25: Toxic if swallowed"
-msgstr ""
+msgstr "R25: רעיל בבליעה"
 
 #: src/rsdialog.cpp:397
 #, kde-format
@@ -6875,7 +6875,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R26: Very toxic by inhalation"
-msgstr ""
+msgstr "R26: רעיל מאוד בשאיפה"
 
 #: src/rsdialog.cpp:400
 #, kde-format
@@ -6883,7 +6883,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R27: Very toxic in contact with skin"
-msgstr ""
+msgstr "R27: רעיל מאוד במגע עם העור"
 
 #: src/rsdialog.cpp:403
 #, kde-format
@@ -6891,7 +6891,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R28: Very toxic if swallowed"
-msgstr ""
+msgstr "R28: רעיל מאוד בבליעה"
 
 #: src/rsdialog.cpp:406
 #, kde-format
@@ -6899,7 +6899,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R29: Contact with water liberates toxic gas."
-msgstr ""
+msgstr "R29: במגע עם מים משחרר גז רעיל"
 
 #: src/rsdialog.cpp:409
 #, kde-format
@@ -6907,7 +6907,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R30: Can become highly flammable in use"
-msgstr ""
+msgstr "R30: עלול להפוך לדליק מאוד בשימוש"
 
 #: src/rsdialog.cpp:412
 #, kde-format
@@ -6915,7 +6915,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R31: Contact with acids liberates toxic gas"
-msgstr ""
+msgstr "R31: במגע עם חומצות משחרר גז רעיל"
 
 #: src/rsdialog.cpp:415
 #, kde-format
@@ -6923,7 +6923,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R32: Contact with acids liberates very toxic gas"
-msgstr ""
+msgstr "R32: במגע עם חומצות משחרר גז רעיל מאוד"
 
 #: src/rsdialog.cpp:418
 #, kde-format
@@ -6931,7 +6931,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R33: Danger of cumulative effects"
-msgstr ""
+msgstr "R33: סכנה להשפעות מצטברות"
 
 #: src/rsdialog.cpp:421
 #, kde-format
@@ -6939,7 +6939,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R34: Causes burns"
-msgstr ""
+msgstr "R34: גורם לכוויות"
 
 #: src/rsdialog.cpp:424
 #, kde-format
@@ -6947,7 +6947,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R35: Causes severe burns"
-msgstr ""
+msgstr "R35: גורם לכוויות חמורות"
 
 #: src/rsdialog.cpp:427
 #, kde-format
@@ -6955,7 +6955,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R36: Irritating to eyes"
-msgstr ""
+msgstr "R36: מגרה את העיניים"
 
 #: src/rsdialog.cpp:430
 #, kde-format
@@ -6963,7 +6963,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R37: Irritating to respiratory system"
-msgstr ""
+msgstr "R37: מגרה את מערכת הנשימה"
 
 #: src/rsdialog.cpp:433
 #, kde-format
@@ -6971,7 +6971,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R38: Irritating to skin"
-msgstr ""
+msgstr "R38: מגרה בעור"
 
 #: src/rsdialog.cpp:436
 #, kde-format
@@ -6979,7 +6979,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R39: Danger of very serious irreversible effects"
-msgstr ""
+msgstr "R39: סכנה להשפעות בלתי הפיכות חמורות מאוד"
 
 #: src/rsdialog.cpp:439
 #, kde-format
@@ -6987,7 +6987,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R40: Limited evidence of a carcinogenic effect"
-msgstr ""
+msgstr "R40: עדות מוגבלת להשפעה מסרטנת"
 
 #: src/rsdialog.cpp:442
 #, kde-format
@@ -6995,7 +6995,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R41: Risk of serious damage to eyes"
-msgstr ""
+msgstr "R41: סכנה לנזק חמור לעיניים"
 
 #: src/rsdialog.cpp:445
 #, kde-format
@@ -7003,7 +7003,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R42: May cause sensitisation by inhalation"
-msgstr ""
+msgstr "R42: עלול לגרום לרגישות בשאיפה"
 
 #: src/rsdialog.cpp:448
 #, kde-format
@@ -7011,7 +7011,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R43: May cause sensitisation by skin contact"
-msgstr ""
+msgstr "R43: עלול לגרום לרגישות במגע עם העור"
 
 #: src/rsdialog.cpp:451
 #, kde-format
@@ -7019,7 +7019,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R44: Risk of explosion if heated under confinement"
-msgstr ""
+msgstr "R44: סכנת פיצוץ בעת חימום במצב סגור"
 
 #: src/rsdialog.cpp:454
 #, kde-format
@@ -7027,7 +7027,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R45: May cause cancer"
-msgstr ""
+msgstr "R45: עלול לגרום לסרטן"
 
 #: src/rsdialog.cpp:457
 #, kde-format
@@ -7035,7 +7035,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R46: May cause heritable genetic damage"
-msgstr ""
+msgstr "R46: עלול לגרום לנזק גנטי תורשתי"
 
 #: src/rsdialog.cpp:460
 #, kde-format
@@ -7043,7 +7043,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R48: Danger of serious damage to health by prolonged exposure"
-msgstr ""
+msgstr "R48: סכנה לנזק חמור לבריאות בעת חשיפה ממושכת"
 
 #: src/rsdialog.cpp:463
 #, kde-format
@@ -7051,7 +7051,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R49: May cause cancer by inhalation"
-msgstr ""
+msgstr "R49: עלול לגרום לסרטן בשאיפה"
 
 #: src/rsdialog.cpp:466
 #, kde-format
@@ -7059,7 +7059,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R50: Very toxic to aquatic organisms"
-msgstr ""
+msgstr "R50: רעיל מאוד לאורגניזמים ימיים"
 
 #: src/rsdialog.cpp:469
 #, kde-format
@@ -7067,7 +7067,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R51: Toxic to aquatic organisms"
-msgstr ""
+msgstr "R51: רעיל לאורגניזמים ימיים"
 
 #: src/rsdialog.cpp:472
 #, kde-format
@@ -7075,7 +7075,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R52: Harmful to aquatic organisms"
-msgstr ""
+msgstr "R52: מזיק לאורגניזמים ימיים"
 
 #: src/rsdialog.cpp:475
 #, kde-format
@@ -7083,7 +7083,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R53: May cause long-term adverse effects in the aquatic environment"
-msgstr ""
+msgstr "R53: עלול לגרום להשפעות שליליות ארוכות טווח בסביבה הימית"
 
 #: src/rsdialog.cpp:478
 #, kde-format
@@ -7091,7 +7091,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R54: Toxic to flora"
-msgstr ""
+msgstr "R54: רעיל לצמחים"
 
 #: src/rsdialog.cpp:481
 #, kde-format
@@ -7099,7 +7099,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R55: Toxic to fauna"
-msgstr ""
+msgstr "R55: רעיל לבעלי חיים"
 
 #: src/rsdialog.cpp:484
 #, kde-format
@@ -7107,7 +7107,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R56: Toxic to soil organisms"
-msgstr ""
+msgstr "R56: רעיל לאורגניזמים בקרקע"
 
 #: src/rsdialog.cpp:487
 #, kde-format
@@ -7115,7 +7115,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R57: Toxic to bees"
-msgstr ""
+msgstr "R57: רעיל לדבורים"
 
 #: src/rsdialog.cpp:490
 #, kde-format
@@ -7123,7 +7123,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R58: May cause long-term adverse effects in the environment"
-msgstr ""
+msgstr "R58: עלול לגרום להשפעות שליליות ארוכות טווח לאיכות הסביבה"
 
 #: src/rsdialog.cpp:493
 #, kde-format
@@ -7208,13 +7208,13 @@ msgstr ""
 #: src/rsdialog.cpp:548
 #, kde-format
 msgid "At least one of the specified phrases is invalid."
-msgstr ""
+msgstr "לפחות אחד מהמשפטים שצוינו שגוי."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/rswidget.ui:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "S-Phrases: "
-msgstr "פאזה"
+msgstr "משפטי S: "
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, r_le)
 #: src/rswidget.ui:60
