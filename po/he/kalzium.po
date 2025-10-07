@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-10-05 12:14+0300\n"
+"PO-Revision-Date: 2025-10-06 11:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1184,7 +1184,7 @@ msgstr ""
 #: data/tools.xml:199
 #, kde-format
 msgid "Indicator Paper"
-msgstr ""
+msgstr "נייר לקמוס"
 
 #: data/tools.xml:200
 #, kde-format
@@ -1196,6 +1196,10 @@ msgid ""
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
+"יש מספר דרכים למדידת ערך pH של תמיסה, אחת מהן היא להשתמש בנייר לקמוס. נייר "
+"לקמוס משנה את צבעו לפי ה־pH (חומציות/בסיסיות) של התמיסה שבו טובלים אותו, ועל "
+"ידי השוואה לטבלה אפשר לקבל מדידה די מדויקת של ה־pH של התמיסה. אם נדרשת מדידה "
+"מדויקת יותר, אפשר להשתמש במבחנת זכוכית, שעובדת על ידי מדידת מוליכות התמיסה."
 
 #: data/tools.xml:204
 #, kde-format
@@ -1228,7 +1232,7 @@ msgstr ""
 #: data/tools.xml:214
 #, kde-format
 msgid "Beaker"
-msgstr ""
+msgstr "כוס מעבדה"
 
 #: data/tools.xml:215
 #, kde-format
@@ -1237,6 +1241,8 @@ msgid ""
 "chemicals and to perform chemical reactions. They are often also used for "
 "titrations."
 msgstr ""
+"כוסות מעבדות יכולות לשמש למגוון משימות. למשל, אפשר להשתמש בהן כדי לאחסן "
+"כימיקלים ולבצע תגובות כימיות. הם בדרך כלל משמשים גם לטיטור."
 
 #: data/tools.xml:219
 #, kde-format
@@ -1592,7 +1598,7 @@ msgstr "ניקל"
 #: element_tiny.xml:58
 #, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr ""
+msgstr "‚Nickel’ היה השם של שדון הרים."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -1874,7 +1880,7 @@ msgstr "יוד"
 #: element_tiny.xml:108
 #, kde-format
 msgid "Greek 'ioeides' for 'violet'."
-msgstr ""
+msgstr "ביוונית ‚ioeidis’ פירושו ‚סיגלית’"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:109
@@ -2917,31 +2923,31 @@ msgstr ""
 #: src/calculator/concCalculator.ui:37 src/calculator/gasCalculator.ui:36
 #, kde-format
 msgid "Data"
-msgstr ""
+msgstr "נתונים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_36)
 #: src/calculator/concCalculator.ui:43
 #, kde-format
 msgid "<big><b>Amount of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>כמות המומס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, amtSolute)
 #: src/calculator/concCalculator.ui:53
 #, kde-format
 msgid "<big>Specify the amount of solute</big>"
-msgstr ""
+msgstr "<big>נא לציין את כמות המומס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, amtSolute)
 #: src/calculator/concCalculator.ui:56
 #, kde-format
 msgid "This is the box used to specify the amount of solute in the solution."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציין את כמות המומס בתמיסה."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSltType)
 #: src/calculator/concCalculator.ui:69
 #, kde-format
 msgid "The method by which you want to specify the amount of solute"
-msgstr ""
+msgstr "השיטה לציון כמות המומס"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSltType)
 #: src/calculator/concCalculator.ui:72
@@ -2950,6 +2956,7 @@ msgid ""
 "This box is used to change the mode in which the amount of solute is "
 "specified, i.e. mass, moles or volume."
 msgstr ""
+"התיבה הזאת משמשת לשנות את שיטת ציון כמות המומס, למשל: מסה, מולים או נפח."
 
 #. i18n: ectx: property (text), widget (QLabel, label_39)
 #: src/calculator/concCalculator.ui:79
@@ -2967,7 +2974,7 @@ msgstr "הצג רק את המספר של היסוד"
 #: src/calculator/concCalculator.ui:92
 #, kde-format
 msgid "This box is used to specify the molar mass of the substance."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציון המסה המולרית של חומר."
 
 #. i18n: ectx: property (text), widget (QLabel, label_40)
 #: src/calculator/concCalculator.ui:105
@@ -2994,13 +3001,13 @@ msgstr ""
 #: src/calculator/concCalculator.ui:132
 #, kde-format
 msgid "<big><b>Density of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>צפיפות המומס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, densitySolute)
 #: src/calculator/concCalculator.ui:142
 #, kde-format
 msgid "<big>Specify the density of the solute</big>"
-msgstr ""
+msgstr "<big>נא לציין את צפיפות המומס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, densitySolute)
 #: src/calculator/concCalculator.ui:145
@@ -3009,30 +3016,32 @@ msgid ""
 "This box is used to specify the value of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
+"התיבה הזאת משמשת לציון צפיפות המומס. נחוץ רק אם בחרת לציין את כמות המומס "
+"כנפח."
 
 #. i18n: ectx: property (text), widget (QLabel, label_31)
 #: src/calculator/concCalculator.ui:158
 #, kde-format
 msgid "<big><b>Amount of Solvent:</b></big>"
-msgstr ""
+msgstr "<big><b>כמות הממס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, amtSolvent)
 #: src/calculator/concCalculator.ui:168
 #, kde-format
 msgid "<big>Specify the amount of solvent</big>"
-msgstr ""
+msgstr "<big>נא לציין את כמות הממס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, amtSolvent)
 #: src/calculator/concCalculator.ui:171
 #, kde-format
 msgid "This box is used to specify the amount of solvent in the solution."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציין את כמות הממס בתמיסה."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvtType)
 #: src/calculator/concCalculator.ui:184
 #, kde-format
 msgid "<big>The method by which you want to specify volume</big>"
-msgstr ""
+msgstr "<big>השיטה לציון הנפח</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlvtType)
 #: src/calculator/concCalculator.ui:187
@@ -3041,12 +3050,13 @@ msgid ""
 "This box is used to change the mode in which amount of solvent is specified, "
 "i.e. mass, moles or volume."
 msgstr ""
+"התיבה הזאת משמשת לשנות את שיטת ציון כמות הממס, למשל: מסה, מולים או נפח."
 
 #. i18n: ectx: property (text), widget (QLabel, label_42)
 #: src/calculator/concCalculator.ui:194
 #, kde-format
 msgid "<big><b>Molar mass of solvent:</b></big>"
-msgstr ""
+msgstr "<big><b>מסה מולרית של ממס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:204
@@ -3064,13 +3074,13 @@ msgstr "הצג רק את המספר של היסוד"
 #: src/calculator/concCalculator.ui:220
 #, kde-format
 msgid "<big><b>Density of Solvent:</b></big>"
-msgstr ""
+msgstr "<big><b>צפיפות ממס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, densitySolvent)
 #: src/calculator/concCalculator.ui:230
 #, kde-format
 msgid "<big>Specify the density of the solvent</big>"
-msgstr ""
+msgstr "<big>נא לציין את צפיפות הממס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, densitySolvent)
 #: src/calculator/concCalculator.ui:233
@@ -3079,18 +3089,20 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
+"התיבה הזאת משמשת לציין את צפיפות התמיסה והיא נחוצה רק אם כמות התמיכה "
+"מצוינת/נחוצה מבחינת מסה."
 
 #. i18n: ectx: property (text), widget (QLabel, label_41)
 #: src/calculator/concCalculator.ui:246
 #, kde-format
 msgid "<big><b>Concentration:</b></big>"
-msgstr ""
+msgstr "<big><b>ריכוז:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, concentration)
 #: src/calculator/concCalculator.ui:256
 #, kde-format
 msgid "<big>Specify the concentration of the solution</big>"
-msgstr ""
+msgstr "<big>נא לציין את ריכוז התמיסה</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, concentration)
 #: src/calculator/concCalculator.ui:259
@@ -3098,7 +3110,7 @@ msgstr ""
 msgid ""
 "This box is used to specify the concentration of the solution in respective "
 "units to the right."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציון ריכוז התמיכה ביחידות המתאימות שמשמאל."
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -3106,13 +3118,13 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:208
 #, kde-format
 msgid "<big><b>Calculate:</b></big>"
-msgstr ""
+msgstr "<big><b>חישוב:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, mode)
 #: src/calculator/concCalculator.ui:282 src/calculator/nuclearCalculator.ui:218
 #, kde-format
 msgid "<big>Specify what you want to calculate</big>"
-msgstr ""
+msgstr "<big>נא לציין מה ברצונך לחשב</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/concCalculator.ui:285
@@ -3212,7 +3224,7 @@ msgstr ""
 #: src/calculator/concCalculator.ui:442 src/calculator/nuclearCalculator.ui:607
 #, kde-format
 msgid "<big>Reset all values to initial values</big>"
-msgstr ""
+msgstr "<big>איפוס כל הערכים לראשוניים</big>"
 
 #. i18n: ectx: property (text), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:445 src/calculator/gasCalculator.ui:437
@@ -3224,7 +3236,7 @@ msgstr "איפוס"
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
 msgid "Molar mass cannot be zero, please enter a non-zero value."
-msgstr ""
+msgstr "המסה המולרית לא יכולה להיות אפס, נא למלא ערך שונה מאפס."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/gasCalculator.ui:29
@@ -3239,7 +3251,7 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:42
 #, kde-format
 msgid "<big><b>Molar mass of the gas:</b></big>"
-msgstr ""
+msgstr "<big><b>מסה מולרית של הגז:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:52
@@ -3259,13 +3271,13 @@ msgstr "הצג רק את המספר של היסוד"
 #: src/calculator/gasCalculator.ui:68
 #, kde-format
 msgid "<big><b>Moles:</b></big>"
-msgstr ""
+msgstr "<big><b>מולים:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:78
 #, kde-format
 msgid "<big>Specify the number of moles of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין את מספר המולים של הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:82
@@ -3279,13 +3291,13 @@ msgstr "הצג רק את המספר של היסוד"
 #: src/calculator/gasCalculator.ui:95
 #, kde-format
 msgid "<big><b>Mass:</b></big>"
-msgstr ""
+msgstr "<big><b>מסה:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, mass)
 #: src/calculator/gasCalculator.ui:105
 #, kde-format
 msgid "<big>Specify the Mass of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין את מסת הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, mass)
 #: src/calculator/gasCalculator.ui:109
@@ -3299,37 +3311,37 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:122
 #, kde-format
 msgid "<big>Specify the unit of mass of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין את יחידות מסת הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mass_unit)
 #: src/calculator/gasCalculator.ui:125
 #, kde-format
 msgid "This box is used to change the units of mass."
-msgstr ""
+msgstr "התיבה הזאת משמשת לשינוי יחידות המסה."
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: src/calculator/gasCalculator.ui:145
 #, kde-format
 msgid "<big><b>Pressure:</b></big>"
-msgstr ""
+msgstr "<big><b>לחץ:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, pressure)
 #: src/calculator/gasCalculator.ui:155
 #, kde-format
 msgid "<big>Specify the Pressure of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין את לחץ הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, pressure)
 #: src/calculator/gasCalculator.ui:158
 #, kde-format
 msgid "This box can be used to change the pressure of the gas."
-msgstr ""
+msgstr "אפשר להשתמש בתיבה הזאת כדי לשנות את לחץ הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:171
 #, kde-format
 msgid "<big>Specify the units for pressure of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין יחידות ללחץ הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:174
@@ -3377,19 +3389,19 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:217
 #, kde-format
 msgid "<big><b>Volume:</b></big>"
-msgstr ""
+msgstr "<big><b>נפח:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, volume)
 #: src/calculator/gasCalculator.ui:227
 #, kde-format
 msgid "<big>Specify the volume of the gas</big>"
-msgstr ""
+msgstr "<big>נא לציין את נפח הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, volume)
 #: src/calculator/gasCalculator.ui:230
 #, kde-format
 msgid "This box can be used to specify the volume of the gas."
-msgstr ""
+msgstr "אפשר להשתמש בתיבה הזאת כדי לציין את נפח הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:249
@@ -3407,7 +3419,7 @@ msgstr "אפשר להשתמש בתיבה הזאת לציון יחידות הנפ
 #: src/calculator/gasCalculator.ui:286
 #, kde-format
 msgid "Data for non-ideal gases"
-msgstr ""
+msgstr "נתונים לגזים לא אידיאלים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: src/calculator/gasCalculator.ui:294
@@ -4942,9 +4954,9 @@ msgid "Halflife: %1 %2"
 msgstr "מחצית חיים: %1 %2"
 
 #: src/isotopetable/isotopetabledialog.cpp:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "Halflife: Unknown"
-msgstr "ערך לא ידוע"
+msgstr "מחצית חיים: לא ידוע"
 
 #: src/isotopetable/isotopetabledialog.cpp:82
 #, kde-format
@@ -5177,9 +5189,9 @@ msgid "Electronaffinity"
 msgstr "זיקה אלקטרונית"
 
 #: src/kalziumgradienttype.cpp:661
-#, fuzzy, kde-format
+#, kde-format
 msgid "First Ionization"
-msgstr "קריסטליזציה"
+msgstr "יינון ראשון"
 
 #: src/kalziumnumerationtype.cpp:98
 #, kde-format
@@ -6212,7 +6224,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S1: Keep locked up"
-msgstr "S1: להשאיר נעול"
+msgstr "S1 - יש לנעול במקום בטוח"
 
 #: src/rsdialog.cpp:142
 #, kde-format
@@ -6220,7 +6232,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S2: Keep out of the reach of children"
-msgstr "S2: להרחיק מהישג יד של ילדים"
+msgstr "S2: יש להרחיק מהישג יד של ילדים"
 
 #: src/rsdialog.cpp:145
 #, kde-format
@@ -6228,7 +6240,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S3: Keep in a cool place"
-msgstr "S3: לשמור במקום קריר"
+msgstr "S3: יש לאחסן במקום קריר"
 
 #: src/rsdialog.cpp:148
 #, kde-format
@@ -6236,7 +6248,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S4: Keep away from living quarters"
-msgstr ""
+msgstr "S4: יש להרחיק ממקומות מגורים"
 
 #: src/rsdialog.cpp:151
 #, kde-format
@@ -6246,7 +6258,7 @@ msgctxt ""
 msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
-msgstr ""
+msgstr "S5: יש לאחסן מתחת ל… (נוזל מתאים יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:154
 #, kde-format
@@ -6254,7 +6266,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
-msgstr ""
+msgstr "S6: יש לאחסן מתחת ל… (גז אינרטי יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:157
 #, kde-format
@@ -7131,7 +7143,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R59: Dangerous for the ozone layer"
-msgstr ""
+msgstr "R59: מסוכן לשכבת האוזון"
 
 #: src/rsdialog.cpp:496
 #, kde-format
@@ -7139,7 +7151,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R60: May impair fertility"
-msgstr ""
+msgstr "R60: עלול לפגוע בפוריות"
 
 #: src/rsdialog.cpp:499
 #, kde-format
@@ -7147,7 +7159,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R61: May cause harm to the unborn child"
-msgstr ""
+msgstr "R61: עלול לגרום לנזק לעובר"
 
 #: src/rsdialog.cpp:502
 #, kde-format
@@ -7155,7 +7167,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R62: Possible risk of impaired fertility"
-msgstr ""
+msgstr "R62: סיכון אפשרי לפגיעה בפוריות"
 
 #: src/rsdialog.cpp:505
 #, kde-format
@@ -7163,7 +7175,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R63: Possible risk of harm to the unborn child"
-msgstr ""
+msgstr "R63: סיכון אפשרי לנזק לעובר"
 
 #: src/rsdialog.cpp:508
 #, kde-format
@@ -7171,7 +7183,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R64: May cause harm to breast-fed babies"
-msgstr ""
+msgstr "R64: עלול לגרום לנזק לתינוקות הניזונים מחלב אם"
 
 #: src/rsdialog.cpp:511
 #, kde-format
@@ -7179,7 +7191,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R65: Harmful: may cause lung damage if swallowed"
-msgstr ""
+msgstr "R65: מזיק: עלול לגרום לנזק לריאות בבליעה"
 
 #: src/rsdialog.cpp:514
 #, kde-format
@@ -7187,7 +7199,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R66: Repeated exposure may cause skin dryness or cracking"
-msgstr ""
+msgstr "R66: חשיפה חוזרת עלולה לגרום ליובש או לסדקים בעור"
 
 #: src/rsdialog.cpp:517
 #, kde-format
@@ -7195,7 +7207,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R67: Vapours may cause drowsiness and dizziness"
-msgstr ""
+msgstr "R67: אדים עלולים לגרום לנמנום וסחרחורת"
 
 #: src/rsdialog.cpp:520
 #, kde-format
@@ -7203,7 +7215,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R68: Possible risk of irreversible effects"
-msgstr ""
+msgstr "R68: סיכון אפשרי להשפעות בלתי הפיכות"
 
 #: src/rsdialog.cpp:548
 #, kde-format
