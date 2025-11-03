@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-13 00:37+0000\n"
-"PO-Revision-Date: 2025-10-16 09:22+0300\n"
+"PO-Revision-Date: 2025-10-31 11:11+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -846,7 +846,7 @@ msgid "Rotary Evaporator"
 msgstr "מאייד סיבובי"
 
 #: data/tools.xml:73
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "A rotary evaporator consists of a round flask in a bath of hot water, and is "
 "designed to evaporate solvents. The flask is rotated and the solvent "
@@ -854,7 +854,11 @@ msgid ""
 "collecting flask. In this way solutions can be concentrated or purified. By "
 "attaching a vacuum pump, the air pressure and therefore the boiling point of "
 "the fluid can be decreased."
-msgstr "מאייד סיבובי מורכב מ"
+msgstr ""
+"מאייד סיבובי מורכב מבקבוק עגול באמבטיה של מים חמים, והוא תוכנן לאדות ממסים. "
+"הבקבוק מסתובב והממס נאסף בריק לתוך כונס ומטפטף לתוך בקבוק לאיסוף תעבית. כך "
+"אפשר לצמצם או לטהר תמיסות. על ידי חיבור משאבת לחץ, לחץ האוויר יורד וכתוצאה "
+"מכך נקודת הרתיחה של הנוזל יורדת."
 
 #: data/tools.xml:77
 #, kde-format
@@ -1003,9 +1007,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:132
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic Stir Bar Retriever"
-msgstr "סטירר מגנטי"
+msgstr "שולף מערבל מגנטי"
 
 #: data/tools.xml:133
 #, kde-format
@@ -1284,10 +1288,9 @@ msgid "Hydrogen"
 msgstr "מימן"
 
 #: element_tiny.xml:4
-#, fuzzy, kde-format
-#| msgid "Greek 'hydro' and 'gennao' for 'forms water'"
+#, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
-msgstr "ביוונית, 'hydro' ו-'gennao' פירושם 'יוצר מים'"
+msgstr "ביוונית, ‚hydro’ ו־‚gennao’ פירושם ‚יוצר מים’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
@@ -1318,10 +1321,9 @@ msgid "Beryllium"
 msgstr "בריליום"
 
 #: element_tiny.xml:10
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "ביוונית, 'beryllos פירושו 'אבן ירוקה-בהירה'"
+msgstr "ביוונית, ‚beryllos’ פירושו ‚אבן ירוקה-בהירה’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1376,10 +1378,9 @@ msgid "Fluorine"
 msgstr "פלואור"
 
 #: element_tiny.xml:20
-#, fuzzy, kde-format
-#| msgid "Latin 'fluere' ('floats')"
+#, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr "בלטינית, 'fluere' פירושו 'צף'"
+msgstr "בלטינית, ‚fluere’ פירושו ‚צף’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1536,10 +1537,9 @@ msgid "Vanadium"
 msgstr "ונדיום"
 
 #: element_tiny.xml:48
-#, fuzzy, kde-format
-#| msgid "'Vanadis' is another name for the Nordic goddess Freyja"
+#, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr "'Vanadis' הוא שם נוסף לאלה הנורדית 'פרייה'"
+msgstr "‚Vanadis’ הוא שם נוסף לאלה הנורדית ‚פריה’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -8088,6 +8088,8 @@ msgid ""
 "Click on 2 atoms to measure a distance, on 3 atoms to measure an angle, on 4 "
 "atoms to measure a dihedral angle."
 msgstr ""
+"יש ללחוץ על 2 אטומים כדי למדוד מרחק, על 3 אטומים כדי למדוד זווית, על 4 "
+"אטומים כדי למדוד זווית דו־מישורית."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/moleculeviewerwidget.ui:215
