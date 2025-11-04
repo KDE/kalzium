@@ -805,7 +805,7 @@ msgstr ""
 "de contenir et retenir de petites quantités de liquides pour les laisser "
 "s'évaporer. L'évaporation peut être accélérée par réchauffement du verre à "
 "l'aide d'un bec Bunsen. Les verres de montre peuvent également être employés "
-"pour couvrir une boîte de Petri ou un bécher, et sont également pratiques "
+"pour couvrir une boite de Petri ou un bécher, et sont également pratiques "
 "pour peser de petites quantités de matière ou autrement de les faire sécher "
 "dans la buanderie. Le terme « verre de montre » est tiré de sa ressemblance "
 "avec le verre de protection des montres de poche qui avait souvent cette "
@@ -3382,7 +3382,7 @@ msgstr "<big>Indiquez la quantité de soluté</big>"
 #, kde-format
 msgid "This is the box used to specify the amount of solute in the solution."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la quantité de soluté dans la "
+"Cette boite est utilisée pour indiquer la quantité de soluté dans la "
 "solution."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSltType)
@@ -3398,7 +3398,7 @@ msgid ""
 "This box is used to change the mode in which the amount of solute is "
 "specified, i.e. mass, moles or volume."
 msgstr ""
-"Cette boîte est utilisé pour modifier la manière dont vous souhaitez que la "
+"Cette boite est utilisé pour modifier la manière dont vous souhaitez que la "
 "quantité soit indiquée, c.-à-d. avec la masse, en moles ou avec le volume."
 
 # unreviewed-context
@@ -3418,7 +3418,7 @@ msgstr "<big>Indiquez la masse molaire du soluté</big>"
 #: src/calculator/concCalculator.ui:92
 #, kde-format
 msgid "This box is used to specify the molar mass of the substance."
-msgstr "Cette boîte est utilisée pour indiquer la masse molaire du composé."
+msgstr "Cette boite est utilisée pour indiquer la masse molaire du composé."
 
 #. i18n: ectx: property (text), widget (QLabel, label_40)
 #: src/calculator/concCalculator.ui:105
@@ -3440,7 +3440,7 @@ msgid ""
 "required only if concentration in terms of normality is involved.\n"
 "Normality = Number of Equivalents / liter of solution"
 msgstr ""
-"Cette boîte est utilisée pour indiquer la masse équivalente du soluté. Cela "
+"Cette boite est utilisée pour indiquer la masse équivalente du soluté. Cela "
 "est requis uniquement si la concentration en terme de normalité est "
 "utilisée.\n"
 "Normalité = nombre d'équivalents / litre de solution"
@@ -3464,7 +3464,7 @@ msgid ""
 "This box is used to specify the value of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la valeur de la densité du soluté. "
+"Cette boite est utilisée pour indiquer la valeur de la densité du soluté. "
 "Cela est requis uniquement si vous avez indiquez la quantité de soluté en "
 "terme de volume."
 
@@ -3485,7 +3485,7 @@ msgstr "<big>Indiquez la quantité de solvant</big>"
 #, kde-format
 msgid "This box is used to specify the amount of solvent in the solution."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la quantité de solvant dans la "
+"Cette boite est utilisée pour indiquer la quantité de solvant dans la "
 "solution."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvtType)
@@ -3501,7 +3501,7 @@ msgid ""
 "This box is used to change the mode in which amount of solvent is specified, "
 "i.e. mass, moles or volume."
 msgstr ""
-"Cette boîte est utilisée pour modifier la manière dont la quantité de "
+"Cette boite est utilisée pour modifier la manière dont la quantité de "
 "solvant est indiquée, c.-à-d. avec la masse, en moles ou avec le volume."
 
 #. i18n: ectx: property (text), widget (QLabel, label_42)
@@ -3520,7 +3520,7 @@ msgstr "<big>Indiquez la masse molaire du solvant</big>"
 #: src/calculator/concCalculator.ui:207
 #, kde-format
 msgid "This box is used to specify the molar mass of the solvent."
-msgstr "Cette boîte est utilisée pour indiquer la masse molaire du solvant."
+msgstr "Cette boite est utilisée pour indiquer la masse molaire du solvant."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: src/calculator/concCalculator.ui:220
@@ -3541,7 +3541,7 @@ msgid ""
 "This box is used to specify the density of the solution and is required only "
 "if the amount of solution is specified/needed in terms of mass."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la densité de la solution. Cela est "
+"Cette boite est utilisée pour indiquer la densité de la solution. Cela est "
 "requis uniquement si la quantité de solution est indiquée en terme de masse."
 
 #. i18n: ectx: property (text), widget (QLabel, label_41)
@@ -3563,7 +3563,7 @@ msgid ""
 "This box is used to specify the concentration of the solution in respective "
 "units to the right."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la concentration de la solution dans "
+"Cette boite est utilisée pour indiquer la concentration de la solution dans "
 "les unités respectives sur la droite."
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
@@ -3616,7 +3616,7 @@ msgid ""
 "This box is used to specify the units for the amount of solvent in the "
 "solution."
 msgstr ""
-"Cette boîte est utilisée pour indiquer les unités pour les quantités de "
+"Cette boite est utilisée pour indiquer les unités pour les quantités de "
 "solvant dans la solution."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_19)
@@ -3645,7 +3645,7 @@ msgid ""
 "This box is used to specify the units of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
-"Cette boîte est utilisée pour indiquer les unités de densité du soluté. Cela "
+"Cette boite est utilisée pour indiquer les unités de densité du soluté. Cela "
 "est requis uniquement si vous avez indiqué la quantité de soluté en terme de "
 "volume."
 
@@ -3662,7 +3662,7 @@ msgid ""
 "This box is used to specify the units for the amount of solute in the "
 "solution."
 msgstr ""
-"Cette boîte est utilisée pour indiquer les unités pour la quantité de soluté "
+"Cette boite est utilisée pour indiquer les unités pour la quantité de soluté "
 "dans la solution."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_17)
@@ -3734,7 +3734,7 @@ msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer la masse molaire du gaz, p. ex. "
+"Cette boite peut être utilisée pour indiquer la masse molaire du gaz, p. ex. "
 "2 pour un gaz d'hydrogène."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
@@ -3756,7 +3756,7 @@ msgid ""
 "This box can be used to specify the number of moles of the gas.\n"
 "Moles = mass / molar mass"
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer le nombre de moles du gaz.\n"
+"Cette boite peut être utilisée pour indiquer le nombre de moles du gaz.\n"
 "Moles = masse / masse molaire"
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
@@ -3778,7 +3778,7 @@ msgid ""
 "This box can be used to specify the mass of the gas.\n"
 "Mass = moles * molar mass"
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer la masse du gaz.\n"
+"Cette boite peut être utilisée pour indiquer la masse du gaz.\n"
 "Masse = moles * masse molaire"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, mass_unit)
@@ -3791,7 +3791,7 @@ msgstr "<big>Indiquez les unités de masse du gaz</big>"
 #: src/calculator/gasCalculator.ui:125
 #, kde-format
 msgid "This box is used to change the units of mass."
-msgstr "Cette boîte est utilisée pour modifier les unités de masse."
+msgstr "Cette boite est utilisée pour modifier les unités de masse."
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: src/calculator/gasCalculator.ui:145
@@ -3809,7 +3809,7 @@ msgstr "<big>Indiquez la pression du gaz</big>"
 #: src/calculator/gasCalculator.ui:158
 #, kde-format
 msgid "This box can be used to change the pressure of the gas."
-msgstr "Cette boîte peut être utilisée pour modifier la pression du gaz."
+msgstr "Cette boite peut être utilisée pour modifier la pression du gaz."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:171
@@ -3824,7 +3824,7 @@ msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer les unités de pression, p. ex. "
+"Cette boite peut être utilisée pour indiquer les unités de pression, p. ex. "
 "atmosphères, bars, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
@@ -3843,7 +3843,7 @@ msgstr "<!----><big>Indiquez la température du gaz</big>"
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr "Cette boîte peut être utilisée pour indiquer la température du gaz."
+msgstr "Cette boite peut être utilisée pour indiquer la température du gaz."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
@@ -3858,7 +3858,7 @@ msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer les unités de température, p. "
+"Cette boite peut être utilisée pour indiquer les unités de température, p. "
 "ex. kelvin, degré Celsius, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
@@ -3877,7 +3877,7 @@ msgstr "<big>Indiquez le volume du gaz</big>"
 #: src/calculator/gasCalculator.ui:230
 #, kde-format
 msgid "This box can be used to specify the volume of the gas."
-msgstr "Cette boîte peut être utilisée pour indiquer le volume du gaz."
+msgstr "Cette boite peut être utilisée pour indiquer le volume du gaz."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:249
@@ -3890,7 +3890,7 @@ msgstr "<big>Indiquez les unités de volume du gaz</big>"
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
 msgstr ""
-"Cette boîte peut être utilisée pour modifier les unités de volume, p. ex. "
+"Cette boite peut être utilisée pour modifier les unités de volume, p. ex. "
 "litres."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
@@ -3925,7 +3925,7 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer le coefficient de Van der Waals "
+"Cette boite peut être utilisée pour indiquer le coefficient de Van der Waals "
 "« b » du gaz. Cela est nécessaire uniquement pour un gaz réel. On pourra "
 "marquer 0.0 pour un gaz parfait."
 
@@ -3943,7 +3943,7 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer le coefficient de Van der Waals "
+"Cette boite peut être utilisée pour indiquer le coefficient de Van der Waals "
 "« b » du gaz. Cela est nécessaire uniquement pour un gaz réel. On pourra "
 "marquer 0.0 pour un gaz parfait."
 
@@ -4037,7 +4037,7 @@ msgid ""
 "This box is used to specify the element on which calculation is to be "
 "performed."
 msgstr ""
-"Cette boîte est utilisée pour indiquer l'élément sur lequel le calcul sera "
+"Cette boite est utilisée pour indiquer l'élément sur lequel le calcul sera "
 "effectué."
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
@@ -4059,7 +4059,7 @@ msgid ""
 "This box is used to specify the isotope of the above element on which "
 "calculation is performed."
 msgstr ""
-"Cette boîte est utilisée pour indiquer l'isotope de l'élément ci-dessus sur "
+"Cette boite est utilisée pour indiquer l'isotope de l'élément ci-dessus sur "
 "lequel le calcul sera effectué."
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
@@ -4079,7 +4079,7 @@ msgstr "<big>Indiquez le temps de demi-vie de l'isotope radioactif</big>"
 #, kde-format
 msgid "This box is used to specify the half-life of the above isotope."
 msgstr ""
-"Cette boîte est utilisée pour indiquer le temps de demi-vie de l'isotope ci-"
+"Cette boite est utilisée pour indiquer le temps de demi-vie de l'isotope ci-"
 "dessus."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, halfLife_unit)
@@ -4094,7 +4094,7 @@ msgstr "<big>Les unités du temps de demi-vie</big>"
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
 msgstr ""
-"Cette boîte est utilisée pour indiquer l'unité du temps de demi-vie, p. ex. "
+"Cette boite est utilisée pour indiquer l'unité du temps de demi-vie, p. ex. "
 "années, secondes, etc."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
@@ -4198,7 +4198,7 @@ msgid ""
 "This box is used to decide what you want to calculate, choose among 'Time', "
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
-"Cette boîte est utilisée pour décider de ce que vous souhaitez calculer, à "
+"Cette boite est utilisée pour décider de ce que vous souhaitez calculer, à "
 "choisir parmi « Temps », « Quantité initiale de matière » et « Quantité "
 "finale de matière »."
 
@@ -4238,7 +4238,7 @@ msgstr "<big>Indiquez la quantité initiale de matière</big>"
 msgid ""
 "This box is used to specify the initial amount of the radioactive substance."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la quantité initiale de matière "
+"Cette boite est utilisée pour indiquer la quantité initiale de matière "
 "radioactive."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
@@ -4259,7 +4259,7 @@ msgstr "<big>Indiquez la quantité finale de matière</big>"
 msgid ""
 "This box is used to specify the final amount of the radioactive substance."
 msgstr ""
-"Cette boîte est utilisée pour indiquer la quantité finale de matière "
+"Cette boite est utilisée pour indiquer la quantité finale de matière "
 "radioactive."
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
@@ -4281,7 +4281,7 @@ msgid ""
 "This box is used to specify the time after which the initial amount "
 "decreases to the final amount."
 msgstr ""
-"Cette boîte est utilisée pour indiquer le temps après lequel la quantité "
+"Cette boite est utilisée pour indiquer le temps après lequel la quantité "
 "initiale a été désintégré en quantité finale."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmtType)
@@ -4297,7 +4297,7 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
-"Cette boîte peut être utilisée pour modifier la manière dont vous souhaitez "
+"Cette boite peut être utilisée pour modifier la manière dont vous souhaitez "
 "indiquer la quantité initiale de matière, c.-à-d. avec la masse ou en mole."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
@@ -4321,7 +4321,7 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
-"Cette boîte peut être utilisée pour modifier la manière dont vous souhaitez "
+"Cette boite peut être utilisée pour modifier la manière dont vous souhaitez "
 "indiquer la quantité finale de matière, c.-à-d. avec la masse ou en mole."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
@@ -4337,7 +4337,7 @@ msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer les unités de quantité initiale "
+"Cette boite peut être utilisée pour indiquer les unités de quantité initiale "
 "de matière c.-à-d. en grammes, en livres, etc."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
@@ -4401,7 +4401,7 @@ msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Cette boîte peut être utilisée pour indiquer les unités de la quantité "
+"Cette boite peut être utilisée pour indiquer les unités de la quantité "
 "finale de matière c.-à-d. en grammes, livres, etc."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
@@ -4416,7 +4416,7 @@ msgstr "<big>Indiquez les unités du temps écoulé</big>"
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
 msgstr ""
-"Cette boîte est utilisée pour indiquer les unités de temps p. ex. années, "
+"Cette boite est utilisée pour indiquer les unités de temps p. ex. années, "
 "secondes, etc."
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
@@ -5634,7 +5634,7 @@ msgid ""
 "This will open a dialog with listings of symbols and numbers related to "
 "chemistry."
 msgstr ""
-"Ceci ouvrira une boîte de dialogue avec la liste de symboles et nombres liés "
+"Ceci ouvrira une boite de dialogue avec la liste de symboles et nombres liés "
 "à la chimie."
 
 #: src/kalzium.cpp:207
@@ -6401,7 +6401,7 @@ msgid ""
 "e.g. 2.> MeOH\n"
 "e.g. 3.> #EDTA#\n"
 msgstr ""
-"Cette boîte peut être utilisée pour saisir la formule d'une molécule.\n"
+"Cette boite peut être utilisée pour saisir la formule d'une molécule.\n"
 "p. ex. 1.> CaCO3\n"
 "p. ex. 2.> MeOH\n"
 "P. ex. 3.> #EDTA#\n"
@@ -6534,7 +6534,7 @@ msgid ""
 "You can enter the full form of the alias in this box, \n"
 "for instance, CH3."
 msgstr ""
-"Vous pouvez saisir la forme complète de l'alias dans cette boîte,\n"
+"Vous pouvez saisir la forme complète de l'alias dans cette boite,\n"
 "par exemple, CH3."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, alias)
