@@ -151,7 +151,7 @@
 >Affichage</guimenu
 >. </para>
 		 <para
->Si vous voulez connaître certaines données sur un élément particulier, cliquez dessus dans le tableau et la boîte d'information s'affichera. </para>
+>Si vous voulez connaître certaines données sur un élément particulier, cliquez dessus dans le tableau et la boite d'information s'affichera. </para>
 
 		 <screenshot>
 			 <screeninfo
@@ -244,9 +244,9 @@
 		 </sect1>
 		 <sect1 id="info-dlg">
 			 <title
->La boîte de dialogue d'information</title>
+>La boite de dialogue d'information</title>
 			 <para
->La boîte de dialogue d'information est obtenue en cliquant avec &BGS; sur n'importe quel élément. C'est l'endroit où vous obtenez des informations sur un élément. À l'aide des boutons en bas de la boîte de dialogue, vous pouvez changer l'élément qui est affiché sans fermer la boîte de dialogue.</para>
+>La boite de dialogue d'information est obtenue en cliquant avec &BGS; sur n'importe quel élément. C'est l'endroit où vous obtenez des informations sur un élément. À l'aide des boutons en bas de la boite de dialogue, vous pouvez changer l'élément qui est affiché sans fermer la boite de dialogue.</para>
 			<sect2 id="infodialog_dataoverview">
 				 <title
 >Vue d'ensemble des données</title>
@@ -260,14 +260,14 @@
 >La masse d'un élément est la moyenne des masses de ses isotopes pondérées par leur pourcentage respectif. </para>
 				 <screenshot>
 					 <screeninfo
->La boîte de dialogue d'information de &kalzium;</screeninfo>
+>La boite de dialogue d'information de &kalzium;</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La boîte de dialogue d'information de &kalzium;</phrase>
+>La boite de dialogue d'information de &kalzium;</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -285,14 +285,14 @@
 > affiche les orbitales atomiques. Chaque cercle représente une orbitale atomique et chaque point jaune un électron. </para>
 				 <screenshot>
 					 <screeninfo
->La boîte de dialogue d'information de &kalzium;</screeninfo>
+>La boite de dialogue d'information de &kalzium;</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_bohr.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La boîte de dialogue d'information de &kalzium;</phrase>
+>La boite de dialogue d'information de &kalzium;</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -380,14 +380,14 @@
 
 				 <screenshot>
 					 <screeninfo
->La boîte de dialogue d'information de &kalzium;</screeninfo>
+>La boite de dialogue d'information de &kalzium;</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_isotopes.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La boîte de dialogue d'information de &kalzium;</phrase>
+>La boite de dialogue d'information de &kalzium;</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -405,14 +405,14 @@
 > vous donne d'autres informations sur l'élément courant, incluant sa date de découverte et l'origine de son nom.</para>
 				 <screenshot>
 					 <screeninfo
->La boîte de dialogue d'information de &kalzium;</screeninfo>
+>La boite de dialogue d'information de &kalzium;</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La boîte de dialogue d'information de &kalzium;</phrase>
+>La boite de dialogue d'information de &kalzium;</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -430,14 +430,14 @@
 > vous donne le spectre des éléments. Vous pouvez choisir la gamme de longueurs d'onde, les unités et le type de spectre. Le tableau d'intensité peut être vu dans la partie en bas à droite de la page.</para>
 				 <screenshot>
 					 <screeninfo
->La boîte de dialogue d'information de &kalzium;</screeninfo>
+>La boite de dialogue d'information de &kalzium;</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_spectrum.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La boîte de dialogue d'information de &kalzium;</phrase>
+>La boite de dialogue d'information de &kalzium;</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -459,14 +459,14 @@
 >.</para>
 				 <screenshot>
 					 <screeninfo
->La boîte de dialogue d'information de &kalzium;</screeninfo>
+>La boite de dialogue d'information de &kalzium;</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_extra.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase
->La boîte de dialogue d'information de &kalzium;</phrase>
+>La boite de dialogue d'information de &kalzium;</phrase>
 						 </textobject>
 						 <caption
 ><para
@@ -910,13 +910,13 @@
 				 <title
 >Tracer les données</title>
 				 <para
->La boîte de dialogue <guilabel
+>La boite de dialogue <guilabel
 >Tracer les données</guilabel
 > vous permet de tracer certaines informations sur des éléments. L'axe des abscisses représente une plage d'éléments (d'un nombre donné jusqu'à un nombre plus élevé). Vous fixez cette plage en utilisant les champs <guilabel
 >Premier élément :</guilabel
 > et <guilabel
 >Dernier élément</guilabel
-> dans la boîte de dialogue. Cliquez sur le bouton &nbsp;<inlinemediaobject
+> dans la boite de dialogue. Cliquez sur le bouton &nbsp;<inlinemediaobject
 > <imageobject
 > <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
 > </inlinemediaobject
@@ -930,7 +930,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue pour <quote
+>la boite de dialogue pour <quote
 >tracer des données</quote
 ></phrase>
 						 </textobject>
@@ -966,7 +966,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue du <quote
+>la boite de dialogue du <quote
 >calculateur de masse moléculaire</quote
 ></phrase>
 						 </textobject>
@@ -1007,7 +1007,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue du <quote
+>la boite de dialogue du <quote
 >Calculateur de concentrations</quote
 ></phrase>
 						 </textobject>
@@ -1032,7 +1032,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue du <quote
+>la boite de dialogue du <quote
 >Calculateur nucléaire</quote
 ></phrase>
 						 </textobject>
@@ -1057,7 +1057,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue du <quote
+>la boite de dialogue du <quote
 >Calculateur de gaz</quote
 ></phrase>
 						 </textobject>
@@ -1172,7 +1172,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue du <quote
+>la boite de dialogue du <quote
 >Calculateur de titrage</quote
 ></phrase>
 						 </textobject>
@@ -1205,7 +1205,7 @@
 						 </imageobject>
 						 <textobject>
 							 <phrase
->la boîte de dialogue du <quote
+>la boite de dialogue du <quote
 >Solveur d'équations</quote
 ></phrase>
 						 </textobject>
@@ -1328,7 +1328,7 @@
 							 </imageobject>
 							 <textobject>
 								 <phrase
->la boîte de dialogue de <quote
+>la boite de dialogue de <quote
 >état de la matière</quote
 ></phrase>
 							 </textobject>
@@ -1379,7 +1379,7 @@
 >Configuration de &kalzium;</title>
 
 		 <para
->&kalzium; dispose de plusieurs options de configuration auxquelles vous pouvez accéder en ouvrant la boîte de dialogue de configuration, en choisissant <menuchoice
+>&kalzium; dispose de plusieurs options de configuration auxquelles vous pouvez accéder en ouvrant la boite de dialogue de configuration, en choisissant <menuchoice
 ><guimenu
 >Configuration</guimenu
 ><guimenuitem
@@ -1513,7 +1513,7 @@
 ><para
 ><action
 >Ouvre</action
-> une boîte de dialogue dans laquelle vous pouvez sélectionner les <guilabel
+> une boite de dialogue dans laquelle vous pouvez sélectionner les <guilabel
 >éléments</guilabel
 > et leurs <guilabel
 >propriétés</guilabel
@@ -1533,7 +1533,7 @@
 ><para
 ><action
 >Ouvrir</action
-> une boîte de dialogue pour importer et exporter un large éventail de formats de fichiers de chimie et de types de données avec la <ulink url="https://openbabel.org/wiki/Main_Page"
+> une boite de dialogue pour importer et exporter un large éventail de formats de fichiers de chimie et de types de données avec la <ulink url="https://openbabel.org/wiki/Main_Page"
 >bibliothèque Open Babel</ulink
 >.</para
 ></listitem>
@@ -2029,7 +2029,7 @@
 ><para
 ><action
 >Ouvre</action
-> la boîte de dialogue de l'<guilabel
+> la boite de dialogue de l'<guilabel
 >Éditeur moléculaire</guilabel
 >.</para
 ></listitem>
@@ -2065,7 +2065,7 @@
 ><para
 ><action
 >Ouvre</action
-> la boîte de dialogue des <guilabel
+> la boite de dialogue des <guilabel
 >Tracer les données</guilabel
 >.</para
 ></listitem>
@@ -2084,7 +2084,7 @@
 ><action
 >Ouvre</action
 > la <link linkend="perf_calculation"
->boîte de dialogue pour la <guilabel
+>boite de dialogue pour la <guilabel
 >réalisation de calculs</guilabel
 ></link
 >.</para
@@ -2103,7 +2103,7 @@
 ><para
 ><action
 >Ouvre</action
-> la boîte de dialogue des <guilabel
+> la boite de dialogue des <guilabel
 >Phrases de risque / sécurité</guilabel
 >.</para
 ></listitem>
@@ -2139,7 +2139,7 @@
 ><para
 ><action
 >Affiche</action
-> une boîte de dialogue avec <guilabel
+> une boite de dialogue avec <guilabel
 >l'alphabet grec</guilabel
 > et les <guilabel
 >nombres, préfixes et chiffres romains</guilabel
