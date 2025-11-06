@@ -34,7 +34,7 @@ if (HAVE_OPENBABEL)
    )
    target_include_directories(kalzium SYSTEM PRIVATE ${OPENBABEL_INCLUDE_DIR})
 
-   if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
+   if (Eigen3_FOUND AND AvogadroLibs_FOUND)
       #include(${Avogadro_USE_FILE})
 
       target_sources(kalzium PRIVATE
@@ -207,7 +207,7 @@ target_link_libraries(kalzium
 
 if (HAVE_OPENBABEL)
    target_link_libraries(kalzium ${OPENBABEL_LIBRARIES})
-   if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
+   if (Eigen3_FOUND AND AvogadroLibs_FOUND)
       target_link_libraries(kalzium
          KF6::NewStuffWidgets
          Qt::OpenGL

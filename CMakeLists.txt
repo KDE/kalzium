@@ -58,7 +58,7 @@ set(HAVE_OPENBABEL2 ${OPENBABEL2_FOUND})
 if(HAVE_OPENBABEL2 OR HAVE_OPENBABEL3)
     set(HAVE_OPENBABEL 1)
 endif()
-set(HAVE_EIGEN ${EIGEN3_FOUND})
+set(HAVE_EIGEN ${Eigen3_FOUND})
 set(HAVE_AVOGADRO ${AvogadroLibs_FOUND})
 
 if(HAVE_OPENBABEL3)
@@ -123,7 +123,7 @@ ecm_set_disabled_deprecation_versions(QT 5.14.0
 )
 
 
-if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND EIGEN3_FOUND)
+if (HAVE_OPENBABEL AND AvogadroLibs_FOUND AND Eigen3_FOUND)
   find_package(Qt6OpenGL ${QT_MIN_VERSION} REQUIRED)
   find_package(KF6NewStuff ${KF_MIN_VERSION} REQUIRED)
   # avoid compilerwarnings about redefinitions
