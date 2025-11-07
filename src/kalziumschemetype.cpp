@@ -243,6 +243,7 @@ QBrush KalziumFamilySchemeType::elementBrush(int el) const
 
     QColor c;
 
+
     if (family == QLatin1String("Noblegas")) {
         c = Prefs::noble_gas();
     } else if (family == QLatin1String("Non-Metal")) {
@@ -250,9 +251,9 @@ QBrush KalziumFamilySchemeType::elementBrush(int el) const
     } else if (family == QLatin1String("Rare_Earth")) {
         c = Prefs::rare();
     } else if (family == QLatin1String("Alkaline_Earth")) {
-        c = Prefs::alkaline();
+        c = Prefs::alkaline_earth_metal();
     } else if (family == QLatin1String("Alkali_Earth")) {
-        c = Prefs::alkalie();
+        c = Prefs::alkali_metal();
     } else if (family == QLatin1String("Transition")) {
         c = Prefs::transition();
     } else if (family == QLatin1String("Other_Metal")) {
@@ -276,10 +277,10 @@ QColor KalziumFamilySchemeType::textColor(int) const
 QList<legendPair> KalziumFamilySchemeType::legendItems() const
 {
     QList<legendPair> ll;
-    ll << qMakePair(i18n("Alkaline"), QColor(Prefs::alkalie()));
+    ll << qMakePair(i18n("Alkaline Earth Metal"), QColor(Prefs::alkaline_earth_metal()));
     ll << qMakePair(i18n("Rare Earth"), QColor(Prefs::rare()));
     ll << qMakePair(i18n("Non-Metals"), QColor(Prefs::nonmetal()));
-    ll << qMakePair(i18n("Alkalie Metal"), QColor(Prefs::alkaline()));
+    ll << qMakePair(i18n("Alkali Metal"), QColor(Prefs::alkali_metal()));
     ll << qMakePair(i18n("Other Metal"), QColor(Prefs::other_metal()));
     ll << qMakePair(i18n("Halogen"), QColor(Prefs::halogene()));
     ll << qMakePair(i18n("Transition Metal"), QColor(Prefs::transition()));

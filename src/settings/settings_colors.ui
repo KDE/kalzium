@@ -430,7 +430,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_alkalie"/>
+          <widget class="KColorButton" name="kcfg_alkali_metal"/>
          </item>
         </layout>
        </item>
@@ -490,7 +490,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_alkaline"/>
+          <widget class="KColorButton" name="kcfg_alkaline_earth_metal"/>
          </item>
         </layout>
        </item>
