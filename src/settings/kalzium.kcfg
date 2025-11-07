@@ -182,7 +182,7 @@
 			<whatsthis>Selects the color of the elements in group 8</whatsthis>
 			<default>#00A7B3</default>
 		</entry>
-		<entry name="alkalie" type="Color">
+		<entry name="alkali_metal" type="Color">
 			<label>Selects the color of the alkali metals</label>
 			<whatsthis>Selects the color of the alkali metals</whatsthis>
 			<default>#FFEB55</default>
@@ -197,7 +197,7 @@
 			<whatsthis>Selects the color of the non-metal elements</whatsthis>
 			<default>#F29B68</default>
 		</entry>
-		<entry name="alkaline" type="Color">
+		<entry name="alkaline_earth_metal" type="Color">
 			<label>Selects the color of the alkaline earth metals</label>
 			<whatsthis>Selects the color of the alkaline earth metals</whatsthis>
 			<default>#00A7B3</default>
