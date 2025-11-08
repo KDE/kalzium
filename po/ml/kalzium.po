@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-13 00:37+0000\n"
+"POT-Creation-Date: 2025-11-08 02:33+0000\n"
 "PO-Revision-Date: 2019-12-12 21:36+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
@@ -5226,103 +5226,104 @@ msgstr ""
 msgid "Each element is represented by an icon which represents its use."
 msgstr ""
 
-#: src/kalziumschemetype.cpp:279
-#, kde-format
-msgid "Alkaline"
-msgstr "അല്‍ക്കലൈന്‍"
-
 #: src/kalziumschemetype.cpp:280
+#, fuzzy, kde-format
+msgid "Alkaline Earth Metal"
+msgstr "ആല്‍ക്കലൈന്‍ എര്‍ത്ത് ലോഹങ്ങള്‍:"
+
+#: src/kalziumschemetype.cpp:281
 #, kde-format
 msgid "Rare Earth"
 msgstr ""
 
-#: src/kalziumschemetype.cpp:281
+#: src/kalziumschemetype.cpp:282
 #, kde-format
 msgid "Non-Metals"
 msgstr "അലോഹങ്ങള്‍"
 
-#: src/kalziumschemetype.cpp:282
-#, kde-format
-msgid "Alkalie Metal"
+#: src/kalziumschemetype.cpp:283
+#, fuzzy, kde-format
+#| msgid "Alkalie Metal"
+msgid "Alkali Metal"
 msgstr "ആല്‍ക്കലി ലോഹം"
 
-#: src/kalziumschemetype.cpp:283
+#: src/kalziumschemetype.cpp:284
 #, kde-format
 msgid "Other Metal"
 msgstr "മറ്റ് ലോഹങ്ങള്‍"
 
-#: src/kalziumschemetype.cpp:284
+#: src/kalziumschemetype.cpp:285
 #, kde-format
 msgid "Halogen"
 msgstr "ഹാലൊജെനുകള്‍"
 
-#: src/kalziumschemetype.cpp:285
+#: src/kalziumschemetype.cpp:286
 #, kde-format
 msgid "Transition Metal"
 msgstr ""
 
-#: src/kalziumschemetype.cpp:286
+#: src/kalziumschemetype.cpp:287
 #, kde-format
 msgid "Noble Gas"
 msgstr "നിഷ്ക്രിയ വാതകങ്ങള്‍"
 
-#: src/kalziumschemetype.cpp:287
+#: src/kalziumschemetype.cpp:288
 #, kde-format
 msgid "Metalloid"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
-#: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
+#: src/kalziumschemetype.cpp:312 src/settings/settings_colors.ui:136
 #, kde-format
 msgid "Groups"
 msgstr "ഗ്രൂപ്പുകള്‍"
 
-#: src/kalziumschemetype.cpp:351
+#: src/kalziumschemetype.cpp:352
 #, kde-format
 msgid "Group 1"
 msgstr "ഗ്രൂപ്പ് 1"
 
-#: src/kalziumschemetype.cpp:352
+#: src/kalziumschemetype.cpp:353
 #, kde-format
 msgid "Group 2"
 msgstr "ഗ്രൂപ്പ് 2"
 
-#: src/kalziumschemetype.cpp:353
+#: src/kalziumschemetype.cpp:354
 #, kde-format
 msgid "Group 3"
 msgstr "ഗ്രൂപ്പ് 3"
 
-#: src/kalziumschemetype.cpp:354
+#: src/kalziumschemetype.cpp:355
 #, kde-format
 msgid "Group 4"
 msgstr "ഗ്രൂപ്പ് 4"
 
-#: src/kalziumschemetype.cpp:355
+#: src/kalziumschemetype.cpp:356
 #, kde-format
 msgid "Group 5"
 msgstr "ഗ്രൂപ്പ് 5"
 
-#: src/kalziumschemetype.cpp:356
+#: src/kalziumschemetype.cpp:357
 #, kde-format
 msgid "Group 6"
 msgstr "ഗ്രൂപ്പ് 6"
 
-#: src/kalziumschemetype.cpp:357
+#: src/kalziumschemetype.cpp:358
 #, kde-format
 msgid "Group 7"
 msgstr "ഗ്രൂപ്പ് 7"
 
-#: src/kalziumschemetype.cpp:358
+#: src/kalziumschemetype.cpp:359
 #, kde-format
 msgid "Group 8"
 msgstr "ഗ്രൂപ്പ് 8"
 
-#: src/kalziumschemetype.cpp:383
+#: src/kalziumschemetype.cpp:384
 #, kde-format
 msgid "Colors"
 msgstr "നിറങ്ങള്‍"
 
-#: src/kalziumschemetype.cpp:411
+#: src/kalziumschemetype.cpp:412
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
 msgstr ""
@@ -6095,7 +6096,8 @@ msgstr "നിഷ്ക്രിയ വാതകങ്ങള്‍"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
 #, fuzzy, kde-format
-msgid "Alkalie metals"
+#| msgid "Alkali metals:"
+msgid "Alkali metals"
 msgstr "അല്‍ക്കലി ലോഹങ്ങള്‍:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
@@ -8167,6 +8169,13 @@ msgstr ""
 #, kde-format
 msgid "Convert to:"
 msgstr ""
+
+#~ msgid "Alkaline"
+#~ msgstr "അല്‍ക്കലൈന്‍"
+
+#, fuzzy
+#~ msgid "Alkalie metals"
+#~ msgstr "അല്‍ക്കലി ലോഹങ്ങള്‍:"
 
 #~ msgid "Kalzium Error"
 #~ msgstr "കാല്‍സിയം പിഴവു്"

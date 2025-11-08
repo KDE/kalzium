@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-13 00:37+0000\n"
+"POT-Creation-Date: 2025-11-08 02:33+0000\n"
 "PO-Revision-Date: 2023-12-08 13:46+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -5714,103 +5714,105 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr ""
 "Elementu bakoitza ikono batekin adierazten da (bere erabilera adieraziz)."
 
-#: src/kalziumschemetype.cpp:279
-#, kde-format
-msgid "Alkaline"
-msgstr "Alkalinoa"
-
 #: src/kalziumschemetype.cpp:280
+#, fuzzy, kde-format
+#| msgid "Alkaline earth metals"
+msgid "Alkaline Earth Metal"
+msgstr "Lur alkalinoen metalak"
+
+#: src/kalziumschemetype.cpp:281
 #, kde-format
 msgid "Rare Earth"
 msgstr "Lur arraroa"
 
-#: src/kalziumschemetype.cpp:281
+#: src/kalziumschemetype.cpp:282
 #, kde-format
 msgid "Non-Metals"
 msgstr "Ez-metalak"
 
-#: src/kalziumschemetype.cpp:282
-#, kde-format
-msgid "Alkalie Metal"
+#: src/kalziumschemetype.cpp:283
+#, fuzzy, kde-format
+#| msgid "Alkalie Metal"
+msgid "Alkali Metal"
 msgstr "Metal alkalinoak"
 
-#: src/kalziumschemetype.cpp:283
+#: src/kalziumschemetype.cpp:284
 #, kde-format
 msgid "Other Metal"
 msgstr "Beste metala"
 
-#: src/kalziumschemetype.cpp:284
+#: src/kalziumschemetype.cpp:285
 #, kde-format
 msgid "Halogen"
 msgstr "Halogenoa"
 
-#: src/kalziumschemetype.cpp:285
+#: src/kalziumschemetype.cpp:286
 #, kde-format
 msgid "Transition Metal"
 msgstr "Transiziozko metala"
 
-#: src/kalziumschemetype.cpp:286
+#: src/kalziumschemetype.cpp:287
 #, kde-format
 msgid "Noble Gas"
 msgstr "Gas noblea"
 
-#: src/kalziumschemetype.cpp:287
+#: src/kalziumschemetype.cpp:288
 #, kde-format
 msgid "Metalloid"
 msgstr "Metaloidea"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
-#: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
+#: src/kalziumschemetype.cpp:312 src/settings/settings_colors.ui:136
 #, kde-format
 msgid "Groups"
 msgstr "Taldeak"
 
-#: src/kalziumschemetype.cpp:351
+#: src/kalziumschemetype.cpp:352
 #, kde-format
 msgid "Group 1"
 msgstr "1. taldea"
 
-#: src/kalziumschemetype.cpp:352
+#: src/kalziumschemetype.cpp:353
 #, kde-format
 msgid "Group 2"
 msgstr "2. taldea"
 
-#: src/kalziumschemetype.cpp:353
+#: src/kalziumschemetype.cpp:354
 #, kde-format
 msgid "Group 3"
 msgstr "3. taldea"
 
-#: src/kalziumschemetype.cpp:354
+#: src/kalziumschemetype.cpp:355
 #, kde-format
 msgid "Group 4"
 msgstr "4. taldea"
 
-#: src/kalziumschemetype.cpp:355
+#: src/kalziumschemetype.cpp:356
 #, kde-format
 msgid "Group 5"
 msgstr "5. taldea"
 
-#: src/kalziumschemetype.cpp:356
+#: src/kalziumschemetype.cpp:357
 #, kde-format
 msgid "Group 6"
 msgstr "6. taldea"
 
-#: src/kalziumschemetype.cpp:357
+#: src/kalziumschemetype.cpp:358
 #, kde-format
 msgid "Group 7"
 msgstr "7. taldea"
 
-#: src/kalziumschemetype.cpp:358
+#: src/kalziumschemetype.cpp:359
 #, kde-format
 msgid "Group 8"
 msgstr "8. taldea"
 
-#: src/kalziumschemetype.cpp:383
+#: src/kalziumschemetype.cpp:384
 #, kde-format
 msgid "Colors"
 msgstr "Koloreak"
 
-#: src/kalziumschemetype.cpp:411
+#: src/kalziumschemetype.cpp:412
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
 msgstr "Kolore politak esanahirik gabe. (Open Babel proiektukoa)"
@@ -6605,9 +6607,10 @@ msgstr "Gas nobleak"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, kde-format
-msgid "Alkalie metals"
-msgstr "Metal alkalinoak"
+#, fuzzy, kde-format
+#| msgid "Alkali metals:"
+msgid "Alkali metals"
+msgstr "Metal alkalinoak:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -8747,6 +8750,12 @@ msgstr "Bihurtu hemendik:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Bihurtu hona:"
+
+#~ msgid "Alkaline"
+#~ msgstr "Alkalinoa"
+
+#~ msgid "Alkalie metals"
+#~ msgstr "Metal alkalinoak"
 
 #~ msgid "Kalzium Error"
 #~ msgstr "Kalzium errorea"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-13 00:37+0000\n"
+"POT-Creation-Date: 2025-11-08 02:33+0000\n"
 "PO-Revision-Date: 2021-01-18 19:00+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -5224,103 +5224,103 @@ msgstr ""
 msgid "Each element is represented by an icon which represents its use."
 msgstr ""
 
-#: src/kalziumschemetype.cpp:279
-#, fuzzy, kde-format
-msgid "Alkaline"
-msgstr "Alkali Metals:"
-
 #: src/kalziumschemetype.cpp:280
+#, fuzzy, kde-format
+msgid "Alkaline Earth Metal"
+msgstr "காரப்பொருள் பூமி உலோகங்கள்:"
+
+#: src/kalziumschemetype.cpp:281
 #, fuzzy, kde-format
 msgid "Rare Earth"
 msgstr "அரிய பூமி:"
 
-#: src/kalziumschemetype.cpp:281
+#: src/kalziumschemetype.cpp:282
 #, kde-format
 msgid "Non-Metals"
 msgstr "உலோகமல்லாத"
 
-#: src/kalziumschemetype.cpp:282
+#: src/kalziumschemetype.cpp:283
 #, fuzzy, kde-format
-msgid "Alkalie Metal"
+msgid "Alkali Metal"
 msgstr "Alkali Metals:"
 
-#: src/kalziumschemetype.cpp:283
+#: src/kalziumschemetype.cpp:284
 #, fuzzy, kde-format
 msgid "Other Metal"
 msgstr "மற்ற உலோகங்கள்:"
 
-#: src/kalziumschemetype.cpp:284
+#: src/kalziumschemetype.cpp:285
 #, fuzzy, kde-format
 msgid "Halogen"
 msgstr "உப்பாக்கிகள்:"
 
-#: src/kalziumschemetype.cpp:285
+#: src/kalziumschemetype.cpp:286
 #, fuzzy, kde-format
 msgid "Transition Metal"
 msgstr "மாற்று உலோகங்கள்:"
 
-#: src/kalziumschemetype.cpp:286
+#: src/kalziumschemetype.cpp:287
 #, fuzzy, kde-format
 msgid "Noble Gas"
 msgstr "உயர்ந்த எரிப்பொருள்கள்:"
 
-#: src/kalziumschemetype.cpp:287
+#: src/kalziumschemetype.cpp:288
 #, fuzzy, kde-format
 msgid "Metalloid"
 msgstr "உலோகப்போலிகள்:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
-#: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
+#: src/kalziumschemetype.cpp:312 src/settings/settings_colors.ui:136
 #, fuzzy, kde-format
 msgid "Groups"
 msgstr "&குழுக்கள்"
 
-#: src/kalziumschemetype.cpp:351
+#: src/kalziumschemetype.cpp:352
 #, kde-format
 msgid "Group 1"
 msgstr "குழு 1"
 
-#: src/kalziumschemetype.cpp:352
+#: src/kalziumschemetype.cpp:353
 #, kde-format
 msgid "Group 2"
 msgstr "குழு 2"
 
-#: src/kalziumschemetype.cpp:353
+#: src/kalziumschemetype.cpp:354
 #, kde-format
 msgid "Group 3"
 msgstr "குழு 3"
 
-#: src/kalziumschemetype.cpp:354
+#: src/kalziumschemetype.cpp:355
 #, kde-format
 msgid "Group 4"
 msgstr "குழு 4"
 
-#: src/kalziumschemetype.cpp:355
+#: src/kalziumschemetype.cpp:356
 #, kde-format
 msgid "Group 5"
 msgstr "குழு 5"
 
-#: src/kalziumschemetype.cpp:356
+#: src/kalziumschemetype.cpp:357
 #, kde-format
 msgid "Group 6"
 msgstr "குழு 6"
 
-#: src/kalziumschemetype.cpp:357
+#: src/kalziumschemetype.cpp:358
 #, kde-format
 msgid "Group 7"
 msgstr "குழு 7"
 
-#: src/kalziumschemetype.cpp:358
+#: src/kalziumschemetype.cpp:359
 #, kde-format
 msgid "Group 8"
 msgstr "குழு 8"
 
-#: src/kalziumschemetype.cpp:383
+#: src/kalziumschemetype.cpp:384
 #, kde-format
 msgid "Colors"
 msgstr "நிறங்கள்"
 
-#: src/kalziumschemetype.cpp:411
+#: src/kalziumschemetype.cpp:412
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
 msgstr ""
@@ -6106,7 +6106,7 @@ msgstr "உயர்ந்த எரிப்பொருள்கள்:"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
 #, fuzzy, kde-format
-msgid "Alkalie metals"
+msgid "Alkali metals"
 msgstr "Alkali Metals:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
@@ -8176,6 +8176,14 @@ msgstr ""
 #, kde-format
 msgid "Convert to:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Alkaline"
+#~ msgstr "Alkali Metals:"
+
+#, fuzzy
+#~ msgid "Alkalie metals"
+#~ msgstr "Alkali Metals:"
 
 #, fuzzy
 #~| msgid "Kalzium"
