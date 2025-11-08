@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-13 00:37+0000\n"
+"POT-Creation-Date: 2025-11-08 00:38+0000\n"
 "PO-Revision-Date: 2008-07-06 15:14+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@myrealbox.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -5300,103 +5300,103 @@ msgstr ""
 msgid "Each element is represented by an icon which represents its use."
 msgstr ""
 
-#: src/kalziumschemetype.cpp:279
-#, kde-format
-msgid "Alkaline"
-msgstr ""
-
 #: src/kalziumschemetype.cpp:280
 #, fuzzy, kde-format
-msgid "Rare Earth"
+msgid "Alkaline Earth Metal"
 msgstr "Earth from Space"
 
 #: src/kalziumschemetype.cpp:281
 #, fuzzy, kde-format
-msgid "Non-Metals"
-msgstr "Bukan AS/Kanada"
+msgid "Rare Earth"
+msgstr "Earth from Space"
 
 #: src/kalziumschemetype.cpp:282
 #, fuzzy, kde-format
-msgid "Alkalie Metal"
-msgstr "Earth from Space"
+msgid "Non-Metals"
+msgstr "Bukan AS/Kanada"
 
 #: src/kalziumschemetype.cpp:283
+#, fuzzy, kde-format
+msgid "Alkali Metal"
+msgstr "Earth from Space"
+
+#: src/kalziumschemetype.cpp:284
 #, fuzzy, kde-format
 msgid "Other Metal"
 msgstr "Death Metal"
 
-#: src/kalziumschemetype.cpp:284
+#: src/kalziumschemetype.cpp:285
 #, kde-format
 msgid "Halogen"
 msgstr ""
 
-#: src/kalziumschemetype.cpp:285
+#: src/kalziumschemetype.cpp:286
 #, fuzzy, kde-format
 msgid "Transition Metal"
 msgstr "Death Metal"
 
-#: src/kalziumschemetype.cpp:286
+#: src/kalziumschemetype.cpp:287
 #, kde-format
 msgid "Noble Gas"
 msgstr ""
 
-#: src/kalziumschemetype.cpp:287
+#: src/kalziumschemetype.cpp:288
 #, kde-format
 msgid "Metalloid"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
-#: src/kalziumschemetype.cpp:311 src/settings/settings_colors.ui:136
+#: src/kalziumschemetype.cpp:312 src/settings/settings_colors.ui:136
 #, fuzzy, kde-format
 msgid "Groups"
 msgstr "_Kumpulan"
 
-#: src/kalziumschemetype.cpp:351
+#: src/kalziumschemetype.cpp:352
 #, fuzzy, kde-format
 msgid "Group 1"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:352
+#: src/kalziumschemetype.cpp:353
 #, fuzzy, kde-format
 msgid "Group 2"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:353
+#: src/kalziumschemetype.cpp:354
 #, fuzzy, kde-format
 msgid "Group 3"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:354
+#: src/kalziumschemetype.cpp:355
 #, fuzzy, kde-format
 msgid "Group 4"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:355
+#: src/kalziumschemetype.cpp:356
 #, fuzzy, kde-format
 msgid "Group 5"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:356
+#: src/kalziumschemetype.cpp:357
 #, fuzzy, kde-format
 msgid "Group 6"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:357
+#: src/kalziumschemetype.cpp:358
 #, fuzzy, kde-format
 msgid "Group 7"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:358
+#: src/kalziumschemetype.cpp:359
 #, fuzzy, kde-format
 msgid "Group 8"
 msgstr "Kumpulan:"
 
-#: src/kalziumschemetype.cpp:383
+#: src/kalziumschemetype.cpp:384
 #, kde-format
 msgid "Colors"
 msgstr "Warna"
 
-#: src/kalziumschemetype.cpp:411
+#: src/kalziumschemetype.cpp:412
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
 msgstr ""
@@ -6176,7 +6176,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
 #, fuzzy, kde-format
-msgid "Alkalie metals"
+msgid "Alkali metals"
 msgstr "Earth from Space"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
@@ -8248,6 +8248,10 @@ msgstr ""
 #, kde-format
 msgid "Convert to:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Alkalie metals"
+#~ msgstr "Earth from Space"
 
 #, fuzzy
 #~| msgid "Kalzium"
