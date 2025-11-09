@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 02:33+0000\n"
-"PO-Revision-Date: 2023-12-08 07:51+0100\n"
+"PO-Revision-Date: 2025-11-08 07:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5660,10 +5660,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "Vsak element predstavlja ikona, ki predstavlja njegovo uporabo."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "Zemeljskoalkalijske kovine"
+msgstr "Alkalijske zemeljske kovine"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5676,8 +5675,7 @@ msgid "Non-Metals"
 msgstr "Nekovine"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
 msgstr "Alkalijske kovine"
 
@@ -6550,10 +6548,9 @@ msgstr "Žlahtni plini"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "Alkalijske kovine:"
+msgstr "Alkalijske kovine"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
