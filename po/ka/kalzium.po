@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 00:38+0000\n"
-"PO-Revision-Date: 2025-05-10 09:08+0200\n"
+"PO-Revision-Date: 2025-11-08 07:30+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5686,10 +5686,9 @@ msgstr ""
 "გამოყენებას."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "ტუტემიწა ლითონები"
+msgstr "ტუტემიწა ლითონი"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5702,8 +5701,7 @@ msgid "Non-Metals"
 msgstr "არალითონები"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
 msgstr "ტუტე ლითონი"
 
@@ -6573,10 +6571,9 @@ msgstr "კეთილშობილი აირები"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "ტუტე ლითონები:"
+msgstr "ტუტე ლითონები"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300

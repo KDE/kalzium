@@ -5409,10 +5409,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "每种元素都以代表其功用的图标来表示"
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "碱土金属"
+msgstr ""
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5425,10 +5424,9 @@ msgid "Non-Metals"
 msgstr "非金属"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
-msgstr "碱金属"
+msgstr ""
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6292,10 +6290,9 @@ msgstr "惰性气体"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "碱金属："
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -8376,9 +8373,3 @@ msgstr "需转换格式："
 #, kde-format
 msgid "Convert to:"
 msgstr "转换为："
-
-#~ msgid "Alkaline"
-#~ msgstr "碱土金属"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "碱金属"
