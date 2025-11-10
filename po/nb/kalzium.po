@@ -8610,9 +8610,3 @@ msgstr "Konverter fra:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konverter til:"
-
-#~ msgid "Alkaline"
-#~ msgstr "Alkalisk"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Alkalimetaller"

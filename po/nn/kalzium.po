@@ -8382,9 +8382,3 @@ msgstr "Gjer om frå:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Gjer om til:"
-
-#~ msgid "Alkaline"
-#~ msgstr "Alkalisk"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Alkalimetall"

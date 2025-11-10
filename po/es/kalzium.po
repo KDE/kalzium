@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 02:33+0000\n"
-"PO-Revision-Date: 2025-05-10 00:58+0100\n"
+"PO-Revision-Date: 2025-11-08 12:47+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -5768,10 +5768,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "Cada elemento se representa mediante un icono que describe su uso."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "Metales alcalinotérreos"
+msgstr "Metal alcalinotérreo"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5784,10 +5783,9 @@ msgid "Non-Metals"
 msgstr "No metálicos"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
-msgstr "Metales alcalinos"
+msgstr "Metal alcalino"
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6663,10 +6661,9 @@ msgstr "Gases nobles"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "Metales alcalinos:"
+msgstr "Metales alcalinos"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -8813,9 +8810,3 @@ msgstr "Convertir de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Convertir a:"
-
-#~ msgid "Alkaline"
-#~ msgstr "Alcalinos"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Metales alcalinos"
