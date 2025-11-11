@@ -5439,10 +5439,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "Každý prvek je reprezentován ikonou, která představuje jeho použití."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "Kovy alkalických zemin"
+msgstr ""
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5455,10 +5454,9 @@ msgid "Non-Metals"
 msgstr "Nekovy"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
-msgstr "Alkalický kov"
+msgstr ""
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6324,10 +6322,9 @@ msgstr "Vzácné plyny"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "Alkalické kovy:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -8452,9 +8449,3 @@ msgstr "Převést z:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Převést do:"
-
-#~ msgid "Alkaline"
-#~ msgstr "Alkalické"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Alkalické kovy"
