@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 02:33+0000\n"
-"PO-Revision-Date: 2025-10-31 11:11+0200\n"
+"PO-Revision-Date: 2025-11-10 14:15+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -4944,9 +4944,9 @@ msgid "Unknown"
 msgstr "לא ידוע"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnetic moment: %1"
-msgstr "מומנט מגנטי"
+msgstr "מומנט מגנטי: %1"
 
 #: src/isotopetable/isotopetabledialog.cpp:77
 #, kde-format
@@ -5260,8 +5260,7 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "כל יסוד מיוצג על ידי סמל שמייצר את השימוש בו."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
 msgstr "מתכות אלקליות עפרוריות"
 
@@ -5276,9 +5275,9 @@ msgid "Non-Metals"
 msgstr "לא מתכות"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alkali Metal"
-msgstr "מתכות מבסיס אלקלי:"
+msgstr "מתכת אלקלית"
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6140,10 +6139,9 @@ msgstr "גזים אציליים"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "מתכות אלקליות:"
+msgstr "מתכות אלקליות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
