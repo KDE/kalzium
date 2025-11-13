@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 02:33+0000\n"
-"PO-Revision-Date: 2025-08-25 19:22+0400\n"
+"PO-Revision-Date: 2025-11-12 19:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -5589,10 +5589,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "كل عُنصر يُمثَّل بأيقونة تمثّل استخدامه."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "الفلزات القلوية الترابية"
+msgstr "فلز قلوي ترابي"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5605,10 +5604,9 @@ msgid "Non-Metals"
 msgstr "اللافلزات"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
-msgstr "الفلزات القلوية"
+msgstr "فلز قلوي"
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6474,10 +6472,9 @@ msgstr "الغازات النبيلة"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "الفلزات القلوية:"
+msgstr "الفلزات القلوية"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
