@@ -1,7 +1,7 @@
 # translation of kalzium.po to Swedish
 # Copyright (C).
 #
-# SPDX-FileCopyrightText: 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2023 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2023, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016, 2018, 2019, 2020, 2022.
 # Arve Eriksson <031299870@telia.com>, 2011.
 msgid ""
@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 02:33+0000\n"
-"PO-Revision-Date: 2023-12-28 10:37+0100\n"
+"PO-Revision-Date: 2025-11-15 21:14+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -5672,10 +5672,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "Varje grundämne representeras av en ikon som anger dess användning."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "Alkaliska jordartsmetaller"
+msgstr "Alkalisk jordartsmetall"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5688,8 +5687,7 @@ msgid "Non-Metals"
 msgstr "Icke-metall"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
 msgstr "Alkalimetall"
 
@@ -6561,10 +6559,9 @@ msgstr "Ädelgaser"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "Alkalimetaller:"
+msgstr "Alkalimetaller"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
