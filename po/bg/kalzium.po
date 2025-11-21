@@ -8733,9 +8733,3 @@ msgstr "Преобразуване от:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Преобразуване в:"
-
-#~ msgid "Alkaline"
-#~ msgstr "Алкални"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Алкални метали"
