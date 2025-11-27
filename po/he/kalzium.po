@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:38+0000\n"
-"PO-Revision-Date: 2025-11-10 14:15+0200\n"
+"PO-Revision-Date: 2025-11-25 14:46+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -114,11 +114,14 @@ msgid ""
 "cornerstones of Materials. Elements consist of atoms that consist of a "
 "nucleus of positive protons, neutral neutrons, and a shell of electrons."
 msgstr ""
+"חומר שאי אפשר לפרק לחומר פשוט יותר. היסודות הכימיים הם אבני הפינה של "
+"החומרים. יסודות מורכבים מאטומים שמורכבים מגרעין ופרוטונים חיוביים, פרוטונים "
+"נייטרליים ומעטפת של אלקטרונים."
 
 #: data/knowledge.xml:27
 #, kde-format
 msgid "Emulsion"
-msgstr ""
+msgstr "תמיסה"
 
 #: data/knowledge.xml:28
 #, kde-format
@@ -133,7 +136,7 @@ msgstr "חילוץ"
 #: data/knowledge.xml:32
 #, kde-format
 msgid "Processing a homogeneous or heterogeneous mix to get pure matter."
-msgstr ""
+msgstr "עיבוד ערבוב הומוגני או הטרוגני כדי לקבל חומר טהור."
 
 #: data/knowledge.xml:34 data/knowledge.xml:42
 #, kde-format
