@@ -16,10 +16,10 @@
 >Manual do Kalzium</contrib
 ></author>
 <date
->31/10/2016</date
+>19/12/2020</date
 ><!--Update only when changing/reviewing this man page-->
 <releaseinfo
->2.5.0 (Applications 16.12)</releaseinfo
+>Applications 20.12</releaseinfo
 ><!--Update only when changing/reviewing this man page-->
 <productname
 >KDE Applications</productname>
@@ -71,8 +71,7 @@
 >O &kalzium; oferece-lhe todo tipo de informação sobre a Tabela Periódica. Você poderá obter muitos dados sobre os elementos e também usar diversas formas de visualização para exibi-los.</para>
 
 <para
->Este pacote é integrante do módulo oficial de educação e entretenimento do KDE. </para
-> 
+>Este pacote é integrante do módulo oficial de educação e entretenimento do KDE.</para>
 
 </refsect1>
 
