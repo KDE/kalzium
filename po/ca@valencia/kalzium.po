@@ -35,7 +35,7 @@ msgstr "orestes@tsc.upc.edu"
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
 msgid "Problem while opening the file"
-msgstr "S'ha produït un problema en obrir el fitxer"
+msgstr "S'ha produït un problema mentre s'obria el fitxer"
 
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
