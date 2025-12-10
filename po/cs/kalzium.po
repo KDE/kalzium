@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2024 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2024, 2025 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2024-01-19 15:55+0100\n"
+"PO-Revision-Date: 2025-12-05 10:23+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5441,7 +5441,7 @@ msgstr "Každý prvek je reprezentován ikonou, která představuje jeho použit
 #: src/kalziumschemetype.cpp:280
 #, kde-format
 msgid "Alkaline Earth Metal"
-msgstr ""
+msgstr "Kovy alkalických zemin"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5456,7 +5456,7 @@ msgstr "Nekovy"
 #: src/kalziumschemetype.cpp:283
 #, kde-format
 msgid "Alkali Metal"
-msgstr ""
+msgstr "Alkalický kov"
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6324,7 +6324,7 @@ msgstr "Vzácné plyny"
 #: src/plotsetupwidget.ui:295
 #, kde-format
 msgid "Alkali metals"
-msgstr ""
+msgstr "Alkalické kovy"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
