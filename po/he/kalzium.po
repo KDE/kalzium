@@ -62,12 +62,12 @@ msgstr "מצב צבירה"
 msgid ""
 "Form of a substance; dependant on form stability and whether it takes up a "
 "definite volume: solid, liquid or gaseous."
-msgstr ""
+msgstr "צורת החומר, תלויה ביציבות הצורה והאם הנפח שלה מוגדר: מוצק, נוזל או גז."
 
 #: data/knowledge.xml:8
 #, kde-format
 msgid "Chemical Symbol"
-msgstr "סימול כימי"
+msgstr "סמל כימי"
 
 #: data/knowledge.xml:9
 #, kde-format
@@ -93,6 +93,8 @@ msgid ""
 "Matter separation in a moving medium (mobile phase) through differentiated "
 "absorption on a static medium (stationary phase)."
 msgstr ""
+"הפרדת חומר בתווך נע (פאזה נעה) באמצעות ספיגה מובחנת על תווך נייח (פאזה "
+"נייחת)."
 
 #: data/knowledge.xml:19
 #, kde-format
@@ -106,6 +108,8 @@ msgid ""
 "through evaporation and condensation. In a fractionary distillation the "
 "process is repeated several times in a column."
 msgstr ""
+"הפרדת תמיסה נוזלית (תערובת הומוגנית) למרכיביה באמצעות אידוי ועיבוי. בזיקוק "
+"לפרקים התהליך חוזר על עצמו מספר פעמים בעמודה."
 
 #: data/knowledge.xml:24
 #, kde-format
@@ -153,7 +157,7 @@ msgstr "סינון"
 msgid ""
 "Separation of a solid matter from a liquid matter or gaseous matter with a "
 "filter (porous separation wall)."
-msgstr ""
+msgstr "הפרדת חומר מוצק מחומר נוזלי או גזי באמצעות מסנן (דופן הפרדה נקבובית)."
 
 #: data/knowledge.xml:43
 #, kde-format
@@ -162,6 +166,8 @@ msgid ""
 "[i]Homogeneous mixes[/i] have a coherent look, [i]heterogeneous mixes[/i] "
 "consist of multiple phases."
 msgstr ""
+"חומר המורכב מחומרים שונים, המשולבים ביחסים לא קבועים. ל[i]תערובות הומוגניות[/"
+"i] יש מראה אחיד, [i]תערובות הטרוגניות[/i] מורכבות ממספר פאזות."
 
 #: data/knowledge.xml:46
 #, kde-format
@@ -171,7 +177,7 @@ msgstr "דיוק"
 #: data/knowledge.xml:47
 #, kde-format
 msgid "Consisting of accidental and systematic errors."
-msgstr ""
+msgstr "מורכב משגיאות אקראיות ושיטתיות."
 
 #: data/knowledge.xml:50
 #, kde-format
@@ -185,11 +191,13 @@ msgid ""
 "the material going into the reaction equals the sum of the mass of the "
 "products of the reaction."
 msgstr ""
+"במהלך תגובה כימית מסה אינה הולכת לאיבוד ואינה נוצרת. סכום המסה של החומר "
+"הנכנס לתגובה שווה לסכום המסה של תוצרי התגובה."
 
 #: data/knowledge.xml:54
 #, kde-format
 msgid "Law of multiple proportions"
-msgstr ""
+msgstr "חוק היחסים המרובים"
 
 #: data/knowledge.xml:55
 #, kde-format
@@ -197,18 +205,20 @@ msgid ""
 "An alloy always contains the same elements in the same mass ratio. Should "
 "two or more elements bind together then the mass ratio is constant."
 msgstr ""
+"סגסוגת מכילה תמיד את אותם יסודות באותו יחס מסה. אם שני יסודות או יותר נקשרים "
+"יחד, יחס המסה קבוע."
 
 #: data/knowledge.xml:58
 #, kde-format
 msgid "Crystallization"
-msgstr "התגבשות"
+msgstr "גיבוש"
 
 #: data/knowledge.xml:59
 #, kde-format
 msgid ""
 "Separation of solid, crystalline matter from a solution, or the liquid or "
 "gaseous phases."
-msgstr ""
+msgstr "הפרדת חומר מוצק וגבישי מתמיסה, או מהפאזות הנוזליות או הגזיות."
 
 #: data/knowledge.xml:62
 #, kde-format
@@ -218,7 +228,7 @@ msgstr "תמיסה"
 #: data/knowledge.xml:63
 #, kde-format
 msgid "Homogeneous mix of multiple pure materials"
-msgstr ""
+msgstr "תערובת הומוגנית של מספר חומרים טהורים"
 
 #. i18n("Name"), ChemicalDataObject::name));
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
@@ -235,7 +245,7 @@ msgstr "מסה"
 #: data/knowledge.xml:67
 #, kde-format
 msgid "Measurement of an amount of matter."
-msgstr ""
+msgstr "מדידת כמות חומר."
 
 #: data/knowledge.xml:70
 #, kde-format
@@ -248,7 +258,7 @@ msgid "All that takes up space and has mass."
 msgstr "כל מה שתופס מקום בחלל ויש לו מסה"
 
 #: data/knowledge.xml:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "Phase"
 msgstr "פאזה"
 
@@ -259,27 +269,29 @@ msgid ""
 "matter that separated from its environment in its expansion through a "
 "surface."
 msgstr ""
+"באמצעות הרכב כימי ותכונות פיזיקליות, חלק הומוגני של חומר המופרד מסביבתו "
+"בהתפשטותו על פני משטח."
 
 #: data/knowledge.xml:78
 #, kde-format
 msgid "Accuracy and precision"
-msgstr ""
+msgstr "דיוק ונכונות"
 
 #: data/knowledge.xml:79
 #, kde-format
 msgid ""
 "Expressed through standard deviation: Values given over accidental errors."
-msgstr ""
+msgstr "מבוטא באמצעות סטיית תקן: ערכים הניתנים על פני שגיאות אקראיות."
 
 #: data/knowledge.xml:82
 #, kde-format
 msgid "Correctness"
-msgstr ""
+msgstr "נכונות"
 
 #: data/knowledge.xml:83
 #, kde-format
 msgid "Values given over accidental errors."
-msgstr ""
+msgstr "ערכים המסופקים על פני שגיאות אקראיות."
 
 #: data/knowledge.xml:86
 #, kde-format
@@ -289,7 +301,7 @@ msgstr "יחידת SI"
 #: data/knowledge.xml:87
 #, kde-format
 msgid "Measurement unit using International Symbols."
-msgstr ""
+msgstr "יחידת מדידה המשתמשת בסימונים בינלאומיים."
 
 #: data/knowledge.xml:90
 #, kde-format
@@ -314,12 +326,12 @@ msgstr "כמות משוערכת של דיוק מדידה."
 #: data/knowledge.xml:98
 #, kde-format
 msgid "Suspension"
-msgstr "השהיה"
+msgstr "תרחיף"
 
 #: data/knowledge.xml:99
 #, kde-format
 msgid "Heterogeneous mix consisting of a liquid and solid matter."
-msgstr "תערבות הטרוגנית שמורכבת מנוזל ומחומר מוצק."
+msgstr "תערובת הטרוגנית שמורכבת מנוזל ומחומר מוצק."
 
 #: data/knowledge.xml:102
 #, kde-format
@@ -337,11 +349,13 @@ msgid "Alpha rays"
 msgstr "קרני אלפא"
 
 #: data/knowledge.xml:107
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Rays consisting of alpha particles, consisting of two protons and two "
 "neutrons that are emitted from the Atoms of certain radioactive elements."
-msgstr "בחר צבע ליסודות הרדיואקטיביים"
+msgstr ""
+"קרניים המורכבות מחלקיקי אלפא, המורכבים משני פרוטונים ושני ניוטרונים שנפלטים "
+"מאטומים של יסודות רדיואקטיביים מסוימים."
 
 #: data/knowledge.xml:110 data/knowledge.xml:123 data/knowledge.xml:130
 #: data/knowledge.xml:138 data/knowledge.xml:215 data/knowledge.xml:222
@@ -356,6 +370,8 @@ msgid ""
 "Atoms are chemically inseparable and building blocks of matter. Atoms of one "
 "kind are called an Element."
 msgstr ""
+"אטומים הם בלתי ניתנים להפרדה כימית והם אבני הבניין של החומר. אטומים מסוג אחד "
+"נקראים יסוד."
 
 #: data/knowledge.xml:114 data/knowledge.xml:211 data/knowledge.xml:223
 #: data/knowledge.xml:232 data/knowledge.xml:240
@@ -383,7 +399,7 @@ msgstr "גרעין האטום"
 msgid ""
 "The small, positively-charged center of an Atom, in which Protons and "
 "Neutrons are found."
-msgstr ""
+msgstr "המרכז הקטן והטעון חיובית של אטום, שבו נמצאים פרוטונים וניוטרונים."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -401,6 +417,8 @@ msgid ""
 "elements that consist of different isotopes the mid-range mass of the "
 "isotope mix is given."
 msgstr ""
+"מסה של אטום, הנמדדת בסולם שבו המסה של אטום פחמן היא 12u. ביסודות המורכבים "
+"מאיזוטופים שונים ניתנת המסה הממוצעת של תערובת האיזוטופים."
 
 #: data/knowledge.xml:135 data/knowledge.xml:145 data/knowledge.xml:152
 #: data/knowledge.xml:159 data/knowledge.xml:166 data/knowledge.xml:173
@@ -417,9 +435,12 @@ msgid ""
 "same place, comes from the fact that all isotopes of an element are located "
 "at the same place on the periodic table."
 msgstr ""
+"איזוטופים הם צורות של יסוד כימי שלגרעיניהם יש אותו מספר אטומי, Z, אך מסות "
+"אטומיות שונות, A. המילה איזוטופ, שמשמעותה באותו מקום, נובעת מהעובדה שכל "
+"האיזוטופים של יסוד נמצאים באותו מקום בטבלה המחזורית."
 
 #: data/knowledge.xml:142
-#, fuzzy, kde-format
+#, kde-format
 msgid "Spin"
 msgstr "ספין"
 
@@ -432,6 +453,10 @@ msgid ""
 "rotation of an extended object, spin is not associated with any rotating "
 "internal masses, but is intrinsic to the particle itself."
 msgstr ""
+"הספין הוא תנע זוויתי פנימי הקשור לחלקיקים מיקרוסקופיים. זוהי תופעה קוונטית "
+"טהורה ללא כל אנלוגיה במכניקה הקלסית. בעוד שתנע זוויתי קלסי נובע מסיבוב של "
+"עצם נרחב, ספין אינו קשור למסות פנימיות מסתובבות כלשהן, אלא הוא תכונה פנימית "
+"של החלקיק עצמו."
 
 #: data/knowledge.xml:149 src/detailinfodlg.cpp:312
 #, kde-format
@@ -446,6 +471,9 @@ msgid ""
 "measured in units of the nuclear magneton µ[sub]n[/sub]=(5.0507866 ± "
 "0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]"
 msgstr ""
+"המומנט המגנטי של עצם הוא וקטור המקשר את מומנט הכוח המיישר בשדה מגנטי שהעצם "
+"חווה לוקטור השדה עצמו. הוא נמדד ביחידות של מגנטון גרעיני µ[sub]n[/"
+"sub]=(5.0507866 ± 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]"
 
 #: data/knowledge.xml:156
 #, kde-format
@@ -462,6 +490,11 @@ msgid ""
 "electron capture (EC) [br] -> proton emission [br] -> spontaneous fission "
 "[br] Typically one decay mode predominates for a particular nuclide."
 msgstr ""
+"מצב הדעיכה מתאר דרך מסוימת שבה חלקיק דועך. עבור דעיכה רדיואקטיבית (דעיכה של "
+"גרעינים) מצבי הדעיכה הם:[br] -> דעיכת אלפא (פליטה של גרעין הליום-4).[br] -> "
+"דעיכת ß[sup]-[/sup] (פליטה של אלקטרון)[br] -> דעיכת ß[sup]+[/sup] (פליטה של "
+"פוזיטרון) [br] -> לכידת אלקטרון (EC) [br] -> פליטת פרוטון [br] -> ביקוע "
+"ספונטני [br] בדרך כלל מצב דעיכה אחד הוא הדומיננטי עבור גרעין מסוים."
 
 #: data/knowledge.xml:163
 #, kde-format
@@ -471,17 +504,17 @@ msgstr "אנרגית דעיכה"
 #: data/knowledge.xml:164
 #, kde-format
 msgid "The decay energy is the energy released by a nuclear decay."
-msgstr ""
+msgstr "אנרגיית הדעיכה היא האנרגיה המשתחררת על ידי דעיכה גרעינית."
 
 #: data/knowledge.xml:170
 #, kde-format
 msgid "Nuclides"
-msgstr ""
+msgstr "נוקלידים"
 
 #: data/knowledge.xml:171
 #, kde-format
 msgid "[i]see isotopes[/i]"
-msgstr ""
+msgstr "[i]ר׳ איזוטופים[/i]"
 
 #: data/knowledge.xml:174 data/knowledge.xml:180 data/knowledge.xml:193
 #: data/knowledge.xml:203
@@ -493,18 +526,18 @@ msgstr "איזוטון"
 #: data/knowledge.xml:198
 #, kde-format
 msgid "Nuclear Isomer"
-msgstr ""
+msgstr "איזומר גרעיני"
 
 #: data/knowledge.xml:176 data/knowledge.xml:185 data/knowledge.xml:189
 #: data/knowledge.xml:202
 #, kde-format
 msgid "Isobars"
-msgstr ""
+msgstr "איזוברים"
 
 #: data/knowledge.xml:181
 #, kde-format
 msgid "Two nuclides are isotones if they have the same number N of neutrons."
-msgstr ""
+msgstr "שני נוקלידים הם איזוטונים אם יש להם אותו מספר N של ניוטרונים."
 
 #: data/knowledge.xml:190
 #, kde-format
@@ -512,6 +545,7 @@ msgid ""
 "Isobars are nuclides having the same mass number, i.e. sum of protons plus "
 "neutrons."
 msgstr ""
+"איזוברים הם נוקלידים בעלי אותו מספר מסה, כלומר סכום הפרוטונים והניוטרונים."
 
 #: data/knowledge.xml:199
 #, kde-format
@@ -530,6 +564,16 @@ msgid ""
 "of the atom (e.g., Co-58m), but is sometimes placed as a superscript before "
 "(e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co)."
 msgstr ""
+"איזומר גרעיני הוא מצב מטסטבילי או איזומרי של אטום הנגרם על ידי עירור של "
+"פרוטון או ניוטרון בגרעין שלו כך שהוא דורש שינוי בספין לפני שהוא יכול לשחרר "
+"את האנרגיה העודפת שלו. הם דועכים למצבי אנרגיה נמוכים יותר של הנוקליד באמצעות "
+"שני מעברים איזומריים:[br] -> פליטת γ (פליטה של פוטון באנרגיה גבוהה)[br] -> "
+"המרה פנימית (האנרגיה משמשת ליינון האטום)[br] אפשר להשוות את זה להגדרה של "
+"איזומר כימי, השימוש הנפוץ יותר במילה. אפשר להשוות גם למשמעות של איזוטופ, שבו "
+"ההבדל הוא מספר הניוטרונים בגרעין. איזומרים מטסטביליים של אטום מסוים מסומנים "
+"בדרך כלל ב-„m” (או, במקרה של אטומים עם יותר מאיזומר אחד, 2m,‏ 3m וכן הלאה). "
+"סימון זה מוצב בדרך כלל אחרי הסמל האטומי ומספר האטום (למשל, Co-58m), אך לעתים "
+"מוצב ככתב עילי לפני (למשל, [sup]m[/sup]Co-58 או [sup]58m[/sup]Co)."
 
 #: data/knowledge.xml:207
 #, kde-format
@@ -551,6 +595,10 @@ msgid ""
 "0.00000049)e-19 C\n"
 "\t\t"
 msgstr ""
+"האלקטרון הוא חלקיק תת־אטומי בעל מסה של m[sub]e[/sub]=(9.1093897 ± "
+"0.0000054)e-31 ק״ג ומטען שלילי של [i]e[/i]=(1.60217733 ± 0.00000049)e-19 "
+"קולון\n"
+"\t\t"
 
 #: data/knowledge.xml:220
 #, kde-format
@@ -559,6 +607,9 @@ msgid ""
 "0.0000010) 10[sup]-27[/sup] kg and a positive charge of [i]e[/i]=(1.60217733 "
 "± 0.00000049) 10[sup]-19[/sup] C which occurs in the nucleus of an atom."
 msgstr ""
+"הפרוטון הוא חלקיק תת־אטומי בעל מסה של m[sub]e[/sub]=(1.6726231 ± 0.0000010) "
+"10[sup]-27[/sup] ק״ג ומטען חיובי של [i]e[/i]=(1.60217733 ± 0.00000049) "
+"10[sup]-19[/sup] קולון שנמצא בגרעין האטום."
 
 #: data/knowledge.xml:229
 #, kde-format
@@ -566,6 +617,8 @@ msgid ""
 "The neutron is a subatomic particle with a mass of m[sub]e[/sub]=(1.6749286 "
 "± 0.0000010) 10[sup]-27[/sup] kg which occurs in the nucleus of an atom."
 msgstr ""
+"הניוטרון הוא חלקיק תת־אטומי בעל מסה של m[sub]e[/sub]=(1.6749286 ± 0.0000010) "
+"10[sup]-27[/sup] ק״ג שנמצא בגרעין האטום."
 
 #: data/knowledge.xml:237
 #, kde-format
@@ -599,6 +652,10 @@ msgid ""
 "electrons in its shell than the atom, a negative ion has more electrons. "
 "Therefore, a positive ion has a smaller radius than its atom and vice versa."
 msgstr ""
+"הרדיוס היוני הוא הרדיוס של אטום טעון, המכונה יון. ליון יכול להיות מטען חיובי "
+"או שלילי. המטען של היון עם הרדיוס המוצג מוצג גם ב־Kalzium. ליון חיובי יש "
+"פחות אלקטרונים בקליפה שלו מאשר לאטום, ליון שלילי יש יותר אלקטרונים. לכן, "
+"ליון חיובי יש רדיוס קטן יותר מאשר לאטום שלו ולהפך."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicCovalentRadiusGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -637,6 +694,9 @@ msgid ""
 "radii are determined from measurements of atomic spacing between pairs of "
 "unbonded atoms in crystals."
 msgstr ""
+"רדיוס ואן דר ואלס של אטום הוא הרדיוס של כדור קשיח דמיוני שניתן להשתמש בו כדי "
+"למדל את האטום למטרות רבות. רדיוסי ואן דר ואלס נקבעים ממדידות של מרווח אטומי "
+"בין זוגות של אטומים לא קשורים בגבישים."
 
 #: data/knowledge.xml:263
 #, kde-format
@@ -644,6 +704,8 @@ msgid ""
 "The atomic radius is the distance from the atomic nucleus to the outmost "
 "stable electron orbital in a atom that is at equilibrium."
 msgstr ""
+"הרדיוס האטומי הוא המרחק מגרעין האטום לאורביטל האלקטרונים היציב החיצוני ביותר "
+"באטום שנמצא בשיווי משקל."
 
 #: data/knowledge.xml:272
 #, kde-format
@@ -651,6 +713,8 @@ msgid ""
 "The covalent radius in chemistry corresponds to half of the distance between "
 "two identical atomic nuclei, bound by a covalent bond."
 msgstr ""
+"הרדיוס הקוולנטי בכימיה מתאים למחצית המרחק בין שני גרעיני אטום זהים, הקשורים "
+"בקשר קוולנטי."
 
 #: data/tools.xml:5
 #, kde-format
@@ -669,11 +733,18 @@ msgid ""
 "airing cupboard. The term watchglass is derived from the former pocket "
 "watches' protection glass which was often domed."
 msgstr ""
+"זכוכיות שעון הן לוחות זכוכית עגולים בקוטר של כ־5 - 10 ס״מ, שמשתמשים בהן "
+"בטכניקות ניסוי שונות. השוליים מכופפים כלפי מעלה כדי לאפשר לזכוכית השעון "
+"להחזיק כמויות קטנות של נוזלים על מנת לאפשר להם להתאדות. ניתן להאיץ את האידוי "
+"על ידי חימום זכוכית השעון עם מבער בונזן. זכוכיות שעון יכולות לשמש גם לכיסוי "
+"צלחות פטרי או כוסות כימיות, ומתאימות גם לשקילת כמויות קטנות של חומר או "
+"לייבושן בארון אוורור. המונח זכוכית שעון נגזר מזכוכית המגן של שעוני הכיס "
+"הישנים שהייתה לרוב קמורה."
 
 #: data/tools.xml:10
 #, kde-format
 msgid "Dehydrator"
-msgstr ""
+msgstr "דסיקטור"
 
 #: data/tools.xml:13
 #, kde-format
@@ -690,6 +761,14 @@ msgid ""
 "environment by absorbing water vapor. The dry atmosphere then takes up water "
 "from the sample to be dried."
 msgstr ""
+"דסיקטור הוא כלי מעבדה, עשוי לרוב מזכוכית, המשמש לייבוש חומרים כימיים; כלומר, "
+"להסרת מים או נוזלים מדגימה.\n"
+"\t\t\tבאופן עקרוני זוהי קערת זכוכית עם מכסה בעל ליטוש מישורי, כך שהקערה "
+"אטומה לאוויר. החלק התחתון של הדסיקטור מלא בדרך כלל בחומר מייבש כגון סידן "
+"כלורי, סיליקה ג'ל, זרחן אנהידריד או חומצה גופרתית. הדגימה לייבוש מונחת על "
+"מחסנית שקופה מפלסטיק או קרמיקה מעל החומר המייבש.\n"
+"\t\t\tהחומר המייבש הוא היגרוסקופי, מה שאומר שהוא מייבש את סביבתו על ידי "
+"ספיגת אדי מים. האווירה היבשה סופגת אז מים מהדגימה לייבוש."
 
 #: data/tools.xml:17
 #, kde-format
@@ -709,7 +788,7 @@ msgstr ""
 #: data/tools.xml:22
 #, kde-format
 msgid "Water Jet Pump"
-msgstr ""
+msgstr "משאבת סילון מים"
 
 #: data/tools.xml:23
 #, kde-format
@@ -722,11 +801,16 @@ msgid ""
 "application of the hydrodynamic paradox (objects close to drifting fluids "
 "are aspirated instead of being pushed away)."
 msgstr ""
+"למשאבת סילון מים יש שני צינורות כניסה ויציאה אחת, והיא מורכבת, באופן עקרוני, "
+"משני צינורות זה בתוך זה. בכניסת המים סילון מים יורה בלחץ מלא מתוך נחיר לתוך "
+"צינור מעט גדול יותר. סילון המים נושא בכך אוויר או נוזל מהכניסה השנייה. <br> "
+"זה נגרם על ידי הלחץ השלילי בנוזל זורם, ולכן זהו יישום של הפרדוקס ההידרודינמי "
+"(עצמים הקרובים לנוזלים זורמים נשאבים במקום להידחף החוצה)."
 
 #: data/tools.xml:27
 #, kde-format
 msgid "Refractometer"
-msgstr ""
+msgstr "רפרקטומטר"
 
 #: data/tools.xml:28
 #, kde-format
@@ -735,11 +819,14 @@ msgid ""
 "the refractive index of a chemical is known it can be used after a synthesis "
 "to determine the sample's purity or to audit the synthesis' success."
 msgstr ""
+"באמצעות רפרקטומטר נקבע מקדם השבירה של מדיה אופטית. אם מקדם השבירה של כימיקל "
+"ידוע, ניתן להשתמש בו לאחר סינתזה כדי לקבוע את טוהר הדגימה או כדי לבקר את "
+"הצלחת הסינתזה."
 
 #: data/tools.xml:32
 #, kde-format
 msgid "Mortar"
-msgstr ""
+msgstr "מכתש"
 
 #: data/tools.xml:33
 #, kde-format
@@ -748,6 +835,8 @@ msgid ""
 "homogenize a mixture of powders by grinding. A club-shaped tool known as a "
 "pestle is used with the mortar for grinding."
 msgstr ""
+"מכתש משמש לכתישה ידנית של מוצקים. הוא יכול לשמש גם להומוגניזציה של תערובת "
+"אבקות על ידי כתישה. כלי בצורת אלה המכונה עלי משמש עם המכתש לכתישה."
 
 #: data/tools.xml:37
 #, kde-format
@@ -763,11 +852,15 @@ msgid ""
 "heating coil to stir fluids with a magnetic stirrer. This will homogenize "
 "the fluid in terms of temperature and composition."
 msgstr ""
+"סלילי חימום משמשים לחימום בקבוקים ומכלים אחרים. ניתן לחבר מספר סלילי חימום "
+"עם מדחום כך שהחום לא יעלה על טמפרטורה מסוימת. ניתן להשתמש בשדה מגנטי בתוך "
+"סליל החימום כדי לערבב נוזלים עם בוחש מגנטי. התהליך הזה יגרום להומוגניזציה של "
+"הנוזל מבחינת טמפרטורה והרכב."
 
 #: data/tools.xml:42
 #, kde-format
 msgid "Cork Ring"
-msgstr ""
+msgstr "טבעת שעם"
 
 #: data/tools.xml:43
 #, kde-format
@@ -776,11 +869,13 @@ msgid ""
 "cork, a special soft lightweight wood with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
+"מכלים גדולים כמו בקבוקים בעלי תחתית עגולה מונחים על טבעות עשויות שעם, עץ רך "
+"וקל משקל מיוחד בעל תכונות בידוד טובות להגנה על מכשירים שבירים."
 
 #: data/tools.xml:47
 #, kde-format
 msgid "Dropping Funnel"
-msgstr ""
+msgstr "משפך מטפטף"
 
 #: data/tools.xml:48
 #, kde-format
@@ -788,11 +883,13 @@ msgid ""
 "A dropping funnel can be used to drop precise amounts of fluid. The dropping "
 "speed can be controlled with a valve."
 msgstr ""
+"משפך מטפטף יכול לשמש לטפטוף כמויות מדויקות של נוזל. ניתן לשלוט במהירות "
+"הטפטוף באמצעות שסתום."
 
 #: data/tools.xml:52
 #, kde-format
 msgid "Separating Funnel"
-msgstr ""
+msgstr "משפך מפריד"
 
 #: data/tools.xml:53
 #, kde-format
@@ -801,11 +898,13 @@ msgid ""
 "densities. A valve at the bottom allows the denser fluid to be drained for "
 "transfer to another container."
 msgstr ""
+"משפך מפריד יכול לשמש להפרדת תערובת של נוזלים בצפיפויות שונות. שסתום בתחתית "
+"מאפשר לנקז את הנוזל הצפוף יותר להעברה למכל אחר."
 
 #: data/tools.xml:57
 #, kde-format
 msgid "Test Tube Rack"
-msgstr "מעמד למבחנות בדיקה"
+msgstr "מעמד למבחנות"
 
 #: data/tools.xml:58
 #, kde-format
@@ -813,11 +912,13 @@ msgid ""
 "This rack is useful when many small amounts of chemicals are to be tested in "
 "a row; or alternatively, to dry test tubes."
 msgstr ""
+"מעמד זה שימושי כאשר יש לבדוק כמויות קטנות רבות של כימיקלים ברצף; או לחלופין, "
+"לייבוש מבחנות."
 
 #: data/tools.xml:62
 #, kde-format
 msgid "Vortexer"
-msgstr ""
+msgstr "מערבל וורטקס"
 
 #: data/tools.xml:63
 #, kde-format
@@ -829,11 +930,15 @@ msgid ""
 "homogenized quickly. It is the opposite of a centrifuge, used to separate "
 "fluids."
 msgstr ""
+"מערבל וורטקס משמש להומוגניזציה של ריאגנטים הנמצאים במעבדות. המכל המכיל את "
+"הנוזל להומוגניזציה מונח על פלטפורמה. הפלטפורמה רועדת על ידי ערבול סיבובי עד "
+"3000 סל״ד, בנקודה זו מופעל חיישן מגע. בדרך זו ניתן לבצע הומוגניזציה מהירה של "
+"נפחים קטנים מאוד של נוזל. זהו ההפך מצנטריפוגה, המשמשת להפרדת נוזלים."
 
 #: data/tools.xml:67
 #, kde-format
 msgid "Wash Bottle"
-msgstr ""
+msgstr "בקבוק שטיפה"
 
 #: data/tools.xml:68
 #, kde-format
@@ -842,6 +947,9 @@ msgid ""
 "usually filled with water, salt, acid or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
+"בקבוקים אלה משמשים למטרות רבות. ברוב המעבדות הם מלאים בדרך כלל במים, מלח, "
+"חומצה או נוזלים נפוצים אחרים. הם מקלים על שימוש בנוזל אם לא נדרשת כמות מדודה "
+"במדויק."
 
 #: data/tools.xml:72
 #, kde-format
@@ -866,7 +974,7 @@ msgstr ""
 #: data/tools.xml:77
 #, kde-format
 msgid "Reflux Condenser"
-msgstr ""
+msgstr "מעבה ריפלוקס"
 
 #: data/tools.xml:78
 #, kde-format
@@ -876,11 +984,14 @@ msgid ""
 "condenses and runs back into the original fluid. Usually it is put on a "
 "round-bottomed flask or several neck flasks."
 msgstr ""
+"מעבה ריפלוקס חושף נוזל לתהליך שבו גז הנוצר על ידי חימום נאסף על מעבה "
+"הריפלוקס. הנוזל מקורר עד שהוא מתעבה וזורם חזרה לנוזל המקורי. בדרך כלל הוא "
+"מונח על בקבוק בעל תחתית עגולה או בקבוקים בעלי מספר צווארים."
 
 #: data/tools.xml:82
 #, kde-format
 msgid "Pipette Bulb"
-msgstr ""
+msgstr "אגס פיפטה"
 
 #: data/tools.xml:83
 #, kde-format
@@ -889,11 +1000,13 @@ msgid ""
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb then causes the fluid to flow out of the pipette."
 msgstr ""
+"אגס פיפטה משמש למילוי פיפטות. לחיצה ושחרור של האגס יוצרים לחץ שלילי, הגורם "
+"לנוזל לזרום לתוך הפיפטה; לחיצה על האגס גורמת לנוזל לזרום החוצה מהפיפטה."
 
 #: data/tools.xml:87
 #, kde-format
 msgid "Test Tube"
-msgstr "מבחנת בדיקה"
+msgstr "מבחנה"
 
 #: data/tools.xml:88
 #, kde-format
@@ -902,6 +1015,8 @@ msgid ""
 "different types of tubes. For example some have connectors, some are etched "
 "for measurements, some are hardened for durability."
 msgstr ""
+"במבחנה מבוצעות תגובות קטנות או ניסויים. ישנם סוגים רבים ושונים של מבחנות. "
+"למשל לחלקן יש מחברים, חלקן מסומנות למדידות, חלקן מוקשחות כדי שתהיינה עמידות."
 
 #: data/tools.xml:92
 #, kde-format
@@ -916,11 +1031,14 @@ msgid ""
 "type of plastic that affords protection from both mechanical impacts, and "
 "acid and base chemicals."
 msgstr ""
+"רוב המעבדות מתעקשות על הרכבת משקפי מגן. בלעדיהם, מסוכן מדי לעבוד עם רוב "
+"הכימיקלים. בדרך כלל, העדשה היא סוג מיוחד של פלסטיק המעניק הגנה הן מפני "
+"פגיעות מכניות והן מפני כימיקלים חומציים ובסיסיים."
 
 #: data/tools.xml:97
 #, kde-format
 msgid "Round-Bottomed Flask"
-msgstr ""
+msgstr "בקבוק רתיחה תחתית עגולה"
 
 #: data/tools.xml:98
 #, kde-format
@@ -929,23 +1047,25 @@ msgid ""
 "other items, as the frosting on the neck shows. With cork rings they can be "
 "placed on a table."
 msgstr ""
+"בקבוק רתיחה תחתית עגולה משמש לתגובות רבות. חלקם ניתנים לחיבור לפריטים אחרים, "
+"כפי שמראה הליטוש על הצוואר. בעזרת טבעות שעם ניתן להניח אותם על שולחן."
 
 #: data/tools.xml:102
 #, kde-format
 msgid "Full Pipette"
-msgstr ""
+msgstr "פיפטת נפח"
 
 #: data/tools.xml:103
 #, kde-format
 msgid ""
 "Unlike a regular pipette, a full pipette only has one marking for a specific "
 "volume."
-msgstr ""
+msgstr "בניגוד לפיפטה רגילה, לפיפטת נפח יש רק סימון אחד לנפח מסוים."
 
 #: data/tools.xml:107
 #, kde-format
 msgid "Drying Tube"
-msgstr ""
+msgstr "צינור ייבוש"
 
 #: data/tools.xml:108
 #, kde-format
@@ -954,11 +1074,13 @@ msgid ""
 "tube can be used. Drying tubes contains a hygroscopic chemical to absorb "
 "water from the atmosphere."
 msgstr ""
+"יש לשמור על תגובות מסוימות נקיות ממים: כדי לאפשר זאת ניתן להשתמש בצינור "
+"ייבוש. צינורות ייבוש מכילים כימיקל היגרוסקופי לספיגת מים מהאטמוספירה."
 
 #: data/tools.xml:112
 #, kde-format
 msgid "Test Tube Holder"
-msgstr "מלקחיים למבחנת בדיקה"
+msgstr "מחזיק מבחנות"
 
 #: data/tools.xml:113
 #, kde-format
@@ -968,11 +1090,14 @@ msgid ""
 "is hot. Typically, test tube holders are used to hold test tubes over open "
 "flames."
 msgstr ""
+"מחזיקי מבחנות מקלים על החזקת מבחנות. על ידי שימוש במחזיק, נשמר מרחק בטוח בין "
+"היד למבחנה כאשר המבחנה חמה. בדרך כלל, מחזיקי מבחנות משמשים להחזקת מבחנות מעל "
+"להבה גלויה."
 
 #: data/tools.xml:117
 #, kde-format
 msgid "Measuring Cylinder"
-msgstr ""
+msgstr "משורה"
 
 #: data/tools.xml:118
 #, kde-format
@@ -982,11 +1107,14 @@ msgid ""
 "following this, the particulates can be separated from the fluid by "
 "decanting."
 msgstr ""
+"משורה יכולה לשמש למדידת כמויות של נוזלים באופן מדויק יחסית. יתר על כן, "
+"המשורה מאפשרת לחומר חלקיקי לשקוע: לאחר מכן, ניתן להפריד את החלקיקים מהנוזל "
+"על ידי מזיגה."
 
 #: data/tools.xml:122
 #, kde-format
 msgid "Thermometer"
-msgstr ""
+msgstr "מדחום"
 
 #: data/tools.xml:123
 #, kde-format
@@ -995,11 +1123,13 @@ msgid ""
 "laboratory, special thermometers are used which can also be used within "
 "acids or bases."
 msgstr ""
+"מדחום יכול לשמש לקביעת הטמפרטורה של דגימה. במעבדה משתמשים במדחומים מיוחדים "
+"שניתן להשתמש בהם גם בתוך חומצות או בסיסים."
 
 #: data/tools.xml:127
 #, kde-format
 msgid "Magnetic Stir Bar"
-msgstr "מערבל מגנטי"
+msgstr "בוחש מגנטי"
 
 #: data/tools.xml:128
 #, kde-format
@@ -1008,11 +1138,14 @@ msgid ""
 "heaters have a built-in magnet which can rotate: this causes the stir bar to "
 "rotate and the mixture to become homogenized."
 msgstr ""
+"בוחשים מגנטיים הם מוטות מגנטיים קטנים, אינרטיים מאוד מבחינה כימית. לרוב גופי "
+"החימום יש מגנט מובנה שיכול להסתובב: זה גורם לבוחש המגנטי להסתובב ולתערובת "
+"להפוך להומוגנית."
 
 #: data/tools.xml:132
 #, kde-format
 msgid "Magnetic Stir Bar Retriever"
-msgstr "שולף מערבל מגנטי"
+msgstr "שולף בוחש מגנטי"
 
 #: data/tools.xml:133
 #, kde-format
@@ -1021,11 +1154,13 @@ msgid ""
 "from containers. The retriever is a bar with a magnet at the end which "
 "attracts the stir bars."
 msgstr ""
+"שולף בוחש מגנטי יכול לשמש לשליפת בוחשים מגנטיים ממכלים. השולף הוא מוט עם "
+"מגנט בקצהו המושך את הבוחשים."
 
 #: data/tools.xml:137
 #, kde-format
 msgid "Pipette"
-msgstr ""
+msgstr "פיפטה"
 
 #: data/tools.xml:138
 #, kde-format
@@ -1036,11 +1171,15 @@ msgid ""
 "a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
+"פיפטות משמשות להחדרת כמויות קטנות של נוזלים במעבדות. לפיפטה יש סקלת נפח, "
+"ובדרך כלל, אגסי פיפטה משמשים כטפטפות לנוזלים. שני סוגי הפיפטות מכוילים "
+"לנוזלים בטמפרטורה של 20°C ולזמן זרימה (מסומן ב־„Ex.”). במידת הצורך, זמני "
+"הזרימה מצוינים על הפיפטות."
 
 #: data/tools.xml:142
 #, kde-format
 msgid "Erlenmeyer Flask"
-msgstr ""
+msgstr "בקבוק ארלנמייר"
 
 #: data/tools.xml:148
 #, kde-format
@@ -1061,11 +1200,23 @@ msgid ""
 "on the stirring platform. A round-bottomed flask, by contrast, must be "
 "placed on a cork ring on the stirring platform.\n"
 msgstr ""
+"בקבוק ארלנמייר, הקרוי על שם הכימאי אמיל ארלנמייר (1825‏-1909), שונה מכוס "
+"כימית בכך שהוא מגיע עם בסיס חרוטי הפוך וצוואר גלילי. ישנם סוגים שונים של "
+"בקבוקי ארלנמייר ליישומי מעבדה: צורות הצוואר הצר והצוואר הרחב. בהתאם ליישום, "
+"לבקבוק עשוי להיות ליטוש מדויק כדי לאפשר חיבור טוב למכלים אחרים.\n"
+"\t\t\t<br>\n"
+"\t\t\tהצוואר הצר מפחית את הסיכון לבריחת נוזלים, במיוחד בעת רתיחה או במהלך "
+"תגובות המנערות את התוכן.\n"
+"\t\t\t<br>\n"
+"\t\t\tבקבוק ארלנמייר שימושי לערבוב נוזלים או להאצת תגובות על ידי ערבוב או "
+"ניעור, למשל. בקבוק ארלנמייר מתאים במיוחד לבוחש מגנטי, מכיוון שניתן להניח "
+"אותו ישירות על פלטפורמת הערבוב. בקבוק בעל תחתית עגולה, לעומת זאת, יש להניח "
+"על טבעת שעם על משטח הערבוב.\n"
 
 #: data/tools.xml:153
 #, kde-format
 msgid "Ultrasonic Bath"
-msgstr ""
+msgstr "אמבט אולטרסוני"
 
 #: data/tools.xml:154
 #, kde-format
@@ -1075,25 +1226,31 @@ msgid ""
 "bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
 "This procedure is called out-gassing."
 msgstr ""
+"עבור תגובות כימיות מסוימות חשוב שהממס יהיה נקי מגזים. כדי להשיג זאת, כלי "
+"התגובה מוכנס לזמן מה לאמבט אולטרסוני. בשל תדר הקול הגבוה, בועות האדים "
+"משתחררות ועולות למעלה. הליך זה נקרא הוצאת גזים (out-gassing)."
 
 #: data/tools.xml:158
 #, kde-format
 msgid "Scales"
-msgstr "משקל"
+msgstr "מאזניים"
 
 #: data/tools.xml:159
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "In a laboratory, very precise quantities of reagents often have to be "
 "weighed out. High precision scales can measure masses down to 1/10000 gram. "
 "As such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
-msgstr "במעבדה, "
+msgstr ""
+"במעבדה, לעתים קרובות יש לשקול כמויות מדויקות מאוד של מגיבים. מאזניים בעלי "
+"דיוק גבוה יכולים למדוד מסות עד 1/10000 גרם. כיוון שהם כאלה, הם עומדים על "
+"לבני גרניט כדי למנוע רעידות ומוגנים מפני שינויים בזרימת האוויר על ידי כיפה."
 
 #: data/tools.xml:163
 #, kde-format
 msgid "Distillation bridge"
-msgstr "זיקוקגשר זיקוק"
+msgstr "גשר זיקוק"
 
 #: data/tools.xml:164
 #, kde-format
@@ -1106,6 +1263,11 @@ msgid ""
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
 msgstr ""
+"אחת הדרכים להפרדת תערובת היא שימוש בזיקוק. במערך זה, גשר זיקוק משמש כצינור "
+"בין שני הכלים. כלי אחד מכיל את התערובת להפרדה, ובאמצעות חימום נוצר גז המובל "
+"דרך הגשר. בקצה הגשר הפאזה הגזית מתעבה ומטפטפת לתוך בקבוק עגול. בדרך כלל, "
+"הגשר מקורר על ידי זרימה חוזרת. כמו כן, לעתים קרובות יש מדחום לבקרת הטמפרטורה "
+"של גשר הזיקוק."
 
 #: data/tools.xml:169
 #, kde-format
@@ -1120,11 +1282,14 @@ msgid ""
 "closed system, the plunger moves outwards. This can be used to measure the "
 "volume of a reaction."
 msgstr ""
+"מזרק מורכב משני חלקים, צינור זכוכית ובוכנה, שניהם עשויים בדרך כלל מזכוכית. "
+"גזים זורמים לתוך צינור הזכוכית, ומכיוון שהמזרק הוא מערכת סגורה, הבוכנה נעה "
+"כלפי חוץ. זה יכול לשמש למדידת הנפח של תגובה."
 
 #: data/tools.xml:174
 #, kde-format
 msgid "Separation Beaker"
-msgstr ""
+msgstr "כוס הפרדה"
 
 #: data/tools.xml:175
 #, kde-format
@@ -1135,11 +1300,15 @@ msgid ""
 "four caps contain a specific liquid, depending on the boiling point of the "
 "liquid distilled."
 msgstr ""
+"תחילה, ארבעה מכסים קטנים מונחים בארבעת הקצוות של כוס ההפרדה. לאחר מכן, תוך "
+"כדי זיקוק, הכוס מסובבת ב־60 מעלות לאחר שהושגה טמפרטורה מסוימת. בכך, בסוף "
+"הזיקוק, כל ארבעת המכסים מכילים נוזל מסוים, בהתאם לנקודת הרתיחה של הנוזל "
+"המזוקק."
 
 #: data/tools.xml:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "Burner"
-msgstr "ברום"
+msgstr "מבער"
 
 #: data/tools.xml:180
 #, kde-format
@@ -1148,11 +1317,13 @@ msgid ""
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
+"ישנם מספר סוגים של מבערים; תמונה זו מציגה מבער טקלו (Teclu). לכל סוג של מבער "
+"יש שימושים ספציפיים, והם משתנים בטמפרטורת השיא ובקיבולת החימום הכוללת."
 
 #: data/tools.xml:184
 #, kde-format
 msgid "Extractor Hood"
-msgstr ""
+msgstr "מנדף"
 
 #: data/tools.xml:185
 #, kde-format
@@ -1160,11 +1331,13 @@ msgid ""
 "Extractor hoods are used to filter out gases from chemical reactions. The "
 "air, once cleaned, is pumped outside of the building."
 msgstr ""
+"מנדפים משמשים לסינון גזים מתגובות כימיות. האוויר, לאחר שנוקה, נשאב מחוץ "
+"לבניין."
 
 #: data/tools.xml:189
 #, kde-format
 msgid "Contact Thermometer"
-msgstr ""
+msgstr "מדחום מגע"
 
 #: data/tools.xml:190
 #, kde-format
@@ -1177,16 +1350,20 @@ msgid ""
 "coil is deactivated; when the temperature falls, the heating coil is "
 "reactivated."
 msgstr ""
+"מדחומי מגע שונים ממדחומים רגילים בכך שהם מחוברים לסליל חימום, ולכן מסוגלים "
+"הן לחוש והן לבקר את הטמפרטורה הנוכחית. בכך הם מאפשרים לבצע ניסויים בטמפרטורה "
+"קבועה. מדחומי מגע פועלים באמצעות לולאת משוב שלילי: ברגע שהטמפרטורה הרצויה "
+"מושגת, סליל החימום כבה, כאשר הטמפרטורה יורדת, סליל החימום מופעל מחדש."
 
 #: data/tools.xml:194
 #, kde-format
 msgid "Clamps"
-msgstr ""
+msgstr "מלקחיים"
 
 #: data/tools.xml:195
 #, kde-format
 msgid "Laboratory clamps make it easier to hold many kinds of tools."
-msgstr ""
+msgstr "מלקחי מעבדה מקלים על החזקת סוגים רבים של כלים."
 
 #: data/tools.xml:199
 #, kde-format
@@ -1211,14 +1388,14 @@ msgstr ""
 #: data/tools.xml:204
 #, kde-format
 msgid "Short-Stem Funnel"
-msgstr ""
+msgstr "משפך קצר-צוואר"
 
 #: data/tools.xml:205
 #, kde-format
 msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
-msgstr ""
+msgstr "משפך יכול לשמש למילוי כלי צר-צוואר בנוזל או באבקה דקה."
 
 #: data/tools.xml:209
 #, kde-format
@@ -1235,11 +1412,15 @@ msgid ""
 "they can be very easily refilled with the exact volume for which the buret "
 "is calibrated."
 msgstr ""
+"ביורטות משמשות לטיטור נוזלים. ביורטה אפשר למלא בנפח מסוים של נוזל, ומתחתיה "
+"מונח מכל כגון בקבוק ארלנמייר. על ידי פתיחת השסתום בביורטה, הנוזל במכל יטוטר. "
+"לביורטות איכותיות יש מנגנון אוורור שבאמצעותו ניתן למלא אותן מחדש בקלות רבה "
+"בנפח המדויק שעבורו הביורטה מכוילת."
 
 #: data/tools.xml:214
 #, kde-format
 msgid "Beaker"
-msgstr "כוס מעבדה"
+msgstr "כוס כימית"
 
 #: data/tools.xml:215
 #, kde-format
@@ -1248,13 +1429,13 @@ msgid ""
 "chemicals and to perform chemical reactions. They are often also used for "
 "titrations."
 msgstr ""
-"כוסות מעבדות יכולות לשמש למגוון משימות. למשל, אפשר להשתמש בהן כדי לאחסן "
-"כימיקלים ולבצע תגובות כימיות. הם בדרך כלל משמשים גם לטיטור."
+"כוסות כימיות יכולות לשמש למגוון משימות. למשל, אפשר להשתמש בהן כדי לאחסן "
+"כימיקלים ולבצע תגובות כימיות. הן בדרך כלל משמשות גם לטיטור."
 
 #: data/tools.xml:219
 #, kde-format
 msgid "DSC (Differential Scanning Calorimeter)"
-msgstr ""
+msgstr "DSC (קלורימטר סריקה דיפרנציאלי)"
 
 #: data/tools.xml:220
 #, kde-format
@@ -1263,11 +1444,13 @@ msgid ""
 "specific for every kind of matter, and thus a DSC can be used to identify "
 "chemicals or to describe them."
 msgstr ""
+"DSC מודד את נפח זרימת החום של תרכובת. ערך זה נקודתי מאוד לכל סוג של חומר, "
+"ולכן ניתן להשתמש ב־DSC כדי לזהות כימיקלים או לתאר אותם."
 
 #: data/tools.xml:224
 #, kde-format
 msgid "Dewar Vessel"
-msgstr ""
+msgstr "מיכל דיואר"
 
 #: data/tools.xml:225
 #, kde-format
@@ -1277,6 +1460,10 @@ msgid ""
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
+"מיכל דיואר (או בקבוק דיואר), הקרוי על שם הפיזיקאי סר ג׳יימס דיואר "
+"(1842‏-1923), הוא בקבוק ואקום בעל דופן כפולה, שנועד לספק בידוד תרמי טוב. "
+"ככאלה, הם שימושיים לשמירה על נוזלים קרים או חמים. דוגמה ידועה למיכל דיואר "
+"היא תרמוס."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
@@ -1408,6 +1595,8 @@ msgid ""
 "The name comes from Latin 'sodanum' which means 'headache remedy'. The "
 "symbol comes from Latin 'natrium' for Arabic 'natrun' or English 'soda'."
 msgstr ""
+"השם מגיע מהביטוי ‚sodanum’ בלטינית שפירושו ‚תרופה לכאבי ראש’. הסמל מגיע "
+"מהביטוי ‚natrium’ בלטינית עבור ‚natrun’ בערבית או ‚soda’ באנגלית."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:25
@@ -1490,7 +1679,7 @@ msgstr "ביוונית ‚aergon’ פירושו ‚בלתי פעיל’."
 #: element_tiny.xml:39
 #, kde-format
 msgid "Potassium"
-msgstr "זרחן"
+msgstr "אשלגן"
 
 #: element_tiny.xml:40
 #, kde-format
@@ -1499,6 +1688,9 @@ msgid ""
 "in caustic potashes. The symbol comes from the Latin 'kalium' for the "
 "original Arabic 'al qaliy' which means alkali."
 msgstr ""
+"השם מגיע מהמילה האנגלית ‚potash’ (‚אפר סירים’) כי הוא נמצא באשלג קאוסטית. "
+"הסמל מגיע מהמילה הלטינית ‚kalium’ עבור המילה הערבית המקורית ‚al "
+"qaliy’ (القالِي)שפירושה אלקלי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:41
@@ -1649,7 +1841,7 @@ msgstr "בלטינית ‚germania’ הוא שמה העתיק של גרמניה
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "Arsenic"
 msgstr "ארסן"
 
@@ -1725,6 +1917,8 @@ msgid ""
 "Named after the small town of Ytterby near Stockholm in Sweden. Terbium, "
 "Ytterbium and Erbium are also named after this town."
 msgstr ""
+"נקרא על שם העיירה הקטנה איטרבי ליד שטוקהולם בשוודיה. טרביום, איטרביום "
+"וארביום נקראים גם הם על שם עיירה זו."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:81
@@ -1827,7 +2021,7 @@ msgstr "קדמיום"
 #: element_tiny.xml:98
 #, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
-msgstr ""
+msgstr "ביוונית ‚kadmia’ (‚גלמיי’ = אבץ פחמתי)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -1858,10 +2052,9 @@ msgid "Antimony"
 msgstr "אנטימון"
 
 #: element_tiny.xml:104
-#, fuzzy, kde-format
-#| msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'"
+#, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
-msgstr "בערבית,  'anthos ammonos' פירושו 'שגשוגו של האל אמון'"
+msgstr "בערבית, ‚anthos ammonos’ פירושו ‚פריחתו של האל אמון’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:105
@@ -1872,7 +2065,7 @@ msgstr "טלור"
 #: element_tiny.xml:106
 #, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
-msgstr "בלטינית ‚tellus’ או ‚telluris’ הם ‚כדור הארץ’."
+msgstr "בלטינית ‚tellus’ או ‚telluris’ משמעותם ‚כדור הארץ‘."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -1883,7 +2076,7 @@ msgstr "יוד"
 #: element_tiny.xml:108
 #, kde-format
 msgid "Greek 'ioeides' for 'violet'."
-msgstr "ביוונית ‚ioeidis’ פירושו ‚סיגלית’"
+msgstr "ביוונית \"ioeides\" פירושו \"סיגלית\"."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:109
@@ -1930,7 +2123,7 @@ msgid ""
 "Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare "
 "earth' elements."
 msgstr ""
-"ביוונית ‚lanthanein’ זה ‚נסתר’. הלנתנידים נקראים גם יסודות ‚ארץ נדירים’."
+"ביוונית ‚lanthanein’ משמעו „נסתר”. הלנתנידים נקראים גם יסודות „עפרות נדירות”."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:117
@@ -2076,7 +2269,7 @@ msgstr "תוליום"
 #: element_tiny.xml:140
 #, kde-format
 msgid "Named after the old name of Scandinavia, 'Thule'."
-msgstr "נקרא לפי השם הקודם של סקנדינביה ‚תולה’."
+msgstr "נקרא לפי השם הקודם של סקנדינביה ‚תולה’ (Thule)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:141
@@ -2089,7 +2282,7 @@ msgstr "איטרביום"
 msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
-msgstr "נקרא על שם העיר השוודית Ytterby"
+msgstr "כמו איטריום, טרביום וארביום, היסוד הזה נקרא על שם הכפר השוודי איטרבי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:143
@@ -2100,7 +2293,7 @@ msgstr "לוטציום"
 #: element_tiny.xml:144
 #, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
-msgstr "נקרא על שם השם הרומי של פריז ‚לוטטיה’."
+msgstr "נקרא על שם השם הרומי של פריז ‚לוטטיה’ (Lutetia)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2116,7 +2309,7 @@ msgid ""
 "name of Copenhagen, Denmark)."
 msgstr ""
 "נילס בוהר חזה במקור את מאפייני היסוד הזה לפני שהתגלה, לכן נקרא על שם עיר "
-"הולדתו ‚הַפְנִיָה’ (השם הלטיני הקדום של קופנהגן שבדנמרק)."
+"הולדתו ‚הַפְנִיָה’ (Hafnia - השם הלטיני הקדום של קופנהגן שבדנמרק)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2143,7 +2336,7 @@ msgid ""
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
 "מקור השם הוא הביטוי השוודי ‚tung sten’ שפירושו ‚אבן כבדה’. הסמל מגיע מהשם "
-"הגרמני הישן ליסוד ‚וולפרם (wolfram)’, שתיאר שטונגסטן מגיב לבדיל ‚כמו שזאב "
+"הגרמני הישן ליסוד ‚וולפרם’ (wolfram), שתיאר שטונגסטן מגיב לבדיל ‚כמו שזאב "
 "(wolf) אוכל כבשה (ram)’."
 
 #. i18n: tag label attribute value
@@ -2221,7 +2414,7 @@ msgstr "תליום"
 #: element_tiny.xml:164
 #, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "ביוונית ‚tallos’ משמעו ‚זרדים צעירים’."
+msgstr "ביוונית ‚tallos’ משמעו ‚זרד צעיר’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2232,7 +2425,7 @@ msgstr "עופרת"
 #: element_tiny.xml:166
 #, kde-format
 msgid "Latin 'plumbum' for Lead."
-msgstr "בלטינית ‚plumbum’ פירושו ‚עופרת’"
+msgstr "בלטינית ‚plumbum’ פירושו ‚עופרת‘."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2241,9 +2434,9 @@ msgid "Bismuth"
 msgstr "ביסמות"
 
 #: element_tiny.xml:168
-#, fuzzy, kde-format
+#, kde-format
 msgid "The old name of Bismuth is 'Wismut', which stood for 'white mass'."
-msgstr "שמו הישן של הביסמות היה וויסמות, שפירושו 'מסה לבנה'"
+msgstr "שמו הישן של הביסמות היה ‚וויסמות’ (Wismut), שפירושו ‚מסה לבנה’."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:169
@@ -2254,7 +2447,7 @@ msgstr "פולוניום"
 #: element_tiny.xml:170
 #, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "נקרא על שם פולין לכבודה של מארי קירי"
+msgstr "נקרא על שם פולין לכבודה של מארי קירי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2289,7 +2482,7 @@ msgstr "פרנציום"
 #: element_tiny.xml:176
 #, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr "נקרא על שם צרפת לכבודה של מרגריט פריי"
+msgstr "נקרא על שם צרפת לכבודה של מרגריט פריי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2300,7 +2493,7 @@ msgstr "רדיום"
 #: element_tiny.xml:178
 #, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
-msgstr "בלטינית ‚radius’ היא ‚קרן’, כיוון שהוא רדיואקטיבי."
+msgstr "בלטינית ‚radius’ פירושו ‚קרן’, כיוון שהוא רדיואקטיבי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2311,7 +2504,7 @@ msgstr "אקטיניום"
 #: element_tiny.xml:180
 #, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
-msgstr "ביוונית ‚aktis’ היא ‚קרן’ - אקטיניום הוא רדיואקטיבי."
+msgstr "ביוונית ‚aktis’ פירושו ‚קרן’ - אקטיניום הוא רדיואקטיבי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2322,7 +2515,7 @@ msgstr "תוריום"
 #: element_tiny.xml:182
 #, kde-format
 msgid "Named after the Norse god of thunder: Thor"
-msgstr "נקרא על שם אל הרעם השוודי: ת׳ור"
+msgstr "נקרא על שם אל הרעם הנורדי: ת׳ור."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:183
@@ -2336,6 +2529,8 @@ msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
+"ביוונית ‚protos’ פירושו ‚אב קדמון’. פרוטקטיניום נקרא כך כיוון שאקטיניום הוא "
+"תוצר דעיכה רדיואקטיבית של פרוטקטיניום."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:185
@@ -2346,7 +2541,7 @@ msgstr "אורניום"
 #: element_tiny.xml:186
 #, kde-format
 msgid "Greek 'ouranos' for 'heaven'. Named after the planet Uranus."
-msgstr ""
+msgstr "ביוונית ‚ouranos’ פירושו ‚שמיים’. נקרא על שם כוכב הלכת אורנוס."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:187
@@ -2368,7 +2563,7 @@ msgstr "פלוטוניום"
 #: element_tiny.xml:190
 #, kde-format
 msgid "Named after the planet Pluto."
-msgstr "נקרא על שם כוכב הלכת פלוטו."
+msgstr "נקרא על שם כוכב הלכת הננסי פלוטו."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:191
@@ -2379,7 +2574,7 @@ msgstr "אמריציום"
 #: element_tiny.xml:192
 #, kde-format
 msgid "Named after America."
-msgstr "על שם אמריקה."
+msgstr "נקרא על שם אמריקה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:193
@@ -2390,7 +2585,7 @@ msgstr "קוריום"
 #: element_tiny.xml:194
 #, kde-format
 msgid "Named after Marie Curie."
-msgstr "על שם מרי קיורי."
+msgstr "נקרא על שם מארי קירי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:195
@@ -2401,7 +2596,7 @@ msgstr "ברקליום"
 #: element_tiny.xml:196
 #, kde-format
 msgid "Named after the town Berkeley where it was discovered."
-msgstr "נקרא על שם העיר ברקלי בה הוא התגלה."
+msgstr "נקרא על שם העיר ברקלי בה התגלה."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:197
@@ -2412,7 +2607,7 @@ msgstr "קליפורניום"
 #: element_tiny.xml:198
 #, kde-format
 msgid "Named after the US-State of California."
-msgstr "על שם מדינת קליפוריה שבארה״ב."
+msgstr "נקרא על שם מדינת קליפורניה שבארצות הברית."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:199
@@ -2423,7 +2618,7 @@ msgstr "אינשטייניום"
 #: element_tiny.xml:200
 #, kde-format
 msgid "Named after the scientist Albert Einstein."
-msgstr "על שם המדען אלברט אינשטיין."
+msgstr "נקרא על שם המדען אלברט איינשטיין."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:201
@@ -2434,7 +2629,7 @@ msgstr "פרמיום"
 #: element_tiny.xml:202
 #, kde-format
 msgid "Named after the scientist Enrico Fermi."
-msgstr "על שם המדען אנריקו פרמי."
+msgstr "נקרא על שם המדען אנריקו פרמי."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:203
@@ -2445,7 +2640,7 @@ msgstr "מנדלביום"
 #: element_tiny.xml:204
 #, kde-format
 msgid "Named after the scientist D.I. Mendeleev."
-msgstr "על שם המדען דמיטרי מנדלייב."
+msgstr "נקרא על שם המדען דמיטרי מנדלייב."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:205
@@ -2456,7 +2651,7 @@ msgstr "נובליום"
 #: element_tiny.xml:206
 #, kde-format
 msgid "Named after the scientist Alfred Nobel."
-msgstr "על שם המדען אלפרד נובל."
+msgstr "נקרא על שם המדען אלפרד נובל."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:207
@@ -2467,7 +2662,7 @@ msgstr "לורנציום"
 #: element_tiny.xml:208
 #, kde-format
 msgid "Named after the scientist Ernest Orlando Lawrence."
-msgstr "על שם המדען ארנסט אורלנדו לורנס."
+msgstr "נקרא על שם המדען ארנסט אורלנדו לורנס."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:209
@@ -2478,7 +2673,7 @@ msgstr "רתרפורדיום"
 #: element_tiny.xml:210
 #, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr "על שם המדען ארנסט רתרפורד."
+msgstr "נקרא על שם המדען ארנסט רתרפורד."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
@@ -2500,7 +2695,7 @@ msgstr "סיבורגיום"
 #: element_tiny.xml:214
 #, kde-format
 msgid "Named after the scientist G. Theodore Seaborg."
-msgstr "על שם המדען תאודור סיבורג."
+msgstr "נקרא על שם המדען גלן תאודור סיבורג."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:215
@@ -2511,7 +2706,7 @@ msgstr "בוהריום"
 #: element_tiny.xml:216
 #, kde-format
 msgid "Named after the scientist Niels Bohr."
-msgstr "על שם המדען נילס בוהר."
+msgstr "נקרא על שם המדען נילס בוהר."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:217
@@ -2524,8 +2719,7 @@ msgstr "האסיום"
 msgid ""
 "Latin 'hassia' for the German county Hessen. In Hessen a lot elements have "
 "been discovered."
-msgstr ""
-"בלטינית ‚hassia’ לציון המחוז הסן שבגרמניה. בהסן התגלה מספר גדול של יסודות."
+msgstr "בלטינית ‚hassia’ לציון המדינה הסן שבגרמניה. בהסן התגלו יסודות רבים."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:219
@@ -2536,7 +2730,7 @@ msgstr "מייטנריום"
 #: element_tiny.xml:220
 #, kde-format
 msgid "Named after the scientist Lise Meitner."
-msgstr "על שם המדענית ליס מייטנר."
+msgstr "נקרא על שם המדענית ליזה מייטנר."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:221
@@ -2549,7 +2743,7 @@ msgstr "דרמשטטיום"
 msgid ""
 "Named after the German city Darmstadt where many elements have been "
 "discovered."
-msgstr "קרוי על שם העיר הגרמנית דרמשטאדט בה התגלו מגוון רחב של יסודות."
+msgstr "נקרא על שם העיר הגרמנית דרמשטאדט בה התגלו יסודות רבים."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:223
@@ -2560,7 +2754,7 @@ msgstr "רנטגניום"
 #: element_tiny.xml:224
 #, kde-format
 msgid "Named after Wilhelm Conrad Röntgen."
-msgstr "על שם וילהלם קונרד רנטגן."
+msgstr "נקרא על שם וילהלם קונרד רנטגן."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:225
@@ -2573,7 +2767,7 @@ msgstr "קופרניקיום"
 msgid ""
 "Historically known as eka-mercury. Named after the astronomer Nicolaus "
 "Copernicus."
-msgstr ""
+msgstr "נודע בעבר בשם אקה־כספית. נקרא על שם האסטרונום ניקולאוס קופרניקוס."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
@@ -2589,8 +2783,7 @@ msgid ""
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
 "נקרא על שם ‚ניהוֹן’, תעתיק שמה של יפן מיפנית. זה היסוד הראשון שהתגלה ביפן, "
-"במרכז נישימה של חברת רייקן למדע מבוסס האצת יונים כבדים. נודע בעבר בשם אקה-"
-"תליום."
+"במרכז נישינה של מכון רייקן למדע מבוסס מאיצים. נודע בעבר בשם אקה־תליום."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
@@ -2604,6 +2797,8 @@ msgid ""
 "Historically known as eka-lead. Named after Flerov Laboratory of Nuclear "
 "Reactions (Dubna, Russia) where superheavy elements are synthesized."
 msgstr ""
+"נודע בעבר בשם אקה־עופרת. נקרא על שם מעבדת פלרוב לריאקציות גרעיניות (דובנה, "
+"רוסיה) בה מסונתזים יסודות על־כבדים."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:231
@@ -2618,8 +2813,8 @@ msgid ""
 "for Nuclear Research that was a co-discoverer of this element. Historically "
 "known as eka-bismuth."
 msgstr ""
-"נקראת על שם מוסקבה שברוסיה, האזור בו שוכן המכון המאוחד למחקר גרעיני שהיה "
-"שותף בגילוי היסוד הזה. בעבר היסוד הזה נקרא אקה-ביסמוט."
+"נקרא על שם מחוז מוסקבה שברוסיה, בו שוכן המכון המאוחד למחקר גרעיני שהיה שותף "
+"בגילוי היסוד הזה. בעבר נודע בשם אקה־ביסמוט."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:233
@@ -2633,7 +2828,8 @@ msgid ""
 "Historically known as eka-polonium. Named after Livermore National "
 "Laboratory (USA)."
 msgstr ""
-"נודע בעבר בשם אקה-פולוניום. נקרא על שם המעבדה הלאומית לורנס ליברמור (ארה״ב)."
+"נודע בעבר בשם אקה־פולוניום. נקרא על שם המעבדה הלאומית לורנס ליברמור (ארצות "
+"הברית)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:235
@@ -2649,7 +2845,7 @@ msgid ""
 "this element. Historically known as eka-astatine."
 msgstr ""
 "נקרא על שם המדינה האמריקאית טנסי בה נמצאות המעבדה הלאומית אוק רידג׳ "
-"ואוניברסיטת ואנדרבילט שהיו שותפות בגילוי היסוד הזה. בעבר נודע בשם אקה-אסטטין."
+"ואוניברסיטת ואנדרבילט שהיו שותפות בגילוי היסוד הזה. בעבר נודע בשם אקה־אסטטין."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:237
@@ -2663,6 +2859,8 @@ msgid ""
 "Named in honor of Professor Yuri Oganessian's trans-actinide element "
 "research. Historically known as eka-radon, eka-emanation before 1960."
 msgstr ""
+"נקרא על שם מחקרו של פרופסור יורי אוגאנסיאן על יסודות טרנס־אקטינידים ולכבודו. "
+"נודע בעבר בשם אקה־ראדון, ולפני 1960 כאקה־אמנציה."
 
 #: libscience/psetables.cpp:152
 #, kde-format
@@ -2687,7 +2885,7 @@ msgstr "יסודות מעבר"
 #: libscience/psetables.cpp:296
 #, kde-format
 msgid "DZ Periodic Table"
-msgstr ""
+msgstr "טבלת יסודות DZ"
 
 #: src/calculator/calculator.cpp:21
 #, kde-format
@@ -2712,7 +2910,7 @@ msgstr "היכרות"
 #: src/calculator/settings_calc.ui:39
 #, kde-format
 msgid "Nuclear Calculator"
-msgstr ""
+msgstr "מחשבון גרעיני"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #. i18n: ectx: attribute (title), widget (QWidget, gas)
@@ -2728,7 +2926,7 @@ msgstr "מחשבון גז"
 #: src/calculator/settings_calc.ui:134
 #, kde-format
 msgid "Concentration Calculator"
-msgstr ""
+msgstr "מחשבון ריכוזים"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, tree)
 #: src/calculator/calculator.cpp:110 src/calculator/calculator.ui:61
@@ -2746,7 +2944,7 @@ msgstr "מחשבון טיטור"
 #: src/calculator/calculator.ui:38
 #, kde-format
 msgid "<big>Select the calculator that you want to use</big>"
-msgstr ""
+msgstr "<big>נא לבחור באיזה מחשבון להשתמש</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:41
@@ -2755,6 +2953,7 @@ msgid ""
 "This is the index of the various calculators available. For more information "
 "on each calculator, click on 'Introduction'."
 msgstr ""
+"זהו מפתח של המחשבונים הזמינים. למידע נוסף על כל מחשבון, יש ללחוץ על ‚היכרות’."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
@@ -2766,19 +2965,19 @@ msgstr "מחשבונים"
 #: src/calculator/calculator.ui:130
 #, kde-format
 msgid "<h1>The Kalzium Calculators</h1>"
-msgstr ""
+msgstr "<h1>מחשבוני Kalzium</h1>"
 
 #. i18n: ectx: property (toolTip), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:168
 #, kde-format
 msgid "<big>Information about the various calculators</big>"
-msgstr ""
+msgstr "<big>מידע על המחשבונים השונים</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:171
 #, kde-format
 msgid "This is the description of the function of each calculator in Kalzium"
-msgstr ""
+msgstr "זהו תיאור התפקוד של כל מחשבון ב־Kalzium"
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:189
@@ -2812,73 +3011,92 @@ msgid ""
 "equations and see how the concentration of a species changes in function of "
 "another one.</li></ul>"
 msgstr ""
+"<big>ברוך בואך למחשבוני Kalzium!<br /></big>\n"
+"<p>מחשבון זה מכיל מגוון מחשבונים למשימות שונות המבצעים חישובים שונים.</p>\n"
+"<p>ניתן למצוא את המחשבונים הבאים ב־Kalzium:</p>\n"
+"<ul><li><b>מחשבון מסה מולקולרית<br /></b>מחשבון זה מסייע לך לחשב את המסות "
+"המולקולריות של מולקולות שונות.<br />ניתן לציין צורה מקוצרת של שמות המולקולות "
+"ולהוסיף כינויים נוספים כאלה.</li>\n"
+"<li><b>מחשבון ריכוזים<br /></b>ניתן לחשב כמויות הכוללות:</li>\n"
+"<ul type=\"circle\"><li>כמות החומר</li>\n"
+"<li>נפח הממס</li>\n"
+"<li>ריכוז החומר</li></ul>\n"
+"<p>ישנו מגוון רחב של יחידות לבחירה ושיטות שונות לציון כמויות.</p>\n"
+"<li><b>מחשבון גרעיני<br /></b>מחשבון זה עושה שימוש בנתונים הגרעיניים הזמינים "
+"ב־Kalzium כדי לחזות את המסות הצפויות של חומר לאחר זמן.</li>\n"
+"<li><b>מחשבון גז<br /></b>מחשבון זה יכול לחשב את ערכי הטמפרטורה, הלחץ, הנפח, "
+"כמות הגז וכו׳ עבור גזים אידיאליים ולא אידיאליים שונים.</li>\n"
+"<li><b>איזון משוואות<br /></b>מחשבון זה יכול לאזן משוואות כימיות.</li>\n"
+"<li><b>מחשבון טיטור<br /></b>מחשבון זה מנסה למצוא את נקודת השקילות של טיטור "
+"שנמדד במד pH על ידי התאמה מיטבית לטנגנס היפרבולי. ניתן גם לתת לו לפתור מערכת "
+"משוואות שיווי משקל ולראות כיצד ריכוז של צורון משתנה כתלות באחר.</li></ul>"
 
 #: src/calculator/concCalculator.cpp:892
 #, kde-format
 msgid "Percentage should be less than 100.0, please enter a valid value."
-msgstr ""
+msgstr "האחוז צריך להיות פחות מ־100.0, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:895
 #, kde-format
 msgid "Density cannot be zero, please enter a valid value."
-msgstr ""
+msgstr "הצפיפות לא יכולה להיות אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:898
 #, kde-format
 msgid "Mass cannot be zero, please enter a valid value."
-msgstr ""
+msgstr "המסה לא יכולה להיות אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:901 src/calculator/gasCalculator.cpp:297
 #, kde-format
 msgid "Volume cannot be zero, please enter a valid value."
-msgstr ""
+msgstr "הנפח לא יכול להיות אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:904
 #, kde-format
 msgid "Number of moles cannot be zero, please enter a valid value."
-msgstr ""
+msgstr "מספר המולים לא יכול להיות אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:907
 #, kde-format
 msgid "Molar mass of solvent is zero, please enter a valid value."
-msgstr ""
+msgstr "המסה המולרית של הממס היא אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:910
 #, kde-format
 msgid "Number of equivalents is zero. Cannot calculate equivalent mass."
-msgstr ""
+msgstr "מספר האקוויוולנטים הוא אפס. לא ניתן לחשב מסה אקוויוולנטית."
 
 #: src/calculator/concCalculator.cpp:913
 #, kde-format
 msgid "Concentration is zero, please enter a valid value."
-msgstr ""
+msgstr "הריכוז הוא אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:916
 #, kde-format
 msgid "The volume of the solvent cannot be zero."
-msgstr ""
+msgstr "נפח הממס לא יכול להיות אפס."
 
 #: src/calculator/concCalculator.cpp:919
 #, kde-format
 msgid "The number of moles of the solvent cannot be zero."
-msgstr ""
+msgstr "מספר המולים של הממס לא יכול להיות אפס."
 
 #: src/calculator/concCalculator.cpp:922
 #, kde-format
 msgid "The mass of the solvent cannot be zero."
-msgstr ""
+msgstr "מסת הממס לא יכולה להיות אפס."
 
 #: src/calculator/concCalculator.cpp:925
 #, kde-format
 msgid ""
 "Insufficient data to calculate the required value, please specify normality."
-msgstr ""
+msgstr "אין מספיק נתונים לחישוב הערך הנדרש, נא לציין נורמליות."
 
 #: src/calculator/concCalculator.cpp:928
 #, kde-format
 msgid ""
 "Insufficient data, specify molarity / mole fraction / molality to calculate."
-msgstr ""
+msgstr "אין מספיק נתונים, נא לציין מולריות / שבר מולי / מולליות כדי לחשב."
 
 #: src/calculator/concCalculator.cpp:931
 #, kde-format
@@ -2886,23 +3104,25 @@ msgid ""
 "The amount is specified in moles, cannot calculate molar/equivalent masses. "
 "Please specify mass/volume."
 msgstr ""
+"הכמות צוינה במולים, לא ניתן לחשב מסות מולריות/אקוויוולנטיות. נא לציין "
+"מסה/נפח."
 
 #: src/calculator/concCalculator.cpp:934
 #, kde-format
 msgid ""
 "You can calculate the molar mass of solvent only if the mole fraction is "
 "specified."
-msgstr ""
+msgstr "ניתן לחשב את המסה המולרית של הממס רק אם צוין השבר המולי."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
 msgid "Molar mass cannot be zero, please enter a valid value."
-msgstr ""
+msgstr "המסה המולרית לא יכולה להיות אפס, נא למלא ערך תקין."
 
 #: src/calculator/concCalculator.cpp:940
 #, kde-format
 msgid "Equivalent mass cannot be zero, please enter a valid value."
-msgstr ""
+msgstr "המסה האקוויוולנטית לא יכולה להיות אפס, נא למלא ערך תקין."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/concCalculator.ui:30
@@ -2921,6 +3141,18 @@ msgid ""
 "For instance, if you specify the amount of solute in moles, you do not have "
 "to specify the molar mass of the solute.</span></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Liberation Sans'; font-size:10pt; "
+"font-weight:400; font-style:normal; direction:rtl;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:12pt; font-weight:600;\">חלק מהנתונים הבאים אינם נחוצים. למשל, אם ציינת "
+"את כמות המומס במולים, אין צורך לציין את המסה המולרית של המומס.</span></p></"
+"body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/concCalculator.ui:37 src/calculator/gasCalculator.ui:36
@@ -2963,15 +3195,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_39)
 #: src/calculator/concCalculator.ui:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big><b>Molar mass of solute:</b></big>"
-msgstr "משקל מולקולרי: %1 ימ\"א"
+msgstr "<big><b>מסה מולרית של המומס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/concCalculator.ui:89
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the molar mass of the solute</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את המסה המולרית של המומס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/concCalculator.ui:92
@@ -2983,13 +3215,13 @@ msgstr "התיבה הזאת משמשת לציון המסה המולרית של �
 #: src/calculator/concCalculator.ui:105
 #, kde-format
 msgid "<big><b>Equivalent mass of solute:</b></big>"
-msgstr ""
+msgstr "<big><b>מסה אקוויוולנטית של המומס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, eqtMass)
 #: src/calculator/concCalculator.ui:115
 #, kde-format
 msgid "<big>Specify the equivalent mass of the solute</big>"
-msgstr ""
+msgstr "<big>נא לציין את המסה האקוויוולנטית של המומס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, eqtMass)
 #: src/calculator/concCalculator.ui:119
@@ -2999,6 +3231,9 @@ msgid ""
 "required only if concentration in terms of normality is involved.\n"
 "Normality = Number of Equivalents / liter of solution"
 msgstr ""
+"התיבה הזאת משמשת לציון המסה האקוויוולנטית של המומס. נדרש רק אם מעורב ריכוז "
+"במונחי נורמליות.\n"
+"נורמליות = מספר אקוויוולנטים / ליטר תמיסה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_52)
 #: src/calculator/concCalculator.ui:132
@@ -3063,15 +3298,15 @@ msgstr "<big><b>מסה מולרית של ממס:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:204
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the molar mass of the solvent</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את המסה המולרית של הממס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMassSolvent)
 #: src/calculator/concCalculator.ui:207
-#, fuzzy, kde-format
+#, kde-format
 msgid "This box is used to specify the molar mass of the solvent."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון המסה המולרית של הממס."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: src/calculator/concCalculator.ui:220
@@ -3136,45 +3371,47 @@ msgid ""
 "This is the list of quantities that you can calculate. Choose one of the "
 "quantities and specify the other required values to calculate it."
 msgstr ""
+"זוהי רשימת הכמויות שניתן לחשב. יש לבחור אחת מהכמויות ולציין את הערכים "
+"הנדרשים האחרים כדי לחשב אותה."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlvt_unit)
 #: src/calculator/concCalculator.ui:308
 #, kde-format
 msgid "Specify the units for density of solvent"
-msgstr ""
+msgstr "נא לציין את יחידות צפיפות הממס"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, conc_unit)
 #: src/calculator/concCalculator.ui:315
 #, kde-format
 msgid "<big>Specify the unit/method for specifying concentration</big>"
-msgstr ""
+msgstr "<big>נא לציין את היחידה/שיטה לציון הריכוז</big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:322
 #, kde-format
 msgid "<big>The units for amount of solvent</big>"
-msgstr ""
+msgstr "<big>היחידות לכמות הממס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:325
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the units for the amount of solvent in the "
 "solution."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון היחידות עבור כמות הממס בתמיסה."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_19)
 #: src/calculator/concCalculator.ui:332
 #, kde-format
 msgid "<big>The units for molar mass of solvent</big>"
-msgstr ""
+msgstr "<big>היחידות למסה המולרית של הממס</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
 #: src/calculator/concCalculator.ui:335 src/calculator/concCalculator.ui:381
-#, fuzzy, kde-format
+#, kde-format
 msgid "(g/mole)"
-msgstr "כלים"
+msgstr "(גרם/מול)"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, densSlt_unit)
 #: src/calculator/concCalculator.ui:345
@@ -3189,39 +3426,41 @@ msgid ""
 "This box is used to specify the units of the density of the solute. This is "
 "required only if you are specifying the amount of solute in terms of volume."
 msgstr ""
+"התיבה הזאת משמשת לציון יחידות צפיפות המומס. נדרש רק אם מציינים את כמות המומס "
+"במונחי נפח."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:355
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the units for the amount of solute</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את היחידות לכמות המומס</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:358
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box is used to specify the units for the amount of solute in the "
 "solution."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת משמשת לציון היחידות עבור כמות המומס בתמיסה."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_17)
 #: src/calculator/concCalculator.ui:365
 #, kde-format
 msgid "<big>Units for molar mass of solute</big>"
-msgstr ""
+msgstr "<big>יחידות למסה המולרית של המומס</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/calculator/concCalculator.ui:368 src/calculator/gasCalculator.ui:276
 #, kde-format
 msgid "(g/mol)"
-msgstr ""
+msgstr "(גרם/מול)"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_18)
 #: src/calculator/concCalculator.ui:378
 #, kde-format
 msgid "<big>Units for equivalent mass of solute</big>"
-msgstr ""
+msgstr "<big>יחידות למסה האקוויוולנטית של המומס</big>"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:442 src/calculator/nuclearCalculator.ui:607
@@ -3249,6 +3488,8 @@ msgid ""
 "dynamically.<br />Mass and moles are directly dependent for a given gas.</"
 "b></big>"
 msgstr ""
+"<big><b>יש לשנות את הכמויות ולראות כיצד הכמויות האחרות משתנות דינמית.<br /"
+">מסה ומולים תלויים ישירות לגז נתון.</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/gasCalculator.ui:42
@@ -3258,17 +3499,17 @@ msgstr "<big><b>מסה מולרית של הגז:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "<big>Specify the molar mass of the gas</big>"
-msgstr "הצג רק את המספר של היסוד"
+msgstr "<big>נא לציין את המסה המולרית של הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:55
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "התיבה הזאת יכולה לשמש לציון המסה המולרית של הגז, למשל 2 עבור גז מימן."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
 #: src/calculator/gasCalculator.ui:68
@@ -3284,11 +3525,13 @@ msgstr "<big>נא לציין את מספר המולים של הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:82
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This box can be used to specify the number of moles of the gas.\n"
 "Moles = mass / molar mass"
-msgstr "הצג רק את המספר של היסוד"
+msgstr ""
+"התיבה הזאת יכולה לשמש לציון מספר המולים של הגז.\n"
+"מולים = מסה / מסה מולרית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: src/calculator/gasCalculator.ui:95
@@ -3309,6 +3552,8 @@ msgid ""
 "This box can be used to specify the mass of the gas.\n"
 "Mass = moles * molar mass"
 msgstr ""
+"התיבה הזאת יכולה לשמש לציון מסת הגז.\n"
+"מסה = מולים * מסה מולרית"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, mass_unit)
 #: src/calculator/gasCalculator.ui:122
@@ -3338,7 +3583,7 @@ msgstr "<big>נא לציין את לחץ הגז</big>"
 #: src/calculator/gasCalculator.ui:158
 #, kde-format
 msgid "This box can be used to change the pressure of the gas."
-msgstr "אפשר להשתמש בתיבה הזאת כדי לשנות את לחץ הגז."
+msgstr "התיבה הזאת יכולה לשמש לשינוי לחץ הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:171
@@ -3353,7 +3598,7 @@ msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
 msgstr ""
-"אפשר להשתמש בתיבה הזאת לציון יחידות הלחץ, למשל: אטמוספרות, ברים וכן הלאה."
+"תיבה הזאת יכולה לשמש לציון יחידות הלחץ, למשל: אטמוספרות, ברים וכן הלאה."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: src/calculator/gasCalculator.ui:181
@@ -3365,13 +3610,13 @@ msgstr "<big><b>טמפרטורה:</b></big>"
 #: src/calculator/gasCalculator.ui:191
 #, kde-format
 msgid "<!----><big>Specify the temperature of the gas</big>"
-msgstr "<!----><big>לציין את טמפרטורת הגז</big>"
+msgstr "<!----><big>נא לציין את טמפרטורת הגז</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, temp)
 #: src/calculator/gasCalculator.ui:194
 #, kde-format
 msgid "This box can be used to specify the temperature of the gas."
-msgstr "אפשר להשתמש בתיבה הזאת כדי לציין את טמפרטורת הגז."
+msgstr "התיבה הזאת יכולה לשמש לציון טמפרטורת הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:207
@@ -3404,7 +3649,7 @@ msgstr "<big>נא לציין את נפח הגז</big>"
 #: src/calculator/gasCalculator.ui:230
 #, kde-format
 msgid "This box can be used to specify the volume of the gas."
-msgstr "אפשר להשתמש בתיבה הזאת כדי לציין את נפח הגז."
+msgstr "התיבה הזאת יכולה לשמש לציון נפח הגז."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:249
@@ -3416,7 +3661,7 @@ msgstr "<big>נא לציין יחידות לנפח הגז</big>"
 #: src/calculator/gasCalculator.ui:252
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
-msgstr "אפשר להשתמש בתיבה הזאת לציון יחידות הנפח, למשל: ליטרים."
+msgstr "התיבה הזאת יכולה לשמש לציון יחידות הנפח, למשל: ליטרים."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
@@ -3428,13 +3673,13 @@ msgstr "נתונים לגזים לא אידיאלים"
 #: src/calculator/gasCalculator.ui:294
 #, kde-format
 msgid "<big><b>Van der Waals constant 'b':</b></big>"
-msgstr ""
+msgstr "<big><b>קבוע ואן דר ואלס ‚b’:</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: src/calculator/gasCalculator.ui:304
 #, kde-format
 msgid "<big><b>Van der Waals constant 'a':</b></big>"
-msgstr ""
+msgstr "<big><b>קבוע ואן דר ואלס ‚a’:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:314
@@ -3450,6 +3695,8 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
+"התיבה הזאת יכולה לשמש לציון קבוע ואן דר ואלס ‚b’ עבור הגז. נדרש רק עבור גז "
+"ריאלי. ניתן לסמן כ־0.0 עבור גז אידיאלי."
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:330
@@ -3465,6 +3712,8 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
+"התיבה הזאת יכולה לשמש לציון קבוע ואן דר ואלס ‚a’ עבור הגז. נדרש רק עבור גז "
+"ריאלי. ניתן לסמן כ־0.0 עבור גז אידיאלי."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:348
@@ -3477,25 +3726,25 @@ msgstr "יחידות קבוע ואן דר ואלס ‚b’"
 #, kde-format
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
-msgstr "אפשר להשתמש בזה לציון יחידות קבוע ואן דר ואלס ‚b’."
+msgstr "יכול לשמש לציון יחידות קבוע ואן דר ואלס ‚b’."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
 #, kde-format
 msgid "per mole"
-msgstr ""
+msgstr "למול"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/calculator/gasCalculator.ui:380
 #, kde-format
 msgid "liter^2 atmosphere/mol^2"
-msgstr ""
+msgstr "ליטר^2 אטמוספרה/מול^2"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reset)
 #: src/calculator/gasCalculator.ui:434
 #, kde-format
 msgid "Click to reset all values to initial values"
-msgstr "נא ללחוץ כדי לאפס את כל הערכים לערכים הראשוניים"
+msgstr "לחיצה תאפס את כל הערכים לערכים הראשוניים"
 
 #: src/calculator/nuclearCalculator.cpp:389
 #, kde-format
@@ -3515,7 +3764,7 @@ msgstr "הזמן הוא אפס, נא לציין ערך תקין."
 #: src/calculator/nuclearCalculator.cpp:398
 #, kde-format
 msgid "The final amount is greater than the initial amount."
-msgstr ""
+msgstr "הכמות הסופית גדולה מהכמות ההתחלתית."
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/nuclearCalculator.ui:29
@@ -3525,12 +3774,14 @@ msgid ""
 "calculate from the combo box next to the \"calculate\" label and change the "
 "values / units to calculate.</span>"
 msgstr ""
+"<span style=\" font-size:12pt; font-weight:600;\">נא לבחור מה לחשב מהתיבה "
+"המשולבת שליד התווית „חישוב” ולשנות את הערכים / יחידות לחישוב.</span>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elemental data"
-msgstr "&הראה את שמות היסודות"
+msgstr "נתוני יסודות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: src/calculator/nuclearCalculator.ui:42
@@ -3542,7 +3793,7 @@ msgstr "<big><b>שם היסוד:</b></big>"
 #: src/calculator/nuclearCalculator.ui:52
 #, kde-format
 msgid "<big>Specify the Element you want to consider</big>"
-msgstr ""
+msgstr "<big>נא לציין את היסוד לבדיקה</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, element)
 #: src/calculator/nuclearCalculator.ui:55
@@ -3550,7 +3801,7 @@ msgstr ""
 msgid ""
 "This box is used to specify the element on which calculation is to be "
 "performed."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציון היסוד שעליו יתבצע החישוב."
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: src/calculator/nuclearCalculator.ui:62
@@ -3570,7 +3821,7 @@ msgstr "<big>נא לציין איזוטופ של היסוד הנוכחי</big>"
 msgid ""
 "This box is used to specify the isotope of the above element on which "
 "calculation is performed."
-msgstr ""
+msgstr "התיבה הזאת משמשת לציון האיזוטופ של היסוד שלעיל שעליו יתבצע החישוב."
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: src/calculator/nuclearCalculator.ui:82
@@ -3667,7 +3918,7 @@ msgstr "<big>מסה אטומית של האיזוטופ הנבחר</big>"
 #: src/calculator/nuclearCalculator.ui:174
 #, kde-format
 msgid "This label displays the atomic mass of the isotope in grams per mole."
-msgstr ""
+msgstr "התווית הזאת מציגה את המסה האטומית של האיזוטופ בגרמים למול."
 
 #. i18n: ectx: property (text), widget (QLabel, mass)
 #. i18n: ectx: property (text), widget (QLabel, numHalfLives)
@@ -3675,7 +3926,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:540
 #, kde-format
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_2)
 #: src/calculator/nuclearCalculator.ui:187
@@ -3687,7 +3938,7 @@ msgstr "<big>יחידת המסה האטומית</big>"
 #: src/calculator/nuclearCalculator.ui:190
 #, kde-format
 msgid "grams / mole"
-msgstr ""
+msgstr "גרמים / מול"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/calculator/nuclearCalculator.ui:200
@@ -3702,6 +3953,8 @@ msgid ""
 "This box is used to decide what you want to calculate, choose among 'Time', "
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
+"התיבה הזאת משמשת לבחור את אופן החישוב, ניתן לבחור בין ‚זמן’, ‚כמות התחלתית "
+"של החומר’ ו‚כמות סופית של החומר’."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:228
@@ -3783,7 +4036,7 @@ msgstr "התיבה הזאת משמשת לציון הזמן בין הכמות ה�
 #: src/calculator/nuclearCalculator.ui:327
 #, kde-format
 msgid "<big>The method by which you want to specify mass</big>"
-msgstr ""
+msgstr "<big>השיטה לציון מסה</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:330
@@ -3792,14 +4045,16 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "initial amount of the substance, i.e. mass or moles."
 msgstr ""
+"התיבה הזאת יכולה לשמש לשינוי המצב לציון הכמות ההתחלתית של החומר, כלומר מסה "
+"או מולים."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
 #. i18n: ectx: property (text), item, widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:339
 #: src/calculator/nuclearCalculator.ui:359
-#, fuzzy, kde-format
+#, kde-format
 msgid "moles"
-msgstr "כלים"
+msgstr "מולים"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:347
@@ -3814,6 +4069,8 @@ msgid ""
 "This box can be used to change the mode in which you want to specify the "
 "final amount of the substance, i.e. mass or moles."
 msgstr ""
+"התיבה הזאת יכולה לשמש לשינוי המצב לציון הכמות הסופית של החומר, כלומר מסה או "
+"מולים."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, initAmt_unit)
 #: src/calculator/nuclearCalculator.ui:380
@@ -3877,7 +4134,7 @@ msgstr "אונקיות"
 #: src/calculator/nuclearCalculator.ui:452
 #, kde-format
 msgid "troy ounces"
-msgstr ""
+msgstr "אונקיות טרוי"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, finalAmt_unit)
 #: src/calculator/nuclearCalculator.ui:420
@@ -3912,13 +4169,13 @@ msgstr "התיבה הזאת משמשת לציון יחידות הזמן. למש�
 #: src/calculator/nuclearCalculator.ui:511
 #, kde-format
 msgid "<big><b>Time in half-lives</b></big>"
-msgstr ""
+msgstr "<big><b>זמן במחציות חיים</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, slider)
 #: src/calculator/nuclearCalculator.ui:521
 #, kde-format
 msgid "<big>Specify the time elapsed by moving the slider</big>"
-msgstr ""
+msgstr "<big>נא לציין את הזמן שעבר על ידי הזזת המחוון</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QSlider, slider)
 #: src/calculator/nuclearCalculator.ui:524
@@ -3927,12 +4184,14 @@ msgid ""
 "This slider can be used to specify the time in terms of number of half-lives "
 "between 0 half-lives to 10 half-lives."
 msgstr ""
+"המחוון הזה יכול לשמש לציון הזמן במונחים של מספר מחציות חיים בין 0 מחציות "
+"חיים ל־10 מחציות חיים."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, numHalfLives)
 #: src/calculator/nuclearCalculator.ui:537
 #, kde-format
 msgid "<big>The number of half-lives elapsed</big>"
-msgstr ""
+msgstr "<big>מספר מחציות החיים שעברו</big>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, error)
 #: src/calculator/nuclearCalculator.ui:569
@@ -3944,19 +4203,19 @@ msgstr "הודעת מידע/שגיאה"
 #: src/calculator/settings_calc.ui:29
 #, kde-format
 msgid "<big>The settings of the molecular concentration calculator</big>"
-msgstr ""
+msgstr "<big>הגדרות מחשבון הריכוז המולקולרי</big>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_mass)
 #: src/calculator/settings_calc.ui:45
 #, kde-format
 msgid "Amount is always specified in term of mass"
-msgstr ""
+msgstr "הכמות תמיד מצוינת במונחי מסה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ideal)
 #: src/calculator/settings_calc.ui:74
 #, kde-format
 msgid "Assume Gas is ideal (i.e. do not show Van der Waals co-efficients)"
-msgstr ""
+msgstr "להניח שהגז אידיאלי (כלומר לא להציג מקדמי ואן דר ואלס)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/calculator/settings_calc.ui:100
@@ -3968,25 +4227,25 @@ msgstr "מחשבון מסה"
 #: src/calculator/settings_calc.ui:106
 #, kde-format
 msgid "Show details such as aliases"
-msgstr ""
+msgstr "הצגת פרטים כגון כינויים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox)
 #: src/calculator/settings_calc.ui:113
 #, kde-format
 msgid "Show the add alias tab"
-msgstr ""
+msgstr "הצגת לשונית הוספת כינוי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_soluteMass)
 #: src/calculator/settings_calc.ui:140
 #, kde-format
 msgid "Amount of solute is always specified in terms of mass"
-msgstr ""
+msgstr "כמות המומס תמיד מצוינת במונחי מסה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_solventVolume)
 #: src/calculator/settings_calc.ui:147
 #, kde-format
 msgid "Amount of solvent is always specified in terms of volume"
-msgstr ""
+msgstr "כמות הממס תמיד מצוינת במונחי נפח"
 
 #: src/calculator/titrationCalculator.cpp:40
 #, kde-format
@@ -4001,7 +4260,7 @@ msgstr "משוואות תאורטיות"
 #: src/calculator/titrationCalculator.cpp:95
 #, kde-format
 msgid "nothing"
-msgstr ""
+msgstr "כלום"
 
 #: src/calculator/titrationCalculator.cpp:98
 #: src/calculator/titrationCalculator.cpp:583
@@ -4014,22 +4273,22 @@ msgstr "שגיאה"
 #: src/calculator/titrationCalculator.cpp:98
 #, kde-format
 msgid "Unable to find an equation for Y-axis variable."
-msgstr ""
+msgstr "לא ניתן למצוא משוואה למשתנה ציר Y."
 
 #: src/calculator/titrationCalculator.cpp:118
 #, kde-format
 msgid "Theoretical curve"
-msgstr ""
+msgstr "עקומה תאורטית"
 
 #: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Approximated curve"
-msgstr ""
+msgstr "עקומה משוערת"
 
 #: src/calculator/titrationCalculator.cpp:202
-#, fuzzy, kde-format
+#, kde-format
 msgid "Equivalence point"
-msgstr "משקל ממוצע: %1 u"
+msgstr "נקודת שקילות"
 
 #: src/calculator/titrationCalculator.cpp:571
 #, kde-format
@@ -4080,19 +4339,19 @@ msgstr "נא לבחור מה לעשות עכשיו:"
 #: src/calculator/titrationCalculator.ui:36
 #, kde-format
 msgid "Tab 1"
-msgstr ""
+msgstr "לשונית 1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/calculator/titrationCalculator.ui:42
 #, kde-format
 msgid "Find the equivalence point from experimental values:"
-msgstr ""
+msgstr "מציאת נקודת השקילות מערכים ניסיוניים:"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:106
 #, kde-format
 msgid "pH(Y)"
-msgstr ""
+msgstr "pH(Y)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:111
@@ -4104,7 +4363,7 @@ msgstr "נפח(X)"
 #: src/calculator/titrationCalculator.ui:120
 #, kde-format
 msgid "Tab 2"
-msgstr ""
+msgstr "לשונית 2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/calculator/titrationCalculator.ui:126
@@ -4112,7 +4371,7 @@ msgstr ""
 msgid ""
 "Solve an equilibrium system and see how the concentration of one ion (Y) "
 "changes in function of another one (X)"
-msgstr ""
+msgstr "פתרון מערכת שיווי משקל וצפייה בשינוי ריכוז יון אחד (Y) כתלות באחר (X)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:199
@@ -4209,10 +4468,10 @@ msgid "No graphic found"
 msgstr "לא נמצא ייצוג חזותי"
 
 #: src/detailedgraphicaloverview.cpp:138
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "For example '1.0079u', the mass of an element in units"
 msgid "%1 u"
-msgstr " u"
+msgstr "%1 u"
 
 #: src/detailinfodlg.cpp:43
 #, kde-format
@@ -4274,9 +4533,9 @@ msgid "Electron Affinity"
 msgstr "זיקה אלקטרונית"
 
 #: src/detailinfodlg.cpp:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Electronic configuration"
-msgstr "קונפיגורציית אלקטרונים: %1"
+msgstr "תצורה אלקטרונית"
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/detailinfodlg.cpp:221 src/molcalcwidgetbase.ui:218
@@ -4334,7 +4593,7 @@ msgstr "זמן מחצית-חיים"
 #: src/detailinfodlg.cpp:308
 #, kde-format
 msgid "Energy and Mode of Decay"
-msgstr ""
+msgstr "אנרגיה ואופן דעיכה"
 
 #: src/detailinfodlg.cpp:310
 #, kde-format
@@ -4342,9 +4601,9 @@ msgid "Spin and Parity"
 msgstr "ספין וזיווג"
 
 #: src/detailinfodlg.cpp:318
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 u"
-msgstr " u"
+msgstr "%1 u"
 
 #: src/detailinfodlg.cpp:324
 #, kde-format
@@ -4377,15 +4636,15 @@ msgstr "%1 %2"
 #: src/detailinfodlg.cpp:858 src/detailinfodlg.cpp:871
 #: src/detailinfodlg.cpp:884 src/detailinfodlg.cpp:896
 #: src/detailinfodlg.cpp:908
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 MeV"
-msgstr " u"
+msgstr "%1 MeV"
 
 #: src/detailinfodlg.cpp:338
 #, kde-format
 msgctxt "Spontaneous fission"
 msgid " SF"
-msgstr ""
+msgstr " ביקוע ספונטני"
 
 #: src/detailinfodlg.cpp:340 src/detailinfodlg.cpp:364
 #: src/detailinfodlg.cpp:387 src/detailinfodlg.cpp:410
@@ -4426,7 +4685,7 @@ msgstr "(%1%)"
 #: src/detailinfodlg.cpp:891 src/detailinfodlg.cpp:903
 #, kde-format
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/detailinfodlg.cpp:362
 #, kde-format
@@ -4438,34 +4697,34 @@ msgstr " %1"
 #, kde-format
 msgctxt "Proton decay"
 msgid " p"
-msgstr ""
+msgstr " p"
 
 #: src/detailinfodlg.cpp:408
 #, kde-format
 msgid " 2p"
-msgstr ""
+msgstr " 2p"
 
 #: src/detailinfodlg.cpp:431
 #, kde-format
 msgctxt "Neutron decay"
 msgid " n"
-msgstr ""
+msgstr " n"
 
 #: src/detailinfodlg.cpp:453
 #, kde-format
 msgid " 2n"
-msgstr ""
+msgstr " 2n"
 
 #: src/detailinfodlg.cpp:475
 #, kde-format
 msgctxt "Electron capture"
 msgid " EC"
-msgstr ""
+msgstr " לכידת אלקטרון"
 
 #: src/detailinfodlg.cpp:497
 #, kde-format
 msgid " 2EC"
-msgstr ""
+msgstr " לכידת אלקטרון כפולה"
 
 #: src/detailinfodlg.cpp:518
 #, kde-format
@@ -4567,32 +4826,32 @@ msgstr " %1 %2<sup>-</sup>"
 #: src/detailinfodlg.cpp:847
 #, kde-format
 msgid " p%1"
-msgstr ""
+msgstr " p%1"
 
 #: src/detailinfodlg.cpp:860
 #, kde-format
 msgid " ECp"
-msgstr ""
+msgstr " לכידת אלקטרון p"
 
 #: src/detailinfodlg.cpp:873
 #, kde-format
 msgid " EC2p"
-msgstr ""
+msgstr " לכידת אלקטרון 2p"
 
 #: src/detailinfodlg.cpp:886
 #, kde-format
 msgid " EC3p"
-msgstr ""
+msgstr " לכידת אלקטרון 3p"
 
 #: src/detailinfodlg.cpp:898
 #, kde-format
 msgid " EC%1"
-msgstr ""
+msgstr " לכידת אלקטרון %1"
 
 #: src/detailinfodlg.cpp:910
 #, kde-format
 msgid " EC%1 p"
-msgstr ""
+msgstr " לכידת אלקטרון %1 p"
 
 #: src/detailinfodlg.cpp:1070
 #, kde-format
@@ -4657,7 +4916,7 @@ msgstr "פרטים נוספים"
 #, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
-msgstr ""
+msgstr "[%1] %2 (%3 - מקטע %4)"
 
 #: src/detailinfodlg.cpp:1187
 #, kde-format
@@ -4693,6 +4952,14 @@ msgid ""
 "H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
 msgstr ""
+"פותר המשוואות מאפשר לך לאזן משוואה כימית.<br> <br><b>שימוש במשתנים</"
+"b><br>כדי לבטא כמויות משתנות של יסוד, יש להציב תו בודד לפני סמל היסוד, כפי "
+"שמוצג בדוגמה זו:<br><i>aH + bO -> 5H2O</i> (תוצאה: <b>10</b> H + <b>5</b> O -"
+"&gt; <b>5</b> H<sub>2</sub>O)<br>פתרון הביטוי הזה ייתן לך את הכמות הנדרשת של "
+"מימן וחמצן.<br><br><b>הגדרת מטענים חשמליים</b><br>יש להשתמש בסוגריים מרובעים "
+"כדי לציין את המטען החשמלי של יסוד, כפי שמוצג בדוגמה זו:<br><i>4H[+] + 2O -> "
+"cH2O[2+]</i> (תוצאה: <b>4</b> H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</"
+"b> H<b><sub>2</sub></b>O<b><sup>2+</sup></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/equationview.ui:44
@@ -4711,14 +4978,14 @@ msgstr "נא למלא את הנוסחה לאיזון בשדה הזה."
 #: src/equationview.ui:69
 #, kde-format
 msgid "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
-msgstr ""
+msgstr "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, calculateButton)
 #: src/equationview.ui:79 src/equationview.ui:82
 #, kde-format
 msgid "If you press this button the equation above will be balanced."
-msgstr ""
+msgstr "לחיצה על הכפתור הזה תאזן את המשוואה שלעיל."
 
 #. i18n: ectx: property (text), widget (QPushButton, calculateButton)
 #: src/equationview.ui:85
@@ -4796,7 +5063,7 @@ msgstr "קובץ:"
 #: src/exportdialog.ui:84
 #, kde-format
 msgid "Format:"
-msgstr ""
+msgstr "תבנית:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gradientwidget.ui:22
@@ -4814,7 +5081,7 @@ msgstr "מדרג:"
 #: src/gradientwidget.ui:99
 #, kde-format
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, gradient_slider)
 #: src/gradientwidget.ui:108
@@ -4826,7 +5093,7 @@ msgstr "יש להחליק כדי לשנות את הטמפרטורה הנוכחי
 #: src/gradientwidget.ui:132
 #, kde-format
 msgid "Click to Play / Pause the increase in temperature."
-msgstr ""
+msgstr "לחיצה תפעיל / תשהה את עליית הטמפרטורה."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gradientwidget.ui:142
@@ -4881,6 +5148,10 @@ msgid ""
 "<p>Zoom in and out using your mouse wheel / zoom feature.</p>\n"
 "<p>Scroll using left-clicking and dragging / scroll feature.</p>"
 msgstr ""
+"<p><b>מידע</b></p>\n"
+"<p>לחיצה ימנית על יסוד תציג עליו מידע.</p>\n"
+"<p>אפשר להתקרב ולהתרחק באמצעות גלגלת העכבר / יכולת התקריב.</p>\n"
+"<p>אפשר לגלול באמצעות לחיצה שמאלית וגרירה / יכולת הגלילה.</p>"
 
 #: src/isotopetable/isotopeitem.cpp:65
 #, kde-format
@@ -4894,40 +5165,40 @@ msgid "Isotope Table"
 msgstr "טבלת איזוטופים"
 
 #: src/isotopetable/isotopetabledialog.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "alpha ray emission"
 msgid "alpha"
-msgstr "קרני אלפא"
+msgstr "אלפא"
 
 #: src/isotopetable/isotopetabledialog.cpp:48
 #, kde-format
 msgctxt "Electron capture method"
 msgid "EC"
-msgstr ""
+msgstr "לכידת אלקטרון"
 
 #: src/isotopetable/isotopetabledialog.cpp:49
 #, kde-format
 msgctxt "Many ways"
 msgid "Multiple"
-msgstr ""
+msgstr "מגוון"
 
 #: src/isotopetable/isotopetabledialog.cpp:50
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Beta plus ray emission"
 msgid "Beta +"
-msgstr "קרני בטא"
+msgstr "בטא +"
 
 #: src/isotopetable/isotopetabledialog.cpp:51
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Beta minus ray emission"
 msgid "Beta -"
-msgstr "קרני בטא"
+msgstr "בטא -"
 
 #: src/isotopetable/isotopetabledialog.cpp:52
 #, kde-format
 msgctxt "Stable isotope"
 msgid "Stable"
-msgstr ""
+msgstr "יציב"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
 #, kde-format
@@ -4964,12 +5235,12 @@ msgstr "מחצית חיים: לא ידוע"
 #: src/isotopetable/isotopetabledialog.cpp:82
 #, kde-format
 msgid "Abundance: %1 %"
-msgstr ""
+msgstr "שכיחות: %1 %"
 
 #: src/isotopetable/isotopetabledialog.cpp:83
 #, kde-format
 msgid "Number of nucleons: %1"
-msgstr ""
+msgstr "מספר נוקליאונים: %1"
 
 #: src/isotopetable/isotopetabledialog.cpp:84
 #, kde-format
@@ -5047,7 +5318,7 @@ msgstr "מילון מו&נחים…"
 #: src/kalzium.cpp:174
 #, kde-format
 msgid "&R/S Phrases..."
-msgstr ""
+msgstr "משפטי &R/S..."
 
 #: src/kalzium.cpp:179
 #, kde-format
@@ -5173,7 +5444,7 @@ msgstr "ואן דר ואלס"
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
 msgid "u"
-msgstr ""
+msgstr "u"
 
 #: src/kalziumgradienttype.cpp:493
 #, kde-format
@@ -5199,7 +5470,7 @@ msgstr "יינון ראשון"
 #: src/kalziumnumerationtype.cpp:98
 #, kde-format
 msgid "No Numeration"
-msgstr ""
+msgstr "ללא מספור"
 
 #: src/kalziumnumerationtype.cpp:149
 #, kde-format
@@ -5253,9 +5524,9 @@ msgid "f-Block"
 msgstr "אורביטל f"
 
 #: src/kalziumschemetype.cpp:197
-#, fuzzy, kde-format
+#, kde-format
 msgid "Iconic"
-msgstr "ברזל"
+msgstr "סמלי"
 
 #: src/kalziumschemetype.cpp:214
 #, kde-format
@@ -5270,7 +5541,7 @@ msgstr "מתכות אלקליות עפרוריות"
 #: src/kalziumschemetype.cpp:281
 #, kde-format
 msgid "Rare Earth"
-msgstr ""
+msgstr "עפרות נדירות"
 
 #: src/kalziumschemetype.cpp:282
 #, kde-format
@@ -5288,7 +5559,7 @@ msgid "Other Metal"
 msgstr "מתכת אחרת"
 
 #: src/kalziumschemetype.cpp:285
-#, fuzzy, kde-format
+#, kde-format
 msgid "Halogen"
 msgstr "הלוגנים"
 
@@ -5404,10 +5675,10 @@ msgid "Unknown Value"
 msgstr "ערך לא ידוע"
 
 #: src/kalziumutils.cpp:115
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "x u (units). The atomic mass."
 msgid "%1 u"
-msgstr " u"
+msgstr "%1 u"
 
 #: src/kalziumutils.cpp:123
 #, kde-format
@@ -5561,17 +5832,17 @@ msgstr "מרקוס האנוול"
 #: src/main.cpp:49
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
-msgstr ""
+msgstr "SoC על המציג המולקולרי והסבה/שילוב של libavogadro"
 
 #: src/main.cpp:51
 #, kde-format
 msgid "Kashyap R Puranik"
-msgstr ""
+msgstr "קשיאפ ר פורניק"
 
 #: src/main.cpp:51
 #, kde-format
 msgid "SoC on the calculator widget and a few smaller improvements"
-msgstr ""
+msgstr "SoC על וידג׳ט המחשבון ומספר שיפורים קטנים"
 
 #: src/main.cpp:53
 #, kde-format
@@ -5593,7 +5864,7 @@ msgstr "אינגה וולין"
 msgid ""
 "Code cleaning, parser for the molecule weight calculator, and a lot of "
 "smaller improvements"
-msgstr ""
+msgstr "ניקוי קוד, מפענח למחשבון המשקל המולקולרי והרבה שיפורים קטנים"
 
 #: src/main.cpp:57
 #, kde-format
@@ -5620,7 +5891,7 @@ msgstr "תרומות קוד ותיעוד לפותר המשוואות והמצי�
 #: src/main.cpp:61
 #, kde-format
 msgid "Jarle Akselsen"
-msgstr ""
+msgstr "יארל אקסלסן"
 
 #: src/main.cpp:61
 #, kde-format
@@ -5695,7 +5966,7 @@ msgstr "בריאן בק"
 #: src/main.cpp:75
 #, kde-format
 msgid "The orbits icon"
-msgstr ""
+msgstr "סמל המסלולים"
 
 #: src/main.cpp:77
 #, kde-format
@@ -5862,9 +6133,9 @@ msgstr "תרכובת"
 
 #. i18n: ectx: property (toolTip), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:188
-#, fuzzy, kde-format
+#, kde-format
 msgid "Elemental composition"
-msgstr "&הראה את שמות היסודות"
+msgstr "הרכב יסודות"
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:191
@@ -5873,6 +6144,8 @@ msgid ""
 "This table previews the elemental composition of the molecule, i.e. the "
 "percentage of each element in the molecule."
 msgstr ""
+"הטבלה הזאת מציגה תצוגה מקדימה של הרכב היסודות של המולקולה, כלומר האחוז של כל "
+"יסוד במולקולה."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:213
@@ -5905,6 +6178,8 @@ msgid ""
 "This displays all the aliases used in the molecule.\n"
 "For instance, in the molecule MeOH, the alias used is Me = CH3."
 msgstr ""
+"כאן מוצגים כל הכינויים שבשימוש במולקולה.\n"
+"למשל, במולקולה MeOH, הכינוי שבשימוש הוא Me = CH3."
 
 #. i18n: ectx: property (text), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:262
@@ -6207,14 +6482,14 @@ msgstr "משפטי סיכון/בטיחות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/rsdialog.cpp:79 src/rswidget.ui:50
-#, fuzzy, kde-format
+#, kde-format
 msgid "R-Phrases:"
-msgstr "פאזה"
+msgstr "משפטי סיכון (R):"
 
 #: src/rsdialog.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "S-Phrases:"
-msgstr "פאזה"
+msgstr "משפטי בטיחות (S):"
 
 #: src/rsdialog.cpp:95
 #, kde-format
@@ -6277,7 +6552,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S7: Keep container tightly closed"
-msgstr ""
+msgstr "S7: יש לשמור את המכל סגור היטב"
 
 #: src/rsdialog.cpp:160
 #, kde-format
@@ -6285,7 +6560,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S8: Keep container dry"
-msgstr ""
+msgstr "S8: יש לשמור את המכל יבש"
 
 #: src/rsdialog.cpp:163
 #, kde-format
@@ -6293,7 +6568,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S9: Keep container in a well-ventilated place"
-msgstr ""
+msgstr "S9: יש לאחסן את המכל במקום מאוורר היטב"
 
 #: src/rsdialog.cpp:166
 #, kde-format
@@ -6301,7 +6576,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S12: Do not keep the container sealed"
-msgstr ""
+msgstr "S12: אין לשמור את המכל אטום"
 
 #: src/rsdialog.cpp:169
 #, kde-format
@@ -6309,7 +6584,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S13: Keep away from food, drink and animal feedingstuffs"
-msgstr ""
+msgstr "S13: יש להרחיק ממזון, משקאות ומזון לבעלי חיים"
 
 #: src/rsdialog.cpp:172
 #, kde-format
@@ -6319,7 +6594,7 @@ msgctxt ""
 msgid ""
 "S14: Keep away from ... ( incompatible materials to be indicated by the "
 "manufacturer )"
-msgstr ""
+msgstr "S14: יש להרחיק מ… (חומרים לא תואמים יצוינו על ידי היצרן)"
 
 #: src/rsdialog.cpp:175
 #, kde-format
@@ -6327,7 +6602,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S15: Keep away from heat"
-msgstr ""
+msgstr "S15: יש להרחיק מחום"
 
 #: src/rsdialog.cpp:178
 #, kde-format
@@ -6335,7 +6610,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S16: Keep away from sources of ignition - No smoking"
-msgstr ""
+msgstr "S16: יש להרחיק ממקורות הצתה - העישון אסור"
 
 #: src/rsdialog.cpp:181
 #, kde-format
@@ -6343,7 +6618,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S17: Keep away from combustible material"
-msgstr ""
+msgstr "S17: יש להרחיק מחומרים דליקים"
 
 #: src/rsdialog.cpp:184
 #, kde-format
@@ -6351,7 +6626,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S18: Handle and open container with care"
-msgstr ""
+msgstr "S18: יש לטפל במכל ולפתוח אותו בזהירות"
 
 #: src/rsdialog.cpp:187
 #, kde-format
@@ -6359,7 +6634,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S20: When using do not eat or drink"
-msgstr ""
+msgstr "S20: בעת השימוש אין לאכול או לשתות"
 
 #: src/rsdialog.cpp:190
 #, kde-format
@@ -6367,7 +6642,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S21: When using do not smoke"
-msgstr ""
+msgstr "S21: אין לעשן בזמן השימוש"
 
 #: src/rsdialog.cpp:193
 #, kde-format
@@ -6375,7 +6650,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S22: Do not breathe dust"
-msgstr ""
+msgstr "S22: אין לנשום את האבק"
 
 #: src/rsdialog.cpp:196
 #, kde-format
@@ -6385,7 +6660,7 @@ msgctxt ""
 msgid ""
 "S23: Do not breathe gas/fumes/vapour/spray ( appropriate wording to be "
 "specified by the manufacturer )"
-msgstr ""
+msgstr "S23: אין לנשום גז/אדים/תרסיס (הניסוח המתאים יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:199
 #, kde-format
@@ -6393,7 +6668,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S24: Avoid contact with skin"
-msgstr ""
+msgstr "S24: יש למנוע מגע עם העור"
 
 #: src/rsdialog.cpp:202
 #, kde-format
@@ -6401,7 +6676,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S25: Avoid contact with eyes"
-msgstr ""
+msgstr "S25: יש למנוע מגע עם העיניים"
 
 #: src/rsdialog.cpp:205
 #, kde-format
@@ -6412,6 +6687,7 @@ msgid ""
 "S26: In case of contact with eyes, rinse immediately with plenty of water "
 "and seek medical advice"
 msgstr ""
+"S26: במקרה של מגע עם העיניים, יש לשטוף מיד בהרבה מים ולפנות לייעוץ רפואי"
 
 #: src/rsdialog.cpp:208
 #, kde-format
@@ -6419,7 +6695,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S27: Take off immediately all contaminated clothing"
-msgstr ""
+msgstr "S27: יש לפשוט מיד בגדים מזוהמים"
 
 #: src/rsdialog.cpp:211
 #, kde-format
@@ -6429,7 +6705,7 @@ msgctxt ""
 msgid ""
 "S28: After contact with skin, wash immediately with plenty of ... ( to be "
 "specified by the manufacturer )"
-msgstr ""
+msgstr "S28: אחרי מגע עם העור, יש לשטוף מיד בהרבה… (חומר יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:214
 #, kde-format
@@ -6437,7 +6713,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S29: Do not empty into drains"
-msgstr ""
+msgstr "S29: אין לרוקן לביוב"
 
 #: src/rsdialog.cpp:217
 #, kde-format
@@ -6445,7 +6721,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S30: Never add water to this product"
-msgstr ""
+msgstr "S30: לעולם אין להוסיף מים למוצר זה"
 
 #: src/rsdialog.cpp:220
 #, kde-format
@@ -6453,7 +6729,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S33: Take precautionary measures against static discharges"
-msgstr ""
+msgstr "S33: יש לנקוט אמצעי זהירות נגד התפרקויות סטטיות"
 
 #: src/rsdialog.cpp:223
 #, kde-format
@@ -6461,7 +6737,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S35: This material and its container must be disposed of in a safe way"
-msgstr ""
+msgstr "S35: החומר והמכל חייבים להיות מסולקים בדרך בטוחה"
 
 #: src/rsdialog.cpp:226
 #, kde-format
@@ -6469,7 +6745,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S36: Wear suitable protective clothing"
-msgstr ""
+msgstr "S36: יש ללבוש ביגוד מגן מתאים"
 
 #: src/rsdialog.cpp:229
 #, kde-format
@@ -6477,7 +6753,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S37: Wear suitable gloves"
-msgstr ""
+msgstr "S37: יש ללבוש כפפות מתאימות"
 
 #: src/rsdialog.cpp:232
 #, kde-format
@@ -6486,7 +6762,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S38: In case of insufficient ventilation wear suitable respiratory equipment"
-msgstr ""
+msgstr "S38: במקרה של אוורור לא מספק, יש להשתמש בציוד נשימתי מתאים"
 
 #: src/rsdialog.cpp:235
 #, kde-format
@@ -6494,7 +6770,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S39: Wear eye/face protection"
-msgstr ""
+msgstr "S39: יש להרכיב משקפי מגן/מגן פנים"
 
 #: src/rsdialog.cpp:238
 #, kde-format
@@ -6505,6 +6781,8 @@ msgid ""
 "S40: To clean the floor and all objects contaminated by this material "
 "use ... ( to be specified by the manufacturer )"
 msgstr ""
+"S40: לניקוי הרצפה וכל החפצים שזוהמו בחומר זה, יש להשתמש ב… (יצוין על ידי "
+"היצרן)"
 
 #: src/rsdialog.cpp:241
 #, kde-format
@@ -6512,7 +6790,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S41: In case of fire and/or explosion do not breathe fumes"
-msgstr ""
+msgstr "S41: במקרה של שרפה ו/או פיצוץ, אין לנשום את העשן"
 
 #: src/rsdialog.cpp:244
 #, kde-format
@@ -6523,6 +6801,8 @@ msgid ""
 "S42: During fumigation/spraying wear suitable respiratory equipment "
 "( appropriate wording to be specified by the manufacturer )"
 msgstr ""
+"S42: בעת איוד/ריסוס יש להשתמש בציוד נשימתי מתאים (הניסוח המתאים יצוין על ידי "
+"היצרן)"
 
 #: src/rsdialog.cpp:247
 #, kde-format
@@ -6533,6 +6813,8 @@ msgid ""
 "S43: In case of fire use ... ( indicate in the space the precise type of "
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
+"S43: במקרה של שרפה יש להשתמש ב… (ציין במקום הריק את סוג הציוד לכיבוי אש. אם "
+"מים מגבירים את הסיכון הוסף - אין להשתמש במים)"
 
 #: src/rsdialog.cpp:251
 #, kde-format
@@ -6543,6 +6825,8 @@ msgid ""
 "S45: In case of accident or if you feel unwell seek medical advice "
 "immediately ( show the label where possible )"
 msgstr ""
+"S45: במקרה של תאונה או אם אתה חש ברע, פנה מיד לייעוץ רפואי (הצג את התווית אם "
+"אפשר)"
 
 #: src/rsdialog.cpp:254
 #, kde-format
@@ -6552,7 +6836,7 @@ msgctxt ""
 msgid ""
 "S46: If swallowed, seek medical advice immediately and show this container "
 "or label"
-msgstr ""
+msgstr "S46: במקרה של בליעה, פנה מיד לייעוץ רפואי והצג מכל זה או את התווית"
 
 #: src/rsdialog.cpp:257
 #, kde-format
@@ -6562,7 +6846,7 @@ msgctxt ""
 msgid ""
 "S47: Keep at temperature not exceeding ... °C ( to be specified by the "
 "manufacturer )"
-msgstr ""
+msgstr "S47: יש לשמור בטמפרטורה שלא עולה על … °C (יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:260
 #, kde-format
@@ -6572,7 +6856,7 @@ msgctxt ""
 msgid ""
 "S48: Keep wet with ... ( appropriate material to be specified by the "
 "manufacturer )"
-msgstr ""
+msgstr "S48: יש לשמור רטוב באמצעות… (חומר מתאים יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:263
 #, kde-format
@@ -6580,7 +6864,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S49: Keep only in the original container"
-msgstr ""
+msgstr "S49: יש לשמור במכל המקורי בלבד"
 
 #: src/rsdialog.cpp:266
 #, kde-format
@@ -6588,7 +6872,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S50: Do not mix with ... ( to be specified by the manufacturer )"
-msgstr ""
+msgstr "S50: אין לערבב עם… (יצוין על ידי היצרן)"
 
 #: src/rsdialog.cpp:269
 #, kde-format
@@ -6596,7 +6880,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S51: Use only in well-ventilated areas"
-msgstr ""
+msgstr "S51: יש להשתמש רק באזורים מאווררים היטב"
 
 #: src/rsdialog.cpp:272
 #, kde-format
@@ -6604,7 +6888,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S52: Not recommended for interior use on large surface areas"
-msgstr ""
+msgstr "S52: לא מומלץ לשימוש פנימי על משטחים נרחבים"
 
 #: src/rsdialog.cpp:275
 #, kde-format
@@ -6612,7 +6896,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S53: Avoid exposure - obtain special instructions before use"
-msgstr ""
+msgstr "S53: יש להימנע מחשיפה - קבל הוראות מיוחדות לפני השימוש"
 
 #: src/rsdialog.cpp:278
 #, kde-format
@@ -6622,7 +6906,7 @@ msgctxt ""
 msgid ""
 "S56: Dispose of this material and its container at hazardous or special "
 "waste collection point"
-msgstr ""
+msgstr "S56: יש לסלק את החומר ואת המכל שלו בנקודת איסוף פסולת מסוכנת או מיוחדת"
 
 #: src/rsdialog.cpp:281
 #, kde-format
@@ -6630,7 +6914,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S57: Use appropriate containment to avoid environmental contamination"
-msgstr ""
+msgstr "S57: יש להשתמש במכלים מתאימים למניעת זיהום סביבתי"
 
 #: src/rsdialog.cpp:284
 #, kde-format
@@ -6639,7 +6923,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S59: Refer to manufacturer/supplier for information on recovery/recycling"
-msgstr ""
+msgstr "S59: פנה ליצרן/ספק לקבלת מידע על שימוש חוזר/מחזור"
 
 #: src/rsdialog.cpp:287
 #, kde-format
@@ -6648,7 +6932,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S60: This material and its container must be disposed of as hazardous waste"
-msgstr ""
+msgstr "S60: החומר והמכל שלו חייבים להיות מסולקים כפסולת מסוכנת"
 
 #: src/rsdialog.cpp:290
 #, kde-format
@@ -6658,7 +6942,7 @@ msgctxt ""
 msgid ""
 "S61: Avoid release to the environment. Refer to special instructions/safety "
 "data sheet"
-msgstr ""
+msgstr "S61: יש להימנע מפליטה לסביבה. עיין בהוראות המיוחדות/גיליון בטיחות"
 
 #: src/rsdialog.cpp:293
 #, kde-format
@@ -6669,6 +6953,8 @@ msgid ""
 "S62: If swallowed, do not induce vomiting: seek medical advice immediately "
 "and show this container or label"
 msgstr ""
+"S62: במקרה של בליעה, אין לגרום להקאה: פנה מיד לייעוץ רפואי והצג מכל זה או את "
+"התווית"
 
 #: src/rsdialog.cpp:296
 #, kde-format
@@ -6679,6 +6965,7 @@ msgid ""
 "S63: In case of accident by inhalation: remove casualty to fresh air and "
 "keep at rest"
 msgstr ""
+"S63: במקרה של תאונה עקב שאיפה: הרחק את הנפגע לאוויר צח והשאר אותו במנוחה"
 
 #: src/rsdialog.cpp:299
 #, kde-format
@@ -6687,7 +6974,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S64: If swallowed, rinse mouth with water ( only if the person is conscious )"
-msgstr ""
+msgstr "S64: במקרה של בליעה, שטוף את הפה במים (רק אם האדם בהכרה)"
 
 #: src/rsdialog.cpp:325
 #, kde-format
@@ -7238,19 +7525,21 @@ msgid ""
 "Enter the R-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
+"נא להזין את משפטי הסיכון (R) לקריאה. רק \"-\" מותר כמפריד. שילובים עם \"/\" "
+"טרם הוטמעו."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, r_le)
 #: src/rswidget.ui:66
 #, kde-format
 msgid "Enter the R-Phrases you want to read"
-msgstr ""
+msgstr "נא להזין את משפטי הסיכון (R) לקריאה"
 
 #. i18n: ectx: property (text), widget (QLineEdit, r_le)
 #. i18n: ectx: property (text), widget (QLineEdit, s_le)
 #: src/rswidget.ui:69 src/rswidget.ui:82
 #, kde-format
 msgid "1-2-3-4-5-6-7-8-9"
-msgstr ""
+msgstr "1-2-3-4-5-6-7-8-9"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, s_le)
 #: src/rswidget.ui:76
@@ -7259,19 +7548,21 @@ msgid ""
 "Enter the S-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
+"נא להזין את משפטי הבטיחות (S) לקריאה. רק \"-\" מותר כמפריד. שילובים עם \"/\" "
+"טרם הוטמעו."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, s_le)
 #: src/rswidget.ui:79
 #, kde-format
 msgid "Enter the S-Phrases you want to read"
-msgstr ""
+msgstr "נא להזין את משפטי הבטיחות (S) לקריאה"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, filterButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, filterButton)
 #: src/rswidget.ui:89 src/rswidget.ui:92
 #, kde-format
 msgid "Click here to search for the phrases you entered on the left"
-msgstr ""
+msgstr "לחיצה כאן תחפש את המשפטים שהוזנו משמאל"
 
 #. i18n: ectx: property (text), widget (QPushButton, filterButton)
 #: src/rswidget.ui:95
@@ -7297,7 +7588,7 @@ msgstr "חלק אחד ליד השני"
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "שני החלקים רציפים"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
@@ -7435,13 +7726,13 @@ msgstr "מתכות אלקליות:"
 #: src/settings/settings_colors.ui:448
 #, kde-format
 msgid "Rare earth:"
-msgstr ""
+msgstr "עפרות נדירות:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7_2)
 #: src/settings/settings_colors.ui:468
-#, fuzzy, kde-format
+#, kde-format
 msgid "Non-metals:"
-msgstr "לא מתכות"
+msgstr "אל-מתכות:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel6_2)
 #: src/settings/settings_colors.ui:488
@@ -7507,6 +7798,10 @@ msgid ""
 "\n"
 "Check the properties you want to have displayed with a logarithmic gradient."
 msgstr ""
+"במקום להשתמש במדרג ליניארי להצגת תכונה נתונה של יסוד בטבלה המחזורית, Kalzium "
+"יכול להשתמש גם במדרג לוגריתמי.\n"
+"\n"
+"יש לסמן את התכונות שברצונך להציג עם מדרג לוגריתמי."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicDiscoverydateGradient)
 #: src/settings/settings_gradients.ui:102
@@ -7543,26 +7838,26 @@ msgstr "טמפרטורה:"
 
 #. i18n: ectx: property (toolTip), widget (QWidget, SpectrumView)
 #: src/spectrumview.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This page gives an overview of the spectrum of this element. Using the mouse "
 "you can zoom into the spectrum."
 msgstr ""
-"דף זה נותן מבט כללי על הספקטרום של אלמט זה. בעזרת העכבר ניתן להגדיל ולהקטין "
-"את הספקטרום."
+"דף זה נותן סקירה כללית על הספקטרום של יסוד זה. באמצעות העכבר ניתן לבצע תקריב "
+"על הספקטרום."
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, SpectrumView)
 #: src/spectrumview.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "This page gives an overview of the spectrum of this element."
-msgstr "דף זה נותן מבט כללי על הספקטרום של אלמט זה"
+msgstr "דף זה נותן סקירה כללית על הספקטרום של יסוד זה."
 
 #. i18n: ectx: property (toolTip), widget (SpectrumWidget, m_spectrumWidget)
 #. i18n: ectx: property (whatsThis), widget (SpectrumWidget, m_spectrumWidget)
 #: src/spectrumview.ui:41 src/spectrumview.ui:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "This is the spectrum of the element."
-msgstr "הצג רק את המספר של היסוד"
+msgstr "זהו הספקטרום של היסוד."
 
 #. i18n: ectx: property (text), widget (QLabel, label1)
 #: src/spectrumview.ui:53
@@ -7573,9 +7868,9 @@ msgstr "ערך מ&זערי:"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, minimumValue)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, minimumValue)
 #: src/spectrumview.ui:66 src/spectrumview.ui:69
-#, fuzzy, kde-format
+#, kde-format
 msgid "This sets the leftmost wavelength of the spectrum."
-msgstr "כאן נקבע הגבול השמאלי של אורך הגל בספקטרום"
+msgstr "כאן מוגדר אורך הגל השמאלי ביותר של הספקטרום."
 
 #. i18n: ectx: property (text), widget (QLabel, label2)
 #: src/spectrumview.ui:110
@@ -7586,9 +7881,9 @@ msgstr "ערך מ&רבי:"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maximumValue)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maximumValue)
 #: src/spectrumview.ui:123 src/spectrumview.ui:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "This sets the rightmost wavelength of the spectrum."
-msgstr "כאן נקבע הגבול הימני של אורך הגל בספקטרום"
+msgstr "כאן מוגדר אורך הגל הימני ביותר של הספקטרום."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/spectrumview.ui:145
@@ -7600,13 +7895,13 @@ msgstr "הגדרות ספקטרום"
 #: src/spectrumview.ui:155
 #, kde-format
 msgid "Emission spectrum"
-msgstr ""
+msgstr "ספקטרום פליטה"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_spectrumType)
 #: src/spectrumview.ui:160
 #, kde-format
 msgid "Absorption spectrum"
-msgstr ""
+msgstr "ספקטרום בליעה"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/spectrumview.ui:168
