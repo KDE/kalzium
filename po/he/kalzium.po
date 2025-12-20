@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2025-11-25 14:46+0200\n"
+"PO-Revision-Date: 2025-12-17 10:00+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -1469,7 +1469,7 @@ msgstr ""
 #: element_tiny.xml:2
 #, kde-format
 msgid "Dummy"
-msgstr ""
+msgstr "מדומה"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:3
@@ -1527,6 +1527,9 @@ msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
+"המשמעות של בור/בורון היא ‚Bor(ax) + (carb)on’ (שילוב של החלקים מחוץ לסוגריים "
+"יוצר את הביטוי Boron שהוא השם באנגלית). ניתן למצוא אותו בבוראקס (borax - מלח "
+"ממשקעי אגמים מלוחים) וההתנהגות שלו מאוד דומה לפחמן (carbon)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:13
@@ -2278,7 +2281,7 @@ msgid "Ytterbium"
 msgstr "איטרביום"
 
 #: element_tiny.xml:142
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
@@ -4954,12 +4957,12 @@ msgid ""
 msgstr ""
 "פותר המשוואות מאפשר לך לאזן משוואה כימית.<br> <br><b>שימוש במשתנים</"
 "b><br>כדי לבטא כמויות משתנות של יסוד, יש להציב תו בודד לפני סמל היסוד, כפי "
-"שמוצג בדוגמה זו:<br><i>aH + bO -> 5H2O</i> (תוצאה: <b>10</b> H + <b>5</b> O -"
-"&gt; <b>5</b> H<sub>2</sub>O)<br>פתרון הביטוי הזה ייתן לך את הכמות הנדרשת של "
-"מימן וחמצן.<br><br><b>הגדרת מטענים חשמליים</b><br>יש להשתמש בסוגריים מרובעים "
-"כדי לציין את המטען החשמלי של יסוד, כפי שמוצג בדוגמה זו:<br><i>4H[+] + 2O -> "
-"cH2O[2+]</i> (תוצאה: <b>4</b> H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</"
-"b> H<b><sub>2</sub></b>O<b><sup>2+</sup></b>)"
+"שמוצג בדוגמה הזאת:<br><i>aH + bO -> 5H2O</i> (תוצאה: <b>10</b> H + <b>5</b> "
+"O -&gt; <b>5</b> H<sub>2</sub>O)<br>פתרון הביטוי הזה יספק לך את כמות המימן "
+"והחמצן הנדרשות.<br><br><b>הגדרת מטענים חשמליים</b><br>יש להשתמש בסוגריים "
+"מרובעים כדי לציין את המטען החשמלי של יסוד, כפי שמוצג בדוגמה הזאת:"
+"<br><i>4H[+] + 2O -> cH2O[2+]</i> (תוצאה: <b>4</b> H<b><sup>+</sup></b> + "
+"<b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></b>O<b><sup>2+</sup></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/equationview.ui:44
@@ -5318,7 +5321,7 @@ msgstr "מילון מו&נחים…"
 #: src/kalzium.cpp:174
 #, kde-format
 msgid "&R/S Phrases..."
-msgstr "משפטי &R/S..."
+msgstr "מ&שפטי R/S (סיכון/בטיחות)…"
 
 #: src/kalzium.cpp:179
 #, kde-format
@@ -6552,7 +6555,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S7: Keep container tightly closed"
-msgstr "S7: יש לשמור את המכל סגור היטב"
+msgstr "S7: יש לשמור על המכל סגור היטב"
 
 #: src/rsdialog.cpp:160
 #, kde-format
@@ -6560,7 +6563,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S8: Keep container dry"
-msgstr "S8: יש לשמור את המכל יבש"
+msgstr "S8: יש לשמור על המכל יבש"
 
 #: src/rsdialog.cpp:163
 #, kde-format
@@ -6721,7 +6724,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S30: Never add water to this product"
-msgstr "S30: לעולם אין להוסיף מים למוצר זה"
+msgstr "S30: לעולם אין להוסיף מים למוצר הזה"
 
 #: src/rsdialog.cpp:220
 #, kde-format
@@ -6729,7 +6732,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S33: Take precautionary measures against static discharges"
-msgstr "S33: יש לנקוט אמצעי זהירות נגד התפרקויות סטטיות"
+msgstr "S33: יש לנקוט אמצעי זהירות נגד פריקות סטטיות"
 
 #: src/rsdialog.cpp:223
 #, kde-format
@@ -6737,7 +6740,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S35: This material and its container must be disposed of in a safe way"
-msgstr "S35: החומר והמכל חייבים להיות מסולקים בדרך בטוחה"
+msgstr "S35: יש לסלק את החומר ואת המיכל בדרך בטוחה"
 
 #: src/rsdialog.cpp:226
 #, kde-format
@@ -6753,7 +6756,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S37: Wear suitable gloves"
-msgstr "S37: יש ללבוש כפפות מתאימות"
+msgstr "S37: יש לעטות כפפות מתאימות"
 
 #: src/rsdialog.cpp:232
 #, kde-format
@@ -6813,8 +6816,8 @@ msgid ""
 "S43: In case of fire use ... ( indicate in the space the precise type of "
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
-"S43: במקרה של שרפה יש להשתמש ב… (ציין במקום הריק את סוג הציוד לכיבוי אש. אם "
-"מים מגבירים את הסיכון הוסף - אין להשתמש במים)"
+"S43: במקרה של שרפה יש להשתמש ב… (במקום הריק יצוין סוג הציוד לכיבוי אש. אם "
+"מים מגבירים את הסיכון יש להוסיף - אין להשתמש במים)"
 
 #: src/rsdialog.cpp:251
 #, kde-format
@@ -6825,8 +6828,8 @@ msgid ""
 "S45: In case of accident or if you feel unwell seek medical advice "
 "immediately ( show the label where possible )"
 msgstr ""
-"S45: במקרה של תאונה או אם אתה חש ברע, פנה מיד לייעוץ רפואי (הצג את התווית אם "
-"אפשר)"
+"S45: במקרה של תאונה או במקרה של תחושה ברע, יש לפנות מיד לייעוץ רפואי (כדאי "
+"להציג את התווית אם אפשר)"
 
 #: src/rsdialog.cpp:254
 #, kde-format
@@ -6836,7 +6839,9 @@ msgctxt ""
 msgid ""
 "S46: If swallowed, seek medical advice immediately and show this container "
 "or label"
-msgstr "S46: במקרה של בליעה, פנה מיד לייעוץ רפואי והצג מכל זה או את התווית"
+msgstr ""
+"S46: במקרה של בליעה, יש לפנות מיד לייעוץ רפואי ולהציג את המיכל הזה או את "
+"התווית"
 
 #: src/rsdialog.cpp:257
 #, kde-format
@@ -6896,7 +6901,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S53: Avoid exposure - obtain special instructions before use"
-msgstr "S53: יש להימנע מחשיפה - קבל הוראות מיוחדות לפני השימוש"
+msgstr "S53: יש להימנע מחשיפה - חשוב לקבל הוראות מיוחדות לפני השימוש"
 
 #: src/rsdialog.cpp:278
 #, kde-format
@@ -6923,7 +6928,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S59: Refer to manufacturer/supplier for information on recovery/recycling"
-msgstr "S59: פנה ליצרן/ספק לקבלת מידע על שימוש חוזר/מחזור"
+msgstr "S59: יש לפנות ליצרן/ספק לקבלת מידע על שימוש חוזר/מחזור"
 
 #: src/rsdialog.cpp:287
 #, kde-format
@@ -6932,7 +6937,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S60: This material and its container must be disposed of as hazardous waste"
-msgstr "S60: החומר והמכל שלו חייבים להיות מסולקים כפסולת מסוכנת"
+msgstr "S60: יש לסלק את החומר ואת המכל שלו כפסולת מסוכנת"
 
 #: src/rsdialog.cpp:290
 #, kde-format
@@ -6942,7 +6947,8 @@ msgctxt ""
 msgid ""
 "S61: Avoid release to the environment. Refer to special instructions/safety "
 "data sheet"
-msgstr "S61: יש להימנע מפליטה לסביבה. עיין בהוראות המיוחדות/גיליון בטיחות"
+msgstr ""
+"S61: יש להימנע מפליטה לסביבה. חשוב לעיין בהוראות המיוחדות/גיליון בטיחות"
 
 #: src/rsdialog.cpp:293
 #, kde-format
@@ -6953,8 +6959,8 @@ msgid ""
 "S62: If swallowed, do not induce vomiting: seek medical advice immediately "
 "and show this container or label"
 msgstr ""
-"S62: במקרה של בליעה, אין לגרום להקאה: פנה מיד לייעוץ רפואי והצג מכל זה או את "
-"התווית"
+"S62: במקרה של בליעה, אין לגרום להקאה: יש לפנות מיד לייעוץ רפואי ולהציג את "
+"המכל הזה או את התווית"
 
 #: src/rsdialog.cpp:296
 #, kde-format
@@ -6965,7 +6971,8 @@ msgid ""
 "S63: In case of accident by inhalation: remove casualty to fresh air and "
 "keep at rest"
 msgstr ""
-"S63: במקרה של תאונה עקב שאיפה: הרחק את הנפגע לאוויר צח והשאר אותו במנוחה"
+"S63: במקרה של תאונה עקב שאיפה: יש להרחיק את הנפגע/ת לאוויר צח ולהשאיר אותו/ה "
+"במנוחה"
 
 #: src/rsdialog.cpp:299
 #, kde-format
@@ -6974,7 +6981,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid ""
 "S64: If swallowed, rinse mouth with water ( only if the person is conscious )"
-msgstr "S64: במקרה של בליעה, שטוף את הפה במים (רק אם האדם בהכרה)"
+msgstr "S64: במקרה של בליעה, יש לשטוף את הפה במים (רק אם האדם בהכרה)"
 
 #: src/rsdialog.cpp:325
 #, kde-format
@@ -7516,7 +7523,7 @@ msgstr "לפחות אחד מהמשפטים שצוינו שגוי."
 #: src/rswidget.ui:40
 #, kde-format
 msgid "S-Phrases: "
-msgstr "משפטי S: "
+msgstr "משפטי S (בטיחות): "
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, r_le)
 #: src/rswidget.ui:60
@@ -7525,14 +7532,14 @@ msgid ""
 "Enter the R-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"נא להזין את משפטי הסיכון (R) לקריאה. רק \"-\" מותר כמפריד. שילובים עם \"/\" "
-"טרם הוטמעו."
+"נא למלא את משפטי הסיכון (R) לקריאה. רק „-” מותר כמפריד. שילובים עם „/” טרם "
+"הוטמעו."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, r_le)
 #: src/rswidget.ui:66
 #, kde-format
 msgid "Enter the R-Phrases you want to read"
-msgstr "נא להזין את משפטי הסיכון (R) לקריאה"
+msgstr "נא למלא את משפטי הסיכון (R) לקריאה"
 
 #. i18n: ectx: property (text), widget (QLineEdit, r_le)
 #. i18n: ectx: property (text), widget (QLineEdit, s_le)
@@ -7548,21 +7555,21 @@ msgid ""
 "Enter the S-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"נא להזין את משפטי הבטיחות (S) לקריאה. רק \"-\" מותר כמפריד. שילובים עם \"/\" "
-"טרם הוטמעו."
+"נא למלא את משפטי הבטיחות (S) לקריאה. רק „-” מותר כמפריד. שילובים עם „/” טרם "
+"הוטמעו."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, s_le)
 #: src/rswidget.ui:79
 #, kde-format
 msgid "Enter the S-Phrases you want to read"
-msgstr "נא להזין את משפטי הבטיחות (S) לקריאה"
+msgstr "נא למלא את משפטי הבטיחות (S) לקריאה"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, filterButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, filterButton)
 #: src/rswidget.ui:89 src/rswidget.ui:92
 #, kde-format
 msgid "Click here to search for the phrases you entered on the left"
-msgstr "לחיצה כאן תחפש את המשפטים שהוזנו משמאל"
+msgstr "לחיצה כאן תחפש את המשפטים שמולאו מימין"
 
 #. i18n: ectx: property (text), widget (QPushButton, filterButton)
 #: src/rswidget.ui:95
@@ -7732,7 +7739,7 @@ msgstr "עפרות נדירות:"
 #: src/settings/settings_colors.ui:468
 #, kde-format
 msgid "Non-metals:"
-msgstr "אל-מתכות:"
+msgstr "אל־מתכות:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel6_2)
 #: src/settings/settings_colors.ui:488
@@ -7801,7 +7808,7 @@ msgstr ""
 "במקום להשתמש במדרג ליניארי להצגת תכונה נתונה של יסוד בטבלה המחזורית, Kalzium "
 "יכול להשתמש גם במדרג לוגריתמי.\n"
 "\n"
-"יש לסמן את התכונות שברצונך להציג עם מדרג לוגריתמי."
+"יש לסמן את התכונות להצגה עם מדרג לוגריתמי."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicDiscoverydateGradient)
 #: src/settings/settings_gradients.ui:102
@@ -7843,21 +7850,21 @@ msgid ""
 "This page gives an overview of the spectrum of this element. Using the mouse "
 "you can zoom into the spectrum."
 msgstr ""
-"דף זה נותן סקירה כללית על הספקטרום של יסוד זה. באמצעות העכבר ניתן לבצע תקריב "
-"על הספקטרום."
+"העמוד הזה מספק סקירה כללית על הספקטרום של היסוד הזה. באמצעות העכבר ניתן "
+"לכוון את המרחק מהספקטרום."
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, SpectrumView)
 #: src/spectrumview.ui:17
 #, kde-format
 msgid "This page gives an overview of the spectrum of this element."
-msgstr "דף זה נותן סקירה כללית על הספקטרום של יסוד זה."
+msgstr "העמוד הזה מספק סקירה כללית על הספקטרום של היסוד הזה."
 
 #. i18n: ectx: property (toolTip), widget (SpectrumWidget, m_spectrumWidget)
 #. i18n: ectx: property (whatsThis), widget (SpectrumWidget, m_spectrumWidget)
 #: src/spectrumview.ui:41 src/spectrumview.ui:44
 #, kde-format
 msgid "This is the spectrum of the element."
-msgstr "זהו הספקטרום של היסוד."
+msgstr "זה הספקטרום של היסוד."
 
 #. i18n: ectx: property (text), widget (QLabel, label1)
 #: src/spectrumview.ui:53
@@ -8313,12 +8320,12 @@ msgid "Choose a file to save to"
 msgstr "נא לבחור קובץ לשמור אליו"
 
 #: src/tools/moleculeview.cpp:242
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
 "not need to be translated at all!"
 msgid "%1 u"
-msgstr " u"
+msgstr "%1 u"
 
 #: src/tools/moleculeview.cpp:281
 #, kde-format
@@ -8497,6 +8504,14 @@ msgid ""
 "will be converted here. Use the buttons to add and remove files from the "
 "list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal; text-decoration:none;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">כאן מוצגים הקבצים שיומרו. "
+"ניתן להשתמש בכפתורים כדי להוסיף ולהסיר קבצים מהרשימה.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/tools/obconverterwidget.ui:120
