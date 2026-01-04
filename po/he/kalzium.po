@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:38+0000\n"
-"PO-Revision-Date: 2025-12-17 08:38+0200\n"
+"PO-Revision-Date: 2026-01-03 16:14+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -120,7 +120,7 @@ msgid ""
 msgstr ""
 "חומר שאי אפשר לפרק לחומר פשוט יותר. היסודות הכימיים הם אבני הפינה של "
 "החומרים. יסודות מורכבים מאטומים שמורכבים מגרעין ופרוטונים חיוביים, פרוטונים "
-"נייטרליים ומעטפת של אלקטרונים."
+"ניטרליים ומעטפת של אלקטרונים."
 
 #: data/knowledge.xml:27
 #, kde-format
