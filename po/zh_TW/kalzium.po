@@ -5,19 +5,20 @@
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2012, 2013, 2014.
 # Jeff Huang <s8321414@gmail.com>, 2016.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
+# SPDX-FileCopyrightText: 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:38+0000\n"
-"PO-Revision-Date: 2024-06-10 20:40+0900\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2026-01-09 00:43+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.08.1\n"
+"X-Generator: Lokalize 26.03.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -368,8 +369,7 @@ msgstr "原子"
 msgid ""
 "Atoms are chemically inseparable and building blocks of matter. Atoms of one "
 "kind are called an Element."
-msgstr ""
-"原子在化學上是無法分離的，並組合成物質。同一種原子組成的物質就稱為元素。"
+msgstr "原子在化學上是無法分離的，並組合成物質。同一種類的原子稱為元素。"
 
 #: data/knowledge.xml:114 data/knowledge.xml:211 data/knowledge.xml:223
 #: data/knowledge.xml:232 data/knowledge.xml:240
@@ -1439,10 +1439,9 @@ msgid "Hydrogen"
 msgstr "氫"
 
 #: element_tiny.xml:4
-#, fuzzy, kde-format
-#| msgid "Greek 'hydro' and 'gennao' for 'forms water'"
+#, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
-msgstr "希臘字 hydro 與 gennao 表示「組成水」"
+msgstr "希臘字 hydro 與 gennao 表示「組成水」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
@@ -1451,10 +1450,9 @@ msgid "Helium"
 msgstr "氦"
 
 #: element_tiny.xml:6
-#, fuzzy, kde-format
-#| msgid "The Greek word for the sun was 'helios'"
+#, kde-format
 msgid "The Greek word for the sun was 'helios'."
-msgstr "希臘字 helios 表示「太陽」"
+msgstr "希臘字 helios 表示「太陽」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:7
@@ -1463,10 +1461,9 @@ msgid "Lithium"
 msgstr "鋰"
 
 #: element_tiny.xml:8
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "希臘字 lithos 表示「寶石」"
+msgstr "希臘字 lithos 表示「寶石」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1475,10 +1472,9 @@ msgid "Beryllium"
 msgstr "鈹"
 
 #: element_tiny.xml:10
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "希臘字 beryllos 表示「綠寶石」"
+msgstr "希臘字 beryllos 表示「綠寶石」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1487,16 +1483,13 @@ msgid "Boron"
 msgstr "硼"
 
 #: element_tiny.xml:12
-#, fuzzy, kde-format
-#| msgid ""
-#| "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
-#| "like carbon"
+#, kde-format
 msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
 "「硼」（Boron）為 Bor(ax) 與 (carb)on 的合體字。它在硼酸（Borax）內發現，而性"
-"質跟碳（Carbon）很相近"
+"質跟碳（Carbon）很相近。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:13
@@ -1505,10 +1498,9 @@ msgid "Carbon"
 msgstr "碳"
 
 #: element_tiny.xml:14
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'carboneum' for carbon."
-msgstr "拉丁文 carboneum 表示「碳」（Carbon）"
+msgstr "拉丁文 carboneum 表示「碳」（Carbon）。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:15
@@ -1517,10 +1509,9 @@ msgid "Nitrogen"
 msgstr "氮"
 
 #: element_tiny.xml:16
-#, fuzzy, kde-format
-#| msgid "Latin 'nitrogenium' ('forms saltpeter')"
+#, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
-msgstr "拉丁文 nitrogenium（組成「硝石」 saltpeter）"
+msgstr "拉丁文 nitrogenium（組成「硝石」 saltpeter）。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1529,10 +1520,9 @@ msgid "Oxygen"
 msgstr "氧"
 
 #: element_tiny.xml:18
-#, fuzzy, kde-format
-#| msgid "Latin 'oxygenium' (forms acids)"
+#, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "拉丁文 oxygenium（組成「酸」）"
+msgstr "拉丁文 oxygenium（組成「酸」）。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1541,10 +1531,9 @@ msgid "Fluorine"
 msgstr "氟"
 
 #: element_tiny.xml:20
-#, fuzzy, kde-format
-#| msgid "Latin 'fluere' ('floats')"
+#, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr "拉丁文 fluere（「漂浮」）"
+msgstr "拉丁文 fluere（「漂浮」）。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1553,10 +1542,9 @@ msgid "Neon"
 msgstr "氖"
 
 #: element_tiny.xml:22
-#, fuzzy, kde-format
-#| msgid "Greek 'neo'. meaning 'new'"
+#, kde-format
 msgid "Greek 'neo'. meaning 'new'."
-msgstr "希臘文的 neo 表示「新的」"
+msgstr "希臘文的 neo 表示「新的」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:23
@@ -1580,10 +1568,9 @@ msgid "Magnesium"
 msgstr "鎂"
 
 #: element_tiny.xml:26
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the city of Magnesia."
-msgstr "依 Magnesia 城市而命名"
+msgstr "依 Magnesia 城而命名。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
@@ -1592,10 +1579,9 @@ msgid "Aluminium"
 msgstr "鋁"
 
 #: element_tiny.xml:28
-#, fuzzy, kde-format
-#| msgid "Latin 'alumen'"
+#, kde-format
 msgid "Latin 'alumen'."
-msgstr "拉丁文 alumen"
+msgstr "拉丁文 alumen。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
@@ -1604,10 +1590,9 @@ msgid "Silicon"
 msgstr "矽"
 
 #: element_tiny.xml:30
-#, fuzzy, kde-format
-#| msgid "Latin 'silex'"
+#, kde-format
 msgid "Latin 'silex'."
-msgstr "拉丁文 silex"
+msgstr "拉丁文 silex。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
@@ -1616,10 +1601,9 @@ msgid "Phosphorus"
 msgstr "磷"
 
 #: element_tiny.xml:32
-#, fuzzy, kde-format
-#| msgid "Greek 'phosphoros' for 'carries light'"
+#, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
-msgstr "希臘文中的 phosphoros 表示「發光」"
+msgstr "希臘文中的 phosphoros 表示「發光」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1628,10 +1612,9 @@ msgid "Sulfur"
 msgstr "硫"
 
 #: element_tiny.xml:34
-#, fuzzy, kde-format
-#| msgid "In sanskrit 'sweb' means 'to sleep'"
+#, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr "梵文中的 sweb 表示「去睡覺」"
+msgstr "梵文中的 sweb 表示「去睡覺」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1640,10 +1623,9 @@ msgid "Chlorine"
 msgstr "氯"
 
 #: element_tiny.xml:36
-#, fuzzy, kde-format
-#| msgid "Greek 'chloros' for 'yellow-green'"
+#, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "希臘文中的 chloros 表示「黃綠色」"
+msgstr "希臘文中的 chloros 表示「黃綠色」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1652,10 +1634,9 @@ msgid "Argon"
 msgstr "氬"
 
 #: element_tiny.xml:38
-#, fuzzy, kde-format
-#| msgid "Greek 'aergon' for 'inactive'"
+#, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "希臘文中的 aergon 表示「不活躍的」"
+msgstr "希臘文中的 aergon 表示「不活躍的」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1680,10 +1661,9 @@ msgid "Calcium"
 msgstr "鈣"
 
 #: element_tiny.xml:42
-#, fuzzy, kde-format
-#| msgid "Latin 'calx' for 'lime'"
+#, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr "拉丁文中的 calx 表示「石灰」"
+msgstr "拉丁文中的 calx 表示「石灰」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -1692,10 +1672,9 @@ msgid "Scandium"
 msgstr "鈧"
 
 #: element_tiny.xml:44
-#, fuzzy, kde-format
-#| msgid "Named because it was found in Scandinavia"
+#, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr "因為在斯堪那維亞半島（Scandinavia）發現而命名"
+msgstr "因為在斯堪那維亞半島（Scandinavia）發現而命名。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -1704,10 +1683,9 @@ msgid "Titanium"
 msgstr "鈦"
 
 #: element_tiny.xml:46
-#, fuzzy, kde-format
-#| msgid "The Titans were giants in Greek mythology"
+#, kde-format
 msgid "The Titans were giants in Greek mythology."
-msgstr "泰坦（Titan）是希臘神話中的巨人"
+msgstr "泰坦（Titan）是希臘神話中的巨人。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:47
@@ -1716,10 +1694,9 @@ msgid "Vanadium"
 msgstr "釩"
 
 #: element_tiny.xml:48
-#, fuzzy, kde-format
-#| msgid "'Vanadis' is another name for the Nordic goddess Freyja"
+#, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr "Vanadis 是北歐女神 Freyja 的另一個名字"
+msgstr "Vanadis 是北歐女神 Freyja 的另一個名字。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -1728,10 +1705,9 @@ msgid "Chromium"
 msgstr "鉻"
 
 #: element_tiny.xml:50
-#, fuzzy, kde-format
-#| msgid "Greek 'chroma' means 'color'"
+#, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "希臘文中的 chroma 表示「顏色」"
+msgstr "希臘文中的 chroma 表示「顏色」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
@@ -1755,10 +1731,9 @@ msgid "Iron"
 msgstr "鐵"
 
 #: element_tiny.xml:54
-#, fuzzy, kde-format
-#| msgid "Latin 'ferrum'"
+#, kde-format
 msgid "Latin 'ferrum'."
-msgstr "拉丁文 ferrum"
+msgstr "拉丁文 ferrum。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -1767,10 +1742,9 @@ msgid "Cobalt"
 msgstr "鈷"
 
 #: element_tiny.xml:56
-#, fuzzy, kde-format
-#| msgid "Named after the German word 'Kobold' for 'goblin'"
+#, kde-format
 msgid "Named after the German word 'Kobold' for 'goblin'."
-msgstr "依德文字 Kobold 命名，意思是「小妖精」（goblin）"
+msgstr "依德文字 Kobold 命名，意思是「小妖精」（goblin）。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:57
@@ -1779,10 +1753,9 @@ msgid "Nickel"
 msgstr "鎳"
 
 #: element_tiny.xml:58
-#, fuzzy, kde-format
-#| msgid "'Nickel' was the name of a mountain goblin"
+#, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr "Nickel 是一個山裡的小妖精的名字"
+msgstr "Nickel 是一個山裡的小妖精的名字。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -1791,10 +1764,9 @@ msgid "Copper"
 msgstr "銅"
 
 #: element_tiny.xml:60
-#, fuzzy, kde-format
-#| msgid "Greek 'cuprum' for Cypres"
+#, kde-format
 msgid "Greek 'cuprum' for Cypres."
-msgstr "希臘文中的 cuprum，是塞浦路斯城（Cypres，銅產地）的古稱"
+msgstr "希臘文中的 cuprum，是塞浦路斯城（Cypres，銅產地）的古稱。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
@@ -1803,10 +1775,9 @@ msgid "Zinc"
 msgstr "鋅"
 
 #: element_tiny.xml:62
-#, fuzzy, kde-format
-#| msgid "German 'zinking' for 'rough', because zinc ore is very rough"
+#, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
-msgstr "德文中的 zinking 意思是「粗糙」，因為鋅的礦石很粗糙"
+msgstr "德文中的 zinking 意思是「粗糙」，因為鋅的礦石很粗糙。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:63
@@ -1815,10 +1786,9 @@ msgid "Gallium"
 msgstr "鎵"
 
 #: element_tiny.xml:64
-#, fuzzy, kde-format
-#| msgid "'Gallia' is an old name for France"
+#, kde-format
 msgid "'Gallia' is an old name for France."
-msgstr "Gallia 是法國的舊名稱"
+msgstr "Gallia 是法國的舊名稱。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
@@ -1827,10 +1797,9 @@ msgid "Germanium"
 msgstr "鍺"
 
 #: element_tiny.xml:66
-#, fuzzy, kde-format
-#| msgid "Latin 'germania' is an old name for Germany"
+#, kde-format
 msgid "Latin 'germania' is an old name for Germany."
-msgstr "拉丁文中的 germania 是德國的舊名稱"
+msgstr "拉丁文中的 germania 是德國的一個舊名稱。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
@@ -1839,10 +1808,9 @@ msgid "Arsenic"
 msgstr "砷"
 
 #: element_tiny.xml:68
-#, fuzzy, kde-format
-#| msgid "Greek 'arsenikos' for 'male' or 'bold'"
+#, kde-format
 msgid "Greek 'arsenikos' for 'male' or 'bold'."
-msgstr "希臘文中的 arsenikos 表示「男性」或「勇敢」"
+msgstr "希臘文中的 arsenikos 表示「男性」或「勇敢」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:69
@@ -1851,10 +1819,9 @@ msgid "Selenium"
 msgstr "硒"
 
 #: element_tiny.xml:70
-#, fuzzy, kde-format
-#| msgid "Greek 'selena' for 'moon'"
+#, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr "希臘文中的 selena 表示「月亮」"
+msgstr "希臘文中的 selena 表示「月亮」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -1863,10 +1830,9 @@ msgid "Bromine"
 msgstr "溴"
 
 #: element_tiny.xml:72
-#, fuzzy, kde-format
-#| msgid "Greek 'bromos' for 'smells badly'"
+#, kde-format
 msgid "Greek 'bromos' for 'smells badly'."
-msgstr "希臘文中的 bromos 表示「很難聞」"
+msgstr "希臘文中的 bromos 表示「很難聞」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:73
@@ -1875,10 +1841,9 @@ msgid "Krypton"
 msgstr "氪"
 
 #: element_tiny.xml:74
-#, fuzzy, kde-format
-#| msgid "Greek 'kryptos' for 'hidden'"
+#, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "希臘文中的 kryptos 表示「隱藏」"
+msgstr "希臘文中的 kryptos 表示「隱藏」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -1887,10 +1852,9 @@ msgid "Rubidium"
 msgstr "銣"
 
 #: element_tiny.xml:76
-#, fuzzy, kde-format
-#| msgid "Latin 'rubidus' for 'dark red'"
+#, kde-format
 msgid "Latin 'rubidus' for 'dark red'."
-msgstr "拉丁文中的 rubidus 表示「暗紅色」"
+msgstr "拉丁文中的 rubidus 表示「暗紅色」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:77
@@ -1899,10 +1863,9 @@ msgid "Strontium"
 msgstr "鍶"
 
 #: element_tiny.xml:78
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Strontianit"
+#, kde-format
 msgid "Named after the mineral Strontianit."
-msgstr "依鍶礦石 Strontianit 命名"
+msgstr "依鍶礦石 Strontianit 命名。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:79
@@ -1926,10 +1889,9 @@ msgid "Zirconium"
 msgstr "鋯"
 
 #: element_tiny.xml:82
-#, fuzzy, kde-format
-#| msgid "Named after the mineral zircon"
+#, kde-format
 msgid "Named after the mineral zircon."
-msgstr "依鋯礦石 zircon 命名"
+msgstr "依鋯礦石 zircon 命名。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:83
@@ -1962,10 +1924,9 @@ msgid "Technetium"
 msgstr "鎝"
 
 #: element_tiny.xml:88
-#, fuzzy, kde-format
-#| msgid "Greek 'technetos' for artificial"
+#, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr "希臘文中的 technetos 表示「人造的」"
+msgstr "希臘文中的 technetos 表示「人造的」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -1974,10 +1935,9 @@ msgid "Ruthenium"
 msgstr "釕"
 
 #: element_tiny.xml:90
-#, fuzzy, kde-format
-#| msgid "Ruthenia is the old name of Russia"
+#, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr "Ruthenia 是俄羅斯的舊名稱"
+msgstr "Ruthenia 是俄羅斯的舊名稱。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -1986,10 +1946,9 @@ msgid "Rhodium"
 msgstr "銠"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'rhodeos' means 'red like a rose'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "希臘文中的 rhodeos 表示「紅得像玫瑰」"
+msgstr "希臘文中的 rhodeos 表示「紅得像玫瑰」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -1998,10 +1957,9 @@ msgid "Palladium"
 msgstr "鈀"
 
 #: element_tiny.xml:94
-#, fuzzy, kde-format
-#| msgid "Named after the asteroid Pallas"
+#, kde-format
 msgid "Named after the asteroid Pallas."
-msgstr "依小行星 Pallas 命名"
+msgstr "依小行星 Pallas 命名。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
@@ -2010,10 +1968,9 @@ msgid "Silver"
 msgstr "銀"
 
 #: element_tiny.xml:96
-#, fuzzy, kde-format
-#| msgid "Latin 'argentum' for silver"
+#, kde-format
 msgid "Latin 'argentum' for silver."
-msgstr "拉丁文中的 argentum 表示「銀」"
+msgstr "拉丁文中的 argentum 表示「銀」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -2022,10 +1979,9 @@ msgid "Cadmium"
 msgstr "鎘"
 
 #: element_tiny.xml:98
-#, fuzzy, kde-format
-#| msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)"
+#, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
-msgstr "希臘文中的 kadmia 表示「碳酸鋅」"
+msgstr "希臘文中的 kadmia 表示「碳酸鋅」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -2034,10 +1990,9 @@ msgid "Indium"
 msgstr "銦"
 
 #: element_tiny.xml:100
-#, fuzzy, kde-format
-#| msgid "Named after 'Indigo' because of its blue spectrum"
+#, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr "依 Indigo （靛青色）命名，因為它是藍色的"
+msgstr "依 Indigo （靛青色）命名，因為它是藍色的。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -2046,10 +2001,9 @@ msgid "Tin"
 msgstr "錫"
 
 #: element_tiny.xml:102
-#, fuzzy, kde-format
-#| msgid "Latin 'stannum' for tin"
+#, kde-format
 msgid "Latin 'stannum' for tin."
-msgstr "拉丁文中的 stannum 表示「錫」"
+msgstr "拉丁文中的 stannum 表示「錫」。"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -2925,8 +2879,7 @@ msgid "DZ Periodic Table"
 msgstr "DZ 週期表"
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
-#| msgid "Chemical Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
 msgstr "化學計算機"
@@ -4698,8 +4651,7 @@ msgid ", "
 msgstr ", "
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
-#| msgid " %1"
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
 msgstr " %1"
@@ -4727,9 +4679,7 @@ msgid " 2n"
 msgstr ""
 
 #: src/detailinfodlg.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "Acronym of Electron Capture"
-#| msgid " EC"
+#, kde-format
 msgctxt "Electron capture"
 msgid " EC"
 msgstr " 電子捕獲"
@@ -4740,120 +4690,101 @@ msgid " 2EC"
 msgstr ""
 
 #: src/detailinfodlg.cpp:518
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
 msgstr " %1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>，核分裂"
 
 #: src/detailinfodlg.cpp:560
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr " 2%1<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:580
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
 msgstr " %1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:600
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " 2%1<sup>+</sup>"
-msgstr " %1<sup>+</sup>"
+msgstr " 2%1<sup>+</sup>"
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1 <sup>-</sup>n"
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>2n"
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>3n"
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>4n"
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>%2 n"
 
 #: src/detailinfodlg.cpp:711
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>%2"
 
 #: src/detailinfodlg.cpp:728
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>2%2"
 
 #: src/detailinfodlg.cpp:744
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>-</sup>3%2"
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>p"
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>2p"
 
 #: src/detailinfodlg.cpp:790
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>%2"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>%2"
 
 #: src/detailinfodlg.cpp:805
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2%2"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>2%2"
 
 #: src/detailinfodlg.cpp:819
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>3%2"
-msgstr " %1<sup>+</sup>"
+msgstr " %1<sup>+</sup>3%2"
 
 #: src/detailinfodlg.cpp:833
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr " %1 %2<sup>-</sup>"
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
@@ -4945,9 +4876,7 @@ msgid "Extra Information"
 msgstr "額外資訊"
 
 #: src/detailinfodlg.cpp:1152
-#, fuzzy, kde-format
-#| msgctxt "For example: [C] Carbon (6 - Block p)"
-#| msgid "[%1] %2 (%3 - Block %4)"
+#, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
 msgstr "[%1] %2 (%3 - 方塊 %4)"
@@ -4958,11 +4887,10 @@ msgid "No spectrum of %1 found."
 msgstr "找不到 %1 的光譜。"
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Plot Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
-msgstr "繪製資料"
+msgstr "繪製資料圖表"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -5039,8 +4967,7 @@ msgid "OK"
 msgstr "確定"
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Export Chemical Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "匯出化學資料"
@@ -5194,8 +5121,7 @@ msgid "Isotope of Element %1 (%2)"
 msgstr "元素 %1（%2）的同位素"
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
 msgstr "同位素表"
@@ -5237,9 +5163,7 @@ msgid "Stable"
 msgstr "穩定"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "Unknown magnetic moment"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
 msgstr "未知"
@@ -5474,8 +5398,7 @@ msgid "None"
 msgstr "無"
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
-#| msgid "van Der Waals"
+#, kde-format
 msgid "Van Der Waals"
 msgstr "凡德瓦半徑"
 
@@ -5572,8 +5495,7 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "每個元素都以一個圖示來表示其用法。"
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
 msgstr "鹼土金屬"
 
@@ -5588,10 +5510,9 @@ msgid "Non-Metals"
 msgstr "非金屬"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
-msgstr "鹼土金屬"
+msgstr "鹼金屬"
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -5670,10 +5591,9 @@ msgid "Colors"
 msgstr "顏色"
 
 #: src/kalziumschemetype.cpp:412
-#, fuzzy, kde-format
-#| msgid "Nice colors without meaning. (From the Openbabel project)"
+#, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr "沒有意義但不錯的顏色（從 Openbabel 專案來的）"
+msgstr "沒有意義但不錯的顏色。（從 Open Babel 專案來的）"
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -5722,10 +5642,9 @@ msgid "%1 u"
 msgstr "%1 u"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
-#| msgid "This element was discovered in the year <numid>%1</numid>."
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "這個元素發現於 <numid>%1</numid> 年。"
+msgstr "這個元素發現於 %1 年。"
 
 #: src/kalziumutils.cpp:125
 #, kde-format
@@ -5748,11 +5667,10 @@ msgid "Glossary"
 msgstr "字彙"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
-#| msgid "Glossary"
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
-msgstr "字彙"
+msgstr "詞彙表"
 
 #: src/kdeeduglossary.cpp:478
 #, kde-format
@@ -6456,10 +6374,9 @@ msgstr "惰性氣體"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "鹼金屬："
+msgstr "鹼金屬"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -6515,8 +6432,7 @@ msgid "n/a"
 msgstr "無"
 
 #: src/rsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Risks/Security Phrases"
+#, kde-format
 msgctxt "@title:window"
 msgid "Risks/Security Phrases"
 msgstr "風險/安全性（R/S）片語"
@@ -8151,7 +8067,7 @@ msgstr ""
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "水平"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
@@ -8174,8 +8090,7 @@ msgid "Units"
 msgstr "單位"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
 msgstr "同位素表"
 
@@ -8803,8 +8718,7 @@ msgid "&Copy"
 msgstr "複製(&C)"
 
 #: src/tools/moleculeview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Molecular Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
 msgstr "分子編輯器"
@@ -8856,16 +8770,14 @@ msgid "Choose a file to open"
 msgstr "選擇要開啟的檔案"
 
 #: src/tools/moleculeview.cpp:172
-#, fuzzy, kde-format
-#| msgid "Download New Molecules"
+#, kde-format
 msgid "Could not load molecule"
-msgstr "下載新分子"
+msgstr "無法載入分子"
 
 #: src/tools/moleculeview.cpp:172
-#, fuzzy, kde-format
-#| msgid "Open the given molecule file"
+#, kde-format
 msgid "Loading the molecule failed."
-msgstr "開啟指定的分子檔"
+msgstr "載入分子失敗。"
 
 #: src/tools/moleculeview.cpp:201
 #, kde-format
@@ -8972,8 +8884,7 @@ msgid "Weight:"
 msgstr "重量："
 
 #: src/tools/obconverter.cpp:32
-#, fuzzy, kde-format
-#| msgid "OpenBabel Frontend"
+#, kde-format
 msgctxt "@title:window"
 msgid "OpenBabel Frontend"
 msgstr "OpenBabel 前端介面"
