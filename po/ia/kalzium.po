@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2026-01-21 12:49+0100\n"
+"PO-Revision-Date: 2026-01-28 10:41+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -5903,7 +5903,7 @@ msgstr ""
 #: src/molcalcwidgetbase.ui:342
 #, kde-format
 msgid "Add Alias"
-msgstr ""
+msgstr "Adde Alias"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/molcalcwidgetbase.ui:376
