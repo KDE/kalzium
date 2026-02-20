@@ -1269,12 +1269,9 @@ msgid "Hydrogen"
 msgstr "Hidrigin"
 
 #: element_tiny.xml:4
-#, fuzzy, kde-format
-#| msgid "Greek 'hydro' and 'gennao' for 'forms water'"
+#, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
 msgstr ""
-"Ó na focail Ghréigise 'ύδωρ' agus 'γεννώ' a chiallaíonn 'uisce a dhéanamh' "
-"le chéile"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:5
@@ -1283,10 +1280,9 @@ msgid "Helium"
 msgstr "Héiliam"
 
 #: element_tiny.xml:6
-#, fuzzy, kde-format
-#| msgid "The Greek word for the sun was 'helios'"
+#, kde-format
 msgid "The Greek word for the sun was 'helios'."
-msgstr "Ón fhocal Gréigise 'ήλιο' a chiallaigh 'an ghrian'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:7
@@ -1295,10 +1291,9 @@ msgid "Lithium"
 msgstr "Litiam"
 
 #: element_tiny.xml:8
-#, fuzzy, kde-format
-#| msgid "Greek 'lithos' means 'stone'"
+#, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "Ón fhocal Gréigise 'λίθος' a chiallaíonn 'cloch'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1307,10 +1302,9 @@ msgid "Beryllium"
 msgstr "Beirilliam"
 
 #: element_tiny.xml:10
-#, fuzzy, kde-format
-#| msgid "Greek 'beryllos' for 'light-green stone'"
+#, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "Ón fhocal Gréigise 'βέρυλλος' a chiallaíonn 'glaschloch'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1332,10 +1326,9 @@ msgid "Carbon"
 msgstr "Carbón"
 
 #: element_tiny.xml:14
-#, fuzzy, kde-format
-#| msgid "Latin 'carboneum' for carbon"
+#, kde-format
 msgid "Latin 'carboneum' for carbon."
-msgstr "Ón fhocal Laidine 'carboneum' a chiallaíonn 'carbón'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:15
@@ -1344,10 +1337,9 @@ msgid "Nitrogen"
 msgstr "Nítrigin"
 
 #: element_tiny.xml:16
-#, fuzzy, kde-format
-#| msgid "Latin 'nitrogenium' ('forms saltpeter')"
+#, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
-msgstr "Ón fhocal Laidine 'nitrogenium' a chiallaíonn 'sailpítear a dhéanamh'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1356,10 +1348,9 @@ msgid "Oxygen"
 msgstr "Ocsaigin"
 
 #: element_tiny.xml:18
-#, fuzzy, kde-format
-#| msgid "Latin 'oxygenium' (forms acids)"
+#, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
-msgstr "Ón fhocal Laidine 'oxygenium' a chiallaíonn 'aigéid a dhéanamh'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1368,10 +1359,9 @@ msgid "Fluorine"
 msgstr "Fluairín"
 
 #: element_tiny.xml:20
-#, fuzzy, kde-format
-#| msgid "Latin 'fluere' ('floats')"
+#, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr "Ón fhocal Laidine 'fluere' a chiallaíonn 'ar snámh'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1380,10 +1370,9 @@ msgid "Neon"
 msgstr "Neon"
 
 #: element_tiny.xml:22
-#, fuzzy, kde-format
-#| msgid "Greek 'neo'. meaning 'new'"
+#, kde-format
 msgid "Greek 'neo'. meaning 'new'."
-msgstr "Ón fhocal Gréigise \"νέο\" a chiallaíonn \"nua\""
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:23
@@ -1405,10 +1394,9 @@ msgid "Magnesium"
 msgstr "Maignéisiam"
 
 #: element_tiny.xml:26
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the city of Magnesia."
-msgstr "Baisteadh é in ómós chathair Magnesia"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:27
@@ -1417,10 +1405,9 @@ msgid "Aluminium"
 msgstr "Alúmanam"
 
 #: element_tiny.xml:28
-#, fuzzy, kde-format
-#| msgid "Latin 'alumen'"
+#, kde-format
 msgid "Latin 'alumen'."
-msgstr "Ón fhocal Laidine 'alumen'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
@@ -1429,10 +1416,9 @@ msgid "Silicon"
 msgstr "Sileacan"
 
 #: element_tiny.xml:30
-#, fuzzy, kde-format
-#| msgid "Latin 'silex'"
+#, kde-format
 msgid "Latin 'silex'."
-msgstr "Ón fhocal Laidine 'silex'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
@@ -1441,11 +1427,9 @@ msgid "Phosphorus"
 msgstr "Fosfar"
 
 #: element_tiny.xml:32
-#, fuzzy, kde-format
-#| msgid "Greek 'phosphoros' for 'carries light'"
+#, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
 msgstr ""
-"Ó na focail Ghréigise \"φως\" agus \"φέρω\" a chiallaíonn \"solas a iompar\""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1454,10 +1438,9 @@ msgid "Sulfur"
 msgstr "Sulfar"
 
 #: element_tiny.xml:34
-#, fuzzy, kde-format
-#| msgid "In sanskrit 'sweb' means 'to sleep'"
+#, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr "Ón fhocal Sanscraite 'sweb' a chiallaíonn 'codladh'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1466,10 +1449,9 @@ msgid "Chlorine"
 msgstr "Clóirín"
 
 #: element_tiny.xml:36
-#, fuzzy, kde-format
-#| msgid "Greek 'chloros' for 'yellow-green'"
+#, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "Ón fhocal Gréigise \"χλωρός\" a chiallaíonn \"buíghlas\""
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1478,10 +1460,9 @@ msgid "Argon"
 msgstr "Argón"
 
 #: element_tiny.xml:38
-#, fuzzy, kde-format
-#| msgid "Greek 'aergon' for 'inactive'"
+#, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "Ón fhocal Gréigise \"αργό\" a chiallaíonn \"neamhghníomhach\""
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1504,10 +1485,9 @@ msgid "Calcium"
 msgstr "Cailciam"
 
 #: element_tiny.xml:42
-#, fuzzy, kde-format
-#| msgid "Latin 'calx' for 'lime'"
+#, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr "Ón fhocal Laidine 'calx' a chiallaíonn 'aol'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -1516,10 +1496,9 @@ msgid "Scandium"
 msgstr "Scaindiam"
 
 #: element_tiny.xml:44
-#, fuzzy, kde-format
-#| msgid "Named because it was found in Scandinavia"
+#, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr "Tugadh an t-ainm seo air toisc gur aimsíodh i gCríoch Lochlann é"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -1539,10 +1518,9 @@ msgid "Vanadium"
 msgstr "Vanaidiam"
 
 #: element_tiny.xml:48
-#, fuzzy, kde-format
-#| msgid "'Vanadis' is another name for the Nordic goddess Freyja"
+#, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr "Is ainm eile ar an mbandia Nordach Freyja é 'Vanadis'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -1551,10 +1529,9 @@ msgid "Chromium"
 msgstr "Cróimiam"
 
 #: element_tiny.xml:50
-#, fuzzy, kde-format
-#| msgid "Greek 'chroma' means 'color'"
+#, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "Ón fhocal Gréigise 'χρωμα' a chiallaíonn 'dath'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
@@ -1578,10 +1555,9 @@ msgid "Iron"
 msgstr "Iarann"
 
 #: element_tiny.xml:54
-#, fuzzy, kde-format
-#| msgid "Latin 'ferrum'"
+#, kde-format
 msgid "Latin 'ferrum'."
-msgstr "Ón fhocal Laidine 'ferrum'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -1590,10 +1566,9 @@ msgid "Cobalt"
 msgstr "Cóbalt"
 
 #: element_tiny.xml:56
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Alfred Nobel."
+#, kde-format
 msgid "Named after the German word 'Kobold' for 'goblin'."
-msgstr "Baisteadh é in ómós Alfred Nobel."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:57
@@ -1602,10 +1577,9 @@ msgid "Nickel"
 msgstr "Nicil"
 
 #: element_tiny.xml:58
-#, fuzzy, kde-format
-#| msgid "'Nickel' was the name of a mountain goblin"
+#, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr "B'ainm ar phúca sléibhe é 'Nicil'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -1614,10 +1588,9 @@ msgid "Copper"
 msgstr "Copar"
 
 #: element_tiny.xml:60
-#, fuzzy, kde-format
-#| msgid "Greek 'cuprum' for Cypres"
+#, kde-format
 msgid "Greek 'cuprum' for Cypres."
-msgstr "Ón fhocal Gréigise \"Κύπρος\" a chiallaíonn \"An Chipir\""
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:61
@@ -1626,12 +1599,9 @@ msgid "Zinc"
 msgstr "Sinc"
 
 #: element_tiny.xml:62
-#, fuzzy, kde-format
-#| msgid "German 'zinking' for 'rough', because zinc ore is very rough"
+#, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
 msgstr ""
-"Ón fhocal Gearmáinis 'zinking' a chiallaíonn 'garbh' - is an-gharbh í mian "
-"since"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:63
@@ -1640,10 +1610,9 @@ msgid "Gallium"
 msgstr "Gailliam"
 
 #: element_tiny.xml:64
-#, fuzzy, kde-format
-#| msgid "'Gallia' is an old name for France"
+#, kde-format
 msgid "'Gallia' is an old name for France."
-msgstr "Ón fhocal 'Gallia' - ainm ársa ar an bhFrainc"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
@@ -1652,10 +1621,9 @@ msgid "Germanium"
 msgstr "Gearmáiniam"
 
 #: element_tiny.xml:66
-#, fuzzy, kde-format
-#| msgid "Latin 'germania' is an old name for Germany"
+#, kde-format
 msgid "Latin 'germania' is an old name for Germany."
-msgstr "Ón fhocal Laidine 'germania' - ainm ársa ar an nGearmáin"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
@@ -1664,10 +1632,9 @@ msgid "Arsenic"
 msgstr "Arsanaic"
 
 #: element_tiny.xml:68
-#, fuzzy, kde-format
-#| msgid "Greek 'arsenikos' for 'male' or 'bold'"
+#, kde-format
 msgid "Greek 'arsenikos' for 'male' or 'bold'."
-msgstr "Ón fhocal Gréigise 'αρσενικός' a chiallaíonn 'fireannach' nó 'dána'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:69
@@ -1676,10 +1643,9 @@ msgid "Selenium"
 msgstr "Seiléiniam"
 
 #: element_tiny.xml:70
-#, fuzzy, kde-format
-#| msgid "Greek 'selena' for 'moon'"
+#, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr "Ón fhocal Gréigise 'Σελήνη' a chiallaíonn 'An Ghealach'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -1688,10 +1654,9 @@ msgid "Bromine"
 msgstr "Bróimín"
 
 #: element_tiny.xml:72
-#, fuzzy, kde-format
-#| msgid "Greek 'bromos' for 'smells badly'"
+#, kde-format
 msgid "Greek 'bromos' for 'smells badly'."
-msgstr "Ón fhocal Gréigise 'bromos' a chiallaíonn 'bréantas'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:73
@@ -1700,10 +1665,9 @@ msgid "Krypton"
 msgstr "Crioptón"
 
 #: element_tiny.xml:74
-#, fuzzy, kde-format
-#| msgid "Greek 'kryptos' for 'hidden'"
+#, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "Ón fhocal Gréigise 'κρυπτός' a chiallaíonn 'folaithe'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -1712,10 +1676,9 @@ msgid "Rubidium"
 msgstr "Rúibidiam"
 
 #: element_tiny.xml:76
-#, fuzzy, kde-format
-#| msgid "Latin 'rubidus' for 'dark red'"
+#, kde-format
 msgid "Latin 'rubidus' for 'dark red'."
-msgstr "Ón fhocal Laidine 'rubidus' a chiallaíonn 'cróndearg'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:77
@@ -1724,10 +1687,9 @@ msgid "Strontium"
 msgstr "Strointiam"
 
 #: element_tiny.xml:78
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Strontianit"
+#, kde-format
 msgid "Named after the mineral Strontianit."
-msgstr "Ainmnithe as an mianra Strointiainít"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:79
@@ -1749,10 +1711,9 @@ msgid "Zirconium"
 msgstr "Siorcóiniam"
 
 #: element_tiny.xml:82
-#, fuzzy, kde-format
-#| msgid "Named after the mineral zircon"
+#, kde-format
 msgid "Named after the mineral zircon."
-msgstr "Ainmnithe as an mianra Siorcón"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:83
@@ -1787,10 +1748,9 @@ msgid "Technetium"
 msgstr "Teicnéitiam"
 
 #: element_tiny.xml:88
-#, fuzzy, kde-format
-#| msgid "Greek 'technetos' for artificial"
+#, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr "Ón fhocal Gréigise 'τεχνητός' a chiallaíonn 'saorga'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -1799,10 +1759,9 @@ msgid "Ruthenium"
 msgstr "Ruitéiniam"
 
 #: element_tiny.xml:90
-#, fuzzy, kde-format
-#| msgid "Ruthenia is the old name of Russia"
+#, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr "Is é Ruthenia an seanainm atá ar an Rúis"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -1811,10 +1770,9 @@ msgid "Rhodium"
 msgstr "Róidiam"
 
 #: element_tiny.xml:92
-#, fuzzy, kde-format
-#| msgid "Greek 'rhodeos' means 'red like a rose'"
+#, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "Ciallaíonn an focal Gréigise 'rhodeos' 'dearg cosúil le rós'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -1823,10 +1781,9 @@ msgid "Palladium"
 msgstr "Pallaidiam"
 
 #: element_tiny.xml:94
-#, fuzzy, kde-format
-#| msgid "Named after the asteroid Pallas"
+#, kde-format
 msgid "Named after the asteroid Pallas."
-msgstr "Baisteadh é in ómós an astaróidigh Pallas"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:95
@@ -1834,12 +1791,10 @@ msgstr "Baisteadh é in ómós an astaróidigh Pallas"
 msgid "Silver"
 msgstr "Airgead"
 
-# typo...
 #: element_tiny.xml:96
-#, fuzzy, kde-format
-#| msgid "Latin 'argentum' for silver"
+#, kde-format
 msgid "Latin 'argentum' for silver."
-msgstr "Ón fhocal Laidine 'argentum' a chiallaíonn 'airgead'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -1870,10 +1825,9 @@ msgid "Tin"
 msgstr "Stán"
 
 #: element_tiny.xml:102
-#, fuzzy, kde-format
-#| msgid "Latin 'stannum' for tin"
+#, kde-format
 msgid "Latin 'stannum' for tin."
-msgstr "Ón fhocal Laidine 'stannum' a chiallaíonn 'stán'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -1881,13 +1835,10 @@ msgstr "Ón fhocal Laidine 'stannum' a chiallaíonn 'stán'"
 msgid "Antimony"
 msgstr "Antamón"
 
-# Greek, no?
 #: element_tiny.xml:104
-#, fuzzy, kde-format
-#| msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'"
+#, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
 msgstr ""
-"Ó na focail Ghréigise 'anthos ammonos' a chiallaíonn 'bláth an Dé Ammon'"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:105
@@ -1896,10 +1847,9 @@ msgid "Tellurium"
 msgstr "Teallúiriam"
 
 #: element_tiny.xml:106
-#, fuzzy, kde-format
-#| msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'"
+#, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
-msgstr "Ón fhocal Laidine 'tellus' nó 'telluris' a chiallaíonn 'An Domhan'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -1919,10 +1869,9 @@ msgid "Xenon"
 msgstr "Xeanón"
 
 #: element_tiny.xml:110
-#, fuzzy, kde-format
-#| msgid "Greek 'xenos' for 'foreigner'"
+#, kde-format
 msgid "Greek 'xenos' for 'foreigner'."
-msgstr "Ón fhocal Gréigise 'ξένος' a chiallaíonn 'coimhthíoch'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:111
@@ -1942,10 +1891,9 @@ msgid "Barium"
 msgstr "Bairiam"
 
 #: element_tiny.xml:114
-#, fuzzy, kde-format
-#| msgid "Greek 'barys' for 'heavy'"
+#, kde-format
 msgid "Greek 'barys' for 'heavy'."
-msgstr "Ón fhocal Gréigise 'βαρύς' a chiallaíonn 'trom'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
@@ -1967,10 +1915,9 @@ msgid "Cerium"
 msgstr "Ceiriam"
 
 #: element_tiny.xml:118
-#, fuzzy, kde-format
-#| msgid "Named after the planetoid Ceres"
+#, kde-format
 msgid "Named after the planetoid Ceres."
-msgstr "Baisteadh é in ómós an phláinéadóidigh Ceres."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:119
@@ -1979,10 +1926,9 @@ msgid "Praseodymium"
 msgstr "Praiséidimiam"
 
 #: element_tiny.xml:120
-#, fuzzy, kde-format
-#| msgid "Greek 'prasinos didymos' for 'green twin'"
+#, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
-msgstr "Ó na focail Ghréigise 'πράσινος δίδυμος' a chiallaíonn 'cúplach glas'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -1991,10 +1937,9 @@ msgid "Neodymium"
 msgstr "Neoidimiam"
 
 #: element_tiny.xml:122
-#, fuzzy, kde-format
-#| msgid "Greek 'neos didymos' for 'new twin'"
+#, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr "Ó na focail Ghréigise 'νέος δίδυμος' a chiallaíonn 'cúplach nua'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
@@ -2016,10 +1961,9 @@ msgid "Samarium"
 msgstr "Samairiam"
 
 #: element_tiny.xml:126
-#, fuzzy, kde-format
-#| msgid "Named after the mineral Samarskit"
+#, kde-format
 msgid "Named after the mineral Samarskit."
-msgstr "Ainmnithe as an mianra Samairscít"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:127
@@ -2028,10 +1972,9 @@ msgid "Europium"
 msgstr "Eoraipiam"
 
 #: element_tiny.xml:128
-#, fuzzy, kde-format
-#| msgid "Named after Europe"
+#, kde-format
 msgid "Named after Europe."
-msgstr "Baisteadh é in ómós na hEorpa"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -2040,10 +1983,9 @@ msgid "Gadolinium"
 msgstr "Gadailiniam"
 
 #: element_tiny.xml:130
-#, fuzzy, kde-format
-#| msgid "Named after the Finnish chemist Johan Gadolin"
+#, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "Baisteadh é in ómós an cheimiceora Fhionlannaigh Johan Gadolin"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2066,10 +2008,9 @@ msgid "Dysprosium"
 msgstr "Diospróisiam"
 
 #: element_tiny.xml:134
-#, fuzzy, kde-format
-#| msgid "Greek 'dysprositor' for 'difficult to reach'"
+#, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr "Ón fhocal Gréigise 'δυσπρόσιτος' a chiallaíonn 'doshroichte'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
@@ -2078,10 +2019,9 @@ msgid "Holmium"
 msgstr "Hoilmiam"
 
 #: element_tiny.xml:136
-#, fuzzy, kde-format
-#| msgid "Latin 'holmia' for the old name of Stockholm"
+#, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
-msgstr "Ón fhocal Laidine 'holmia' - ainm ársa ar chathair Stócólm"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2115,16 +2055,11 @@ msgid "Ytterbium"
 msgstr "Itéirbiam"
 
 #: element_tiny.xml:142
-#, fuzzy, kde-format
-#| msgid ""
-#| "Like Terbium and Gadolinium, this is named after the Swedish town of "
-#| "Ytterby."
+#, kde-format
 msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
 msgstr ""
-"Cosúil le Teirbiam agus Gadailiniam, baisteadh é seo in ómós an bhaile "
-"Sualannaigh Ytterby"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:143
@@ -2133,10 +2068,9 @@ msgid "Lutetium"
 msgstr "Lúitéitiam"
 
 #: element_tiny.xml:144
-#, fuzzy, kde-format
-#| msgid "Named after the Roman name 'Lutetia' for Paris"
+#, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
-msgstr "Baisteadh é in ómós an ainm Rómhánaigh ar Pháras, 'Lutetia'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2159,10 +2093,9 @@ msgid "Tantalum"
 msgstr "Tantalam"
 
 #: element_tiny.xml:148
-#, fuzzy, kde-format
-#| msgid "Named after the city of Magnesia"
+#, kde-format
 msgid "Named after the Greek myth of Tantalos."
-msgstr "Baisteadh é in ómós chathair Magnesia"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:149
@@ -2207,10 +2140,9 @@ msgid "Iridium"
 msgstr "Iridiam"
 
 #: element_tiny.xml:156
-#, fuzzy, kde-format
-#| msgid "Greek 'iris' for 'rainbow'"
+#, kde-format
 msgid "Greek 'iris' for 'rainbow'."
-msgstr "Ón fhocal Gréigise 'iris' a chiallaíonn 'bogha ceatha'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:157
@@ -2241,11 +2173,9 @@ msgid "Mercury"
 msgstr "Mearcair"
 
 #: element_tiny.xml:162
-#, fuzzy, kde-format
-#| msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'"
+#, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
 msgstr ""
-"Ón fhocal Gréag-Laidineach 'hydrargyrum' a chiallaíonn 'airgead leachtach'"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2254,10 +2184,9 @@ msgid "Thallium"
 msgstr "Tailliam"
 
 #: element_tiny.xml:164
-#, fuzzy, kde-format
-#| msgid "Greek 'tallos' for 'young twig'"
+#, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "Ón fhocal Gréigise 'tallos' a chiallaíonn 'beangán'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2266,10 +2195,9 @@ msgid "Lead"
 msgstr "Luaidhe"
 
 #: element_tiny.xml:166
-#, fuzzy, kde-format
-#| msgid "Latin 'plumbum' for Lead"
+#, kde-format
 msgid "Latin 'plumbum' for Lead."
-msgstr "Ón fhocal Laidine 'plumbum' a chiallaíonn 'luaidhe'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2289,10 +2217,9 @@ msgid "Polonium"
 msgstr "Polóiniam"
 
 #: element_tiny.xml:170
-#, fuzzy, kde-format
-#| msgid "Named after Poland to honor Marie Curie"
+#, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "Tagann an t-ainm ó 'An Pholainn', in ómós Marie Curie."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2301,10 +2228,9 @@ msgid "Astatine"
 msgstr "Astaitín"
 
 #: element_tiny.xml:172
-#, fuzzy, kde-format
-#| msgid "Greek 'astator' for 'changing'"
+#, kde-format
 msgid "Greek 'astator' for 'changing'."
-msgstr "Ón fhocal Gréigise 'άστατο' a chiallaíonn 'athraitheach, malartach'"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:173
@@ -2326,10 +2252,9 @@ msgid "Francium"
 msgstr "Frainciam"
 
 #: element_tiny.xml:176
-#, fuzzy, kde-format
-#| msgid "Named after Poland to honor Marie Curie"
+#, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr "Tagann an t-ainm ó 'An Pholainn', in ómós Marie Curie."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2338,10 +2263,9 @@ msgid "Radium"
 msgstr "Raidiam"
 
 #: element_tiny.xml:178
-#, fuzzy, kde-format
-#| msgid "Latin 'radius' for 'beam', as it is radioactive"
+#, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
-msgstr "Ón fhocal Laidine 'radius' a chiallaíonn 'ga' - is radaighníomhach é"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:179
@@ -2350,12 +2274,9 @@ msgid "Actinium"
 msgstr "Achtainiam"
 
 #: element_tiny.xml:180
-#, fuzzy, kde-format
-#| msgid "Greek 'aktis' for 'beam' - actinium is radioactive"
+#, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
 msgstr ""
-"Ón fhocal Gréigise 'ἀκτίς' a chiallaíonn 'ga' - is radaighníomhach é "
-"achtainiam"
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:181
@@ -2364,10 +2285,9 @@ msgid "Thorium"
 msgstr "Tóiriam"
 
 #: element_tiny.xml:182
-#, fuzzy, kde-format
-#| msgid "Named after the Swedish town of Ytterby"
+#, kde-format
 msgid "Named after the Norse god of thunder: Thor"
-msgstr "Baisteadh é in ómós an bhaile Shualannaigh Ytterby"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:183
@@ -2523,10 +2443,9 @@ msgid "Rutherfordium"
 msgstr "Rutarfoirdiam"
 
 #: element_tiny.xml:210
-#, fuzzy, kde-format
-#| msgid "Named after the scientist Ernest Rutherford"
+#, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr "Baisteadh é in ómós Ernest Rutherford."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
@@ -2535,10 +2454,9 @@ msgid "Dubnium"
 msgstr "Dúibniam"
 
 #: element_tiny.xml:212
-#, fuzzy, kde-format
-#| msgid "Named after the science-town Dubna in Russia"
+#, kde-format
 msgid "Named after the science-town Dubna in Russia."
-msgstr "Baisteadh é in ómós an bhaile eolaíochta Dubna sa Rúis"
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
@@ -2625,10 +2543,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
-#, fuzzy, kde-format
-#| msgid "Zirconium"
+#, kde-format
 msgid "Nihonium"
-msgstr "Siorcóiniam"
+msgstr ""
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2731,11 +2648,10 @@ msgid "DZ Periodic Table"
 msgstr "An Tábla Peiriadach DZ"
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
-#| msgid "Chemical Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
-msgstr "Áireamhán Ceimiceach"
+msgstr ""
 
 #: src/calculator/calculator.cpp:61 src/calculator/calculator.cpp:105
 #, kde-format
@@ -4062,10 +3978,9 @@ msgid "Equivalence point"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:571
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Save work"
-msgstr "Sábháil"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:571
 #: src/calculator/titrationCalculator.cpp:594
@@ -4080,10 +3995,9 @@ msgid "Unable to create %1"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:594
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open work"
-msgstr "Oscail"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:600
 #, kde-format
@@ -4462,11 +4376,10 @@ msgid ", "
 msgstr ", "
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
-#| msgid " %1"
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
-msgstr " %1"
+msgstr ""
 
 #: src/detailinfodlg.cpp:385
 #, kde-format
@@ -4490,14 +4403,11 @@ msgstr ""
 msgid " 2n"
 msgstr ""
 
-# Leictreonghabháil
 #: src/detailinfodlg.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "Acronym of Electron Capture"
-#| msgid " EC"
+#, kde-format
 msgctxt "Electron capture"
 msgid " EC"
-msgstr " LG"
+msgstr ""
 
 #: src/detailinfodlg.cpp:497
 #, kde-format
@@ -4505,120 +4415,101 @@ msgid " 2EC"
 msgstr ""
 
 #: src/detailinfodlg.cpp:518
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:539
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:560
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:580
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgctxt "Positron emission"
 msgid " %1<sup>+</sup>"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:600
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " 2%1<sup>+</sup>"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:620
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:639
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:658
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:676
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:694
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:711
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:728
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:744
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:760
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>p"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:775
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2p"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:790
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>%2"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:805
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>2%2"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:819
-#, fuzzy, kde-format
-#| msgid " %1<sup>+</sup>"
+#, kde-format
 msgid " %1<sup>+</sup>3%2"
-msgstr " %1<sup>+</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:833
-#, fuzzy, kde-format
-#| msgid " %1<sup>-</sup>"
+#, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr ""
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
@@ -4646,11 +4537,9 @@ msgid " EC%1"
 msgstr ""
 
 #: src/detailinfodlg.cpp:910
-#, fuzzy, kde-format
-#| msgctxt "%1 is a length, eg: 12.3 pm"
-#| msgid "%1 pm"
+#, kde-format
 msgid " EC%1 p"
-msgstr "%1 pm"
+msgstr ""
 
 #: src/detailinfodlg.cpp:1070
 #, kde-format
@@ -4723,11 +4612,10 @@ msgid "No spectrum of %1 found."
 msgstr "Speictream %1 gan aimsiú."
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Plot Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
-msgstr "Breac Sonraí"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -4797,11 +4685,10 @@ msgid "OK"
 msgstr "OK"
 
 #: src/exportdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Export Chemical Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Chemical Data"
-msgstr "Easpórtáil Sonraí Ceimiceacha"
+msgstr ""
 
 #: src/exportdialog.cpp:115
 #, kde-format
@@ -4948,11 +4835,10 @@ msgid "Isotope of Element %1 (%2)"
 msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgctxt "@title:window"
 msgid "Isotope Table"
-msgstr "Tábla Iseatóp"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:47
 #, kde-format
@@ -4992,12 +4878,10 @@ msgid "Stable"
 msgstr "Cobhsaí"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "Unknown magnetic moment"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr "Anaithnid"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, kde-format
@@ -5202,10 +5086,9 @@ msgid "Save Kalzium's Table In"
 msgstr ""
 
 #: src/kalzium.cpp:296
-#, fuzzy, kde-format
-#| msgid "*.png *.xpm *.jpg *.svg"
+#, kde-format
 msgid "Image files (*.png *.xpm *.jpg *.svg)"
-msgstr "*.png *.xpm *.jpg *.svg"
+msgstr ""
 
 #: src/kalzium.cpp:317
 #, kde-format
@@ -5224,17 +5107,15 @@ msgid "%1 (%2), Mass: %3 u"
 msgstr "%1 (%2), Mais: %3 u"
 
 #: src/kalziumelementproperty.cpp:77
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No Gradient"
 msgid "None"
-msgstr "Neamhní"
+msgstr ""
 
 #: src/kalziumgradienttype.cpp:215
-#, fuzzy, kde-format
-#| msgid "van Der Waals"
+#, kde-format
 msgid "Van Der Waals"
-msgstr "van Der Waals"
+msgstr ""
 
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
@@ -5330,10 +5211,9 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr ""
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals:"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "Miotail alcaileacha:"
+msgstr ""
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5346,10 +5226,9 @@ msgid "Non-Metals"
 msgstr "Neamh-Mhiotail"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
-msgstr "Miotal Alcaileach"
+msgstr ""
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -5479,10 +5358,9 @@ msgid "%1 u"
 msgstr "%1 u"
 
 #: src/kalziumutils.cpp:123
-#, fuzzy, kde-format
-#| msgid "This element was discovered in the year <numid>%1</numid>."
+#, kde-format
 msgid "This element was discovered in the year %1."
-msgstr "Fionnadh an eilimint seo sa bhliain <numid>%1</numid>."
+msgstr ""
 
 #: src/kalziumutils.cpp:125
 #, kde-format
@@ -5505,11 +5383,10 @@ msgid "Glossary"
 msgstr "Gluais"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
-#| msgid "Glossary"
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
-msgstr "Gluais"
+msgstr ""
 
 #: src/kdeeduglossary.cpp:478
 #, kde-format
@@ -5594,10 +5471,9 @@ msgid "A periodic table of the elements"
 msgstr "An tábla peiriadach"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2011 Carsten Niehaus"
+#, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "© 2002-2011 Carsten Niehaus"
+msgstr ""
 
 #: src/main.cpp:43
 #, kde-format
@@ -6201,10 +6077,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "Miotail alcaileacha:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -6260,11 +6135,10 @@ msgid "n/a"
 msgstr "n/a/f"
 
 #: src/rsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Risks/Security Phrases"
+#, kde-format
 msgctxt "@title:window"
 msgid "Risks/Security Phrases"
-msgstr "Frásaí Priacail/Slándála"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/rsdialog.cpp:79 src/rswidget.ui:50
@@ -7341,10 +7215,9 @@ msgid "&Filter"
 msgstr "&Scagaire"
 
 #: src/searchwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search:"
+#, kde-format
 msgid "Search..."
-msgstr "Cuardach:"
+msgstr ""
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
@@ -7387,10 +7260,9 @@ msgid "Units"
 msgstr "Aonaid"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
-msgstr "Tábla Iseatóp"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel13)
 #: src/settings/settings_colors.ui:50
@@ -8012,11 +7884,10 @@ msgid "&Copy"
 msgstr "&Cóipeáil"
 
 #: src/tools/moleculeview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Molecular Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
-msgstr "Eagarthóir Móilíní"
+msgstr ""
 
 #: src/tools/moleculeview.cpp:66
 #, kde-format
@@ -8063,16 +7934,14 @@ msgid "Choose a file to open"
 msgstr ""
 
 #: src/tools/moleculeview.cpp:172
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Could not load molecule"
-msgstr "Móilín á luchtú"
+msgstr ""
 
 #: src/tools/moleculeview.cpp:172
-#, fuzzy, kde-format
-#| msgid "Loading a molecule"
+#, kde-format
 msgid "Loading the molecule failed."
-msgstr "Móilín á luchtú"
+msgstr ""
 
 #: src/tools/moleculeview.cpp:201
 #, kde-format
@@ -8191,10 +8060,9 @@ msgid "Convert"
 msgstr "Tiontaigh"
 
 #: src/tools/obconverter.cpp:114
-#, fuzzy, kde-format
-#| msgid "AutoOpt Molecule"
+#, kde-format
 msgid "Open Molecule File"
-msgstr "Móilín AutoOpt"
+msgstr ""
 
 #: src/tools/obconverter.cpp:116
 #, kde-format
@@ -8276,885 +8144,3 @@ msgstr ""
 #, kde-format
 msgid "Convert to:"
 msgstr "Tiontaigh go:"
-
-#~ msgid "Alkaline"
-#~ msgstr "Alcaileach"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Miotail alcaileacha"
-
-#~ msgid "Kalzium Error"
-#~ msgstr "Earráid Kalzium"
-
-#~ msgid "This system does not support OpenGL."
-#~ msgstr "Ní thacaíonn an córas seo le hOpenGL."
-
-#~ msgid "Kalzium OpenGL Part"
-#~ msgstr "Comhpháirt OpenGL de chuid Kalzium"
-
-#~ msgid "(c) 2006, Carsten Niehaus"
-#~ msgstr "© 2006 Carsten Niehaus"
-
-#~ msgid "Marcus D. Hanwell"
-#~ msgstr "Marcus D. Hanwell"
-
-#, fuzzy
-#~| msgid "Molecule"
-#~ msgid "[molecule]"
-#~ msgstr "Móilín"
-
-#, fuzzy
-#~| msgid "Molecule"
-#~ msgid "molecule"
-#~ msgstr "Móilín"
-
-#~ msgid "Selects the PSE"
-#~ msgstr "Roghnaigh an PSE"
-
-#~ msgid "Select the PSE you want"
-#~ msgstr "Roghnaigh an PSE atá a dhíth ort"
-
-#~ msgid "Selects the default color scheme"
-#~ msgstr "Roghnaigh an scéim réamhshocraithe dathanna"
-
-#~ msgid "Selects the default gradient"
-#~ msgstr "Roghnaigh an grádán réamhshocraithe"
-
-#~ msgid "Selects the default numeration (IUPAC)"
-#~ msgstr "Roghnaigh an t-uimhriú réamhshocraithe (IUPAC)"
-
-#~ msgid "Select the numeration you want"
-#~ msgstr "Roghnaigh an t-uimhriú atá de dhíth ort"
-
-#~ msgid "Show or hide the legend"
-#~ msgstr "Taispeáin nó folaigh an eochair eolais"
-
-#~ msgid "Whether the atomic mass will be displayed in the PSE-Table"
-#~ msgstr ""
-#~ "Cé acu a thaispeánfar an mhais adamhach sa Tábla PSE nó nach dtaispeánfar"
-
-#~ msgid "Display the atomic mass in the PSE"
-#~ msgstr "Taispeáin an mhais adamhach sa PSE"
-
-#~ msgid "Display the table view"
-#~ msgstr "Taispeáin an t-amharc tábla"
-
-#~ msgid "Selects the default gradient color"
-#~ msgstr "Roghnaigh dath réamhshocraithe an ghrádáin"
-
-#~ msgid "Selects the color of the elements in block s"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc s"
-
-#~ msgid "Selects the color of the elements in block p"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc p"
-
-#~ msgid "Selects the color of the elements in block d"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc d"
-
-#~ msgid "Selects the color of the elements in block f"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc f"
-
-#~ msgid "Selects the color of the elements in group 1"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 1"
-
-#~ msgid "Selects the color of the elements in group 2"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 2"
-
-#~ msgid "Selects the color of the elements in group 3"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 3"
-
-#~ msgid "Selects the color of the elements in group 4"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 4"
-
-#~ msgid "Selects the color of the elements in group 5"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 5"
-
-#~ msgid "Selects the color of the elements in group 6"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 6"
-
-#~ msgid "Selects the color of the elements in group 7"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 7"
-
-#~ msgid "Selects the color of the elements in group 8"
-#~ msgstr "Roghnaigh dath na ndúl i mbloc 8"
-
-#~ msgid "Selects the color of the alkali metals"
-#~ msgstr "Roghnaigh dath na miotal alcaileach"
-
-#~ msgid "Selects the color of the rare-earth elements"
-#~ msgstr "Roghnaigh dath na ndúl tearc-chré"
-
-#~ msgid "Selects the color of the non-metal elements"
-#~ msgstr "Roghnaigh dath na ndúl neamh-mhiotalach"
-
-#~ msgid "Selects the color of the alkaline earth metals"
-#~ msgstr "Roghnaigh dath na miotal alcaileach"
-
-#~ msgid "Selects the color of the halogen elements"
-#~ msgstr "Roghnaigh dath na halaiginí"
-
-#~ msgid "Selects the color of the transition elements"
-#~ msgstr "Roghnaigh dath na ndúl trasdultach"
-
-#~ msgid "Selects the color of the noble gases"
-#~ msgstr "Roghnaigh dath na dtriathghás"
-
-#~ msgid "Selects the color of the metalloid elements"
-#~ msgstr "Roghnaigh dath na ndúl miotalóideach"
-
-#~ msgid "Use eV or kJ/mol"
-#~ msgstr "Úsáid eV nó kJ/mol"
-
-#~ msgid "Show or hide the sidebar"
-#~ msgstr "Taispeáin nó folaigh an barra taoibh"
-
-#~ msgid "van der Waals Radius"
-#~ msgstr "Ga van der Waals"
-
-#~ msgctxt "Default colour"
-#~ msgid "default"
-#~ msgstr "réamhshocrú"
-
-#~ msgid "Block: %1"
-#~ msgstr "Bloc: %1"
-
-#~ msgctxt "For example Carbon (6)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
-
-#~ msgid "&Search:"
-#~ msgstr "&Cuardach:"
-
-#~ msgid "Download new molecule files"
-#~ msgstr "Íosluchtaigh comhaid nua móilín"
-
-#~ msgid "Saving a molecule"
-#~ msgstr "Móilín á shábháil"
-
-#~ msgid "Single"
-#~ msgstr "Singil"
-
-#~ msgid "Double"
-#~ msgstr "Dúbailte"
-
-#~ msgid "Triple"
-#~ msgstr "Triarach"
-
-#~ msgid "Remove hydrogens"
-#~ msgstr "Bain hidriginí"
-
-#~ msgid "Add hydrogens"
-#~ msgstr "Cuir hidriginí leis"
-
-#~ msgid "Quality:"
-#~ msgstr "Cáilíocht:"
-
-#~ msgid "Low"
-#~ msgstr "Íseal"
-
-#~ msgid "Medium"
-#~ msgstr "Measartha"
-
-#~ msgid "High"
-#~ msgstr "Ard"
-
-#~ msgid "Balls and sticks"
-#~ msgstr "Liathróidí agus bataí"
-
-#~ msgid "Van der Waals"
-#~ msgstr "van der Waals"
-
-#~ msgid "Wireframe"
-#~ msgstr "Sreangfhráma"
-
-#~ msgid "2nd Style:"
-#~ msgstr "An Dara Stíl:"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "No 2nd Style"
-#~ msgid "None"
-#~ msgstr "Neamhní"
-
-#~ msgid "Ring"
-#~ msgstr "Fáinne"
-
-#~ msgid "Labels:"
-#~ msgstr "Lipéid:"
-
-#, fuzzy
-#~| msgid "None"
-#~ msgctxt "No element labels"
-#~ msgid "None"
-#~ msgstr "Neamhní"
-
-#~ msgid "Element symbols"
-#~ msgstr "Siombailí na ndúl"
-
-#~ msgid "Element names"
-#~ msgstr "Ainmneacha na ndúl"
-
-#~ msgid "Element:"
-#~ msgstr "Dúil:"
-
-#~ msgid "Bond Order:"
-#~ msgstr "Nascord:"
-
-#~ msgid "Adjust Hydrogens Automatically"
-#~ msgstr "Coigeartaigh Hidriginí Go hUathoibríoch"
-
-#~ msgid "Add Hydrogens"
-#~ msgstr "Cuir Hidriginí Leis"
-
-#~ msgid "Arabic 'natrun' for 'soda'"
-#~ msgstr "Ón fhocal Araibise 'natrun' a chiallaíonn 'sóid'"
-
-#~ msgid "Arabic 'al qaliy' for potash"
-#~ msgstr "Ón fhocal Araibise 'al qaliy' a chiallaíonn 'potais'"
-
-#~ msgid "Named after the Swedish town of Ytterby"
-#~ msgstr "Baisteadh é in ómós an bhaile Shualannaigh Ytterby"
-
-#~ msgid "Ununtrium"
-#~ msgstr "Ununtrium"
-
-#~ msgid "Ununpentium"
-#~ msgstr "Ununpentium"
-
-#~ msgid "Ununseptium"
-#~ msgstr "Ununseptium"
-
-#~ msgid "Ununoctium"
-#~ msgstr "Ununoctium"
-
-#~ msgid "volume"
-#~ msgstr "toirt"
-
-#~ msgid "Normal"
-#~ msgstr "Gnách"
-
-#~ msgid "liter"
-#~ msgstr "lítear"
-
-#~ msgid "cubic feet"
-#~ msgstr "troigh chiúbach"
-
-#~ msgid "cubic inch"
-#~ msgstr "orlach ciúbach"
-
-#~ msgid "cubic mile"
-#~ msgstr "míle ciúbach"
-
-#~ msgid "fluid ounce"
-#~ msgstr "unsa sreabhánach"
-
-#~ msgid "cups"
-#~ msgstr "cupán"
-
-#~ msgid "gallons"
-#~ msgstr "galún"
-
-#~ msgid "pints"
-#~ msgstr "pionta"
-
-#~ msgid "Pressure"
-#~ msgstr "Brú"
-
-#~ msgid "Temperature"
-#~ msgstr "Teocht"
-
-#~ msgid "Volume"
-#~ msgstr "Toirt"
-
-#~ msgid "Boiling point"
-#~ msgstr "Fiuchphointe"
-
-#~ msgid "Melting point"
-#~ msgstr "Leáphointe"
-
-#~ msgid "Isobar"
-#~ msgstr "Iseabar"
-
-#~ msgid "Atom numbers"
-#~ msgstr "Uimhreacha adamhacha"
-
-#~ msgid "cubic meters"
-#~ msgstr "méadar ciúbach"
-
-#~ msgid "Calculate"
-#~ msgstr "Ríomh"
-
-#~ msgid "Ok"
-#~ msgstr "OK"
-
-#~ msgid "Ununquadium"
-#~ msgstr "Ununquadium"
-
-#~ msgid "Ununhexium"
-#~ msgstr "Ununhexium"
-
-#~ msgid "X:"
-#~ msgstr "X:"
-
-#~ msgid "Y:"
-#~ msgstr "Y:"
-
-#~ msgid "Copy"
-#~ msgstr "Cóipeáil"
-
-#~ msgid "Intensity:"
-#~ msgstr "Déine:"
-
-#~ msgid "%1 of 1000"
-#~ msgstr "%1 as 1000"
-
-#~ msgid "%1 Å"
-#~ msgstr "%1 Å"
-
-#~ msgid "Atomic Mass [u]"
-#~ msgstr "Mais Adamhach [u]"
-
-#~ msgid "Melting Point [K]"
-#~ msgstr "Leáphointe [K]"
-
-#~ msgid "Boiling Point [K]"
-#~ msgstr "Fiuchphointe [K]"
-
-#~ msgid "Atomic Radius [pm]"
-#~ msgstr "Ga Adamhach [pm]"
-
-#~ msgid "Covalent Radius [pm]"
-#~ msgstr "Ga Comhfhiúsach [pm]"
-
-#~ msgid "Display atomic mass in the PSE"
-#~ msgstr "Taispeáin mais adamhach sa PSE"
-
-#~ msgid "Display only the number of the element"
-#~ msgstr "Taispeáin uimhir na dúile amháin"
-
-#~ msgid "Temperatures:"
-#~ msgstr "Teochtaí:"
-
-#~ msgid "Kelvin"
-#~ msgstr "Kelvin"
-
-#~ msgid "Degrees Celsius"
-#~ msgstr "Céimeanna Celsius"
-
-#~ msgid "Degrees Rankine"
-#~ msgstr "Céimeanna Rankine"
-
-#~ msgid "Degrees Réaumur"
-#~ msgstr "Céimeanna Réaumur"
-
-#~ msgid "Energies:"
-#~ msgstr "Fuinnimh:"
-
-#~ msgid "kj/mol (kilojoule per mol)"
-#~ msgstr "kJ/mol (cileajoule sa mól)"
-
-#~ msgid "eV (electronvolt)"
-#~ msgstr "eV (leictreonvoltaí)"
-
-#~ msgid "Wikipedia language"
-#~ msgstr "Teanga Vicipéide"
-
-#~ msgid "English"
-#~ msgstr "Béarla"
-
-#~ msgid "German"
-#~ msgstr "Gearmáinis"
-
-#~ msgid "French"
-#~ msgstr "Fraincis"
-
-#~ msgid "Italian"
-#~ msgstr "Iodáilis"
-
-#~ msgid "Russian"
-#~ msgstr "Rúisis"
-
-#~ msgid "Japanese"
-#~ msgstr "Seapáinis"
-
-#~ msgid "Spanish"
-#~ msgstr "Spáinnis"
-
-#~ msgid "Polish"
-#~ msgstr "Polainnis"
-
-#~ msgid "Portuguese"
-#~ msgstr "Portaingéilis"
-
-#~ msgid "Dutch"
-#~ msgstr "Ollainnis"
-
-#~ msgctxt "%1 is the temperature, %2 is the unit, like \"300 K\""
-#~ msgid "%1 %2"
-#~ msgstr "%1 %2"
-
-#~ msgctxt "electron volt"
-#~ msgid "%1 eV"
-#~ msgstr "%1 eV"
-
-#~ msgctxt "kilo joule per mol"
-#~ msgid "%1 kJ/mol"
-#~ msgstr "%1 kJ/mol"
-
-#~ msgid "Set Colors"
-#~ msgstr "Socraigh Dathanna"
-
-#~ msgid "celsius"
-#~ msgstr "celsius"
-
-#~ msgid "fahrenheit"
-#~ msgstr "faranhaít"
-
-#~ msgid "delisles"
-#~ msgstr "delisle"
-
-#~ msgid "réaumurs"
-#~ msgstr "réaumur"
-
-#~ msgid "liters"
-#~ msgstr "lítear"
-
-#~ msgid "cubic inches"
-#~ msgstr "orlach ciúbach"
-
-#~ msgid "Play"
-#~ msgstr "Seinn"
-
-#~ msgid "Pause"
-#~ msgstr "Sos"
-
-#~ msgid "Melting Point: %1"
-#~ msgstr "Leáphointe: %1"
-
-#~ msgid "Boiling Point: %1"
-#~ msgstr "Fiuchphointe: %1"
-
-#~ msgid "Electron Affinity: %1"
-#~ msgstr "Leictreonfhiníocht: %1"
-
-#~ msgid "Covalent Radius: %1"
-#~ msgstr "Ga Comhfhiúsach: %1"
-
-#~ msgid "van der Waals Radius: %1"
-#~ msgstr "Ga van der Waals: %1"
-
-#~ msgid "Mass: %1"
-#~ msgstr "Mais: %1"
-
-#~ msgid "Electronegativity: %1"
-#~ msgstr "Leictridhiúltacht: %1"
-
-#~ msgid "Selects the wikipedia language"
-#~ msgstr "Roghnaigh teanga Vicipéide"
-
-#~ msgid "Year:"
-#~ msgstr "Bliain:"
-
-#~ msgctxt "It means: Not Available. Translators: keep it as short as you can!"
-#~ msgid "N/A"
-#~ msgstr "N/A/F"
-
-#~ msgid "No Gradient"
-#~ msgstr "Gan Grádán"
-
-#~ msgid "Timeline"
-#~ msgstr "Amlíne"
-
-#~ msgid "Settings"
-#~ msgstr "Socruithe"
-
-#~ msgid "nm"
-#~ msgstr "nm"
-
-#~ msgid "%1 nm"
-#~ msgstr "%1 nm"
-
-#~ msgid "Hide &Legend"
-#~ msgstr "Folaigh &Eochair Eolais"
-
-#~ msgid "Show &Sidebar"
-#~ msgstr "Tai&speáin an Barra Taoibh"
-
-#~ msgid "Hide &Sidebar"
-#~ msgstr "Folai&gh an Barra Taoibh"
-
-#~ msgid "Gradient: %1 (%2)"
-#~ msgstr "Grádán: %1 (%2)"
-
-#~ msgid "Add Atom"
-#~ msgstr "Cuir Adamh Leis"
-
-#~ msgid "Add Directory"
-#~ msgstr "Cuir Comhadlann Leis"
-
-#~ msgid "Insert Fragment"
-#~ msgstr "Ionsáigh Blúire"
-
-#~ msgid "Atom number"
-#~ msgstr "Uimhir adamhach"
-
-#~ msgid "Width:"
-#~ msgstr "Leithead:"
-
-#~ msgid "A"
-#~ msgstr "A"
-
-#~ msgid "°"
-#~ msgstr "°"
-
-#~ msgid "Opacity:"
-#~ msgstr "Teimhneacht:"
-
-#~ msgid "Atom Radius:"
-#~ msgstr "Ga Adamhach:"
-
-#~ msgid "Show Atoms"
-#~ msgstr "Taispeáin Adaimh"
-
-#~ msgid "Radius:"
-#~ msgstr "Ga:"
-
-#~ msgid "Render:"
-#~ msgstr "Rindreáil:"
-
-#~ msgid "Fill"
-#~ msgstr "Líon"
-
-#~ msgid "Lines"
-#~ msgstr "Línte"
-
-#~ msgid "Points"
-#~ msgstr "Pointí"
-
-#~ msgid "Color:"
-#~ msgstr "Dath:"
-
-#~ msgid "Custom Color"
-#~ msgstr "Dath Saincheaptha"
-
-#~ msgid "Custom Color:"
-#~ msgstr "Dath Saincheaptha:"
-
-#~ msgid "Positive"
-#~ msgstr "Deimhneach"
-
-#~ msgid "Negative"
-#~ msgstr "Diúltach"
-
-#~ msgid "Rendering:"
-#~ msgstr "Rindreáil:"
-
-#~ msgid "Backbone"
-#~ msgstr "Cnámh droma"
-
-#~ msgid "Zoom"
-#~ msgstr "Súmáil"
-
-#~ msgid "Carsten Niehaus."
-#~ msgstr "Carsten Niehaus."
-
-#~ msgid "Atomic numbers"
-#~ msgstr "Uimhreacha adamhacha"
-
-#~ msgid "Nobel gases"
-#~ msgstr "Triathgháis"
-
-#~ msgid "Density"
-#~ msgstr "Dlús"
-
-#~ msgid "Form"
-#~ msgstr "Foirm"
-
-#~ msgctxt "For example: \"1 Carbon\" or \"3 Oxygen\""
-#~ msgid "%1 %2\n"
-#~ msgstr "%1 %2\n"
-
-#~ msgid "Alpha"
-#~ msgstr "Alfa"
-
-#~ msgid "Litmus Paper"
-#~ msgstr "Páipéar Litmis"
-
-#~ msgid "One Colour"
-#~ msgstr "Dath Amháin"
-
-#~ msgid "Debug Information"
-#~ msgstr "Eolas Dífhabhtaithe"
-
-#~ msgid "FPS"
-#~ msgstr "FSS"
-
-#~ msgid "Atom "
-#~ msgstr "Adamh "
-
-#~ msgid " ("
-#~ msgstr " ("
-
-#~ msgid "Residue "
-#~ msgstr "Fuíoll "
-
-#~ msgid "No Description"
-#~ msgstr "Gan Chur Síos"
-
-#~ msgid "Renders hydrogen bonds"
-#~ msgstr "Rindreáil naisc hidrigine"
-
-#~ msgid "Orbital Rendering"
-#~ msgstr "Rindreáil Fhithiseach"
-
-#~ msgid "Wireframe rendering"
-#~ msgstr "Rindreáil sreangfhráma"
-
-#~ msgid "Align:"
-#~ msgstr "Ailínigh:"
-
-#~ msgid "Everything"
-#~ msgstr "Gach Rud"
-
-#~ msgid "Align"
-#~ msgstr "Ailínigh"
-
-#~ msgid "Algorithm:"
-#~ msgstr "Algartam:"
-
-#~ msgid "x rotation:"
-#~ msgstr "Rothlú x:"
-
-#~ msgid "x rotation"
-#~ msgstr "rothlú x"
-
-#~ msgid "y rotation:"
-#~ msgstr "rothlú y:"
-
-#~ msgid "y rotation"
-#~ msgstr "rothlú y"
-
-#~ msgid "z rotation:"
-#~ msgstr "rothlú z:"
-
-#~ msgid "z rotation"
-#~ msgstr "rothlú z"
-
-#~ msgctxt "*1 is a number. You most likely do not need to translate this"
-#~ msgid "*1"
-#~ msgstr "*1"
-
-#~ msgctxt "*2 is a number. You most likely do not need to translate this"
-#~ msgid "*2"
-#~ msgstr "*2"
-
-#~ msgctxt "*3 is a number. You most likely do not need to translate this"
-#~ msgid "*3"
-#~ msgstr "*3"
-
-#~ msgctxt "*4 is a number. You most likely do not need to translate this"
-#~ msgid "*4"
-#~ msgstr "*4"
-
-#~ msgid "Delete Atom"
-#~ msgstr "Scrios Adamh"
-
-#~ msgid "Adjust Hydrogens"
-#~ msgstr "Coigeartaigh Hidriginí"
-
-#~ msgid "&Look"
-#~ msgstr "&Féach"
-
-#~ msgid "&Blocks"
-#~ msgstr "&Bloic"
-
-#~ msgid "&Groups"
-#~ msgstr "&Grúpaí"
-
-#~ msgid "Mean mass: %1 u"
-#~ msgstr "Meánmhais: %1 u"
-
-#~ msgid "Mean Mass [u]"
-#~ msgstr "Meánmhais [u]"
-
-#~ msgid "Density: %1"
-#~ msgstr "Dlús: %1"
-
-#~ msgid "<h1>%1</h1> Number: %2"
-#~ msgstr "<h1>%1</h1> Uimhir: %2"
-
-#~ msgid "Unknown."
-#~ msgstr "Anaithnid."
-
-#~ msgid "Layout"
-#~ msgstr "Leagan Amach"
-
-#~ msgid "pixel"
-#~ msgstr "picteilín"
-
-#~ msgid "The OpenGL-support"
-#~ msgstr "Tacaíocht OpenGL"
-
-#~ msgid "Basic"
-#~ msgstr "Bunata"
-
-#~ msgid "Acidic"
-#~ msgstr "Aigéadach"
-
-#~ msgid "Neutral"
-#~ msgstr "Neodrach"
-
-#~ msgid "bcc, body centered cubic"
-#~ msgstr "bcc, ciúbach corpláraithe"
-
-#~ msgid "ccp, cubic close packed"
-#~ msgstr "ccp, ciúbach dlúthphacáilte"
-
-#~ msgid "Atomic Radius: %1"
-#~ msgstr "Ga Adamhach: %1"
-
-#~ msgid "This element is artificial"
-#~ msgstr "Is saorga í an dúil seo"
-
-#~ msgid "This element is radioactive"
-#~ msgstr "Is radaighníomhach í an dúil seo"
-
-#~ msgid "This element is radioactive and artificial"
-#~ msgstr "Is radaighníomhach agus saorga í an dúil seo"
-
-#~ msgctxt "structure means orbital configuration in this case"
-#~ msgid "Unknown structure"
-#~ msgstr "Struchtúr anaithnid"
-
-#~ msgctxt "%1 is the temperature in Kelvin"
-#~ msgid "%1 K"
-#~ msgstr "%1°K"
-
-#~ msgctxt "%1 is the temperature in Fahrenheit"
-#~ msgid "%1 %2F"
-#~ msgstr "%1 %2F"
-
-#~ msgctxt "%1 is the temperature in Reaumur"
-#~ msgid "%1 %2R"
-#~ msgstr "%1 %2R"
-
-#~ msgid "%1 g/cm<sup>3</sup>"
-#~ msgstr "%1 g/cm<sup>3</sup>"
-
-# explained in periodic table view
-#~ msgctxt "Crystalsystem body centered cubic"
-#~ msgid "bcc"
-#~ msgstr "bcc"
-
-#~ msgid "Show &Groups"
-#~ msgstr "Taispeáin &Grúpaí"
-
-#~ msgid "Show &Blocks"
-#~ msgstr "Taispeáin &Bloic"
-
-#~ msgid "Show &CAS"
-#~ msgstr "Taispeáin &CAS"
-
-#~ msgid "Hide &Tooltips"
-#~ msgstr "Folaigh &Leideanna Uirlisí"
-
-#~ msgid "Tooltip, some other small things"
-#~ msgstr "Leideanna uirlisí, cúpla rud beag eile"
-
-#~ msgid "SVG icon"
-#~ msgstr "Deilbhín SVG"
-
-#~ msgctxt "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)"
-#~ msgid "%1 %2. Cumulative Mass: %3 u (%4%)\n"
-#~ msgstr "%1 %2. Mais Charnach: %3 u (%4%)\n"
-
-#~ msgid "hdp, hexagonal"
-#~ msgstr "hdp, heicseagánach"
-
-#~ msgid "Gradient: Atomic Radius"
-#~ msgstr "Grádán: Ga Adamhach"
-
-#~ msgid "Gradient: van der Waals Radius"
-#~ msgstr "Grádán: Ga van der Waals"
-
-#~ msgid "Gradient: Covalent Radius"
-#~ msgstr "Grádán: Ga Comhfhiúsach"
-
-#~ msgid "Gradient: Atomic Mass"
-#~ msgstr "Grádán: Mais Adamhach"
-
-#~ msgid "Gradient: Atomic Density"
-#~ msgstr "Grádán: Dlús Adamhach"
-
-#~ msgid "Gradient: Boiling point"
-#~ msgstr "Grádán: Fiuchphointe"
-
-#~ msgid "Gradient: Melting point"
-#~ msgstr "Grádán: Leáphointe"
-
-#~ msgid "Gradient: Electronegativity"
-#~ msgstr "Grádán: Leictridhiúltacht"
-
-#~ msgid "Gradient: Electron affinity"
-#~ msgstr "Grádán: Leictreonfhiníocht"
-
-#~ msgid "&Connect points"
-#~ msgstr "&Ceangail pointí"
-
-#~ msgid "Acidic:"
-#~ msgstr "Aigéadach:"
-
-#~ msgid "Amphoteric:"
-#~ msgstr "Amfaiteireach:"
-
-#~ msgid "Neutral:"
-#~ msgstr "Neodrach:"
-
-#~ msgid "Basic:"
-#~ msgstr "Bunúsach:"
-
-#~ msgid "&Temperatures"
-#~ msgstr "&Teochtaí"
-
-#~ msgid "Kalzium can show you the temperature in three different scales"
-#~ msgstr ""
-#~ "Tá Kalzium in ann an teocht a thaispeáint duit i dtrí scála difriúil"
-
-#~ msgid "Wavelength: %1 nm"
-#~ msgstr "Tonnfhad: %1 nm"
-
-#~ msgid "Probability: %1 10<sup>8</sup>s<sup>-1</sup>"
-#~ msgstr "Dóchúlacht: %1 10<sup>8</sup>s<sup>-1</sup>"
-
-#~ msgid "Energy 1: %1"
-#~ msgstr "Fuinneamh 1: %1"
-
-#~ msgid "Energy 2: %1"
-#~ msgstr "Fuinneamh 2: %1"
-
-#~ msgid "Term 1: %1"
-#~ msgstr "Téarma 1: %1"
-
-#~ msgid "J 1: %1"
-#~ msgstr "J 1: %1"
-
-#~ msgid "J 2: %1"
-#~ msgstr "J 2: %1"
-
-#~ msgid "&Export Spectrum as Image"
-#~ msgstr "&Easpórtáil Speictream mar Íomhá"
-
-#~ msgid "The spectrum could not be saved"
-#~ msgstr "Níorbh fhéidir an speictream a shábháil"
-
-#~ msgid "Image Could Not Be Saved"
-#~ msgstr "Níorbh fhéidir an íomhá a shábháil"
-
-#~ msgid "Energy 1, Energy 2: %1, %2"
-#~ msgstr "Fuinneamh 1, Fuinneamh 2: %1, %2"
-
-#~ msgid "Term 1, Term 2: %1, %2"
-#~ msgstr "Téarma 1, Téarma 2: %1, %2"
-
-#~ msgid "J 1, J 2: %1, %2"
-#~ msgstr "J 1, J 2: %1, %2"
