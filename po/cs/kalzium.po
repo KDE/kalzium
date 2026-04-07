@@ -3,35 +3,36 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2024, 2025 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <filipek.libor@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2025-12-05 10:23+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-04-06 10:06+0200\n"
+"Last-Translator: Libor Filípek <filipek.libor@protonmail.com>\n"
+"Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "Josef Galetka,Martina Blahová,Lukáš Tinkl,Jakub Friedl,Klára Cihlářová,Vít "
-"Pelčák,Miroslav Hrončok"
+"Pelčák,Miroslav Hrončok,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "jgaletka@seznam.cz,mblah@gvid.cz,lukas@kde.org,jfriedl@suse.cz,koty@seznam."
-"cz,vit@pelcak.org,miro@hroncok.cz"
+"cz,vit@pelcak.org,miro@hroncok.cz,libor.filipek@gmail.com"
 
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
@@ -237,7 +238,7 @@ msgstr "Roztok"
 #: data/knowledge.xml:63
 #, kde-format
 msgid "Homogeneous mix of multiple pure materials"
-msgstr "Homogenní směs dvou nebo více čistých složek."
+msgstr "Homogenní směs dvou nebo více čistých složek"
 
 #. i18n("Name"), ChemicalDataObject::name));
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmtType)
@@ -278,6 +279,8 @@ msgid ""
 "matter that separated from its environment in its expansion through a "
 "surface."
 msgstr ""
+"Homogenní část hmoty, která se díky svému chemickému složení a fyzikálním "
+"vlastnostem oddělila od svého okolí při svém šíření na povrchu."
 
 #: data/knowledge.xml:78
 #, kde-format
@@ -289,6 +292,8 @@ msgstr "Přesnost a rozsah"
 msgid ""
 "Expressed through standard deviation: Values given over accidental errors."
 msgstr ""
+"Vyjádřeno jako směrodatná odchylka: Hodnoty udávané s ohledem na náhodné "
+"chyby."
 
 #: data/knowledge.xml:82
 #, kde-format
@@ -298,7 +303,7 @@ msgstr "Správnost"
 #: data/knowledge.xml:83
 #, kde-format
 msgid "Values given over accidental errors."
-msgstr ""
+msgstr "Hodnoty mají přednost před náhodnými chybami."
 
 #: data/knowledge.xml:86
 #, kde-format
@@ -576,6 +581,18 @@ msgid ""
 "of the atom (e.g., Co-58m), but is sometimes placed as a superscript before "
 "(e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co)."
 msgstr ""
+"Jaderný izomer je metastabilní nebo izomerní stav atomu způsobený excitací "
+"protonu nebo neutronu v jeho jádru, takže k uvolnění přebytečné energie je "
+"nutná změna spinu. Rozpadají se do energeticky nižších stavů nuklidu "
+"prostřednictvím dvou izomerních přechodů:[br] -> γ- emise (emise fotonu s "
+"vysokou energií)[br] -> vnitřní konverze (energie se použije k ionizaci "
+"atomu)[br] Porovnejte to s definicí chemického izomeru, což je běžnější "
+"použití tohoto slova. Porovnejte také s významem izotopu, u kterého je "
+"rozdílem počet neutronů v jádře. Metastabilní izomery konkrétního atomu se "
+"obvykle označují písmenem „m“ (nebo v případě atomů s více než jedním "
+"izomerem 2m, 3m atd.). Toto označení se obvykle umisťuje za atomový symbol a "
+"číslo atomu (např. Co-58m), ale někdy se umisťuje jako horní index před ním "
+"(např. [sup]m[/sup]Co-58 nebo [sup]58m[/sup]Co)."
 
 #: data/knowledge.xml:207
 #, kde-format
@@ -658,6 +675,11 @@ msgid ""
 "electrons in its shell than the atom, a negative ion has more electrons. "
 "Therefore, a positive ion has a smaller radius than its atom and vice versa."
 msgstr ""
+"Ionový poloměr je poloměr nabitého atomu, známého jako ion. Ion může mít "
+"kladný nebo záporný náboj. Náboj iontu s uvedeným poloměrem se v programu "
+"Kalzium také zobrazuje. Kladný ion má ve své obálce méně elektronů než atom, "
+"záporný ion má elektronů více. Kladný ion má proto menší poloměr než jeho "
+"atom a naopak."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicCovalentRadiusGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -696,6 +718,10 @@ msgid ""
 "radii are determined from measurements of atomic spacing between pairs of "
 "unbonded atoms in crystals."
 msgstr ""
+"Van der Waalsův poloměr atomu je poloměr imaginární tvrdé koule, kterou lze "
+"pro mnoho účelů použít k modelování atomu. Van der Waalsovy poloměry se "
+"určují na základě měření vzdáleností mezi páry nespojených atomů v "
+"krystalech."
 
 #: data/knowledge.xml:263
 #, kde-format
@@ -712,6 +738,8 @@ msgid ""
 "The covalent radius in chemistry corresponds to half of the distance between "
 "two identical atomic nuclei, bound by a covalent bond."
 msgstr ""
+"Kovalentní poloměr v chemii odpovídá polovině vzdálenosti mezi dvěma "
+"identickými atomovými jádry, která jsou spojena kovalentní vazbou."
 
 #: data/tools.xml:5
 #, kde-format
@@ -759,6 +787,16 @@ msgid ""
 "environment by absorbing water vapor. The dry atmosphere then takes up water "
 "from the sample to be dried."
 msgstr ""
+"Sušička je laboratorní přístroj, často vyrobený ze skla, který slouží k "
+"sušení chemických látek, tj. k odstranění vody nebo kapaliny ze vzorku.\n"
+"\t\t\tV zásadě se jedná o skleněnou misku s víkem, které má rovnou plochu, "
+"takže miska je vzduchotěsná. Spodní část sušičky je obvykle naplněna "
+"sušidlem, jako je chlorid vápenatý, silikagel, anhydrid fosforečný nebo "
+"kyselina sírová. Vzorek, který má být vysušen, se umístí na průhlednou "
+"vložku z plastu nebo keramiky nad sušidlem.\n"
+"\t\t\tVysoušecí činidlo je hygroskopické, což znamená, že odvlhčuje své "
+"okolí tím, že absorbuje vodní páru. Suchá atmosféra pak odebírá vodu ze "
+"vzorku, který má být vysušen."
 
 #: data/tools.xml:17
 #, kde-format
@@ -772,6 +810,9 @@ msgid ""
 "chemicals. The material they are made of (e.g. iron, titanium, platinum) and "
 "their design (e.g. flat spatula or spoon spatula) varies."
 msgstr ""
+"Stěrka je laboratorní nástroj sloužící k seškrabávání, mletí a přenášení "
+"chemikálií. Liší se materiálem, z něhož jsou vyrobeny (např. železo, titan, "
+"platina), i svým tvarem (např. plochá stěrka nebo lžícová stěrka)."
 
 #: data/tools.xml:22
 #, kde-format
@@ -789,6 +830,13 @@ msgid ""
 "application of the hydrodynamic paradox (objects close to drifting fluids "
 "are aspirated instead of being pushed away)."
 msgstr ""
+"Vodní vývěva má dva vstupy a jeden výstup a v zásadě se skládá ze dvou "
+"trubek, z nichž jedna je zasunuta do druhé. Na vstupu vody vystřeluje vodní "
+"paprsek pod plným tlakem z trysky do mírně větší trubky. Vodní paprsek tak "
+"odvádí vzduch nebo tekutinu z druhého vstupu. <br> Toto je způsobeno "
+"podtlakem v proudící kapalině, a jedná se tedy o aplikaci hydrodynamického "
+"paradoxu (objekty v blízkosti proudící kapaliny jsou nasávány, místo aby "
+"byly odtlačovány)."
 
 #: data/tools.xml:27
 #, kde-format
@@ -802,6 +850,9 @@ msgid ""
 "the refractive index of a chemical is known it can be used after a synthesis "
 "to determine the sample's purity or to audit the synthesis' success."
 msgstr ""
+"Pomocí refraktometru se stanovuje index lomu optických médií. Je-li index "
+"lomu určité chemické látky známý, lze jej po syntéze použít ke stanovení "
+"čistoty vzorku nebo k ověření úspěšnosti syntézy."
 
 #: data/tools.xml:32
 #, kde-format
@@ -887,7 +938,7 @@ msgstr ""
 #: data/tools.xml:57
 #, kde-format
 msgid "Test Tube Rack"
-msgstr ""
+msgstr "Stojan na zkumavky"
 
 #: data/tools.xml:58
 #, kde-format
@@ -895,11 +946,13 @@ msgid ""
 "This rack is useful when many small amounts of chemicals are to be tested in "
 "a row; or alternatively, to dry test tubes."
 msgstr ""
+"Tento stojan se hodí v případě, že je třeba postupně otestovat mnoho malých "
+"vzorků chemikálií, případně také k sušení zkumavek."
 
 #: data/tools.xml:62
 #, kde-format
 msgid "Vortexer"
-msgstr ""
+msgstr "Vortexer"
 
 #: data/tools.xml:63
 #, kde-format
@@ -911,11 +964,17 @@ msgid ""
 "homogenized quickly. It is the opposite of a centrifuge, used to separate "
 "fluids."
 msgstr ""
+"Vortexer slouží k homogenizaci reagencií používaných v laboratořích. Nádoba "
+"s kapalinou, kterou je třeba homogenizovat, se umístí na podstavec. "
+"Podstavec se otáčí rychlostí až 3000 otáček za minutu, přičemž se aktivuje "
+"kontaktní senzor. Tímto způsobem lze rychle homogenizovat i velmi malé "
+"objemy tekutin. Jedná se o protiklad odstředivky, která se používá k "
+"oddělování tekutin."
 
 #: data/tools.xml:67
 #, kde-format
 msgid "Wash Bottle"
-msgstr ""
+msgstr "Střička"
 
 #: data/tools.xml:68
 #, kde-format
@@ -924,11 +983,15 @@ msgid ""
 "usually filled with water, salt, acid or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
+"Tyto lahve se používají k mnoha účelům. Ve většině laboratoří se obvykle "
+"plní vodou, solí, kyselinou nebo jinými běžně používanými kapalinami. "
+"Usnadňují dávkování kapaliny v případech, kdy není zapotřebí přesně odměřené "
+"množství."
 
 #: data/tools.xml:72
 #, kde-format
 msgid "Rotary Evaporator"
-msgstr ""
+msgstr "Rotační odparka"
 
 #: data/tools.xml:73
 #, kde-format
@@ -940,11 +1003,16 @@ msgid ""
 "attaching a vacuum pump, the air pressure and therefore the boiling point of "
 "the fluid can be decreased."
 msgstr ""
+"Rotační odparky se skládají z kulaté baňky umístěné v lázni s horkou vodou a "
+"jsou určeny k odpařování rozpouštědel. Baňka se otáčí a rozpouštědlo se za "
+"vakuových podmínek shromažďuje v kondenzátoru a odtud kapá do sběrné baňky "
+"na kondenzát. Tímto způsobem lze roztoky koncentrovat nebo čistit. "
+"Připojením vývěvy lze snížit atmosférický tlak a tím i bod varu kapaliny."
 
 #: data/tools.xml:77
 #, kde-format
 msgid "Reflux Condenser"
-msgstr ""
+msgstr "Refluxní chladič"
 
 #: data/tools.xml:78
 #, kde-format
@@ -954,11 +1022,15 @@ msgid ""
 "condenses and runs back into the original fluid. Usually it is put on a "
 "round-bottomed flask or several neck flasks."
 msgstr ""
+"Refluxní chladič podrobuje kapalinu procesu, při kterém se plyn vznikající "
+"při zahřívání zachycuje na refluxním chladiči. Kapalina se ochlazuje, dokud "
+"nezkondenzuje a nevrátí se zpět do původní kapaliny. Obvykle se připojuje k "
+"baňce s kulatým dnem nebo k několika baňkám s hrdlem."
 
 #: data/tools.xml:82
 #, kde-format
 msgid "Pipette Bulb"
-msgstr ""
+msgstr "Pipetovací balónek"
 
 #: data/tools.xml:83
 #, kde-format
@@ -967,11 +1039,14 @@ msgid ""
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb then causes the fluid to flow out of the pipette."
 msgstr ""
+"K plnění pipet se používá pipetovací balónek. Stlačením a následným "
+"uvolněním balonku vznikne podtlak, který způsobí, že kapalina vteče do "
+"pipety; stlačením balonku pak kapalina z pipety vytéká."
 
 #: data/tools.xml:87
 #, kde-format
 msgid "Test Tube"
-msgstr ""
+msgstr "Zkumavka"
 
 #: data/tools.xml:88
 #, kde-format
@@ -980,6 +1055,9 @@ msgid ""
 "different types of tubes. For example some have connectors, some are etched "
 "for measurements, some are hardened for durability."
 msgstr ""
+"Ve zkumavce se provádějí drobné reakce nebo pokusy. Existuje mnoho různých "
+"typů zkumavek. Některé jsou například vybaveny spojkami, jiné mají vyryté "
+"měrné stupnice a další jsou tvrzeny, aby byly odolnější."
 
 #: data/tools.xml:92
 #, kde-format
@@ -994,11 +1072,15 @@ msgid ""
 "type of plastic that affords protection from both mechanical impacts, and "
 "acid and base chemicals."
 msgstr ""
+"Většina laboratoří vyžaduje nošení ochranných brýlí. Bez nich je práce s "
+"většinou chemikálií příliš riskantní. Čočky jsou obvykle vyrobeny ze "
+"speciálního druhu plastu, který poskytuje ochranu jak před mechanickými "
+"nárazy, tak před kyselými a zásaditými chemikáliemi."
 
 #: data/tools.xml:97
 #, kde-format
 msgid "Round-Bottomed Flask"
-msgstr ""
+msgstr "Kulová baňka"
 
 #: data/tools.xml:98
 #, kde-format
@@ -1007,6 +1089,9 @@ msgid ""
 "other items, as the frosting on the neck shows. With cork rings they can be "
 "placed on a table."
 msgstr ""
+"Kulová baňka se používá při mnoha reakcích. Některé z nich lze připojit k "
+"dalším předmětům, jak ukazuje vroubkování na hrdle. Pomocí korkových kroužků "
+"je lze postavit na stůl."
 
 #: data/tools.xml:102
 #, kde-format
@@ -1019,6 +1104,8 @@ msgid ""
 "Unlike a regular pipette, a full pipette only has one marking for a specific "
 "volume."
 msgstr ""
+"Na rozdíl od běžné pipety má plná pipeta pouze jedno označení pro konkrétní "
+"objem."
 
 #: data/tools.xml:107
 #, kde-format
@@ -1039,7 +1126,7 @@ msgstr ""
 #: data/tools.xml:112
 #, kde-format
 msgid "Test Tube Holder"
-msgstr ""
+msgstr "Držák na zkumavky"
 
 #: data/tools.xml:113
 #, kde-format
@@ -1049,6 +1136,10 @@ msgid ""
 "is hot. Typically, test tube holders are used to hold test tubes over open "
 "flames."
 msgstr ""
+"Držáky na zkumavky usnadňují manipulaci se zkumavkami. Použitím držáku se "
+"zajistí bezpečná vzdálenost mezi rukou a zkumavkou, pokud je zkumavka horká. "
+"Držáky na zkumavky se obvykle používají k držení zkumavek nad otevřeným "
+"plamenem."
 
 #: data/tools.xml:117
 #, kde-format
@@ -1063,6 +1154,9 @@ msgid ""
 "following this, the particulates can be separated from the fluid by "
 "decanting."
 msgstr ""
+"Pomocí odměrného válce lze relativně přesně odměřovat množství kapalin. "
+"Kromě toho umožňuje tento válec usazování částic: následně lze tyto částice "
+"oddělit od kapaliny přelitím."
 
 #: data/tools.xml:122
 #, kde-format
@@ -1091,11 +1185,14 @@ msgid ""
 "heaters have a built-in magnet which can rotate: this causes the stir bar to "
 "rotate and the mixture to become homogenized."
 msgstr ""
+"Magnetické míchací tyčinky jsou malé magnetické tyčinky s vysokou chemickou "
+"inertností. Většina ohřívačů má zabudovaný magnet, který se může otáčet: tím "
+"se míchací tyčinka uvede do pohybu a směs se homogenizuje."
 
 #: data/tools.xml:132
 #, kde-format
 msgid "Magnetic Stir Bar Retriever"
-msgstr ""
+msgstr "Vytahovač magnetických míchacích tyčinek"
 
 #: data/tools.xml:133
 #, kde-format
@@ -1104,6 +1201,9 @@ msgid ""
 "from containers. The retriever is a bar with a magnet at the end which "
 "attracts the stir bars."
 msgstr ""
+"K vyjmutí magnetických míchacích tyčinek z nádob lze použít magnetický "
+"vytahovač. Vytahovač je tyč s magnetem na konci, který přitahuje míchací "
+"tyčinky."
 
 #: data/tools.xml:137
 #, kde-format
@@ -1119,6 +1219,11 @@ msgid ""
 "a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
+"Pipety se v laboratořích používají k dávkování malých množství kapalin. "
+"Pipeta je opatřena objemovou stupnicí a jako kapátka na kapaliny se "
+"zpravidla používají pipetové baňky. Oba typy pipet jsou kalibrovány pro "
+"kapaliny o teplotě 20 °C a pro dobu vylití (označenou symbolem \"Ex.\"). V "
+"případě potřeby jsou doby vylití na pipetách vyznačeny."
 
 #: data/tools.xml:142
 #, kde-format
@@ -1172,11 +1277,15 @@ msgid ""
 "bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
 "This procedure is called out-gassing."
 msgstr ""
+"U některých chemických reakcí je důležité, aby rozpouštědlo neobsahovalo "
+"žádné plyny. K tomu se reakční nádoba na určitou dobu umístí do ultrazvukové "
+"lázně. Díky vysoké zvukové frekvenci se plynové bubliny uvolní a stoupají "
+"nahoru. Tento postup se nazývá odplyňování."
 
 #: data/tools.xml:158
 #, kde-format
 msgid "Scales"
-msgstr "Měřítka"
+msgstr "Váhy"
 
 #: data/tools.xml:159
 #, kde-format
@@ -1186,6 +1295,10 @@ msgid ""
 "As such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
+"V laboratoři je často nutné odvážit velmi přesná množství reagencií. Vysoce "
+"přesné váhy dokážou měřit hmotnost s přesností až na 1/10 000 gramu. Proto "
+"jsou umístěny na žulových blocích, aby se zabránilo vibracím, a jsou "
+"chráněny před změnami proudění vzduchu pomocí krytu."
 
 #: data/tools.xml:163
 #, kde-format
@@ -1223,11 +1336,15 @@ msgid ""
 "closed system, the plunger moves outwards. This can be used to measure the "
 "volume of a reaction."
 msgstr ""
+"Stříkačka se skládá ze dvou částí, skleněné trubice a pístu, které jsou "
+"obvykle vyrobeny ze skla. Do skleněné trubice proudí plyny a jelikož se "
+"jedná o uzavřený systém, píst se posouvá směrem ven. Tento jev lze využít k "
+"měření objemu reakce."
 
 #: data/tools.xml:174
 #, kde-format
 msgid "Separation Beaker"
-msgstr ""
+msgstr "Destilační kádinka"
 
 #: data/tools.xml:175
 #, kde-format
@@ -1238,6 +1355,10 @@ msgid ""
 "four caps contain a specific liquid, depending on the boiling point of the "
 "liquid distilled."
 msgstr ""
+"Nejprve se na čtyři rohy destilační kádinky umístí čtyři malé uzávěry. Poté "
+"se během destilace, jakmile je dosaženo určité teploty, kádinka otočí o 60 "
+"stupňů. Díky tomu obsahují na konci destilace všechny čtyři uzávěry "
+"konkrétní kapalinu, a to v závislosti na bodu varu destilované kapaliny."
 
 #: data/tools.xml:179
 #, kde-format
@@ -1258,7 +1379,7 @@ msgstr ""
 #: data/tools.xml:184
 #, kde-format
 msgid "Extractor Hood"
-msgstr ""
+msgstr "Odsávací digestoř"
 
 #: data/tools.xml:185
 #, kde-format
@@ -1266,11 +1387,13 @@ msgid ""
 "Extractor hoods are used to filter out gases from chemical reactions. The "
 "air, once cleaned, is pumped outside of the building."
 msgstr ""
+"Odsávací digestoře slouží k odstraňování plynů vznikajících při chemických "
+"reakcích. Vyčištěný vzduch je poté odváděn ven z budovy."
 
 #: data/tools.xml:189
 #, kde-format
 msgid "Contact Thermometer"
-msgstr "Dotykový teploměr"
+msgstr "Kontaktní teploměr"
 
 #: data/tools.xml:190
 #, kde-format
@@ -1283,6 +1406,12 @@ msgid ""
 "coil is deactivated; when the temperature falls, the heating coil is "
 "reactivated."
 msgstr ""
+"Kontaktní teploměry se od běžných teploměrů liší tím, že jsou napojeny na "
+"topnou spirálu, a mohou tak současně měřit i regulovat aktuální teplotu. "
+"Díky tomu umožňují provádět experimenty při konstantní teplotě. Kontaktní "
+"teploměry fungují na principu negativní zpětné vazby: jakmile je dosaženo "
+"požadované teploty, topná spirála se vypne; jakmile teplota klesne, topná "
+"spirála se opět zapne."
 
 #: data/tools.xml:194
 #, kde-format
@@ -1319,7 +1448,7 @@ msgstr ""
 #: data/tools.xml:204
 #, kde-format
 msgid "Short-Stem Funnel"
-msgstr ""
+msgstr "Nálevka s krátkou trubicí"
 
 #: data/tools.xml:205
 #, kde-format
@@ -1327,6 +1456,8 @@ msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
 msgstr ""
+"Nálevku lze použít k naplnění nádoby s úzkým hrdlem kapalinou nebo jemným "
+"práškem."
 
 #: data/tools.xml:209
 #, kde-format
@@ -1376,6 +1507,9 @@ msgid ""
 "specific for every kind of matter, and thus a DSC can be used to identify "
 "chemicals or to describe them."
 msgstr ""
+"DSC měří objem tepelného toku látky. Tato hodnota je pro každý druh látky "
+"zcela specifická, a proto lze DSC využít k identifikaci chemických látek "
+"nebo k jejich popisu."
 
 #: data/tools.xml:224
 #, kde-format
@@ -1527,6 +1661,9 @@ msgid ""
 "The name comes from Latin 'sodanum' which means 'headache remedy'. The "
 "symbol comes from Latin 'natrium' for Arabic 'natrun' or English 'soda'."
 msgstr ""
+"Název pochází z latinského slova 'sodanum', což znamená 'lék na bolest "
+"hlavy'. Symbol pochází z latinského slova 'natrium', které je odvozeno od "
+"arabského 'natrun' nebo anglického 'soda'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:25
@@ -1618,6 +1755,10 @@ msgid ""
 "in caustic potashes. The symbol comes from the Latin 'kalium' for the "
 "original Arabic 'al qaliy' which means alkali."
 msgstr ""
+"Název pochází z anglického slova 'potash' ('pot ashes'), protože se "
+"vyskytuje v žírných draselných solích. Symbol pochází z latinského slova "
+"'kalium', které je odvozeno od původního arabského výrazu 'al qaliy', což "
+"znamená 'alkali'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:41
@@ -1726,7 +1867,7 @@ msgstr "'Nickel' bylo jméno horského skřítka."
 #: element_tiny.xml:59
 #, kde-format
 msgid "Copper"
-msgstr "měď"
+msgstr "Měď"
 
 #: element_tiny.xml:60
 #, kde-format
@@ -2238,6 +2379,9 @@ msgid ""
 "discovery, so it was named after his hometown of 'Hafnia' (the old Latin "
 "name of Copenhagen, Denmark)."
 msgstr ""
+"Niels Bohr předpověděl vlastnosti tohoto prvku ještě před jeho objevením, a "
+"proto byl pojmenován po jeho rodném městě 'Hafnia' (starý latinský název "
+"dánské Kodaně)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2263,6 +2407,9 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
+"Název pochází ze švédského výrazu 'tung sten', což znamená 'těžký kámen'. "
+"Symbol vychází ze starého německého názvu prvku 'wolfram', který popisoval, "
+"jak wolfram reaguje s cínem 'jako vlk, který požírá ovci (berana)'."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2455,6 +2602,8 @@ msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
+"Řecké slovo 'protos' znamená 'předek'. Protactinium bylo pojmenováno takto, "
+"protože aktinium je produktem radioaktivního rozpadu protactinia."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:185
@@ -2711,6 +2860,10 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
+"Pojmenován podle slova 'Nihon', což je romanizovaný zápis slova 'Japonsko' v "
+"japonštině. Jedná se o první prvek objevený v Japonsku, a to v Centru pro "
+"vědu založenou na urychlovačích RIKEN Nishina. V minulosti byl známý jako "
+"eka-thallium."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:229
@@ -2724,6 +2877,8 @@ msgid ""
 "Historically known as eka-lead. Named after Flerov Laboratory of Nuclear "
 "Reactions (Dubna, Russia) where superheavy elements are synthesized."
 msgstr ""
+"V minulosti známý jako eka-olovo. Pojmenován po Flerovově laboratoři "
+"jaderných reakcí (Dubna, Rusko), kde se syntetizují supertěžké prvky."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:231
@@ -2738,12 +2893,15 @@ msgid ""
 "for Nuclear Research that was a co-discoverer of this element. Historically "
 "known as eka-bismuth."
 msgstr ""
+"Pojmenován podle ruského regionu Moskva, kde sídlí Sdružený institut pro "
+"jaderný výzkum, který se podílel na objevu tohoto prvku. V minulosti byl "
+"známý jako eka-bismut."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:233
 #, kde-format
 msgid "Livermorium"
-msgstr ""
+msgstr "Livermorium"
 
 #: element_tiny.xml:234
 #, kde-format
@@ -2751,6 +2909,8 @@ msgid ""
 "Historically known as eka-polonium. Named after Livermore National "
 "Laboratory (USA)."
 msgstr ""
+"V minulosti známý jako eka-polonium. Pojmenován po Livermore National "
+"Laboratory (USA)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:235
@@ -2765,6 +2925,9 @@ msgid ""
 "National Laboratory and Vanderbilt University whom were co-discoverers of "
 "this element. Historically known as eka-astatine."
 msgstr ""
+"Pojmenován podle amerického státu Tennessee, kde sídlí Oak Ridge National "
+"Laboratory a Vanderbiltova univerzita, které se podílely na objevu tohoto "
+"prvku. Dříve známý jako eka-astatin."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:237
@@ -2778,6 +2941,8 @@ msgid ""
 "Named in honor of Professor Yuri Oganessian's trans-actinide element "
 "research. Historically known as eka-radon, eka-emanation before 1960."
 msgstr ""
+"Pojmenován na počest výzkumu prvků za aktinidy profesora Jurije Oganessiana. "
+"V minulosti byl známý jako eka-radon, před rokem 1960 jako eka-emanace."
 
 #: libscience/psetables.cpp:152
 #, kde-format
@@ -2855,13 +3020,13 @@ msgstr "Kalkulačka molekulové hmotnosti"
 #: src/calculator/calculator.cpp:112 src/calculator/calculator.ui:81
 #, kde-format
 msgid "Titration Calculator"
-msgstr ""
+msgstr "Kalkulačka titrace"
 
 #. i18n: ectx: property (toolTip), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:38
 #, kde-format
 msgid "<big>Select the calculator that you want to use</big>"
-msgstr ""
+msgstr "<big>Vyberte kalkulačku, kterou chcete použít</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:41
@@ -2883,19 +3048,19 @@ msgstr "Kalkulačky"
 #: src/calculator/calculator.ui:130
 #, kde-format
 msgid "<h1>The Kalzium Calculators</h1>"
-msgstr ""
+msgstr "<h1>Kalkulačky v aplikaci Kalzium</h1>"
 
 #. i18n: ectx: property (toolTip), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:168
 #, kde-format
 msgid "<big>Information about the various calculators</big>"
-msgstr ""
+msgstr "<big>Informace o různých kalkulačkách</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:171
 #, kde-format
 msgid "This is the description of the function of each calculator in Kalzium"
-msgstr "Toto je vysvětlení funkce každé kalkulačky v Kalziu."
+msgstr "Toto je vysvětlení funkce každé kalkulačky v Kalziu"
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:189
@@ -2929,6 +3094,31 @@ msgid ""
 "equations and see how the concentration of a species changes in function of "
 "another one.</li></ul>"
 msgstr ""
+"<big>Vítejte v kalkulačkách Kalzium!<br /></big>\n"
+"<p>Zde jsou řady kalkulaček pro různé úlohy provádějící různé výpočty.</p>\n"
+"<p>V Kalziu najdete následující kalkulačky:</p>\n"
+"<ul><li><b>Kalkulačka molekulární hmotnosti<br /></b>Tato kalkulačka vám "
+"pomůže vypočítat molekulární hmotnosti různých molekul.<br />Můžete zadat "
+"zkrácenou formu názvů molekul nebo přidat další takové aliasy.</li>\n"
+"<li><b>Kalkulačka koncentrací<br /></b>Můžete vypočítat veličiny, které "
+"zahrnují:</li>\n"
+"<ul type=\"circle\"><li>Množství látky</li>\n"
+"<li>Objem rozpouštědla</li>\n"
+"<li>Koncentrace látky</li></ul>\n"
+"<p>K dispozici je široká škála jednotek a různých metod pro specifikaci "
+"množství.</p>\n"
+"<li><b>Jaderná kalkulačka<br /></b>Tato kalkulačka využívá jaderná data "
+"dostupná v Kalziu k predikci očekávaných hmotností materiálu po čase.</li>\n"
+"<li><b>Kalkulačka plynů<br /></b>Tato kalkulačka dokáže vypočítat hodnoty "
+"teploty, tlaku, objemu, množství plynu atd. pro různé ideální i neideální "
+"plyny.</li>\n"
+"<li><b>Vyvažování rovnic<br /></b>Tato kalkulačka dokáže vyvažovat chemické "
+"rovnice.</li>\n"
+"<li><b>Titrační kalkulačka<br /></b>Tato kalkulačka se snaží určit "
+"ekvivalenční bod titrace prováděný pomocí pH metru tak, aby se co nejlépe "
+"přiblížila hyperbolické tangentě. Můžete ji také nechat vyřešit rovnovážný "
+"systém rovnic a sledovat, jak se koncentrace jednoho druhu mění v závislosti "
+"na jiném druhu.</li></ul>"
 
 #: src/calculator/concCalculator.cpp:892
 #, kde-format
@@ -3008,6 +3198,8 @@ msgid ""
 "The amount is specified in moles, cannot calculate molar/equivalent masses. "
 "Please specify mass/volume."
 msgstr ""
+"Hmotnost je uvedena v molech, nelze vypočítat molární hmotnost ani "
+"ekvivalentní hmotnost. Uveďte prosím hmotnost nebo objem."
 
 #: src/calculator/concCalculator.cpp:934
 #, kde-format
@@ -3015,6 +3207,8 @@ msgid ""
 "You can calculate the molar mass of solvent only if the mole fraction is "
 "specified."
 msgstr ""
+"Molární hmotnost rozpouštědla lze vypočítat pouze v případě, že je zadán "
+"molární poměr."
 
 #: src/calculator/concCalculator.cpp:937
 #, kde-format
@@ -3072,7 +3266,7 @@ msgstr "<big><b>Množství rozpuštěné látky:</b></big>"
 #: src/calculator/concCalculator.ui:53
 #, kde-format
 msgid "<big>Specify the amount of solute</big>"
-msgstr ""
+msgstr "<big>Zadejte množství rozpuštěné látky</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, amtSolute)
 #: src/calculator/concCalculator.ui:56
@@ -3124,7 +3318,7 @@ msgstr "<big><b>Látkové množství rozpuštěné látky:</b></big>"
 #: src/calculator/concCalculator.ui:115
 #, kde-format
 msgid "<big>Specify the equivalent mass of the solute</big>"
-msgstr ""
+msgstr "<big>Určete ekvivalentní hmotnost rozpuštěné látky</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, eqtMass)
 #: src/calculator/concCalculator.ui:119
@@ -3134,6 +3328,10 @@ msgid ""
 "required only if concentration in terms of normality is involved.\n"
 "Normality = Number of Equivalents / liter of solution"
 msgstr ""
+"Toto pole slouží k zadání ekvivalentní hmotnosti rozpuštěné látky. Je nutné "
+"jej vyplnit pouze v případě, že se jedná o koncentraci vyjádřenou jako "
+"normalita.\n"
+"Normalita = počet ekvivalentů / litr roztoku"
 
 #. i18n: ectx: property (text), widget (QLabel, label_52)
 #: src/calculator/concCalculator.ui:132
@@ -3167,7 +3365,7 @@ msgstr "<big><b>Množství rozpouštědla:</b></big>"
 #: src/calculator/concCalculator.ui:168
 #, kde-format
 msgid "<big>Specify the amount of solvent</big>"
-msgstr ""
+msgstr "<big>Zadejte množství rozpouštědla</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, amtSolvent)
 #: src/calculator/concCalculator.ui:171
@@ -3219,7 +3417,7 @@ msgstr "<big><b>Hustota rozpouštědla:</b></big>"
 #: src/calculator/concCalculator.ui:230
 #, kde-format
 msgid "<big>Specify the density of the solvent</big>"
-msgstr ""
+msgstr "<big>Zadejte hustotu rozpouštědla</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, densitySolvent)
 #: src/calculator/concCalculator.ui:233
@@ -3241,7 +3439,7 @@ msgstr "<big><b>Koncentrace:</b></big>"
 #: src/calculator/concCalculator.ui:256
 #, kde-format
 msgid "<big>Specify the concentration of the solution</big>"
-msgstr ""
+msgstr "<big>Zadejte koncentraci roztoku</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, concentration)
 #: src/calculator/concCalculator.ui:259
@@ -3264,7 +3462,7 @@ msgstr "<big><b>Vyčíslit:</b></big>"
 #: src/calculator/concCalculator.ui:282 src/calculator/nuclearCalculator.ui:218
 #, kde-format
 msgid "<big>Specify what you want to calculate</big>"
-msgstr ""
+msgstr "<big>Zadejte, co chcete vypočítat</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/concCalculator.ui:285
@@ -3286,13 +3484,13 @@ msgstr "Určete jednotku hustoty rozpouštědla"
 #: src/calculator/concCalculator.ui:315
 #, kde-format
 msgid "<big>Specify the unit/method for specifying concentration</big>"
-msgstr ""
+msgstr "<big>Zadejte jednotku/metodu pro určení koncentrace</big>"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:322
 #, kde-format
 msgid "<big>The units for amount of solvent</big>"
-msgstr ""
+msgstr "<big>Jednotky pro množství rozpouštědla</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlvt_unit)
 #: src/calculator/concCalculator.ui:325
@@ -3306,7 +3504,7 @@ msgstr "Pole je určeno pro zadání jednotek množství rozpouštědla v roztok
 #: src/calculator/concCalculator.ui:332
 #, kde-format
 msgid "<big>The units for molar mass of solvent</big>"
-msgstr ""
+msgstr "<big>Jednotky molární hmotnosti rozpouštědla</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
@@ -3335,7 +3533,7 @@ msgstr ""
 #: src/calculator/concCalculator.ui:355
 #, kde-format
 msgid "<big>Specify the units for the amount of solute</big>"
-msgstr ""
+msgstr "<big>Zadejte jednotky pro množství rozpuštěné látky</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, amtSlt_unit)
 #: src/calculator/concCalculator.ui:358
@@ -3350,7 +3548,7 @@ msgstr ""
 #: src/calculator/concCalculator.ui:365
 #, kde-format
 msgid "<big>Units for molar mass of solute</big>"
-msgstr ""
+msgstr "<big>Jednotky molární hmotnosti rozpuštěné látky</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -3363,13 +3561,13 @@ msgstr "(g/mol)"
 #: src/calculator/concCalculator.ui:378
 #, kde-format
 msgid "<big>Units for equivalent mass of solute</big>"
-msgstr ""
+msgstr "<big>Jednotky ekvivalentní hmotnosti rozpuštěné látky</big>"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:442 src/calculator/nuclearCalculator.ui:607
 #, kde-format
 msgid "<big>Reset all values to initial values</big>"
-msgstr ""
+msgstr "<big>Obnovit všechny hodnoty na výchozí</big>"
 
 #. i18n: ectx: property (text), widget (QPushButton, reset)
 #: src/calculator/concCalculator.ui:445 src/calculator/gasCalculator.ui:437
@@ -3391,18 +3589,21 @@ msgid ""
 "dynamically.<br />Mass and moles are directly dependent for a given gas.</"
 "b></big>"
 msgstr ""
+"<big><b>Změňte hodnoty těchto veličin a sledujte, jak se ostatní veličiny "
+"dynamicky mění.<br />Hmotnost a počet molů jsou u daného plynu přímo úměrné."
+"</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/gasCalculator.ui:42
 #, kde-format
 msgid "<big><b>Molar mass of the gas:</b></big>"
-msgstr ""
+msgstr "<big><b>Molární hmotnost plynu:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:52
 #, kde-format
 msgid "<big>Specify the molar mass of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte molární hmotnost plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, molarMass)
 #: src/calculator/gasCalculator.ui:55
@@ -3422,7 +3623,7 @@ msgstr "<big><b>Látkové množství:</b></big>"
 #: src/calculator/gasCalculator.ui:78
 #, kde-format
 msgid "<big>Specify the number of moles of the gas</big>"
-msgstr ""
+msgstr "<big>Uveďte počet molů plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, moles)
 #: src/calculator/gasCalculator.ui:82
@@ -3444,7 +3645,7 @@ msgstr "<big><b>Hmotnost:</b></big>"
 #: src/calculator/gasCalculator.ui:105
 #, kde-format
 msgid "<big>Specify the Mass of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte hmotnost plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, mass)
 #: src/calculator/gasCalculator.ui:109
@@ -3460,7 +3661,7 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:122
 #, kde-format
 msgid "<big>Specify the unit of mass of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte jednotku hmotnosti plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mass_unit)
 #: src/calculator/gasCalculator.ui:125
@@ -3478,7 +3679,7 @@ msgstr "<big><b>Tlak:</b></big>"
 #: src/calculator/gasCalculator.ui:155
 #, kde-format
 msgid "<big>Specify the Pressure of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte tlak plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, pressure)
 #: src/calculator/gasCalculator.ui:158
@@ -3490,7 +3691,7 @@ msgstr "Pole je určeno ke změně tlaku v plynu."
 #: src/calculator/gasCalculator.ui:171
 #, kde-format
 msgid "<big>Specify the units for pressure of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte jednotky tlaku plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, pressure_unit)
 #: src/calculator/gasCalculator.ui:174
@@ -3510,7 +3711,7 @@ msgstr "<big><b>Teplota:</b></big>"
 #: src/calculator/gasCalculator.ui:191
 #, kde-format
 msgid "<!----><big>Specify the temperature of the gas</big>"
-msgstr ""
+msgstr "<!----><big>Zadejte teplotu plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, temp)
 #: src/calculator/gasCalculator.ui:194
@@ -3522,7 +3723,7 @@ msgstr "Pole je určeno k zadání teploty plynu."
 #: src/calculator/gasCalculator.ui:207
 #, kde-format
 msgid "<big>Specify the units for the temperature of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte jednotky teploty plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, temp_unit)
 #: src/calculator/gasCalculator.ui:210
@@ -3544,7 +3745,7 @@ msgstr "<big><b>Hlasitost:</b></big>"
 #: src/calculator/gasCalculator.ui:227
 #, kde-format
 msgid "<big>Specify the volume of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte objem plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, volume)
 #: src/calculator/gasCalculator.ui:230
@@ -3556,7 +3757,7 @@ msgstr "Pole je určeno k zadání objemu plynu."
 #: src/calculator/gasCalculator.ui:249
 #, kde-format
 msgid "<big>Specify the units for volume of the gas</big>"
-msgstr ""
+msgstr "<big>Zadejte jednotky objemu plynu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, volume_unit)
 #: src/calculator/gasCalculator.ui:252
@@ -3675,6 +3876,9 @@ msgid ""
 "calculate from the combo box next to the \"calculate\" label and change the "
 "values / units to calculate.</span>"
 msgstr ""
+"<span style=\" font-size:12pt; font-weight:600;\">Vyberte, co chcete "
+"vypočítat, z rozbalovacího pole vedle popisku „vyčíslit“ a změňte hodnoty / "
+"jednotky, které chcete vypočítat.</span>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/calculator/nuclearCalculator.ui:36
@@ -3692,7 +3896,7 @@ msgstr "<big><b>Název prvku:</b></big>"
 #: src/calculator/nuclearCalculator.ui:52
 #, kde-format
 msgid "<big>Specify the Element you want to consider</big>"
-msgstr ""
+msgstr "<big>Zadejte prvek, který chcete zohlednit</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, element)
 #: src/calculator/nuclearCalculator.ui:55
@@ -3712,7 +3916,7 @@ msgstr "<big><b>Hmotnost izotopu:</b></big>"
 #: src/calculator/nuclearCalculator.ui:72
 #, kde-format
 msgid "<big>Specify an isotope of the current element</big>"
-msgstr ""
+msgstr "<big>Zadejte izotop aktuálního prvku</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, isotope)
 #: src/calculator/nuclearCalculator.ui:75
@@ -3734,7 +3938,7 @@ msgstr "<big><b>Poločas rozpadu:</b></big>"
 #: src/calculator/nuclearCalculator.ui:92
 #, kde-format
 msgid "<big>Specify the half-life of the radioactive isotope</big>"
-msgstr ""
+msgstr "<big>Zadejte poločas rozpadu radioaktivního izotopu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, halfLife)
 #: src/calculator/nuclearCalculator.ui:95
@@ -3746,7 +3950,7 @@ msgstr "Pole je určeno k zadání poločasu proměny výše zvoleného izotopu.
 #: src/calculator/nuclearCalculator.ui:108
 #, kde-format
 msgid "<big>The unit of Half-life</big>"
-msgstr ""
+msgstr "<big>Jednotka poločasu rozpadu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, halfLife_unit)
 #: src/calculator/nuclearCalculator.ui:111
@@ -3814,7 +4018,7 @@ msgstr "<big><b>Atomová hmotnost:</b></big>"
 #: src/calculator/nuclearCalculator.ui:171
 #, kde-format
 msgid "<big>Atomic mass of the isotope selected</big>"
-msgstr ""
+msgstr "<big>Atomová hmotnost vybraného izotopu</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, mass)
 #: src/calculator/nuclearCalculator.ui:174
@@ -3834,7 +4038,7 @@ msgstr "0"
 #: src/calculator/nuclearCalculator.ui:187
 #, kde-format
 msgid "<big>The unit of atomic mass</big>"
-msgstr ""
+msgstr "<big>Jednotka atomové hmotnosti</big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/calculator/nuclearCalculator.ui:190
@@ -3886,7 +4090,7 @@ msgstr "<big><b>Počáteční množství:</b></big>"
 #: src/calculator/nuclearCalculator.ui:256
 #, kde-format
 msgid "<big>Specify the initial amount of the substance</big>"
-msgstr ""
+msgstr "<big>Zadejte počáteční množství látky</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, initAmt)
 #: src/calculator/nuclearCalculator.ui:259
@@ -3905,7 +4109,7 @@ msgstr "<big><b>Finální množství:</b></big>"
 #: src/calculator/nuclearCalculator.ui:282
 #, kde-format
 msgid "<big>Specify the final amount of the substance</big>"
-msgstr ""
+msgstr "<big>Zadejte konečné množství látky</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, finalAmt)
 #: src/calculator/nuclearCalculator.ui:285
@@ -3924,7 +4128,7 @@ msgstr "<big><b>Čas:</b></big>"
 #: src/calculator/nuclearCalculator.ui:308
 #, kde-format
 msgid "<big>Specify the time elapsed here</big>"
-msgstr ""
+msgstr "<big>Zadejte zde uplynulý čas</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, time)
 #: src/calculator/nuclearCalculator.ui:311
@@ -3939,7 +4143,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:327
 #, kde-format
 msgid "<big>The method by which you want to specify mass</big>"
-msgstr ""
+msgstr "<big>Způsob, jakým chcete zadat hmotnost</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, initAmtType)
 #: src/calculator/nuclearCalculator.ui:330
@@ -3963,7 +4167,7 @@ msgstr "látkové množství"
 #: src/calculator/nuclearCalculator.ui:347
 #, kde-format
 msgid "<big>Method by which you want to specify the final amount</big>"
-msgstr ""
+msgstr "<big>Způsob, jakým chcete určit konečné množství</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, finalAmtType)
 #: src/calculator/nuclearCalculator.ui:350
@@ -4072,13 +4276,13 @@ msgstr "Pole je určeno ke zvolení jednotek času, např. let, sekund, atp."
 #: src/calculator/nuclearCalculator.ui:511
 #, kde-format
 msgid "<big><b>Time in half-lives</b></big>"
-msgstr ""
+msgstr "<big><b>Čas v poločasu rozpadu</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, slider)
 #: src/calculator/nuclearCalculator.ui:521
 #, kde-format
 msgid "<big>Specify the time elapsed by moving the slider</big>"
-msgstr ""
+msgstr "<big>Zadejte uplynulý čas posunutím posuvníku</big>"
 
 #. i18n: ectx: property (whatsThis), widget (QSlider, slider)
 #: src/calculator/nuclearCalculator.ui:524
@@ -4094,7 +4298,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:537
 #, kde-format
 msgid "<big>The number of half-lives elapsed</big>"
-msgstr ""
+msgstr "<big>Počet uplynulých poločasů rozpadu</big>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, error)
 #: src/calculator/nuclearCalculator.ui:569
@@ -4106,7 +4310,7 @@ msgstr "Informace/Chybové hlášení"
 #: src/calculator/settings_calc.ui:29
 #, kde-format
 msgid "<big>The settings of the molecular concentration calculator</big>"
-msgstr ""
+msgstr "<big>Nastavení kalkulačky molekulární koncentrace</big>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_mass)
 #: src/calculator/settings_calc.ui:45
@@ -4182,17 +4386,17 @@ msgstr "Nelze najít rovnici pro proměnnou na ose Y."
 #: src/calculator/titrationCalculator.cpp:118
 #, kde-format
 msgid "Theoretical curve"
-msgstr ""
+msgstr "Teoretická křivka"
 
 #: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Approximated curve"
-msgstr ""
+msgstr "Aproximační křivka"
 
 #: src/calculator/titrationCalculator.cpp:202
 #, kde-format
 msgid "Equivalence point"
-msgstr ""
+msgstr "Bod ekvivalence"
 
 #: src/calculator/titrationCalculator.cpp:571
 #, kde-format
@@ -4237,7 +4441,7 @@ msgstr "Obrázek svg (*.svg)"
 #: src/calculator/titrationCalculator.ui:25
 #, kde-format
 msgid "Choose what you want to do:"
-msgstr ""
+msgstr "Vyberte si, co chcete udělat:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/calculator/titrationCalculator.ui:36
@@ -4249,7 +4453,7 @@ msgstr "Karta 1"
 #: src/calculator/titrationCalculator.ui:42
 #, kde-format
 msgid "Find the equivalence point from experimental values:"
-msgstr ""
+msgstr "Určete bod ekvivalence na základě experimentálních hodnot:"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget_2)
 #: src/calculator/titrationCalculator.ui:106
@@ -4276,6 +4480,8 @@ msgid ""
 "Solve an equilibrium system and see how the concentration of one ion (Y) "
 "changes in function of another one (X)"
 msgstr ""
+"Vyřešte rovnovážný systém a zjistěte, jak se mění koncentrace jednoho iontu "
+"(Y) v závislosti na koncentraci jiného iontu (X)"
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: src/calculator/titrationCalculator.ui:199
@@ -4439,7 +4645,7 @@ msgstr "Elektronová afinita"
 #: src/detailinfodlg.cpp:200
 #, kde-format
 msgid "Electronic configuration"
-msgstr ""
+msgstr "Elektronová konfigurace"
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
 #: src/detailinfodlg.cpp:221 src/molcalcwidgetbase.ui:218
@@ -4450,12 +4656,12 @@ msgstr "Atomová hmotnost"
 #: src/detailinfodlg.cpp:228
 #, kde-format
 msgid "Ionization energy"
-msgstr ""
+msgstr "Ionizační energie"
 
 #: src/detailinfodlg.cpp:228
 #, kde-format
 msgid "First Ionization energy"
-msgstr ""
+msgstr "Energie první ionizace"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicElectronegativityGradient)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
@@ -4470,7 +4676,7 @@ msgstr "Elektronegativita"
 #: src/detailinfodlg.cpp:242
 #, kde-format
 msgid "Oxidation states"
-msgstr ""
+msgstr "Oxidační čísla"
 
 #: src/detailinfodlg.cpp:253
 #, kde-format
@@ -4548,7 +4754,7 @@ msgstr "%1 MeV"
 #, kde-format
 msgctxt "Spontaneous fission"
 msgid " SF"
-msgstr ""
+msgstr " SF"
 
 #: src/detailinfodlg.cpp:340 src/detailinfodlg.cpp:364
 #: src/detailinfodlg.cpp:387 src/detailinfodlg.cpp:410
@@ -4601,34 +4807,34 @@ msgstr " %1"
 #, kde-format
 msgctxt "Proton decay"
 msgid " p"
-msgstr ""
+msgstr " p"
 
 #: src/detailinfodlg.cpp:408
 #, kde-format
 msgid " 2p"
-msgstr ""
+msgstr " 2p"
 
 #: src/detailinfodlg.cpp:431
 #, kde-format
 msgctxt "Neutron decay"
 msgid " n"
-msgstr ""
+msgstr " n"
 
 #: src/detailinfodlg.cpp:453
 #, kde-format
 msgid " 2n"
-msgstr ""
+msgstr " 2n"
 
 #: src/detailinfodlg.cpp:475
 #, kde-format
 msgctxt "Electron capture"
 msgid " EC"
-msgstr ""
+msgstr " EC"
 
 #: src/detailinfodlg.cpp:497
 #, kde-format
 msgid " 2EC"
-msgstr ""
+msgstr " 2EC"
 
 #: src/detailinfodlg.cpp:518
 #, kde-format
@@ -4639,7 +4845,7 @@ msgstr " %1<sup>-</sup>"
 #: src/detailinfodlg.cpp:539
 #, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr ""
+msgstr " %1<sup>-</sup>, štěpení"
 
 #: src/detailinfodlg.cpp:560
 #, kde-format
@@ -4730,27 +4936,27 @@ msgstr " %1 %2<sup>-</sup>"
 #: src/detailinfodlg.cpp:847
 #, kde-format
 msgid " p%1"
-msgstr ""
+msgstr " p%1"
 
 #: src/detailinfodlg.cpp:860
 #, kde-format
 msgid " ECp"
-msgstr ""
+msgstr " ECp"
 
 #: src/detailinfodlg.cpp:873
 #, kde-format
 msgid " EC2p"
-msgstr ""
+msgstr " EC2p"
 
 #: src/detailinfodlg.cpp:886
 #, kde-format
 msgid " EC3p"
-msgstr ""
+msgstr " EC3p"
 
 #: src/detailinfodlg.cpp:898
 #, kde-format
 msgid " EC%1"
-msgstr ""
+msgstr " EC%1"
 
 #: src/detailinfodlg.cpp:910
 #, kde-format
@@ -5053,6 +5259,12 @@ msgid ""
 "<p>Zoom in and out using your mouse wheel / zoom feature.</p>\n"
 "<p>Scroll using left-clicking and dragging / scroll feature.</p>"
 msgstr ""
+"<p><b>Informace</b></p>\n"
+"<p>Klikněte pravým tlačítkem myši na prvek pro zobrazení informací o něm.</"
+"p>\n"
+"<p>Přibližujte a oddalujte pomocí kolečka myši / funkce zoom.</p>\n"
+"<p>Posouvejte pomocí kliknutí levým tlačítkem myši a tažení / funkce "
+"posouvání.</p>"
 
 #: src/isotopetable/isotopeitem.cpp:65
 #, kde-format
@@ -5192,7 +5404,7 @@ msgstr "Zobrazit &graf..."
 #: src/kalzium.cpp:157
 #, kde-format
 msgid "Perform &Calculations..."
-msgstr "Molekulární &kalkulačka"
+msgstr "Molekulární &kalkulačka..."
 
 #: src/kalzium.cpp:159
 #, kde-format
@@ -5245,7 +5457,7 @@ msgstr "Editor molekul..."
 #, kde-format
 msgctxt "WhatsThis Help"
 msgid "This tool allows you to view and edit 3D molecular structures."
-msgstr "tento nástroj umožňuje zobrazovat a upravovat 3D modely molekul."
+msgstr "Tento nástroj umožňuje zobrazovat a upravovat 3D modely molekul."
 
 #: src/kalzium.cpp:197
 #, kde-format
@@ -5537,7 +5749,7 @@ msgstr "Barvy"
 #: src/kalziumschemetype.cpp:412
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
-msgstr ""
+msgstr "Pěkné barvy bez významu. (Z projektu Open Babel)"
 
 #. i18n: ectx: Menu (file_menu)
 #: src/kalziumui.rc:4
@@ -5717,6 +5929,7 @@ msgstr "Pino Toscano"
 #, kde-format
 msgid "Large code contributions; resident guru helping the other developers"
 msgstr ""
+"Významné příspěvky do kódu; stálý odborník, který pomáhá ostatním vývojářům"
 
 #: src/main.cpp:47
 #, kde-format
@@ -5812,7 +6025,7 @@ msgstr "Noémie Scherer"
 #: src/main.cpp:63
 #, kde-format
 msgid "Many beautiful element icons, too!"
-msgstr "Taky mnoho ikon prvků."
+msgstr "Taky mnoho ikon prvků!"
 
 #: src/main.cpp:65
 #, kde-format
@@ -5913,7 +6126,7 @@ msgstr "Etienne Rebetez"
 #: src/main.cpp:87
 #, kde-format
 msgid "Adding new sizable Periodic System"
-msgstr ""
+msgstr "Přidání nového roztažitelného periodického systému"
 
 #: src/main.cpp:99
 #, kde-format
@@ -5923,7 +6136,7 @@ msgstr "Otevřít dané soubory molekul"
 #: src/main.cpp:122
 #, kde-format
 msgid "Can't open more than one molecule at a time"
-msgstr ""
+msgstr "Nelze otevřít více než jednu molekulu najednou"
 
 #: src/molcalcwidget.cpp:87 src/molcalcwidget.cpp:122 src/molcalcwidget.cpp:177
 #: src/molcalcwidget.cpp:178 src/molcalcwidget.cpp:179
@@ -5942,12 +6155,12 @@ msgid ""
 msgstr ""
 "Zadejte vzorec\n"
 "a klikněte na\n"
-"'Vypočítat'."
+"'Vypočítat'"
 
 #: src/molcalcwidget.cpp:198
 #, kde-format
 msgid "Molecular mass: "
-msgstr "Molekulární hmotnost:"
+msgstr "Molekulární hmotnost: "
 
 #: src/molcalcwidget.cpp:213 src/molcalcwidget.cpp:217
 #: src/molcalcwidget.cpp:218 src/molcalcwidget.cpp:219
@@ -5978,7 +6191,7 @@ msgstr "Expanze je neplatná, prosím zadejte jinou expanzi"
 #: src/molcalcwidget.cpp:292
 #, kde-format
 msgid "done!"
-msgstr "hotovo"
+msgstr "hotovo!"
 
 #: src/molcalcwidget.cpp:295
 #, kde-format
@@ -6176,7 +6389,7 @@ msgstr "Uživatelem vytvořené zkratky"
 #: src/molcalcwidgetbase.ui:390
 #, kde-format
 msgid "List of pre-defined aliases."
-msgstr "Seznam předvolených zkratek"
+msgstr "Seznam předvolených zkratek."
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, pre_defined)
 #: src/molcalcwidgetbase.ui:393
@@ -6199,7 +6412,7 @@ msgstr "Toto je seznam všech zkratek vytvořených vámi nebo jinými uživatel
 #: src/orbitswidget.cpp:198
 #, kde-format
 msgid "Unknown Electron Distribution"
-msgstr ""
+msgstr "Neznámé rozložení elektronů"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:35
@@ -7130,7 +7343,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R29: Contact with water liberates toxic gas."
-msgstr "R29: Uvolňuje toxický plyn při styku s vodou"
+msgstr "R29: Uvolňuje toxický plyn při styku s vodou."
 
 #: src/rsdialog.cpp:409
 #, kde-format
@@ -7447,7 +7660,7 @@ msgstr "Nejméně jedna z udaných vět je neplatná."
 #: src/rswidget.ui:40
 #, kde-format
 msgid "S-Phrases: "
-msgstr "S-věty:"
+msgstr "S-věty: "
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, r_le)
 #: src/rswidget.ui:60
@@ -7519,7 +7732,7 @@ msgstr "Jedna část vedle druhé"
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Obě části jsou souvislé"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
@@ -7669,7 +7882,7 @@ msgstr "Nekovy:"
 #: src/settings/settings_colors.ui:488
 #, kde-format
 msgid "Alkaline earth metals:"
-msgstr "Alkalické pozemské kovy"
+msgstr "Alkalické pozemské kovy:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5_2_2)
 #: src/settings/settings_colors.ui:508
@@ -7744,13 +7957,13 @@ msgstr "Datum objevu"
 #: src/settings/settings_gradients.ui:136
 #, kde-format
 msgid "Maximal Value Color:"
-msgstr ""
+msgstr "Barva maximální hodnoty:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/settings/settings_gradients.ui:152
 #, kde-format
 msgid "Minimal Value Color:"
-msgstr ""
+msgstr "Barva minimální hodnoty:"
 
 #: src/settings/unitsettingsdialog.cpp:18
 #, kde-format
@@ -8024,7 +8237,7 @@ msgstr "Číslo"
 #, kde-format
 msgctxt "For example 'Mono' for 1 and 'Tri' for 3"
 msgid "Prefix"
-msgstr "prefix"
+msgstr "Prefix"
 
 #: src/tablesdialog.cpp:147
 #, kde-format
@@ -8254,17 +8467,17 @@ msgstr "%1 u"
 #: src/tools/moleculeview.cpp:281
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
-msgstr ""
+msgstr "Stahování molekuly %1 do %2 se nezdařilo."
 
 #: src/tools/moleculeview.cpp:289
 #, kde-format
 msgid "The molecules that could be downloaded have been saved to %1."
-msgstr ""
+msgstr "Molekuly, které bylo možné stáhnout, byly uloženy do složky %1."
 
 #: src/tools/moleculeview.cpp:291
 #, kde-format
 msgid "The molecules have been saved to %1."
-msgstr ""
+msgstr "Molekuly byly uloženy do souboru %1."
 
 #. i18n: ectx: property (text), widget (QLabel, labelStyle)
 #: src/tools/moleculeviewerwidget.ui:28
@@ -8285,6 +8498,7 @@ msgid ""
 "Load a molecule and use the mouse pointer and scroll wheel to change the "
 "view point."
 msgstr ""
+"Načtěte molekulu a pomocí ukazatele myši a kolečka myši změňte úhel pohledu."
 
 #. i18n: ectx: attribute (title), widget (QWidget, edit)
 #: src/tools/moleculeviewerwidget.ui:136
