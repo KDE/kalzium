@@ -17,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5675,8 +5675,7 @@ msgid "Each element is represented by an icon which represents its use."
 msgstr "Každý prvok je reprezentovaný ikonou, ktorá predstavuje jeho použitie."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
 msgstr "Kovy alkalických zemín"
 
@@ -5691,8 +5690,7 @@ msgid "Non-Metals"
 msgstr "Nekovy"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
 msgstr "Alkalický kov"
 
@@ -6563,8 +6561,7 @@ msgstr "Vzácne plyny"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
 msgstr "Alkalické kovy"
 
@@ -6676,13 +6673,7 @@ msgid "S4: Keep away from living quarters"
 msgstr "S4: Uchovávajte mimo obývaných priestorov"
 
 #: src/rsdialog.cpp:151
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid ""
-#| "S5: Keep contents under ... ( appropriate liquid to be specified by the "
-#| "manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -6693,11 +6684,7 @@ msgstr ""
 "S5: Obsah uchovávajte pod ...(vhodnou kvapalinou, ktorú špecifikuje výrobca)"
 
 #: src/rsdialog.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Please take the official translations! You find them here: https://eur-"
-#| "lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
-#| msgid "S6: Keep under ... ( inert gas to be specified by the manufacturer )"
+#, kde-format
 msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
@@ -7765,17 +7752,17 @@ msgstr "Hľadať..."
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
 msgid "Next to each other"
-msgstr ""
+msgstr "Vedľa seba"
 
 #: src/settings/isotopetablesettingsdialog.cpp:18
 #, kde-format
 msgid "One part to the side of the other"
-msgstr ""
+msgstr "Jedna časť na strane druhej"
 
 #: src/settings/isotopetablesettingsdialog.cpp:23
 #, kde-format
 msgid "Both parts continuous"
-msgstr ""
+msgstr "Obe časti súvislé"
 
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
@@ -7785,7 +7772,7 @@ msgstr "Horizontálne"
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
 msgid "Horizontally (shifted)"
-msgstr ""
+msgstr "Vodorovne (posunuté)"
 
 #: src/settings/kalziumconfigdialog.cpp:15
 #, kde-format
