@@ -801,7 +801,7 @@ msgstr ""
 "priehľadnú kazetu z plastu alebo keramiky nad sušiacim činidlom.\n"
 "\t\t\tSušiace činidlo je hygroskopické, čo znamená, že odstraňuje vlhkosť zo "
 "svojho prostredia tým, že absorbuje vodné pary. Suché prostredie potom "
-"odoberá vodu zo vzorky, ktorý má byť vysušená."
+"odoberá vodu zo vzorky, ktorá má byť vysušená."
 
 #: data/tools.xml:17
 #, kde-format
@@ -1834,8 +1834,8 @@ msgid ""
 "It was discovered near a town named Magnesia in black earth. Thus, it was "
 "named 'magnesia nigra', or for short, Manganese."
 msgstr ""
-"To bolo objavené v blízkosti mesta s názvom Magnesia v čiernej zemi. Tak, to "
-"bol pomenovaný 'magnesia nigra' alebo pre krátko mangán."
+"To bolo objavené v blízkosti mesta s názvom Magnesia v čiernej zemi. Tak "
+"bolo pomenované 'magnesia nigra' alebo skrátene mangán."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:53
