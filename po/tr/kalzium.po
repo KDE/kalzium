@@ -12,27 +12,27 @@
 # Renan Cakirerk, 2010.
 # obsoleteman <tulliana@gmail.com>, 2007-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2025-11-08 21:10+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2026-05-02 19:54+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"Halil Erensu, Engin ÇAĞATAY, Ayşe GENÇ, Muhammet Kara, Renan Çakırerk, H. "
+"Halil Erensu, Engin ÇAĞATAY, Ayşe GENÇ, Muhammet KARA, Renan Çakırerk, H. "
 "İbrahim Güngör, Emir SARI"
 
 #, kde-format
@@ -3996,7 +3996,7 @@ msgstr "<big><b>İzotop kütlesi:</b></big>"
 #: src/calculator/nuclearCalculator.ui:72
 #, kde-format
 msgid "<big>Specify an isotope of the current element</big>"
-msgstr "<big>Geçerli öğenin izotopunu belirtin</big>"
+msgstr "<big>Geçerli ögenin izotopunu belirtin</big>"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, isotope)
 #: src/calculator/nuclearCalculator.ui:75
@@ -5155,7 +5155,7 @@ msgstr ""
 "bir karakter koyun:<br><i>aH + bO -> 5H2O</i> (Sonuç: <b>10</b> H + <b>5</b> "
 "O -&gt; <b>5</b> H<sub>2</sub>O)<br>Bu ifadeyi çözmek size gerekli miktarda "
 "Hidrojen ve Oksijen verecektir.<br><br><b>Elektrik yüklerini tanımlama</"
-"b><br>Bu örnekte gösterildiği gibi bir öğenin elektrik yükünü belirtmek için "
+"b><br>Bu örnekte gösterildiği gibi bir ögenin elektrik yükünü belirtmek için "
 "kutu ayraçları kullanın:<br><i>4H[+] + 2O -> cH2O[2+]</i> (Sonuç: <b>4</b> "
 "H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
@@ -5245,7 +5245,7 @@ msgstr "Aile"
 #: src/exportdialog.cpp:157
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
-msgstr "Böyle bir dosya halihazırda var. Üzerine yazmak istiyor musunuz?"
+msgstr "Böyle bir dosya hâlihazırda var. Üzerine yazmak istiyor musunuz?"
 
 #: src/exportdialog.cpp:165
 #, kde-format
@@ -5898,7 +5898,7 @@ msgstr "Bu element %1 yılında keşfedildi."
 #: src/kalziumutils.cpp:125
 #, kde-format
 msgid "The element has not yet been officially recognized by the IUPAC."
-msgstr "Öğe henüz IUPAC tarafından resmi olarak tanınmadı."
+msgstr "Öge henüz IUPAC tarafından resmî olarak tanınmadı."
 
 #: src/kalziumutils.cpp:127
 #, kde-format
@@ -6280,7 +6280,7 @@ msgstr "Sembol iki veya daha çok harften oluşmalıdır."
 #: src/molcalcwidget.cpp:274
 #, kde-format
 msgid "Symbol already being used"
-msgstr "Sembol halihazırda kullanılıyor"
+msgstr "Sembol hâlihazırda kullanılıyor"
 
 #: src/molcalcwidget.cpp:279
 #, kde-format
@@ -8697,7 +8697,7 @@ msgstr "Seçili dosya yok"
 #, kde-format
 msgid "The file %1 already exists. Do you want to overwrite if possible?"
 msgstr ""
-"%1 dosyası halihazırda var. Olanaklıysa üzerine yazmak istiyor musunuz?"
+"%1 dosyası hâlihazırda var. Olanaklıysa üzerine yazmak istiyor musunuz?"
 
 #: src/tools/obconverter.cpp:195
 #, kde-format
