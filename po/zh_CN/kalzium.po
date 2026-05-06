@@ -5411,7 +5411,7 @@ msgstr "每种元素都以代表其功用的图标来表示"
 #: src/kalziumschemetype.cpp:280
 #, kde-format
 msgid "Alkaline Earth Metal"
-msgstr ""
+msgstr "碱土金属"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5426,7 +5426,7 @@ msgstr "非金属"
 #: src/kalziumschemetype.cpp:283
 #, kde-format
 msgid "Alkali Metal"
-msgstr ""
+msgstr "碱金属"
 
 #: src/kalziumschemetype.cpp:284
 #, kde-format
@@ -6292,7 +6292,7 @@ msgstr "惰性气体"
 #: src/plotsetupwidget.ui:295
 #, kde-format
 msgid "Alkali metals"
-msgstr ""
+msgstr "碱金属"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
