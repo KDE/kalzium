@@ -223,4 +223,14 @@
 		<name>Dewar Vessel</name>
 		<desc>A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar (1842–1923), is a double-walled vacuum flask, designed to provide good thermal insulation. As such, they are useful for keeping liquids cool or warm. One well-known example of a Dewar vessel is a Thermos flask.</desc>
 	</item>
+	<item>
+		<picture>high-performance-liquid-chromatography.jpg</picture>
+		<name>High-Performance Liquid Chromatography (HPLC)</name>
+		<desc>HPLC is used to separate, identify, and measure the components of a liquid mixture. A sample dissolved in a solvent is pumped through a tightly packed column under high pressure. Because different substances interact differently with the column material, they move through it at different speeds and exit separately. This makes HPLC useful for analyzing complex mixtures and checking purity in chemistry, biology, and pharmaceuticals.</desc>
+	</item>
+	<item>
+		<picture>evaporating-dish.jpg</picture>
+		<name>Evaporating Dish</name>
+		<desc>An evaporating dish is a small heat-resistant dish made from fired clay, used in the lab to heat, evaporate, dry, or collect substances. Because it tolerates high temperatures well, it can be placed directly over a flame or on a heating plate. Evaporating dishes are commonly used for evaporating solvents, drying precipitates, or carrying out small-scale heating experiments.</desc>
+	</item>
 </tools>

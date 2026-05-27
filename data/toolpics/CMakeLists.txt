@@ -10,11 +10,12 @@ install( FILES
     dropping-funnel.jpg
     drying-tube.jpg
     erlenmeyer-flask.jpg
+    evaporating-dish.jpg
     full-pipette.jpg
     fume-hood.jpg
     gas-syringe.png
     heating-plate.jpg
-    hplc.jpg
+    high-performance-liquid-chromatography.jpg
     indicator-paper.jpg
     magnetic-stir-bar.jpg
     measuring-cylinder.jpg
@@ -35,8 +36,6 @@ install( FILES
     test-tube-rack.jpg
     test-tube.jpg
     thermometer.jpg
-    thermometer2.jpg
-    tonschale.jpg
     wash-bottle.jpg
     watchglass.jpg
     water-jet-pump.jpg
