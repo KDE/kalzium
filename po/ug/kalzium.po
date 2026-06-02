@@ -8,29 +8,30 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-30 16:47-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
 msgid "Problem while opening the file"
-msgstr ""
+msgstr "ھۆججەت ئېچىۋاتقاندا مەسىلە كۆرۈلدى"
 
 #: compoundviewer/iowrapper.cpp:30
 #, kde-format
@@ -40,7 +41,7 @@ msgstr ""
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
 msgid "Sorry"
-msgstr ""
+msgstr "كەچۈر"
 
 #: compoundviewer/iowrapper.cpp:54
 #, kde-format
@@ -133,7 +134,7 @@ msgstr ""
 #: data/knowledge.xml:34 data/knowledge.xml:42
 #, kde-format
 msgid "Mix"
-msgstr "كىرىشتۈرۈش"
+msgstr "كىرىشتۈر"
 
 #: data/knowledge.xml:38
 #, kde-format
@@ -205,7 +206,7 @@ msgstr ""
 #: data/knowledge.xml:62
 #, kde-format
 msgid "Solution"
-msgstr "يېشىمى:"
+msgstr "يېشىمى"
 
 #: data/knowledge.xml:63
 #, kde-format
@@ -1265,7 +1266,7 @@ msgstr "مەۋھۇم"
 #: element_tiny.xml:3
 #, kde-format
 msgid "Hydrogen"
-msgstr "Hydrogen"
+msgstr ""
 
 #: element_tiny.xml:4
 #, kde-format
@@ -1344,7 +1345,7 @@ msgstr ""
 #: element_tiny.xml:17
 #, kde-format
 msgid "Oxygen"
-msgstr "ئوكسېگىن"
+msgstr "ئوكسىگېن"
 
 #: element_tiny.xml:18
 #, kde-format
@@ -2536,10 +2537,9 @@ msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
-#, fuzzy, kde-format
-#| msgid "Titanium"
+#, kde-format
 msgid "Nihonium"
-msgstr "تىتان"
+msgstr ""
 
 #: element_tiny.xml:228
 #, kde-format
@@ -2642,11 +2642,10 @@ msgid "DZ Periodic Table"
 msgstr ""
 
 #: src/calculator/calculator.cpp:21
-#, fuzzy, kde-format
-#| msgid "Gas Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chemical Calculator"
-msgstr "گاز ھېسابلىغۇچ"
+msgstr ""
 
 #: src/calculator/calculator.cpp:61 src/calculator/calculator.cpp:105
 #, kde-format
@@ -2879,7 +2878,7 @@ msgstr ""
 #: src/calculator/concCalculator.ui:37 src/calculator/gasCalculator.ui:36
 #, kde-format
 msgid "Data"
-msgstr "سانلىق-مەلۇمات"
+msgstr "سانلىق مەلۇمات"
 
 #. i18n: ectx: property (text), widget (QLabel, label_36)
 #: src/calculator/concCalculator.ui:43
@@ -3181,7 +3180,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:610
 #, kde-format
 msgid "Reset"
-msgstr "ئەسلىگە قايتۇرۇش"
+msgstr "ئەسلىگە قايتۇر"
 
 #: src/calculator/gasCalculator.cpp:300
 #, kde-format
@@ -3638,7 +3637,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:200
 #, kde-format
 msgid "Other data"
-msgstr "باشقا سانلىق-مەلۇمات"
+msgstr "باشقا سانلىق مەلۇمات"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, mode)
 #: src/calculator/nuclearCalculator.ui:221
@@ -3942,7 +3941,7 @@ msgstr ""
 #: src/calculator/titrationCalculator.cpp:95
 #, kde-format
 msgid "nothing"
-msgstr ""
+msgstr "يوق"
 
 #: src/calculator/titrationCalculator.cpp:98
 #: src/calculator/titrationCalculator.cpp:583
@@ -3973,10 +3972,9 @@ msgid "Equivalence point"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:571
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Save work"
-msgstr "ساقلا"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:571
 #: src/calculator/titrationCalculator.cpp:594
@@ -3991,10 +3989,9 @@ msgid "Unable to create %1"
 msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:594
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open work"
-msgstr "ئاچ"
+msgstr ""
 
 #: src/calculator/titrationCalculator.cpp:600
 #, kde-format
@@ -4023,7 +4020,7 @@ msgstr ""
 #: src/calculator/titrationCalculator.ui:36
 #, kde-format
 msgid "Tab 1"
-msgstr "بەتكۈچ 1"
+msgstr "1-بەتكۈچ‎‏"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/calculator/titrationCalculator.ui:42
@@ -4047,7 +4044,7 @@ msgstr ""
 #: src/calculator/titrationCalculator.ui:120
 #, kde-format
 msgid "Tab 2"
-msgstr "بەتكۈچ 2"
+msgstr "2-بەتكۈچ"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/calculator/titrationCalculator.ui:126
@@ -4139,7 +4136,7 @@ msgstr "ساقلا"
 #: src/calculator/titrationCalculator.ui:384
 #, kde-format
 msgid "Example"
-msgstr "مىساللار"
+msgstr "مىسال"
 
 #: src/detailedgraphicaloverview.cpp:67
 #, kde-format
@@ -4155,7 +4152,7 @@ msgstr ""
 #, kde-format
 msgctxt "For example '1.0079u', the mass of an element in units"
 msgid "%1 u"
-msgstr "%1 u"
+msgstr ""
 
 #: src/detailinfodlg.cpp:43
 #, kde-format
@@ -4287,7 +4284,7 @@ msgstr ""
 #: src/detailinfodlg.cpp:318
 #, kde-format
 msgid "%1 u"
-msgstr "%1 u"
+msgstr ""
 
 #: src/detailinfodlg.cpp:324
 #, kde-format
@@ -4349,7 +4346,7 @@ msgstr ""
 #: src/detailinfodlg.cpp:912
 #, kde-format
 msgid "(%1%)"
-msgstr "(%1%)"
+msgstr ""
 
 #: src/detailinfodlg.cpp:355 src/detailinfodlg.cpp:378
 #: src/detailinfodlg.cpp:401 src/detailinfodlg.cpp:424
@@ -4372,8 +4369,7 @@ msgid ", "
 msgstr "، "
 
 #: src/detailinfodlg.cpp:362
-#, fuzzy, kde-format
-#| msgid " %1"
+#, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
 msgstr " %1"
@@ -4382,7 +4378,7 @@ msgstr " %1"
 #, kde-format
 msgctxt "Proton decay"
 msgid " p"
-msgstr ""
+msgstr " p"
 
 #: src/detailinfodlg.cpp:408
 #, kde-format
@@ -4393,7 +4389,7 @@ msgstr ""
 #, kde-format
 msgctxt "Neutron decay"
 msgid " n"
-msgstr ""
+msgstr " n"
 
 #: src/detailinfodlg.cpp:453
 #, kde-format
@@ -4401,9 +4397,7 @@ msgid " 2n"
 msgstr ""
 
 #: src/detailinfodlg.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "Acronym of Electron Capture"
-#| msgid " EC"
+#, kde-format
 msgctxt "Electron capture"
 msgid " EC"
 msgstr " EC"
@@ -4582,7 +4576,7 @@ msgstr ""
 #: src/detailinfodlg.cpp:1122
 #, kde-format
 msgid "Miscellaneous"
-msgstr "باشقىلار"
+msgstr "باشقا"
 
 #: src/detailinfodlg.cpp:1126 src/detailinfodlg.cpp:1127
 #, kde-format
@@ -4611,11 +4605,10 @@ msgid "No spectrum of %1 found."
 msgstr ""
 
 #: src/elementdataviewer.cpp:50
-#, fuzzy, kde-format
-#| msgid "Data"
+#, kde-format
 msgctxt "@title:window"
 msgid "Plot Data"
-msgstr "سانلىق-مەلۇمات"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -4682,7 +4675,7 @@ msgstr "چاپلاش تاختىسىغا كۆچۈر"
 #: src/exportdialog.cpp:85
 #, kde-format
 msgid "OK"
-msgstr "تامام"
+msgstr "جەزملە"
 
 #: src/exportdialog.cpp:90
 #, kde-format
@@ -4693,7 +4686,7 @@ msgstr ""
 #: src/exportdialog.cpp:115
 #, kde-format
 msgid "Elements"
-msgstr "ئېلېمېنتلار"
+msgstr "ئېلېمېنت"
 
 #: src/exportdialog.cpp:116
 #, kde-format
@@ -4721,7 +4714,7 @@ msgstr ""
 #: src/settings/settings_colors.ui:408
 #, kde-format
 msgid "Family"
-msgstr "جەمەتىم"
+msgstr "ئائىلە"
 
 #: src/exportdialog.cpp:157
 #, kde-format
@@ -4761,7 +4754,7 @@ msgstr "گۈل نۇسخىسى:"
 #: src/gradientwidget.ui:99
 #, kde-format
 msgid "K"
-msgstr "K"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSlider, gradient_slider)
 #: src/gradientwidget.ui:108
@@ -4796,7 +4789,7 @@ msgstr ""
 #, kde-format
 msgctxt "For example: Carbon (300K)"
 msgid "%1 (%2%3)"
-msgstr "%1 (%2%3)"
+msgstr ""
 
 #: src/gradientwidget_impl.cpp:174
 #, kde-format
@@ -4877,23 +4870,21 @@ msgid "Stable"
 msgstr "مۇقىم"
 
 #: src/isotopetable/isotopetabledialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "Unknown magnetic moment"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown Decay"
 msgid "unknown"
-msgstr "نامەلۇم"
+msgstr "يوچۇن"
 
 #: src/isotopetable/isotopetabledialog.cpp:72
 #, kde-format
 msgid "<h1>%1 (%2)</h1>"
-msgstr "<h1>%1 (%2)</h1>"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:73
 #, kde-format
 msgctxt "Unknown magnetic moment"
 msgid "Unknown"
-msgstr "نامەلۇم"
+msgstr "يوچۇن"
 
 #: src/isotopetable/isotopetabledialog.cpp:73
 #, kde-format
@@ -4924,7 +4915,7 @@ msgstr ""
 #, kde-format
 msgctxt "Unknown spin"
 msgid "Unknown"
-msgstr "نامەلۇم"
+msgstr "يوچۇن"
 
 #: src/isotopetable/isotopetabledialog.cpp:84
 #, kde-format
@@ -4949,7 +4940,7 @@ msgstr "لايىھە(&S)"
 #: src/kalzium.cpp:128
 #, kde-format
 msgid "&Gradients"
-msgstr ""
+msgstr "رەڭ ئۆزگىرىشى(&G)"
 
 #: src/kalzium.cpp:137
 #, kde-format
@@ -5074,7 +5065,7 @@ msgstr "ئۇچۇر"
 #: src/kalzium.cpp:276
 #, kde-format
 msgid "Overview"
-msgstr "قىسقىچە بايان"
+msgstr "ئىخچام كۆرۈنۈش"
 
 #: src/kalzium.cpp:285
 #, kde-format
@@ -5099,7 +5090,7 @@ msgstr ""
 #: src/kalzium.cpp:322
 #, kde-format
 msgid "Tools"
-msgstr "قوراللار"
+msgstr "قورال"
 
 #: src/kalzium.cpp:501
 #, kde-format
@@ -5108,8 +5099,7 @@ msgid "%1 (%2), Mass: %3 u"
 msgstr ""
 
 #: src/kalziumelementproperty.cpp:77
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No Gradient"
 msgid "None"
 msgstr "يوق"
@@ -5122,7 +5112,7 @@ msgstr ""
 #: src/kalziumgradienttype.cpp:284
 #, kde-format
 msgid "u"
-msgstr "u"
+msgstr ""
 
 #: src/kalziumgradienttype.cpp:493
 #, kde-format
@@ -5260,7 +5250,7 @@ msgstr ""
 #: src/kalziumschemetype.cpp:312 src/settings/settings_colors.ui:136
 #, kde-format
 msgid "Groups"
-msgstr "گۇرۇپپىلار"
+msgstr "گۇرۇپپا"
 
 #: src/kalziumschemetype.cpp:352
 #, kde-format
@@ -5305,7 +5295,7 @@ msgstr "گۇرۇپپا 8"
 #: src/kalziumschemetype.cpp:384
 #, kde-format
 msgid "Colors"
-msgstr "رەڭلەر"
+msgstr "رەڭ"
 
 #: src/kalziumschemetype.cpp:412
 #, kde-format
@@ -5328,7 +5318,7 @@ msgstr "كۆرۈنۈش(&V)"
 #: src/kalziumui.rc:21
 #, kde-format
 msgid "&Tools"
-msgstr "قوراللار(&T)"
+msgstr "قورال(&T)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kalziumui.rc:35
@@ -5356,7 +5346,7 @@ msgstr ""
 #, kde-format
 msgctxt "x u (units). The atomic mass."
 msgid "%1 u"
-msgstr "%1 u"
+msgstr ""
 
 #: src/kalziumutils.cpp:123
 #, kde-format
@@ -5384,8 +5374,7 @@ msgid "Glossary"
 msgstr "ئاتالغۇلار"
 
 #: src/kdeeduglossary.cpp:303
-#, fuzzy, kde-format
-#| msgid "Glossary"
+#, kde-format
 msgctxt "@title:window"
 msgid "Glossary"
 msgstr "ئاتالغۇلار"
@@ -5398,14 +5387,14 @@ msgstr "نەقىل"
 #: src/kdeeduglossary.cpp:482
 #, kde-format
 msgid "Go to '%1'"
-msgstr "‹%1› غا يۆتكەل"
+msgstr "«%1» غا يۆتكەل"
 
 #: src/legendwidget.cpp:70
 #, kde-format
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Solid"
-msgstr "لىق تولغان"
+msgstr "ئۇيۇل"
 
 #: src/legendwidget.cpp:72
 #, kde-format
@@ -5426,7 +5415,7 @@ msgstr ""
 msgctxt ""
 "one of the three states of matter (solid, liquid, vaporous or unknown)"
 msgid "Unknown"
-msgstr "نامەلۇم"
+msgstr "يوچۇن"
 
 #: src/legendwidget.cpp:81
 #, kde-format
@@ -5473,10 +5462,9 @@ msgid "A periodic table of the elements"
 msgstr ""
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Carsten Niehaus"
+#, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "Carsten Niehaus"
+msgstr ""
 
 #: src/main.cpp:43
 #, kde-format
@@ -5526,7 +5514,7 @@ msgstr ""
 #: src/main.cpp:53
 #, kde-format
 msgid "Thomas Nagy"
-msgstr "Thomas Nagy"
+msgstr ""
 
 #: src/main.cpp:53
 #, kde-format
@@ -5536,7 +5524,7 @@ msgstr ""
 #: src/main.cpp:55
 #, kde-format
 msgid "Inge Wallin"
-msgstr "Inge Wallin"
+msgstr ""
 
 #: src/main.cpp:55
 #, kde-format
@@ -5590,7 +5578,7 @@ msgstr ""
 #: src/main.cpp:65
 #, kde-format
 msgid "Danny Allen"
-msgstr "Danny Allen"
+msgstr ""
 
 #: src/main.cpp:65
 #, kde-format
@@ -5600,7 +5588,7 @@ msgstr ""
 #: src/main.cpp:67
 #, kde-format
 msgid "Lee Olson"
-msgstr "Lee Olson"
+msgstr ""
 
 #: src/main.cpp:67
 #, kde-format
@@ -5650,7 +5638,7 @@ msgstr ""
 #: src/main.cpp:77
 #, kde-format
 msgid "Paulo Cattai"
-msgstr "Paulo Cattai"
+msgstr ""
 
 #: src/main.cpp:77 src/main.cpp:79 src/main.cpp:81 src/main.cpp:83
 #: src/main.cpp:85
@@ -5661,22 +5649,22 @@ msgstr ""
 #: src/main.cpp:79
 #, kde-format
 msgid "Danilo Balzaque"
-msgstr "Danilo Balzaque"
+msgstr ""
 
 #: src/main.cpp:81
 #, kde-format
 msgid "Roberto Cunha"
-msgstr "Roberto Cunha"
+msgstr ""
 
 #: src/main.cpp:83
 #, kde-format
 msgid "Tadeu Araujo"
-msgstr "Tadeu Araujo"
+msgstr ""
 
 #: src/main.cpp:85
 #, kde-format
 msgid "Tiago Porangaba"
-msgstr "Tiago Porangaba"
+msgstr ""
 
 #: src/main.cpp:87
 #, kde-format
@@ -5723,7 +5711,7 @@ msgstr ""
 #: src/molcalcwidget.cpp:218 src/molcalcwidget.cpp:219
 #, kde-format
 msgid "Invalid input"
-msgstr "كىرگۈزۈش ئىناۋەتسىز."
+msgstr "كىرگۈزۈش ئىناۋەتسىز"
 
 #: src/molcalcwidget.cpp:228
 #, kde-format
@@ -5794,7 +5782,7 @@ msgstr ""
 #: src/molcalcwidgetbase.ui:167
 #, kde-format
 msgid "Details"
-msgstr "تەپسىلاتلار"
+msgstr "تەپسىلاتى"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/molcalcwidgetbase.ui:175
@@ -5858,7 +5846,7 @@ msgstr ""
 #: src/molcalcwidgetbase.ui:276
 #, kde-format
 msgid "Aliases"
-msgstr "تەخەللۇسلار:"
+msgstr "تەخەللۇس"
 
 #. i18n: ectx: property (title), widget (QGroupBox, aliasBox)
 #: src/molcalcwidgetbase.ui:282
@@ -6135,7 +6123,7 @@ msgstr ""
 #: src/psetable/elementitem.cpp:122
 #, kde-format
 msgid "n/a"
-msgstr "n/a"
+msgstr "ئىشلەتكىلى بولمايدۇ"
 
 #: src/rsdialog.cpp:24
 #, kde-format
@@ -6152,7 +6140,7 @@ msgstr ""
 #: src/rsdialog.cpp:87
 #, kde-format
 msgid "S-Phrases:"
-msgstr "S-ئىبارىلەر"
+msgstr "S-ئىبارە:"
 
 #: src/rsdialog.cpp:95
 #, kde-format
@@ -7218,10 +7206,9 @@ msgid "&Filter"
 msgstr "سۈزگۈچ(&F)"
 
 #: src/searchwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search:"
+#, kde-format
 msgid "Search..."
-msgstr "ئىزدە:"
+msgstr "ئىزدە…"
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
@@ -7241,7 +7228,7 @@ msgstr ""
 #: src/settings/isotopetablesettingsdialog.cpp:28
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "يانتۇ"
 
 #: src/settings/isotopetablesettingsdialog.cpp:33
 #, kde-format
@@ -7256,7 +7243,7 @@ msgstr ""
 #: src/settings/kalziumconfigdialog.cpp:22
 #, kde-format
 msgid "Gradients"
-msgstr "تەدرىجىي ئۆزگىرىش"
+msgstr "رەڭ ئۆزگىرىشى"
 
 #: src/settings/kalziumconfigdialog.cpp:27
 #, kde-format
@@ -7555,7 +7542,7 @@ msgstr "بىرلىكى:"
 #: src/spectrumview.ui:175
 #, kde-format
 msgid "Type:"
-msgstr "تىپى:"
+msgstr "تۈرى:"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_resetZoom)
 #: src/spectrumview.ui:185
@@ -7581,12 +7568,12 @@ msgstr ""
 #: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Uppercase"
-msgstr "چوڭ يېزىلىش"
+msgstr "چوڭ ھەرپ"
 
 #: src/tablesdialog.cpp:47
 #, kde-format
 msgid "Lowercase"
-msgstr "كىچىك يېزىلىش"
+msgstr "كىچىك ھەرپ"
 
 #: src/tablesdialog.cpp:48
 #, kde-format
@@ -7619,102 +7606,102 @@ msgstr "دېلتا"
 #: src/tablesdialog.cpp:108
 #, kde-format
 msgid "epsilon"
-msgstr "epsilon"
+msgstr ""
 
 #: src/tablesdialog.cpp:109
 #, kde-format
 msgid "zeta"
-msgstr "zeta"
+msgstr ""
 
 #: src/tablesdialog.cpp:110
 #, kde-format
 msgid "eta"
-msgstr "eta"
+msgstr ""
 
 #: src/tablesdialog.cpp:111
 #, kde-format
 msgid "theta"
-msgstr "theta"
+msgstr ""
 
 #: src/tablesdialog.cpp:112
 #, kde-format
 msgid "iota"
-msgstr "iota"
+msgstr ""
 
 #: src/tablesdialog.cpp:113
 #, kde-format
 msgid "kappa"
-msgstr "kappa"
+msgstr ""
 
 #: src/tablesdialog.cpp:114
 #, kde-format
 msgid "lambda"
-msgstr "lambda"
+msgstr ""
 
 #: src/tablesdialog.cpp:115
 #, kde-format
 msgid "mu"
-msgstr "mu"
+msgstr ""
 
 #: src/tablesdialog.cpp:116
 #, kde-format
 msgid "nu"
-msgstr "nu"
+msgstr ""
 
 #: src/tablesdialog.cpp:117
 #, kde-format
 msgid "xi"
-msgstr "xi"
+msgstr ""
 
 #: src/tablesdialog.cpp:118
 #, kde-format
 msgid "omicron"
-msgstr "omicron"
+msgstr ""
 
 #: src/tablesdialog.cpp:119
 #, kde-format
 msgid "pi"
-msgstr "pi"
+msgstr ""
 
 #: src/tablesdialog.cpp:120
 #, kde-format
 msgid "rho"
-msgstr "rho"
+msgstr ""
 
 #: src/tablesdialog.cpp:121
 #, kde-format
 msgid "sigma"
-msgstr "sigma"
+msgstr ""
 
 #: src/tablesdialog.cpp:122
 #, kde-format
 msgid "tau"
-msgstr "tau"
+msgstr ""
 
 #: src/tablesdialog.cpp:123
 #, kde-format
 msgid "upsilon"
-msgstr "upsilon"
+msgstr ""
 
 #: src/tablesdialog.cpp:124
 #, kde-format
 msgid "phi"
-msgstr "phi"
+msgstr ""
 
 #: src/tablesdialog.cpp:125
 #, kde-format
 msgid "chi"
-msgstr "chi"
+msgstr ""
 
 #: src/tablesdialog.cpp:126
 #, kde-format
 msgid "psi"
-msgstr "psi"
+msgstr ""
 
 #: src/tablesdialog.cpp:127
 #, kde-format
 msgid "omega"
-msgstr "omega"
+msgstr ""
 
 #: src/tablesdialog.cpp:136
 #, kde-format
@@ -7745,7 +7732,7 @@ msgstr ""
 #: src/tablesdialog.cpp:151
 #, kde-format
 msgid "0.5"
-msgstr "0.5"
+msgstr ""
 
 #: src/tablesdialog.cpp:152
 #, kde-format
@@ -7755,7 +7742,7 @@ msgstr "1"
 #: src/tablesdialog.cpp:153
 #, kde-format
 msgid "1.5"
-msgstr "1.5"
+msgstr ""
 
 #: src/tablesdialog.cpp:154
 #, kde-format
@@ -7765,7 +7752,7 @@ msgstr "2"
 #: src/tablesdialog.cpp:155
 #, kde-format
 msgid "2.5"
-msgstr "2.5"
+msgstr ""
 
 #: src/tablesdialog.cpp:156
 #, kde-format
@@ -7785,7 +7772,7 @@ msgstr "5"
 #: src/tablesdialog.cpp:159
 #, kde-format
 msgid "6"
-msgstr "6"
+msgstr ""
 
 #: src/tablesdialog.cpp:160
 #, kde-format
@@ -7795,17 +7782,17 @@ msgstr "7"
 #: src/tablesdialog.cpp:161
 #, kde-format
 msgid "8"
-msgstr "8"
+msgstr ""
 
 #: src/tablesdialog.cpp:162
 #, kde-format
 msgid "9"
-msgstr "9"
+msgstr ""
 
 #: src/tablesdialog.cpp:163
 #, kde-format
 msgid "10"
-msgstr "10"
+msgstr ""
 
 #: src/tablesdialog.cpp:164
 #, kde-format
@@ -7815,7 +7802,7 @@ msgstr "11"
 #: src/tablesdialog.cpp:165
 #, kde-format
 msgid "12"
-msgstr "12"
+msgstr ""
 
 #: src/tablesdialog.cpp:166
 #, kde-format
@@ -7825,17 +7812,17 @@ msgstr "13"
 #: src/tablesdialog.cpp:167
 #, kde-format
 msgid "14"
-msgstr "14"
+msgstr ""
 
 #: src/tablesdialog.cpp:168
 #, kde-format
 msgid "15"
-msgstr "15"
+msgstr ""
 
 #: src/tablesdialog.cpp:169
 #, kde-format
 msgid "16"
-msgstr "16"
+msgstr ""
 
 #: src/tablesdialog.cpp:170
 #, kde-format
@@ -7845,7 +7832,7 @@ msgstr "17"
 #: src/tablesdialog.cpp:171
 #, kde-format
 msgid "18"
-msgstr "18"
+msgstr ""
 
 #: src/tablesdialog.cpp:172
 #, kde-format
@@ -7855,7 +7842,7 @@ msgstr "19"
 #: src/tablesdialog.cpp:173
 #, kde-format
 msgid "20"
-msgstr "20"
+msgstr ""
 
 #: src/tablesdialog.cpp:174
 #, kde-format
@@ -7865,7 +7852,7 @@ msgstr "40"
 #: src/tablesdialog.cpp:175
 #, kde-format
 msgid "50"
-msgstr "50"
+msgstr ""
 
 #: src/tablesdialog.cpp:176
 #, kde-format
@@ -7875,7 +7862,7 @@ msgstr "60"
 #: src/tablesdialog.cpp:177
 #, kde-format
 msgid "90"
-msgstr "90"
+msgstr ""
 
 #: src/tablesdialog.cpp:178
 #, kde-format
@@ -7888,11 +7875,10 @@ msgid "&Copy"
 msgstr "كۆچۈر(&C)"
 
 #: src/tools/moleculeview.cpp:50
-#, fuzzy, kde-format
-#| msgid "Calculator"
+#, kde-format
 msgctxt "@title:window"
 msgid "Molecular Editor"
-msgstr "ھېسابلىغۇچ"
+msgstr ""
 
 #: src/tools/moleculeview.cpp:66
 #, kde-format
@@ -7931,7 +7917,7 @@ msgstr ""
 #: src/tools/moleculeview.cpp:133 src/tools/moleculeview.cpp:199
 #, kde-format
 msgid "All files"
-msgstr "ھەممە ھۆججەتلەر"
+msgstr "ھەممە ھۆججەت"
 
 #: src/tools/moleculeview.cpp:137
 #, kde-format
@@ -7959,7 +7945,7 @@ msgctxt ""
 "This 'u' stands for the chemical unit (u for 'units'). Most likely this does "
 "not need to be translated at all!"
 msgid "%1 u"
-msgstr "%1 u"
+msgstr ""
 
 #: src/tools/moleculeview.cpp:281
 #, kde-format
@@ -8000,7 +7986,7 @@ msgstr ""
 #: src/tools/moleculeviewerwidget.ui:136
 #, kde-format
 msgid "Edit"
-msgstr "تەھرىرلەش"
+msgstr "تەھرىر"
 
 #. i18n: ectx: property (text), widget (QPushButton, optimizeButton)
 #: src/tools/moleculeviewerwidget.ui:144
@@ -8032,7 +8018,7 @@ msgstr ""
 #: src/tools/moleculeviewerwidget.ui:215
 #, kde-format
 msgid "Statistics"
-msgstr "ستاتىستىكا"
+msgstr "ئىستاتىستىكا"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/tools/moleculeviewerwidget.ui:223
@@ -8071,7 +8057,7 @@ msgstr ""
 #: src/tools/obconverter.cpp:116
 #, kde-format
 msgid "All Files"
-msgstr "بارلىق ھۆججەتلەر"
+msgstr "بارلىق ھۆججەت"
 
 #: src/tools/obconverter.cpp:177
 #, kde-format
@@ -8152,7 +8138,6 @@ msgstr ""
 #~ msgid "Marcus D. Hanwell"
 #~ msgstr "Marcus D. Hanwell"
 
-#, fuzzy
 #~| msgid "moles"
 #~ msgid "molecule"
 #~ msgstr "مول"
@@ -8196,7 +8181,6 @@ msgstr ""
 #~ msgid "High"
 #~ msgstr "يۇقىرى"
 
-#, fuzzy
 #~| msgid "None"
 #~ msgctxt "No 2nd Style"
 #~ msgid "None"
@@ -8208,7 +8192,6 @@ msgstr ""
 #~ msgid "Ring"
 #~ msgstr "ھالقا"
 
-#, fuzzy
 #~| msgid "None"
 #~ msgctxt "No element labels"
 #~ msgid "None"
