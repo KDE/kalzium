@@ -1,31 +1,32 @@
-# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2002-2005 Carsten Niehaus <cniehaus@gmx.de>
 # SPDX-FileCopyrightText: 2004 Thomas Diehl <thd@kde.org>
-# SPDX-FileCopyrightText: 2005, 2006, 2007 Stephan Johach <hunsum@gmx.de>
-# SPDX-FileCopyrightText: 2005, 2006, 2007, 2008 Thomas Reitelbach <tr@erdfunkstelle.de>
 # SPDX-FileCopyrightText: 2005 Jörg Buchwald <buchwaldj@web.de>
+# SPDX-FileCopyrightText: 2005-2007 Stephan Johach <hunsum@gmx.de>
 # SPDX-FileCopyrightText: 2005-2007 Thorsten Mürell <thorsten@muerell.de>
+# SPDX-FileCopyrightText: 2005-2008 Thomas Reitelbach <tr@erdfunkstelle.de>
 # SPDX-FileCopyrightText: 2006 Christoph Hamann <chhamann@gmx.de>
-# SPDX-FileCopyrightText: 2007, 2008 Martin Ereth <martin.ereth@arcor.de>
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
-# SPDX-FileCopyrightText: 2010, 2011 Panagiotis Papadopoulos <pano_90@gmx.net>
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2016, 2022 Frederik Schwarzer <schwarzer@kde.org>
-# SPDX-FileCopyrightText: 2010, 2011 Peter Rüthemann <peter.ruethemann@gmail.com>
+# SPDX-FileCopyrightText: 2007-2008 Martin Ereth <martin.ereth@arcor.de>
+# SPDX-FileCopyrightText: 2009-2014, 2016-2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2010-2011 Panagiotis Papadopoulos <pano_90@gmx.net>
+# SPDX-FileCopyrightText: 2010-2011 Peter Rüthemann <peter.ruethemann@gmail.com>
+# SPDX-FileCopyrightText: 2010-2013, 2016, 2022 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2011 Rolf Eike Beer <kde@opensource.sf-tec.de>
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2024-09-28 20:22+0200\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2026-06-01 19:27+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -526,11 +527,11 @@ msgid ""
 msgstr ""
 "Der Zerfallsmodus beschreibt einen bestimmten Weg wie ein Partikel zerfällt. "
 "Bei radioaktivem Zerfall (der Zerfall von Nukliden) gibt es folgende Modi:"
-"[br] -> Alpha-Zerfall (Emission eines Helium-4 Nuklids).[br] -> ß[sup]−[/"
-"sup]-Zerfall (Emission eines Elektrons)[br] -> ß[sup]+[/sup]-Zerfall "
-"(Emission eines Positrons) [br] -> Elektroneneinfang (EC)[br] -"
-">Protonenemission[br] ->spontane Spaltung[br] Typischerweise herrscht eine "
-"Zerfallsart für ein bestimmtes Nuklid vor."
+"[br] → Alpha-Zerfall (Emission eines Helium-4 Nuklids).[br] → ß[sup]−[/sup]-"
+"Zerfall (Emission eines Elektrons)[br] → ß[sup]+[/sup]-Zerfall (Emission "
+"eines Positrons) [br] → Elektroneneinfang (EC)[br] → Protonenemission "
+"[br] → spontane Spaltung [br] Typischerweise herrscht eine Zerfallsart für "
+"ein bestimmtes Nuklid vor."
 
 #: data/knowledge.xml:163
 #, kde-format
@@ -605,19 +606,18 @@ msgid ""
 msgstr ""
 "Ein Kernisomer ist ein metastabiler oder isomerischer Zustand eines Atoms, "
 "verursacht durch Anregen eines Protons oder Neutrons im Kern, sodass es eine "
-"Spinänderung braucht, bevor es seine überschüssige Energie freisetzen kann. "
+"Spinänderung benötigt, bevor es seine überschüssige Energie freisetzen kann. "
 "Sie zerfallen zu energetisch niedrigeren Zuständen des Nuklids durch zwei "
-"isomerische Übergänge:[br] -> γ-Emission (Emission eines hochenergetischen "
-"Photons)[br] -> interne Umwandlung (die Energie wird zum Ionisieren des "
-"Atoms verwendet)[br] Im Gegensatz zur Definition eines chemischen Isomers "
-"ist dies eine häufigere Anwendung des Wortes. Auch im Gegensatz zur "
-"Bedeutung eines Isotops. Dort liegt der Unterschied in der Zahl der "
-"Neutronen im Kern. Metastabile Isomere eines bestimmten Atoms sind "
-"normalerweise mit einem „m“ gekennzeichnet (oder wenn mehrere Isomere "
-"existieren mit 2m, 3m usw.). Diese Kennzeichnung wird normalerweise hinter "
-"dem Symbol und der Nummer des Atoms aufgeführt (beispielsweise Co-58m), aber "
-"manchmal wird es auch hochgestellt vorangestellt (z. B., [sup]m[/sup]Co-58 "
-"oder [sup]58m[/sup]Co)."
+"isomerische Übergänge:[br] → γ-Emission (Emission eines hochenergetischen "
+"Photons)[br] → interne Umwandlung (die Energie wird zum Ionisieren des Atoms "
+"verwendet)[br] Im Gegensatz zur Definition eines chemischen Isomers ist dies "
+"eine häufigere Anwendung des Wortes. Auch im Gegensatz zur Bedeutung eines "
+"Isotops. Dort liegt der Unterschied in der Zahl der Neutronen im Kern. "
+"Metastabile Isomere eines bestimmten Atoms sind normalerweise mit einem „m“ "
+"gekennzeichnet (oder wenn mehrere Isomere existieren mit 2m, 3m usw.). Diese "
+"Kennzeichnung wird normalerweise hinter dem Symbol und der Nummer des Atoms "
+"aufgeführt (beispielsweise Co-58m), aber manchmal wird es auch hochgestellt "
+"vorangestellt (z. B. [sup]m[/sup]Co-58 oder [sup]58m[/sup]Co)."
 
 #: data/knowledge.xml:207
 #, kde-format
@@ -791,11 +791,11 @@ msgstr ""
 "nach oben gewölbt, sodass in sie mit kleinen Flüssigkeitsmengen gefüllt "
 "werden können, um diese verdampfen zu lassen. Uhrgläser können auch über "
 "Bunsenbrennern erhitzt werden, um das Verdampfen zu beschleunigen. Uhrgläser "
-"können auch dafür benutzt werden Bechergläser oder Petrischalen abzudecken. "
-"Des Weiteren eignen sich Uhrgläser dafür, kleinere Mengen von Substanzen "
-"ein- und abzuwiegen bzw. im Trockenschrank zu trocknen. Der Begriff Uhrglas "
-"leitet sich von früheren Taschenuhren ab, da diese meist ein gewölbtes "
-"Schutzglas hatten."
+"können auch dafür verwendet werden, Bechergläser oder Petrischalen "
+"abzudecken. Des Weiteren eignen sich Uhrgläser dafür, kleinere Mengen von "
+"Substanzen ein- und abzuwiegen bzw. im Trockenschrank zu trocknen. Der "
+"Begriff Uhrglas leitet sich von früheren Taschenuhren ab, da diese meist ein "
+"gewölbtes Schutzglas hatten."
 
 #: data/tools.xml:10
 #, kde-format
@@ -979,7 +979,7 @@ msgstr ""
 #: data/tools.xml:57
 #, kde-format
 msgid "Test Tube Rack"
-msgstr "Reagenzglashalter"
+msgstr "Reagenzglasständer"
 
 #: data/tools.xml:58
 #, kde-format
@@ -987,7 +987,7 @@ msgid ""
 "This rack is useful when many small amounts of chemicals are to be tested in "
 "a row; or alternatively, to dry test tubes."
 msgstr ""
-"Dieser Halter ist praktisch, wenn Sie viele kleine Mengen von Chemikalien in "
+"Dieser Ständer ist nützlich, wenn Sie viele kleine Mengen von Chemikalien in "
 "Folge testen oder wenn Sie Reagenzgläser trocknen möchten."
 
 #: data/tools.xml:62
@@ -1465,7 +1465,7 @@ msgstr ""
 "sowohl messen als auch regeln können. Dadurch können mit ihnen Experimente "
 "bei einer konstanten Temperatur durchgeführt werden. Kontaktthermometer "
 "arbeiten mit einer negativen Rückkopplungsschleife: Ist die gewünschte "
-"Temperatur erreicht, wird die Heizspirale ausgeschaltet, sinkt die "
+"Temperatur erreicht, wird die Heizspirale ausgeschaltet; sinkt die "
 "Temperatur, wird sie wieder eingeschaltet."
 
 #: data/tools.xml:194
@@ -1499,8 +1499,8 @@ msgstr ""
 "davon ist das Indikatorpapier. Bei diesem Papier ändert sich die Farbe "
 "abhängig vom pH-Wert der Lösung. Durch Vergleich mit einem Farbdiagramm ist "
 "eine einigermaßen genaue Messung des pH-Werts einer Lösung möglich. Für eine "
-"genauere Messung wird eine Elektrode benutzt, mit der die Leitfähigkeit der "
-"Lösung gemessen wird. "
+"genauere Messung wird eine Elektrode verwendet, mit der die Leitfähigkeit "
+"der Lösung gemessen wird."
 
 #: data/tools.xml:204
 #, kde-format
@@ -3330,7 +3330,7 @@ msgstr ""
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
 "size:12pt; font-weight:600;\">Einige der folgenden Daten werden nicht "
-"benötigt. Wenn Sie z. B. die Stoffmenge in Mol angeben, brauchen Sie die "
+"benötigt. Wenn Sie z. B. die Stoffmenge in Mol angeben, benötigen Sie die "
 "molare Masse des Stoffes nicht mehr anzugeben.</span></p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
@@ -3697,7 +3697,7 @@ msgid ""
 "This box can be used to specify the molar mass of the gas, e.g. 2 for "
 "Hydrogen gas."
 msgstr ""
-"Hier kann die molare Masse des Gases, z. B. für Wasserstoff „2“, angegeben "
+"Hier kann die molare Masse des Gases, z. B. für Wasserstoff „2“, angegeben "
 "werden."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
@@ -3787,7 +3787,7 @@ msgid ""
 "This box can be used to specify the units of pressure, e.g. atmospheres, "
 "bars, etc."
 msgstr ""
-"Hier kann die Einheit des Drucks, wie z. B. Atmosphären oder Bar, angegeben "
+"Hier kann die Einheit des Drucks, wie z. B. Atmosphären oder Bar, angegeben "
 "werden."
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
@@ -3821,7 +3821,7 @@ msgid ""
 "This box can be used to specify the units of temperature, e.g. Kelvin, "
 "Celsius, etc."
 msgstr ""
-"Hier kann die Einheit der Temperatur, wie z. B. Kelvin oder Celsius, "
+"Hier kann die Einheit der Temperatur, wie z. B. Kelvin oder Celsius, "
 "angegeben werden."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
@@ -3852,7 +3852,7 @@ msgstr "<big>Geben Sie die Volumeneinheit des Gases an</big>"
 #: src/calculator/gasCalculator.ui:252
 #, kde-format
 msgid "This box can be used to change the units of volume, e.g. liters."
-msgstr "Hier kann die Volumeneinheit, wie z. B. Liter, angegeben werden."
+msgstr "Hier kann die Volumeneinheit, wie z. B. Liter, angegeben werden."
 
 #. i18n: ectx: property (title), widget (QGroupBox, non_ideal)
 #: src/calculator/gasCalculator.ui:286
@@ -4054,7 +4054,7 @@ msgstr "<big>Die Einheit der Halbwertszeit</big>"
 msgid ""
 "This box is used to specify the unit of half-life, e.g. years, seconds, etc."
 msgstr ""
-"Hier kann die Einheit der Halbwertszeit, wie z. B. Jahre oder Sekunden, "
+"Hier kann die Einheit der Halbwertszeit, wie z. B. Jahre oder Sekunden, "
 "angegeben werden."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, halfLife_unit)
@@ -4290,7 +4290,7 @@ msgid ""
 "This box can be used to specify the units of the initial amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Hier kann die Einheit der Anfangsmenge der Substanz, wie z. B. Gramm oder "
+"Hier kann die Einheit der Anfangsmenge der Substanz, wie z. B. Gramm oder "
 "Pfund, angegeben werden."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, initAmt_unit)
@@ -4354,7 +4354,7 @@ msgid ""
 "This box can be used to specify the units of the final amount of the "
 "substance. e.g. grams, pounds, etc."
 msgstr ""
-"Hier kann die Einheit der Endmenge, wie z. B. Gramm oder Pfund, angegeben "
+"Hier kann die Einheit der Endmenge, wie z. B. Gramm oder Pfund, angegeben "
 "werden."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, time_unit)
@@ -4369,7 +4369,7 @@ msgstr "<big>Geben Sie die Einheit für die verstrichene Zeit an</big>"
 msgid ""
 "This box is used to specify the units of time. e.g. years, seconds, etc."
 msgstr ""
-"Hier kann die Einheit der Zeit, wie z. B. Jahre oder Sekunden, angegeben "
+"Hier kann die Einheit der Zeit, wie z. B. Jahre oder Sekunden, angegeben "
 "werden."
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
@@ -4437,7 +4437,7 @@ msgstr "Massen-Rechner"
 #: src/calculator/settings_calc.ui:106
 #, kde-format
 msgid "Show details such as aliases"
-msgstr "Details, wie z. B. Aliase, anzeigen"
+msgstr "Details, wie z. B. Aliase, anzeigen"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox)
 #: src/calculator/settings_calc.ui:113
@@ -5137,7 +5137,7 @@ msgstr "Zusätzliche Information"
 #, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
-msgstr "[%1] %2 (%3 - Block %4)"
+msgstr "[%1] %2 (%3 – Block %4)"
 
 #: src/detailinfodlg.cpp:1187
 #, kde-format
@@ -5176,12 +5176,12 @@ msgstr ""
 "Mit dem Gleichungslöser können Sie chemische Gleichungen ausgleichen."
 "<br><br><b>Verwendung von Variablen</b><br>Um variable Mengen eines "
 "Elementes zu kennzeichnen, muss ein einzelnes Zeichen vor das Elementsymbol "
-"gesetzt werden, wie es in diesem Beispiel gezeigt wird:<br><i>aH + bO -> "
-"5H2O</i> (Ergebnis: <b>10</b> H + <b>5</b> O -&gt; <b>5</b> H<sub>2</"
+"gesetzt werden, wie es in diesem Beispiel gezeigt wird:<br><i>aH + "
+"bO → 5H2O</i> (Ergebnis: <b>10</b> H + <b>5</b> O -&gt; <b>5</b> H<sub>2</"
 "sub>O)<br>Das Lösen dieser Gleichung ergibt die nötigen Mengen an Wasser- "
 "und Sauerstoff.<br><br><b>Angeben von elektrischen Ladungen</b><br>Mit "
 "eckigen Klammern können Sie elektrische Ladungen eines Elements angeben, wie "
-"in diesem Beispiel gezeigt wird:<br><i>4H[+] + 2O -> cH2O[2+]</i> (Ergebnis: "
+"in diesem Beispiel gezeigt wird:<br><i>4H[+] + 2O → cH2O[2+]</i> (Ergebnis: "
 "<b>4</b> H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
 
@@ -5202,7 +5202,7 @@ msgstr "Geben Sie die Gleichung zum Ausgleichen in dieses Feld ein:"
 #: src/equationview.ui:69
 #, kde-format
 msgid "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
-msgstr "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
+msgstr "aCH3(CH2)3COOH + bO2 → cH2O + dCO2"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, calculateButton)
@@ -5490,7 +5490,7 @@ msgstr "Exakte Masse: %1 u"
 #: src/kalzium.cpp:111
 #, kde-format
 msgid "&Export Data..."
-msgstr "Daten &exportieren ..."
+msgstr "Daten &exportieren …"
 
 #: src/kalzium.cpp:120
 #, kde-format
@@ -5515,12 +5515,12 @@ msgstr "&Nummerierung"
 #: src/kalzium.cpp:151
 #, kde-format
 msgid "&Plot Data..."
-msgstr "Daten &grafisch darstellen ..."
+msgstr "Daten &grafisch darstellen …"
 
 #: src/kalzium.cpp:157
 #, kde-format
 msgid "Perform &Calculations..."
-msgstr "&Berechnungen durchführen ..."
+msgstr "&Berechnungen durchführen …"
 
 #: src/kalzium.cpp:159
 #, kde-format
@@ -5532,7 +5532,7 @@ msgstr ""
 #: src/kalzium.cpp:163
 #, kde-format
 msgid "&Isotope Table..."
-msgstr "&Isotopentabelle ..."
+msgstr "&Isotopentabelle …"
 
 #: src/kalzium.cpp:165
 #, kde-format
@@ -5543,17 +5543,17 @@ msgstr "Diese Tabelle zeigt alle bekannten Isotope der chemischen Elemente."
 #: src/kalzium.cpp:169
 #, kde-format
 msgid "&Glossary..."
-msgstr "&Glossar ..."
+msgstr "&Glossar …"
 
 #: src/kalzium.cpp:174
 #, kde-format
 msgid "&R/S Phrases..."
-msgstr "&R- und S-Sätze ..."
+msgstr "&R- und S-Sätze …"
 
 #: src/kalzium.cpp:179
 #, kde-format
 msgid "Convert chemical files..."
-msgstr "Chemiedaten-Dateien umwandeln ..."
+msgstr "Chemiedaten-Dateien umwandeln …"
 
 #: src/kalzium.cpp:181
 #, kde-format
@@ -5568,7 +5568,7 @@ msgstr ""
 #: src/kalzium.cpp:188
 #, kde-format
 msgid "Molecular Editor..."
-msgstr "Moleküleditor ..."
+msgstr "Moleküleditor …"
 
 #: src/kalzium.cpp:190
 #, kde-format
@@ -5581,7 +5581,7 @@ msgstr ""
 #: src/kalzium.cpp:197
 #, kde-format
 msgid "&Tables..."
-msgstr "&Tabellen ..."
+msgstr "&Tabellen …"
 
 #: src/kalzium.cpp:199
 #, kde-format
@@ -5774,10 +5774,9 @@ msgstr ""
 "Jedes Element wird durch ein Symbol dargestellt, das seinen Nutzen zeigt."
 
 #: src/kalziumschemetype.cpp:280
-#, fuzzy, kde-format
-#| msgid "Alkaline earth metals"
+#, kde-format
 msgid "Alkaline Earth Metal"
-msgstr "Erdalkalimetalle"
+msgstr "Erdalkalimetall"
 
 #: src/kalziumschemetype.cpp:281
 #, kde-format
@@ -5790,8 +5789,7 @@ msgid "Non-Metals"
 msgstr "Nicht-Metall"
 
 #: src/kalziumschemetype.cpp:283
-#, fuzzy, kde-format
-#| msgid "Alkalie Metal"
+#, kde-format
 msgid "Alkali Metal"
 msgstr "Alkalimetall"
 
@@ -6038,7 +6036,7 @@ msgstr "Ein Periodensystem der Elemente"
 #: src/main.cpp:39
 #, kde-format
 msgid "(C) 2002-2016 Carsten Niehaus & the KDE Edu Developers"
-msgstr "Copyright 2002–2016 Carsten Niehaus & die KDE-Edu-Entwickler"
+msgstr "© 2002–2016 Carsten Niehaus & die KDE-Edu-Entwickler"
 
 #: src/main.cpp:43
 #, kde-format
@@ -6398,7 +6396,7 @@ msgid ""
 "This table previews the elemental composition of the molecule, i.e. the "
 "percentage of each element in the molecule."
 msgstr ""
-"Die Tabelle listet die chemische Zusammensetzung des Moleküls auf, d. h. der "
+"Die Tabelle listet die chemische Zusammensetzung des Moleküls auf, d. h. der "
 "prozentuale Anteil jedes Elements des Moleküls wird angegeben."
 
 #. i18n: ectx: property (text), widget (QTableWidget, table)
@@ -6433,7 +6431,7 @@ msgid ""
 "For instance, in the molecule MeOH, the alias used is Me = CH3."
 msgstr ""
 "Dies zeigt alle im Molekül verwendeten Aliase an.\n"
-"Im Molekül MeOH wird z. B. folgender Alias verwendet: Me = CH3."
+"Im Molekül MeOH wird z. B. folgender Alias verwendet: Me = CH3."
 
 #. i18n: ectx: property (text), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:262
@@ -6471,7 +6469,7 @@ msgstr "Kurzform des Alias"
 msgid ""
 "You can specify the short form of the alias used here, \n"
 "for instance, Me."
-msgstr "Hier können Sie die Kurzform des Alias angeben, z. B. „Me“."
+msgstr "Hier können Sie die Kurzform des Alias angeben, z. B. „Me“."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/molcalcwidgetbase.ui:321
@@ -6487,7 +6485,7 @@ msgid ""
 "for instance, CH3."
 msgstr ""
 "Hier können Sie die vollständige Form des Alias angeben,\n"
-"z. B. „CH3“."
+"z. B. „CH3“."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, alias)
 #: src/molcalcwidgetbase.ui:336
@@ -6672,10 +6670,9 @@ msgstr "Edelgase"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:295
-#, fuzzy, kde-format
-#| msgid "Alkali metals:"
+#, kde-format
 msgid "Alkali metals"
-msgstr "Alkalimetalle:"
+msgstr "Alkalimetalle"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboElementType)
 #: src/plotsetupwidget.ui:300
@@ -6793,7 +6790,7 @@ msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
 msgstr ""
-"S5: Unter … aufbewahren (geeignete Flüssigkeit vom Hersteller anzugeben)"
+"S5: Unter … aufbewahren (geeignete Flüssigkeit vom Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:154
 #, kde-format
@@ -6801,7 +6798,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
-msgstr "S6: Unter … aufbewahren (inertes Gas vom Hersteller anzugeben)"
+msgstr "S6: Unter … aufbewahren (inertes Gas vom Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:157
 #, kde-format
@@ -6852,8 +6849,7 @@ msgid ""
 "S14: Keep away from ... ( incompatible materials to be indicated by the "
 "manufacturer )"
 msgstr ""
-"S14: Von ... fernhalten (inkompatible Substanzen sind vom Hersteller "
-"anzugeben)"
+"S14: Von … fernhalten (inkompatible Substanzen sind vom Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:175
 #, kde-format
@@ -6968,8 +6964,8 @@ msgid ""
 "S28: After contact with skin, wash immediately with plenty of ... ( to be "
 "specified by the manufacturer )"
 msgstr ""
-"S29: Bei Berührung mit der Haut sofort abwaschen mit viel ... (vom "
-"Hersteller anzugeben)"
+"S28: Bei Berührung mit der Haut sofort abwaschen mit viel … (vom Hersteller "
+"anzugeben)"
 
 #: src/rsdialog.cpp:214
 #, kde-format
@@ -7045,7 +7041,7 @@ msgid ""
 "S40: To clean the floor and all objects contaminated by this material "
 "use ... ( to be specified by the manufacturer )"
 msgstr ""
-"S40: Fußboden und verunreinigte Gegenstände mit ... reinigen (Material vom "
+"S40: Fußboden und verunreinigte Gegenstände mit … reinigen (Material vom "
 "Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:241
@@ -7077,8 +7073,8 @@ msgid ""
 "S43: In case of fire use ... ( indicate in the space the precise type of "
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
-"S43: Zum Löschen ... (vom Hersteller anzugeben) verwenden. (Wenn Wasser die "
-"Gefahr erhöht, anfügen: „Kein Wasser verwenden“.)"
+"S43: Zum Löschen … (vom Hersteller anzugeben) verwenden. (Wenn Wasser die "
+"Gefahr erhöht, anfügen: „Kein Wasser verwenden“.)."
 
 #: src/rsdialog.cpp:251
 #, kde-format
@@ -7113,8 +7109,7 @@ msgid ""
 "S47: Keep at temperature not exceeding ... °C ( to be specified by the "
 "manufacturer )"
 msgstr ""
-"S47: Nicht bei Temperaturen über ... °C aufbewahren (vom Hersteller "
-"anzugeben)"
+"S47: Nicht bei Temperaturen über … °C aufbewahren (vom Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:260
 #, kde-format
@@ -7124,8 +7119,7 @@ msgctxt ""
 msgid ""
 "S48: Keep wet with ... ( appropriate material to be specified by the "
 "manufacturer )"
-msgstr ""
-"S48: Feucht halten mit ... (geeignetes Mittel vom Hersteller anzugeben)"
+msgstr "S48: Feucht halten mit … (geeignetes Mittel vom Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:263
 #, kde-format
@@ -7141,7 +7135,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S50: Do not mix with ... ( to be specified by the manufacturer )"
-msgstr "S50: Nicht mischen mit ... (vom Hersteller anzugeben)"
+msgstr "S50: Nicht mischen mit … (vom Hersteller anzugeben)"
 
 #: src/rsdialog.cpp:269
 #, kde-format
@@ -7865,7 +7859,7 @@ msgstr "&Filtern"
 #: src/searchwidget.cpp:37
 #, kde-format
 msgid "Search..."
-msgstr "Suchen ..."
+msgstr "Suchen …"
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
