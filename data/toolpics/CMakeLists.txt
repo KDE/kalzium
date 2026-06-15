@@ -4,6 +4,7 @@ install( FILES
     brechungsmesser.jpg
     brenner.jpg
     destillierbruecke.jpg
+    dewar-vessel.jpg
     dsc.jpg
     erlenmeyerkolben.jpg
     exikator.jpg
@@ -12,14 +13,15 @@ install( FILES
     hplc.jpg
     kolbenprober.png
     korkring.jpg
+    magnetic-stir-bar-retriever.jpg
     messzylinder.jpg
     moerser.jpg
     phpapier.jpg
     pileusball.jpg
     pipette.jpg
     rg-halter.jpg
-    rg.jpg
     rg-staender.jpg
+    rg.jpg
     rotationsverdampfer.jpg
     rueckflusskuehler.jpg
     ruehrfisch.jpg
@@ -28,13 +30,14 @@ install( FILES
     schutzbrille.jpg
     spatel.jpg
     spritzflasche.jpg
-    thermometer2.jpg
     thermometer.jpg
+    thermometer2.jpg
     tonschale.jpg
     trichter.jpg
     trockenrohr.jpg
     tropftrichter.jpg
     uhrglas.jpg
+    ultrasonic-bath.jpg
     verteiler.jpg
     vollpipette.jpg
     waage.jpg

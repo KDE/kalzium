@@ -128,7 +128,7 @@
 		<desc>Magnetic stir bars are highly chemically inert, small magnetic bars. Most heaters have a built-in magnet which can rotate: this causes the stir bar to rotate and the mixture to become homogenized.</desc>
 	</item>
 	<item>
-		<picture></picture>
+		<picture>magnetic-stir-bar-retriever.jpg</picture>
 		<name>Magnetic Stir Bar Retriever</name>
 		<desc>A magnetic stir bar retriever can be used to retrieve magnetic stir bars from containers. The retriever is a bar with a magnet at the end which attracts the stir bars.</desc>
 	</item>
@@ -149,7 +149,7 @@
 
 	</item>
 	<item>
-		<picture></picture>
+		<picture>ultrasonic-bath.jpg</picture>
 		<name>Ultrasonic Bath</name>
 		<desc>For some chemical reactions it is important that the solvent is gas free. To achieve this the reaction vessel is put for some time into a ultrasonic bath. Due to the high sound frequency, the vapor locks peel away and ascend. This procedure is called out-gassing.</desc>
 	</item>
@@ -220,7 +220,7 @@
 		<desc>A DSC measures the heat flow volume of a compound. This value is very specific for every kind of matter, and thus a DSC can be used to identify chemicals or to describe them.</desc>
 	</item>
 	<item>
-		<picture></picture>
+		<picture>dewar-vessel.jpg</picture>
 		<name>Dewar Vessel</name>
 		<desc>A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar (1842-1923), is a double-walled vacuum flask, designed to provide good thermal insulation. As such, they are useful for keeping liquids cool or warm. One well-known example of a Dewar vessel is a Thermos flask.</desc>
 	</item>
