@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-06-23 00:39+0000\n"
 "PO-Revision-Date: 2022-04-16 22:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -762,16 +762,26 @@ msgid "Watchglass"
 msgstr "시계 접시"
 
 #: data/tools.xml:6
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
+#| "used in various experimental techniques. The border is bent upwards to "
+#| "allow the watchglass to hold small amounts of liquids in order to let "
+#| "them evaporate. The evaporation can be accelerated by heating the "
+#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
+#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
+#| "matter or drying them in an airing cupboard. The term watchglass is "
+#| "derived from the former pocket watches' protection glass which was often "
+#| "domed."
 msgid ""
-"Watchglasses are round glass panes with a diameter of around 5 - 10cm, used "
+"Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
 "watchglass to hold small amounts of liquids in order to let them evaporate. "
 "The evaporation can be accelerated by heating the watchglass with a Bunsen "
 "burner. Watchglasses can also be used to cover Petri dishes or beakers, and "
 "are also suited to weighing small amounts of matter or drying them in an "
 "airing cupboard. The term watchglass is derived from the former pocket "
-"watches' protection glass which was often domed."
+"watches’ protection glass which was often domed."
 msgstr ""
 "시계 접시는 지름이 5-10cm인 둥근 유리 패널이며, 다양한 실험 기법에 이용된다. "
 "가장자리는 위로 굽어 시계 접시가 적은 양의 액체를 담아 증발할 수 있게 한다. "
@@ -785,20 +795,31 @@ msgstr ""
 msgid "Dehydrator"
 msgstr "탈수기"
 
-#: data/tools.xml:13
-#, kde-format
+#: data/tools.xml:11
+#, fuzzy, kde-format
+#| msgid ""
+#| "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
+#| "which serves to dry chemical matters; that is, to remove water or liquid "
+#| "from a sample.\n"
+#| "\t\t\tIn principle it is a glass bowl with cap that has a planar "
+#| "grinding, so that the bowl is air-tight. The dehydrator's lower part is "
+#| "ordinarily filled with a drying agent such as calcium chloride, silica "
+#| "gel, phosphoric anhydride or sulphuric acid. The sample to be dried is "
+#| "placed on a diaphanous cartridge of plastic or ceramic above the drying "
+#| "agent.\n"
+#| "\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies "
+#| "its environment by absorbing water vapor. The dry atmosphere then takes "
+#| "up water from the sample to be dried."
 msgid ""
-"A dehydrator is a piece of laboratory apparatus, often made of glass, and "
-"which serves to dry chemical matters; that is, to remove water or liquid "
-"from a sample.\n"
-"\t\t\tIn principle it is a glass bowl with cap that has a planar grinding, "
-"so that the bowl is air-tight. The dehydrator's lower part is ordinarily "
-"filled with a drying agent such as calcium chloride, silica gel, phosphoric "
-"anhydride or sulphuric acid. The sample to be dried is placed on a "
-"diaphanous cartridge of plastic or ceramic above the drying agent.\n"
-"\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies its "
-"environment by absorbing water vapor. The dry atmosphere then takes up water "
-"from the sample to be dried."
+"A dehydrator is often made of glass and serves to dry chemical matters; that "
+"is, to remove water or liquid from a sample. It is a glass bowl with a cap "
+"that has a planar grinding, so that the bowl is air-tight. The dehydrator’s "
+"lower part is ordinarily filled with a drying agent such as calcium "
+"chloride, silica gel, phosphoric anhydride or sulphuric acid. The sample to "
+"be dried is placed on a diaphanous cartridge of plastic or ceramic above the "
+"drying agent. The drying agent is hygroscopic, which means that it "
+"dehumidifies its environment by absorbing water vapor. The dry atmosphere "
+"then takes up water from the sample."
 msgstr ""
 "탈수기는 실험실 기구 중 하나로, 유리로 만들어진 경우가 많으며, 화학 물질을 말"
 "리는 데 사용한다; 즉, 시료에서 물이나 액체를 제거하는 것이다.\n"
@@ -809,12 +830,12 @@ msgstr ""
 "\t\t\t건조 도구는 흡습성이 있으며, 이는 물 증기를 흡수해 습기가 제거된 환경"
 "을 만듦을 의미한다. 마른 공기는 건조시키고자 하는 시료에서 물을 가져간다."
 
-#: data/tools.xml:17
+#: data/tools.xml:15
 #, kde-format
 msgid "Spatula"
 msgstr "약수저"
 
-#: data/tools.xml:18
+#: data/tools.xml:16
 #, kde-format
 msgid ""
 "The spatula is a laboratory tool to scrape off, grind, and transport "
@@ -825,21 +846,30 @@ msgstr ""
 "약수저와 숟가락 약수저)과 도구를 구성하는 물질(e.g. 철, 타이타늄, 백금)이 다"
 "양하다."
 
-#: data/tools.xml:22
+#: data/tools.xml:20
 #, kde-format
 msgid "Water Jet Pump"
 msgstr "워터 제트 펌프"
 
 #: data/tools.xml:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The water jet pump has two entry pipes and one exit, and consists, in "
+#| "principle, of two pipes one inside the other. At the water entry a water "
+#| "jet shoots under full pressure out of a nozzle into a slightly larger "
+#| "pipe. The water jet thereby carries away air or fluid from the second "
+#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
+#| "and thus it is an application of the hydrodynamic paradox (objects close "
+#| "to drifting fluids are aspirated instead of being pushed away)."
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
 "shoots under full pressure out of a nozzle into a slightly larger pipe. The "
-"water jet thereby carries away air or fluid from the second entry. <br> This "
-"is caused by the negative pressure in a drifting fluid, and thus it is an "
-"application of the hydrodynamic paradox (objects close to drifting fluids "
-"are aspirated instead of being pushed away)."
+"water jet thereby carries away air or fluid from the second entry.\n"
+"\t\t<br>\n"
+"\t\tThis is caused by the negative pressure in a drifting fluid, and thus it "
+"is an application of the hydrodynamic paradox (objects close to drifting "
+"fluids are aspirated instead of being pushed away)."
 msgstr ""
 "워터 제트 펌프에는 두 출입구 파이프와 출구 하나가 있으며, 원칙적으로는 입구 "
 "하나와 출구 하나인 두 파이프로 구성된다. 워터 제트의 물 출입구에서는 최대 압"
@@ -854,11 +884,17 @@ msgid "Refractometer"
 msgstr "굴절계"
 
 #: data/tools.xml:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "With a refractometer the refractive index of optical media is determined. "
+#| "If the refractive index of a chemical is known it can be used after a "
+#| "synthesis to determine the sample's purity or to audit the synthesis' "
+#| "success."
 msgid ""
-"With a refractometer the refractive index of optical media is determined. If "
-"the refractive index of a chemical is known it can be used after a synthesis "
-"to determine the sample's purity or to audit the synthesis' success."
+"With a refractometer, the refractive index of optical media is determined. "
+"If the refractive index of a chemical is known, it can be used after a "
+"synthesis to determine the sample’s purity or to audit whether the synthesis "
+"was successful."
 msgstr ""
 "굴절계를 이용하여 광학 매개물의 굴절률을 결정한다. 만약 화학 물질의 굴절률이 "
 "알려져 있으면 합성을 한 후 시료의 순도를 결정하거나 합성의 성공 여부를 검사하"
@@ -870,29 +906,38 @@ msgid "Mortar"
 msgstr "막자 사발"
 
 #: data/tools.xml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A mortar is used for manually grinding solids. It can also be used to "
+#| "homogenize a mixture of powders by grinding. A club-shaped tool known as "
+#| "a pestle is used with the mortar for grinding."
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
-"homogenize a mixture of powders by grinding. A club-shaped tool known as a "
-"pestle is used with the mortar for grinding."
+"homogenize a mixture of powders by grinding. A club-shaped tool called "
+"“pestle” is used to crush solids into fine powder."
 msgstr ""
 "막자 사발은 수동으로 고체를 빻을 때 사용한다. 또한 가루 혼합물을 갈아서 균질"
 "하게 만들 때에도 사용한다. 흔히 막자라고 알려진 곤봉 모양의 도구는 막자 사발"
 "과 함께 빻을 때 쓰인다."
 
 #: data/tools.xml:37
-#, kde-format
-msgid "Heating Coil"
+#, fuzzy, kde-format
+#| msgid "Heating Coil"
+msgid "Heating Plate"
 msgstr "가열 코일"
 
 #: data/tools.xml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Heating coils are used to heat flasks and other containers. Multiple "
+#| "heating coils can be connected with a thermometer so that the heat will "
+#| "not exceed a specified temperature. It is possible to use a magnetic "
+#| "field inside the heating coil to stir fluids with a magnetic stirrer. "
+#| "This will homogenize the fluid in terms of temperature and composition."
 msgid ""
-"Heating coils are used to heat flasks and other containers. Multiple heating "
-"coils can be connected with a thermometer so that the heat will not exceed a "
-"specified temperature. It is possible to use a magnetic field inside the "
-"heating coil to stir fluids with a magnetic stirrer. This will homogenize "
-"the fluid in terms of temperature and composition."
+"Heating plates are used to heat flasks and other containers. Some can "
+"generate a magnetic field in order to stir fluids with a magnetic stirrer. "
+"This homogenizes the fluid in terms of temperature and composition."
 msgstr ""
 "가열 코일은 플라스크와 다른 용기를 데울 때 쓴다. 여러 가열 코일이 온도계와 연"
 "결되어 열이 특정 온도를 넘지 않도록 한다. 교반기로 액체를 저으려고 자기장을 "
@@ -905,10 +950,14 @@ msgid "Cork Ring"
 msgstr "코르크 링"
 
 #: data/tools.xml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Large containers like round-bottomed flasks are placed on rings made of "
+#| "cork, a special soft lightweight wood with good insulating qualities to "
+#| "protect fragile instruments."
 msgid ""
-"Large containers like round-bottomed flasks are placed on rings made of "
-"cork, a special soft lightweight wood with good insulating qualities to "
+"Large containers like round-bottom flasks are placed on rings made of cork, "
+"a special soft and lightweight bark with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
 "절연성이 좋아 깨지기 쉬운 물질을 보호하며 부드럽고 가벼운 특수한 나무로 만들"
@@ -964,14 +1013,21 @@ msgid "Vortexer"
 msgstr "볼텍서"
 
 #: data/tools.xml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A vortexer serves to homogenize reagents found in laboratories. The "
+#| "container containing liquid to be homogenized is put on a platform. The "
+#| "platform shakes by rotary agitation up to 3000RPM at which point a "
+#| "contact sensor is activated. In this way extremely small volumes of fluid "
+#| "can be homogenized quickly. It is the opposite of a centrifuge, used to "
+#| "separate fluids."
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
-"platform shakes by rotary agitation up to 3000RPM at which point a contact "
-"sensor is activated. In this way extremely small volumes of fluid can be "
-"homogenized quickly. It is the opposite of a centrifuge, used to separate "
-"fluids."
+"platform shakes by rotary agitation up to 3000 RPM, at which point a contact "
+"sensor is activated. This way, extremely small volumes of fluid can be "
+"homogenized quickly. It is the opposite of a centrifuge, which is used to "
+"separate fluids."
 msgstr ""
 "볼텍서는 실험실에서 발견할 수 있는 시약을 균질하게 섞는다. 용기에 균질하게 만"
 "들려는 액체를 넣어 플랫폼에 넣는다. 접촉 센서가 활성화되었을 때 플랫폼은 "
@@ -984,10 +1040,15 @@ msgid "Wash Bottle"
 msgstr "세척병"
 
 #: data/tools.xml:68
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "These bottles are used for many purposes. In most laboratories they are "
+#| "usually filled with water, salt, acid or other commonly used fluids. They "
+#| "make it easy to apply the fluid if a precisely measured amount is not "
+#| "needed."
 msgid ""
-"These bottles are used for many purposes. In most laboratories they are "
-"usually filled with water, salt, acid or other commonly used fluids. They "
+"These bottles are used for many purposes. In most laboratories, they are "
+"usually filled with water, salt, acid, or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
 "이 병은 다양한 목적으로 쓰일 수 있다. 대부분의 실험실에서는 여기에 물, 소금, "
@@ -1020,12 +1081,17 @@ msgid "Reflux Condenser"
 msgstr "환류 냉각기"
 
 #: data/tools.xml:78
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A reflux condenser subjects fluid to a process where a gas produced by "
+#| "heating is collected on the reflux condenser. The fluid is cooled until "
+#| "it condenses and runs back into the original fluid. Usually it is put on "
+#| "a round-bottomed flask or several neck flasks."
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
-"condenses and runs back into the original fluid. Usually it is put on a "
-"round-bottomed flask or several neck flasks."
+"condenses and runs back into the original fluid. Usually, it is put on a "
+"round-bottom flask or several neck flasks."
 msgstr ""
 "환류 냉각기는 환류 냉각기는 환류 냉각기에 열이 모이게 함으로써 생성된 기체를 "
 "액체로 바꾸어서 받는다. 액체는 순수한 액체가 되어 응축될때까지 냉각된다. 일반"
@@ -1044,9 +1110,9 @@ msgstr "피펫 벌브"
 #| "pipette; squeezing the bulb then causes the fluid to flow out of the "
 #| "pipette."
 msgid ""
-"A pipette bulb is used to fill pipettes. Squeezing then releasing the bulb "
+"A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
-"squeezing the bulb then causes the fluid to flow out of the pipette."
+"squeezing the bulb again causes the fluid to flow out of the pipette."
 msgstr ""
 "피펫 벌브는 피펫을 채울 때 사용한다. 벌브를 짠 뒤 풀어놓으면 압력이 줄어들어 "
 "액체가 피펫으로 빨려들게 한다;벌브를 짜면 액체가 피펫 밖으로 흘러나간다."
@@ -1057,11 +1123,15 @@ msgid "Test Tube"
 msgstr "시험관"
 
 #: data/tools.xml:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "In a test tube small reactions or experiments are performed. There are "
+#| "many different types of tubes. For example some have connectors, some are "
+#| "etched for measurements, some are hardened for durability."
 msgid ""
-"In a test tube small reactions or experiments are performed. There are many "
-"different types of tubes. For example some have connectors, some are etched "
-"for measurements, some are hardened for durability."
+"In a test tube, small reactions or experiments can be performed. There are "
+"many different types of tubes. For example, some have connectors, some have "
+"etched markings for measurements, and some are hardened for durability."
 msgstr ""
 "시험관에서는 작은 반응이나 실험을 수행한다. 관의 종류는 다양하다. 예를 들어 "
 "일부는 커넥터가 있고, 일부는 측정하려고 에칭되었으며, 일부는 내구도를 높여 단"
@@ -1073,12 +1143,17 @@ msgid "Protective Goggles"
 msgstr "보호 안경"
 
 #: data/tools.xml:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Most laboratories insist that protective goggles are worn. Without them, "
+#| "it is too risky to work with most chemicals. Usually, the lens is a "
+#| "special type of plastic that affords protection from both mechanical "
+#| "impacts, and acid and base chemicals."
 msgid ""
 "Most laboratories insist that protective goggles are worn. Without them, it "
-"is too risky to work with most chemicals. Usually, the lens is a special "
-"type of plastic that affords protection from both mechanical impacts, and "
-"acid and base chemicals."
+"would be too risky to work with most chemicals. Usually, the lens is a "
+"special type of plastic that provides protection from mechanical impacts and "
+"chemical substances."
 msgstr ""
 "대부분의 실험실에서는 보호 안경을 착용하도록 하고 있다. 보호 안경이 없으면 대"
 "부분의 화학 물질을 가지고 작업하기 매우 위험하다. 보통 렌즈는 기계적인 충격"
@@ -1086,15 +1161,20 @@ msgstr ""
 "져 있다."
 
 #: data/tools.xml:97
-#, kde-format
-msgid "Round-Bottomed Flask"
+#, fuzzy, kde-format
+#| msgid "Round-Bottomed Flask"
+msgid "Round-Bottom Flask"
 msgstr "둥근 바닥 플라스크"
 
 #: data/tools.xml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A round-bottomed flask is used for many reactions. Some can be connected "
+#| "to other items, as the frosting on the neck shows. With cork rings they "
+#| "can be placed on a table."
 msgid ""
-"A round-bottomed flask is used for many reactions. Some can be connected to "
-"other items, as the frosting on the neck shows. With cork rings they can be "
+"A round-bottom flask is used for many reactions. Some can be connected to "
+"other items, as the frosting on the neck shows. With cork rings, they can be "
 "placed on a table."
 msgstr ""
 "둥근 바닥 플라스크는 많은 반응에서 사용한다. 일부는 설탕을 입힌 것처럼 목이 "
@@ -1126,9 +1206,9 @@ msgstr "건조 튜브"
 #| "drying tube can be used.  Drying tubes contains a hygroscopic chemical to "
 #| "absorb water from the atmosphere."
 msgid ""
-"Some reactions need to be kept free of water: to make this possible a drying "
-"tube can be used. Drying tubes contains a hygroscopic chemical to absorb "
-"water from the atmosphere."
+"Some reactions need to be kept free of water: to make this possible, a "
+"drying tube can be used. Drying tubes contain a hygroscopic chemical that "
+"absorbs water from the atmosphere."
 msgstr ""
 "일부 반응은 물이 없는 상태를 유지해야 한다: 이를 가능하게 하기 위해, 건조 튜"
 "브가 쓰일 수 있다. 건조 튜브는 대기로부터 물을 흡수할 수 있는 흡습성 있는 화"
@@ -1148,9 +1228,9 @@ msgstr "시험관 집게"
 #| "over open flames."
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
-"there is a safe distance between ones hand and the test tube when the tube "
-"is hot. Typically, test tube holders are used to hold test tubes over open "
-"flames."
+"there is a safe distance between one’s hand and the test tube, preventing "
+"injuries like burns or chemical exposure. Typically, test tube holders are "
+"used to hold test tubes over open flames."
 msgstr ""
 "시험관 집게는 시험관을 집기 쉽게 한다. 집게를 이용하면, 시험관이 뜨거울 때 시"
 "험관을 집는 사람의 손으로부터 안전한 거리를 유지할 수 있도록 한다. 보통 시험"
@@ -1162,12 +1242,16 @@ msgid "Measuring Cylinder"
 msgstr "측정 실린더"
 
 #: data/tools.xml:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A measuring cylinder can be used to measure amounts of liquids relatively "
+#| "precisely. Furthermore, the cylinder allows particulate matter to sink: "
+#| "following this, the particulates can be separated from the fluid by "
+#| "decanting."
 msgid ""
-"A measuring cylinder can be used to measure amounts of liquids relatively "
-"precisely. Furthermore, the cylinder allows particulate matter to sink: "
-"following this, the particulates can be separated from the fluid by "
-"decanting."
+"A measuring cylinder can be used to measure amounts of liquids. Due to its "
+"height and small diameter, it is also effective at separating solids "
+"suspended in liquid matter by decanting."
 msgstr ""
 "측정 실린더는 액체를 상대적으로 정확하게 측정할 때 쓰인다. 게다가, 실린더는 "
 "미립 물질을 가라앉게 할 수 있다: 가만히 놓기만 하면 입자가 액체로부터 분리된"
@@ -1225,12 +1309,18 @@ msgid "Pipette"
 msgstr "피펫"
 
 #: data/tools.xml:138
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Pipettes are used to introduce small quantities of liquids in "
+#| "laboratories. A pipette has a volume scale and, as a rule, pipette bulbs "
+#| "are used as droppers for liquids. Both sorts of pipettes are calibrated "
+#| "for fluids with a temperature of 20°C and for time of outflow (signified "
+#| "by \"Ex.\"). If needed, times of outflow are indicated on the pipettes."
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
 "droppers for liquids. Both sorts of pipettes are calibrated for fluids with "
-"a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
+"a temperature of 20 °C and for time of outflow (signified by “Ex.”). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
 "피펫은 실험실에서 적은 양의 액체를 넣을 때 사용한다. 피펫은 부피 눈금이 있으"
@@ -1244,23 +1334,39 @@ msgid "Erlenmeyer Flask"
 msgstr "삼각 플라스크"
 
 #: data/tools.xml:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), "
+#| "is different to a beaker in that it comes with an inverted conical base "
+#| "and a cylindrical neck. There are different types of Erlenmeyer flasks "
+#| "for laboratory applications: the narrow neck and wide neck forms. "
+#| "Depending on the application the flask may have precision grinding to "
+#| "allow good connection to other containers.\n"
+#| "\t\t\t<br>\n"
+#| "\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
+#| "boiling or during reactions which agitate the contents.\n"
+#| "\t\t\t<br>\n"
+#| "\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
+#| "reactions by stirring or shaking, for example. The Erlenmeyer flask is "
+#| "particularly suited for a magnetic stirrer, since it can be placed "
+#| "directly on the stirring platform. A round-bottomed flask, by contrast, "
+#| "must be placed on a cork ring on the stirring platform.\n"
 msgid ""
-"An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), is "
+"An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825–1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
 "cylindrical neck. There are different types of Erlenmeyer flasks for "
-"laboratory applications: the narrow neck and wide neck forms. Depending on "
-"the application the flask may have precision grinding to allow good "
+"laboratory applications: ones with narrow necks and wide necks. Depending on "
+"the application, the flask may have precision grinding to allow good "
 "connection to other containers.\n"
-"\t\t\t<br>\n"
-"\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
+"\t\t<br>\n"
+"\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
 "boiling or during reactions which agitate the contents.\n"
-"\t\t\t<br>\n"
-"\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
-"reactions by stirring or shaking, for example. The Erlenmeyer flask is "
-"particularly suited for a magnetic stirrer, since it can be placed directly "
-"on the stirring platform. A round-bottomed flask, by contrast, must be "
-"placed on a cork ring on the stirring platform.\n"
+"\t\t<br>\n"
+"\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
+"reactions by stirring or shaking, for example. It is particularly suited for "
+"a magnetic stirrer, since it can be placed directly on the stirring "
+"platform. A round-bottom flask, by contrast, must be placed on a cork ring "
+"on the stirring platform.\n"
 msgstr ""
 "화학자 엘린 마이어(1825-1909)의 이름을 딴 엘린마이어 플라스크(혹은 삼각 플라"
 "스크)는, 비커와는 달리 뒤집어진 원뿔 모양과 실린더 모양의 목이 있는 형태다. "
@@ -1282,20 +1388,26 @@ msgid "Ultrasonic Bath"
 msgstr "초음파조"
 
 #: data/tools.xml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "For some chemical reactions it is important that the solvent is gas free. "
+#| "To achieve this the reaction vessel is put for some time into a "
+#| "ultrasonic bath. Due to the high sound frequency, the vapor locks peel "
+#| "away and ascend. This procedure is called out-gassing."
 msgid ""
-"For some chemical reactions it is important that the solvent is gas free. To "
-"achieve this the reaction vessel is put for some time into a ultrasonic "
-"bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
-"This procedure is called out-gassing."
+"For some chemical reactions, it is important that the solvent is gas free. "
+"To achieve this, the reaction vessel is put in an ultrasonic bath for some "
+"time. Due to the high sound frequency, the vapor locks peel away and ascend "
+"out of the liquid. This procedure is called out-gassing."
 msgstr ""
 "일부 화학 반응에서는 용매에 기체가 없어야 한다 이를 만족하려고 반응 용기는 초"
 "음파조에 잠시 들어가 있는다. 고주파의 음파 때문에 증기가 떨어져 날아간다. 이 "
 "과정을 기체 방출(out-gassing)이라고 한다."
 
 #: data/tools.xml:158
-#, kde-format
-msgid "Scales"
+#, fuzzy, kde-format
+#| msgid "Scales"
+msgid "Scale"
 msgstr "저울"
 
 #: data/tools.xml:159
@@ -1306,9 +1418,9 @@ msgstr "저울"
 #| "gram.  As such, they stand on granite blocks to avoid vibrations and are "
 #| "protected against changes in airflow by a dome."
 msgid ""
-"In a laboratory, very precise quantities of reagents often have to be "
-"weighed out. High precision scales can measure masses down to 1/10000 gram. "
-"As such, they stand on granite blocks to avoid vibrations and are protected "
+"In a laboratory, quantities of reagents often have to be weighed out very "
+"precisely. High precision scales can measure masses down to 1/10000 gram. As "
+"such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
 "실험실에서는 매우 정밀한 양의 시약을 재야 한다. 매우 정밀한 저울은 질량을 "
@@ -1316,8 +1428,9 @@ msgstr ""
 "해 값이 변경되지 않도록 보호하기 위해 저울을 화강암 블록 위에 올려놓는다."
 
 #: data/tools.xml:163
-#, kde-format
-msgid "Distillation bridge"
+#, fuzzy, kde-format
+#| msgid "Distillation bridge"
+msgid "Distillation Bridge"
 msgstr "증류 브리지"
 
 #: data/tools.xml:164
@@ -1333,8 +1446,8 @@ msgstr "증류 브리지"
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
-"the mixture to be separated, and through heating, a gas forms which is lead "
-"through the bridge. At the end of the bridge the gas phase is condensed and "
+"the mixture to be separated, and through heating, a gas forms which is led "
+"through the bridge. At the end of the bridge, the gas phase is condensed and "
 "drips into a round flask. Typically, the bridge is cooled by return flow. "
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
@@ -1345,29 +1458,35 @@ msgstr ""
 "근 플라스크로  떨어진다. 일반적으로 브리지는 환원수를 통해 냉각된다. 또한 증"
 "류 브리지의 온도를 제어하기 위해 온도계를 사용하는 경우가 많다."
 
-#: data/tools.xml:169
-#, kde-format
-msgid "Syringe"
+#: data/tools.xml:168
+#, fuzzy, kde-format
+#| msgid "Syringe"
+msgid "Gas Syringe"
 msgstr "주사기"
 
-#: data/tools.xml:170
-#, kde-format
+#: data/tools.xml:169
+#, fuzzy, kde-format
+#| msgid ""
+#| "A syringe consists of two parts, a glass tube and a plunger, both "
+#| "normally made of glass. Gasses flow into the glass tube, and as the "
+#| "syringe is a closed system, the plunger moves outwards. This can be used "
+#| "to measure the volume of a reaction."
 msgid ""
-"A syringe consists of two parts, a glass tube and a plunger, both normally "
-"made of glass. Gasses flow into the glass tube, and as the syringe is a "
-"closed system, the plunger moves outwards. This can be used to measure the "
-"volume of a reaction."
+"A gas syringe consists of two parts, a glass tube and a plunger, both "
+"normally made of glass. Gasses flow into the glass tube and, as the syringe "
+"is a closed system, the plunger moves outwards. This can be used to measure "
+"the volume of a reaction."
 msgstr ""
 "주사기는 유리관과 플런저 두 부분으로 구성되며, 둘 다 유리로 이루어져 있다. 기"
 "체는 유리관으로 지나가며 주사기가 닫힌계가 되면, 플런져는 밖으로 움직인다. 이"
 "는 반응 전후의 부피를 측정할 때 쓰일 수 있다."
 
-#: data/tools.xml:174
+#: data/tools.xml:173
 #, kde-format
 msgid "Separation Beaker"
 msgstr "분리 비커"
 
-#: data/tools.xml:175
+#: data/tools.xml:174
 #, fuzzy, kde-format
 #| msgid ""
 #| "First, four small caps are placed at the four ends of the separation "
@@ -1378,52 +1497,56 @@ msgstr "분리 비커"
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
-"temperate has been reached. In doing so, at the end of the distillation, all "
-"four caps contain a specific liquid, depending on the boiling point of the "
-"liquid distilled."
+"temperature has been reached. In doing so, at the end of the distillation, "
+"all four caps contain a specific liquid, depending on the boiling point of "
+"the liquid distilled."
 msgstr ""
 "우선, 네 작은 뚜껑은 작은 뚜껑은 네 분리 비커의 끝에 있다. 그 다음, 증류를 하"
 "는 동안, 비커는 특정 온도에 도달한 뒤 60도가 된다. 이렇게 하여, 증류가 끝나"
 "면 모든 네 뚜껑은 증류된 액체의 끓는점에 따라 특정 액체를 포함한다."
 
-#: data/tools.xml:179
+#: data/tools.xml:178
 #, kde-format
 msgid "Burner"
 msgstr "버너"
 
-#: data/tools.xml:180
-#, kde-format
+#: data/tools.xml:179
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are several types of burners; this picture shows a Teclu-Burner. "
+#| "Each type of burner has specific uses, and they vary in peak temperature "
+#| "and overall heating capacity."
 msgid ""
-"There are several types of burners; this picture shows a Teclu-Burner. Each "
+"There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
 "버너에는 여러 종류가 있다; 이 이미지는 테클루 버너를 보여주고 있다. 버너는 "
 "각 종류별로 특별한 용도가 있으며, 온도 피크와 최대 열용량이 다양하다."
 
-#: data/tools.xml:184
+#: data/tools.xml:183
 #, kde-format
-msgid "Extractor Hood"
-msgstr "추출 후드"
+msgid "Fume Hood"
+msgstr ""
 
-#: data/tools.xml:185
+#: data/tools.xml:184
 #, fuzzy, kde-format
 #| msgid ""
 #| "Extractor hoods are used to filter out gases from chemical reactions.  "
 #| "The air, once cleaned, is pumped outside of the building."
 msgid ""
-"Extractor hoods are used to filter out gases from chemical reactions. The "
-"air, once cleaned, is pumped outside of the building."
+"Fume hoods are used to filter out gases from chemical reactions. The air, "
+"once cleaned, is pumped outside of the building."
 msgstr ""
 "추출 후드는 화학 반응에서 나온 기체를 거를 때 사용한다. 기체는, 한 번 정화되"
 "어, 건물 밖으로 나온다."
 
-#: data/tools.xml:189
+#: data/tools.xml:188
 #, kde-format
 msgid "Contact Thermometer"
 msgstr "접촉식 온도계"
 
-#: data/tools.xml:190
+#: data/tools.xml:189
 #, fuzzy, kde-format
 #| msgid ""
 #| "Contact thermometers differ from regular thermometers in that they are "
@@ -1447,22 +1570,23 @@ msgstr ""
 "식 온도계는 음성 되먹임(negative feedback) 루프로 작동한다: 원하는 온도에 다"
 "다르면, 열선은 비활성화된다; 온도가 낮아지면, 열선은 다시 활성화된다."
 
-#: data/tools.xml:194
-#, kde-format
-msgid "Clamps"
+#: data/tools.xml:193
+#, fuzzy, kde-format
+#| msgid "Clamps"
+msgid "Clamp"
 msgstr "클램프"
 
-#: data/tools.xml:195
+#: data/tools.xml:194
 #, kde-format
 msgid "Laboratory clamps make it easier to hold many kinds of tools."
 msgstr "실험실 집게(클램프)는 많은 도구를 쉽게 붙들 수 있게 해 준다."
 
-#: data/tools.xml:199
+#: data/tools.xml:198
 #, kde-format
 msgid "Indicator Paper"
 msgstr "지시약 종이"
 
-#: data/tools.xml:200
+#: data/tools.xml:199
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are multiple ways of measuring the pH value of a solution, one of "
@@ -1475,7 +1599,7 @@ msgid ""
 "There are multiple ways of measuring the pH value of a solution, one of "
 "which is to use indicator paper. Indicator paper changes color depending on "
 "the pH of the solution applied to it, and by comparing to a chart a fairly "
-"accurate measure of the solution's pH can be obtained. If a more accurate "
+"accurate measure of the solution’s pH can be obtained. If a more accurate "
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
@@ -1484,24 +1608,24 @@ msgstr ""
 "교하여 확인할 수 있다. 더 정확한 값이 필요하면, 용액의 전기 전도성을 이용한 "
 "유리 전극을 사용하여 측정할 수 있다."
 
-#: data/tools.xml:204
+#: data/tools.xml:203
 #, kde-format
 msgid "Short-Stem Funnel"
 msgstr "Short-Stem Funnel"
 
-#: data/tools.xml:205
+#: data/tools.xml:204
 #, kde-format
 msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
 msgstr "목이 좁은 용기에 액체나 고운 가루를 채울 때 쓰는 깔때기"
 
-#: data/tools.xml:209
+#: data/tools.xml:208
 #, kde-format
 msgid "Buret"
 msgstr "뷰렛"
 
-#: data/tools.xml:210
+#: data/tools.xml:209
 #, fuzzy, kde-format
 #| msgid ""
 #| "Burets are used to titrate liquids.  A buret is filled with a specific "
@@ -1523,12 +1647,12 @@ msgstr ""
 "체가 적정된다. 고품질의 뷰렛은 매우 쉽게 뷰렛을 조정하여 정확한 부피에서 다"
 "시 채울 수 있게 하는 방출 메커니즘이 있다."
 
-#: data/tools.xml:214
+#: data/tools.xml:213
 #, kde-format
 msgid "Beaker"
 msgstr "비커"
 
-#: data/tools.xml:215
+#: data/tools.xml:214
 #, fuzzy, kde-format
 #| msgid ""
 #| "Beakers can be used for many tasks.  For instance, they are used to store "
@@ -1542,12 +1666,13 @@ msgstr ""
 "비커는 많은 작업에 사용할 수 있다. 예를 들어, 화학 반응을 수행하기 전에 화학 "
 "물질을 저장한다. 또한 적정을 할 때도 자주 이용한다."
 
-#: data/tools.xml:219
-#, kde-format
-msgid "DSC (Differential Scanning Calorimeter)"
+#: data/tools.xml:218
+#, fuzzy, kde-format
+#| msgid "DSC (Differential Scanning Calorimeter)"
+msgid "Differential Scanning Calorimeter (DSC)"
 msgstr "DSC(차등 스캔 열량계)"
 
-#: data/tools.xml:220
+#: data/tools.xml:219
 #, fuzzy, kde-format
 #| msgid ""
 #| "A DSC measures the heat flow volume of a compound.  This value is very "
@@ -1561,12 +1686,12 @@ msgstr ""
 "DSC는 화합물에서 열이 흘러간 양을 측정한다. 이 값은 모든 종류의 물질에서 특정"
 "한 값을 가지고 있으며, 그러므로 DSC로 화합물을 구분하거나 설명할 수 있다."
 
-#: data/tools.xml:224
+#: data/tools.xml:223
 #, kde-format
 msgid "Dewar Vessel"
 msgstr "듀어병"
 
-#: data/tools.xml:225
+#: data/tools.xml:224
 #, fuzzy, kde-format
 #| msgid ""
 #| "A Dewar vessel (or Dewar flask), named after the physicist Sir James "
@@ -1576,7 +1701,7 @@ msgstr "듀어병"
 #| "flask."
 msgid ""
 "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar "
-"(1842-1923), is a double-walled vacuum flask, designed to provide good "
+"(1842–1923), is a double-walled vacuum flask, designed to provide good "
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
@@ -1584,6 +1709,38 @@ msgstr ""
 "온성이 뛰어나도록 설계된, 이중 벽으로 둘러싸인 진공 플라스크다. 듀어병은 액체"
 "를 차갑거나 따뜻하게 보관하는데 유용하다. 보온병은 잘 알려진 듀어병 중 하나"
 "다."
+
+#: data/tools.xml:228
+#, kde-format
+msgid "High-Performance Liquid Chromatography (HPLC)"
+msgstr ""
+
+#: data/tools.xml:229
+#, kde-format
+msgid ""
+"HPLC is used to separate, identify, and measure the components of a liquid "
+"mixture. A sample dissolved in a solvent is pumped through a tightly packed "
+"column under high pressure. Because different substances interact "
+"differently with the column material, they move through it at different "
+"speeds and exit separately. This makes HPLC useful for analyzing complex "
+"mixtures and checking purity in chemistry, biology, and pharmaceuticals."
+msgstr ""
+
+#: data/tools.xml:233
+#, kde-format
+msgid "Evaporating Dish"
+msgstr ""
+
+#: data/tools.xml:234
+#, kde-format
+msgid ""
+"An evaporating dish is a small heat-resistant dish made from fired clay, "
+"used in the lab to heat, evaporate, dry, or collect substances. Because it "
+"tolerates high temperatures well, it can be placed directly over a flame or "
+"on a heating plate. Evaporating dishes are commonly used for evaporating "
+"solvents, drying precipitates, or carrying out small-scale heating "
+"experiments."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
@@ -9334,6 +9491,9 @@ msgstr "입력 형식:"
 #, kde-format
 msgid "Convert to:"
 msgstr "변환 형식:"
+
+#~ msgid "Extractor Hood"
+#~ msgstr "추출 후드"
 
 #~ msgid "Alkaline"
 #~ msgstr "알칼리성"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-06-23 00:39+0000\n"
 "PO-Revision-Date: 2026-01-09 00:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -709,16 +709,26 @@ msgid "Watchglass"
 msgstr "表玻璃"
 
 #: data/tools.xml:6
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
+#| "used in various experimental techniques. The border is bent upwards to "
+#| "allow the watchglass to hold small amounts of liquids in order to let "
+#| "them evaporate. The evaporation can be accelerated by heating the "
+#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
+#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
+#| "matter or drying them in an airing cupboard. The term watchglass is "
+#| "derived from the former pocket watches' protection glass which was often "
+#| "domed."
 msgid ""
-"Watchglasses are round glass panes with a diameter of around 5 - 10cm, used "
+"Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
 "watchglass to hold small amounts of liquids in order to let them evaporate. "
 "The evaporation can be accelerated by heating the watchglass with a Bunsen "
 "burner. Watchglasses can also be used to cover Petri dishes or beakers, and "
 "are also suited to weighing small amounts of matter or drying them in an "
 "airing cupboard. The term watchglass is derived from the former pocket "
-"watches' protection glass which was often domed."
+"watches’ protection glass which was often domed."
 msgstr ""
 "表玻璃（watch glasses）是直徑約 5-10 公分的圓形玻璃，可用於許多實驗中。它的邊"
 "緣上彎，能留住小量液體以便讓它們蒸發。也可以用本生燈對表玻璃加熱以加速蒸發。"
@@ -730,20 +740,31 @@ msgstr ""
 msgid "Dehydrator"
 msgstr "脫水器"
 
-#: data/tools.xml:13
-#, kde-format
+#: data/tools.xml:11
+#, fuzzy, kde-format
+#| msgid ""
+#| "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
+#| "which serves to dry chemical matters; that is, to remove water or liquid "
+#| "from a sample.\n"
+#| "\t\t\tIn principle it is a glass bowl with cap that has a planar "
+#| "grinding, so that the bowl is air-tight. The dehydrator's lower part is "
+#| "ordinarily filled with a drying agent such as calcium chloride, silica "
+#| "gel, phosphoric anhydride or sulphuric acid. The sample to be dried is "
+#| "placed on a diaphanous cartridge of plastic or ceramic above the drying "
+#| "agent.\n"
+#| "\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies "
+#| "its environment by absorbing water vapor. The dry atmosphere then takes "
+#| "up water from the sample to be dried."
 msgid ""
-"A dehydrator is a piece of laboratory apparatus, often made of glass, and "
-"which serves to dry chemical matters; that is, to remove water or liquid "
-"from a sample.\n"
-"\t\t\tIn principle it is a glass bowl with cap that has a planar grinding, "
-"so that the bowl is air-tight. The dehydrator's lower part is ordinarily "
-"filled with a drying agent such as calcium chloride, silica gel, phosphoric "
-"anhydride or sulphuric acid. The sample to be dried is placed on a "
-"diaphanous cartridge of plastic or ceramic above the drying agent.\n"
-"\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies its "
-"environment by absorbing water vapor. The dry atmosphere then takes up water "
-"from the sample to be dried."
+"A dehydrator is often made of glass and serves to dry chemical matters; that "
+"is, to remove water or liquid from a sample. It is a glass bowl with a cap "
+"that has a planar grinding, so that the bowl is air-tight. The dehydrator’s "
+"lower part is ordinarily filled with a drying agent such as calcium "
+"chloride, silica gel, phosphoric anhydride or sulphuric acid. The sample to "
+"be dried is placed on a diaphanous cartridge of plastic or ceramic above the "
+"drying agent. The drying agent is hygroscopic, which means that it "
+"dehumidifies its environment by absorbing water vapor. The dry atmosphere "
+"then takes up water from the sample."
 msgstr ""
 "脫水器（dehydrator）是一種實驗室中的器具。它通常是用玻璃製造，用於乾燥化學物"
 "質，也就是將樣本中的水份或液體去除。\n"
@@ -753,12 +774,12 @@ msgstr ""
 "\t\t\t乾燥劑可以吸收水份，因此會用吸取環境中的水氣的方式使環境變乾燥。乾燥的"
 "空氣就會使樣本失去其中的水份。"
 
-#: data/tools.xml:17
+#: data/tools.xml:15
 #, kde-format
 msgid "Spatula"
 msgstr "刮刀"
 
-#: data/tools.xml:18
+#: data/tools.xml:16
 #, kde-format
 msgid ""
 "The spatula is a laboratory tool to scrape off, grind, and transport "
@@ -768,21 +789,30 @@ msgstr ""
 "刮刀（spatula）是一種實驗室用的工具，可以刮掉、壓碎與移動化學品。刮刀有許多種"
 "製造的材料（如鐵、鈦、鉑等）與設計（平面式的，或湯匙式的）。"
 
-#: data/tools.xml:22
+#: data/tools.xml:20
 #, kde-format
 msgid "Water Jet Pump"
 msgstr "水噴射幫浦"
 
 #: data/tools.xml:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The water jet pump has two entry pipes and one exit, and consists, in "
+#| "principle, of two pipes one inside the other. At the water entry a water "
+#| "jet shoots under full pressure out of a nozzle into a slightly larger "
+#| "pipe. The water jet thereby carries away air or fluid from the second "
+#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
+#| "and thus it is an application of the hydrodynamic paradox (objects close "
+#| "to drifting fluids are aspirated instead of being pushed away)."
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
 "shoots under full pressure out of a nozzle into a slightly larger pipe. The "
-"water jet thereby carries away air or fluid from the second entry. <br> This "
-"is caused by the negative pressure in a drifting fluid, and thus it is an "
-"application of the hydrodynamic paradox (objects close to drifting fluids "
-"are aspirated instead of being pushed away)."
+"water jet thereby carries away air or fluid from the second entry.\n"
+"\t\t<br>\n"
+"\t\tThis is caused by the negative pressure in a drifting fluid, and thus it "
+"is an application of the hydrodynamic paradox (objects close to drifting "
+"fluids are aspirated instead of being pushed away)."
 msgstr ""
 "水噴射幫浦（water jet pump）有兩根進水管與一根出水管。在進水處有一個噴水口，"
 "會以全力將水噴射到另一個較大的管子內，利用漂移流體產生的負壓原理將空氣或其它"
@@ -794,11 +824,17 @@ msgid "Refractometer"
 msgstr "折射計"
 
 #: data/tools.xml:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "With a refractometer the refractive index of optical media is determined. "
+#| "If the refractive index of a chemical is known it can be used after a "
+#| "synthesis to determine the sample's purity or to audit the synthesis' "
+#| "success."
 msgid ""
-"With a refractometer the refractive index of optical media is determined. If "
-"the refractive index of a chemical is known it can be used after a synthesis "
-"to determine the sample's purity or to audit the synthesis' success."
+"With a refractometer, the refractive index of optical media is determined. "
+"If the refractive index of a chemical is known, it can be used after a "
+"synthesis to determine the sample’s purity or to audit whether the synthesis "
+"was successful."
 msgstr ""
 "折射計（Refractometer）用於決定光學媒體產生的折射率。如果某化學物質的折射率已"
 "知，則可用於測定化學合成樣品的純度，以及決定合成是否成功。"
@@ -809,28 +845,37 @@ msgid "Mortar"
 msgstr "研缽"
 
 #: data/tools.xml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A mortar is used for manually grinding solids. It can also be used to "
+#| "homogenize a mixture of powders by grinding. A club-shaped tool known as "
+#| "a pestle is used with the mortar for grinding."
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
-"homogenize a mixture of powders by grinding. A club-shaped tool known as a "
-"pestle is used with the mortar for grinding."
+"homogenize a mixture of powders by grinding. A club-shaped tool called "
+"“pestle” is used to crush solids into fine powder."
 msgstr ""
 "研缽（mortar）與一根棍棒狀的研磨棒（pestle）用於研磨固體。它也可以用於將粉末"
 "調勻。"
 
 #: data/tools.xml:37
-#, kde-format
-msgid "Heating Coil"
+#, fuzzy, kde-format
+#| msgid "Heating Coil"
+msgid "Heating Plate"
 msgstr "加熱線圈"
 
 #: data/tools.xml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Heating coils are used to heat flasks and other containers. Multiple "
+#| "heating coils can be connected with a thermometer so that the heat will "
+#| "not exceed a specified temperature. It is possible to use a magnetic "
+#| "field inside the heating coil to stir fluids with a magnetic stirrer. "
+#| "This will homogenize the fluid in terms of temperature and composition."
 msgid ""
-"Heating coils are used to heat flasks and other containers. Multiple heating "
-"coils can be connected with a thermometer so that the heat will not exceed a "
-"specified temperature. It is possible to use a magnetic field inside the "
-"heating coil to stir fluids with a magnetic stirrer. This will homogenize "
-"the fluid in terms of temperature and composition."
+"Heating plates are used to heat flasks and other containers. Some can "
+"generate a magnetic field in order to stir fluids with a magnetic stirrer. "
+"This homogenizes the fluid in terms of temperature and composition."
 msgstr ""
 "加熱線圈（heating coils）用於加熱燒瓶與其它的容器。可以將多個加熱線圈與溫度計"
 "相連，以避免超過指定的溫度。另外也可以利用線圈中的磁場配合磁性的攪拌器來攪動"
@@ -842,10 +887,14 @@ msgid "Cork Ring"
 msgstr "軟木環"
 
 #: data/tools.xml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Large containers like round-bottomed flasks are placed on rings made of "
+#| "cork, a special soft lightweight wood with good insulating qualities to "
+#| "protect fragile instruments."
 msgid ""
-"Large containers like round-bottomed flasks are placed on rings made of "
-"cork, a special soft lightweight wood with good insulating qualities to "
+"Large containers like round-bottom flasks are placed on rings made of cork, "
+"a special soft and lightweight bark with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
 "大的容器如圓形的燒瓶會放在軟木製成的環上。軟木（Cork）是一種特別輕特別軟的木"
@@ -898,14 +947,21 @@ msgid "Vortexer"
 msgstr "震盪器"
 
 #: data/tools.xml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A vortexer serves to homogenize reagents found in laboratories. The "
+#| "container containing liquid to be homogenized is put on a platform. The "
+#| "platform shakes by rotary agitation up to 3000RPM at which point a "
+#| "contact sensor is activated. In this way extremely small volumes of fluid "
+#| "can be homogenized quickly. It is the opposite of a centrifuge, used to "
+#| "separate fluids."
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
-"platform shakes by rotary agitation up to 3000RPM at which point a contact "
-"sensor is activated. In this way extremely small volumes of fluid can be "
-"homogenized quickly. It is the opposite of a centrifuge, used to separate "
-"fluids."
+"platform shakes by rotary agitation up to 3000 RPM, at which point a contact "
+"sensor is activated. This way, extremely small volumes of fluid can be "
+"homogenized quickly. It is the opposite of a centrifuge, which is used to "
+"separate fluids."
 msgstr ""
 "震盪器（Vortexer）用於將試劑均勻混合。將要混合的液體裝入容器中，並放在一個平"
 "台上。平台會以最高每分鐘 3000 轉的速度旋轉震動。這樣少量的流體可以快速而充份"
@@ -917,10 +973,15 @@ msgid "Wash Bottle"
 msgstr "洗瓶"
 
 #: data/tools.xml:68
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "These bottles are used for many purposes. In most laboratories they are "
+#| "usually filled with water, salt, acid or other commonly used fluids. They "
+#| "make it easy to apply the fluid if a precisely measured amount is not "
+#| "needed."
 msgid ""
-"These bottles are used for many purposes. In most laboratories they are "
-"usually filled with water, salt, acid or other commonly used fluids. They "
+"These bottles are used for many purposes. In most laboratories, they are "
+"usually filled with water, salt, acid, or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
 "洗瓶（wash bottle）可用於許多地方。大部份的實驗室中它們用於裝水、鹽、酸類或其"
@@ -952,12 +1013,17 @@ msgid "Reflux Condenser"
 msgstr "迴流冷凝器"
 
 #: data/tools.xml:78
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A reflux condenser subjects fluid to a process where a gas produced by "
+#| "heating is collected on the reflux condenser. The fluid is cooled until "
+#| "it condenses and runs back into the original fluid. Usually it is put on "
+#| "a round-bottomed flask or several neck flasks."
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
-"condenses and runs back into the original fluid. Usually it is put on a "
-"round-bottomed flask or several neck flasks."
+"condenses and runs back into the original fluid. Usually, it is put on a "
+"round-bottom flask or several neck flasks."
 msgstr ""
 "迴流冷凝器（reflux condenser）會將加熱所產生的氣體冷凝並迴流到原始的液體中。"
 "通常它會放在一個圓形燒平或數個長頸燒瓶中。"
@@ -968,11 +1034,16 @@ msgid "Pipette Bulb"
 msgstr "吸管球"
 
 #: data/tools.xml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A pipette bulb is used to fill pipettes. Squeezing then releasing the "
+#| "bulb produces a negative pressure, causing fluid to flow into the "
+#| "pipette; squeezing the bulb then causes the fluid to flow out of the "
+#| "pipette."
 msgid ""
-"A pipette bulb is used to fill pipettes. Squeezing then releasing the bulb "
+"A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
-"squeezing the bulb then causes the fluid to flow out of the pipette."
+"squeezing the bulb again causes the fluid to flow out of the pipette."
 msgstr ""
 "吸管球（pipette bulb）用於將液體吸入吸管中。擠壓然後放開吸管球後，就會產生負"
 "壓，讓流體進入吸管。它也可以將吸管中的液體壓出吸管外。"
@@ -983,11 +1054,15 @@ msgid "Test Tube"
 msgstr "試管"
 
 #: data/tools.xml:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "In a test tube small reactions or experiments are performed. There are "
+#| "many different types of tubes. For example some have connectors, some are "
+#| "etched for measurements, some are hardened for durability."
 msgid ""
-"In a test tube small reactions or experiments are performed. There are many "
-"different types of tubes. For example some have connectors, some are etched "
-"for measurements, some are hardened for durability."
+"In a test tube, small reactions or experiments can be performed. There are "
+"many different types of tubes. For example, some have connectors, some have "
+"etched markings for measurements, and some are hardened for durability."
 msgstr ""
 "小的化學反應跟小實驗可以在試管（test cube）中進行。試管有許多種，例如有些種類"
 "有連接器，有些有刻度，有些試管為了耐用而比較硬。"
@@ -998,27 +1073,37 @@ msgid "Protective Goggles"
 msgstr "護目鏡"
 
 #: data/tools.xml:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Most laboratories insist that protective goggles are worn. Without them, "
+#| "it is too risky to work with most chemicals. Usually, the lens is a "
+#| "special type of plastic that affords protection from both mechanical "
+#| "impacts, and acid and base chemicals."
 msgid ""
 "Most laboratories insist that protective goggles are worn. Without them, it "
-"is too risky to work with most chemicals. Usually, the lens is a special "
-"type of plastic that affords protection from both mechanical impacts, and "
-"acid and base chemicals."
+"would be too risky to work with most chemicals. Usually, the lens is a "
+"special type of plastic that provides protection from mechanical impacts and "
+"chemical substances."
 msgstr ""
 "大部份的實驗室都會堅持每個人都要戴護目鏡（protective goggles），因為不戴的話"
 "太危險。通常它的鏡片是特殊塑膠製成，可以保護眼睛不會受到撞擊以及酸鹼等化學物"
 "質的傷害。"
 
 #: data/tools.xml:97
-#, kde-format
-msgid "Round-Bottomed Flask"
+#, fuzzy, kde-format
+#| msgid "Round-Bottomed Flask"
+msgid "Round-Bottom Flask"
 msgstr "圓底燒瓶"
 
 #: data/tools.xml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A round-bottomed flask is used for many reactions. Some can be connected "
+#| "to other items, as the frosting on the neck shows. With cork rings they "
+#| "can be placed on a table."
 msgid ""
-"A round-bottomed flask is used for many reactions. Some can be connected to "
-"other items, as the frosting on the neck shows. With cork rings they can be "
+"A round-bottom flask is used for many reactions. Some can be connected to "
+"other items, as the frosting on the neck shows. With cork rings, they can be "
 "placed on a table."
 msgstr ""
 "圓底燒瓶用於許多化學反應。有些會在頸部連接其它的物件。使用軟木環就可以將圓底"
@@ -1042,11 +1127,15 @@ msgid "Drying Tube"
 msgstr "乾燥管"
 
 #: data/tools.xml:108
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Some reactions need to be kept free of water: to make this possible a "
+#| "drying tube can be used. Drying tubes contains a hygroscopic chemical to "
+#| "absorb water from the atmosphere."
 msgid ""
-"Some reactions need to be kept free of water: to make this possible a drying "
-"tube can be used. Drying tubes contains a hygroscopic chemical to absorb "
-"water from the atmosphere."
+"Some reactions need to be kept free of water: to make this possible, a "
+"drying tube can be used. Drying tubes contain a hygroscopic chemical that "
+"absorbs water from the atmosphere."
 msgstr ""
 "有些化學反應需要保持無水狀態，此時就需要乾燥管（drying tube）。乾燥管內有化學"
 "乾燥劑，以吸收空氣中的水份。"
@@ -1057,12 +1146,17 @@ msgid "Test Tube Holder"
 msgstr "試管夾"
 
 #: data/tools.xml:113
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Test tube holders make it easier to hold test tubes. By using a holder, "
+#| "there is a safe distance between ones hand and the test tube when the "
+#| "tube is hot. Typically, test tube holders are used to hold test tubes "
+#| "over open flames."
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
-"there is a safe distance between ones hand and the test tube when the tube "
-"is hot. Typically, test tube holders are used to hold test tubes over open "
-"flames."
+"there is a safe distance between one’s hand and the test tube, preventing "
+"injuries like burns or chemical exposure. Typically, test tube holders are "
+"used to hold test tubes over open flames."
 msgstr ""
 "試管夾（test tube holder）可以協助您拿住試管，也可以避免您的手與熱的試管直接"
 "接觸以免燙傷，特別是試管需要在火燄上加熱時。"
@@ -1073,12 +1167,16 @@ msgid "Measuring Cylinder"
 msgstr "量筒"
 
 #: data/tools.xml:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A measuring cylinder can be used to measure amounts of liquids relatively "
+#| "precisely. Furthermore, the cylinder allows particulate matter to sink: "
+#| "following this, the particulates can be separated from the fluid by "
+#| "decanting."
 msgid ""
-"A measuring cylinder can be used to measure amounts of liquids relatively "
-"precisely. Furthermore, the cylinder allows particulate matter to sink: "
-"following this, the particulates can be separated from the fluid by "
-"decanting."
+"A measuring cylinder can be used to measure amounts of liquids. Due to its "
+"height and small diameter, it is also effective at separating solids "
+"suspended in liquid matter by decanting."
 msgstr ""
 "量筒（measuring cylinder）讓您精確量取液體。此外，也可以讓特定物質沉澱，以便"
 "從流體中分離出來。"
@@ -1134,12 +1232,18 @@ msgid "Pipette"
 msgstr "吸管"
 
 #: data/tools.xml:138
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Pipettes are used to introduce small quantities of liquids in "
+#| "laboratories. A pipette has a volume scale and, as a rule, pipette bulbs "
+#| "are used as droppers for liquids. Both sorts of pipettes are calibrated "
+#| "for fluids with a temperature of 20°C and for time of outflow (signified "
+#| "by \"Ex.\"). If needed, times of outflow are indicated on the pipettes."
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
 "droppers for liquids. Both sorts of pipettes are calibrated for fluids with "
-"a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
+"a temperature of 20 °C and for time of outflow (signified by “Ex.”). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
 "吸管（pipette）用於在實驗中引入小量液體。它有容量刻度，有的只有一兩個特定的刻"
@@ -1152,23 +1256,39 @@ msgid "Erlenmeyer Flask"
 msgstr "錐形燒瓶"
 
 #: data/tools.xml:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), "
+#| "is different to a beaker in that it comes with an inverted conical base "
+#| "and a cylindrical neck. There are different types of Erlenmeyer flasks "
+#| "for laboratory applications: the narrow neck and wide neck forms. "
+#| "Depending on the application the flask may have precision grinding to "
+#| "allow good connection to other containers.\n"
+#| "\t\t\t<br>\n"
+#| "\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
+#| "boiling or during reactions which agitate the contents.\n"
+#| "\t\t\t<br>\n"
+#| "\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
+#| "reactions by stirring or shaking, for example. The Erlenmeyer flask is "
+#| "particularly suited for a magnetic stirrer, since it can be placed "
+#| "directly on the stirring platform. A round-bottomed flask, by contrast, "
+#| "must be placed on a cork ring on the stirring platform.\n"
 msgid ""
-"An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), is "
+"An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825–1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
 "cylindrical neck. There are different types of Erlenmeyer flasks for "
-"laboratory applications: the narrow neck and wide neck forms. Depending on "
-"the application the flask may have precision grinding to allow good "
+"laboratory applications: ones with narrow necks and wide necks. Depending on "
+"the application, the flask may have precision grinding to allow good "
 "connection to other containers.\n"
-"\t\t\t<br>\n"
-"\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
+"\t\t<br>\n"
+"\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
 "boiling or during reactions which agitate the contents.\n"
-"\t\t\t<br>\n"
-"\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
-"reactions by stirring or shaking, for example. The Erlenmeyer flask is "
-"particularly suited for a magnetic stirrer, since it can be placed directly "
-"on the stirring platform. A round-bottomed flask, by contrast, must be "
-"placed on a cork ring on the stirring platform.\n"
+"\t\t<br>\n"
+"\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
+"reactions by stirring or shaking, for example. It is particularly suited for "
+"a magnetic stirrer, since it can be placed directly on the stirring "
+"platform. A round-bottom flask, by contrast, must be placed on a cork ring "
+"on the stirring platform.\n"
 msgstr ""
 "錐形燒瓶（Erlenmeyer flask）的英文名稱是為了紀念化學家 Emil "
 "Erlenmeyer（1825-1909）。與一般燒瓶不同，它的底座是圓錐型，瓶頸則為圓柱狀。依"
@@ -1187,28 +1307,39 @@ msgid "Ultrasonic Bath"
 msgstr "超音波清洗器"
 
 #: data/tools.xml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "For some chemical reactions it is important that the solvent is gas free. "
+#| "To achieve this the reaction vessel is put for some time into a "
+#| "ultrasonic bath. Due to the high sound frequency, the vapor locks peel "
+#| "away and ascend. This procedure is called out-gassing."
 msgid ""
-"For some chemical reactions it is important that the solvent is gas free. To "
-"achieve this the reaction vessel is put for some time into a ultrasonic "
-"bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
-"This procedure is called out-gassing."
+"For some chemical reactions, it is important that the solvent is gas free. "
+"To achieve this, the reaction vessel is put in an ultrasonic bath for some "
+"time. Due to the high sound frequency, the vapor locks peel away and ascend "
+"out of the liquid. This procedure is called out-gassing."
 msgstr ""
 "有些化學反應必須確保溶劑中沒有氣體。此時會將進行反應用的導管放在超音波清洗器"
 "（ultrasonic bath）中。透過超高頻的聲音，將裡面的氣體震出來。這個過程叫做除氣"
 "（outgassing）。"
 
 #: data/tools.xml:158
-#, kde-format
-msgid "Scales"
+#, fuzzy, kde-format
+#| msgid "Scales"
+msgid "Scale"
 msgstr "天平"
 
 #: data/tools.xml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "In a laboratory, very precise quantities of reagents often have to be "
+#| "weighed out. High precision scales can measure masses down to 1/10000 "
+#| "gram. As such, they stand on granite blocks to avoid vibrations and are "
+#| "protected against changes in airflow by a dome."
 msgid ""
-"In a laboratory, very precise quantities of reagents often have to be "
-"weighed out. High precision scales can measure masses down to 1/10000 gram. "
-"As such, they stand on granite blocks to avoid vibrations and are protected "
+"In a laboratory, quantities of reagents often have to be weighed out very "
+"precisely. High precision scales can measure masses down to 1/10000 gram. As "
+"such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
 "在實驗室中經常需要量測出非常精確的試劑重量。高精確度的天平可用於測量質量，最"
@@ -1216,17 +1347,26 @@ msgstr ""
 "半圓罩子以避免風的干擾。"
 
 #: data/tools.xml:163
-#, kde-format
-msgid "Distillation bridge"
+#, fuzzy, kde-format
+#| msgid "Distillation bridge"
+msgid "Distillation Bridge"
 msgstr "蒸餾橋"
 
 #: data/tools.xml:164
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "One means of separating a mixture is to use distillation. In this "
+#| "setting, a distillation bridge acts as a conduit between the two pots. "
+#| "One pot contains the mixture to be separated, and through heating, a gas "
+#| "forms which is lead through the bridge. At the end of the bridge the gas "
+#| "phase is condensed and drips into a round flask. Typically, the bridge is "
+#| "cooled by return flow. Also, there is often a thermometer for controlling "
+#| "the temperature of the distillation bridge."
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
-"the mixture to be separated, and through heating, a gas forms which is lead "
-"through the bridge. At the end of the bridge the gas phase is condensed and "
+"the mixture to be separated, and through heating, a gas forms which is led "
+"through the bridge. At the end of the bridge, the gas phase is condensed and "
 "drips into a round flask. Typically, the bridge is cooled by return flow. "
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
@@ -1236,50 +1376,66 @@ msgstr ""
 "一端後被冷凝，並滴入圓形燒瓶中。蒸餾橋的冷卻一般是靠回流。此外，蒸餾橋上通常"
 "也會有溫度計以控制溫度。"
 
-#: data/tools.xml:169
-#, kde-format
-msgid "Syringe"
+#: data/tools.xml:168
+#, fuzzy, kde-format
+#| msgid "Syringe"
+msgid "Gas Syringe"
 msgstr "注射器"
 
-#: data/tools.xml:170
-#, kde-format
+#: data/tools.xml:169
+#, fuzzy, kde-format
+#| msgid ""
+#| "A syringe consists of two parts, a glass tube and a plunger, both "
+#| "normally made of glass. Gasses flow into the glass tube, and as the "
+#| "syringe is a closed system, the plunger moves outwards. This can be used "
+#| "to measure the volume of a reaction."
 msgid ""
-"A syringe consists of two parts, a glass tube and a plunger, both normally "
-"made of glass. Gasses flow into the glass tube, and as the syringe is a "
-"closed system, the plunger moves outwards. This can be used to measure the "
-"volume of a reaction."
+"A gas syringe consists of two parts, a glass tube and a plunger, both "
+"normally made of glass. Gasses flow into the glass tube and, as the syringe "
+"is a closed system, the plunger moves outwards. This can be used to measure "
+"the volume of a reaction."
 msgstr ""
 "注射器（syringe）包括兩部份：一個玻璃管與一個注射用的桿子。通常兩者都是玻璃做"
 "的。當氣體流入玻璃管內時，因為注射器是密封的，因此會將桿子推出。這樣可用於測"
 "量反應時的體積。"
 
-#: data/tools.xml:174
+#: data/tools.xml:173
 #, kde-format
 msgid "Separation Beaker"
 msgstr "分離燒杯"
 
-#: data/tools.xml:175
-#, kde-format
+#: data/tools.xml:174
+#, fuzzy, kde-format
+#| msgid ""
+#| "First, four small caps are placed at the four ends of the separation "
+#| "beaker. Then, whilst distilling, the beaker is turned by 60 degrees after "
+#| "a certain temperate has been reached. In doing so, at the end of the "
+#| "distillation, all four caps contain a specific liquid, depending on the "
+#| "boiling point of the liquid distilled."
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
-"temperate has been reached. In doing so, at the end of the distillation, all "
-"four caps contain a specific liquid, depending on the boiling point of the "
-"liquid distilled."
+"temperature has been reached. In doing so, at the end of the distillation, "
+"all four caps contain a specific liquid, depending on the boiling point of "
+"the liquid distilled."
 msgstr ""
 "分離燒杯（separation beaker）有四個口，每個口都有小蓋子。在蒸餾的過程中，您可"
 "以在燒杯達到一定溫度時就將燒杯轉 60 度。這樣在蒸餾完成時，依沸點的不同，四個"
 "蓋子都會有特定的液體在裡面。"
 
-#: data/tools.xml:179
+#: data/tools.xml:178
 #, kde-format
 msgid "Burner"
 msgstr "燃燒器"
 
-#: data/tools.xml:180
-#, kde-format
+#: data/tools.xml:179
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are several types of burners; this picture shows a Teclu-Burner. "
+#| "Each type of burner has specific uses, and they vary in peak temperature "
+#| "and overall heating capacity."
 msgid ""
-"There are several types of burners; this picture shows a Teclu-Burner. Each "
+"There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
@@ -1287,25 +1443,28 @@ msgstr ""
 "「特克魯燃燒器」）。每一種都有不同的用途。它們的最大溫度以及整體加熱能力都不"
 "同。"
 
-#: data/tools.xml:184
+#: data/tools.xml:183
 #, kde-format
-msgid "Extractor Hood"
-msgstr "通風櫃"
+msgid "Fume Hood"
+msgstr ""
 
-#: data/tools.xml:185
-#, kde-format
+#: data/tools.xml:184
+#, fuzzy, kde-format
+#| msgid ""
+#| "Extractor hoods are used to filter out gases from chemical reactions. The "
+#| "air, once cleaned, is pumped outside of the building."
 msgid ""
-"Extractor hoods are used to filter out gases from chemical reactions. The "
-"air, once cleaned, is pumped outside of the building."
+"Fume hoods are used to filter out gases from chemical reactions. The air, "
+"once cleaned, is pumped outside of the building."
 msgstr ""
 "通風櫃（extractor hood）會將化學反應產生的氣體過濾，並將乾淨的氣體排出。"
 
-#: data/tools.xml:189
+#: data/tools.xml:188
 #, kde-format
 msgid "Contact Thermometer"
 msgstr "接觸式溫度計"
 
-#: data/tools.xml:190
+#: data/tools.xml:189
 #, kde-format
 msgid ""
 "Contact thermometers differ from regular thermometers in that they are "
@@ -1321,28 +1480,36 @@ msgstr ""
 "饋線圈：當達到想要的溫度時，加熱線圈就停止加熱，溫度下降時，加熱線圈就重新開"
 "始加熱。"
 
-#: data/tools.xml:194
-#, kde-format
-msgid "Clamps"
+#: data/tools.xml:193
+#, fuzzy, kde-format
+#| msgid "Clamps"
+msgid "Clamp"
 msgstr "夾子"
 
-#: data/tools.xml:195
+#: data/tools.xml:194
 #, kde-format
 msgid "Laboratory clamps make it easier to hold many kinds of tools."
 msgstr "夾子可以讓您輕鬆固定各種工具。"
 
-#: data/tools.xml:199
+#: data/tools.xml:198
 #, kde-format
 msgid "Indicator Paper"
 msgstr "試紙"
 
-#: data/tools.xml:200
-#, kde-format
+#: data/tools.xml:199
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are multiple ways of measuring the pH value of a solution, one of "
+#| "which is to use indicator paper. Indicator paper changes color depending "
+#| "on the pH of the solution applied to it, and by comparing to a chart a "
+#| "fairly accurate measure of the solution's pH can be obtained. If a more "
+#| "accurate measure is needed, a glass electrode can be used, which works by "
+#| "measuring the conductivity of the solution."
 msgid ""
 "There are multiple ways of measuring the pH value of a solution, one of "
 "which is to use indicator paper. Indicator paper changes color depending on "
 "the pH of the solution applied to it, and by comparing to a chart a fairly "
-"accurate measure of the solution's pH can be obtained. If a more accurate "
+"accurate measure of the solution’s pH can be obtained. If a more accurate "
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
@@ -1350,24 +1517,24 @@ msgstr ""
 "色，然後跟圖表比對後即可得知溶劑的酸鹼度。如果需要更精確的 pH 值，也可以用玻"
 "璃電極，來測量溶劑的導電性。"
 
-#: data/tools.xml:204
+#: data/tools.xml:203
 #, kde-format
 msgid "Short-Stem Funnel"
 msgstr "短柄漏斗"
 
-#: data/tools.xml:205
+#: data/tools.xml:204
 #, kde-format
 msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
 msgstr "可以將液體或粉狀物倒進窄瓶口燒瓶裡的漏斗。"
 
-#: data/tools.xml:209
+#: data/tools.xml:208
 #, kde-format
 msgid "Buret"
 msgstr "滴定管"
 
-#: data/tools.xml:210
+#: data/tools.xml:209
 #, kde-format
 msgid ""
 "Burets are used to titrate liquids. A buret is filled with a specific volume "
@@ -1381,12 +1548,12 @@ msgstr ""
 "如錐形瓶。開啟閥門後，容器內的液體就開始被滴定。高品質的滴定管會有一種孔狀的"
 "設備，這樣可以重新填入精確容量的液體。"
 
-#: data/tools.xml:214
+#: data/tools.xml:213
 #, kde-format
 msgid "Beaker"
 msgstr "燒杯"
 
-#: data/tools.xml:215
+#: data/tools.xml:214
 #, kde-format
 msgid ""
 "Beakers can be used for many tasks. For instance, they are used to store "
@@ -1394,12 +1561,13 @@ msgid ""
 "titrations."
 msgstr "燒杯用在許多地方。它們可用於儲存化學物品，進行化學反應。也常用於滴定。"
 
-#: data/tools.xml:219
-#, kde-format
-msgid "DSC (Differential Scanning Calorimeter)"
+#: data/tools.xml:218
+#, fuzzy, kde-format
+#| msgid "DSC (Differential Scanning Calorimeter)"
+msgid "Differential Scanning Calorimeter (DSC)"
 msgstr "熱微差掃描分析儀（Differential Scanning Calorimeter，DSC）"
 
-#: data/tools.xml:220
+#: data/tools.xml:219
 #, kde-format
 msgid ""
 "A DSC measures the heat flow volume of a compound. This value is very "
@@ -1409,22 +1577,59 @@ msgstr ""
 "熱微差掃描分析儀（DSC）測量化合物的熱通量（heat flow volume）。每種物質都有特"
 "定的熱通量值，因此 DSC 用於辨識或描述化學物質。"
 
-#: data/tools.xml:224
+#: data/tools.xml:223
 #, kde-format
 msgid "Dewar Vessel"
 msgstr "杜瓦瓶"
 
-#: data/tools.xml:225
-#, kde-format
+#: data/tools.xml:224
+#, fuzzy, kde-format
+#| msgid ""
+#| "A Dewar vessel (or Dewar flask), named after the physicist Sir James "
+#| "Dewar (1842-1923), is a double-walled vacuum flask, designed to provide "
+#| "good thermal insulation. As such, they are useful for keeping liquids "
+#| "cool or warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgid ""
 "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar "
-"(1842-1923), is a double-walled vacuum flask, designed to provide good "
+"(1842–1923), is a double-walled vacuum flask, designed to provide good "
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
 "杜瓦瓶（Dewar Vessel 或 Dewar flask，依物理學家 Sir James Dewar，1842-1923 而"
 "命名）是一個雙層的真空瓶，用於提供熱控制，也就是保持液體的溫度。一般在用的熱"
 "水瓶就是杜瓦瓶的一種。"
+
+#: data/tools.xml:228
+#, kde-format
+msgid "High-Performance Liquid Chromatography (HPLC)"
+msgstr ""
+
+#: data/tools.xml:229
+#, kde-format
+msgid ""
+"HPLC is used to separate, identify, and measure the components of a liquid "
+"mixture. A sample dissolved in a solvent is pumped through a tightly packed "
+"column under high pressure. Because different substances interact "
+"differently with the column material, they move through it at different "
+"speeds and exit separately. This makes HPLC useful for analyzing complex "
+"mixtures and checking purity in chemistry, biology, and pharmaceuticals."
+msgstr ""
+
+#: data/tools.xml:233
+#, kde-format
+msgid "Evaporating Dish"
+msgstr ""
+
+#: data/tools.xml:234
+#, kde-format
+msgid ""
+"An evaporating dish is a small heat-resistant dish made from fired clay, "
+"used in the lab to heat, evaporate, dry, or collect substances. Because it "
+"tolerates high temperatures well, it can be placed directly over a flame or "
+"on a heating plate. Evaporating dishes are commonly used for evaporating "
+"solvents, drying precipitates, or carrying out small-scale heating "
+"experiments."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
@@ -8427,6 +8632,9 @@ msgstr "轉換來源："
 #, kde-format
 msgid "Convert to:"
 msgstr "轉換為："
+
+#~ msgid "Extractor Hood"
+#~ msgstr "通風櫃"
 
 #~ msgid "Alkaline"
 #~ msgstr "鹼金屬"

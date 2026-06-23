@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-06-23 00:39+0000\n"
 "PO-Revision-Date: 2013-01-04 16:50+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -755,16 +755,26 @@ msgid "Watchglass"
 msgstr "កែវ​ឆ្លុះ"
 
 #: data/tools.xml:6
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
+#| "used in various experimental techniques. The border is bent upwards to "
+#| "allow the watchglass to hold small amounts of liquids in order to let "
+#| "them evaporate. The evaporation can be accelerated by heating the "
+#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
+#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
+#| "matter or drying them in an airing cupboard. The term watchglass is "
+#| "derived from the former pocket watches' protection glass which was often "
+#| "domed."
 msgid ""
-"Watchglasses are round glass panes with a diameter of around 5 - 10cm, used "
+"Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
 "watchglass to hold small amounts of liquids in order to let them evaporate. "
 "The evaporation can be accelerated by heating the watchglass with a Bunsen "
 "burner. Watchglasses can also be used to cover Petri dishes or beakers, and "
 "are also suited to weighing small amounts of matter or drying them in an "
 "airing cupboard. The term watchglass is derived from the former pocket "
-"watches' protection glass which was often domed."
+"watches’ protection glass which was often domed."
 msgstr ""
 "កែវ​ឆ្លុះ​គឺ​ជា​ផ្ទាំងកញ្ចក់​មូល​ដែល​មាន​បន្ទាត់​ផ្ចិត​ប្រហែល​ ៥ ទៅ​ ១០ ស.ម. ដែលត្រូវ​​​​ប្រើ​នៅក្នុង​បច្ចេកទេស​"
 "ពិសោធន៍​ផ្សេង​ៗ ។ គែម​គឺ​កោង​ឡើង​លើ​ ដើម្បីឲ្យ​កែវ​ឆ្លុះ​អាច​ទប់​វត្ថុ​រាវ​មួយ​ចំនួន​តូច​ ដើម្បី​ឲ្យ​ពួក​វា​អាច​ហួត​បាន​ "
@@ -778,20 +788,31 @@ msgstr ""
 msgid "Dehydrator"
 msgstr "ដេអ៊ីដ្រាតករ"
 
-#: data/tools.xml:13
-#, kde-format
+#: data/tools.xml:11
+#, fuzzy, kde-format
+#| msgid ""
+#| "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
+#| "which serves to dry chemical matters; that is, to remove water or liquid "
+#| "from a sample.\n"
+#| "\t\t\tIn principle it is a glass bowl with cap that has a planar "
+#| "grinding, so that the bowl is air-tight. The dehydrator's lower part is "
+#| "ordinarily filled with a drying agent such as calcium chloride, silica "
+#| "gel, phosphoric anhydride or sulphuric acid. The sample to be dried is "
+#| "placed on a diaphanous cartridge of plastic or ceramic above the drying "
+#| "agent.\n"
+#| "\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies "
+#| "its environment by absorbing water vapor. The dry atmosphere then takes "
+#| "up water from the sample to be dried."
 msgid ""
-"A dehydrator is a piece of laboratory apparatus, often made of glass, and "
-"which serves to dry chemical matters; that is, to remove water or liquid "
-"from a sample.\n"
-"\t\t\tIn principle it is a glass bowl with cap that has a planar grinding, "
-"so that the bowl is air-tight. The dehydrator's lower part is ordinarily "
-"filled with a drying agent such as calcium chloride, silica gel, phosphoric "
-"anhydride or sulphuric acid. The sample to be dried is placed on a "
-"diaphanous cartridge of plastic or ceramic above the drying agent.\n"
-"\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies its "
-"environment by absorbing water vapor. The dry atmosphere then takes up water "
-"from the sample to be dried."
+"A dehydrator is often made of glass and serves to dry chemical matters; that "
+"is, to remove water or liquid from a sample. It is a glass bowl with a cap "
+"that has a planar grinding, so that the bowl is air-tight. The dehydrator’s "
+"lower part is ordinarily filled with a drying agent such as calcium "
+"chloride, silica gel, phosphoric anhydride or sulphuric acid. The sample to "
+"be dried is placed on a diaphanous cartridge of plastic or ceramic above the "
+"drying agent. The drying agent is hygroscopic, which means that it "
+"dehumidifies its environment by absorbing water vapor. The dry atmosphere "
+"then takes up water from the sample."
 msgstr ""
 "ដេអ៊ីតដ្រាតករ គឺជា​ផ្នែក​មួយ​នៃ​ឧបករណ៍​ពិសោធន៍ ដែល​ជាទូទៅ​ធ្វើ​អំពី​កញ្ចក់ និង​ត្រូវ​បាន​ប្រើ​សម្រាប់​ការ​សម្ងួត​"
 "សារធាតុ​គីមី ពោល​គឺ សម្រាប់​យក​ទឹក ឬ​វត្ថុរាវ​ចេញពី​សំណាក ។\n"
@@ -802,12 +823,12 @@ msgstr ""
 "\t\t\tធាតុ​សម្ងួត គឺជា​អ្នក​ស្រូប​សំណើម មាន​ន័យ​ថា វា​សម្ងួត​បរិស្ថាន​របស់​វា​ដោយ​ការ​ស្រូប​យក​ចំហាយ​ទឹក ។ "
 "បន្ទាប់មក បរិយាកាស​ស្ងួត​ស្រួប​យក​ទឹក​ពី​សំណាក​ដែល​ត្រូវ​សម្ងួត ។"
 
-#: data/tools.xml:17
+#: data/tools.xml:15
 #, kde-format
 msgid "Spatula"
 msgstr "វែក​កូរ"
 
-#: data/tools.xml:18
+#: data/tools.xml:16
 #, kde-format
 msgid ""
 "The spatula is a laboratory tool to scrape off, grind, and transport "
@@ -817,21 +838,30 @@ msgstr ""
 "វែក​កូរ ជា​ឧបករណ៍​ពិសោធន៍​សម្រាប់​កោស កិន​ និង​ដឹកនាំ​​សារ​ធាតុ​គីមី ។ ពួក​វា​ធ្វើ​ពី​វត្ថុធាតុ​ (ឧ. ដែក​ ទីតានីញ៉ូម​ "
 "ប្លាទីន​) ហើយ​ការ​រចនា​ (ឧ. វែក​សំប៉ែត​  ឬ​វែក​បាយ​) មាន​លក្ខណៈ​ខុស​ៗ​គ្នា​ ។"
 
-#: data/tools.xml:22
+#: data/tools.xml:20
 #, kde-format
 msgid "Water Jet Pump"
 msgstr "ម៉ាស៊ីន​បូម​ទឹក​"
 
 #: data/tools.xml:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The water jet pump has two entry pipes and one exit, and consists, in "
+#| "principle, of two pipes one inside the other. At the water entry a water "
+#| "jet shoots under full pressure out of a nozzle into a slightly larger "
+#| "pipe. The water jet thereby carries away air or fluid from the second "
+#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
+#| "and thus it is an application of the hydrodynamic paradox (objects close "
+#| "to drifting fluids are aspirated instead of being pushed away)."
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
 "shoots under full pressure out of a nozzle into a slightly larger pipe. The "
-"water jet thereby carries away air or fluid from the second entry. <br> This "
-"is caused by the negative pressure in a drifting fluid, and thus it is an "
-"application of the hydrodynamic paradox (objects close to drifting fluids "
-"are aspirated instead of being pushed away)."
+"water jet thereby carries away air or fluid from the second entry.\n"
+"\t\t<br>\n"
+"\t\tThis is caused by the negative pressure in a drifting fluid, and thus it "
+"is an application of the hydrodynamic paradox (objects close to drifting "
+"fluids are aspirated instead of being pushed away)."
 msgstr ""
 "ម៉ាស៊ីន​បូម​ទឹក មាន​បំពង់​ចូល​ពីរ និង​ចេញ​មួយ ហើយ​ជា​រួម​មាន​បំពង់​ពីរ បំពង់​មួយ​ស្ថិត​នៅ​ខាងក្នុង​បំពង់​មួយ​ទៀត ។ នៅ​ត្រង់​"
 "ផ្លូវ​ចូល​របស់​ទឹក ម៉ាស៊ីន​បូម​ទឹក​បាញ់​ទឹក​ក្រោម​សម្ពាធ​មួយ​ពេញទី​ចេញពី​ក្បាល​ទុយោ​ចូល​ទៅ​ក្នុង​បំពង់​ធំ​ល្មម​មួយ​ទៀត ។ ដូច្នេះ​"
@@ -845,11 +875,17 @@ msgid "Refractometer"
 msgstr "ចំណាំង​បែរ​ចល័ត"
 
 #: data/tools.xml:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "With a refractometer the refractive index of optical media is determined. "
+#| "If the refractive index of a chemical is known it can be used after a "
+#| "synthesis to determine the sample's purity or to audit the synthesis' "
+#| "success."
 msgid ""
-"With a refractometer the refractive index of optical media is determined. If "
-"the refractive index of a chemical is known it can be used after a synthesis "
-"to determine the sample's purity or to audit the synthesis' success."
+"With a refractometer, the refractive index of optical media is determined. "
+"If the refractive index of a chemical is known, it can be used after a "
+"synthesis to determine the sample’s purity or to audit whether the synthesis "
+"was successful."
 msgstr ""
 "សន្ទស្សន៍​ចំណាំង​បែរ​នៃ​មជ្ឈដ្ឋាន​អុបទិចត្រូវ​បាន​កំណត់​ជាមួយ​ចំណាំង​បែរ​ចល័ត ។ ប្រសិនបើ​សន្ទស្សន៍​ចំណាំង​បែរ​នៃ​"
 "សារធាតុ​គីមី​ត្រូវ​បាន​ស្គាល់ វា​អាច​នឹង​ត្រូវ​បាន​ប្រើ បន្ទាប់ពី​ការ​ធ្វើ​សំយោគ ដើម្បី​កំណត់​ភាព​សុទ្ធ​របស់​សំណាក ឬ​"
@@ -861,28 +897,37 @@ msgid "Mortar"
 msgstr "ត្បាល់​បុក"
 
 #: data/tools.xml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A mortar is used for manually grinding solids. It can also be used to "
+#| "homogenize a mixture of powders by grinding. A club-shaped tool known as "
+#| "a pestle is used with the mortar for grinding."
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
-"homogenize a mixture of powders by grinding. A club-shaped tool known as a "
-"pestle is used with the mortar for grinding."
+"homogenize a mixture of powders by grinding. A club-shaped tool called "
+"“pestle” is used to crush solids into fine powder."
 msgstr ""
 "ត្បាល់​បុក​ត្រូវ​បាន​ប្រើ​សម្រាប់​បុក​សារធាតុ​រឹង​ដោយ​ដៃ ។ វា​អាច​ត្រូវ​បាន​ប្រើ​ដើម្បី​ធ្វើ​សភាគ​កម្ម​ល្បាយ​ម្សៅ​ដោយ​"
 "បុក ។ ឧបករណ៍​រាង​ដំបង​ត្រូវ​បាន​គេ​ស្គាល់​ថា​ជា​អង្រែ​ត្រូវ​បាន​ប្រើ​ជាមួយ​ត្បាល់​សម្រាប់​បុក ។"
 
 #: data/tools.xml:37
-#, kde-format
-msgid "Heating Coil"
+#, fuzzy, kde-format
+#| msgid "Heating Coil"
+msgid "Heating Plate"
 msgstr "រមូរ​កម្ដៅ​"
 
 #: data/tools.xml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Heating coils are used to heat flasks and other containers. Multiple "
+#| "heating coils can be connected with a thermometer so that the heat will "
+#| "not exceed a specified temperature. It is possible to use a magnetic "
+#| "field inside the heating coil to stir fluids with a magnetic stirrer. "
+#| "This will homogenize the fluid in terms of temperature and composition."
 msgid ""
-"Heating coils are used to heat flasks and other containers. Multiple heating "
-"coils can be connected with a thermometer so that the heat will not exceed a "
-"specified temperature. It is possible to use a magnetic field inside the "
-"heating coil to stir fluids with a magnetic stirrer. This will homogenize "
-"the fluid in terms of temperature and composition."
+"Heating plates are used to heat flasks and other containers. Some can "
+"generate a magnetic field in order to stir fluids with a magnetic stirrer. "
+"This homogenizes the fluid in terms of temperature and composition."
 msgstr ""
 "រមូរ​កម្ដៅ​ត្រូវ​បាន​គេ​ប្រើ​ ដើម្បី​កម្ដៅ​កែវ​ពិសោធន៍ និង​ឧបករណ៍​ផ្ទុក​ផ្សេង​ទៀត ។ រមូរ​កម្ដៅ​ជា​ច្រើន​អាច​ត្រូវ​"
 "បាន​ត​ភ្ជាប់​ជា​មួយ​នឹង​ទែរម៉ូមែត្រ​ ដើម្បី​កុំ​ឲ្យ​កម្ដៅ​លើស​ពី​សីតុណ្ហភាព​ដែល​បាន​កំណត់ ។​ ក៏​អាច​ប្រើ​ដែន​ម៉ាញេទិច​​នៅ​"
@@ -895,10 +940,14 @@ msgid "Cork Ring"
 msgstr "ក្រវិល​ឆ្នុក"
 
 #: data/tools.xml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Large containers like round-bottomed flasks are placed on rings made of "
+#| "cork, a special soft lightweight wood with good insulating qualities to "
+#| "protect fragile instruments."
 msgid ""
-"Large containers like round-bottomed flasks are placed on rings made of "
-"cork, a special soft lightweight wood with good insulating qualities to "
+"Large containers like round-bottom flasks are placed on rings made of cork, "
+"a special soft and lightweight bark with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
 "ឧបករណ៍​ផ្ទុក​ធំ​ៗ​ដូច​ជា​កែវ​ពិសោធន៍​ដែល​មាន​ក្ដិត​មូល​នឹង​ត្រូវ​បាន​ដាក់​នៅ​លើ​ក្រវិល​​ដែល​ធ្វើ​ពី​ឆ្នុក​ ដែល​ជា​ឈើ​ដែល​មាន​"
@@ -953,14 +1002,21 @@ msgid "Vortexer"
 msgstr "ឧបករណ៍​គំនួប"
 
 #: data/tools.xml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A vortexer serves to homogenize reagents found in laboratories. The "
+#| "container containing liquid to be homogenized is put on a platform. The "
+#| "platform shakes by rotary agitation up to 3000RPM at which point a "
+#| "contact sensor is activated. In this way extremely small volumes of fluid "
+#| "can be homogenized quickly. It is the opposite of a centrifuge, used to "
+#| "separate fluids."
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
-"platform shakes by rotary agitation up to 3000RPM at which point a contact "
-"sensor is activated. In this way extremely small volumes of fluid can be "
-"homogenized quickly. It is the opposite of a centrifuge, used to separate "
-"fluids."
+"platform shakes by rotary agitation up to 3000 RPM, at which point a contact "
+"sensor is activated. This way, extremely small volumes of fluid can be "
+"homogenized quickly. It is the opposite of a centrifuge, which is used to "
+"separate fluids."
 msgstr ""
 "ឧបករណ៍​គំនួប​ប្រើ​សម្រាប់​ធ្វើ​សភាគ​កម្ម​ប្រតិករ​ដែល​បាន​រក​ឃើញ​នៅ​ក្នុង​ការ​ពិសោធន៍ ។ ឧបករណ៍​ផ្ទុក​ដែល​មាន​វត្ថុ​"
 "រាវ​នឹង​ត្រូវ​បាន​ធ្វើ​សភាគ​កម្ម​ដោយ​ដាក់​នៅ​លើ​ជើង​ទម្រ ។ ជើង​ទម្រ​នឹង​ញ័រ​ដោយ​ការ​រំជួយ​ដែល​​វិល​រហូត​ដល់​ "
@@ -974,10 +1030,15 @@ msgid "Wash Bottle"
 msgstr "ដប​បាញ់​សំអាត"
 
 #: data/tools.xml:68
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "These bottles are used for many purposes. In most laboratories they are "
+#| "usually filled with water, salt, acid or other commonly used fluids. They "
+#| "make it easy to apply the fluid if a precisely measured amount is not "
+#| "needed."
 msgid ""
-"These bottles are used for many purposes. In most laboratories they are "
-"usually filled with water, salt, acid or other commonly used fluids. They "
+"These bottles are used for many purposes. In most laboratories, they are "
+"usually filled with water, salt, acid, or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
 "ដប​ទាំងនេះ​ត្រូវ​បាន​ប្រើ​សម្រាប់​គោល​បំណង​ជាច្រើន ។ នៅ​ក្នុងការ​​​ពិសោធន៍ភាគ​ច្រើន ពួក​វា​​ត្រូវ​បាន​បំពេញ​ដោយ​"
@@ -1010,12 +1071,17 @@ msgid "Reflux Condenser"
 msgstr "កុងដ្រូម​វិលត្រឡប់"
 
 #: data/tools.xml:78
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A reflux condenser subjects fluid to a process where a gas produced by "
+#| "heating is collected on the reflux condenser. The fluid is cooled until "
+#| "it condenses and runs back into the original fluid. Usually it is put on "
+#| "a round-bottomed flask or several neck flasks."
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
-"condenses and runs back into the original fluid. Usually it is put on a "
-"round-bottomed flask or several neck flasks."
+"condenses and runs back into the original fluid. Usually, it is put on a "
+"round-bottom flask or several neck flasks."
 msgstr ""
 "កុងដង់ករ​វិល​ត្រឡប់​នាំ​យក​វត្ថុ​រាវ​ទៅ​កាន់​ដំណើរ​ការ​ត្រង់​កន្លែង​ដែល​ឧស្ម័ន​ត្រូវ​បាន​បង្កើត​ឡើង​ដោយ​កម្ដៅ​ដែល​នឹង​"
 "ប្រមូល​ផ្ដុំ​នៅ​លើ​កុងដង់ករ​ត្រឡប់​ ។ វត្ថុ​រាវ​នឹង​ត្រូវ​បាន​ធ្វើ​ឲ្យ​ត្រជាក់​ រហូត​ដល់​វា​ ក​ជា​ទឹក​​ និង​រត់​ត្រឡប់​ទៅ​ក្នុង​"
@@ -1027,11 +1093,16 @@ msgid "Pipette Bulb"
 msgstr "បំពង់​ក្រិត​ប៉ោង"
 
 #: data/tools.xml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A pipette bulb is used to fill pipettes. Squeezing then releasing the "
+#| "bulb produces a negative pressure, causing fluid to flow into the "
+#| "pipette; squeezing the bulb then causes the fluid to flow out of the "
+#| "pipette."
 msgid ""
-"A pipette bulb is used to fill pipettes. Squeezing then releasing the bulb "
+"A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
-"squeezing the bulb then causes the fluid to flow out of the pipette."
+"squeezing the bulb again causes the fluid to flow out of the pipette."
 msgstr ""
 "បំពង់​ក្រិត​​​ប៉ោង​នឹង​ត្រូវ​ប្រើ​សម្រាប់​បំពេញ​បំពង់​បឺត​ជា​ច្រើន​ ។ ការ​ច្របាច់ ហើយ​ព្រលែង​នឹង​ធ្វើ​ឲ្យ​បំពង់​ក្រិត​​ប៉ោង​"
 "បង្កើត​បាន​នូវ​សម្ពាធ​អវិជ្ជមាន​ ដែល​ធ្វើ​ឲ្យ​វត្ថុរាវ​ហូរ​ចូល​ទៅ​ក្នុង​បំពង់​កែវ ចំណែក​ការ​ច្របាច់​បំពង់​ក្រិត​​ប៉ោង​ដោយ​"
@@ -1043,11 +1114,15 @@ msgid "Test Tube"
 msgstr "បំពង់​តេស្ដ"
 
 #: data/tools.xml:88
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "In a test tube small reactions or experiments are performed. There are "
+#| "many different types of tubes. For example some have connectors, some are "
+#| "etched for measurements, some are hardened for durability."
 msgid ""
-"In a test tube small reactions or experiments are performed. There are many "
-"different types of tubes. For example some have connectors, some are etched "
-"for measurements, some are hardened for durability."
+"In a test tube, small reactions or experiments can be performed. There are "
+"many different types of tubes. For example, some have connectors, some have "
+"etched markings for measurements, and some are hardened for durability."
 msgstr ""
 "នៅ​ក្នុង​បំពង់​តេស្ត ​​ប្រតិកម្ម​ និង​ការ​ពិសោធន៍​​ដ៏​តូច​មួយ​នឹង​ត្រូវ​បាន​អនុវត្ត ។ មាន​បំពង់​ខុស​ៗ​គ្នា​ជា​ច្រើន​ប្រភេទ​ ។ "
 "ឧទាហរណ៍ បំពង់​ខ្លះ​មាន​ឧបករណ៍​តភ្ជាប់ ខ្លះ​ទៀត​ត្រូវ​បាន​រចនា​សម្រាប់​រង្វាស់ ខ្លះ​ទៀត​ត្រូវ​បាន​ពង្រឹង​សម្រាប់​"
@@ -1059,27 +1134,37 @@ msgid "Protective Goggles"
 msgstr "វ៉ែនតា​​សម្រាប់​ការពារ​ភ្នែក"
 
 #: data/tools.xml:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Most laboratories insist that protective goggles are worn. Without them, "
+#| "it is too risky to work with most chemicals. Usually, the lens is a "
+#| "special type of plastic that affords protection from both mechanical "
+#| "impacts, and acid and base chemicals."
 msgid ""
 "Most laboratories insist that protective goggles are worn. Without them, it "
-"is too risky to work with most chemicals. Usually, the lens is a special "
-"type of plastic that affords protection from both mechanical impacts, and "
-"acid and base chemicals."
+"would be too risky to work with most chemicals. Usually, the lens is a "
+"special type of plastic that provides protection from mechanical impacts and "
+"chemical substances."
 msgstr ""
 "ទីពិសោធន៍​ភាគច្រើន​​បាន​ទទូច​ថា​មនុស្ស​គ្រប់គ្នា​ត្រូវ​ពាក់​វ៉ែនតា​សម្រាប់​ការពារ​ភ្នែក​ ។ បើ​គ្មាន​ពួក​វា វា​គ្រោះ​"
 "ថ្នាក់​ណាស់​ក្នុង​ការ​ដែល​ធ្វើការ​ជាមួយ​ធាតុ​គីមី​ជាច្រើន ។ ជា​ធម្មតា កញ្ចក់​គឺ​ជា​ប្លាស្ទិក​ប្រភេទ​ពិសេស​ដែល​"
 "ការពារ​អ្នក​ពី​ផល​ប៉ះពាល់​បែប​មេកានិច និង ធាតុ​គីមី​ដូចជា អាស៊ីត និង បាស ។"
 
 #: data/tools.xml:97
-#, kde-format
-msgid "Round-Bottomed Flask"
+#, fuzzy, kde-format
+#| msgid "Round-Bottomed Flask"
+msgid "Round-Bottom Flask"
 msgstr "កែវ​តូច​ដែល​មាន​ក្ដិត​មូល"
 
 #: data/tools.xml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A round-bottomed flask is used for many reactions. Some can be connected "
+#| "to other items, as the frosting on the neck shows. With cork rings they "
+#| "can be placed on a table."
 msgid ""
-"A round-bottomed flask is used for many reactions. Some can be connected to "
-"other items, as the frosting on the neck shows. With cork rings they can be "
+"A round-bottom flask is used for many reactions. Some can be connected to "
+"other items, as the frosting on the neck shows. With cork rings, they can be "
 "placed on a table."
 msgstr ""
 "កែវ​តូច​ដែល​មាន​ក្ដិត​មូល​អាច​នឹង​ត្រូវ​ប្រើ​សម្រាប់​ប្រតិកម្ម​ជា​ច្រើន ។ ដោយ​សារ​តែ​ការ​បង្កក​នៅ​ពេល​បង្ហាញ​មាត់​"
@@ -1104,11 +1189,15 @@ msgid "Drying Tube"
 msgstr "បំពង់​​សម្ងួត​"
 
 #: data/tools.xml:108
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Some reactions need to be kept free of water: to make this possible a "
+#| "drying tube can be used. Drying tubes contains a hygroscopic chemical to "
+#| "absorb water from the atmosphere."
 msgid ""
-"Some reactions need to be kept free of water: to make this possible a drying "
-"tube can be used. Drying tubes contains a hygroscopic chemical to absorb "
-"water from the atmosphere."
+"Some reactions need to be kept free of water: to make this possible, a "
+"drying tube can be used. Drying tubes contain a hygroscopic chemical that "
+"absorbs water from the atmosphere."
 msgstr ""
 "ប្រតិកម្ម​ខ្លះ​មិន​ត្រូវ​ការ​ជាតិ​ទឹក​ទេ ៖ ដើម្បី​ធ្វើ​ដូច្នេះ​បាន​ គេ​នឹង​ប្រើ​បំពង់​សម្ងួត ។ បំពង់​សម្ងួត​មាន​សារធាតុ​"
 "គីមី​សម្រាប់​ស្រូប​យក​ទឹក​​ពី​បរិយាកាស​ ។​"
@@ -1119,12 +1208,17 @@ msgid "Test Tube Holder"
 msgstr "ឧបករណ៍​ចាប់​បំពង់​ពិសោធន៍"
 
 #: data/tools.xml:113
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Test tube holders make it easier to hold test tubes. By using a holder, "
+#| "there is a safe distance between ones hand and the test tube when the "
+#| "tube is hot. Typically, test tube holders are used to hold test tubes "
+#| "over open flames."
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
-"there is a safe distance between ones hand and the test tube when the tube "
-"is hot. Typically, test tube holders are used to hold test tubes over open "
-"flames."
+"there is a safe distance between one’s hand and the test tube, preventing "
+"injuries like burns or chemical exposure. Typically, test tube holders are "
+"used to hold test tubes over open flames."
 msgstr ""
 "ឧបករណ៍​ចាប់​បំពង់​ពិសោធន៍​ធ្វើ​ឲ្យ​​ងាយ​ស្រួល​ក្នុង​ការ​ចាប់​បំពង់​ពិសោធន៍ ។ ដោយ​ការ​ប្រើ​ឧបករណ៍​ចាប់​នេះ​ នឹង​មាន​"
 "ចម្ងាយ​សុវត្ថិភាព​ចន្លោះ​ពី​ដៃ​​ជា​មួយ​នឹង​បំពង់​ពិសោធន៍​ នៅ​ពេល​ដែល​បំពង់​នេះ​ក្ដៅ​ ។  ជា​រួម​ ឧបករណ៍​ចាប់​បំពង់​ពិសោធន៍​"
@@ -1136,12 +1230,16 @@ msgid "Measuring Cylinder"
 msgstr "ស៊ីឡាំង​ក្រិត"
 
 #: data/tools.xml:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "A measuring cylinder can be used to measure amounts of liquids relatively "
+#| "precisely. Furthermore, the cylinder allows particulate matter to sink: "
+#| "following this, the particulates can be separated from the fluid by "
+#| "decanting."
 msgid ""
-"A measuring cylinder can be used to measure amounts of liquids relatively "
-"precisely. Furthermore, the cylinder allows particulate matter to sink: "
-"following this, the particulates can be separated from the fluid by "
-"decanting."
+"A measuring cylinder can be used to measure amounts of liquids. Due to its "
+"height and small diameter, it is also effective at separating solids "
+"suspended in liquid matter by decanting."
 msgstr ""
 "ស៊ីឡាំង​ក្រិត​​អាច​ត្រូវ​បាន​គេ​ប្រើ​ ដើម្បី​វាស់​បរិមាណ​​វត្ថុរាវ​ដែល​ទាក់​ទង​គ្នា​ពិត​ប្រាកដ​ ។  លើស​ពី​នេះ​ទៀត ស៊ីឡាំង​​"
 "នេះ​​អនុញ្ញាត​ឲ្យ​ភាគល្អិត​លិច​ចុះ​ ៖ ដោយ​ការ​ធ្វើ​ដូច្នេះ ភាគ​ល្អិត​​អាច​នឹង​ត្រូវ​បាន​ញែក​ចេញ​ពី​វត្ថុរាវ​ដោយ​ការ​"
@@ -1198,12 +1296,18 @@ msgid "Pipette"
 msgstr "បំពង់កែវ​"
 
 #: data/tools.xml:138
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Pipettes are used to introduce small quantities of liquids in "
+#| "laboratories. A pipette has a volume scale and, as a rule, pipette bulbs "
+#| "are used as droppers for liquids. Both sorts of pipettes are calibrated "
+#| "for fluids with a temperature of 20°C and for time of outflow (signified "
+#| "by \"Ex.\"). If needed, times of outflow are indicated on the pipettes."
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
 "droppers for liquids. Both sorts of pipettes are calibrated for fluids with "
-"a temperature of 20°C and for time of outflow (signified by \"Ex.\"). If "
+"a temperature of 20 °C and for time of outflow (signified by “Ex.”). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
 "បំពង់​កែវ​នឹង​ត្រូវ​បាន​ប្រើ​ ដើម្បី​បង្ហាញ​បរិមាណ​តូច​ៗ​នៃ​វត្ថុរាវ​នៅ​ក្នុង​ការពិសោធន៍​ ។ បំពង់​កែវ​មាន​មាត្រដ្ឋាន​​"
@@ -1217,23 +1321,39 @@ msgid "Erlenmeyer Flask"
 msgstr "កែវ​អ៊ែឡិនប៉ីយែ"
 
 #: data/tools.xml:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), "
+#| "is different to a beaker in that it comes with an inverted conical base "
+#| "and a cylindrical neck. There are different types of Erlenmeyer flasks "
+#| "for laboratory applications: the narrow neck and wide neck forms. "
+#| "Depending on the application the flask may have precision grinding to "
+#| "allow good connection to other containers.\n"
+#| "\t\t\t<br>\n"
+#| "\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
+#| "boiling or during reactions which agitate the contents.\n"
+#| "\t\t\t<br>\n"
+#| "\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
+#| "reactions by stirring or shaking, for example. The Erlenmeyer flask is "
+#| "particularly suited for a magnetic stirrer, since it can be placed "
+#| "directly on the stirring platform. A round-bottomed flask, by contrast, "
+#| "must be placed on a cork ring on the stirring platform.\n"
 msgid ""
-"An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), is "
+"An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825–1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
 "cylindrical neck. There are different types of Erlenmeyer flasks for "
-"laboratory applications: the narrow neck and wide neck forms. Depending on "
-"the application the flask may have precision grinding to allow good "
+"laboratory applications: ones with narrow necks and wide necks. Depending on "
+"the application, the flask may have precision grinding to allow good "
 "connection to other containers.\n"
-"\t\t\t<br>\n"
-"\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
+"\t\t<br>\n"
+"\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
 "boiling or during reactions which agitate the contents.\n"
-"\t\t\t<br>\n"
-"\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
-"reactions by stirring or shaking, for example. The Erlenmeyer flask is "
-"particularly suited for a magnetic stirrer, since it can be placed directly "
-"on the stirring platform. A round-bottomed flask, by contrast, must be "
-"placed on a cork ring on the stirring platform.\n"
+"\t\t<br>\n"
+"\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
+"reactions by stirring or shaking, for example. It is particularly suited for "
+"a magnetic stirrer, since it can be placed directly on the stirring "
+"platform. A round-bottom flask, by contrast, must be placed on a cork ring "
+"on the stirring platform.\n"
 msgstr ""
 "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
@@ -1257,12 +1377,17 @@ msgid "Ultrasonic Bath"
 msgstr "អាង​អ៊ុលត្រា"
 
 #: data/tools.xml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "For some chemical reactions it is important that the solvent is gas free. "
+#| "To achieve this the reaction vessel is put for some time into a "
+#| "ultrasonic bath. Due to the high sound frequency, the vapor locks peel "
+#| "away and ascend. This procedure is called out-gassing."
 msgid ""
-"For some chemical reactions it is important that the solvent is gas free. To "
-"achieve this the reaction vessel is put for some time into a ultrasonic "
-"bath. Due to the high sound frequency, the vapor locks peel away and ascend. "
-"This procedure is called out-gassing."
+"For some chemical reactions, it is important that the solvent is gas free. "
+"To achieve this, the reaction vessel is put in an ultrasonic bath for some "
+"time. Due to the high sound frequency, the vapor locks peel away and ascend "
+"out of the liquid. This procedure is called out-gassing."
 msgstr ""
 "For some chemical reactions it is important that the solvent is gas free. To "
 "achieve this the reaction vessel is put for some time into a ultrasonic "
@@ -1270,16 +1395,22 @@ msgstr ""
 "This procedure is called out-gassing."
 
 #: data/tools.xml:158
-#, kde-format
-msgid "Scales"
+#, fuzzy, kde-format
+#| msgid "Scales"
+msgid "Scale"
 msgstr "មាត្រ​ដ្ឋាន"
 
 #: data/tools.xml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "In a laboratory, very precise quantities of reagents often have to be "
+#| "weighed out. High precision scales can measure masses down to 1/10000 "
+#| "gram. As such, they stand on granite blocks to avoid vibrations and are "
+#| "protected against changes in airflow by a dome."
 msgid ""
-"In a laboratory, very precise quantities of reagents often have to be "
-"weighed out. High precision scales can measure masses down to 1/10000 gram. "
-"As such, they stand on granite blocks to avoid vibrations and are protected "
+"In a laboratory, quantities of reagents often have to be weighed out very "
+"precisely. High precision scales can measure masses down to 1/10000 gram. As "
+"such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
 "នៅ​ក្នុង​ការពិសោធន៍ គ្រប់​បរិមាណ​ជាក់​ស្ដែង​របស់​អង្គ​ប្រតិករ​នឹង​ត្រូវ​បាន​ថ្លឹង​ ។ មាត្រដ្ឋាន​ខ្ពស់​ជាក់​ស្ដែង​​នឹង​វាស់​"
@@ -1287,17 +1418,26 @@ msgstr ""
 "ផ្លាស់​ប្ដូរ​​​នៅ​ក្នុង​លំហូរ​ខ្យល់​តាម​​ដោម ។"
 
 #: data/tools.xml:163
-#, kde-format
-msgid "Distillation bridge"
+#, fuzzy, kde-format
+#| msgid "Distillation bridge"
+msgid "Distillation Bridge"
 msgstr "ស្ពាន​បំណិត"
 
 #: data/tools.xml:164
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "One means of separating a mixture is to use distillation. In this "
+#| "setting, a distillation bridge acts as a conduit between the two pots. "
+#| "One pot contains the mixture to be separated, and through heating, a gas "
+#| "forms which is lead through the bridge. At the end of the bridge the gas "
+#| "phase is condensed and drips into a round flask. Typically, the bridge is "
+#| "cooled by return flow. Also, there is often a thermometer for controlling "
+#| "the temperature of the distillation bridge."
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
-"the mixture to be separated, and through heating, a gas forms which is lead "
-"through the bridge. At the end of the bridge the gas phase is condensed and "
+"the mixture to be separated, and through heating, a gas forms which is led "
+"through the bridge. At the end of the bridge, the gas phase is condensed and "
 "drips into a round flask. Typically, the bridge is cooled by return flow. "
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
@@ -1308,50 +1448,66 @@ msgstr ""
 "ស្ពាន​​ត្រូវ​បាន​ធ្វើ​ឲ្យ​ត្រជាក់​ដោយ​លំហូរ​ត្រឡប់​ ។  ជារឿយៗ​ ​ក៏​មាន​ទែរម៉ូមែត្រ​សម្រាប់​ត្រួត​ពិនិត្យ​សីតុណ្ហភាព​របស់​"
 "ស្ពាន​បំណិត​ផង​ដែរ ។"
 
-#: data/tools.xml:169
-#, kde-format
-msgid "Syringe"
+#: data/tools.xml:168
+#, fuzzy, kde-format
+#| msgid "Syringe"
+msgid "Gas Syringe"
 msgstr "សឺរ៉ាំង"
 
-#: data/tools.xml:170
-#, kde-format
+#: data/tools.xml:169
+#, fuzzy, kde-format
+#| msgid ""
+#| "A syringe consists of two parts, a glass tube and a plunger, both "
+#| "normally made of glass. Gasses flow into the glass tube, and as the "
+#| "syringe is a closed system, the plunger moves outwards. This can be used "
+#| "to measure the volume of a reaction."
 msgid ""
-"A syringe consists of two parts, a glass tube and a plunger, both normally "
-"made of glass. Gasses flow into the glass tube, and as the syringe is a "
-"closed system, the plunger moves outwards. This can be used to measure the "
-"volume of a reaction."
+"A gas syringe consists of two parts, a glass tube and a plunger, both "
+"normally made of glass. Gasses flow into the glass tube and, as the syringe "
+"is a closed system, the plunger moves outwards. This can be used to measure "
+"the volume of a reaction."
 msgstr ""
 "សឺរ៉ាំង​រួម​មាន​ពីរ​ផ្នែក បំពង់​កែវ​ និង​ប្រដាប់​បូម ជា​ធម្មតា​ពួក​វា​ធ្វើ​អំពី​កែវ​ ។ ឧស្ម័ន​ហូរ​ចូល​ទៅ​ក្នុង​បំពង់​កែវ​ "
 "ហើយ​ដោយ​សារ​តែ​សឺរ៉ាំង​ជា​ប្រព័ន្ធ​បិទ​ ប្រដាប់​បូម​នឹង​រំកិល​ចេញ​ក្រៅ​ ។ គេ​អាច​ប្រើ​វា​ដើម្បី​វាស់​កម្រិត​ប្រតិកម្ម​បាន​ "
 "។"
 
-#: data/tools.xml:174
+#: data/tools.xml:173
 #, kde-format
 msgid "Separation Beaker"
 msgstr "កែវ​បែស៊ែ​សម្រាប់​ញែក"
 
-#: data/tools.xml:175
-#, kde-format
+#: data/tools.xml:174
+#, fuzzy, kde-format
+#| msgid ""
+#| "First, four small caps are placed at the four ends of the separation "
+#| "beaker. Then, whilst distilling, the beaker is turned by 60 degrees after "
+#| "a certain temperate has been reached. In doing so, at the end of the "
+#| "distillation, all four caps contain a specific liquid, depending on the "
+#| "boiling point of the liquid distilled."
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
-"temperate has been reached. In doing so, at the end of the distillation, all "
-"four caps contain a specific liquid, depending on the boiling point of the "
-"liquid distilled."
+"temperature has been reached. In doing so, at the end of the distillation, "
+"all four caps contain a specific liquid, depending on the boiling point of "
+"the liquid distilled."
 msgstr ""
 "ដំបូង​ ដាក់​គម្រប​តូច​ៗ​ទាំង​បួន​នៅ​ចុង​ទាំង​បួន​នៃ​កែវ​​បែស៊ែ​សម្រាប់​ញែក ។ បន្ទាប់​មក ខណៈ​ពេល​​កំពុង​តែ​បិទ​ កែវ​បែស៊ែ​"
 "នឹង​ត្រូវ​បង្វិល​ត្រឹម​ ៦០ ដឺក្រេ បន្ទាប់​ពី​សីតុណ្ហភាព​បាន​ឈាន​ដល់​កម្រិត​ពិត​ប្រាកដ​ ។  នៅ​ទី​បញ្ចប់​នៃ​បំណិត​ គម្រប​"
 "ទាំងបួន​នឹង​មាន​ផ្ទុក​​វត្ថុរាវ​​ណាមួយ​ ដោយ​ផ្អែក​លើ​ចំណុច​រំពុះ​របស់​វត្ថុ​រាវ​ដែល​បាន​បិទ ។"
 
-#: data/tools.xml:179
+#: data/tools.xml:178
 #, kde-format
 msgid "Burner"
 msgstr "ប្រដាប់​​ដុត"
 
-#: data/tools.xml:180
-#, kde-format
+#: data/tools.xml:179
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are several types of burners; this picture shows a Teclu-Burner. "
+#| "Each type of burner has specific uses, and they vary in peak temperature "
+#| "and overall heating capacity."
 msgid ""
-"There are several types of burners; this picture shows a Teclu-Burner. Each "
+"There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
@@ -1359,26 +1515,29 @@ msgstr ""
 "មានមុខ​ជាក់​លាក់​ផ្សេង​ពី​គ្នា ហើយ​ពួក​វា​ប្រែប្រួល​ទៅ​តាម​សីតុណ្ហភាព​ដែល​ខ្ពស់​បំផុត និង​ទៅ​តាម​សមត្ថភាព​ដុត​កម្ដៅ​​"
 "ទាំង​មូល ។"
 
-#: data/tools.xml:184
+#: data/tools.xml:183
 #, kde-format
-msgid "Extractor Hood"
-msgstr "គម្រប​ឧបករណ៍​យោបក"
+msgid "Fume Hood"
+msgstr ""
 
-#: data/tools.xml:185
-#, kde-format
+#: data/tools.xml:184
+#, fuzzy, kde-format
+#| msgid ""
+#| "Extractor hoods are used to filter out gases from chemical reactions. The "
+#| "air, once cleaned, is pumped outside of the building."
 msgid ""
-"Extractor hoods are used to filter out gases from chemical reactions. The "
-"air, once cleaned, is pumped outside of the building."
+"Fume hoods are used to filter out gases from chemical reactions. The air, "
+"once cleaned, is pumped outside of the building."
 msgstr ""
 "គម្រប​ឧបករណ៍​យោបក​នឹង​ត្រូវ​ប្រើ​ ដើម្បី​ត្រង​ឧស្ម័ន​ចេញ​ពី​ប្រតិកម្ម​គីមី ។  ខ្យល់​ នៅ​ពេល​បាន​សម្អាត​ហើយ​ នឹង​ត្រូវ​"
 "បាន​បូម​ចេញ​ទៅ​ក្រៅ​អគារ ។"
 
-#: data/tools.xml:189
+#: data/tools.xml:188
 #, kde-format
 msgid "Contact Thermometer"
 msgstr "ទែរម៉ូមែត្រ​កុង​តាក់​"
 
-#: data/tools.xml:190
+#: data/tools.xml:189
 #, kde-format
 msgid ""
 "Contact thermometers differ from regular thermometers in that they are "
@@ -1395,28 +1554,36 @@ msgstr ""
 "ឈាន​ដល់​កម្រិត​សីតុណ្ហភាព​ដែល​ចង់​បាន​ហើយ​ រមូរ​កម្ដៅ​នឹង​ត្រូវ​បិទ ប៉ុន្តែ​នៅ​ពេល​សីតុណ្ហភាព​ធ្លាក់​ចុះ​ រមូរ​កម្ដៅ​នឹង​"
 "ត្រូវ​បើក​ឡើង​វិញ ។"
 
-#: data/tools.xml:194
-#, kde-format
-msgid "Clamps"
+#: data/tools.xml:193
+#, fuzzy, kde-format
+#| msgid "Clamps"
+msgid "Clamp"
 msgstr "អង្គំ"
 
-#: data/tools.xml:195
+#: data/tools.xml:194
 #, kde-format
 msgid "Laboratory clamps make it easier to hold many kinds of tools."
 msgstr "ការ​ប្រើ​អង្គំ​នៅ​ក្នុង​ការ​ពិសោធន៍​ធ្វើ​ឲ្យ​វា​ងាយ​ស្រួល​នៅ​ក្នុង​ការ​ទប់​ឧបករណ៍​ជាច្រើន​ប្រភេទ ។"
 
-#: data/tools.xml:199
+#: data/tools.xml:198
 #, kde-format
 msgid "Indicator Paper"
 msgstr "ក្រដាស​ចង្អុល​ពណ៌"
 
-#: data/tools.xml:200
-#, kde-format
+#: data/tools.xml:199
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are multiple ways of measuring the pH value of a solution, one of "
+#| "which is to use indicator paper. Indicator paper changes color depending "
+#| "on the pH of the solution applied to it, and by comparing to a chart a "
+#| "fairly accurate measure of the solution's pH can be obtained. If a more "
+#| "accurate measure is needed, a glass electrode can be used, which works by "
+#| "measuring the conductivity of the solution."
 msgid ""
 "There are multiple ways of measuring the pH value of a solution, one of "
 "which is to use indicator paper. Indicator paper changes color depending on "
 "the pH of the solution applied to it, and by comparing to a chart a fairly "
-"accurate measure of the solution's pH can be obtained. If a more accurate "
+"accurate measure of the solution’s pH can be obtained. If a more accurate "
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
@@ -1426,24 +1593,24 @@ msgstr ""
 "ត្រូវ​ជាង​នេះ អេឡិចត្រូត​របស់​កែវ​អាច​​​ត្រូវ​បាន​ប្រើ​  ដែល​អាច​នឹង​ដំណើរ​ការ​ដោយ​ការ​វាស់​កម្រិត​ចម្លងនៃ​"
 "សូលុយស្យុង​ ។"
 
-#: data/tools.xml:204
+#: data/tools.xml:203
 #, kde-format
 msgid "Short-Stem Funnel"
 msgstr "ជីឡាវ​ដែល​មាន​មាត់​ខ្លី"
 
-#: data/tools.xml:205
+#: data/tools.xml:204
 #, kde-format
 msgid ""
 "A funnel can be used to fill a narrow-necked vessel with a liquid or fine "
 "powder."
 msgstr "ជីឡា​វនេះ​​អាច​ត្រូវបាន​ប្រើ​សម្រាប់​បំពេញ​ភាជន៍​ដែល​មាន​មាត់​តូច​ជាមួយ​នឹង​​វត្ថុ​រាវ​ ឬម្សៅម៉ដ្ឋ ។"
 
-#: data/tools.xml:209
+#: data/tools.xml:208
 #, kde-format
 msgid "Buret"
 msgstr "ប៊ុយរ៉ែត"
 
-#: data/tools.xml:210
+#: data/tools.xml:209
 #, kde-format
 msgid ""
 "Burets are used to titrate liquids. A buret is filled with a specific volume "
@@ -1458,12 +1625,12 @@ msgstr ""
 "ក្នុង​ឧបករណ៍​ផ្ទុក​នឹង​ត្រូវ​បាន​ធ្វើ​អត្រា​ ។ ប៊ុយរ៉ែត​​ដែល​មាន​គុណភាព​ខ្ពស់​មានចលនការបញ្ចេញ​ដែល​អាច​បំពេញ​ពួក​វា​"
 "ឡើង​វិញ​បាន​យ៉ាង​ងាយ​ដោយ​ប្រើ​កម្រិត​ជាក់​លាក់​សម្រាប់​ប៊ុយរ៉ែត​ដែល​បាន​ក្រិត​ខ្នាត ។"
 
-#: data/tools.xml:214
+#: data/tools.xml:213
 #, kde-format
 msgid "Beaker"
 msgstr "បែស៊ែ"
 
-#: data/tools.xml:215
+#: data/tools.xml:214
 #, kde-format
 msgid ""
 "Beakers can be used for many tasks. For instance, they are used to store "
@@ -1473,12 +1640,13 @@ msgstr ""
 "បែស៊ែ​អាច​ត្រូវ​​បាន​ប្រើ​សម្រាប់​ភារកិច្ច​ជា​ច្រើន ។  ឧទាហរណ៍ ពួក​វា​អាច​ត្រូវ​បាន​ប្រើ​ ដើម្បី​ផ្ទុក​សារធាតុ​គីមី "
 "និង​ដើម្បី​អនុវត្ត​ប្រតិកម្ម​គីមី ។ ជា​ញឹក​ញាប់​ពួក​វា​ក៏​ត្រូវ​បាន​ប្រើ​សម្រាប់​ការ​ធ្វើ​អត្រាកម្ម​​ផង​ដែរ ។"
 
-#: data/tools.xml:219
-#, kde-format
-msgid "DSC (Differential Scanning Calorimeter)"
+#: data/tools.xml:218
+#, fuzzy, kde-format
+#| msgid "DSC (Differential Scanning Calorimeter)"
+msgid "Differential Scanning Calorimeter (DSC)"
 msgstr "DSC (កាឡូរីម៉ែត្រ​ស្គែន​ឌីផេរ៉ង់ស្យែល)"
 
-#: data/tools.xml:220
+#: data/tools.xml:219
 #, kde-format
 msgid ""
 "A DSC measures the heat flow volume of a compound. This value is very "
@@ -1488,22 +1656,59 @@ msgstr ""
 "A DSC ​វាស់​កម្រិត​លំហូរ​កម្ដៅ​​នៃ​សមាស​ធាតុ ។ តម្លៃ​នេះ​ជា​តម្លៃ​ជាក់​លាក់​​សម្រាប់​គ្រប់​ប្រភេទ​រូបធាតុ​ទាំង​អស់​ "
 "ហេតុ​ដូច្នេះ​ហើយ​ DSC ​អាច​នឹង​ត្រូវ​បាន​ប្រើ​ ដើម្បី​បញ្ជាក់​សារ​ធាតុ​គីមី​ ឬ​ដើម្បី​ពិពណ៌នា​អំពី​ពួក​វា ។​"
 
-#: data/tools.xml:224
+#: data/tools.xml:223
 #, kde-format
 msgid "Dewar Vessel"
 msgstr "ភាជន៍ Dewar"
 
-#: data/tools.xml:225
-#, kde-format
+#: data/tools.xml:224
+#, fuzzy, kde-format
+#| msgid ""
+#| "A Dewar vessel (or Dewar flask), named after the physicist Sir James "
+#| "Dewar (1842-1923), is a double-walled vacuum flask, designed to provide "
+#| "good thermal insulation. As such, they are useful for keeping liquids "
+#| "cool or warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgid ""
 "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar "
-"(1842-1923), is a double-walled vacuum flask, designed to provide good "
+"(1842–1923), is a double-walled vacuum flask, designed to provide good "
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
 "ភាជន៍​ Dewar  (ឬ​កែវ​ Dewar ) ត្រូវ​បាន​ដាក់​ឈ្មោះ​តាម​រូប​វិទូ​គឺ​លោក​ James Dewar (១៨៤២-១៩២៣) គឺ​"
 "ជា​កែវ​ពីរ​ជាន់​ រចនា​ឡើង​ដើម្បី​ផ្ដល់​នូវ​អ៊ីសូឡង់​​កម្ដៅ​ដែល​ល្អ​ ។  ទន្ទឹម​នេះ​ផង​ដែរ ពួក​វា​មាន​ប្រយោជន៍​ណាស់​"
 "សម្រាប់​រក្សា​វត្ថុរាវ​ឲ្យ​ត្រជាក់ ឬ​ក្ដៅ​ ។  គំរូ​ដ៏​ល្បី​ល្បាយ​មួយ​ទៀត​របស់​ភាជន៍​ Dewar ​គឺ​កែវ​ពិសោធន៍​ទែរម៉ូស ។"
+
+#: data/tools.xml:228
+#, kde-format
+msgid "High-Performance Liquid Chromatography (HPLC)"
+msgstr ""
+
+#: data/tools.xml:229
+#, kde-format
+msgid ""
+"HPLC is used to separate, identify, and measure the components of a liquid "
+"mixture. A sample dissolved in a solvent is pumped through a tightly packed "
+"column under high pressure. Because different substances interact "
+"differently with the column material, they move through it at different "
+"speeds and exit separately. This makes HPLC useful for analyzing complex "
+"mixtures and checking purity in chemistry, biology, and pharmaceuticals."
+msgstr ""
+
+#: data/tools.xml:233
+#, kde-format
+msgid "Evaporating Dish"
+msgstr ""
+
+#: data/tools.xml:234
+#, kde-format
+msgid ""
+"An evaporating dish is a small heat-resistant dish made from fired clay, "
+"used in the lab to heat, evaporate, dry, or collect substances. Because it "
+"tolerates high temperatures well, it can be placed directly over a flame or "
+"on a heating plate. Evaporating dishes are commonly used for evaporating "
+"solvents, drying precipitates, or carrying out small-scale heating "
+"experiments."
+msgstr ""
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
@@ -9215,6 +9420,9 @@ msgstr "បម្លែង​ពី ៖"
 #, kde-format
 msgid "Convert to:"
 msgstr "បម្លែង​​ទៅ​ជា ៖"
+
+#~ msgid "Extractor Hood"
+#~ msgstr "គម្រប​ឧបករណ៍​យោបក"
 
 #~ msgid "Alkaline"
 #~ msgstr "អាល់កាឡាំង"
