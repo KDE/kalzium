@@ -12,13 +12,13 @@
 # Renan Cakirerk, 2010.
 # obsoleteman <tulliana@gmail.com>, 2007-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-05-02 19:54+0300\n"
+"PO-Revision-Date: 2026-06-23 22:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,14 +26,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"Halil Erensu, Engin ÇAĞATAY, Ayşe GENÇ, Muhammet KARA, Renan Çakırerk, H. "
-"İbrahim Güngör, Emir SARI"
+"Halil ERENSU, Engin ÇAĞATAY, Ayşe GENÇ, Muhammet KARA, Renan ÇAKIRERK, H. "
+"İbrahim GÜNGÖR, Emir SARI"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -65,7 +65,7 @@ msgstr "Belirtilen dosyaya kaydedilemiyor."
 #: data/knowledge.xml:4 src/kalziumgradienttype.cpp:437
 #, kde-format
 msgid "State of matter"
-msgstr "Maddenin hali"
+msgstr "Maddenin Durumu"
 
 #: data/knowledge.xml:5
 #, kde-format
@@ -195,7 +195,7 @@ msgstr "Doğruluk"
 #: data/knowledge.xml:47
 #, kde-format
 msgid "Consisting of accidental and systematic errors."
-msgstr "Tesadüfi ve sistematik hatalardan oluşur."
+msgstr "Tesadüf eseri ve sistematik hatalardan oluşur."
 
 #: data/knowledge.xml:50
 #, kde-format
@@ -281,7 +281,7 @@ msgstr "Uzayda hacim kaplayan ve kütlesi olan her şey."
 #: data/knowledge.xml:74
 #, kde-format
 msgid "Phase"
-msgstr "Faz"
+msgstr "Evre"
 
 #: data/knowledge.xml:75
 #, kde-format
@@ -296,15 +296,15 @@ msgstr ""
 #: data/knowledge.xml:78
 #, kde-format
 msgid "Accuracy and precision"
-msgstr "Doğruluk ve kesinlik"
+msgstr "Doğruluk ve Kesinlik"
 
 #: data/knowledge.xml:79
 #, kde-format
 msgid ""
 "Expressed through standard deviation: Values given over accidental errors."
 msgstr ""
-"Standart sapma ile ifade edilir: Tesadüfi oluşan hatalar üzerinden verilen "
-"değerler."
+"Standart sapma ile ifade edilir: Tesadüf eseri oluşan hatalar üzerinden "
+"verilen değerler."
 
 #: data/knowledge.xml:82
 #, kde-format
@@ -314,7 +314,7 @@ msgstr "Doğruluk"
 #: data/knowledge.xml:83
 #, kde-format
 msgid "Values given over accidental errors."
-msgstr "Tesadüfi oluşan hatalar üzerinden verilen değerler."
+msgstr "Tesadüf eseri oluşan hatalar üzerinden verilen değerler."
 
 #: data/knowledge.xml:86
 #, kde-format
@@ -329,7 +329,7 @@ msgstr "Uluslararası semboller kullanan ölçüm birimi."
 #: data/knowledge.xml:90
 #, kde-format
 msgid "Significant figures"
-msgstr "Önemli rakamlar"
+msgstr "Önemli Rakamlar"
 
 #: data/knowledge.xml:91
 #, kde-format
@@ -339,7 +339,7 @@ msgstr "Bir sayıda anlamlı olan basamak sayısı."
 #: data/knowledge.xml:94
 #, kde-format
 msgid "Standard deviation"
-msgstr "Standart sapma"
+msgstr "Standart Sapma"
 
 #: data/knowledge.xml:95
 #, kde-format
@@ -369,7 +369,7 @@ msgstr "Belirli bir oranda birden fazla elementten oluşan saf madde."
 #: data/knowledge.xml:106
 #, kde-format
 msgid "Alpha rays"
-msgstr "Alfa ışınları"
+msgstr "Alfa Işınları"
 
 #: data/knowledge.xml:107
 #, kde-format
@@ -432,7 +432,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:416
 #, kde-format
 msgid "Atomic Mass"
-msgstr "Atom kütlesi"
+msgstr "Atom Kütlesi"
 
 #: data/knowledge.xml:128
 #, kde-format
@@ -500,7 +500,7 @@ msgid ""
 msgstr ""
 "Bir nesnenin manyetik momenti, nesnenin deneyimlediği manyetik alandaki "
 "hizalama torkunu alan vektörünün kendisiyle ilişkilendiren bir vektördür. "
-"µ[sub]n[/sub]=(5,0507866 ± 0,0000017) 10[sup]-27[/sup] JT[sup]-1[/sup] "
+"µ[sub]n[/sub]=(5,0507866 ± 0,0000017) 10[sup]−27[/sup] JT[sup]−1[/sup] "
 "nükleer magneton birimi türünden ölçülür"
 
 #: data/knowledge.xml:156
@@ -520,10 +520,10 @@ msgid ""
 msgstr ""
 "Bozunma kipi, bir parçacığın bozunmasının belirli bir yolunu tanımlar. "
 "Radyoaktif bozunma (nüklidlerin bozunması) için bozunma kipleri şunlardır:"
-"[br] -> alfa bozunması (bir Helyum-4 çekirdeğinin emisyonu)[br] -> ß[sup]-[/"
-"sup] bozunması (bir elektronun bozunma emisyonu)[br] -> ß[sup]+[/sup] "
-"bozunması (bir pozitronun emisyonu)[br] -> elektron yakalaması (EC)[br] -> "
-"proton emisyonu[br] -> spontane fisyon[br] Tipik olarak belirli bir nüklid "
+"[br] → alfa bozunması (bir Helyum-4 çekirdeğinin emisyonu)[br] → ß[sup]−[/"
+"sup] bozunması (bir elektronun bozunma emisyonu)[br] → ß[sup]+[/sup] "
+"bozunması (bir pozitronun emisyonu)[br] → elektron yakalaması (EC)[br] → "
+"proton emisyonu[br] → spontane fisyon[br] Tipik olarak belirli bir nüklid "
 "için bir bozunum kipi baskındır."
 
 #: data/knowledge.xml:163
@@ -600,13 +600,13 @@ msgstr ""
 "olduğu, ekstra enerjisini serbest bırakmadan önce dönüşte bir değişiklik "
 "gerektirmesinin neden olduğu, bir atomun yarı kararlı veya izomerik halidir. "
 "İki izomerik geçiş yoluyla nüklidin daha düşük enerji durumlarına bozunurlar:"
-"[br] -> γ- emisyonu (bir yüksek enerjili protonun emisyonu)[br] -> içsel "
+"[br] → γ− emisyonu (bir yüksek enerjili protonun emisyonu)[br] → içsel "
 "dönüşüm (enerji, atomu iyonize etmek için kullanılır)[br] Bunu, sözcüğün "
 "daha yaygın kullanımı olan kimyasal izomer tanımıyla karşılaştırın. Ayrıca, "
 "farkın çekirdekteki nötron sayısı olduğu izotopun anlamı ile de "
-"çelişmektedir. Belirli bir atomun yarı kararlı izomerleri genellikle \"m\" "
-"ile gösterilir (veya birden fazla izomer içeren atomlar söz konusu olduğunda "
-"2m, 3m vb.). Bu tanımlama genellikle atom sembolü ve atom numarasından sonra "
+"çelişmektedir. Belirli bir atomun yarı kararlı izomerleri genellikle “m” ile "
+"gösterilir (veya birden fazla izomer içeren atomlar söz konusu olduğunda 2m, "
+"3m vb.). Bu tanımlama genellikle atom sembolü ve atom numarasından sonra "
 "yerleştirilir (örneğin, Co-58m), fakat bazen de önce bir üst simge olarak "
 "yerleştirilir (örneğin, [sup]m[/sup]Co-58 veya [sup]58m[ /sup]Co)."
 
@@ -631,8 +631,8 @@ msgid ""
 "0.00000049)e-19 C\n"
 "\t\t"
 msgstr ""
-"Elektron, m[sub]e[/sub]=(9,1093897 ± 0,0000054)e-31 kg kütlesine ve [i]e[/"
-"i]=(1,60217733 ± 0,00000049)e-19 C negatif yüküne sahip atom altı bir "
+"Elektron, m[sub]e[/sub]=(9,1093897 ± 0,0000054)e−31 kg kütlesine ve [i]e[/"
+"i]=(1,60217733 ± 0,00000049)e−19 C negatif yüküne sahip atom altı bir "
 "parçacıktır.\n"
 "\t\t"
 
@@ -643,9 +643,9 @@ msgid ""
 "0.0000010) 10[sup]-27[/sup] kg and a positive charge of [i]e[/i]=(1.60217733 "
 "± 0.00000049) 10[sup]-19[/sup] C which occurs in the nucleus of an atom."
 msgstr ""
-"Proton, m[sub]e[/sub]=(1,6726231 ± 0,0000010) 10[sup]-27[/sup] kg kütlesine "
+"Proton, m[sub]e[/sub]=(1,6726231 ± 0,0000010) 10[sup]−27[/sup] kg kütlesine "
 "ve [i]e[/i]= pozitif yüküne sahip atom altı bir parçacıktır. (1,60217733 ± "
-"0,00000049) 10[sup]-19[/sup] C, bir atomun çekirdeğinde meydana gelir."
+"0,00000049) 10[sup]−19[/sup] C, bir atomun çekirdeğinde meydana gelir."
 
 #: data/knowledge.xml:229
 #, kde-format
@@ -654,7 +654,7 @@ msgid ""
 "± 0.0000010) 10[sup]-27[/sup] kg which occurs in the nucleus of an atom."
 msgstr ""
 "Nötron, bir atomun çekirdeğinde oluşan m[sub]e[/sub]=(1,6749286 ± 0,0000010) "
-"10[sup]-27[/sup] kg kütlesine sahip atom altı bir parçacıktır."
+"10[sup]−27[/sup] kg kütlesine sahip atom altı bir parçacıktır."
 
 #: data/knowledge.xml:237
 #, kde-format
@@ -689,9 +689,9 @@ msgid ""
 "electrons in its shell than the atom, a negative ion has more electrons. "
 "Therefore, a positive ion has a smaller radius than its atom and vice versa."
 msgstr ""
-"İyonik Yarıçap, iyon olarak bilinen yüklü bir atomun yarıçapıdır. İyon "
+"İyon Yarıçapı, iyon olarak bilinen yüklü bir atomun yarıçapıdır. İyon "
 "pozitif veya negatif yüke sahip olabilir. Gösterilen yarıçapa sahip iyonun "
-"yükü de Kalzium'da görüntülenir. Pozitif bir iyonun kabuğunda atomdan daha "
+"yükü de Kalzium’da görüntülenir. Pozitif bir iyonun kabuğunda atomdan daha "
 "az elektron bulunur, negatif bir iyonun ise daha fazla elektronu vardır. Bu "
 "nedenle pozitif iyonun yarıçapı atomundan daha küçüktür ve bunun tersi de "
 "geçerlidir."
@@ -706,7 +706,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:441 src/settings/settings_gradients.ui:60
 #, kde-format
 msgid "Covalent Radius"
-msgstr "Kovalent yarıçap"
+msgstr "Kovalent Yarıçap"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
@@ -715,7 +715,7 @@ msgstr "Kovalent yarıçap"
 #: src/plotsetupwidget.ui:113 src/plotsetupwidget.ui:436
 #, kde-format
 msgid "Atomic Radius"
-msgstr "Atom yarıçapı"
+msgstr "Atom Yarıçapı"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
@@ -762,17 +762,7 @@ msgid "Watchglass"
 msgstr "Saat Camı"
 
 #: data/tools.xml:6
-#, fuzzy, kde-format
-#| msgid ""
-#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
-#| "used in various experimental techniques. The border is bent upwards to "
-#| "allow the watchglass to hold small amounts of liquids in order to let "
-#| "them evaporate. The evaporation can be accelerated by heating the "
-#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
-#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
-#| "matter or drying them in an airing cupboard. The term watchglass is "
-#| "derived from the former pocket watches' protection glass which was often "
-#| "domed."
+#, kde-format
 msgid ""
 "Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
@@ -783,7 +773,7 @@ msgid ""
 "airing cupboard. The term watchglass is derived from the former pocket "
 "watches’ protection glass which was often domed."
 msgstr ""
-"Saat camları, çeşitli deneysel tekniklerde kullanılan, çapı 5-10 cm "
+"Saat camları, çeşitli deneysel tekniklerde kullanılan, çapı 5–10 cm "
 "civarında olan yuvarlak cam panellerdir. Sınır, saat camının az miktarda "
 "sıvıyı tutmasını ve bunların buharlaşmasını sağlamak amacıyla yukarı doğru "
 "bükülmüştür. Buharlaşma, saat camının bir Bunsen beki ile ısıtılmasıyla "
@@ -799,20 +789,7 @@ msgid "Dehydrator"
 msgstr "Kurutucu"
 
 #: data/tools.xml:11
-#, fuzzy, kde-format
-#| msgid ""
-#| "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
-#| "which serves to dry chemical matters; that is, to remove water or liquid "
-#| "from a sample.\n"
-#| "\t\t\tIn principle it is a glass bowl with cap that has a planar "
-#| "grinding, so that the bowl is air-tight. The dehydrator's lower part is "
-#| "ordinarily filled with a drying agent such as calcium chloride, silica "
-#| "gel, phosphoric anhydride or sulphuric acid. The sample to be dried is "
-#| "placed on a diaphanous cartridge of plastic or ceramic above the drying "
-#| "agent.\n"
-#| "\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies "
-#| "its environment by absorbing water vapor. The dry atmosphere then takes "
-#| "up water from the sample to be dried."
+#, kde-format
 msgid ""
 "A dehydrator is often made of glass and serves to dry chemical matters; that "
 "is, to remove water or liquid from a sample. It is a glass bowl with a cap "
@@ -824,16 +801,15 @@ msgid ""
 "dehumidifies its environment by absorbing water vapor. The dry atmosphere "
 "then takes up water from the sample."
 msgstr ""
-"Kurutucu, genellikle camdan yapılmış ve kimyasal maddelerin kurutulmasına "
-"yarayan bir laboratuvar aparatıdır; yani bir numuneden su veya sıvıyı "
-"çıkarmak için.\n"
-"\t\t\tPrensip olarak bu, düzlemsel öğütme özelliğine sahip kapaklı bir cam "
-"kasedir, böylece kase hava geçirmez. Kurutucunun alt kısmı normalde kalsiyum "
-"klorür, silika jel, fosforik anhidrit veya sülfürik asit gibi bir kurutma "
-"maddesi ile doldurulur. Kurutulacak numune, kurutma maddesinin üzerindeki "
-"saydam plastik veya seramik kartuşun üzerine yerleştirilir.\n"
-"\t\t\tKurutma maddesi higroskopiktir, yani su buharını emerek ortamın nemini "
-"alır. Kuru atmosfer daha sonra kurutulacak numuneden su alır."
+"Bir kurutucu genellikle camdan yapılır ve kimyasal maddelerin kurutulmasına "
+"yarar; yani bir numuneden su veya sıvının çıkarılması. Kâsenin hava geçirmez "
+"olması için düzlemsel öğütme özelliğine sahip kapaklı bir cam kâsedir. "
+"Kurutucunun alt kısmı normalde kalsiyum klorür, silika jel, fosforik "
+"anhidrit veya sülfürik asit gibi bir kurutma maddesi ile doldurulur. "
+"Kurutulacak numune, kurutma maddesinin üzerindeki saydam plastik veya "
+"seramik kartuşun üzerine yerleştirilir. Kurutma maddesi higroskopiktir, yani "
+"su buharını emerek ortamın nemini alır. Kuru atmosfer daha sonra numuneden "
+"suyu alır."
 
 #: data/tools.xml:15
 #, kde-format
@@ -857,15 +833,7 @@ msgid "Water Jet Pump"
 msgstr "Su Püskürtücü Pompa"
 
 #: data/tools.xml:23
-#, fuzzy, kde-format
-#| msgid ""
-#| "The water jet pump has two entry pipes and one exit, and consists, in "
-#| "principle, of two pipes one inside the other. At the water entry a water "
-#| "jet shoots under full pressure out of a nozzle into a slightly larger "
-#| "pipe. The water jet thereby carries away air or fluid from the second "
-#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
-#| "and thus it is an application of the hydrodynamic paradox (objects close "
-#| "to drifting fluids are aspirated instead of being pushed away)."
+#, kde-format
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
@@ -879,10 +847,11 @@ msgstr ""
 "Su püskürtücü pompanın iki giriş borusu ve bir çıkışı vardır ve prensip "
 "olarak iç içe iki borudan oluşur. Su girişinde, bir su jeti tam basınç "
 "altında bir ağızlıktan biraz daha büyük bir boruya doğru fışkırır. Su jeti "
-"böylece havayı veya sıvıyı ikinci girişten uzaklaştırır. <br> Bu, sürüklenen "
-"bir sıvıdaki negatif basınçtan kaynaklanır ve dolayısıyla hidrodinamik "
-"paradoksun bir uygulamasıdır (sürüklenen sıvıya yakın nesneler itilmek "
-"yerine emilir)."
+"böylece havayı veya sıvıyı ikinci girişten uzaklaştırır.\n"
+"\t\t<br>\n"
+"\t\tBu, sürüklenen bir sıvıdaki negatif basınçtan kaynaklanır ve dolayısıyla "
+"hidrodinamik paradoksun bir uygulamasıdır (sürüklenen sıvıya yakın nesneler "
+"itilmek yerine emilir)."
 
 #: data/tools.xml:27
 #, kde-format
@@ -890,12 +859,7 @@ msgid "Refractometer"
 msgstr "Refraktometre"
 
 #: data/tools.xml:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "With a refractometer the refractive index of optical media is determined. "
-#| "If the refractive index of a chemical is known it can be used after a "
-#| "synthesis to determine the sample's purity or to audit the synthesis' "
-#| "success."
+#, kde-format
 msgid ""
 "With a refractometer, the refractive index of optical media is determined. "
 "If the refractive index of a chemical is known, it can be used after a "
@@ -903,8 +867,9 @@ msgid ""
 "was successful."
 msgstr ""
 "Bir refraktometre ile optik ortamın kırılma indisi belirlenir. Bir "
-"kimyasalın kırılma indisi biliniyorsa sentezden sonra numunenin saflığını "
-"belirlemek veya sentezin başarısını denetlemek için kullanılabilir."
+"kimyasalın kırılma indisi biliniyorsa sentez sonrasında numunenin saflığını "
+"belirlemek veya sentezin başarılı olup olmadığını denetlemek için "
+"kullanılabilir."
 
 #: data/tools.xml:32
 #, kde-format
@@ -912,45 +877,32 @@ msgid "Mortar"
 msgstr "Havan"
 
 #: data/tools.xml:33
-#, fuzzy, kde-format
-#| msgid ""
-#| "A mortar is used for manually grinding solids. It can also be used to "
-#| "homogenize a mixture of powders by grinding. A club-shaped tool known as "
-#| "a pestle is used with the mortar for grinding."
+#, kde-format
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
 "homogenize a mixture of powders by grinding. A club-shaped tool called "
 "“pestle” is used to crush solids into fine powder."
 msgstr ""
 "Katıların elle öğütülmesi için bir havan kullanılır. Ayrıca bir toz "
-"karışımının öğütülerek homojenleştirilmesi için de kullanılabilir. Havanla "
-"birlikte taşlama için havan tokmağı olarak bilinen sopa şeklinde bir alet "
-"kullanılır."
+"karışımının öğütülerek homojenleştirilmesi için de kullanılabilir. Katıları "
+"ince toz haline getirmek için “havan tokmağı” adı verilen sopa şeklinde bir "
+"alet kullanılır."
 
 #: data/tools.xml:37
-#, fuzzy, kde-format
-#| msgid "Heating Coil"
+#, kde-format
 msgid "Heating Plate"
-msgstr "Isıtma Bobini"
+msgstr "Isıtma Plakası"
 
 #: data/tools.xml:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "Heating coils are used to heat flasks and other containers. Multiple "
-#| "heating coils can be connected with a thermometer so that the heat will "
-#| "not exceed a specified temperature. It is possible to use a magnetic "
-#| "field inside the heating coil to stir fluids with a magnetic stirrer. "
-#| "This will homogenize the fluid in terms of temperature and composition."
+#, kde-format
 msgid ""
 "Heating plates are used to heat flasks and other containers. Some can "
 "generate a magnetic field in order to stir fluids with a magnetic stirrer. "
 "This homogenizes the fluid in terms of temperature and composition."
 msgstr ""
-"Isıtma bobinleri kapları ve diğer kapsayıcıları ısıtmak için kullanılır. "
-"Isının belirli bir sıcaklığı aşmaması için birden çok ısıtma bobini bir "
-"termometreye bağlanabilir. Sıvıları manyetik karıştırıcıyla karıştırmak için "
-"ısıtma bobininin içindeki manyetik alanı kullanmak olanaklıdır. Bu, sıvıyı "
-"sıcaklık ve bileşim açısından homojenleştirecektir."
+"Isıtma plakaları, şişeleri ve diğer kapları ısıtmak için kullanılır. "
+"Bazıları sıvıları manyetik karıştırıcıyla karıştırmak için manyetik alan "
+"oluşturabilir. Bu, sıvıyı sıcaklık ve bileşim açısından homojenleştirir."
 
 #: data/tools.xml:42
 #, kde-format
@@ -958,18 +910,14 @@ msgid "Cork Ring"
 msgstr "Mantar Halka"
 
 #: data/tools.xml:43
-#, fuzzy, kde-format
-#| msgid ""
-#| "Large containers like round-bottomed flasks are placed on rings made of "
-#| "cork, a special soft lightweight wood with good insulating qualities to "
-#| "protect fragile instruments."
+#, kde-format
 msgid ""
 "Large containers like round-bottom flasks are placed on rings made of cork, "
 "a special soft and lightweight bark with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
-"Yuvarlak tabanlı kaplar gibi büyük kaplar, hassas aletleri korumak için iyi "
-"yalıtım özelliklerine sahip, özel, yumuşak ve hafif bir ahşap olan mantardan "
+"Yuvarlak dipli şişeler gibi büyük kaplar, hassas aletleri korumak için iyi "
+"yalıtım özelliklerine sahip özel yumuşak ve hafif bir kabuk olan mantardan "
 "yapılmış halkaların üzerine yerleştirilir."
 
 #: data/tools.xml:47
@@ -1022,14 +970,7 @@ msgid "Vortexer"
 msgstr "Girdapçı"
 
 #: data/tools.xml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "A vortexer serves to homogenize reagents found in laboratories. The "
-#| "container containing liquid to be homogenized is put on a platform. The "
-#| "platform shakes by rotary agitation up to 3000RPM at which point a "
-#| "contact sensor is activated. In this way extremely small volumes of fluid "
-#| "can be homogenized quickly. It is the opposite of a centrifuge, used to "
-#| "separate fluids."
+#, kde-format
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
@@ -1038,12 +979,13 @@ msgid ""
 "homogenized quickly. It is the opposite of a centrifuge, which is used to "
 "separate fluids."
 msgstr ""
-"Bir girdapçı, laboratuvarlarda bulunan reaktifleri homojenleştirmeye yarar. "
-"Homojenize edilecek sıvıyı içeren kap bir platform üzerine konur. Platform, "
-"bir temas algılayıcısının etkinleştirildiği noktada 3000 RPM'ye kadar döner "
-"çalkalamayla sallanır. Bu şekilde son derece küçük hacimlerdeki sıvılar "
-"hızlı bir şekilde homojenize edilebilir. Sıvıları ayırmak için kullanılan "
-"santrifüjün tam tersidir."
+"Vorteks karıştırıcı (girdapçı), laboratuvarlarda bulunan reaktifleri "
+"homojenleştirmek için kullanılır. Homojenleştirilecek sıvıyı içeren kap bir "
+"platform üzerine yerleştirilir. Temas algılayıcısı etkinleştirildiğinde "
+"platform, dakikada 3000 devire (RPM) kadar ulaşabilen dairesel titreşim "
+"hareketi yapar. Bu sayede çok küçük hacimlerdeki sıvılar tez homojen hâle "
+"getirilebilir. Sıvıları ayırmak için kullanılan santrifüjün tersine, vorteks "
+"karıştırıcı sıvıları karıştırmak amacıyla kullanılır."
 
 #: data/tools.xml:67
 #, kde-format
@@ -1051,21 +993,16 @@ msgid "Wash Bottle"
 msgstr "Yıkama Şişesi"
 
 #: data/tools.xml:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "These bottles are used for many purposes. In most laboratories they are "
-#| "usually filled with water, salt, acid or other commonly used fluids. They "
-#| "make it easy to apply the fluid if a precisely measured amount is not "
-#| "needed."
+#, kde-format
 msgid ""
 "These bottles are used for many purposes. In most laboratories, they are "
 "usually filled with water, salt, acid, or other commonly used fluids. They "
 "make it easy to apply the fluid if a precisely measured amount is not needed."
 msgstr ""
-"Bu şişeler birçok amaç için kullanılmaktadır. Çoğu laboratuvarda bunlar "
-"genellikle su, tuz, asit veya yaygın olarak kullanılan diğer sıvılarla "
-"doldurulur. Kesin olarak ölçülen bir miktara gereksinim duyulmadığında "
-"sıvının uygulanmasını kolaylaştırırlar."
+"Bu şişeler birçok amaçla kullanılır. Çoğu laboratuvarda genellikle su, tuz "
+"çözeltisi, asit veya sık kullanılan diğer sıvılarla doldurulurlar. Hassas "
+"ölçülmüş bir miktar gerekmeyen durumlarda sıvının kolayca uygulanmasını "
+"sağlarlar."
 
 #: data/tools.xml:72
 #, kde-format
@@ -1095,22 +1032,18 @@ msgid "Reflux Condenser"
 msgstr "Geri Akış Yoğunlaştırıcısı"
 
 #: data/tools.xml:78
-#, fuzzy, kde-format
-#| msgid ""
-#| "A reflux condenser subjects fluid to a process where a gas produced by "
-#| "heating is collected on the reflux condenser. The fluid is cooled until "
-#| "it condenses and runs back into the original fluid. Usually it is put on "
-#| "a round-bottomed flask or several neck flasks."
+#, kde-format
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
 "condenses and runs back into the original fluid. Usually, it is put on a "
 "round-bottom flask or several neck flasks."
 msgstr ""
-"Bir geri akış yoğunlaştırıcısı, akışkanı, ısıtma yoluyla üretilen bir gazın "
-"geri akış yoğunlaştırıcısında toplandığı bir işleme tabi tutar. Sıvı, "
-"yoğunlaşıncaya ve özgün sıvıya geri dönene kadar soğutulur. Genellikle "
-"yuvarlak dipli veya birkaç boyunlu bir kaba konur."
+"Geri soğutucu (reflü kondansatörü), ısıtma sonucu oluşan gazın toplanıp "
+"yeniden sıvı hâle dönüştürülmesini sağlayan bir laboratuvar ekipmanıdır. "
+"Oluşan buhar, geri soğutucu içinde soğutularak yoğunlaştırılır ve tekrar "
+"başlangıçtaki sıvının içine geri akar. Genellikle yuvarlak dipli balonlara "
+"veya çok boyunlu balonlara bağlanarak kullanılır."
 
 #: data/tools.xml:82
 #, kde-format
@@ -1118,20 +1051,16 @@ msgid "Pipette Bulb"
 msgstr "Pipet Pompası"
 
 #: data/tools.xml:83
-#, fuzzy, kde-format
-#| msgid ""
-#| "A pipette bulb is used to fill pipettes. Squeezing then releasing the "
-#| "bulb produces a negative pressure, causing fluid to flow into the "
-#| "pipette; squeezing the bulb then causes the fluid to flow out of the "
-#| "pipette."
+#, kde-format
 msgid ""
 "A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb again causes the fluid to flow out of the pipette."
 msgstr ""
-"Pipetleri doldurmak için pipet pompası kullanılır. Pompayı sıkıp sonra "
-"bırakmak negatif bir basınç oluşturarak sıvının pipete akmasına neden olur; "
-"pompayı yalnızca sıkmak ise sıvının pipetten dışarı akmasını sağlar."
+"Puar (pipet doldurma lastiği), pipetleri sıvıyla doldurmak için kullanılır. "
+"Puarın sıkılıp ardından bırakılması negatif basınç oluşturur ve bu sayede "
+"sıvı pipetin içine çekilir. Puar tekrar sıkıldığında ise sıvı pipetten "
+"dışarı çıkarılır."
 
 #: data/tools.xml:87
 #, kde-format
@@ -1139,19 +1068,17 @@ msgid "Test Tube"
 msgstr "Test Tüpü"
 
 #: data/tools.xml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "In a test tube small reactions or experiments are performed. There are "
-#| "many different types of tubes. For example some have connectors, some are "
-#| "etched for measurements, some are hardened for durability."
+#, kde-format
 msgid ""
 "In a test tube, small reactions or experiments can be performed. There are "
 "many different types of tubes. For example, some have connectors, some have "
 "etched markings for measurements, and some are hardened for durability."
 msgstr ""
-"Bir test tüpünde küçük tepkimeler veya deneyler gerçekleştirilir. Birçok "
-"farklı türde tüp vardır. Örneğin bazılarının konektörleri vardır, bazıları "
-"ölçümler için kazınmıştır, bazıları ise dayanıklılık için sertleştirilmiştir."
+"Deney tüpü içinde küçük ölçekli reaksiyonlar veya deneyler "
+"gerçekleştirilebilir. Deney tüplerinin birçok farklı türü vardır. Örneğin "
+"bazıları bağlantı çıkışlarına sahiptir, bazıları ölçüm yapabilmek için "
+"derecelendirilmiştir ve bazıları ise dayanıklılığı artırmak amacıyla "
+"sertleştirilmiş malzemeden üretilmiştir."
 
 #: data/tools.xml:92
 #, kde-format
@@ -1159,43 +1086,33 @@ msgid "Protective Goggles"
 msgstr "Koruyucu Gözlük"
 
 #: data/tools.xml:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Most laboratories insist that protective goggles are worn. Without them, "
-#| "it is too risky to work with most chemicals. Usually, the lens is a "
-#| "special type of plastic that affords protection from both mechanical "
-#| "impacts, and acid and base chemicals."
+#, kde-format
 msgid ""
 "Most laboratories insist that protective goggles are worn. Without them, it "
 "would be too risky to work with most chemicals. Usually, the lens is a "
 "special type of plastic that provides protection from mechanical impacts and "
 "chemical substances."
 msgstr ""
-"Çoğu laboratuvar, koruyucu gözlük takılması konusunda ısrarcıdır. Onlar "
-"olmadan pek çok kimyasalla çalışmak çok risklidir. Genellikle mercek, hem "
-"mekanik darbelere hem de asit ve baz kimyasallara karşı koruma sağlayan özel "
-"bir plastik türünden yapılır."
+"Çoğu laboratuvar koruyucu gözlük takılmasını zorunlu kılar. Bunlar olmadan "
+"birçok kimyasal ile çalışmak çok riskli olur. Genellikle lens kısmı, mekanik "
+"darbelere ve kimyasal maddelere karşı koruma sağlayan özel bir plastik "
+"türünden yapılır."
 
 #: data/tools.xml:97
-#, fuzzy, kde-format
-#| msgid "Round-Bottomed Flask"
+#, kde-format
 msgid "Round-Bottom Flask"
-msgstr "Yuvarlak Tabanlı Kap"
+msgstr "Yuvarlak Dipli Balon"
 
 #: data/tools.xml:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "A round-bottomed flask is used for many reactions. Some can be connected "
-#| "to other items, as the frosting on the neck shows. With cork rings they "
-#| "can be placed on a table."
+#, kde-format
 msgid ""
 "A round-bottom flask is used for many reactions. Some can be connected to "
 "other items, as the frosting on the neck shows. With cork rings, they can be "
 "placed on a table."
 msgstr ""
-"Birçok tepkime için yuvarlak tabanlı bir kap kullanılır. Bazıları, boyundaki "
-"buzlanmanın izin verdiği üzere, diğer ögelere takılabilirler. Mantar "
-"halkaları varsa masaya yerleştirilebilirler."
+"Yuvarlak dipli balon birçok reaksiyon için kullanılır. Bazıları, boynundaki "
+"mat (zımparalanmış) yüzeyin gösterdiği gibi diğer ekipmanlara bağlanabilir. "
+"Mantar halkalarla birlikte kullanılarak masa üzerine yerleştirilebilir."
 
 #: data/tools.xml:102
 #, kde-format
@@ -1217,19 +1134,15 @@ msgid "Drying Tube"
 msgstr "Kurutma Tüpü"
 
 #: data/tools.xml:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Some reactions need to be kept free of water: to make this possible a "
-#| "drying tube can be used. Drying tubes contains a hygroscopic chemical to "
-#| "absorb water from the atmosphere."
+#, kde-format
 msgid ""
 "Some reactions need to be kept free of water: to make this possible, a "
 "drying tube can be used. Drying tubes contain a hygroscopic chemical that "
 "absorbs water from the atmosphere."
 msgstr ""
-"Bazı tepkimelerin sudan uzak tutulması gerekir; bunu olanaklı kılmak için "
-"bir kurutma tüpü kullanılabilir. Kurutma tüpleri, atmosferden suyu emen "
-"higroskopik bir kimyasal içerir."
+"Bazı reaksiyonların sudan uzak tutulması gerekir; bunu sağlamak için kurutma "
+"tüpü kullanılabilir. Kurutma tüpleri, atmosferdeki suyu emen higroskopik bir "
+"kimyasal içerir."
 
 #: data/tools.xml:112
 #, kde-format
@@ -1237,22 +1150,17 @@ msgid "Test Tube Holder"
 msgstr "Test Tüpü Tutucusu"
 
 #: data/tools.xml:113
-#, fuzzy, kde-format
-#| msgid ""
-#| "Test tube holders make it easier to hold test tubes. By using a holder, "
-#| "there is a safe distance between ones hand and the test tube when the "
-#| "tube is hot. Typically, test tube holders are used to hold test tubes "
-#| "over open flames."
+#, kde-format
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
 "there is a safe distance between one’s hand and the test tube, preventing "
 "injuries like burns or chemical exposure. Typically, test tube holders are "
 "used to hold test tubes over open flames."
 msgstr ""
-"Test tüpü tutucuları, test tüplerini tutmayı kolaylaştırır. Bir tutucu "
-"kullanarak, tüp sıcakken el ile test tüpü arasında güvenli bir uzaklık "
-"oluşturulur. Tipik olarak test tüpü tutucuları, test tüplerini açık alev "
-"üzerinde tutmak için kullanılır."
+"Deney tüpü tutucuları, deney tüplerini tutmayı kolaylaştırır. Bir tutucu "
+"kullanıldığında el ile deney tüpü arasında güvenli bir uzaklık oluşur ve "
+"yanık ya da kimyasala maruz kalma gibi yaralanmalar önlenir. Genellikle "
+"deney tüplerini açık alev üzerinde tutmak için kullanılır."
 
 #: data/tools.xml:117
 #, kde-format
@@ -1260,20 +1168,15 @@ msgid "Measuring Cylinder"
 msgstr "Ölçülü Silindir"
 
 #: data/tools.xml:118
-#, fuzzy, kde-format
-#| msgid ""
-#| "A measuring cylinder can be used to measure amounts of liquids relatively "
-#| "precisely. Furthermore, the cylinder allows particulate matter to sink: "
-#| "following this, the particulates can be separated from the fluid by "
-#| "decanting."
+#, kde-format
 msgid ""
 "A measuring cylinder can be used to measure amounts of liquids. Due to its "
 "height and small diameter, it is also effective at separating solids "
 "suspended in liquid matter by decanting."
 msgstr ""
-"Sıvı miktarlarını nispeten hassas bir şekilde ölçmek için bir ölçülü "
-"silindir kullanılabilir. Ayrıca silindir, parçacıklı maddenin batmasına izin "
-"verir: Bunu takiben parçacıklar, boşaltma yoluyla sıvıdan ayrılabilir."
+"Ölçülü silindir, sıvı miktarlarını ölçmek için kullanılabilir. Yüksek ve dar "
+"çaplı yapısı sayesinde, sıvı içinde askıda bulunan katıların dekantasyon "
+"yoluyla ayrılmasında da etkilidir."
 
 #: data/tools.xml:122
 #, kde-format
@@ -1330,13 +1233,7 @@ msgid "Pipette"
 msgstr "Pipet"
 
 #: data/tools.xml:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pipettes are used to introduce small quantities of liquids in "
-#| "laboratories. A pipette has a volume scale and, as a rule, pipette bulbs "
-#| "are used as droppers for liquids. Both sorts of pipettes are calibrated "
-#| "for fluids with a temperature of 20°C and for time of outflow (signified "
-#| "by \"Ex.\"). If needed, times of outflow are indicated on the pipettes."
+#, kde-format
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
@@ -1344,11 +1241,11 @@ msgid ""
 "a temperature of 20 °C and for time of outflow (signified by “Ex.”). If "
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
-"Pipetler laboratuvarlara küçük miktarlarda sıvı vermek için kullanılır. "
-"Pipetin bir hacim ölçeği vardır ve kural olarak pipet ampulleri sıvılar için "
-"damlalık olarak kullanılır. Her iki pipet türü de sıcaklığı 20°C olan "
-"sıvılar ve çıkış süresi (\"EX\" ile gösterilir) için kalibre edilmiştir. "
-"Gerektiğinde pipetlerin üzerinde çıkış süreleri belirtilir."
+"Pipetler, laboratuvarlarda küçük miktarlarda sıvı aktarmak için kullanılır. "
+"Pipetler bir hacim ölçeğine sahiptir ve genellikle sıvı damlatmak için puar "
+"kullanılır. Her iki pipet türü de 20 °C sıcaklıktaki sıvılar ve “Ex.” ile "
+"belirtilen boşalma süresi için kalibre edilmiştir. Gerekirse boşalma "
+"süreleri pipetlerin üzerinde belirtilir."
 
 #: data/tools.xml:142
 #, kde-format
@@ -1356,23 +1253,7 @@ msgid "Erlenmeyer Flask"
 msgstr "Erlenmeyer Kabı"
 
 #: data/tools.xml:148
-#, fuzzy, kde-format
-#| msgid ""
-#| "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), "
-#| "is different to a beaker in that it comes with an inverted conical base "
-#| "and a cylindrical neck. There are different types of Erlenmeyer flasks "
-#| "for laboratory applications: the narrow neck and wide neck forms. "
-#| "Depending on the application the flask may have precision grinding to "
-#| "allow good connection to other containers.\n"
-#| "\t\t\t<br>\n"
-#| "\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
-#| "boiling or during reactions which agitate the contents.\n"
-#| "\t\t\t<br>\n"
-#| "\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
-#| "reactions by stirring or shaking, for example. The Erlenmeyer flask is "
-#| "particularly suited for a magnetic stirrer, since it can be placed "
-#| "directly on the stirring platform. A round-bottomed flask, by contrast, "
-#| "must be placed on a cork ring on the stirring platform.\n"
+#, kde-format
 msgid ""
 "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825–1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
@@ -1390,22 +1271,21 @@ msgid ""
 "platform. A round-bottom flask, by contrast, must be placed on a cork ring "
 "on the stirring platform.\n"
 msgstr ""
-"Adını kimyager Emil Erlenmeyer'den (1825-1909) alan bir Erlenmeyer kabı, "
-"ters konik bir tabana ve silindirik bir boyuna sahip olması nedeniyle bir "
-"beherden farklıdır. Laboratuvar uygulamaları için farklı türde Erlenmeyer "
-"kapları vardır: Dar boyunlu ve geniş boyunlu formlardan oluşurlar. "
-"Uygulamaya bağlı olarak kap, diğer kaplara iyi bağlantı sağlamak için hassas "
-"öğütme özelliğine sahip olabilir.\n"
+"Erlenmeyer balonu, kimyager Emil Erlenmeyer’in (1825–1909) adını taşıyan, "
+"beherden farklı olarak ters konik bir tabana ve silindirik bir boyna sahip "
+"olan bir laboratuvar kabıdır. Laboratuvar uygulamaları için farklı "
+"Erlenmeyer balonu türleri vardır: dar boyunlu ve geniş boyunlu olanlar. "
+"Uygulamaya bağlı olarak, diğer kaplarla iyi bağlantı sağlamak için hassas "
+"taşlanmış (zımparalanmış) ağız yapısına sahip olabilir.\n"
 "\t\t\t<br>\n"
 "\t\t\tDar boyun, özellikle kaynatma sırasında veya içindekileri çalkalayan "
 "tepkimeler sırasında sıvının kaçma riskini azaltır.\n"
 "\t\t\t<br>\n"
-"Bir Erlenmeyer kabı; örneğin, sıvıları karıştırmak veya karıştırma veya "
-"çalkalama yoluyla tepkimeleri hızlandırmak için kullanışlıdır. Erlenmeyer "
-"şişesi, doğrudan karıştırma platformunun üzerine yerleştirilebildiğinden "
-"manyetik karıştırıcı için özellikle uygundur. Bunun aksine, yuvarlak tabanlı "
-"bir tabın, karıştırma platformundaki mantar halkanın üzerine yerleştirilmesi "
-"gerekir.\n"
+"Erlenmeyer balonu, sıvıları karıştırmak veya örneğin çalkalama ya da "
+"manyetik karıştırma yoluyla reaksiyonları hızlandırmak için kullanışlıdır. "
+"Manyetik karıştırıcı için özellikle uygundur, çünkü doğrudan karıştırma "
+"platformu üzerine yerleştirilebilir. Buna karşılık yuvarlak dipli balon, "
+"karıştırma platformu üzerinde bir mantar halka üzerine yerleştirilmelidir.\n"
 
 #: data/tools.xml:153
 #, kde-format
@@ -1413,64 +1293,44 @@ msgid "Ultrasonic Bath"
 msgstr "Ultrasonlu Banyo"
 
 #: data/tools.xml:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "For some chemical reactions it is important that the solvent is gas free. "
-#| "To achieve this the reaction vessel is put for some time into a "
-#| "ultrasonic bath. Due to the high sound frequency, the vapor locks peel "
-#| "away and ascend. This procedure is called out-gassing."
+#, kde-format
 msgid ""
 "For some chemical reactions, it is important that the solvent is gas free. "
 "To achieve this, the reaction vessel is put in an ultrasonic bath for some "
 "time. Due to the high sound frequency, the vapor locks peel away and ascend "
 "out of the liquid. This procedure is called out-gassing."
 msgstr ""
-"Bazı kimyasal tepkimeler için çözücünün gaz içermemesi önemlidir. Bunu "
-"sağlamak için tepkime kabı bir süreliğine ultrason banyosuna yerleştirilir. "
-"Yüksek ses frekansı nedeniyle, buhar sıyrılır ve yükselir. Bu prosedür gaz "
-"giderme olarak adlandırılmaktadır."
+"Bazı kimyasal reaksiyonlarda çözücünün gazsız olması önemlidir. Bunu "
+"sağlamak için reaksiyon kabı bir süre ultrasonik banyoya yerleştirilir. "
+"Yüksek ses frekansı sayesinde buhar kabarcıkları ayrışır ve sıvının dışına "
+"çıkar. Bu işleme gaz giderme (out-gassing) denir."
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
 msgstr "Tartı"
 
 #: data/tools.xml:159
-#, fuzzy, kde-format
-#| msgid ""
-#| "In a laboratory, very precise quantities of reagents often have to be "
-#| "weighed out. High precision scales can measure masses down to 1/10000 "
-#| "gram. As such, they stand on granite blocks to avoid vibrations and are "
-#| "protected against changes in airflow by a dome."
+#, kde-format
 msgid ""
 "In a laboratory, quantities of reagents often have to be weighed out very "
 "precisely. High precision scales can measure masses down to 1/10000 gram. As "
 "such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
-"Bir laboratuvarda çoğu zaman reaktiflerin çok hassas miktarlarının "
-"tartılması gerekir. Yüksek hassasiyetli teraziler 1/10000 grama kadar olan "
-"kütleleri ölçebilir. Bu nedenle titreşimleri önlemek için granit bloklar "
-"üzerinde dururlar ve bir kubbe ile hava akışındaki değişikliklere karşı "
-"korunurlar."
+"Laboratuvarda reaktiflerin miktarlarının çoğu zaman çok hassas bir şekilde "
+"tartılması gerekir. Yüksek hassasiyetli teraziler, 1/10000 gram seviyesine "
+"kadar kütle ölçebilir. Bu nedenle titreşimleri önlemek için granit bloklar "
+"üzerine yerleştirilir ve hava akımlarındaki değişimlerden korunmak amacıyla "
+"bir cam fanus (kubbe) ile kapatılır."
 
 #: data/tools.xml:163
-#, fuzzy, kde-format
-#| msgid "Distillation bridge"
+#, kde-format
 msgid "Distillation Bridge"
 msgstr "Damıtma Köprüsü"
 
 #: data/tools.xml:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "One means of separating a mixture is to use distillation. In this "
-#| "setting, a distillation bridge acts as a conduit between the two pots. "
-#| "One pot contains the mixture to be separated, and through heating, a gas "
-#| "forms which is lead through the bridge. At the end of the bridge the gas "
-#| "phase is condensed and drips into a round flask. Typically, the bridge is "
-#| "cooled by return flow. Also, there is often a thermometer for controlling "
-#| "the temperature of the distillation bridge."
+#, kde-format
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
@@ -1480,36 +1340,30 @@ msgid ""
 "Also, there is often a thermometer for controlling the temperature of the "
 "distillation bridge."
 msgstr ""
-"Bir karışımı ayırmanın bir yolu damıtma kullanmaktır. Bu ortamda bir damıtma "
-"köprüsü iki kap arasında bir kanal görevi görür. Bir kapta ayrılacak karışım "
-"bulunur ve ısıtma yoluyla köprüden geçen bir gaz oluşur. Köprünün sonunda "
-"gaz fazı yoğunlaştırılır ve yuvarlak bir şişeye damlar. Tipik olarak köprü "
-"geri dönüş akışıyla soğutulur. Ayrıca damıtma köprüsünün sıcaklığını "
-"denetlemek için genellikle bir termometre bulunur."
+"Karışımları ayırma yöntemlerinden biri damıtmadır. Bu düzende, damıtma "
+"köprüsü iki kap arasında bir bağlantı görevi görür. Kaplardan birinde "
+"ayrıştırılacak karışım bulunur ve ısıtma yoluyla gaz oluşur; bu gaz köprüden "
+"geçirilir. Köprünün sonunda gaz evresi yoğunlaştırılır ve bir yuvarlak "
+"balona damlar. Genellikle köprü, geri akışla soğutulur. Ayrıca damıtma "
+"köprüsünün sıcaklığını denetlemek için çoğunlukla bir termometre bulunur."
 
 #: data/tools.xml:168
-#, fuzzy, kde-format
-#| msgid "Syringe"
+#, kde-format
 msgid "Gas Syringe"
-msgstr "Şırınga"
+msgstr "Gaz Şırıngası"
 
 #: data/tools.xml:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "A syringe consists of two parts, a glass tube and a plunger, both "
-#| "normally made of glass. Gasses flow into the glass tube, and as the "
-#| "syringe is a closed system, the plunger moves outwards. This can be used "
-#| "to measure the volume of a reaction."
+#, kde-format
 msgid ""
 "A gas syringe consists of two parts, a glass tube and a plunger, both "
 "normally made of glass. Gasses flow into the glass tube and, as the syringe "
 "is a closed system, the plunger moves outwards. This can be used to measure "
 "the volume of a reaction."
 msgstr ""
-"Bir şırınga, her ikisi de normalde camdan yapılmış olan bir cam tüp ve bir "
-"piston olmak üzere iki parçadan oluşur. Gazlar cam tüpün içine akar ve "
-"şırınga kapalı bir sistem olduğundan piston dışarı doğru hareket eder. Bu, "
-"bir tepkimenin hacmini ölçmek için kullanılabilir."
+"Gaz şırıngası, bir cam tüp ve bir pistondan oluşur; her ikisi de genellikle "
+"camdan yapılmıştır. Gazlar cam tüpe girer ve şırınga kapalı bir sistem "
+"olduğu için piston dışarı doğru hareket eder. Bu, bir reaksiyonun hacmini "
+"ölçmek için kullanılabilir."
 
 #: data/tools.xml:173
 #, kde-format
@@ -1517,13 +1371,7 @@ msgid "Separation Beaker"
 msgstr "Ayırma Hunisi"
 
 #: data/tools.xml:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "First, four small caps are placed at the four ends of the separation "
-#| "beaker. Then, whilst distilling, the beaker is turned by 60 degrees after "
-#| "a certain temperate has been reached. In doing so, at the end of the "
-#| "distillation, all four caps contain a specific liquid, depending on the "
-#| "boiling point of the liquid distilled."
+#, kde-format
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
@@ -1531,10 +1379,10 @@ msgid ""
 "all four caps contain a specific liquid, depending on the boiling point of "
 "the liquid distilled."
 msgstr ""
-"İlk olarak ayırma hunisinin dört ucuna dört küçük kapak yerleştirilir. Daha "
-"sonra damıtma sırasında belli bir sıcaklığa ulaşıldıktan sonra beher 60 "
-"derece döndürülür. Bunu yaparken, damıtmanın sonunda, dört kapağın tümü "
-"damıtılan sıvının kaynama noktasına bağlı olarak belirli bir sıvı içerir."
+"Önce ayırma beherinin dört ucuna dört küçük kapak yerleştirilir. Ardından "
+"damıtma sırasında belirli bir sıcaklığa ulaşıldığında beher 60 derece "
+"döndürülür. Böylece damıtmanın sonunda, damıtılan sıvının kaynama noktasına "
+"bağlı olarak her bir kapakta farklı bir sıvı bulunur."
 
 #: data/tools.xml:178
 #, kde-format
@@ -1542,37 +1390,30 @@ msgid "Burner"
 msgstr "Bunsen Ocağı"
 
 #: data/tools.xml:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are several types of burners; this picture shows a Teclu-Burner. "
-#| "Each type of burner has specific uses, and they vary in peak temperature "
-#| "and overall heating capacity."
+#, kde-format
 msgid ""
 "There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
-"Birkaç çeşit Bunsen Ocağı vardır; Bu resim bir Teclu Bunsen Ocağı'nı "
-"göstermektedir. Her bir Bunsen Ocağı türünün kendine özgü kullanımları "
-"vardır ve bunların en yüksek sıcaklığı ve genel ısıtma sığası farklılık "
+"Birkaç farklı tip Bunsen ocağı vardır; bu görsel Teclu ocağını "
+"göstermektedir. Her ocak türünün kendine özgü kullanım alanları vardır ve "
+"ulaşabilecekleri en yüksek sıcaklık ile genel ısıtma kapasiteleri farklılık "
 "gösterir."
 
 #: data/tools.xml:183
 #, kde-format
 msgid "Fume Hood"
-msgstr ""
+msgstr "Çeker Ocak"
 
 #: data/tools.xml:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "Extractor hoods are used to filter out gases from chemical reactions. The "
-#| "air, once cleaned, is pumped outside of the building."
+#, kde-format
 msgid ""
 "Fume hoods are used to filter out gases from chemical reactions. The air, "
 "once cleaned, is pumped outside of the building."
 msgstr ""
-"Aspiratör davlumbazları kimyasal tepkimelerden kaynaklanan gazları süzmek "
-"için kullanılır. Temizlenen hava binanın dışına pompalanır."
+"Çeker ocaklar, kimyasal reaksiyonlardan çıkan gazları süzmek için "
+"kullanılır. Temizlenen hava daha sonra binanın dışına pompalanır."
 
 #: data/tools.xml:188
 #, kde-format
@@ -1599,10 +1440,9 @@ msgstr ""
 "yeniden devreye girer."
 
 #: data/tools.xml:193
-#, fuzzy, kde-format
-#| msgid "Clamps"
+#, kde-format
 msgid "Clamp"
-msgstr "Kıskaçlar"
+msgstr "Kıskaç"
 
 #: data/tools.xml:194
 #, kde-format
@@ -1615,14 +1455,7 @@ msgid "Indicator Paper"
 msgstr "Gösterge Kâğıdı"
 
 #: data/tools.xml:199
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are multiple ways of measuring the pH value of a solution, one of "
-#| "which is to use indicator paper. Indicator paper changes color depending "
-#| "on the pH of the solution applied to it, and by comparing to a chart a "
-#| "fairly accurate measure of the solution's pH can be obtained. If a more "
-#| "accurate measure is needed, a glass electrode can be used, which works by "
-#| "measuring the conductivity of the solution."
+#, kde-format
 msgid ""
 "There are multiple ways of measuring the pH value of a solution, one of "
 "which is to use indicator paper. Indicator paper changes color depending on "
@@ -1631,12 +1464,12 @@ msgid ""
 "measure is needed, a glass electrode can be used, which works by measuring "
 "the conductivity of the solution."
 msgstr ""
-"Bir çözeltinin pH değerini ölçmenin birden çok yolu vardır; bunlardan biri "
-"gösterge kâğıdı kullanmaktır. Gösterge kâğıdı, kendisine uygulanan "
-"çözeltinin pH'ına bağlı olarak renk değiştirir ve bir tabloyla "
-"karşılaştırılarak çözeltinin pH'ının oldukça doğru bir ölçümü elde "
-"edilebilir. Daha doğru bir ölçüme gereksinim duyulursa çözeltinin "
-"iletkenliğini ölçerek çalışan bir cam elektrot kullanılabilir."
+"Bir çözeltinin pH değerini ölçmenin birden fazla yolu vardır; bunlardan biri "
+"gösterge kâğıdı kullanmaktır. Gösterge kâğıdı, üzerine uygulanan çözeltinin "
+"pH değerine bağlı olarak renk değiştirir ve bir renk skalasıyla "
+"karşılaştırılarak çözeltinin pH’ı oldukça doğru bir şekilde belirlenebilir. "
+"Daha hassas bir ölçüm gerektiğinde, çözeltinin iletkenliğini ölçerek çalışan "
+"bir cam elektrot kullanılabilir."
 
 #: data/tools.xml:203
 #, kde-format
@@ -1690,10 +1523,9 @@ msgstr ""
 "titrasyon için de kullanılabilirler."
 
 #: data/tools.xml:218
-#, fuzzy, kde-format
-#| msgid "DSC (Differential Scanning Calorimeter)"
+#, kde-format
 msgid "Differential Scanning Calorimeter (DSC)"
-msgstr "DSC (Diferansiyel Taramalı Kalorimetre)"
+msgstr "Diferansiyel Taramalı Kalorimetre (DSC)"
 
 #: data/tools.xml:219
 #, kde-format
@@ -1712,27 +1544,22 @@ msgid "Dewar Vessel"
 msgstr "Dewar Kabı"
 
 #: data/tools.xml:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "A Dewar vessel (or Dewar flask), named after the physicist Sir James "
-#| "Dewar (1842-1923), is a double-walled vacuum flask, designed to provide "
-#| "good thermal insulation. As such, they are useful for keeping liquids "
-#| "cool or warm. One well-known example of a Dewar vessel is a Thermos flask."
+#, kde-format
 msgid ""
 "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar "
 "(1842–1923), is a double-walled vacuum flask, designed to provide good "
 "thermal insulation. As such, they are useful for keeping liquids cool or "
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
-"Adını fizikçi Sir James Dewar'dan (1842-1923) alan Dewar kabı (veya Dewar "
-"şişesi), iyi ısı yalıtımı sağlamak üzere tasarlanmış çift duvarlı bir "
-"termostur. Bu nedenle sıvıları serin veya sıcak tutmak için "
-"kullanışlıdırlar. Dewar kabının iyi bilinen bir örneği Termos kabıdır."
+"Dewar kabı (veya Dewar şişesi), fizikçi Sir James Dewar’ın (1842–1923) adını "
+"taşıyan, iyi bir ısı yalıtımı sağlamak üzere tasarlanmış çift duvarlı "
+"vakumlu bir kaptır. Bu nedenle sıvıları soğuk veya sıcak tutmak için "
+"kullanışlıdır. Dewar kaplarına iyi bilinen bir örnek termos şişesidir."
 
 #: data/tools.xml:228
 #, kde-format
 msgid "High-Performance Liquid Chromatography (HPLC)"
-msgstr ""
+msgstr "Yüksek Başarımlı Sıvı Kromatografisi (HPLC)"
 
 #: data/tools.xml:229
 #, kde-format
@@ -1744,11 +1571,18 @@ msgid ""
 "speeds and exit separately. This makes HPLC useful for analyzing complex "
 "mixtures and checking purity in chemistry, biology, and pharmaceuticals."
 msgstr ""
+"HPLC, sıvı bir karışımın bileşenlerini ayırmak, tanımlamak ve miktarlarını "
+"belirlemek için kullanılır. Bir çözücü içinde çözünmüş numune, yüksek basınç "
+"altında sıkı şekilde doldurulmuş bir kolondan geçirilir. Farklı maddeler "
+"kolon malzemesiyle farklı şekillerde etkileştiğinden, kolon boyunca farklı "
+"hızlarda ilerler ve ayrı ayrı kolondan çıkarlar. Bu özellik, HPLC’yi "
+"karmaşık karışımların çözümlenmesinde ve kimya, biyoloji ile ilaç "
+"alanlarında saflık kontrolünde kullanışlı bir yöntem hâline getirir."
 
 #: data/tools.xml:233
 #, kde-format
 msgid "Evaporating Dish"
-msgstr ""
+msgstr "Buharlaştırma Kabı"
 
 #: data/tools.xml:234
 #, kde-format
@@ -1760,6 +1594,13 @@ msgid ""
 "solvents, drying precipitates, or carrying out small-scale heating "
 "experiments."
 msgstr ""
+"Buharlaştırma kabı, laboratuvarda maddeleri ısıtmak, buharlaştırmak, "
+"kurutmak veya toplamak için kullanılan, pişirilmiş kilden yapılmış küçük ve "
+"ısıya dayanıklı bir kaptır. Yüksek sıcaklıklara dayanıklı olduğundan "
+"doğrudan alev üzerine veya bir ısıtma plakası üzerine yerleştirilebilir. "
+"Buharlaştırma kapları yaygın olarak çözücülerin buharlaştırılması, "
+"çökeleklerin kurutulması veya küçük ölçekli ısıtma deneylerinin "
+"gerçekleştirilmesi için kullanılır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
@@ -1777,7 +1618,7 @@ msgstr "Hidrojen"
 #, kde-format
 msgid "Greek 'hydro' and 'gennao' for 'forms water'."
 msgstr ""
-"Yunanca 'su oluşturan\" anlamına gelen 'hydro' and 'gennao' sözcüklerinden "
+"Yunanca “su oluşturan” anlamına gelen “hydro” and “gennao” sözcüklerinden "
 "oluşur."
 
 #. i18n: tag label attribute value
@@ -1789,7 +1630,7 @@ msgstr "Helyum"
 #: element_tiny.xml:6
 #, kde-format
 msgid "The Greek word for the sun was 'helios'."
-msgstr "Güneşin Yunanca karşılığı olan 'helios' sözcüğünden gelir."
+msgstr "Güneş’in Yunanca karşılığı olan “helios” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:7
@@ -1800,7 +1641,7 @@ msgstr "Lityum"
 #: element_tiny.xml:8
 #, kde-format
 msgid "Greek 'lithos' means 'stone'."
-msgstr "Yunanca 'taş' anlamına gelen 'lithos' sözcüğünden gelir."
+msgstr "Yunanca “taş” anlamına gelen “lithos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:9
@@ -1811,7 +1652,7 @@ msgstr "Berilyum"
 #: element_tiny.xml:10
 #, kde-format
 msgid "Greek 'beryllos' for 'light-green stone'."
-msgstr "Yunanca 'açık yeşil taş' anlamına gelen 'beryllos' sözcüğünden gelir."
+msgstr "Yunanca “açık yeşil taş” anlamına gelen “beryllos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:11
@@ -1825,7 +1666,7 @@ msgid ""
 "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot "
 "like carbon."
 msgstr ""
-"Bor, 'Bor(aks) sözcüğünden gelir. Boraks içinde bulunur ve karbona çok "
+"Bor, “Bor(aks)” sözcüğünden gelir. Boraks içinde bulunur ve karbona çok "
 "benzer davranır."
 
 #. i18n: tag label attribute value
@@ -1837,7 +1678,7 @@ msgstr "Karbon"
 #: element_tiny.xml:14
 #, kde-format
 msgid "Latin 'carboneum' for carbon."
-msgstr "Latince 'carboneum' sözcüğünden gelir."
+msgstr "Latince “carboneum” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:15
@@ -1849,7 +1690,7 @@ msgstr "Nitrojen"
 #, kde-format
 msgid "Latin 'nitrogenium' ('forms saltpeter')."
 msgstr ""
-"Latince 'güherçile oluşturan' anlamına gelen 'nitrogenium' sözcüğünden gelir."
+"Latince “güherçile oluşturan” anlamına gelen “nitrogenium” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:17
@@ -1861,7 +1702,7 @@ msgstr "Oksijen"
 #, kde-format
 msgid "Latin 'oxygenium' (forms acids)."
 msgstr ""
-"Latince 'asitler oluşturan' anlamına gelen 'oxygenium' sözcüğünden gelir."
+"Latince “asitler oluşturan” anlamına gelen “oxygenium” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:19
@@ -1872,7 +1713,7 @@ msgstr "Flor"
 #: element_tiny.xml:20
 #, kde-format
 msgid "Latin 'fluere' ('floats')."
-msgstr "Latince 'yüzer' anlamına gelen 'fluere' sözcüğünden gelir."
+msgstr "Latince “yüzer” anlamına gelen “fluere” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:21
@@ -1883,7 +1724,7 @@ msgstr "Neon"
 #: element_tiny.xml:22
 #, kde-format
 msgid "Greek 'neo'. meaning 'new'."
-msgstr "Yunanca 'yeni' anlamına gelen 'neo' sözcüğünden gelir."
+msgstr "Yunanca “yeni” anlamına gelen “neo” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:23
@@ -1897,9 +1738,9 @@ msgid ""
 "The name comes from Latin 'sodanum' which means 'headache remedy'. The "
 "symbol comes from Latin 'natrium' for Arabic 'natrun' or English 'soda'."
 msgstr ""
-"Bu ad, Latince 'baş ağrısı ilacı' anlamına gelen 'sodanum' sözcüğünden "
-"gelir. Sembolü ise Latince 'natrium' veya Arapça 'natrun', İngilizce ise "
-"'karbonat' anlamına gelir."
+"Bu ad, Latince “baş ağrısı ilacı” anlamına gelen “sodanum” sözcüğünden "
+"gelir. Sembolü ise Latince “natrium” veya Arapça “natrun”, İngilizce ise "
+"“karbonat” anlamına gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:25
@@ -1921,7 +1762,7 @@ msgstr "Alüminyum"
 #: element_tiny.xml:28
 #, kde-format
 msgid "Latin 'alumen'."
-msgstr "Latince 'alumen' sözcüğünden gelir."
+msgstr "Latince “alumen” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:29
@@ -1932,7 +1773,7 @@ msgstr "Silikon"
 #: element_tiny.xml:30
 #, kde-format
 msgid "Latin 'silex'."
-msgstr "Latince 'silex' sözcüğünden gelir."
+msgstr "Latince “silex” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:31
@@ -1944,7 +1785,7 @@ msgstr "Fosfor"
 #, kde-format
 msgid "Greek 'phosphoros' for 'carries light'."
 msgstr ""
-"Yunanca 'ışık taşıyıcısı' anlamına gelen 'phosphoros' sözcüğünden gelir."
+"Yunanca “ışık taşıyıcısı” anlamına gelen “phosphoros” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:33
@@ -1955,7 +1796,7 @@ msgstr "Sülfür"
 #: element_tiny.xml:34
 #, kde-format
 msgid "In sanskrit 'sweb' means 'to sleep'."
-msgstr "Sanskritçede 'sweb', 'uyumak' anlamına gelir."
+msgstr "Sanskritçede “sweb”, “uyumak” anlamına gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:35
@@ -1966,7 +1807,7 @@ msgstr "Klor"
 #: element_tiny.xml:36
 #, kde-format
 msgid "Greek 'chloros' for 'yellow-green'."
-msgstr "Yunanca 'sarı-yeşil' anlamına gelen 'chloros' sözcüğünden gelir."
+msgstr "Yunanca “sarı–yeşil” anlamına gelen “chloros” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:37
@@ -1977,7 +1818,7 @@ msgstr "Argon"
 #: element_tiny.xml:38
 #, kde-format
 msgid "Greek 'aergon' for 'inactive'."
-msgstr "Yunanca 'etkin olmayan' anlamına gelen 'aergon' sözcüğünden gelir."
+msgstr "Yunanca “etkin olmayan” anlamına gelen “aergon” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:39
@@ -1992,9 +1833,9 @@ msgid ""
 "in caustic potashes. The symbol comes from the Latin 'kalium' for the "
 "original Arabic 'al qaliy' which means alkali."
 msgstr ""
-"Ad, İngilizce 'potash' ('pot ashes', pot külü) sözcüğünden gelir; çünkü "
-"yakıcı potaslarda bulunur. Sembolü ise Latince 'kalium', özgün dili olan "
-"Arapça alkali anlamına gelen 'el kaliy' sözcüğünden gelir."
+"Ad, İngilizce “potash” (“pot ashes”, pot külü) sözcüğünden gelir; çünkü "
+"yakıcı potaslarda bulunur. Sembolü ise Latince “kalium”, özgün dili olan "
+"Arapça alkali anlamına gelen “el kaliy” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:41
@@ -2005,7 +1846,7 @@ msgstr "Kalsiyum"
 #: element_tiny.xml:42
 #, kde-format
 msgid "Latin 'calx' for 'lime'."
-msgstr "Latince 'kireç' anlamına gelen 'calx' sözcüğünden gelir."
+msgstr "Latince “kireç” anlamına gelen “calx” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:43
@@ -2016,7 +1857,7 @@ msgstr "Skandiyum"
 #: element_tiny.xml:44
 #, kde-format
 msgid "Named because it was found in Scandinavia."
-msgstr "İskandinavya'da bulunduğundan bu adı almıştır."
+msgstr "İskandinavya’da bulunduğundan bu adı almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:45
@@ -2038,7 +1879,7 @@ msgstr "Vanadyum"
 #: element_tiny.xml:48
 #, kde-format
 msgid "'Vanadis' is another name for the Nordic goddess Freyja."
-msgstr "'Vanadis', Nordik tanrıçası 'Freyja'nın diğer bir adıdır."
+msgstr "“Vanadis”, İskandinav tanrıçası “Freyja”nın diğer bir adıdır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:49
@@ -2049,7 +1890,7 @@ msgstr "Krom"
 #: element_tiny.xml:50
 #, kde-format
 msgid "Greek 'chroma' means 'color'."
-msgstr "Yunanca 'renk' anlamına gelen 'chroma' sözcüğünden gelir."
+msgstr "Yunanca “renk” anlamına gelen “chroma” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:51
@@ -2064,7 +1905,7 @@ msgid ""
 "named 'magnesia nigra', or for short, Manganese."
 msgstr ""
 "Kara toprakta Magnesia adındaki bir kasabanın yakınında bulundu. Bu nedenle "
-"adına 'magnesia nigra', kısaltılmışı olan manganez dendi."
+"adına “magnesia nigra”, kısaltılmışı olan manganez dendi."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:53
@@ -2075,7 +1916,7 @@ msgstr "Demir"
 #: element_tiny.xml:54
 #, kde-format
 msgid "Latin 'ferrum'."
-msgstr "Latince 'ferrum' sözcüğünden gelir."
+msgstr "Latince “ferrum” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:55
@@ -2086,7 +1927,7 @@ msgstr "Kobalt"
 #: element_tiny.xml:56
 #, kde-format
 msgid "Named after the German word 'Kobold' for 'goblin'."
-msgstr "Almanca 'gulyabani' anlamına gelen 'Kobold' sözcüğünden gelir."
+msgstr "Almanca “gulyabanî” anlamına gelen “Kobold” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:57
@@ -2097,7 +1938,7 @@ msgstr "Nikel"
 #: element_tiny.xml:58
 #, kde-format
 msgid "'Nickel' was the name of a mountain goblin."
-msgstr "'Nickel', bir dağ gulyabanisinin adıdır."
+msgstr "“Nickel”, bir dağ gulyabanîsinin adıdır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:59
@@ -2109,8 +1950,8 @@ msgstr "Bakır"
 #, kde-format
 msgid "Greek 'cuprum' for Cypres."
 msgstr ""
-"Kıbrıs sözcüğünün Yunanca karşılığı olan 'cuprum' sözcüğünden gelir. Türkçe "
-"ilk kullanımı, Yenisay Yazıtları'nda \"bakırı buŋsız erti\" (bakırı sınırsız "
+"Kıbrıs sözcüğünün Yunanca karşılığı olan “cuprum” sözcüğünden gelir. Türkçe "
+"ilk kullanımı, Yenisey Yazıtları’nda “bakırı buŋsız erti” (bakırı sınırsız "
 "idi) olarak geçer."
 
 #. i18n: tag label attribute value
@@ -2123,7 +1964,7 @@ msgstr "Çinko"
 #, kde-format
 msgid "German 'zinking' for 'rough', because zinc ore is very rough."
 msgstr ""
-"Almanca 'kaba, zor' anlamına gelen 'zinking' sözcüğünden gelir; çünkü çinko "
+"Almanca “kaba, zor” anlamına gelen “zinking” sözcüğünden gelir; çünkü çinko "
 "cevherini işlemesi pek güçtür."
 
 #. i18n: tag label attribute value
@@ -2135,7 +1976,7 @@ msgstr "Galyum"
 #: element_tiny.xml:64
 #, kde-format
 msgid "'Gallia' is an old name for France."
-msgstr "Fransa'nın eski adlarından biri olan 'Gallia' sözcüğünden gelir."
+msgstr "Fransa’nın eski adlarından biri olan “Gallia” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:65
@@ -2147,7 +1988,7 @@ msgstr "Germanyum"
 #, kde-format
 msgid "Latin 'germania' is an old name for Germany."
 msgstr ""
-"Almanya'nın eski adlarından biri olan Latince 'Germania' sözcüğünden gelir."
+"Almanya’nın eski adlarından biri olan Latince “Germania” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:67
@@ -2159,7 +2000,7 @@ msgstr "Arsenik"
 #, kde-format
 msgid "Greek 'arsenikos' for 'male' or 'bold'."
 msgstr ""
-"Yunanca 'erkek' veya 'cesur' anlamına gelen 'arsenikos' sözcüğünden gelir."
+"Yunanca “erkek” veya “cesur” anlamına gelen “arsenikos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:69
@@ -2170,7 +2011,7 @@ msgstr "Selenyum"
 #: element_tiny.xml:70
 #, kde-format
 msgid "Greek 'selena' for 'moon'."
-msgstr "Yunanca 'ay' anlamına gelen 'selena' sözcüğünden gelir."
+msgstr "Yunanca “ay” anlamına gelen “selena” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:71
@@ -2181,7 +2022,7 @@ msgstr "Brom"
 #: element_tiny.xml:72
 #, kde-format
 msgid "Greek 'bromos' for 'smells badly'."
-msgstr "Yunanca 'kötü kokan' anlamına gelen 'bromos' sözcüğünden gelir."
+msgstr "Yunanca “kötü kokan” anlamına gelen “bromos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:73
@@ -2192,7 +2033,7 @@ msgstr "Kripton"
 #: element_tiny.xml:74
 #, kde-format
 msgid "Greek 'kryptos' for 'hidden'."
-msgstr "Yunanca 'gizli' anlamına gelen 'kryptos' sözcüğünden gelir."
+msgstr "Yunanca “gizli” anlamına gelen “kryptos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:75
@@ -2203,7 +2044,7 @@ msgstr "Rubidyum"
 #: element_tiny.xml:76
 #, kde-format
 msgid "Latin 'rubidus' for 'dark red'."
-msgstr "Latince 'koyu kırmızı' anlamına gelen 'rubidus' sözcüğünden gelir."
+msgstr "Latince “koyu kırmızı” anlamına gelen “rubidus” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:77
@@ -2228,7 +2069,7 @@ msgid ""
 "Named after the small town of Ytterby near Stockholm in Sweden. Terbium, "
 "Ytterbium and Erbium are also named after this town."
 msgstr ""
-"Adını İsveç'in Stockholm yakınlarındaki küçük Ytterby kasabasından alır. "
+"Adını İsveç’in Stokholm yakınlarındaki küçük Ytterby kasabasından alır. "
 "Terbiyum, İtterbiyum ve Erbiyum da bu kasabanın adını almıştır."
 
 #. i18n: tag label attribute value
@@ -2251,7 +2092,7 @@ msgstr "Niobyum"
 #: element_tiny.xml:84
 #, kde-format
 msgid "Named after Niobe, the daughter of the Greek god Tantalus."
-msgstr "Adı, Yunan tanrısı Tantalus'un kızı Niobe'den gelir."
+msgstr "Adı, Yunan tanrısı Tantalus’un kızı Niobe’den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:85
@@ -2265,7 +2106,7 @@ msgid ""
 "This name has Greek roots. It means 'like Platinum' - it was difficult to "
 "distinguish Molybdenum from Platinum."
 msgstr ""
-"Bu adın kökeni Yunancadır. 'Platinyum gibi' anlamına gelir. Molibden, "
+"Bu adın kökeni Yunancadır. “Platinyum gibi” anlamına gelir. Molibden, "
 "görünüş bakımından platinyuma çok benzer."
 
 #. i18n: tag label attribute value
@@ -2277,7 +2118,7 @@ msgstr "Teknesyum"
 #: element_tiny.xml:88
 #, kde-format
 msgid "Greek 'technetos' for artificial."
-msgstr "Yunanca 'yapay' anlamına gelen 'technetos' sözcüğünden gelir."
+msgstr "Yunanca “yapay” anlamına gelen “technetos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:89
@@ -2288,7 +2129,7 @@ msgstr "Rutenyum"
 #: element_tiny.xml:90
 #, kde-format
 msgid "Ruthenia is the old name of Russia."
-msgstr "Rutenya, Rusya'nın eski adıdır."
+msgstr "Rutenya, Rusya’nın eski adıdır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:91
@@ -2299,7 +2140,7 @@ msgstr "Rodyum"
 #: element_tiny.xml:92
 #, kde-format
 msgid "Greek 'rhodeos' means 'red like a rose'."
-msgstr "Yunanca 'gül gibi kırmızı' anlamına gelen 'rhodeos' sözcüğünden gelir."
+msgstr "Yunanca “gül gibi kırmızı” anlamına gelen “rhodeos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:93
@@ -2322,9 +2163,9 @@ msgstr "Gümüş"
 #, kde-format
 msgid "Latin 'argentum' for silver."
 msgstr ""
-"Latince 'gümüş' anlamına gelen 'argentum' sözcüğünden gelir. Türkçe Gümüş "
-"ise Eski Türkçe \"kümiş, beyaz metal\" sözcüğünden gelmektedir. Eski Türkçe "
-"\"künük\" ile eş kökenlidir."
+"Latince “gümüş” anlamına gelen “argentum” sözcüğünden gelir. Türkçe Gümüş "
+"ise Eski Türkçe “kümiş, beyaz metal” sözcüğünden gelmektedir. Eski Türkçe "
+"“künük” ile eş kökenlidir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:97
@@ -2336,7 +2177,7 @@ msgstr "Kadmiyum"
 #, kde-format
 msgid "Greek 'kadmia' ('Galmei' = Zinc carbonate)."
 msgstr ""
-"Yunanca 'çinko karbonat' anlamına gelen 'galmei, kadmia' sözcüğünden gelir."
+"Yunanca “çinko karbonat” anlamına gelen “galmei, kadmia” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:99
@@ -2347,7 +2188,7 @@ msgstr "İndiyum"
 #: element_tiny.xml:100
 #, kde-format
 msgid "Named after 'Indigo' because of its blue spectrum."
-msgstr "Adı, mavi tayfından dolayı 'İndigo' sözcüğünden gelir."
+msgstr "Adı, mavi tayfından dolayı “indigo” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:101
@@ -2359,8 +2200,8 @@ msgstr "Kalay"
 #, kde-format
 msgid "Latin 'stannum' for tin."
 msgstr ""
-"Latince 'teneke' anlamına gelen 'stannum' sözcüğünden gelir. Türkçedeki "
-"kalay sözcüğünün Arapça \"kalai\" sözcüğünden geldiği düşünülmektedir."
+"Latince “teneke” anlamına gelen “stannum” sözcüğünden gelir. Türkçedeki "
+"kalay sözcüğünün Arapça “kalai” sözcüğünden geldiği düşünülmektedir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:103
@@ -2372,7 +2213,7 @@ msgstr "Antimon"
 #, kde-format
 msgid "Arabic 'anthos ammonos' for 'blossom of the god Ammon'."
 msgstr ""
-"Arapça 'Ammon tanrısının ortaya çıkması' anlamına gelen 'anthos ammonos' "
+"Arapça “Ammon tanrısının ortaya çıkması” anlamına gelen “anthos ammonos” "
 "sözcüğünden gelir."
 
 #. i18n: tag label attribute value
@@ -2385,7 +2226,7 @@ msgstr "Telluryum"
 #, kde-format
 msgid "Latin 'tellus' or 'telluris' for 'Planet Earth'."
 msgstr ""
-"Latince 'Dünya Gezegeni' anlamına gelen 'tellus, telluris' sözcüğünden gelir."
+"Latince “dünya gezegeni” anlamına gelen “tellus, telluris” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:107
@@ -2396,7 +2237,7 @@ msgstr "İyot"
 #: element_tiny.xml:108
 #, kde-format
 msgid "Greek 'ioeides' for 'violet'."
-msgstr "Yunanca 'menekşe' anlamına gelen 'ioeides' sözcüğünden gelir."
+msgstr "Yunanca “menekşe” anlamına gelen “ioeides” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:109
@@ -2407,7 +2248,7 @@ msgstr "Zenon"
 #: element_tiny.xml:110
 #, kde-format
 msgid "Greek 'xenos' for 'foreigner'."
-msgstr "Yunanca 'yabancı' anlamına gelen 'xenos' sözcüğünden gelir."
+msgstr "Yunanca “yabancı” anlamına gelen “xenos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:111
@@ -2418,7 +2259,7 @@ msgstr "Sezyum"
 #: element_tiny.xml:112
 #, kde-format
 msgid "Latin 'caesius' for 'heaven blue'."
-msgstr "Latince 'gök mavisi' anlamına gelen 'caesius' sözcüğünden gelir."
+msgstr "Latince “gök mavisi” anlamına gelen “caesius” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:113
@@ -2429,7 +2270,7 @@ msgstr "Baryum"
 #: element_tiny.xml:114
 #, kde-format
 msgid "Greek 'barys' for 'heavy'."
-msgstr "Yunanca 'ağır' anlamına gelen 'barys' sözcüğünden gelir."
+msgstr "Yunanca “ağır” anlamına gelen “barys” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:115
@@ -2443,8 +2284,8 @@ msgid ""
 "Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare "
 "earth' elements."
 msgstr ""
-"Yunanca 'saklı' anlamına gelen 'lanthanein' sözcüğünden gelir. Lantangiller "
-"aynı zamanda 'nadir elementler' olarak adlandırılırlar."
+"Yunanca “saklı” anlamına gelen “lanthanein” sözcüğünden gelir. Lantangiller "
+"aynı zamanda “nadir elementler” olarak adlandırılırlar."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:117
@@ -2467,7 +2308,7 @@ msgstr "Praseodim"
 #, kde-format
 msgid "Greek 'prasinos didymos' for 'green twin'."
 msgstr ""
-"Yunanca 'yeşil ikiz' anlamına gelen 'prasinos didymos' sözcüğünden gelir."
+"Yunanca “yeşil ikiz” anlamına gelen “prasinos didymos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:121
@@ -2478,7 +2319,7 @@ msgstr "Neodim"
 #: element_tiny.xml:122
 #, kde-format
 msgid "Greek 'neos didymos' for 'new twin'."
-msgstr "Yunanca 'yeni ikiz' anlamına gelen 'neos didymos' sözcüğünden gelir."
+msgstr "Yunanca “yeni ikiz” anlamına gelen “neos didymos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:123
@@ -2492,7 +2333,7 @@ msgid ""
 "Named after the Greek Prometheus. Prometheus stole the fire from the gods "
 "and gave it to mankind."
 msgstr ""
-"Adı, Yunan Prometheus'tan gelir. Prometheus, ateşi tanrılardan çalıp "
+"Adı, Yunan Prometheus’tan gelir. Prometheus, ateşi tanrılardan çalıp "
 "kişioğluna vermiştir."
 
 #. i18n: tag label attribute value
@@ -2515,7 +2356,7 @@ msgstr "Europyum"
 #: element_tiny.xml:128
 #, kde-format
 msgid "Named after Europe."
-msgstr "Adı, Avrupa'dan gelir."
+msgstr "Adı, Avrupa’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:129
@@ -2526,7 +2367,7 @@ msgstr "Gadolinyum"
 #: element_tiny.xml:130
 #, kde-format
 msgid "Named after the Finnish chemist Johan Gadolin."
-msgstr "Adı, Fin kimyager Johan Gadolin'den gelir."
+msgstr "Adı, Fin kimyager Johan Gadolin’den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:131
@@ -2541,7 +2382,7 @@ msgid ""
 "Terbium was first refined. Yttrium, Erbium and Ytterbium are also named "
 "after this town."
 msgstr ""
-"Adını İsveç'in Stockholm yakınlarındaki küçük Ytterby kasabasından alır. "
+"Adını İsveç’in Stokholm yakınlarındaki küçük Ytterby kasabasından alır. "
 "İtriyum, İtterbiyum ve Erbiyum da bu kasabanın adını almıştır."
 
 #. i18n: tag label attribute value
@@ -2553,7 +2394,7 @@ msgstr "Disprosyum"
 #: element_tiny.xml:134
 #, kde-format
 msgid "Greek 'dysprositor' for 'difficult to reach'."
-msgstr "Yunanca 'erişmesi zor' anlamına gelen 'dysprositor' sözcüğünden gelir."
+msgstr "Yunanca “erişmesi zor” anlamına gelen “dysprositor” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:135
@@ -2564,7 +2405,7 @@ msgstr "Holmiyum"
 #: element_tiny.xml:136
 #, kde-format
 msgid "Latin 'holmia' for the old name of Stockholm."
-msgstr "Latince Stockholm'ün eski adı olan 'holmia' sözcüğünden gelir."
+msgstr "Latince Stokholm’ün eski adı olan “holmia” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:137
@@ -2579,7 +2420,7 @@ msgid ""
 "which Erbium was first refined) was first mined. Yttrium, Terbium and "
 "Ytterbium are also named after this town."
 msgstr ""
-"Adını İsveç'in Stockholm yakınlarındaki küçük Ytterby kasabasından alır. "
+"Adını İsveç’in Stokholm yakınlarındaki küçük Ytterby kasabasından alır. "
 "Gadolinit minerali ilk kez burada rafine edilip Erbiyum elde edilmiştir. "
 "Terbiyum, İtterbiyum ve İtriyum da bu kasabanın adını almıştır."
 
@@ -2592,7 +2433,7 @@ msgstr "Tulyum"
 #: element_tiny.xml:140
 #, kde-format
 msgid "Named after the old name of Scandinavia, 'Thule'."
-msgstr "Adı, İskandinavya'nın eski adı olan 'Thule'den gelir."
+msgstr "Adı, İskandinavya’nın eski adı olan “Thule”den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:141
@@ -2606,7 +2447,7 @@ msgid ""
 "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of "
 "Ytterby."
 msgstr ""
-"Adını İsveç'in Stockholm yakınlarındaki küçük Ytterby kasabasından alır. "
+"Adını İsveç’in Stokholm yakınlarındaki küçük Ytterby kasabasından alır. "
 "Terbiyum, İtriyum ve Erbiyum da bu kasabanın adını almıştır."
 
 #. i18n: tag label attribute value
@@ -2619,7 +2460,7 @@ msgstr "Lutesyum"
 #, kde-format
 msgid "Named after the Roman name 'Lutetia' for Paris."
 msgstr ""
-"Adı, Paris'in eski Roma İmparatorluğu dönemi adı olan 'Lutetia'dan gelir."
+"Adı, Paris’in eski Roma İmparatorluğu dönemi adı olan “Lutetia”dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:145
@@ -2635,7 +2476,7 @@ msgid ""
 "name of Copenhagen, Denmark)."
 msgstr ""
 "Niels Bohr, bu elementin özelliklerini keşfinden önce tahmin ettiğinden adı, "
-"doğum yeri olan 'Hafnia'dan gelir (Kopenhag'ın eski Latince adı)."
+"doğum yeri olan “Hafnia”dan gelir (Kopenhag’ın eski Latince adı)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:147
@@ -2646,7 +2487,7 @@ msgstr "Tantal"
 #: element_tiny.xml:148
 #, kde-format
 msgid "Named after the Greek myth of Tantalos."
-msgstr "Adı, bir Yunan miti olan Tantalos'tan gelir."
+msgstr "Adı, bir Yunan miti olan Tantalos’tan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:149
@@ -2661,10 +2502,9 @@ msgid ""
 "symbol comes from the old German name for the element 'wolfram', which "
 "described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'."
 msgstr ""
-"Adı, İsveççe 'ağır taş' anlamına gelen 'tung sten'den gelir. Sembolü ise "
-"tungstenin kalay ile \"bir kurdun koyunu (koç) yemesi gibi\" nasıl "
-"etkileşime girdiğini açıklayan \"wolfram\" elementinin eski Almanca adından "
-"gelmektedir."
+"Adı, İsveççe “ağır taş” anlamına gelen “tung sten”den gelir. Sembolü ise "
+"tungstenin kalay ile “bir kurdun koyunu (koç) yemesi gibi” nasıl etkileşime "
+"girdiğini açıklayan “wolfram” elementinin eski Almanca adından gelmektedir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:151
@@ -2675,7 +2515,7 @@ msgstr "Renyum"
 #: element_tiny.xml:152
 #, kde-format
 msgid "Named after the German river Rhine (latin 'Rhenium')."
-msgstr "Adı, Almanya'nın Rhine nehrinden gelir (Latince 'Rhenium')."
+msgstr "Adı, Almanya’nın Rhine nehrinden gelir (Latince “rhenium”)."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:153
@@ -2686,7 +2526,7 @@ msgstr "Osmiyum"
 #: element_tiny.xml:154
 #, kde-format
 msgid "Greek for 'smell'. Its oxides smell strongly like radishes."
-msgstr "Yunanca 'koku' anlamına gelir. Oksitleri, turp gibi güçlü kokar."
+msgstr "Yunanca “koku” anlamına gelir. Oksitleri, turp gibi güçlü kokar."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:155
@@ -2697,7 +2537,7 @@ msgstr "İridyum"
 #: element_tiny.xml:156
 #, kde-format
 msgid "Greek 'iris' for 'rainbow'."
-msgstr "Yunanca 'gökkuşağı' anlamına gelen 'iris' sözcüğünden gelir."
+msgstr "Yunanca “gökkuşağı” anlamına gelen “iris” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:157
@@ -2708,7 +2548,7 @@ msgstr "Platin"
 #: element_tiny.xml:158
 #, kde-format
 msgid "Spanish 'platina' means 'small silver'."
-msgstr "İspanyolca 'küçük gümüş' anlamına gelen 'platina' sözcüğünden gelir."
+msgstr "İspanyolca “küçük gümüş” anlamına gelen “platina” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:159
@@ -2720,7 +2560,7 @@ msgstr "Altın"
 #, kde-format
 msgid "Latin 'aurum'. Named after Aurora, the goddess of sunrise."
 msgstr ""
-"Latince 'aurum'. Adı, güneş doğumu tanrısı anlamına gelen Aurora'dan gelir."
+"Latince “aurum”. Adı, güneş doğumu tanrısı anlamına gelen Aurora’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:161
@@ -2732,7 +2572,7 @@ msgstr "Civa"
 #, kde-format
 msgid "Graeco-Latin 'hydrargyrum' for 'liquid silver'."
 msgstr ""
-"Grekolatince 'sıvı gümüş' anlamına gelen 'hydrargyrum' sözcüğünden gelir."
+"Grekolatince “sıvı gümüş” anlamına gelen “hydrargyrum” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:163
@@ -2743,7 +2583,7 @@ msgstr "Talyum"
 #: element_tiny.xml:164
 #, kde-format
 msgid "Greek 'tallos' for 'young twig'."
-msgstr "Yunanca 'ince dal' anlamına gelen 'tallos' sözcüğünden gelir."
+msgstr "Yunanca “ince dal” anlamına gelen “tallos” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:165
@@ -2755,8 +2595,8 @@ msgstr "Kurşun"
 #, kde-format
 msgid "Latin 'plumbum' for Lead."
 msgstr ""
-"Adı, Latince 'plumbum' sözcüğünden gelir. Türkçesi ise Eski Türkçe/Moğolca "
-"\"korugçın\" sözcüğünden evrilmiştir."
+"Adı, Latince “plumbum” sözcüğünden gelir. Türkçesi ise Eski Türkçe/Moğolca "
+"“korugçın” sözcüğünden evrilmiştir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:167
@@ -2767,7 +2607,7 @@ msgstr "Bizmut"
 #: element_tiny.xml:168
 #, kde-format
 msgid "The old name of Bismuth is 'Wismut', which stood for 'white mass'."
-msgstr "Bizmut'un eski adı, 'beyaz kütle' anlamına gelen 'Wismut'tur."
+msgstr "Bizmut’un eski adı, “beyaz kütle” anlamına gelen “wismut”tur."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:169
@@ -2778,7 +2618,7 @@ msgstr "Polonyum"
 #: element_tiny.xml:170
 #, kde-format
 msgid "Named after Poland to honor Marie Curie."
-msgstr "Adı, Marie Curie'yi onurlandırmak için Polonya'dan gelir."
+msgstr "Adı, Marie Curie’yi onurlandırmak için Polonya’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:171
@@ -2789,7 +2629,7 @@ msgstr "Astatin"
 #: element_tiny.xml:172
 #, kde-format
 msgid "Greek 'astator' for 'changing'."
-msgstr "Yunanca 'değişen' anlamına gelen 'astator' sözcüğünden gelir."
+msgstr "Yunanca “değişen” anlamına gelen “astator” sözcüğünden gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:173
@@ -2803,7 +2643,7 @@ msgid ""
 "Named after Radium. It ends with 'on' to make it clear that it is a noble "
 "gas."
 msgstr ""
-"Adı, Radyum'dan gelir. Bir soy gaz olduğunu belirtmek için sonu -on ile "
+"Adı, Radyum’dan gelir. Bir soy gaz olduğunu belirtmek için sonu -on ile "
 "biter."
 
 #. i18n: tag label attribute value
@@ -2815,7 +2655,7 @@ msgstr "Fransiyum"
 #: element_tiny.xml:176
 #, kde-format
 msgid "Named after France to honor Marguerite Perey."
-msgstr "Adı, Marguerite Perey'i onurlandırmak için Fransa'dan gelir."
+msgstr "Adı, Marguerite Perey’i onurlandırmak için Fransa’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:177
@@ -2827,7 +2667,7 @@ msgstr "Radyum"
 #, kde-format
 msgid "Latin 'radius' for 'beam', as it is radioactive."
 msgstr ""
-"Radyoaktif olduğundan, Latince 'ışın' anlamına gelen 'radius' sözcüğünden "
+"Radyoaktif olduğundan, Latince “ışın” anlamına gelen “radius” sözcüğünden "
 "gelir."
 
 #. i18n: tag label attribute value
@@ -2840,7 +2680,7 @@ msgstr "Aktinyum"
 #, kde-format
 msgid "Greek 'aktis' for 'beam' - actinium is radioactive."
 msgstr ""
-"Radyoaktif olduğundan, Yunanca 'ışın' anlamına gelen 'aktis' sözcüğünden "
+"Radyoaktif olduğundan, Yunanca “ışın” anlamına gelen “aktis” sözcüğünden "
 "gelir."
 
 #. i18n: tag label attribute value
@@ -2852,7 +2692,7 @@ msgstr "Toryum"
 #: element_tiny.xml:182
 #, kde-format
 msgid "Named after the Norse god of thunder: Thor"
-msgstr "Adı, Nordik şimşek tanrısı Thor'dan gelir."
+msgstr "Adı, İskandinav şimşek tanrısı Thor’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:183
@@ -2866,8 +2706,8 @@ msgid ""
 "Greek 'protos' for 'ancester'. Protactinium is named in this way because "
 "Actinium is a product of decay radiation of Protactinium."
 msgstr ""
-"Yunanca 'ata' anlamına gelen 'protos' sözcüğünden gelir. Protaktinyum bu "
-"şekilde adlandırılmıştır; çünkü Aktinyum, Protaktinyumun bozunma "
+"Yunanca “ata” anlamına gelen “protos” sözcüğünden gelir. Protaktinyum bu "
+"şekilde adlandırılmıştır; çünkü Aktinyum, Protaktinyum’un bozunma "
 "radyasyonunun bir ürünüdür."
 
 #. i18n: tag label attribute value
@@ -2880,7 +2720,7 @@ msgstr "Uranyum"
 #, kde-format
 msgid "Greek 'ouranos' for 'heaven'. Named after the planet Uranus."
 msgstr ""
-"Yunanca 'gök' anlamına gelen 'ouranos' sözcüğünden gelir. Uranüs gezegenine "
+"Yunanca “gök” anlamına gelen “ouranos” sözcüğünden gelir. Uranüs gezegenine "
 "istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
@@ -2914,7 +2754,7 @@ msgstr "Amerikyum"
 #: element_tiny.xml:192
 #, kde-format
 msgid "Named after America."
-msgstr "Adı, Amerika'dan gelir."
+msgstr "Adı, Amerika’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:193
@@ -2925,7 +2765,7 @@ msgstr "Küryum"
 #: element_tiny.xml:194
 #, kde-format
 msgid "Named after Marie Curie."
-msgstr "Marie Curie'ye istinaden adlandırılmıştır."
+msgstr "Marie Curie’ye istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:195
@@ -2947,7 +2787,7 @@ msgstr "Kaliforniyum"
 #: element_tiny.xml:198
 #, kde-format
 msgid "Named after the US-State of California."
-msgstr "Adı, ABD eyaleti Kaliforniya'dan gelir."
+msgstr "Adı, ABD eyaleti Kaliforniya’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:199
@@ -2958,7 +2798,7 @@ msgstr "Aynştayniyum"
 #: element_tiny.xml:200
 #, kde-format
 msgid "Named after the scientist Albert Einstein."
-msgstr "Bilimci Albert Einstein'a istinaden adlandırılmıştır."
+msgstr "Bilimci Albert Einstein’a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:201
@@ -2969,7 +2809,7 @@ msgstr "Fermiyum"
 #: element_tiny.xml:202
 #, kde-format
 msgid "Named after the scientist Enrico Fermi."
-msgstr "Bilimci Enrico Fermi'ye istinaden adlandırılmıştır."
+msgstr "Bilimci Enrico Fermi’ye istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:203
@@ -2980,7 +2820,7 @@ msgstr "Mendelevyum"
 #: element_tiny.xml:204
 #, kde-format
 msgid "Named after the scientist D.I. Mendeleev."
-msgstr "Bilimci D.I. Mendeleev'e istinaden adlandırılmıştır."
+msgstr "Bilimci D.I. Mendeleev’e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:205
@@ -2991,7 +2831,7 @@ msgstr "Nobelyum"
 #: element_tiny.xml:206
 #, kde-format
 msgid "Named after the scientist Alfred Nobel."
-msgstr "Bilimci Alfred Nobel'e istinaden adlandırılmıştır."
+msgstr "Bilimci Alfred Nobel’e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:207
@@ -3002,7 +2842,7 @@ msgstr "Lawrenciyum"
 #: element_tiny.xml:208
 #, kde-format
 msgid "Named after the scientist Ernest Orlando Lawrence."
-msgstr "Bilimci Ernest Orlando Lawrence'e istinaden adlandırılmıştır."
+msgstr "Bilimci Ernest Orlando Lawrence’e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:209
@@ -3013,7 +2853,7 @@ msgstr "Rutherfordiyum"
 #: element_tiny.xml:210
 #, kde-format
 msgid "Named after the scientist Ernest Rutherford."
-msgstr "Bilimci Ernest Rutherford'a istinaden adlandırılmıştır."
+msgstr "Bilimci Ernest Rutherford’a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:211
@@ -3024,7 +2864,7 @@ msgstr "Dubniyum"
 #: element_tiny.xml:212
 #, kde-format
 msgid "Named after the science-town Dubna in Russia."
-msgstr "Rusya'daki Dubna bilim kentine istinaden adlandırılmıştır."
+msgstr "Rusya’daki Dubna bilim kentine istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:213
@@ -3035,7 +2875,7 @@ msgstr "Seaborgiyum"
 #: element_tiny.xml:214
 #, kde-format
 msgid "Named after the scientist G. Theodore Seaborg."
-msgstr "Bilimci G. Theodore Seaborg'a istinaden adlandırılmıştır."
+msgstr "Bilimci G. Theodore Seaborg’a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:215
@@ -3046,7 +2886,7 @@ msgstr "Bohriyum"
 #: element_tiny.xml:216
 #, kde-format
 msgid "Named after the scientist Niels Bohr."
-msgstr "Bilimci Niels Bohr'a istinaden adlandırılmıştır."
+msgstr "Bilimci Niels Bohr’a istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:217
@@ -3060,7 +2900,7 @@ msgid ""
 "Latin 'hassia' for the German county Hessen. In Hessen a lot elements have "
 "been discovered."
 msgstr ""
-"Alman ilçesi Hessen'in Latince karşılığıdır ('hassia'). Hessen'de pek çok "
+"Alman ilçesi Hessen’in Latince karşılığıdır (“hassia”). Hessen’de pek çok "
 "element keşfedilmiştir."
 
 #. i18n: tag label attribute value
@@ -3072,7 +2912,7 @@ msgstr "Meitneriyum"
 #: element_tiny.xml:220
 #, kde-format
 msgid "Named after the scientist Lise Meitner."
-msgstr "Bilimci Lise Meitner'e istinaden adlandırılmıştır."
+msgstr "Bilimci Lise Meitner’e istinaden adlandırılmıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:221
@@ -3098,7 +2938,7 @@ msgstr "Röntgeniyum"
 #: element_tiny.xml:224
 #, kde-format
 msgid "Named after Wilhelm Conrad Röntgen."
-msgstr "Adı, Wilhelm Conrad Röntgen'den gelir."
+msgstr "Adı, Wilhelm Conrad Röntgen’den gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:225
@@ -3113,7 +2953,7 @@ msgid ""
 "Copernicus."
 msgstr ""
 "Tarihsel olarak eka-cıva olarak bilinir. Adı, gökbilimci Nicolaus "
-"Copernicus'dan gelir."
+"Copernicus’dan gelir."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:227
@@ -3128,8 +2968,8 @@ msgid ""
 "element was the first element discovered in Japan, at the RIKEN Nishina "
 "Center for Accelerator-Based Science. Historically known as eka-thallium."
 msgstr ""
-"Adını Japonca'da 'Japonya'nın romanlaştırılmış yazılışı 'Nihon'dan alır. "
-"Element, Japonya'da RİKEN Nişina İvmelendirici Tabanlı Bilim Merkezi'nde "
+"Adını Japoncada “Japonya”nın romanlaştırılmış yazılışı “Nihon”dan alır. "
+"Element, Japonya’da RİKEN Nişina İvmelendirici Tabanlı Bilim Merkezi’nde "
 "keşfedilen ilk elementti. Tarihsel olarak eka-talyum olarak bilinir."
 
 #. i18n: tag label attribute value
@@ -3145,7 +2985,7 @@ msgid ""
 "Reactions (Dubna, Russia) where superheavy elements are synthesized."
 msgstr ""
 "Tarihsel olarak eka-kurşun olarak bilinir. Adını süper ağır elementlerin "
-"sentezlendiği Flerov Nükleer Reaksiyon Laboratuvarı'ndan (Dubna, Rusya) "
+"sentezlendiği Flerov Nükleer Reaksiyon Laboratuvarı’ndan (Dubna, Rusya) "
 "almıştır."
 
 #. i18n: tag label attribute value
@@ -3161,8 +3001,8 @@ msgid ""
 "for Nuclear Research that was a co-discoverer of this element. Historically "
 "known as eka-bismuth."
 msgstr ""
-"Adını bu elementin kaşiflerinden biri olan Ortak Nükleer Araştırma "
-"Enstitüsü'nün bulunduğu Rusya'nın Moskova bölgesinden alıyor. Tarihsel "
+"Adını bu elementin kâşiflerinden biri olan Ortak Nükleer Araştırma "
+"Enstitüsü’nün bulunduğu Rusya’nın Moskova bölgesinden alıyor. Tarihsel "
 "olarak eka-bizmut olarak bilinir."
 
 #. i18n: tag label attribute value
@@ -3178,7 +3018,7 @@ msgid ""
 "Laboratory (USA)."
 msgstr ""
 "Tarihsel olarak eka-polonyum olarak bilinir. Adını Livermore Ulusal "
-"Laboratuvarı'ndan (ABD) almıştır."
+"Laboratuvarı’ndan (ABD) almıştır."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:235
@@ -3193,8 +3033,8 @@ msgid ""
 "National Laboratory and Vanderbilt University whom were co-discoverers of "
 "this element. Historically known as eka-astatine."
 msgstr ""
-"Adını, bu elementin ortak kaşifleri olan Oak Ridge Ulusal Laboratuvarı ve "
-"Vanderbilt Üniversitesi'ne ev sahipliği yapan Amerika'nın Tennessee "
+"Adını, bu elementin ortak kâşifleri olan Oak Ridge Ulusal Laboratuvarı ve "
+"Vanderbilt Üniversitesi’ne ev sahipliği yapan Amerika’nın Tennessee "
 "eyaletinden almaktadır. Tarihsel olarak eka-astatin olarak bilinir."
 
 #. i18n: tag label attribute value
@@ -3209,8 +3049,8 @@ msgid ""
 "Named in honor of Professor Yuri Oganessian's trans-actinide element "
 "research. Historically known as eka-radon, eka-emanation before 1960."
 msgstr ""
-"Profesör Yuri Oganessian'ın trans-aktinit element araştırmasının onuruna "
-"verilmiştir. Tarihsel olarak 1960'tan önce eka-radon, eka-emanasyon olarak "
+"Profesör Yuriy Oganesyan’ın trans-aktinit element araştırmasının onuruna "
+"verilmiştir. Tarihsel olarak 1960’tan önce eka-radon, eka-emanasyon olarak "
 "biliniyordu."
 
 #: libscience/psetables.cpp:152
@@ -3305,7 +3145,7 @@ msgid ""
 "on each calculator, click on 'Introduction'."
 msgstr ""
 "Bu, kullanılabilir çeşitli hesap makinelerinin indeksidir. Her hesap "
-"makinesi hakkında daha fazla bilgi için 'Giriş'e tıklayın."
+"makinesi hakkında daha fazla bilgi için “Giriş”e tıklayın."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, tree)
 #: src/calculator/calculator.ui:51
@@ -3329,7 +3169,7 @@ msgstr "<big>Çeşitli hesap makineleri hakkında bilgi</big>"
 #: src/calculator/calculator.ui:171
 #, kde-format
 msgid "This is the description of the function of each calculator in Kalzium"
-msgstr "Bu, Kalzium'daki her hesap makinesinin işlevinin açıklamasıdır"
+msgstr "Bu, Kalzium’daki her hesap makinesinin işlevinin açıklamasıdır"
 
 #. i18n: ectx: property (html), widget (KTextEdit, ktextedit)
 #: src/calculator/calculator.ui:189
@@ -3366,7 +3206,7 @@ msgstr ""
 "<big>Kalzium hesap makinelerine hoş geldiniz!<br /></big>\n"
 "<p>Bu hesap makinesi, farklı hesaplamalar gerçekleştiren farklı görevler "
 "için çeşitli hesap makineleri içerir.</p>\n"
-"<p>Kalzium'da aşağıdaki hesap makinelerini bulabilirsiniz:</p>\n"
+"<p>Kalzium’da aşağıdaki hesap makinelerini bulabilirsiniz:</p>\n"
 "<ul><li><b>Moleküler kütle hesap makineleri<br /></b>Bu hesap makinesi, "
 "farklı moleküllerin moleküler kütlelerini hesaplamanıza yardımcı olur.<br /"
 ">Molekül adlarının kısa biçimini belirtebilir ve buna benzer armalar "
@@ -3379,7 +3219,7 @@ msgstr ""
 "<p>Aralarından seçim yapabileceğiniz çok çeşitli birimler ve miktarları "
 "belirlemek için farklı yöntemler vardır.</p>\n"
 "<li><b>Çekirdek hesap makinesi<br /></b>Bu hesaplayıcı, bir malzemenin "
-"zamanla beklenen kütlelerini tahmin etmek için Kalzium'da bulunan nükleer "
+"zamanla beklenen kütlelerini tahmin etmek için Kalzium’da bulunan nükleer "
 "verileri kullanır.</li>\n"
 "<li><b>Gaz Hesap Makinesi<br /></b>Bu hesaplayıcı, çeşitli ideal ve ideal "
 "olmayan gazlar için sıcaklık, basınç, hacim, gaz miktarı vb. değerlerini "
@@ -3396,7 +3236,7 @@ msgstr ""
 #, kde-format
 msgid "Percentage should be less than 100.0, please enter a valid value."
 msgstr ""
-"Yüzde değeri 100,0'dan düşük olmalıdır, lütfen geçerli bir değer girin."
+"Yüzde değeri 100,0’dan düşük olmalıdır, lütfen geçerli bir değer girin."
 
 #: src/calculator/concCalculator.cpp:895
 #, kde-format
@@ -4057,19 +3897,19 @@ msgstr "İdeal olmayan gazlara ilişkin veriler"
 #: src/calculator/gasCalculator.ui:294
 #, kde-format
 msgid "<big><b>Van der Waals constant 'b':</b></big>"
-msgstr "<big><b>Van der Waals sabiti 'b':</b></big>"
+msgstr "<big><b>Van der Waals sabiti “b”:</b></big>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: src/calculator/gasCalculator.ui:304
 #, kde-format
 msgid "<big><b>Van der Waals constant 'a':</b></big>"
-msgstr "<big><b>Van der Waals sabiti 'a':</b></big>"
+msgstr "<big><b>Van der Waals sabiti “a”:</b></big>"
 
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:314
 #, kde-format
 msgid "Specify the units of the van der Waals constant 'b'"
-msgstr "Van der Waals sabiti 'b'nin birimlerini belirtin"
+msgstr "Van der Waals sabiti “b”nin birimlerini belirtin"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, b)
 #: src/calculator/gasCalculator.ui:317
@@ -4079,7 +3919,7 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Bu kutu, gaz için van der Waals sabiti 'b'yi belirtmek için kullanılabilir. "
+"Bu kutu, gaz için van der Waals sabiti “b”yi belirtmek için kullanılabilir. "
 "Bu yalnızca gerçek gaz için gereklidir. İdeal bir gaz için 0,0 olarak "
 "işaretlenebilir."
 
@@ -4087,7 +3927,7 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:330
 #, kde-format
 msgid "Specify the units of the van der Waals constant 'a'"
-msgstr "Van der Waals sabiti 'a'nın birimlerini belirtin"
+msgstr "Van der Waals sabiti “a”nın birimlerini belirtin"
 
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, a)
 #: src/calculator/gasCalculator.ui:333
@@ -4097,7 +3937,7 @@ msgid ""
 "This is required only for a real gas. It can be marked as 0.0 for an ideal "
 "gas."
 msgstr ""
-"Bu kutu, gaz için van der Waals sabiti 'a'yı belirtmek için kullanılabilir. "
+"Bu kutu, gaz için van der Waals sabiti “a”yı belirtmek için kullanılabilir. "
 "Bu yalnızca gerçek gaz için gereklidir. İdeal bir gaz için 0,0 olarak "
 "imlenebilir."
 
@@ -4105,7 +3945,7 @@ msgstr ""
 #: src/calculator/gasCalculator.ui:348
 #, kde-format
 msgid "The units of the van der Waals constant 'b'"
-msgstr "Van der Waals sabitinin birimleri 'b'"
+msgstr "Van der Waals sabitinin birimleri “b”"
 
 #. i18n: ectx: property (whatsThis), widget (KComboBox, b_unit)
 #: src/calculator/gasCalculator.ui:351
@@ -4113,7 +3953,7 @@ msgstr "Van der Waals sabitinin birimleri 'b'"
 msgid ""
 "This can be used to specify the units of the van der Waals constant 'b'."
 msgstr ""
-"Bu, van der Waals sabiti 'b'nin birimlerini belirtmek için kullanılabilir."
+"Bu, van der Waals sabiti “b”nin birimlerini belirtmek için kullanılabilir."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/gasCalculator.ui:358
@@ -4346,7 +4186,7 @@ msgid ""
 "'Initial amount of the substance' and 'Final amount of the substance'."
 msgstr ""
 "Bu kutu, neyi hesaplamak istediğinizden karar vermek için kullanılır; "
-"'Zaman', 'Başlangıçtaki madde miktarı' ve 'Maddenin son miktarı' arasından "
+"“Zaman”, “Başlangıçtaki Madde Miktarı” ve “Maddenin Son Miktarı” arasından "
 "seçim yapın."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, mode)
@@ -5132,17 +4972,17 @@ msgstr " 2EC"
 #, kde-format
 msgctxt "Electron emmision"
 msgid " %1<sup>-</sup>"
-msgstr " %1<sup>-</sup>"
+msgstr " %1<sup>−</sup>"
 
 #: src/detailinfodlg.cpp:539
 #, kde-format
 msgid " %1<sup>-</sup>, fission"
-msgstr " %1<sup>-</sup>, yarılma"
+msgstr " %1<sup>−</sup>, yarılma"
 
 #: src/detailinfodlg.cpp:560
 #, kde-format
 msgid " 2%1<sup>-</sup>"
-msgstr " 2%1<sup>-</sup>"
+msgstr " 2%1<sup>−</sup>"
 
 #: src/detailinfodlg.cpp:580
 #, kde-format
@@ -5158,42 +4998,42 @@ msgstr " 2%1<sup>+</sup>"
 #: src/detailinfodlg.cpp:620
 #, kde-format
 msgid " %1 <sup>-</sup>n"
-msgstr " %1 <sup>-</sup>n"
+msgstr " %1 <sup>−</sup>n"
 
 #: src/detailinfodlg.cpp:639
 #, kde-format
 msgid " %1<sup>-</sup>2n"
-msgstr " %1<sup>-</sup>2n"
+msgstr " %1<sup>−</sup>2n"
 
 #: src/detailinfodlg.cpp:658
 #, kde-format
 msgid " %1<sup>-</sup>3n"
-msgstr " %1<sup>-</sup>3n"
+msgstr " %1<sup>−</sup>3n"
 
 #: src/detailinfodlg.cpp:676
 #, kde-format
 msgid " %1<sup>-</sup>4n"
-msgstr " %1<sup>-</sup>4n"
+msgstr " %1<sup>−</sup>4n"
 
 #: src/detailinfodlg.cpp:694
 #, kde-format
 msgid " %1<sup>-</sup>%2 n"
-msgstr " %1<sup>-</sup>%2 n"
+msgstr " %1<sup>−</sup>%2 n"
 
 #: src/detailinfodlg.cpp:711
 #, kde-format
 msgid " %1<sup>-</sup>%2"
-msgstr " %1<sup>-</sup>%2"
+msgstr " %1<sup>−</sup>%2"
 
 #: src/detailinfodlg.cpp:728
 #, kde-format
 msgid " %1<sup>-</sup>2%2"
-msgstr " %1<sup>-</sup>2%2"
+msgstr " %1<sup>−</sup>2%2"
 
 #: src/detailinfodlg.cpp:744
 #, kde-format
 msgid " %1<sup>-</sup>3%2"
-msgstr " %1<sup>-</sup>3%2"
+msgstr " %1<sup>−</sup>3%2"
 
 #: src/detailinfodlg.cpp:760
 #, kde-format
@@ -5223,7 +5063,7 @@ msgstr " %1<sup>+</sup>3%2"
 #: src/detailinfodlg.cpp:833
 #, kde-format
 msgid " %1 %2<sup>-</sup>"
-msgstr " %1 %2<sup>-</sup>"
+msgstr " %1 %2<sup>−</sup>"
 
 #: src/detailinfodlg.cpp:847
 #, kde-format
@@ -5318,7 +5158,7 @@ msgstr "Ek Bilgi"
 #, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
-msgstr "[%1] %2 (%3 - Blok %4)"
+msgstr "[%1] %2 (%3 — Blok %4)"
 
 #: src/detailinfodlg.cpp:1187
 #, kde-format
@@ -5357,12 +5197,12 @@ msgstr ""
 "Denklem çözücü, kimyasal bir denklemi dengelemenizi sağlar.<br> "
 "<br><b>Değişkenler Kullanmak</b><br>Bir elementin değişken miktarlarını "
 "ifade etmek için bu örnekte gösterildiği gibi, element sembolünün önüne tek "
-"bir karakter koyun:<br><i>aH + bO -> 5H2O</i> (Sonuç: <b>10</b> H + <b>5</b> "
-"O -&gt; <b>5</b> H<sub>2</sub>O)<br>Bu ifadeyi çözmek size gerekli miktarda "
+"bir karakter koyun:<br><i>aH + bO → 5H2O</i> (Sonuç: <b>10</b> H + <b>5</b> "
+"O → <b>5</b> H<sub>2</sub>O)<br>Bu ifadeyi çözmek size gerekli miktarda "
 "Hidrojen ve Oksijen verecektir.<br><br><b>Elektrik yüklerini tanımlama</"
 "b><br>Bu örnekte gösterildiği gibi bir ögenin elektrik yükünü belirtmek için "
-"kutu ayraçları kullanın:<br><i>4H[+] + 2O -> cH2O[2+]</i> (Sonuç: <b>4</b> "
-"H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></"
+"kutu ayraçları kullanın:<br><i>4H[+] + 2O → cH2O[2+]</i> (Sonuç: <b>4</b> "
+"H<b><sup>+</sup></b> + <b>2</b> O → <b>2</b> H<b><sub>2</sub></"
 "b>O<b><sup>2+</sub></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -5382,7 +5222,7 @@ msgstr "Dengelemek istediğiniz denklemi bu alana girin."
 #: src/equationview.ui:69
 #, kde-format
 msgid "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
-msgstr "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
+msgstr "aCH3(CH2)3COOH + bO2 → cH2O + dCO2"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, calculateButton)
@@ -5597,7 +5437,7 @@ msgstr "Beta +"
 #, kde-format
 msgctxt "Beta minus ray emission"
 msgid "Beta -"
-msgstr "Beta -"
+msgstr "Beta −"
 
 #: src/isotopetable/isotopetabledialog.cpp:52
 #, kde-format
@@ -5666,7 +5506,7 @@ msgstr "Asıl kütle: %1 u"
 #: src/kalzium.cpp:111
 #, kde-format
 msgid "&Export Data..."
-msgstr "&Veriyi Dışa Aktar..."
+msgstr "&Veriyi Dışa Aktar…"
 
 #: src/kalzium.cpp:120
 #, kde-format
@@ -5691,12 +5531,12 @@ msgstr "&Numaralandırma"
 #: src/kalzium.cpp:151
 #, kde-format
 msgid "&Plot Data..."
-msgstr "Veriyi Ç&iz..."
+msgstr "Veriyi Ç&iz…"
 
 #: src/kalzium.cpp:157
 #, kde-format
 msgid "Perform &Calculations..."
-msgstr "Hesaplamalar &Gerçekleştir..."
+msgstr "Hesaplamalar &Gerçekleştir…"
 
 #: src/kalzium.cpp:159
 #, kde-format
@@ -5707,7 +5547,7 @@ msgstr "Bu hesap makinesidir, temel kimyasal hesaplamaları yapar."
 #: src/kalzium.cpp:163
 #, kde-format
 msgid "&Isotope Table..."
-msgstr "İ&zotop Tablosu..."
+msgstr "İ&zotop Tablosu…"
 
 #: src/kalzium.cpp:165
 #, kde-format
@@ -5719,17 +5559,17 @@ msgstr ""
 #: src/kalzium.cpp:169
 #, kde-format
 msgid "&Glossary..."
-msgstr "&Kavram Dizini..."
+msgstr "&Kavram Dizini…"
 
 #: src/kalzium.cpp:174
 #, kde-format
 msgid "&R/S Phrases..."
-msgstr "&R/S İbareleri..."
+msgstr "&R/S İbareleri…"
 
 #: src/kalzium.cpp:179
 #, kde-format
 msgid "Convert chemical files..."
-msgstr "Kimyasal Dosyaları Dönüştür..."
+msgstr "Kimyasal Dosyaları Dönüştür…"
 
 #: src/kalzium.cpp:181
 #, kde-format
@@ -5744,7 +5584,7 @@ msgstr ""
 #: src/kalzium.cpp:188
 #, kde-format
 msgid "Molecular Editor..."
-msgstr "Molekül Düzenleyicisi..."
+msgstr "Molekül Düzenleyicisi…"
 
 #: src/kalzium.cpp:190
 #, kde-format
@@ -5757,7 +5597,7 @@ msgstr ""
 #: src/kalzium.cpp:197
 #, kde-format
 msgid "&Tables..."
-msgstr "&Tablolar..."
+msgstr "&Tablolar…"
 
 #: src/kalzium.cpp:199
 #, kde-format
@@ -6134,7 +5974,7 @@ msgstr "Başvurular"
 #: src/kdeeduglossary.cpp:482
 #, kde-format
 msgid "Go to '%1'"
-msgstr "Git: '%1'"
+msgstr "Git: “%1”"
 
 #: src/legendwidget.cpp:70
 #, kde-format
@@ -6237,7 +6077,7 @@ msgstr "Benoit Jacob"
 #, kde-format
 msgid "Base work on the molecular viewer, mentored Marcus during his SoC"
 msgstr ""
-"Molekül görüntüleyicisi üzerindeki temel çalışma, SoC süresince Marcus'a "
+"Molekül görüntüleyicisi üzerindeki temel çalışma, SoC süresince Marcus’a "
 "kılavuzluk"
 
 #: src/main.cpp:49
@@ -6249,7 +6089,7 @@ msgstr "Marcus Hanwell"
 #, kde-format
 msgid "SoC on the molecular viewer and libavogadro porting/integration"
 msgstr ""
-"Molekül görüntüleyicisi üzerine SoC ve libavogadro'nun taşınması/"
+"Molekül görüntüleyicisi üzerine SoC ve libavogadro’nun taşınması/"
 "tümleştirilmesi"
 
 #: src/main.cpp:51
@@ -6458,7 +6298,7 @@ msgid ""
 msgstr ""
 "Yukarıdaki araç takımına\n"
 "bir formül girin ve\n"
-"'Hesapla' düğmesine tıklayın.\n"
+"“Hesapla” düğmesine tıklayın.\n"
 "Örn. #Et#OH"
 
 #: src/molcalcwidget.cpp:198
@@ -6557,7 +6397,7 @@ msgstr "Bileşim"
 #: src/molcalcwidgetbase.ui:188
 #, kde-format
 msgid "Elemental composition"
-msgstr "Element bileşimi "
+msgstr "Element bileşimi"
 
 #. i18n: ectx: property (whatsThis), widget (QTableWidget, table)
 #: src/molcalcwidgetbase.ui:191
@@ -6601,7 +6441,7 @@ msgid ""
 "For instance, in the molecule MeOH, the alias used is Me = CH3."
 msgstr ""
 "Bu, molekülde kullanılan tüm armaları görüntüler.\n"
-"Örneğin, MeOH molekülünde kullanılan arma Me = CH3'tür."
+"Örneğin, MeOH molekülünde kullanılan arma Me = CH3’tür."
 
 #. i18n: ectx: property (text), widget (QTableWidget, alias_list)
 #: src/molcalcwidgetbase.ui:262
@@ -6959,7 +6799,7 @@ msgid ""
 "S5: Keep contents under ... (appropriate liquid to be specified by the "
 "manufacturer)"
 msgstr ""
-"S5: İçeriğini ... altında tutun (üretici tarafından belirtilecek uygun sıvı)"
+"S5: İçeriğini … altında tutun (üretici tarafından belirtilecek uygun sıvı)"
 
 #: src/rsdialog.cpp:154
 #, kde-format
@@ -6968,7 +6808,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S6: Keep under ... (inert gas to be specified by the manufacturer)"
 msgstr ""
-"S6: İçeriğini ... altında tutun (üretici tarafından belirtilecek soy gaz)"
+"S6: İçeriğini … altında tutun (üretici tarafından belirtilecek soy gaz)"
 
 #: src/rsdialog.cpp:157
 #, kde-format
@@ -7019,7 +6859,7 @@ msgid ""
 "S14: Keep away from ... ( incompatible materials to be indicated by the "
 "manufacturer )"
 msgstr ""
-"S14: ... ögelerinden uzak tutun (üretici tarafından belirtilecek uyumsuz "
+"S14: … ögelerinden uzak tutun (üretici tarafından belirtilecek uyumsuz "
 "malzemeler)"
 
 #: src/rsdialog.cpp:175
@@ -7036,7 +6876,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S16: Keep away from sources of ignition - No smoking"
-msgstr "S16: Tutuşturucu kaynaklardan uzak tutun - Yakınında sigara içilmez"
+msgstr "S16: Tutuşturucu kaynaklardan uzak tutun — Yakınında sigara içilmez"
 
 #: src/rsdialog.cpp:181
 #, kde-format
@@ -7135,7 +6975,7 @@ msgid ""
 "S28: After contact with skin, wash immediately with plenty of ... ( to be "
 "specified by the manufacturer )"
 msgstr ""
-"S28: Cilt ile temas sonrası hemen bol miktarda ... ile yıkayın (üretici "
+"S28: Cilt ile temas sonrası hemen bol miktarda … ile yıkayın (üretici "
 "tarafından belirtilir)"
 
 #: src/rsdialog.cpp:214
@@ -7214,7 +7054,7 @@ msgid ""
 "S40: To clean the floor and all objects contaminated by this material "
 "use ... ( to be specified by the manufacturer )"
 msgstr ""
-"S40: Bu malzemenin bulaştığı zemini ve tüm nesneleri temizlemek için ... "
+"S40: Bu malzemenin bulaştığı zemini ve tüm nesneleri temizlemek için … "
 "kullanın (üretici tarafından belirtilecektir)"
 
 #: src/rsdialog.cpp:241
@@ -7246,7 +7086,7 @@ msgid ""
 "S43: In case of fire use ... ( indicate in the space the precise type of "
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
-"S43: Yangın durumunda ... kullanın (kullanılması gereken yangın söndürme "
+"S43: Yangın durumunda … kullanın (kullanılması gereken yangın söndürme "
 "ekipmanını belirtin; su, riski artırıyorsa kesinlikle su kullanmayın)"
 
 #: src/rsdialog.cpp:251
@@ -7270,7 +7110,7 @@ msgid ""
 "S46: If swallowed, seek medical advice immediately and show this container "
 "or label"
 msgstr ""
-"S46: Yutulması halinde derhal tıbbi yardım alın ve bu kabı veya etiketi "
+"S46: Yutulması halinde derhal tıbbî yardım alın ve bu kabı veya etiketi "
 "gösterin."
 
 #: src/rsdialog.cpp:257
@@ -7282,7 +7122,7 @@ msgid ""
 "S47: Keep at temperature not exceeding ... °C ( to be specified by the "
 "manufacturer )"
 msgstr ""
-"S47: ... °C'yi aşmayan sıcaklıklarda tutun (üretici tarafından belirtilir)"
+"S47: … °C’yi aşmayan sıcaklıklarda tutun (üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:260
 #, kde-format
@@ -7292,7 +7132,7 @@ msgctxt ""
 msgid ""
 "S48: Keep wet with ... ( appropriate material to be specified by the "
 "manufacturer )"
-msgstr "S48: ... ile ıslak tutun (uygun malzeme üretici tarafından belirtilir)"
+msgstr "S48: … ile ıslak tutun (uygun malzeme üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:263
 #, kde-format
@@ -7308,7 +7148,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S50: Do not mix with ... ( to be specified by the manufacturer )"
-msgstr "S50: ... ile karıştırmayın (üretici tarafından belirtilir)"
+msgstr "S50: … ile karıştırmayın (üretici tarafından belirtilir)"
 
 #: src/rsdialog.cpp:269
 #, kde-format
@@ -7333,7 +7173,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S53: Avoid exposure - obtain special instructions before use"
 msgstr ""
-"S53: Maruz kalmaktan kaçının - kullanmadan önce özel yönergeleri okuyun"
+"S53: Maruz kalmaktan kaçının — kullanmadan önce özel yönergeleri okuyun"
 
 #: src/rsdialog.cpp:278
 #, kde-format
@@ -7563,7 +7403,7 @@ msgctxt ""
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R18: In use, may form flammable/explosive vapour-air mixture"
 msgstr ""
-"R18: Kullanımı sırasında, yanıcı/patlayıcı buhar-hava karışımı oluşturabilir"
+"R18: Kullanımı sırasında, yanıcı/patlayıcı buhar–hava karışımı oluşturabilir"
 
 #: src/rsdialog.cpp:376
 #, kde-format
@@ -7651,7 +7491,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "R29: Contact with water liberates toxic gas."
-msgstr "R29: Su ile teması, zehirli gaz açığa çıkarır"
+msgstr "R29: Su ile teması, zehirli gaz açığa çıkarır."
 
 #: src/rsdialog.cpp:409
 #, kde-format
@@ -7976,8 +7816,8 @@ msgid ""
 "Enter the R-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"Okumak istediğiniz R ibarelerini girin. Sınırlayıcı olarak yalnızca \"-\" "
-"işaretine izin verilir. \"/\" içeren kombinasyonlar henüz gerçeklenmemiştir."
+"Okumak istediğiniz R ibarelerini girin. Sınırlayıcı olarak yalnızca “-“ "
+"işaretine izin verilir. “/“ içeren kombinasyonlar henüz gerçeklenmemiştir."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, r_le)
 #: src/rswidget.ui:66
@@ -7999,8 +7839,8 @@ msgid ""
 "Enter the S-Phrases you want to read. Only \"-\" is allowed as a delimiter. "
 "The combinations with \"/\" are not yet implemented."
 msgstr ""
-"Okumak istediğiniz S ibarelerini girin. Sınırlayıcı olarak yalnızca \"-\" "
-"işaretine izin verilir. \"/\" içeren kombinasyonlar henüz gerçeklenmemiştir."
+"Okumak istediğiniz S ibarelerini girin. Sınırlayıcı olarak yalnızca “-“ "
+"işaretine izin verilir. “/“ içeren kombinasyonlar henüz gerçeklenmemiştir."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, s_le)
 #: src/rswidget.ui:79
@@ -8024,7 +7864,7 @@ msgstr "S&üz"
 #: src/searchwidget.cpp:37
 #, kde-format
 msgid "Search..."
-msgstr "Ara..."
+msgstr "Ara…"
 
 #: src/settings/isotopetablesettingscard.cpp:36
 #, kde-format
@@ -8757,7 +8597,7 @@ msgstr "Molekül yüklenemedi"
 #: src/tools/moleculeview.cpp:172
 #, kde-format
 msgid "Loading the molecule failed."
-msgstr "Molekülün yüklenmesi başarısız oldu"
+msgstr "Molekülün yüklenemedi."
 
 #: src/tools/moleculeview.cpp:201
 #, kde-format
@@ -8775,7 +8615,7 @@ msgstr "%1 u"
 #: src/tools/moleculeview.cpp:281
 #, kde-format
 msgid "Failed to download molecule %1 to %2."
-msgstr "%1-%2 molekülleri yüklenemedi"
+msgstr "%1–%2 molekülleri yüklenemedi"
 
 #: src/tools/moleculeview.cpp:289
 #, kde-format
@@ -8907,12 +8747,12 @@ msgstr ""
 #: src/tools/obconverter.cpp:195
 #, kde-format
 msgid "The File %1 Already Exists -- KOpenBabel"
-msgstr "%1 Dosyası Var -- KOpenBabel"
+msgstr "%1 dosyası hâlihazırda var — KOpenBabel"
 
 #: src/tools/obconverter.cpp:213
 #, kde-format
 msgid "Is it okay to run these commands? -- KOpenBabel"
-msgstr "Bu komutları çalıştırmak uygun mu? -- KOpenBabel"
+msgstr "Bu komutları çalıştırmak uygun mu? — KOpenBabel"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/tools/obconverterwidget.ui:32

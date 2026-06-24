@@ -8539,6 +8539,3 @@ msgstr "Gjer om frå:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Gjer om til:"
-
-#~ msgid "Extractor Hood"
-#~ msgstr "Avtrekkshette"

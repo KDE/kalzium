@@ -8815,6 +8815,3 @@ msgstr "Konverter fra:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Konverter til:"
-
-#~ msgid "Extractor Hood"
-#~ msgstr "Avtrekkshette"

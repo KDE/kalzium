@@ -5,20 +5,20 @@
 # tahmar1900 <tahmar1900@gmail.com>, 2005.
 # Diego Iastrubni <elcuco@kde.org>, 2005, 2012.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-01-03 16:14+0200\n"
+"PO-Revision-Date: 2026-06-23 09:06+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -722,17 +722,7 @@ msgid "Watchglass"
 msgstr "זכוכית שעון"
 
 #: data/tools.xml:6
-#, fuzzy, kde-format
-#| msgid ""
-#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
-#| "used in various experimental techniques. The border is bent upwards to "
-#| "allow the watchglass to hold small amounts of liquids in order to let "
-#| "them evaporate. The evaporation can be accelerated by heating the "
-#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
-#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
-#| "matter or drying them in an airing cupboard. The term watchglass is "
-#| "derived from the former pocket watches' protection glass which was often "
-#| "domed."
+#, kde-format
 msgid ""
 "Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
@@ -997,12 +987,7 @@ msgid "Wash Bottle"
 msgstr "בקבוק שטיפה"
 
 #: data/tools.xml:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "These bottles are used for many purposes. In most laboratories they are "
-#| "usually filled with water, salt, acid or other commonly used fluids. They "
-#| "make it easy to apply the fluid if a precisely measured amount is not "
-#| "needed."
+#, kde-format
 msgid ""
 "These bottles are used for many purposes. In most laboratories, they are "
 "usually filled with water, salt, acid, or other commonly used fluids. They "
@@ -1038,12 +1023,7 @@ msgid "Reflux Condenser"
 msgstr "מעבה ריפלוקס"
 
 #: data/tools.xml:78
-#, fuzzy, kde-format
-#| msgid ""
-#| "A reflux condenser subjects fluid to a process where a gas produced by "
-#| "heating is collected on the reflux condenser. The fluid is cooled until "
-#| "it condenses and runs back into the original fluid. Usually it is put on "
-#| "a round-bottomed flask or several neck flasks."
+#, kde-format
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
@@ -1080,18 +1060,15 @@ msgid "Test Tube"
 msgstr "מבחנה"
 
 #: data/tools.xml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "In a test tube small reactions or experiments are performed. There are "
-#| "many different types of tubes. For example some have connectors, some are "
-#| "etched for measurements, some are hardened for durability."
+#, kde-format
 msgid ""
 "In a test tube, small reactions or experiments can be performed. There are "
 "many different types of tubes. For example, some have connectors, some have "
 "etched markings for measurements, and some are hardened for durability."
 msgstr ""
-"במבחנה מבוצעות תגובות קטנות או ניסויים. ישנם סוגים רבים ושונים של מבחנות. "
-"למשל לחלקן יש מחברים, חלקן מסומנות למדידות, חלקן מוקשחות כדי שתהיינה עמידות."
+"במבחנה אפשר לבצע תגובות קטנות או ניסויים. ישנם סוגים רבים ושונים של מבחנות. "
+"למשל לחלקן יש מחברים, לחלקן סימון חרוט למדידות וחלקן מוקשחות כדי שתהיינה "
+"עמידות."
 
 #: data/tools.xml:92
 #, kde-format
@@ -1116,17 +1093,12 @@ msgstr ""
 "פגיעות מכניות והן מפני כימיקלים חומציים ובסיסיים."
 
 #: data/tools.xml:97
-#, fuzzy, kde-format
-#| msgid "Round-Bottomed Flask"
+#, kde-format
 msgid "Round-Bottom Flask"
 msgstr "בקבוק רתיחה תחתית עגולה"
 
 #: data/tools.xml:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "A round-bottomed flask is used for many reactions. Some can be connected "
-#| "to other items, as the frosting on the neck shows. With cork rings they "
-#| "can be placed on a table."
+#, kde-format
 msgid ""
 "A round-bottom flask is used for many reactions. Some can be connected to "
 "other items, as the frosting on the neck shows. With cork rings, they can be "
@@ -1261,13 +1233,7 @@ msgid "Pipette"
 msgstr "פיפטה"
 
 #: data/tools.xml:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pipettes are used to introduce small quantities of liquids in "
-#| "laboratories. A pipette has a volume scale and, as a rule, pipette bulbs "
-#| "are used as droppers for liquids. Both sorts of pipettes are calibrated "
-#| "for fluids with a temperature of 20°C and for time of outflow (signified "
-#| "by \"Ex.\"). If needed, times of outflow are indicated on the pipettes."
+#, kde-format
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
@@ -1356,44 +1322,29 @@ msgstr ""
 "משתחררות ועולות למעלה. הליך זה נקרא הוצאת גזים (out-gassing)."
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
 msgstr "מאזניים"
 
 #: data/tools.xml:159
-#, fuzzy, kde-format
-#| msgid ""
-#| "In a laboratory, very precise quantities of reagents often have to be "
-#| "weighed out. High precision scales can measure masses down to 1/10000 "
-#| "gram. As such, they stand on granite blocks to avoid vibrations and are "
-#| "protected against changes in airflow by a dome."
+#, kde-format
 msgid ""
 "In a laboratory, quantities of reagents often have to be weighed out very "
 "precisely. High precision scales can measure masses down to 1/10000 gram. As "
 "such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
-"במעבדה, לעתים קרובות יש לשקול כמויות מדויקות מאוד של מגיבים. מאזניים בעלי "
-"דיוק גבוה יכולים למדוד מסות עד 1/10000 גרם. כיוון שהם כאלה, הם עומדים על "
-"לבני גרניט כדי למנוע רעידות ומוגנים מפני שינויים בזרימת האוויר על ידי כיפה."
+"במעבדה, לעתים קרובות יש לשקול בדיוק רב כמויות של מגיבים. מאזניים בעלי דיוק "
+"גבוה יכולים למדוד מסות עד 1/10000 גרם. כיוון שהם כאלה, הם עומדים על לבני "
+"גרניט כדי למנוע רעידות ומוגנים מפני שינויים בזרימת האוויר על ידי כיפה."
 
 #: data/tools.xml:163
-#, fuzzy, kde-format
-#| msgid "Distillation bridge"
+#, kde-format
 msgid "Distillation Bridge"
 msgstr "גשר זיקוק"
 
 #: data/tools.xml:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "One means of separating a mixture is to use distillation. In this "
-#| "setting, a distillation bridge acts as a conduit between the two pots. "
-#| "One pot contains the mixture to be separated, and through heating, a gas "
-#| "forms which is lead through the bridge. At the end of the bridge the gas "
-#| "phase is condensed and drips into a round flask. Typically, the bridge is "
-#| "cooled by return flow. Also, there is often a thermometer for controlling "
-#| "the temperature of the distillation bridge."
+#, kde-format
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
@@ -1410,27 +1361,21 @@ msgstr ""
 "של גשר הזיקוק."
 
 #: data/tools.xml:168
-#, fuzzy, kde-format
-#| msgid "Syringe"
+#, kde-format
 msgid "Gas Syringe"
-msgstr "מזרק"
+msgstr "מזרק גזים"
 
 #: data/tools.xml:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "A syringe consists of two parts, a glass tube and a plunger, both "
-#| "normally made of glass. Gasses flow into the glass tube, and as the "
-#| "syringe is a closed system, the plunger moves outwards. This can be used "
-#| "to measure the volume of a reaction."
+#, kde-format
 msgid ""
 "A gas syringe consists of two parts, a glass tube and a plunger, both "
 "normally made of glass. Gasses flow into the glass tube and, as the syringe "
 "is a closed system, the plunger moves outwards. This can be used to measure "
 "the volume of a reaction."
 msgstr ""
-"מזרק מורכב משני חלקים, צינור זכוכית ובוכנה, שניהם עשויים בדרך כלל מזכוכית. "
-"גזים זורמים לתוך צינור הזכוכית, ומכיוון שהמזרק הוא מערכת סגורה, הבוכנה נעה "
-"כלפי חוץ. זה יכול לשמש למדידת הנפח של תגובה."
+"מזרק גזים מורכב משני חלקים, צינור זכוכית ובוכנה, שניהם עשויים בדרך כלל "
+"מזכוכית. גזים זורמים לתוך צינור הזכוכית, ומכיוון שהמזרק הוא מערכת סגורה, "
+"הבוכנה נעה כלפי חוץ. זה יכול לשמש למדידת הנפח של תגובה."
 
 #: data/tools.xml:173
 #, kde-format
@@ -1438,13 +1383,7 @@ msgid "Separation Beaker"
 msgstr "כוס הפרדה"
 
 #: data/tools.xml:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "First, four small caps are placed at the four ends of the separation "
-#| "beaker. Then, whilst distilling, the beaker is turned by 60 degrees after "
-#| "a certain temperate has been reached. In doing so, at the end of the "
-#| "distillation, all four caps contain a specific liquid, depending on the "
-#| "boiling point of the liquid distilled."
+#, kde-format
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
@@ -1463,11 +1402,7 @@ msgid "Burner"
 msgstr "מבער"
 
 #: data/tools.xml:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are several types of burners; this picture shows a Teclu-Burner. "
-#| "Each type of burner has specific uses, and they vary in peak temperature "
-#| "and overall heating capacity."
+#, kde-format
 msgid ""
 "There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
@@ -1531,14 +1466,7 @@ msgid "Indicator Paper"
 msgstr "נייר לקמוס"
 
 #: data/tools.xml:199
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are multiple ways of measuring the pH value of a solution, one of "
-#| "which is to use indicator paper. Indicator paper changes color depending "
-#| "on the pH of the solution applied to it, and by comparing to a chart a "
-#| "fairly accurate measure of the solution's pH can be obtained. If a more "
-#| "accurate measure is needed, a glass electrode can be used, which works by "
-#| "measuring the conductivity of the solution."
+#, kde-format
 msgid ""
 "There are multiple ways of measuring the pH value of a solution, one of "
 "which is to use indicator paper. Indicator paper changes color depending on "
@@ -1600,10 +1528,9 @@ msgstr ""
 "כימיקלים ולבצע תגובות כימיות. הן בדרך כלל משמשות גם לטיטור."
 
 #: data/tools.xml:218
-#, fuzzy, kde-format
-#| msgid "DSC (Differential Scanning Calorimeter)"
+#, kde-format
 msgid "Differential Scanning Calorimeter (DSC)"
-msgstr "DSC (קלורימטר סריקה דיפרנציאלי)"
+msgstr "קלורימטר סריקה דיפרנציאלי (DSC)"
 
 #: data/tools.xml:219
 #, kde-format
@@ -1621,12 +1548,7 @@ msgid "Dewar Vessel"
 msgstr "מיכל דיואר"
 
 #: data/tools.xml:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "A Dewar vessel (or Dewar flask), named after the physicist Sir James "
-#| "Dewar (1842-1923), is a double-walled vacuum flask, designed to provide "
-#| "good thermal insulation. As such, they are useful for keeping liquids "
-#| "cool or warm. One well-known example of a Dewar vessel is a Thermos flask."
+#, kde-format
 msgid ""
 "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar "
 "(1842–1923), is a double-walled vacuum flask, designed to provide good "

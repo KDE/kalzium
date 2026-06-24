@@ -1408,10 +1408,9 @@ msgstr ""
 "nahoru. Tento postup se nazývá odplyňování."
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
-msgstr "Váhy"
+msgstr "Měřítko"
 
 #: data/tools.xml:159
 #, fuzzy, kde-format
