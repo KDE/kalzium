@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-02-05 18:43+0100\n"
+"PO-Revision-Date: 2026-06-24 17:36+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1057,10 +1057,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
-msgstr "Scalas"
+msgstr "Scala"
 
 #: data/tools.xml:159
 #, kde-format
@@ -8156,7 +8155,7 @@ msgstr ""
 #: src/tools/obconverterwidget.ui:120
 #, kde-format
 msgid "Convert from:"
-msgstr ""
+msgstr "Converte ex:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/tools/obconverterwidget.ui:159
