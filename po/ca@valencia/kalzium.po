@@ -515,11 +515,11 @@ msgid ""
 msgstr ""
 "El mode de decaïment descriu la manera particular en què una partícula "
 "decau. Per al decaïment radioactiu (el dels núclids) els modes de decaïment "
-"són: [br] -> decaïment alfa (emissió de nuclis d'Heli-4).[br] -> decaïment "
-"ß[sup]-[/sup] (emissió d'un electró)[br] -> decaïment ß[sup]+[/sup] (emissió "
-"d'un positró) [br] -> captura electrònica (CE) [br] -> emissió de protons "
-"[br] -> fissió espontània [br] Per a un núclid concret, típicament predomina "
-"un dels modes."
+"són: [br] → decaïment alfa (emissió de nuclis d'Heli-4).[br] → decaïment "
+"ß[sup]-[/sup] (emissió d'un electró)[br] → decaïment ß[sup]+[/sup] (emissió "
+"d'un positró) [br] → captura electrònica (CE) [br] → emissió de protons [br] "
+"→ fissió espontània [br] Per a un núclid concret, típicament predomina un "
+"dels modes."
 
 #: data/knowledge.xml:163
 #, kde-format
@@ -594,7 +594,7 @@ msgstr ""
 "l'excitació d'un protó o neutró en el seu nucli de tal manera que li calga "
 "un canvi d'espín abans que puga alliberar la seua energia extra. L'isòmer "
 "decau vers uns estats energètics inferiors a través de dues transicions "
-"isomèriques:[br] -> emissió γ- (emissió d'un fotó d'alta energia)[br] -> "
+"isomèriques:[br] → emissió γ- (emissió d'un fotó d'alta energia)[br] → "
 "conversió interna (l'energia s'utilitza per a ionitzar l'àtom)[br] "
 "Contrasteu açò amb la definició d'un isòmer químic, que és l'ús més habitual "
 "del mot. Compareu-ho també amb el significat d'isòtop, en què la diferència "
@@ -5152,7 +5152,7 @@ msgstr "Informació addicional"
 #, kde-format
 msgctxt "@title:window, for example: [C] Carbon (6 - Block p)"
 msgid "[%1] %2 (%3 - Block %4)"
-msgstr "[%1] %2 (%3 - Bloc %4)"
+msgstr "[%1] %2 (%3 – Bloc %4)"
 
 #: src/detailinfodlg.cpp:1187
 #, kde-format
@@ -5192,12 +5192,12 @@ msgstr ""
 "El solucionador d'equacions permet ajustar una equació química.<br> "
 "<br><b>Utilitzant variables</b><br>Per a expressar quantitats variables d'un "
 "element, poseu un únic caràcter davant del símbol de l'element, com es "
-"mostra en este exemple: <br><i>aH + bO -> 5H2O</i>(Resultat: <b>10</b> H + "
+"mostra en este exemple: <br><i>aH + bO → 5H2O</i>(Resultat: <b>10</b> H + "
 "<b>5</b> O -&gt; <b>5</b> H<sub>2</sub>O)<br>Solucionant esta expressió "
 "obtindreu la quantitat necessària d'hidrogen i oxigen.<br><br><b>Definint "
 "càrregues elèctriques</b> <br>Utilitzeu claudàtors per a especificar la "
 "càrrega elèctrica d'un element, tal com es mostra en este exemple:"
-"<br><i>4H[+] + 2O -> cH2O[2+]</i> (Resultat: <b>4</b> H<b><sup>+</sup></b> + "
+"<br><i>4H[+] + 2O → cH2O[2+]</i> (Resultat: <b>4</b> H<b><sup>+</sup></b> + "
 "<b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></b>O<b><sup>2+</sub></b>)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -5217,7 +5217,7 @@ msgstr "Introduïu en este camp l'equació que voleu ajustar."
 #: src/equationview.ui:69
 #, kde-format
 msgid "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
-msgstr "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2"
+msgstr "aCH3(CH2)3COOH + bO2 → cH2O + dCO2"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateButton)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, calculateButton)
@@ -6868,7 +6868,7 @@ msgctxt ""
 "Please take the official translations! You find them here: https://eur-lex."
 "europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML"
 msgid "S16: Keep away from sources of ignition - No smoking"
-msgstr "S16: Conserveu-lo allunyat de tota flama o font de guspires - No fumeu"
+msgstr "S16: Conserveu-lo allunyat de tota flama o font de guspires – No fumeu"
 
 #: src/rsdialog.cpp:181
 #, kde-format
@@ -7080,7 +7080,7 @@ msgid ""
 "fire-fighting equipment. If water increases the risk add - Never use water )"
 msgstr ""
 "S43: En cas d'incendi, utilitzeu … (els mitjans d'extinció els ha "
-"d'especificar el fabricant). (Si s'afig aigua augmenta el risc - No "
+"d'especificar el fabricant). (Si s'afig aigua augmenta el risc – No "
 "utilitzeu mai aigua)"
 
 #: src/rsdialog.cpp:251
