@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-06-23 09:06+0300\n"
+"PO-Revision-Date: 2026-06-30 09:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -869,28 +869,20 @@ msgstr ""
 "אבקות על ידי כתישה. כלי בצורת אלה המכונה עלי משמש עם המכתש לכתישה."
 
 #: data/tools.xml:37
-#, fuzzy, kde-format
-#| msgid "Heating Coil"
+#, kde-format
 msgid "Heating Plate"
-msgstr "סליל חימום"
+msgstr "צלחת חימום"
 
 #: data/tools.xml:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "Heating coils are used to heat flasks and other containers. Multiple "
-#| "heating coils can be connected with a thermometer so that the heat will "
-#| "not exceed a specified temperature. It is possible to use a magnetic "
-#| "field inside the heating coil to stir fluids with a magnetic stirrer. "
-#| "This will homogenize the fluid in terms of temperature and composition."
+#, kde-format
 msgid ""
 "Heating plates are used to heat flasks and other containers. Some can "
 "generate a magnetic field in order to stir fluids with a magnetic stirrer. "
 "This homogenizes the fluid in terms of temperature and composition."
 msgstr ""
-"סלילי חימום משמשים לחימום בקבוקים ומכלים אחרים. ניתן לחבר מספר סלילי חימום "
-"עם מדחום כך שהחום לא יעלה על טמפרטורה מסוימת. ניתן להשתמש בשדה מגנטי בתוך "
-"סליל החימום כדי לערבב נוזלים עם בוחש מגנטי. התהליך הזה יגרום להומוגניזציה של "
-"הנוזל מבחינת טמפרטורה והרכב."
+"צלחות חימום משמשות לחימום בקבוקים ומכלים מסוגים שונים. חלקם יכולים לייצר שדה "
+"מגנטי כדי לערבב נוזלים עם בוחש מגנטי. הפעולה הזאת גורמת לאחידות בנוזל מבחינת "
+"חום ותרכובת."
 
 #: data/tools.xml:42
 #, kde-format
@@ -1579,7 +1571,7 @@ msgstr ""
 #: data/tools.xml:233
 #, kde-format
 msgid "Evaporating Dish"
-msgstr ""
+msgstr "קערת אידוי"
 
 #: data/tools.xml:234
 #, kde-format
@@ -1591,6 +1583,10 @@ msgid ""
 "solvents, drying precipitates, or carrying out small-scale heating "
 "experiments."
 msgstr ""
+"קערת אידוי היא קערה קטנה עמידה לחום שעשויה מחימר שנאפה בחום גבוה, משמש "
+"במעבדה לחימום, אידוי, ייבוש או איסוף חומרים. כיוון שהוא עומד גם בטמפרטורות "
+"גבוהות, אפשר להציב אותו ישירות על להבה גלויה או צלחת חימום. קערות אידוי בדרך "
+"כלל משמשות לאידוי ממסים, ייבוש משקעים או ביצוע ניסויים בקנה מידה קטן."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2

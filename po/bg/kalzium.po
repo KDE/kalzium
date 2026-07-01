@@ -3,13 +3,13 @@
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007.
 # Yasen Pramatarov <yasen@lindeas.com>, 2010, 2015.
-# SPDX-FileCopyrightText: 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2024-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2025-11-08 15:19+0100\n"
+"PO-Revision-Date: 2026-06-30 11:01+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -742,17 +742,7 @@ msgid "Watchglass"
 msgstr "Наблюдателни стъкла"
 
 #: data/tools.xml:6
-#, fuzzy, kde-format
-#| msgid ""
-#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
-#| "used in various experimental techniques. The border is bent upwards to "
-#| "allow the watchglass to hold small amounts of liquids in order to let "
-#| "them evaporate. The evaporation can be accelerated by heating the "
-#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
-#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
-#| "matter or drying them in an airing cupboard. The term watchglass is "
-#| "derived from the former pocket watches' protection glass which was often "
-#| "domed."
+#, kde-format
 msgid ""
 "Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
@@ -779,20 +769,7 @@ msgid "Dehydrator"
 msgstr "Дехидратор"
 
 #: data/tools.xml:11
-#, fuzzy, kde-format
-#| msgid ""
-#| "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
-#| "which serves to dry chemical matters; that is, to remove water or liquid "
-#| "from a sample.\n"
-#| "\t\t\tIn principle it is a glass bowl with cap that has a planar "
-#| "grinding, so that the bowl is air-tight. The dehydrator's lower part is "
-#| "ordinarily filled with a drying agent such as calcium chloride, silica "
-#| "gel, phosphoric anhydride or sulphuric acid. The sample to be dried is "
-#| "placed on a diaphanous cartridge of plastic or ceramic above the drying "
-#| "agent.\n"
-#| "\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies "
-#| "its environment by absorbing water vapor. The dry atmosphere then takes "
-#| "up water from the sample to be dried."
+#, kde-format
 msgid ""
 "A dehydrator is often made of glass and serves to dry chemical matters; that "
 "is, to remove water or liquid from a sample. It is a glass bowl with a cap "
@@ -806,15 +783,14 @@ msgid ""
 msgstr ""
 "Дехидраторът е част от лабораторен апарат, често направен от стъкло и който "
 "служи за изсушаване на химически вещества; тоест за отстраняване на вода или "
-"течност от проба.\n"
-"\t\t\tПо принцип това е стъклена купа с капачка, която има планарно смилане, "
-"така че купата да е херметична. Долната част на дехидратора обикновено се "
-"пълни с изсушаващ агент като калциев хлорид, силикагел, фосфорен анхидрид "
-"или сярна киселина. Пробата за изсушаване се поставя върху прозрачен патрон "
-"от пластмаса или керамика над изсушаващия агент.\n"
-"\t\t\tСушителят е хигроскопичен, което означава, че обезвлажнява околната "
+"течност от проба.По принцип това е стъклена купа с капачка, която има "
+"планарно смилане, така че купата да е херметична. Долната част на "
+"дехидратора обикновено се пълни с изсушаващ агент като калциев хлорид, "
+"силикагел, фосфорен анхидрид или сярна киселина. Пробата за изсушаване се "
+"поставя върху прозрачен патрон от пластмаса или керамика над изсушаващия "
+"агент. Сушителят е хигроскопичен, което означава, че обезвлажнява околната "
 "среда чрез абсорбиране на водни пари. След това сухата атмосфера поема вода "
-"от пробата, която трябва да се изсуши."
+"от пробата."
 
 #: data/tools.xml:15
 #, kde-format
@@ -838,15 +814,7 @@ msgid "Water Jet Pump"
 msgstr "Водоструйна помпа"
 
 #: data/tools.xml:23
-#, fuzzy, kde-format
-#| msgid ""
-#| "The water jet pump has two entry pipes and one exit, and consists, in "
-#| "principle, of two pipes one inside the other. At the water entry a water "
-#| "jet shoots under full pressure out of a nozzle into a slightly larger "
-#| "pipe. The water jet thereby carries away air or fluid from the second "
-#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
-#| "and thus it is an application of the hydrodynamic paradox (objects close "
-#| "to drifting fluids are aspirated instead of being pushed away)."
+#, kde-format
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
@@ -860,10 +828,11 @@ msgstr ""
 "Водоструйната помпа има две входни тръби и една изходна и по принцип се "
 "състои от две тръби една в друга. При входа на водата водна струя се "
 "изстрелва под пълно налягане от дюза в малко по-голяма тръба. По този начин "
-"водната струя отвежда въздух или течност от втория вход. <br> Това е "
-"причинено от отрицателното налягане в носеща се течност и следователно е "
-"приложение на хидродинамичния парадокс (обекти в близост до носещи се "
-"течности се аспирират, вместо да бъдат отблъснати)."
+"водната струя отвежда въздух или течност от втория вход. \n"
+"\t\t<br>\n"
+"\t\tТова е причинено от отрицателното налягане в носеща се течност и "
+"следователно е приложение на хидродинамичния парадокс (обекти в близост до "
+"носещи се течности се аспирират, вместо да бъдат отблъснати)."
 
 #: data/tools.xml:27
 #, kde-format
@@ -871,21 +840,17 @@ msgid "Refractometer"
 msgstr "Рефрактометър"
 
 #: data/tools.xml:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "With a refractometer the refractive index of optical media is determined. "
-#| "If the refractive index of a chemical is known it can be used after a "
-#| "synthesis to determine the sample's purity or to audit the synthesis' "
-#| "success."
+#, kde-format
 msgid ""
 "With a refractometer, the refractive index of optical media is determined. "
 "If the refractive index of a chemical is known, it can be used after a "
 "synthesis to determine the sample’s purity or to audit whether the synthesis "
 "was successful."
 msgstr ""
-"Служи за измерване на коефициента на пречупване през оптични стъкла. Ако "
-"тази стойност на даден химически елемент е известна, може да се използва за "
-"определяна на чистота на веществото."
+"С рефрактометър се определя коефициентът на пречупване на оптични среди. Ако "
+"коефициентът на пречупване на дадено химично вещество е известен, той може "
+"да се използва след синтез, за да се определи чистотата на пробата или да се "
+"провери дали синтезът е бил успешен."
 
 #: data/tools.xml:32
 #, kde-format
@@ -893,39 +858,33 @@ msgid "Mortar"
 msgstr "Хоросан"
 
 #: data/tools.xml:33
-#, fuzzy, kde-format
-#| msgid ""
-#| "A mortar is used for manually grinding solids. It can also be used to "
-#| "homogenize a mixture of powders by grinding. A club-shaped tool known as "
-#| "a pestle is used with the mortar for grinding."
+#, kde-format
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
 "homogenize a mixture of powders by grinding. A club-shaped tool called "
 "“pestle” is used to crush solids into fine powder."
 msgstr ""
 "За ръчно смилане на твърди вещества се използва хаван. Може да се използва и "
-"за хомогенизиране на смес от прахове чрез смилане. С хоросана за смилане се "
-"използва инструмент с форма на тояга, известен като пестик."
+"за хомогенизиране на смес от прахове чрез смилане. Инструмент с форма на "
+"бухалка, наречен „пестик“, се използва за стриване на твърди вещества на фин "
+"прах."
 
 #: data/tools.xml:37
-#, fuzzy, kde-format
-#| msgid "Heating Coil"
+#, kde-format
 msgid "Heating Plate"
-msgstr "Реотан"
+msgstr "Нагревателни плочи"
 
 #: data/tools.xml:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "Heating coils are used to heat flasks and other containers. Multiple "
-#| "heating coils can be connected with a thermometer so that the heat will "
-#| "not exceed a specified temperature. It is possible to use a magnetic "
-#| "field inside the heating coil to stir fluids with a magnetic stirrer. "
-#| "This will homogenize the fluid in terms of temperature and composition."
+#, kde-format
 msgid ""
 "Heating plates are used to heat flasks and other containers. Some can "
 "generate a magnetic field in order to stir fluids with a magnetic stirrer. "
 "This homogenizes the fluid in terms of temperature and composition."
-msgstr "Реотанът (електрореотанът) служи за загряване на химически съдове."
+msgstr ""
+"Нагревателните плочи се използват за нагряване на колби и други съдове. "
+"Някои от тях могат да генерират магнитно поле, за да разбъркват течности с "
+"магнитна бъркалка. По този начин течността се хомогенизира по отношение на "
+"температурата и състава."
 
 #: data/tools.xml:42
 #, kde-format
@@ -933,18 +892,15 @@ msgid "Cork Ring"
 msgstr "Коркови обръчи"
 
 #: data/tools.xml:43
-#, fuzzy, kde-format
-#| msgid ""
-#| "Large containers like round-bottomed flasks are placed on rings made of "
-#| "cork, a special soft lightweight wood with good insulating qualities to "
-#| "protect fragile instruments."
+#, kde-format
 msgid ""
 "Large containers like round-bottom flasks are placed on rings made of cork, "
 "a special soft and lightweight bark with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
-"Корковите обръчи служат за поставяне на разни заоблени съдове в тях, които "
-"не могат да стоят на равна повърхност."
+"Големи съдове като колби с кръгло дъно се поставят върху пръстени от корк — "
+"специална мека и лека дървесна кора с добри изолационни свойства, която "
+"служи за защита на чупливи лабораторни инструменти."
 
 #: data/tools.xml:47
 #, kde-format
@@ -993,17 +949,10 @@ msgstr ""
 #: data/tools.xml:62
 #, kde-format
 msgid "Vortexer"
-msgstr "Завихрител"
+msgstr "Вортексер"
 
 #: data/tools.xml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "A vortexer serves to homogenize reagents found in laboratories. The "
-#| "container containing liquid to be homogenized is put on a platform. The "
-#| "platform shakes by rotary agitation up to 3000RPM at which point a "
-#| "contact sensor is activated. In this way extremely small volumes of fluid "
-#| "can be homogenized quickly. It is the opposite of a centrifuge, used to "
-#| "separate fluids."
+#, kde-format
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
@@ -1025,12 +974,7 @@ msgid "Wash Bottle"
 msgstr "Бутилка"
 
 #: data/tools.xml:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "These bottles are used for many purposes. In most laboratories they are "
-#| "usually filled with water, salt, acid or other commonly used fluids. They "
-#| "make it easy to apply the fluid if a precisely measured amount is not "
-#| "needed."
+#, kde-format
 msgid ""
 "These bottles are used for many purposes. In most laboratories, they are "
 "usually filled with water, salt, acid, or other commonly used fluids. They "
@@ -1069,12 +1013,7 @@ msgid "Reflux Condenser"
 msgstr "Обратен хладник"
 
 #: data/tools.xml:78
-#, fuzzy, kde-format
-#| msgid ""
-#| "A reflux condenser subjects fluid to a process where a gas produced by "
-#| "heating is collected on the reflux condenser. The fluid is cooled until "
-#| "it condenses and runs back into the original fluid. Usually it is put on "
-#| "a round-bottomed flask or several neck flasks."
+#, kde-format
 msgid ""
 "A reflux condenser subjects fluid to a process where a gas produced by "
 "heating is collected on the reflux condenser. The fluid is cooled until it "
@@ -1090,12 +1029,7 @@ msgid "Pipette Bulb"
 msgstr "Пипетна колба"
 
 #: data/tools.xml:83
-#, fuzzy, kde-format
-#| msgid ""
-#| "A pipette bulb is used to fill pipettes. Squeezing then releasing the "
-#| "bulb produces a negative pressure, causing fluid to flow into the "
-#| "pipette; squeezing the bulb then causes the fluid to flow out of the "
-#| "pipette."
+#, kde-format
 msgid ""
 "A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
@@ -1103,8 +1037,8 @@ msgid ""
 msgstr ""
 "Бутон за пипета се използва за пълнене на пипети. Стискането и след това "
 "отпускането на бутона или гумената част създава отрицателно налягане, което "
-"води до изтичане на течност в пипетата; след това стискането на бутона води "
-"до изтичане на течност от пипетата."
+"води до изсмукване на течност в пипетата; след това повторното стискане на "
+"бутона води до изтичане на течността от пипетата."
 
 #: data/tools.xml:87
 #, kde-format
@@ -1112,11 +1046,7 @@ msgid "Test Tube"
 msgstr "Епруветка"
 
 #: data/tools.xml:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "In a test tube small reactions or experiments are performed. There are "
-#| "many different types of tubes. For example some have connectors, some are "
-#| "etched for measurements, some are hardened for durability."
+#, kde-format
 msgid ""
 "In a test tube, small reactions or experiments can be performed. There are "
 "many different types of tubes. For example, some have connectors, some have "
@@ -1132,12 +1062,7 @@ msgid "Protective Goggles"
 msgstr "Защитни очила"
 
 #: data/tools.xml:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Most laboratories insist that protective goggles are worn. Without them, "
-#| "it is too risky to work with most chemicals. Usually, the lens is a "
-#| "special type of plastic that affords protection from both mechanical "
-#| "impacts, and acid and base chemicals."
+#, kde-format
 msgid ""
 "Most laboratories insist that protective goggles are worn. Without them, it "
 "would be too risky to work with most chemicals. Usually, the lens is a "
@@ -1147,20 +1072,15 @@ msgstr ""
 "Повечето лаборатории настояват да се носят защитни очила. Без тях е твърде "
 "рисковано да се работи с повечето химикали. Обикновено лещата е специален "
 "вид пластмаса, която осигурява защита както от механични въздействия, така и "
-"от киселинни и основни химикали."
+"от киселини и основи."
 
 #: data/tools.xml:97
-#, fuzzy, kde-format
-#| msgid "Round-Bottomed Flask"
+#, kde-format
 msgid "Round-Bottom Flask"
 msgstr "Колба с кръгло дъно"
 
 #: data/tools.xml:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "A round-bottomed flask is used for many reactions. Some can be connected "
-#| "to other items, as the frosting on the neck shows. With cork rings they "
-#| "can be placed on a table."
+#, kde-format
 msgid ""
 "A round-bottom flask is used for many reactions. Some can be connected to "
 "other items, as the frosting on the neck shows. With cork rings, they can be "
@@ -1190,11 +1110,7 @@ msgid "Drying Tube"
 msgstr "Сушилня"
 
 #: data/tools.xml:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Some reactions need to be kept free of water: to make this possible a "
-#| "drying tube can be used. Drying tubes contains a hygroscopic chemical to "
-#| "absorb water from the atmosphere."
+#, kde-format
 msgid ""
 "Some reactions need to be kept free of water: to make this possible, a "
 "drying tube can be used. Drying tubes contain a hygroscopic chemical that "
@@ -1210,12 +1126,7 @@ msgid "Test Tube Holder"
 msgstr "Държач за епруветка"
 
 #: data/tools.xml:113
-#, fuzzy, kde-format
-#| msgid ""
-#| "Test tube holders make it easier to hold test tubes. By using a holder, "
-#| "there is a safe distance between ones hand and the test tube when the "
-#| "tube is hot. Typically, test tube holders are used to hold test tubes "
-#| "over open flames."
+#, kde-format
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
 "there is a safe distance between one’s hand and the test tube, preventing "
@@ -1223,7 +1134,7 @@ msgid ""
 "used to hold test tubes over open flames."
 msgstr ""
 "Държачите за епруветки улесняват задържането на епруветките. С помощта на "
-"държач има безопасно разстояние между едната ръка и епруветката, когато "
+"държач има безопасно разстояние между ръката и епруветката, когато "
 "епруветката е гореща. Обикновено държачите за епруветки се използват за "
 "задържане на епруветки над открит пламък."
 
@@ -1233,12 +1144,7 @@ msgid "Measuring Cylinder"
 msgstr "Мерителен цилиндър"
 
 #: data/tools.xml:118
-#, fuzzy, kde-format
-#| msgid ""
-#| "A measuring cylinder can be used to measure amounts of liquids relatively "
-#| "precisely. Furthermore, the cylinder allows particulate matter to sink: "
-#| "following this, the particulates can be separated from the fluid by "
-#| "decanting."
+#, kde-format
 msgid ""
 "A measuring cylinder can be used to measure amounts of liquids. Due to its "
 "height and small diameter, it is also effective at separating solids "
@@ -1303,13 +1209,7 @@ msgid "Pipette"
 msgstr "Пипета"
 
 #: data/tools.xml:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pipettes are used to introduce small quantities of liquids in "
-#| "laboratories. A pipette has a volume scale and, as a rule, pipette bulbs "
-#| "are used as droppers for liquids. Both sorts of pipettes are calibrated "
-#| "for fluids with a temperature of 20°C and for time of outflow (signified "
-#| "by \"Ex.\"). If needed, times of outflow are indicated on the pipettes."
+#, kde-format
 msgid ""
 "Pipettes are used to introduce small quantities of liquids in laboratories. "
 "A pipette has a volume scale and, as a rule, pipette bulbs are used as "
@@ -1318,10 +1218,11 @@ msgid ""
 "needed, times of outflow are indicated on the pipettes."
 msgstr ""
 "Пипетите се използват за въвеждане на малки количества течности в "
-"лаборатории. Пипетата има обемна скала и като правило пипетните колби се "
-"използват като капкомери за течности. И двата вида пипети са калибрирани за "
-"течности с температура 20°C и за време на изтичане (обозначено с \"Ex.\"). "
-"Ако е необходимо, времената на изтичане са посочени върху пипетите."
+"лаборатории. Пипетата има обемна скала и по правило за дозиране на течности "
+"се използват гумени накрайници (пълначи/капкомери). И двата вида пипети са "
+"калибрирани за течности с температура 20 °C и за време на изтичане "
+"(обозначено с „Ex.“). При необходимост времената на изтичане са отбелязани "
+"върху пипетите."
 
 #: data/tools.xml:142
 #, kde-format
@@ -1329,23 +1230,7 @@ msgid "Erlenmeyer Flask"
 msgstr "Ерленмайерова колба"
 
 #: data/tools.xml:148
-#, fuzzy, kde-format
-#| msgid ""
-#| "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825-1909), "
-#| "is different to a beaker in that it comes with an inverted conical base "
-#| "and a cylindrical neck. There are different types of Erlenmeyer flasks "
-#| "for laboratory applications: the narrow neck and wide neck forms. "
-#| "Depending on the application the flask may have precision grinding to "
-#| "allow good connection to other containers.\n"
-#| "\t\t\t<br>\n"
-#| "\t\t\tThe narrow neck reduces the risk of fluid escaping, especially when "
-#| "boiling or during reactions which agitate the contents.\n"
-#| "\t\t\t<br>\n"
-#| "\t\t\tAn Erlenmeyer flask is useful for mixing fluids or accelerating "
-#| "reactions by stirring or shaking, for example. The Erlenmeyer flask is "
-#| "particularly suited for a magnetic stirrer, since it can be placed "
-#| "directly on the stirring platform. A round-bottomed flask, by contrast, "
-#| "must be placed on a cork ring on the stirring platform.\n"
+#, kde-format
 msgid ""
 "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825–1909), is "
 "different to a beaker in that it comes with an inverted conical base and a "
@@ -1386,63 +1271,44 @@ msgid "Ultrasonic Bath"
 msgstr "Ултразвукова баня"
 
 #: data/tools.xml:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "For some chemical reactions it is important that the solvent is gas free. "
-#| "To achieve this the reaction vessel is put for some time into a "
-#| "ultrasonic bath. Due to the high sound frequency, the vapor locks peel "
-#| "away and ascend. This procedure is called out-gassing."
+#, kde-format
 msgid ""
 "For some chemical reactions, it is important that the solvent is gas free. "
 "To achieve this, the reaction vessel is put in an ultrasonic bath for some "
 "time. Due to the high sound frequency, the vapor locks peel away and ascend "
 "out of the liquid. This procedure is called out-gassing."
 msgstr ""
-"За някои химични реакции е важно разтворителят да не съдържа газ. За да се "
+"При някои химични реакции е важно разтворителят да бъде без газове. За да се "
 "постигне това, реакционният съд се поставя за известно време в ултразвукова "
-"баня. Поради високата честота на звука, парните шлюзове се отлепват и се "
-"издигат. Тази процедура се нарича отделяне на газове."
+"вана. Поради високата честота на звука газовите мехурчета се отделят от "
+"течността и се издигат нагоре. Този процес се нарича дегазиране (out-"
+"gassing)."
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
 msgstr "Везна"
 
 #: data/tools.xml:159
-#, fuzzy, kde-format
-#| msgid ""
-#| "In a laboratory, very precise quantities of reagents often have to be "
-#| "weighed out. High precision scales can measure masses down to 1/10000 "
-#| "gram. As such, they stand on granite blocks to avoid vibrations and are "
-#| "protected against changes in airflow by a dome."
+#, kde-format
 msgid ""
 "In a laboratory, quantities of reagents often have to be weighed out very "
 "precisely. High precision scales can measure masses down to 1/10000 gram. As "
 "such, they stand on granite blocks to avoid vibrations and are protected "
 "against changes in airflow by a dome."
 msgstr ""
-"В една лаборатория често трябва да се претеглят много точни количества "
-"реагенти. Везните с висока точност могат да измерват маси до 1/10000 грама. "
-"Като такива, те стоят върху гранитни блокове, за да избегнат вибрации и са "
-"защитени срещу промени във въздушния поток от купол."
+"В една лаборатория често трябва да се претеглят реагентите с голяма точност. "
+"Везните с висока точност могат да измерват маси до 1/10000 грама. Като "
+"такива, те стоят върху гранитни блокове, за да избегнат вибрации и са "
+"защитени с купол срещу промени във въздушния поток."
 
 #: data/tools.xml:163
-#, fuzzy, kde-format
-#| msgid "Distillation bridge"
+#, kde-format
 msgid "Distillation Bridge"
 msgstr "Дестилационен мост"
 
 #: data/tools.xml:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "One means of separating a mixture is to use distillation. In this "
-#| "setting, a distillation bridge acts as a conduit between the two pots. "
-#| "One pot contains the mixture to be separated, and through heating, a gas "
-#| "forms which is lead through the bridge. At the end of the bridge the gas "
-#| "phase is condensed and drips into a round flask. Typically, the bridge is "
-#| "cooled by return flow. Also, there is often a thermometer for controlling "
-#| "the temperature of the distillation bridge."
+#, kde-format
 msgid ""
 "One means of separating a mixture is to use distillation. In this setting, a "
 "distillation bridge acts as a conduit between the two pots. One pot contains "
@@ -1460,28 +1326,22 @@ msgstr ""
 "често има термометър за контролиране на температурата на дестилационния мост."
 
 #: data/tools.xml:168
-#, fuzzy, kde-format
-#| msgid "Syringe"
+#, kde-format
 msgid "Gas Syringe"
-msgstr "Спринцовка"
+msgstr "Газова спринцовка"
 
 #: data/tools.xml:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "A syringe consists of two parts, a glass tube and a plunger, both "
-#| "normally made of glass. Gasses flow into the glass tube, and as the "
-#| "syringe is a closed system, the plunger moves outwards. This can be used "
-#| "to measure the volume of a reaction."
+#, kde-format
 msgid ""
 "A gas syringe consists of two parts, a glass tube and a plunger, both "
 "normally made of glass. Gasses flow into the glass tube and, as the syringe "
 "is a closed system, the plunger moves outwards. This can be used to measure "
 "the volume of a reaction."
 msgstr ""
-"Спринцовката се състои от две части, стъклена тръба и бутало, като и двете "
-"обикновено са направени от стъкло. Газовете се вливат в стъклената тръба и "
-"тъй като спринцовката е затворена система, буталото се движи навън. Това "
-"може да се използва за измерване на обема на реакцията."
+"Спринцовката за газове се състои от две части, стъклена тръба и бутало, като "
+"и двете обикновено са направени от стъкло. Газовете се вливат в стъклената "
+"тръба и тъй като спринцовката е затворена система, буталото се движи навън. "
+"Това може да се използва за измерване на обема на реакцията."
 
 #: data/tools.xml:173
 #, kde-format
@@ -1489,13 +1349,7 @@ msgid "Separation Beaker"
 msgstr "Разделителна кана"
 
 #: data/tools.xml:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "First, four small caps are placed at the four ends of the separation "
-#| "beaker. Then, whilst distilling, the beaker is turned by 60 degrees after "
-#| "a certain temperate has been reached. In doing so, at the end of the "
-#| "distillation, all four caps contain a specific liquid, depending on the "
-#| "boiling point of the liquid distilled."
+#, kde-format
 msgid ""
 "First, four small caps are placed at the four ends of the separation beaker. "
 "Then, whilst distilling, the beaker is turned by 60 degrees after a certain "
@@ -1515,36 +1369,29 @@ msgid "Burner"
 msgstr "Горелка"
 
 #: data/tools.xml:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are several types of burners; this picture shows a Teclu-Burner. "
-#| "Each type of burner has specific uses, and they vary in peak temperature "
-#| "and overall heating capacity."
+#, kde-format
 msgid ""
 "There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
-"Има няколко вида горелки; тази снимка показва Teclu-Burner. Всеки тип "
+"Има няколко вида горелки; тази снимка показва горелка тип Teclu. Всеки тип "
 "горелка има специфични приложения и те се различават по пикова температура и "
 "общ капацитет на нагряване."
 
 #: data/tools.xml:183
 #, kde-format
 msgid "Fume Hood"
-msgstr ""
+msgstr "Лабораторна камина"
 
 #: data/tools.xml:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "Extractor hoods are used to filter out gases from chemical reactions. The "
-#| "air, once cleaned, is pumped outside of the building."
+#, kde-format
 msgid ""
 "Fume hoods are used to filter out gases from chemical reactions. The air, "
 "once cleaned, is pumped outside of the building."
 msgstr ""
-"Аспираторите се използват за филтриране на газове от химични реакции. Веднъж "
-"почистен, въздухът се изпомпва извън сградата."
+"Лабораторната камина се използва за филтриране на газове от химични реакции. "
+"Веднъж почистен, въздухът се изпомпва извън сградата."
 
 #: data/tools.xml:188
 #, kde-format
@@ -1571,8 +1418,7 @@ msgstr ""
 "спадне, нагревателната спирала се активира отново."
 
 #: data/tools.xml:193
-#, fuzzy, kde-format
-#| msgid "Clamps"
+#, kde-format
 msgid "Clamp"
 msgstr "Скоби"
 
@@ -1589,14 +1435,7 @@ msgid "Indicator Paper"
 msgstr "Индикаторна хартия:"
 
 #: data/tools.xml:199
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are multiple ways of measuring the pH value of a solution, one of "
-#| "which is to use indicator paper. Indicator paper changes color depending "
-#| "on the pH of the solution applied to it, and by comparing to a chart a "
-#| "fairly accurate measure of the solution's pH can be obtained. If a more "
-#| "accurate measure is needed, a glass electrode can be used, which works by "
-#| "measuring the conductivity of the solution."
+#, kde-format
 msgid ""
 "There are multiple ways of measuring the pH value of a solution, one of "
 "which is to use indicator paper. Indicator paper changes color depending on "
@@ -1665,8 +1504,7 @@ msgstr ""
 "използват и за титруване."
 
 #: data/tools.xml:218
-#, fuzzy, kde-format
-#| msgid "DSC (Differential Scanning Calorimeter)"
+#, kde-format
 msgid "Differential Scanning Calorimeter (DSC)"
 msgstr "DSC (диференциален сканиращ калориметър)"
 
@@ -1687,12 +1525,7 @@ msgid "Dewar Vessel"
 msgstr "Дюаров съд"
 
 #: data/tools.xml:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "A Dewar vessel (or Dewar flask), named after the physicist Sir James "
-#| "Dewar (1842-1923), is a double-walled vacuum flask, designed to provide "
-#| "good thermal insulation. As such, they are useful for keeping liquids "
-#| "cool or warm. One well-known example of a Dewar vessel is a Thermos flask."
+#, kde-format
 msgid ""
 "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar "
 "(1842–1923), is a double-walled vacuum flask, designed to provide good "
@@ -1700,7 +1533,7 @@ msgid ""
 "warm. One well-known example of a Dewar vessel is a Thermos flask."
 msgstr ""
 "Съд на Дюар (или колба на Дюар), кръстен на физика сър Джеймс Дюар "
-"(1842-1923), е вакуумна колба с двойни стени, предназначена да осигури добра "
+"(1842-1923), е вакумна колба с двойни стени, предназначена да осигури добра "
 "топлоизолация. Като такива те са полезни за поддържане на течности хладни "
 "или топли. Един добре известен пример за съд на Дюар е термос."
 
@@ -1708,6 +1541,8 @@ msgstr ""
 #, kde-format
 msgid "High-Performance Liquid Chromatography (HPLC)"
 msgstr ""
+"Високоефективна течна хроматография High-Performance Liquid Chromatography "
+"(HPLC)"
 
 #: data/tools.xml:229
 #, kde-format
@@ -1719,11 +1554,17 @@ msgid ""
 "speeds and exit separately. This makes HPLC useful for analyzing complex "
 "mixtures and checking purity in chemistry, biology, and pharmaceuticals."
 msgstr ""
+"HPLC is used to separate, identify, and measure the components of a liquid "
+"mixture. A sample dissolved in a solvent is pumped through a tightly packed "
+"column under high pressure. Because different substances interact "
+"differently with the column material, they move through it at different "
+"speeds and exit separately. This makes HPLC useful for analyzing complex "
+"mixtures and checking purity in chemistry, biology, and pharmaceuticals."
 
 #: data/tools.xml:233
 #, kde-format
 msgid "Evaporating Dish"
-msgstr ""
+msgstr "Изпарителна чашка"
 
 #: data/tools.xml:234
 #, kde-format
@@ -1735,6 +1576,12 @@ msgid ""
 "solvents, drying precipitates, or carrying out small-scale heating "
 "experiments."
 msgstr ""
+"Изпарителната чашка е малък термоустойчив съд, изработен от изпечена глина, "
+"който се използва в лабораторията за нагряване, изпаряване, сушене или "
+"събиране на вещества. Поради добрата си устойчивост на високи температури, "
+"тя може да се поставя директно върху пламък или нагревателна плоча. "
+"Изпарителните чашки се използват често за изпаряване на разтворители, "
+"изсушаване на утайки или провеждане на малки експерименти с нагряване."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2
