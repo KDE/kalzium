@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-06-30 09:21+0300\n"
+"PO-Revision-Date: 2026-07-02 08:42+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -802,15 +802,7 @@ msgid "Water Jet Pump"
 msgstr "משאבת סילון מים"
 
 #: data/tools.xml:23
-#, fuzzy, kde-format
-#| msgid ""
-#| "The water jet pump has two entry pipes and one exit, and consists, in "
-#| "principle, of two pipes one inside the other. At the water entry a water "
-#| "jet shoots under full pressure out of a nozzle into a slightly larger "
-#| "pipe. The water jet thereby carries away air or fluid from the second "
-#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
-#| "and thus it is an application of the hydrodynamic paradox (objects close "
-#| "to drifting fluids are aspirated instead of being pushed away)."
+#, kde-format
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
@@ -823,9 +815,10 @@ msgid ""
 msgstr ""
 "למשאבת סילון מים יש שני צינורות כניסה ויציאה אחת, והיא מורכבת, באופן עקרוני, "
 "משני צינורות זה בתוך זה. בכניסת המים סילון מים יורה בלחץ מלא מתוך נחיר לתוך "
-"צינור מעט גדול יותר. סילון המים נושא בכך אוויר או נוזל מהכניסה השנייה. <br> "
-"זה נגרם על ידי הלחץ השלילי בנוזל זורם, ולכן זהו יישום של הפרדוקס ההידרודינמי "
-"(עצמים הקרובים לנוזלים זורמים נשאבים במקום להידחף החוצה)."
+"צינור מעט גדול יותר. סילון המים נושא בכך אוויר או נוזל מהכניסה השנייה.\n"
+"\t\t<br>\n"
+"\t\tזה נגרם על ידי הלחץ השלילי בנוזל זורם, ולכן זהו יישום של הפרדוקס "
+"ההידרודינמי (עצמים הקרובים לנוזלים זורמים נשאבים במקום להידחף החוצה)."
 
 #: data/tools.xml:27
 #, kde-format
@@ -890,18 +883,14 @@ msgid "Cork Ring"
 msgstr "טבעת שעם"
 
 #: data/tools.xml:43
-#, fuzzy, kde-format
-#| msgid ""
-#| "Large containers like round-bottomed flasks are placed on rings made of "
-#| "cork, a special soft lightweight wood with good insulating qualities to "
-#| "protect fragile instruments."
+#, kde-format
 msgid ""
 "Large containers like round-bottom flasks are placed on rings made of cork, "
 "a special soft and lightweight bark with good insulating qualities to "
 "protect fragile instruments."
 msgstr ""
-"מכלים גדולים כמו בקבוקים בעלי תחתית עגולה מונחים על טבעות עשויות שעם, עץ רך "
-"וקל משקל מיוחד בעל תכונות בידוד טובות להגנה על מכשירים שבירים."
+"מכלים גדולים כמו בקבוקים בעלי תחתית עגולה מונחים על טבעות עשויות שעם, קליפה "
+"רכה וקלת משקל במיוחד בעלת תכונות בידוד טובות להגנה על מכשירים שבירים."
 
 #: data/tools.xml:47
 #, kde-format
@@ -952,14 +941,7 @@ msgid "Vortexer"
 msgstr "מערבל וורטקס"
 
 #: data/tools.xml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "A vortexer serves to homogenize reagents found in laboratories. The "
-#| "container containing liquid to be homogenized is put on a platform. The "
-#| "platform shakes by rotary agitation up to 3000RPM at which point a "
-#| "contact sensor is activated. In this way extremely small volumes of fluid "
-#| "can be homogenized quickly. It is the opposite of a centrifuge, used to "
-#| "separate fluids."
+#, kde-format
 msgid ""
 "A vortexer serves to homogenize reagents found in laboratories. The "
 "container containing liquid to be homogenized is put on a platform. The "
@@ -971,7 +953,7 @@ msgstr ""
 "מערבל וורטקס משמש להומוגניזציה של ריאגנטים הנמצאים במעבדות. המכל המכיל את "
 "הנוזל להומוגניזציה מונח על פלטפורמה. הפלטפורמה רועדת על ידי ערבול סיבובי עד "
 "3000 סל״ד, בנקודה זו מופעל חיישן מגע. בדרך זו ניתן לבצע הומוגניזציה מהירה של "
-"נפחים קטנים מאוד של נוזל. זהו ההפך מצנטריפוגה, המשמשת להפרדת נוזלים."
+"נפחים קטנים מאוד של נוזל. זהו ההפך מצנטריפוגה, שמשמשת להפרדת נוזלים."
 
 #: data/tools.xml:67
 #, kde-format
@@ -1032,19 +1014,14 @@ msgid "Pipette Bulb"
 msgstr "אגס פיפטה"
 
 #: data/tools.xml:83
-#, fuzzy, kde-format
-#| msgid ""
-#| "A pipette bulb is used to fill pipettes. Squeezing then releasing the "
-#| "bulb produces a negative pressure, causing fluid to flow into the "
-#| "pipette; squeezing the bulb then causes the fluid to flow out of the "
-#| "pipette."
+#, kde-format
 msgid ""
 "A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb "
 "produces a negative pressure, causing fluid to flow into the pipette; "
 "squeezing the bulb again causes the fluid to flow out of the pipette."
 msgstr ""
 "אגס פיפטה משמש למילוי פיפטות. לחיצה ושחרור של האגס יוצרים לחץ שלילי, הגורם "
-"לנוזל לזרום לתוך הפיפטה; לחיצה על האגס גורמת לנוזל לזרום החוצה מהפיפטה."
+"לנוזל לזרום לתוך הפיפטה; לחיצה חוזרת על האגס גורמת לנוזל לזרום החוצה מהפיפטה."
 
 #: data/tools.xml:87
 #, kde-format
@@ -1117,18 +1094,14 @@ msgid "Drying Tube"
 msgstr "צינור ייבוש"
 
 #: data/tools.xml:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Some reactions need to be kept free of water: to make this possible a "
-#| "drying tube can be used. Drying tubes contains a hygroscopic chemical to "
-#| "absorb water from the atmosphere."
+#, kde-format
 msgid ""
 "Some reactions need to be kept free of water: to make this possible, a "
 "drying tube can be used. Drying tubes contain a hygroscopic chemical that "
 "absorbs water from the atmosphere."
 msgstr ""
 "יש לשמור על תגובות מסוימות נקיות ממים: כדי לאפשר זאת ניתן להשתמש בצינור "
-"ייבוש. צינורות ייבוש מכילים כימיקל היגרוסקופי לספיגת מים מהאטמוספירה."
+"ייבוש. צינורות ייבוש מכילים כימיקל היגרוסקופי שסופג מים מהאטמוספירה."
 
 #: data/tools.xml:112
 #, kde-format
@@ -1158,20 +1131,14 @@ msgid "Measuring Cylinder"
 msgstr "משורה"
 
 #: data/tools.xml:118
-#, fuzzy, kde-format
-#| msgid ""
-#| "A measuring cylinder can be used to measure amounts of liquids relatively "
-#| "precisely. Furthermore, the cylinder allows particulate matter to sink: "
-#| "following this, the particulates can be separated from the fluid by "
-#| "decanting."
+#, kde-format
 msgid ""
 "A measuring cylinder can be used to measure amounts of liquids. Due to its "
 "height and small diameter, it is also effective at separating solids "
 "suspended in liquid matter by decanting."
 msgstr ""
-"משורה יכולה לשמש למדידת כמויות של נוזלים באופן מדויק יחסית. יתר על כן, "
-"המשורה מאפשרת לחומר חלקיקי לשקוע: לאחר מכן, ניתן להפריד את החלקיקים מהנוזל "
-"על ידי מזיגה."
+"משורה יכולה לשמש למדידת כמויות של נוזלים. בזכות גובהה והקוטר הצר שלה, היא "
+"יעילה גם להפרדת מוצקים מושרים בחומר נוזלי על ידי מיזוג."
 
 #: data/tools.xml:122
 #, kde-format
@@ -1406,7 +1373,7 @@ msgstr ""
 #: data/tools.xml:183
 #, kde-format
 msgid "Fume Hood"
-msgstr ""
+msgstr "מנדף כימי"
 
 #: data/tools.xml:184
 #, fuzzy, kde-format
@@ -1442,10 +1409,9 @@ msgstr ""
 "מושגת, סליל החימום כבה, כאשר הטמפרטורה יורדת, סליל החימום מופעל מחדש."
 
 #: data/tools.xml:193
-#, fuzzy, kde-format
-#| msgid "Clamps"
+#, kde-format
 msgid "Clamp"
-msgstr "מלקחיים"
+msgstr "מלחציים"
 
 #: data/tools.xml:194
 #, kde-format
@@ -1555,10 +1521,10 @@ msgstr ""
 #: data/tools.xml:228
 #, kde-format
 msgid "High-Performance Liquid Chromatography (HPLC)"
-msgstr ""
+msgstr "כרומטוגרפיה נוזלית בביצוע גבוה (HPLC)"
 
 #: data/tools.xml:229
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "HPLC is used to separate, identify, and measure the components of a liquid "
 "mixture. A sample dissolved in a solvent is pumped through a tightly packed "
@@ -1567,6 +1533,8 @@ msgid ""
 "speeds and exit separately. This makes HPLC useful for analyzing complex "
 "mixtures and checking purity in chemistry, biology, and pharmaceuticals."
 msgstr ""
+"HPLC משמש להפרדה, זיהוי ומדידת רכיבי תערובת נוזלית. דגימה שהתמוססה בממס "
+"נשאבת דרך עמודה דחוסה "
 
 #: data/tools.xml:233
 #, kde-format
