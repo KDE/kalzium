@@ -1,7 +1,7 @@
 # translation of kalzium.po to Swedish
 # Copyright (C).
 #
-# SPDX-FileCopyrightText: 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2023, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2004-2010, 2023, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016, 2018, 2019, 2020, 2022.
 # Arve Eriksson <031299870@telia.com>, 2011.
 msgid ""
@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-01-20 20:45+0100\n"
+"PO-Revision-Date: 2026-07-05 21:06+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -749,17 +749,7 @@ msgid "Watchglass"
 msgstr "Urglas"
 
 #: data/tools.xml:6
-#, fuzzy, kde-format
-#| msgid ""
-#| "Watchglasses are round glass panes with a diameter of around 5 - 10cm, "
-#| "used in various experimental techniques. The border is bent upwards to "
-#| "allow the watchglass to hold small amounts of liquids in order to let "
-#| "them evaporate. The evaporation can be accelerated by heating the "
-#| "watchglass with a Bunsen burner. Watchglasses can also be used to cover "
-#| "Petri dishes or beakers, and are also suited to weighing small amounts of "
-#| "matter or drying them in an airing cupboard. The term watchglass is "
-#| "derived from the former pocket watches' protection glass which was often "
-#| "domed."
+#, kde-format
 msgid ""
 "Watchglasses are round glass panes with a diameter of around 5–10 cm, used "
 "in various experimental techniques. The border is bent upwards to allow the "
@@ -770,7 +760,7 @@ msgid ""
 "airing cupboard. The term watchglass is derived from the former pocket "
 "watches’ protection glass which was often domed."
 msgstr ""
-"Urglas är runda glas med en diameter på cirka 5 - 10 cm, som används vid "
+"Urglas är runda glas med en diameter på cirka 5 – 10 cm, som används vid "
 "diverse experimentella tekniker. Deras kant är något uppåtböjd, så att de "
 "kan fyllas med små mängder vätska för att låta den avdunsta. Avdunstningen "
 "kan påskyndas genom att värma upp urglaset med en Bunsen-brännare. Urglas "
@@ -785,20 +775,7 @@ msgid "Dehydrator"
 msgstr "Torkapparat"
 
 #: data/tools.xml:11
-#, fuzzy, kde-format
-#| msgid ""
-#| "A dehydrator is a piece of laboratory apparatus, often made of glass, and "
-#| "which serves to dry chemical matters; that is, to remove water or liquid "
-#| "from a sample.\n"
-#| "\t\t\tIn principle it is a glass bowl with cap that has a planar "
-#| "grinding, so that the bowl is air-tight. The dehydrator's lower part is "
-#| "ordinarily filled with a drying agent such as calcium chloride, silica "
-#| "gel, phosphoric anhydride or sulphuric acid. The sample to be dried is "
-#| "placed on a diaphanous cartridge of plastic or ceramic above the drying "
-#| "agent.\n"
-#| "\t\t\tThe drying agent is hygroscopic, which means that it dehumidifies "
-#| "its environment by absorbing water vapor. The dry atmosphere then takes "
-#| "up water from the sample to be dried."
+#, kde-format
 msgid ""
 "A dehydrator is often made of glass and serves to dry chemical matters; that "
 "is, to remove water or liquid from a sample. It is a glass bowl with a cap "
@@ -810,17 +787,15 @@ msgid ""
 "dehumidifies its environment by absorbing water vapor. The dry atmosphere "
 "then takes up water from the sample."
 msgstr ""
-"En torkapparat är en laboratorieapparatur som ofta är gjord av glas, och gör "
-"tjänst för att torka kemisk materia, dvs. avlägsna vatten eller vätska från "
-"ett prov.\n"
-"I princip är det en glasskål med lock som är planslipat så att skålen blir "
-"lufttät. Torkapparatens undre del fylls vanligtvis med en torksubstans, t."
-"ex. kalciumklorid, kiselgel, fosforanhydrid eller svavelsyra. Provet som ska "
-"torkas placeras på en genomsläpplig kassett av plast eller keramik ovanpå "
-"torksubstansen.\n"
+"En torkapparat är ofta gjord av glas, och gör tjänst för att torka kemisk "
+"materia, dvs. avlägsna vatten eller vätska från ett prov. Det en glasskål "
+"med ett lock som är planslipat så att skålen blir lufttät. Torkapparatens "
+"undre del fylls vanligtvis med en torksubstans, t.ex. kalciumklorid, "
+"kiselgel, fosforanhydrid eller svavelsyra. Provet som ska torkas placeras på "
+"en genomsläpplig kassett av plast eller keramik ovanpå torksubstansen. "
 "Torksubstansen är hygroskopisk, vilket betyder att den avfuktar sin "
 "omgivning genom att absorbera vattenånga. Den torra atmosfären upptar "
-"därefter vatten från provet som ska torkas."
+"därefter vatten från provet."
 
 #: data/tools.xml:15
 #, kde-format
@@ -844,15 +819,7 @@ msgid "Water Jet Pump"
 msgstr "Vattenstrålpump"
 
 #: data/tools.xml:23
-#, fuzzy, kde-format
-#| msgid ""
-#| "The water jet pump has two entry pipes and one exit, and consists, in "
-#| "principle, of two pipes one inside the other. At the water entry a water "
-#| "jet shoots under full pressure out of a nozzle into a slightly larger "
-#| "pipe. The water jet thereby carries away air or fluid from the second "
-#| "entry. <br> This is caused by the negative pressure in a drifting fluid, "
-#| "and thus it is an application of the hydrodynamic paradox (objects close "
-#| "to drifting fluids are aspirated instead of being pushed away)."
+#, kde-format
 msgid ""
 "The water jet pump has two entry pipes and one exit, and consists, in "
 "principle, of two pipes one inside the other. At the water entry a water jet "
@@ -867,7 +834,7 @@ msgstr ""
 "två rör som är sammansatta med varandra. I vatteninflödet sprutas en "
 "vattenstråle med fullt vattenledningstryck ur ett munstycke i ett något "
 "större rör. Därigenom för vattenstrålen bort luft eller vätska från det "
-"andra inflödet. <br>Detta sker på grund av det negativa trycket i en rörlig "
+"andra inflödet. Det sker på grund av det negativa trycket i en rörlig "
 "vätska, och är alltså en tillämpning av den hydrodynamiska paradoxen (objekt "
 "nära rörliga vätskor sugs med istället för att stötas bort)."
 
@@ -877,12 +844,7 @@ msgid "Refractometer"
 msgstr "Refraktometer"
 
 #: data/tools.xml:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "With a refractometer the refractive index of optical media is determined. "
-#| "If the refractive index of a chemical is known it can be used after a "
-#| "synthesis to determine the sample's purity or to audit the synthesis' "
-#| "success."
+#, kde-format
 msgid ""
 "With a refractometer, the refractive index of optical media is determined. "
 "If the refractive index of a chemical is known, it can be used after a "
@@ -891,7 +853,7 @@ msgid ""
 msgstr ""
 "Med en refraktometer kan optiska mediers refraktionsindex bestämmas. Om en "
 "kemikalies refraktionsindex är känt kan det användas efter en syntes för att "
-"avgöra produktens renhet eller granska om syntesen lyckats."
+"avgöra produktens renhet eller granska om syntesen lyckades."
 
 #: data/tools.xml:32
 #, kde-format
@@ -899,11 +861,7 @@ msgid "Mortar"
 msgstr "Mortel"
 
 #: data/tools.xml:33
-#, fuzzy, kde-format
-#| msgid ""
-#| "A mortar is used for manually grinding solids. It can also be used to "
-#| "homogenize a mixture of powders by grinding. A club-shaped tool known as "
-#| "a pestle is used with the mortar for grinding."
+#, kde-format
 msgid ""
 "A mortar is used for manually grinding solids. It can also be used to "
 "homogenize a mixture of powders by grinding. A club-shaped tool called "
@@ -911,7 +869,8 @@ msgid ""
 msgstr ""
 "En mortel används för att manuellt mala torrsubstanser. Den kan också "
 "användas för att homogenisera en blandning av pulver genom malning. Ett "
-"klubbformat verktyg känt som mortelstöt används i morteln för malning."
+"klubbformat verktyg som kallas mortelstöt används för att krossa "
+"torrsubstanser till ett fint pulver."
 
 #: data/tools.xml:37
 #, fuzzy, kde-format
@@ -1544,7 +1503,7 @@ msgstr ""
 #: data/tools.xml:183
 #, kde-format
 msgid "Fume Hood"
-msgstr ""
+msgstr "Dragskåp"
 
 #: data/tools.xml:184
 #, fuzzy, kde-format
@@ -1715,7 +1674,7 @@ msgstr ""
 #: data/tools.xml:228
 #, kde-format
 msgid "High-Performance Liquid Chromatography (HPLC)"
-msgstr ""
+msgstr "Högpresterande vätskekromatografi (HPLC)"
 
 #: data/tools.xml:229
 #, kde-format
@@ -1727,11 +1686,17 @@ msgid ""
 "speeds and exit separately. This makes HPLC useful for analyzing complex "
 "mixtures and checking purity in chemistry, biology, and pharmaceuticals."
 msgstr ""
+"HPLC används för att separera, identifiera och mäta komponenterna i en "
+"flytande blandning. Ett prov löst i ett lösningsmedel pumpas genom en tätt "
+"packad kolonn under högt tryck. Eftersom olika ämnen interagerar på olika "
+"sätt med kolonnmaterialet rör de sig genom det med olika hastigheter och "
+"utträder separat. Det gör HPLC användbar för att analysera komplexa "
+"blandningar och kontrollera renhet inom kemi, biologi och läkemedel."
 
 #: data/tools.xml:233
 #, kde-format
 msgid "Evaporating Dish"
-msgstr ""
+msgstr "Avdunstningsskål"
 
 #: data/tools.xml:234
 #, kde-format
@@ -1743,6 +1708,12 @@ msgid ""
 "solvents, drying precipitates, or carrying out small-scale heating "
 "experiments."
 msgstr ""
+"En avdunstningsskål är en liten värmebeständig skål gjord av bränd lera, som "
+"används i laboratorier för att värma, avdunsta, torka eller samla upp ämnen. "
+"Eftersom den tål höga temperaturer väl kan den placeras direkt över en låga "
+"eller på en värmeplatta. Avdunstningsskålar används ofta för att avdunsta "
+"lösningsmedel, torka utfällningar eller utföra småskaliga "
+"uppvärmningsexperiment."
 
 #. i18n: tag label attribute value
 #: element_tiny.xml:2

@@ -1,21 +1,20 @@
 # Translation of kalzium to Norwegian Nynorsk
 #
 # Knut Nordanger <knut.nordanger@gmail.com>, 2005.
-# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2010, 2011, 2013, 2018, 2019, 2021.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2021-10-18 20:24+0200\n"
+"PO-Revision-Date: 2026-07-05 17:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -451,7 +450,7 @@ msgid ""
 "same place, comes from the fact that all isotopes of an element are located "
 "at the same place on the periodic table."
 msgstr ""
-"Isotop er former av eit kjemisk grunnstoff der kjernene har same atomnummer, "
+"Isotop er former av eit kjemisk grunnstoff der kjernane har same atomnummer, "
 "Z, men ulike atommassar, A. Ordet isotop, som tyder «på same stad», kjem frå "
 "det faktumet at alle isotop av eit grunnstoff ligg på same stad i "
 "periodesystemet."
@@ -580,7 +579,7 @@ msgstr ""
 #: data/knowledge.xml:207
 #, kde-format
 msgid "Beta rays"
-msgstr "Betastråler"
+msgstr "Betastrålar"
 
 #: data/knowledge.xml:208
 #, kde-format
@@ -628,7 +627,7 @@ msgid ""
 "cathode (negative electrode) and an anode (positive electrode) in a "
 "configuration known as a diode."
 msgstr ""
-"Katodestrålar er straumar av elektron som vert observerte i vakuumrør, dvs. "
+"Katodestrålar er straumar av elektron som vert observerte i vakuumrøyr, dvs. "
 "glasrøyr som er tømde for luft, som er utstyrt med minst to elektrodar, ein "
 "katode (negativ elektrode) og ein anode (positiv elektrode) i ei oppstilling "
 "som vert kalla ein diode."
@@ -701,8 +700,8 @@ msgid ""
 "The atomic radius is the distance from the atomic nucleus to the outmost "
 "stable electron orbital in a atom that is at equilibrium."
 msgstr ""
-"Atomradien er avstanden frå atomkjerna til den ytterste stabile elektronbana "
-"i eit atom som er i likevekt."
+"Atomradien er avstanden frå atomkjernen til den ytste stabile elektronbana i "
+"eit atom som er i likevekt."
 
 #: data/knowledge.xml:272
 #, kde-format
@@ -711,7 +710,7 @@ msgid ""
 "two identical atomic nuclei, bound by a covalent bond."
 msgstr ""
 "Kovalentradius i kjemi tilsvarar halve avstanden mellom identiske "
-"atomkjerner som er bundne av ei kovalentbinding."
+"atomkjernar som er bundne av ei kovalentbinding."
 
 #: data/tools.xml:5
 #, kde-format
@@ -1042,8 +1041,8 @@ msgstr ""
 "Ein rotasjonsfordampar inneheld ein rund kolbe i vassbad som er laga for å "
 "fordampa løysingsmiddel. Kolben vert rotert og løysingsmiddelet vert samla "
 "opp under vakuum på ein kondensator og dryp ned i ein oppsamlingskolbe. På "
-"denne måten kan ein konsentrera eller rensa løysingar. Lufttrykket og dermed "
-"kokepunktet til væska kan senkast ved å kopla til ei vakuumpumpe."
+"denne måten kan ein konsentrera eller reinsa løysingar. Lufttrykket og "
+"dermed kokepunktet til væska kan senkast ved å kopla til ei vakuumpumpe."
 
 #: data/tools.xml:77
 #, kde-format
