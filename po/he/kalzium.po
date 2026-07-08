@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-07-02 08:42+0300\n"
+"PO-Revision-Date: 2026-07-07 09:03+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -826,12 +826,7 @@ msgid "Refractometer"
 msgstr "רפרקטומטר"
 
 #: data/tools.xml:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "With a refractometer the refractive index of optical media is determined. "
-#| "If the refractive index of a chemical is known it can be used after a "
-#| "synthesis to determine the sample's purity or to audit the synthesis' "
-#| "success."
+#, kde-format
 msgid ""
 "With a refractometer, the refractive index of optical media is determined. "
 "If the refractive index of a chemical is known, it can be used after a "
@@ -839,8 +834,8 @@ msgid ""
 "was successful."
 msgstr ""
 "באמצעות רפרקטומטר נקבע מקדם השבירה של מדיה אופטית. אם מקדם השבירה של כימיקל "
-"ידוע, ניתן להשתמש בו לאחר סינתזה כדי לקבוע את טוהר הדגימה או כדי לבקר את "
-"הצלחת הסינתזה."
+"ידוע, ניתן להשתמש בו לאחר סינתזה כדי לקבוע את טוהר הדגימה או כדי לבקר האם "
+"הסינתזה הצליחה."
 
 #: data/tools.xml:32
 #, kde-format
