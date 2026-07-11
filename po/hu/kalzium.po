@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:39+0000\n"
+"POT-Creation-Date: 2026-07-11 00:38+0000\n"
 "PO-Revision-Date: 2020-12-27 13:54+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -238,7 +238,7 @@ msgstr "Tiszta anyagok homogén keveréke"
 #: data/knowledge.xml:66 data/knowledge.xml:131
 #: src/calculator/nuclearCalculator.ui:334
 #: src/calculator/nuclearCalculator.ui:354 src/detailinfodlg.cpp:300
-#: src/exportdialog.cpp:135 src/settings/settings_gradients.ui:74
+#: src/exportdialog.cpp:134 src/settings/settings_gradients.ui:74
 #, kde-format
 msgid "Mass"
 msgstr "Tömeg"
@@ -672,7 +672,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: data/knowledge.xml:247 data/knowledge.xml:256 data/knowledge.xml:265
 #: data/knowledge.xml:271 src/detailinfodlg.cpp:207
-#: src/elementdataviewer.cpp:270 src/exportdialog.cpp:140
+#: src/elementdataviewer.cpp:270 src/exportdialog.cpp:139
 #: src/kalziumgradienttype.cpp:159 src/plotsetupwidget.ui:118
 #: src/plotsetupwidget.ui:441 src/settings/settings_gradients.ui:60
 #, kde-format
@@ -690,7 +690,7 @@ msgstr "Atomi sugár"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicVanDerWaalsRadiusGradient)
 #: data/knowledge.xml:249 data/knowledge.xml:253 data/knowledge.xml:266
-#: data/knowledge.xml:276 src/detailinfodlg.cpp:214 src/exportdialog.cpp:141
+#: data/knowledge.xml:276 src/detailinfodlg.cpp:214 src/exportdialog.cpp:140
 #: src/settings/settings_gradients.ui:67
 #, kde-format
 msgid "Van der Waals Radius"
@@ -4896,7 +4896,7 @@ msgstr "A név eredete: <br/>%1"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:179 src/elementdataviewer.cpp:252
-#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:381
+#: src/exportdialog.cpp:141 src/kalziumgradienttype.cpp:381
 #: src/plotsetupwidget.ui:103 src/plotsetupwidget.ui:426
 #: src/settings/settings_gradients.ui:88
 #, kde-format
@@ -4907,14 +4907,14 @@ msgstr "Olvadáspont"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:186 src/elementdataviewer.cpp:258
-#: src/exportdialog.cpp:143 src/kalziumgradienttype.cpp:325
+#: src/exportdialog.cpp:142 src/kalziumgradienttype.cpp:325
 #: src/plotsetupwidget.ui:108 src/plotsetupwidget.ui:431
 #: src/settings/settings_gradients.ui:81
 #, kde-format
 msgid "Boiling Point"
 msgstr "Forráspont"
 
-#: src/detailinfodlg.cpp:193 src/exportdialog.cpp:138
+#: src/detailinfodlg.cpp:193 src/exportdialog.cpp:137
 #, kde-format
 msgid "Electron Affinity"
 msgstr "Elektronaffinitás"
@@ -4944,7 +4944,7 @@ msgstr "1. ionizációs energia"
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
 #: src/detailinfodlg.cpp:235 src/elementdataviewer.cpp:247
-#: src/exportdialog.cpp:139 src/plotsetupwidget.ui:98
+#: src/exportdialog.cpp:138 src/plotsetupwidget.ui:98
 #: src/plotsetupwidget.ui:421 src/settings/settings_gradients.ui:95
 #, kde-format
 msgid "Electronegativity"
@@ -5343,7 +5343,7 @@ msgstr "Az adatok ábrázolása"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_x)
 #. i18n: ectx: property (text), item, widget (KComboBox, KCB_y)
-#: src/elementdataviewer.cpp:237 src/exportdialog.cpp:132
+#: src/elementdataviewer.cpp:237 src/exportdialog.cpp:131
 #: src/plotsetupwidget.ui:88 src/plotsetupwidget.ui:411
 #, kde-format
 msgid "Atomic Number"
@@ -5412,57 +5412,57 @@ msgstr "&Kiszámítás"
 msgid "Copy to Clipboard"
 msgstr "Másolás a vágólapra"
 
-#: src/exportdialog.cpp:85
+#: src/exportdialog.cpp:84
 #, kde-format
 msgid "OK"
 msgstr "OK"
 
-#: src/exportdialog.cpp:90
+#: src/exportdialog.cpp:89
 #, fuzzy, kde-format
 #| msgid "Export Chemical Data"
 msgctxt "@title:window"
 msgid "Export Chemical Data"
 msgstr "Kémiai adatok exportálása"
 
-#: src/exportdialog.cpp:115
+#: src/exportdialog.cpp:114
 #, kde-format
 msgid "Elements"
 msgstr "Elemek"
 
-#: src/exportdialog.cpp:116
+#: src/exportdialog.cpp:115
 #, kde-format
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#: src/exportdialog.cpp:133
+#: src/exportdialog.cpp:132
 #, kde-format
 msgid "Symbol"
 msgstr "Szimbólum"
 
-#: src/exportdialog.cpp:136
+#: src/exportdialog.cpp:135
 #, kde-format
 msgid "Exact Mass"
 msgstr "Pontos tömeg"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_LogarithmicIonizationGradient)
-#: src/exportdialog.cpp:137 src/settings/settings_gradients.ui:116
+#: src/exportdialog.cpp:136 src/settings/settings_gradients.ui:116
 #, kde-format
 msgid "Ionization"
 msgstr "Ionizáció"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabFamily)
-#: src/exportdialog.cpp:144 src/kalziumschemetype.cpp:237
+#: src/exportdialog.cpp:143 src/kalziumschemetype.cpp:237
 #: src/settings/settings_colors.ui:408
 #, kde-format
 msgid "Family"
 msgstr "Család"
 
-#: src/exportdialog.cpp:157
+#: src/exportdialog.cpp:156
 #, kde-format
 msgid "File already exists. Do you want to overwrite it?"
 msgstr "A fájl már létezik. Szeretné felülírni?"
 
-#: src/exportdialog.cpp:165
+#: src/exportdialog.cpp:164
 #, kde-format
 msgid "Could not open file for writing."
 msgstr "Nem sikerült megnyitni a fájlt írásra."
