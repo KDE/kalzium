@@ -93,7 +93,7 @@
 			 <para
 >&kalzium; ist ein Programm, das Ihnen das Periodensystem der Elemente (<acronym
 >PSE</acronym
->) zeigt. Sie können &kalzium; benutzen, um nach Informationen über Elemente zu suchen oder um Fakten über das <acronym
+>) zeigt. Sie können &kalzium; verwenden, um nach Informationen über Elemente zu suchen oder um Fakten über das <acronym
 >PSE</acronym
 > zu lernen.</para>
 		 </abstract>
@@ -185,7 +185,7 @@
 >Ansicht</guimenu
 > ändern. </para>
 		 <para
->Wenn Sie genauere Informationen über ein Element erhalten wollen, klicken Sie im Periodensystem auf das betreffende Element und der ausführliche Informationsdialog wird angezeigt. </para>
+>Wenn Sie genauere Informationen über ein Element erhalten möchten, klicken Sie im Periodensystem auf das betreffende Element und der ausführliche Informationsdialog wird angezeigt. </para>
 
 		 <screenshot>
 			 <screeninfo
@@ -207,7 +207,7 @@
 ><guimenuitem
 >Daten grafisch darstellen ...</guimenuitem
 ></menuchoice
-> wählen. Für die y-Achse wählen Sie, was Sie grafisch darstellen wollen und für die x-Achse die Anzahl der Elemente, die dargestellt werden sollen. Das Bildschirmfoto unten zeigt die Atommasse der Elemente 1 bis 10 in der grafischen Darstellung. Klicken Sie auf den Knopf &nbsp;<inlinemediaobject
+> wählen. Für die y-Achse wählen Sie, was Sie grafisch darstellen möchten und für die x-Achse die Anzahl der Elemente, die dargestellt werden sollen. Das Bildschirmfoto unten zeigt die Atommasse der Elemente 1 bis 10 in der grafischen Darstellung. Klicken Sie auf den Knopf &nbsp;<inlinemediaobject
 ><imageobject
 > <imagedata fileref="swap-panels.png" format="PNG"/></imageobject
 > </inlinemediaobject
@@ -253,13 +253,13 @@
 	 </chapter>
 	 <chapter id="using-kalzium">
 		 <title
->&kalzium; benutzen</title>
+>&kalzium; verwenden</title>
 
 		 <sect1 id="foo"
 ><title
 >Übersicht zur Benutzung von &kalzium;</title>
 			 <para
->Sie sehen, dass &kalzium; einfach zu benutzen ist und nützlich für alle für Studierende aller Altersstufen. Es ähnelt sehr einer schnellen und kleinen Datenbank.</para>
+>Sie sehen, dass &kalzium; einfach zu verwenden ist und nützlich für alle für Studierende aller Altersstufen. Es ähnelt sehr einer schnellen und kleinen Datenbank.</para>
 			 <para
 >Hier ist ein Bildschirmfoto von &kalzium; in Aktion:</para>
 			 <screenshot>
@@ -543,7 +543,7 @@
 ><action
 >Zeigt</action
 > ein Periodensystem ohne die Übergangselemente an. Zitat aus der deutschen Wikipedia: <quote
->Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle benutzt. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
+>Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle verwendet. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
 > </para>
 			     </listitem>
 			   </varlistentry>
@@ -555,7 +555,7 @@
 ><action
 >Zeigt</action
 > ein Periodensystem mit den Übergangselementen (F-Elemente) an. Zitat aus der deutschen Wikipedia: <quote
->Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle benutzt. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
+>Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle verwendet. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
 > </para>
 			     </listitem>
 			   </varlistentry>
@@ -628,11 +628,11 @@
 >CAS</acronym
 > ist der <firstterm
 >Chemical Abstracts Service</firstterm
->. Im CAS System werden die Buchstaben A und B benutzt, um die Elemente der Hauptgruppe (A) und die Übergangselemente (B) zu kennzeichnen. Obwohl die Benennung der <acronym
+>. Im CAS System werden die Buchstaben A und B verwendet, um die Elemente der Hauptgruppe (A) und die Übergangselemente (B) zu kennzeichnen. Obwohl die Benennung der <acronym
 >IUPAC</acronym
 > das offizielle System ist, wird die Nummerierung des <acronym
 >CAS</acronym
-> immer noch in Schulen und Labors benutzt.</para
+> immer noch in Schulen und Labors verwendet.</para
 ></listitem>
 					 <listitem
 ><para
@@ -1161,7 +1161,7 @@
 >Wert</guilabel
 > ein. </para>
 					     <para
->Sie können zum Beispiel folgendes System benutzen: </para>
+>Sie können zum Beispiel folgendes System verwenden: </para>
 					     <para>
 					       <userinput
 >A=(C*D)/(B*K)</userinput>
@@ -1198,7 +1198,7 @@
 > ein: Dann ermitteln Sie, wie sich die Konzentration von A als Funktion der Konzentration D ändert. </para>
 					     <note>
 					       <para
->Bitte benutzen Sie für die Exponenten keine Klammern: <userinput
+>Bitte verwenden Sie für die Exponenten keine Klammern: <userinput
 >10^-3</userinput
 > ist korrekt, aber <userinput
 >10^(-3)</userinput
@@ -1651,7 +1651,7 @@
 ><action
 >Zeigt</action
 > ein Periodensystem ohne die Übergangselemente an. Zitat aus der deutschen Wikipedia: <quote
->Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle benutzt. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
+>Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle verwendet. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
 ></para
 ></listitem>
             </varlistentry>
@@ -1665,7 +1665,7 @@
 ><action
 >Zeigt</action
 > ein Periodensystem mit den Übergangselementen (F-Elemente) an. Zitat aus der deutschen Wikipedia: <quote
->Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle benutzt. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
+>Die chemischen Elemente mit den Ordnungszahlen von 21 bis 30, 39 bis 48, 57 bis 80 und 89 bis 112 werden üblicherweise als Übergangselemente bezeichnet. Da diese Elemente alle Metalle sind, wird auch der Ausdruck Übergangsmetalle verwendet. Dieser Name ist in ihrer Position im Periodensystem begründet, da sich dort der Übergang durch die aufeinanderfolgende Zunahme von Elektronen in den d-Atomorbital entlang jeder Periode zeigt. Übergangselemente werden chemisch von der IUPAC als Elemente, die eine unvollständige d-Schale besitzen oder Ionen mit einer unvollständigen d-Schale ausbilden, definiert. </quote
 ></para
 ></listitem>
             </varlistentry>
@@ -2205,7 +2205,7 @@
 >Hilfe</quote
 ></title>
 <para
->&kalzium; benutzt die bekannten &kde;-Menüeinträge <guimenu
+>&kalzium; verwendet die bekannten &kde;-Menüeinträge <guimenu
 >Einstellungen</guimenu
 > und <guimenu
 >Hilfe</guimenu
