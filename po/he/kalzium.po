@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-07-28 09:44+0300\n"
+"PO-Revision-Date: 2026-07-30 09:14+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1082,12 +1082,7 @@ msgid "Test Tube Holder"
 msgstr "מחזיק מבחנות"
 
 #: data/tools.xml:113
-#, fuzzy, kde-format
-#| msgid ""
-#| "Test tube holders make it easier to hold test tubes. By using a holder, "
-#| "there is a safe distance between ones hand and the test tube when the "
-#| "tube is hot. Typically, test tube holders are used to hold test tubes "
-#| "over open flames."
+#, kde-format
 msgid ""
 "Test tube holders make it easier to hold test tubes. By using a holder, "
 "there is a safe distance between one’s hand and the test tube, preventing "
@@ -1095,8 +1090,9 @@ msgid ""
 "used to hold test tubes over open flames."
 msgstr ""
 "מחזיקי מבחנות מקלים על החזקת מבחנות. על ידי שימוש במחזיק, נשמר מרחק בטוח בין "
-"היד למבחנה כאשר המבחנה חמה. בדרך כלל, מחזיקי מבחנות משמשים להחזקת מבחנות מעל "
-"להבה גלויה."
+"היד למבחנת הבדיקה. מה שמונע פציעות כגון צריבות מחום גבוה או חשיפה לחומרים "
+"כימיים. בדרך כלל, מחזיקי מבחנות בדיקה משמשות להחזקת מבחנות בדיקה מעל להבה "
+"גלויה."
 
 #: data/tools.xml:117
 #, kde-format
@@ -1221,12 +1217,7 @@ msgid "Ultrasonic Bath"
 msgstr "אמבט אולטרסוני"
 
 #: data/tools.xml:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "For some chemical reactions it is important that the solvent is gas free. "
-#| "To achieve this the reaction vessel is put for some time into a "
-#| "ultrasonic bath. Due to the high sound frequency, the vapor locks peel "
-#| "away and ascend. This procedure is called out-gassing."
+#, kde-format
 msgid ""
 "For some chemical reactions, it is important that the solvent is gas free. "
 "To achieve this, the reaction vessel is put in an ultrasonic bath for some "
@@ -1234,8 +1225,8 @@ msgid ""
 "out of the liquid. This procedure is called out-gassing."
 msgstr ""
 "עבור תגובות כימיות מסוימות חשוב שהממס יהיה נקי מגזים. כדי להשיג זאת, כלי "
-"התגובה מוכנס לזמן מה לאמבט אולטרסוני. בשל תדר הקול הגבוה, בועות האדים "
-"משתחררות ועולות למעלה. הליך זה נקרא הוצאת גזים (out-gassing)."
+"התגובה מוכנס לאמבט אולטרסוני לזמן מה. בשל תדר הקול הגבוה, כולאי האדים "
+"מתנדפים ועולים למעלה מתוך הנוזל. הליך זה נקרא הוצאת גזים (out-gassing)."
 
 #: data/tools.xml:158
 #, kde-format
@@ -1333,10 +1324,7 @@ msgid "Fume Hood"
 msgstr "מנדף כימי"
 
 #: data/tools.xml:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "Extractor hoods are used to filter out gases from chemical reactions. The "
-#| "air, once cleaned, is pumped outside of the building."
+#, kde-format
 msgid ""
 "Fume hoods are used to filter out gases from chemical reactions. The air, "
 "once cleaned, is pumped outside of the building."
