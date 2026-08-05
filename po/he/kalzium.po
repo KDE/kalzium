@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-07-30 09:14+0300\n"
+"PO-Revision-Date: 2026-08-04 09:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1469,7 +1469,7 @@ msgid "High-Performance Liquid Chromatography (HPLC)"
 msgstr "כרומטוגרפיה נוזלית בביצוע גבוה (HPLC)"
 
 #: data/tools.xml:229
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "HPLC is used to separate, identify, and measure the components of a liquid "
 "mixture. A sample dissolved in a solvent is pumped through a tightly packed "
@@ -1479,7 +1479,10 @@ msgid ""
 "mixtures and checking purity in chemistry, biology, and pharmaceuticals."
 msgstr ""
 "HPLC משמש להפרדה, זיהוי ומדידת רכיבי תערובת נוזלית. דגימה שהתמוססה בממס "
-"נשאבת דרך עמודה דחוסה "
+"נשאבת דרך עמודה דחוסה בלחץ גבוה. כיוון שחומרים שונים מגיבים אחרת עם החומר של "
+"העמודה, הם עוברים בה במהירויות שונות ויוצאים בנפרד. התכונה הזאת הופכת את "
+"HPLC לשימושיות לטובת ניתוח תרכובות מורכבות ובדיקת טוהר בכימיה, ביולוגיה "
+"ופרמצבטיקה."
 
 #: data/tools.xml:233
 #, kde-format
