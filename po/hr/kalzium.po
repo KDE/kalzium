@@ -8731,8 +8731,7 @@ msgid "Units"
 msgstr "Jedinice"
 
 #: src/settings/kalziumconfigdialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Isotope Table"
+#, kde-format
 msgid "Isotope Table"
 msgstr "Tablica izotopa"
 
