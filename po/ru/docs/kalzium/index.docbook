@@ -1,0 +1,2334 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+ ]>
+
+ <book id="kalzium" lang="&language;">
+
+	 <bookinfo>
+		 <title
+>Руководство пользователя &kalzium;</title>
+
+		 <authorgroup>
+			 <author
+><firstname
+>Carsten</firstname
+> <surname
+>Niehaus</surname
+> <affiliation
+> <address
+>&Carsten.Niehaus.mail;</address>
+				 </affiliation>
+			 </author>
+
+			 <othercredit role="translator"
+><firstname
+>Николай</firstname
+> <surname
+>Шафоростов</surname
+><affiliation
+><address
+><email
+>shafff@ukr.net</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Наталья</firstname
+><surname
+>Зиборева</surname
+><affiliation
+><address
+><email
+>ziboreva@baltinform.ru</email
+></address
+></affiliation
+> <contrib
+>Обновление и дополнение перевода</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Максим</firstname
+><surname
+>Воробьёв</surname
+><affiliation
+><address
+><email
+>vmax0770@gmail.com</email
+></address
+></affiliation
+><contrib
+>Дополнение перевода</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Мария</firstname
+><surname
+>Шикунова</surname
+><affiliation
+><address
+><email
+>maremarie@altlinux.org</email
+></address
+></affiliation
+><contrib
+>Обновление перевода</contrib
+></othercredit
+> 
+
+		 </authorgroup>
+
+		 <copyright>
+			 <year
+>2001</year>
+			 <year
+>2002</year>
+			 <year
+>2004</year>
+			 <year
+>2005</year>
+			 <year
+>2006</year>
+			 <year
+>2007</year>
+			 <year
+>2008</year>
+			 <holder
+>&Carsten.Niehaus;</holder>
+		 </copyright>
+
+		 <copyright>
+			 <year
+>2005</year>
+			 <holder
+>&Anne-Marie.Mahfouf;</holder>
+		 </copyright>
+
+		 <legalnotice
+>&FDLNotice;</legalnotice>
+
+		 <date
+>19 декабря 2020 г.</date>
+		 <releaseinfo
+>Приложения KDE 20.12</releaseinfo>
+
+		 <abstract>
+			 <para
+>&kalzium; — приложение для работы с периодической таблицей химических элементов. С его помощью можно искать информацию об элементах или изучать периодическую таблицу.</para>
+		 </abstract>
+
+		 <keywordset>
+			 <keyword
+>KDE</keyword>
+			 <keyword
+>обучение</keyword>
+			 <keyword
+>элементы</keyword>
+			 <keyword
+>химия</keyword>
+			 <keyword
+>обучение</keyword>
+			 <keyword
+>kalzium</keyword>
+		 </keywordset>
+
+	 </bookinfo>
+
+	 <chapter id="introduction">
+		 <title
+>Введение</title>
+
+		 <para
+>&kalzium; предоставляет разнообразные сведения о периодической таблице химических элементов. В приложении можно найти подробную информацию об элементах, а также использовать различные способы её визуализации. &kalzium; распространяется по лицензии &GNU; Public License и доступен бесплатно. </para>
+
+		 <para
+>Можно визуализировать периодическую таблицу по группам, блокам и семействам элементов. Можно строить графики свойств элементов, таких как температура кипения или атомная масса, для выбранного диапазона элементов. Также можно посмотреть, какие элементы были известны на определённую дату, и вычислить молекулярную массу. </para>
+
+	 </chapter>
+
+	 <chapter id="quick-start">
+		 <title
+>Руководство к быстрому старту &kalzium;</title>
+
+		 <para
+>Чтобы запустить &kalzium; в первый раз, выберите <menuchoice
+><guimenu
+>Приложения</guimenu
+><guisubmenu
+>Обучающие программы</guisubmenu
+><guisubmenu
+>Наука</guisubmenu
+><guimenuitem
+>&kalzium;</guimenuitem
+></menuchoice
+> в меню запуска приложений или нажмите <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> и введите в поле команду <command
+>kalzium</command
+>.</para>
+		 <screenshot>
+			 <screeninfo
+>Главное окно &kalzium; </screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-1.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Главное окно &kalzium; </phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>Окно &kalzium; состоит из панели <guilabel
+>Сведения</guilabel
+> слева (выделена красным, 1), области просмотра таблицы (выделена синим, 2), в которой показаны элементы периодической таблицы, и панели обозначений внизу (выделена зелёным, 3). С помощью стандартной строки меню можно выбрать, какие данные будут показываться, а в строке состояния выводится справочная информация. Область просмотра таблицы и панели можно скрыть или показать с помощью соответствующих пунктов меню <guimenu
+>Вид</guimenu
+>. Например, панель <guilabel
+>Сведения</guilabel
+> можно скрыть с помощью пункта меню <menuchoice
+><guimenu
+>Вид</guimenu
+><guimenuitem
+>Сведения</guimenuitem
+></menuchoice
+>. </para>
+
+		 <para
+>При наведении указателя мыши на элемент таблицы вкладка <guilabel
+>Обзор</guilabel
+> информационной панели показывает общую информацию о текущем элементе. </para>
+
+		 <para
+>Можно изменять вид таблицы различными способами: выбирать короткую, длинную или классическую периодическую систему, использовать разные схемы нумерации, показывать элементы по семействам, группам, кристаллической структуре, кислотным свойствам и другим признакам. Всё это настраивается в меню <guimenu
+>Вид</guimenu
+>. </para>
+		 <para
+>Нажмите на нужный элемент в таблице, чтобы просмотреть сведения о нём. </para>
+
+		 <screenshot>
+			 <screeninfo
+>Информационное диалоговое окно</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="infodialog_data_overview.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Информационное диалоговое окно</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>Построить график можно с помощью пункта меню <menuchoice
+><guimenu
+>Сервис</guimenu
+><guimenuitem
+>График...</guimenuitem
+></menuchoice
+>. Выберите данные, которые будут показаны по оси Y, и диапазон элементов, который будет использоваться для оси X. На снимке экрана ниже показан график атомной массы элементов с 1-го по 10-й. Чтобы поменять местами оси X и Y, нажмите кнопку <inlinemediaobject
+><imageobject
+><imagedata fileref="swap-panels.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guibutton
+>Поменять местами</guibutton
+>, расположенную между панелями осей.</para>
+
+		 <screenshot>
+			 <screeninfo
+>Окно информации графика</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-3.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Окно информации графика</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>Глоссарий (<menuchoice
+> <guimenu
+>Инструменты</guimenu
+> <guimenuitem
+> Глоссарий... </guimenuitem
+> </menuchoice
+>) объясняет наиболее важные химические термины и показывает изображения наиболее общих инструментов по ходу объяснения.</para>
+
+		 <screenshot>
+			 <screeninfo
+>Глоссарий</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-4.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>Глоссарий</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+	 </chapter>
+	 <chapter id="using-kalzium">
+		 <title
+>Использование &kalzium;</title>
+
+		 <sect1 id="foo"
+><title
+>Обзор использования &kalzium;</title>
+			 <para
+>&kalzium; очень прост в использовании. Он специально создан для учащихся любого возраста и может служить небольшой и удобной справочной базой данных.</para>
+			 <para
+>Ниже показан снимок экрана приложения &kalzium;:</para>
+			 <screenshot>
+				 <screeninfo
+>Главное окно &kalzium; сразу после первого запуска</screeninfo>
+				 <mediaobject>
+					 <imageobject>
+						 <imagedata fileref="screenshot1.png" format="PNG"/>
+					 </imageobject>
+					 <textobject>
+						 <phrase
+>Главное окно &kalzium;</phrase>
+					 </textobject>
+				 </mediaobject>
+			 </screenshot>
+		 </sect1>
+		 <sect1 id="info-dlg">
+			 <title
+>Информационное диалоговое окно</title>
+			 <para
+>Информационное диалоговое окно доступно по щелчку левой кнопки мыши по любому из элементов. Так можно получить информацию об элементе. С помощью кнопок внизу диалогового окна вы можете изменить показываемый элемент без закрытия окна.</para>
+			<sect2 id="infodialog_dataoverview">
+				 <title
+>Сводка</title>
+				 <para
+>Вкладка <guilabel
+>Сводка</guilabel
+> содержит различные сведения об элементе.</para>
+				 <para
+>В зависимости от доступных в &kalzium; данных могут отображаться различные радиусы элемента. Ковалентный радиус — половина кратчайшего межатомного расстояния в кристалле простого вещества. Примером может служить расстояние O–H в молекуле воды. Атомный радиус — расстояние между атомным ядром и самой дальней из стабильных электронных орбиталей атома. Радиус Ван-дер-Ваальса определяется как половина межъядерного расстояния между ближайшими одноимёнными атомами, не связанными между собой химической связью и принадлежащими двум одинаковым молекулам, например двумя атомами углерода в пропане. Последний возможный радиус — ионный радиус с указанием заряда иона.</para>
+				 <para
+>Масса элемента — среднее значение массы всех его изотопов с учётом их процентного содержания. </para>
+				 <screenshot>
+					 <screeninfo
+>Информационное диалоговое окно &kalzium; </screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Информационное диалоговое окно &kalzium; </phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_orbits">
+				 <title
+>Орбитали Бора</title>
+				 <para
+>Вкладка <guilabel
+>Модель атома</guilabel
+> показывает оболочки атомов. Каждая орбита представляет атомную оболочку, каждый жёлтый круг — электрон.</para>
+				 <screenshot>
+					 <screeninfo
+>Информационное диалоговое окно &kalzium; </screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_bohr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Информационное диалоговое окно &kalzium; </phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_isotopes">
+				 <title
+>Изотопы</title>
+				 <para
+>Вкладка <guilabel
+>Изотопы</guilabel
+> представляет информацию об изотопах элемента.</para>
+
+          <variablelist>
+          <varlistentry>
+            <term
+></term>
+            <listitem
+><para>
+            <variablelist>
+            <varlistentry>
+              <term
+>Масса</term>
+              <listitem
+><para
+>Масса этого изотопа</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Нейтрон</term>
+              <listitem
+><para
+>Количество электронов в данном изотопе.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Процентное отношение</term>
+              <listitem
+><para
+>Процентное отношение атомов, бывающих изотопами этого типа.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Период полураспада</term>
+              <listitem
+><para
+>Только нестабильные изотопы имеют период полураспада. Он определяется как время, за которое половина изотопов распадётся.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Энергия и вид полураспада</term>
+              <listitem
+><para
+>Известно, что часть изотопов выделяет радиацию в процессе распада. Каждый распад высвобождает определённую энергию, которая зависит от вида распада.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Спин и чётность</term>
+              <listitem
+><para
+>Спин ядра и его чётность</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>Магнитный момент</term>
+              <listitem
+><para
+>Магнитный дипольный момент ядра. Измеряется в ядерных магнетонах.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+          </variablelist>
+
+				 <screenshot>
+					 <screeninfo
+>Информационное диалоговое окно &kalzium; </screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_isotopes.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Информационное диалоговое окно &kalzium; </phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_misc">
+				 <title
+>Разное</title>
+				 <para
+>Вкладка <guilabel
+>Разное</guilabel
+> содержит дополнительные сведения о текущем элементе, включая дату его открытия и происхождение названия.</para>
+				 <screenshot>
+					 <screeninfo
+>Информационное диалоговое окно &kalzium; </screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Информационное диалоговое окно &kalzium; </phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_spectrum">
+				 <title
+>Спектр</title>
+				 <para
+>Страница <guilabel
+>Спектр</guilabel
+> показывает спектр элементов. Здесь можно выбрать диапазон длин волн, единицы измерения и тип спектра. В правой нижней части страницы находится таблица интенсивности.</para>
+				 <screenshot>
+					 <screeninfo
+>Информационное диалоговое окно &kalzium; </screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_spectrum.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Информационное диалоговое окно &kalzium; </phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_extra">
+				 <title
+>Дополнительные сведения</title>
+				 <para
+>На странице <guilabel
+>Дополнительные сведения</guilabel
+> представлены ссылки на страницы элемента в Википедии, <ulink url="https://education.jlab.org/"
+>Jefferson Lab</ulink
+> и <ulink url="https://www.webelements.com/"
+>WebElements</ulink
+>.</para>
+				 <screenshot>
+					 <screeninfo
+>Информационное диалоговое окно &kalzium; </screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_extra.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Информационное диалоговое окно &kalzium; </phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+		 </sect1>
+		 <sect1 id="tables_view">
+			 <title
+>Таблицы</title>
+
+			 <para
+>Периодическая таблица может быть представлена разными способами. Её вид можно выбрать в меню <guimenu
+>Вид</guimenu
+> или из списка на панели инструментов.</para>
+
+			 <para
+>Для изменения вида таблицы можно использовать следующие пункты меню <menuchoice
+><guimenu
+>Вид</guimenu
+><guisubmenu
+>Таблицы</guisubmenu
+></menuchoice
+>: <variablelist>
+			   <varlistentry>
+			     <term
+>Классическая периодическая таблица</term>
+			     <listitem>
+			       <para
+><action
+>Показывает</action
+> классическую периодическую таблицу со всеми элементами. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Короткая периодическая таблица</term>
+			     <listitem>
+			       <para
+><action
+>Показывает</action
+> периодическую таблицу без переходных элементов. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Длинная периодическая таблица</term>
+			     <listitem>
+			       <para
+><action
+>Показывает</action
+> периодическую таблицу со встроенными внутренними переходными элементами (f-элементами). </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Переходные элементы</term>
+			     <listitem>
+			       <para
+><action
+>Показывает</action
+> только переходные элементы таблицы. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>Периодическая таблица DZ</term>
+			     <listitem>
+			       <para
+>Этот пункт представляет таблицу в форме DZ <foreignphrase lang="de"
+>Deutscher Zentralausschuss</foreignphrase
+> предложенную «German Central Committee». </para>
+			     </listitem>
+			   </varlistentry>
+			 </variablelist>
+			 </para>
+
+		 </sect1>
+		 <sect1 id="numeration">
+			 <title
+>Классификация</title>
+
+			 <para
+>Классификация — это способ нумерации 18 групп периодической таблицы. Можно выбрать систему <guilabel
+>ИЮПАК</guilabel
+>, <guilabel
+>Старый ИЮПАК</guilabel
+> или <guilabel
+>Химическая реферативная служба</guilabel
+>, а также отключить классификацию.</para>
+
+				 <para
+>Следующие пункты меню <menuchoice
+><guimenu
+>Вид</guimenu
+><guimenuitem
+>Классификация</guimenuitem
+></menuchoice
+> позволяют выбрать показываемую классификацию <itemizedlist>
+					 <listitem
+><para
+><guimenuitem
+>Без классификации</guimenuitem
+>: если выбран этот пункт, классификация будет отключена.</para
+></listitem>
+					 <listitem
+><para
+><guilabel
+>ИЮПАК</guilabel
+> (по умолчанию) — <firstterm
+>International Union of Pure and Applied Chemistry</firstterm
+> (Международный союз теоретической и прикладной химии). Эта организация определяет большинство стандартов в области химии. В новой системе ИЮПАК каждый столбец нумеруется арабскими цифрами от 1 до 18. </para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>Химическая реферативная служба</guimenuitem
+> — <firstterm
+>Chemical Abstracts Service</firstterm
+> (Химическая реферативная служба). В системе CAS буквами A и B обозначаются элементы главных групп (A) и переходные элементы (B). Несмотря на то, что нумерация ИЮПАК является официальной, нумерация CAS по-прежнему широко используется в школах и лабораториях.</para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>Старый ИЮПАК</guimenuitem
+> — система, в которой столбцы обозначаются римскими цифрами с последующей буквой <quote
+>A</quote
+> или <quote
+>B</quote
+>. Столбцы с первого по седьмой имеют обозначения от <quote
+>IA</quote
+> до <quote
+>VIIA</quote
+>, столбцы с восьмого по десятый обозначаются как <quote
+>VIIIA</quote
+>, столбцы с 11-го по 17-й — от <quote
+>IB</quote
+> до <quote
+>VIIB</quote
+>, а 18-й столбец имеет обозначение <quote
+>VIII</quote
+>. Из-за путаницы, возникавшей при использовании старой системы ИЮПАК и системы CAS, ИЮПАК принял новую систему нумерации. </para
+></listitem>
+				 </itemizedlist>
+			 </para>
+
+		 </sect1>
+
+		 <sect1 id="colors">
+			 <title
+>Цветовые схемы</title>
+
+			 <para
+>&kalzium; позволяет выделять элементы по их <quote
+>блокам</quote
+> и <quote
+>группам</quote
+>, характеру взаимодействия с кислотами и агрегатному состоянию (то есть твёрдому, жидкому или газообразному) при заданной температуре.</para>
+			 <para
+>Цветовые схемы можно изменить в меню <menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Схема</guimenuitem
+></menuchoice
+>, раскрывающемся списке на панели инструментов или на вкладке <link linkend="view_tab"
+>Вид</link
+> боковой панели.</para>
+			 <itemizedlist>
+				 <listitem
+><para
+><guimenuitem
+>Монохромная</guimenuitem
+>: все элементы имеют одинаковый цвет. Цвет по умолчанию можно изменить, выбрав пункт <menuchoice
+><guimenu
+>Настройка</guimenu
+><guimenuitem
+>Настроить &kalzium;...</guimenuitem
+></menuchoice
+> и перейдя на страницу <guilabel
+>Схемы</guilabel
+>. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Блоки</guimenuitem
+>: отдельный цвет для каждого блока. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Значки</guimenuitem
+>: отдельный значок для каждого элемента. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Семейства</guimenuitem
+>: представляет каждое из 8 семейств отдельным цветом. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Группы</guimenuitem
+>: показывает свой цвет для каждой группы. Группа — это вертикальный столбец периодической таблицы. В стандартной таблице 18 групп. Элементы одной группы имеют сходную конфигурацию электронов валентной оболочки, что обусловливает сходство их свойств. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>Цвета</guimenuitem
+>: красивые цвета без какого-либо значения (из проекта <ulink url="https://openbabel.org/wiki/Main_Page"
+>Open Babel</ulink
+>). </para
+></listitem>
+			 </itemizedlist>
+		</sect1>
+		<sect1 id="gradients">
+			 <title
+>Градиент</title>
+			 <para
+>Градиент выделяет элементы цветом в соответствии с выбранным ниже свойством. Элементы, для которых данные отсутствуют, показываются серым цветом.</para>
+			 <para
+>Градиент можно изменить в меню <menuchoice
+><guimenu
+>Вид</guimenu
+><guimenuitem
+>Градиенты</guimenuitem
+></menuchoice
+>, раскрывающемся списке на панели инструментов или на вкладке <link linkend="view_tab"
+>Вид</link
+> боковой панели.</para>
+			<screenshot>
+			  <screeninfo
+>Градиент для ковалентного радиуса</screeninfo>
+			  <mediaobject>
+			    <imageobject>
+			      <imagedata fileref="gradient.png" format="PNG"/>
+			      </imageobject>
+			      <textobject>
+				<phrase
+>Градиент для ковалентного радиуса</phrase>
+			      </textobject>
+			   </mediaobject>
+			   </screenshot>
+			   <para
+>Доступны следующие варианты градиента (некоторые пункты списка содержат ссылки):</para>
+			   <itemizedlist>
+            <listitem
+><para
+><guimenuitem
+>Нет</guimenuitem
+>: градиент не используется. </para
+></listitem>
+            <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Агрегатное_состояние"
+><guimenuitem
+>Состояние вещества</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+            <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Ковалентный_радиус"
+><guimenuitem
+>Ковалентный радиус</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Радиус_Ван-дер-Ваальса"
+><guimenuitem
+>Ван-дер-Ваальс</guimenuitem
+></ulink
+>: градиент по радиусу Ван-дер-Ваальса. </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Атомная_масса"
+><guimenuitem
+>Атомная масса</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Температура_кипения"
+><guimenuitem
+>Температура кипения</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Температура_плавления"
+><guimenuitem
+>Температура плавления</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Электроотрицательность"
+><guimenuitem
+>Электроотрицательность (по Полингу)</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Сродство_к электрону"
+><guimenuitem
+>Сродство к электрону</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><guimenuitem
+>Дата открытия</guimenuitem>
+            </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://ru.wikipedia.org/wiki/Энергия_ионизации"
+><guimenuitem
+>Потенциал первой ионизации</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+			   </itemizedlist>
+		 </sect1>
+		 <sect1 id="tools">
+			 <title
+>Инструменты</title>
+			 <sect2 id="mol_editor">
+				 <title
+>Редактор молекул</title>
+				 <para
+>Редактор молекул позволяет просматривать и редактировать молекулы с помощью библиотек <ulink url="https://avogadro.cc"
+>Avogadro 2</ulink
+>. </para>
+				 <para
+>Используя панель слева, можно изменять параметры вида, редактировать молекулы и выполнять измерения. На этой панели расположены три вкладки: <guilabel
+>Вид</guilabel
+>, <guilabel
+>Изменить</guilabel
+> и <guilabel
+>Измерение</guilabel
+>. В верхней части окна находится список <guilabel
+>Стиль:</guilabel
+>, позволяющий выбрать стиль представления молекулы (<guimenuitem
+>Шаро-стержневая модель</guimenuitem
+>, <guimenuitem
+>Licorice</guimenuitem
+>, <guimenuitem
+>Ван-дер-Ваальс</guimenuitem
+>, <guimenuitem
+>Ван-дер-Ваальс (AO)</guimenuitem
+> (<abbrev
+>AO</abbrev
+> означает <quote
+>Ambient Occlusion</quote
+>) или <guimenuitem
+>Каркасная модель</guimenuitem
+>). Кнопки в нижней части окна позволяют <guibutton
+>Загрузить молекулу</guibutton
+>, <guibutton
+>Загрузить новые молекулы</guibutton
+>, <guibutton
+>Сохранить молекулу</guibutton
+> и <guibutton
+>Закрыть</guibutton
+> окно. Скачанные файлы сохраняются в папке <filename class="directory"
+>Документы</filename
+>, откуда их можно открыть в редакторе. </para>
+				 <para
+>Панель <guilabel
+>Статистика</guilabel
+> показывает название элемента (если доступно), формулу и вес молекулы. </para>
+				 <para
+>Вкладка <guilabel
+>Вид</guilabel
+> предназначена для просмотра загруженной молекулы. Щёлкнув кнопкой мыши в области просмотра, можно изменить точку обзора. Используйте левую кнопку мыши для поворота молекулы, правую — для её перемещения, а среднюю — для изменения масштаба. </para>
+				 <para
+>Вкладка <guilabel
+>Изменить</guilabel
+> предназначена для редактирования молекулы. Добавить элементы можно, выбрав их в раскрывающемся списке <guilabel
+>Элемент</guilabel
+>, а затем щёлкнув левой кнопкой мыши в области просмотра справа. </para>
+				 <para
+>Вкладка <guilabel
+>Измерение</guilabel
+> используется для измерения расстояний и углов в молекуле. Следуйте инструкциям на вкладке. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-mol-edit.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+><quote
+>Редактор молекул</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="nuclid_board">
+				 <title
+>Таблица изотопов</title>
+				 <para
+><guilabel
+>Таблица изотопов</guilabel
+> показывает изотопы элементов. </para>
+				 <para
+>Существуют различные виды изотопов: некоторые из них стабильны, а некоторые — нет. Неустойчивые изотопы при распаде могут испускать альфа-излучение или один из двух видов бета-излучения. Эти различия обозначаются разными цветами. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshotnuclidboard.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Окно <quote
+>Таблица изотопов</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; может показывать изотопы диапазона элементов</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="plot_data">
+				 <title
+>График</title>
+				 <para
+>Диалоговое окно <guilabel
+>График</guilabel
+> позволяет строить графики свойств элементов. Ось X показывает диапазон элементов (от одного порядкового номера до другого). Этот диапазон задаётся с помощью полей <guilabel
+>Первый элемент:</guilabel
+> и <guilabel
+>Последний элемент:</guilabel
+>. Нажмите кнопку  <inlinemediaobject
+><imageobject
+><imagedata fileref="swap-panels.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <guibutton
+>Поменять местами</guibutton
+>, расположенную между областями осей, чтобы поменять местами оси X и Y. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="quick-3.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>График</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; может визуализировать некоторые данные диапазона элементов.</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="perf_calculation">
+				 <title
+>Калькулятор</title>
+				 <para
+>Пункт меню <guimenuitem
+>Калькулятор...</guimenuitem
+> открывает калькулятор &kalzium;, содержащий множество инструментов для выполнения различных вычислений. </para>
+				 <para
+>В &kalzium; доступны следующие калькуляторы: </para>
+				 <variablelist>
+				   <varlistentry>
+				     <term
+>Молярная масса</term>
+				     <listitem>
+				       <para
+>Этот калькулятор рассчитывает молярные массы различных молекул. </para>
+				       <para
+>Можно указать сокращённое название молекулы и добавить дополнительные варианты. </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-mass.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>Молярная масса</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; рассчитывает молярную массу фенола.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Концентрации</term>
+				     <listitem>
+				       <para
+>Можно вычислять следующие величины: </para>
+				       <itemizedlist>
+					 <listitem>
+					   <para
+>Количество растворённого вещества </para>
+					 </listitem>
+					 <listitem>
+					   <para
+>Плотность растворителя </para>
+					 </listitem>
+					 <listitem>
+					   <para
+>Плотность растворённого вещества </para>
+					 </listitem>
+				       </itemizedlist>
+				       <para
+>Можно выбирать различные единицы измерения и способы задания величин. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-conc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>Концентрации</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; рассчитывает решение.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Ядерный распад</term>
+				     <listitem>
+				       <para
+>Этот калькулятор &kalzium; рассчитывает ожидаемую массу вещества после периода времени. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-nucl.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>Ядерный распад</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; рассчитывает период распада урана.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Газ</term>
+				     <listitem>
+				       <para
+>Калькулятор позволяет рассчитывать значения температуры, давления, объёма, количества газа и других величин для различных идеальных и неидеальных газов. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-gas.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>Газ</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; рассчитывает свойства газа</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Титриметрический анализ</term>
+				     <listitem>
+				       <para
+>С помощью этого калькулятора можно отыскать эквивалентную точку на шкале pH на основе гиперболического приближения. Кроме того, с помощью этого калькулятора можно попробовать решить систему уравнений химического равновесия и определить влияние концентрации одного реагента на концентрацию другого. </para>
+				       <para
+>На странице калькулятора две вкладки: </para>
+				       <variablelist>
+					 <varlistentry>
+					   <term
+><guilabel
+>Экспериментальные значения</guilabel
+></term>
+					   <listitem>
+					     <para
+>Этот калькулятор можно использовать для построения графика по экспериментальным данным, полученным при титриметрическом анализе, и определения объёма эквивалентности. Настоятельно рекомендуется вводить чётное количество точек, отсортированных по объёму (значению <guilabel
+>ось X:</guilabel
+>), поскольку это обеспечивает наилучшую работу алгоритма подбора. </para>
+					   </listitem>
+					 </varlistentry>
+					 <varlistentry>
+					   <term
+><guilabel
+>Теоретические уравнения</guilabel
+></term>
+					   <listitem>
+					     <para
+>Здесь можно заполнить таблицу уравнениями, ранее полученными для химического равновесия. </para>
+					     <para
+>Например, реакции <emphasis
+>A + B -> C + D</emphasis
+> соответствует уравнение <emphasis
+>K=(C*D)/(A*B)</emphasis
+>, поэтому нужно вставить <userinput
+>K</userinput
+> в столбец <guilabel
+>Параметр</guilabel
+> и <userinput
+>(C*D)/(A*B)</userinput
+> в столбец <guilabel
+>Значение</guilabel
+>. Если нужно присвоить параметру определённое значение, можно просто вставить числовое значение. </para>
+					     <para
+>К примеру, можно использовать систему: </para>
+					     <para>
+					       <userinput
+>A=(C*D)/(B*K)</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>K=10^-3</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>C=OH</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>OH=(10^-14)/H</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>H=10^-4</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>B=6*(10^-2)</userinput>
+					     </para>
+					     <para
+>Затем следует ввести <userinput
+>D</userinput
+> в качестве значения <guilabel
+>Оси X</guilabel
+>, а <userinput
+>A</userinput
+> — в качестве значения <guilabel
+>Оси Y</guilabel
+>. На графике будет показано, как концентрация A изменяется в зависимости от концентрации D. </para>
+					     <note>
+					       <para
+>Не используйте скобки для значений степеней. <userinput
+>10^-3</userinput
+> — правильно, а <userinput
+>10^(-3)</userinput
+> — нет. </para>
+					     </note>
+					   </listitem>
+					 </varlistentry>
+				       </variablelist>
+				       <para
+>Для визуализации результатов нажмите кнопку <guibutton
+>Начертить график</guibutton
+>. На графике красным показана кривая, рассчитанная по теоретическим уравнениям, синим — экспериментальные точки, а зелёным — приближённая кривая экспериментальных точек. График можно сохранить как изображение SVG. </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-titr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>Титриметрический анализ</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>Пример результата титриметрического анализа.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>Балансировка уравнений</term>
+				     <listitem>
+				       <para
+><guilabel
+>Балансировка уравнений</guilabel
+> позволяет решать химические уравнения. Например: </para>
+				       <blockquote
+><para
+>aH2O + bCO2 -> cH2CO3</para
+></blockquote>
+				       <para
+>Полученное уравнение будет показано в верхней части окна. Как видно из первого примера, можно также задать значение одного или нескольких коэффициентов. Остальные коэффициенты будут вычислены автоматически. Кроме того, можно заключать в скобки элементы или электрические заряды, как показано в двух последних примерах. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-eq.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Диалоговое окно <quote
+>Балансировка уравнений</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; балансирует уравнение.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				 </variablelist>
+			 </sect2>
+			 <sect2 id="rs_phrases">
+				 <title
+>Факторы риска и безопасности</title>
+				 <para
+><guilabel
+>Факторы риска и безопасности</guilabel
+> представляют собой систему кодов опасности и стандартных фраз, используемых для маркировки опасных химических веществ и соединений. Обозначение R/S для соединения состоит из части, обозначающей риск (R), и части, обозначающей меры безопасности (S), после каждой из которых указывается комбинация чисел. Каждое число соответствует определённой стандартной фразе. Одни и те же буквенно-цифровые обозначения имеют одинаковое значение на разных языках. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-rs-phrases.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Окно <quote
+>Факторы риска и безопасности</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>&kalzium; может показывать факторы риска и безопасности.</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="glossary">
+				 <title
+>Глоссарий</title>
+				 <para
+><guilabel
+>Глоссарий</guilabel
+> содержит определения наиболее употребительных химических терминов и сведения о лабораторных инструментах. В левой части окна находится дерево элементов. В верхней его части расположены химические термины, а ниже — дерево лабораторных инструментов.</para>
+				 <para
+>В верхней части виджета находится строка поиска. По мере ввода текста дерево сразу обновляется в соответствии с запросом. Небольшая кнопка в правой части строки поиска очищает её. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot7.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+><quote
+>Глоссарий</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="tables">
+				 <title
+>Таблицы</title>
+				 <para
+><guilabel
+>Таблицы</guilabel
+> показывают таблицы греческого алфавита, используемого для обозначения некоторых химических и физических величин, а также латинских префиксов и римских цифр, соответствующих обычным арабским цифрам.</para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-tables.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>Окно <quote
+>Таблицы</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="sidebar">
+				 <title
+>Боковая панель</title>
+				 <sect3 id="overview">
+					 <title
+>Обзор</title>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="sidebar1.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>Обзор</phrase>
+							 </textobject>
+						 </mediaobject>
+					 </screenshot>
+					 <para
+>Вкладка <guilabel
+>Обзор</guilabel
+> расположена первой и показывает информацию о том элементе, на который наведён курсор.</para>
+
+				 </sect3>
+				 <sect3 id="view_tab">
+					 <title
+>Вид</title>
+
+					 <para
+>Вкладка <guilabel
+>Вид</guilabel
+> — вторая на панели навигации.</para>
+					 <para
+>Сначала представлены следующие значки и текст:</para>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot2.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>Диалоговое окно <quote
+>Состояние вещества</quote
+></phrase>
+							 </textobject>
+							 <caption
+><para
+>&kalzium; может сообщать, в каком агрегатном состоянии находятся элементы при данной температуре.</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+
+					 <para
+>Вкладку <guilabel
+>Вид</guilabel
+> можно использовать для фильтрации периодической таблицы. Например, эта функция позволяет просматривать элементы, известные в определённый период времени. Это помогает понять, как периодическая таблица изменялась со временем по мере открытия новых элементов. Выберите <guimenuitem
+>Дата открытия</guimenuitem
+> в списке <guilabel
+>Градиент:</guilabel
+>. Если перемещать ползунок влево, цвет некоторых элементов исчезнет, а при перемещении вправо появится снова. Кроме того, число элементов будет постоянно изменяться. </para>
+
+					 <para
+>Число показывает выбранную дату. Например, если переместить ползунок на 1856 год, будут показаны только элементы, известные к этому времени. </para>
+
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot6.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>Окно <quote
+>Дата открытия</quote
+></phrase>
+							 </textobject>
+							 <caption
+><para
+>Таблица в прошлом (элементы, известные в 1856)</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+				 </sect3>
+
+			 </sect2>
+		 </sect1>
+	 </chapter>
+
+	 <chapter id="config">
+		 <title
+>Настройка &kalzium;</title>
+
+		 <para
+>&kalzium; предоставляет множество параметров настройки, доступных в диалоговом окне, которое открывается с помощью пункта меню <menuchoice
+><guimenu
+>Настройка</guimenu
+><guimenuitem
+>Настроить &kalzium;...</guimenuitem
+></menuchoice
+>.</para>
+
+		 <screenshot>
+			 <screeninfo
+>Диалоговое окно «Настройка &kalzium;»</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings1.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Расцветки</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>Во вкладке <guilabel
+>Расцветки</guilabel
+> можно настроить цвета каждой схемы. </para>
+		 <screenshot>
+			 <screeninfo
+>Диалоговое окно «Настройка &kalzium;»</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings2.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Градиенты</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>Для показа выбранного свойства элемента в периодической таблице &kalzium; можно использовать как линейные, так и логарифмические величины.</para>
+		 <para
+>Во вкладке <guilabel
+>Градиенты</guilabel
+> можно выбрать свойства, которые будут показываться с использованием логарифмических величин градиента.</para>
+		 <para
+>Также можно выбрать <guilabel
+>Цвет максимального значения</guilabel
+> и <guilabel
+>Цвет минимального значения</guilabel
+> для градиента.</para>
+		 <screenshot>
+			 <screeninfo
+>Диалоговое окно «Настройка &kalzium;»</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings3.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Единицы</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>Во вкладке <guilabel
+>Единицы</guilabel
+> можно выбрать единицы измерения энергии, длины и температуры. Для энергии по умолчанию можно выбрать электронвольты (эВ), килоджоули на моль (кДж/моль), джоули на моль (Дж/моль) или джоули (Дж). Для длины можно выбрать пикометры (пм), нанометры (нм) или ангстремы (Å). По умолчанию температура измеряется в кельвинах, но её можно изменить на градусы Цельсия (°C), Фаренгейта (°F) или Реомюра (°Ré). </para>
+		 <screenshot>
+			 <screeninfo
+>Диалоговое окно «Настройка &kalzium;»</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings4.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>Калькулятор</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>Во вкладке <guilabel
+>Калькулятор</guilabel
+> можно настроить калькуляторы &kalzium;. </para>
+
+	 </chapter>
+
+	 <chapter id="commands">
+		 <title
+>Список команд</title>
+
+		 <sect1 id="kalzium-mainwindow">
+			 <title
+>Меню и комбинации клавиш</title>
+
+			 <sect2>
+				 <title
+>Меню «Файл»</title>
+				 <variablelist>
+					 <varlistentry>
+						 <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Сохранить как...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Сохраняет</action
+> таблицу &kalzium; как изображение.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Панели инструментов</guimenu
+> <guimenuitem
+>Экспорт данных...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает диалоговое окно</action
+>, в котором можно выбрать <guilabel
+>Элементы</guilabel
+> и их <guilabel
+>Свойства</guilabel
+> для экспорта в файл &HTML;, &XML; или CSV.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Панели инструментов</guimenu
+> <guimenuitem
+>Преобразовать химические файлы...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает диалоговое окно</action
+> импорта и экспорта большого количества форматов химических файлов и типов данных с помощью <ulink url="https://openbabel.org/wiki/Main_Page"
+>библиотеки Open Babel</ulink
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Закрывает</action
+> &kalzium;.</para
+></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
+
+			 <sect2>
+				 <title
+>Меню «Вид»</title>
+          <variablelist>
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+><guisubmenu
+>Таблицы</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Показывает</action
+> классическую периодическую систему со всеми элементами. <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Классическая периодическая таблица</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает классическую периодическую таблицу со всеми элементами.</action
+></para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Короткая периодическая таблица</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> периодическую таблицу без переходных элементов.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Длинная периодическая таблица</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> периодическую таблицу со встроенными внутренними переходными элементами (f-элементами).</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Переходные элементы</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> только переходные элементы таблицы.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Периодическая таблица DZ</guimenuitem
+></term>
+              <listitem
+><para
+>Этот пункт представляет таблицу в форме DZ <foreignphrase lang="de"
+>Deutscher Zentralausschuss</foreignphrase
+> предложенную <quote
+>German Central Committee</quote
+>.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+><guisubmenu
+>Классификация</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Показывает вложенное меню</action
+> с различными режимами классификации. Доступны следующие варианты: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Без классификации</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> схему без классификации.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>ИЮПАК</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> классификацию ИЮПАК.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Химическая реферативная служба</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> классификацию Химической реферативной службы.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Старый ИЮПАК</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> старую классификацию ИЮПАК.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+><guisubmenu
+>Схемы</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Показывает вложенное меню</action
+> с различными схемами. Доступны следующие варианты: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Одноцветная</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> все элементы с одним фоном.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Блоки</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> четыре блока элементов.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Значки</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> значок для каждого элемента.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Семейства</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> семейства элементов.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Группы</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> группы элементов.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Цвета</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> цвета элементов.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+><guisubmenu
+>Градиенты</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Показывает вложенное меню</action
+> с различными градиентами. Доступны следующие варианты: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>Нет</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Отключает</action
+> градиент для таблицы.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Состояние вещества</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> состояние вещества элемента.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Ковалентный радиус</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> ковалентный радиус элемента.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Радиус Ван-дер-Ваальса</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> радиус Ван-дер-Ваальса.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Атомная масса</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> атомную массу элемента.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Температура кипения</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> температуру кипения.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Температура плавления</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> температуру плавления.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Электроотрицательность</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> электроотрицательность элемента.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Сродство к электрону</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> сродство к электрону.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Дата открытия</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> дату открытия элемента, каждое столетие обозначено своим цветом.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>Потенциал первой ионизации</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>Показывает</action
+> потенциал первой ионизации элемента.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Обозначения</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+>Пункт <guimenuitem
+>Обозначения</guimenuitem
+> позволяет показывать обозначения для текущей схемы (Группы, Семейства, Блоки). По умолчанию обозначения показываются, однако если их скрыть, они останутся скрытыми до тех пор, пока их показ не будет включён снова. &kalzium; сохраняет этот параметр в файле конфигурации, поэтому при следующем запуске приложения будет использовано последнее выбранное значение.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Сведения</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Переключает</action
+> Боковую панель.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Сведения о таблице</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Переключает</action
+> показ сведений о таблице.</para
+></listitem>
+					 </varlistentry>
+
+				 </variablelist>
+
+			 </sect2>
+
+
+			 <sect2>
+				 <title
+>Меню «Сервис»</title>
+				 <variablelist>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>Редактор молекул...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает</action
+> диалоговое окно <guilabel
+>Редактор молекул</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>Таблица изотопов...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает</action
+> окно <guilabel
+>Таблица изотопов</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>График...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает</action
+> диалог <guilabel
+>График</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>Калькулятор...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает</action
+> диалог <link linkend="perf_calculation"
+><guilabel
+>Калькулятор</guilabel
+></link
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>Факторы риска и безопасности...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает</action
+> диалоговое окно <guilabel
+>Факторы риска и безопасности</guilabel
+> .</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>Глоссарий...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Открывает</action
+> <guilabel
+>Глоссарий</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>Сервис</guimenu
+> <guimenuitem
+>Таблицы...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>Показывает</action
+> диалоговое окно <guilabel
+>Греческий алфавит</guilabel
+> и <guilabel
+>Числовые префиксы и римские цифры</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
+
+<sect2>
+<title
+>Меню «Настройка» и «Справка»</title>
+<para
+>&kalzium; содержит стандартные для &kde; меню <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>. Подробные сведения приведены в разделах <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> руководства «Основы &kde;». </para>
+</sect2>
+		 </sect1>
+	 </chapter>
+
+	 <chapter id="faq">
+		 <title
+>Вопросы и ответы</title>
+
+		 <qandaset id="faqlist">
+			 <qandaentry>
+				 <question>
+					 <para
+>Станет ли &kalzium; платным?</para>
+				 </question>
+				 <answer>
+					 <para
+>Нет, никогда. Но автор всегда будет рад получить электронное письмо или &DVD; в качестве <quote
+>благодарности</quote
+>. &kalzium; распространяется по лицензии <ulink url="https://www.gnu.org/licenses/licenses.html#GPL"
+>GPL</ulink
+>, поэтому вам никогда не придётся платить за это приложение.</para>
+				 </answer>
+			 </qandaentry>
+
+		 </qandaset>
+	 </chapter>
+
+	 <chapter id="contribute">
+		 <title
+>Чем я могу помочь?</title>
+
+		 <qandaset id="tasks">
+			 <qandaentry>
+
+				 <question>
+					 <para
+>Поддержать автора данными.</para>
+				 </question>
+
+				 <answer>
+					 <para
+>В мире науки прогресс не стоит на месте. Если вы обнаружите неверное или отсутствующее значение, сообщите об этом автору.</para>
+				 </answer>
+			 </qandaentry>
+
+			 <qandaentry>
+				 <question>
+					 <para
+>Сообщайте об ошибках и присылайте свои предложения.</para>
+				 </question>
+				 <answer>
+					 <para
+>Если вы обнаружите ошибки в приложении или у вас есть предложения по его улучшению, сообщите об этом автору по адресу &Carsten.Niehaus.mail; (на английском языке). </para>
+				 </answer>
+
+			 </qandaentry>
+		 </qandaset>
+	 </chapter>
+
+	 <chapter id="credits">
+
+		 <title
+>Авторские права и лицензия</title>
+		 <para
+>&kalzium;</para>
+		 <para
+>Авторские права на программу © 2001-2005 &Carsten.Niehaus; &Carsten.Niehaus.mail; </para>
+
+		 <para
+>Благодарности:</para>
+
+		 <itemizedlist>
+			 <listitem
+><para
+>Pino Toscano <email
+>toscano.pino@tiscali.it</email
+> </para
+></listitem>
+		 </itemizedlist>
+
+		 <para
+>Перевод на русский: Николай Шафоростов <email
+>shafff@ukr.net</email
+></para
+><para
+>Перевод на русский: Наталья Зиборева <email
+>ziboreva@baltinform.ru</email
+></para
+><para
+>Обновление и дополнение перевода: Максим Воробьёв <email
+>vmax0770@gmail.com</email
+></para
+><para
+>Обновление перевода: Мария Шикунова<email
+>maremarie@altlinux.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+	 &documentation.index;
+ </book>
+ <!--
+ Local Variables:
+ mode: sgml
+ sgml-minimize-attributes:nil
+ sgml-general-insert-case:lower
+ sgml-indent-step:0
+ sgml-indent-data:nil
+ End:
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+ // vim:ts=2:sw=2:tw=78:noet:noai
+ -->
