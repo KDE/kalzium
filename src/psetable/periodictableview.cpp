@@ -137,7 +137,7 @@ void PeriodicTableView::resizeEvent(QResizeEvent *event)
 
 void PeriodicTableView::fitPseInView()
 {
-    if (operator!=(sceneRect(), m_tableStates->pseRect(m_currentTableInex))) {
+    if (sceneRect() != m_tableStates->pseRect(m_currentTableInex)) {
         setSceneRect(m_tableStates->pseRect(m_currentTableInex));
     }
 
