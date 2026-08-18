@@ -8785,6 +8785,3 @@ msgstr "Преобразуване от:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Преобразуване в:"
-
-#~ msgid "Extractor Hood"
-#~ msgstr "Вентилационна уредба"
