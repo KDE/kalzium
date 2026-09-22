@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-11 00:38+0000\n"
-"PO-Revision-Date: 2026-05-30 16:47-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1058,10 +1058,9 @@ msgid ""
 msgstr ""
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
-msgstr "ئۆلچەكلەر"
+msgstr "نىسبەت"
 
 #: data/tools.xml:159
 #, kde-format
@@ -3649,7 +3648,7 @@ msgstr ""
 #: src/calculator/nuclearCalculator.ui:540
 #, kde-format
 msgid "0"
-msgstr "0"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_2)
 #: src/calculator/nuclearCalculator.ui:187
@@ -4320,7 +4319,7 @@ msgstr ""
 #, kde-format
 msgctxt "this can for example be '24%'"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: src/detailinfodlg.cpp:329
 #, kde-format
@@ -4328,7 +4327,7 @@ msgctxt ""
 "The first argument is the value, the second is the unit. For example '17 s' "
 "for '17 seconds',."
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr ""
 
 #: src/detailinfodlg.cpp:336 src/detailinfodlg.cpp:360
 #: src/detailinfodlg.cpp:383 src/detailinfodlg.cpp:406
@@ -4402,13 +4401,13 @@ msgstr "، "
 #, kde-format
 msgctxt "Alpha decay"
 msgid " %1"
-msgstr " %1"
+msgstr ""
 
 #: src/detailinfodlg.cpp:385
 #, kde-format
 msgctxt "Proton decay"
 msgid " p"
-msgstr " p"
+msgstr ""
 
 #: src/detailinfodlg.cpp:408
 #, kde-format
@@ -4419,7 +4418,7 @@ msgstr ""
 #, kde-format
 msgctxt "Neutron decay"
 msgid " n"
-msgstr " n"
+msgstr ""
 
 #: src/detailinfodlg.cpp:453
 #, kde-format
@@ -4430,7 +4429,7 @@ msgstr ""
 #, kde-format
 msgctxt "Electron capture"
 msgid " EC"
-msgstr " EC"
+msgstr ""
 
 #: src/detailinfodlg.cpp:497
 #, kde-format
@@ -4873,7 +4872,7 @@ msgstr "ئالفا"
 #, kde-format
 msgctxt "Electron capture method"
 msgid "EC"
-msgstr "EC"
+msgstr ""
 
 #: src/isotopetable/isotopetabledialog.cpp:49
 #, kde-format
@@ -5365,7 +5364,7 @@ msgstr ""
 #, kde-format
 msgctxt "Just a number"
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: src/kalziumutils.cpp:113
 #, kde-format
@@ -5462,7 +5461,7 @@ msgstr ""
 #: src/legendwidget.cpp:85
 #, kde-format
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/legendwidget.cpp:87
 #, kde-format
@@ -5484,7 +5483,7 @@ msgstr ""
 #: src/main.cpp:35 src/tools/moleculeview.cpp:106
 #, kde-format
 msgid "Kalzium"
-msgstr "Kalzium"
+msgstr ""
 
 #: src/main.cpp:37
 #, kde-format
@@ -5499,12 +5498,12 @@ msgstr ""
 #: src/main.cpp:43
 #, kde-format
 msgid "Carsten Niehaus"
-msgstr "Carsten Niehaus"
+msgstr ""
 
 #: src/main.cpp:45
 #, kde-format
 msgid "Pino Toscano"
-msgstr "Pino Toscano"
+msgstr ""
 
 #: src/main.cpp:45
 #, kde-format
@@ -5566,7 +5565,7 @@ msgstr ""
 #: src/main.cpp:57
 #, kde-format
 msgid "Anne-Marie Mahfouf"
-msgstr "Anne-Marie Mahfouf"
+msgstr ""
 
 #: src/main.cpp:57
 #, kde-format
@@ -5638,7 +5637,7 @@ msgstr ""
 #: src/main.cpp:71
 #, kde-format
 msgid "Marco Martin"
-msgstr "Marco Martin"
+msgstr ""
 
 #: src/main.cpp:71
 #, kde-format
@@ -5721,7 +5720,7 @@ msgstr ""
 #: src/molcalcwidget.cpp:180 src/molcalcwidget.cpp:181
 #, kde-format
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: src/molcalcwidget.cpp:149
 #, kde-format
@@ -5981,7 +5980,7 @@ msgstr ""
 #: src/plotsetupwidget.ui:35
 #, kde-format
 msgid "Swap"
-msgstr ""
+msgstr "ئالماشتۇر"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, swapXYAxis)
 #: src/plotsetupwidget.ui:41
@@ -6170,7 +6169,7 @@ msgstr ""
 #: src/rsdialog.cpp:87
 #, kde-format
 msgid "S-Phrases:"
-msgstr "S-ئىبارە:"
+msgstr "S-ئىبارىلەر"
 
 #: src/rsdialog.cpp:95
 #, kde-format
@@ -7767,7 +7766,7 @@ msgstr ""
 #: src/tablesdialog.cpp:152
 #, kde-format
 msgid "1"
-msgstr "1"
+msgstr ""
 
 #: src/tablesdialog.cpp:153
 #, kde-format
@@ -7777,7 +7776,7 @@ msgstr ""
 #: src/tablesdialog.cpp:154
 #, kde-format
 msgid "2"
-msgstr "2"
+msgstr ""
 
 #: src/tablesdialog.cpp:155
 #, kde-format
@@ -7787,17 +7786,17 @@ msgstr ""
 #: src/tablesdialog.cpp:156
 #, kde-format
 msgid "3"
-msgstr "3"
+msgstr ""
 
 #: src/tablesdialog.cpp:157
 #, kde-format
 msgid "4"
-msgstr "4"
+msgstr ""
 
 #: src/tablesdialog.cpp:158
 #, kde-format
 msgid "5"
-msgstr "5"
+msgstr ""
 
 #: src/tablesdialog.cpp:159
 #, kde-format
@@ -7807,7 +7806,7 @@ msgstr ""
 #: src/tablesdialog.cpp:160
 #, kde-format
 msgid "7"
-msgstr "7"
+msgstr ""
 
 #: src/tablesdialog.cpp:161
 #, kde-format
@@ -7827,7 +7826,7 @@ msgstr ""
 #: src/tablesdialog.cpp:164
 #, kde-format
 msgid "11"
-msgstr "11"
+msgstr ""
 
 #: src/tablesdialog.cpp:165
 #, kde-format
@@ -7837,7 +7836,7 @@ msgstr ""
 #: src/tablesdialog.cpp:166
 #, kde-format
 msgid "13"
-msgstr "13"
+msgstr ""
 
 #: src/tablesdialog.cpp:167
 #, kde-format
@@ -7857,7 +7856,7 @@ msgstr ""
 #: src/tablesdialog.cpp:170
 #, kde-format
 msgid "17"
-msgstr "17"
+msgstr ""
 
 #: src/tablesdialog.cpp:171
 #, kde-format
@@ -7867,7 +7866,7 @@ msgstr ""
 #: src/tablesdialog.cpp:172
 #, kde-format
 msgid "19"
-msgstr "19"
+msgstr ""
 
 #: src/tablesdialog.cpp:173
 #, kde-format
@@ -7877,7 +7876,7 @@ msgstr ""
 #: src/tablesdialog.cpp:174
 #, kde-format
 msgid "40"
-msgstr "40"
+msgstr ""
 
 #: src/tablesdialog.cpp:175
 #, kde-format
@@ -7887,7 +7886,7 @@ msgstr ""
 #: src/tablesdialog.cpp:176
 #, kde-format
 msgid "60"
-msgstr "60"
+msgstr ""
 
 #: src/tablesdialog.cpp:177
 #, kde-format
@@ -7897,7 +7896,7 @@ msgstr ""
 #: src/tablesdialog.cpp:178
 #, kde-format
 msgid "100"
-msgstr "100"
+msgstr ""
 
 #: src/tablesdialog.cpp:251
 #, kde-format
