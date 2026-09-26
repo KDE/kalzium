@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:39+0000\n"
-"PO-Revision-Date: 2026-07-06 21:51+0200\n"
+"PO-Revision-Date: 2026-09-25 17:31+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.11.70\n"
+"X-Generator: Lokalize 26.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -7795,7 +7795,7 @@ msgstr "Halvmetall:"
 #: src/settings/settings_colors.ui:614
 #, kde-format
 msgid "No Color Scheme"
-msgstr "Ingen fargeoppsett"
+msgstr "Ingen fargetema"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel8_2_2)
 #: src/settings/settings_colors.ui:634
@@ -7808,7 +7808,7 @@ msgstr "Alle grunnstoffa:"
 #: src/settings/settings_colors.ui:641 src/settings/settings_colors.ui:644
 #, kde-format
 msgid "This color will be used if no other scheme is selected"
-msgstr "Denne fargen vert brukt viss ikkje noko anna fargeoppsett er valt"
+msgstr "Denne fargen vert brukt viss ikkje noko anna fargetema er valt"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/settings/settings_gradients.ui:42
