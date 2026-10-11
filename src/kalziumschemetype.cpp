@@ -277,6 +277,7 @@ QColor KalziumFamilySchemeType::textColor(int) const
 QList<legendPair> KalziumFamilySchemeType::legendItems() const
 {
     QList<legendPair> ll;
+    // Makke sure this i18n match with the ones in KalziumUtils::prettyUnit
     ll << qMakePair(i18n("Alkaline Earth Metal"), QColor(Prefs::alkaline_earth_metal()));
     ll << qMakePair(i18n("Rare Earth"), QColor(Prefs::rare()));
     ll << qMakePair(i18n("Non-Metals"), QColor(Prefs::nonmetal()));
