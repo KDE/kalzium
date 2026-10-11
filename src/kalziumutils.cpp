@@ -149,6 +149,31 @@ QString KalziumUtils::prettyUnit(const Element *el, ChemicalDataObject::BlueObel
         result = oxidationList.join(QStringLiteral(", "));
         break;
     }
+    case ChemicalDataObject::family: {
+        const QString family = el->dataAsVariant(kind).toString();
+        // Make sure this i18n match with the ones in KalziumFamilySchemeType::legendItems
+        if (family == QLatin1String("Noblegas")) {
+            return i18n("Noble Gas");;
+        } else if (family == QLatin1String("Non-Metal")) {
+            return i18n("Non-Metals");
+        } else if (family == QLatin1String("Rare_Earth")) {
+            return i18n("Rare Earth");
+        } else if (family == QLatin1String("Alkaline_Earth")) {
+            return i18n("Alkaline Earth Metal");
+        } else if (family == QLatin1String("Alkali_Earth")) {
+            return i18n("Alkali Metal");
+        } else if (family == QLatin1String("Transition")) {
+            return i18n("Transition Metal");
+        } else if (family == QLatin1String("Other_Metal")) {
+            return i18n("Other Metal");
+        } else if (family == QLatin1String("Metalloids")) {
+            return i18n("Metalloid");
+        } else if (family == QLatin1String("Halogen")) {
+            return i18n("Halogen");
+        } else {
+            result = family;
+        }
+    }
     default:
         result = el->dataAsVariant(kind).toString();
     }
