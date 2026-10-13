@@ -14,7 +14,7 @@
 # Guillaume Pujol <guill.p@gmail.com>, 2008, 2010.
 # Olivier Delaune <delaune@ganil.fr>, 2009.
 # Olivier Delaune <delaune@ganil.fr>, 2010, 2011, 2012, 2013, 2014, 2015.
-# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2022, 2023, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2012-2013, 2020-2023, 2025-2026 Xavier Besnard <xavier.besnard@kde.org>
 # Yoann Laissus <yoann.laissus@gmail.com>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019, 2020.
 #
@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-11 00:38+0000\n"
-"PO-Revision-Date: 2026-05-04 18:04+0200\n"
+"PO-Revision-Date: 2026-10-11 11:16+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -31,9 +31,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -961,8 +961,7 @@ msgstr ""
 "le mortier pour triturer."
 
 #: data/tools.xml:37
-#, fuzzy, kde-format
-#| msgid "Heating Coil"
+#, kde-format
 msgid "Heating Plate"
 msgstr "Chauffe-ballon"
 
@@ -1219,17 +1218,12 @@ msgstr ""
 "projetés, mais aussi contre des produits acides et basiques."
 
 #: data/tools.xml:97
-#, fuzzy, kde-format
-#| msgid "Round-Bottomed Flask"
+#, kde-format
 msgid "Round-Bottom Flask"
 msgstr "Ballon"
 
 #: data/tools.xml:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "A round-bottomed flask is used for many reactions. Some can be connected "
-#| "to other items, as the frosting on the neck shows. With cork rings they "
-#| "can be placed on a table."
+#, kde-format
 msgid ""
 "A round-bottom flask is used for many reactions. Some can be connected to "
 "other items, as the frosting on the neck shows. With cork rings, they can be "
@@ -1237,7 +1231,7 @@ msgid ""
 msgstr ""
 "Un ballon est utilisé pour de nombreuses réactions. Certains peuvent être "
 "connectés à d'autres éléments, comme le montre la zone prévue sur son col. "
-"Ils peuvent être placés sur une table à l'aide d'un anneau de liège."
+"Ils peuvent être placés sur une table à l'aide d'anneaux de liège."
 
 #: data/tools.xml:102
 #, kde-format
@@ -1477,10 +1471,9 @@ msgstr ""
 "appelé dégazage."
 
 #: data/tools.xml:158
-#, fuzzy, kde-format
-#| msgid "Scales"
+#, kde-format
 msgid "Scale"
-msgstr "Balances"
+msgstr "Échelle"
 
 #: data/tools.xml:159
 #, fuzzy, kde-format
@@ -1502,8 +1495,7 @@ msgstr ""
 "d'air par une coupole."
 
 #: data/tools.xml:163
-#, fuzzy, kde-format
-#| msgid "Distillation bridge"
+#, kde-format
 msgid "Distillation Bridge"
 msgstr "Pont de distillation"
 
@@ -1535,10 +1527,9 @@ msgstr ""
 "souvent un thermomètre pour contrôler la température du pont de distillation"
 
 #: data/tools.xml:168
-#, fuzzy, kde-format
-#| msgid "Syringe"
+#, kde-format
 msgid "Gas Syringe"
-msgstr "Seringue"
+msgstr "Seringue à gaz"
 
 #: data/tools.xml:169
 #, fuzzy, kde-format
@@ -1590,36 +1581,30 @@ msgid "Burner"
 msgstr "Brûleur"
 
 #: data/tools.xml:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are several types of burners; this picture shows a Teclu-Burner. "
-#| "Each type of burner has specific uses, and they vary in peak temperature "
-#| "and overall heating capacity."
+#, kde-format
 msgid ""
 "There are several types of burners; this picture shows a Teclu burner. Each "
 "type of burner has specific uses, and they vary in peak temperature and "
 "overall heating capacity."
 msgstr ""
-"Il existe plusieurs types de brûleur ; cette image vous montre un brûleur de "
-"Teclu. À chaque type, son utilisation. Ils diffèrent de par leur température "
-"maximale et surtout par leur capacité à chauffer."
+"Il existe plusieurs types de brûleur. Cette image vous montre un brûleur de "
+"type Teclu. Chaque type correspond à une utilisation particulière. Ils "
+"diffèrent par leur température maximale et surtout par leur capacité à "
+"chauffer."
 
 #: data/tools.xml:183
 #, kde-format
 msgid "Fume Hood"
-msgstr ""
+msgstr "Hotte aspirante"
 
 #: data/tools.xml:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "Extractor hoods are used to filter out gases from chemical reactions. The "
-#| "air, once cleaned, is pumped outside of the building."
+#, kde-format
 msgid ""
 "Fume hoods are used to filter out gases from chemical reactions. The air, "
 "once cleaned, is pumped outside of the building."
 msgstr ""
 "Les hottes aspirantes sont utilisées pour filtrer les gaz issus des "
-"réactions chimiques. L'air, une fois nettoyé, est pompé à l'extérieur du "
+"réactions chimiques. L'air, une fois nettoyé, est renvoyé à l'extérieur du "
 "bâtiment."
 
 #: data/tools.xml:188
@@ -1648,10 +1633,9 @@ msgstr ""
 "est réactivé."
 
 #: data/tools.xml:193
-#, fuzzy, kde-format
-#| msgid "Clamps"
+#, kde-format
 msgid "Clamp"
-msgstr "Serre-joints"
+msgstr "Pince"
 
 #: data/tools.xml:194
 #, kde-format
@@ -1743,10 +1727,9 @@ msgstr ""
 "réactions chimiques. On les utilise aussi souvent pour les titrages."
 
 #: data/tools.xml:218
-#, fuzzy, kde-format
-#| msgid "DSC (Differential Scanning Calorimeter)"
+#, kde-format
 msgid "Differential Scanning Calorimeter (DSC)"
-msgstr "CDB (Calorimétrie Différentielle à Balayage)"
+msgstr "Calorimétrie Différentielle à Balayage (CDB)"
 
 #: data/tools.xml:219
 #, kde-format
@@ -1786,7 +1769,7 @@ msgstr ""
 #: data/tools.xml:228
 #, kde-format
 msgid "High-Performance Liquid Chromatography (HPLC)"
-msgstr ""
+msgstr "Chromatographie liquide haute performance (HPLC)"
 
 #: data/tools.xml:229
 #, kde-format
@@ -1802,7 +1785,7 @@ msgstr ""
 #: data/tools.xml:233
 #, kde-format
 msgid "Evaporating Dish"
-msgstr ""
+msgstr "Coupelle d'évaporation"
 
 #: data/tools.xml:234
 #, kde-format
