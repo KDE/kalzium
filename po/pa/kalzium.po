@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:38+0000\n"
+"POT-Creation-Date: 2026-10-19 00:41+0000\n"
 "PO-Revision-Date: 2021-01-23 15:50-0800\n"
 "Last-Translator: A S Alam <aalam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -5324,105 +5324,106 @@ msgstr "ਆਈਕਿਨ"
 msgid "Each element is represented by an icon which represents its use."
 msgstr ""
 
-#: src/kalziumschemetype.cpp:280
+#. i18n match with the ones in KalziumUtils::prettyUnit
+#: src/kalziumschemetype.cpp:281 src/kalziumutils.cpp:162
 #, fuzzy, kde-format
 #| msgid "Alkaline earth metals:"
 msgid "Alkaline Earth Metal"
 msgstr "ਖਾਰੀ-ਤੱਤ:"
 
-#: src/kalziumschemetype.cpp:281
+#: src/kalziumschemetype.cpp:282 src/kalziumutils.cpp:160
 #, kde-format
 msgid "Rare Earth"
 msgstr ""
 
-#: src/kalziumschemetype.cpp:282
+#: src/kalziumschemetype.cpp:283 src/kalziumutils.cpp:158
 #, kde-format
 msgid "Non-Metals"
 msgstr "ਅ-ਧਾਤਵਾਂ"
 
-#: src/kalziumschemetype.cpp:283
+#: src/kalziumschemetype.cpp:284 src/kalziumutils.cpp:164
 #, fuzzy, kde-format
 #| msgid "Alkalie Metal"
 msgid "Alkali Metal"
 msgstr "ਖਾਰੀ ਤੱਤ"
 
-#: src/kalziumschemetype.cpp:284
+#: src/kalziumschemetype.cpp:285 src/kalziumutils.cpp:168
 #, kde-format
 msgid "Other Metal"
 msgstr "ਹੋਰ ਧਾਤ"
 
-#: src/kalziumschemetype.cpp:285
+#: src/kalziumschemetype.cpp:286 src/kalziumutils.cpp:172
 #, kde-format
 msgid "Halogen"
 msgstr "ਹੈਲੋਜਨ"
 
-#: src/kalziumschemetype.cpp:286
+#: src/kalziumschemetype.cpp:287 src/kalziumutils.cpp:166
 #, kde-format
 msgid "Transition Metal"
 msgstr "ਅਧਾਤਵੀਂ ਤੱਤ"
 
-#: src/kalziumschemetype.cpp:287
+#: src/kalziumschemetype.cpp:288 src/kalziumutils.cpp:156
 #, kde-format
 msgid "Noble Gas"
 msgstr "ਨੋਬਲ ਗੈਸ"
 
-#: src/kalziumschemetype.cpp:288
+#: src/kalziumschemetype.cpp:289 src/kalziumutils.cpp:170
 #, kde-format
 msgid "Metalloid"
 msgstr "ਉਪ-ਧਾਤ (ਮੈਟਾਲਾਇਡ)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabGroups)
-#: src/kalziumschemetype.cpp:312 src/settings/settings_colors.ui:136
+#: src/kalziumschemetype.cpp:313 src/settings/settings_colors.ui:136
 #, kde-format
 msgid "Groups"
 msgstr "ਗਰੁੱਪ"
 
-#: src/kalziumschemetype.cpp:352
+#: src/kalziumschemetype.cpp:353
 #, kde-format
 msgid "Group 1"
 msgstr "ਗਰੁੱਪ 1"
 
-#: src/kalziumschemetype.cpp:353
+#: src/kalziumschemetype.cpp:354
 #, kde-format
 msgid "Group 2"
 msgstr "ਗਰੁੱਪ 2"
 
-#: src/kalziumschemetype.cpp:354
+#: src/kalziumschemetype.cpp:355
 #, kde-format
 msgid "Group 3"
 msgstr "ਗਰੁੱਪ 3"
 
-#: src/kalziumschemetype.cpp:355
+#: src/kalziumschemetype.cpp:356
 #, kde-format
 msgid "Group 4"
 msgstr "ਗਰੁੱਪ 4"
 
-#: src/kalziumschemetype.cpp:356
+#: src/kalziumschemetype.cpp:357
 #, kde-format
 msgid "Group 5"
 msgstr "ਗਰੁੱਪ 5"
 
-#: src/kalziumschemetype.cpp:357
+#: src/kalziumschemetype.cpp:358
 #, kde-format
 msgid "Group 6"
 msgstr "ਗਰੁੱਪ 6"
 
-#: src/kalziumschemetype.cpp:358
+#: src/kalziumschemetype.cpp:359
 #, kde-format
 msgid "Group 7"
 msgstr "ਗਰੁੱਪ 7"
 
-#: src/kalziumschemetype.cpp:359
+#: src/kalziumschemetype.cpp:360
 #, kde-format
 msgid "Group 8"
 msgstr "ਗਰੁੱਪ 8"
 
-#: src/kalziumschemetype.cpp:384
+#: src/kalziumschemetype.cpp:385
 #, kde-format
 msgid "Colors"
 msgstr "ਰੰਗ"
 
-#: src/kalziumschemetype.cpp:412
+#: src/kalziumschemetype.cpp:413
 #, kde-format
 msgid "Nice colors without meaning. (From the Open Babel project)"
 msgstr ""
@@ -5489,7 +5490,7 @@ msgstr "ਤੱਤ ਨੂੰ ਹਾਲੇ IUPAC ਵਲੋਂ ਪੂਰੀ ਤਰ�
 msgid "This element was known to ancient cultures."
 msgstr "ਇਹ ਤੱਤ ਪੁਰਾਤਨ ਸੱਭਿਅਤਾ ਵਿੱਚ ਪਛਾਣਿਆ ਗਿਆ ਸੀ।"
 
-#: src/kalziumutils.cpp:157
+#: src/kalziumutils.cpp:182
 #, kde-format
 msgid "No Data"
 msgstr "ਕੋਈ ਡਾਟਾ ਨਹੀਂ"
