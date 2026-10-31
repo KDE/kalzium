@@ -4887,7 +4887,7 @@ msgstr "%1 u"
 #, kde-format
 msgctxt "this can for example be '24%'"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: src/detailinfodlg.cpp:329
 #, kde-format

@@ -8862,12 +8862,3 @@ msgstr "Converteix de:"
 #, kde-format
 msgid "Convert to:"
 msgstr "Converteix a:"
-
-#~ msgid "Extractor Hood"
-#~ msgstr "Campana extractora"
-
-#~ msgid "Alkaline"
-#~ msgstr "Alcalins"
-
-#~ msgid "Alkalie metals"
-#~ msgstr "Metalls alcalins"
