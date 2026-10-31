@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-19 00:41+0000\n"
-"PO-Revision-Date: 2026-06-24 17:36+0200\n"
+"PO-Revision-Date: 2026-10-30 11:39+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -4031,7 +4031,7 @@ msgstr "Incapace de Aperir '%1"
 #: src/calculator/titrationCalculator.ui:377
 #, kde-format
 msgid "Save plot"
-msgstr ""
+msgstr "Salveguarda tracia (plot) "
 
 #: src/calculator/titrationCalculator.cpp:720
 #, kde-format
@@ -4128,7 +4128,7 @@ msgstr ""
 #: src/calculator/titrationCalculator.ui:280
 #, kde-format
 msgid "X max:"
-msgstr ""
+msgstr "X max:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/calculator/titrationCalculator.ui:294
@@ -8033,7 +8033,7 @@ msgstr ""
 #: src/tools/moleculeviewerwidget.ui:174
 #, kde-format
 msgid "Measure"
-msgstr ""
+msgstr "Mesura"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/tools/moleculeviewerwidget.ui:186
