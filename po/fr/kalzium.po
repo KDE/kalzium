@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:10+0000\n"
-"PO-Revision-Date: 2026-10-14 17:11+0200\n"
+"PO-Revision-Date: 2026-11-08 17:23+0100\n"
 "Last-Translator: Olivier Delaune <olivier.delaune@wanadoo.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -921,7 +921,7 @@ msgstr ""
 #: data/tools.xml:37
 #, kde-format
 msgid "Heating Plate"
-msgstr "Chauffe-ballon"
+msgstr "Plaque chauffante"
 
 #: data/tools.xml:38
 #, kde-format
