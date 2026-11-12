@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: kalzium\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:10+0000\n"
-"PO-Revision-Date: 2026-10-04 10:09+0200\n"
-"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
+"PO-Revision-Date: 2026-11-11 22:57+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -4900,7 +4900,7 @@ msgstr "%1 а.е.м."
 #, kde-format
 msgctxt "this can for example be '24%'"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: src/detailinfodlg.cpp:329
 #, kde-format
@@ -4956,7 +4956,7 @@ msgstr " SF"
 #: src/detailinfodlg.cpp:912
 #, kde-format
 msgid "(%1%)"
-msgstr "(%1%)"
+msgstr "(%1 %)"
 
 #: src/detailinfodlg.cpp:355 src/detailinfodlg.cpp:378
 #: src/detailinfodlg.cpp:401 src/detailinfodlg.cpp:424
@@ -5534,7 +5534,7 @@ msgstr "Период полураспада: нет данных"
 #: src/isotopetable/isotopetabledialog.cpp:82
 #, kde-format
 msgid "Abundance: %1 %"
-msgstr "Распространённость: %1 %"
+msgstr "Распространённость: %1 %"
 
 #: src/isotopetable/isotopetabledialog.cpp:83
 #, kde-format
