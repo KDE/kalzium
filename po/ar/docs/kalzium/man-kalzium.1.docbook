@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>دليل مستخدم كالسيوم</title>
+<author
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+> <contrib
+>صفحة دليل كالسيوم.</contrib
+></author>
+<date
+>2020-12-19</date
+><!--Update only when changing/reviewing this man page-->
+<releaseinfo
+>تطبيقات 20.12</releaseinfo
+><!--Update only when changing/reviewing this man page-->
+<productname
+>تطبيقات كِيدِي</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kalzium</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kalzium</command
+></refname>
+<refpurpose
+>أداة تعليم كيمياء مبنية على كيدي</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kalzium</command
+> <group
+><option
+>خيارات</option
+></group
+> <group choice="opt"
+><option
+>--molecule <replaceable
+>اسم_ملف</replaceable
+></option
+></group
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>الوصف</title>
+
+<para
+>كالسيوم هو برنامج يعرض لك الجدول الدوري للعناصر (PSE). يمكنك استخدام كالسيوم للبحث عن معلومات حول العناصر أو لتعلم حقائق عن الجدول الدوري.</para>
+
+<para
+>يوفر لك كالسيوم جميع أنواع المعلومات حول الجدول الدوري. يمكنك الاطلاع على الكثير من المعلومات حول العناصر وكذلك استخدام التصورات لعرضها.</para>
+
+<para
+>هذه الحزمة جزء من وحدة الترفيه التعليمي الرسمية لكيدي.</para>
+
+</refsect1>
+
+<refsect1>
+<title
+>خيارات</title>
+
+<variablelist>
+<varlistentry>
+<term
+><option
+>--molecule <replaceable
+>اسم_ملف</replaceable
+></option
+></term>
+<listitem
+><para
+>افتح ملف الجزيء المعطى بصيغة cml، xyz، ent، pdb، alc، chm، cdx، cdxml، c3d1، c3d2، gpr، mdl، mol، sdf، sd، crk3d، cht، dmol، bgf، gam، inp، gamin، gamout، tmol، fract، mpd، أو mol2.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+
+<simplelist
+><member
+>وثائق المستخدم الأكثر تفصيلًا متوفرة من <ulink url="help:/kalzium"
+>help:/kalzium</ulink
+> (إما بإدخال هذا <acronym
+>الرابط</acronym
+> في &konqueror;، أو بتشغيل <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kalzium</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+
+
+</refsect1>
+
+<refsect1>
+<title
+>المؤلفون</title>
+
+<para
+>كالسيوم كُتب بواسطة &Carsten.Niehaus; &Carsten.Niehaus.mail; و <personname
+><firstname
+>Tomisalve</firstname
+><surname
+>Gountchev</surname
+></personname
+> <email
+>tomi@idiom.com</email
+>.</para>
+
+<para
+>صفحة الدليل هذه أُعدت بواسطة <personname
+><firstname
+>Ben</firstname
+><surname
+>Burton</surname
+></personname
+></para>
+
+</refsect1>
+
+</refentry>
