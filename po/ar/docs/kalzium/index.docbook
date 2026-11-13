@@ -1,0 +1,2274 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+ ]>
+
+ <book id="kalzium" lang="&language;">
+
+	 <bookinfo>
+		 <title
+>دليل كالسيوم</title>
+
+		 <authorgroup>
+			 <author
+><firstname
+>Carsten</firstname
+> <surname
+>Niehaus</surname
+> <affiliation
+> <address
+>&Carsten.Niehaus.mail;</address>
+				 </affiliation>
+			 </author>
+
+			 <othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+
+		 </authorgroup>
+
+		 <copyright>
+			 <year
+>2001</year>
+			 <year
+>2002</year>
+			 <year
+>2004</year>
+			 <year
+>2005</year>
+			 <year
+>2006</year>
+			 <year
+>2007</year>
+			 <year
+>2008</year>
+			 <holder
+>كارستن.نيهآوس</holder>
+		 </copyright>
+
+		 <copyright>
+			 <year
+>2005</year>
+			 <holder
+>آن-ماري.محفوف</holder>
+		 </copyright>
+
+		 <legalnotice
+>&FDLNotice;</legalnotice>
+
+		 <date
+>2020-12-19</date>
+		 <releaseinfo
+>تطبيقات 20.12</releaseinfo>
+
+		 <abstract>
+			 <para
+>كالسيوم برنامج يعرض لك الجدول الدوري للعناصر. يمكنك استخدام كالسيوم للبحث عن معلومات حول العناصر أو لتعلم حقائق عن الجدول الدوري.</para>
+		 </abstract>
+
+		 <keywordset>
+			 <keyword
+>كيدي</keyword>
+			 <keyword
+>تعليم</keyword>
+			 <keyword
+>عناصر</keyword>
+			 <keyword
+>كيمياء</keyword>
+			 <keyword
+>تعليم</keyword>
+			 <keyword
+>كالسيوم</keyword>
+		 </keywordset>
+
+	 </bookinfo>
+
+	 <chapter id="introduction">
+		 <title
+>مقدمة</title>
+
+		 <para
+>كالسيوم يزودك بجميع أنواع المعلومات حول الجدول الدوري للعناصر. يمكنك الاطلاع على الكثير من المعلومات حول العناصر واستخدام التصورات لعرضها. هو برنامج حر ومرخص بموجب رخصة &GNU; العمومية. </para>
+
+		 <para
+>يمكنك تصور الجدول الدوري للعناصر حسب المجموعات والكتل والعائلات. يمكنك رسم بيانات لنطاق من العناصر لخصائص مثل نقطة الغليان أو الكتلة الذرية. يمكنك العودة بالزمن ورؤية العناصر التي كانت معروفة في تاريخ معين. يمكنك أيضًا حساب الكتلة الجزيئية للجزيئات. </para>
+
+	 </chapter>
+
+	 <chapter id="quick-start">
+		 <title
+>دليل البدء السريع لـ كالسيوم</title>
+
+		 <para
+>هذه هي كالسيوم أول مرة تشغلها، إما باختيار <menuchoice
+><guimenu
+>التطبيقات</guimenu
+> <guisubmenu
+>التعليم</guisubmenu
+><guisubmenu
+>العلوم</guisubmenu
+><guimenuitem
+>كالسيوم</guimenuitem
+></menuchoice
+> من مشغل التطبيقات أو باستخدام <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> وإدخال <command
+>kalzium</command
+> في حقل الإدخال.</para>
+		 <screenshot>
+			 <screeninfo
+>النافذة الرئيسة لـ كالسيوم</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-1.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>النافذة الرئيسة لـ كالسيوم</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>تنقسم كالسيوم إلى لوحة معلومات على اليسار (بالأحمر)، وعرض الجدول (بالأزرق) الذي يعرض عناصر الجدول الدوري، ولوحة وسيلة إيضاح في الأسفل (بالأخضر). يسمح لك شريط القوائم القياسي باختيار ما تريد عرضه ويبلغ شريط الحالة بالحقائق. يمكن إخفاء عرض الجدول واللوحات باستخدام العناصر المقابلة في قائمة <guimenu
+>عرض</guimenu
+>. على سبيل المثال، يمكنك إخفاء لوحة المعلومات باستخدام <menuchoice
+> <guimenu
+>عرض</guimenu
+> <guimenuitem
+>معلومات</guimenuitem
+> </menuchoice
+>. </para>
+
+		 <para
+>عند تحريك مؤشر الفأرة فوق عنصر من الجدول، يُعرض نظرة عامة على العنصر الحالي في لسان <guilabel
+>نظرة عامة</guilabel
+> بلوحة المعلومات. </para>
+
+		 <para
+>يمكنك اختيار عدة عروض للجدول: جدول دوري كلاسيكي، جدول دوري قصير، جدول دوري طويل، إلخ… من الممكن أيضًا تغيير نظام الترقيم أو عرض العناصر حسب العائلات، حسب المجموعات، حسب البنية البلورية، اعتمادًا على سلوكها الحمضي، إلخ… يمكنك تغيير كل ذلك في قائمة <guimenu
+>عرض</guimenu
+>. </para>
+		 <para
+>إذا أردت معرفة حقائق حول عنصر محدد، انقر عليه في الجدول وسيُعرض حوار المعلومات. </para>
+
+		 <screenshot>
+			 <screeninfo
+>حوار المعلومات</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="infodialog_data_overview.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>حوار المعلومات</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>يمكنك رسم البيانات باستخدام عنصر القائمة <menuchoice
+> <guimenu
+>أدوات</guimenu
+> <guimenuitem
+>رسم بيانات...</guimenuitem
+> </menuchoice
+>. تختار ما تريد رسمه على المحور الصادي ونطاقًا من العناصر لرسم ذلك له على المحور السيني. تظهر لقطة الشاشة أدناه الكتلة الذرية للعناصر من 1 إلى 10. انقر الزر &nbsp;<inlinemediaobject
+> <imageobject
+> <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guibutton
+>تبديل</guibutton
+> بين جزئي المحور لتبديل المحورين السيني والصادي.</para>
+
+		 <screenshot>
+			 <screeninfo
+>حوار رسم البيانات</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-3.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>حوار رسم البيانات</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+		 <para
+>يشرح المسرد (<menuchoice
+> <guimenu
+>أدوات</guimenu
+> <guimenuitem
+>المسرد...</guimenuitem
+> </menuchoice
+>) أهم المصطلحات الكيميائية ويعرض صورًا لأكثر الأدوات شيوعًا مع شرحها.</para>
+
+		 <screenshot>
+			 <screeninfo
+>المسرد</screeninfo>
+			 <mediaobject>
+				 <imageobject
+><imagedata fileref="quick-4.png" format="PNG"/></imageobject>
+				 <textobject
+><phrase
+>المسرد</phrase
+></textobject>
+			 </mediaobject>
+		 </screenshot>
+
+	 </chapter>
+	 <chapter id="using-kalzium">
+		 <title
+>استخدام كالسيوم</title>
+
+		 <sect1 id="foo"
+><title
+>نظرة عامة على استخدام كالسيوم</title>
+			 <para
+>كالسيوم سهل الاستخدام جدًا. صُمم خصيصًا للطلاب من جميع الأعمار لاستخدامه كقاعدة بيانات صغيرة وسريعة.</para>
+			 <para
+>هذه لقطة شاشة لـ كالسيوم أثناء العمل:</para>
+			 <screenshot>
+				 <screeninfo
+>الشاشة الرئيسة لـ كالسيوم، فور بدء التشغيل الأول</screeninfo>
+				 <mediaobject>
+					 <imageobject>
+						 <imagedata fileref="screenshot1.png" format="PNG"/>
+					 </imageobject>
+					 <textobject>
+						 <phrase
+>الشاشة الرئيسة لـ كالسيوم</phrase>
+					 </textobject>
+				 </mediaobject>
+			 </screenshot>
+		 </sect1>
+		 <sect1 id="info-dlg">
+			 <title
+>حوار المعلومات</title>
+			 <para
+>يُفتح حوار المعلومات بالنقر بزر الفأرة الأيسر (&LMB;) على أي عنصر. هذا هو المكان للحصول على معلومات حول عنصر ما. باستخدام الأزرار في أسفل الحوار، يمكنك تغيير العنصر المعروض دون إغلاق الحوار.</para>
+			<sect2 id="infodialog_dataoverview">
+				 <title
+>نظرة بيانات عامة</title>
+				 <para
+>تعرض صفحة <guilabel
+>نظرة عامة على البيانات</guilabel
+> حقائق مختلفة متعلقة بالعنصر.</para>
+				 <para
+>اعتمادًا على البيانات المتوفرة في كالسيوم، سترى أنصاف أقطار مختلفة للعنصر. نصف القطر التساهمي هو نصف قطر ذرة غير مشحونة من العنصر في جزيء. يمكن أن يكون مثلًا المسافة بين الأكسجين والهيدروجين في الماء. نصف القطر الذري هو نصف قطر ذرة عنصرية، &eg; غير مرتبطة بأي شيء. يُعرّف نصف قطر فان دير فال بأنه المسافة بين ذرتين من نفس النوع في جزيئين متساويين، مثل ذرتي كربون في البروبان. آخر نصف قطر ممكن هو نصف القطر الأيوني بما في ذلك شحنته.</para>
+				 <para
+>كتلة العنصر هي متوسط كتلة جميع النظائر بالنسبة المئوية. </para>
+				 <screenshot>
+					 <screeninfo
+>حوار معلومات كالسيوم</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_data_overview.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار معلومات كالسيوم</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_orbits">
+				 <title
+>مدارات بور</title>
+				 <para
+>تعرض صفحة <guilabel
+>نموذج الذرة</guilabel
+> الأغلفة الذرية. كل مدار يمثل غلافًا ذريًا وكل دائرة صفراء تمثل إلكترونًا.</para>
+				 <screenshot>
+					 <screeninfo
+>حوار معلومات كالسيوم</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_bohr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار معلومات كالسيوم</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_isotopes">
+				 <title
+>النظائر</title>
+				 <para
+>تعرض صفحة <guilabel
+>النظائر</guilabel
+> معلومات حول نظائر العنصر.</para>
+
+          <variablelist>
+          <varlistentry>
+            <term
+></term>
+            <listitem
+><para>
+            <variablelist>
+            <varlistentry>
+              <term
+>الكتلة</term>
+              <listitem
+><para
+>كتلة هذا النظير.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>النيوترونات</term>
+              <listitem
+><para
+>عدد النيوترونات التي يمتلكها هذا النظير.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>النسبة</term>
+              <listitem
+><para
+>النسبة المئوية للذرات الموجودة من هذا النوع النظائري. تُسمى أيضًا الوفرة.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>فترة نصف العمر</term>
+              <listitem
+><para
+>فقط النظائر غير المستقرة تمتلك فترة عمر نصف. تُعرف بأنها الزمن الذي تتحلل فيه نصف النظائر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>الطاقة ونمط الاضمحلال</term>
+              <listitem
+><para
+>تُعرف بعض النظائر بإصدار إشعاع جسيمي أثناء عملية الاضمحلال الإشعاعي. لكل تحول اضمحلالي طاقة إطلاق نموذجية، تُدرج مع نمط الاضمحلال.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>الغزل والتكافؤ</term>
+              <listitem
+><para
+>لف النواة وتكافؤها.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+>العزم المغناطيسي</term>
+              <listitem
+><para
+>العزم المغناطيسي ثنائي القطب للنواة. يُقاس بوحدات المغناطيسون النووي.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+          </variablelist>
+
+				 <screenshot>
+					 <screeninfo
+>حوار معلومات كالسيوم</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_isotopes.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار معلومات كالسيوم</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_misc">
+				 <title
+>متنوّع</title>
+				 <para
+>صفحة <guilabel
+>متنوعة</guilabel
+> تخبرك بمعلومات أخرى عن العنصر الحالي، بما في ذلك تاريخ اكتشافه وأصل الاسم.</para>
+				 <screenshot>
+					 <screeninfo
+>حوار معلومات كالسيوم</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار معلومات كالسيوم</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_spectrum">
+				 <title
+>الطيف</title>
+				 <para
+>صفحة <guilabel
+>الطيف</guilabel
+> تُظهر لك طيف العناصر. يمكنك اختيار نطاق الأطوال الموجية والوحدات ونوع الطيف. يمكن رؤية جدول الشدة في الجزء السفلي الأيمن من الصفحة.</para>
+				 <screenshot>
+					 <screeninfo
+>حوار معلومات كالسيوم</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_spectrum.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار معلومات كالسيوم</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_extra">
+				 <title
+>معلومات إضافية</title>
+				 <para
+>صفحة <guilabel
+>معلومات إضافية</guilabel
+> تمنحك الروابط لصفحات العناصر على ويكيبيديا، <ulink url="https://education.jlab.org/"
+>مختبر جيفرسون</ulink
+>، و<ulink url="https://www.webelements.com/"
+>WebElements</ulink
+>.</para>
+				 <screenshot>
+					 <screeninfo
+>حوار معلومات كالسيوم</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_extra.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار معلومات كالسيوم</phrase>
+						 </textobject>
+						 <caption
+><para
+></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+		 </sect1>
+		 <sect1 id="tables_view">
+			 <title
+>الجداول</title>
+
+			 <para
+>يمكن عرض الجدول الدوري بطرق متنوعة. يمكنك تبديل عرض الجدول من قائمة <guimenu
+>عرض</guimenu
+> أو القائمة المنسدلة لشريط الأدوات.</para>
+
+			 <para
+>يمكن استخدام الخيارات التالية في قائمة <menuchoice
+><guimenu
+>عرض</guimenu
+> <guisubmenu
+>جداول</guisubmenu
+></menuchoice
+> لتغيير الجدول المعروض: <variablelist>
+			   <varlistentry>
+			     <term
+>الجدول الدوري الكلاسيكي</term>
+			     <listitem>
+			       <para
+><action
+>اعرض</action
+> الجدول الدوري التقليدي بكل العناصر. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>الجدول الدوري القصير</term>
+			     <listitem>
+			       <para
+><action
+>اعرض</action
+> جدولًا دوريًا دون عناصر انتقالية. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>الجدول الدوري الطويل</term>
+			     <listitem>
+			       <para
+><action
+>اعرض</action
+> جدولًا دوريًا مع عناصر انتقالية داخلية (عناصر f) مضمنة. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>العناصر الانتقالية</term>
+			     <listitem>
+			       <para
+><action
+>اعرض</action
+> جدولًا دوريًا فقط بعناصر انتقالية. </para>
+			     </listitem>
+			   </varlistentry>
+			   <varlistentry>
+			     <term
+>جدول DZ الدوري</term>
+			     <listitem>
+			       <para
+>يمثل هذا العنصر الجدول الذي تقترحه اللجنة المركزية الألمانية DZ <foreignphrase lang="de"
+>Deutscher Zentralausschuss</foreignphrase
+>. </para>
+			     </listitem>
+			   </varlistentry>
+			 </variablelist>
+			 </para>
+
+		 </sect1>
+		 <sect1 id="numeration">
+			 <title
+>العد</title>
+
+			 <para
+>الترقيم هو طريقة ترقيم المجموعات الـ18 للجدول الدوري. يمكنك تغيير الترقيم إلى <guilabel
+>IUPAC</guilabel
+> أو <guilabel
+>IUPAC القديم</guilabel
+> أو <guilabel
+>CAS</guilabel
+>، أو يمكنك إيقاف تشغيله بالكامل.</para>
+
+				 <para
+>يمكن استخدام الخيارات التالية في قائمة <menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>الترقيم</guimenuitem
+></menuchoice
+> لتغيير الترقيم المعروض: <itemizedlist>
+					 <listitem
+><para
+><guimenuitem
+>لا ترقيم</guimenuitem
+>: إذا كان هذا الخيار نشطًا، فلن يكون هناك ترقيم دوري ساري المفعول.</para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>IUPAC</guimenuitem
+> (مبدئي) هو <firstterm
+>الاتحاد الدولي للكيمياء البحتة والتطبيقية</firstterm
+>. هذه منظمة تحدد معظم المعايير للشؤون الكيميائية. يرّقم نظام IUPAC الجديد كل عمود بأرقام عربية من 1 (واحد) إلى 18 (ثمانية عشر). </para
+></listitem>
+					 <listitem
+><para
+><guimenuitem
+>CAS</guimenuitem
+> هو <firstterm
+>خدمة الملخصات الكيميائية</firstterm
+>. في نظام CAS خُصص الحرفان A وB لعناصر المجموعة الرئيسة (A) والعناصر الانتقالية (B). على الرغم من أن ترقيم <acronym
+>IUPAC</acronym
+> هو الرسمي، إلا أن ترقيم <acronym
+>CAS</acronym
+> هو ما لا يزال يُستخدم في الفصول الدراسية والمختبرات.</para
+></listitem>
+					 <listitem
+><para
+>وسم نظام <guimenuitem
+>IUPAC القديم</guimenuitem
+> الأعمدة بأرقام رومانية متبوعة بالحرف <quote
+>A</quote
+> أو <quote
+>B</quote
+>. رُقّمت الأعمدة بحيث رُقّمت الأعمدة من واحد إلى سبعة <quote
+>IA</quote
+> إلى <quote
+>VIIA</quote
+>، ووُسمت الأعمدة من 8 إلى 10 <quote
+>VIIIA</quote
+>، ورُقّمت الأعمدة من 11 إلى 17 <quote
+>IB</quote
+> إلى <quote
+>VIIB</quote
+>، ورُقّم العمود 18 <quote
+>VIII</quote
+>. بسبب الالتباس الذي أحدثه نظاما IUPAC القديم وCAS، تبنى IUPAC نظامه الجديد. </para
+></listitem>
+				 </itemizedlist>
+			 </para>
+
+		 </sect1>
+
+		 <sect1 id="colors">
+			 <title
+>مخططات الألوان</title>
+
+			 <para
+>يستطيع كالسيوم أن يريك أي العناصر أين هي من حيث <quote
+>كتلتها</quote
+> و<quote
+>مجموعتها</quote
+> الدورية، وسلوكها مع الحمض، وأي حالة من حالات المادة (&ie; صلب/سائل/بخار) تكون فيها عند درجة حرارة معينة.</para>
+			 <para
+>يمكن تغيير أنظمة الألوان في قائمة <menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>نظام</guimenuitem
+></menuchoice
+>، أو القائمة المنسدلة لشريط الأدوات، أو لسان <link linkend="view_tab"
+>عرض</link
+> في الشريط الجانبي.</para>
+			 <itemizedlist>
+				 <listitem
+><para
+><guimenuitem
+>أحادي اللون</guimenuitem
+>: جميع العناصر لها اللون نفسه. يمكنك تغيير اللون المبدئي باختيار <menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط كالسيوم...</guimenuitem
+> </menuchoice
+> والذهاب إلى صفحة <guilabel
+>الأنظمة</guilabel
+>. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>كتل</guimenuitem
+>: يعرض لونا لكل كتلة. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>أيقوني</guimenuitem
+>: يعرض أيقونات لكل عنصر. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>عائلة</guimenuitem
+>: يمثل كل عائلة من العائلات التسع بلون. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>مجموعات</guimenuitem
+>: يعرض لونا لكل مجموعة. المجموعة هي عمود عمودي في الجدول الدوري للعناصر. هناك 18 مجموعة في الجدول الدوري القياسي. للعناصر في المجموعة ترتيبات متشابهة لإلكترونات غلاف التكافؤ، مما يمنحها خصائص متشابهة. </para
+></listitem>
+				 <listitem
+><para
+><guimenuitem
+>ألوان</guimenuitem
+>: ألوان جميلة دون معنى. (من مشروع <ulink url="https://openbabel.org/wiki/Main_Page"
+>Open Babel</ulink
+>). </para
+></listitem>
+			 </itemizedlist>
+		</sect1>
+		<sect1 id="gradients">
+			 <title
+>التّدرّجات</title>
+			 <para
+>تعرض طرق العرض المتدرجة العناصر وفق خاصية يمكنك تحديدها أدناه وبنظام ألوان متدرج. العناصر التي لا تتوفر بياناتها تُعرض بالرمادي.</para>
+			 <para
+>يمكن تغيير التدرجات في قائمة <menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>تدرجات</guimenuitem
+></menuchoice
+>، أو القائمة المنسدلة لشريط الأدوات، أو لسان <link linkend="view_tab"
+>عرض</link
+> في الشريط الجانبي.</para>
+			<screenshot>
+			  <screeninfo
+>تدرج لنصف القطر التساهمي</screeninfo>
+			  <mediaobject>
+			    <imageobject>
+			      <imagedata fileref="gradient.png" format="PNG"/>
+			      </imageobject>
+			      <textobject>
+				<phrase
+>تدرج لنصف القطر التساهمي</phrase>
+			      </textobject>
+			   </mediaobject>
+			   </screenshot>
+			   <para
+>التدرجات التالية منفذة (بعض العناصر المدرجة قابلة للنقر):</para>
+			   <itemizedlist>
+            <listitem
+><para
+><guimenuitem
+>لا شيء</guimenuitem
+>: لا تستخدم تدرجات. </para
+></listitem>
+            <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/State_of_matter"
+><guimenuitem
+>حالة المادة</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+            <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Covalent_Radius"
+><guimenuitem
+>نصف القطر التساهمي</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Van_der_Waals_radius"
+><guimenuitem
+>فان دير فالس</guimenuitem
+></ulink
+>: تدرج حسب نصف قطر فان دير فالس. </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Atomic_Mass"
+><guimenuitem
+>الكتلة الذرية</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Boiling_Point"
+><guimenuitem
+>نقطة الغليان</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Melting_Point"
+><guimenuitem
+>نقطة الانصهار</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Electronegativity"
+><guimenuitem
+>السالبية الكهربائية (بولينغ)</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Electron_affinity"
+><guimenuitem
+>الألفة الإلكترونية</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+              <listitem
+><para
+><guimenuitem
+>تاريخ الاستكشاف</guimenuitem>
+            </para
+></listitem>
+              <listitem
+><para
+><ulink url="https://en.wikipedia.org/wiki/Ionization_energy"
+><guimenuitem
+>التأين الأول</guimenuitem
+></ulink
+>&nbsp; </para
+></listitem>
+			   </itemizedlist>
+		 </sect1>
+		 <sect1 id="tools">
+			 <title
+>أدوات</title>
+			 <sect2 id="mol_editor">
+				 <title
+>محرّر الجزيئات</title>
+				 <para
+>يتيح لك محرر الجزيئات عرض الجزيئات وتحريرها باستخدام مكتبات <ulink url="https://avogadro.cc"
+>أفوغادرو 2</ulink
+>. </para>
+				 <para
+>باستخدام لوحة التحكم على اليسار، يمكنك تغيير معلمات العرض، أو تحرير الجزيء، أو قياس الجزيئات. توجد ثلاث ألسنة في هذه اللوحة: <guilabel
+>العرض</guilabel
+> و<guilabel
+>التحرير</guilabel
+> و<guilabel
+>القياس</guilabel
+>. في أعلى النافذة، يوجد عنصر تحكم لاختيار <guilabel
+>النمط:</guilabel
+> للعارض (يمكن أن يكون <guimenuitem
+>كرة وعصا</guimenuitem
+> أو <guimenuitem
+>عرق السوس</guimenuitem
+> أو <guimenuitem
+>فان دير فالس</guimenuitem
+> أو <guimenuitem
+>فان دير فالس (AO)</guimenuitem
+> (<abbrev
+>AO</abbrev
+> تعني <quote
+>الإطباق المحيطي</quote
+>) أو <guimenuitem
+>إطار سلكي</guimenuitem
+>). يمكن استخدام الأزرار على طول الجزء السفلي من النافذة لـ <guibutton
+>تحميل جزيء</guibutton
+> و<guibutton
+>تنزيل جزيئات جديدة</guibutton
+> و<guibutton
+>حفظ جزيء</guibutton
+> و<guibutton
+>إغلاق</guibutton
+> النافذة. ستُحفظ الملفات المنزلة في مجلد <filename class="directory"
+>المستندات</filename
+> حيث يمكنك تحميلها إلى المحرر. </para>
+				 <para
+>تعرض لوحة <guilabel
+>الإحصائيات</guilabel
+> الاسم (إن وُجد) والصيغة والوزن للجزيء. </para>
+				 <para
+>يمكن استخدام لسان <guilabel
+>العرض</guilabel
+> لعرض جزيء محمل. بالضغط بمؤشر الفأرة في العرض، يمكنك تغيير نقطة العرض. استخدم &LMB; لتدوير الجزيء، و&RMB; لتحريكه، و&MMB; للتكبير/التصغير. </para>
+				 <para
+>يتيح لك لسان <guilabel
+>التحرير</guilabel
+> تحرير الجزيء. يمكنك إضافة عناصر باختيارها في القائمة المنسدلة <guilabel
+>العنصر</guilabel
+> ثم النقر بـ &LMB; على لوحة العرض على اليمين. </para>
+				 <para
+>يمكن استخدام لسان <guilabel
+>القياس</guilabel
+> لقياس المسافات والزوايا في الجزيء. لإجراء القياس، استخدم التعليمات المعروضة على اللسان. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-mol-edit.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+><quote
+>محرر الجزيئات</quote
+></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="nuclid_board">
+				 <title
+>جدول النظائر</title>
+				 <para
+>يعرض لك <guilabel
+>جدول النظائر</guilabel
+> نظائر العناصر. </para>
+				 <para
+>توجد أنواع مختلفة من النظائر، بعضها مستقر وبعضها غير مستقر. يمكن للنظائر غير المستقرة أن تضمحل كأشعة ألفا أو نوعين مختلفين من أشعة بيتا. تُرمَز هذه الاختلافات باستخدام ألوان مختلفة. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshotnuclidboard.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>نافذة <quote
+>جدول النظائر</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>يمكن لـ كالسيوم عرض نظائر نطاق من العناصر</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="plot_data">
+				 <title
+>ارسم البيانات</title>
+				 <para
+>يتيح لك حوار <guilabel
+>رسم البيانات</guilabel
+> رسم بعض المعلومات حول العناصر. يمثل المحور السيني نطاقًا من العناصر (من رقم إلى رقم أعلى). تضبط هذا النطاق باستخدام حقلي <guilabel
+>العنصر الأول:</guilabel
+> و<guilabel
+>العنصر الأخير:</guilabel
+> في الحوار. انقر على زر &nbsp;<inlinemediaobject
+> <imageobject
+> <imagedata fileref="swap-panels.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guibutton
+>تبديل</guibutton
+> بين لوحتي المحورين لتبديل المحورين السيني والصادي. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="quick-3.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>رسم البيانات</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>يمكن لـ كالسيوم رسم بعض البيانات حول نطاق من العناصر.</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="perf_calculation">
+				 <title
+>أجرِ الحساب</title>
+				 <para
+>خيار القائمة <guimenuitem
+>أجرِ الحساب...</guimenuitem
+> هو حاسبة كالسيوم. تحتوي هذه الحاسبة على مجموعة متنوعة من الحاسبات لمهام مختلفة تؤدي حسابات مختلفة. </para>
+				 <para
+>يمكنك إيجاد الحاسبات التالية في كالسيوم: </para>
+				 <variablelist>
+				   <varlistentry>
+				     <term
+>حاسبة الكتلة الجزيئية</term>
+				     <listitem>
+				       <para
+>تساعدك هذه الحاسبة في حساب الكتل الجزيئية لجزيئات مختلفة. </para>
+				       <para
+>يمكنك تحديد الصيغة المختصرة لأسماء الجزيئات وإضافة المزيد من الأسماء المستعارة المشابهة. </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-mass.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>حاسبة الكتلة الجزيئية</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>تحسب كالسيوم الكتلة الجزيئية للفينول.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>حاسبة التركيزات</term>
+				     <listitem>
+				       <para
+>يمكنك حساب كميات تتضمن: </para>
+				       <itemizedlist>
+					 <listitem>
+					   <para
+>كمية المذاب </para>
+					 </listitem>
+					 <listitem>
+					   <para
+>كثافة المذيب </para>
+					 </listitem>
+					 <listitem>
+					   <para
+>كثافة المذيب </para>
+					 </listitem>
+				       </itemizedlist>
+				       <para
+>هناك مجموعة واسعة من الوحدات للاختيار من بينها وطرق مختلفة لتحديد الكميات. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-conc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>حاسبة التركيزات</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>تحسب كالسيوم وسائط المحلول.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>الحاسبة الذرّية</term>
+				     <listitem>
+				       <para
+>تستخدم هذه الحاسبة البيانات النووية المتوفرة في كالسيوم للتنبؤ بالكتل المتوقعة لمادة بعد فترة زمنية. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-nucl.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>الحاسبة النووية</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>تحسب كالسيوم وسائط اضمحلال اليورانيوم.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>الحاسبة الغازيّة</term>
+				     <listitem>
+				       <para
+>يمكن لهذه الحاسبة حساب قيم درجة الحرارة والضغط والحجم وكمية الغاز وغيرها لمختلف الغازات المثالية وغير المثالية. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-gas.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>حاسبة الغاز</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>تحسب كالسيوم وسائط الغاز.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>حاسبة المعايرة</term>
+				     <listitem>
+				       <para
+>تحاول هذه الحاسبة إيجاد نقطة التكافؤ لمعايرة يتبعها مقياس pH مع أفضل ملاءمة لها باستخدام ظل زائدي. يمكنك أيضًا تركها تحل نظام معادلات توازن ورؤية كيف يتغير تركيز نوع بدلالة نوع آخر. </para>
+				       <para
+>هناك لسانان في صفحة الحاسبة، وهما: </para>
+				       <variablelist>
+					 <varlistentry>
+					   <term
+><guilabel
+>القيم التجريبية</guilabel
+></term>
+					   <listitem>
+					     <para
+>يمكنك استخدام هذه الحاسبة لرسم مخطط بياناتك التجريبية التي حصلت عليها أثناء المعايرة واكتشاف حجم التكافؤ. يُوصى بشدة بإدراج عدد زوجي من النقاط، بسبب خوارزمية أفضل ملاءمة، مرتبة حسب الحجم (قيمة <guilabel
+>المحور السيني:</guilabel
+>). </para>
+					   </listitem>
+					 </varlistentry>
+					 <varlistentry>
+					   <term
+><guilabel
+>المعادلات النظرية</guilabel
+></term>
+					   <listitem>
+					     <para
+>هنا يمكنك ملء الجدول بالمعادلات التي حصلت عليها سابقًا للتوازن الكيميائي. </para>
+					     <para
+>مثلًا، إذا كان لديك هذا التفاعل <emphasis
+>A + B -> C + D</emphasis
+> فسيكون لديك المعادلة <emphasis
+>K=(C*D)/(A*B)</emphasis
+> لذا يجب كتابة <userinput
+>K</userinput
+> في عمود <guilabel
+>الوسيط</guilabel
+> و<userinput
+>(C*D)/(A*B)</userinput
+> في عمود <guilabel
+>القيمة</guilabel
+>. إذا أردت تعيين قيمة معروفة لوسيط يمكنك ببساطة كتابة القيمة الرقمية في حقل <guilabel
+>القيمة</guilabel
+>. </para>
+					     <para
+>مثلًا، يمكنك استخدام النظام </para>
+					     <para>
+					       <userinput
+>A=(C*D)/(B*K)</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>K=10^-3</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>C=OH</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>OH=(10^-14)/H</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>H=10^-4</userinput>
+					     </para>
+					     <para>
+					       <userinput
+>B=6*(10^-2)</userinput>
+					     </para>
+					     <para
+>ثم عليك كتابة <userinput
+>D</userinput
+> كـ<guilabel
+>محور سيني:</guilabel
+> و<userinput
+>A</userinput
+> كـ<guilabel
+>محور صادي:</guilabel
+>: وبذلك ستكتشف كيف يتغير تركيز A كدالة لتركيز D. </para>
+					     <note>
+					       <para
+>رجاءً لا تستخدم أقواسًا للأسس: <userinput
+>10^-3</userinput
+> صحيح، بينما <userinput
+>10^(-3)</userinput
+> خاطئ. </para>
+					     </note>
+					   </listitem>
+					 </varlistentry>
+				       </variablelist>
+				       <para
+>يمكن عرض النتائج بالضغط على زر <guibutton
+>ارسم المخطط</guibutton
+>. يُظهر المخطط باللون الأحمر المنحنى الناتج عن المعادلات النظرية، وبالأزرق النقاط التجريبية، وبالأخضر المنحنى المقرب للنقاط التجريبية. يمكنك حفظ المخطط كصورة &SVG;. </para>
+					 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-titr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>حاسبة المعايرة</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>مثال محدد مسبقًا لنتائج المعايرة.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				   <varlistentry>
+				     <term
+>موازِن المعادلة</term>
+				     <listitem>
+				       <para
+>يتيح <guilabel
+>موازن المعادلات</guilabel
+> للمستخدم حل المعادلات الكيميائية. هذا مثال: </para>
+				       <blockquote
+><para
+>aH2O + bCO2 -> cH2CO3</para
+></blockquote>
+				       <para
+>سيُعرض المعادلة المحسوبة في أعلى النافذة. كما ترى في المثال الأول يمكنك أيضًا تعريف قيمة معامل واحد أو أكثر. سيُضبط المعاملات الأخرى. علاوة على ذلك، من الممكن استخدام أقواس حول العناصر أو الشحنات الإلكترونية كما هو موضح في المثالين الأخيرين. </para>
+				       <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-calc-eq.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>حوار <quote
+>موازن المعادلات</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>يحسب كالسيوم توازن المعادلة.</para>
+						 </caption>
+					 </mediaobject>
+					 </screenshot>
+				     </listitem>
+				   </varlistentry>
+				 </variablelist>
+			 </sect2>
+			 <sect2 id="rs_phrases">
+				 <title
+>عبارات الخطر/الأمان</title>
+				 <para
+><guilabel
+>عبارات R/S</guilabel
+>، المعروفة أيضًا باسم بيانات الخطر والأمان، عبارات R/S، أرقام R/S، وجمل R/S، هي نظام من رموز وعبارات الخطر لوسم المواد والمركبات الكيميائية الخطرة. تتكون عبارة R/S لمركب من جزء خطر (R) وجزء أمان (S)، يتبع كل منهما مجموعة من الأرقام. كل رقم يقابل عبارة. العبارة المقابلة لمجموعة الحرف/الرقم لها نفس المعنى في اللغات المختلفة. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-rs-phrases.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>نافذة <quote
+>عبارات R/S</quote
+></phrase>
+						 </textobject>
+						 <caption
+><para
+>يمكن لـكالسيوم عرض عبارات الخطر/الأمان</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="glossary">
+				 <title
+>المُسرَد</title>
+				 <para
+>يمنحك <guilabel
+>المسرد</guilabel
+> تعريفات لأكثر الأدوات استخدامًا في الكيمياء بالإضافة إلى بعض بيانات المعرفة. على الجانب الأيسر من النافذة يمكنك رؤية شجرة العناصر. في الأعلى، توجد مصطلحات كيميائية، أسفل ذلك توجد شجرة ثانية لأدوات المختبر.</para>
+				 <para
+>في أعلى الودجة يمكنك رؤية شريط بحث. إذا كتبت في الشريط ستُضبط الأشجار فورًا. الزر الصغير في الطرف الأيمن من شريط البحث سيمسحه. </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot7.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>«المسرد»</phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="tables">
+				 <title
+>الجداول</title>
+				 <para
+>يُظهر لك <guilabel
+>الجداول</guilabel
+> جداول الأبجدية اليونانية المستخدمة للدلالة على بعض الكيانات الكيميائية والفيزيائية، والبادئات اللاتينية والأرقام الرومانية المقابلة للأرقام العربية الشائعة.</para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot-tables.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase
+>نافذة «الجداول»</phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="sidebar">
+				 <title
+>الشريط الجانبي</title>
+				 <sect3 id="overview">
+					 <title
+>نظرة عامة</title>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="sidebar1.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>نظرة عامة</phrase>
+							 </textobject>
+						 </mediaobject>
+					 </screenshot>
+					 <para
+>اللّسان <guilabel
+>نظرة عامة</guilabel
+> هو الأول ويُظهر لك نظرة عامة على العنصر الذي يحوم فوقه المؤشر.</para>
+
+				 </sect3>
+				 <sect3 id="view_tab">
+					 <title
+>عرض</title>
+
+					 <para
+>اللّسان <guilabel
+>عرض</guilabel
+> هو الثاني في لوحة التنقل.</para>
+					 <para
+>تُعرض لك أولًا الأيقونات والنص التاليان:</para>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot2.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>حوار «حالة المادة»</phrase>
+							 </textobject>
+							 <caption
+><para
+>يمكن لـكالسيوم أن يُظهر لك العناصر الصلبة/السائلة/الغازية عند درجة حرارة معينة.</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+
+					 <para
+>يمكن استخدام اللّسان <guilabel
+>عرض</guilabel
+> لتصفية الجدول الدوري. على سبيل المثال، تتيح لك هذه الميزة استكشاف عناصر الفترة الزمنية المحددة. هذا رائع لفهم كيف تطور الجدول الدوري بمرور الوقت مع اكتشاف المزيد والمزيد من العناصر. اختر <guimenuitem
+>تاريخ الاكتشاف</guimenuitem
+> من قائمة <guilabel
+>التدرج:</guilabel
+>. إذا حركت شريط التمرير ستلاحظ اختفاء لون بعض العناصر عند تحريكه لليسار وظهوره مجددًا عند تحريكه لليمين. علاوة على ذلك، يتغير الرقم باستمرار. </para>
+
+					 <para
+>يمثل الرقم التاريخ الذي تنظر إليه. إذا حركت شريط التمرير إلى مثل 1856 سترى فقط العناصر المعروفة في عام 1856. </para>
+
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot6.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase
+>تدرج «تاريخ الاكتشاف»</phrase>
+							 </textobject>
+							 <caption
+><para
+>الجدول الدوري في الماضي (العناصر المعروفة في 1856)</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+				 </sect3>
+
+			 </sect2>
+		 </sect1>
+	 </chapter>
+
+	 <chapter id="config">
+		 <title
+>ضبط كالسيوم</title>
+
+		 <para
+>يمتلك كالسيوم خيارات ضبط عديدة، يمكنك الوصول إليها بفتح حوار الضبط باختيار <menuchoice
+> <guimenu
+>إعدادات</guimenu
+> <guimenuitem
+>اضبط كالسيوم...</guimenuitem
+> </menuchoice
+> من القائمة.</para>
+
+		 <screenshot>
+			 <screeninfo
+>حوار ضبط كالسيوم</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings1.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>المخطّطات</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>في اللّسان <guilabel
+>المخططات</guilabel
+>، يمكنك تغيير الألوان المختلفة لكل مخطط. </para>
+		 <screenshot>
+			 <screeninfo
+>حوار ضبط كالسيوم</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings2.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>التّدرّجات</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>بدلًا من استخدام تدرج خطي لعرض الخاصية المعطاة لعنصر في الجدول الدوري، يمكن لـكالسيوم أيضًا استخدام تدرج لوغاريتمي.</para>
+		 <para
+>في اللّسان <guilabel
+>التدرجات</guilabel
+>، يمكنك تحديد الخصائص التي تريد عرضها بتدرج لوغاريتمي.</para>
+		 <para
+>يمكنك أيضًا اختيار <guilabel
+>لون القيمة القصوى:</guilabel
+> و<guilabel
+>لون القيمة الدنيا:</guilabel
+> للتدرج.</para>
+		 <screenshot>
+			 <screeninfo
+>حوار ضبط كالسيوم</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings3.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>الوحدات</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>في اللّسان <guilabel
+>الوحدات</guilabel
+>، يمكنك اختيار وحدات الطاقة والطول ودرجة الحرارة. يمكنك اختيار ما إذا كنت تفضل الإلكترون فولت (eV) أو الكيلوجول لكل مول (kJ/mol) أو الجول لكل مول (J/mol) أو الجول (J) كمبدئي. للطول، اضبط البيكومتر (pm) أو النانومتر (nm) أو الأنجستروم (&Aring;) كمبدئي. درجة الحرارة هي بالكلفن مبدئيًا ولكن يمكنك التغيير إلى السيليزية (°C) أو الفهرنهايت (°F) أو الريومور (°Ré). </para>
+		 <screenshot>
+			 <screeninfo
+>حوار ضبط كالسيوم</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings4.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase
+>آلة حاسبة</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para
+>باستخدام صفحة <guilabel
+>الحاسبة</guilabel
+>، يمكنك ضبط حاسبات كالسيوم. </para>
+
+	 </chapter>
+
+	 <chapter id="commands">
+		 <title
+>مرجع الأوامر</title>
+
+		 <sect1 id="kalzium-mainwindow">
+			 <title
+>القوائم ومفاتيح الاختصار</title>
+
+			 <sect2>
+				 <title
+>قائمة ملف</title>
+				 <variablelist>
+					 <varlistentry>
+						 <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>احفظ باسم...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>احفظ</action
+> جدول كالسيوم كصورة.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>ملف</guimenu
+> <guimenuitem
+>صدّر البيانات...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> حوارًا حيث يمكنك اختيار <guilabel
+>العناصر</guilabel
+> و<guilabel
+>خصائصها</guilabel
+> لتصديرها إلى ملف &HTML; أو &XML; أو CSV.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>ملف</guimenu
+> <guimenuitem
+>حوّل الملفات الكيميائية...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> حوارًا لاستيراد وتصدير مجموعة واسعة من صيغ الملفات الكيميائية وأنواع البيانات باستخدام <ulink url="https://openbabel.org/wiki/Main_Page"
+>مكتبة Open Babel</ulink
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>أنهِ</action
+> كالسيوم.</para
+></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
+
+			 <sect2>
+				 <title
+>قائمة عرض</title>
+          <variablelist>
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+><guisubmenu
+>جداول</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>اعرض قائمة فرعية</action
+> تحتوي على جداول دورية مختلفة. الخيارات المتاحة هي: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>الجدول الدوري الكلاسيكي</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض الجدول الدوري التقليدي بجميع العناصر.</action
+></para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الجدول الدوري القصير</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> جدولًا دوريًا دون عناصر انتقالية.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الجدول الدوري الطويل</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> جدولًا دوريًا مع عناصر انتقالية داخلية (عناصر f) مضمنة.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>العناصر الانتقالية</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> جدولًا دوريًا فقط بعناصر انتقالية.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>جدول DZ الدوري</guimenuitem
+></term>
+              <listitem
+><para
+>يمثل هذا العنصر الجدول الذي تقترحه DZ <foreignphrase lang="de"
+>Deutscher Zentralausschuss</foreignphrase
+> <quote
+>اللجنة المركزية الألمانية</quote
+>.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+><guisubmenu
+>ترقيم</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>اعرض قائمة فرعية</action
+> تحتوي على أنماط ترقيم مختلفة. الخيارات المتاحة هي: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>لا تعداد</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> دون أي نظام ترقيم.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>أيوباك</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> ترقيم IUPAC.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>CAS</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> ترقيم CAS.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>أيوباك القديم</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> ترقيم IUPAC القديم.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+><guisubmenu
+>مخطط</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>اعرض قائمة فرعية</action
+> تحتوي على مخططات مختلفة. الخيارات المتاحة هي: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>أحادي اللون</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> جميع العناصر بلون خلفية واحد.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>كتل</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> الكتل الأربع للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الأيقونية</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> أيقونات لكل عنصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>العائلة</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> عوائل العناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>المجموعات</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> مجموعات العناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الألوان</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> ألوان العناصر.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+><guisubmenu
+>تدرجات</guisubmenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>اعرض قائمة فرعية</action
+> بتدرجات مختلفة. الخيارات المتاحة هي: <variablelist>
+            <varlistentry>
+              <term
+><guimenuitem
+>لا شيء</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>عطّل</action
+> أي تدرج للجدول.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>حالة المادة</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> حالة المادة للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>نصف القطر التساهمي</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> نصف القطر التساهمي للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>فان دير فالس</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> نصف قطر فان دير فالس للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الكتلة الذرية</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> الكتلة الذرية للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>نقطة الغليان</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> نقطة الغليان للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>نقطة الانصهار</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> نقطة الانصهار للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الكهروسالبية (باولنغ)</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> السالبية الكهربائية للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>الألفة الإلكترونية</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> الألفة الإلكترونية للعناصر.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>تاريخ الاستكشاف</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> تاريخ اكتشاف كل عنصر بألوان خلفية مختلفة لكل قرن.</para
+></listitem>
+            </varlistentry>
+            <varlistentry>
+              <term
+><guimenuitem
+>التأيّن الأول</guimenuitem
+></term>
+              <listitem
+><para
+><action
+>اعرض</action
+> طاقة التأين الأولى للعناصر.</para
+></listitem>
+            </varlistentry>
+            </variablelist
+></para
+></listitem>
+          </varlistentry>
+
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>وسيلة إيضاح</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>بدّل</action
+> عرض وسيلة الإيضاح. يتيح لك عرض وسيلة الإيضاح للمخطط الذي أنت فيه (المجموعات، العائلة، الكتل). تُعرض وسيلة الإيضاح مبدئيًا، لكن إن أخفيتها، فستبقى مخفية حتى تختار إظهارها. سيحفظ كالسيوم هذا الإعداد في ملف تهيئته، حتى تكون المرة التالية التي تشغّله فيها، الإعدادات كما تركتها.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>معلومات</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>بدّل</action
+> الشريط الجانبي.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>معلومات الجدول</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>بدّل</action
+> عرض معلومات الجدول.</para
+></listitem>
+					 </varlistentry>
+
+				 </variablelist>
+
+			 </sect2>
+
+
+			 <sect2>
+				 <title
+>قائمة أدوات</title>
+				 <variablelist>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>محرر جزيئي...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> حوار <guilabel
+>المحرر الجزيئي</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>جدول النظائر...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> نافذة <guilabel
+>جدول النظائر</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>بيانات الرسم البياني...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> حوار <guilabel
+>بيانات الرسم البياني</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>نفّذ عملية حسابية...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> <link linkend="perf_calculation"
+>حوار <guilabel
+>نفّذ عملية حسابية</guilabel
+></link
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>عبارات الخطر/الأمان...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> حوار <guilabel
+>عبارات الخطر/الأمان</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>مسرد مصطلحات...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>افتح</action
+> <guilabel
+>المسرد</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>جداول...</guimenuitem
+> </menuchoice
+></term>
+						 <listitem
+><para
+><action
+>اعرض</action
+> حوارًا يحتوي على <guilabel
+>الأبجدية اليونانية</guilabel
+> و<guilabel
+>البادئات الرقمية والأرقام الرومانية</guilabel
+>.</para
+></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
+
+<sect2>
+<title
+>قائمة الإعدادات والمساعدة</title>
+<para
+>يحتوي كالسيوم على عناصر القوائم الشائعة في &kde; <guimenu
+>إعدادات</guimenu
+> و<guimenu
+>مساعدة</guimenu
+>، لمزيد من المعلومات اقرأ الأقسام حول <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و<ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> من أساسيات &kde;. </para>
+</sect2>
+		 </sect1>
+	 </chapter>
+
+	 <chapter id="faq">
+		 <title
+>أسئلة وأجوبة</title>
+
+		 <qandaset id="faqlist">
+			 <qandaentry>
+				 <question>
+					 <para
+>هل سأضطر يومًا للدفع مقابل كالسيوم؟</para>
+				 </question>
+				 <answer>
+					 <para
+>لا، أبدًا. لكن المؤلف يرحب دائمًا برسالة لطيفة أو &DVD; كـ<quote
+>شكرًا لك</quote
+>. كالسيوم مرخص تحت <ulink url="https://www.gnu.org/licenses/licenses.html#GPL"
+>GPL</ulink
+>، لذا لن تضطر أبدًا للدفع مقابل هذا البرنامج.</para>
+				 </answer>
+			 </qandaentry>
+
+		 </qandaset>
+	 </chapter>
+
+	 <chapter id="contribute">
+		 <title
+>كيف يمكنني المساهمة؟</title>
+
+		 <qandaset id="tasks">
+			 <qandaentry>
+
+				 <question>
+					 <para
+>ادعمني بالبيانات.</para>
+				 </question>
+
+				 <answer>
+					 <para
+>في عالم العلوم، التقدم سريع جدًا. إذا وجدت قيمة خاطئة أو مفقودة، فأرسل لي بريدًا إلكترونيًا.</para>
+				 </answer>
+			 </qandaentry>
+
+			 <qandaentry>
+				 <question>
+					 <para
+>اعثر على بعض الأخطاء أو قدم بعض الاقتراحات.</para>
+				 </question>
+				 <answer>
+					 <para
+>إذا وجدت أي أخطاء في البرنامج، أو كانت لديك بعض الاقتراحات للتحسينات، فأخبرني بذلك على &Carsten.Niehaus.mail;. </para>
+				 </answer>
+
+			 </qandaentry>
+		 </qandaset>
+	 </chapter>
+
+	 <chapter id="credits">
+
+		 <title
+>الحقوق والترخيص</title>
+		 <para
+>كالسيوم</para>
+		 <para
+>حقوق نشر البرنامج، 2001-2005 &Carsten.Niehaus; &Carsten.Niehaus.mail; </para>
+
+		 <para
+>المساهمون:</para>
+
+		 <itemizedlist>
+			 <listitem
+><para
+>Pino Toscano <email
+>toscano.pino@tiscali.it</email
+> </para
+></listitem>
+		 </itemizedlist>
+
+		 <para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+	 &documentation.index;
+ </book>
+ <!--
+ Local Variables:
+ mode: sgml
+ sgml-minimize-attributes:nil
+ sgml-general-insert-case:lower
+ sgml-indent-step:0
+ sgml-indent-data:nil
+ End:
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+ // vim:ts=2:sw=2:tw=78:noet:noai
+ -->
